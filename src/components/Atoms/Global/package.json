@@ -1,0 +1,11 @@
+{
+  "name": "@dpc-sdp/ripple-global",
+  "version": "0.1.0",
+  "description": "Ripple global style",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.16"
+  }
+}

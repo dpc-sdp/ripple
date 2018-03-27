@@ -1,0 +1,13 @@
+{
+  "name": "@dpc-sdp/ripple-primary-navigation",
+  "version": "0.1.0",
+  "description": "Ripple primary navigation",
+  "main": "index.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.16",
+    "@dpc-sdp/ripple-global": "0.1.0"
+  }
+}

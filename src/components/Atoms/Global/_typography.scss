@@ -1,0 +1,83 @@
+
+@mixin rpl-typography-font($font-size: 'xs', $line-height: 1.2em, $font-family: 'regular') {
+  font-family: rpl-font($font-family);
+  font-size: rpl-font-size($font-size);
+  line-height: $line-height;
+}
+
+@mixin display-background {
+  background-image: $color-blue-gradient;
+  color: $color-white;
+  display: inline;
+  line-height: 1.4em;
+}
+
+@mixin heading-xl {
+  @include rpl-typography-font('xl', 1.1em, 'bold');
+}
+
+@mixin heading-l {
+  @include rpl-typography-font('l', 1.1em, 'bold');
+}
+
+@mixin heading-m {
+  @include rpl-typography-font('m', 1.3em, 'bold');
+}
+
+@mixin heading-s {
+  @include rpl-typography-font('s', 1.2em, 'bold');
+}
+
+@mixin heading-xs {
+  @include rpl-typography-font('xs', 1.25em, 'bold');
+}
+
+@mixin body-default {
+  @include rpl-typography-font('xs', 1.5em, 'regular');
+}
+
+@mixin body-small {
+  @include rpl-typography-font('xxs', 1.4em, 'regular');
+}
+
+@mixin copy-extra-small {
+  @include rpl-typography-font('xxxs', 1em, 'regular');
+}
+
+.display {
+  span {
+    @include display-background;
+  }
+}
+
+.heading-xl {
+  @include heading-xl;
+}
+
+.heading-l {
+  @include heading-l;
+}
+
+.heading-m {
+  @include heading-m;
+}
+
+.heading-s {
+  @include heading-s;
+}
+
+.heading-xs {
+  @include heading-xs;
+}
+
+.body-default {
+  @include body-default;
+}
+
+.body-small {
+  @include body-small;
+}
+
+.copy-extra-small {
+  @include copy-extra-small;
+}

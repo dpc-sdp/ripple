@@ -1,0 +1,25 @@
+$rpl-breakpoints: (
+  'xxxl': 2560px,
+  'xxl': 1600px,
+  'xl': 1200px,
+  'l': 992px,
+  'm': 768px,
+  's': 576px,
+  'xs': 575px,
+) !default;
+
+@mixin rpl_breakpoint($break) {
+  @if $break != 'xs' {
+    @media (min-width: map-get($rpl-breakpoints, $break)) {
+      @content;
+    }
+  } @else if $break == 'xs' {
+    @media (max-width: map-get($rpl-breakpoints, $break)) {
+      @content;
+    }
+  } @else {
+    // sass-lint:disable no-warn
+    @error '"#{$break}" is not an available breakpoint. (xxxl, xxl, xlg, l, m, s, xs)';
+    // sass-lint:enable no-warn
+  }
+}

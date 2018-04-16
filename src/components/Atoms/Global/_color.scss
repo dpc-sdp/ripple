@@ -1,11 +1,19 @@
-$color-black: #000;
-$color-dark-grey: #6e6e6e;
-$color-mid-grey: #d8d8d8;
-$color-light-grey: #ececea;
-$color-white: #fff;
-$color-red-lipstick: #df3245;
-
 // Brand color
-$primary-color: $color-red-lipstick !default;
-$secondary-color: $color-black !default;
-$tertiary-color: $color-dark-grey !default;
+$rpl-colours: (
+  'primary': #0052c2,
+  'dark_primary': #023b89,
+  'secondary': #0095ec,
+  'primary_gradient': linear-gradient(90deg, #0052c2 0%, #0095ec 91%),
+  'extra_dark_neutral': #011a3c,
+  'dark_neutral': #465870,
+  'mid_neutral': #cdd3d7,
+  'light_neutral': #f4f6f8,
+  'error_emergency': #a50034,
+) !default;
+
+@function rpl-colour($name: 'primary') {
+  @if map-get($rpl-colours, $name) == null {
+    @error '"#{$name}" is not an available colour';
+  }
+  @return map-get($rpl-colours, $name);
+}

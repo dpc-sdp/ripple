@@ -1,83 +1,82 @@
-
-@mixin rpl-typography-font($font-size: 'xs', $line-height: 1.2em, $font-family: 'regular') {
+@mixin rpl_typography_font($font-size: 'xs', $line-height: 1.2em, $font-family: 'regular') {
   font-family: rpl-font($font-family);
   font-size: rpl-font-size($font-size);
   line-height: $line-height;
 }
 
-@mixin display-background {
-  background-image: $color-blue-gradient;
-  color: $color-white;
+@mixin rpl_display_background {
+  background-color: rpl-colour('secondary');
+  color: rpl-colour('white');
   display: inline;
   line-height: 1.4em;
 }
 
-@mixin heading-xl {
-  @include rpl-typography-font('xl', 1.1em, 'bold');
+@mixin rpl_heading_xl {
+  @include rpl_typography_font('xl', 1.1em, 'bold');
 }
 
-@mixin heading-l {
-  @include rpl-typography-font('l', 1.1em, 'bold');
+@mixin rpl_heading_l {
+  @include rpl_typography_font('l', 1.1em, 'bold');
 }
 
-@mixin heading-m {
-  @include rpl-typography-font('m', 1.3em, 'bold');
+@mixin rpl_heading_m {
+  @include rpl_typography_font('m', 1.3em, 'bold');
 }
 
-@mixin heading-s {
-  @include rpl-typography-font('s', 1.2em, 'bold');
+@mixin rpl_heading_s {
+  @include rpl_typography_font('s', 1.2em, 'bold');
 }
 
-@mixin heading-xs {
-  @include rpl-typography-font('xs', 1.25em, 'bold');
+@mixin rpl_heading_xs {
+  @include rpl_typography_font('xs', 1.25em, 'bold');
 }
 
-@mixin body-default {
-  @include rpl-typography-font('xs', 1.5em, 'regular');
+@mixin rpl_body_default {
+  @include rpl_typography_font('xs', 1.5em, 'regular');
 }
 
-@mixin body-small {
-  @include rpl-typography-font('xxs', 1.4em, 'regular');
+@mixin rpl_body_small {
+  @include rpl_typography_font('xxs', 1.4em, 'regular');
 }
 
-@mixin copy-extra-small {
-  @include rpl-typography-font('xxxs', 1em, 'regular');
+@mixin rpl_copy_extra_small {
+  @include rpl_typography_font('xxxs', 1em, 'regular');
 }
 
-.display {
+.rpl-display {
   span {
-    @include display-background;
+    @include rpl_display_background;
   }
 }
 
-.heading-xl {
-  @include heading-xl;
+.rpl-heading-xl {
+  @include rpl_heading_xl;
 }
 
-.heading-l {
-  @include heading-l;
+.rpl-heading-l {
+  @include rpl_heading_l;
 }
 
-.heading-m {
-  @include heading-m;
+.rpl-heading-m {
+  @include rpl_heading_m;
 }
 
-.heading-s {
-  @include heading-s;
+.rpl-heading-s {
+  @include rpl_heading_s;
 }
 
-.heading-xs {
-  @include heading-xs;
+.rpl-heading-xs {
+  @include rpl_heading_xs;
 }
 
-.body-default {
-  @include body-default;
+.rpl-body-default {
+  @include rpl_body_default;
 }
 
-.body-small {
-  @include body-small;
+.rpl-body-small {
+  @include rpl_body_small;
 }
 
-.copy-extra-small {
-  @include copy-extra-small;
+.rpl-extra-small {
+  @include rpl_copy_extra_small;
 }

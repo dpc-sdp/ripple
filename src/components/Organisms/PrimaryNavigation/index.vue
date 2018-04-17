@@ -1,14 +1,17 @@
 <template>
   <div class="rpl-primary-navigation">
     <div>menu</div>
-    <div>VIC.GOV.AU</div>
+    <div>{{ siteName }}</div>
     <div>search</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'RplPrimaryNavigation'
+  name: 'RplPrimaryNavigation',
+  props: {
+    'siteName': String
+  }
 }
 </script>
 

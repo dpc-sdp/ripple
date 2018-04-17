@@ -1,9 +1,7 @@
-// Brand color
-$rpl-colours: (
+$rpl-colors: (
   'primary': #0052c2,
   'dark_primary': #023b89,
   'secondary': #0095ec,
-  'primary_gradient': linear-gradient(90deg, #0052c2 0%, #0095ec 91%),
   'extra_dark_neutral': #011a3c,
   'dark_neutral': #465870,
   'mid_neutral': #cdd3d7,
@@ -11,9 +9,9 @@ $rpl-colours: (
   'error_emergency': #a50034,
 ) !default;
 
-@function rpl-colour($name: 'primary') {
-  @if map-get($rpl-colours, $name) == null {
+@function rpl-color($name: 'primary') {
+  @if map-get($rpl-colors, $name) == null {
     @error '"#{$name}" is not an available colour';
   }
-  @return map-get($rpl-colours, $name);
+  @return map-get($rpl-colors, $name);
 }

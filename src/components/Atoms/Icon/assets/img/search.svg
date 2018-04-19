@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M10.9894718,9.24257797 C12.5869873,6.79231928 12.2143914,3.42262199 9.857486,1.40992486 C7.58964216,-0.526188241 4.13775236,-0.459930148 1.94046939,1.55706946 C-0.581651758,3.87223048 -0.645328648,7.81286601 1.75029922,10.2102043 C3.7931227,12.2547397 6.9550245,12.5029924 9.27707975,10.9670094 C9.4513307,10.8517031 10.8763162,9.4163979 10.9894718,9.24257797 Z M2.96704412,8.99217401 C1.30456099,7.32840748 1.30456099,4.62129112 2.96704412,2.9575246 C4.62952726,1.29375807 7.33450435,1.29332783 8.99698748,2.9575246 C10.6594706,4.62129112 10.6594706,7.32840748 8.99698748,8.99217401 C7.33450435,10.6559405 4.62952726,10.6559405 2.96704412,8.99217401 L2.96704412,8.99217401 Z" id="path-1"></path>
+    </defs>
+    <g id="Artboard-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-/-Search-/-White-Copy" transform="translate(12.000000, 12.000000)">
+            <g id="Icon-/-Search-/-White">
+                <g>
+                    <rect id="Rectangle-2" fill="#FFFFFF" transform="translate(12.136674, 12.056548) rotate(-46.000000) translate(-12.136674, -12.056548) " x="11.1954971" y="7.86897303" width="1.88235294" height="8.37514952" rx="0.941176471"></rect>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Search" fill="#FFFFFF" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

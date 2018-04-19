@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "file:src/components/Atoms/Global",
+    "@dpc-sdp/ripple-icon": "file:src/components/Atoms/Icon",
     "@dpc-sdp/ripple-primary-navigation": "file:src/components/Organisms/PrimaryNavigation",
     "vue": "^2.5.16"
   },

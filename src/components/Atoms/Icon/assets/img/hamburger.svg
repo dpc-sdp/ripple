@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Hamburger--Copy" transform="translate(12.000000, 12.000000)" stroke="#FFFFFF">
+            <g id="Icon-/-Hamburger-Menu-/-White">
+                <g>
+                    <path d="M0,1 L8,1" id="Line-9" stroke-width="2"></path>
+                    <path d="M0,5 L16,5" id="Line-9-Copy" stroke-width="2"></path>
+                    <path d="M0,9 L12,9" id="Line-9-Copy-2" stroke-width="2"></path>
+                    <path d="M0,13 L16,13" id="Line-9-Copy-3" stroke-width="2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

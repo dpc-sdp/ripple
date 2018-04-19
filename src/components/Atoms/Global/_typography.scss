@@ -1,14 +1,32 @@
-@mixin rpl_typography_font($font-size: 'xs', $line-height: 1.2em, $font-family: 'regular') {
-  font-family: rpl-font($font-family);
+@mixin rpl_typography_font($font-size: 'xs', $line-height: 1.2em, $font-family: 'inherit') {
+  @if $font-family != 'inherit' {
+    font-family: rpl-font($font-family);
+  }
   font-size: rpl-font-size($font-size);
   line-height: $line-height;
 }
 
 @mixin rpl_display_background {
-  background-color: rpl-colour('secondary');
-  color: rpl-colour('white');
+  background-color: rpl-color('secondary');
+  color: rpl-color('white');
   display: inline;
   line-height: 1.4em;
+}
+
+@mixin rpl_display_xl {
+  @include rpl_heading_xl;
+
+  span {
+    @include rpl_display_background;
+  }
+}
+
+@mixin rpl_display_l {
+  @include rpl_heading_l;
+
+  span {
+    @include rpl_display_background;
+  }
 }
 
 @mixin rpl_heading_xl {
@@ -41,42 +59,4 @@
 
 @mixin rpl_copy_extra_small {
   @include rpl_typography_font('xxxs', 1em, 'regular');
-}
-
-.rpl-display {
-  span {
-    @include rpl_display_background;
-  }
-}
-
-.rpl-heading-xl {
-  @include rpl_heading_xl;
-}
-
-.rpl-heading-l {
-  @include rpl_heading_l;
-}
-
-.rpl-heading-m {
-  @include rpl_heading_m;
-}
-
-.rpl-heading-s {
-  @include rpl_heading_s;
-}
-
-.rpl-heading-xs {
-  @include rpl_heading_xs;
-}
-
-.rpl-body-default {
-  @include rpl_body_default;
-}
-
-.rpl-body-small {
-  @include rpl_body_small;
-}
-
-.rpl-extra-small {
-  @include rpl_copy_extra_small;
 }

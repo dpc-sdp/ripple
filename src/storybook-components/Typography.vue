@@ -16,7 +16,7 @@
 export default {
   name: 'STypography',
   props: [],
-  data: function() {
+  data: function () {
     return {
       samples: [
         'display_xl',

@@ -3,7 +3,7 @@
     <ul v-for="(icon, index) in icons" :key="index">
       <li>
         <code>{{ icon }}</code>
-        <rpl-icon :symbol="icon" />
+        <rpl-icon :symbol="icon" :color="'primary'" :size="'s'" />
       </li>
     </ul>
   </div>
@@ -28,6 +28,5 @@ export default {
 
   .rpl-icon {
     display: block;
-    background-color: rpl-color('mid_neutral');
   }
 </style>

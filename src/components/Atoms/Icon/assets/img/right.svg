@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
-    <title>Artboard Copy 3</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Artboard-Copy-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="Icon-/-Chevron-/-Down-/-White-Copy-3" transform="translate(20.000000, 17.000000)" stroke="#FFFFFF">
-            <g id="Icon-/-Chevron-/-Right-/-White">
-                <g id="Icon-/-Chevron-/-Down-/-White" transform="translate(1.500000, 3.000000) scale(1, -1) rotate(-90.000000) translate(-1.500000, -3.000000) translate(-1.500000, 1.500000)">
-                    <polyline id="Line-2" stroke-width="2" points="0 0 3 3 6 0"></polyline>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg width="40" height="40" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Canvas">
+<g id="right" clip-path="url(#clip0)">
+<g id="icon">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M 0.292893 0.292893C 0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L 4 2.58579L 6.29289 0.292893C 6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C 8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L 4.70711 4.70711C 4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L 0.292893 1.70711C -0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z" transform="matrix(0 -1 1 0 19 24)" fill="inherit"/>
+</g>
+</g>
+</g>
+<defs>
+
+<clipPath id="clip0">
+<rect width="40" height="40" fill="inherit"/>
+</clipPath>
+
+</defs>
 </svg>
+

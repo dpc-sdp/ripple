@@ -35,7 +35,7 @@ storiesOf('Atoms/Icon', module)
       return {
         icon: text('Symbol', 'search'),
         color: text('Color', 'primary'),
-        size: text('Size', 's')
+        size: text('Size', 'm')
       }
     }
   })))

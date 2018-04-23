@@ -28,11 +28,11 @@ export default {
     return {
       iconProperties: iconProps,
       sizes: {
-        's': 1,
-        'm': 1.5,
-        'l': 2,
-        'xl': 2.5,
-        'xxl': 3
+        's': 0.5,
+        'm': 1,
+        'l': 1.5,
+        'xl': 2,
+        'xxl': 2.5
       }
     }
   },

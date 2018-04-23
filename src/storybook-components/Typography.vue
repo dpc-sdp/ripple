@@ -2,7 +2,7 @@
   <div class="typography">
     <ul>
       <li v-for="(sample, index) in samples" :key="index">
-        <code>{{ sample }}</code>
+        <code>{{ sample.replace(/\_/gi, ' ') }}</code>
         <p class="typography-sample" :class="sample.replace(/\_/gi, '-')">
           <span v-if="['heading', 'display'].indexOf(sample.split('_')[0]) >= 0">The quick brown fox jumps over the lazy dog</span>
           <span v-if="['heading', 'display'].indexOf(sample.split('_')[0]) < 0">Lorem ipsum dolor sit amet consectetur adipisicing elit. A vitae quod nobis earum saepe inventore rerum dicta voluptatem ullam iste rem deleniti odit culpa tempora dolor animi, non, amet ducimus.</span>

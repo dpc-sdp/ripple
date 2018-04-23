@@ -42,10 +42,10 @@ export default {
       let rtn = className ? `rpl-icon rpl-icon--${symbol} ${className}` : `rpl-icon rpl-icon--${symbol}`
       return color ? `${rtn} rpl-icon--${color}` : rtn
     },
-    iconStyle() {
-      const { width, height } = this.iconProperties[this.symbol];
-      let size = (this.sizes[this.size] == undefined) ? 1 : this.sizes[this.size];
-      return `width: ${width * size}px; height: ${height * size}px`;
+    iconStyle () {
+      const { width, height } = this.iconProperties[this.symbol]
+      let size = (this.sizes[this.size] === undefined) ? 1 : this.sizes[this.size]
+      return `width: ${width * size}px; height: ${height * size}px`
     }
   }
 }

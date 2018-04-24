@@ -5,21 +5,25 @@ $rpl-breakpoints: (
   'l': 992px,
   'm': 768px,
   's': 576px,
-  'xs': 575px,
+  'xs': 0,
 ) !default;
 
 @mixin rpl_breakpoint($break) {
-  @if $break != 'xs' {
-    @media (min-width: map-get($rpl-breakpoints, $break)) {
-      @content;
-    }
-  } @else if $break == 'xs' {
-    @media (max-width: map-get($rpl-breakpoints, $break)) {
-      @content;
-    }
-  } @else {
-    // sass-lint:disable no-warn
-    @error '"#{$break}" is not an available breakpoint. (xxxl, xxl, xlg, l, m, s, xs)';
-    // sass-lint:enable no-warn
+  $breakpoint-value: map-get($rpl-breakpoints, $break);
+  @if $breakpoint-value == null {
+    @error '"#{$break}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
+  }
+  @media (min-width: $breakpoint-value) {
+    @content;
+  }
+}
+
+@mixin rpl_breakpoint_down($break) {
+  $breakpoint-value: map-get($rpl-breakpoints, $break);
+  @if $breakpoint-value == null {
+    @error '"#{$break}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
+  }
+  @media (max-width: $breakpoint-value - 1) {
+    @content;
   }
 }

@@ -26,5 +26,21 @@ storiesOf('Atoms/Global', module)
   })))
   .add('Typography', withReadme(readme, () => ({
     components: { STypography },
-    template: '<s-typography :text="text"/>'
+    template: '<s-typography :samples="samples"/>',
+    data () {
+      return {
+        samples: [
+          'display_xl',
+          'display_l',
+          'heading_xl',
+          'heading_l',
+          'heading_m',
+          'heading_s',
+          'heading_xs',
+          'body_default',
+          'body_small',
+          'copy_extra_small'
+        ]
+      }
+    }
   })))

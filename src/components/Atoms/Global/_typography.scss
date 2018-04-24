@@ -1,3 +1,16 @@
+$rpl-typography: (
+  'display_xl': ('xl', 1.1em, 'bold', true),
+  'display_l': ('l', 1.1em, 'bold', true),
+  'heading_xl': ('xl', 1.1em, 'bold'),
+  'heading_l': ('l', 1.1em, 'bold'),
+  'heading_m': ('m', 1.3em, 'bold'),
+  'heading_s': ('s', 1.2em, 'bold'),
+  'heading_xs': ('xs', 1.25em, 'bold'),
+  'body_default': ('xs', 1.5em, 'regular'),
+  'body_small': ('xxs', 1.4em, 'regular'),
+  'copy_extra_small': ('xxxs', 1em, 'regular')
+) !default;
+
 @mixin rpl_typography_font($font-size: 'xs', $line-height: 1.2em, $font-family: 'inherit') {
   @if $font-family != 'inherit' {
     font-family: rpl-font($font-family);
@@ -13,50 +26,18 @@
   line-height: 1.4em;
 }
 
-@mixin rpl_display_xl {
-  @include rpl_heading_xl;
-
-  span {
-    @include rpl_display_background;
+@mixin rpl_typography($name: 'body_default') {
+  $props: map-get($rpl-typography, $name);
+  $font-size: nth($props, 1);
+  $line-height: nth($props, 2);
+  $font-family: nth($props, 3);
+  @include rpl_typography_font($font-size, $line-height, $font-family);
+  @if length($props) > 3 {
+    $include-back: nth($props, 4);
+    @if $include-back == true {
+      span {
+        @include rpl_display_background;
+      }
+    }
   }
-}
-
-@mixin rpl_display_l {
-  @include rpl_heading_l;
-
-  span {
-    @include rpl_display_background;
-  }
-}
-
-@mixin rpl_heading_xl {
-  @include rpl_typography_font('xl', 1.1em, 'bold');
-}
-
-@mixin rpl_heading_l {
-  @include rpl_typography_font('l', 1.1em, 'bold');
-}
-
-@mixin rpl_heading_m {
-  @include rpl_typography_font('m', 1.3em, 'bold');
-}
-
-@mixin rpl_heading_s {
-  @include rpl_typography_font('s', 1.2em, 'bold');
-}
-
-@mixin rpl_heading_xs {
-  @include rpl_typography_font('xs', 1.25em, 'bold');
-}
-
-@mixin rpl_body_default {
-  @include rpl_typography_font('xs', 1.5em, 'regular');
-}
-
-@mixin rpl_body_small {
-  @include rpl_typography_font('xxs', 1.4em, 'regular');
-}
-
-@mixin rpl_copy_extra_small {
-  @include rpl_typography_font('xxxs', 1em, 'regular');
 }

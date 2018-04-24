@@ -27,13 +27,31 @@ $rpl-typography: (
 }
 
 @mixin rpl_typography($name: 'body_default') {
-  $props: map-get($rpl-typography, $name);
-  $font-size: nth($props, 1);
-  $line-height: nth($props, 2);
-  $font-family: nth($props, 3);
+  @if map-get($rpl-typography, $name) == null {
+    @error '"#{$name}" is not an available typeset';
+  }
+  $typography-rules: map-get($rpl-typography, $name);
+  // Print rules
+  @if type-of($typography-rules) == list {
+    @include rpl_typography_print_rules($typography-rules);
+  }
+  // Print breakpoints
+  @if type-of($typography-rules) == map {
+    @each $breakpoint, $breakpoint-rules in $typography-rules {
+      @include rpl_breakpoint($breakpoint) {
+        @include rpl_typography_print_rules($breakpoint-rules);
+      }
+    }
+  }
+}
+
+@mixin rpl_typography_print_rules($rules) {
+  $font-size: nth($rules, 1);
+  $line-height: nth($rules, 2);
+  $font-family: nth($rules, 3);
   @include rpl_typography_font($font-size, $line-height, $font-family);
-  @if length($props) > 3 {
-    $include-back: nth($props, 4);
+  @if length($rules) > 3 {
+    $include-back: nth($rules, 4);
     @if $include-back == true {
       span {
         @include rpl_display_background;

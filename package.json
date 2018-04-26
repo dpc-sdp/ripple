@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "file:src/components/Atoms/Global",
+    "@dpc-sdp/ripple-icon": "file:src/components/Atoms/Icon",
     "@dpc-sdp/ripple-primary-navigation": "file:src/components/Organisms/PrimaryNavigation",
     "vue": "^2.5.16"
   },
@@ -67,6 +68,9 @@
     "shelljs": "^0.7.6",
     "storybook-addon-vue-info": "^0.2.0",
     "storybook-readme": "^3.3.0",
+    "svg-sprite-loader": "^3.7.3",
+    "svgo": "^1.0.5",
+    "svgo-loader": "^2.1.0",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",

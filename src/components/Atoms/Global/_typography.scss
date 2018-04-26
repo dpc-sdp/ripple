@@ -1,0 +1,61 @@
+$rpl-typography: (
+  'display_xl': ('xl', 1.1em, 'bold', true),
+  'display_l': ('l', 1.1em, 'bold', true),
+  'heading_xl': ('xl', 1.1em, 'bold'),
+  'heading_l': ('l', 1.1em, 'bold'),
+  'heading_m': ('m', 1.3em, 'bold'),
+  'heading_s': ('s', 1.2em, 'bold'),
+  'heading_xs': ('xs', 1.25em, 'bold'),
+  'body_default': ('xs', 1.5em, 'regular'),
+  'body_small': ('xxs', 1.4em, 'regular'),
+  'copy_extra_small': ('xxxs', 1em, 'regular')
+) !default;
+
+@mixin rpl_typography_font($font-size: 'xs', $line-height: 1.2em, $font-family: 'inherit') {
+  @if $font-family != 'inherit' {
+    font-family: rpl-font($font-family);
+  }
+  font-size: rpl-font-size($font-size);
+  line-height: $line-height;
+}
+
+@mixin rpl_display_background {
+  background-color: rpl-color('secondary');
+  color: rpl-color('white');
+  display: inline;
+  line-height: 1.4em;
+}
+
+@mixin rpl_typography($name: 'body_default') {
+  @if map-get($rpl-typography, $name) == null {
+    @error '"#{$name}" is not an available typeset';
+  }
+  $typography-rules: map-get($rpl-typography, $name);
+  // Print rules
+  @if type-of($typography-rules) == list {
+    @include rpl_typography_print_rules($typography-rules);
+  }
+  // Print breakpoints
+  @if type-of($typography-rules) == map {
+    @each $breakpoint, $breakpoint-rules in $typography-rules {
+      @include rpl_breakpoint($breakpoint) {
+        @include rpl_typography_print_rules($breakpoint-rules);
+      }
+    }
+  }
+}
+
+@mixin rpl_typography_print_rules($rules) {
+  $font-size: nth($rules, 1);
+  $line-height: nth($rules, 2);
+  $font-family: nth($rules, 3);
+  @include rpl_typography_font($font-size, $line-height, $font-family);
+  @if length($rules) > 3 {
+    $include-back: nth($rules, 4);
+    @if $include-back == true {
+      span {
+        @include rpl_display_background;
+      }
+    }
+  }
+}

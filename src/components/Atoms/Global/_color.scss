@@ -6,8 +6,9 @@ $rpl-colors: (
   'dark_neutral': #465870,
   'mid_neutral': #cdd3d7,
   'light_neutral': #f4f6f8,
-  'white': #fff,
-  'error_emergency': #a50034,
+  'danger': #a50034,
+  'warning': #e35205,
+  'white': #fff
 ) !default;
 
 @function rpl-color($name: 'primary') {
@@ -15,4 +16,15 @@ $rpl-colors: (
     @error '"#{$name}" is not an available colour';
   }
   @return map-get($rpl-colors, $name);
+}
+
+$rpl-gradients: (
+  'primary_gradient': linear-gradient(90deg, rpl-color('primary') 0%, rpl-color('secondary') 100%)
+) !default;
+
+@function rpl-gradient($name: 'primary_gradient') {
+  @if map-get($rpl-gradients, $name) == null {
+    @error '"#{$name}" is not an available gradient';
+  }
+  @return map-get($rpl-gradients, $name);
 }

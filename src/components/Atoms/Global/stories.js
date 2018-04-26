@@ -8,7 +8,7 @@ import readme from './README.md'
 storiesOf('Atoms/Global', module)
   .add('Colors', withReadme(readme, () => ({
     components: { SColors },
-    template: '<s-colors :colors="colors"/>',
+    template: '<s-colors :colors="colors" :gradients="gradients"/>',
     data () {
       return {
         colors: [
@@ -19,7 +19,11 @@ storiesOf('Atoms/Global', module)
           'dark_neutral',
           'mid_neutral',
           'light_neutral',
-          'error_emergency'
+          'danger',
+          'warning'
+        ],
+        gradients: [
+          'primary_gradient'
         ]
       }
     }

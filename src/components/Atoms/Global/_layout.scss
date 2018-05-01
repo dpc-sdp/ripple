@@ -1,0 +1,61 @@
+$rpl-layout: (
+  'site_padding': (
+    'xs': 20px,
+    's': 28px,
+    'm': 32px,
+    'l': 68px,
+    'xl': 72px,
+    'xxl': 272px,
+    'xxxl': 560px,
+  )
+) !default;
+
+.rpl-site-constrain--on-all {
+  @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
+    @include rpl-breakpoint($bp) {
+      padding-left: $padding;
+      padding-right: $padding;
+    }
+  }
+}
+
+.rpl-site-constrain--on-small {
+  @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
+    @if index((xs, s), $bp) {
+      @include rpl-breakpoint($bp) {
+        padding-left: $padding;
+        padding-right: $padding;
+      }
+    }
+
+    @include rpl-breakpoint(m) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.rpl-edge--on-small {
+  @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
+    @if index((xs, s), $bp) {
+      @include rpl-breakpoint($bp) {
+        margin-left: -$padding;
+        margin-right: -$padding;
+      }
+    }
+
+    @include rpl-breakpoint(m) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.rpl-edge--on-all {
+  @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
+    @include rpl-breakpoint($bp) {
+      margin-left: -$padding;
+      margin-right: -$padding;
+    }
+  }
+}

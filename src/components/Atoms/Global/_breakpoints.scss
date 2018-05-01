@@ -1,11 +1,11 @@
 $rpl-breakpoints: (
-  'xxxl': 2560px,
-  'xxl': 1600px,
-  'xl': 1200px,
-  'l': 992px,
-  'm': 768px,
-  's': 576px,
   'xs': 0,
+  's': 576px,
+  'm': 768px,
+  'l': 992px,
+  'xl': 1200px,
+  'xxl': 1600px,
+  'xxxl': 2400px
 ) !default;
 
 @mixin rpl_breakpoint($break) {

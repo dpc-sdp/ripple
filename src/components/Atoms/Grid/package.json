@@ -1,0 +1,10 @@
+{
+  "name": "@dpc-sdp/ripple-grid",
+  "version": "0.1.0",
+  "description": "Ripple grid",
+  "private": true,
+  "main": "index.js",
+  "peerDependencies": {
+    "@dpc-sdp/ripple-global": "0.1.0"
+  }
+}

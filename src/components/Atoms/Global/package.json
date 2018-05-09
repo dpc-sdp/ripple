@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Ripple global style",
   "private": true,
+  "main": "./index.js",
+  "dependencies": {
+    "vue-focus": "^2.1.0"
+  },
   "peerDependencies": {
     "vue": "^2.5.16"
   }

@@ -5,6 +5,40 @@ The core module all SDP Ripple modules depend on.
 ## Install
 `npm install @dpc-sdp/ripple-global --save`
 
+### Nuxt.js
+
+For **Nuxt** app, register RplGlobal plugin by adding `plugins/ripple.js` file:
+```
+import Vue from 'vue'
+import RplGlobal from '@dpc-sdp/ripple-global'
+
+const rplOptions = {
+  nuxt: true
+}
+
+Vue.use(RplGlobal, rplOptions)
+```
+
+Then add `plugins/ripple.js` to plugins section of **nuxt.config.js**:
+```
+{
+  plugins: [
+    '~/plugins/ripple'
+  ]
+}
+```
+
+### Others
+
+If you are not using **Nuxt**, register RplGlobal plugin in your app entry point:
+
+```
+import Vue from 'vue'
+import RplGlobal from '@dpc-sdp/ripple-global'
+
+Vue.use(RplGlobal)
+```
+
 ## Usage
 In Sass:
 ```scss

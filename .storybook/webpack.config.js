@@ -1,5 +1,9 @@
 const path = require("path");
 
+const resolve = (dir) => {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
   resolve: {
     alias: {
@@ -18,6 +22,16 @@ module.exports = {
           'svg-sprite-loader',
           'svgo-loader'
         ]
+      },
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [resolve('src'), resolve('test')],
+        options: {
+          formatter: require('eslint-friendly-formatter'),
+          emitWarning: true
+        }
       }
     ]
   }

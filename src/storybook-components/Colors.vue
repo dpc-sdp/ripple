@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import './../components/Atoms/Global/functions';
 @import './../components/Atoms/Global/color';
 

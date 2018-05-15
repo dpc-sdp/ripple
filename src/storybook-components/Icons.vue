@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "~@dpc-sdp/ripple-global/style";
 
   .rpl-icon {

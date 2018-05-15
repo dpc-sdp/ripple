@@ -3,6 +3,7 @@ import { withReadme } from 'storybook-readme'
 
 import SColors from '../../../storybook-components/Colors.vue'
 import STypography from '../../../storybook-components/Typography.vue'
+import SBreakpoints from '../../../storybook-components/Breakpoints.vue'
 import readme from './README.md'
 
 storiesOf('Atoms/Global', module)
@@ -44,6 +45,23 @@ storiesOf('Atoms/Global', module)
           'body_default',
           'body_small',
           'copy_extra_small'
+        ]
+      }
+    }
+  })))
+  .add('Breakpoints', withReadme(readme, () => ({
+    components: { SBreakpoints },
+    template: '<s-breakpoints :breakpoints="breakpoints"/>',
+    data () {
+      return {
+        breakpoints: [
+          'xs',
+          's',
+          'm',
+          'l',
+          'xl',
+          'xxl',
+          'xxxl'
         ]
       }
     }

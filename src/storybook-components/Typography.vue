@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~@dpc-sdp/ripple-global/style";
 
 @each $type-name, $type-value in $rpl-typography {

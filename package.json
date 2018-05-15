@@ -18,7 +18,9 @@
     "@dpc-sdp/ripple-grid": "file:src/components/Atoms/Grid",
     "@dpc-sdp/ripple-icon": "file:src/components/Atoms/Icon",
     "@dpc-sdp/ripple-layout": "file:src/components/Molecules/Layout",
-    "@dpc-sdp/ripple-primary-navigation": "file:src/components/Organisms/PrimaryNavigation",
+    "@dpc-sdp/ripple-meta-tag": "file:src/components/Atoms/MetaTag",
+    "@dpc-sdp/ripple-link": "file:src/components/Atoms/Link",
+    "@dpc-sdp/ripple-site-header": "file:src/components/Organisms/SiteHeader",
     "vue": "^2.5.16"
   },
   "devDependencies": {

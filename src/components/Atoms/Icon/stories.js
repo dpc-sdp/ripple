@@ -18,10 +18,12 @@ storiesOf('Atoms/Icon', module)
     data () {
       return {
         icons: [
+          'up',
+          'right',
           'down',
           'hamburger',
-          'right',
-          'search'
+          'search',
+          'close'
         ]
       }
     }

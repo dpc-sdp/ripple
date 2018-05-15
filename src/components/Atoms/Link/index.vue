@@ -1,8 +1,8 @@
 <template>
-  <a @focus="onFocus" v-if="!isNuxtLink" class="rpl-link" :href="href">
+  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href">
     <slot></slot>
   </a>
-  <nuxt-link v-else class="rpl-link rpl-link--nuxt" :to="href">
+  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href">
     <slot></slot>
   </nuxt-link>
 </template>

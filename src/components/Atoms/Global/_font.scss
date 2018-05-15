@@ -10,6 +10,8 @@ $rpl-font-sizes: (
   'xxxs': 12px
 ) !default;
 
+$rpl-font-base: 'xs' !default;
+
 $rpl-fonts: (
   'regular': ('VIC-Regular', 'Arial', 'Helvetica', 'sans-serif'),
   'medium': ('VIC-Medium', 'Arial', 'Helvetica', 'sans-serif'),

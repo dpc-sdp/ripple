@@ -27,3 +27,17 @@ $rpl-breakpoints: (
     @content;
   }
 }
+
+@mixin rpl_breakpoint_between($break-min, $break-max) {
+  $breakpoint-value-min: map-get($rpl-breakpoints, $break-min);
+  $breakpoint-value-max: map-get($rpl-breakpoints, $break-max);
+  @if $breakpoint-value-min == null {
+    @error '"#{$breakpoint-value-min}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
+  }
+  @if $breakpoint-value-max == null {
+    @error '"#{$breakpoint-value-max}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
+  }
+  @media (min-width: $breakpoint-value-min) and (max-width: $breakpoint-value-max - 1) {
+    @content;
+  }
+}

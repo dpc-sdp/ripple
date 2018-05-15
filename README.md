@@ -4,12 +4,12 @@
 
 ## Install Ripple in Nuxt
 
-`npm install @dpc-sdp/ripple-global @dpc-sdp/ripple-primary-navigation --save`
+`npm install @dpc-sdp/ripple-global @dpc-sdp/ripple-site-header --save`
 
 ## Usage in Nuxt
 
 ```
-import RplPrimaryNavigation from '@dpc-sdp/ripple-primary-navigation'
+import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import RplBreadcrumb from '@dpc-sdp/ripple-breadcrumb'
 import RplFooteryNavigation from '@dpc-sdp/ripple-footer-navigation'
 ```

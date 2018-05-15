@@ -1,3 +1,3 @@
-import RplPrimaryNavigation from './components/Organisms/PrimaryNavigation'
+import RplSiteHeader from './components/Organisms/SiteHeader'
 
-export {RplPrimaryNavigation}
+export {RplSiteHeader}

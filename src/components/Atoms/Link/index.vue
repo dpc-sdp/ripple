@@ -39,3 +39,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.rpl-link {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+</style>

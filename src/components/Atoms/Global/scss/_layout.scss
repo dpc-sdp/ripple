@@ -1,0 +1,77 @@
+$rpl-layout: (
+  'site_padding': (
+    'xs': 20px,
+    's': 28px,
+    'm': 32px,
+    'l': 68px,
+    'xl': 72px,
+    'xxl': 272px,
+    'xxxl': 560px,
+  )
+) !default;
+
+@mixin rpl_site_constrain($style: all) {
+  @if $style == all {
+    @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
+      @include rpl_breakpoint($bp) {
+        padding-left: $padding;
+        padding-right: $padding;
+      }
+    }
+  } @else if $style == small {
+    @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
+      @if index((xs, s), $bp) {
+        @include rpl_breakpoint($bp) {
+          padding-left: $padding;
+          padding-right: $padding;
+        }
+      }
+
+      @include rpl_breakpoint(m) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+@mixin rpl_edge($style: all) {
+  @if $style == all {
+    @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
+      @include rpl_breakpoint($bp) {
+        margin-left: -$padding;
+        margin-right: -$padding;
+      }
+    }
+  } @else if $style == small {
+    @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
+      @if index((xs, s), $bp) {
+        @include rpl_breakpoint($bp) {
+          margin-left: -$padding;
+          margin-right: -$padding;
+        }
+      }
+
+      @include rpl_breakpoint(m) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.rpl-site-constrain--on-all {
+  @include rpl_site_constrain;
+}
+
+.rpl-site-constrain--on-small {
+  @include rpl_site_constrain(small);
+}
+
+.rpl-edge--on-all {
+  @include rpl_edge;
+}
+
+.rpl-edge--on-small {
+  @include rpl_edge(small);
+}

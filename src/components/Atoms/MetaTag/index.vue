@@ -33,6 +33,7 @@ export default {
   $rpl-meta-tag-dark-text-color: rpl-color('white') !default;
 
   .rpl-meta-tag {
+    @include rpl_body;
     $root: &;
     display: inline-block;
 

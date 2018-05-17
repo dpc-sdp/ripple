@@ -1,6 +1,5 @@
 <template>
   <div class="colors">
-
     <h2>Colors</h2>
     <ul>
       <li v-for="color in colors" :key="color">
@@ -40,8 +39,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './../components/Atoms/Global/functions';
-@import './../components/Atoms/Global/color';
+@import './../components/Atoms/Global/scss/functions';
+@import './../components/Atoms/Global/scss/color';
 
 .colors__item {
   height: 3rem;

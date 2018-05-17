@@ -1,5 +1,6 @@
 <template>
   <div class="typography">
+    <h2>Typography</h2>
     <ul>
       <li v-for="(sample, index) in samples" :key="index">
         <code>{{ sample.replace(/\_/gi, ' ') }}</code>

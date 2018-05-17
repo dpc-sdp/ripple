@@ -32,6 +32,11 @@ module.exports = {
           formatter: require('eslint-friendly-formatter'),
           emitWarning: true
         }
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style-loader", "css-loader", "sass-loader"],
+        include: path.resolve(__dirname, "../")
       }
     ]
   }

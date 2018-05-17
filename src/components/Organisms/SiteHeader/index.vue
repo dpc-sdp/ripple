@@ -172,6 +172,7 @@ export default {
   $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space auto 0 !default;
 
   .rpl-site-header {
+    @include rpl_body;
     position: relative;
 
     &__inner {

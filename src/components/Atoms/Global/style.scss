@@ -1,10 +1,18 @@
-@import 'functions';
-@import 'breakpoints';
-@import 'variables';
-@import 'color';
-@import 'font';
-@import 'typography';
-@import 'grid';
-@import 'layout';
-@import 'visibility';
-@import 'global';
+// Functions
+@import './scss/functions';
+
+// Settings & Mixins
+@import './scss/normalize';
+@import './scss/variables';
+@import './scss/breakpoints';
+@import './scss/color';
+@import './scss/font';
+@import './scss/typography';
+
+// Base
+@import './scss/global';
+
+// Layout
+@import './scss/grid';
+@import './scss/layout';
+@import './scss/visibility';

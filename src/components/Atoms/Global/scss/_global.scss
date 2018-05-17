@@ -1,0 +1,48 @@
+// Enable global css.
+$rpl-global-css: true !default;
+
+// Use normalize in Ripple.
+// You may turn it off if you have global style in your project already.
+$rpl-normalize: true !default;
+
+// For each component(themed component), should include this rpl_body mixin so it will have our global style applied.
+@mixin rpl_body ($type: 'component') {
+  @if $type == 'component' and $rpl-global-css == false {
+    @include rpl_typography;
+  }
+
+  @if $type == 'global' or ($type == 'component' and $rpl-global-css == false) {
+    h1 {
+      @include rpl_typography(heading_xl)
+    }
+
+    h2 {
+      @include rpl_typography(heading_l)
+    }
+
+    h3 {
+      @include rpl_typography(heading_m)
+    }
+
+    h4 {
+      @include rpl_typography(heading_s)
+    }
+
+    h5 {
+      @include rpl_typography(heading_xs)
+    }
+    // More global element styles here
+  }
+}
+
+@if $rpl-global-css == true {
+  @if $rpl-normalize == true {
+    @include rpl_normalize;
+  }
+
+  body {
+    @include rpl_typography;
+  }
+
+  @include rpl_body('global');
+}

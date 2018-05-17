@@ -1,5 +1,6 @@
 <template>
   <div class="icons">
+    <h2>Icons</h2>
     <ul v-for="(icon, index) in icons" :key="index">
       <li>
         <code>{{ icon }}</code>
@@ -24,8 +25,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/ripple-global/style";
-
   .rpl-icon {
     display: block;
   }

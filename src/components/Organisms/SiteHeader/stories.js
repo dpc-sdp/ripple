@@ -5,7 +5,8 @@ import VueInfoAddon from 'storybook-addon-vue-info'
 import {
   withKnobs,
   object,
-  number
+  number,
+  boolean
 } from '@storybook/addon-knobs/vue'
 
 import RplSiteHeader from './index.vue'
@@ -21,6 +22,7 @@ storiesOf('Organisms/SiteHeader', module)
   :links="links"
   :breakpoint="breakpoint"
   :searchTerms="searchTerms"
+  :sticky="sticky"
   @open="menuOpenFunc"
   @search="searchFunc"
 />`,
@@ -129,7 +131,8 @@ storiesOf('Organisms/SiteHeader', module)
             linkText: 'School holidays',
             linkUrl: '#'
           }
-        ])
+        ]),
+        sticky: boolean('Sticky', false)
       }
     },
     methods: {

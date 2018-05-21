@@ -343,11 +343,9 @@ export default {
           }
         }
 
-        &--parent {
-          .rpl-icon {
-            margin: $rpl-menu-horizontal-items-root-parent-icon-margin;
-            display: inline;
-          }
+        .rpl-icon {
+          margin: $rpl-menu-horizontal-items-root-parent-icon-margin;
+          display: inline;
         }
 
         &--active {
@@ -464,7 +462,7 @@ export default {
       }
     }
     .rpl-menu__item-link {
-      @include rpl_typography_font('xxs', 1.1em, 'bold');
+      @include rpl_typography_font('xxs', 1.1em, 'medium');
       font-weight: 400;
       display: inline-block;
       width: 100%;
@@ -485,6 +483,7 @@ export default {
       }
 
       &:hover, &:focus {
+        @include rpl_typography_font('xxs', 1.1em, 'bold');
         border-radius: $rpl-menu-item-link-border-radius;
         display: flex;
         align-items: center;
@@ -497,6 +496,7 @@ export default {
       }
 
       &--active {
+        @include rpl_typography_font('xxs', 1.1em, 'bold');
         border-radius: $rpl-menu-item-link-border-radius;
         background-image: $rpl-menu-item-link-background-image-active;
         display: flex;

@@ -1,5 +1,8 @@
 <template>
-  <div class="rpl-site-header" :class="{'rpl-site-header--open': menuContentOpen}">
+  <div class="rpl-site-header" :class="{
+    'rpl-site-header--open': menuContentOpen,
+    'rpl-site-header--sticky': sticky,
+  }">
     <div class="rpl-site-header__inner">
       <!-- Top Bar -->
       <div class="rpl-site-header__top">
@@ -67,7 +70,8 @@ export default {
     logo: Object,
     links: Array,
     breakpoint: Number,
-    searchTerms: Array
+    searchTerms: Array,
+    sticky: Boolean
   },
   components: {
     RplIcon,
@@ -89,7 +93,7 @@ export default {
           icon: 'close'
         },
         closed: {
-          text: 'menu',
+          text: 'Menu',
           icon: 'hamburger'
         }
       },
@@ -161,23 +165,41 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
+  $rpl-site-header-sticky-spacing-xs: rem(10px);
+  $rpl-site-header-sticky-spacing-s: rem(20px);
   $rpl-site-header-text-color: rpl-color('white') !default;
   $rpl-site-header-border-radius: rem(4px) !default;
-  $rpl-site-header-background-color: rpl-color('dark_primary') !default;
+  $rpl-site-header-background-color: rpl-color('primary') !default;
+  $rpl-site-header-background-color-open: rpl-color('dark_primary') !default;
   $rpl-site-header-top-height-s: rem(48px) !default;
   $rpl-site-header-top-height-l: rem(62px) !default;
   $rpl-site-header-top-padding: ($rpl-space * 6) ($rpl-space * 5) !default;
   $rpl-site-header-menu-toggle-border-right: 1px solid rpl-color('white') !default;
   $rpl-site-header-menu-toggle-border-spacing: $rpl-space-2 !default;
-  $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space auto 0 !default;
+  $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space-2 auto 0 !default;
+  $rpl-site-header-search-toggle-icon-margin: auto 0 auto $rpl-space-2 !default;
 
   .rpl-site-header {
+    $root: &;
     @include rpl_body;
     position: relative;
 
     &__inner {
       background-color: $rpl-site-header-background-color;
       border-radius: $rpl-site-header-border-radius;
+    }
+
+    &--sticky:not(#{$root}--open) {
+      position: fixed;
+      top: $rpl-site-header-sticky-spacing-xs;
+      left: $rpl-site-header-sticky-spacing-xs;
+      right: $rpl-site-header-sticky-spacing-xs;
+
+      @include rpl_breakpoint('s') {
+        top: $rpl-site-header-sticky-spacing-s;
+        left: $rpl-site-header-sticky-spacing-s;
+        right: $rpl-site-header-sticky-spacing-s;
+      }
     }
 
     &--open {
@@ -188,6 +210,7 @@ export default {
         left: 0;
         right: 0;
         border-radius: 0;
+        background-color: $rpl-site-header-background-color-open;
       }
     }
 
@@ -221,7 +244,7 @@ export default {
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: $rpl-site-header-background-color;
+        background-color: $rpl-site-header-background-color-open;
         overflow-x: hidden;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -240,14 +263,13 @@ export default {
 
     &__search-container {
         position: relative;
-        background-color: $rpl-site-header-background-color;
+        background-color: $rpl-site-header-background-color-open;
         overflow-x: hidden;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        top: $rpl-site-header-top-height-s;
+        top: 0;
         height: calc(100vh - #{$rpl-site-header-top-height-s});
         @include rpl_breakpoint('l') {
-          top: $rpl-site-header-top-height-l;
           height: calc(100vh - #{$rpl-site-header-top-height-l});
         }
     }
@@ -295,6 +317,10 @@ export default {
           @include rpl_breakpoint('xl') {
             display: block;
           }
+        }
+
+        .rpl-icon {
+          margin: $rpl-site-header-search-toggle-icon-margin;
         }
       }
 

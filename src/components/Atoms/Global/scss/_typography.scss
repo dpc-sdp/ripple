@@ -15,7 +15,12 @@ $rpl-typography: (
   @if $font-family != 'inherit' {
     font-family: rpl-font($font-family);
   }
-  font-size: rpl-font-size($font-size);
+  @if type-of($font-size) == string {
+    font-size: rpl-font-size($font-size);
+  }
+  @if type-of($font-size) == number {
+    font-size: $font-size;
+  }
   line-height: $line-height;
 }
 
@@ -31,13 +36,17 @@ $rpl-typography: (
     @error '"#{$name}" is not an available typeset';
   }
   $typography-rules: map-get($rpl-typography, $name);
+  @include rpl_typography_ruleset($typography-rules);
+}
+
+@mixin rpl_typography_ruleset($ruleset) {
   // Print rules
-  @if type-of($typography-rules) == list {
-    @include rpl_typography_print_rules($typography-rules);
+  @if type-of($ruleset) == list {
+    @include rpl_typography_print_rules($ruleset);
   }
   // Print breakpoints
-  @if type-of($typography-rules) == map {
-    @each $breakpoint, $breakpoint-rules in $typography-rules {
+  @if type-of($ruleset) == map {
+    @each $breakpoint, $breakpoint-rules in $ruleset {
       @include rpl_breakpoint($breakpoint) {
         @include rpl_typography_print_rules($breakpoint-rules);
       }

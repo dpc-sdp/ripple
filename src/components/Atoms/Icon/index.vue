@@ -1,5 +1,5 @@
 <template>
-  <svg :class="iconClass" :style="iconStyle">
+  <svg v-if="validSymbol" :class="iconClass" :style="iconStyle" aria-hidden="true">
     <use :xlink:href="'#' + symbol"></use>
   </svg>
 </template>
@@ -20,7 +20,6 @@ _require.keys().forEach(key => {
 export default {
   props: {
     'symbol': String,
-    'className': String,
     'color': String,
     'size': String
   },
@@ -37,15 +36,19 @@ export default {
     }
   },
   computed: {
+    validSymbol () {
+      return (this.symbol && this.iconProperties[this.symbol] !== undefined)
+    },
     iconClass () {
-      const { symbol, className, color } = this
-      let rtn = className ? `rpl-icon rpl-icon--${symbol} ${className}` : `rpl-icon rpl-icon--${symbol}`
-      return color ? `${rtn} rpl-icon--${color}` : rtn
+      let rtn = (this.validSymbol) ? `rpl-icon rpl-icon--${this.symbol}` : ''
+      return this.color ? `${rtn} rpl-icon--${this.color}` : rtn
     },
     iconStyle () {
-      const { width, height } = this.iconProperties[this.symbol]
-      let size = (this.sizes[this.size] === undefined) ? 1 : this.sizes[this.size]
-      return `width: ${width * size}px; height: ${height * size}px`
+      if (this.validSymbol) {
+        const { width, height } = this.iconProperties[this.symbol]
+        let size = (this.sizes[this.size] === undefined) ? 1 : this.sizes[this.size]
+        return `width: ${width * size}px; height: ${height * size}px`
+      }
     }
   }
 }

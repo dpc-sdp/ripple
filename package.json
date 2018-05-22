@@ -22,6 +22,8 @@
     "@dpc-sdp/ripple-link": "file:src/components/Atoms/Link",
     "@dpc-sdp/ripple-site-header": "file:src/components/Organisms/SiteHeader",
     "@dpc-sdp/ripple-hero-banner": "file:src/components/Organisms/HeroBanner",
+    "@dpc-sdp/ripple-related-links": "file:src/components/Organisms/RelatedLinks",
+    "@dpc-sdp/ripple-whats-next": "file:src/components/Organisms/WhatsNext",
     "vue": "^2.5.16"
   },
   "devDependencies": {

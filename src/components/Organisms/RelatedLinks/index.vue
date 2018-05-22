@@ -1,12 +1,12 @@
 <template>
   <div class="rpl-related-links">
-    <rpl-icon class="rpl-related-links--icon" symbol="link_65" color="white"></rpl-icon>
-    <div class="rpl-related-links--row">
-      <h2 class="rpl-related-links--title rpl-related-links--row">{{ title }}</h2>
+    <rpl-icon class="rpl-related-links__icon" symbol="link_65" color="white"></rpl-icon>
+    <div class="rpl-related-links__row">
+      <h2 class="rpl-related-links__title">{{ title }}</h2>
     </div>
-    <div class="rpl-related-links--row">
-      <ul class="rpl-related-links--items" v-if="links">
-        <li class="rpl-related-links--item" v-for="(item, index) of links" :key="index">
+    <div class="rpl-related-links__row">
+      <ul class="rpl-related-links__items" v-if="links">
+        <li class="rpl-related-links__item" v-for="(item, index) of links" :key="index">
           <rpl-text-link :url="item.url" :text="item.text" :underline="true" size="small" theme="dark" />
         </li>
       </ul>
@@ -53,7 +53,7 @@ export default {
       border-radius: $rpl-related-links-border-radius;
     }
 
-    &--row {
+    &__row {
       @include rpl_breakpoint('s') {
         max-width: $rpl-related-links-max-width-s;
         margin: 0 auto;
@@ -64,20 +64,20 @@ export default {
       }
     }
 
-    &--icon {
+    &__icon {
       position: absolute;
       top: 0;
       right: 0;
       margin: $rpl-related-links-margin;
     }
 
-    &--title {
+    &__title {
       @include rpl_typography_ruleset($rpl-related-links-title-ruleset);
       margin: 0;
       color: $rpl-related-links-title-color;
     }
 
-    &--items {
+    &__items {
       width: 100%;
       list-style: none;
       padding: 0;
@@ -92,7 +92,7 @@ export default {
       }
     }
 
-    &--item {
+    &__item {
       margin: $rpl-related-links-item-margin;
     }
   }

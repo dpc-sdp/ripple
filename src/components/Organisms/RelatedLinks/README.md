@@ -7,6 +7,6 @@ Related Links.
 
 ## Usage
 ```
-import RplSiteHeader from '@dpc-sdp/ripple-related-links'
+import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
 
 ```

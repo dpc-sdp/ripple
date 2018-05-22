@@ -1,0 +1,99 @@
+<template>
+  <div class="rpl-related-links">
+    <rpl-icon class="rpl-related-links--icon" symbol="link_65" color="white"></rpl-icon>
+    <div class="rpl-related-links--row">
+      <h2 class="rpl-related-links--title rpl-related-links--row">{{ title }}</h2>
+    </div>
+    <div class="rpl-related-links--row">
+      <ul class="rpl-related-links--items" v-if="links">
+        <li class="rpl-related-links--item" v-for="(item, index) of links" :key="index">
+          <rpl-text-link :url="item.url" :text="item.text" :underline="true" size="small" theme="dark" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+import { RplTextLink } from '@dpc-sdp/ripple-link'
+import RplIcon from '@dpc-sdp/ripple-icon'
+
+export default {
+  name: 'RplRelatedLinks',
+  props: {
+    title: String,
+    links: Array
+  },
+  components: {
+    RplTextLink,
+    RplIcon
+  }
+}
+</script>
+
+<style lang="scss">
+  @import "~@dpc-sdp/ripple-global/style";
+
+  $rpl-related-links-max-width-s: rem(583px);
+  $rpl-related-links-background: rpl_color('primary') url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2246%22%20viewBox%3D%220%200%2040%2046%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M0%200L17.3374%2038.3827L40%2045.3584V0H0Z%22%20fill%3D%22%23#{str-slice(quote(rpl_color("secondary")), 2)}%22%2F%3E%3C%2Fsvg%3E') no-repeat top right;
+  $rpl-related-links-padding: ($rpl-space * 7) ($rpl-space * 6);
+  $rpl-related-links-margin: $rpl-space-2;
+  $rpl-related-links-border-radius: rem(4px);
+  $rpl-related-links-title-ruleset: (rem(20px), 1.2em, 'bold');
+  $rpl-related-links-title-color: rpl_color('white');
+  $rpl-related-links-items-margin: $rpl-space-2 auto;
+  $rpl-related-links-item-margin: auto auto $rpl-space-3;
+
+  .rpl-related-links {
+    padding: $rpl-related-links-padding;
+    background: $rpl-related-links-background;
+    position: relative;
+
+    @include rpl_breakpoint('l') {
+      border-radius: $rpl-related-links-border-radius;
+    }
+
+    &--row {
+      @include rpl_breakpoint('s') {
+        max-width: $rpl-related-links-max-width-s;
+        margin: 0 auto;
+      }
+
+      @include rpl_breakpoint('l') {
+        max-width: none;
+      }
+    }
+
+    &--icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: $rpl-related-links-margin;
+    }
+
+    &--title {
+      @include rpl_typography_ruleset($rpl-related-links-title-ruleset);
+      margin: 0;
+      color: $rpl-related-links-title-color;
+    }
+
+    &--items {
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      margin: $rpl-related-links-items-margin;
+
+      @include rpl_breakpoint('s') {
+        column-count: 2;
+      }
+
+      @include rpl_breakpoint('l') {
+        column-count: 1;
+      }
+    }
+
+    &--item {
+      margin: $rpl-related-links-item-margin;
+    }
+  }
+</style>

@@ -1,0 +1,11 @@
+// Accordion
+.rpl-accordion {
+  &-enter-active {
+    transition: transform ease-out .3s, opacity ease-out .3s;
+  }
+
+  &-enter {
+    transform: translateY(-1.5rem);
+    opacity: 0;
+  }
+}

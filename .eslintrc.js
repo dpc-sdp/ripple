@@ -3,7 +3,8 @@
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    allowImportExportEverywhere: true
   },
   env: {
     browser: true,

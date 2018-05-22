@@ -1,9 +1,16 @@
 <template>
-  <div>
+  <div class="demo">
     <h2>Breakpoints</h2>
     <p>Resize browser window to change in-use breakpoints.</p>
-    <ul>
+    <h3>CSS breakpoint</h3>
+    <ul class="breakpoints breakpoints--css">
       <li v-for="(point, index) in breakpoints" :key="index" for="" :class="'breakpoint-' +  point">
+        <code>{{ point }}</code>
+      </li>
+    </ul>
+    <h3>JS breakpoint</h3>
+    <ul class="breakpoints breakpoints--js">
+      <li v-for="(point, index) in breakpoints" :key="index" :class="['breakpoint-' +  point, $breakpoint[point] ? 'tick' : 'cross']">
         <code>{{ point }}</code>
       </li>
     </ul>
@@ -14,8 +21,11 @@
 </template>
 
 <script>
+import breakpoint from './../components/Atoms/Global/mixins/breakpoint'
+
 export default {
   name: 'SBreakpoints',
+  mixins: [breakpoint],
   props: {
     breakpoints: Array
   },
@@ -58,22 +68,50 @@ export default {
   }
 }
 
+@mixin cross {
+  &::before {
+    content: '✗';
+    margin-right: 5px;
+    display: inline;
+    color: red;
+  }
+}
+
+@mixin tick {
+  &::before {
+    content: '✔';
+    margin-right: 5px;
+    display: inline;
+    color: green;
+  }
+}
+
+.cross {
+  @include cross;
+}
+
+.tick {
+  @include tick;
+}
+
 @each $breakpoint-name, $breakpoint-value in $rpl-breakpoints {
-  .breakpoint-#{$breakpoint-name} {
-    &::before {
-      content: '✗';
-      margin-right: 5px;
-      display: inline;
-      color: red;
-      @include rpl_breakpoint($breakpoint-name) {
-        content: '✔';
-        color: green;
+  .breakpoints {
+    .breakpoint-#{$breakpoint-name} {
+      code {
+        &::after {
+          content: ' (#{$breakpoint-value})';
+          display: inline;
+        }
       }
     }
-    code {
-      &::after {
-        content: ' (#{$breakpoint-value})';
-        display: inline;
+
+    &--css {
+      .breakpoint-#{$breakpoint-name} {
+        @include cross;
+
+        @include rpl_breakpoint($breakpoint-name) {
+          @include tick;
+        }
       }
     }
   }

@@ -17,6 +17,7 @@
     "vue"
   ],
   "plugins": [
+    "syntax-dynamic-import",
     "transform-vue-jsx",
     "transform-runtime"
   ]

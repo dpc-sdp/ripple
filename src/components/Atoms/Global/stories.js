@@ -18,10 +18,13 @@ storiesOf('Atoms/Global', module)
           'secondary',
           'extra_dark_neutral',
           'dark_neutral',
-          'mid_neutral',
+          'mid_neutral_1',
+          'mid_neutral_2',
           'light_neutral',
           'danger',
-          'warning'
+          'warning',
+          'success',
+          'white'
         ],
         gradients: [
           'primary_gradient'

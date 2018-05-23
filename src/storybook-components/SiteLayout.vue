@@ -109,7 +109,7 @@ $_section-gutter: $rpl-space;
 }
 
 .sub-content {
-  background: rpl-color(mid_neutral);
+  background: rpl-color(mid_neutral_1);
   padding-top: $rpl-space;
   padding-bottom: $rpl-space;
   margin-bottom: $_section-gutter;
@@ -126,7 +126,7 @@ $_section-gutter: $rpl-space;
 }
 
 .rpl-col {
-  background-color: rpl-color(mid_neutral);
+  background-color: rpl-color(mid_neutral_1);
 }
 
 .rpl-content {

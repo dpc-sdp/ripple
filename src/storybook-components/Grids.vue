@@ -21,7 +21,7 @@ export default {
 @import './../components/Atoms/Global/scss/color';
 
 .demo-col {
-  background-color: rpl-color('mid_neutral');
+  background-color: rpl-color('mid_neutral_1');
   padding-top: 5rem;
   padding-bottom: 5rem;
   text-align: center;

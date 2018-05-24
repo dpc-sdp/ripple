@@ -71,11 +71,14 @@ export default {
   $rpl-hero-banner-description-typography-ruleset: (
     'xs': (rem(18px), 1.2em, 'medium'),
     's': (rem(24px), 1.2em, 'medium'),
-    'l': (rem(28px), 1.2em, 'medium')
+    'm': (rem(28px), 1.2em, 'medium')
   ) !default;
   $rpl-hero-banner-description-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-description-letter-spacing: rem(-0.12px) !default;
-  $rpl-hero-banner-link-heading-typography-rules: (rem(20px), 1.4em, 'bold') !default;
+  $rpl-hero-banner-link-heading-typography-rules: (
+    'xs': (rem(14px), 1.7em, 'bold'),
+    's': (rem(20px), 1.4em, 'bold')
+  ) !default;
   $rpl-hero-banner-link-heading-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-link-typography-rules: (
     'xs': (rem(14px), 1.7em, 'medium'),

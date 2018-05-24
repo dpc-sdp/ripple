@@ -39,7 +39,7 @@ storiesOf('Organisms/SiteHeader', module)
             text: 'Your services',
             url: '#',
             children: [
-              { text: 'Sub child A', href: '#' },
+              { text: 'Sub child A', url: '#' },
               {
                 text: 'Sub child B',
                 url: '#',

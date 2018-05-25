@@ -4,5 +4,12 @@ $rpl-space-2: .5rem !default;
 $rpl-space-3: .75rem !default;
 $rpl-space-4: 1rem !default;
 
+// Z-index
+$rpl-zindex-tooltip: 1070 !default;
+$rpl-zindex-popover: 1060 !default;
+$rpl-zindex-modal: 1050 !default;
+$rpl-zindex-header: 1040 !default;
+$rpl-zindex-fixed: 1030 !default;
+
 // Border
 $rpl-border-width: 1px !default;

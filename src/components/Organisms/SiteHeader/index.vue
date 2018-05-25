@@ -183,6 +183,7 @@ export default {
     $root: &;
     @include rpl_body;
     position: relative;
+    z-index: $rpl-zindex-header;
 
     &__inner {
       background-color: $rpl-site-header-background-color;

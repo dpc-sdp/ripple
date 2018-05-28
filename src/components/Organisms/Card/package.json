@@ -1,11 +1,12 @@
 {
-  "name": "@dpc-sdp/ripple-link",
+  "name": "@dpc-sdp/ripple-card",
   "version": "0.1.0",
-  "description": "Ripple link",
+  "description": "Ripple card",
   "private": true,
   "main": "index.js",
   "peerDependencies": {
     "@dpc-sdp/ripple-global": "0.1.0",
+    "@dpc-sdp/ripple-link": "0.1.0",
     "@dpc-sdp/ripple-icon": "0.1.0"
   }
 }

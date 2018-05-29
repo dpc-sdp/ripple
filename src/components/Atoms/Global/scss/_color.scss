@@ -21,7 +21,8 @@ $rpl-colors: (
 }
 
 $rpl-gradients: (
-  'primary_gradient': linear-gradient(90deg, rpl-color('primary') 0%, rpl-color('secondary') 100%)
+  'primary_gradient': linear-gradient(90deg, rpl-color('primary') 0%, rpl-color('secondary') 100%),
+  'primary_gradient_90': linear-gradient(180deg, rpl-color('primary') 0%, rpl-color('secondary') 100%)
 ) !default;
 
 @function rpl-gradient($name: 'primary_gradient') {

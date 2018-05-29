@@ -25,6 +25,7 @@
     "@dpc-sdp/ripple-related-links": "file:src/components/Organisms/RelatedLinks",
     "@dpc-sdp/ripple-whats-next": "file:src/components/Organisms/WhatsNext",
     "@dpc-sdp/ripple-card": "file:src/components/Organisms/Card",
+    "@dpc-sdp/ripple-updated-date": "file:src/components/Organisms/UpdatedDate",
     "vue": "^2.5.16"
   },
   "devDependencies": {

@@ -2,6 +2,8 @@
 //
 // Utility mixins and functions for evaluating source code across our variables, maps, and mixins.
 
+$rpl-font-base: 16px !default;
+
 // Replace `$search` with `$replace` in `$string`
 // Used on our SVG icon backgrounds for custom forms.
 //
@@ -23,15 +25,12 @@
 // Convert a pixel value into a rem value.
 //
 // @param {String} $pxval - A pixel value.
-// @param {String / Number} $base ($rpl-font-base) - String (e.g. 'm', 'l', 'xl') / Number (e.g. 20px)
+// @param {Number} $base ($rpl-font-base) - Number (e.g. 20px)
 // @return {Number} - Rem value
 @function rem($pxval, $base: null) {
   @if $base == null {
     $base: $rpl-font-base;
   }
   $pxbase: $base;
-  @if type-of($base) == string {
-    $pxbase: map-get($rpl-font-sizes, $base);
-  }
   @return ($pxval / $pxbase) * 1rem;
 }

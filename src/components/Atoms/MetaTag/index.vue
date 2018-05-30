@@ -50,7 +50,7 @@ export default {
     }
 
     &__text {
-      @include rpl_typography_font('xxxs', 1.2em, 'medium');
+      @include rpl_typography_font('xxs', 1.2em, 'medium');
       text-transform: uppercase;
       color: $rpl-meta-tag-text-color;
 

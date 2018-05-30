@@ -24,7 +24,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-updated-date-ruleset: (rem(14px), 1.4em, 'regular');
+  $rpl-updated-date-ruleset: ('xs', 1.4em, 'regular');
   $rpl-updated-date-color: rpl_color('extra_dark_neutral');
 
   .rpl-updated-date {

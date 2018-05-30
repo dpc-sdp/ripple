@@ -41,12 +41,12 @@ export default {
   $rpl-card-navigation-featured-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-navigation-featured-border-radius: rem(4px) !default;
   $rpl-card-navigation-featured-title-ruleset: (
-    'xs': (rem(28px), 1.3em, 'bold', true),
-    's': (rem(36px), 1.6em, 'bold', true)
+    'xs': ('mega', 1.3em, 'bold', true),
+    's': ('giga', 1.6em, 'bold', true)
   ) !default;
   $rpl-card-navigation-featured-summary-ruleset: (
-    'xs': (rem(14px), 1.4em, 'bold'),
-    's': (rem(16px), 1.5em, 'bold')
+    'xs': ('xs', 1.4em, 'bold'),
+    's': ('s', 1.5em, 'bold')
   ) !default;
   $rpl-card-navigation-featured-summary-color: rpl_color('white') !default;
   $rpl-card-navigation-featured-summary-background: transparent url('data:image/svg+xml,%3Csvg%20width%3D%2249%22%20height%3D%22100%22%20viewBox%3D%220%200%2049%20100%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M49%20100H0L49%200V100Z%22%20fill%3D%22%23#{str-slice(quote(rpl_color("secondary")), 2)}%22%2F%3E%3C%2Fsvg%3E') no-repeat bottom right !default;

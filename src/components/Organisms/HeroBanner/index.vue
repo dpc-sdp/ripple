@@ -65,29 +65,29 @@ export default {
   @import "~@dpc-sdp/ripple-global/style";
 
   $rpl-hero-banner-title-typography-ruleset: (
-    'xs': (rem(36px), 1.6em, 'bold', true),
-    'm': map-get($rpl-typography, 'display_xl')
+    'xs': ('giga', 1.6em, 'bold', true),
+    'm': map-get($rpl-typography, 'display_l')
   ) !default;
   $rpl-hero-banner-description-typography-ruleset: (
-    'xs': (rem(18px), 1.2em, 'medium'),
-    's': (rem(24px), 1.2em, 'medium'),
-    'm': (rem(28px), 1.2em, 'medium')
+    'xs': ('m', 1.2em, 'medium'),
+    's': ('xl', 1.2em, 'medium'),
+    'm': ('mega', 1.2em, 'medium')
   ) !default;
   $rpl-hero-banner-description-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-description-letter-spacing: rem(-0.12px) !default;
   $rpl-hero-banner-link-heading-typography-rules: (
-    'xs': (rem(14px), 1.7em, 'bold'),
-    's': (rem(20px), 1.4em, 'bold')
+    'xs': ('xs', 1.7em, 'bold'),
+    's': ('l', 1.4em, 'bold')
   ) !default;
   $rpl-hero-banner-link-heading-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-link-typography-rules: (
-    'xs': (rem(14px), 1.7em, 'medium'),
-    's': (rem(20px), 1.7em, 'medium')
+    'xs': ('xs', 1.7em, 'medium'),
+    's': ('l', 1.7em, 'medium')
   ) !default;
   $rpl-hero-banner-link-margin: auto auto rem(16px) !default;
   $rpl-hero-banner-more-link-typography-rules: (
-    'xs': (rem(14px), 1.7em, 'bold'),
-    's': (rem(20px), 1.7em, 'bold')
+    'xs': ('xs', 1.7em, 'bold'),
+    's': ('l', 1.7em, 'bold')
   ) !default;
   $rpl-hero-banner-margin-xs: rem(64px) auto rem(35px) auto !default;
   $rpl-hero-banner-margin-s: rem(82px) auto rem(64px) auto !default;

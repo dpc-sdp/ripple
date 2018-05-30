@@ -35,16 +35,16 @@ export default {
   $rpl-card-navigation-border: 1px solid rpl-color('mid_neutral_1') !default;
   $rpl-card-navigation-border-radius: rem(4px) !default;
   $rpl-card-navigation-title-ruleset: (
-    'xs': (rem(20px), 1.2em, 'bold'),
-    's': (rem(28px), 1.3em, 'bold')
+    'xs': ('l', 1.2em, 'bold'),
+    's': ('mega', 1.3em, 'bold')
   ) !default;
   $rpl-card-navigation-title-border-bottom: 1px solid rpl-color('mid_neutral_1') !default;
   $rpl-card-navigation-title-padding: 0 0 rem(12px) 0 !default;
   $rpl-card-navigation-title-margin: 0 0 rem(18px) !default;
   $rpl-card-navigation-title-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-navigation-summary-ruleset: (
-    'xs': (rem(14px), 1.4em, 'regular'),
-    's': (rem(16px), 1.5em, 'regular')
+    'xs': ('xs', 1.4em, 'regular'),
+    's': ('s', 1.5em, 'regular')
   ) !default;
   $rpl-card-navigation-summary-color: rpl_color('extra_dark_neutral') !default;
 

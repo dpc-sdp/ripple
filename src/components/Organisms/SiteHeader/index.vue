@@ -228,7 +228,7 @@ export default {
       }
 
       &__title {
-        font-size: rem(20px);
+        font-size: rpl-font-size(l);
       }
     }
 
@@ -332,7 +332,7 @@ export default {
       }
 
       span {
-        @include rpl_typography_font('xxs', 1em, 'medium');
+        @include rpl_typography_font('xs', 1em, 'medium');
         color: $rpl-site-header-text-color;
       }
 

@@ -75,10 +75,10 @@ export default {
   $rpl-text-link-text-color-hover: rpl_color('primary') !default;
   $rpl-text-link-dark-text-color: rpl-color('white') !default;
   $rpl-text-link-dark-text-color-hover: rpl-color('white') !default;
-  $rpl-text-link-small-typography: (rem(14px), 1.7em, 'medium') !default;
-  $rpl-text-link-large-typography: (rem(20px), 1.7em, 'medium') !default;
-  $rpl-text-link-small-typography-emphasis: (rem(14px), 1.7em, 'bold') !default;
-  $rpl-text-link-large-typography-emphasis: (rem(20px), 1.7em, 'bold') !default;
+  $rpl-text-link-small-typography: ('xs', 1.7em, 'medium') !default;
+  $rpl-text-link-large-typography: ('l', 1.7em, 'medium') !default;
+  $rpl-text-link-small-typography-emphasis: ('xs', 1.7em, 'bold') !default;
+  $rpl-text-link-large-typography-emphasis: ('l', 1.7em, 'bold') !default;
 
   .rpl-text-link {
     $root: &;

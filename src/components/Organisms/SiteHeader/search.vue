@@ -159,7 +159,7 @@ export default {
     }
 
     &__terms-header {
-      @include rpl_typography_font('xs', 1.4em, 'bold');
+      @include rpl_typography_font('s', 1.4em, 'bold');
       color: $rpl-site-header-search-terms-header-text-color;
     }
   }

@@ -291,7 +291,7 @@ export default {
     }
 
     .rpl-menu__back {
-      @include rpl_typography_font('xxs', 1em, 'bold');
+      @include rpl_typography_font('xs', 1em, 'bold');
       color: rpl-color('white');
       background-color: transparent;
       border: 0;
@@ -316,7 +316,7 @@ export default {
       list-style: none;
 
       & > .rpl-menu__item > .rpl-menu__item-link {
-        @include rpl_typography_font('xxs', 1em, 'bold');
+        @include rpl_typography_font('xs', 1em, 'bold');
         text-decoration: none;
         background-color: transparent;
         border: 0;
@@ -462,7 +462,7 @@ export default {
       }
     }
     .rpl-menu__item-link {
-      @include rpl_typography_font('xxs', 1.1em, 'medium');
+      @include rpl_typography_font('xs', 1.1em, 'medium');
       font-weight: 400;
       display: inline-block;
       width: 100%;
@@ -483,7 +483,7 @@ export default {
       }
 
       &:hover, &:focus {
-        @include rpl_typography_font('xxs', 1.1em, 'bold');
+        @include rpl_typography_font('xs', 1.1em, 'bold');
         border-radius: $rpl-menu-item-link-border-radius;
         display: flex;
         align-items: center;
@@ -496,7 +496,7 @@ export default {
       }
 
       &--active {
-        @include rpl_typography_font('xxs', 1.1em, 'bold');
+        @include rpl_typography_font('xs', 1.1em, 'bold');
         border-radius: $rpl-menu-item-link-border-radius;
         background-image: $rpl-menu-item-link-background-image-active;
         display: flex;

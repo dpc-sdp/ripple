@@ -47,7 +47,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-button-ruleset: (rem(16px), 1em, 'bold');
+  $rpl-button-ruleset: ('s', 1em, 'bold');
   $rpl-button-text-color: rpl_color('white');
   $rpl-button-border-radius: rem(4px);
   $rpl-button-padding: rem(16px) rem(48px);

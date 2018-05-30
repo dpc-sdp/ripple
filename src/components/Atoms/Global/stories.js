@@ -38,13 +38,17 @@ storiesOf('Atoms/Global', module)
     data () {
       return {
         samples: [
-          'display_xl',
           'display_l',
-          'heading_xl',
+          'display_m',
+          'display_s',
+          'supporting_l',
+          'supporting_m',
+          'supporting_s',
           'heading_l',
           'heading_m',
           'heading_s',
           'heading_xs',
+          'body_large',
           'body_default',
           'body_small',
           'copy_extra_small'

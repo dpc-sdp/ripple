@@ -12,10 +12,6 @@ $rpl-normalize: true !default;
   }
 
   @if $type == 'global' or ($type == 'component' and $rpl-global-css == false) {
-    h1 {
-      @include rpl_typography(heading_xl)
-    }
-
     h2 {
       @include rpl_typography(heading_l)
     }

@@ -37,7 +37,7 @@ export default {
   $rpl-whats-next-background: transparent;
   $rpl-whats-next-padding: 0;
   $rpl-whats-next-border-radius: rem(4px);
-  $rpl-whats-next-title-ruleset: (rem(20px), 1.2em, 'bold');
+  $rpl-whats-next-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-whats-next-title-color: rpl_color('extra_dark_neutral');
   $rpl-whats-next-items-margin: $rpl-space-2 auto;
   $rpl-whats-next-item-margin: auto auto $rpl-space-3;

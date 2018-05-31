@@ -81,10 +81,16 @@ $rpl-footer-border-color-light: rpl-color('white') !default;
   a {
     color: $rpl-footer-text-color;
   }
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
 }
 
 .rpl-site-footer__main,
 {
+  @include rpl_mobile_padding;
   @include rpl_site_constrain;
   border-bottom: $rpl-footer-border-width solid $rpl-footer-border-color;
   padding-top: $rpl-space;
@@ -96,6 +102,7 @@ $rpl-footer-border-color-light: rpl-color('white') !default;
 }
 
 .rpl-site-footer__bottom {
+  @include rpl_mobile_padding;
   @include rpl_site_constrain;
   display: flex;
   flex-flow: row wrap;

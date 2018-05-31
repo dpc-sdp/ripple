@@ -4,6 +4,10 @@ $rpl-space-2: .5rem !default;
 $rpl-space-3: .75rem !default;
 $rpl-space-4: 1rem !default;
 
+// Padding for mobile left and right
+$rpl-component-padding-xs: $rpl-space * 5;
+$rpl-component-padding-s: $rpl-space * 7;
+
 // Z-index
 $rpl-zindex-tooltip: 1070 !default;
 $rpl-zindex-popover: 1060 !default;

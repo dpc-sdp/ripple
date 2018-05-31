@@ -17,7 +17,7 @@
       <rpl-row row-gutter class="demo-main">
         <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
           <div class="card">
-            <div class="rpl-edge--on-small image">Image - Edge style on small device</div>
+            <div class="image">Image</div>
             card
           </div>
         </rpl-col>
@@ -49,7 +49,7 @@
           </rpl-row>
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
-          <div class="cta" :class="sidebar ? 'rpl-edge--on-small rpl-site-constrain--on-small' : 'rpl-edge--on-all rpl-site-constrain--on-all'">
+          <div class="cta" :class="sidebar ? 'rpl-edge--below-l rpl-site-constrain--below-l' : 'rpl-edge--on-all rpl-site-constrain--on-all'">
             <div class="sub-content">
               edge style call to action
             </div>
@@ -115,7 +115,7 @@ $_section-gutter: $rpl-space;
   margin-bottom: $_section-gutter;
 }
 
-.rpl-edge--on-small,
+.rpl-edge--below-l,
 .rpl-edge--on-all {
   background-color: rpl-color(dark_neutral);
 }

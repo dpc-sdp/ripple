@@ -36,6 +36,8 @@ export default {
 
   $rpl-related-links-max-width-s: rem(583px);
   $rpl-related-links-background: rpl_color('primary') url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2246%22%20viewBox%3D%220%200%2040%2046%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M0%200L17.3374%2038.3827L40%2045.3584V0H0Z%22%20fill%3D%22%23#{str-slice(quote(rpl_color("secondary")), 2)}%22%2F%3E%3C%2Fsvg%3E') no-repeat top right;
+  $rpl-related-links-padding-xs: ($rpl-space * 7) $rpl-component-padding-xs;
+  $rpl-related-links-padding-s: ($rpl-space * 7) $rpl-component-padding-s;
   $rpl-related-links-padding: ($rpl-space * 7) ($rpl-space * 6);
   $rpl-related-links-margin: $rpl-space-2;
   $rpl-related-links-border-radius: rem(4px);
@@ -45,6 +47,7 @@ export default {
   $rpl-related-links-item-margin: auto auto $rpl-space-3;
 
   .rpl-related-links {
+    @include rpl_mobile_padding;
     padding: $rpl-related-links-padding;
     background: $rpl-related-links-background;
     position: relative;

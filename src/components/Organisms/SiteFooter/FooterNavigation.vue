@@ -90,11 +90,6 @@ export default {
 
 .rpl-footer-nav {
   padding: 0;
-
-  ul {
-    padding: 0;
-    list-style: none;
-  }
 }
 
 .rpl-footer-nav__menu-item {

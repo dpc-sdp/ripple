@@ -1,43 +1,41 @@
 <template>
   <div class="rpl-hero-banner">
-    <div class="rpl-site-constrain--on-all">
-      <div class="rpl-row">
-        <div class="rpl-hero-banner__left">
-          <h1 class="rpl-hero-banner__title"><span>{{ title }}</span></h1>
-          <p class="rpl-hero-banner__description">{{ introText }}</p>
-        </div>
-        <div class="rpl-hero-banner__right">
-          <h2 class="rpl-hero-banner__link-heading">{{ linkHeading }}</h2>
-          <ul class="rpl-hero-banner__link-list">
-            <li
-              v-for="(item, index) of links"
-              :key="index"
-              class="rpl-hero-banner__link-list-item"
-            >
-              <rpl-text-link
-                class="rpl-hero-banner__link"
-                :text="item.text"
-                :url="item.url"
-                iconSymbol="arrow_right_primary"
-                iconColor="primary"
-                :underline="true"
-              />
-            </li>
-            <li
-              v-if="moreLink"
-              class="rpl-hero-banner__link-list-item"
-            >
-              <rpl-text-link
-                class="rpl-hero-banner__more-link"
-                :text="moreLink.text"
-                :url="moreLink.url"
-                iconSymbol="arrow_right_primary"
-                iconColor="primary"
-                :underline="true"
-              />
-            </li>
-          </ul>
-        </div>
+    <div class="rpl-row">
+      <div class="rpl-hero-banner__left">
+        <h1 class="rpl-hero-banner__title"><span>{{ title }}</span></h1>
+        <p class="rpl-hero-banner__description">{{ introText }}</p>
+      </div>
+      <div class="rpl-hero-banner__right">
+        <h2 class="rpl-hero-banner__link-heading">{{ linkHeading }}</h2>
+        <ul class="rpl-hero-banner__link-list">
+          <li
+            v-for="(item, index) of links"
+            :key="index"
+            class="rpl-hero-banner__link-list-item"
+          >
+            <rpl-text-link
+              class="rpl-hero-banner__link"
+              :text="item.text"
+              :url="item.url"
+              iconSymbol="arrow_right_primary"
+              iconColor="primary"
+              :underline="true"
+            />
+          </li>
+          <li
+            v-if="moreLink"
+            class="rpl-hero-banner__link-list-item"
+          >
+            <rpl-text-link
+              class="rpl-hero-banner__more-link"
+              :text="moreLink.text"
+              :url="moreLink.url"
+              iconSymbol="arrow_right_primary"
+              iconColor="primary"
+              :underline="true"
+            />
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -98,6 +96,8 @@ export default {
   $rpl-hero-banner-link-heading-margin: 0 auto rem(15px) auto !default;
 
   .rpl-hero-banner {
+    @include rpl_mobile_padding;
+    @include rpl_grid_container;
     margin: $rpl-hero-banner-margin-xs;
 
     @include rpl_breakpoint('s') {

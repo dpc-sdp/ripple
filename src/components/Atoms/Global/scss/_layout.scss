@@ -1,7 +1,5 @@
 $rpl-layout: (
   'site_padding': (
-    'xs': 20px,
-    's': 28px,
     'm': 32px,
     'l': 68px,
     'xl': 72px,
@@ -20,14 +18,14 @@ $rpl-layout: (
     }
   } @else if $style == small {
     @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
-      @if index((xs, s), $bp) {
+      @if index((xs, s, m), $bp) {
         @include rpl_breakpoint($bp) {
           padding-left: $padding;
           padding-right: $padding;
         }
       }
 
-      @include rpl_breakpoint(m) {
+      @include rpl_breakpoint(l) {
         padding-left: 0;
         padding-right: 0;
       }
@@ -45,14 +43,14 @@ $rpl-layout: (
     }
   } @else if $style == small {
     @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
-      @if index((xs, s), $bp) {
+      @if index((xs, s, m), $bp) {
         @include rpl_breakpoint($bp) {
           margin-left: -$padding;
           margin-right: -$padding;
         }
       }
 
-      @include rpl_breakpoint(m) {
+      @include rpl_breakpoint(l) {
         margin-left: 0;
         margin-right: 0;
       }
@@ -60,18 +58,32 @@ $rpl-layout: (
   }
 }
 
+@mixin rpl_mobile_padding {
+  padding-left: $rpl-component-padding-xs;
+  padding-right: $rpl-component-padding-xs;
+
+  @include rpl_breakpoint(s) {
+    padding-left: $rpl-component-padding-s;
+    padding-right: $rpl-component-padding-s;
+  }
+}
+
 .rpl-site-constrain--on-all {
   @include rpl_site_constrain;
 }
 
-.rpl-site-constrain--on-small {
+// Use this calss if the item is inside sidebar or main content area beside sidebar and you are using `.rpl-edge--below-l`.
+.rpl-site-constrain--below-l {
   @include rpl_site_constrain(small);
 }
 
+// Use this class to make a component gorw to reach left/right edge.
+// Don't use this if the component is inside sidebar or main content area beside sidebar.
 .rpl-edge--on-all {
   @include rpl_edge;
 }
 
-.rpl-edge--on-small {
+// Use this calss if the item is inside sidebar or main content area beside sidebar.
+.rpl-edge--below-l {
   @include rpl_edge(small);
 }

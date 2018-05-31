@@ -20,6 +20,7 @@ storiesOf('Organisms/HeroBanner', module)
   :title="title" :introText="introText"
   :linkHeading="linkHeading" :links="links"
   :moreLink="moreLink"
+  class="rpl-site-constrain--on-all"
 />`,
     data () {
       return {

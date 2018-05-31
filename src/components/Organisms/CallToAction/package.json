@@ -1,0 +1,12 @@
+{
+  "name": "@dpc-sdp/ripple-call-to-action",
+  "version": "0.1.0",
+  "description": "Ripple call to action",
+  "private": true,
+  "main": "index.vue",
+  "peerDependencies": {
+    "@dpc-sdp/ripple-global": "0.1.0",
+    "@dpc-sdp/ripple-button": "0.1.0",
+    "@dpc-sdp/ripple-link": "0.1.0"
+  }
+}

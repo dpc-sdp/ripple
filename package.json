@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "file:src/components/Atoms/Global",
+    "@dpc-sdp/ripple-button": "file:src/components/Atoms/Button",
     "@dpc-sdp/ripple-grid": "file:src/components/Atoms/Grid",
     "@dpc-sdp/ripple-icon": "file:src/components/Atoms/Icon",
     "@dpc-sdp/ripple-layout": "file:src/components/Molecules/Layout",
@@ -26,6 +27,7 @@
     "@dpc-sdp/ripple-whats-next": "file:src/components/Organisms/WhatsNext",
     "@dpc-sdp/ripple-card": "file:src/components/Organisms/Card",
     "@dpc-sdp/ripple-updated-date": "file:src/components/Organisms/UpdatedDate",
+    "@dpc-sdp/ripple-call-to-action": "file:src/components/Organisms/CallToAction",
     "vue": "^2.5.16"
   },
   "devDependencies": {

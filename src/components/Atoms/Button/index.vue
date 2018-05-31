@@ -47,20 +47,23 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-button-ruleset: ('s', 1em, 'bold');
-  $rpl-button-text-color: rpl_color('white');
-  $rpl-button-border-radius: rem(4px);
-  $rpl-button-padding: rem(16px) rem(48px);
-  $rpl-button-border: 1px solid transparent;
-  $rpl-button-primary-background-color: rpl_color('primary');
-  $rpl-button-primary-text-color: rpl_color('white');
-  $rpl-button-primary-hover-background-color: rpl_color('secondary');
-  $rpl-button-secondary-background-color: rpl_color('secondary');
-  $rpl-button-secondary-text-color: rpl_color('white');
-  $rpl-button-secondary-hover-background-color: rpl_color('primary');
-  $rpl-button-active-background-color: rpl_gradient('primary_gradient_90');
-  $rpl-button-disabled-border: 1px solid rpl_color('dark_neutral');
-  $rpl-button-disabled-text-color: rpl_color('dark_neutral');
+  $rpl-button-ruleset: (
+    'xs': ('xs', 1em, 'bold'),
+    'm': ('s', 1em, 'bold')
+  );
+  $rpl-button-text-color: rpl_color('white') !default;
+  $rpl-button-border-radius: rem(4px) !default;
+  $rpl-button-padding: $rpl-space-4 ($rpl-space * 12) !default;
+  $rpl-button-border: 1px solid transparent !default;
+  $rpl-button-primary-background-color: rpl_color('primary') !default;
+  $rpl-button-primary-text-color: rpl_color('white') !default;
+  $rpl-button-primary-hover-background-color: rpl_color('secondary') !default;
+  $rpl-button-secondary-background-color: rpl_color('secondary') !default;
+  $rpl-button-secondary-text-color: rpl_color('white') !default;
+  $rpl-button-secondary-hover-background-color: rpl_color('primary') !default;
+  $rpl-button-active-background-color: rpl_gradient('primary_gradient_90') !default;
+  $rpl-button-disabled-border: 1px solid rpl_color('dark_neutral') !default;
+  $rpl-button-disabled-text-color: rpl_color('dark_neutral') !default;
 
   .rpl-button {
     $root: &;
@@ -70,14 +73,15 @@ export default {
     display: inline-block;
     border: 0;
     margin: 0;
-    border-radius: $rpl-button-border-radius;
+    box-sizing: border-box;
     width: 100%;
     padding: $rpl-button-padding;
     border: $rpl-button-border;
     cursor: pointer;
 
-    @include rpl_breakpoint('m') {
+    @include rpl_breakpoint('s') {
       width: auto;
+      border-radius: $rpl-button-border-radius;
     }
 
     &--primary {

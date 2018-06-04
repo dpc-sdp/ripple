@@ -1,0 +1,75 @@
+$rpl-button-ruleset: (
+  'xs': ('xs', 1em, 'bold'),
+  'm': ('s', 1em, 'bold')
+) !default;
+$rpl-button-text-color: rpl_color('white') !default;
+$rpl-button-border-radius: rem(4px) !default;
+$rpl-button-padding: $rpl-space-4 ($rpl-space * 12) !default;
+$rpl-button-border: 1px solid transparent !default;
+$rpl-button-primary-background-color: rpl_color('primary') !default;
+$rpl-button-primary-text-color: rpl_color('white') !default;
+$rpl-button-primary-hover-background-color: rpl_color('secondary') !default;
+$rpl-button-secondary-background-color: rpl_color('secondary') !default;
+$rpl-button-secondary-text-color: rpl_color('white') !default;
+$rpl-button-secondary-hover-background-color: rpl_color('primary') !default;
+$rpl-button-active-background-color: rpl_gradient('primary_gradient_90') !default;
+$rpl-button-disabled-border: 1px solid rpl_color('dark_neutral') !default;
+$rpl-button-disabled-text-color: rpl_color('dark_neutral') !default;
+
+@mixin rpl_button {
+  @include rpl_typography_ruleset($rpl-button-ruleset);
+  color: $rpl-button-text-color;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  width: 100%;
+  padding: $rpl-button-padding;
+  border: $rpl-button-border;
+  cursor: pointer;
+
+  @include rpl_breakpoint('s') {
+    width: auto;
+    border-radius: $rpl-button-border-radius;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: transparent;
+    background-image: $rpl-button-active-background-color;
+  }
+}
+
+@mixin rpl_button_disabled {
+  cursor: default;
+  pointer-events: none;
+  background-color: transparent;
+  background-image: none;
+  border: $rpl-button-disabled-border;
+  color: $rpl-button-disabled-text-color;
+}
+
+@mixin rpl_button_primary {
+  background-color: $rpl-button-primary-background-color;
+  color: $rpl-button-primary-text-color;
+
+  &:hover,
+  &:focus {
+    background-color: $rpl-button-primary-hover-background-color;
+  }
+}
+
+@mixin rpl_button_secondary {
+  background-color: $rpl-button-secondary-background-color;
+  color: $rpl-button-secondary-text-color;
+
+  &:hover,
+  &:focus {
+    background-color: $rpl-button-secondary-hover-background-color;
+  }
+}

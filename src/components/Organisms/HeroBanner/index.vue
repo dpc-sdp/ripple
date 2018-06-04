@@ -63,13 +63,14 @@ export default {
   @import "~@dpc-sdp/ripple-global/style";
 
   $rpl-hero-banner-title-typography-ruleset: (
-    'xs': ('giga', 1.6em, 'bold', true),
-    'm': map-get($rpl-typography, 'display_l')
+    'xs': ('mega', 1.29em, 'bold', true),
+    's': ('giga', 1.67em, 'bold', true),
+    'm': ('tera', 1em, 'bold', true)
   ) !default;
   $rpl-hero-banner-description-typography-ruleset: (
-    'xs': ('m', 1.2em, 'medium'),
-    's': ('xl', 1.2em, 'medium'),
-    'm': ('mega', 1.2em, 'medium')
+    'xs': ('m', 1.22em, 'medium'),
+    's': ('xl', 1.17em, 'medium'),
+    'm': ('mega', 1.29em, 'medium')
   ) !default;
   $rpl-hero-banner-description-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-description-letter-spacing: rem(-0.12px) !default;

@@ -4,14 +4,17 @@ import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
   withKnobs,
-  text
+  text,
+  object,
+  array
 } from '@storybook/addon-knobs/vue'
 
 import RplCardNavigation from './CardNavigation.vue'
 import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
+import RplCardPromotion from './CardPromotion.vue'
 import readme from './README.md'
 
-storiesOf('Organisms/Card', module)
+storiesOf('Molecules/Card', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
   .add('Card Navigation', withReadme(readme, () => ({
@@ -34,6 +37,20 @@ storiesOf('Organisms/Card', module)
         summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
         url: text('Url', '#'),
         image: text('Image', 'https://placehold.it/818x497')
+      }
+    }
+  })))
+  .add('Card Promotion', withReadme(readme, () => ({
+    components: { RplCardPromotion },
+    template: `<rpl-card-promotion :image="image" :date="date" :tags="tags" :title="title" :summary="summary" :link="link" />`,
+    data () {
+      return {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-05-31'),
+        tags: array('Tags', ['News']),
+        title: text('Title', 'This is display copy that wraps 2 lines'),
+        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+        link: object('Link', { title: 'Read more', url: '#' })
       }
     }
   })))

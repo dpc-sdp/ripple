@@ -31,6 +31,7 @@ storiesOf('Atoms/Icon', module)
           'arrow_left_primary',
           'arrow_left_secondary',
           'arrow_right_primary',
+          'arrow_right_primary_s',
           'arrow_right_secondary',
           'arrow_up_primary',
           'attach',

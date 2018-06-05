@@ -27,7 +27,8 @@ storiesOf('Atoms/Global', module)
           'white'
         ],
         gradients: [
-          'primary_gradient'
+          'primary_gradient',
+          'decorative_gradient'
         ]
       }
     }

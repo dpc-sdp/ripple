@@ -12,6 +12,7 @@ import {
 import RplCardNavigation from './CardNavigation.vue'
 import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
 import RplCardPromotion from './CardPromotion.vue'
+import RplCardKeydates from './CardKeydates.vue'
 import readme from './README.md'
 
 storiesOf('Molecules/Card', module)
@@ -50,7 +51,21 @@ storiesOf('Molecules/Card', module)
         tags: array('Tags', ['News']),
         title: text('Title', 'This is display copy that wraps 2 lines'),
         summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
-        link: object('Link', { title: 'Read more', url: '#' })
+        link: object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  })))
+  .add('Card Keydates', withReadme(readme, () => ({
+    components: { RplCardKeydates },
+    template: `<rpl-card-keydates :title="title" :keydates="keydates" :link="link" />`,
+    data () {
+      return {
+        title: text('Title', 'Key calendar dates'),
+        keydates: object('Keydates', [
+          { date: '2018-05-03', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+          { date: '2018-05-23', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+        ]),
+        link: object('Link', { text: 'See the events calendar', url: '#' })
       }
     }
   })))

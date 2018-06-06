@@ -20,7 +20,7 @@
     <div class="rpl-card-promotion__link" v-if="link">
       <span v-if="linkTextWordCount > 1">{{ linkTextWithoutLastWord }}</span>
       <span v-if="linkTextWordCount > 1" class="rpl-card-promotion__text-link-group">{{ linkTextLastWord }} <rpl-icon symbol="arrow_right_primary_s" color="primary" size="m" /></span>
-      <span v-if="linkTextWordCount <= 1" class="rpl-card-promotion__text-link-group">{{ link.title }} <rpl-icon symbol="arrow_right_primary_s" color="primary" size="m" /></span>
+      <span v-if="linkTextWordCount <= 1" class="rpl-card-promotion__text-link-group">{{ link.text }} <rpl-icon symbol="arrow_right_primary_s" color="primary" size="m" /></span>
     </div>
   </rpl-link>
 </template>
@@ -51,13 +51,13 @@ export default {
       return moment(this.date).format('DD MMMM')
     },
     linkTextWordCount: function () {
-      return this.link.title.length > 0 ? this.link.title.match(/[\w\d]+/gi).length : 0
+      return this.link.text.length > 0 ? this.link.text.match(/[\w\d]+/gi).length : 0
     },
     linkTextWithoutLastWord: function () {
-      return this.link.title.substr(0, this.link.title.lastIndexOf(' '))
+      return this.link.text.substr(0, this.link.text.lastIndexOf(' '))
     },
     linkTextLastWord: function () {
-      return this.link.title.substr(this.link.title.lastIndexOf(' '))
+      return this.link.text.substr(this.link.text.lastIndexOf(' '))
     }
   }
 }
@@ -65,19 +65,18 @@ export default {
 
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
+  @import "scss/card";
 
-  $rpl-card-promotion-vertical-padding: ($rpl-space * 5) !default;
-  $rpl-card-promotion-horizontal-padding-m: ($rpl-space * 5) !default;
   $rpl-card-promotion-border-color: rpl_color('mid_neutral_1') !default;
   $rpl-card-promotion-border: 1px solid $rpl-card-promotion-border-color !default;
   $rpl-card-promotion-background: rpl_color('white') !default;
   $rpl-card-promotion-border-radius: rem(4px) !default;
   $rpl-card-promotion-icon-after-margin: auto auto auto $rpl-space-2 !default;
-  $rpl-card-promotion-no-image-padding: (rem(56px) - $rpl-card-promotion-vertical-padding) 0 0 0 !default;
+  $rpl-card-promotion-no-image-padding: (rem(56px) - $rpl-card-vertical-padding) 0 0 0 !default;
   $rpl-card-promotion-no-image-background-image: rpl_gradient('decorative_gradient') !default;
-  $rpl-card-promotion-details-padding-xs: $rpl-card-promotion-vertical-padding $rpl-component-padding-xs 0 !default;
-  $rpl-card-promotion-details-padding-s: $rpl-card-promotion-vertical-padding $rpl-component-padding-s 0 !default;
-  $rpl-card-promotion-details-padding-m: $rpl-card-promotion-vertical-padding $rpl-card-promotion-horizontal-padding-m 0 !default;
+  $rpl-card-promotion-details-padding-xs: $rpl-card-vertical-padding $rpl-component-padding-xs 0 !default;
+  $rpl-card-promotion-details-padding-s: $rpl-card-vertical-padding $rpl-component-padding-s 0 !default;
+  $rpl-card-promotion-details-padding-m: $rpl-card-vertical-padding $rpl-card-horizontal-padding-m 0 !default;
   $rpl-card-promotion-meta-margin: 0 0 $rpl-space-3 0 !default;
   $rpl-card-promotion-date-ruleset: ('xs', 1em, 'medium') !default;
   $rpl-card-promotion-date-color: rpl_color('extra_dark_neutral') !default;
@@ -96,10 +95,10 @@ export default {
   $rpl-card-promotion-link-color-hover: rpl_color('primary') !default;
   $rpl-card-promotion-link-padding-xs: $rpl-space-3 $rpl-component-padding-xs !default;
   $rpl-card-promotion-link-padding-s: $rpl-space-3 $rpl-component-padding-s !default;
-  $rpl-card-promotion-link-padding-m: $rpl-space-3 $rpl-card-promotion-horizontal-padding-m !default;
+  $rpl-card-promotion-link-padding-m: $rpl-space-3 $rpl-card-horizontal-padding-m !default;
   $rpl-card-promotion-link-line-space-xs: $rpl-component-padding-xs !default;
   $rpl-card-promotion-link-line-space-s: $rpl-component-padding-s !default;
-  $rpl-card-promotion-link-line-space-m: $rpl-card-promotion-horizontal-padding-m !default;
+  $rpl-card-promotion-link-line-space-m: $rpl-card-horizontal-padding-m !default;
 
   .rpl-card-promotion {
     $root: &;

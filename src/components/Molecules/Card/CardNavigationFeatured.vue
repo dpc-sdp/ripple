@@ -33,6 +33,7 @@ export default {
 
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
+  @import "scss/card";
 
   $rpl-card-navigation-featured-margin-xs: $rpl-space-3 auto !default;
   $rpl-card-navigation-featured-margin-s: ($rpl-space * 5) auto !default;

@@ -11,7 +11,7 @@ import {
 import RplRelatedLinks from './index.vue'
 import readme from './README.md'
 
-storiesOf('Organisms/RelatedLinks', module)
+storiesOf('Molecules/RelatedLinks', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
   .add('Related Links', withReadme(readme, () => ({

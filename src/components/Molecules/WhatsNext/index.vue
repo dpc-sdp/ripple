@@ -35,7 +35,6 @@ export default {
 
   $rpl-whats-next-max-width-s: rem(583px);
   $rpl-whats-next-background: transparent;
-  $rpl-whats-next-padding: 0;
   $rpl-whats-next-border-radius: rem(4px);
   $rpl-whats-next-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-whats-next-title-color: rpl_color('extra_dark_neutral');
@@ -43,12 +42,15 @@ export default {
   $rpl-whats-next-item-margin: auto auto $rpl-space-3;
 
   .rpl-whats-next {
-    padding: $rpl-whats-next-padding;
+    @include rpl_mobile_padding;
+    padding-top: $rpl-space-4;
     background: $rpl-whats-next-background;
     position: relative;
 
     @include rpl_breakpoint('l') {
       border-radius: $rpl-whats-next-border-radius;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     &__row {

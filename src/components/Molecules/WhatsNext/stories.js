@@ -11,7 +11,7 @@ import {
 import RplWhatsNext from './index.vue'
 import readme from './README.md'
 
-storiesOf('Organisms/WhatsNext', module)
+storiesOf('Molecules/WhatsNext', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
   .add('What\'s Next', withReadme(readme, () => ({

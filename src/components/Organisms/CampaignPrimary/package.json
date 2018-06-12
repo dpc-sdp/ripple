@@ -1,0 +1,11 @@
+{
+  "name": "@dpc-sdp/ripple-campaign-primary",
+  "version": "0.1.0",
+  "description": "Ripple campaign primary",
+  "private": true,
+  "main": "index.vue",
+  "peerDependencies": {
+    "@dpc-sdp/ripple-global": "0.1.0",
+    "@dpc-sdp/ripple-button": "0.1.0"
+  }
+}

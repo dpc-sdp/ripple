@@ -1,22 +1,17 @@
 <template>
-  <p v-if="date" class="rpl-updated-date">{{ prefix }} {{ formattedDate }}</p>
+  <p v-if="date" class="rpl-updated-date">{{ prefix }} {{ formatDate(date, 'DD MMMM YYYY') }}</p>
 </template>
 
 <script>
-import moment from 'moment'
+import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 
 export default {
   name: 'RplUpdatedDate',
+  mixins: [formatdate],
   props: {
     date: String,
     prefix: { default: 'Reviewed', type: String },
     locale: { default: 'en-au', type: String }
-  },
-  computed: {
-    formattedDate: function () {
-      moment.locale(this.locale)
-      return moment(this.date).format('DD MMMM YYYY')
-    }
   }
 }
 </script>

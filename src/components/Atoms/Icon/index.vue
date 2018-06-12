@@ -46,7 +46,8 @@ export default {
     iconStyle () {
       if (this.validSymbol) {
         const { width, height } = this.iconProperties[this.symbol]
-        let size = (this.sizes[this.size] === undefined) ? 1 : this.sizes[this.size]
+        let size = (this.sizes[this.size] === undefined) ? parseFloat(this.size) : this.sizes[this.size]
+        size = isNaN(size) ? 1 : size
         return `width: ${width * size}px; height: ${height * size}px`
       }
     }

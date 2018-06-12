@@ -36,3 +36,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import "~@dpc-sdp/ripple-global/style";
+
+@include rpl_breakpoint(l) {
+  .rpl-content {
+    > .rpl-container {
+      overflow-x: visible;
+    }
+  }
+
+  .rpl-sidebar {
+    margin-top: -$rpl-space-4 * 3;
+  }
+}
+</style>

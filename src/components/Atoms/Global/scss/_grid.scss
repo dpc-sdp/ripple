@@ -20,7 +20,7 @@
 $rpl-grid: (
   columns: 12,
   gutter: 24px,
-  row_gutter: 4px
+  row_gutter: $rpl-row-gutter
 ) !default;
 
 // Helpers
@@ -125,10 +125,14 @@ $rpl-grid: (
 
 @mixin rpl_grid_row_gutter($row-gutter: rpl-grid-get-row-gutter($rpl-grid)) {
   > div {
-    margin-bottom: $row-gutter;
-
-    &:last-child {
-      margin-bottom: 0;
+    @if type-of($row-gutter) == map {
+      @each $bp, $gutter in $row-gutter {
+        @include rpl_breakpoint($bp) {
+          margin-bottom: $gutter;
+        }
+      }
+    } @else {
+      margin-bottom: $row-gutter;
     }
   }
 }

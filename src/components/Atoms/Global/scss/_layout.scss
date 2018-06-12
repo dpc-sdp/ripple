@@ -8,17 +8,13 @@ $rpl-layout: (
   )
 ) !default;
 
-$rpl-component-gutter-s: $rpl-space * 4;
-$rpl-component-gutter-l: $rpl-space * 6;
-
 @mixin rpl_component_gutter {
-  margin-bottom: $rpl-component-gutter-s;
-
-  @include rpl_breakpoint(m) {
-    margin-bottom: $rpl-component-gutter-l;
+  @each $bp, $gutter in $rpl-row-gutter {
+    @include rpl_breakpoint($bp) {
+      margin-bottom: $gutter;
+    }
   }
 }
-
 
 @mixin rpl_site_constrain($style: all) {
   @if $style == all {

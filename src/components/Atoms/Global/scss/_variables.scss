@@ -4,6 +4,15 @@ $rpl-space-2: .5rem !default;
 $rpl-space-3: .75rem !default;
 $rpl-space-4: 1rem !default;
 
+// Margin for row gutter between components
+$rpl-component-gutter-s: $rpl-space * 4 !default;
+$rpl-component-gutter-l: $rpl-space * 6 !default;
+
+$rpl-row-gutter: (
+  xs: $rpl-component-gutter-s,
+  l: $rpl-component-gutter-l
+);
+
 // Padding for mobile left and right
 $rpl-component-padding-xs: $rpl-space * 5;
 $rpl-component-padding-s: $rpl-space * 7;

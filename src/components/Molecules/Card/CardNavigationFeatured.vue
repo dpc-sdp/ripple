@@ -51,6 +51,7 @@ export default {
   ) !default;
   $rpl-card-navigation-featured-summary-color: rpl_color('white') !default;
   $rpl-card-navigation-featured-summary-background: transparent url(rpl_banner_primary_arrow_url('secondary')) no-repeat bottom right !default;
+  $rpl-card-navigation-featured-summary-background-hover: rpl_color('secondary') url(rpl_banner_primary_arrow_url('primary')) no-repeat bottom right !default;
   $rpl-card-navigation-featured-summary-xs: ($rpl-space * 11) $rpl-component-padding-xs ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-s: ($rpl-space * 6) $rpl-component-padding-s ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-l: ($rpl-space * 11) ($rpl-space * 8) ($rpl-space * 7) !default;
@@ -75,6 +76,10 @@ export default {
 
       &.rpl-link {
         text-decoration: none;
+      }
+
+      #{$root}__summary {
+        background: $rpl-card-navigation-featured-summary-background-hover;
       }
     }
 

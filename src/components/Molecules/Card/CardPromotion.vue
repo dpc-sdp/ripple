@@ -5,17 +5,20 @@
       <div class="rpl-card-promotion__tag" v-for="(tag, index) in tags" :key="index">{{ tag }}</div>
     </div>
     <h2 class="rpl-card-promotion__title" v-if="title">{{ title }}</h2>
-    <p class="rpl-card-promotion__summary" v-if="summary">{{ summary }}</p>
+    <div class="rpl-card-promotion__trim-wrapper" v-if="summary" :style="{ maxHeight: trimFieldMaxHeight }">
+      <p class="rpl-card-promotion__summary">{{ summary }}</p>
+    </div>
   </rpl-card-content>
 </template>
 
 <script>
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
+import cardtrimfield from '@dpc-sdp/ripple-global/mixins/cardtrimfield'
 import RplCardContent from './CardContent.vue'
 
 export default {
   name: 'RplCardPromotion',
-  mixins: [formatdate],
+  mixins: [formatdate, cardtrimfield],
   props: {
     image: String,
     date: String,
@@ -27,6 +30,17 @@ export default {
   },
   components: {
     RplCardContent
+  },
+  data: function () {
+    return {
+      trimFieldSelector: '.rpl-card-promotion__summary'
+    }
+  },
+  methods: {
+    getTrimFieldMaxHeightOffset: function (card) {
+      let link = this.$el.querySelector('.rpl-card-content__link')
+      return (card.clientHeight - link.clientHeight)
+    }
   }
 }
 </script>
@@ -46,7 +60,7 @@ export default {
   $rpl-card-promotion-title-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-card-promotion-title-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-promotion-title-margin: 0 0 $rpl-space-3 0 !default;
-  $rpl-card-promotion-summary-ruleset: ('xs', 1.4em, 'regular') !default;
+  $rpl-card-promotion-summary-ruleset: ('xs', 1.5em, 'regular') !default;
   $rpl-card-promotion-summary-text-color: rpl_color('extra_dark_neutral') !default;
 
   .rpl-card-promotion {
@@ -79,6 +93,15 @@ export default {
     &__summary {
       @include rpl_typography_ruleset($rpl-card-promotion-summary-ruleset);
       color: $rpl-card-promotion-summary-text-color;
+      @include rpl_breakpoint('m') {
+        margin: 0;
+      }
+    }
+
+    &__trim-wrapper {
+      @include rpl_breakpoint('m') {
+        overflow: hidden;
+      }
     }
   }
 </style>

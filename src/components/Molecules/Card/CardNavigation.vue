@@ -60,14 +60,6 @@ export default {
     padding-top: $rpl-card-navigation-padding-vertical-s;
     padding-bottom: $rpl-card-navigation-padding-vertical-s;
 
-    @include rpl_breakpoint('xs') {
-      margin: $rpl-card-navigation-margin-xs;
-    }
-
-    @include rpl_breakpoint('s') {
-      margin: $rpl-card-navigation-margin-s;
-    }
-
     @include rpl_breakpoint('m') {
       padding: $rpl-card-navigation-padding;
     }

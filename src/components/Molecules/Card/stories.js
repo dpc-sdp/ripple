@@ -13,6 +13,7 @@ import RplCardNavigation from './CardNavigation.vue'
 import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
+import RplCardEvent from './CardEvent.vue'
 import readme from './README.md'
 
 storiesOf('Molecules/Card', module)
@@ -66,6 +67,20 @@ storiesOf('Molecules/Card', module)
           { date: '2018-05-23', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
         ]),
         link: object('Link', { text: 'See the events calendar', url: '#' })
+      }
+    }
+  })))
+  .add('Card Event', withReadme(readme, () => ({
+    components: { RplCardEvent },
+    template: `<rpl-card-event :image="image" :date="date" :location="location" :title="title" :summary="summary" :link="link" />`,
+    data () {
+      return {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-05-31'),
+        location: text('Location', 'South Yarra'),
+        title: text('Title', 'This is the headline of an event with a location that will stretch over over 3 lines'),
+        summary: text('Summary', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte'),
+        link: object('Link', { text: 'See event details', url: '#' })
       }
     }
   })))

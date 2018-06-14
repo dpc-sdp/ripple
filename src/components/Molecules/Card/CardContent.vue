@@ -6,7 +6,7 @@
       'rpl-card-content--no-image': !image
     }"
   >
-    <div class="rpl-card-content__image-wrapper">
+    <div class="rpl-card-content__image-wrapper" v-if="image">
       <img class="rpl-card-content__image" v-if="image" :src="image" alt="" />
     </div>
     <div class="rpl-card-content__details">
@@ -78,12 +78,19 @@ export default {
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box;
     border-bottom: $rpl-card-content-border;
     background-color: $rpl-card-content-background;
-
     @include rpl_breakpoint('m') {
       border-radius: $rpl-card-content-border-radius;
       border: $rpl-card-content-border;
+      height: rem(460px);
+    }
+    @include rpl_breakpoint('l') {
+      height: rem(500px);
+    }
+    @include rpl_breakpoint('xl') {
+      height: rem(460px);
     }
 
     &:hover,
@@ -114,11 +121,30 @@ export default {
 
     &__image-wrapper {
       width: 100%;
+      @include rpl_breakpoint('m') {
+        height: rem(200px);
+      }
+      @include rpl_breakpoint('l') {
+        height: rem(232px);
+      }
+      @include rpl_breakpoint('xl') {
+        height: rem(200px);
+      }
     }
 
     &__image {
+      object-fit: cover;
       width: 100%;
       display: table;
+      @include rpl_breakpoint('m') {
+        height: rem(200px);
+      }
+      @include rpl_breakpoint('l') {
+        height: rem(232px);
+      }
+      @include rpl_breakpoint('xl') {
+        height: rem(200px);
+      }
     }
 
     &__details {

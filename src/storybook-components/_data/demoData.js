@@ -168,6 +168,15 @@ const demoData = {
     link: object('Link', { text: 'See the events calendar', url: '#' })
   },
 
+  cardEvent: {
+    image: text('Image', 'https://placehold.it/580x340'),
+    date: text('Date', '2018-05-31'),
+    location: text('Location', 'South Yarra'),
+    title: text('Title', 'This is the headline of an event with a location'),
+    summary: text('Summary', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte'),
+    link: object('Link', { text: 'See event details', url: '#' })
+  },
+
   relatedLinks: {
     title: text('Title', 'Related links'),
     links: object('Links', [

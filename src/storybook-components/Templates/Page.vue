@@ -31,11 +31,23 @@
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-card-navigation-featured :title="mock.cardNavigationFeatured.title" :summary="mock.cardNavigationFeatured.summary" :url="mock.cardNavigationFeatured.url" :image="mock.cardNavigationFeatured.image" />
         </rpl-col>
-        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+        <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-card-navigation :title="mock.cardNavigation.title" :summary="mock.cardNavigation.summary" :url="mock.cardNavigation.url" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
           <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :tags="mock.cardNavigation.tags" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
+        </rpl-col>
+        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+          <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
+        </rpl-col>
+        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+          <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
+        </rpl-col>
+        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+          <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :tags="mock.cardNavigation.tags" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
+        </rpl-col>
+        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+          <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
           <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
@@ -87,7 +99,7 @@ import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 
 // Card
-import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates } from '@dpc-sdp/ripple-card'
+import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent } from '@dpc-sdp/ripple-card'
 
 // Sidebar
 import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
@@ -113,6 +125,7 @@ export default {
     RplCardNavigationFeatured,
     RplCardPromotion,
     RplCardKeydates,
+    RplCardEvent,
 
     // Sidebar
     RplRelatedLinks,

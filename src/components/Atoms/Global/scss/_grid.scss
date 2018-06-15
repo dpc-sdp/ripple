@@ -19,7 +19,7 @@
 //   );
 $rpl-grid: (
   columns: 12,
-  gutter: 24px,
+  gutter: rem(24px),
   row_gutter: $rpl-row-gutter
 ) !default;
 

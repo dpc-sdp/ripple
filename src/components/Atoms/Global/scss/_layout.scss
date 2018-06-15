@@ -1,12 +1,14 @@
 $rpl-layout: (
   'site_padding': (
-    'm': 32px,
-    'l': 68px,
-    'xl': 72px,
-    'xxl': 272px,
-    'xxxl': 560px,
+    'm': rem(32px),
+    'l': rem(68px),
+    'xl': rem(92px)
   )
 ) !default;
+
+// Max width of site content constrain will be 1420px.
+$_rpl-site-constrain-max-width: rem(1420px);
+$_rpl-xxl-padding: calc((100% - #{$_rpl-site-constrain-max-width}) / 2);
 
 @mixin rpl_component_gutter {
   @each $bp, $gutter in $rpl-row-gutter {
@@ -24,6 +26,12 @@ $rpl-layout: (
         padding-right: $padding;
       }
     }
+
+    @include rpl_breakpoint(xxl) {
+      padding-left: $_rpl-xxl-padding;
+      padding-right: $_rpl-xxl-padding;
+    }
+
   } @else if $style == small {
     @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
       @if index((xs, s, m), $bp) {
@@ -49,6 +57,12 @@ $rpl-layout: (
         margin-right: -$padding;
       }
     }
+
+    @include rpl_breakpoint(xxl) {
+      margin-left: calc((100vw - #{$_rpl-site-constrain-max-width}) / -2);
+      margin-right: calc((100vw - #{$_rpl-site-constrain-max-width}) / -2);
+    }
+
   } @else if $style == small {
     @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
       @if index((xs, s, m), $bp) {
@@ -82,6 +96,14 @@ $rpl-layout: (
 
 .rpl-site-constrain--on-all {
   @include rpl_site_constrain;
+
+  // For nested constrain item want to grow to edge.
+  .rpl-site-constrain--on-all {
+    @include rpl_breakpoint(xxl) {
+      padding-left: calc((100vw - #{$_rpl-site-constrain-max-width}) / 2);
+      padding-right: calc((100vw - #{$_rpl-site-constrain-max-width}) / 2);
+    }
+  }
 }
 
 // Use this calss if the item is inside sidebar or main content area beside sidebar and you are using `.rpl-edge--below-l`.

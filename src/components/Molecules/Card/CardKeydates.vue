@@ -4,7 +4,8 @@
     <div class="rpl-card-keydates__keydate" v-for="(keydate, index) in keydates" :key="index">
       <div class="rpl-card-keydates__keydate-date">
         <rpl-icon symbol="calendar" color="white" />
-        <span>{{ formatDate(keydate.date) }}</span>
+        <!-- <span>{{ formatDate(keydate.date) }}</span> -->
+        <span>{{ keydate.date }}</span>
       </div>
       <h3 class="rpl-card-keydates__keydate-title">{{ keydate.title }}</h3>
       <p class="rpl-card-keydates__keydate-description">{{ keydate.description }}</p>
@@ -23,8 +24,9 @@ export default {
   props: {
     title: String,
     keydates: Array,
-    link: Object,
-    locale: { default: 'en-au', type: String }
+    link: Object
+    // TODO: currently Tide is just use plain text field for date, so no way to format it
+    // locale: { default: 'en-au', type: String }
   },
   components: {
     RplCardContent,
@@ -75,6 +77,7 @@ export default {
 
       .rpl-icon {
         margin-top: $rpl-card-keydates-keydate-date-icon-margin;
+        margin-right: $rpl-space;
       }
     }
 

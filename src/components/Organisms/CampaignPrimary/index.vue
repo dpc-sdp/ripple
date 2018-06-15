@@ -16,7 +16,7 @@
       <div class="rpl-campaign-primary__left">
         <div class="rpl-campaign-primary__content">
           <h2 v-if="title" class="rpl-campaign-primary__title">{{ title }}</h2>
-          <p v-if="summary" class="rpl-campaign-primary__summary">{{ summary }}</p>
+          <div v-if="summary" class="rpl-campaign-primary__summary" v-html="summary"></div>
         </div>
         <rpl-button v-if="link" :href="link.url" theme="primary" class="rpl-campaign-primary__call-to-action">{{ link.text }}</rpl-button>
       </div>

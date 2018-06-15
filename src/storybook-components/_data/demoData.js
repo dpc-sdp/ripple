@@ -207,6 +207,13 @@ const demoData = {
     ])
   },
 
+  campaignSecondary: {
+    title: text('Title', 'Secondary campaign headline'),
+    summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'),
+    link: object('Call to action', { text: 'Call to action', url: '#' }),
+    image: text('Image', 'http://placehold.it/699x411')
+  },
+
   footer: {
     nav: [
       {

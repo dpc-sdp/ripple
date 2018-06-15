@@ -31,6 +31,7 @@
     "@dpc-sdp/ripple-hero-banner": "file:src/components/Organisms/HeroBanner",
     "@dpc-sdp/ripple-updated-date": "file:src/components/Organisms/UpdatedDate",
     "@dpc-sdp/ripple-call-to-action": "file:src/components/Organisms/CallToAction",
+    "@dpc-sdp/ripple-campaign-secondary": "file:src/components/Organisms/CampaignSecondary",
     "vue": "^2.5.16"
   },
   "devDependencies": {

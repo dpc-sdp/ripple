@@ -68,7 +68,7 @@
 
       <template slot="belowContent">
         <div class="banner-secondary rpl-site-constrain--on-all">
-          <div class="sub-content">banner secondary</div>
+          <rpl-campaign-secondary :title="mock.campaignSecondary.title" :summary="mock.campaignSecondary.summary" :link="mock.campaignSecondary.link" :image="mock.campaignSecondary.image" />
         </div>
       </template>
 
@@ -104,6 +104,9 @@ import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 // Card
 import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent } from '@dpc-sdp/ripple-card'
 
+// Campaign Secondary
+import RplCampaignSecondary from '@dpc-sdp/ripple-campaign-secondary'
+
 // Sidebar
 import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
 import RplWhatsNext from '@dpc-sdp/ripple-whats-next'
@@ -132,6 +135,9 @@ export default {
     RplCardPromotion,
     RplCardKeydates,
     RplCardEvent,
+
+    // Campaign Secondary
+    RplCampaignSecondary,
 
     // Sidebar
     RplRelatedLinks,

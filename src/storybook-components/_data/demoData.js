@@ -137,6 +137,14 @@ const demoData = {
     moreLink: object('More Link', { text: 'See more', url: '#' })
   },
 
+  breadcrumbs: {
+    crumbs: [
+      { text: 'Home', url: '#' },
+      { text: 'Level 1 parent link', url: '#' },
+      { text: 'Level 2 page title' }
+    ]
+  },
+
   cardNavigation: {
     title: text('Title', 'First navigation card'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),

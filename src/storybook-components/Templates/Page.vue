@@ -14,8 +14,8 @@
     </template>
 
     <rpl-page-layout :sidebar="sidebar" class="main rpl-container">
-
       <template slot="aboveContent">
+        <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs"/>
         <rpl-hero-banner
           :title="mock.heroBanner.title" :introText="mock.heroBanner.introText"
           :linkHeading="mock.heroBanner.linkHeading" :links="mock.heroBanner.links"
@@ -95,6 +95,9 @@ import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 
+// Breadcrumb
+import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
+
 // Banner
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 
@@ -116,6 +119,9 @@ export default {
     RplCol,
     RplSiteHeader,
     RplSiteFooter,
+
+    // Breadcrumbs
+    RplBreadcrumbs,
 
     // Banner
     RplHeroBanner,

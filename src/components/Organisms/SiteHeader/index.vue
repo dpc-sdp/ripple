@@ -109,6 +109,16 @@ export default {
       }
     }
   },
+  watch: {
+    // Close menu after vue route changed.
+    $route: function (to, from) {
+      if (this.menuContentOpen && this.menuState === 'opened') {
+        this.menuToggle()
+      } else if (this.menuContentOpen && this.searchState === 'opened') {
+        this.searchToggle()
+      }
+    }
+  },
   methods: {
     searchToggle: function () {
       this.menuContentOpen = !(this.menuContentOpen && this.searchState === 'opened')

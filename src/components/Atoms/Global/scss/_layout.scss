@@ -49,6 +49,11 @@ $_rpl-xxl-padding: calc((100% - #{$_rpl-site-constrain-max-width}) / 2);
   }
 }
 
+// Make a item inside site constrain container to grow to viewport edge.
+// Argument `all` will make a item grow to edge all the time.
+// By default, without this mixin a item will still grow to edge under breakpoint `l`.
+// So in that case you don't need this mixin.
+// Argument `small` is used for making a element inside component padding. Like a card image.
 @mixin rpl_edge($style: all) {
   @if $style == all {
     @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
@@ -64,18 +69,20 @@ $_rpl-xxl-padding: calc((100% - #{$_rpl-site-constrain-max-width}) / 2);
     }
 
   } @else if $style == small {
-    @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
-      @if index((xs, s, m), $bp) {
-        @include rpl_breakpoint($bp) {
-          margin-left: -$padding;
-          margin-right: -$padding;
-        }
-      }
+    margin-left: -$rpl-component-padding-xs;
+    margin-right: -$rpl-component-padding-xs;
+    width: calc(100% + (#{$rpl-component-padding-xs} * 2));
+  
+    @include rpl_breakpoint(s) {
+      margin-left: -$rpl-component-padding-s;
+      margin-right: -$rpl-component-padding-s;
+      width: calc(100% + (#{$rpl-component-padding-s} * 2));
+    }
 
-      @include rpl_breakpoint(l) {
-        margin-left: 0;
-        margin-right: 0;
-      }
+    @include rpl_breakpoint(m) {
+      margin-left: auto;
+      margin-right: auto;
+      width: auto;
     }
   }
 }

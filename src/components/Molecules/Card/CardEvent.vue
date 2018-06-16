@@ -1,6 +1,9 @@
 <template>
   <rpl-card-content :image="image" :link="link" class="rpl-card-event">
-    <div class="rpl-card-event__date" v-if="date">{{ formatDate(date) }}</div>
+    <div class="rpl-card-event__meta" v-if="date || tags">
+      <div class="rpl-card-event__date" v-if="date">{{ formatDate(date) }}</div>
+      <div class="rpl-card-event__tag" v-for="(tag, index) in tags" :key="index">{{ tag }}</div>
+    </div>
     <h2 class="rpl-card-event__title" v-if="title">{{ title }}</h2>
     <div class="rpl-card-event__trim-wrapper" v-if="summary" :style="{ maxHeight: trimFieldMaxHeight }">
       <p class="rpl-card-event__summary">{{ summary }}</p>
@@ -21,6 +24,7 @@ export default {
   props: {
     image: String,
     date: String,
+    tags: Array,
     location: String,
     title: String,
     summary: String,
@@ -51,11 +55,14 @@ export default {
   @import "~@dpc-sdp/ripple-global/style";
   @import "scss/card";
 
+  $rpl-card-event-meta-margin: 0 0 $rpl-space-3 0 !default;
   $rpl-card-event-date-ruleset: ('s', 1em, 'bold') !default;
   $rpl-card-event-date-color: rpl_color('white') !default;
   $rpl-card-event-date-background-color: rpl_color('secondary') !default;
   $rpl-card-event-date-padding: $rpl-space-2 !default;
-  $rpl-card-event-date-margin: 0 auto $rpl-space-3 !default;
+  $rpl-card-event-tag-ruleset: ('xxs', 1em, 'medium') !default;
+  $rpl-card-event-tag-text-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
+  $rpl-card-event-tag-margin: 0 0 0 $rpl-space-2 !default;
   $rpl-card-event-title-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-card-event-title-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-event-title-margin: 0 0 $rpl-space-3 0 !default;
@@ -67,13 +74,24 @@ export default {
   $rpl-card-event-location-icon-margin: 0 $rpl-space rem(-3px) 0 !default;
 
   .rpl-card-event {
+    &__meta {
+      margin: $rpl-card-event-meta-margin;
+    }
+
     &__date {
       @include rpl_typography_ruleset($rpl-card-event-date-ruleset);
-      display: inline-block;
+      display: inline;
       color: $rpl-card-event-date-color;
       background-color: $rpl-card-event-date-background-color;
       padding: $rpl-card-event-date-padding;
-      margin: $rpl-card-event-date-margin;
+    }
+
+    &__tag {
+      @include rpl_typography_ruleset($rpl-card-event-tag-ruleset);
+      display: inline;
+      color: $rpl-card-event-tag-text-color;
+      text-transform: uppercase;
+      margin: $rpl-card-event-tag-margin;
     }
 
     &__title {

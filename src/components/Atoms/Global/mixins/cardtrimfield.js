@@ -17,13 +17,15 @@ const cardtrimfield = {
       if (typeof window !== 'undefined' && this.$el && this.$breakpoint.m) {
         // Elements
         let card = this.$el
-        let summary = this.$el.querySelector(this.trimFieldSelector)
-        // Properties
-        let summaryLineHeight = parseFloat(window.getComputedStyle(summary, null).getPropertyValue('line-height'))
-        let summaryAllowedHeight = this.getTrimFieldMaxHeightOffset(card) - summary.offsetTop
-        summaryAllowedHeight = summaryLineHeight * Math.floor(summaryAllowedHeight / summaryLineHeight)
-        // Set Max Height
-        this.trimFieldMaxHeight = (summary.clientHeight > summaryAllowedHeight) ? summaryAllowedHeight + 'px' : 'none'
+        if (card.data) {
+          let summary = card.querySelector(this.trimFieldSelector)
+          // Properties
+          let summaryLineHeight = parseFloat(window.getComputedStyle(summary, null).getPropertyValue('line-height'))
+          let summaryAllowedHeight = this.getTrimFieldMaxHeightOffset(card) - summary.offsetTop
+          summaryAllowedHeight = summaryLineHeight * Math.floor(summaryAllowedHeight / summaryLineHeight)
+          // Set Max Height
+          this.trimFieldMaxHeight = (summary.clientHeight > summaryAllowedHeight) ? summaryAllowedHeight + 'px' : 'none'
+        }
       } else {
         this.trimFieldMaxHeight = 'none'
       }

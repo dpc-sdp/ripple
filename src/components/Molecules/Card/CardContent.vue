@@ -5,6 +5,7 @@
     :class="{
       'rpl-card-content--no-image': !image
     }"
+    v-if="link"
   >
     <div class="rpl-card-content__image-wrapper" v-if="image">
       <img class="rpl-card-content__image" v-if="image" :src="image" alt="" />

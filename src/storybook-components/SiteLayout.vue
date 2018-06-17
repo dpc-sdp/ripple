@@ -110,9 +110,6 @@ $_section-gutter: $rpl-space;
 
 .sub-content {
   background: rpl-color(mid_neutral_1);
-  padding-top: $rpl-space;
-  padding-bottom: $rpl-space;
-  margin-bottom: $_section-gutter;
 }
 
 .rpl-edge--below-l,
@@ -131,16 +128,5 @@ $_section-gutter: $rpl-space;
 
 .rpl-content {
   background: none;
-}
-
-.demo-main {
-  margin-bottom: $_section-gutter;
-
-  .rpl-col {
-    & > div {
-      padding-top: $rpl-space;
-      padding-bottom: $rpl-space;
-    }
-  }
 }
 </style>

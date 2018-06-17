@@ -175,8 +175,6 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-site-header-sticky-spacing-xs: rem(10px);
-  $rpl-site-header-sticky-spacing-s: rem(20px);
   $rpl-site-header-text-color: rpl-color('white') !default;
   $rpl-site-header-border-radius: rem(4px) !default;
   $rpl-site-header-background-color: rpl-color('primary') !default;
@@ -202,14 +200,14 @@ export default {
 
     &--sticky:not(#{$root}--open) {
       position: fixed;
-      top: $rpl-site-header-sticky-spacing-xs;
-      left: $rpl-site-header-sticky-spacing-xs;
-      right: $rpl-site-header-sticky-spacing-xs;
+      top: $rpl-header-horizontal-padding-xs;
+      left: $rpl-header-horizontal-padding-xs;
+      right: $rpl-header-horizontal-padding-xs;
 
       @include rpl_breakpoint('s') {
-        top: $rpl-site-header-sticky-spacing-s;
-        left: $rpl-site-header-sticky-spacing-s;
-        right: $rpl-site-header-sticky-spacing-s;
+        top: $rpl-header-horizontal-padding-s;
+        left: $rpl-header-horizontal-padding-s;
+        right: $rpl-header-horizontal-padding-s;
       }
     }
 

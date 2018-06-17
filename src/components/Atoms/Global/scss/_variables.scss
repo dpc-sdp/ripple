@@ -4,18 +4,32 @@ $rpl-space-2: .5rem !default;
 $rpl-space-3: .75rem !default;
 $rpl-space-4: 1rem !default;
 
+// Site top margin.
+// These spacings coupled with the site header height.
+// Update them if site header height changed.
+$rpl-layout-top-margin: (
+  xs: $rpl-space * 16,
+  s: $rpl-space * 19,
+  m: $rpl-space * 24
+) !default;
+
 // Margin for row gutter between components
 $rpl-component-gutter-s: $rpl-space * 4 !default;
 $rpl-component-gutter-l: $rpl-space * 6 !default;
 
+// The standard row gutter cross site
 $rpl-row-gutter: (
   xs: $rpl-component-gutter-s,
   l: $rpl-component-gutter-l
 );
 
 // Padding for mobile left and right
-$rpl-component-padding-xs: $rpl-space * 5;
-$rpl-component-padding-s: $rpl-space * 7;
+$rpl-component-padding-xs: $rpl-space * 5 !default;
+$rpl-component-padding-s: $rpl-space * 7 !default;
+
+// Header padding
+$rpl-header-horizontal-padding-xs: $rpl-space * 2.5;
+$rpl-header-horizontal-padding-s: $rpl-space * 5;
 
 // Z-index
 $rpl-zindex-tooltip: 1070 !default;

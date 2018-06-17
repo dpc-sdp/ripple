@@ -15,7 +15,7 @@
 
     <rpl-page-layout :sidebar="sidebar" class="main rpl-container">
       <template slot="aboveContent">
-        <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs"/>
+        <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
         <rpl-hero-banner
           :title="mock.heroBanner.title" :introText="mock.heroBanner.introText"
           :linkHeading="mock.heroBanner.linkHeading" :links="mock.heroBanner.links"

@@ -5,8 +5,7 @@ import VueInfoAddon from 'storybook-addon-vue-info'
 import {
   withKnobs,
   text,
-  object,
-  array
+  object
 } from '@storybook/addon-knobs/vue'
 
 import RplCardNavigation from './CardNavigation.vue'

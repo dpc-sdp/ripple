@@ -4,7 +4,6 @@
 import {
   text,
   object,
-  array,
   boolean,
   number
 } from '@storybook/addon-knobs/vue'

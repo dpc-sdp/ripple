@@ -1,8 +1,8 @@
 <template>
-  <rpl-card-content :image="image" :link="link" class="rpl-card-event">
-    <div class="rpl-card-promotion__meta" v-if="date || tags">
+  <rpl-card-content class="rpl-card-promotion" :image="image" :link="link">
+    <div class="rpl-card-promotion__meta" v-if="date || topic">
       <div class="rpl-card-promotion__date" v-if="date">{{ formatDate(date) }}</div>
-      <div class="rpl-card-promotion__tag" v-for="(tag, index) in tags" :key="index">{{ tag }}</div>
+      <div class="rpl-card-promotion__tag" >{{ topic }}</div>
     </div>
     <h2 class="rpl-card-promotion__title" v-if="title">{{ title }}</h2>
     <div class="rpl-card-promotion__trim-wrapper" v-if="summary" :style="{ maxHeight: trimFieldMaxHeight }">
@@ -22,7 +22,7 @@ export default {
   props: {
     image: String,
     date: String,
-    tags: Array,
+    topic: String,
     title: String,
     summary: String,
     link: Object,

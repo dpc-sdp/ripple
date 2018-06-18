@@ -49,7 +49,7 @@ storiesOf('Molecules/Card', module)
       return {
         image: text('Image', 'https://placehold.it/580x340'),
         date: text('Date', '2018-05-31'),
-        tags: array('Tags', ['News']),
+        topic: text('Topic', 'News'),
         title: text('Title', 'This is display copy that wraps 2 lines'),
         summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
         link: object('Link', { text: 'Read more', url: '#' })

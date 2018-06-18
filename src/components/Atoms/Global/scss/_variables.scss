@@ -23,6 +23,14 @@ $rpl-row-gutter: (
   l: $rpl-component-gutter-l
 );
 
+$rpl-content-padding-top: (
+  xs: $rpl-space * 4,
+  m: $rpl-space * 10,
+  l: $rpl-space * 17,
+  xl: $rpl-space * 20,
+  xxxl: $rpl-space * 22
+) !default;
+
 // Padding for mobile left and right
 $rpl-component-padding-xs: $rpl-space * 5 !default;
 $rpl-component-padding-s: $rpl-space * 7 !default;

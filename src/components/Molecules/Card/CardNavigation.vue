@@ -32,6 +32,7 @@ export default {
   $rpl-card-navigation-margin-xs: $rpl-space-3 auto !default;
   $rpl-card-navigation-margin-s: ($rpl-space * 5) auto !default;
   $rpl-card-navigation-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-card-navigation-background: rpl_color('white') !default;
   $rpl-card-navigation-padding-vertical-s: ($rpl-space * 5) !default;
   $rpl-card-navigation-padding: ($rpl-space * 9) ($rpl-space * 8) !default;
   $rpl-card-navigation-border: 1px solid rpl-color('mid_neutral_1') !default;
@@ -57,6 +58,7 @@ export default {
     border: $rpl-card-navigation-border;
     display: block;
     color: $rpl-card-navigation-color;
+    background-color: $rpl-card-navigation-background;
     padding-top: $rpl-card-navigation-padding-vertical-s;
     padding-bottom: $rpl-card-navigation-padding-vertical-s;
 

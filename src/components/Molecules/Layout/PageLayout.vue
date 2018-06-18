@@ -48,17 +48,8 @@ export default {
 <style lang="scss" scoped>
 @import "~@dpc-sdp/ripple-global/style";
 
-@include rpl_breakpoint(l) {
-  .rpl-content {
-    > .rpl-container {
-      overflow-x: visible;
-    }
-  }
-
-  .rpl-sidebar {
-    margin-top: -$rpl-space-4 * 3;
-  }
-}
+// TODO: we'd better to make a UI color variable so all UI color can refer to the same color.
+$rpl-backbround-color: rpl-color('white') !default;
 
 .rpl-page {
   @each $bp, $val in $rpl-layout-top-margin {
@@ -69,9 +60,14 @@ export default {
 }
 
 .rpl-content {
-  @each $bp, $val in $rpl-row-gutter {
+  @each $bp, $val in $rpl-content-padding-top {
     @include rpl_breakpoint($bp) {
       padding-top: $val;
+
+      // Padding bottome need to minus last row gutter.
+      @if (map-get($rpl-row-gutter, $bp)) {
+        padding-bottom: $val - map-get($rpl-row-gutter, $bp);
+      }
     }
   }
 
@@ -80,4 +76,20 @@ export default {
   }
 }
 
+.rpl-sidebar {
+  background-color: $rpl-backbround-color;
+}
+
+@include rpl_breakpoint(l) {
+  .rpl-content {
+    > .rpl-container {
+      overflow-x: visible;
+    }
+  }
+
+  .rpl-sidebar {
+    margin-top: -$rpl-space-4 * 3;
+    background-color: transparent;
+  }
+}
 </style>

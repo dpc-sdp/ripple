@@ -99,8 +99,8 @@ $_rpl-xxl-padding: calc((100% - #{$_rpl-site-constrain-max-width}) / 2);
     }
 
     @include rpl_breakpoint(m) {
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 0;
+      margin-right: 0;
       width: auto;
     }
   }

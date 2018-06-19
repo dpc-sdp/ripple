@@ -65,6 +65,7 @@
       <template slot="sidebar">
         <rpl-related-links :title="mock.relatedLinks.title" :links="mock.relatedLinks.links" class="rpl-component-gutter"/>
         <rpl-whats-next :title="mock.whatsNext.title" :links="mock.whatsNext.links"  class="rpl-component-gutter" />
+        <rpl-contact :title="mock.contact.title" :name="mock.contact.name" :department="mock.contact.department" :postal="mock.contact.postal" :address="mock.contact.address" :phone="mock.contact.phone" :email="mock.contact.email" :social="mock.contact.social" class="rpl-component-gutter" />
       </template>
 
       <template slot="belowContent">
@@ -114,6 +115,7 @@ import RplCampaignSecondary from '@dpc-sdp/ripple-campaign-secondary'
 // Sidebar
 import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
 import RplWhatsNext from '@dpc-sdp/ripple-whats-next'
+import RplContact from '@dpc-sdp/ripple-contact'
 
 export default {
   name: 'SPage',
@@ -148,7 +150,8 @@ export default {
 
     // Sidebar
     RplRelatedLinks,
-    RplWhatsNext
+    RplWhatsNext,
+    RplContact
   },
   props: {
     sidebar: Boolean

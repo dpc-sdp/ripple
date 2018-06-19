@@ -225,6 +225,21 @@ const demoData = {
     image: text('Image', 'http://placehold.it/699x411')
   },
 
+  contact: {
+    title: 'Need additional help?',
+    name: 'First Last Name (Job Title)',
+    department: 'Department name',
+    postal: 'PO Box 123, Suburb VIC 3421',
+    address: '13 Street Name, Suburb VIC 3056',
+    phone: '03 9876 6754',
+    email: 'emailaddress@vic.gov.au',
+    social: {
+      icon: 'facebook',
+      title: 'Name of Facebook Page',
+      url: 'https://www.facebook.com'
+    }
+  },
+
   footer: {
     nav: [
       {

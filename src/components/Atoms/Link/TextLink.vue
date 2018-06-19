@@ -6,22 +6,12 @@
     'rpl-text-link--large': (size === 'large'),
     'rpl-text-link--emphasis': emphasis
   }" :href="url">
-    <span v-if="iconPlacement === 'before'">
-      <span v-if="textWordCount > 1" class="rpl-text-link__group"><rpl-icon v-if="iconSymbol" :symbol="iconSymbol" :color="iconColor" :size="iconSize" class="rpl-text-link--before"/>{{ textFirstWord }}</span>
-      <span v-if="textWordCount > 1">{{ textWithoutFirstWord }}</span>
-      <span v-if="textWordCount <= 1" class="rpl-text-link__group"><rpl-icon v-if="iconSymbol" :symbol="iconSymbol" :color="iconColor" :size="iconSize" class="rpl-text-link--before"/>{{ text }}</span>
-    </span>
-    <span v-else-if="iconPlacement === 'after'">
-      <span v-if="textWordCount > 1">{{ textWithoutLastWord }}</span>
-      <span v-if="textWordCount > 1" class="rpl-text-link__group">{{ textLastWord }}<rpl-icon v-if="iconSymbol" :symbol="iconSymbol" :color="iconColor" :size="iconSize" class="rpl-text-link--after" /></span>
-      <span v-if="textWordCount <= 1" class="rpl-text-link__group">{{ text }}<rpl-icon v-if="iconSymbol" :symbol="iconSymbol" :color="iconColor" :size="iconSize" class="rpl-text-link--after" /></span>
-    </span>
-    <span v-else>{{ text }}</span>
+    <rpl-text-icon :text="text" :symbol="iconSymbol" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
   </rpl-link>
 </template>
 
 <script>
-import RplIcon from '@dpc-sdp/ripple-icon'
+import {RplTextIcon} from '@dpc-sdp/ripple-icon'
 import RplLink from './Link.vue'
 
 export default {
@@ -39,25 +29,8 @@ export default {
     emphasis: {default: false, type: Boolean}
   },
   components: {
-    RplIcon,
+    RplTextIcon,
     RplLink
-  },
-  computed: {
-    textWordCount: function () {
-      return this.text.length > 0 ? this.text.match(/[\w\d]+/gi).length : 0
-    },
-    textWithoutLastWord: function () {
-      return this.text.substr(0, this.text.lastIndexOf(' '))
-    },
-    textLastWord: function () {
-      return this.text.substr(this.text.lastIndexOf(' '))
-    },
-    textWithoutFirstWord: function () {
-      return this.text.substr(this.text.indexOf(' '))
-    },
-    textFirstWord: function () {
-      return this.text.substr(0, this.text.indexOf(' '))
-    }
   }
 }
 </script>
@@ -65,8 +38,6 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-text-link-before-margin: auto $rpl-space-2 auto auto !default;
-  $rpl-text-link-after-margin: auto auto auto $rpl-space-2 !default;
   $rpl-text-link-light-underline: rem(4px) solid #E8EBEE !default;
   $rpl-text-link-light-underline-hover: rem(4px) solid #E8EBEE !default;
   $rpl-text-link-dark-underline: rem(4px) solid rpl-color('secondary') !default;
@@ -88,18 +59,6 @@ export default {
     &:hover,
     &:focus {
       color: $rpl-text-link-text-color-hover;
-    }
-
-    &__group {
-      white-space: nowrap;
-    }
-
-    &--before {
-      margin: $rpl-text-link-before-margin;
-    }
-
-    &--after {
-      margin: $rpl-text-link-after-margin;
     }
 
     &--underline {

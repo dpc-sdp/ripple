@@ -1,0 +1,47 @@
+<template>
+  <div class="rpl-site-section-navigation">
+    <h2 v-if="title" class="rpl-site-section-navigation__title">{{ title }}</h2>
+    <rpl-section-menu :menu="menu" :open="true" :depth="0" />
+  </div>
+</template>
+
+<script>
+import RplSectionMenu from './menu'
+
+export default {
+  name: 'RplSiteSectionNavigation',
+  props: {
+    title: String,
+    menu: Array
+  },
+  components: {
+    RplSectionMenu
+  }
+}
+</script>
+
+<style lang="scss">
+  @import "~@dpc-sdp/ripple-global/style";
+
+  $rpl-section-menu-background-color: rpl_color('dark_primary');
+  $rpl-section-menu-padding: ($rpl-space * 6) 0;
+  $rpl-section-menu-border-radius: rem(4px);
+  $rpl-section-menu-title-ruleset: ('l', 1.2em, 'bold');
+  $rpl-section-menu-title-color: rpl_color('white');
+  $rpl-section-menu-title-padding: 0 ($rpl-space * 8);
+  $rpl-section-menu-title-margin: 0 0 $rpl-space-2;
+
+  .rpl-site-section-navigation {
+    background-color: $rpl-section-menu-background-color;
+    padding: $rpl-section-menu-padding;
+    border-radius: $rpl-section-menu-border-radius;
+    box-sizing: border-box;
+
+    &__title {
+      @include rpl_typography_ruleset($rpl-section-menu-title-ruleset);
+      color: $rpl-section-menu-title-color;
+      padding: $rpl-section-menu-title-padding;
+      margin: $rpl-section-menu-title-margin;
+    }
+  }
+</style>

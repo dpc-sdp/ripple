@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Ripple icon",
   "private": true,
-  "main": "index.vue",
+  "main": "index.js",
   "peerDependencies": {
     "@dpc-sdp/ripple-global": "0.1.0"
   }

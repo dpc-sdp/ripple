@@ -8,7 +8,7 @@ import {
 } from '@storybook/addon-knobs/vue'
 
 import SIcons from '../../../storybook-components/Icons.vue'
-import RplIcon from './index.vue'
+import RplIcon from './Icon.vue'
 import readme from './README.md'
 
 storiesOf('Atoms/Icon', module)

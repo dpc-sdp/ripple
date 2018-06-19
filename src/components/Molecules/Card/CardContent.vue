@@ -14,16 +14,14 @@
       <slot></slot>
     </div>
     <div class="rpl-card-content__link" v-if="link">
-      <span v-if="linkTextWordCount > 1">{{ linkTextWithoutLastWord }}</span>
-      <span v-if="linkTextWordCount > 1" class="rpl-card-content__text-link-group">{{ linkTextLastWord }} <rpl-icon symbol="arrow_right_primary_s" color="primary" size="m" /></span>
-      <span v-if="linkTextWordCount <= 1" class="rpl-card-content__text-link-group">{{ link.text }} <rpl-icon symbol="arrow_right_primary_s" color="primary" size="m" /></span>
+      <rpl-text-icon :text="link.text" symbol="arrow_right_primary_s" color="primary" size="m" />
     </div>
   </rpl-link>
 </template>
 
 <script>
 import RplLink from '@dpc-sdp/ripple-link'
-import RplIcon from '@dpc-sdp/ripple-icon'
+import {RplTextIcon} from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplCardContent',
@@ -33,18 +31,7 @@ export default {
   },
   components: {
     RplLink,
-    RplIcon
-  },
-  computed: {
-    linkTextWordCount: function () {
-      return this.link.text.length > 0 ? this.link.text.match(/[\w\d]+/gi).length : 0
-    },
-    linkTextWithoutLastWord: function () {
-      return this.link.text.substr(0, this.link.text.lastIndexOf(' '))
-    },
-    linkTextLastWord: function () {
-      return this.link.text.substr(this.link.text.lastIndexOf(' '))
-    }
+    RplTextIcon
   }
 }
 </script>
@@ -57,7 +44,6 @@ export default {
   $rpl-card-content-border: 1px solid $rpl-card-content-border-color !default;
   $rpl-card-content-background: rpl_color('white') !default;
   $rpl-card-content-border-radius: rem(4px) !default;
-  $rpl-card-content-icon-after-margin: auto auto auto $rpl-space-2 !default;
   $rpl-card-content-no-image-padding: (rem(56px) - $rpl-card-vertical-padding) 0 0 0 !default;
   $rpl-card-content-no-image-background-image: rpl_gradient('decorative_gradient') !default;
   $rpl-card-content-details-padding-xs: $rpl-card-vertical-padding $rpl-component-padding-xs 0 !default;
@@ -193,13 +179,8 @@ export default {
       }
 
       .rpl-icon {
-        margin: $rpl-card-content-icon-after-margin;
         vertical-align: middle;
       }
-    }
-
-    &__text-link-group {
-      white-space: nowrap;
     }
   }
 </style>

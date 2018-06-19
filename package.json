@@ -24,6 +24,7 @@
     "@dpc-sdp/ripple-breadcrumbs": "file:src/components/Molecules/Breadcrumbs",
     "@dpc-sdp/ripple-related-links": "file:src/components/Molecules/RelatedLinks",
     "@dpc-sdp/ripple-whats-next": "file:src/components/Molecules/WhatsNext",
+    "@dpc-sdp/ripple-anchor-links": "file:src/components/Molecules/AnchorLinks",
     "@dpc-sdp/ripple-card": "file:src/components/Molecules/Card",
     "@dpc-sdp/ripple-form": "file:src/components/Molecules/Form",
     "@dpc-sdp/ripple-site-header": "file:src/components/Organisms/SiteHeader",

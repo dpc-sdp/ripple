@@ -206,6 +206,18 @@ const demoData = {
     ])
   },
 
+  anchorLinks: {
+    title: text('Title', 'On this page'),
+    links: object('Links', [
+      { text: 'This is the first anchor link', url: '#' },
+      { text: 'Second link to extra content', url: '#' },
+      { text: 'Third link goes here', url: '#' },
+      { text: 'Link to additional content', url: '#' },
+      { text: 'Another link to extra content', url: '#' },
+      { text: 'This is another link', url: '#' }
+    ])
+  },
+
   campaignSecondary: {
     title: text('Title', 'Secondary campaign headline'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'),

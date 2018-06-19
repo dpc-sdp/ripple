@@ -28,6 +28,7 @@
       </template>
 
       <rpl-row row-gutter class="demo-main">
+         <rpl-anchor-links :title="mock.anchorLinks.title" :links="mock.anchorLinks.links" />
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-card-navigation-featured :title="mock.cardNavigationFeatured.title" :summary="mock.cardNavigationFeatured.summary" :url="mock.cardNavigationFeatured.url" :image="mock.cardNavigationFeatured.image" />
         </rpl-col>
@@ -101,6 +102,9 @@ import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 // Banner
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 
+// Anchor links
+import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
+
 // Card
 import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent } from '@dpc-sdp/ripple-card'
 
@@ -128,6 +132,9 @@ export default {
 
     // Banner
     RplHeroBanner,
+
+    // Anchor Links
+    RplAnchorLinks,
 
     // Card
     RplCardNavigation,

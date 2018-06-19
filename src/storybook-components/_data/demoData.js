@@ -207,7 +207,7 @@ const demoData = {
   },
 
   anchorLinks: {
-    title: text('Title', 'On this page'),
+    title: text('Title', 'On this page:'),
     links: object('Links', [
       { text: 'This is the first anchor link', url: '#' },
       { text: 'Second link to extra content', url: '#' },

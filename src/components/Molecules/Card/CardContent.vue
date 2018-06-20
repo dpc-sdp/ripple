@@ -14,7 +14,7 @@
       <slot></slot>
     </div>
     <div class="rpl-card-content__link" v-if="link">
-      <rpl-text-icon :text="link.text" symbol="arrow_right_primary_s" color="primary" size="m" />
+      <rpl-text-icon :text="link.text" :symbol="iconSymbol" color="primary" size="0.7" />
     </div>
   </rpl-link>
 </template>
@@ -22,6 +22,7 @@
 <script>
 import RplLink from '@dpc-sdp/ripple-link'
 import {RplTextIcon} from '@dpc-sdp/ripple-icon'
+import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplCardContent',
@@ -32,6 +33,11 @@ export default {
   components: {
     RplLink,
     RplTextIcon
+  },
+  computed: {
+    iconSymbol () {
+      return isExternalUrl(this.link.url, this.rplOptions.hostname) ? 'external_link' : 'arrow_right_primary'
+    }
   }
 }
 </script>

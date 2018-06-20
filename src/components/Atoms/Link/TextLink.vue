@@ -6,13 +6,14 @@
     'rpl-text-link--large': (size === 'large'),
     'rpl-text-link--emphasis': emphasis
   }" :href="url">
-    <rpl-text-icon :text="text" :symbol="iconSymbol" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
+    <rpl-text-icon :text="text" :symbol="iconSymbolFinal" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
   </rpl-link>
 </template>
 
 <script>
 import {RplTextIcon} from '@dpc-sdp/ripple-icon'
 import RplLink from './Link.vue'
+import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplTextLink',
@@ -31,6 +32,14 @@ export default {
   components: {
     RplTextIcon,
     RplLink
+  },
+  computed: {
+    iconSymbolFinal () {
+      if (this.iconSymbol === 'arrow_right_primary' && isExternalUrl(this.url, this.rplOptions.hostname)) {
+        return 'external_link'
+      }
+      return this.iconSymbol
+    }
   }
 }
 </script>

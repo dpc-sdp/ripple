@@ -9,6 +9,7 @@
 
 <script>
 import { focus } from 'vue-focus'
+import { isRelativeUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplLink',
@@ -26,14 +27,10 @@ export default {
   methods: {
     onFocus: function (e) {
       this.$emit('focus', e)
-    },
-    isRelativeUrl: function (url) {
-      var reg = new RegExp('^(?!(?:[a-z]+:)?//)', 'i')
-      return reg.test(url)
     }
   },
   created: function () {
-    if (this.isRelativeUrl(this.href)) {
+    if (isRelativeUrl(this.href)) {
       this.isNuxtLink = this.rplOptions.nuxt
     }
   }

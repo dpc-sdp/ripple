@@ -17,7 +17,7 @@
 import RplButton from '@dpc-sdp/ripple-button'
 
 export default {
-  name: 'RplRelatedLinks',
+  name: 'RplCallToAction',
   props: {
     title: String,
     summary: String,

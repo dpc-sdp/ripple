@@ -54,7 +54,7 @@ $rpl-backbround-color: rpl-color('white') !default;
 .rpl-page {
   @each $bp, $val in $rpl-layout-top-margin {
     @include rpl_breakpoint($bp) {
-      margin-top: $val;
+      padding-top: $val;
     }
   }
 }

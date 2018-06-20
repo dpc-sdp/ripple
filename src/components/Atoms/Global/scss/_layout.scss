@@ -2,13 +2,16 @@ $rpl-layout: (
   'site_padding': (
     'm': rem(32px),
     'l': rem(68px),
-    'xl': rem(92px)
+    'xl': rem(92px),
+    'xxl': rem(272px),
+  ),
+
+  // Note: max width will override site padding
+  'site_max_width': (
+    'xl': rem(1056px),
+    'xxxl': rem(1420px)
   )
 );
-
-// Max width of site content constrain will be 1420px.
-$_rpl-site-constrain-max-width: rem(1420px);
-$_rpl-xxl-padding: calc((100% - #{$_rpl-site-constrain-max-width}) / 2);
 
 @mixin rpl_component_gutter {
   @each $bp, $gutter in $rpl-row-gutter {
@@ -27,9 +30,12 @@ $_rpl-xxl-padding: calc((100% - #{$_rpl-site-constrain-max-width}) / 2);
       }
     }
 
-    @include rpl_breakpoint(xxl) {
-      padding-left: $_rpl-xxl-padding;
-      padding-right: $_rpl-xxl-padding;
+    // max width will override site padding
+    @each $bp, $width in map-get($rpl-layout, 'site_max_width') {
+      @include rpl_breakpoint($bp) {
+        padding-left: calc((100% - #{$width}) / 2);
+        padding-right: calc((100% - #{$width}) / 2);
+      }
     }
 
   } @else if $style == small {
@@ -67,9 +73,12 @@ $_rpl-xxl-padding: calc((100% - #{$_rpl-site-constrain-max-width}) / 2);
       }
     }
 
-    @include rpl_breakpoint(xxl) {
-      margin-left: calc((100vw - #{$_rpl-site-constrain-max-width}) / -2);
-      margin-right: calc((100vw - #{$_rpl-site-constrain-max-width}) / -2);
+    // max width will override site padding
+    @each $bp, $width in map-get($rpl-layout, 'site_max_width') {
+      @include rpl_breakpoint($bp) {
+        margin-left: calc((100vw - #{$width}) / -2);
+        margin-right: calc((100vw - #{$width}) / -2);
+      }
     }
 
   } @else if $style == small {
@@ -125,9 +134,11 @@ $_rpl-xxl-padding: calc((100% - #{$_rpl-site-constrain-max-width}) / 2);
 
   // For nested constrain item want to grow to edge.
   .rpl-site-constrain--on-all {
-    @include rpl_breakpoint(xxl) {
-      padding-left: calc((100vw - #{$_rpl-site-constrain-max-width}) / 2);
-      padding-right: calc((100vw - #{$_rpl-site-constrain-max-width}) / 2);
+    @each $bp, $width in map-get($rpl-layout, 'site_max_width') {
+      @include rpl_breakpoint($bp) {
+        padding-left: calc((100vw - #{$width}) / 2);
+        padding-right: calc((100vw - #{$width}) / 2);
+      }
     }
   }
 }

@@ -231,7 +231,10 @@ const demoData = {
     department: 'Department name',
     postal: 'PO Box 123, Suburb VIC 3421',
     address: '13 Street Name, Suburb VIC 3056',
-    phone: '03 9876 6754',
+    phone: [
+      '03 9876 6754',
+      '03 9876 1234'
+    ],
     email: 'emailaddress@vic.gov.au',
     social: {
       icon: 'facebook',

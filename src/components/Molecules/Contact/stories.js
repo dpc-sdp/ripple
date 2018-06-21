@@ -33,7 +33,10 @@ storiesOf('Molecules/Contact', module)
         department: text('Department', 'Department name'),
         postal: text('Postal', 'PO Box 123, Suburb VIC 3421'),
         address: text('Address', '13 Street Name, Suburb VIC 3056'),
-        phone: text('Phone', '03 9876 6754'),
+        phone: object('Phone', [
+          '03 9876 6754',
+          '03 9876 1234'
+        ]),
         email: text('Email', 'emailaddress@vic.gov.au'),
         social: object('Social', [{
           icon: 'facebook',

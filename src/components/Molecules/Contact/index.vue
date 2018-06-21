@@ -9,8 +9,8 @@
     <p v-if="address" class="rpl-contact__address">
       <span class="rpl-contact__icon"><rpl-icon symbol="map_marker" color="primary" /></span><rpl-link :href="addressLink">{{ address }}</rpl-link>
     </p>
-    <p v-if="phone" class="rpl-contact__phone">
-      <span class="rpl-contact__icon"><rpl-icon symbol="phone_number" color="primary" size="0.857" /></span><rpl-link :href="'tel:' + phone">{{ phone }}</rpl-link>
+    <p v-if="phone" v-for="(phone_number, index) in phone" :key="index" class="rpl-contact__phone">
+      <span class="rpl-contact__icon"><rpl-icon symbol="phone_number" color="primary" size="0.857" /></span><rpl-link :href="'tel:' + phone_number">{{ phone_number }}</rpl-link>
     </p>
     <p v-if="email" class="rpl-contact__email">
       <span class="rpl-contact__icon"><rpl-icon symbol="email_solid" color="primary" size="0.65" /></span><rpl-link :href="'mailto:' + email">{{ email }}</rpl-link>
@@ -33,7 +33,7 @@ export default {
     department: String,
     postal: String,
     address: String,
-    phone: String,
+    phone: Array,
     email: String,
     social: Array
   },

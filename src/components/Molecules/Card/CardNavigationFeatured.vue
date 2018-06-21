@@ -1,5 +1,5 @@
 <template>
-  <rpl-link class="rpl-card-navigation-featured" :href="url">
+  <rpl-link class="rpl-card-navigation-featured" :href="url" v-if="url">
     <div class="rpl-card-navigation-featured__inner">
       <img class="rpl-card-navigation-featured__image" :src="image" alt="">
       <h2

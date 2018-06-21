@@ -1,5 +1,5 @@
 <template>
-  <rpl-link class="rpl-card-navigation" :href="url">
+  <rpl-link class="rpl-card-navigation" :href="url" v-if="url">
     <h2
       v-if="title"
       class="rpl-card-navigation__title"

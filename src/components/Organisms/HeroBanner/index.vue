@@ -89,37 +89,25 @@ export default {
     'xs': ('xs', 1.7em, 'bold'),
     'm': ('l', 1.7em, 'bold')
   ) !default;
-  $rpl-hero-banner-margin-xs: rem(76px) auto rem(20px) auto !default;
-  $rpl-hero-banner-margin-s: rem(88px) auto rem(64px) auto !default;
-  $rpl-hero-banner-margin-m: rem(124px) auto rem(80px) auto !default;
-  $rpl-hero-banner-margin-l: rem(142px) auto rem(77px) auto !default;
-  $rpl-hero-banner-margin-xl: rem(142px) auto rem(77px) auto !default;
-  $rpl-hero-banner-margin-xxl: rem(152px) auto rem(68px) auto !default;
   $rpl-hero-banner-link-heading-margin: 0 auto rem(15px) auto !default;
+
+  $rpl-hero-banner-vertical-spacing: (
+    'xs': ('top': rem(76px), 'bottom': rem(20px)),
+    's': ('top': rem(88px), 'bottom': rem(64px)),
+    'm': ('top': rem(124px), 'bottom': rem(80px)),
+    'l': ('top': rem(142px), 'bottom': rem(77px)),
+    'xl': ('top': rem(142px), 'bottom': rem(77px)),
+    'xxl': ('top': rem(152px), 'bottom': rem(68px))
+  ) !default;
 
   .rpl-hero-banner {
     @include rpl_mobile_padding;
     @include rpl_grid_container;
-    margin: $rpl-hero-banner-margin-xs;
-
-    @include rpl_breakpoint('s') {
-      margin: $rpl-hero-banner-margin-s;
-    }
-
-    @include rpl_breakpoint('m') {
-      margin: $rpl-hero-banner-margin-m;
-    }
-
-    @include rpl_breakpoint('l') {
-      margin: $rpl-hero-banner-margin-l;
-    }
-
-    @include rpl_breakpoint('xl') {
-      margin: $rpl-hero-banner-margin-xl;
-    }
-
-    @include rpl_breakpoint('xxl') {
-      margin: $rpl-hero-banner-margin-xxl;
+    @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
+      @include rpl_breakpoint($bp) {
+        padding-top: map-get($spacing, top);
+        padding-bottom: map-get($spacing, bottom);
+      }
     }
 
     &__left {

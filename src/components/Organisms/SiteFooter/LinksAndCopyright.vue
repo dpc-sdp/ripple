@@ -5,8 +5,8 @@
         <rpl-link :href="link.url">{{ link.text }}</rpl-link>
       </li>
     </ul>
-    <p class="rpl-links-and-copyright__copyright" v-html="copyright">
-    </p>
+    <div class="rpl-links-and-copyright__copyright" v-html="copyright">
+    </div>
   </div>
 </template>
 

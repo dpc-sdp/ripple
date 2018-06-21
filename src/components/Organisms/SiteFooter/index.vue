@@ -52,6 +52,8 @@ export default {
 
 $rpl-footer-breakpoint: 'l' !default;
 $rpl-footer-bg-color: rpl-color('dark_primary') !default;
+$rpl-footer-bg-image: url('./assets/images/footer-shape.png') !default;
+$rpl-footer-bottom-bg-color: transparent !default;
 $rpl-footer-text-color: rpl-color('white') !default;
 $rpl-footer-border-width: $rpl-border-width !default;
 $rpl-footer-border-color: rpl-color('primary') !default;
@@ -64,7 +66,7 @@ $rpl-footer-border-color-light: rpl-color('white') !default;
   color: $rpl-footer-text-color;
 
   @include rpl_breakpoint($rpl-footer-breakpoint) {
-    background-image: url('./assets/images/footer-shape.png');
+    background-image: $rpl-footer-bg-image;
     background-position: calc(100% + #{rem(600px)}) bottom;
     background-repeat: no-repeat;
     background-size: rem(880px);
@@ -104,6 +106,7 @@ $rpl-footer-border-color-light: rpl-color('white') !default;
 .rpl-site-footer__bottom {
   @include rpl_mobile_padding;
   @include rpl_site_constrain;
+  background-color: $rpl-footer-bottom-bg-color;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;

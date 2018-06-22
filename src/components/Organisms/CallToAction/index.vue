@@ -33,9 +33,16 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
+  // TODO: extract these border, background setting out from each component and better put
+  // them into a landing page component global setting. So all landing page components style
+  // will be more consistent.
+  $rpl-call-to-action-border-color: rpl_color('mid_neutral_1') !default;
+  $rpl-call-to-action-border: 1px solid $rpl-call-to-action-border-color !default;
+  $rpl-call-to-action-border-radius: rem(4px) !default;
+  $rpl-call-to-action-bg-color: rpl-color('white') !default;
   $rpl-call-to-action-padding-xs: ($rpl-space * 8) 0 !default;
   $rpl-call-to-action-padding-s: ($rpl-space * 18) $rpl-component-padding-s !default;
-  $rpl-call-to-action-padding-l: ($rpl-space * 18) 0 !default;
+  $rpl-call-to-action-padding-l: ($rpl-space * 18) $rpl-component-padding-l !default;
   $rpl-call-to-action-max-width: rem(1418px) !default;
   $rpl-call-to-action-title-ruleset: (
     'xs': ('l', 1.2em, 'bold'),
@@ -57,11 +64,23 @@ export default {
 
   .rpl-call-to-action {
     padding: $rpl-call-to-action-padding-xs;
+    background-color: $rpl-call-to-action-bg-color;
+    border-bottom: $rpl-call-to-action-border;
     @include rpl_breakpoint('s') {
       padding: $rpl-call-to-action-padding-s;
     }
+    @include rpl_breakpoint('m') {
+      padding-left: $rpl-component-padding-m;
+      padding-right: $rpl-component-padding-m;
+      border-radius: $rpl-call-to-action-border-radius;
+      border: $rpl-call-to-action-border;
+    }
     @include rpl_breakpoint('l') {
       padding: $rpl-call-to-action-padding-l;
+    }
+    @include rpl_breakpoint('xl') {
+      padding-left: $rpl-component-padding-xl;
+      padding-right: $rpl-component-padding-xl;
     }
 
     .rpl-call-to-action__row {

@@ -54,8 +54,9 @@ export default {
   $rpl-card-navigation-featured-summary-background-hover: rpl_color('secondary') url(rpl_banner_primary_arrow_url('primary')) no-repeat bottom right !default;
   $rpl-card-navigation-featured-summary-xs: ($rpl-space * 11) $rpl-component-padding-xs ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-s: ($rpl-space * 6) $rpl-component-padding-s ($rpl-space * 7) !default;
-  $rpl-card-navigation-featured-summary-l: ($rpl-space * 11) ($rpl-space * 8) ($rpl-space * 7) !default;
-  $rpl-card-navigation-featured-summary-xl: ($rpl-space * 6) ($rpl-space * 8) ($rpl-space * 7) !default;
+  $rpl-card-navigation-featured-summary-m: ($rpl-space * 6) $rpl-component-padding-m ($rpl-space * 7) !default;
+  $rpl-card-navigation-featured-summary-l: ($rpl-space * 11) $rpl-component-padding-l ($rpl-space * 7) !default;
+  $rpl-card-navigation-featured-summary-xl: ($rpl-space * 6) $rpl-component-padding-xl ($rpl-space * 7) !default;
 
   .rpl-card-navigation-featured {
     $root: &;
@@ -108,12 +109,18 @@ export default {
         right: $rpl-component-padding-s;
         bottom: ($rpl-space * 5);
       }
+      @include rpl_breakpoint('m') {
+        left: $rpl-component-padding-m;
+        right: $rpl-component-padding-m;
+      }
       @include rpl_breakpoint('l') {
-        left: $rpl-space * 8;
-        right: $rpl-space * 8;
+        left: $rpl-component-padding-l;
+        right: $rpl-component-padding-l;
         bottom: $rpl-space * -8;
       }
       @include rpl_breakpoint('xl') {
+        left: $rpl-component-padding-xl;
+        right: $rpl-component-padding-xl;
         bottom: ($rpl-space * 5);
       }
     }
@@ -126,6 +133,9 @@ export default {
       padding: $rpl-card-navigation-featured-summary-xs;
       @include rpl_breakpoint('s') {
         padding: $rpl-card-navigation-featured-summary-s;
+      }
+      @include rpl_breakpoint('l') {
+        padding: $rpl-card-navigation-featured-summary-m;
       }
       @include rpl_breakpoint('l') {
         padding: $rpl-card-navigation-featured-summary-l;

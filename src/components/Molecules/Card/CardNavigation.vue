@@ -34,7 +34,7 @@ export default {
   $rpl-card-navigation-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-navigation-background: rpl_color('white') !default;
   $rpl-card-navigation-padding-vertical-s: ($rpl-space * 5) !default;
-  $rpl-card-navigation-padding: ($rpl-space * 9) ($rpl-space * 8) !default;
+  $rpl-card-navigation-padding: $rpl-space * 9 !default;
   $rpl-card-navigation-border: 1px solid rpl-color('mid_neutral_1') !default;
   $rpl-card-navigation-border-radius: rem(4px) !default;
   $rpl-card-navigation-title-ruleset: (
@@ -63,7 +63,15 @@ export default {
     padding-bottom: $rpl-card-navigation-padding-vertical-s;
 
     @include rpl_breakpoint('m') {
-      padding: $rpl-card-navigation-padding;
+      padding: $rpl-card-navigation-padding $rpl-component-padding-m;
+    }
+    @include rpl_breakpoint('l') {
+      padding-left: $rpl-component-padding-l;
+      padding-right: $rpl-component-padding-l;
+    }
+    @include rpl_breakpoint('xl') {
+      padding-left: $rpl-component-padding-xl;
+      padding-right: $rpl-component-padding-xl;
     }
 
     &:hover,

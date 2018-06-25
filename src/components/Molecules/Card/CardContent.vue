@@ -23,6 +23,8 @@
 import RplLink from '@dpc-sdp/ripple-link'
 import {RplTextIcon} from '@dpc-sdp/ripple-icon'
 import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import objectFitImages from 'object-fit-images'
+objectFitImages('img.rpl-card-content__image')
 
 export default {
   name: 'RplCardContent',
@@ -126,7 +128,7 @@ export default {
     }
 
     &__image {
-      object-fit: cover;
+      @include object_fit_image(cover);
       width: 100%;
       display: table;
       @include rpl_breakpoint('m') {

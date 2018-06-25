@@ -1,62 +1,67 @@
 <template>
-  <div class="rpl-site-header" :class="{
-    'rpl-site-header--open': menuContentOpen,
-    'rpl-site-header--sticky': sticky,
-  }">
-    <div class="rpl-site-header__inner">
-      <!-- Top Bar -->
-      <div class="rpl-site-header__top">
-        <div class="rpl-site-header__logo-container">
-          <!-- Menu Button -->
-          <button
-            v-if="searchState !== 'opened'"
-            class="rpl-site-header__btn rpl-site-header__btn--menu"
-            :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
-            :aria-expanded="(menuState === 'opened').toString()"
-            @click="menuToggle()"
+  <transition name="rpl-header-fade">
+    <div v-show="headerVisible"
+      class="rpl-site-header"
+      :class="{
+        'rpl-site-header--open': menuContentOpen,
+        'rpl-site-header--sticky': sticky,
+      }"
+    >
+      <div class="rpl-site-header__inner">
+        <!-- Top Bar -->
+        <div class="rpl-site-header__top">
+          <div class="rpl-site-header__logo-container">
+            <!-- Menu Button -->
+            <button
+              v-if="searchState !== 'opened'"
+              class="rpl-site-header__btn rpl-site-header__btn--menu"
+              :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
+              :aria-expanded="(menuState === 'opened').toString()"
+              @click="menuToggle()"
+            >
+              <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
+              <span>{{ menuButton[menuState].text }}</span>
+            </button>
+            <!-- Logo -->
+            <div v-if="!menuContentOpen && logo" class="rpl-site-header__title">
+              <rpl-link :href="logo.url">
+                <img :src="logo.image" :alt="logo.alt" />
+              </rpl-link>
+            </div>
+          </div>
+          <!-- Top Menu -->
+          <div
+            v-if="(searchState === 'closed') && ((menuContentOpen && (menuState === 'opened')) || menuLayout === 'horizontal')"
+            class="rpl-site-header__menu-container"
+            :class="{
+              'rpl-site-header__menu-container--horizontal': (menuLayout === 'horizontal'),
+              'rpl-site-header__menu-container--vertical': (menuLayout === 'vertical')
+            }"
           >
-            <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
-            <span>{{ menuButton[menuState].text }}</span>
+            <div class="rpl-site-header__menu">
+              <rpl-menu
+                :menu="links"
+                :layout="menuLayout"
+                :title="'Main Menu'"
+                :open="(menuState === 'opened')"
+                @rootMenuClicked="rootMenuClicked"
+              />
+            </div>
+          </div>
+          <!-- Search Button -->
+          <!-- [SDPA-528] Hided search button in header for alpha launch -->
+          <button v-if="false" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
+            <span>{{ searchButton[searchState].text }}</span>
+            <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
           </button>
-          <!-- Logo -->
-          <div v-if="!menuContentOpen && logo" class="rpl-site-header__title">
-            <rpl-link :href="logo.url">
-              <img :src="logo.image" :alt="logo.alt" />
-            </rpl-link>
-          </div>
         </div>
-        <!-- Top Menu -->
-        <div
-          v-if="(searchState === 'closed') && ((menuContentOpen && (menuState === 'opened')) || menuLayout === 'horizontal')"
-          class="rpl-site-header__menu-container"
-          :class="{
-            'rpl-site-header__menu-container--horizontal': (menuLayout === 'horizontal'),
-            'rpl-site-header__menu-container--vertical': (menuLayout === 'vertical')
-          }"
-        >
-          <div class="rpl-site-header__menu">
-            <rpl-menu
-              :menu="links"
-              :layout="menuLayout"
-              :title="'Main Menu'"
-              :open="(menuState === 'opened')"
-              @rootMenuClicked="rootMenuClicked"
-            />
-          </div>
+        <!-- Search Content -->
+        <div v-if="menuContentOpen && searchState == 'opened'" class="rpl-site-header__search-container">
+          <rpl-search :terms="searchTerms" @search="searchFunc" />
         </div>
-        <!-- Search Button -->
-        <!-- [SDPA-528] Hided search button in header for alpha launch -->
-        <button v-if="false" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
-          <span>{{ searchButton[searchState].text }}</span>
-          <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
-        </button>
-      </div>
-      <!-- Search Content -->
-      <div v-if="menuContentOpen && searchState == 'opened'" class="rpl-site-header__search-container">
-        <rpl-search :terms="searchTerms" @search="searchFunc" />
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -86,6 +91,8 @@ export default {
       searchState: 'closed',
       menuState: 'closed',
       lastCaller: null,
+      headerVisible: true,
+      lastScrollTop: 0,
       menuWideEnabled: null,
       menuLayout: 'vertical',
       menuButton: {
@@ -157,12 +164,23 @@ export default {
     },
     searchFunc: function (value) {
       this.$emit('search', value)
+    },
+    scroll: function () {
+      let st = window.pageYOffset || document.documentElement.scrollTop
+      if (st > this.lastScrollTop) {
+        this.headerVisible = false
+      } else {
+        this.headerVisible = true
+      }
+      this.lastScrollTop = st <= 0 ? 0 : st
     }
   },
   mounted: function () {
     if (process.browser) {
       window.addEventListener('resize', this.windowResize)
       this.windowResize()
+      // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+      window.addEventListener('scroll', this.scroll)
     }
   },
   beforeDestroy: function () {

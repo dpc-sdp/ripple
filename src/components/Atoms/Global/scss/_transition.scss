@@ -9,3 +9,17 @@
     opacity: 0;
   }
 }
+
+// Site header
+.rpl-header-fade {
+  &-enter-active,
+  &-leave-active {
+    transition: transform ease-out .3s, opacity ease-out .3s;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: translateY(-1.5rem);
+    opacity: 0;
+  }
+}

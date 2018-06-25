@@ -45,7 +45,8 @@
           </div>
         </div>
         <!-- Search Button -->
-        <button @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
+        <!-- [SDPA-528] Hided search button in header for alpha launch -->
+        <button v-if="false" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
           <span>{{ searchButton[searchState].text }}</span>
           <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
         </button>

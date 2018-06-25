@@ -60,6 +60,7 @@ storiesOf('Atoms/Icon', module)
           'link',
           'link_65',
           'link_90',
+          'linkedin',
           'loading_star',
           'lock',
           'map_marker',

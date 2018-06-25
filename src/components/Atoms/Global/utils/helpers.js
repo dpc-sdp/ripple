@@ -1,4 +1,17 @@
 const isRelativeUrl = (url) => {
+  const types = [
+    'tel:',
+    'mailto:'
+  ]
+
+  for (let type of types) {
+    if (url !== null) {
+      if (url.startsWith(type)) {
+        return false
+      }
+    }
+  }
+
   var reg = new RegExp('^(?!(?:[a-z]+:)?//)', 'i')
   return reg.test(url)
 }

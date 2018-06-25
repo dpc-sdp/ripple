@@ -38,11 +38,28 @@ storiesOf('Molecules/Contact', module)
           '03 9876 1234'
         ]),
         email: text('Email', 'emailaddress@vic.gov.au'),
-        social: object('Social', [{
-          icon: 'facebook',
-          title: 'Name of Facebook Page',
-          url: 'https://www.facebook.com'
-        }])
+        social: object('Social', [
+          {
+            icon: 'facebook',
+            title: 'Name of Facebook Page',
+            url: 'https://www.facebook.com'
+          },
+          {
+            icon: 'twitter',
+            title: 'Name of Twitter account',
+            url: 'https://www.twitter.com'
+          },
+          {
+            icon: 'linkedin',
+            title: 'Name of LinkedIn profile',
+            url: 'https://www.linkedin.com'
+          },
+          {
+            icon: 'instagram',
+            title: 'Name of Instagram account',
+            url: 'https://www.intagram.com'
+          }
+        ])
       }
     }
   })))

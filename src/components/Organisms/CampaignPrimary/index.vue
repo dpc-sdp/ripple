@@ -80,7 +80,7 @@ export default {
       padding: $rpl-campaign-primary-padding-s;
     }
     @include rpl_breakpoint('m') {
-      border-top: $rpl-campaign-primary-border;
+      border-bottom: $rpl-campaign-primary-border;
       padding: $rpl-campaign-primary-padding-m;
     }
     @include rpl_breakpoint('xl') {

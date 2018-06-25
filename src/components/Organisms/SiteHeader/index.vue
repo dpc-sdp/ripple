@@ -176,6 +176,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
+  $rpl-site-header-logo-width: auto !default;
   $rpl-site-header-text-color: rpl-color('white') !default;
   $rpl-site-header-border-radius: rem(4px) !default;
   $rpl-site-header-background-color: rpl-color('primary') !default;
@@ -244,6 +245,10 @@ export default {
     &__logo-container {
       display: flex;
       align-items: center;
+
+      img {
+        width: $rpl-site-header-logo-width;
+      }
     }
 
     // Menu Container - changes for vert / horizontal

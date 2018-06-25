@@ -81,14 +81,7 @@ $rpl-backbround-color: rpl-color('white') !default;
 }
 
 @include rpl_breakpoint(l) {
-  .rpl-content {
-    > .rpl-container {
-      overflow-x: visible;
-    }
-  }
-
   .rpl-sidebar {
-    margin-top: -$rpl-space-4 * 3;
     background-color: transparent;
   }
 }

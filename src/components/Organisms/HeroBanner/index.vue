@@ -62,6 +62,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
+  $rpl-hero-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
   $rpl-hero-banner-title-typography-ruleset: (
     'xs': ('mega', 1.11em, 'bold'),
     's': ('giga', 1.11em, 'bold'),
@@ -108,6 +109,10 @@ export default {
         padding-top: map-get($spacing, top);
         padding-bottom: map-get($spacing, bottom);
       }
+    }
+
+    @include rpl_breakpoint('m') {
+      border-bottom: $rpl-hero-banner-border;
     }
 
     &__left {

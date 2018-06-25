@@ -41,10 +41,10 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-campaign-secondary-padding-s: $rpl-component-padding-s $rpl-component-padding-s !default;
-  $rpl-campaign-secondary-padding-l: ($rpl-space * 18) 0 !default ;
-  $rpl-campaign-secondary-padding-xl: ($rpl-space * 14) 0 ($rpl-space * 16) !default;
-  $rpl-campaign-secondary-padding-xxl: ($rpl-space * 19) 0 !default;
+  $rpl-campaign-secondary-padding-s: $rpl-component-padding-s !default;
+  $rpl-campaign-secondary-padding-l: ($rpl-component-padding-l) 0 !default ;
+  $rpl-campaign-secondary-padding-xl: ($rpl-component-padding-xl) 0 !default;
+  $rpl-campaign-secondary-padding-xxl: ($rpl-component-padding-xl) 0 !default;
   $rpl-campaign-secondary-title-ruleset: (
     'xs': ('l', 1.2em, 'bold'),
     's': ('xl', 1.2em, 'bold'),

@@ -69,7 +69,7 @@
       </template>
 
       <template slot="belowContent">
-        <div class="banner-secondary rpl-site-constrain--on-all">
+        <div class="rpl-site-constrain--on-all">
           <rpl-campaign-secondary :title="mock.campaignSecondary.title" :summary="mock.campaignSecondary.summary" :link="mock.campaignSecondary.link" :image="mock.campaignSecondary.image" />
         </div>
       </template>

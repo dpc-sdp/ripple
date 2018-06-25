@@ -20,6 +20,10 @@ $rpl-colors: (
   @return map-get($rpl-colors, $name);
 }
 
+$rpl-success-bg-color: rgba(rpl-color('success'), .07);
+$rpl-warning-bg-color: rgba(rpl-color('warning'), .07);
+$rpl-danger-bg-color: rgba(rpl-color('danger'), .07);
+
 $rpl-gradients: (
   'primary_gradient': linear-gradient(90deg, rpl-color('primary') 0%, rpl-color('secondary') 100%),
   'primary_gradient_90': linear-gradient(180deg, rpl-color('primary') 0%, rpl-color('secondary') 100%),

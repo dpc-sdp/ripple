@@ -1,15 +1,19 @@
 <template>
   <div class="rpl-campaign-primary">
-    <svg v-if="$breakpoint.m && image" class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
-        <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
-      </mask>
-      <g mask="url(#mask0)">
-        <image width="699" height="411" :href="image" />
-      </g>
-    </svg>
+    <a v-if="link" :href="link.url">
+      <svg v-if="$breakpoint.m && image" class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
+          <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
+        </mask>
+        <g mask="url(#mask0)">
+          <image width="699" height="411" :href="image" />
+        </g>
+      </svg>
+    </a>
     <div class="rpl-campaign-primary__primary_arrow">
-      <rpl-icon symbol="arrow_right_primary" color="white" />
+      <a v-if="link" :href="link.url">
+        <rpl-icon symbol="arrow_right_primary" color="white" />
+      </a>
     </div>
     <img v-if="!$breakpoint.m && image" :src="image" alt="" class="rpl-campaign-primary__image" />
     <div class="rpl-campaign-primary__row">

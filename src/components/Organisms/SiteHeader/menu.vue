@@ -241,6 +241,8 @@ export default {
   $rpl-menu-item-link-color: $rpl-menu-text-color !default;
   $rpl-menu-item-link-background-color-hover: rpl-color('primary') !default;
   $rpl-menu-item-link-background-image-active: rpl-gradient('primary_gradient') !default;
+  $rpl-menu-item-link-color-active: $rpl-menu-text-color !default;
+  $rpl-menu-item-link-background-color-active: transparent !default;
   $rpl-menu-item-link-icon-margin: auto $rpl-space-2 auto !default;
   $rpl-menu-item-link-border-radius: rem(4px) !default;
 
@@ -489,6 +491,7 @@ export default {
         align-items: center;
         background-color: $rpl-menu-item-link-background-color-hover;
         padding: $rpl-menu-item-link-padding-active;
+        color: $rpl-menu-item-link-color;
 
         .rpl-icon {
           margin-left: auto;
@@ -499,6 +502,8 @@ export default {
         @include rpl_typography_font('xs', 1.1em, 'bold');
         border-radius: $rpl-menu-item-link-border-radius;
         background-image: $rpl-menu-item-link-background-image-active;
+        background-color: $rpl-menu-item-link-background-color-active;
+        color: $rpl-menu-item-link-color-active;
         display: flex;
         align-items: center;
         padding: $rpl-menu-item-link-padding-active;

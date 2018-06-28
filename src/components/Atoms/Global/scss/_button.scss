@@ -9,10 +9,17 @@ $rpl-button-border: 1px solid transparent !default;
 $rpl-button-primary-background-color: rpl_color('primary') !default;
 $rpl-button-primary-text-color: rpl_color('white') !default;
 $rpl-button-primary-hover-background-color: rpl_color('secondary') !default;
+$rpl-button-primary-hover-text-color: rpl_color('white') !default;
 $rpl-button-secondary-background-color: rpl_color('secondary') !default;
 $rpl-button-secondary-text-color: rpl_color('white') !default;
 $rpl-button-secondary-hover-background-color: rpl_color('primary') !default;
-$rpl-button-active-background-color: rpl_gradient('primary_gradient_90') !default;
+$rpl-button-secondary-hover-text-color: $rpl-button-secondary-text-color !default;
+$rpl-button-active-text-color: $rpl-button-text-color !default;
+$rpl-button-active-background-color: transparent !default;
+$rpl-button-active-background-image: rpl_gradient('primary_gradient_90') !default;
+$rpl-button-secondary-active-background-color: transparent !default;
+$rpl-button-secondary-active-background-image: $rpl-button-active-background-image !default;
+$rpl-button-secondary-active-text-color: $rpl-button-secondary-text-color !default;
 $rpl-button-disabled-border: 1px solid rpl_color('dark_neutral') !default;
 $rpl-button-disabled-text-color: rpl_color('dark_neutral') !default;
 
@@ -40,8 +47,9 @@ $rpl-button-disabled-text-color: rpl_color('dark_neutral') !default;
   }
 
   &:active {
-    background-color: transparent;
-    background-image: $rpl-button-active-background-color;
+    background-color: $rpl-button-active-background-color;
+    background-image: $rpl-button-active-background-image;
+    color: $rpl-button-active-text-color;
   }
 }
 
@@ -61,6 +69,7 @@ $rpl-button-disabled-text-color: rpl_color('dark_neutral') !default;
   &:hover,
   &:focus {
     background-color: $rpl-button-primary-hover-background-color;
+    color: $rpl-button-primary-hover-text-color;
   }
 }
 
@@ -71,5 +80,12 @@ $rpl-button-disabled-text-color: rpl_color('dark_neutral') !default;
   &:hover,
   &:focus {
     background-color: $rpl-button-secondary-hover-background-color;
+    color: $rpl-button-secondary-hover-text-color;
+  }
+
+  &:active {
+    background-color: $rpl-button-secondary-active-background-color;
+    background-image: $rpl-button-secondary-active-background-image;
+    color: $rpl-button-secondary-active-text-color;
   }
 }

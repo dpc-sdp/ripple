@@ -62,64 +62,36 @@ export default {
   $rpl-call-to-action-summary-margin-s: ($rpl-space * 6) 0 !default;
   $rpl-call-to-action-summary-padding-xs: 0 $rpl-component-padding-xs !default;
 
+.rpl-content {
   .rpl-call-to-action {
     padding: $rpl-call-to-action-padding-xs;
     background-color: $rpl-call-to-action-bg-color;
     border-bottom: $rpl-call-to-action-border;
+
+    @include rpl_breakpoint('m') {
+      border-radius: $rpl-call-to-action-border-radius;
+      border: $rpl-call-to-action-border;
+    }
+
+    &__image {
+      width: 100%;
+    }
+
     @include rpl_breakpoint('s') {
-      padding: $rpl-call-to-action-padding-s;
+      padding-left: $rpl-component-padding-s;
+      padding-right: $rpl-component-padding-s;
     }
     @include rpl_breakpoint('m') {
       padding-left: $rpl-component-padding-m;
       padding-right: $rpl-component-padding-m;
-      border-radius: $rpl-call-to-action-border-radius;
-      border: $rpl-call-to-action-border;
     }
     @include rpl_breakpoint('l') {
-      padding: $rpl-call-to-action-padding-l;
+      padding-left: $rpl-component-padding-l;
+      padding-right: $rpl-component-padding-l;
     }
     @include rpl_breakpoint('xl') {
       padding-left: $rpl-component-padding-xl;
       padding-right: $rpl-component-padding-xl;
-    }
-
-    .rpl-call-to-action__row {
-      max-width: $rpl-call-to-action-max-width;
-      margin: auto;
-      @include rpl_breakpoint('l') {
-        display: flex;
-      }
-    }
-
-    &__left {
-      @include rpl_breakpoint('l') {
-        @include rpl_grid_column(4);
-      }
-
-      @include rpl_breakpoint('xxxl') {
-        @include rpl_grid_column(3);
-      }
-    }
-
-    &__right {
-      @include rpl_breakpoint('l') {
-        @include rpl_grid_column(8);
-        display: flex;
-        align-items: center;
-        align-content: center;
-        flex-wrap: wrap;
-      }
-
-      @include rpl_breakpoint('xxxl') {
-        @include rpl_grid_column(9);
-      }
-    }
-
-    &__image {
-      max-width: 100%;
-      @include rpl_breakpoint('l') {
-        width: 100%;
-      }
     }
 
     &__title {
@@ -128,7 +100,6 @@ export default {
       color: $rpl-call-to-action-title-text-color;
       margin: $rpl-call-to-action-title-margin-xs;
       padding: $rpl-call-to-action-title-padding-xs;
-      width: 100%;
       @include rpl_breakpoint('s') {
         padding: 0;
       }
@@ -143,11 +114,56 @@ export default {
       color: $rpl-call-to-action-summary-text-color;
       margin: $rpl-call-to-action-summary-margin-xs;
       padding: $rpl-call-to-action-summary-padding-xs;
-      width: 100%;
       @include rpl_breakpoint('s') {
         margin: $rpl-call-to-action-summary-margin-s;
         padding: 0;
       }
     }
+    &--with-sidebar {
+      max-width: 100%;
+    }
+    &--without-sidebar {
+      .rpl-call-to-action__row {
+        max-width: $rpl-call-to-action-max-width;
+        margin: auto;
+        @include rpl_breakpoint('l') {
+          display: flex;
+        }
+      }
+      .rpl-call-to-action__left {
+        @include rpl_breakpoint('l') {
+          @include rpl_grid_column(4);
+        }
+
+        @include rpl_breakpoint('xxxl') {
+          @include rpl_grid_column(3);
+        }
+      }
+
+      .rpl-call-to-action__right {
+        @include rpl_breakpoint('l') {
+          @include rpl_grid_column(8);
+        }
+
+        @include rpl_breakpoint('xxxl') {
+          @include rpl_grid_column(9);
+        }
+      }
+
+      .rpl-call-to-action__image {
+        @include rpl_breakpoint('l') {
+          width: 100%;
+        }
+      }
+
+      .rpl-call-to-action__title {
+        width: 100%;
+      }
+
+      .rpl-call-to-action__summary {
+        width: 100%;
+      }
+    }
   }
+}
 </style>

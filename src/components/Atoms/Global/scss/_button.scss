@@ -71,6 +71,10 @@ $rpl-button-disabled-text-color: rpl_color('dark_neutral') !default;
     background-color: $rpl-button-primary-hover-background-color;
     color: $rpl-button-primary-hover-text-color;
   }
+
+  &:active {
+    color: $rpl-button-active-text-color;
+  }
 }
 
 @mixin rpl_button_secondary {

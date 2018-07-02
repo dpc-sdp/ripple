@@ -45,6 +45,7 @@ export default {
   $rpl-card-navigation-title-padding: 0 0 rem(12px) 0 !default;
   $rpl-card-navigation-title-margin: 0 0 rem(18px) !default;
   $rpl-card-navigation-title-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-card-navigation-title-hover-color: rpl_color('primary') !default;
   $rpl-card-navigation-summary-ruleset: (
     'xs': ('xs', 1.4em, 'regular'),
     's': ('s', 1.5em, 'regular')
@@ -83,7 +84,7 @@ export default {
       }
 
       #{$root}__title {
-        color: rpl_color('primary');
+        color: $rpl-card-navigation-title-hover-color;
       }
     }
 

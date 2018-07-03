@@ -23,6 +23,7 @@ storiesOf('Organisms/SiteHeader', module)
   :breakpoint="breakpoint"
   :searchTerms="searchTerms"
   :sticky="sticky"
+  :hideOnScroll="hideOnScroll"
   @open="menuOpenFunc"
   @search="searchFunc"
 />`,
@@ -132,7 +133,8 @@ storiesOf('Organisms/SiteHeader', module)
             linkUrl: '#'
           }
         ]),
-        sticky: boolean('Sticky', false)
+        sticky: boolean('Sticky', false),
+        hideOnScroll: boolean('Hide On Scroll', false)
       }
     },
     methods: {

@@ -14,65 +14,66 @@
     :data-visibledepth="((isRoot && shared) ? shared.visibleDepth : false)"
   >
     <div class="rpl-menu__inner">
-      <div class="rpl-menu__column">
-        <div class="rpl-menu__header">
-          <button
-            v-if="!isRoot && isVerticalLayout"
-            class="rpl-menu__back"
-            @click="verticalGoBack"
-            @focus="onItemFocus"
-          >
-            <rpl-icon symbol="left" color="white" />
-            <span class="rpl-visually-hidden">Close {{ title }} and return to</span><span>{{ backTitle }}</span>
-          </button>
-          <h2 class="rpl-menu__heading" v-if="!isRoot && isVerticalLayout">{{ title }}</h2>
-          <h2 class="rpl-menu__heading" v-if="(!isVerticalLayout && depth === 1)">{{ title }}</h2>
-        </div>
-        <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
-          <li
-            v-for="(list, index) in menu"
-            :key="index"
-            :class="{
-              'rpl-menu__item--active': menuItemOpen[index],
-              'rpl-menu__item--before-active': menuItemOpen[index + 1],
-              'rpl-menu__item--after-active': menuItemOpen[index - 1],
-            }"
-            class="rpl-menu__item"
-          >
-            <rpl-link
-              v-if="!list.children"
-              class="rpl-menu__item-link"
-              :href="list.url"
-              @focus="onItemFocus"
-            >
-              {{ list.text }}
-            </rpl-link>
+      <div class="rpl-menu__inner_root">
+        <div class="rpl-menu__column">
+          <div class="rpl-menu__header">
             <button
-              v-else
-              class="rpl-menu__item-link"
-              :class="{'rpl-menu__item-link--active': menuItemOpen[index]}"
-              @click="menuLinkClick(index)"
+              v-if="!isRoot && isVerticalLayout"
+              class="rpl-menu__back"
+              @click="verticalGoBack"
               @focus="onItemFocus"
-              :aria-expanded="menuItemOpen[index].toString()"
             >
-              <span>{{ list.text }}</span>
-              <rpl-icon :symbol="menuParentIcon(index)" color="white" />
+              <rpl-icon symbol="left" color="white" />
+              <span class="rpl-visually-hidden">Close {{ title }} and return to</span><span>{{ backTitle }}</span>
             </button>
-            <rpl-menu
-              v-if="list.children"
-              :menu="list.children"
-              :depth="depth ? depth + 1 : 1"
-              :open="menuItemOpen[index]"
-              :layout="layout"
-              :title="list.text"
-              :backTitle="title"
-              :sharedControl="shared"
-              @focused="onInnerItemFocus(index, $event)"
-              @menuchange="onInnerMenuChange"
-              @back="onInnerMenuBack"
-            ></rpl-menu>
-          </li>
-        </ul>
+            <h2 class="rpl-menu__heading" v-if="(!isRoot && isVerticalLayout) || (!isVerticalLayout && depth === 1)">{{ title }}</h2>
+          </div>
+          <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
+            <li
+              v-for="(list, index) in menu"
+              :key="index"
+              :class="{
+                'rpl-menu__item--active': menuItemOpen[index],
+                'rpl-menu__item--before-active': menuItemOpen[index + 1],
+                'rpl-menu__item--after-active': menuItemOpen[index - 1],
+              }"
+              class="rpl-menu__item"
+            >
+              <rpl-link
+                v-if="!list.children"
+                class="rpl-menu__item-link"
+                :href="list.url"
+                @focus="onItemFocus"
+              >
+                {{ list.text }}
+              </rpl-link>
+              <button
+                v-else
+                class="rpl-menu__item-link"
+                :class="{'rpl-menu__item-link--active': menuItemOpen[index]}"
+                @click="menuLinkClick(index)"
+                @focus="onItemFocus"
+                :aria-expanded="menuItemOpen[index].toString()"
+              >
+                <span>{{ list.text }}</span>
+                <rpl-icon :symbol="menuParentIcon(index)" color="white" />
+              </button>
+              <rpl-menu
+                v-if="list.children"
+                :menu="list.children"
+                :depth="depth ? depth + 1 : 1"
+                :open="menuItemOpen[index]"
+                :layout="layout"
+                :title="list.text"
+                :backTitle="title"
+                :sharedControl="shared"
+                @focused="onInnerItemFocus(index, $event)"
+                @menuchange="onInnerMenuChange"
+                @back="onInnerMenuBack"
+              ></rpl-menu>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -128,7 +129,7 @@ export default {
         this.onInnerMenuChange(1)
         this.shared.visibleDepth = 1
         if (!this.isVerticalLayout) {
-          this.$emit('rootMenuClicked')
+          this.$emit('rootMenuClicked', index)
         }
       } else {
         this.shared.visibleDepth = this.depth + 1
@@ -213,31 +214,26 @@ export default {
 
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
+  @import "scss/site_header";
 
-  $rpl-site-header-top-height-s: rem(48px) !default;
-  $rpl-site-header-top-height-l: rem(62px) !default;
-  $rpl-site-header-background-color: rpl-color('dark_primary') !default;
   $rpl-menu-vertical-root-margin: ($rpl-space * 10) auto auto !default;
   $rpl-menu-vertical-root-padding-xl: auto $rpl-space-4 auto 0 !default;
   $rpl-menu-vertical-heading-margin: ($rpl-space * 6) auto $rpl-space-3 auto !default;
   $rpl-menu-vertical-items-padding: 0 ($rpl-space * 6) !default;
   $rpl-menu-vertical-header-padding: $rpl-menu-vertical-items-padding !default;
-  $rpl-menu-vertical-back-icon-margin: auto $rpl-space-2 auto !default;
+  $rpl-menu-vertical-back-icon-margin: auto $rpl-space auto 0 !default;
   $rpl-menu-horizontal-items-root-link-color: rpl-color('white') !default;
   $rpl-menu-horizontal-items-root-margin: auto ($rpl-space * 7) auto auto !default;
   $rpl-menu-horizontal-items-root-active-line-background-image: rpl-gradient('primary_gradient') !default;
-  $rpl-menu-horizontal-items-root-active-hover-line-color: #3a79cf !default;
+  $rpl-menu-horizontal-items-root-active-hover-line-color: rpl-color('secondary') !default;
   $rpl-menu-horizontal-items-root-active-thickness: 2px !default;
   $rpl-menu-horizontal-items-root-parent-icon-margin: auto auto auto $rpl-space !default;
-  $rpl-menu-horizontal-inner-max-width: rem(710px) !default;
-  $rpl-menu-horizontal-inner-max-width-l: rem(1170px) !default;
-  $rpl-menu-horizontal-items-not-root-padding: 0 $rpl-space-2 !default;
-  $rpl-menu-horizontal-inner-padding: 0 ($rpl-space * 8) !default;
   $rpl-menu-horizontal-inner-margin: ($rpl-space * 12) auto auto !default;
   $rpl-menu-text-color: rpl-color('white') !default;
   $rpl-menu-item-border: 1px solid rpl-color('primary') !default;
-  $rpl-menu-item-link-padding: $rpl-space-3 0 !default;
-  $rpl-menu-item-link-padding-active: $rpl-space-3 ($rpl-space * 5) !default;
+  $rpl-menu-item-link-indent: $rpl-space * 5;
+  $rpl-menu-item-link-padding: $rpl-space-4 $rpl-menu-item-link-indent $rpl-space-4 0 !default;
+  $rpl-menu-item-link-padding-active: $rpl-space-4 $rpl-menu-item-link-indent !default;
   $rpl-menu-item-link-color: $rpl-menu-text-color !default;
   $rpl-menu-item-link-background-color-hover: rpl-color('primary') !default;
   $rpl-menu-item-link-background-image-active: rpl-gradient('primary_gradient') !default;
@@ -245,6 +241,35 @@ export default {
   $rpl-menu-item-link-background-color-active: transparent !default;
   $rpl-menu-item-link-icon-margin: auto $rpl-space-2 auto !default;
   $rpl-menu-item-link-border-radius: rem(4px) !default;
+  $rpl-menu-item-link-ruleset: ('xs', 1.1em, 'medium') !default;
+  $rpl-menu-heading-ruleset: (
+    'xs': ('xl', 1.33em, 'bold'),
+    's': ('mega', 1.14em, 'bold')
+  ) !default;
+  $rpl-menu-gutter: rpl_grid_get_gutter($rpl-grid) !default;
+
+  // Simplified rpl_grid_column() - returns quotient as non-percentage. Ignores gutters.
+  @function rpl_menu_column($grid-cols: 1, $grid: $rpl-grid) {
+    @return $grid-cols / rpl_grid_get_columns($grid);
+  }
+
+  // Simplified rpl_site_constrain() - includes menu positioning offset in padding.
+  @mixin rpl_menu_constrain_all() {
+    @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
+      @include rpl_breakpoint($bp) {
+        padding-left: calc(#{$padding} - #{$rpl-header-horizontal-padding-s});
+        padding-right: calc(#{$padding} - #{$rpl-header-horizontal-padding-s});
+      }
+    }
+
+    // max width will override site padding
+    @each $bp, $width in map-get($rpl-layout, 'site_max_width') {
+      @include rpl_breakpoint($bp) {
+        padding-left: calc((100% - #{$width}) / 2);
+        padding-right: calc((100% - #{$width}) / 2);
+      }
+    }
+  }
 
   .rpl-menu--vertical {
     &.rpl-menu--root {
@@ -301,7 +326,7 @@ export default {
       cursor: pointer;
 
       .rpl-icon {
-        margin-right: $rpl-menu-vertical-back-icon-margin;
+        margin: $rpl-menu-vertical-back-icon-margin;
       }
     }
   }
@@ -346,6 +371,7 @@ export default {
         }
 
         .rpl-icon {
+          vertical-align: middle;
           margin: $rpl-menu-horizontal-items-root-parent-icon-margin;
           display: inline;
         }
@@ -369,12 +395,11 @@ export default {
 
     .rpl-menu__items:not(.rpl-menu__items--root) {
       list-style: none;
-      padding: $rpl-menu-horizontal-items-not-root-padding;
+      padding: 0;
     }
 
     .rpl-menu--horizontal-floating-wrapper {
       &.rpl-menu--open {
-        background-color: $rpl-site-header-background-color;
         position: absolute;
         left: 0;
         right: 0;
@@ -383,33 +408,36 @@ export default {
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         top: $rpl-site-header-top-height-s;
-        height: calc(100vh - #{$rpl-site-header-top-height-s});
+        height: calc(100vh - #{$rpl-site-header-top-height-s + (2 * $rpl-header-horizontal-padding-xs)});
+        @include rpl_breakpoint('s') {
+          height: calc(100vh - #{$rpl-site-header-top-height-s + (2 * $rpl-header-horizontal-padding-s)});
+        }
         @include rpl_breakpoint('l') {
           top: $rpl-site-header-top-height-l;
-          height: calc(100vh - #{$rpl-site-header-top-height-l});
+          height: calc(100vh - #{$rpl-site-header-top-height-l + (2 * $rpl-header-horizontal-padding-s)});
         }
       }
 
       & > .rpl-menu__inner {
-        margin-left: auto;
-        margin-right: auto;
+        @include rpl_menu_constrain_all;
         position: relative;
-        max-width: $rpl-menu-horizontal-inner-max-width;
         @include rpl_breakpoint('l') {
-          max-width: $rpl-menu-horizontal-inner-max-width-l;
-          padding: $rpl-menu-horizontal-inner-padding;
           margin: $rpl-menu-horizontal-inner-margin;
         }
 
-        & > .rpl-menu__column {
-          width: 33.33%;
-          position: relative;
-          margin-left: 33.33%;
+        & > .rpl-menu__inner_root {
+          @include rpl_grid_row;
 
-          & > .rpl-menu__header {
-            position: absolute;
-            right: 100%;
-            width: 100%;
+          & > .rpl-menu__column {
+            position: relative;
+            width: calc(#{rpl_menu_column(4) * 100%} - #{$rpl-menu-gutter});
+            margin-left: calc(#{rpl_menu_column(3) * 100%} + #{$rpl-menu-gutter / 2});
+
+            & > .rpl-menu__header {
+              position: absolute;
+              right: calc(100% + #{$rpl-menu-gutter});
+              width: calc((100% + #{$rpl-menu-gutter}) * #{rpl_menu_column(3) / rpl_menu_column(4)} - #{$rpl-menu-gutter});
+            }
           }
         }
       }
@@ -419,9 +447,15 @@ export default {
     &[data-visibledepth="3"] {
       .rpl-menu--horizontal-floating-wrapper {
         & > .rpl-menu__inner {
-          & > .rpl-menu__column {
-            width: 25%;
-            margin-left: 25%;
+          & > .rpl-menu__inner_root {
+            & > .rpl-menu__column {
+              width: calc(#{rpl_menu_column(3) * 100%} - #{$rpl-menu-gutter});
+              margin-left: calc(#{rpl_menu_column(3) * 100%} + #{$rpl-menu-gutter / 2});
+
+              & > .rpl-menu__header {
+                width: 100%;
+              }
+            }
           }
         }
       }
@@ -437,14 +471,14 @@ export default {
       .rpl-menu__column {
         top: 0;
         position: absolute;
-        left: 100%;
+        left: calc(100% + #{$rpl-menu-gutter});
         width: 100%;
       }
     }
   }
 
   .rpl-menu__heading {
-    @include rpl_typography_font('s', 1.1em, 'bold');
+    @include rpl_typography_ruleset($rpl-menu-heading-ruleset);
     color: $rpl-menu-text-color;
   }
 
@@ -464,9 +498,9 @@ export default {
       }
     }
     .rpl-menu__item-link {
-      @include rpl_typography_font('xs', 1.1em, 'medium');
+      @include rpl_typography_ruleset($rpl-menu-item-link-ruleset);
       font-weight: 400;
-      display: inline-block;
+      display: flex;
       width: 100%;
       text-align: left;
       box-sizing: border-box;
@@ -478,39 +512,39 @@ export default {
       text-decoration: none;
       padding: $rpl-menu-item-link-padding;
       color: $rpl-menu-item-link-color;
+      transition: padding-left .25s;
 
       .rpl-icon {
         margin: $rpl-menu-item-link-icon-margin;
-        transition: margin-left 1s;
+        margin-left: auto;
+        min-width: 5px;
       }
 
+      span {
+        margin-right: $rpl-menu-item-link-indent;
+        transition: margin-right .25s;
+      }
+
+      &--active,
       &:hover, &:focus {
-        @include rpl_typography_font('xs', 1.1em, 'bold');
         border-radius: $rpl-menu-item-link-border-radius;
-        display: flex;
         align-items: center;
-        background-color: $rpl-menu-item-link-background-color-hover;
         padding: $rpl-menu-item-link-padding-active;
         color: $rpl-menu-item-link-color;
 
-        .rpl-icon {
-          margin-left: auto;
+        span {
+          margin-right: 0;
         }
       }
 
+      &:hover, &:focus {
+        background-color: $rpl-menu-item-link-background-color-hover;
+      }
+
       &--active {
-        @include rpl_typography_font('xs', 1.1em, 'bold');
-        border-radius: $rpl-menu-item-link-border-radius;
         background-image: $rpl-menu-item-link-background-image-active;
         background-color: $rpl-menu-item-link-background-color-active;
         color: $rpl-menu-item-link-color-active;
-        display: flex;
-        align-items: center;
-        padding: $rpl-menu-item-link-padding-active;
-
-        .rpl-icon {
-          margin-left: auto;
-        }
       }
     }
   }

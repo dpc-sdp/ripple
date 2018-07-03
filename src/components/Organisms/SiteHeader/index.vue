@@ -77,7 +77,8 @@ export default {
     links: Array,
     breakpoint: Number,
     searchTerms: Array,
-    sticky: Boolean
+    sticky: Boolean,
+    hideOnScroll: { default: true, type: Boolean }
   },
   components: {
     RplIcon,
@@ -90,7 +91,7 @@ export default {
       menuContentOpen: false,
       searchState: 'closed',
       menuState: 'closed',
-      lastCaller: null,
+      lastRootMenuClicked: -1,
       headerVisible: true,
       lastScrollTop: 0,
       menuWideEnabled: null,
@@ -157,9 +158,10 @@ export default {
         this.menuLayout = 'vertical'
       }
     },
-    rootMenuClicked: function () {
-      this.menuContentOpen = true
+    rootMenuClicked: function (rootMenuIndex) {
+      this.menuContentOpen = !(this.menuContentOpen && this.lastRootMenuClicked === rootMenuIndex)
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
+      this.lastRootMenuClicked = rootMenuIndex
       this.$emit('open', this.menuContentOpen)
     },
     searchFunc: function (value) {
@@ -179,13 +181,18 @@ export default {
     if (process.browser) {
       window.addEventListener('resize', this.windowResize)
       this.windowResize()
-      // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-      window.addEventListener('scroll', this.scroll)
+      if (this.hideOnScroll) {
+        // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+        window.addEventListener('scroll', this.scroll)
+      }
     }
   },
   beforeDestroy: function () {
     if (process.browser) {
       window.removeEventListener('resize', this.windowResize)
+      if (this.hideOnScroll) {
+        window.removeEventListener('scroll', this.scroll)
+      }
     }
   }
 }
@@ -193,14 +200,13 @@ export default {
 
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
+  @import "scss/site_header";
 
   $rpl-site-header-logo-width: auto !default;
   $rpl-site-header-text-color: rpl-color('white') !default;
   $rpl-site-header-border-radius: rem(4px) !default;
   $rpl-site-header-background-color: rpl-color('primary') !default;
   $rpl-site-header-background-color-open: rpl-color('dark_primary') !default;
-  $rpl-site-header-top-height-s: rem(48px) !default;
-  $rpl-site-header-top-height-l: rem(62px) !default;
   $rpl-site-header-top-padding: ($rpl-space * 6) ($rpl-space * 5) !default;
   $rpl-site-header-menu-toggle-border-right: 1px solid rpl-color('white') !default;
   $rpl-site-header-menu-toggle-border-spacing: $rpl-space-2 !default;
@@ -214,8 +220,14 @@ export default {
     z-index: $rpl-zindex-header;
 
     &__inner {
+      overflow: hidden;
       background-color: $rpl-site-header-background-color;
       border-radius: $rpl-site-header-border-radius;
+      transition: height .25s;
+      height: $rpl-site-header-top-height-s;
+      @include rpl_breakpoint('m') {
+        height: $rpl-site-header-top-height-l;
+      }
     }
 
     &--sticky:not(#{$root}--open) {
@@ -232,14 +244,21 @@ export default {
     }
 
     &--open {
-      .rpl-site-header__inner {
+      #{$root}__inner {
         position: fixed;
         margin: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-        border-radius: 0;
+        border-radius: rem(4px);
         background-color: $rpl-site-header-background-color-open;
+        top: $rpl-header-horizontal-padding-xs;
+        left: $rpl-header-horizontal-padding-xs;
+        right: $rpl-header-horizontal-padding-xs;
+        height: calc(100vh - #{2 * $rpl-header-horizontal-padding-xs});
+        @include rpl_breakpoint('s') {
+          top: $rpl-header-horizontal-padding-s;
+          left: $rpl-header-horizontal-padding-s;
+          right: $rpl-header-horizontal-padding-s;
+          height: calc(100vh - #{2 * $rpl-header-horizontal-padding-s});
+        }
       }
     }
 
@@ -264,8 +283,13 @@ export default {
       display: flex;
       align-items: center;
 
+      .rpl-link {
+        display: flex;
+      }
+
       img {
         width: $rpl-site-header-logo-width;
+        margin-left: $rpl-site-header-menu-toggle-border-spacing;
       }
     }
 
@@ -277,15 +301,17 @@ export default {
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: $rpl-site-header-background-color-open;
         overflow-x: hidden;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         top: $rpl-site-header-top-height-s;
-        height: calc(100vh - #{$rpl-site-header-top-height-s});
+        height: calc(100vh - #{$rpl-site-header-top-height-s + (2 * $rpl-header-horizontal-padding-xs)});
+        @include rpl_breakpoint('s') {
+          height: calc(100vh - #{$rpl-site-header-top-height-s + (2 * $rpl-header-horizontal-padding-s)});
+        }
         @include rpl_breakpoint('l') {
           top: $rpl-site-header-top-height-l;
-          height: calc(100vh - #{$rpl-site-header-top-height-l});
+          height: calc(100vh - #{$rpl-site-header-top-height-l + (2 * $rpl-header-horizontal-padding-s)});
         }
       }
 
@@ -317,7 +343,6 @@ export default {
 
       &--menu {
         padding-right: $rpl-site-header-menu-toggle-border-spacing;
-        margin-right: $rpl-site-header-menu-toggle-border-spacing;
         border-right: $rpl-site-header-menu-toggle-border-right;
         @include rpl_breakpoint('l') {
           display: none;

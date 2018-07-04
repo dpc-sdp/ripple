@@ -285,6 +285,7 @@ export default {
 
       .rpl-link {
         display: flex;
+        flex-flow: column;
       }
 
       img {

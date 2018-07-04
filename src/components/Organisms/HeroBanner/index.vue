@@ -104,6 +104,8 @@ export default {
   .rpl-hero-banner {
     @include rpl_mobile_padding;
     @include rpl_grid_container;
+    position: relative;
+
     @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
       @include rpl_breakpoint($bp) {
         padding-top: map-get($spacing, top);
@@ -118,15 +120,16 @@ export default {
     &__left {
       @include rpl_grid_full;
 
-      @include rpl_breakpoint('l') {
+      @include rpl_breakpoint('xl') {
         @include rpl_grid_column(8);
       }
     }
 
     &__right {
       @include rpl_grid_full;
+      z-index: $rpl-zindex-content-top;
 
-      @include rpl_breakpoint('l') {
+      @include rpl_breakpoint('xl') {
         @include rpl_grid_column(4);
       }
     }

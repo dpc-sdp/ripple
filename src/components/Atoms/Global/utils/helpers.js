@@ -15,7 +15,7 @@ const isRelativeUrl = (url) => {
   ]
 
   for (let type of types) {
-    if (url !== null) {
+    if (url !== undefined && url !== null) {
       if (url.startsWith(type)) {
         return false
       }

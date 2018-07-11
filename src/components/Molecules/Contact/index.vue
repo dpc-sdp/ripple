@@ -9,13 +9,13 @@
     <p v-if="address" class="rpl-contact__address">
       <span class="rpl-contact__icon"><rpl-icon symbol="map_marker" color="primary" /></span><rpl-link :href="addressLink">{{ address }}</rpl-link>
     </p>
-    <p v-if="phone" v-for="(phone_number, index) in phone" :key="index" class="rpl-contact__phone">
+    <p v-if="phone" v-for="(phone_number, index) in phone" :key="`phone-${index}`" class="rpl-contact__phone">
       <span class="rpl-contact__icon"><rpl-icon symbol="phone_number" color="primary" size="0.857" /></span><rpl-link :href="'tel:' + phone_number">{{ phone_number }}</rpl-link>
     </p>
     <p v-if="email" class="rpl-contact__email">
       <span class="rpl-contact__icon"><rpl-icon symbol="email_solid" color="primary" size="0.65" /></span><rpl-link :href="'mailto:' + email">{{ email }}</rpl-link>
     </p>
-    <p v-if="social" v-for="(link, index) in social" :key="index" class="rpl-contact__social">
+    <p v-if="social" v-for="(link, index) in social" :key="`social-${index}`" class="rpl-contact__social">
       <span class="rpl-contact__icon"><rpl-icon :symbol="link.icon" color="primary" :size="socialIconScale[link.icon] || 1" /></span><rpl-link :href="link.url">{{ link.title }}</rpl-link>
     </p>
   </div>

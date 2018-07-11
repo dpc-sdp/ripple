@@ -47,7 +47,7 @@ storiesOf('Molecules/Card', module)
     data () {
       return {
         image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-05-31'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
         topic: text('Topic', 'News'),
         title: text('Title', 'This is display copy that wraps 2 lines'),
         summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
@@ -62,8 +62,8 @@ storiesOf('Molecules/Card', module)
       return {
         title: text('Title', 'Key calendar dates'),
         keydates: object('Keydates', [
-          { date: '2018-05-03', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
-          { date: '2018-05-23', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+          { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+          { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
         ]),
         link: object('Link', { text: 'See the events calendar', url: '#' })
       }
@@ -75,7 +75,7 @@ storiesOf('Molecules/Card', module)
     data () {
       return {
         image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-05-31'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
         location: text('Location', 'South Yarra'),
         title: text('Title', 'This is the headline of an event with a location that will stretch over over 3 lines'),
         summary: text('Summary', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte'),

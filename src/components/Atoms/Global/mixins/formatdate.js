@@ -8,7 +8,7 @@ const formatdate = {
     formatDate: function (date, format) {
       format = (format === undefined) ? 'DD MMMM' : format
       moment.locale(this.locale)
-      return moment.unix(date).format(format)
+      return moment(date).format(format)
     }
   }
 }

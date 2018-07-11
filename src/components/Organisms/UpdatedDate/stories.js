@@ -18,7 +18,7 @@ storiesOf('Organisms/UpdatedDate', module)
     template: `<rpl-updated-date :date="date" :prefix="prefix" :locale="locale" />`,
     data () {
       return {
-        date: text('Date', '2018-01-01'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
         prefix: text('Prefix', 'Reviewed'),
         locale: text('Locale', 'en-au')
       }

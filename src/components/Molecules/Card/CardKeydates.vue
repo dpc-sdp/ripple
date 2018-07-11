@@ -4,7 +4,6 @@
     <div class="rpl-card-keydates__keydate" v-for="(keydate, index) in keydates" :key="index">
       <div class="rpl-card-keydates__keydate-date">
         <rpl-icon symbol="calendar" color="white" />
-        <!-- <span>{{ formatDate(keydate.date) }}</span> -->
         <span>{{ keydate.date }}</span>
       </div>
       <h3 class="rpl-card-keydates__keydate-title">{{ keydate.title }}</h3>

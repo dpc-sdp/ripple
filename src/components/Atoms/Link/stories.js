@@ -18,11 +18,12 @@ storiesOf('Atoms/Link', module)
   .addDecorator(withKnobs)
   .add('Link', withReadme(readme, () => ({
     components: { RplLink },
-    template: '<rpl-link :href="href">{{ content }}</rpl-link>',
+    template: '<rpl-link :href="href" :target="target">{{ content }}</rpl-link>',
     data () {
       return {
         content: text('Content', 'Ripple Link'),
-        href: text('href', '#')
+        href: text('href', '#'),
+        target: text('target', '')
       }
     }
   })))

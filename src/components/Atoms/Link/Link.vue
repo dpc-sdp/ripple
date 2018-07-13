@@ -1,5 +1,5 @@
 <template>
-  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href">
+  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
     <slot></slot>
   </a>
   <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href">
@@ -9,19 +9,21 @@
 
 <script>
 import { focus } from 'vue-focus'
-import { isRelativeUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { isRelativeUrl, isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplLink',
   props: {
-    href: String
+    href: String,
+    target: { type: String, default: '' }
   },
   directives: {
     focus
   },
   data: function () {
     return {
-      isNuxtLink: false
+      isNuxtLink: false,
+      linkTarget: null
     }
   },
   methods: {
@@ -32,6 +34,14 @@ export default {
   created: function () {
     if (isRelativeUrl(this.href)) {
       this.isNuxtLink = this.rplOptions.nuxt
+    }
+    // Set link target for non nuxt-links
+    if (this.target.length === 0) {
+      if (isExternalUrl(this.href, this.rplOptions.hostname)) {
+        this.linkTarget = '_blank'
+      }
+    } else {
+      this.linkTarget = this.target
     }
   }
 }

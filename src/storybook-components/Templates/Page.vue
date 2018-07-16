@@ -36,7 +36,7 @@
           <rpl-card-navigation :title="mock.cardNavigation.title" :summary="mock.cardNavigation.summary" :url="mock.cardNavigation.url" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
-          <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :tags="mock.cardNavigation.tags" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
+          <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :topic="mock.cardNavigation.topic" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
           <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
@@ -45,7 +45,7 @@
           <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
-          <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :tags="mock.cardNavigation.tags" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
+          <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :topic="mock.cardNavigation.topic" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
           <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />

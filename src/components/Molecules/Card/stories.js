@@ -43,7 +43,7 @@ storiesOf('Molecules/Card', module)
   })))
   .add('Card Promotion', withReadme(readme, () => ({
     components: { RplCardPromotion },
-    template: `<rpl-card-promotion :image="image" :date="date" :tags="tags" :title="title" :summary="summary" :link="link" />`,
+    template: `<rpl-card-promotion :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
     data () {
       return {
         image: text('Image', 'https://placehold.it/580x340'),

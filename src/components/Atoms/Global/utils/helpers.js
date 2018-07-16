@@ -9,17 +9,8 @@ if (!String.prototype.startsWith) {
 /* eslint-enable */
 
 const isRelativeUrl = (url) => {
-  const types = [
-    'tel:',
-    'mailto:'
-  ]
-
-  for (let type of types) {
-    if (url !== undefined && url !== null) {
-      if (url.startsWith(type)) {
-        return false
-      }
-    }
+  if (_isTelOrEmailUrl(url)) {
+    return false
   }
 
   var reg = new RegExp('^(?!(?:[a-z]+:)?//)', 'i')
@@ -31,7 +22,11 @@ const isExternalUrl = (url, hostname) => {
     return false
   }
 
-  return _extractHostname(url) !== hostname
+  if (_isTelOrEmailUrl(url)) {
+    return false
+  }
+
+  return _extractHostname(url) !== hostname.replace(/^www\./, '')
 }
 
 // https://stackoverflow.com/a/23945027/1212791
@@ -50,7 +45,24 @@ function _extractHostname (url) {
   // find & remove "?"
   hostname = hostname.split('?')[0]
 
-  return hostname
+  return hostname.replace(/^www\./, '')
+}
+
+function _isTelOrEmailUrl (url) {
+  const types = [
+    'tel:',
+    'mailto:'
+  ]
+
+  for (let type of types) {
+    if (url !== undefined && url !== null) {
+      if (url.startsWith(type)) {
+        return true
+      }
+    }
+  }
+
+  return false
 }
 
 export { isRelativeUrl, isExternalUrl }

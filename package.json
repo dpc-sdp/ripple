@@ -9,35 +9,36 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src && sass-lint -qv --max-warnings 0",
+    "test": "NODE_ENV=test jest --verbose",
     "storybook": "start-storybook -p 3000 -c .storybook -s ./static",
     "build-storybook": "build-storybook -c .storybook -s ./static",
     "start": "npm run storybook"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "file:src/components/Atoms/Global",
-    "@dpc-sdp/ripple-button": "file:src/components/Atoms/Button",
-    "@dpc-sdp/ripple-grid": "file:src/components/Atoms/Grid",
-    "@dpc-sdp/ripple-icon": "file:src/components/Atoms/Icon",
-    "@dpc-sdp/ripple-meta-tag": "file:src/components/Atoms/MetaTag",
-    "@dpc-sdp/ripple-link": "file:src/components/Atoms/Link",
-    "@dpc-sdp/ripple-layout": "file:src/components/Molecules/Layout",
-    "@dpc-sdp/ripple-breadcrumbs": "file:src/components/Molecules/Breadcrumbs",
-    "@dpc-sdp/ripple-related-links": "file:src/components/Molecules/RelatedLinks",
-    "@dpc-sdp/ripple-whats-next": "file:src/components/Molecules/WhatsNext",
     "@dpc-sdp/ripple-anchor-links": "file:src/components/Molecules/AnchorLinks",
-    "@dpc-sdp/ripple-card": "file:src/components/Molecules/Card",
-    "@dpc-sdp/ripple-form": "file:src/components/Molecules/Form",
-    "@dpc-sdp/ripple-contact": "file:src/components/Molecules/Contact",
-    "@dpc-sdp/ripple-search": "file:src/components/Molecules/Search",
-    "@dpc-sdp/ripple-share-this": "file:src/components/Molecules/ShareThis",
-    "@dpc-sdp/ripple-embedded-video": "file:src/components/Molecules/EmbeddedVideo",
-    "@dpc-sdp/ripple-sitemap": "file:src/components/Molecules/Sitemap",
-    "@dpc-sdp/ripple-site-header": "file:src/components/Organisms/SiteHeader",
-    "@dpc-sdp/ripple-site-footer": "file:src/components/Organisms/SiteFooter",
-    "@dpc-sdp/ripple-hero-banner": "file:src/components/Organisms/HeroBanner",
-    "@dpc-sdp/ripple-updated-date": "file:src/components/Organisms/UpdatedDate",
+    "@dpc-sdp/ripple-breadcrumbs": "file:src/components/Molecules/Breadcrumbs",
+    "@dpc-sdp/ripple-button": "file:src/components/Atoms/Button",
     "@dpc-sdp/ripple-call-to-action": "file:src/components/Organisms/CallToAction",
     "@dpc-sdp/ripple-campaign-secondary": "file:src/components/Organisms/CampaignSecondary",
+    "@dpc-sdp/ripple-card": "file:src/components/Molecules/Card",
+    "@dpc-sdp/ripple-contact": "file:src/components/Molecules/Contact",
+    "@dpc-sdp/ripple-embedded-video": "file:src/components/Molecules/EmbeddedVideo",
+    "@dpc-sdp/ripple-form": "file:src/components/Molecules/Form",
+    "@dpc-sdp/ripple-global": "file:src/components/Atoms/Global",
+    "@dpc-sdp/ripple-grid": "file:src/components/Atoms/Grid",
+    "@dpc-sdp/ripple-hero-banner": "file:src/components/Organisms/HeroBanner",
+    "@dpc-sdp/ripple-icon": "file:src/components/Atoms/Icon",
+    "@dpc-sdp/ripple-layout": "file:src/components/Molecules/Layout",
+    "@dpc-sdp/ripple-link": "file:src/components/Atoms/Link",
+    "@dpc-sdp/ripple-meta-tag": "file:src/components/Atoms/MetaTag",
+    "@dpc-sdp/ripple-related-links": "file:src/components/Molecules/RelatedLinks",
+    "@dpc-sdp/ripple-search": "file:src/components/Molecules/Search",
+    "@dpc-sdp/ripple-share-this": "file:src/components/Molecules/ShareThis",
+    "@dpc-sdp/ripple-sitemap": "file:src/components/Molecules/Sitemap",
+    "@dpc-sdp/ripple-site-footer": "file:src/components/Organisms/SiteFooter",
+    "@dpc-sdp/ripple-site-header": "file:src/components/Organisms/SiteHeader",
+    "@dpc-sdp/ripple-updated-date": "file:src/components/Organisms/UpdatedDate",
+    "@dpc-sdp/ripple-whats-next": "file:src/components/Molecules/WhatsNext",
     "vue": "^2.5.16"
   },
   "devDependencies": {
@@ -46,11 +47,13 @@
     "@storybook/addon-knobs": "^3.3.15",
     "@storybook/addon-links": "^3.3.15",
     "@storybook/addon-options": "^3.4.4",
+    "@storybook/addon-storyshots": "^3.4.3",
     "@storybook/addon-viewport": "^3.3.15",
     "@storybook/addons": "^3.3.15",
     "@storybook/vue": "^3.3.15",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-vue": "^2.0.2",
     "css-loader": "^0.28.0",
     "eslint": "^4.15.0",
@@ -58,11 +61,14 @@
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0",
     "file-loader": "^1.1.4",
+    "jest": "^23.3.0",
+    "markdown-loader-jest": "^0.1.1",
     "node-sass": "^4.7.2",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
@@ -72,6 +78,7 @@
     "svgo": "^1.0.5",
     "svgo-loader": "^2.1.0",
     "url-loader": "^0.5.8",
+    "vue-jest": "^2.6.0",
     "vue-loader": "^14.2.3",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2"
@@ -84,5 +91,24 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+      "^.+\\.md?$": "markdown-loader-jest"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!(@storybook/.*\\.vue$|storybook-addon-vue-info))"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  }
 }

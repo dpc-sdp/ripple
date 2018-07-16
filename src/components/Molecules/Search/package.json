@@ -1,0 +1,13 @@
+{
+  "name": "@dpc-sdp/ripple-search",
+  "version": "0.1.0",
+  "description": "Ripple search",
+  "private": true,
+  "main": "index.js",
+  "peerDependencies": {
+    "@dpc-sdp/ripple-global": "0.1.0",
+    "@dpc-sdp/ripple-icon": "0.1.0",
+    "@dpc-sdp/ripple-form": "0.1.0",
+    "@dpc-sdp/ripple-meta-tag": "0.1.0"
+  }
+}

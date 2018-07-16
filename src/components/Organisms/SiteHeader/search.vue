@@ -1,15 +1,10 @@
 <template>
   <div class="rpl-site-header-search">
-    <div class="rpl-site-header-search__field">
-      <label>
-        <span class="rpl-site-header-search__label-text">Search for</span>
-        <input v-model="searchInput" class="rpl-site-header-search__input" type="text" placeholder="Start typing..." @keydown.enter="searchTerm()" />
-      </label>
-      <button @click="searchTerm()" class="rpl-site-header-search__btn">
-        <span>Search</span>
-        <rpl-icon symbol="search" color="white" size="l"></rpl-icon>
-      </button>
-    </div>
+    <rpl-search-form
+      searchPlaceholder="Start typing..."
+      theme="dark"
+      @search="searchTerm"
+    />
     <div v-if="terms && terms.length > 0">
       <h3 class="rpl-site-header-search__terms-header">Popular searches</h3>
       <ul class="rpl-site-header-search__terms">
@@ -24,6 +19,7 @@
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplMetaTag from '@dpc-sdp/ripple-meta-tag'
+import { RplSearchForm } from '@dpc-sdp/ripple-search'
 
 export default {
   name: 'RplSearch',
@@ -32,16 +28,12 @@ export default {
   },
   components: {
     RplIcon,
-    RplMetaTag
-  },
-  data: function () {
-    return {
-      searchInput: ''
-    }
+    RplMetaTag,
+    RplSearchForm
   },
   methods: {
-    searchTerm: function () {
-      this.$emit('search', this.searchInput)
+    searchTerm: function (searchInput) {
+      this.$emit('search', searchInput)
     }
   }
 }
@@ -57,11 +49,6 @@ export default {
   $rpl-site-header-search-margin-l: ($rpl-space * 19) auto auto !default;
   $rpl-site-header-search-margin-xl: ($rpl-space * 20) auto auto !default;
   $rpl-site-header-search-padding: 0 10% !default;
-  $rpl-site-header-search-button-width: rem(28px) !default;
-  $rpl-site-header-search-input-text-color: rpl-color('white') !default;
-  $rpl-site-header-search-input-margin: auto auto ($rpl-space * 7) auto !default;
-  $rpl-site-header-search-input-margin-s: auto auto ($rpl-space * 15) auto !default;
-  $rpl-site-header-search-input-margin-l: auto auto ($rpl-space * 19) auto !default;
   $rpl-site-header-search-term-margin: auto $rpl-space-2 $rpl-space-3 auto !default;
   $rpl-site-header-search-terms-header-text-color: rpl-color('white') !default;
   $rpl-site-header-search-field-underline-background-image: rpl-gradient('primary_gradient') !default;
@@ -89,29 +76,6 @@ export default {
       margin: $rpl-site-header-search-margin-xl;
     }
 
-    &__btn {
-      background-color: transparent;
-      border: 0;
-      width: $rpl-site-header-search-button-width;
-      cursor: pointer;
-
-      span {
-        @include rpl_visually_hidden;
-      }
-    }
-
-    &__input {
-      @include rpl_typography_font('s', 1.1em, 'medium');
-      background-color: transparent;
-      border: 0;
-      width: 100%;
-      color: $rpl-site-header-search-input-text-color;
-
-      &::-webkit-input-placeholder {
-        color: $rpl-site-header-search-input-text-color;
-      }
-    }
-
     &__terms {
       list-style: none;
       margin: 0;
@@ -123,27 +87,12 @@ export default {
       margin: $rpl-site-header-search-term-margin;
     }
 
-    &__label-text {
-      @include rpl_visually_hidden;
+    &__terms-header {
+      @include rpl_typography_font('s', 1.4em, 'bold');
+      color: $rpl-site-header-search-terms-header-text-color;
     }
 
-    &__field {
-      position: relative;
-      display: flex;
-      margin: $rpl-site-header-search-input-margin;
-
-      @include rpl_breakpoint('s') {
-        margin: $rpl-site-header-search-input-margin-s;
-      }
-
-      @include rpl_breakpoint('l') {
-        margin: $rpl-site-header-search-input-margin-l;
-      }
-
-      label {
-        width: 100%;
-      }
-
+    .rpl-search-form__field {
       &::after {
         content: '';
         width: 100%;
@@ -156,11 +105,6 @@ export default {
         height: rem(4px);
         background-image: $rpl-site-header-search-field-underline-background-image;
       }
-    }
-
-    &__terms-header {
-      @include rpl_typography_font('s', 1.4em, 'bold');
-      color: $rpl-site-header-search-terms-header-text-color;
     }
   }
 

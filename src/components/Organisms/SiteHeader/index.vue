@@ -50,7 +50,7 @@
           </div>
           <!-- Search Button -->
           <!-- [SDPA-528] Hided search button in header for alpha launch -->
-          <button v-if="false" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
+          <button v-if="showSearch" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
             <span>{{ searchButton[searchState].text }}</span>
             <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
           </button>
@@ -78,7 +78,8 @@ export default {
     breakpoint: Number,
     searchTerms: Array,
     sticky: Boolean,
-    hideOnScroll: { default: true, type: Boolean }
+    hideOnScroll: { default: true, type: Boolean },
+    showSearch: { default: false, type: Boolean }
   },
   components: {
     RplIcon,

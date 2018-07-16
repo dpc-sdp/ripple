@@ -18,7 +18,11 @@ import Vue from 'vue'
 import RplFormAlert from './formAlert'
 import VueFormGenerator from 'vue-form-generator'
 import Multiselect from 'vue-multiselect'
+import fieldRplchecklist from './fields/fieldRplchecklist.vue'
+import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 Vue.component('multiselect', Multiselect)
+Vue.component('fieldRplchecklist', fieldRplchecklist)
+Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
 
 export { VueFormGenerator }
 
@@ -27,6 +31,8 @@ export default {
   components: {
     'vue-form-generator': VueFormGenerator.component,
     Multiselect,
+    fieldRplchecklist,
+    fieldRplsubmitloader,
     RplFormAlert
   },
   props: {
@@ -60,47 +66,7 @@ export default {
 
 <style lang="scss">
 @import "~@dpc-sdp/ripple-global/style";
-
-$rpl-form-label-ruleset: ('l', 1.2em, 'medium') !default;
-$rpl-form-text-ruleset: ('xs', 1.3em, 'regular') !default;
-$rpl-form-help-ruleset: ('xs', 1em, 'medium') !default;
-$rpl-form-element-bg-color: rpl-color('light_neutral') !default;
-$rpl-form-element-border-color: rpl-color('mid_neutral_1') !default;
-$rpl-form-element-border-color-focus: rpl-color('primary') !default;
-$rpl-form-element-border-radius: rem(4px) !default;
-$rpl-form-element-text-color: rpl-color('extra_dark_neutral') !default;
-$rpl-form-element-text-highlighted: rpl-color('secondary') !default;
-$rpl-form-element-padding-s: $rpl-space-4!default;
-$rpl-form-element-padding-m: $rpl-space * 5 !default;
-$rpl-form-element-margin-bottom-s: $rpl-space-4 !default;
-$rpl-form-element-margin-bottom-m: $rpl-space * 7 !default;
-$rpl-form-textarea-height-s: rem(180px) !default;
-$rpl-form-textarea-height-m: rem(75px) !default;
-
-@mixin rpl_form_text_element {
-  background-color: $rpl-form-element-bg-color;
-  border: 1px solid $rpl-form-element-border-color;
-  border-radius: $rpl-form-element-border-radius;
-  box-sizing: border-box;
-  color: $rpl-form-element-text-color;
-  height: auto;
-  width: 100%;
-  padding: $rpl-form-element-padding-s;
-  margin: 0;
-
-  @include rpl_breakpoint(m) {
-    padding: $rpl-form-element-padding-m;
-  }
-
-  &:focus {
-    border-color: $rpl-form-element-border-color-focus;
-  }
-}
-
-@mixin rpl_from_element_error {
-  border-color: rpl-color('danger');
-  background-color: $rpl-danger-bg-color;
-}
+@import "scss/form";
 
 .rpl-form {
   @include rpl_typography_ruleset($rpl-form-text-ruleset);
@@ -118,7 +84,8 @@ $rpl-form-textarea-height-m: rem(75px) !default;
   }
 
   label {
-    @include rpl_typography_ruleset($rpl-form-label-ruleset);
+    @include rpl_typography_ruleset(('s', 1em, 'bold'));
+    color: rpl-color('extra_dark_neutral');
     display: block;
     margin-bottom: $rpl-space-3;
   }

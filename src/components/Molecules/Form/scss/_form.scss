@@ -1,0 +1,42 @@
+$rpl-form-label-ruleset: ('l', 1.2em, 'medium') !default;
+$rpl-form-text-ruleset: ('xs', 1.3em, 'regular') !default;
+$rpl-form-help-ruleset: ('xs', 1em, 'medium') !default;
+$rpl-form-element-bg-color: rpl-color('light_neutral') !default;
+$rpl-form-element-border-color: rpl-color('mid_neutral_1') !default;
+$rpl-form-element-border-color-focus: rpl-color('primary') !default;
+$rpl-form-element-border-radius: rem(4px) !default;
+$rpl-form-element-text-color: rpl-color('extra_dark_neutral') !default;
+$rpl-form-element-text-highlighted: rpl-color('secondary') !default;
+$rpl-form-element-padding-s-horizontal: $rpl-space-4;
+$rpl-form-element-padding-m-horizontal: $rpl-space * 5;
+$rpl-form-element-padding-s: $rpl-space-4 !default;
+$rpl-form-element-padding-m: $rpl-space-4 $rpl-form-element-padding-m-horizontal !default;
+$rpl-form-element-margin-bottom-s: $rpl-space-4 !default;
+$rpl-form-element-margin-bottom-m: $rpl-space * 7 !default;
+$rpl-form-textarea-height-s: rem(180px) !default;
+$rpl-form-textarea-height-m: rem(75px) !default;
+
+@mixin rpl_form_text_element {
+  background-color: $rpl-form-element-bg-color;
+  border: 1px solid $rpl-form-element-border-color;
+  border-radius: $rpl-form-element-border-radius;
+  box-sizing: border-box;
+  color: $rpl-form-element-text-color;
+  height: auto;
+  width: 100%;
+  padding: $rpl-form-element-padding-s;
+  margin: 0;
+
+  @include rpl_breakpoint(m) {
+    padding: $rpl-form-element-padding-m;
+  }
+
+  &:focus {
+    border-color: $rpl-form-element-border-color-focus;
+  }
+}
+
+@mixin rpl_from_element_error {
+  border-color: rpl-color('danger');
+  background-color: $rpl-danger-bg-color;
+}

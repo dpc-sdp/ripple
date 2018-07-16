@@ -24,6 +24,7 @@ storiesOf('Organisms/SiteHeader', module)
   :searchTerms="searchTerms"
   :sticky="sticky"
   :hideOnScroll="hideOnScroll"
+  :showSearch="showSearch"
   @open="menuOpenFunc"
   @search="searchFunc"
 />`,
@@ -134,7 +135,8 @@ storiesOf('Organisms/SiteHeader', module)
           }
         ]),
         sticky: boolean('Sticky', false),
-        hideOnScroll: boolean('Hide On Scroll', false)
+        hideOnScroll: boolean('Hide On Scroll', false),
+        showSearch: boolean('Show search', false)
       }
     },
     methods: {

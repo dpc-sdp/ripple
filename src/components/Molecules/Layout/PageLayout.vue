@@ -5,7 +5,7 @@
       <slot name="aboveContent"></slot>
     </section>
 
-    <section class="rpl-content" :class="{'rpl-content--with-sidebar': sidebar, 'rpl-content--grey': bgGrey}">
+    <section id="rpl-main-content" class="rpl-content" :class="{'rpl-content--with-sidebar': sidebar, 'rpl-content--grey': bgGrey}">
       <rpl-container class="rpl-site-constrain--on-all">
         <rpl-row>
           <rpl-col cols="full" :colsBp="mainCols" class="rpl-main">

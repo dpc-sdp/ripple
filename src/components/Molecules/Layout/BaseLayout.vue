@@ -1,5 +1,6 @@
 <template>
   <div class="rpl-site-layout">
+    <rpl-skip-link />
     <header class="rpl-site-header-container">
       <slot name="header"></slot>
     </header>
@@ -9,3 +10,13 @@
     </footer>
   </div>
 </template>
+
+<script>
+import RplSkipLink from './SkipLink.vue'
+
+export default {
+  components: {
+    RplSkipLink
+  }
+}
+</script>

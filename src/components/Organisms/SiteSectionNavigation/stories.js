@@ -16,7 +16,7 @@ storiesOf('Organisms/SiteSectionNavigation', module)
   .addDecorator(withKnobs)
   .add('Site Section Navigation', withReadme(readme, () => ({
     components: { RplSiteSectionNavigation },
-    template: `<rpl-site-section-navigation :menu="menu" :title="title" />`,
+    template: `<rpl-site-section-navigation :menu="menu" :title="title" :activeLink="activeLink" />`,
     data () {
       return {
         title: text('Title', 'Branch name goes here'),
@@ -44,7 +44,7 @@ storiesOf('Organisms/SiteSectionNavigation', module)
                     text: 'Test Path 3',
                     url: '#',
                     children: [
-                      { text: 'Sub child X', url: '#' },
+                      { text: 'Sub child X', url: '/active-link' },
                       { text: 'Sub child Y', url: '#' },
                       { text: 'Sub child Z', url: '#' }
                     ]
@@ -107,7 +107,8 @@ storiesOf('Organisms/SiteSectionNavigation', module)
             ]
           },
           { text: 'Connect with us', url: '#' }
-        ])
+        ]),
+        activeLink: text('Active Link', '/active-link')
       }
     }
   })))

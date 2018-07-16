@@ -42,7 +42,7 @@
               <rpl-menu
                 :menu="links"
                 :layout="menuLayout"
-                :title="'Main Menu'"
+                title="Main Menu"
                 :open="(menuState === 'opened')"
                 @rootMenuClicked="rootMenuClicked"
               />

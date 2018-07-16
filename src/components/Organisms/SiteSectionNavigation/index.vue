@@ -1,21 +1,34 @@
 <template>
   <div class="rpl-site-section-navigation">
     <h2 v-if="title" class="rpl-site-section-navigation__title">{{ title }}</h2>
-    <rpl-section-menu :menu="menu" :open="true" :depth="0" />
+    <rpl-section-menu :menu="processedMenu" :open="true" :depth="0" />
   </div>
 </template>
 
 <script>
+import parentlinks from '@dpc-sdp/ripple-global/mixins/parentlinks'
+import activepath from '@dpc-sdp/ripple-global/mixins/activepath'
 import RplSectionMenu from './menu'
 
 export default {
   name: 'RplSiteSectionNavigation',
+  mixins: [parentlinks, activepath],
   props: {
     title: String,
-    menu: Array
+    menu: Array,
+    activeLink: { type: String, default: null }
   },
   components: {
     RplSectionMenu
+  },
+  computed: {
+    processedMenu: function () {
+      let pMenu = this.generateParentLinks(this.menu)
+      if (this.activeLink !== null) {
+        this.setActivePaths(pMenu, this.activeLink)
+      }
+      return pMenu
+    }
   }
 }
 </script>

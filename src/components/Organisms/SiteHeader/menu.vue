@@ -24,9 +24,9 @@
               @focus="onItemFocus"
             >
               <rpl-icon symbol="left" color="white" />
-              <span class="rpl-visually-hidden">Close {{ title }} and return to</span><span>{{ backTitle }}</span>
+              <span class="rpl-visually-hidden">Close {{ title }} and return to </span><span>{{ backTitle }}</span>
             </button>
-            <h2 class="rpl-menu__heading" v-if="(!isRoot && isVerticalLayout) || (!isVerticalLayout && depth === 1)">{{ title }}</h2>
+            <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url">{{ parent.text }}</rpl-link>
           </div>
           <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
             <li
@@ -67,6 +67,7 @@
                 :title="list.text"
                 :backTitle="title"
                 :sharedControl="shared"
+                :parent="list"
                 @focused="onInnerItemFocus(index, $event)"
                 @menuchange="onInnerMenuChange"
                 @back="onInnerMenuBack"
@@ -94,7 +95,8 @@ export default {
     open: Boolean,
     title: String,
     backTitle: String,
-    sharedControl: Object
+    sharedControl: Object,
+    parent: Object
   },
   directives: {
     focus
@@ -191,6 +193,11 @@ export default {
       }
     }
   },
+  computed: {
+    showMenuHeading: function () {
+      return (!this.isRoot && this.isVerticalLayout) || (!this.isVerticalLayout && this.depth >= 1)
+    }
+  },
   watch: {
     'menu': function (newVal, oldVal) {
       this.menuItemOpen = this.prepareOpenStates()
@@ -246,6 +253,11 @@ export default {
     'xs': ('xl', 1.33em, 'bold'),
     's': ('mega', 1.14em, 'bold')
   ) !default;
+  $rpl-menu-heading-sub-ruleset: (
+    'xs': ('xl', 1.33em, 'bold'),
+    's': ('l', 1.14em, 'bold')
+  ) !default;
+  $rpl-menu-heading-sub-padding: $rpl-space-3 0;
   $rpl-menu-gutter: rpl_grid_get_gutter($rpl-grid) !default;
 
   // Simplified rpl_grid_column() - returns quotient as non-percentage. Ignores gutters.
@@ -480,6 +492,12 @@ export default {
   .rpl-menu__heading {
     @include rpl_typography_ruleset($rpl-menu-heading-ruleset);
     color: $rpl-menu-text-color;
+    display: block;
+
+    &--horizontal-sub {
+      @include rpl_typography_ruleset($rpl-menu-heading-sub-ruleset);
+      padding: $rpl-menu-heading-sub-padding;
+    }
   }
 
   .rpl-menu--vertical,

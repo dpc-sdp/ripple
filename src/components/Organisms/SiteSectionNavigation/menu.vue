@@ -10,7 +10,8 @@
           @click="menuLinkClick(index)"
           :aria-expanded="menuItemOpen[index].toString()"
         >
-          <rpl-text-icon :text="link.text" symbol="right" color="white" />
+          <span class="rpl-section-menu__item-link-text">{{ link.text }}</span>
+          <rpl-icon symbol="down" color="white" />
         </button>
         <rpl-section-menu
           v-if="link.children"
@@ -24,7 +25,7 @@
 </template>
 
 <script>
-import {RplTextIcon} from '@dpc-sdp/ripple-icon'
+import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
 
 export default {
@@ -35,7 +36,7 @@ export default {
     open: Boolean
   },
   components: {
-    RplTextIcon,
+    RplIcon,
     RplLink
   },
   data: function () {
@@ -47,7 +48,7 @@ export default {
     prepareOpenStates: function () {
       let menuItemOpen = {}
       this.menu.forEach((item, index) => {
-        menuItemOpen[index] = false
+        menuItemOpen[index] = (item.active === true)
       })
       return menuItemOpen
     },
@@ -67,18 +68,28 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-section-menu-link-ruleset: ('xs', 1em, 'medium');
-  $rpl-section-menu-link-sub-ruleset: ('xs', 1em, 'regular');
-  $rpl-section-menu-item-background-color: rpl_color('secondary');
-  $rpl-section-menu-item-link-padding: $rpl-space-4 $rpl-component-padding-s;
-  $rpl-section-menu-item-link-color: rpl_color('white');
-  $rpl-section-menu-item-link-parent-hover-background-color: rpl_color('primary');
-  $rpl-section-menu-item-link-parent-hover-background-image: rpl_gradient('primary_gradient');
-  $rpl-section-menu-item-link-parent-background-color: rpl_color('secondary');
-  $rpl-section-menu-item-link-active-background-color: rpl_color('primary');
-  $rpl-section-menu-item-link-active-border: 1px solid rpl_color('dark_primary');
-  $rpl-section-menu-first-level-background: rpl_color('primary');
-  $rpl-section-menu-first-level-item-background-color: rpl_color('dark_primary');
+  $rpl-section-menu-link-ruleset: ('xs', 1em, 'medium') !default;
+  $rpl-section-menu-link-sub-ruleset: ('xs', 1em, 'regular') !default;
+  $rpl-section-menu-item-background-color: rpl_color('secondary') !default;
+  $rpl-section-menu-item-link-padding: $rpl-space-4 $rpl-component-padding-s !default;
+  $rpl-section-menu-item-link-color: rpl_color('white') !default;
+  $rpl-section-menu-item-link-parent-hover-background-color: rpl_color('primary') !default;
+  $rpl-section-menu-item-link-parent-hover-background-image: rpl_gradient('primary_gradient') !default;
+  $rpl-section-menu-item-link-parent-background-color: rpl_color('secondary') !default;
+  $rpl-section-menu-item-link-active-background-color: rpl_color('primary') !default;
+  $rpl-section-menu-item-link-active-border: 1px solid rpl_color('dark_primary') !default;
+  $rpl-section-menu-first-level-background: rpl_color('primary') !default;
+  $rpl-section-menu-first-level-item-background-color: rpl_color('dark_primary') !default;
+  $rpl-section-menu-item-link-parent-text-margin: 0 ($rpl-space * 5) 0 0 !default;
+  $rpl-section-menu-item-link-parent-icon-min-width: rem(8px) !default;
+  $rpl-section-menu-item-link-active-text-color: mix(rpl-color('white'), rpl-color('primary'), 65%) !default;
+  $rpl-section-menu-active-left-bar: url('data:image/svg+xml,%3Csvg%20width%3D%224%22%20height%3D%221%22%20viewBox%3D%220%200%204%201%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%224%22%20height%3D%221%22%20fill%3D%22%23#{str-slice(quote(rpl_color("secondary")), 2)}%22%2F%3E%3C%2Fsvg%3E') !default;
+
+  @mixin rpl-section-menu-active-left-border {
+    background-image: $rpl-section-menu-active-left-bar;
+    background-repeat: repeat-y;
+    background-position: left;
+  }
 
   .rpl-section-menu {
     $root: &;
@@ -89,6 +100,8 @@ export default {
 
     &.section-enter-active,
     &.section-leave-active {
+      @include rpl-section-menu-active-left-border;
+      background-color: $rpl-section-menu-item-link-active-background-color;
       transition: height .5s;
       overflow: hidden;
     }
@@ -118,9 +131,16 @@ export default {
           display: none;
         }
       }
+
+      &--active {
+        @include rpl-section-menu-active-left-border;
+        background-color: $rpl-section-menu-item-link-active-background-color;
+      }
     }
 
     &__item-link {
+      @include rpl_typography_ruleset($rpl-section-menu-link-ruleset);
+      position: relative;
       background-color: transparent;
       color: $rpl-section-menu-item-link-color;
       border: 0;
@@ -130,44 +150,47 @@ export default {
       padding: $rpl-section-menu-item-link-padding;
       text-align: left;
       cursor: pointer;
-      transition: background-color .25s;
 
       &--parent {
+        display: flex;
+        align-items: center;
+
         &:hover,
         &:focus {
           background-color: $rpl-section-menu-item-link-parent-hover-background-color;
-          background-image: $rpl-section-menu-item-link-parent-hover-background-image;
+          background-image: $rpl-section-menu-active-left-bar, $rpl-section-menu-item-link-parent-hover-background-image;
+          background-repeat: repeat-y, no-repeat;
           &::before {
             width: rem(4px);
           }
         }
-
-        &::before {
-          content: '';
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 0;
-          z-index: 10;
-          background-color: $rpl-section-menu-item-link-parent-background-color;
-        }
       }
 
       &--active {
-        background-color: $rpl-section-menu-item-link-active-background-color;
-        border-bottom: $rpl-section-menu-item-link-active-border;
+        color: $rpl-section-menu-item-link-active-text-color;
 
-        &::before {
-          width: rem(4px);
+        &::after {
+          content: '';
+          height: 1px;
+          position: absolute;
+          bottom: -1px;
+          left: $rpl-component-padding-s;
+          right: $rpl-component-padding-s;
+          background-color: $rpl-section-menu-first-level-item-background-color;
         }
 
         .rpl-icon {
-          transform: rotate(90deg);
+          transform: rotate(-180deg);
         }
       }
 
+      &-text {
+        margin: $rpl-section-menu-item-link-parent-text-margin;
+      }
+
       .rpl-icon {
+        min-width: $rpl-section-menu-item-link-parent-icon-min-width;
+        margin-left: auto;
         transition: transform .25s;
       }
     }
@@ -184,18 +207,12 @@ export default {
     }
 
     &[data-depth="1"] {
-      background: $rpl-section-menu-first-level-background;
-
       #{$root}__item {
         &::before {
-          left: 0;
-          right: 0;
+          left: $rpl-component-padding-s;
+          right: $rpl-component-padding-s;
           background-color: $rpl-section-menu-first-level-item-background-color;
         }
-      }
-
-      #{$root}__item-link {
-        @include rpl_typography_ruleset($rpl-section-menu-link-ruleset);
       }
     }
 

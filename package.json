@@ -28,6 +28,7 @@
     "@dpc-sdp/ripple-card": "file:src/components/Molecules/Card",
     "@dpc-sdp/ripple-form": "file:src/components/Molecules/Form",
     "@dpc-sdp/ripple-contact": "file:src/components/Molecules/Contact",
+    "@dpc-sdp/ripple-share-this": "file:src/components/Molecules/ShareThis",
     "@dpc-sdp/ripple-embedded-video": "file:src/components/Molecules/EmbeddedVideo",
     "@dpc-sdp/ripple-site-header": "file:src/components/Organisms/SiteHeader",
     "@dpc-sdp/ripple-site-footer": "file:src/components/Organisms/SiteFooter",

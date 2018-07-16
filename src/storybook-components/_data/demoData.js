@@ -260,6 +260,11 @@ const demoData = {
     ]
   },
 
+  shareThis: {
+    title: 'Share this',
+    url: 'https://app-vic-gov-au-develop.lagoon.vicsdp.amazee.io/'
+  },
+
   footer: {
     nav: [
       {

@@ -1,0 +1,11 @@
+{
+  "name": "@dpc-sdp/ripple-share-this",
+  "version": "0.1.0",
+  "description": "Ripple share this",
+  "private": true,
+  "main": "index.vue",
+  "peerDependencies": {
+    "@dpc-sdp/ripple-global": "0.1.0",
+    "@dpc-sdp/ripple-icon": "0.1.0"
+  }
+}

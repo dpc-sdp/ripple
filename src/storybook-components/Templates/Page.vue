@@ -66,6 +66,7 @@
         <rpl-related-links :title="mock.relatedLinks.title" :links="mock.relatedLinks.links" class="rpl-component-gutter"/>
         <rpl-whats-next :title="mock.whatsNext.title" :links="mock.whatsNext.links"  class="rpl-component-gutter" />
         <rpl-contact :title="mock.contact.title" :name="mock.contact.name" :department="mock.contact.department" :postal="mock.contact.postal" :address="mock.contact.address" :phone="mock.contact.phone" :email="mock.contact.email" :social="mock.contact.social" class="rpl-component-gutter" />
+        <rpl-share-this :title="mock.shareThis.title" :url="mock.shareThis.url" class="rpl-component-gutter" />
       </template>
 
       <template slot="belowContent">
@@ -116,6 +117,7 @@ import RplCampaignSecondary from '@dpc-sdp/ripple-campaign-secondary'
 import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
 import RplWhatsNext from '@dpc-sdp/ripple-whats-next'
 import RplContact from '@dpc-sdp/ripple-contact'
+import RplShareThis from '@dpc-sdp/ripple-share-this'
 
 export default {
   name: 'SPage',
@@ -151,7 +153,8 @@ export default {
     // Sidebar
     RplRelatedLinks,
     RplWhatsNext,
-    RplContact
+    RplContact,
+    RplShareThis
   },
   props: {
     sidebar: Boolean

@@ -8,7 +8,8 @@
     "masonry-layout": "^4.2.1",
     "moment": "^2.22.1",
     "object-fit-images": "^3.2.3",
-    "vue-focus": "^2.1.0"
+    "vue-focus": "^2.1.0",
+    "vue-social-sharing": "^2.3.3"
   },
   "peerDependencies": {
     "vue": "^2.5.16"

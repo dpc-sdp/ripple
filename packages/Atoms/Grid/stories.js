@@ -7,7 +7,7 @@ import RplRow from './Row.vue'
 import RplCol from './Col.vue'
 import readme from './README.md'
 
-import SGrids from '../../../storybook-components/Grids.vue'
+import SGrids from '~/src/storybook-components/Grids.vue'
 
 import {
   withKnobs,

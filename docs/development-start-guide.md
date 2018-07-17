@@ -12,11 +12,11 @@ Documents
 
 ### The `src` Directory
 
-This directory contains Ripple components packages `/src/components/` and storybook components `/src/storybook-components/`. It will be changed soon, please refer to `packages` directory.
+This directory contains custom components for storybook site use.
 
 ### The `packages` Directory
 
-In later we will take Ripple components packages out of `/src/components/` and put it in `/packages` directory.
+This directory contains Ripple components packages.
 
 ### The `static` Directory
 

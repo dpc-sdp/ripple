@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import { withReadme } from 'storybook-readme'
 
-import SColors from '../../../storybook-components/Colors.vue'
-import STypography from '../../../storybook-components/Typography.vue'
-import SBreakpoints from '../../../storybook-components/Breakpoints.vue'
+import SColors from '~/src/storybook-components/Colors.vue'
+import STypography from '~/src/storybook-components/Typography.vue'
+import SBreakpoints from '~/src/storybook-components/Breakpoints.vue'
 import readme from './README.md'
 
 storiesOf('Atoms/Global', module)

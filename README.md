@@ -7,7 +7,7 @@ Ripple is a Vue.js component pattern library for SDP.
 
 ## Intro
 
-This git repo is a monorepo which contains all Ripple component packages.  [View all Ripple componet packages](src/components/).
+This git repo is a monorepo which contains all Ripple component packages.  [View all Ripple componet packages](packages/).
 
 This git repo also contains a style guide site which uses [Storybook](https://storybook.js.org/) and can be used for local development environment.
 
@@ -50,6 +50,15 @@ npm start
 # Boolean check if code conforms to linting rules - uses sass-lint & eslint
 npm run lint
 ```
+
+### Test
+
+``` bash
+# We uses Jest for unit test and snapshots test
+npm test
+```
+
+Before commit changes, run test first. If new Ripple components changed, we should update snapshots by `npm test -- -u`. Then add it in commit.
 
 ## Export as a Static App
 

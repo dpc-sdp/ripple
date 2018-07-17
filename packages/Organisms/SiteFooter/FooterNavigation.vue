@@ -73,6 +73,8 @@ export default {
       }
     },
     msnryInit: async function () {
+      // For more about dynamic import check below article.
+      // https://developers.google.com/web/updates/2017/11/dynamic-import
       const Masonry = await import('masonry-layout')
 
       this.msnry = new Masonry('.rpl-footer-nav', {

@@ -90,8 +90,11 @@
 </template>
 
 <script>
+// This is a page for demo all components in the site layout.
+// Change story knob `sidebar` can switch layout between with sidebar and without sidebar.
+
 // Import all demo data
-import demoData from './../_data/demoData.js'
+import demoData from './_data/demoData.js'
 
 import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'

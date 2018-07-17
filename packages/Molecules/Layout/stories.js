@@ -6,7 +6,7 @@ import RplBaseLayout from './BaseLayout.vue'
 import RplPageLayout from './PageLayout.vue'
 import readme from './README.md'
 
-import SSiteLayout from '../../../storybook-components/SiteLayout.vue'
+import SSiteLayout from './../../../src/storybook-components/SiteLayout.vue'
 
 storiesOf('Molecules/Layout', module)
   .addDecorator(VueInfoAddon)

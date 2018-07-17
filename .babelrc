@@ -29,6 +29,9 @@
         ],
         "stage-2",
         "vue"
+      ],
+      "plugins": [
+        "dynamic-import-node"
       ]
     }
   }

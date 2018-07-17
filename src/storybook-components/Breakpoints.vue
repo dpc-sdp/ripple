@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import breakpoint from './../components/Atoms/Global/mixins/breakpoint'
+import breakpoint from './../../packages/Atoms/Global/mixins/breakpoint'
 
 export default {
   name: 'SBreakpoints',

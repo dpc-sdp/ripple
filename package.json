@@ -9,36 +9,36 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src && sass-lint -qv --max-warnings 0",
-    "test": "NODE_ENV=test jest --verbose",
+    "test": "NODE_ENV=test jest",
     "storybook": "start-storybook -p 3000 -c .storybook -s ./static",
     "build-storybook": "build-storybook -c .storybook -s ./static",
     "start": "npm run storybook"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-anchor-links": "file:src/components/Molecules/AnchorLinks",
-    "@dpc-sdp/ripple-breadcrumbs": "file:src/components/Molecules/Breadcrumbs",
-    "@dpc-sdp/ripple-button": "file:src/components/Atoms/Button",
-    "@dpc-sdp/ripple-call-to-action": "file:src/components/Organisms/CallToAction",
-    "@dpc-sdp/ripple-campaign-secondary": "file:src/components/Organisms/CampaignSecondary",
-    "@dpc-sdp/ripple-card": "file:src/components/Molecules/Card",
-    "@dpc-sdp/ripple-contact": "file:src/components/Molecules/Contact",
-    "@dpc-sdp/ripple-embedded-video": "file:src/components/Molecules/EmbeddedVideo",
-    "@dpc-sdp/ripple-form": "file:src/components/Molecules/Form",
-    "@dpc-sdp/ripple-global": "file:src/components/Atoms/Global",
-    "@dpc-sdp/ripple-grid": "file:src/components/Atoms/Grid",
-    "@dpc-sdp/ripple-hero-banner": "file:src/components/Organisms/HeroBanner",
-    "@dpc-sdp/ripple-icon": "file:src/components/Atoms/Icon",
-    "@dpc-sdp/ripple-layout": "file:src/components/Molecules/Layout",
-    "@dpc-sdp/ripple-link": "file:src/components/Atoms/Link",
-    "@dpc-sdp/ripple-meta-tag": "file:src/components/Atoms/MetaTag",
-    "@dpc-sdp/ripple-related-links": "file:src/components/Molecules/RelatedLinks",
-    "@dpc-sdp/ripple-search": "file:src/components/Molecules/Search",
-    "@dpc-sdp/ripple-share-this": "file:src/components/Molecules/ShareThis",
-    "@dpc-sdp/ripple-sitemap": "file:src/components/Molecules/Sitemap",
-    "@dpc-sdp/ripple-site-footer": "file:src/components/Organisms/SiteFooter",
-    "@dpc-sdp/ripple-site-header": "file:src/components/Organisms/SiteHeader",
-    "@dpc-sdp/ripple-updated-date": "file:src/components/Organisms/UpdatedDate",
-    "@dpc-sdp/ripple-whats-next": "file:src/components/Molecules/WhatsNext",
+    "@dpc-sdp/ripple-anchor-links": "file:packages/Molecules/AnchorLinks",
+    "@dpc-sdp/ripple-breadcrumbs": "file:packages/Molecules/Breadcrumbs",
+    "@dpc-sdp/ripple-button": "file:packages/Atoms/Button",
+    "@dpc-sdp/ripple-call-to-action": "file:packages/Organisms/CallToAction",
+    "@dpc-sdp/ripple-campaign-secondary": "file:packages/Organisms/CampaignSecondary",
+    "@dpc-sdp/ripple-card": "file:packages/Molecules/Card",
+    "@dpc-sdp/ripple-contact": "file:packages/Molecules/Contact",
+    "@dpc-sdp/ripple-embedded-video": "file:packages/Molecules/EmbeddedVideo",
+    "@dpc-sdp/ripple-form": "file:packages/Molecules/Form",
+    "@dpc-sdp/ripple-global": "file:packages/Atoms/Global",
+    "@dpc-sdp/ripple-grid": "file:packages/Atoms/Grid",
+    "@dpc-sdp/ripple-hero-banner": "file:packages/Organisms/HeroBanner",
+    "@dpc-sdp/ripple-icon": "file:packages/Atoms/Icon",
+    "@dpc-sdp/ripple-layout": "file:packages/Molecules/Layout",
+    "@dpc-sdp/ripple-link": "file:packages/Atoms/Link",
+    "@dpc-sdp/ripple-meta-tag": "file:packages/Atoms/MetaTag",
+    "@dpc-sdp/ripple-related-links": "file:packages/Molecules/RelatedLinks",
+    "@dpc-sdp/ripple-search": "file:packages/Molecules/Search",
+    "@dpc-sdp/ripple-share-this": "file:packages/Molecules/ShareThis",
+    "@dpc-sdp/ripple-sitemap": "file:packages/Molecules/Sitemap",
+    "@dpc-sdp/ripple-site-footer": "file:packages/Organisms/SiteFooter",
+    "@dpc-sdp/ripple-site-header": "file:packages/Organisms/SiteHeader",
+    "@dpc-sdp/ripple-updated-date": "file:packages/Organisms/UpdatedDate",
+    "@dpc-sdp/ripple-whats-next": "file:packages/Molecules/WhatsNext",
     "vue": "^2.5.16"
   },
   "devDependencies": {
@@ -53,6 +53,7 @@
     "@storybook/vue": "^3.3.15",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
+    "babel-plugin-dynamic-import-node": "^2.0.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-vue": "^2.0.2",
     "css-loader": "^0.28.0",
@@ -91,24 +92,5 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ],
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
-      "^.+\\.md?$": "markdown-loader-jest"
-    },
-    "transformIgnorePatterns": [
-      "<rootDir>/node_modules/(?!(@storybook/.*\\.vue$|storybook-addon-vue-info))"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-    }
-  }
+  ]
 }

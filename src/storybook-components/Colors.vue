@@ -39,8 +39,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './../components/Atoms/Global/scss/functions';
-@import './../components/Atoms/Global/scss/color';
+@import './../../packages/Atoms/Global/scss/functions';
+@import './../../packages/Atoms/Global/scss/color';
 
 .colors__item {
   height: 3rem;

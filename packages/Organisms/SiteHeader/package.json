@@ -1,12 +1,12 @@
 {
   "name": "@dpc-sdp/ripple-site-header",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Ripple site header",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "^1.0.0-alpha.1",
-    "@dpc-sdp/ripple-icon": "^1.0.0-alpha.1",
-    "@dpc-sdp/ripple-link": "^1.0.0-alpha.1",
-    "@dpc-sdp/ripple-meta-tag": "^1.0.0-alpha.1"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.2",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.2",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.2",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.2"
   }
 }

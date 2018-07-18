@@ -1,10 +1,10 @@
 {
   "name": "@dpc-sdp/ripple-campaign-primary",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Ripple campaign primary",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-button": "^1.0.0-alpha.1",
-    "@dpc-sdp/ripple-global": "^1.0.0-alpha.1"
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.2",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.2"
   }
 }

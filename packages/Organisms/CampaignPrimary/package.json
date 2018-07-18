@@ -2,7 +2,6 @@
   "name": "@dpc-sdp/ripple-campaign-primary",
   "version": "0.1.0",
   "description": "Ripple campaign primary",
-  "private": true,
   "main": "index.vue",
   "dependencies": {
     "@dpc-sdp/ripple-global": "0.1.0",

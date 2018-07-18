@@ -2,7 +2,6 @@
   "name": "@dpc-sdp/ripple-embedded-video",
   "version": "0.1.0",
   "description": "Ripple embedded video",
-  "private": true,
   "main": "index.vue",
   "dependencies": {
     "@dpc-sdp/ripple-global": "0.1.0",

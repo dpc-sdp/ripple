@@ -2,7 +2,6 @@
   "name": "@dpc-sdp/ripple-form",
   "version": "0.1.0",
   "description": "Ripple form",
-  "private": true,
   "main": "index.vue",
   "dependencies": {
     "vue-form-generator": "^2.2.2",

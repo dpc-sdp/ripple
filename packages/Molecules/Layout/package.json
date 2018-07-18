@@ -2,7 +2,6 @@
   "name": "@dpc-sdp/ripple-layout",
   "version": "0.1.0",
   "description": "Ripple layout",
-  "private": true,
   "main": "index.js",
   "dependencies": {
     "@dpc-sdp/ripple-global": "0.1.0",

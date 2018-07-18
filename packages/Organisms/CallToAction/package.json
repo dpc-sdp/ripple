@@ -2,7 +2,6 @@
   "name": "@dpc-sdp/ripple-call-to-action",
   "version": "0.1.0",
   "description": "Ripple call to action",
-  "private": true,
   "main": "index.vue",
   "dependencies": {
     "@dpc-sdp/ripple-global": "0.1.0",

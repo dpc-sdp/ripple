@@ -1,0 +1,14 @@
+version: '2'
+services:
+  ripple:
+    networks:
+      - amazeeio-network
+      - default
+    volumes:
+      - .:/app:delegated
+      - /app/node_modules
+    environment:
+      LAGOON_ENVIRONMENT_TYPE: 'local'
+networks:
+  amazeeio-network:
+    external: true

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ripple",
   "contributors": [
     "Tim Yao <tim.yao@dpc.vic.gov.au>"
@@ -12,7 +12,14 @@
     "test": "NODE_ENV=test jest",
     "storybook": "start-storybook -p 3000 -c .storybook -s ./static",
     "build-storybook": "build-storybook -c .storybook -s ./static",
-    "start": "npm run storybook"
+    "start": "npm run storybook",
+    "bay:start": "docker-compose up -d",
+    "bay:rebuild-full": "docker-compose up -d --build --force-recreate",
+    "bay:restart": "docker-compose restart",
+    "bay:stop": "docker-compose stop",
+    "bay:destroy": "docker-compose down -v",
+    "bay:logs": "docker-compose logs",
+    "bay:cli": "docker exec -i $(docker-compose ps -q app)"
   },
   "dependencies": {
     "@dpc-sdp/ripple-anchor-links": "file:packages/Molecules/AnchorLinks",

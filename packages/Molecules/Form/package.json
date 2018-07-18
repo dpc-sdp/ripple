@@ -1,12 +1,11 @@
 {
   "name": "@dpc-sdp/ripple-form",
-  "version": "0.1.0",
+  "version": "1.0.0-alpha.2",
   "description": "Ripple form",
-  "private": true,
   "main": "index.vue",
   "dependencies": {
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.2",
     "vue-form-generator": "^2.2.2",
-    "vue-multiselect": "^2.1.0",
-    "@dpc-sdp/ripple-global": "0.1.0"
+    "vue-multiselect": "^2.1.0"
   }
 }

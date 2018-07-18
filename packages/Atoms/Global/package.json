@@ -1,8 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-global",
-  "version": "0.1.0",
+  "version": "1.0.0-alpha.2",
   "description": "Ripple global style",
-  "private": true,
   "main": "./index.js",
   "dependencies": {
     "masonry-layout": "^4.2.1",

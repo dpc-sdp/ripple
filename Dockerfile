@@ -8,7 +8,13 @@ FROM amazeeio/node:8
 COPY --from=builder /app/node_modules /app/node_modules
 COPY . /app/
 
-RUN mkdir -p /app/node_modules/.cache && fix-permissions /app/node_modules/.cache
+ARG LAGOON_GIT_BRANCH
+ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
+
+RUN mkdir -p /app/node_modules/.cache && fix-permissions /app/node_modules/.cache \
+    && . /home/.bashrc \
+    && npm run install-curl
+
 
 ENV HOST 0.0.0.0
 EXPOSE 3000

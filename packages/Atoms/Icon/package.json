@@ -4,7 +4,7 @@
   "description": "Ripple icon",
   "private": true,
   "main": "index.js",
-  "peerDependencies": {
+  "dependencies": {
     "@dpc-sdp/ripple-global": "0.1.0"
   }
 }

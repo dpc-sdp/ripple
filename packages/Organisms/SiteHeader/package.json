@@ -4,7 +4,7 @@
   "description": "Ripple site header",
   "private": true,
   "main": "index.vue",
-  "peerDependencies": {
+  "dependencies": {
     "@dpc-sdp/ripple-global": "0.1.0",
     "@dpc-sdp/ripple-icon": "0.1.0",
     "@dpc-sdp/ripple-link": "0.1.0",

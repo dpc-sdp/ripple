@@ -4,6 +4,7 @@ Ripple is a Vue.js component pattern library for SDP.
 
 [![Vue.js 2.x](https://img.shields.io/badge/vue.js-2.x-green.svg?style=flat-square)](https://vuejs.org)
 [![Build Status on CircleCI](https://circleci.com/gh/dpc-sdp/vic-gov-au.svg?style=shield&circle-token=7f9cd41903f5619915311a8ceee4e8784a485fbd)](https://circleci.com/gh/dpc-sdp/vic-gov-au)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 ## Intro
 
@@ -72,3 +73,9 @@ npm run build-storybook
 Then you can deploy it to GitHub pages or any static hosting service.
 
 Find more info in [Exporting Storybook as a Static App](https://storybook.js.org/basics/exporting-storybook/).
+
+## Lerna
+
+We manage package deployments to npm using [lerna](https://github.com/lerna/lerna).
+
+Package deployments are an automatic process as part of CI.

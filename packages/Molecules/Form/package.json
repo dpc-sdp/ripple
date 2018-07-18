@@ -6,9 +6,7 @@
   "main": "index.vue",
   "dependencies": {
     "vue-form-generator": "^2.2.2",
-    "vue-multiselect": "^2.1.0"
-  },
-  "peerDependencies": {
+    "vue-multiselect": "^2.1.0",
     "@dpc-sdp/ripple-global": "0.1.0"
   }
 }

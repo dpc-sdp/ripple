@@ -4,7 +4,7 @@
   "description": "Ripple layout",
   "private": true,
   "main": "index.js",
-  "peerDependencies": {
+  "dependencies": {
     "@dpc-sdp/ripple-global": "0.1.0",
     "@dpc-sdp/ripple-grid": "0.1.0"
   }

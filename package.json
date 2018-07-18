@@ -69,6 +69,7 @@
     "eslint-plugin-vue": "^4.0.0",
     "file-loader": "^1.1.4",
     "jest": "^23.3.0",
+    "lerna": "^2.11.0",
     "markdown-loader-jest": "^0.1.1",
     "node-sass": "^4.7.2",
     "sass-lint": "^1.12.1",

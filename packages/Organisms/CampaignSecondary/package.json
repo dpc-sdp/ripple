@@ -4,7 +4,7 @@
   "description": "Ripple campaign secondary",
   "private": true,
   "main": "index.vue",
-  "peerDependencies": {
+  "dependencies": {
     "@dpc-sdp/ripple-global": "0.1.0",
     "@dpc-sdp/ripple-button": "0.1.0"
   }

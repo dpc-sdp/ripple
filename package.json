@@ -16,7 +16,8 @@
     "bay:stop": "docker-compose stop",
     "bay:destroy": "docker-compose down -v",
     "bay:logs": "docker-compose logs",
-    "bay:cli": "docker exec -i $(docker-compose ps -q app)"
+    "bay:cli": "docker exec -i $(docker-compose ps -q app)",
+    "install-curl": "if [ \"$LAGOON_GIT_BRANCH\" != \"production\" ] ; then apk --update add curl;  fi"
   },
   "dependencies": {
     "@dpc-sdp/ripple-anchor-links": "file:packages/Molecules/AnchorLinks",

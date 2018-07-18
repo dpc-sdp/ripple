@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - LAGOON_GIT_BRANCH=
     networks:
       - default
     labels:

@@ -1,11 +1,11 @@
 {
   "name": "@dpc-sdp/ripple-site-footer",
-  "version": "0.1.0",
+  "version": "1.0.0-alpha.1",
   "description": "Ripple site footer",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "0.1.0",
-    "@dpc-sdp/ripple-icon": "0.1.0",
-    "@dpc-sdp/ripple-link": "0.1.0"
+    "@dpc-sdp/ripple-global": "^1.0.0-alpha.1",
+    "@dpc-sdp/ripple-icon": "^1.0.0-alpha.1",
+    "@dpc-sdp/ripple-link": "^1.0.0-alpha.1"
   }
 }

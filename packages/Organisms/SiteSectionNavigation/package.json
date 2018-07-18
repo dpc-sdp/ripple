@@ -1,9 +1,9 @@
 {
   "name": "@dpc-sdp/ripple-site-section-navigation",
-  "version": "0.1.0",
+  "version": "1.0.0-alpha.1",
   "description": "Site section navigation",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "0.1.0"
+    "@dpc-sdp/ripple-global": "^1.0.0-alpha.1"
   }
 }

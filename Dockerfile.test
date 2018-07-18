@@ -1,0 +1,8 @@
+FROM singledigital/bay-node-slim
+
+WORKDIR /app
+COPY package.json package-lock.json /app/
+COPY packages /app/packages
+RUN npm install
+
+COPY . /app/

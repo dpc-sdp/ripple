@@ -9,6 +9,17 @@ services:
       - /app/node_modules
     environment:
       LAGOON_ENVIRONMENT_TYPE: 'local'
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    networks:
+      - amazeeio-network
+      - default
+    environment:
+      LAGOON_ENVIRONMENT_TYPE: 'local'
+    ports:
+      - "9002:3000"
 networks:
   amazeeio-network:
     external: true

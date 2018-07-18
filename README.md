@@ -60,6 +60,17 @@ npm test
 
 Before commit changes, run test first. If new Ripple components changed, we should update snapshots by `npm test -- -u`. Then add it in commit.
 
+### Build Setup
+
+### Bay
+
+- `npm run bay:start` - build and start local development environment.
+- `npm run bay:stop` - stop all Bay containers.
+- `npm run bay:destroy` - stop and remove all Bay containers.
+- `npm run bay:logs` - get logs from all running Bay containers.
+- `npm run bay:cli` - run a command in `node` container. Example: `npm run bay:cli -- ls -al`.
+- `npm run bay:pull` - pull latest Bay containers.
+
 ## Export as a Static App
 
 We can export this Ripple storybook site as a stacic app.

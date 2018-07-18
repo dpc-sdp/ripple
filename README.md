@@ -14,6 +14,8 @@ This git repo also contains a style guide site which uses [Storybook](https://st
 
 ## Install Ripple in your Nuxt project
 
+_We will provide a start template soon. Below is just a simple example._
+
 Example for installing `@dpc-sdp/ripple-global` and `@dpc-sdp/ripple-site-header`.
 
 ``` bash
@@ -30,36 +32,7 @@ import RplFooteryNavigation from '@dpc-sdp/ripple-footer-navigation'
 
 ## Contributing
 
-We welcome contributions to Ripple. Check out [development start guide](docs/development-start-guide.md)
-.
-
-### Start dev server
-
-We are using [Storybook](https://storybook.js.org/) as development environment for UI components. It allows you to browse a component library, view the different states of each component, and interactively develop and test components.
-
-``` bash
-# install dependencies
-npm install
-
-# Start the storybook server
-npm start
-```
-
-### Lint code
-
-``` bash
-# Boolean check if code conforms to linting rules - uses sass-lint & eslint
-npm run lint
-```
-
-### Test
-
-``` bash
-# We uses Jest for unit test and snapshots test
-npm test
-```
-
-Before commit changes, run test first. If new Ripple components changed, we should update snapshots by `npm test -- -u`. Then add it in commit.
+We welcome contributions to Ripple. Check out [contributing guide](CONTRIBUTING.md).
 
 ## Export as a Static App
 

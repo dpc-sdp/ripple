@@ -18,6 +18,7 @@
     "bay:logs": "docker-compose logs",
     "bay:cli": "docker exec -i $(docker-compose ps -q app)",
     "bay:pull": "docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep amazeeio | grep -v none | xargs -n1 docker pull | cat",
+    "bay:test": "docker-compose run test npm test",
     "install-curl": "if [ \"$LAGOON_GIT_BRANCH\" != \"production\" ] ; then apk --update add curl;  fi"
   },
   "dependencies": {

@@ -76,6 +76,7 @@ Local URL -- [http://ripple.docker.amazee.io/](http://ripple.docker.amazee.io/)
 - `npm run bay:logs` - get logs from all running Bay containers.
 - `npm run bay:cli` - run a command in `node` container. Example: `npm run bay:cli -- ls -al`.
 - `npm run bay:pull` - pull latest Bay containers.
+- `npm run bay:test` - Run tests.
 
 #### Logs
 

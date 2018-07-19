@@ -17,6 +17,7 @@
     "bay:destroy": "docker-compose down -v",
     "bay:logs": "docker-compose logs",
     "bay:cli": "docker exec -i $(docker-compose ps -q app)",
+    "bay:test": "docker-compose run test npm test",
     "install-curl": "if [ \"$LAGOON_GIT_BRANCH\" != \"production\" ] ; then apk --update add curl;  fi"
   },
   "dependencies": {

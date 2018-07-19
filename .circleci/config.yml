@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Start Bay stack.
           command: |
-            npm run bay:start
+            npm run bay:rebuild-full
             docker ps -a
 
       - run:

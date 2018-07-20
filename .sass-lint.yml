@@ -5,7 +5,7 @@ options:
 files:
   include:
     - 'static'
-    - 'src/**/*.scss'
+    - 'packages/**/*.scss'
   exclude:
     - 'node_modules/**/*.scss'
 # Rule Configuration

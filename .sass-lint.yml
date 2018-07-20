@@ -4,7 +4,6 @@ options:
 # File Options
 files:
   include:
-    - 'static'
     - 'packages/**/*.scss'
   exclude:
     - 'node_modules/**/*.scss'

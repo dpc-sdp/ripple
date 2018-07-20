@@ -3,7 +3,7 @@
 Ripple is a Vue.js component pattern library for SDP.
 
 [![Vue.js 2.x](https://img.shields.io/badge/vue.js-2.x-green.svg?style=flat-square)](https://vuejs.org)
-[![Build Status on CircleCI](https://circleci.com/gh/dpc-sdp/vic-gov-au.svg?style=shield&circle-token=7f9cd41903f5619915311a8ceee4e8784a485fbd)](https://circleci.com/gh/dpc-sdp/vic-gov-au)
+[![CircleCI](https://circleci.com/gh/dpc-sdp/ripple.svg?style=svg&circle-token=242dc8445ab25fb88fe506609fd7065cd1f78f7c)](https://circleci.com/gh/dpc-sdp/ripple)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 ## Intro

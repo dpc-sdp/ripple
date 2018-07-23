@@ -5,6 +5,7 @@
   "main": "./src/index.js",
   "private": true,
   "scripts": {
+    "publish": "lerna publish",
     "lint": "eslint --ext .js,.vue src && sass-lint -qv --max-warnings 0",
     "test": "NODE_ENV=test jest",
     "storybook": "start-storybook -p 3000 -c .storybook -s ./static",

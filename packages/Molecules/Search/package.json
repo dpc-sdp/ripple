@@ -1,12 +1,12 @@
 {
   "name": "@dpc-sdp/ripple-search",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Ripple search",
   "main": "index.js",
   "dependencies": {
-    "@dpc-sdp/ripple-form": "1.0.0-alpha.2",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.2",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.2",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.2"
+    "@dpc-sdp/ripple-form": "1.0.0-alpha.3",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.3",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.3",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.3"
   }
 }

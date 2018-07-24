@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-hero-banner",
   "version": "1.0.0-alpha.3",
-  "description": "Ripple hero banner",
+  "description": "A component to display a page heading, subtext and useful links.",
   "main": "index.vue",
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.3",

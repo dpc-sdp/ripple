@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-site-section-navigation",
   "version": "1.0.0-alpha.3",
-  "description": "Site section navigation",
+  "description": "Sub page navigation component. Recommended for use in sidebars.",
   "main": "index.vue",
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.3"

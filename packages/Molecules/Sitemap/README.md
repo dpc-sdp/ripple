@@ -1,12 +1,53 @@
-# @dpc-sdp/ripple-sitemap
+@dpc-sdp/ripple-sitemap
+============
 
-Sitemap.
+> A component to display nested, navigational links.
+
+
+--------------------------------------------------------------------------------
+
 
 ## Install
-`npm install @dpc-sdp/ripple-sitemap --save`
 
-## Usage
-```
-import RplSitemap from '@dpc-sdp/ripple-sitemap'
 
+```shell
+npm install @dpc-sdp/ripple-sitemap --save
 ```
+
+
+--------------------------------------------------------------------------------
+
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-sitemap
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-link
+```
+
+
+--------------------------------------------------------------------------------
+
+
+## Usage and Tests
+
+See [Storybook/Sitemap](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Sitemap&selectedStory=Sitemap).
+
+
+--------------------------------------------------------------------------------
+
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+
+--------------------------------------------------------------------------------
+
+
+## License
+
+Licensed under the GPL-2.0+ License.
+
+

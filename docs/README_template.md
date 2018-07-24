@@ -1,7 +1,7 @@
-@dpc-sdp/ripple-hero-banner
+{{ packageName }}
 ============
 
-> A component to display a page heading, subtext and useful links.
+> {{ packageDescription }}
 
 
 --------------------------------------------------------------------------------
@@ -11,7 +11,7 @@
 
 
 ```shell
-npm install @dpc-sdp/ripple-hero-banner --save
+npm install {{ packageName }} --save
 ```
 
 
@@ -21,10 +21,8 @@ npm install @dpc-sdp/ripple-hero-banner --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-hero-banner
-├── @dpc-sdp/ripple-global
-├── @dpc-sdp/ripple-icon
-└── @dpc-sdp/ripple-link
+{{ packageName }}
+{{ packageDependencies }}
 ```
 
 
@@ -33,8 +31,10 @@ npm install @dpc-sdp/ripple-hero-banner --save
 
 ## Usage and Tests
 
-See [Storybook/Hero Banner](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/HeroBanner&selectedStory=Hero%20Banner).
+{% for key, story in storybookParams %}
+See [{{ story.path }}](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/{{ story.params }}).
 
+{% endfor %}
 
 --------------------------------------------------------------------------------
 

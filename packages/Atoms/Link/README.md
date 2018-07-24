@@ -1,13 +1,55 @@
-# @dpc-sdp/ripple-link
+@dpc-sdp/ripple-link
+============
 
-Link.
+> Components for creating page links in plain text, and with accompanying icon. External links open in a new window by default.
 
-If `rplOptions.nuxt` of `RplGlobal` is set to `true` and the `href` prop value is a relative url, then this component will generate a `<nuxt-link>` instead of a standard link (`<a>`) element.
+
+--------------------------------------------------------------------------------
+
 
 ## Install
-`npm install @dpc-sdp/ripple-link --save`
 
-## Usage
+
+```shell
+npm install @dpc-sdp/ripple-link --save
 ```
-import RplLink from '@dpc-sdp/ripple-link'
+
+
+--------------------------------------------------------------------------------
+
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-link
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-icon
 ```
+
+
+--------------------------------------------------------------------------------
+
+
+## Usage and Tests
+
+See [Storybook/Link](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Link).
+
+See [Storybook/Text Link](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Text%20Link).
+
+
+--------------------------------------------------------------------------------
+
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+
+--------------------------------------------------------------------------------
+
+
+## License
+
+Licensed under the GPL-2.0+ License.
+
+

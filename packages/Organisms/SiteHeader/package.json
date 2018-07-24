@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-site-header",
   "version": "1.0.0-alpha.3",
-  "description": "Ripple site header",
+  "description": "Site header for providing site-wide navigation and search on all pages.",
   "main": "index.vue",
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.3",

@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-search",
   "version": "1.0.0-alpha.3",
-  "description": "Ripple search",
+  "description": "Components for generating a search field with filters, and search results.",
   "main": "index.js",
   "dependencies": {
     "@dpc-sdp/ripple-form": "1.0.0-alpha.3",

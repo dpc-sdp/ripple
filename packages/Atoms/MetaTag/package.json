@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-meta-tag",
   "version": "1.0.0-alpha.3",
-  "description": "Ripple meta tag",
+  "description": "A link component to represent tags.",
   "main": "index.vue",
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.3",

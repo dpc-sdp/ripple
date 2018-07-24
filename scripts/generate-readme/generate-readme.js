@@ -62,7 +62,7 @@ function generateTemplate (directory) {
   let addMatch = add.exec(story)
   while (addMatch !== null) {
     data.storybookParams.push({
-      path: 'Storybook/' + addMatch[1],
+      path: 'Storybook/' + addMatch[1].replace('\\', ''),
       params: '?selectedKind=' + encodeURI(storiesOfMatch[1]) + '&selectedStory=' + encodeURI(addMatch[1])
     })
     addMatch = add.exec(story)

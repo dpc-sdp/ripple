@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-whats-next --save
 
 ## Usage and Tests
 
-See [Storybook/What\'s Next](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/WhatsNext&selectedStory=What%5C's%20Next).
+See [Storybook/What's Next](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/WhatsNext&selectedStory=What%5C's%20Next).
 
 --------------------------------------------------------------------------------
 

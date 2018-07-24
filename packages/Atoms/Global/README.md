@@ -1,22 +1,17 @@
-@dpc-sdp/ripple-global
-============
+# @dpc-sdp/ripple-global
 
-> The core styles and utilities used by all ripple components. Includes sets of colours, fonts, breakpoints.
-
+> The core styles and utilities used by all ripple components. Includes sets of
+colours, fonts, breakpoints.
 
 --------------------------------------------------------------------------------
 
-
 ## Install
-
 
 ```shell
 npm install @dpc-sdp/ripple-global --save
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Dependency graph
 
@@ -29,32 +24,24 @@ npm install @dpc-sdp/ripple-global --save
 └── vue-social-sharing
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Usage and Tests
 
-See [Storybook/Colors](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Colors).
+See [Storybook/Colors](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Colors).
 
-See [Storybook/Typography](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Typography).
+See [Storybook/Typography](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Typography).
 
-See [Storybook/Breakpoints](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Breakpoints).
-
+See [Storybook/Breakpoints](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Breakpoints).
 
 --------------------------------------------------------------------------------
-
 
 ## Release History
 
 See [CHANGELOG.md](./CHANGELOG.md).
 
-
 --------------------------------------------------------------------------------
-
 
 ## License
 
 Licensed under the GPL-2.0+ License.
-
-

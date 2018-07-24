@@ -1,22 +1,16 @@
-@dpc-sdp/ripple-call-to-action
-============
+# @dpc-sdp/ripple-call-to-action
 
 > A component for displaying key content with image and link.
 
-
 --------------------------------------------------------------------------------
 
-
 ## Install
-
 
 ```shell
 npm install @dpc-sdp/ripple-call-to-action --save
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Dependency graph
 
@@ -27,28 +21,20 @@ npm install @dpc-sdp/ripple-call-to-action --save
 └── @dpc-sdp/ripple-link
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Usage and Tests
 
-See [Storybook/Call to Action](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CallToAction&selectedStory=Call%20to%20Action).
-
+See [Storybook/Call to Action](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CallToAction&selectedStory=Call%20to%20Action).
 
 --------------------------------------------------------------------------------
-
 
 ## Release History
 
 See [CHANGELOG.md](./CHANGELOG.md).
 
-
 --------------------------------------------------------------------------------
-
 
 ## License
 
 Licensed under the GPL-2.0+ License.
-
-

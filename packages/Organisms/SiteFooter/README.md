@@ -1,22 +1,16 @@
-@dpc-sdp/ripple-site-footer
-============
+# @dpc-sdp/ripple-site-footer
 
 > Site footer for displaying common and useful links on all pages.
 
-
 --------------------------------------------------------------------------------
 
-
 ## Install
-
 
 ```shell
 npm install @dpc-sdp/ripple-site-footer --save
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Dependency graph
 
@@ -27,28 +21,20 @@ npm install @dpc-sdp/ripple-site-footer --save
 └── @dpc-sdp/ripple-link
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Usage and Tests
 
-See [Storybook/Site footer](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/SiteFooter&selectedStory=Site%20footer).
-
+See [Storybook/Site footer](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/SiteFooter&selectedStory=Site%20footer).
 
 --------------------------------------------------------------------------------
-
 
 ## Release History
 
 See [CHANGELOG.md](./CHANGELOG.md).
 
-
 --------------------------------------------------------------------------------
-
 
 ## License
 
 Licensed under the GPL-2.0+ License.
-
-

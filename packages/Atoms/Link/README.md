@@ -1,22 +1,17 @@
-@dpc-sdp/ripple-link
-============
+# @dpc-sdp/ripple-link
 
-> Components for creating page links in plain text, and with accompanying icon. External links open in a new window by default.
-
+> Components for creating page links in plain text, and with accompanying icon.
+External links open in a new window by default.
 
 --------------------------------------------------------------------------------
 
-
 ## Install
-
 
 ```shell
 npm install @dpc-sdp/ripple-link --save
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Dependency graph
 
@@ -26,30 +21,22 @@ npm install @dpc-sdp/ripple-link --save
 └── @dpc-sdp/ripple-icon
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Usage and Tests
 
-See [Storybook/Link](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Link).
+See [Storybook/Link](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Link).
 
-See [Storybook/Text Link](http://ripple-vic-gov-au-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Text%20Link).
-
+See [Storybook/Text Link](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Text%20Link).
 
 --------------------------------------------------------------------------------
-
 
 ## Release History
 
 See [CHANGELOG.md](./CHANGELOG.md).
 
-
 --------------------------------------------------------------------------------
-
 
 ## License
 
 Licensed under the GPL-2.0+ License.
-
-

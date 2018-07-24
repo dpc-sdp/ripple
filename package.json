@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "publish": "lerna publish",
-    "lint": "eslint --ext .js,.vue src && sass-lint -qv --max-warnings 0",
+    "lint": "eslint --ext .js,.vue src && sass-lint -qv --max-warnings 0 && markdownlint ./packages/**/*.md",
     "test": "NODE_ENV=test jest",
     "storybook": "start-storybook -p 3000 -c .storybook -s ./static",
     "build-storybook": "build-storybook -c .storybook -s ./static",
@@ -21,7 +21,7 @@
     "bay:pull": "docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep amazeeio | grep -v none | xargs -n1 docker pull | cat",
     "bay:test": "docker-compose run test npm test",
     "install-curl": "if [ \"$LAGOON_GIT_BRANCH\" != \"production\" ] ; then apk --update add curl;  fi",
-    "docs": "node ./docs/docs.js"
+    "docs": "node ./scripts/generate-readme/generate-readme.js"
   },
   "dependencies": {
     "@dpc-sdp/ripple-anchor-links": "file:packages/Molecules/AnchorLinks",
@@ -81,6 +81,7 @@
     "jest": "^23.3.0",
     "lerna": "^2.11.0",
     "markdown-loader-jest": "^0.1.1",
+    "markdownlint-cli": "^0.11.0",
     "node-sass": "^4.7.2",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
@@ -94,7 +95,8 @@
     "vue-jest": "^2.6.0",
     "vue-loader": "^14.2.3",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.5.2"
+    "vue-template-compiler": "^2.5.2",
+    "wordwrap": "^1.0.0"
   },
   "engines": {
     "node": ">= 8.9.0",

@@ -1,22 +1,19 @@
-@dpc-sdp/ripple-form
-============
+# @dpc-sdp/ripple-form
 
-> A component for generating interactive forms. Uses Vue Form Generator (https://github.com/vue-generators/vue-form-generator). See documentation (https://icebob.gitbooks.io/vueformgenerator/content/) for creating fields.
-
+> A component for generating interactive forms. Uses [Vue Form
+Generator](https://github.com/vue-generators/vue-form-generator). See
+[documentation](https://icebob.gitbooks.io/vueformgenerator/content/) for
+creating fields.
 
 --------------------------------------------------------------------------------
 
-
 ## Install
-
 
 ```shell
 npm install @dpc-sdp/ripple-form --save
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Dependency graph
 
@@ -27,26 +24,20 @@ npm install @dpc-sdp/ripple-form --save
 └── vue-multiselect
 ```
 
-
 --------------------------------------------------------------------------------
-
 
 ## Usage and Tests
 
+See [Storybook/Form](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Form&selectedStory=Form).
 
 --------------------------------------------------------------------------------
-
 
 ## Release History
 
 See [CHANGELOG.md](./CHANGELOG.md).
 
-
 --------------------------------------------------------------------------------
-
 
 ## License
 
 Licensed under the GPL-2.0+ License.
-
-

@@ -22,6 +22,7 @@ let Twig = require('twig')
 let fs = require('fs')
 let path = require('path')
 let glob = require('glob-fs')({ gitignore: true })
+let wrap = require('wordwrap')(80)
 
 function generateTemplate (directory) {
   let data = {
@@ -35,8 +36,8 @@ function generateTemplate (directory) {
   let file = fs.readFileSync(directory + 'package.json', 'utf8')
   let jsonFile = JSON.parse(file)
 
-  data.packageName = jsonFile.name
-  data.packageDescription = jsonFile.description
+  data.packageName = wrap(jsonFile.name)
+  data.packageDescription = wrap(jsonFile.description)
 
   // Get dependencies.
   let deps = []
@@ -54,10 +55,10 @@ function generateTemplate (directory) {
 
   // Get story parameters.
   let story = fs.readFileSync(directory + 'stories.js', 'utf8')
-  let storiesOf = /(?:storiesOf\(')([A-Za-z/]+)(?:')/g
+  let storiesOf = /(?:storiesOf\(')(.+)(?:',)/g
   let storiesOfMatch = storiesOf.exec(story)
 
-  let add = /(?:add\(')([A-Za-z/\s]+)(?:')/gim
+  let add = /(?:add\(')(.+)(?:',)/gim
   let addMatch = add.exec(story)
   while (addMatch !== null) {
     data.storybookParams.push({
@@ -72,6 +73,8 @@ function generateTemplate (directory) {
     if (err) {
       console.log(err)
     } else {
+      // Strip comments & write.
+      html = html.replace(/<!--(.*?)-->\n/gi, '')
       fs.writeFileSync(directory + 'README.md', html)
     }
   })

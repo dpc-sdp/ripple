@@ -1,12 +1,41 @@
 # @dpc-sdp/ripple-site-header
 
-Header navigation.
+> Site header for providing site-wide navigation and search on all pages.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-site-header --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-site-header --save
 ```
-import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-site-header
+├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-icon
+├── @dpc-sdp/ripple-link
+└── @dpc-sdp/ripple-meta-tag
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Site Header](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/SiteHeader&selectedStory=Site%20Header).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

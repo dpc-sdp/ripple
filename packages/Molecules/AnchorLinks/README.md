@@ -1,12 +1,39 @@
 # @dpc-sdp/ripple-anchor-links
 
-Anchor Links.
+> A table of contents for use on article pages.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-anchor-links --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-anchor-links --save
 ```
-import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-anchor-links
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-link
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Anchor Links](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/AnchorLinks&selectedStory=Anchor%20Links).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

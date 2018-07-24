@@ -11,9 +11,12 @@ Please have the *latest* stable versions of the following on your machine
 
 ### Local environment setup
 
-We are using [Storybook](https://storybook.js.org/) as development environment for UI components. It allows you to browse a component library, view the different states of each component, and interactively develop and test components.
+We are using [Storybook](https://storybook.js.org/) as development environment
+for UI components. It allows you to browse a component library, view the
+different states of each component, and interactively develop and test components.
 
-Without Docker and Bay, you can start the server as below. But we recommend you to use [Docker](#work-in-docker) which provide docker container enviorment.
+Without Docker and Bay, you can start the server as below. But we recommend you
+to use [Docker](#work-in-docker) which provide docker container enviorment.
 
 ``` bash
 # install dependencies
@@ -26,7 +29,7 @@ npm start
 #### Lint code
 
 ``` bash
-# Boolean check if code conforms to linting rules - uses sass-lint & eslint
+# Boolean check if code conforms to linting rules - uses sass-lint, eslint & markdownlint
 npm run lint
 ```
 
@@ -37,7 +40,15 @@ npm run lint
 npm test
 ```
 
-Before commit changes, run test first. If new Ripple components changed, we should update snapshots by `npm test -- -u`. Then add it in commit.
+Before commit changes, run test first. If new Ripple components changed, we
+should update snapshots by `npm test -- -u`. Then add it in commit.
+
+#### Documentation
+
+``` bash
+# Generate README.md for modules in `./packages/` directory
+npm run docs
+```
 
 ### Work in Docker
 
@@ -53,17 +64,22 @@ We recomend you work in our Docker enviorment.
    - Install docker `brew cask install docker`
    (You can also install it manually if you prefer - [https://www.docker.com/docker-mac](https://www.docker.com/docker-mac))
 2. Start docker and you should be able to run `docker ps`
-3. Checkout project repo and confirm the path is in docker's file sharing config - [https://docs.docker.com/docker-for-mac/#file-sharing](https://docs.docker.com/docker-for-mac/#file-sharing)
-
+3. Checkout project repo and confirm the path is in docker's file sharing
+    config - [https://docs.docker.com/docker-for-mac/#file-sharing](https://docs.docker.com/docker-for-mac/#file-sharing)
 4. Make sure that `node`, `npm` & `pygmy` are installed
-   - Install pygmy `gem install pygmy` (you might need sudo for this depending on your ruby configuration)
-   - If you haven't installed `node` yet. Recommand to install `node` & `npm` by [`nvm`](https://github.com/creationix/nvm)
-5. Make sure you don't have anything running on port 80 on the host machine (like a web server) then go to the project root run `pygmy up`
+   - Install pygmy `gem install pygmy` (you might need sudo for this depending
+     on your ruby configuration)
+   - If you haven't installed `node` yet. Recommand to install `node` & `npm`
+     by [`nvm`](https://github.com/creationix/nvm)
+5. Make sure you don't have anything running on port 80 on the host machine
+   (like a web server) then go to the project root run `pygmy up`
 6. Run `npm run bay:start`
-7. Once build has completed, you can run `npm run bay:logs -- --follow` to view the real-time logs.
+7. Once build has completed, you can run `npm run bay:logs -- --follow` to view
+   the real-time logs.
 8. If you want to ssh into the container, use `docker-compose exec ripple sh`
 
-_If any steps fail you're safe to rerun from any point, starting again from the beginning will just reconfirm the changes._
+_If any steps fail you're safe to rerun from any point, starting again from the
+beginning will just reconfirm the changes._
 
 Local URL -- [http://ripple.docker.amazee.io/](http://ripple.docker.amazee.io/)
 
@@ -74,7 +90,8 @@ Local URL -- [http://ripple.docker.amazee.io/](http://ripple.docker.amazee.io/)
 - `npm run bay:rebuild-full` - rebuild and start local development environment.
 - `npm run bay:destroy` - stop and remove all Bay containers.
 - `npm run bay:logs` - get logs from all running Bay containers.
-- `npm run bay:cli` - run a command in `node` container. Example: `npm run bay:cli -- ls -al`.
+- `npm run bay:cli` - run a command in `node` container.
+   Example: `npm run bay:cli -- ls -al`.
 - `npm run bay:pull` - pull latest Bay containers.
 - `npm run bay:test` - Run tests.
 
@@ -95,7 +112,7 @@ The full list of services can be found in the `docker-compose.yml`
 
 `docker-compose exec ripple sh`
 
-## Direcotry Structre
+## Directory Structure
 
 ### The `.storybook` Directory
 
@@ -117,7 +134,8 @@ This directory contains Ripple components packages.
 
 **Assets for Ripple component should not be added in here.**
 
-This directory contains static files for our storybook site. For example, images used for demo purpose.
+This directory contains static files for our storybook site. For example, images
+used for demo purpose.
 
 Then you can use the image in any `story.js` by path like `'/logo.svg'`.
 

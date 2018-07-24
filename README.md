@@ -8,9 +8,11 @@ Ripple is a Vue.js component pattern library for SDP.
 
 ## Intro
 
-This git repo is a monorepo which contains all Ripple component packages.  [View all Ripple componet packages](packages/).
+This git repo is a monorepo which contains all Ripple component packages.
+[View all Ripple componet packages](packages/).
 
-This git repo also contains a style guide site which uses [Storybook](https://storybook.js.org/) and can be used for local development environment.
+This git repo also contains a style guide site which uses
+[Storybook](https://storybook.js.org/) and can be used for local development environment.
 
 ## Install Ripple in your Nuxt project
 
@@ -52,6 +54,3 @@ Find more info in [Exporting Storybook as a Static App](https://storybook.js.org
 We manage package deployments to npm using [lerna](https://github.com/lerna/lerna).
 
 Package deployments are an automatic process as part of CI.
-
-
-

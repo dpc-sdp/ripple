@@ -1,12 +1,40 @@
 # @dpc-sdp/ripple-contact
 
-Contact.
+> Contact information panel for displaying address, phone, social media.
+Recommended for use in sidebars.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-contact --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-contact --save
 ```
-import RplContact from '@dpc-sdp/ripple-contact'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-contact
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-link
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Contact](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Contact&selectedStory=Contact).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

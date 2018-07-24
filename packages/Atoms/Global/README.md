@@ -1,93 +1,47 @@
 # @dpc-sdp/ripple-global
 
-The core module all SDP Ripple modules depend on.
+> The core styles and utilities used by all ripple components. Includes sets of
+colours, fonts, breakpoints.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-global --save`
 
-### Nuxt.js
-
-For **Nuxt** app, register RplGlobal plugin by adding `plugins/ripple.js` file:
-```
-import Vue from 'vue'
-import RplGlobal from '@dpc-sdp/ripple-global'
-
-const rplOptions = {
-  nuxt: true
-}
-
-Vue.use(RplGlobal, rplOptions)
+```shell
+npm install @dpc-sdp/ripple-global --save
 ```
 
-Then add `plugins/ripple.js` to plugins section of **nuxt.config.js**:
-```
-{
-  plugins: [
-    '~/plugins/ripple'
-  ]
-}
-```
+--------------------------------------------------------------------------------
 
-### Others
+## Dependency graph
 
-If you are not using **Nuxt**, register RplGlobal plugin in your app entry point:
-
-```
-import Vue from 'vue'
-import RplGlobal from '@dpc-sdp/ripple-global'
-
-Vue.use(RplGlobal)
+```shell
+@dpc-sdp/ripple-global
+├── masonry-layout
+├── moment
+├── object-fit-images
+├── vue-focus
+└── vue-social-sharing
 ```
 
-## Usage
-In Sass:
-```scss
-@import "~@dpc-sdp/ripple-global/style"
-```
+--------------------------------------------------------------------------------
 
-### Typography
+## Usage and Tests
 
-The `$rpl-typography` variable can be overridden to define font rules for
-multiple typesets with multiple breakpoints.
+See [Storybook/Colors](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Colors).
 
-Example:
-```scss
-$rpl-typography: (
-  // Define a typeset with a rule.
-  'heading': ('xl', 1.5em, 'bold', true),
-  'body': ('m', 1.2em, 'regular'),
+See [Storybook/Typography](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Typography).
 
-  // Define a typeset with breakpoints.
-  'heading_responsive': (
-    'xs': ('s', 1em, 'bold', true),
-    'm': ('m', 1.1em, 'bold', true),
-    'l': ('l', 1.2em, 'bold', true),
-    'xl': ('xl', 1.2em, 'regular', true),
-  )
-);
-```
+See [Storybook/Breakpoints](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Breakpoints).
 
-A rule consists of:
+--------------------------------------------------------------------------------
 
-`('font_size', line_height, 'weight', show_background)`
+## Release History
 
-* `font_size` - String - a value from the `$rpl-font-sizes` list.
-* `line_height` - CSS rule - a value for line-height.
-* `weight` - String - a value from the `$rpl-fonts` list.
-* `show_background` - Optional Boolean - display a background. Expects inner HTML wrapped in a span.
+See [CHANGELOG.md](./CHANGELOG.md).
 
-A typeset name (e.g. `'heading'`) can be assigned a rule or a list of breakpoints with rules.
+--------------------------------------------------------------------------------
 
-A breakpoint list should include `xs` to ensure font rules are defined for mobile size.
+## License
 
-Typesets can be added to CSS selectors with the `rpl_typography()` mixin.
-
-```scss
-.responsive-header {
-  @include rpl_typography('heading_responsive');
-}
-
-body {
-  @include rpl_typography('body');
-}
-```
+Licensed under the GPL-2.0+ License.

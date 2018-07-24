@@ -1,12 +1,38 @@
 # @dpc-sdp/ripple-updated-date
 
-Updated date.
+> A component for displaying the date an article was last changed.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-updated-date --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-updated-date --save
 ```
-import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-updated-date
+└── @dpc-sdp/ripple-global
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Updated Date](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/UpdatedDate&selectedStory=Updated%20Date).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

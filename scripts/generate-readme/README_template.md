@@ -1,13 +1,13 @@
-# @dpc-sdp/ripple-search
+# {{ packageName }}
 
-> Components for generating a search field with filters, and search results.
+> {{ packageDescription }}
 
 --------------------------------------------------------------------------------
 
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-search --save
+npm install {{ packageName }} --save
 ```
 
 --------------------------------------------------------------------------------
@@ -15,20 +15,22 @@ npm install @dpc-sdp/ripple-search --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-search
-├── @dpc-sdp/ripple-form
-├── @dpc-sdp/ripple-global
-├── @dpc-sdp/ripple-icon
-└── @dpc-sdp/ripple-meta-tag
+{{ packageName }}
+{{ packageDependencies }}
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Search Form](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Search&selectedStory=Search%20Form).
+{% for key, story in storybookParams %}
+{% if key != 0 %}
 
-See [Storybook/Search Result](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Search&selectedStory=Search%20Result).
+{% endif %}
+<!-- markdownlint-disable MD034 -->
+See [{{ story.path }}](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/{{story.params}}).
+<!-- markdownlint-enable MD034 -->
+{% endfor %}
 
 --------------------------------------------------------------------------------
 

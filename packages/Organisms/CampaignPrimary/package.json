@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-campaign-primary",
   "version": "1.0.0-alpha.3",
-  "description": "Ripple campaign primary",
+  "description": "A component to showcase a main content preview with an image. Should be used along with Campaign Secondary.",
   "main": "index.vue",
   "dependencies": {
     "@dpc-sdp/ripple-button": "1.0.0-alpha.3",

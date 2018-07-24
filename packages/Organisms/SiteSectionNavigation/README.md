@@ -1,12 +1,38 @@
 # @dpc-sdp/ripple-site-section-navigation
 
-Site Section Navigation.
+> Sub page navigation component. Recommended for use in sidebars.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-site-section-navigation --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-site-section-navigation --save
 ```
-import RplSiteSectionNavigation from '@dpc-sdp/ripple-site-section-navigation'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-site-section-navigation
+└── @dpc-sdp/ripple-global
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Site Section Navigation](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/SiteSectionNavigation&selectedStory=Site%20Section%20Navigation).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-embedded-video",
   "version": "1.0.0-alpha.3",
-  "description": "Ripple embedded video",
+  "description": "A component for embedding video with transcript.",
   "main": "index.vue",
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.3",

@@ -1,12 +1,40 @@
 # @dpc-sdp/ripple-breadcrumbs
 
-Breadcrumbs.
+> A compoennt to display the active path, with links. Does not display on small
+screens.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-breadcrumbs --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-breadcrumbs --save
 ```
-import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-breadcrumbs
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-link
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Breadcrumbs](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Breadcrumbs&selectedStory=Breadcrumbs).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

@@ -1,12 +1,39 @@
 # @dpc-sdp/ripple-embedded-video
 
-Embedded video.
+> A component for embedding video with transcript.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-embedded-video --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-embedded-video --save
 ```
-import RplEmbeddedVideo from '@dpc-sdp/ripple-embedded-video'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-embedded-video
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-link
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Embedded Video](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/EmbeddedVideo&selectedStory=Embedded%20Video).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

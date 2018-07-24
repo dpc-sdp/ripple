@@ -1,12 +1,40 @@
 # @dpc-sdp/ripple-campaign-primary
 
-Call to action.
+> A component to showcase a main content preview with an image. Should be used
+along with Campaign Secondary.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-campaign-primary --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-campaign-primary --save
 ```
-import RplCampaignPrimary from '@dpc-sdp/ripple-campaign-primary'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-campaign-primary
+├── @dpc-sdp/ripple-button
+└── @dpc-sdp/ripple-global
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Campaign Primary](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CampaignPrimary&selectedStory=Campaign%20Primary).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

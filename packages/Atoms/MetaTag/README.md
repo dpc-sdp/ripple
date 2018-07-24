@@ -1,12 +1,39 @@
 # @dpc-sdp/ripple-meta-tag
 
-Meta Tag.
+> A link component to represent tags.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-meta-tag --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-meta-tag --save
 ```
-import RplMetaTag from '@dpc-sdp/ripple-meta-tag'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-meta-tag
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-link
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Meta Tag](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/MetaTag&selectedStory=Meta%20Tag).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

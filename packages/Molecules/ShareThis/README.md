@@ -1,12 +1,40 @@
 # @dpc-sdp/ripple-share-this
 
-Share this.
+> A component for displaying social media buttons to share articles. Recommended
+for use in sidebars.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-share-this --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-share-this --save
 ```
-import RplContact from '@dpc-sdp/ripple-share-this'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-share-this
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-icon
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Share this](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/ShareThis&selectedStory=Share%20this).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

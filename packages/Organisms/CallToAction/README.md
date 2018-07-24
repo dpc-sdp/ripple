@@ -1,12 +1,40 @@
 # @dpc-sdp/ripple-call-to-action
 
-Call to action.
+> A component for displaying key content with image and link.
+
+--------------------------------------------------------------------------------
 
 ## Install
-`npm install @dpc-sdp/ripple-call-to-action --save`
 
-## Usage
+```shell
+npm install @dpc-sdp/ripple-call-to-action --save
 ```
-import RplCallToAction from '@dpc-sdp/ripple-call-to-action'
 
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-call-to-action
+├── @dpc-sdp/ripple-button
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-link
 ```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Call to Action](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CallToAction&selectedStory=Call%20to%20Action).
+
+--------------------------------------------------------------------------------
+
+## Release History
+
+See [CHANGELOG.md](./CHANGELOG.md).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the GPL-2.0+ License.

@@ -40,15 +40,15 @@ npm run lint
 npm test
 ```
 
+Before commit changes, run test first. If new Ripple components changed, we
+should update snapshots by `npm test -- -u`. Then add it in commit.
+
 #### Documentation
 
 ``` bash
 # Generate README.md for modules in `./packages/` directory
 npm run docs
 ```
-
-Before commit changes, run test first. If new Ripple components changed, we
-should update snapshots by `npm test -- -u`. Then add it in commit.
 
 ### Work in Docker
 

@@ -421,7 +421,68 @@ const demoData = {
       }
     ],
     copyright: '© Copyright State Government of Victoria'
+  },
+
+  newsListing: getNewsListingData()
+}
+
+function getNewsListingData () {
+  return {
+    title: text('Title', 'Latest News'),
+    list: object('List', [
+      {
+        date: '2018-03-26T09:00:00.000+10:00',
+        tag: 'Event',
+        title: 'Australian Indigenous Tourism Conference',
+        url: '#'
+      },
+      {
+        date: '2018-03-25T09:00:00.000+10:00',
+        tag: 'Community',
+        title: 'Respect Women: Call it Out',
+        url: '#'
+      },
+      {
+        date: '2018-03-24T09:00:00.000+10:00',
+        tag: 'Arts & Culture',
+        title: 'NGV Triennial',
+        url: '#'
+      },
+      {
+        date: '2018-02-22T09:00:00.000+10:00',
+        tag: 'Sports',
+        title: 'The World Games Facilities Fund',
+        url: '#'
+      },
+      {
+        date: '2018-02-21T09:00:00.000+10:00',
+        tag: 'Law & Justice',
+        title: 'Access to Justice Review',
+        url: '#'
+      },
+      {
+        date: '2018-02-19T09:00:00.000+10:00',
+        tag: 'Family Violence',
+        title: 'New Bendigo Refuge for Families Escaping Family Violence',
+        url: '#'
+      }
+    ])
   }
 }
+
+/**
+ * Returns a function which generates a data object. Adds properties to knobs.
+ * This is for use on individual components.
+ *
+ * Expects `.addDecorator(withKnobs)` to be included in storybook definition.
+ */
+export {getNewsListingData}
+
+/**
+ * demoData - Returns an object with all data attached. This will not add the
+ * properties to knobs.
+ * This is for use on demo pages.
+ */
+export {demoData}
 
 export default demoData

@@ -73,6 +73,9 @@
         <div class="rpl-site-constrain--on-all">
           <rpl-campaign-secondary :title="mock.campaignSecondary.title" :summary="mock.campaignSecondary.summary" :link="mock.campaignSecondary.link" :image="mock.campaignSecondary.image" />
         </div>
+        <div class="rpl-site-constrain--on-all">
+          <rpl-news-listing :title="mock.newsListing.title" :list="mock.newsListing.list" />
+        </div>
       </template>
 
     </rpl-page-layout>
@@ -122,6 +125,9 @@ import RplWhatsNext from '@dpc-sdp/ripple-whats-next'
 import RplContact from '@dpc-sdp/ripple-contact'
 import RplShareThis from '@dpc-sdp/ripple-share-this'
 
+// News Listing
+import RplNewsListing from '@dpc-sdp/ripple-news-listing'
+
 export default {
   name: 'SPage',
   components: {
@@ -157,7 +163,10 @@ export default {
     RplRelatedLinks,
     RplWhatsNext,
     RplContact,
-    RplShareThis
+    RplShareThis,
+
+    // News Listing
+    RplNewsListing
   },
   props: {
     sidebar: Boolean

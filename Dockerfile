@@ -1,24 +1,17 @@
 FROM amazeeio/node:8-builder as builder
 
 COPY .npmrc .npmrc
-COPY package.json package-lock.json /app/
-COPY packages /app/packages
+COPY . /app
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
 RUN npm install
+RUN npm run build-storybook
 
 FROM amazeeio/node:8
-COPY --from=builder /app/node_modules /app/node_modules
-COPY . /app/
+COPY --from=builder /app/public /app
 
-ARG LAGOON_GIT_BRANCH
-ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
-
-RUN mkdir -p /app/node_modules/.cache && fix-permissions /app/node_modules/.cache \
-    && . /home/.bashrc \
-    && npm run install-curl
-
+RUN npm install http-server -g
 
 ENV HOST 0.0.0.0
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["http-server", "-p", "3000"]

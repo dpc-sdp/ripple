@@ -32,7 +32,7 @@ jobs:
 
       - run:
           name: Lint code.
-          command: docker exec $(docker-compose ps -q ripple) npm run lint
+          command: docker exec $(docker-compose ps -q test) npm run lint
 
       - run:
           name: Run tests

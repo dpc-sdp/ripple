@@ -1,6 +1,7 @@
 FROM singledigital/bay-node-slim
 
 WORKDIR /app
+COPY .npmrc .npmrc
 COPY package.json package-lock.json /app/
 COPY packages /app/packages
 RUN npm install

@@ -1,4 +1,6 @@
 FROM amazeeio/node:8-builder as builder
+
+COPY .npmrc .npmrc
 COPY package.json package-lock.json /app/
 COPY packages /app/packages
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1

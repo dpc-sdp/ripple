@@ -15,7 +15,7 @@ ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
 RUN npm install http-server -g \
     && . /home/.bashrc \
-    && npm run install-curl
+    && "if [ \"$LAGOON_GIT_BRANCH\" != \"production\" ] ; then apk --update add curl;  fi"
 
 ENV HOST 0.0.0.0
 EXPOSE 3000

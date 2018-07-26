@@ -29,6 +29,10 @@ const isExternalUrl = (url, hostname) => {
   return _extractHostname(url) !== hostname.replace(/^www\./, '')
 }
 
+const isAnchorLink = (url) => {
+  return (url.length > 0 && url[0] === '#')
+}
+
 // https://stackoverflow.com/a/23945027/1212791
 function _extractHostname (url) {
   let hostname
@@ -65,4 +69,4 @@ function _isTelOrEmailUrl (url) {
   return false
 }
 
-export { isRelativeUrl, isExternalUrl }
+export { isRelativeUrl, isExternalUrl, isAnchorLink }

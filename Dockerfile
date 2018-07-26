@@ -10,7 +10,12 @@ FROM amazeeio/node:8
 COPY --from=builder /app/public /app
 COPY scripts/jira-post-comment.sh /app/scripts/jira-post-comment.sh
 
-RUN npm install http-server -g
+ARG LAGOON_GIT_BRANCH
+ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
+
+RUN npm install http-server -g \
+    && . /home/.bashrc \
+    && npm run install-curl
 
 ENV HOST 0.0.0.0
 EXPOSE 3000

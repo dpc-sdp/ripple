@@ -1,10 +1,10 @@
 {
   "name": "@dpc-sdp/ripple-link",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "Components for creating page links in plain text, and with accompanying icon. External links open in a new window by default.",
   "main": "index.js",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.3",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.3"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.4",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.4"
   }
 }

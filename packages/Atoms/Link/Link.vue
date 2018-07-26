@@ -9,7 +9,7 @@
 
 <script>
 import { focus } from 'vue-focus'
-import { isRelativeUrl, isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { isRelativeUrl, isExternalUrl, isAnchorLink } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplLink',
@@ -32,7 +32,7 @@ export default {
     }
   },
   created: function () {
-    if (isRelativeUrl(this.href)) {
+    if (!isAnchorLink(this.href) && isRelativeUrl(this.href)) {
       this.isNuxtLink = this.rplOptions.nuxt
     }
     // Set link target for non nuxt-links

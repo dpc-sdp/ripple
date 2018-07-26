@@ -1,6 +1,6 @@
 version: '2'
 services:
-  ripple:
+  storybook:
     build:
       dockerfile: Dockerfile.local
     networks:

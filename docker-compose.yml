@@ -1,6 +1,6 @@
 version: '2'
 services:
-  ripple:
+  storybook:
     build:
       context: .
       dockerfile: Dockerfile

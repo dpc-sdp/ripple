@@ -35,7 +35,7 @@ EOF
 ISSUE=$(extract_issue $PREFIX "$BRANCH" "$PR_TITLE")
 [ "$ISSUE" == "" ] && echo "Branch does not contain issue number" && exit 0
 
-COMMENT="Deployed to https://ripple-$PR.lagoon.vicsdp.amazee.io "
+COMMENT="Deployed to https://ripple-storybook-$PR.lagoon.vicsdp.amazee.io "
 
 echo "Posting comment \"$COMMENT\" for issue \"$ISSUE\""
 

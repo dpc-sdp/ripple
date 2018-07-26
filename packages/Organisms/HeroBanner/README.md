@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-hero-banner --save
 
 ## Usage and Tests
 
-See [Storybook/Hero Banner](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/HeroBanner&selectedStory=Hero%20Banner).
+See [Storybook/Hero Banner](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/HeroBanner&selectedStory=Hero%20Banner).
 
 --------------------------------------------------------------------------------
 

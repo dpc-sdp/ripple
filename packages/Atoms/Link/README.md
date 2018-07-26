@@ -25,9 +25,9 @@ npm install @dpc-sdp/ripple-link --save
 
 ## Usage and Tests
 
-See [Storybook/Link](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Link).
+See [Storybook/Link](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Link).
 
-See [Storybook/Text Link](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Text%20Link).
+See [Storybook/Text Link](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Text%20Link).
 
 --------------------------------------------------------------------------------
 

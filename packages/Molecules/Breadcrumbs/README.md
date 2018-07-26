@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-breadcrumbs --save
 
 ## Usage and Tests
 
-See [Storybook/Breadcrumbs](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Breadcrumbs&selectedStory=Breadcrumbs).
+See [Storybook/Breadcrumbs](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Breadcrumbs&selectedStory=Breadcrumbs).
 
 --------------------------------------------------------------------------------
 

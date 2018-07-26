@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-share-this --save
 
 ## Usage and Tests
 
-See [Storybook/Share this](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/ShareThis&selectedStory=Share%20this).
+See [Storybook/Share this](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/ShareThis&selectedStory=Share%20this).
 
 --------------------------------------------------------------------------------
 

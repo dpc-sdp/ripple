@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-call-to-action --save
 
 ## Usage and Tests
 
-See [Storybook/Call to Action](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CallToAction&selectedStory=Call%20to%20Action).
+See [Storybook/Call to Action](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CallToAction&selectedStory=Call%20to%20Action).
 
 --------------------------------------------------------------------------------
 

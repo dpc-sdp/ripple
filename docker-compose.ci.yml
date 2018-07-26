@@ -1,6 +1,6 @@
 version: '2'
 services:
-  ripple:
+  storybook:
     environment:
       LAGOON_ENVIRONMENT_TYPE: 'ci'
   test:

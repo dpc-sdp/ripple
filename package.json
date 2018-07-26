@@ -6,10 +6,10 @@
   "private": true,
   "scripts": {
     "publish": "lerna publish",
-    "lint": "eslint --ext .js,.vue src && sass-lint -qv --max-warnings 0 && markdownlint ./packages/**/*.md",
+    "lint": "eslint --ext .js,.vue src && sass-lint -qv --max-warnings 0 && markdownlint -i ./packages/**/node_modules/**/*.md ./packages/**/*.md",
     "test": "NODE_ENV=test jest",
     "storybook": "start-storybook -p 3000 -c .storybook -s ./static",
-    "build-storybook": "build-storybook -c .storybook -s ./static",
+    "build-storybook": "NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public",
     "start": "npm run storybook",
     "bay:start": "docker-compose up -d",
     "bay:rebuild-full": "docker-compose up -d --build --force-recreate",

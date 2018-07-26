@@ -6,7 +6,6 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: integratedexperts/circleci2-builder
         environment:
           COMPOSER_ALLOW_SUPERUSER: 1
@@ -32,7 +31,7 @@ jobs:
 
       - run:
           name: Lint code.
-          command: docker exec $(docker-compose ps -q ripple) npm run lint
+          command: docker exec $(docker-compose ps -q test) npm run lint
 
       - run:
           name: Run tests
@@ -41,21 +40,21 @@ jobs:
       - run:
           name: Install non-production packages into containers.
           command: |
-            docker exec $(docker-compose ps -q ripple) /sbin/apk add --no-cache curl
+            docker exec $(docker-compose ps -q storybook) /sbin/apk add --no-cache curl
 
       - run:
           name: prepare test directories.
           command: |
-            docker exec $(docker-compose ps -q ripple) mkdir /app/screenshots
+            docker exec $(docker-compose ps -q storybook) mkdir /app/screenshots
 
       - run:
-          name: Test that Ripple site can be sereved.
-          command: docker exec $(docker-compose ps -q ripple) curl -s -o /app/screenshots/ripple.html -w "%{http_code}" http://localhost:3000/ | grep -q 200
+          name: Test that Ripple storybook site can be sereved.
+          command: docker exec $(docker-compose ps -q storybook) curl -s -o /app/screenshots/storybook.html -w "%{http_code}" http://localhost:3000/ | grep -q 200
 
       - run:
           name: Collect artifacts.
           command: |
-            mkdir -p /tmp/artifacts/ripple && docker cp $(docker-compose ps -q ripple):/app/screenshots /tmp/artifacts/ripple
+            mkdir -p /tmp/artifacts/storybook && docker cp $(docker-compose ps -q storybook):/app/screenshots /tmp/artifacts/storybook
           when: always
 
       - store_artifacts:

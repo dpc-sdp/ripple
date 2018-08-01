@@ -26,7 +26,7 @@ storiesOf('Organisms/SiteHeader', module)
   :hideOnScroll="hideOnScroll"
   :showSearch="showSearch"
   @open="menuOpenFunc"
-  @search="searchFunc"
+  @searchHeader="searchFunc"
 />`,
     data () {
       return {

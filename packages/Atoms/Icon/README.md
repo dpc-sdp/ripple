@@ -23,9 +23,9 @@ npm install @dpc-sdp/ripple-icon --save
 
 ## Usage and Tests
 
-See [Storybook/Icon Library](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Icon&selectedStory=Icon%20Library).
+See [Storybook/Icon Library](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Icon&selectedStory=Icon%20Library).
 
-See [Storybook/Icon](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Icon&selectedStory=Icon).
+See [Storybook/Icon](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Icon&selectedStory=Icon).
 
 --------------------------------------------------------------------------------
 

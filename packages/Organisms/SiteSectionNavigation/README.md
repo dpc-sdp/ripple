@@ -23,7 +23,7 @@ npm install @dpc-sdp/ripple-site-section-navigation --save
 
 ## Usage and Tests
 
-See [Storybook/Site Section Navigation](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/SiteSectionNavigation&selectedStory=Site%20Section%20Navigation).
+See [Storybook/Site Section Navigation](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/SiteSectionNavigation&selectedStory=Site%20Section%20Navigation).
 
 --------------------------------------------------------------------------------
 

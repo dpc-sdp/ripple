@@ -24,7 +24,7 @@ npm install @dpc-sdp/ripple-sitemap --save
 
 ## Usage and Tests
 
-See [Storybook/Sitemap](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Sitemap&selectedStory=Sitemap).
+See [Storybook/Sitemap](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Sitemap&selectedStory=Sitemap).
 
 --------------------------------------------------------------------------------
 

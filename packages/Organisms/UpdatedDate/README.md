@@ -23,7 +23,7 @@ npm install @dpc-sdp/ripple-updated-date --save
 
 ## Usage and Tests
 
-See [Storybook/Updated Date](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/UpdatedDate&selectedStory=Updated%20Date).
+See [Storybook/Updated Date](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/UpdatedDate&selectedStory=Updated%20Date).
 
 --------------------------------------------------------------------------------
 

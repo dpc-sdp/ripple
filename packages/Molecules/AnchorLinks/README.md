@@ -24,7 +24,7 @@ npm install @dpc-sdp/ripple-anchor-links --save
 
 ## Usage and Tests
 
-See [Storybook/Anchor Links](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/AnchorLinks&selectedStory=Anchor%20Links).
+See [Storybook/Anchor Links](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/AnchorLinks&selectedStory=Anchor%20Links).
 
 --------------------------------------------------------------------------------
 

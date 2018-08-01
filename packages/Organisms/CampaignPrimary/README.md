@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-campaign-primary --save
 
 ## Usage and Tests
 
-See [Storybook/Campaign Primary](https://ripple-ripple-develop.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CampaignPrimary&selectedStory=Campaign%20Primary).
+See [Storybook/Campaign Primary](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CampaignPrimary&selectedStory=Campaign%20Primary).
 
 --------------------------------------------------------------------------------
 

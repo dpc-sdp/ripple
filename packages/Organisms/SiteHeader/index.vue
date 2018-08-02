@@ -57,7 +57,7 @@
         </div>
         <!-- Search Content -->
         <div v-if="menuContentOpen && searchState == 'opened'" class="rpl-site-header__search-container">
-          <rpl-search :terms="searchTerms" @search="searchFunc" />
+          <rpl-search :terms="searchTerms" @searchheadersubmit="searchFunc" />
         </div>
       </div>
     </div>
@@ -166,7 +166,7 @@ export default {
       this.$emit('open', this.menuContentOpen)
     },
     searchFunc: function (value) {
-      this.$emit('search', value)
+      this.$emit('searchheadersubmit', value)
     },
     scroll: function () {
       let st = window.pageYOffset || document.documentElement.scrollTop

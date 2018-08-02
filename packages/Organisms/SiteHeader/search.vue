@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     searchTerm: function (searchInput) {
-      this.$root.$emit('searchHeader', searchInput)
+      this.$emit('searchheadersubmit', searchInput)
     }
   }
 }

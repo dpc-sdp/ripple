@@ -11,9 +11,9 @@
         <span>Previous</span>
         <rpl-icon symbol="left" color="primary" size="1.6" />
       </button>
-      <button v-if="currentStep < totalSteps" @click="nextClick" class="rpl-pagination__nav">
+      <button :disabled="currentStep === totalSteps" @click="nextClick" class="rpl-pagination__nav">
         <span>Next</span>
-        <rpl-icon symbol="right" color="primary" size="1.6" />
+        <rpl-icon symbol="right" :color="currentStep < totalSteps ? 'primary' : 'mid_neutral_1'" size="1.6" />
       </button>
     </div>
   </div>

@@ -15,11 +15,12 @@ storiesOf('Molecules/Pagination', module)
   .addDecorator(withKnobs)
   .add('Pagination', withReadme(readme, () => ({
     components: { RplPagination },
-    template: `<rpl-pagination :steps="steps" :initialStep="initialStep" @change="change" />`,
+    template: `<rpl-pagination :totalSteps="totalSteps" :initialStep="initialStep" :stepsAround="stepsAround" @change="change" />`,
     data () {
       return {
-        steps: number('Steps', 5),
-        initialStep: number('Initial Step', 1)
+        totalSteps: number('Total steps', 8),
+        initialStep: number('Initial step', 1),
+        stepsAround: number('Step count around current', 2)
       }
     },
     methods: {

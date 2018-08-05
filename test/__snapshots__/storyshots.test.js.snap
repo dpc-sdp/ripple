@@ -6427,6 +6427,250 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplPagination
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-pagination :totalSteps="totalSteps" :initialStep="initialStep" :stepsAround="stepsAround" @change="change" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-pagination"
+      data-v-d5d40916=""
+    >
+      <ol
+        class="rpl-pagination__list"
+      >
+        <li
+          class="rpl-pagination__list-item"
+        >
+          <span
+            class="rpl-pagination__step-current"
+          >
+            1
+          </span>
+        </li>
+        <li
+          class="rpl-pagination__list-item"
+        >
+          <button
+            class="rpl-pagination__step"
+          >
+            <span>
+              Go to step 
+            </span>
+            2
+          </button>
+        </li>
+        <li
+          class="rpl-pagination__list-item"
+        >
+          <button
+            class="rpl-pagination__step"
+          >
+            <span>
+              Go to step 
+            </span>
+            3
+          </button>
+        </li>
+        <li
+          class="rpl-pagination__list-item"
+        >
+          <button
+            class="rpl-pagination__step"
+          >
+            <span>
+              Go to step 
+            </span>
+            4
+          </button>
+        </li>
+        <li
+          class="rpl-pagination__list-item"
+        >
+          <button
+            class="rpl-pagination__step"
+          >
+            <span>
+              Go to step 
+            </span>
+            5
+          </button>
+        </li>
+      </ol>
+       
+      <div
+        class="rpl-pagination__controls"
+      >
+        <!---->
+         
+        <button
+          class="rpl-pagination__nav"
+        >
+          <span>
+            Next
+          </span>
+           
+          <!---->
+        </button>
+      </div>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          totalSteps
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          number
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          initialStep
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          number
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          1
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          stepsAround
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          number
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          2
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
 <div
   class="vue-info"

@@ -1,10 +1,10 @@
 {
   "name": "@dpc-sdp/ripple-pagination",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "A component for displaying a pagination bar with controls to change current step.",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.4",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.4"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.5",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.5"
   }
 }

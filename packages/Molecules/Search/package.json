@@ -1,12 +1,12 @@
 {
   "name": "@dpc-sdp/ripple-search",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Components for generating a search field with filters, and search results.",
   "main": "index.js",
   "dependencies": {
-    "@dpc-sdp/ripple-form": "1.0.0-alpha.4",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.4",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.4",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.4"
+    "@dpc-sdp/ripple-form": "1.0.0-alpha.5",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.5",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.5",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.5"
   }
 }

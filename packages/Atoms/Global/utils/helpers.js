@@ -30,7 +30,7 @@ const isExternalUrl = (url, hostname) => {
 }
 
 const isAnchorLink = (url) => {
-  return (url.length > 0 && url[0] === '#')
+  return (typeof url === 'string' && url.length > 0 && url[0] === '#')
 }
 
 // https://stackoverflow.com/a/23945027/1212791

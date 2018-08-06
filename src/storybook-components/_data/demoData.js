@@ -893,6 +893,13 @@ const demoData = {
       m: 6
     }),
     pull: object('Pull', {})
+  }),
+
+  publishDateAndAuthor: () => ({
+    date: text('Date', '2018-04-22T11:00:00.000+10:00'),
+    location: text('Location', 'location'),
+    author: text('Author', 'department goes here'),
+    locale: text('Locale', 'en-au')
   })
 }
 

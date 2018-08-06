@@ -3,12 +3,12 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs,
-  text
+  withKnobs
 } from '@storybook/addon-knobs/vue'
 
 import RplPublishDateAndAuthor from './index.vue'
 import readme from './README.md'
+import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('Molecules/PublishDateAndAuthor', module)
   .addDecorator(VueInfoAddon)
@@ -22,11 +22,6 @@ storiesOf('Molecules/PublishDateAndAuthor', module)
   :locale="locale"
 />`,
     data () {
-      return {
-        date: text('Date', '2018-04-22T11:00:00.000+10:00'),
-        location: text('Location', 'location'),
-        author: text('Author', 'department goes here'),
-        locale: text('Locale', 'en-au')
-      }
+      return demoData.publishDateAndAuthor()
     }
   })))

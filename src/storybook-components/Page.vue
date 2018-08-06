@@ -96,9 +96,6 @@
 // This is a page for demo all components in the site layout.
 // Change story knob `sidebar` can switch layout between with sidebar and without sidebar.
 
-// Import all demo data
-import demoData from './_data/demoData.js'
-
 import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
@@ -169,7 +166,8 @@ export default {
     RplNewsListing
   },
   props: {
-    sidebar: Boolean
+    sidebar: Boolean,
+    mock: Object
   },
   data () {
     return {
@@ -182,8 +180,7 @@ export default {
         m: 6,
         xxxl: 4
       },
-      defaultCols: {},
-      mock: demoData
+      defaultCols: {}
     }
   },
   methods: {

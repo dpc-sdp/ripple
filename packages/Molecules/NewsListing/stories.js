@@ -8,7 +8,7 @@ import {
 
 import RplNewsListing from './index.vue'
 import readme from './README.md'
-import { getNewsListingData } from '../../../src/storybook-components/_data/demoData.js'
+import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
 storiesOf('Molecules/NewsListing', module)
   .addDecorator(VueInfoAddon)
@@ -17,6 +17,6 @@ storiesOf('Molecules/NewsListing', module)
     components: { RplNewsListing },
     template: `<rpl-news-listing :title="title" :list="list" />`,
     data () {
-      return getNewsListingData()
+      return demoData.newsListing()
     }
   })))

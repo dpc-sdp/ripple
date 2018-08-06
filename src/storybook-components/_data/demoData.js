@@ -8,14 +8,15 @@ import {
   number
 } from '@storybook/addon-knobs/vue'
 
-const demoData = {
-  // We can use general data for some common data type.
-  // These data value can be reused.
-  general: {
-    url: '#'
-  },
+// We can use general data for some common data type.
+// These data value can be reused.
+const generalData = { // eslint-disable-line no-unused-vars
+  url: '#',
+  text: 'Lorem ipsum dolor sit amet'
+}
 
-  header: {
+const demoData = {
+  header: () => ({
     logo: object('Logo', {
       alt: 'vic.gov.au',
       url: '#',
@@ -121,9 +122,9 @@ const demoData = {
       }
     ]),
     sticky: boolean('Sticky', false)
-  },
+  }),
 
-  heroBanner: {
+  heroBanner: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
     introText: text('Intro Text', 'This is supplimentary intro text that can also wrap over a couple of lines.'),
     linkHeading: text('Link Heading', 'Want to know more about...'),
@@ -134,57 +135,57 @@ const demoData = {
       { text: 'Fourth journey based link', url: '#' }
     ]),
     moreLink: object('More Link', { text: 'See more', url: '#' })
-  },
+  }),
 
-  breadcrumbs: {
+  breadcrumbs: () => ({
     crumbs: [
       { text: 'Home', url: '#' },
       { text: 'Level 1 parent link', url: '#' },
       { text: 'Level 2 page title' }
     ]
-  },
+  }),
 
-  cardNavigation: {
+  cardNavigation: () => ({
     title: text('Title', 'First navigation card'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
     url: text('Url', '#')
-  },
+  }),
 
-  cardNavigationFeatured: {
+  cardNavigationFeatured: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
     summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
     url: text('Url', '#'),
     image: text('Image', 'https://placehold.it/818x497')
-  },
+  }),
 
-  cardPromotion: {
+  cardPromotion: () => ({
     image: text('Image', 'https://placehold.it/580x340'),
     date: text('Date', '2018-05-31'),
     topic: text('Topic', 'News'),
     title: text('Title', 'This is display copy that wraps 2 lines'),
     summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
     link: object('Link', { text: 'Read more', url: '#' })
-  },
+  }),
 
-  cardKeydates: {
+  cardKeydates: () => ({
     title: text('Title', 'Key calendar dates'),
     keydates: object('Keydates', [
       { date: '2018-05-03', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
       { date: '2018-05-23', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
     ]),
     link: object('Link', { text: 'See the events calendar', url: '#' })
-  },
+  }),
 
-  cardEvent: {
+  cardEvent: () => ({
     image: text('Image', 'https://placehold.it/580x340'),
     date: text('Date', '2018-05-31'),
     location: text('Location', 'South Yarra'),
     title: text('Title', 'This is the headline of an event with a location'),
     summary: text('Summary', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte'),
     link: object('Link', { text: 'See event details', url: '#' })
-  },
+  }),
 
-  relatedLinks: {
+  relatedLinks: () => ({
     title: text('Title', 'Related links'),
     links: object('Links', [
       { text: 'Link to additional content', url: '#' },
@@ -192,9 +193,9 @@ const demoData = {
       { text: 'Third link to extra content', url: '#' },
       { text: 'This is a long link to extra content', url: '#' }
     ])
-  },
+  }),
 
-  whatsNext: {
+  whatsNext: () => ({
     title: text('Title', 'What\'s next?'),
     links: object('Links', [
       { text: 'Link to additional content', url: '#' },
@@ -204,9 +205,9 @@ const demoData = {
       { text: 'Second link to extra content', url: '#' },
       { text: 'This is another link', url: '#' }
     ])
-  },
+  }),
 
-  anchorLinks: {
+  anchorLinks: () => ({
     title: text('Title', 'On this page:'),
     links: object('Links', [
       { text: 'This is the first anchor link', url: '#' },
@@ -216,16 +217,16 @@ const demoData = {
       { text: 'Another link to extra content', url: '#' },
       { text: 'This is another link', url: '#' }
     ])
-  },
+  }),
 
-  campaignSecondary: {
+  campaignSecondary: () => ({
     title: text('Title', 'Secondary campaign headline'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'),
     link: object('Call to action', { text: 'Call to action', url: '#' }),
     image: text('Image', 'http://placehold.it/699x411')
-  },
+  }),
 
-  contact: {
+  contact: () => ({
     title: 'Need additional help?',
     name: 'First Last Name (Job Title)',
     department: 'Department name',
@@ -258,14 +259,14 @@ const demoData = {
         url: 'https://www.intagram.com'
       }
     ]
-  },
+  }),
 
-  shareThis: {
+  shareThis: () => ({
     title: 'Share this',
     url: 'https://app-vic-gov-au-develop.lagoon.vicsdp.amazee.io/'
-  },
+  }),
 
-  footer: {
+  footer: () => ({
     nav: [
       {
         text: 'Your Services',
@@ -421,13 +422,9 @@ const demoData = {
       }
     ],
     copyright: '© Copyright State Government of Victoria'
-  },
+  }),
 
-  newsListing: getNewsListingData()
-}
-
-function getNewsListingData () {
-  return {
+  newsListing: () => ({
     title: text('Title', 'Latest News'),
     list: object('List', [
       {
@@ -467,21 +464,24 @@ function getNewsListingData () {
         url: '#'
       }
     ])
-  }
+  })
 }
-
-/**
- * Returns a function which generates a data object. Adds properties to knobs.
- * This is for use on individual components.
- *
- * Expects `.addDecorator(withKnobs)` to be included in storybook definition.
- */
-export {getNewsListingData}
 
 /**
  * demoData - Returns an object with all data attached. This will not add the
  * properties to knobs.
  * This is for use on demo pages.
+ */
+let demoDataLocked = {}
+for (let key in demoData) {
+  demoDataLocked[key] = demoData[key]()
+}
+export {demoDataLocked}
+
+/**
+ * demoData - Returns an object with functions to create data. This will add the
+ * properties to knobs.
+ * This is for use on components.
  */
 export {demoData}
 

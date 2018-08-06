@@ -3,13 +3,12 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs,
-  text,
-  object
+  withKnobs
 } from '@storybook/addon-knobs/vue'
 
 import RplCampaignPrimary from './index.vue'
 import readme from './README.md'
+import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('Organisms/CampaignPrimary', module)
   .addDecorator(VueInfoAddon)
@@ -18,11 +17,6 @@ storiesOf('Organisms/CampaignPrimary', module)
     components: { RplCampaignPrimary },
     template: `<rpl-campaign-primary :title="title" :summary="summary" :link="link" :image="image" />`,
     data () {
-      return {
-        title: text('Title', 'Primary campaign headline'),
-        summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'),
-        link: object('Call to action', { text: 'Call to action', url: '#' }),
-        image: text('Image', 'http://placehold.it/699x411')
-      }
+      return demoData.campaignPrimary()
     }
   })))

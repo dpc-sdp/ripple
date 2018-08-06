@@ -3,13 +3,12 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs,
-  text,
-  object
+  withKnobs
 } from '@storybook/addon-knobs/vue'
 
 import RplContact from './index.vue'
 import readme from './README.md'
+import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
 storiesOf('Molecules/Contact', module)
   .addDecorator(VueInfoAddon)
@@ -27,39 +26,6 @@ storiesOf('Molecules/Contact', module)
   :social="social"
 />`,
     data () {
-      return {
-        title: text('Title', 'Need additional help?'),
-        name: text('Name', 'First Last Name (Job Title)'),
-        department: text('Department', 'Department name'),
-        postal: text('Postal', 'PO Box 123, Suburb VIC 3421'),
-        address: text('Address', '13 Street Name, Suburb VIC 3056'),
-        phone: object('Phone', [
-          '03 9876 6754',
-          '03 9876 1234'
-        ]),
-        email: text('Email', 'emailaddress@vic.gov.au'),
-        social: object('Social', [
-          {
-            icon: 'facebook',
-            title: 'Name of Facebook Page',
-            url: 'https://www.facebook.com'
-          },
-          {
-            icon: 'twitter',
-            title: 'Name of Twitter account',
-            url: 'https://www.twitter.com'
-          },
-          {
-            icon: 'linkedin',
-            title: 'Name of LinkedIn profile',
-            url: 'https://www.linkedin.com'
-          },
-          {
-            icon: 'instagram',
-            title: 'Name of Instagram account',
-            url: 'https://www.intagram.com'
-          }
-        ])
-      }
+      return demoData.contact()
     }
   })))

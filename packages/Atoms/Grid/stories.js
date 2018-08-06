@@ -10,10 +10,9 @@ import readme from './README.md'
 import SGrids from './../../../src/storybook-components/Grids.vue'
 
 import {
-  withKnobs,
-  text,
-  object
+  withKnobs
 } from '@storybook/addon-knobs/vue'
+import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('Atoms/Layout', module)
   .addDecorator(VueInfoAddon)
@@ -22,18 +21,7 @@ storiesOf('Atoms/Layout', module)
     components: { RplContainer, RplRow, RplCol },
     template: '<rpl-container><rpl-row><rpl-col :cols="cols" :colsBp="colsBp" :pull="pull" :push="push" style="border: 1px solid black">Column</rpl-col></rpl-row></rpl-container>',
     data () {
-      return {
-        cols: text('Cols default', 'full'),
-        colsBp: object('Cols in breakpoints', {
-          m: 6,
-          l: 4,
-          xxxl: 3
-        }),
-        push: object('Push', {
-          m: 6
-        }),
-        pull: object('Pull', {})
-      }
+      return demoData.grid()
     }
   })))
 

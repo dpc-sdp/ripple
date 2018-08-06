@@ -6671,6 +6671,264 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/PublishDateAndAuthor Publish Date and Author 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplPublishDateAndAuthor
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-publish-date-and-author
+  :date="date"
+  :location="location"
+  :author="author"
+  :locale="locale"
+/&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-publish-date-and-author"
+      data-v-d5d40916=""
+    >
+      <div
+        class="rpl-publish-date-and-author__date-location"
+      >
+        22/04/18 11.00am
+        <span>
+           from location
+        </span>
+      </div>
+       
+      <div
+        class="rpl-publish-date-and-author__author"
+      >
+        Published by department goes here
+      </div>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          date
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          location
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          author
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          location_prefix
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          from
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          author_prefix
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          Published by
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          locale
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          en-au
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
 <div
   class="vue-info"

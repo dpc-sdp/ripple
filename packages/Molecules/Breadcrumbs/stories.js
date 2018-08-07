@@ -3,12 +3,12 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs,
-  object
+  withKnobs
 } from '@storybook/addon-knobs/vue'
 
 import RplBreadcrumbs from './index.vue'
 import readme from './README.md'
+import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
 storiesOf('Molecules/Breadcrumbs', module)
   .addDecorator(VueInfoAddon)
@@ -17,12 +17,6 @@ storiesOf('Molecules/Breadcrumbs', module)
     components: { RplBreadcrumbs },
     template: `<rpl-breadcrumbs :crumbs="crumbs" />`,
     data () {
-      return {
-        crumbs: object('Crumbs', [
-          { text: 'Home', url: '#' },
-          { text: 'Level 1', url: '#' },
-          { text: 'Level 2 page title' }
-        ])
-      }
+      return demoData.breadcrumbs()
     }
   })))

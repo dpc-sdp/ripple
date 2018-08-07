@@ -40,6 +40,7 @@
     "@dpc-sdp/ripple-layout": "file:packages/Molecules/Layout",
     "@dpc-sdp/ripple-link": "file:packages/Atoms/Link",
     "@dpc-sdp/ripple-meta-tag": "file:packages/Atoms/MetaTag",
+    "@dpc-sdp/ripple-news-listing": "file:packages/Molecules/NewsListing",
     "@dpc-sdp/ripple-publish-date-and-author": "file:packages/Molecules/PublishDateAndAuthor",
     "@dpc-sdp/ripple-related-links": "file:packages/Molecules/RelatedLinks",
     "@dpc-sdp/ripple-search": "file:packages/Molecules/Search",

@@ -3,13 +3,13 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs,
-  text
+  withKnobs
 } from '@storybook/addon-knobs/vue'
 
 import SIcons from '.../../../src/storybook-components/Icons.vue'
 import RplIcon from './Icon.vue'
 import readme from './README.md'
+import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('Atoms/Icon', module)
   .add('Icon Library', withReadme(readme, () => ({
@@ -98,10 +98,6 @@ storiesOf('Atoms/Icon', module)
     components: { RplIcon },
     template: '<rpl-icon :symbol="icon" :color="color" :size="size" />',
     data () {
-      return {
-        icon: text('Symbol', 'search'),
-        color: text('Color', 'primary'),
-        size: text('Size', 'm')
-      }
+      return demoData.icon()
     }
   })))

@@ -3,13 +3,12 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs,
-  text,
-  object
+  withKnobs
 } from '@storybook/addon-knobs/vue'
 
 import RplRelatedLinks from './index.vue'
 import readme from './README.md'
+import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
 storiesOf('Molecules/RelatedLinks', module)
   .addDecorator(VueInfoAddon)
@@ -18,14 +17,6 @@ storiesOf('Molecules/RelatedLinks', module)
     components: { RplRelatedLinks },
     template: `<rpl-related-links :title="title" :links="links" />`,
     data () {
-      return {
-        title: text('Title', 'Related links'),
-        links: object('Links', [
-          { text: 'Link to additional content', url: '#' },
-          { text: 'Second link it goes right here', url: '#' },
-          { text: 'Third link to extra content', url: '#' },
-          { text: 'This is a long link to extra content', url: '#' }
-        ])
-      }
+      return demoData.relatedLinks()
     }
   })))

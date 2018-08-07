@@ -2723,7 +2723,7 @@ exports[`RippleStoryshots Molecules/Breadcrumbs Breadcrumbs 1`] = `
                 class="rpl-link rpl-breadcrumbs__link"
                 href="#"
               >
-                Level 1
+                Level 1 page title
               </a>
             </li>
             <li
@@ -5447,8 +5447,7 @@ exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `
     <code
       data-v-d5d40916=""
     >
-      
-&lt;rpl-base-layout&gt;
+      &lt;rpl-base-layout&gt;
   &lt;template slot="header"&gt;Site header&lt;/template&gt;
   &lt;p&gt;This is page content&lt;/p&gt;
   &lt;template slot="footer"&gt;Site footer&lt;/template&gt;
@@ -5573,8 +5572,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
     <code
       data-v-d5d40916=""
     >
-      
-&lt;rpl-page-layout&gt;
+      &lt;rpl-page-layout&gt;
   &lt;template slot="aboveContent"&gt;Above content&lt;/template&gt;
   &lt;p&gt;This is page content&lt;/p&gt;
   &lt;template slot="belowContent"&gt;Below content&lt;/template&gt;
@@ -5757,8 +5755,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
     <code
       data-v-d5d40916=""
     >
-      
-&lt;rpl-page-layout sidebar&gt;
+      &lt;rpl-page-layout sidebar&gt;
   &lt;template slot="aboveContent"&gt;Above content&lt;/template&gt;
   &lt;p&gt;This is page content&lt;/p&gt;
   &lt;template slot="sidebar"&gt;sidebar content&lt;/template&gt;
@@ -6424,6 +6421,405 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
     
     </div>
   </footer>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/NewsListing News Listing 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplNewsListing
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-news-listing :title="title" :list="list" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-news-listing"
+      data-v-d5d40916=""
+    >
+      <h2
+        class="rpl-news-listing__heading"
+      >
+        Latest News
+      </h2>
+       
+      <ul
+        class="rpl-news-listing__items"
+      >
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              26 March 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Event
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    Australian Indigenous Tourism
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Conference
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              25 March 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Community
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    Respect Women: Call it
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Out
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              24 March 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Arts & Culture
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    NGV
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Triennial
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              22 February 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Sports
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    The World Games Facilities
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Fund
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              21 February 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Law & Justice
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    Access to Justice
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Review
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              19 February 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Family Violence
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    New Bendigo Refuge for Families Escaping Family
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Violence
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          title
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          list
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          array
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
 
@@ -12154,7 +12550,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                   class="rpl-link rpl-breadcrumbs__link"
                   href="#"
                 >
-                  Level 1 parent link
+                  Level 1 page title
                 </a>
               </li>
               <li
@@ -12599,7 +12995,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                       <div
                         class="rpl-card-promotion__date"
                       >
-                        31 May
+                        10 July
                       </div>
                        
                       <div
@@ -12675,7 +13071,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                         <!---->
                          
                         <span>
-                          2018-05-03
+                          3 April
                         </span>
                       </div>
                        
@@ -12700,7 +13096,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                         <!---->
                          
                         <span>
-                          2018-05-23
+                          23 April
                         </span>
                       </div>
                        
@@ -12765,7 +13161,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                       <div
                         class="rpl-card-event__date"
                       >
-                        31 May
+                        10 July
                       </div>
                        
                       <div
@@ -12778,7 +13174,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                     <h2
                       class="rpl-card-event__title"
                     >
-                      This is the headline of an event with a location
+                      This is the headline of an event with a location that will stretch over over 3 lines
                     </h2>
                      
                     <div
@@ -12847,7 +13243,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                       <div
                         class="rpl-card-promotion__date"
                       >
-                        31 May
+                        10 July
                       </div>
                        
                       <div
@@ -12922,7 +13318,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                       <div
                         class="rpl-card-event__date"
                       >
-                        31 May
+                        10 July
                       </div>
                        
                       <div
@@ -12935,7 +13331,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                     <h2
                       class="rpl-card-event__title"
                     >
-                      This is the headline of an event with a location
+                      This is the headline of an event with a location that will stretch over over 3 lines
                     </h2>
                      
                     <div
@@ -13005,7 +13401,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                         <!---->
                          
                         <span>
-                          2018-05-03
+                          3 April
                         </span>
                       </div>
                        
@@ -13030,7 +13426,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                         <!---->
                          
                         <span>
-                          2018-05-23
+                          23 April
                         </span>
                       </div>
                        
@@ -13638,6 +14034,271 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
               </a>
             </div>
           </div>
+        </div>
+      </div>
+       
+      <div
+        class="rpl-site-constrain--on-all"
+      >
+        <div
+          class="rpl-news-listing"
+        >
+          <h2
+            class="rpl-news-listing__heading"
+          >
+            Latest News
+          </h2>
+           
+          <ul
+            class="rpl-news-listing__items"
+          >
+            <li
+              class="rpl-news-listing__item"
+            >
+              <div>
+                <span
+                  class="rpl-news-listing__item-date"
+                >
+                  26 March 2018
+                </span>
+                 
+                <span
+                  class="rpl-news-listing__item-tag"
+                >
+                  Event
+                </span>
+                 
+                <h3
+                  class="rpl-news-listing__item-heading"
+                >
+                  <a
+                    class="rpl-link rpl-text-link"
+                    href="#"
+                  >
+                    <span>
+                      <span>
+                        Australian Indigenous Tourism
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         Conference
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </a>
+                </h3>
+              </div>
+            </li>
+            <li
+              class="rpl-news-listing__item"
+            >
+              <div>
+                <span
+                  class="rpl-news-listing__item-date"
+                >
+                  25 March 2018
+                </span>
+                 
+                <span
+                  class="rpl-news-listing__item-tag"
+                >
+                  Community
+                </span>
+                 
+                <h3
+                  class="rpl-news-listing__item-heading"
+                >
+                  <a
+                    class="rpl-link rpl-text-link"
+                    href="#"
+                  >
+                    <span>
+                      <span>
+                        Respect Women: Call it
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         Out
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </a>
+                </h3>
+              </div>
+            </li>
+            <li
+              class="rpl-news-listing__item"
+            >
+              <div>
+                <span
+                  class="rpl-news-listing__item-date"
+                >
+                  24 March 2018
+                </span>
+                 
+                <span
+                  class="rpl-news-listing__item-tag"
+                >
+                  Arts & Culture
+                </span>
+                 
+                <h3
+                  class="rpl-news-listing__item-heading"
+                >
+                  <a
+                    class="rpl-link rpl-text-link"
+                    href="#"
+                  >
+                    <span>
+                      <span>
+                        NGV
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         Triennial
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </a>
+                </h3>
+              </div>
+            </li>
+            <li
+              class="rpl-news-listing__item"
+            >
+              <div>
+                <span
+                  class="rpl-news-listing__item-date"
+                >
+                  22 February 2018
+                </span>
+                 
+                <span
+                  class="rpl-news-listing__item-tag"
+                >
+                  Sports
+                </span>
+                 
+                <h3
+                  class="rpl-news-listing__item-heading"
+                >
+                  <a
+                    class="rpl-link rpl-text-link"
+                    href="#"
+                  >
+                    <span>
+                      <span>
+                        The World Games Facilities
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         Fund
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </a>
+                </h3>
+              </div>
+            </li>
+            <li
+              class="rpl-news-listing__item"
+            >
+              <div>
+                <span
+                  class="rpl-news-listing__item-date"
+                >
+                  21 February 2018
+                </span>
+                 
+                <span
+                  class="rpl-news-listing__item-tag"
+                >
+                  Law & Justice
+                </span>
+                 
+                <h3
+                  class="rpl-news-listing__item-heading"
+                >
+                  <a
+                    class="rpl-link rpl-text-link"
+                    href="#"
+                  >
+                    <span>
+                      <span>
+                        Access to Justice
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         Review
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </a>
+                </h3>
+              </div>
+            </li>
+            <li
+              class="rpl-news-listing__item"
+            >
+              <div>
+                <span
+                  class="rpl-news-listing__item-date"
+                >
+                  19 February 2018
+                </span>
+                 
+                <span
+                  class="rpl-news-listing__item-tag"
+                >
+                  Family Violence
+                </span>
+                 
+                <h3
+                  class="rpl-news-listing__item-heading"
+                >
+                  <a
+                    class="rpl-link rpl-text-link"
+                    href="#"
+                  >
+                    <span>
+                      <span>
+                        New Bendigo Refuge for Families Escaping Family
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         Violence
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </a>
+                </h3>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>

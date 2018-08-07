@@ -3,12 +3,12 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs,
-  text
+  withKnobs
 } from '@storybook/addon-knobs/vue'
 
 import RplShareThis from './index.vue'
 import readme from './README.md'
+import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
 storiesOf('Molecules/ShareThis', module)
   .addDecorator(VueInfoAddon)
@@ -20,9 +20,6 @@ storiesOf('Molecules/ShareThis', module)
   :url="url"
 />`,
     data () {
-      return {
-        title: text('Title', 'Share this'),
-        url: text('Url', 'https://app-vic-gov-au-develop.lagoon.vicsdp.amazee.io/')
-      }
+      return demoData.shareThis()
     }
   })))

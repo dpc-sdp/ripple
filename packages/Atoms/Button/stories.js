@@ -3,14 +3,12 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs,
-  text,
-  select,
-  boolean
+  withKnobs
 } from '@storybook/addon-knobs/vue'
 
 import RplButton from './index.vue'
 import readme from './README.md'
+import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('Atoms/Button', module)
   .addDecorator(VueInfoAddon)
@@ -19,11 +17,6 @@ storiesOf('Atoms/Button', module)
     components: { RplButton },
     template: '<rpl-button :href="href" :theme="theme" :disabled="disabled">{{ content }}</rpl-button>',
     data () {
-      return {
-        content: text('Content', 'Ripple Button'),
-        href: text('href', '#'),
-        theme: select('Theme', {primary: 'primary', secondary: 'secondary'}, 'primary'),
-        disabled: boolean('Disabled', false)
-      }
+      return demoData.button()
     }
   })))

@@ -6,17 +6,17 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import RplCampaignSecondary from './index.vue'
+import RplNewsListing from './index.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
-storiesOf('Organisms/CampaignSecondary', module)
+storiesOf('Molecules/NewsListing', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Campaign Secondary', withReadme(readme, () => ({
-    components: { RplCampaignSecondary },
-    template: `<rpl-campaign-secondary :title="title" :summary="summary" :link="link" :image="image" />`,
+  .add('News Listing', withReadme(readme, () => ({
+    components: { RplNewsListing },
+    template: `<rpl-news-listing :title="title" :list="list" />`,
     data () {
-      return demoData.campaignSecondary()
+      return demoData.newsListing()
     }
   })))

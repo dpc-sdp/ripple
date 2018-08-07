@@ -3,12 +3,12 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs,
-  number
+  withKnobs
 } from '@storybook/addon-knobs/vue'
 
 import RplPagination from './index.vue'
 import readme from './README.md'
+import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
 storiesOf('Molecules/Pagination', module)
   .addDecorator(VueInfoAddon)
@@ -17,11 +17,7 @@ storiesOf('Molecules/Pagination', module)
     components: { RplPagination },
     template: `<rpl-pagination :totalSteps="totalSteps" :initialStep="initialStep" :stepsAround="stepsAround" @change="change" />`,
     data () {
-      return {
-        totalSteps: number('Total steps', 8),
-        initialStep: number('Initial step', 1),
-        stepsAround: number('Step count around current', 2)
-      }
+      return demoData.pagination()
     },
     methods: {
       change (newStep) {

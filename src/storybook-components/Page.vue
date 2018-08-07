@@ -35,22 +35,22 @@
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-card-navigation :title="mock.cardNavigation.title" :summary="mock.cardNavigation.summary" :url="mock.cardNavigation.url" />
         </rpl-col>
-        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+        <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
           <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :topic="mock.cardNavigation.topic" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
         </rpl-col>
-        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+        <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
           <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
         </rpl-col>
-        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+        <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
           <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
         </rpl-col>
-        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+        <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
           <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :topic="mock.cardNavigation.topic" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
         </rpl-col>
-        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+        <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
           <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
         </rpl-col>
-        <rpl-col cols="full" :colsBp="sidebar ? cardColsWithSidebar : cardCols">
+        <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
           <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
@@ -73,6 +73,9 @@
         <div class="rpl-site-constrain--on-all">
           <rpl-campaign-secondary :title="mock.campaignSecondary.title" :summary="mock.campaignSecondary.summary" :link="mock.campaignSecondary.link" :image="mock.campaignSecondary.image" />
         </div>
+        <div class="rpl-site-constrain--on-all">
+          <rpl-news-listing :title="mock.newsListing.title" :list="mock.newsListing.list" />
+        </div>
       </template>
 
     </rpl-page-layout>
@@ -92,9 +95,6 @@
 <script>
 // This is a page for demo all components in the site layout.
 // Change story knob `sidebar` can switch layout between with sidebar and without sidebar.
-
-// Import all demo data
-import demoData from './_data/demoData.js'
 
 import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
@@ -121,6 +121,9 @@ import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
 import RplWhatsNext from '@dpc-sdp/ripple-whats-next'
 import RplContact from '@dpc-sdp/ripple-contact'
 import RplShareThis from '@dpc-sdp/ripple-share-this'
+
+// News Listing
+import RplNewsListing from '@dpc-sdp/ripple-news-listing'
 
 export default {
   name: 'SPage',
@@ -157,24 +160,18 @@ export default {
     RplRelatedLinks,
     RplWhatsNext,
     RplContact,
-    RplShareThis
+    RplShareThis,
+
+    // News Listing
+    RplNewsListing
   },
   props: {
-    sidebar: Boolean
+    sidebar: Boolean,
+    mock: Object
   },
   data () {
     return {
-      cardCols: {
-        m: 6,
-        l: 4,
-        xxxl: 3
-      },
-      cardColsWithSidebar: {
-        m: 6,
-        xxxl: 4
-      },
-      defaultCols: {},
-      mock: demoData
+      defaultCols: {}
     }
   },
   methods: {

@@ -7,13 +7,13 @@ import RplPageLayout from './PageLayout.vue'
 import readme from './README.md'
 
 import SSiteLayout from './../../../src/storybook-components/SiteLayout.vue'
+import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('Molecules/Layout', module)
   .addDecorator(VueInfoAddon)
   .add('Base Layout', withReadme(readme, () => ({
     components: { RplBaseLayout },
-    template: `
-<rpl-base-layout>
+    template: `<rpl-base-layout>
   <template slot="header">Site header</template>
   <p>This is page content</p>
   <template slot="footer">Site footer</template>
@@ -21,8 +21,7 @@ storiesOf('Molecules/Layout', module)
   })))
   .add('Page Layout', withReadme(readme, () => ({
     components: { RplPageLayout },
-    template: `
-<rpl-page-layout>
+    template: `<rpl-page-layout>
   <template slot="aboveContent">Above content</template>
   <p>This is page content</p>
   <template slot="belowContent">Below content</template>
@@ -30,8 +29,7 @@ storiesOf('Molecules/Layout', module)
   })))
   .add('Page Layout with Sidebar', withReadme(readme, () => ({
     components: { RplPageLayout },
-    template: `
-<rpl-page-layout sidebar>
+    template: `<rpl-page-layout sidebar>
   <template slot="aboveContent">Above content</template>
   <p>This is page content</p>
   <template slot="sidebar">sidebar content</template>
@@ -41,37 +39,17 @@ storiesOf('Molecules/Layout', module)
 
 // Demo for site layout.
 storiesOf('Molecules/Layout', module)
-  .add('Site Layout', () => ({
+  .add('Site Layout', withReadme(readme, () => ({
     components: { SSiteLayout },
     template: '<s-site-layout :cardCols="cardCols" :cardColsWithSidebar="cardColsWithSidebar"></s-site-layout>',
     data () {
-      return {
-        cardCols: {
-          m: 6,
-          l: 4,
-          xxxl: 3
-        },
-        cardColsWithSidebar: {
-          m: 6,
-          xxxl: 4
-        }
-      }
+      return demoData.siteLayout()
     }
-  }))
-  .add('Site Layout with Sidebar', () => ({
+  })))
+  .add('Site Layout with Sidebar', withReadme(readme, () => ({
     components: { SSiteLayout },
     template: '<s-site-layout sidebar :cardCols="cardCols" :cardColsWithSidebar="cardColsWithSidebar"></s-site-layout>',
     data () {
-      return {
-        cardCols: {
-          m: 6,
-          l: 4,
-          xxxl: 3
-        },
-        cardColsWithSidebar: {
-          m: 6,
-          xxxl: 4
-        }
-      }
+      return demoData.siteLayout()
     }
-  }))
+  })))

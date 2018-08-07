@@ -22,9 +22,13 @@
           :moreLink="mock.heroBanner.moreLink"
           class="rpl-site-constrain--on-all"
         />
-        <div class="banner-primary rpl-site-constrain--on-all">
-          <div class="sub-content">banner primary</div>
-        </div>
+        <rpl-campaign-primary
+          :title="mock.campaignPrimary.title"
+          :summary="mock.campaignPrimary.summary"
+          :link="mock.campaignPrimary.link"
+          :image="mock.campaignPrimary.image"
+          class="rpl-site-constrain--on-all"
+        />
       </template>
 
       <rpl-row row-gutter class="demo-main">
@@ -113,7 +117,8 @@ import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 // Card
 import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent } from '@dpc-sdp/ripple-card'
 
-// Campaign Secondary
+// Campaign
+import RplCampaignPrimary from '@dpc-sdp/ripple-campaign-primary'
 import RplCampaignSecondary from '@dpc-sdp/ripple-campaign-secondary'
 
 // Sidebar
@@ -153,7 +158,8 @@ export default {
     RplCardKeydates,
     RplCardEvent,
 
-    // Campaign Secondary
+    // Campaign
+    RplCampaignPrimary,
     RplCampaignSecondary,
 
     // Sidebar

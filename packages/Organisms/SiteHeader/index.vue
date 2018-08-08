@@ -4,7 +4,7 @@
       class="rpl-site-header"
       :class="{
         'rpl-site-header--open': menuContentOpen,
-        'rpl-site-header--sticky': sticky,
+        'rpl-site-header--sticky': stickyActive,
       }"
     >
       <div class="rpl-site-header__inner">
@@ -95,6 +95,8 @@ export default {
       lastRootMenuClicked: -1,
       headerVisible: true,
       lastScrollTop: 0,
+      stickyActive: false,
+      offsetTop: 0,
       menuWideEnabled: null,
       menuLayout: 'vertical',
       menuButton: {
@@ -169,13 +171,27 @@ export default {
       this.$emit('search', value)
     },
     scroll: function () {
-      let st = window.pageYOffset || document.documentElement.scrollTop
-      if (st > this.lastScrollTop) {
-        this.headerVisible = false
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop
+
+      if (this.stickyActive === false && scrollTop > this.$el.offsetTop) {
+        // reserve the offsetTop
+        this.offsetTop = this.$el.offsetTop
+        // When scroll header to top, make header sticky
+        this.stickyActive = true
+      } else if (this.stickyActive === true && scrollTop > this.offsetTop) {
+        this.stickyActive = true
       } else {
-        this.headerVisible = true
+        this.stickyActive = false
       }
-      this.lastScrollTop = st <= 0 ? 0 : st
+
+      // if (scrollTop > this.lastScrollTop && this.stickyActive) {
+      //   // scroll up and is sticky
+      //   this.headerVisible = false
+      // } else {
+      //   // scroll down or is not sticky
+      //   this.headerVisible = true
+      // }
+      this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop
     }
   },
   mounted: function () {
@@ -183,9 +199,11 @@ export default {
       window.addEventListener('resize', this.windowResize)
       this.windowResize()
       if (this.hideOnScroll) {
-        // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
         window.addEventListener('scroll', this.scroll)
       }
+
+      // // this.initTopPostion = this.$el.getBoundingClientRect().top
+      // this.initTopPostion = this.$el.offsetTop
     }
   },
   beforeDestroy: function () {
@@ -217,8 +235,15 @@ export default {
   .rpl-site-header {
     $root: &;
     @include rpl_body;
-    position: relative;
+    position: absolute;
     z-index: $rpl-zindex-header;
+    padding: $rpl-header-horizontal-padding-xs;
+    box-sizing: border-box;
+    width: 100%;
+
+    @include rpl_breakpoint('s') {
+      padding: $rpl-header-horizontal-padding-s;
+    }
 
     &__inner {
       overflow: hidden;
@@ -233,33 +258,19 @@ export default {
 
     &--sticky:not(#{$root}--open) {
       position: fixed;
-      top: $rpl-header-horizontal-padding-xs;
-      left: $rpl-header-horizontal-padding-xs;
-      right: $rpl-header-horizontal-padding-xs;
-
-      @include rpl_breakpoint('s') {
-        top: $rpl-header-horizontal-padding-s;
-        left: $rpl-header-horizontal-padding-s;
-        right: $rpl-header-horizontal-padding-s;
-      }
+      top: 0;
     }
 
     &--open {
+      position: fixed;
+      top: 0;
+      height: 100vh;
+
       #{$root}__inner {
-        position: fixed;
         margin: 0;
         border-radius: rem(4px);
         background-color: $rpl-site-header-background-color-open;
-        top: $rpl-header-horizontal-padding-xs;
-        left: $rpl-header-horizontal-padding-xs;
-        right: $rpl-header-horizontal-padding-xs;
-        height: calc(100vh - #{2 * $rpl-header-horizontal-padding-xs});
-        @include rpl_breakpoint('s') {
-          top: $rpl-header-horizontal-padding-s;
-          left: $rpl-header-horizontal-padding-s;
-          right: $rpl-header-horizontal-padding-s;
-          height: calc(100vh - #{2 * $rpl-header-horizontal-padding-s});
-        }
+        height: 100%;
       }
     }
 
@@ -301,19 +312,16 @@ export default {
         width: 100%;
         position: absolute;
         bottom: 0;
-        left: 0;
-        right: 0;
+        left: $rpl-header-horizontal-padding-xs;
+        right: $rpl-header-horizontal-padding-xs;
         overflow-x: hidden;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         top: $rpl-site-header-top-height-s;
-        height: calc(100vh - #{$rpl-site-header-top-height-s + (2 * $rpl-header-horizontal-padding-xs)});
+
         @include rpl_breakpoint('s') {
-          height: calc(100vh - #{$rpl-site-header-top-height-s + (2 * $rpl-header-horizontal-padding-s)});
-        }
-        @include rpl_breakpoint('l') {
-          top: $rpl-site-header-top-height-l;
-          height: calc(100vh - #{$rpl-site-header-top-height-l + (2 * $rpl-header-horizontal-padding-s)});
+          left: $rpl-header-horizontal-padding-s;
+          right: $rpl-header-horizontal-padding-s;
         }
       }
 

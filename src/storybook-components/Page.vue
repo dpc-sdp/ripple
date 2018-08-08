@@ -2,11 +2,21 @@
   <rpl-base-layout class="demo">
 
     <template slot="header">
+      <!-- TODO: Replace below div by alerts component in SDPA-27 -->
+      <div
+        style="background: yellow"
+        v-show="!alertHidden"
+        @click="alertHidden = true"
+      >
+        This is a Alert component placeholder. <br/>
+        Click on me to close me.
+      </div>
       <rpl-site-header
         :logo="mock.header.logo"
         :links="mock.header.links"
         :breakpoint="mock.header.breakpoint"
         :searchTerms="mock.header.searchTerms"
+        showSearch
         sticky
         @open="menuOpenFunc"
         @search="searchFunc"
@@ -177,6 +187,7 @@ export default {
   },
   data () {
     return {
+      alertHidden: false,
       defaultCols: {}
     }
   },

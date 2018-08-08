@@ -900,6 +900,14 @@ const demoData = {
     location: text('Location', 'location'),
     author: text('Author', 'department goes here'),
     locale: text('Locale', 'en-au')
+  }),
+
+  figure: () => ({
+    image: object('Image', {
+      src: 'https://placehold.it/800x400',
+      alt: 'A generic square placeholder image.'
+    }),
+    caption: text('Caption', '1.2 Caption to go here. This should be restricted in characters.')
   })
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-news-listing",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.6",
   "description": "A component for listing article headings with date and tag.",
   "main": "index.vue",
   "dependencies": {

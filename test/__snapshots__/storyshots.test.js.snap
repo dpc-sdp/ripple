@@ -4935,6 +4935,160 @@ exports[`RippleStoryshots Molecules/EmbeddedVideo Embedded Video 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Figure Figure 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplFigure
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-figure :image="image" :caption="caption" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <figure
+      class="rpl-figure"
+      data-v-d5d40916=""
+    >
+      <img
+        alt="A generic square placeholder image."
+        class="rpl-figure__image"
+        src="https://placehold.it/800x400"
+      />
+       
+      <figcaption
+        class="rpl-figure__caption"
+      >
+        1.2 Caption to go here. This should be restricted in characters.
+      </figcaption>
+    </figure>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          image
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          object
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          caption
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/Form Form 1`] = `
 <div
   class="vue-info"

@@ -184,13 +184,13 @@ export default {
         this.stickyActive = false
       }
 
-      // if (scrollTop > this.lastScrollTop && this.stickyActive) {
-      //   // scroll up and is sticky
-      //   this.headerVisible = false
-      // } else {
-      //   // scroll down or is not sticky
-      //   this.headerVisible = true
-      // }
+      if (scrollTop > this.lastScrollTop && this.stickyActive) {
+        // scroll up and is sticky
+        this.headerVisible = false
+      } else {
+        // scroll down or is not sticky
+        this.headerVisible = true
+      }
       this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop
     }
   },

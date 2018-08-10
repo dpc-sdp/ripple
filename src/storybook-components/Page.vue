@@ -2,9 +2,13 @@
   <rpl-base-layout class="demo">
 
     <template slot="header">
+      <!-- TODO: Replace below div by Content Preview in SDPA-636 -->
+      <div style="background: lavender">
+        This is a preview bar placeholder.
+      </div>
       <!-- TODO: Replace below div by alerts component in SDPA-27 -->
       <div
-        style="background: yellow"
+        style="background: aquamarine"
         v-show="!alertHidden"
         @click="alertHidden = true"
       >
@@ -23,7 +27,7 @@
       />
     </template>
 
-    <rpl-page-layout :sidebar="sidebar" class="main rpl-container">
+    <rpl-page-layout :sidebar="sidebar" class="main rpl-container" heroBackgroundImage="https://loremflickr.com/cache/resized/832_27718864438_6f4226af19_h_1280_640_nofilter.jpg">
       <template slot="aboveContent">
         <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
         <rpl-hero-banner
@@ -32,6 +36,9 @@
           :moreLink="mock.heroBanner.moreLink"
           class="rpl-site-constrain--on-all"
         />
+      </template>
+
+      <template slot="aboveContentTwo">
         <rpl-campaign-primary
           :title="mock.campaignPrimary.title"
           :summary="mock.campaignPrimary.summary"

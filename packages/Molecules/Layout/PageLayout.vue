@@ -1,8 +1,12 @@
 <template>
   <div class="rpl-page">
 
-    <section class="rpl-above-content">
+    <section class="rpl-above-content" :style="{ 'background-image': 'url(' + heroBackgroundImage + ')' }">
       <slot name="aboveContent"></slot>
+    </section>
+
+    <section class="rpl-above-content-two">
+      <slot name="aboveContentTwo"></slot>
     </section>
 
     <section id="rpl-main-content" class="rpl-content" :class="{'rpl-content--with-sidebar': sidebar, 'rpl-content--grey': bgGrey}">
@@ -32,7 +36,8 @@ export default {
   components: { RplContainer, RplRow, RplCol },
   props: {
     'sidebar': Boolean,
-    'backgroundColor': String
+    'backgroundColor': String,
+    'heroBackgroundImage': String
   },
   computed: {
     mainCols () {
@@ -51,7 +56,7 @@ export default {
 // TODO: we'd better to make a UI color variable so all UI color can refer to the same color.
 $rpl-backbround-color: rpl-color('white') !default;
 
-.rpl-page {
+.rpl-above-content {
   @each $bp, $val in $rpl-layout-top-margin {
     @include rpl_breakpoint($bp) {
       padding-top: $val;

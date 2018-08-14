@@ -727,7 +727,10 @@ const demoData = {
 
   searchResult: () => ({
     title: text('Title', 'Schools private policy'),
-    link: text('Link', 'www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx'),
+    link: object('Link', {
+      linkText: 'www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx',
+      linkUrl: '//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx'
+    }),
     date: text('Date', '2018-07-10T09:00:00.000+10:00'),
     description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem'),
     tags: object('Tags', [{

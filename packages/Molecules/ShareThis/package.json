@@ -1,10 +1,10 @@
 {
   "name": "@dpc-sdp/ripple-share-this",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "A component for displaying social media buttons to share articles. Recommended for use in sidebars.",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.6",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.6"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.7",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.7"
   }
 }

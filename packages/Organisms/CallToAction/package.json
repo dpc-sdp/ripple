@@ -1,11 +1,11 @@
 {
   "name": "@dpc-sdp/ripple-call-to-action",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "A component for displaying key content with image and link.",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.0.0-alpha.6",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.6",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.6"
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.7",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.7",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.7"
   }
 }

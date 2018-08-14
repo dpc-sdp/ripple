@@ -1,9 +1,9 @@
 {
   "name": "@dpc-sdp/ripple-grid",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "A grid system for page layout.",
   "main": "index.js",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.6"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.7"
   }
 }

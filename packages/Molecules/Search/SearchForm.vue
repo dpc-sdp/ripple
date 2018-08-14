@@ -52,7 +52,9 @@ export default {
   },
   methods: {
     submitSearch: function () {
-      this.$emit('search', this.searchInput)
+      if (this.searchInput) {
+        this.$emit('search', this.searchInput)
+      }
     }
   },
   computed: {

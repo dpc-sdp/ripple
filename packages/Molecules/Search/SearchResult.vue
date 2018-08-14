@@ -1,7 +1,9 @@
 <template>
   <div class="rpl-search-result">
-    <h2 class="rpl-search-result__heading">{{ title }}</h2>
-    <rpl-link class="rpl-search-result__link" :href="link">{{ link }}</rpl-link>
+    <rpl-link :href="link.linkUrl">
+      <h2 class="rpl-search-result__heading">{{ title }}</h2>
+    </rpl-link>
+    <rpl-link class="rpl-search-result__link" :href="link.linkUrl">{{ link.linkText }}</rpl-link>
     <p class="rpl-search-result__date-description">
       <span class="rpl-search-result__date">{{ formatDate(date, 'MMM D, YYYY') }}</span>
       <span>{{ description }}</span>
@@ -24,7 +26,7 @@ export default {
   mixins: [formatdate],
   props: {
     title: String,
-    link: String,
+    link: Array,
     date: String,
     description: String,
     tags: Array

@@ -26,7 +26,7 @@ export default {
   mixins: [formatdate],
   props: {
     title: String,
-    link: Array,
+    link: Object,
     date: String,
     description: String,
     tags: Array

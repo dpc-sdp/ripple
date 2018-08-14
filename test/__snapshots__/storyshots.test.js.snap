@@ -8053,15 +8053,22 @@ exports[`RippleStoryshots Molecules/Search Search Result 1`] = `
       class="rpl-search-result"
       data-v-d5d40916=""
     >
-      <h2
-        class="rpl-search-result__heading"
+      <a
+        class="rpl-link"
+        href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        target="_blank"
       >
-        Schools private policy
-      </h2>
+        <h2
+          class="rpl-search-result__heading"
+        >
+          Schools private policy
+        </h2>
+      </a>
        
       <a
         class="rpl-link rpl-search-result__link"
-        href="www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        target="_blank"
       >
         www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
       </a>
@@ -8202,7 +8209,7 @@ exports[`RippleStoryshots Molecules/Search Search Result 1`] = `
         <td
           data-v-d5d40916=""
         >
-          string
+          object
         </td>
          
         <td

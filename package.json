@@ -28,6 +28,7 @@
     "@dpc-sdp/ripple-breadcrumbs": "file:packages/Molecules/Breadcrumbs",
     "@dpc-sdp/ripple-button": "file:packages/Atoms/Button",
     "@dpc-sdp/ripple-call-to-action": "file:packages/Organisms/CallToAction",
+    "@dpc-sdp/ripple-campaign-primary": "file:packages/Organisms/CampaignPrimary",
     "@dpc-sdp/ripple-campaign-secondary": "file:packages/Organisms/CampaignSecondary",
     "@dpc-sdp/ripple-card": "file:packages/Molecules/Card",
     "@dpc-sdp/ripple-contact": "file:packages/Molecules/Contact",
@@ -49,6 +50,7 @@
     "@dpc-sdp/ripple-sitemap": "file:packages/Molecules/Sitemap",
     "@dpc-sdp/ripple-site-footer": "file:packages/Organisms/SiteFooter",
     "@dpc-sdp/ripple-site-header": "file:packages/Organisms/SiteHeader",
+    "@dpc-sdp/ripple-site-section-navigation": "file:packages/Organisms/SiteSectionNavigation",
     "@dpc-sdp/ripple-updated-date": "file:packages/Organisms/UpdatedDate",
     "@dpc-sdp/ripple-whats-next": "file:packages/Molecules/WhatsNext",
     "vue": "^2.5.16"

@@ -148,10 +148,18 @@ const demoData = {
     ])
   }),
 
+  cardContent: () => ({
+    link: object('Link', { text: 'Read more', url: '#' }),
+    image: text('Image', 'https://placehold.it/580x340'),
+    border: boolean('Border', true),
+    type: select('Type', ['default', 'simple'], 'default'),
+    content: text('HTML content', '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>')
+  }),
+
   cardNavigation: () => ({
     title: text('Title', 'First navigation card'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
-    url: text('Url', '#')
+    link: object('Link', { text: 'Read more', url: '#' })
   }),
 
   cardNavigationFeatured: () => ({

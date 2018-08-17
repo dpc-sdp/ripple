@@ -1,10 +1,10 @@
 {
   "name": "@dpc-sdp/ripple-whats-next",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "description": "A component to display a list of links relating to additional content for an article. Recommended for use in sidebars.",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.7",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.7"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.8",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.8"
   }
 }

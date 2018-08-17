@@ -1,10 +1,10 @@
 {
   "name": "@dpc-sdp/ripple-anchor-links",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "description": "A table of contents for use on article pages.",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.7",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.7"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.8",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.8"
   }
 }

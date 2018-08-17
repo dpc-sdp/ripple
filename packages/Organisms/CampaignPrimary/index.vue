@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-campaign-primary">
     <a v-if="link" :href="link.url">
-      <svg v-if="$breakpoint.m && image" class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+      <svg v-if="image" class="rpl-campaign-primary__image rpl-campaign-primary__image--large" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
         <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
           <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
         </mask>
@@ -15,7 +15,7 @@
         <rpl-icon symbol="arrow_right_primary" color="white" />
       </a>
     </div>
-    <img v-if="!$breakpoint.m && image" :src="image" alt="" class="rpl-campaign-primary__image" />
+    <img v-if="image" :src="image" alt="" class="rpl-campaign-primary__image rpl-campaign-primary__image--small" />
     <div class="rpl-campaign-primary__row">
       <div class="rpl-campaign-primary__left">
         <div class="rpl-campaign-primary__content">
@@ -29,13 +29,11 @@
 </template>
 
 <script>
-import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import RplButton from '@dpc-sdp/ripple-button'
 import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplCampaignPrimary',
-  mixins: [breakpoint],
   props: {
     title: String,
     summary: String,
@@ -168,6 +166,17 @@ export default {
       @include rpl_breakpoint('xxl') {
         bottom: 0;
         width: 40%;
+      }
+      &--large {
+        display: none;
+        @include rpl_breakpoint('m') {
+          display: block;
+        }
+      }
+      &--small {
+        @include rpl_breakpoint('m') {
+          display: none;
+        }
       }
     }
 

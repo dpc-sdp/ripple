@@ -2863,7 +2863,9 @@ exports[`RippleStoryshots Molecules/Card Card Content (base) 1`] = `
     <code
       data-v-d5d40916=""
     >
-      &lt;rpl-card-content :link="link" :image="image" :border="border" :type="type"&gt;&lt;div v-html="content"&gt;&lt;/div&gt;&lt;/rpl-card-content&gt;
+      &lt;rpl-card-content :link="link" :image="image" :border="border" :type="type"&gt;
+  &lt;div v-html="content"&gt;&lt;/div&gt;
+&lt;/rpl-card-content&gt;
     </code>
   </pre>
    

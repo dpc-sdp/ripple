@@ -24,7 +24,7 @@ will show.
 
 ### Border
 
-Show / hide a top border style. If an image is supplied, then this border
+Show / hide a top border style. If an `image` is supplied, then this border
 will not show.
 
 ### Type
@@ -68,6 +68,10 @@ Includes:
 * Variable Call to Action font size.
 
 ### HTML Content
+
+The custom HTML which should sit inside the content area of the card. This is
+not a property of the CardContent component, but should be HTML that sits
+between the component's tags.
 
 --------------------------------------------------------------------------------
 

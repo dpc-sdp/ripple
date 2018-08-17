@@ -56,7 +56,9 @@ storiesOf('Molecules/Card', module)
   })))
   .add('Card Content (base)', withReadme(readmeCardContent, () => ({
     components: { RplCardContent },
-    template: `<rpl-card-content :link="link" :image="image" :border="border" :type="type"><div v-html="content"></div></rpl-card-content>`,
+    template: `<rpl-card-content :link="link" :image="image" :border="border" :type="type">
+  <div v-html="content"></div>
+</rpl-card-content>`,
     data () {
       return demoData.cardContent()
     }

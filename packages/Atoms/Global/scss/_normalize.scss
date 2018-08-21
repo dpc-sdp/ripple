@@ -8,11 +8,17 @@
   /**
   * 1. Correct the line height in all browsers.
   * 2. Prevent adjustments of font size after orientation changes in iOS.
+  * 3. Fix fonts that render as bold in Firefox.
+  *    See https://www.lockedownseo.com/firefox-font-weight-too-bold/
   */
 
   html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
+    -moz-osx-font-smoothing: grayscale; /* 3 */
+    -webkit-font-smoothing: antialiased; /* 3 */
+    font-smoothing: antialiased; /* 3 */
+    font-weight: 400; /* 3 */
   }
 
   /* Sections
@@ -24,6 +30,17 @@
 
   body {
     margin: 0;
+  }
+
+  /**
+  * Firefox specific rule.
+  * See: https://www.lockedownseo.com/firefox-font-weight-too-bold/
+  */
+
+  @-moz-document url-prefix() {
+    body {
+      font-weight: lighter !important;
+    }
   }
 
   /**

@@ -10107,7 +10107,41 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
       <a
         href="#"
       >
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-campaign-primary__image rpl-campaign-primary__image--large"
+          height="411"
+          viewBox="0 0 699 411"
+          width="699"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <mask
+            height="411"
+            id="mask0"
+            mask-type="alpha"
+            maskUnits="userSpaceOnUse"
+            width="699"
+            x="0"
+            y="0"
+          >
+            <path
+              d="M699 0L114.075 170.226L0 411H699V0Z"
+              fill="white"
+            />
+          </mask>
+           
+          <g
+            mask="url(#mask0)"
+          >
+            <image
+              height="411"
+              href="http://placehold.it/699x411"
+              width="699"
+              xlink:href="http://placehold.it/699x411"
+            />
+          </g>
+        </svg>
       </a>
        
       <div
@@ -10122,7 +10156,7 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
        
       <img
         alt=""
-        class="rpl-campaign-primary__image"
+        class="rpl-campaign-primary__image rpl-campaign-primary__image--small"
         src="http://placehold.it/699x411"
       />
        

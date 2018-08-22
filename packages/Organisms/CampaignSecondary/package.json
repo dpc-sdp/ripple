@@ -1,10 +1,10 @@
 {
   "name": "@dpc-sdp/ripple-campaign-secondary",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "description": "A component to showcase secondary content previews. Should be used along with Campaign Primary.",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.0.0-alpha.7",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.7"
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.8",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.8"
   }
 }

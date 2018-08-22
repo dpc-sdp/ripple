@@ -13,9 +13,9 @@ COPY scripts/jira-post-comment.sh /app/scripts/jira-post-comment.sh
 ARG LAGOON_GIT_BRANCH
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
-RUN npm install http-server -g 
-    # && . /home/.bashrc \
-    # && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
+RUN npm install http-server -g \
+    && . /home/.bashrc \
+    && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
 
 ENV HOST 0.0.0.0
 EXPOSE 3000

@@ -13,7 +13,8 @@ COPY scripts/jira-post-comment.sh /app/scripts/jira-post-comment.sh
 ARG LAGOON_GIT_BRANCH
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
-RUN npm install http-server -g \
+RUN npm config set unsafe-perm true \
+    && npm install http-server -g \
     && . /home/.bashrc \
     && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
 

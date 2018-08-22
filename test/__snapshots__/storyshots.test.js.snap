@@ -2834,6 +2834,241 @@ exports[`RippleStoryshots Molecules/Breadcrumbs Breadcrumbs 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Card Card Content (base) 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplCardContent
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-card-content :link="link" :image="image" :border="border" :type="type"&gt;
+  &lt;div v-html="content"&gt;&lt;/div&gt;
+&lt;/rpl-card-content&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <a
+      class="rpl-link rpl-card-content rpl-card-content--default"
+      data-v-d5d40916=""
+      href="#"
+    >
+      <div
+        class="rpl-card-content__image-wrapper"
+      >
+        <img
+          alt=""
+          class="rpl-card-content__image"
+          src="https://placehold.it/580x340"
+        />
+      </div>
+       
+      <div
+        class="rpl-card-content__details"
+      >
+        <div>
+          <h2>
+            Custom Content
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+      </div>
+       
+      <div
+        class="rpl-card-content__link"
+      >
+        <span>
+          <span>
+            Read
+          </span>
+           
+          <span
+            class="rpl-text-icon__group"
+          >
+             more
+            <!---->
+          </span>
+           
+          <!---->
+        </span>
+      </div>
+    </a>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          link
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          object
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          image
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          border
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          boolean
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          true
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          type
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          default
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
 <div
   class="vue-info"
@@ -2878,7 +3113,7 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
     data-v-d5d40916=""
   >
     <a
-      class="rpl-link rpl-card-content rpl-card-event"
+      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default"
       data-v-d5d40916=""
       href="#"
     >
@@ -3238,7 +3473,7 @@ exports[`RippleStoryshots Molecules/Card Card Keydates 1`] = `
     data-v-d5d40916=""
   >
     <a
-      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image"
+      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
       data-v-d5d40916=""
       href="#"
     >
@@ -3472,7 +3707,7 @@ exports[`RippleStoryshots Molecules/Card Card Navigation 1`] = `
     <code
       data-v-d5d40916=""
     >
-      &lt;rpl-card-navigation :title="title" :summary="summary" :url="url" /&gt;
+      &lt;rpl-card-navigation :title="title" :summary="summary" :link="link" /&gt;
     </code>
   </pre>
    
@@ -3487,21 +3722,46 @@ exports[`RippleStoryshots Molecules/Card Card Navigation 1`] = `
     data-v-d5d40916=""
   >
     <a
-      class="rpl-link rpl-card-navigation"
+      class="rpl-link rpl-card-content rpl-card-navigation rpl-card-content--no-image rpl-card-content--simple"
       data-v-d5d40916=""
       href="#"
     >
-      <h2
-        class="rpl-card-navigation__title rpl-card-navigation__title--with-summary"
-      >
-        First navigation card
-      </h2>
+      <!---->
        
-      <p
-        class="rpl-card-navigation__summary"
+      <div
+        class="rpl-card-content__details"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
+        <h2
+          class="rpl-card-navigation__title rpl-card-navigation__title--with-summary"
+        >
+          First navigation card
+        </h2>
+         
+        <p
+          class="rpl-card-navigation__summary"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+       
+      <div
+        class="rpl-card-content__link"
+      >
+        <span>
+          <span>
+            Read
+          </span>
+           
+          <span
+            class="rpl-text-icon__group"
+          >
+             more
+            <!---->
+          </span>
+           
+          <!---->
+        </span>
+      </div>
     </a>
   </div>
    
@@ -3600,7 +3860,7 @@ exports[`RippleStoryshots Molecules/Card Card Navigation 1`] = `
           data-v-d5d40916=""
         >
           
-          url
+          link
           
           <!---->
         </td>
@@ -3608,7 +3868,7 @@ exports[`RippleStoryshots Molecules/Card Card Navigation 1`] = `
         <td
           data-v-d5d40916=""
         >
-          string
+          object
         </td>
          
         <td
@@ -3883,7 +4143,7 @@ exports[`RippleStoryshots Molecules/Card Card Promotion 1`] = `
     data-v-d5d40916=""
   >
     <a
-      class="rpl-link rpl-card-content rpl-card-promotion"
+      class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default"
       data-v-d5d40916=""
       href="#"
     >
@@ -13146,29 +13406,14 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
               <div
                 class="rpl-col rpl-col--full"
               >
-                <a
-                  class="rpl-link rpl-card-navigation"
-                  href="#"
-                >
-                  <h2
-                    class="rpl-card-navigation__title rpl-card-navigation__title--with-summary"
-                  >
-                    First navigation card
-                  </h2>
-                   
-                  <p
-                    class="rpl-card-navigation__summary"
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                </a>
+                <!---->
               </div>
                
               <div
                 class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-promotion"
+                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default"
                   href="#"
                 >
                   <div
@@ -13243,7 +13488,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                 class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
                   href="#"
                 >
                   <!---->
@@ -13334,7 +13579,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                 class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default"
                   href="#"
                 >
                   <div
@@ -13416,7 +13661,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                 class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-promotion"
+                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default"
                   href="#"
                 >
                   <div
@@ -13491,7 +13736,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                 class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default"
                   href="#"
                 >
                   <div
@@ -13573,7 +13818,7 @@ exports[`RippleStoryshots Templates Page demo 1`] = `
                 class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
                   href="#"
                 >
                   <!---->

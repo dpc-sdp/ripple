@@ -1,6 +1,8 @@
 // TODO: centralize all demo data here for all stories.
 // This will help avoiding duplicated data in stories.
 
+// TODO: We must change `selectV2` to `select` when updating to Storybook version 5.
+// Reference: https://github.com/storybooks/storybook/pull/1745#issuecomment-357679148
 import {
   text,
   object,

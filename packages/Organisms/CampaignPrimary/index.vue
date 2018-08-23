@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-campaign-primary">
-    <a v-if="link" :href="link.url">
-      <svg v-if="image" class="rpl-campaign-primary__image rpl-campaign-primary__image--large" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+    <a v-if="link && image" :href="link.url" class="rpl-campaign-primary__image-container rpl-campaign-primary__image-container--large">
+      <svg class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
         <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
           <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
         </mask>
@@ -10,12 +10,22 @@
         </g>
       </svg>
     </a>
-    <div class="rpl-campaign-primary__primary_arrow">
-      <a v-if="link" :href="link.url">
-        <rpl-icon symbol="arrow_right_primary" color="white" />
-      </a>
+    <div v-else-if="image" class="rpl-campaign-primary__image-container rpl-campaign-primary__image-container--large">
+      <svg class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+        <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
+          <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
+        </mask>
+        <g mask="url(#mask0)">
+          <image width="699" height="411" :href="image" :xlink:href="image" />
+        </g>
+      </svg>
     </div>
-    <img v-if="image" :src="image" alt="" class="rpl-campaign-primary__image rpl-campaign-primary__image--small" />
+    <div v-if="link" class="rpl-campaign-primary__primary_arrow">
+      <rpl-icon symbol="arrow_right_primary" color="white" />
+    </div>
+    <div v-if="image" class="rpl-campaign-primary__image-container rpl-campaign-primary__image-container--small">
+      <img :src="image" alt="" class="rpl-campaign-primary__image" />
+    </div>
     <div class="rpl-campaign-primary__row">
       <div class="rpl-campaign-primary__left">
         <div class="rpl-campaign-primary__content">
@@ -149,7 +159,7 @@ export default {
       }
     }
 
-    &__image {
+    &__image-container {
       @include rpl_breakpoint_down('m') {
         width: 100%;
       }
@@ -158,7 +168,6 @@ export default {
         right: 0;
         bottom: 100%;
         width: 50%;
-        height: auto;
       }
       @include rpl_breakpoint('xl') {
         bottom: 0;
@@ -177,6 +186,14 @@ export default {
         @include rpl_breakpoint('m') {
           display: none;
         }
+      }
+    }
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      @include rpl_breakpoint('m') {
+        vertical-align: bottom;
       }
     }
 

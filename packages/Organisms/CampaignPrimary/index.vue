@@ -1,29 +1,33 @@
 <template>
   <div class="rpl-campaign-primary">
-    <a v-if="link && image" :href="link.url" class="rpl-campaign-primary__image-container rpl-campaign-primary__image-container--large">
-      <svg class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-        <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
-          <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
-        </mask>
-        <g mask="url(#mask0)">
-          <image width="699" height="411" :href="image" :xlink:href="image" />
-        </g>
-      </svg>
+    <a v-if="link && image" :href="link.url" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large">
+      <span class="rpl-campaign-primary__image-inner">
+        <svg class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+          <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
+            <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
+          </mask>
+          <g mask="url(#mask0)">
+            <image width="699" height="411" :href="image" :xlink:href="image" />
+          </g>
+        </svg>
+      </span>
     </a>
-    <div v-else-if="image" class="rpl-campaign-primary__image-container rpl-campaign-primary__image-container--large">
-      <svg class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-        <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
-          <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
-        </mask>
-        <g mask="url(#mask0)">
-          <image width="699" height="411" :href="image" :xlink:href="image" />
-        </g>
-      </svg>
+    <div v-else-if="image" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large">
+      <span class="rpl-campaign-primary__image-inner">
+        <svg class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+          <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
+            <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
+          </mask>
+          <g mask="url(#mask0)">
+            <image width="699" height="411" :href="image" :xlink:href="image" />
+          </g>
+        </svg>
+      </span>
     </div>
     <div v-if="link" class="rpl-campaign-primary__primary_arrow">
       <rpl-icon symbol="arrow_right_primary" color="white" />
     </div>
-    <div v-if="image" class="rpl-campaign-primary__image-container rpl-campaign-primary__image-container--small">
+    <div v-if="image" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--small">
       <img :src="image" alt="" class="rpl-campaign-primary__image" />
     </div>
     <div class="rpl-campaign-primary__row">
@@ -159,7 +163,7 @@ export default {
       }
     }
 
-    &__image-container {
+    &__image-outer {
       @include rpl_breakpoint_down('m') {
         width: 100%;
       }
@@ -189,10 +193,17 @@ export default {
       }
     }
 
+    &__image-inner {
+      display: block;
+      padding-bottom: (411/699) * 100%;
+      width: 100%;
+    }
+
     &__image {
       width: 100%;
-      height: 100%;
       @include rpl_breakpoint('m') {
+        position: absolute;
+        height: 100%;
         vertical-align: bottom;
       }
     }

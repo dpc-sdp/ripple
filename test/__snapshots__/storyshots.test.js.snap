@@ -10105,11 +10105,12 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
       data-v-d5d40916=""
     >
       <a
+        class="rpl-campaign-primary__image-container rpl-campaign-primary__image-container--large"
         href="#"
       >
         <svg
           aria-hidden="true"
-          class="rpl-campaign-primary__image rpl-campaign-primary__image--large"
+          class="rpl-campaign-primary__image"
           height="411"
           viewBox="0 0 699 411"
           width="699"
@@ -10147,18 +10148,18 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
       <div
         class="rpl-campaign-primary__primary_arrow"
       >
-        <a
-          href="#"
-        >
-          <!---->
-        </a>
+        <!---->
       </div>
        
-      <img
-        alt=""
-        class="rpl-campaign-primary__image rpl-campaign-primary__image--small"
-        src="http://placehold.it/699x411"
-      />
+      <div
+        class="rpl-campaign-primary__image-container rpl-campaign-primary__image-container--small"
+      >
+        <img
+          alt=""
+          class="rpl-campaign-primary__image"
+          src="http://placehold.it/699x411"
+        />
+      </div>
        
       <div
         class="rpl-campaign-primary__row"

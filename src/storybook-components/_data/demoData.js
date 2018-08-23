@@ -6,7 +6,7 @@ import {
   object,
   boolean,
   number,
-  select
+  selectV2
 } from '@storybook/addon-knobs/vue'
 
 // We can use general data for some common data type.
@@ -152,7 +152,7 @@ const demoData = {
     link: object('Link', { text: 'Read more', url: '#' }),
     image: text('Image', 'https://placehold.it/580x340'),
     border: boolean('Border', true),
-    type: select('Type', ['default', 'simple'], 'default'),
+    type: selectV2('Type', {default: 'default', simple: 'simple'}, 'default'),
     content: text('HTML content', '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>')
   }),
 
@@ -580,7 +580,7 @@ const demoData = {
     src: text('field_media_video_embed_field', 'https://www.youtube.com/embed/bSlnfyGTiss'),
     lang: text('langcode', 'en'),
     transcript: text('field_media_transcript', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'),
-    variant: select('Variant', ['full', 'link'], 'full'),
+    variant: selectV2('Variant', {full: 'full', link: 'link'}, 'full'),
     mediaLink: text('field_media_link', 'View transcript')
   }),
 
@@ -730,7 +730,7 @@ const demoData = {
       },
       formState: {}
     }),
-    theme: select('Theme', {light: 'light', dark: 'dark'}, 'light')
+    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
   }),
 
   searchResult: () => ({
@@ -858,7 +858,7 @@ const demoData = {
   metaTag: () => ({
     linkText: text('Text', 'Meta Tag'),
     linkUrl: text('Link', '#'),
-    theme: select('Theme', {light: 'light', dark: 'dark'}, 'light')
+    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
   }),
 
   link: () => ({
@@ -870,14 +870,14 @@ const demoData = {
   textLink: () => ({
     url: text('URL', '#'),
     text: text('Text', 'Text Link'),
-    theme: select('Theme', {light: 'light', dark: 'dark'}, 'light'),
-    size: select('Size', {small: 'small', large: 'large', none: 'none'}, 'small'),
+    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light'),
+    size: selectV2('Size', {small: 'small', large: 'large', none: 'none'}, 'small'),
     underline: boolean('Underline', false),
     emphasis: boolean('Emphasis', false),
     iconSymbol: text('Icon Symbol', 'arrow_right_primary'),
     iconColor: text('Icon Color', 'primary'),
     iconSize: text('Icon Size', 'm'),
-    iconPlacement: select('Icon Placement', {before: 'before', after: 'after'}, 'after')
+    iconPlacement: selectV2('Icon Placement', {before: 'before', after: 'after'}, 'after')
   }),
 
   icon: () => ({
@@ -889,7 +889,7 @@ const demoData = {
   button: () => ({
     content: text('Content', 'Ripple Button'),
     href: text('href', '#'),
-    theme: select('Theme', {primary: 'primary', secondary: 'secondary'}, 'primary'),
+    theme: selectV2('Theme', {primary: 'primary', secondary: 'secondary'}, 'primary'),
     disabled: boolean('Disabled', false)
   }),
 

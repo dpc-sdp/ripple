@@ -129,6 +129,10 @@ const demoData = {
     showSearch: boolean('Show search', false)
   }),
 
+  campaign: () => ({
+    heroBackgroundImage: text('Hero background image', '/herobg.jpg')
+  }),
+
   heroBanner: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
     introText: text('Intro Text', 'This is supplimentary intro text that can also wrap over a couple of lines.'),
@@ -139,7 +143,9 @@ const demoData = {
       { text: 'Third link goes here', url: '#' },
       { text: 'Fourth journey based link', url: '#' }
     ]),
-    moreLink: object('More Link', { text: 'See more', url: '#' })
+    moreLink: object('More Link', { text: 'See more', url: '#' }),
+    theme: selectV2('Theme', {dark: 'dark', light: 'light'}, 'light'),
+    showLinks: boolean('Show Links', true)
   }),
 
   breadcrumbs: () => ({

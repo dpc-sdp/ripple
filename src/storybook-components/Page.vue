@@ -27,13 +27,19 @@
       />
     </template>
 
-    <rpl-page-layout :sidebar="sidebar" class="main rpl-container" heroBackgroundImage="https://loremflickr.com/cache/resized/832_27718864438_6f4226af19_h_1280_640_nofilter.jpg">
+    <rpl-page-layout
+      :sidebar="sidebar"
+      class="main rpl-container"
+      :heroBackgroundImage="mock.heroBanner.heroBackgroundImage"
+    >
       <template slot="aboveContent">
         <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
         <rpl-hero-banner
           :title="mock.heroBanner.title" :introText="mock.heroBanner.introText"
           :linkHeading="mock.heroBanner.linkHeading" :links="mock.heroBanner.links"
           :moreLink="mock.heroBanner.moreLink"
+          :theme="mock.heroBanner.heroBackgroundImage ? 'dark' : 'light'"
+          :showLinks="mock.heroBanner.heroBackgroundImage ? false : true"
           class="rpl-site-constrain--on-all"
         />
       </template>

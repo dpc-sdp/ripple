@@ -48,10 +48,11 @@ $rpl-normalize: true !default;
 // See https://www.lockedownseo.com/firefox-font-weight-too-bold/
 
 html {
-  -moz-osx-font-smoothing: grayscale; /* 1 */
-  -webkit-font-smoothing: antialiased; /* 1 */
-  font-smoothing: antialiased; /* 1 */
-  font-weight: 400; /* 1 */
+  // sass-lint:disable-block
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: 400;
 }
 
 // Firefox specific rule.
@@ -59,6 +60,6 @@ html {
 
 @-moz-document url-prefix() {
   body {
-    font-weight: lighter !important;
+    font-weight: lighter !important; // sass-lint:disable-line
   }
 }

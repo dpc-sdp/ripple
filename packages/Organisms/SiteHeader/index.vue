@@ -49,7 +49,6 @@
             </div>
           </div>
           <!-- Search Button -->
-          <!-- [SDPA-528] Hided search button in header for alpha launch -->
           <button v-if="showSearch" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
             <span>{{ searchButton[searchState].text }}</span>
             <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
@@ -201,9 +200,6 @@ export default {
       if (this.hideOnScroll) {
         window.addEventListener('scroll', this.scroll)
       }
-
-      // // this.initTopPostion = this.$el.getBoundingClientRect().top
-      // this.initTopPostion = this.$el.offsetTop
     }
   },
   beforeDestroy: function () {

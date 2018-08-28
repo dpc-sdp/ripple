@@ -48,7 +48,7 @@ $rpl-normalize: true !default;
 // See https://www.lockedownseo.com/firefox-font-weight-too-bold/
 
 html {
-  // sass-lint:disable-block
+  // sass-lint:disable-block no-vendor-prefixes no-misspelled-properties
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
@@ -57,9 +57,9 @@ html {
 
 // Firefox specific rule.
 // See: https://www.lockedownseo.com/firefox-font-weight-too-bold/
-
+// sass-lint:disable no-vendor-prefixes, no-important
 @-moz-document url-prefix() {
   body {
-    font-weight: lighter !important; // sass-lint:disable-line
+    font-weight: lighter !important;
   }
 }

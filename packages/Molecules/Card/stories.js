@@ -6,12 +6,14 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
+import RplCardContent from './CardContent.vue'
 import RplCardNavigation from './CardNavigation.vue'
 import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
 import RplCardEvent from './CardEvent.vue'
 import readme from './README.md'
+import readmeCardContent from './ReadmeCardContent.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
 storiesOf('Molecules/Card', module)
@@ -19,7 +21,7 @@ storiesOf('Molecules/Card', module)
   .addDecorator(withKnobs)
   .add('Card Navigation', withReadme(readme, () => ({
     components: { RplCardNavigation },
-    template: `<rpl-card-navigation :title="title" :summary="summary" :url="url" />`,
+    template: `<rpl-card-navigation :title="title" :summary="summary" :link="link" />`,
     data () {
       return demoData.cardNavigation()
     }
@@ -50,5 +52,14 @@ storiesOf('Molecules/Card', module)
     template: `<rpl-card-event :image="image" :date="date" :location="location" :title="title" :summary="summary" :link="link" />`,
     data () {
       return demoData.cardEvent()
+    }
+  })))
+  .add('Card Content (base)', withReadme(readmeCardContent, () => ({
+    components: { RplCardContent },
+    template: `<rpl-card-content :link="link" :image="image" :border="border" :type="type">
+  <div v-html="content"></div>
+</rpl-card-content>`,
+    data () {
+      return demoData.cardContent()
     }
   })))

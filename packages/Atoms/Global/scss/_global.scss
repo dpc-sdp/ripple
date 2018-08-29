@@ -42,3 +42,24 @@ $rpl-normalize: true !default;
 
   @include rpl_body('global');
 }
+
+
+// Fix fonts that render as bold in Firefox.
+// See https://www.lockedownseo.com/firefox-font-weight-too-bold/
+
+html {
+  // sass-lint:disable-block no-vendor-prefixes no-misspelled-properties
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: 400;
+}
+
+// Firefox specific rule.
+// See: https://www.lockedownseo.com/firefox-font-weight-too-bold/
+// sass-lint:disable no-vendor-prefixes, no-important
+@-moz-document url-prefix() {
+  body {
+    font-weight: lighter !important;
+  }
+}

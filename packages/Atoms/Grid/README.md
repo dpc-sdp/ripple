@@ -23,9 +23,9 @@ npm install @dpc-sdp/ripple-grid --save
 
 ## Usage and Tests
 
-See [Storybook/Grid](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Layout&selectedStory=Grid).
+See [Storybook/Grid](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Layout&selectedStory=Grid).
 
-See [Storybook/Grid system](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Layout&selectedStory=Grid%20system).
+See [Storybook/Grid system](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Layout&selectedStory=Grid%20system).
 
 --------------------------------------------------------------------------------
 

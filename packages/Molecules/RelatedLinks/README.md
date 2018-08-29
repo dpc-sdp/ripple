@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-related-links --save
 
 ## Usage and Tests
 
-See [Storybook/Related Links](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/RelatedLinks&selectedStory=Related%20Links).
+See [Storybook/Related Links](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/RelatedLinks&selectedStory=Related%20Links).
 
 --------------------------------------------------------------------------------
 

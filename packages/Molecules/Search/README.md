@@ -26,9 +26,9 @@ npm install @dpc-sdp/ripple-search --save
 
 ## Usage and Tests
 
-See [Storybook/Search Form](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Search&selectedStory=Search%20Form).
+See [Storybook/Search Form](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Search%20Form).
 
-See [Storybook/Search Result](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Search&selectedStory=Search%20Result).
+See [Storybook/Search Result](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Search%20Result).
 
 --------------------------------------------------------------------------------
 

@@ -24,7 +24,7 @@ npm install @dpc-sdp/ripple-embedded-video --save
 
 ## Usage and Tests
 
-See [Storybook/Embedded Video](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/EmbeddedVideo&selectedStory=Embedded%20Video).
+See [Storybook/Embedded Video](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/EmbeddedVideo&selectedStory=Embedded%20Video).
 
 --------------------------------------------------------------------------------
 

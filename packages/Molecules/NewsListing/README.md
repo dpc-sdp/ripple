@@ -24,7 +24,7 @@ npm install @dpc-sdp/ripple-news-listing --save
 
 ## Usage and Tests
 
-See [Storybook/News Listing](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/NewsListing&selectedStory=News%20Listing).
+See [Storybook/News Listing](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/NewsListing&selectedStory=News%20Listing).
 
 --------------------------------------------------------------------------------
 

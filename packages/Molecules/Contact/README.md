@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-contact --save
 
 ## Usage and Tests
 
-See [Storybook/Contact](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Contact&selectedStory=Contact).
+See [Storybook/Contact](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Contact&selectedStory=Contact).
 
 --------------------------------------------------------------------------------
 

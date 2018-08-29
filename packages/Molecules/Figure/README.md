@@ -23,7 +23,7 @@ npm install @dpc-sdp/ripple-figure --save
 
 ## Usage and Tests
 
-See [Storybook/Figure](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Figure&selectedStory=Figure).
+See [Storybook/Figure](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Figure&selectedStory=Figure).
 
 --------------------------------------------------------------------------------
 

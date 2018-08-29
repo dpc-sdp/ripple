@@ -1,11 +1,11 @@
 {
   "name": "@dpc-sdp/ripple-hero-banner",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-alpha.9",
   "description": "A component to display a page heading, subtext and useful links.",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.8",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.8",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.8"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.9",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.9",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.9"
   }
 }

@@ -1,13 +1,31 @@
 <template>
-  <div class="rpl-hero-banner">
+  <div class="rpl-hero-banner" :class="{'rpl-hero-banner--no-links': !showLinks}">
     <div class="rpl-row">
       <div class="rpl-hero-banner__left">
-        <h1 class="rpl-hero-banner__title"><span>{{ title }}</span></h1>
-        <p class="rpl-hero-banner__description">{{ introText }}</p>
+        <h1
+          v-if="title"
+          class="rpl-hero-banner__title"
+          :class="{ 'rpl-hero-banner__title--dark': (theme === 'dark') }"
+        >
+          <span>{{ title }}</span>
+        </h1>
+        <p
+          v-if="introText"
+          class="rpl-hero-banner__description"
+          :class="{ 'rpl-hero-banner__description--dark': (theme === 'dark') }"
+        >
+          {{ introText }}
+        </p>
       </div>
-      <div class="rpl-hero-banner__right">
-        <h2 class="rpl-hero-banner__link-heading">{{ linkHeading }}</h2>
-        <ul class="rpl-hero-banner__link-list">
+      <div class="rpl-hero-banner__right" v-if="showLinks">
+        <h2
+          v-if="linkHeading"
+          class="rpl-hero-banner__link-heading"
+          :class="{ 'rpl-hero-banner__link-heading--dark': (theme === 'dark') }"
+        >
+          {{ linkHeading }}
+        </h2>
+        <ul class="rpl-hero-banner__link-list" v-if="links || moreLink">
           <li
             v-for="(item, index) of links"
             :key="index"
@@ -20,6 +38,7 @@
               iconSymbol="arrow_right_primary"
               iconColor="primary"
               :underline="true"
+              :theme="theme"
             />
           </li>
           <li
@@ -33,6 +52,7 @@
               iconSymbol="arrow_right_primary"
               iconColor="primary"
               :underline="true"
+              :theme="theme"
             />
           </li>
         </ul>
@@ -51,7 +71,9 @@ export default {
     introText: String,
     linkHeading: String,
     links: Array,
-    moreLink: Object
+    moreLink: Object,
+    theme: { type: String, default: 'light' },
+    showLinks: { type: Boolean, default: true }
   },
   components: {
     RplTextLink
@@ -69,18 +91,26 @@ export default {
     'm': ('xgiga', 1.08em, 'bold'),
     'l': ('tera', 1.07em, 'bold')
   ) !default;
+  $rpl-hero-banner-title-typography-ruleset-dark: (
+    'xs': ('mega', 1.11em, 'bold', true),
+    's': ('giga', 1.11em, 'bold', true),
+    'm': ('xgiga', 1.08em, 'bold', true),
+    'l': ('tera', 1.07em, 'bold', true)
+  ) !default;
   $rpl-hero-banner-title-color: rpl_color('primary') !default;
   $rpl-hero-banner-description-typography-ruleset: (
     'xs': ('m', 1.22em, 'medium'),
     'm': ('mega', 1.29em, 'medium')
   ) !default;
   $rpl-hero-banner-description-text-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-hero-banner-description-text-color-dark: rpl_color('white') !default;
   $rpl-hero-banner-description-letter-spacing: rem(-0.12px) !default;
   $rpl-hero-banner-link-heading-typography-rules: (
     'xs': ('xs', 1.7em, 'bold'),
     'm': ('l', 1.4em, 'bold')
   ) !default;
   $rpl-hero-banner-link-heading-text-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-hero-banner-link-heading-text-color-dark: rpl_color('white') !default;
   $rpl-hero-banner-link-typography-rules: (
     'xs': ('xs', 1.7em, 'medium'),
     'm': ('l', 1.7em, 'medium')
@@ -102,6 +132,7 @@ export default {
   ) !default;
 
   .rpl-hero-banner {
+    $root: &;
     @include rpl_mobile_padding;
     @include rpl_grid_container;
     position: relative;
@@ -138,6 +169,10 @@ export default {
       @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset);
       color: $rpl-hero-banner-title-color;
       margin: 0;
+
+      &--dark {
+        @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset-dark);
+      }
     }
 
     &__description {
@@ -153,6 +188,10 @@ export default {
       @include rpl_breakpoint(l) {
         margin-top: $rpl-space-4;
       }
+
+      &--dark {
+        color: $rpl-hero-banner-description-text-color-dark;
+      }
     }
 
     &__link-heading {
@@ -160,6 +199,10 @@ export default {
       color: $rpl-hero-banner-link-heading-text-color;
       letter-spacing: rem(-0.08px);
       margin: $rpl-hero-banner-link-heading-margin;
+
+      &--dark {
+        color: $rpl-hero-banner-link-heading-text-color-dark;
+      }
     }
 
     &__link-list {
@@ -187,6 +230,14 @@ export default {
 
     &__more-link {
       @include rpl_typography_ruleset($rpl-hero-banner-more-link-typography-rules);
+    }
+
+    &--no-links {
+      & #{$root}__left {
+        @include rpl_breakpoint('xl') {
+          @include rpl_grid_column(10);
+        }
+      }
     }
   }
 </style>

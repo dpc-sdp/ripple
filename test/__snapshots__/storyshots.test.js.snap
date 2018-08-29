@@ -10201,60 +10201,65 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
       data-v-d5d40916=""
     >
       <a
+        class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large"
         href="#"
       >
-        <svg
-          aria-hidden="true"
-          class="rpl-campaign-primary__image rpl-campaign-primary__image--large"
-          height="411"
-          viewBox="0 0 699 411"
-          width="699"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+        <span
+          class="rpl-campaign-primary__image-inner"
         >
-          <mask
+          <svg
+            aria-hidden="true"
+            class="rpl-campaign-primary__image"
             height="411"
-            id="mask0"
-            mask-type="alpha"
-            maskUnits="userSpaceOnUse"
+            viewBox="0 0 699 411"
             width="699"
-            x="0"
-            y="0"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
-            <path
-              d="M699 0L114.075 170.226L0 411H699V0Z"
-              fill="white"
-            />
-          </mask>
-           
-          <g
-            mask="url(#mask0)"
-          >
-            <image
+            <mask
               height="411"
-              href="http://placehold.it/699x411"
+              id="mask0"
+              mask-type="alpha"
+              maskUnits="userSpaceOnUse"
               width="699"
-              xlink:href="http://placehold.it/699x411"
-            />
-          </g>
-        </svg>
+              x="0"
+              y="0"
+            >
+              <path
+                d="M699 0L114.075 170.226L0 411H699V0Z"
+                fill="white"
+              />
+            </mask>
+             
+            <g
+              mask="url(#mask0)"
+            >
+              <image
+                height="411"
+                href="http://placehold.it/699x411"
+                width="699"
+                xlink:href="http://placehold.it/699x411"
+              />
+            </g>
+          </svg>
+        </span>
       </a>
        
       <div
         class="rpl-campaign-primary__primary_arrow"
       >
-        <a
-          href="#"
-        >
-          <!---->
-        </a>
+        <!---->
       </div>
        
-      <img
-        alt=""
-        class="rpl-campaign-primary__image rpl-campaign-primary__image--small"
-        src="http://placehold.it/699x411"
-      />
+      <div
+        class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--small"
+      >
+        <img
+          alt=""
+          class="rpl-campaign-primary__image"
+          src="http://placehold.it/699x411"
+        />
+      </div>
        
       <div
         class="rpl-campaign-primary__row"
@@ -14062,60 +14067,65 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           class="rpl-campaign-primary rpl-site-constrain--on-all"
         >
           <a
+            class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large"
             href="#"
           >
-            <svg
-              aria-hidden="true"
-              class="rpl-campaign-primary__image rpl-campaign-primary__image--large"
-              height="411"
-              viewBox="0 0 699 411"
-              width="699"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
+            <span
+              class="rpl-campaign-primary__image-inner"
             >
-              <mask
+              <svg
+                aria-hidden="true"
+                class="rpl-campaign-primary__image"
                 height="411"
-                id="mask0"
-                mask-type="alpha"
-                maskUnits="userSpaceOnUse"
+                viewBox="0 0 699 411"
                 width="699"
-                x="0"
-                y="0"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
               >
-                <path
-                  d="M699 0L114.075 170.226L0 411H699V0Z"
-                  fill="white"
-                />
-              </mask>
-               
-              <g
-                mask="url(#mask0)"
-              >
-                <image
+                <mask
                   height="411"
-                  href="http://placehold.it/699x411"
+                  id="mask0"
+                  mask-type="alpha"
+                  maskUnits="userSpaceOnUse"
                   width="699"
-                  xlink:href="http://placehold.it/699x411"
-                />
-              </g>
-            </svg>
+                  x="0"
+                  y="0"
+                >
+                  <path
+                    d="M699 0L114.075 170.226L0 411H699V0Z"
+                    fill="white"
+                  />
+                </mask>
+                 
+                <g
+                  mask="url(#mask0)"
+                >
+                  <image
+                    height="411"
+                    href="http://placehold.it/699x411"
+                    width="699"
+                    xlink:href="http://placehold.it/699x411"
+                  />
+                </g>
+              </svg>
+            </span>
           </a>
            
           <div
             class="rpl-campaign-primary__primary_arrow"
           >
-            <a
-              href="#"
-            >
-              <!---->
-            </a>
+            <!---->
           </div>
            
-          <img
-            alt=""
-            class="rpl-campaign-primary__image rpl-campaign-primary__image--small"
-            src="http://placehold.it/699x411"
-          />
+          <div
+            class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--small"
+          >
+            <img
+              alt=""
+              class="rpl-campaign-primary__image"
+              src="http://placehold.it/699x411"
+            />
+          </div>
            
           <div
             class="rpl-campaign-primary__row"

@@ -1,11 +1,11 @@
 {
   "name": "@dpc-sdp/ripple-embedded-video",
-  "version": "1.0.0-alpha.9",
+  "version": "1.0.0-alpha.10",
   "description": "A component for embedding video with transcript.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.9",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.9"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.10",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.10"
   }
 }

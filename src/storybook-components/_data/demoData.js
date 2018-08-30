@@ -133,6 +133,10 @@ const demoData = {
     heroBackgroundImage: text('Hero background image', '/herobg.jpg')
   }),
 
+  landingPage: () => ({
+    backgroundGraphic: text('Background Graphic', '/bggraphic.png')
+  }),
+
   heroBanner: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
     introText: text('Intro Text', 'This is supplimentary intro text that can also wrap over a couple of lines.'),

@@ -764,6 +764,13 @@ const demoData = {
     locale: text('Locale', 'en-au')
   }),
 
+  searchResults: () => ({
+    count: number('Count', 10),
+    responseSize: number('Response size', 2),
+    errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
+    noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
+  }),
+
   siteLayout: () => ({
     cardCols: {
       m: 6,

@@ -37,13 +37,22 @@ storiesOf('Templates', module)
   }))
 
 storiesOf('Templates', module)
+  .addDecorator(withKnobs)
   .add('Search page demo', () => ({
     components: { SSearchPage },
-    template: `<s-search-page :sidebar="sidebar" :mock="mock"></s-search-page>`,
+    template: `<s-search-page
+:sidebar="sidebar"
+:mock="mock"
+:hasError="hasError"
+:noResults="noResults"
+>
+</s-search-page>`,
     data () {
       return {
         sidebar: true,
-        mock: demoDataLocked
+        mock: demoDataLocked,
+        hasError: boolean('Has error', false),
+        noResults: boolean('No results', false)
       }
     }
   }))

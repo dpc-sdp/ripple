@@ -1,3 +1,5 @@
+import RplDivider from './components/Divider.vue'
+
 const RplGlobal = {
   // Provide plugin for Vue to inject options.
   install (Vue, options) {
@@ -19,3 +21,5 @@ const RplGlobal = {
 }
 
 export default RplGlobal
+
+export {RplDivider}

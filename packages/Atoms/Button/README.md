@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-button --save
 
 ## Usage and Tests
 
-See [Storybook/Button](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Button&selectedStory=Button).
+See [Storybook/Button](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Button&selectedStory=Button).
 
 --------------------------------------------------------------------------------
 

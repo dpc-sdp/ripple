@@ -14,6 +14,8 @@ This git repo is a monorepo which contains all Ripple component packages.
 This git repo also contains a style guide site which uses
 [Storybook](https://storybook.js.org/) and can be used for local development environment.
 
+Visit our styleguide site for Ripple: [ripple.sdp.vic.gov.au](https://ripple.sdp.vic.gov.au).
+
 ## Install Ripple in your Nuxt project
 
 _We will provide a start template soon. Below is just a simple example._

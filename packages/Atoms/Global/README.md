@@ -28,11 +28,11 @@ npm install @dpc-sdp/ripple-global --save
 
 ## Usage and Tests
 
-See [Storybook/Colors](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Colors).
+See [Storybook/Colors](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Colors).
 
-See [Storybook/Typography](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Typography).
+See [Storybook/Typography](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Typography).
 
-See [Storybook/Breakpoints](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Global&selectedStory=Breakpoints).
+See [Storybook/Breakpoints](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Breakpoints).
 
 --------------------------------------------------------------------------------
 

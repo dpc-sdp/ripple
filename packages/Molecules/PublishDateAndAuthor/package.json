@@ -1,10 +1,10 @@
 {
   "name": "@dpc-sdp/ripple-publish-date-and-author",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.9",
   "description": "A component for displaying the date, location and author of an article.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.7"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.9"
   }
 }

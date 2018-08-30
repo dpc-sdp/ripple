@@ -28,7 +28,7 @@ npm install @dpc-sdp/ripple-form --save
 
 ## Usage and Tests
 
-See [Storybook/Form](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Form&selectedStory=Form).
+See [Storybook/Form](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Form&selectedStory=Form).
 
 --------------------------------------------------------------------------------
 

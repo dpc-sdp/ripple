@@ -96,6 +96,12 @@ export default {
   $rpl-pagination-nav-margin: 0 0 0 ($rpl-space * 5) !default;
 
   .rpl-pagination {
+    @include rpl_mobile_padding();
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     display: flex;
     align-items: center;
     width: 100%;

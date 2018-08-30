@@ -63,6 +63,12 @@ export default {
   ) !default;
 
   .rpl-search-result {
+    @include rpl_mobile_padding();
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     &__heading {
       @include rpl_typography_ruleset($rpl-search-result-heading-ruleset);
       color: $rpl-search-result-heading-text-color;

@@ -110,6 +110,11 @@ export default {
 
   .rpl-search-form {
     $root: &;
+    @include rpl_mobile_padding();
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     h1 {
       @include rpl_typography_ruleset($rpl-search-form-heading-ruleset);

@@ -28,7 +28,7 @@ npm install {{ packageName }} --save
 
 {% endif %}
 <!-- markdownlint-disable MD034 -->
-See [{{ story.path }}](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/{{story.params}}).
+See [{{ story.path }}](https://ripple.sdp.vic.gov.au/{{story.params}}).
 <!-- markdownlint-enable MD034 -->
 {% endfor %}
 

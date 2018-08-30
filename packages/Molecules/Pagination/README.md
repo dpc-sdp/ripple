@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-pagination --save
 
 ## Usage and Tests
 
-See [Storybook/Pagination](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Pagination&selectedStory=Pagination).
+See [Storybook/Pagination](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Pagination&selectedStory=Pagination).
 
 --------------------------------------------------------------------------------
 

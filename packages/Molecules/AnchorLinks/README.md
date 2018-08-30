@@ -28,12 +28,6 @@ See [Storybook/Anchor Links](https://ripple.sdp.vic.gov.au/?selectedKind=Molecul
 
 --------------------------------------------------------------------------------
 
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
-
---------------------------------------------------------------------------------
-
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

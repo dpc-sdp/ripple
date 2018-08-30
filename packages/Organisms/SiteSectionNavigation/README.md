@@ -27,12 +27,6 @@ See [Storybook/Site Section Navigation](https://ripple.sdp.vic.gov.au/?selectedK
 
 --------------------------------------------------------------------------------
 
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
-
---------------------------------------------------------------------------------
-
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

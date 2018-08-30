@@ -25,16 +25,10 @@ npm install @dpc-sdp/ripple-site-footer --save
 
 ## Usage and Tests
 
-See [Storybook/Site footer](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/SiteFooter&selectedStory=Site%20footer).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Site footer](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/SiteFooter&selectedStory=Site%20footer).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

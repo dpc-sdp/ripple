@@ -23,16 +23,10 @@ npm install @dpc-sdp/ripple-figure --save
 
 ## Usage and Tests
 
-See [Storybook/Figure](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Figure&selectedStory=Figure).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Figure](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Figure&selectedStory=Figure).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

@@ -28,16 +28,10 @@ npm install @dpc-sdp/ripple-form --save
 
 ## Usage and Tests
 
-See [Storybook/Form](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Form&selectedStory=Form).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Form](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Form&selectedStory=Form).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

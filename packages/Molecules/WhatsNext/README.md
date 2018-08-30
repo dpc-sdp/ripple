@@ -25,16 +25,10 @@ npm install @dpc-sdp/ripple-whats-next --save
 
 ## Usage and Tests
 
-See [Storybook/What's Next](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/WhatsNext&selectedStory=What%5C's%20Next).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/What's Next](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/WhatsNext&selectedStory=What%5C's%20Next).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

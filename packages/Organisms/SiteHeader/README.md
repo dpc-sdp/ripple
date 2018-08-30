@@ -26,16 +26,10 @@ npm install @dpc-sdp/ripple-site-header --save
 
 ## Usage and Tests
 
-See [Storybook/Site Header](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/SiteHeader&selectedStory=Site%20Header).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Site Header](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/SiteHeader&selectedStory=Site%20Header).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

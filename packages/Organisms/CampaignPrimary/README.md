@@ -25,16 +25,10 @@ npm install @dpc-sdp/ripple-campaign-primary --save
 
 ## Usage and Tests
 
-See [Storybook/Campaign Primary](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CampaignPrimary&selectedStory=Campaign%20Primary).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Campaign Primary](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CampaignPrimary&selectedStory=Campaign%20Primary).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

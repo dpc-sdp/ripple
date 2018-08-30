@@ -23,16 +23,10 @@ npm install @dpc-sdp/ripple-updated-date --save
 
 ## Usage and Tests
 
-See [Storybook/Updated Date](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/UpdatedDate&selectedStory=Updated%20Date).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Updated Date](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/UpdatedDate&selectedStory=Updated%20Date).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

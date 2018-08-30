@@ -24,16 +24,10 @@ npm install @dpc-sdp/ripple-anchor-links --save
 
 ## Usage and Tests
 
-See [Storybook/Anchor Links](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/AnchorLinks&selectedStory=Anchor%20Links).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Anchor Links](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/AnchorLinks&selectedStory=Anchor%20Links).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

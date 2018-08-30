@@ -23,16 +23,10 @@ npm install @dpc-sdp/ripple-site-section-navigation --save
 
 ## Usage and Tests
 
-See [Storybook/Site Section Navigation](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/SiteSectionNavigation&selectedStory=Site%20Section%20Navigation).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Site Section Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/SiteSectionNavigation&selectedStory=Site%20Section%20Navigation).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

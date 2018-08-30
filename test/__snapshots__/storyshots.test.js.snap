@@ -6171,6 +6171,30 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
           
         </td>
       </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          backgroundGraphic
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -6379,6 +6403,30 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
         >
           
           heroBackgroundImage
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          backgroundGraphic
           
           <!---->
         </td>
@@ -13847,6 +13895,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
     >
       <div
         class="rpl-above-content"
+        style="background-image: url(/bggraphic.png);"
       >
         <div
           class="rpl-above-content__inner"

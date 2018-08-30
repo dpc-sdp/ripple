@@ -36,12 +36,6 @@ See [Storybook/Breakpoints](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Gl
 
 --------------------------------------------------------------------------------
 
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
-
---------------------------------------------------------------------------------
-
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

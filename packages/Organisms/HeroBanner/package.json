@@ -4,6 +4,8 @@
   "description": "A component to display a page heading, subtext and useful links.",
   "license": "Apache-2.0",
   "main": "index.vue",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/HeroBanner",
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.10",
     "@dpc-sdp/ripple-icon": "1.0.0-alpha.10",

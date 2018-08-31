@@ -11129,6 +11129,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
 :nav="nav"
 :links="links"
 :copyright="copyright"
+:acknowledgement="acknowledgement"
 /&gt;
     </code>
   </pre>
@@ -11426,6 +11427,12 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             </ul>
           </li>
         </ul>
+         
+        <div
+          class="rpl-acknowledgement"
+        >
+          The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
+        </div>
       </div>
        
       <div
@@ -11606,6 +11613,30 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         >
           
           copyright
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          acknowledgement
           
           <!---->
         </td>
@@ -13663,6 +13694,12 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
             </ul>
           </li>
         </ul>
+         
+        <div
+          class="rpl-acknowledgement"
+        >
+          The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
+        </div>
       </div>
        
       <div
@@ -16000,6 +16037,12 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             </ul>
           </li>
         </ul>
+         
+        <div
+          class="rpl-acknowledgement"
+        >
+          The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
+        </div>
       </div>
        
       <div

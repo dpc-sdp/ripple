@@ -2,6 +2,7 @@
   <div class="rpl-site-footer">
     <div class="rpl-site-footer__main">
       <rpl-footer-navigation :nav="nav"></rpl-footer-navigation>
+      <rpl-acknowledgement :text="acknowledgement" />
     </div>
     <div class="rpl-site-footer__bottom">
       <div class="rpl-site-footer__bottom-main">
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import RplAcknowledgement from './Acknowledgement'
 import RplLinksAndCopyright from './LinksAndCopyright'
 import RplFooterNavigation from './FooterNavigation'
 import RplLink from '@dpc-sdp/ripple-link'
@@ -28,6 +30,7 @@ const vicLogoLink = 'https://vic.gov.au'
 
 export default {
   components: {
+    RplAcknowledgement,
     RplLinksAndCopyright,
     RplFooterNavigation,
     RplLink
@@ -35,7 +38,8 @@ export default {
   props: {
     nav: Array,
     links: Array,
-    copyright: String
+    copyright: String,
+    acknowledgement: String
   },
   data () {
     return {
@@ -127,6 +131,10 @@ $gutterless-grid: (
 
 .rpl-footer-nav {
   $root: &;
+
+  @include rpl_breakpoint_down('l') {
+    height: auto !important;
+  }
 
   &__menu-item {
     border-bottom: $rpl-footer-border-width solid $rpl-footer-border-color;

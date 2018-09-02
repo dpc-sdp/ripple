@@ -4,7 +4,7 @@
     <ul v-for="(icon, index) in icons" :key="index">
       <li>
         <code>{{ icon }}</code>
-        <rpl-icon :symbol="icon" :color="'primary'" :size="'m'" />
+        <rpl-icon :symbol="icon" :color="color" :size="size" />
       </li>
     </ul>
   </div>
@@ -18,9 +18,11 @@ export default {
   components: {
     RplIcon
   },
-  props: [
-    'icons'
-  ]
+  props: {
+    icons: Array,
+    color: String,
+    size: String
+  }
 }
 </script>
 

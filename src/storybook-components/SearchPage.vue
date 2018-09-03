@@ -72,7 +72,6 @@ import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 
 // Search
-import RplPagination from '@dpc-sdp/ripple-pagination'
 import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
 
 export default {
@@ -90,7 +89,6 @@ export default {
     RplSiteFooter,
 
     // Search
-    RplPagination,
     RplSearchForm,
     RplSearchResults
   },

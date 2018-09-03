@@ -145,7 +145,8 @@ const demoData = {
     ]),
     moreLink: object('More Link', { text: 'See more', url: '#' }),
     theme: selectV2('Theme', {dark: 'dark', light: 'light'}, 'light'),
-    showLinks: boolean('Show Links', true)
+    showLinks: boolean('Show Links', true),
+    logo: text('Logo', 'https://placehold.it/130x100')
   }),
 
   breadcrumbs: () => ({

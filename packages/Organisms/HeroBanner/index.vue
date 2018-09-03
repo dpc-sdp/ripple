@@ -1,5 +1,13 @@
 <template>
-  <div class="rpl-hero-banner" :class="{'rpl-hero-banner--no-links': !showLinks}">
+  <div class="rpl-hero-banner" :class="{
+    'rpl-hero-banner--no-links': !showLinks,
+    'rpl-hero-banner--has-logo': logo
+  }">
+    <div class="rpl-row" v-if="logo">
+      <div class="rpl-hero-banner__left">
+        <img class="rpl-hero-banner__logo" :src="logo" alt="" />
+      </div>
+    </div>
     <div class="rpl-row">
       <div class="rpl-hero-banner__left">
         <h1
@@ -73,7 +81,8 @@ export default {
     links: Array,
     moreLink: Object,
     theme: { type: String, default: 'light' },
-    showLinks: { type: Boolean, default: true }
+    showLinks: { type: Boolean, default: true },
+    logo: String
   },
   components: {
     RplTextLink
@@ -121,7 +130,7 @@ export default {
     'm': ('l', 1.7em, 'bold')
   ) !default;
   $rpl-hero-banner-link-heading-margin: 0 auto rem(15px) auto !default;
-
+  $rpl-hero-banner-vertical-spacing-logo-offset: rem(48px) !default;
   $rpl-hero-banner-vertical-spacing: (
     'xs': ('top': rem(76px), 'bottom': rem(20px)),
     's': ('top': rem(88px), 'bottom': rem(64px)),
@@ -162,6 +171,16 @@ export default {
 
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(4);
+      }
+    }
+
+    &__logo {
+      display: block;
+      max-height: rem(64px);
+      margin-bottom: $rpl-space-2;
+      @include rpl_breakpoint('l') {
+      margin-bottom: $rpl-space-3;
+        max-height: rem(100px);
       }
     }
 
@@ -236,6 +255,14 @@ export default {
       & #{$root}__left {
         @include rpl_breakpoint('xl') {
           @include rpl_grid_column(10);
+        }
+      }
+    }
+
+    &--has-logo {
+      @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
+        @include rpl_breakpoint($bp) {
+          padding-top: (map-get($spacing, top) - $rpl-hero-banner-vertical-spacing-logo-offset);
         }
       }
     }

@@ -889,645 +889,781 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
     class="component-area"
     data-v-d5d40916=""
   >
-    <div
+    <table
       class="icons"
       data-v-d5d40916=""
     >
-      <h2>
-        Icons
-      </h2>
-       
-      <ul>
-        <li>
+      <tr>
+        <td>
+          <!---->
+        </td>
+         
+        <td>
           <code>
             addition
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             alert_fire
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             alert_flood
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             alert_high_temperature
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             alert_information
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             alert_lightning
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             alert_medical
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             alert_smoke
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             alert_transport
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             arrow_down_primary
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             arrow_left_primary
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             arrow_left_secondary
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             arrow_right_primary
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             arrow_right_primary_s
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             arrow_right_secondary
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             arrow_up_primary
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             attach
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             blank_solid
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             calendar
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             close
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             csv
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             doc
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             document
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             document_transparent
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             docx
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             dot
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             dotm
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             dotx
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             down
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             download
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             email_solid
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             email_transparent
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             external_link
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             facebook
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             hamburger
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             help
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             home
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             instagram
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             left
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             link
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             link_65
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             link_90
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             linkedin
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             loading_star
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             lock
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             map_marker
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             microphone
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             pause
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             pdf
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             phone_number
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             play
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             ppt
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             pptx
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             right
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             search
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             share
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             share_alternative
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             star
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             stop
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             tick
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             trash
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             twitter
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             txt
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             up
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             upload
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             xls
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             xlsm
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             xlsx
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             zoom_in
           </code>
-           
+        </td>
+      </tr>
+      <tr>
+        <td>
           <!---->
-        </li>
-      </ul>
-      <ul>
-        <li>
+        </td>
+         
+        <td>
           <code>
             zoom_out
           </code>
-           
-          <!---->
-        </li>
-      </ul>
-    </div>
+        </td>
+      </tr>
+    </table>
   </div>
    
   <h2

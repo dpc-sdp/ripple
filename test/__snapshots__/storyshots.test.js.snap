@@ -10705,6 +10705,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
   :moreLink="moreLink"
   :theme="theme"
   :showLinks="showLinks"
+  :logo="logo"
   class="rpl-site-constrain--on-all"
 /&gt;
     </code>
@@ -10721,9 +10722,23 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
     data-v-d5d40916=""
   >
     <div
-      class="rpl-hero-banner rpl-site-constrain--on-all"
+      class="rpl-hero-banner rpl-site-constrain--on-all rpl-hero-banner--has-logo"
       data-v-d5d40916=""
     >
+      <div
+        class="rpl-row"
+      >
+        <div
+          class="rpl-hero-banner__left"
+        >
+          <img
+            alt=""
+            class="rpl-hero-banner__logo"
+            src="https://placehold.it/130x100"
+          />
+        </div>
+      </div>
+       
       <div
         class="rpl-row"
       >
@@ -11089,6 +11104,30 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
           data-v-d5d40916=""
         >
           true
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          logo
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
         </td>
       </tr>
     </tbody>
@@ -13226,6 +13265,8 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
           <div
             class="rpl-hero-banner rpl-site-constrain--on-all rpl-hero-banner--no-links"
           >
+            <!---->
+             
             <div
               class="rpl-row"
             >
@@ -13937,6 +13978,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           <div
             class="rpl-hero-banner rpl-site-constrain--on-all"
           >
+            <!---->
+             
             <div
               class="rpl-row"
             >

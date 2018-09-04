@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-hero-banner" :class="{'rpl-hero-banner--no-links': !showLinks}">
+  <div class="rpl-hero-banner" :class="{'rpl-hero-banner--no-links': !showLinks}" :style="heroBannerStyles">
     <div class="rpl-row">
       <div class="rpl-hero-banner__left">
         <h1
@@ -73,10 +73,16 @@ export default {
     links: Array,
     moreLink: Object,
     theme: { type: String, default: 'light' },
-    showLinks: { type: Boolean, default: true }
+    showLinks: { type: Boolean, default: true },
+    backgroundGraphic: String
   },
   components: {
     RplTextLink
+  },
+  computed: {
+    heroBannerStyles () {
+      return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
+    }
   }
 }
 </script>
@@ -136,16 +142,42 @@ export default {
     @include rpl_mobile_padding;
     @include rpl_grid_container;
     position: relative;
+    background-repeat: no-repeat;
+    background-position: right bottom -1.5rem;
+    background-size: 18rem;
+
+    @include rpl_breakpoint('s') {
+      background-position: right -1rem bottom -1.5rem;
+    }
+
+    @include rpl_breakpoint('m') {
+      background-position: right -20rem bottom -3rem;
+      background-size: 40rem;
+      border-bottom: $rpl-hero-banner-border;
+    }
+
+    @include rpl_breakpoint('l') {
+      background-position: right -20rem bottom -5rem;
+      background-size: 50rem;
+    }
+
+    @include rpl_breakpoint('xl') {
+      background-position: right -30rem bottom -4rem;
+    }
+
+    @include rpl_breakpoint('xxl') {
+      background-position: right -10rem bottom -5rem;
+    }
+
+    @include rpl_breakpoint('xxxl') {
+      background-position: right bottom -2rem;
+    }
 
     @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
       @include rpl_breakpoint($bp) {
         padding-top: map-get($spacing, top);
         padding-bottom: map-get($spacing, bottom);
       }
-    }
-
-    @include rpl_breakpoint('m') {
-      border-bottom: $rpl-hero-banner-border;
     }
 
     &__left {

@@ -22,4 +22,4 @@ const RplGlobal = {
 
 export default RplGlobal
 
-export {RplDivider}
+export { RplDivider }

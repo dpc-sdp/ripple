@@ -1,5 +1,7 @@
 import RplSearchForm from './SearchForm.vue'
 import RplSearchResults from './SearchResults.vue'
 
-export {RplSearchForm}
-export {RplSearchResults}
+export {
+  RplSearchForm,
+  RplSearchResults
+}

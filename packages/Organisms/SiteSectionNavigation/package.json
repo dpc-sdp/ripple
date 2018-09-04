@@ -1,12 +1,12 @@
 {
   "name": "@dpc-sdp/ripple-site-section-navigation",
-  "version": "1.0.0-alpha.12",
+  "version": "1.0.0-alpha.13",
   "description": "Sub page navigation component. Recommended for use in sidebars.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/SiteSectionNavigation",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.12"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.13"
   }
 }

@@ -12,88 +12,15 @@ import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('Atoms/Icon', module)
-  .add('Icon Library', withReadme(readme, () => ({
-    components: { SIcons },
-    template: '<s-icons :icons="icons" />',
-    data () {
-      return {
-        icons: [
-          'addition',
-          'alert_fire',
-          'alert_flood',
-          'alert_high_temperature',
-          'alert_information',
-          'alert_lightning',
-          'alert_medical',
-          'alert_smoke',
-          'alert_transport',
-          'arrow_down_primary',
-          'arrow_left_primary',
-          'arrow_left_secondary',
-          'arrow_right_primary',
-          'arrow_right_primary_s',
-          'arrow_right_secondary',
-          'arrow_up_primary',
-          'attach',
-          'blank_solid',
-          'calendar',
-          'close',
-          'csv',
-          'doc',
-          'document',
-          'document_transparent',
-          'docx',
-          'dot',
-          'dotm',
-          'dotx',
-          'down',
-          'download',
-          'email_solid',
-          'email_transparent',
-          'external_link',
-          'facebook',
-          'hamburger',
-          'help',
-          'home',
-          'instagram',
-          'left',
-          'link',
-          'link_65',
-          'link_90',
-          'linkedin',
-          'loading_star',
-          'lock',
-          'map_marker',
-          'microphone',
-          'pause',
-          'pdf',
-          'phone_number',
-          'play',
-          'ppt',
-          'pptx',
-          'right',
-          'search',
-          'share',
-          'share_alternative',
-          'star',
-          'stop',
-          'tick',
-          'trash',
-          'twitter',
-          'txt',
-          'up',
-          'upload',
-          'xls',
-          'xlsm',
-          'xlsx',
-          'zoom_in',
-          'zoom_out'
-        ]
-      }
-    }
-  })))
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
+  .add('Icon Library', withReadme(readme, () => ({
+    components: { SIcons },
+    template: '<s-icons :icons="icons" :color="color" :size="size" />',
+    data () {
+      return demoData.iconLibrary()
+    }
+  })))
   .add('Icon', withReadme(readme, () => ({
     components: { RplIcon },
     template: '<rpl-icon :symbol="icon" :color="color" :size="size" />',

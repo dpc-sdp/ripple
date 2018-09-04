@@ -112,6 +112,7 @@
         :nav="mock.footer.nav"
         :links="mock.footer.links"
         :copyright="mock.footer.copyright"
+        :acknowledgement="mock.footer.acknowledgement"
         />
     </template>
 

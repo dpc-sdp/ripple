@@ -3,11 +3,13 @@ import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
 import {
-  withKnobs
+  withKnobs,
+  boolean
 } from '@storybook/addon-knobs/vue'
 
 import RplSearchForm from './SearchForm.vue'
 import RplSearchResult from './SearchResult.vue'
+import RplSearchResults from './SearchResults.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
 
@@ -54,5 +56,42 @@ storiesOf('Molecules/Search', module)
 />`,
     data () {
       return demoData.searchResult()
+    }
+  })))
+  .add('Search Results', withReadme(readme, () => ({
+    components: { RplSearchResults },
+    template: `<rpl-search-results
+  :searchResults="searchResultsItems"
+  :pager="pager"
+  :responseSize="searchResults.responseSize"
+  :count="searchResults.count"
+  :pagerChangeHandler="pagerChange"
+  :errorMsg="hasError ? searchResults.errorMsg : undefined"
+  :noResultsMsg="searchResults.noResultsMsg"
+  @pager-change="pagerChange"
+/>`,
+    data () {
+      return {
+        searchResult: demoData.searchResult(),
+        pager: demoData.pagination(),
+        searchResults: demoData.searchResults(),
+        hasError: boolean('Has error', false),
+        noResults: boolean('No results', false)
+      }
+    },
+    computed: {
+      searchResultsItems: function () {
+        if (this.hasError || this.noResults) {
+          return []
+        } else {
+          return [this.searchResult, this.searchResult]
+        }
+      }
+    },
+    methods: {
+      pagerChange: function (newStep) {
+        // Use your own custom code to handle it.
+        alert('Going to step: ' + newStep)
+      }
     }
   })))

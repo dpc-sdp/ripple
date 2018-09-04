@@ -133,6 +133,10 @@ const demoData = {
     heroBackgroundImage: text('Hero background image', '/herobg.jpg')
   }),
 
+  landingPage: () => ({
+    backgroundGraphic: text('Background Graphic', '/bggraphic.png')
+  }),
+
   heroBanner: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
     introText: text('Intro Text', 'This is supplimentary intro text that can also wrap over a couple of lines.'),
@@ -146,7 +150,8 @@ const demoData = {
     moreLink: object('More Link', { text: 'See more', url: '#' }),
     theme: selectV2('Theme', {dark: 'dark', light: 'light'}, 'light'),
     showLinks: boolean('Show Links', true),
-    logo: text('Logo', '/herologo.png')
+    logo: text('Logo', '/herologo.png'),
+    backgroundGraphic: text('Background Graphic', '/bggraphiclower.png')
   }),
 
   breadcrumbs: () => ({
@@ -761,6 +766,13 @@ const demoData = {
     locale: text('Locale', 'en-au')
   }),
 
+  searchResults: () => ({
+    count: number('Count', 10),
+    responseSize: number('Response size', 2),
+    errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
+    noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
+  }),
+
   siteLayout: () => ({
     cardCols: {
       m: 6,
@@ -894,6 +906,83 @@ const demoData = {
     icon: text('Symbol', 'search'),
     color: text('Color', 'primary'),
     size: text('Size', 'm')
+  }),
+
+  iconLibrary: () => ({
+    color: text('Color', 'primary'),
+    size: text('Size', 'm'),
+    icons: [
+      'addition',
+      'alert_fire',
+      'alert_flood',
+      'alert_high_temperature',
+      'alert_information',
+      'alert_lightning',
+      'alert_medical',
+      'alert_smoke',
+      'alert_transport',
+      'arrow_down_primary',
+      'arrow_left_primary',
+      'arrow_left_secondary',
+      'arrow_right_primary',
+      'arrow_right_primary_s',
+      'arrow_right_secondary',
+      'arrow_up_primary',
+      'attach',
+      'blank_solid',
+      'calendar',
+      'close',
+      'csv',
+      'doc',
+      'document',
+      'document_transparent',
+      'docx',
+      'dot',
+      'dotm',
+      'dotx',
+      'down',
+      'download',
+      'email_solid',
+      'email_transparent',
+      'external_link',
+      'facebook',
+      'hamburger',
+      'help',
+      'home',
+      'instagram',
+      'left',
+      'link',
+      'link_65',
+      'link_90',
+      'linkedin',
+      'loading_star',
+      'lock',
+      'map_marker',
+      'microphone',
+      'pause',
+      'pdf',
+      'phone_number',
+      'play',
+      'ppt',
+      'pptx',
+      'right',
+      'search',
+      'share',
+      'share_alternative',
+      'star',
+      'stop',
+      'tick',
+      'trash',
+      'twitter',
+      'txt',
+      'up',
+      'upload',
+      'xls',
+      'xlsm',
+      'xlsx',
+      'zoom_in',
+      'zoom_out'
+    ]
   }),
 
   button: () => ({

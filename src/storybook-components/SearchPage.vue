@@ -1,5 +1,5 @@
 <template>
-  <rpl-base-layout class="campaign-page-demo">
+  <rpl-base-layout class="search-page-demo">
 
     <template slot="header">
       <rpl-site-header
@@ -17,24 +17,35 @@
     <rpl-page-layout
       :sidebar="sidebar"
       class="main rpl-container"
-      :heroBackgroundImage="mock.campaign.heroBackgroundImage"
-      :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
       <template slot="aboveContent">
-        <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
-        <rpl-hero-banner
-          :title="mock.heroBanner.title" :introText="mock.heroBanner.introText"
-          :theme="mock.campaign.heroBackgroundImage ? 'dark' : 'light'"
-          :showLinks="mock.campaign.heroBackgroundImage ? false : true"
+        <rpl-search-form
+          :title="mock.searchForm.title"
+          :searchPlaceholder="mock.searchForm.searchPlaceholder"
+          :prefillSearchTerm="mock.searchForm.prefillSearchTerm"
+          :filterForm="mock.searchForm.filterForm"
+          :theme="mock.searchForm.theme"
+          @search="getSearchResults"
           class="rpl-site-constrain--on-all"
         />
+        <rpl-divider />
       </template>
 
       <rpl-row row-gutter class="demo-main">
+        <rpl-col cols="full" :colsBp="defaultCols">
+          <rpl-search-results
+            :searchResults="noResults ? [] : [mock.searchResult, mock.searchResult]"
+            :pager="noResults ? undefined : mock.pagination"
+            :responseSize="noResults ? 0 : mock.searchResults.responseSize"
+            :count="noResults ? 0 : mock.searchResults.count"
+            :errorMsg="hasError ? mock.searchResults.errorMsg : undefined"
+            :noResultsMsg="mock.searchResults.noResultsMsg"
+            @pager-change="pagerChange"
+          />
+        </rpl-col>
       </rpl-row>
 
       <template slot="sidebar">
-        <rpl-related-links :title="mock.relatedLinks.title" :links="mock.relatedLinks.links" class="rpl-component-gutter"/>
       </template>
     </rpl-page-layout>
 
@@ -43,7 +54,6 @@
         :nav="mock.footer.nav"
         :links="mock.footer.links"
         :copyright="mock.footer.copyright"
-        :acknowledgement="mock.footer.acknowledgement"
         />
     </template>
 
@@ -55,23 +65,20 @@
 // This is a page for demo all components in the site layout.
 // Change story knob `sidebar` can switch layout between with sidebar and without sidebar.
 
+import { RplDivider } from '@dpc-sdp/ripple-global'
 import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 
-// Breadcrumb
-import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
-
-// Banner
-import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
-
-// Sidebar
-import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
+// Search
+import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
 
 export default {
-  name: 'SCampaignPage',
+  name: 'SSearchPage',
   components: {
+    RplDivider,
+
     // Layout
     RplBaseLayout,
     RplPageLayout,
@@ -81,18 +88,15 @@ export default {
     RplSiteHeader,
     RplSiteFooter,
 
-    // Breadcrumbs
-    RplBreadcrumbs,
-
-    // Banner
-    RplHeroBanner,
-
-    // Sidebar
-    RplRelatedLinks
+    // Search
+    RplSearchForm,
+    RplSearchResults
   },
   props: {
     sidebar: Boolean,
-    mock: Object
+    mock: Object,
+    hasError: Boolean,
+    noResults: Boolean
   },
   data () {
     return {
@@ -102,12 +106,25 @@ export default {
   methods: {
     // Methods for site header.
     searchFunc: function (value) {
+      // Use your own custom code to handle it.
       alert('Search for: "' + value + '"')
     },
 
     // Methods for site header.
     menuOpenFunc: function (menuOpenState) {
       document.body.style.overflow = menuOpenState ? 'hidden' : ''
+    },
+
+    // Methods for search results
+    getSearchResults: function (value) {
+      // Use your own custom code to handle it.
+      alert('Search for: "' + value + '"')
+    },
+
+    // Methods for search results
+    pagerChange: function (newStep) {
+      // Use your own custom code to handle it.
+      alert('Going to step: ' + newStep)
     }
   }
 }

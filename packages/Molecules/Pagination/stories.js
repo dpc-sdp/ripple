@@ -21,7 +21,7 @@ storiesOf('Molecules/Pagination', module)
     },
     methods: {
       change (newStep) {
-        console.log('Going to step: ' + newStep)
+        alert('Going to step: ' + newStep)
       }
     }
   })))

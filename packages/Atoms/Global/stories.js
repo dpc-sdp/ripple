@@ -1,9 +1,11 @@
 import { storiesOf } from '@storybook/vue'
 import { withReadme } from 'storybook-readme'
+import VueInfoAddon from 'storybook-addon-vue-info'
 
 import SColors from './../../../src/storybook-components/Colors.vue'
 import STypography from './../../../src/storybook-components/Typography.vue'
 import SBreakpoints from './../../../src/storybook-components/Breakpoints.vue'
+import RplDivider from './components/Divider.vue'
 import readme from './README.md'
 
 storiesOf('Atoms/Global', module)
@@ -33,6 +35,7 @@ storiesOf('Atoms/Global', module)
       }
     }
   })))
+
   .add('Typography', withReadme(readme, () => ({
     components: { STypography },
     template: '<s-typography :samples="samples"/>',
@@ -57,6 +60,7 @@ storiesOf('Atoms/Global', module)
       }
     }
   })))
+
   .add('Breakpoints', withReadme(readme, () => ({
     components: { SBreakpoints },
     template: '<s-breakpoints :breakpoints="breakpoints"/>',
@@ -73,4 +77,10 @@ storiesOf('Atoms/Global', module)
         ]
       }
     }
+  })))
+
+  .addDecorator(VueInfoAddon)
+  .add('Divider', withReadme(readme, () => ({
+    components: { RplDivider },
+    template: '<rpl-divider />'
   })))

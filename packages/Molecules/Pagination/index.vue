@@ -11,7 +11,7 @@
         <span>Previous</span>
         <rpl-icon symbol="left" color="primary" size="1.6" />
       </button>
-      <button :disabled="currentStep === totalSteps" @click="nextClick" class="rpl-pagination__nav">
+      <button v-if="totalSteps" :disabled="currentStep === totalSteps" @click="nextClick" class="rpl-pagination__nav">
         <span>Next</span>
         <rpl-icon symbol="right" :color="currentStep < totalSteps ? 'primary' : 'mid_neutral_1'" size="1.6" />
       </button>
@@ -96,6 +96,12 @@ export default {
   $rpl-pagination-nav-margin: 0 0 0 ($rpl-space * 5) !default;
 
   .rpl-pagination {
+    @include rpl_mobile_padding();
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     display: flex;
     align-items: center;
     width: 100%;

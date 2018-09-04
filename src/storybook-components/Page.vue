@@ -30,7 +30,7 @@
     <rpl-page-layout
       :sidebar="sidebar"
       class="main rpl-container"
-      :heroBackgroundImage="mock.heroBanner.heroBackgroundImage"
+      :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
       <template slot="aboveContent">
         <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />

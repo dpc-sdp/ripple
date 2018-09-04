@@ -1,14 +1,14 @@
 {
   "name": "@dpc-sdp/ripple-card",
-  "version": "1.0.0-alpha.13",
+  "version": "1.0.0-alpha.14",
   "description": "Card-themed containers for content such as events and dates, navigation, featured, promotional. Recommended implementation using the grid component.",
   "license": "Apache-2.0",
   "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/Card",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.13",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.13",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.13"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.14",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.14",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.14"
   }
 }

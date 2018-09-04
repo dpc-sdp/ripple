@@ -1,13 +1,13 @@
 {
   "name": "@dpc-sdp/ripple-news-listing",
-  "version": "1.0.0-alpha.13",
+  "version": "1.0.0-alpha.14",
   "description": "A component for listing article headings with date and tag.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/NewsListing",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.13",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.13"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.14",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.14"
   }
 }

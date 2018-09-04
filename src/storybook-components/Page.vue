@@ -55,7 +55,9 @@
       </template>
 
       <rpl-row row-gutter class="demo-main">
-         <rpl-anchor-links :title="mock.anchorLinks.title" :links="mock.anchorLinks.links" />
+        <rpl-col cols="full" :colsBp="defaultCols">
+          <rpl-anchor-links :title="mock.anchorLinks.title" :links="mock.anchorLinks.links" />
+        </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-card-navigation-featured :title="mock.cardNavigationFeatured.title" :summary="mock.cardNavigationFeatured.summary" :url="mock.cardNavigationFeatured.url" :image="mock.cardNavigationFeatured.image" />
         </rpl-col>

@@ -18,7 +18,6 @@
       :sidebar="sidebar"
       class="main rpl-container"
       :heroBackgroundImage="mock.campaign.heroBackgroundImage"
-      :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
       <template slot="aboveContent">
         <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />

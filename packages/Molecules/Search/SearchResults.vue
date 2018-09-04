@@ -25,7 +25,7 @@
         :totalSteps="pager.totalSteps"
         :initialStep="pager.initialStep"
         :stepsAround="pager.stepsAround"
-        @change="pagerChangeHandler"
+        @change="$emit('pager-change', $event)"
       />
     </div>
   </div>
@@ -33,14 +33,12 @@
 
 <script>
 import RplPagination from '@dpc-sdp/ripple-pagination'
-import RplSearchForm from './SearchForm.vue'
 import RplSearchResult from './SearchResult.vue'
 
 export default {
   name: 'RplSearchResults',
   components: {
     RplPagination,
-    RplSearchForm,
     RplSearchResult
   },
   props: {
@@ -60,7 +58,6 @@ export default {
         }
       }
     },
-    pagerChangeHandler: Function,
     errorMsg: String,
     noResultsMsg: String,
     responseSize: Number,

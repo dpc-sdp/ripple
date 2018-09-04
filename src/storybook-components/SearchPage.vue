@@ -36,11 +36,11 @@
           <rpl-search-results
             :searchResults="noResults ? [] : [mock.searchResult, mock.searchResult]"
             :pager="noResults ? undefined : mock.pagination"
-            :pagerChangeHandler="pagerChange"
             :responseSize="noResults ? 0 : mock.searchResults.responseSize"
             :count="noResults ? 0 : mock.searchResults.count"
             :errorMsg="hasError ? mock.searchResults.errorMsg : undefined"
             :noResultsMsg="mock.searchResults.noResultsMsg"
+            @pager-change="pagerChange"
           />
         </rpl-col>
       </rpl-row>

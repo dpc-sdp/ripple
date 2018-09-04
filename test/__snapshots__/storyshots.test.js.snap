@@ -469,19 +469,19 @@ exports[`RippleStoryshots Atoms/Global Divider 1`] = `
     class="title"
     data-v-d5d40916=""
   >
-
+    
     RplDivider
-
+  
   </h1>
-
+   
   <!---->
-
+   
   <h2
     data-v-d5d40916=""
   >
     Usage
   </h2>
-
+   
   <pre
     class="code"
     data-v-d5d40916=""
@@ -492,13 +492,13 @@ exports[`RippleStoryshots Atoms/Global Divider 1`] = `
       &lt;rpl-divider /&gt;
     </code>
   </pre>
-
+   
   <h2
     data-v-d5d40916=""
   >
     Preview
   </h2>
-
+   
   <div
     class="component-area"
     data-v-d5d40916=""
@@ -508,13 +508,13 @@ exports[`RippleStoryshots Atoms/Global Divider 1`] = `
       data-v-d5d40916=""
     />
   </div>
-
+   
   <h2
     data-v-d5d40916=""
   >
     Props
   </h2>
-
+   
   <table
     class="props"
     data-v-d5d40916=""
@@ -531,13 +531,13 @@ exports[`RippleStoryshots Atoms/Global Divider 1`] = `
         >
           Name
         </th>
-
+         
         <th
           data-v-d5d40916=""
         >
           Type
         </th>
-
+         
         <th
           data-v-d5d40916=""
         >
@@ -545,7 +545,7 @@ exports[`RippleStoryshots Atoms/Global Divider 1`] = `
         </th>
       </tr>
     </thead>
-
+     
     <tbody
       data-v-d5d40916=""
     />
@@ -8849,6 +8849,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
   :pagerChangeHandler="pagerChange"
   :errorMsg="hasError ? searchResults.errorMsg : undefined"
   :noResultsMsg="searchResults.noResultsMsg"
+  @pager-change="pagerChange"
 /&gt;
     </code>
   </pre>
@@ -8866,6 +8867,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
     <div
       class="rpl-search-results"
       data-v-d5d40916=""
+      pagerchangehandler="function () { [native code] }"
     >
       <div
         class="rpl-search-results__info"
@@ -8892,7 +8894,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
               Schools private policy
             </h2>
           </a>
-
+           
           <a
             class="rpl-link rpl-search-result__link"
             href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
@@ -8900,7 +8902,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
           >
             www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
           </a>
-
+           
           <p
             class="rpl-search-result__date-description"
           >
@@ -8909,12 +8911,12 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
             >
               Jul 10, 2018
             </span>
-
+             
             <span>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
             </span>
           </p>
-
+           
           <ul
             class="rpl-search-result__terms"
           >
@@ -8970,7 +8972,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
               Schools private policy
             </h2>
           </a>
-
+           
           <a
             class="rpl-link rpl-search-result__link"
             href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
@@ -8978,7 +8980,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
           >
             www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
           </a>
-
+           
           <p
             class="rpl-search-result__date-description"
           >
@@ -8987,12 +8989,12 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
             >
               Jul 10, 2018
             </span>
-
+             
             <span>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
             </span>
           </p>
-
+           
           <ul
             class="rpl-search-result__terms"
           >
@@ -9036,10 +9038,10 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
         </div>
          
         <!---->
-
+         
         <!---->
       </div>
-
+       
       <div
         class="rpl-search-results__pager"
       >
@@ -9065,7 +9067,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 class="rpl-pagination__step"
               >
                 <span>
-                  Go to step
+                  Go to step 
                 </span>
                 2
               </button>
@@ -9077,7 +9079,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 class="rpl-pagination__step"
               >
                 <span>
-                  Go to step
+                  Go to step 
                 </span>
                 3
               </button>
@@ -9089,7 +9091,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 class="rpl-pagination__step"
               >
                 <span>
-                  Go to step
+                  Go to step 
                 </span>
                 4
               </button>
@@ -9101,25 +9103,25 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 class="rpl-pagination__step"
               >
                 <span>
-                  Go to step
+                  Go to step 
                 </span>
                 5
               </button>
             </li>
           </ol>
-
+           
           <div
             class="rpl-pagination__controls"
           >
             <!---->
-
+             
             <button
               class="rpl-pagination__nav"
             >
               <span>
                 Next
               </span>
-
+               
               <!---->
             </button>
           </div>
@@ -9127,7 +9129,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
       </div>
     </div>
   </div>
-
+   
   <h2
     data-v-d5d40916=""
   >
@@ -9176,16 +9178,16 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
         >
           
           searchResults
-
+          
           <!---->
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
           array
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
@@ -9198,18 +9200,18 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
         <td
           data-v-d5d40916=""
         >
-
+          
           pager
-
+          
           <!---->
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
           object
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
@@ -9226,31 +9228,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
         <td
           data-v-d5d40916=""
         >
-
-          pagerChangeHandler
-
-          <!---->
-        </td>
-
-        <td
-          data-v-d5d40916=""
-        >
-          function
-        </td>
-
-        <td
-          data-v-d5d40916=""
-        >
-
-        </td>
-      </tr>
-      <tr
-        data-v-d5d40916=""
-      >
-        <td
-          data-v-d5d40916=""
-        >
-
+          
           errorMsg
           
           <!---->
@@ -9313,7 +9291,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
         <td
           data-v-d5d40916=""
         >
-
+          
         </td>
       </tr>
       <tr
@@ -9322,22 +9300,22 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
         <td
           data-v-d5d40916=""
         >
-
+          
           count
-
+          
           <!---->
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
           number
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
-
+          
         </td>
       </tr>
     </tbody>
@@ -9400,7 +9378,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
       >
         Share this
       </h2>
-
+       
       <div>
         <span
           class="rpl-share-this__social"
@@ -9412,9 +9390,9 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
             <!---->
           </span>
           Twitter
-
+      
         </span>
-
+         
         <span
           class="rpl-share-this__social"
           data-link="#share-facebook"
@@ -9425,9 +9403,9 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
             <!---->
           </span>
           Facebook
-
+      
         </span>
-
+         
         <span
           class="rpl-share-this__social"
           data-link="#share-linkedin"
@@ -9438,18 +9416,18 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
             <!---->
           </span>
           LinkedIn
-
+      
         </span>
       </div>
     </div>
   </div>
-
+   
   <h2
     data-v-d5d40916=""
   >
     Props
   </h2>
-
+   
   <table
     class="props"
     data-v-d5d40916=""
@@ -9466,13 +9444,13 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         >
           Name
         </th>
-
+         
         <th
           data-v-d5d40916=""
         >
           Type
         </th>
-
+         
         <th
           data-v-d5d40916=""
         >
@@ -9480,7 +9458,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         </th>
       </tr>
     </thead>
-
+     
     <tbody
       data-v-d5d40916=""
     >
@@ -9490,22 +9468,22 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         <td
           data-v-d5d40916=""
         >
-
+          
           url
-
+          
           <!---->
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
           string
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
-
+          
         </td>
       </tr>
       <tr
@@ -9514,22 +9492,22 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         <td
           data-v-d5d40916=""
         >
-
+          
           title
-
+          
           <!---->
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
           string
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
-
+          
         </td>
       </tr>
       <tr
@@ -9538,18 +9516,18 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         <td
           data-v-d5d40916=""
         >
-
+          
           enabled
-
+          
           <!---->
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
           object
         </td>
-
+         
         <td
           data-v-d5d40916=""
         >
@@ -9574,19 +9552,19 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
     class="title"
     data-v-d5d40916=""
   >
-
+    
     RplSitemap
-
+  
   </h1>
-
+   
   <!---->
-
+   
   <h2
     data-v-d5d40916=""
   >
     Usage
   </h2>
-
+   
   <pre
     class="code"
     data-v-d5d40916=""
@@ -9597,13 +9575,13 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
       &lt;rpl-sitemap :menu="menu" /&gt;
     </code>
   </pre>
-
+   
   <h2
     data-v-d5d40916=""
   >
     Preview
   </h2>
-
+   
   <div
     class="component-area"
     data-v-d5d40916=""
@@ -9624,7 +9602,7 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
           >
             Your services
           </a>
-
+           
           <ul
             class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-1"
           >
@@ -9637,7 +9615,7 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
               >
                 Sub child A
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -9686,7 +9664,7 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
                   >
                     Sub child III
                   </a>
-
+                   
                   <!---->
                 </li>
               </ul>
@@ -9700,7 +9678,7 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
               >
                 Test Path 2
               </a>
-
+               
               <ul
                 class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-2"
               >
@@ -9713,7 +9691,7 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
                   >
                     Sub child IV
                   </a>
-
+                   
                   <!---->
                 </li>
                 <li
@@ -9725,7 +9703,7 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
                   >
                     Test Path 3
                   </a>
-
+                   
                   <ul
                     class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-3"
                   >
@@ -9738,7 +9716,7 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
                       >
                         Sub child X
                       </a>
-
+                       
                       <!---->
                     </li>
                     <li
@@ -14926,7 +14904,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       On this page:
                     </h2>
                   </div>
-
+                   
                   <div
                     class="rpl-anchor-links__row"
                   >
@@ -14944,14 +14922,14 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             <span>
                               This is the first anchor
                             </span>
-
+                             
                             <span
                               class="rpl-text-icon__group"
                             >
                                link
                               <!---->
                             </span>
-
+                             
                             <!---->
                           </span>
                         </a>
@@ -14967,14 +14945,14 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             <span>
                               Second link to extra
                             </span>
-
+                             
                             <span
                               class="rpl-text-icon__group"
                             >
                                content
                               <!---->
                             </span>
-
+                             
                             <!---->
                           </span>
                         </a>
@@ -14990,14 +14968,14 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             <span>
                               Third link goes
                             </span>
-
+                             
                             <span
                               class="rpl-text-icon__group"
                             >
                                here
                               <!---->
                             </span>
-
+                             
                             <!---->
                           </span>
                         </a>
@@ -15013,14 +14991,14 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             <span>
                               Link to additional
                             </span>
-
+                             
                             <span
                               class="rpl-text-icon__group"
                             >
                                content
                               <!---->
                             </span>
-
+                             
                             <!---->
                           </span>
                         </a>
@@ -15036,14 +15014,14 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             <span>
                               Another link to extra
                             </span>
-
+                             
                             <span
                               class="rpl-text-icon__group"
                             >
                                content
                               <!---->
                             </span>
-
+                             
                             <!---->
                           </span>
                         </a>
@@ -15059,14 +15037,14 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             <span>
                               This is another
                             </span>
-
+                             
                             <span
                               class="rpl-text-icon__group"
                             >
                                link
                               <!---->
                             </span>
-
+                             
                             <!---->
                           </span>
                         </a>
@@ -16373,13 +16351,13 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 >
                   21 February 2018
                 </span>
-
+                 
                 <span
                   class="rpl-news-listing__item-tag"
                 >
                   Law & Justice
                 </span>
-
+                 
                 <h3
                   class="rpl-news-listing__item-heading"
                 >
@@ -16391,14 +16369,14 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <span>
                         Access to Justice
                       </span>
-
+                       
                       <span
                         class="rpl-text-icon__group"
                       >
                          Review
                         <!---->
                       </span>
-
+                       
                       <!---->
                     </span>
                   </a>
@@ -16414,13 +16392,13 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 >
                   19 February 2018
                 </span>
-
+                 
                 <span
                   class="rpl-news-listing__item-tag"
                 >
                   Family Violence
                 </span>
-
+                 
                 <h3
                   class="rpl-news-listing__item-heading"
                 >
@@ -16432,14 +16410,14 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <span>
                         New Bendigo Refuge for Families Escaping Family
                       </span>
-
+                       
                       <span
                         class="rpl-text-icon__group"
                       >
                          Violence
                         <!---->
                       </span>
-
+                       
                       <!---->
                     </span>
                   </a>
@@ -16451,7 +16429,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       </div>
     </section>
   </div>
-
+    
   <footer
     class="rpl-site-footer-container"
   >
@@ -16475,10 +16453,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               >
                 Your Services
               </a>
-
+               
               <!---->
             </h2>
-
+             
             <ul
               class="rpl-footer-nav__submenu-item"
               style="display: none;"
@@ -16573,10 +16551,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               >
                 About VIC Government
               </a>
-
+               
               <!---->
             </h2>
-
+             
             <ul
               class="rpl-footer-nav__submenu-item"
               style="display: none;"
@@ -16671,10 +16649,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               >
                 News
               </a>
-
+               
               <!---->
             </h2>
-
+             
             <!---->
           </li>
           <li
@@ -16688,10 +16666,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               >
                 Events
               </a>
-
+               
               <!---->
             </h2>
-
+             
             <!---->
           </li>
           <li
@@ -16705,10 +16683,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               >
                 Connect with us
               </a>
-
+               
               <!---->
             </h2>
-
+             
             <ul
               class="rpl-footer-nav__submenu-item"
               style="display: none;"
@@ -16737,14 +16715,14 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             </ul>
           </li>
         </ul>
-
+         
         <div
           class="rpl-acknowledgement"
         >
           The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
         </div>
       </div>
-
+       
       <div
         class="rpl-site-footer__bottom"
       >
@@ -16800,7 +16778,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 </a>
               </li>
             </ul>
-
+             
             <div
               class="rpl-links-and-copyright__copyright"
             >
@@ -16808,7 +16786,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             </div>
           </div>
         </div>
-
+         
         <div
           class="rpl-site-footer__logo"
         >
@@ -16844,7 +16822,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
       Skip to main content
     </a>
   </div>
-
+   
   <header
     class="rpl-site-header-container"
   >
@@ -16865,12 +16843,12 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
               class="rpl-site-header__btn rpl-site-header__btn--menu"
             >
               <!---->
-
+               
               <span>
                 Menu
               </span>
             </button>
-
+             
             <div
               class="rpl-site-header__title"
             >
@@ -16885,25 +16863,25 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
               </a>
             </div>
           </div>
-
+           
           <!---->
-
+           
           <button
             class="rpl-site-header__btn rpl-site-header__btn--search"
           >
             <span>
               Search website
             </span>
-
+             
             <!---->
           </button>
         </div>
-
+         
         <!---->
       </div>
     </div>
   </header>
-
+    
   <div
     class="rpl-page main rpl-container"
   >
@@ -16912,6 +16890,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
     >
       <div
         class="rpl-above-content"
+        style="background-image: url(undefined);"
       >
         <div
           class="rpl-above-content__inner"
@@ -16922,7 +16901,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
             <h1>
               Search results
             </h1>
-
+             
             <div
               class="rpl-search-form__field"
             >
@@ -16939,7 +16918,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                   type="text"
                 />
               </label>
-
+               
               <button
                 class="rpl-search-form__btn"
               >
@@ -16950,31 +16929,31 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                 <!---->
               </button>
             </div>
-
+             
             <button
               class="rpl-search-form__show-filters"
             >
               <span>
                 Refine search
               </span>
-
+               
               <!---->
             </button>
-
+             
             <!---->
           </div>
-
+           
           <hr
             class="rpl-divider"
           />
         </div>
       </div>
-
+       
       <div
         class="rpl-above-content-two"
       />
     </section>
-
+     
     <section
       class="rpl-content rpl-content--with-sidebar"
       id="rpl-main-content"
@@ -16988,7 +16967,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
           <div
             class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
           >
-
+             
             <div
               class="rpl-row demo-main rpl-row--gutter"
             >
@@ -17005,7 +16984,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                       Displaying 2 of 10 results
                     </div>
                   </div>
-
+                   
                   <div
                     class="rpl-search-results__main"
                   >
@@ -17040,12 +17019,12 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                         >
                           Jul 10, 2018
                         </span>
-
+                         
                         <span>
                           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
                         </span>
                       </p>
-
+                       
                       <ul
                         class="rpl-search-result__terms"
                       >
@@ -17101,7 +17080,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                           Schools private policy
                         </h2>
                       </a>
-
+                       
                       <a
                         class="rpl-link rpl-search-result__link"
                         href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
@@ -17109,7 +17088,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                       >
                         www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
                       </a>
-
+                       
                       <p
                         class="rpl-search-result__date-description"
                       >
@@ -17118,12 +17097,12 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                         >
                           Jul 10, 2018
                         </span>
-
+                         
                         <span>
                           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
                         </span>
                       </p>
-
+                       
                       <ul
                         class="rpl-search-result__terms"
                       >
@@ -17165,12 +17144,12 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                         </li>
                       </ul>
                     </div>
-
+                     
                     <!---->
-
+                     
                     <!---->
                   </div>
-
+                   
                   <div
                     class="rpl-search-results__pager"
                   >
@@ -17196,7 +17175,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             class="rpl-pagination__step"
                           >
                             <span>
-                              Go to step
+                              Go to step 
                             </span>
                             2
                           </button>
@@ -17208,7 +17187,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             class="rpl-pagination__step"
                           >
                             <span>
-                              Go to step
+                              Go to step 
                             </span>
                             3
                           </button>
@@ -17220,7 +17199,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             class="rpl-pagination__step"
                           >
                             <span>
-                              Go to step
+                              Go to step 
                             </span>
                             4
                           </button>
@@ -17232,7 +17211,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             class="rpl-pagination__step"
                           >
                             <span>
-                              Go to step
+                              Go to step 
                             </span>
                             5
                           </button>
@@ -17243,14 +17222,14 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                         class="rpl-pagination__controls"
                       >
                         <!---->
-
+                         
                         <button
                           class="rpl-pagination__nav"
                         >
                           <span>
                             Next
                           </span>
-
+                           
                           <!---->
                         </button>
                       </div>
@@ -17259,16 +17238,16 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                 </div>
               </div>
             </div>
-
+             
           </div>
-
+           
           <div
             class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
           />
         </div>
       </div>
     </section>
-
+     
     <section
       class="rpl-below-content"
     />

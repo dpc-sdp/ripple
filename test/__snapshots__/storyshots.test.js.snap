@@ -6095,7 +6095,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
     <code
       data-v-d5d40916=""
     >
-      &lt;rpl-page-layout backgroundGraphic="/bggraphic.png"&gt;
+      &lt;rpl-page-layout&gt;
   &lt;template slot="aboveContent"&gt;Above content&lt;/template&gt;
   &lt;p&gt;This is page content&lt;/p&gt;
   &lt;template slot="belowContent"&gt;Below content&lt;/template&gt;
@@ -6122,7 +6122,6 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
       >
         <div
           class="rpl-above-content"
-          style="background-image: url(/bggraphic.png);"
         >
           <div
             class="rpl-above-content__inner"
@@ -6339,7 +6338,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
     <code
       data-v-d5d40916=""
     >
-      &lt;rpl-page-layout sidebar backgroundGraphic="/bggraphic.png"&gt;
+      &lt;rpl-page-layout sidebar&gt;
   &lt;template slot="aboveContent"&gt;Above content&lt;/template&gt;
   &lt;p&gt;This is page content&lt;/p&gt;
   &lt;template slot="sidebar"&gt;sidebar content&lt;/template&gt;
@@ -6367,7 +6366,6 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
       >
         <div
           class="rpl-above-content"
-          style="background-image: url(/bggraphic.png);"
         >
           <div
             class="rpl-above-content__inner"
@@ -6595,7 +6593,6 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
     >
       <div
         class="rpl-above-content"
-        style="background-image: url(/bggraphic.png);"
       >
         <div
           class="rpl-above-content__inner"
@@ -6853,7 +6850,6 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
     >
       <div
         class="rpl-above-content"
-        style="background-image: url(/bggraphic.png);"
       >
         <div
           class="rpl-above-content__inner"
@@ -13870,7 +13866,6 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
     >
       <div
         class="rpl-above-content"
-        style="background-image: url(/bggraphic.png);"
       >
         <div
           class="rpl-above-content__inner"
@@ -16916,7 +16911,6 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
     >
       <div
         class="rpl-above-content"
-        style="background-image: url(undefined);"
       >
         <div
           class="rpl-above-content__inner"

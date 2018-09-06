@@ -28,17 +28,6 @@ $rpl-normalize: true !default;
       @include rpl_typography(heading_xs)
     }
     // More global element styles here
-
-    // Our custom Vicfont is already bold,
-    // this will make all browsers render the font more consistently.
-    // See: https://stormconsultancy.co.uk/blog/development/tips-tricks/dealing-with-firefox-rendering-fonts-too-bold-with-browser-specific-css/
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      font-weight: normal;
-    }
   }
 }
 

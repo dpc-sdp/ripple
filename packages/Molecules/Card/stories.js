@@ -7,6 +7,7 @@ import {
 } from '@storybook/addon-knobs/vue'
 
 import RplCardContent from './CardContent.vue'
+import RplCardImageNavigation from './CardImageNavigation.vue'
 import RplCardNavigation from './CardNavigation.vue'
 import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
 import RplCardPromotion from './CardPromotion.vue'
@@ -28,9 +29,16 @@ storiesOf('Molecules/Card', module)
   })))
   .add('Card Navigation Featured', withReadme(readme, () => ({
     components: { RplCardNavigationFeatured },
-    template: `<rpl-card-navigation-featured :title="title" :summary="summary" :url="url" :image="image" />`,
+    template: `<rpl-card-navigation-featured :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :url="url" />`,
     data () {
       return demoData.cardNavigationFeatured()
+    }
+  })))
+  .add('Card Image Navigation', withReadme(readme, () => ({
+    components: { RplCardImageNavigation },
+    template: `<rpl-card-image-navigation :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
+    data () {
+      return demoData.cardImageNavigation()
     }
   })))
   .add('Card Promotion', withReadme(readme, () => ({

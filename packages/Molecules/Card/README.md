@@ -30,6 +30,8 @@ See [Storybook/Card Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Mole
 
 See [Storybook/Card Navigation Featured](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Navigation%20Featured).
 
+See [Storybook/Card Image Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Image%20Navigation).
+
 See [Storybook/Card Promotion](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Promotion).
 
 See [Storybook/Card Keydates](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Keydates).

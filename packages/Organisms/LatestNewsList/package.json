@@ -1,0 +1,12 @@
+{
+  "name": "@dpc-sdp/ripple-latest-news-list",
+  "version": "1.0.0-alpha.14",
+  "description": "A component for displaying a featured news article with 2 sub articles.",
+  "license": "Apache-2.0",
+  "main": "index.vue",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/UpdatedDate",
+  "dependencies": {
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.14"
+  }
+}

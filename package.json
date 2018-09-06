@@ -39,6 +39,7 @@
     "@dpc-sdp/ripple-grid": "file:packages/Atoms/Grid",
     "@dpc-sdp/ripple-hero-banner": "file:packages/Organisms/HeroBanner",
     "@dpc-sdp/ripple-icon": "file:packages/Atoms/Icon",
+    "@dpc-sdp/ripple-latest-news-list": "file:packages/Organisms/LatestNewsList",
     "@dpc-sdp/ripple-layout": "file:packages/Molecules/Layout",
     "@dpc-sdp/ripple-link": "file:packages/Atoms/Link",
     "@dpc-sdp/ripple-meta-tag": "file:packages/Atoms/MetaTag",

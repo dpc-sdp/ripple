@@ -34,6 +34,8 @@ See [Storybook/Search Results](https://ripple.sdp.vic.gov.au/?selectedKind=Molec
 
 See [Storybook/Event Search Results](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Event%20Search%20Results).
 
+See [Storybook/Search Results](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Search%20Results).
+
 --------------------------------------------------------------------------------
 
 ## License

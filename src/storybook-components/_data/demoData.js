@@ -179,7 +179,7 @@ const demoData = {
     link: object('Link', { text: 'Read more', url: '#' }),
     image: text('Image', 'https://placehold.it/580x340'),
     border: boolean('Border', true),
-    type: selectV2('Type', {default: 'default', simple: 'simple'}, 'default'),
+    type: selectV2('Type', {default: 'default', simple: 'simple', inline: 'inline'}, 'default'),
     content: text('HTML content', '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>')
   }),
 
@@ -193,7 +193,18 @@ const demoData = {
     title: text('Title', 'This is display copy that wraps 2 lines'),
     summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
     url: text('Url', '#'),
-    image: text('Image', 'https://placehold.it/818x497')
+    image: text('Image', 'https://placehold.it/818x497'),
+    date: text('Date', '2018-03-23T09:00:00.000+10:00'),
+    topic: text('Topic', 'Community')
+  }),
+
+  cardImageNavigation: () => ({
+    image: text('Image', 'https://placehold.it/304x168'),
+    date: text('Date', '2018-03-23T09:00:00.000+10:00'),
+    topic: text('Topic', 'Community'),
+    title: text('Title', 'This heading could wrap over two lines'),
+    summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.'),
+    link: object('Link', { url: '#' })
   }),
 
   cardPromotion: () => ({
@@ -1335,6 +1346,35 @@ const demoData = {
       alt: 'A generic square placeholder image.'
     }),
     caption: text('Caption', '1.2 Caption to go here. This should be restricted in characters.')
+  }),
+
+  latestNewsList: () => ({
+    list: object('List', [
+      {
+        image: 'https://placehold.it/818x497',
+        date: '2018-03-23T09:00:00.000+10:00',
+        topic: 'Community',
+        title: 'This heading could wrap over two lines',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { url: '#' }
+      },
+      {
+        image: 'https://placehold.it/818x497',
+        date: '2018-03-23T09:00:00.000+10:00',
+        topic: 'Community',
+        title: 'This heading could wrap over two lines',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { url: '#' }
+      },
+      {
+        image: 'https://placehold.it/818x497',
+        date: '2018-03-23T09:00:00.000+10:00',
+        topic: 'Community',
+        title: 'This heading could wrap over two lines',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { url: '#' }
+      }
+    ])
   }),
 
   latestEvents: () => ({

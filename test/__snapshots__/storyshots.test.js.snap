@@ -3846,18 +3846,38 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
+<<<<<<< HEAD
     <div
       class="rpl-alert-base rpl-alert-base--color-danger"
       data-v-6ca0e090=""
+=======
+    <a
+      class="rpl-link rpl-card-content rpl-card-content--default rpl-card-content--has-link-text"
+      data-v-d5d40916=""
+      href="#"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
     >
       <!---->
        
       <div
         class="rpl-alert-base__content rpl-alert-base__content--color-white"
       >
+<<<<<<< HEAD
         <span>
           This is a placeholder component.
         </span>
+=======
+        <div>
+          <h2>
+            Custom Content
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+         
+        <!---->
+>>>>>>> [SDPA-614] Added LatestNewsList component.
       </div>
        
       <button
@@ -4063,9 +4083,16 @@ exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
+<<<<<<< HEAD
     <div
       class="rpl-alert-base rpl-alert-base--color-dark_neutral"
       data-v-6ca0e090=""
+=======
+    <a
+      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+      data-v-d5d40916=""
+      href="#"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
     >
       <!---->
        
@@ -4128,7 +4155,30 @@ exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
           <span
             class="hljs-string"
           >
+<<<<<<< HEAD
             "iconSymbol"
+=======
+            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte
+          </p>
+        </div>
+         
+        <p
+          class="rpl-card-event__location"
+        >
+          <!---->
+          South Yarra
+        </p>
+         
+        <!---->
+      </div>
+       
+      <div
+        class="rpl-card-content__link"
+      >
+        <span>
+          <span>
+            See event
+>>>>>>> [SDPA-614] Added LatestNewsList component.
           </span>
            
           <span
@@ -4277,6 +4327,7 @@ exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
         <tr
           data-v-91bb5cde=""
         >
+<<<<<<< HEAD
           <th
             data-v-91bb5cde=""
           >
@@ -4302,6 +4353,360 @@ exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
           </th>
         </tr>
       </thead>
+=======
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          en-au
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Card Card Image Navigation 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplCardImageNavigation
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-card-image-navigation :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <a
+      class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline"
+      data-v-d5d40916=""
+      href="#"
+    >
+      <div
+        class="rpl-card-content__image-wrapper"
+      >
+        <img
+          alt=""
+          class="rpl-card-content__image"
+          src="https://placehold.it/304x168"
+        />
+      </div>
+       
+      <div
+        class="rpl-card-content__details"
+      >
+        <div
+          class="rpl-card-image-navigation__details"
+        >
+          <div
+            class="rpl-card-image-navigation__meta"
+          >
+            <div
+              class="rpl-card-image-navigation__date"
+            >
+              23 March
+            </div>
+             
+            <div
+              class="rpl-card-image-navigation__tag"
+            >
+              Community
+            </div>
+          </div>
+           
+          <h2
+            class="rpl-card-image-navigation__title"
+          >
+            This heading could wrap over two lines
+          </h2>
+           
+          <p
+            class="rpl-card-image-navigation__summary"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </a>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          image
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          date
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          topic
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          title
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          summary
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          link
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          object
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Card Card Keydates 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplCardKeydates
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-card-keydates :title="title" :keydates="keydates" :link="link" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <a
+      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+      data-v-d5d40916=""
+      href="#"
+    >
+      <!---->
+>>>>>>> [SDPA-614] Added LatestNewsList component.
        
       <tbody
         data-v-91bb5cde=""
@@ -4361,8 +4766,25 @@ exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
           <td
             data-v-5bd9cdea=""
           >
+<<<<<<< HEAD
             white
           </td>
+=======
+            National day of remembrance to commemorate the ANZACs.
+          </p>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <div
+        class="rpl-card-content__link"
+      >
+        <span>
+          <span>
+            See the events
+          </span>
+>>>>>>> [SDPA-614] Added LatestNewsList component.
            
           <td
             data-v-5bd9cdea=""
@@ -4537,9 +4959,16 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
+<<<<<<< HEAD
     <div
       class="rpl-anchor-links"
       data-v-6ca0e090=""
+=======
+    <a
+      class="rpl-link rpl-card-content rpl-card-navigation rpl-card-content--no-image rpl-card-content--simple rpl-card-content--has-link-text"
+      data-v-d5d40916=""
+      href="#"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
     >
       <div
         class="rpl-anchor-links__row"
@@ -4549,6 +4978,17 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
         >
           On this page:
         </h2>
+<<<<<<< HEAD
+=======
+         
+        <p
+          class="rpl-card-navigation__summary"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+         
+        <!---->
+>>>>>>> [SDPA-614] Added LatestNewsList component.
       </div>
        
       <div
@@ -4557,6 +4997,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
         <ul
           class="rpl-anchor-links__items"
         >
+<<<<<<< HEAD
           <li
             class="rpl-anchor-links__item"
           >
@@ -4701,6 +5142,54 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
   </div>
    
   <!---->
+=======
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Card Card Navigation Featured 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplCardNavigationFeatured
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-card-navigation-featured :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :url="url" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+>>>>>>> [SDPA-614] Added LatestNewsList component.
    
   <div
     data-v-6ca0e090=""
@@ -4721,6 +5210,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
       <code
         data-v-b425eb9a=""
       >
+<<<<<<< HEAD
         <span
           class="hljs-tag"
         >
@@ -4758,6 +5248,51 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
         </span>
       </code>
     </pre>
+=======
+        <img
+          alt=""
+          class="rpl-card-navigation-featured__image"
+          src="https://placehold.it/818x497"
+        />
+         
+        <div
+          class="rpl-card-navigation-featured__meta_and_title"
+        >
+          <div
+            class="rpl-card-navigation-featured__meta"
+          >
+            <span
+              class="rpl-card-navigation-featured__date"
+            >
+              23 March
+            </span>
+             
+            <span
+              class="rpl-card-navigation-featured__tag"
+            >
+              Community
+            </span>
+          </div>
+           
+          <h2
+            class="rpl-card-navigation-featured__title"
+          >
+            <span>
+              This is display copy that wraps 2 lines
+            </span>
+          </h2>
+        </div>
+      </div>
+       
+      <p
+        class="rpl-card-navigation-featured__summary"
+      >
+        We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
+      </p>
+       
+      <!---->
+    </a>
+>>>>>>> [SDPA-614] Added LatestNewsList component.
   </div>
    
   <h2
@@ -4826,11 +5361,79 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
           data-v-5bd9cdea=""
           data-v-91bb5cde=""
         >
+<<<<<<< HEAD
           <td
             data-v-5bd9cdea=""
           >
             
     title
+=======
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          date
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          topic
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Card Card Promotion 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+>>>>>>> [SDPA-614] Added LatestNewsList component.
     
             <!---->
           </td>
@@ -4924,9 +5527,16 @@ exports[`RippleStoryshots Molecules/Breadcrumbs Breadcrumbs 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
+<<<<<<< HEAD
     <div
       class="rpl-breadcrumbs"
       data-v-6ca0e090=""
+=======
+    <a
+      class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
+      data-v-d5d40916=""
+      href="#"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
     >
       <div
         class="rpl-breadcrumbs__row"
@@ -5006,7 +5616,23 @@ exports[`RippleStoryshots Molecules/Breadcrumbs Breadcrumbs 1`] = `
           <span
             class="hljs-attr"
           >
+<<<<<<< HEAD
             :crumbs
+=======
+            We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
+          </p>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <div
+        class="rpl-card-content__link"
+      >
+        <span>
+          <span>
+            Read
+>>>>>>> [SDPA-614] Added LatestNewsList component.
           </span>
           =
           <span
@@ -26191,11 +26817,491 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
       class="rpl-content rpl-content--with-sidebar"
       id="rpl-main-content"
     >
+<<<<<<< HEAD
       <div
         class="rpl-container rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
+=======
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          title
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          introText
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          linkHeading
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          links
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          array
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          moreLink
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          object
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          theme
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          light
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          showLinks
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          boolean
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          true
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          backgroundGraphic
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/LatestNewsList Latest News List 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplLatestNewsList
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-latest-news-list :list="list" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <ul
+      class="rpl-latest-news-list"
+      data-v-d5d40916=""
+    >
+      <li
+        class="rpl-latest-news-list__item"
+      >
+        <a
+          class="rpl-link rpl-card-navigation-featured"
+          href="#"
+        >
+          <div
+            class="rpl-card-navigation-featured__inner"
+          >
+            <img
+              alt=""
+              class="rpl-card-navigation-featured__image"
+              src="https://placehold.it/818x497"
+            />
+             
+            <div
+              class="rpl-card-navigation-featured__meta_and_title"
+            >
+              <div
+                class="rpl-card-navigation-featured__meta"
+              >
+                <span
+                  class="rpl-card-navigation-featured__date"
+                >
+                  23 March
+                </span>
+                 
+                <span
+                  class="rpl-card-navigation-featured__tag"
+                >
+                  Community
+                </span>
+              </div>
+               
+              <h2
+                class="rpl-card-navigation-featured__title"
+              >
+                <span>
+                  This heading could wrap over two lines
+                </span>
+              </h2>
+            </div>
+          </div>
+           
+          <p
+            class="rpl-card-navigation-featured__summary"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+           
+          <!---->
+        </a>
+      </li>
+      <li
+        class="rpl-latest-news-list__item"
+      >
+        <a
+          class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline"
+          href="#"
+        >
+          <div
+            class="rpl-card-content__image-wrapper"
+          >
+            <img
+              alt=""
+              class="rpl-card-content__image"
+              src="https://placehold.it/818x497"
+            />
+          </div>
+           
+          <div
+            class="rpl-card-content__details"
+          >
+            <div
+              class="rpl-card-image-navigation__details"
+            >
+              <div
+                class="rpl-card-image-navigation__meta"
+              >
+                <div
+                  class="rpl-card-image-navigation__date"
+                >
+                  23 March
+                </div>
+                 
+                <div
+                  class="rpl-card-image-navigation__tag"
+                >
+                  Community
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-image-navigation__title"
+              >
+                This heading could wrap over two lines
+              </h2>
+               
+              <p
+                class="rpl-card-image-navigation__summary"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+        </a>
+      </li>
+      <li
+        class="rpl-latest-news-list__item"
+      >
+        <a
+          class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline"
+          href="#"
+        >
+          <div
+            class="rpl-card-content__image-wrapper"
+          >
+            <img
+              alt=""
+              class="rpl-card-content__image"
+              src="https://placehold.it/818x497"
+            />
+          </div>
+           
+          <div
+            class="rpl-card-content__details"
+          >
+            <div
+              class="rpl-card-image-navigation__details"
+            >
+              <div
+                class="rpl-card-image-navigation__meta"
+              >
+                <div
+                  class="rpl-card-image-navigation__date"
+                >
+                  23 March
+                </div>
+                 
+                <div
+                  class="rpl-card-image-navigation__tag"
+                >
+                  Community
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-image-navigation__title"
+              >
+                This heading could wrap over two lines
+              </h2>
+               
+              <p
+                class="rpl-card-image-navigation__summary"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+        </a>
+      </li>
+    </ul>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          list
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          array
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+>>>>>>> [SDPA-614] Added LatestNewsList component.
         >
           <div
             class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
@@ -29646,6 +30752,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-link rpl-text-link"
                     href="#"
                   >
+<<<<<<< HEAD
                     <span>
                       <span>
                         Australian Indigenous Tourism
@@ -29670,6 +30777,51 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               <div>
                 <span
                   class="rpl-news-listing__item-date"
+=======
+                    <img
+                      alt=""
+                      class="rpl-card-navigation-featured__image"
+                      src="https://placehold.it/818x497"
+                    />
+                     
+                    <div
+                      class="rpl-card-navigation-featured__meta_and_title"
+                    >
+                      <!---->
+                       
+                      <h2
+                        class="rpl-card-navigation-featured__title"
+                      >
+                        <span>
+                          This is display copy that wraps 2 lines
+                        </span>
+                      </h2>
+                    </div>
+                  </div>
+                   
+                  <p
+                    class="rpl-card-navigation-featured__summary"
+                  >
+                    We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
+                  </p>
+                   
+                  <!---->
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <!---->
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
                 >
                   25 March 2018
                 </span>
@@ -29695,6 +30847,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <span
                         class="rpl-text-icon__group"
                       >
+<<<<<<< HEAD
                          Out
                         <!---->
                       </span>
@@ -29727,6 +30880,17 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   <a
                     class="rpl-link rpl-text-link"
                     href="#"
+=======
+                        We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
                   >
                     <span>
                       <span>
@@ -29745,6 +30909,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   </a>
                 </h3>
               </div>
+<<<<<<< HEAD
             </li>
             <li
               class="rpl-news-listing__item"
@@ -29752,6 +30917,15 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               <div>
                 <span
                   class="rpl-news-listing__item-date"
+=======
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
                 >
                   22 February 2018
                 </span>
@@ -29822,6 +30996,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         <!---->
                       </span>
                        
+<<<<<<< HEAD
                       <!---->
                     </span>
                   </a>
@@ -29850,6 +31025,20 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   <a
                     class="rpl-link rpl-text-link"
                     href="#"
+=======
+                      <p
+                        class="rpl-card-keydates__keydate-description"
+                      >
+                        National day of remembrance to commemorate the ANZACs.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
                   >
                     <span>
                       <span>
@@ -30057,9 +31246,89 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               </li>
               <li>
                 <a
+<<<<<<< HEAD
                   class="rpl-link"
                 >
                   Health
+=======
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <div
+                    class="rpl-card-content__image-wrapper"
+                  >
+                    <img
+                      alt=""
+                      class="rpl-card-content__image"
+                      src="https://placehold.it/580x340"
+                    />
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-event__meta"
+                    >
+                      <div
+                        class="rpl-card-event__date"
+                      >
+                        10 July
+                      </div>
+                       
+                      <div
+                        class="rpl-card-promotion__tag"
+                      >
+                        
+                      </div>
+                    </div>
+                     
+                    <h2
+                      class="rpl-card-event__title"
+                    >
+                      This is the headline of an event with a location that will stretch over over 3 lines
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-event__trim-wrapper"
+                      style="max-height: none;"
+                    >
+                      <p
+                        class="rpl-card-event__summary"
+                      >
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte
+                      </p>
+                    </div>
+                     
+                    <p
+                      class="rpl-card-event__location"
+                    >
+                      <!---->
+                      South Yarra
+                    </p>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        See event
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         details
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+>>>>>>> [SDPA-614] Added LatestNewsList component.
                 </a>
               </li>
               <li>
@@ -30140,6 +31409,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             >
               <li>
                 <a
+<<<<<<< HEAD
                   class="rpl-link"
                 >
                   Education
@@ -30187,13 +31457,165 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   class="rpl-link"
                 >
                   Privacy
+=======
+                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <div
+                    class="rpl-card-content__image-wrapper"
+                  >
+                    <img
+                      alt=""
+                      class="rpl-card-content__image"
+                      src="https://placehold.it/580x340"
+                    />
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-promotion__meta"
+                    >
+                      <div
+                        class="rpl-card-promotion__date"
+                      >
+                        10 July
+                      </div>
+                       
+                      <div
+                        class="rpl-card-promotion__tag"
+                      >
+                        
+                      </div>
+                    </div>
+                     
+                    <h2
+                      class="rpl-card-promotion__title"
+                    >
+                      This is display copy that wraps 2 lines
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-promotion__trim-wrapper"
+                      style="max-height: none;"
+                    >
+                      <p
+                        class="rpl-card-promotion__summary"
+                      >
+                        We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        Read
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         more
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+>>>>>>> [SDPA-614] Added LatestNewsList component.
                 </a>
               </li>
               <li>
                 <a
+<<<<<<< HEAD
                   class="rpl-link"
                 >
                   Disclaimer
+=======
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <div
+                    class="rpl-card-content__image-wrapper"
+                  >
+                    <img
+                      alt=""
+                      class="rpl-card-content__image"
+                      src="https://placehold.it/580x340"
+                    />
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-event__meta"
+                    >
+                      <div
+                        class="rpl-card-event__date"
+                      >
+                        10 July
+                      </div>
+                       
+                      <div
+                        class="rpl-card-promotion__tag"
+                      >
+                        
+                      </div>
+                    </div>
+                     
+                    <h2
+                      class="rpl-card-event__title"
+                    >
+                      This is the headline of an event with a location that will stretch over over 3 lines
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-event__trim-wrapper"
+                      style="max-height: none;"
+                    >
+                      <p
+                        class="rpl-card-event__summary"
+                      >
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte
+                      </p>
+                    </div>
+                     
+                    <p
+                      class="rpl-card-event__location"
+                    >
+                      <!---->
+                      South Yarra
+                    </p>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        See event
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         details
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+>>>>>>> [SDPA-614] Added LatestNewsList component.
                 </a>
               </li>
               <li>
@@ -30303,6 +31725,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                 class="rpl-link"
                 href="#"
               >
+<<<<<<< HEAD
                 <img
                   alt="vic.gov.au"
                   src="/logo.svg"
@@ -30353,6 +31776,11 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
               >
                 <ul
                   class="rpl-breadcrumbs__items"
+=======
+                <a
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
                 >
                   <li
                     class="rpl-breadcrumbs__item"
@@ -30371,11 +31799,42 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                       class="rpl-link rpl-breadcrumbs__link"
                       href="#"
                     >
+<<<<<<< HEAD
                       Level 1 page title
                     </a>
                   </li>
                   <li
                     class="rpl-breadcrumbs__item"
+=======
+                      <div
+                        class="rpl-card-keydates__keydate-date"
+                      >
+                        <!---->
+                         
+                        <span>
+                          23 April
+                        </span>
+                      </div>
+                       
+                      <h3
+                        class="rpl-card-keydates__keydate-title"
+                      >
+                        ANZAC Day
+                      </h3>
+                       
+                      <p
+                        class="rpl-card-keydates__keydate-description"
+                      >
+                        National day of remembrance to commemorate the ANZACs.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+>>>>>>> [SDPA-614] Added LatestNewsList component.
                   >
                     <span
                       class="rpl-breadcrumbs__text"

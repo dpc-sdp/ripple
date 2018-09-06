@@ -28,6 +28,13 @@ $rpl-normalize: true !default;
       @include rpl_typography(heading_xs)
     }
     // More global element styles here
+
+    // Our custom Vicfont is already bold,
+    // this will make all browsers render the font more consistently.
+    // See: https://stormconsultancy.co.uk/blog/development/tips-tricks/dealing-with-firefox-rendering-fonts-too-bold-with-browser-specific-css/
+    h1, h2, h3, h4, h5 {
+      font-weight: normal;
+    }
   }
 }
 
@@ -43,23 +50,11 @@ $rpl-normalize: true !default;
   @include rpl_body('global');
 }
 
-
 // Fix fonts that render as bold in Firefox.
 // See https://www.lockedownseo.com/firefox-font-weight-too-bold/
-
 html {
   // sass-lint:disable-block no-vendor-prefixes no-misspelled-properties
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  font-weight: 400;
-}
-
-// Firefox specific rule.
-// See: https://www.lockedownseo.com/firefox-font-weight-too-bold/
-// sass-lint:disable no-vendor-prefixes, no-important
-@-moz-document url-prefix() {
-  body {
-    font-weight: lighter !important;
-  }
 }

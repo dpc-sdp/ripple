@@ -5,7 +5,7 @@
       class="rpl-above-content-container"
       :class="{ 'rpl-above-content-container--with-bg': heroBackgroundImage }"
     >
-      <div class="rpl-above-content" :style="{ 'background-image': `url(${this.backgroundGraphic})` }">
+      <div class="rpl-above-content" :style="bgGraphic">
         <div class="rpl-above-content__inner" :style="backgroundImage">
           <slot name="aboveContent"></slot>
         </div>
@@ -60,6 +60,9 @@ export default {
       }
 
       return {}
+    },
+    bgGraphic () {
+      return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
     }
   }
 }

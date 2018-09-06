@@ -21,7 +21,7 @@ storiesOf('Molecules/Layout', module)
   })))
   .add('Page Layout', withReadme(readme, () => ({
     components: { RplPageLayout },
-    template: `<rpl-page-layout backgroundGraphic="/bggraphic.png">
+    template: `<rpl-page-layout>
   <template slot="aboveContent">Above content</template>
   <p>This is page content</p>
   <template slot="belowContent">Below content</template>
@@ -29,7 +29,7 @@ storiesOf('Molecules/Layout', module)
   })))
   .add('Page Layout with Sidebar', withReadme(readme, () => ({
     components: { RplPageLayout },
-    template: `<rpl-page-layout sidebar backgroundGraphic="/bggraphic.png">
+    template: `<rpl-page-layout sidebar>
   <template slot="aboveContent">Above content</template>
   <p>This is page content</p>
   <template slot="sidebar">sidebar content</template>

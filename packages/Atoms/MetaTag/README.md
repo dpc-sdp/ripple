@@ -24,16 +24,10 @@ npm install @dpc-sdp/ripple-meta-tag --save
 
 ## Usage and Tests
 
-See [Storybook/Meta Tag](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/MetaTag&selectedStory=Meta%20Tag).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Meta Tag](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/MetaTag&selectedStory=Meta%20Tag).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

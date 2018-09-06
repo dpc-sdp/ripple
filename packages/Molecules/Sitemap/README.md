@@ -24,16 +24,10 @@ npm install @dpc-sdp/ripple-sitemap --save
 
 ## Usage and Tests
 
-See [Storybook/Sitemap](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Sitemap&selectedStory=Sitemap).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Sitemap](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Sitemap&selectedStory=Sitemap).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

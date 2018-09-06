@@ -106,10 +106,14 @@ export default {
   ) !default;
   $rpl-search-form-show-filters-ruleset: ('s', .87em, 'bold') !default;
   $rpl-search-form-show-filters-text-color: rpl-color('primary') !default;
-  $rpl-search-form-filters-margin: ($rpl-space * 12) 0 0 0 !default;
 
   .rpl-search-form {
     $root: &;
+    @include rpl_mobile_padding();
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     h1 {
       @include rpl_typography_ruleset($rpl-search-form-heading-ruleset);
@@ -161,10 +165,6 @@ export default {
       @include rpl_visually_hidden;
     }
 
-    &__filters {
-      margin: $rpl-search-form-filters-margin;
-    }
-
     &__field {
       position: relative;
       display: flex;
@@ -201,6 +201,7 @@ export default {
       background: transparent;
       border: 0;
       margin-left: auto;
+      margin-bottom: $rpl-space * 12;
       display: block;
       cursor: pointer;
 

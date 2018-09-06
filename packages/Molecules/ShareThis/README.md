@@ -25,16 +25,10 @@ npm install @dpc-sdp/ripple-share-this --save
 
 ## Usage and Tests
 
-See [Storybook/Share this](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/ShareThis&selectedStory=Share%20this).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Share this](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/ShareThis&selectedStory=Share%20this).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

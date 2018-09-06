@@ -25,18 +25,12 @@ npm install @dpc-sdp/ripple-link --save
 
 ## Usage and Tests
 
-See [Storybook/Link](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Link).
+See [Storybook/Link](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Link&selectedStory=Link).
 
-See [Storybook/Text Link](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Atoms/Link&selectedStory=Text%20Link).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Text Link](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Link&selectedStory=Text%20Link).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

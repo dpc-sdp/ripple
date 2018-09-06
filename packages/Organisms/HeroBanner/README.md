@@ -25,16 +25,10 @@ npm install @dpc-sdp/ripple-hero-banner --save
 
 ## Usage and Tests
 
-See [Storybook/Hero Banner](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/HeroBanner&selectedStory=Hero%20Banner).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Hero Banner](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/HeroBanner&selectedStory=Hero%20Banner).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

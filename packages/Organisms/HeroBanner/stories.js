@@ -19,6 +19,10 @@ storiesOf('Organisms/HeroBanner', module)
   :title="title" :introText="introText"
   :linkHeading="linkHeading" :links="links"
   :moreLink="moreLink"
+  :theme="theme"
+  :showLinks="showLinks"
+  :logo="logo"
+  :backgroundGraphic="backgroundGraphic"
   class="rpl-site-constrain--on-all"
 />`,
     data () {

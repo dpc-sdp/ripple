@@ -19,6 +19,7 @@ storiesOf('Organisms/SiteFooter', module)
 :nav="nav"
 :links="links"
 :copyright="copyright"
+:acknowledgement="acknowledgement"
 />`,
     data () {
       return demoData.footer()

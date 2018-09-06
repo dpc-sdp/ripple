@@ -25,16 +25,10 @@ npm install @dpc-sdp/ripple-call-to-action --save
 
 ## Usage and Tests
 
-See [Storybook/Call to Action](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Organisms/CallToAction&selectedStory=Call%20to%20Action).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Call to Action](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CallToAction&selectedStory=Call%20to%20Action).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

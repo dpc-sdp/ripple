@@ -24,16 +24,10 @@ npm install @dpc-sdp/ripple-embedded-video --save
 
 ## Usage and Tests
 
-See [Storybook/Embedded Video](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/EmbeddedVideo&selectedStory=Embedded%20Video).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Embedded Video](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/EmbeddedVideo&selectedStory=Embedded%20Video).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

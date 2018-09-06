@@ -24,16 +24,10 @@ npm install @dpc-sdp/ripple-news-listing --save
 
 ## Usage and Tests
 
-See [Storybook/News Listing](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/NewsListing&selectedStory=News%20Listing).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/News Listing](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/NewsListing&selectedStory=News%20Listing).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

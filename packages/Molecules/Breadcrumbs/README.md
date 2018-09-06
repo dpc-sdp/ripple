@@ -25,16 +25,10 @@ npm install @dpc-sdp/ripple-breadcrumbs --save
 
 ## Usage and Tests
 
-See [Storybook/Breadcrumbs](https://storybook-ripple-master.lagoon.vicsdp.amazee.io/?selectedKind=Molecules/Breadcrumbs&selectedStory=Breadcrumbs).
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
+See [Storybook/Breadcrumbs](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Breadcrumbs&selectedStory=Breadcrumbs).
 
 --------------------------------------------------------------------------------
 
 ## License
 
-Licensed under the GPL-2.0+ License.
+Licensed under the Apache-2.0 License.

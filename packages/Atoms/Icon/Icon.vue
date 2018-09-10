@@ -1,6 +1,6 @@
 <template>
   <svg v-if="validSymbol" :class="iconClass" :style="iconStyle" aria-hidden="true">
-    <use :xlink:href="'#' + symbol"></use>
+    <use :xlink:href="'#' + iconPrefix + symbol"></use>
   </svg>
 </template>
 
@@ -33,6 +33,7 @@ export default {
   },
   data: function () {
     return {
+      iconPrefix: 'rpl_icon_',
       iconProperties: iconProps,
       sizes: {
         's': 0.5,
@@ -45,7 +46,7 @@ export default {
   },
   computed: {
     validSymbol () {
-      return (this.symbol && this.iconProperties[this.symbol] !== undefined)
+      return (this.symbol && this.iconProperties[this.iconPrefix + this.symbol] !== undefined)
     },
     iconClass () {
       let rtn = (this.validSymbol) ? `rpl-icon rpl-icon--${this.symbol}` : ''
@@ -53,7 +54,7 @@ export default {
     },
     iconStyle () {
       if (this.validSymbol) {
-        const { width, height } = this.iconProperties[this.symbol]
+        const { width, height } = this.iconProperties[this.iconPrefix + this.symbol]
         let size = (this.sizes[this.size] === undefined) ? parseFloat(this.size) : this.sizes[this.size]
         size = isNaN(size) ? 1 : size
         return `width: ${width * size}px; height: ${height * size}px`

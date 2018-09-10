@@ -26,6 +26,11 @@ $rpl-typography: (
     font-size: $font-size;
   }
   line-height: $line-height;
+  // The custom Vicfont has fixed font weight,
+  // so we set this to always normal,
+  // this will make all browsers render the font more consistently.
+  // See: https://stormconsultancy.co.uk/blog/development/tips-tricks/dealing-with-firefox-rendering-fonts-too-bold-with-browser-specific-css/
+  font-weight: normal;
 }
 
 @mixin rpl_display_background {

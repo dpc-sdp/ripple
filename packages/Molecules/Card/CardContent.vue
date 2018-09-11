@@ -215,6 +215,8 @@ export default {
     }
 
     &__details {
+      width: 100%;
+
       #{$root}--default & {
         padding: $rpl-card-content-default-details-padding-xs;
         @include rpl_breakpoint('s') {

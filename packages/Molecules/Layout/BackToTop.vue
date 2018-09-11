@@ -32,8 +32,10 @@ export default {
   },
   methods: {
     setScrollVisibility () {
+      let scrollY = window.scrollY || window.pageYOffset
+
       // Enable / Disable sticky on button.
-      if (window.scrollY > (this.$el.offsetTop + this.$el.offsetHeight - window.innerHeight)) {
+      if (scrollY > (this.$el.offsetTop + this.$el.offsetHeight - window.innerHeight)) {
         if (this.sticky) {
           this.sticky = false
         }
@@ -42,7 +44,7 @@ export default {
       }
 
       // Show / Hide button.
-      if (window.scrollY > this.stickyPos) {
+      if (scrollY > this.stickyPos) {
         if (!this.show) {
           this.show = true
         }

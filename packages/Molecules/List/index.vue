@@ -61,14 +61,7 @@ export default {
 
   .rpl-list {
     $root: &;
-    @include rpl_mobile_padding;
     color: $rpl-list-text-color;
-    position: relative;
-
-    @include rpl_breakpoint('l') {
-      padding-left: 0;
-      padding-right: 0;
-    }
 
     &__title {
       color: $rpl-list-title-color;
@@ -86,16 +79,10 @@ export default {
 
     &__list {
       display: table;
-      padding: 0;
-      margin: 0;
     }
 
     &__list-item {
       display: table-row;
-
-      &:first-of-type {
-        margin-top: 0;
-      }
     }
 
     &__icon {

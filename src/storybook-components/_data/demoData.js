@@ -210,6 +210,111 @@ const demoData = {
     link: object('Link', { text: 'See event details', url: '#' })
   }),
 
+  cardCarousel: () => ({
+    title: text('Title', 'Featured Content'),
+    cards: [
+      {
+        name: 'rpl-card-event',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          location: 'South Yarra',
+          title: 'This is the headline of an event',
+          summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte',
+          link: { text: 'See event details', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-keydates',
+        data: {
+          title: 'Key calendar dates',
+          keydates: [
+            { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+            { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+          ],
+          link: { text: 'See the events calendar', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-promotion',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          topic: 'News',
+          title: 'This is display copy that wraps 2 lines',
+          summary: 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.',
+          link: { text: 'Read more', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-event',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          location: 'South Yarra',
+          title: 'This is the headline of an event',
+          summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte',
+          link: { text: 'See event details', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-event',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          location: 'South Yarra',
+          title: 'This is the headline of an event',
+          summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte',
+          link: { text: 'See event details', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-keydates',
+        data: {
+          title: 'Key calendar dates',
+          keydates: [
+            { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+            { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+          ],
+          link: { text: 'See the events calendar', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-promotion',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          topic: 'News',
+          title: 'This is display copy that wraps 2 lines',
+          summary: 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.',
+          link: { text: 'Read more', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-keydates',
+        data: {
+          title: 'Key calendar dates',
+          keydates: [
+            { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+            { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+          ],
+          link: { text: 'See the events calendar', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-keydates',
+        data: {
+          title: 'Key calendar dates',
+          keydates: [
+            { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+            { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+          ],
+          link: { text: 'See the events calendar', url: '#' }
+        }
+      }
+    ]
+  }),
+
   relatedLinks: () => ({
     title: text('Title', 'Related links'),
     links: object('Links', [

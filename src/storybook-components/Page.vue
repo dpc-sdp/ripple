@@ -100,6 +100,9 @@
 
       <template slot="belowContent">
         <div class="rpl-site-constrain--on-all">
+          <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
+        </div>
+        <div class="rpl-site-constrain--on-all">
           <rpl-campaign-secondary :title="mock.campaignSecondary.title" :summary="mock.campaignSecondary.summary" :link="mock.campaignSecondary.link" :image="mock.campaignSecondary.image" />
         </div>
         <div class="rpl-site-constrain--on-all">
@@ -141,7 +144,7 @@ import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 // Card
-import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent } from '@dpc-sdp/ripple-card'
+import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCarousel } from '@dpc-sdp/ripple-card'
 
 // Campaign
 import RplCampaignPrimary from '@dpc-sdp/ripple-campaign-primary'
@@ -183,6 +186,7 @@ export default {
     RplCardPromotion,
     RplCardKeydates,
     RplCardEvent,
+    RplCardCarousel,
 
     // Campaign
     RplCampaignPrimary,

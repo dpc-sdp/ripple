@@ -141,7 +141,7 @@ import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 // Card
-import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent } from '@dpc-sdp/ripple-card'
+import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardMasonry } from '@dpc-sdp/ripple-card'
 
 // Campaign
 import RplCampaignPrimary from '@dpc-sdp/ripple-campaign-primary'
@@ -183,6 +183,7 @@ export default {
     RplCardPromotion,
     RplCardKeydates,
     RplCardEvent,
+    RplCardMasonry,
 
     // Campaign
     RplCampaignPrimary,

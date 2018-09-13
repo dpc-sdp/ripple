@@ -38,6 +38,8 @@ See [Storybook/Card Event](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules
 
 See [Storybook/Card Cta](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Cta).
 
+See [Storybook/Card Masonry](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Masonry).
+
 See [Storybook/Card Content (base)](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Content%20(base)).
 
 --------------------------------------------------------------------------------

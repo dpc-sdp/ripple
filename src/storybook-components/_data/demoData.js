@@ -154,6 +154,19 @@ const demoData = {
     backgroundGraphic: text('Background Graphic', '/bggraphiclower.png')
   }),
 
+  introBanner: () => ({
+    title: text('Title', 'Welcome to Victoria Police Museum'),
+    introText: text('Intro Text', 'From the largest collection of Kelly Gang armour in Australia to forensic evidence from some of Melbourne\'s most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.'),
+    linkHeading: text('Link Heading', ''),
+    links: object('Links', [
+      { text: 'Plan your visit', url: '#' },
+      { text: 'Collections', url: '#' },
+      { text: 'School Programs', url: '#' },
+      { text: 'Group Bookings', url: '#' }
+    ]),
+    showLinks: boolean('Show Links', true)
+  }),
+
   breadcrumbs: () => ({
     crumbs: object('Crumbs', [
       { text: 'Home', url: '#' },

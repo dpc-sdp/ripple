@@ -6,7 +6,8 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import RplHeroBanner from './index.vue'
+import RplHeroBanner from './HeroBanner.vue'
+import RplIntroBanner from './IntroBanner.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
@@ -27,5 +28,17 @@ storiesOf('Organisms/HeroBanner', module)
 />`,
     data () {
       return demoData.heroBanner()
+    }
+  })))
+  .add('Intro Banner', withReadme(readme, () => ({
+    components: { RplIntroBanner },
+    template: `<rpl-intro-banner
+  :title="title" :introText="introText"
+  :linkHeading="linkHeading" :links="links"
+  :showLinks="showLinks"
+  class="rpl-site-constrain--on-all"
+/>`,
+    data () {
+      return demoData.introBanner()
     }
   })))

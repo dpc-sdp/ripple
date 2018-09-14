@@ -186,6 +186,8 @@ export default {
     RplCardPromotion,
     RplCardKeydates,
     RplCardEvent,
+    RplCardCta,
+    RplCardCarousel,
 
     // Campaign
     RplCampaignPrimary,

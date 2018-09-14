@@ -3015,7 +3015,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <div
@@ -3070,6 +3070,8 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       <!---->
                       South Yarra
                     </p>
+                     
+                    <!---->
                   </div>
                    
                   <div
@@ -3097,7 +3099,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -3161,6 +3163,8 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                         National day of remembrance to commemorate the ANZACs.
                       </p>
                     </div>
+                     
+                    <!---->
                   </div>
                    
                   <div
@@ -3188,7 +3192,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default"
+                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <div
@@ -3236,6 +3240,8 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                         We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
                       </p>
                     </div>
+                     
+                    <!---->
                   </div>
                    
                   <div
@@ -3263,7 +3269,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <div
@@ -3318,6 +3324,8 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       <!---->
                       South Yarra
                     </p>
+                     
+                    <!---->
                   </div>
                    
                   <div
@@ -3345,7 +3353,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <div
@@ -3400,6 +3408,8 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       <!---->
                       South Yarra
                     </p>
+                     
+                    <!---->
                   </div>
                    
                   <div
@@ -3427,7 +3437,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -3491,6 +3501,8 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                         National day of remembrance to commemorate the ANZACs.
                       </p>
                     </div>
+                     
+                    <!---->
                   </div>
                    
                   <div
@@ -3518,7 +3530,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default"
+                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <div
@@ -3566,6 +3578,8 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                         We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
                       </p>
                     </div>
+                     
+                    <!---->
                   </div>
                    
                   <div
@@ -3593,7 +3607,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -3657,6 +3671,8 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                         National day of remembrance to commemorate the ANZACs.
                       </p>
                     </div>
+                     
+                    <!---->
                   </div>
                    
                   <div
@@ -3684,7 +3700,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -3748,6 +3764,8 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                         National day of remembrance to commemorate the ANZACs.
                       </p>
                     </div>
+                     
+                    <!---->
                   </div>
                    
                   <div
@@ -16227,7 +16245,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             tabindex="-1"
                           >
                             <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default"
+                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                               href="#"
                             >
                               <div
@@ -16282,6 +16300,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                                   <!---->
                                   South Yarra
                                 </p>
+                                 
+                                <!---->
                               </div>
                                
                               <div
@@ -16309,7 +16329,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             tabindex="-1"
                           >
                             <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
+                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                               href="#"
                             >
                               <!---->
@@ -16373,6 +16393,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                                     National day of remembrance to commemorate the ANZACs.
                                   </p>
                                 </div>
+                                 
+                                <!---->
                               </div>
                                
                               <div
@@ -16400,7 +16422,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             tabindex="-1"
                           >
                             <a
-                              class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default"
+                              class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                               href="#"
                             >
                               <div
@@ -16448,6 +16470,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                                     We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
                                   </p>
                                 </div>
+                                 
+                                <!---->
                               </div>
                                
                               <div
@@ -16475,7 +16499,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             tabindex="-1"
                           >
                             <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default"
+                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                               href="#"
                             >
                               <div
@@ -16530,6 +16554,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                                   <!---->
                                   South Yarra
                                 </p>
+                                 
+                                <!---->
                               </div>
                                
                               <div
@@ -16557,7 +16583,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             tabindex="-1"
                           >
                             <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default"
+                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                               href="#"
                             >
                               <div
@@ -16612,6 +16638,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                                   <!---->
                                   South Yarra
                                 </p>
+                                 
+                                <!---->
                               </div>
                                
                               <div
@@ -16639,7 +16667,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             tabindex="-1"
                           >
                             <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
+                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                               href="#"
                             >
                               <!---->
@@ -16703,6 +16731,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                                     National day of remembrance to commemorate the ANZACs.
                                   </p>
                                 </div>
+                                 
+                                <!---->
                               </div>
                                
                               <div
@@ -16730,7 +16760,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             tabindex="-1"
                           >
                             <a
-                              class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default"
+                              class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                               href="#"
                             >
                               <div
@@ -16778,6 +16808,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                                     We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
                                   </p>
                                 </div>
+                                 
+                                <!---->
                               </div>
                                
                               <div
@@ -16805,7 +16837,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             tabindex="-1"
                           >
                             <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
+                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                               href="#"
                             >
                               <!---->
@@ -16869,6 +16901,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                                     National day of remembrance to commemorate the ANZACs.
                                   </p>
                                 </div>
+                                 
+                                <!---->
                               </div>
                                
                               <div
@@ -16896,7 +16930,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             tabindex="-1"
                           >
                             <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default"
+                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                               href="#"
                             >
                               <!---->
@@ -16960,6 +16994,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                                     National day of remembrance to commemorate the ANZACs.
                                   </p>
                                 </div>
+                                 
+                                <!---->
                               </div>
                                
                               <div

@@ -56,6 +56,9 @@
 
       <rpl-row row-gutter class="demo-main">
         <rpl-col cols="full" :colsBp="defaultCols">
+          <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
+        </rpl-col>
+        <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-anchor-links :title="mock.anchorLinks.title" :links="mock.anchorLinks.links" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
@@ -99,9 +102,6 @@
       </template>
 
       <template slot="belowContent">
-        <div class="rpl-site-constrain--on-all">
-          <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
-        </div>
         <div class="rpl-site-constrain--on-all">
           <rpl-campaign-secondary :title="mock.campaignSecondary.title" :summary="mock.campaignSecondary.summary" :link="mock.campaignSecondary.link" :image="mock.campaignSecondary.image" />
         </div>

@@ -212,7 +212,7 @@ const demoData = {
 
   cardCarousel: () => ({
     title: text('Title', 'Featured Content'),
-    cards: [
+    cards: object('Cards', [
       {
         name: 'rpl-card-event',
         data: {
@@ -312,7 +312,7 @@ const demoData = {
           link: { text: 'See the events calendar', url: '#' }
         }
       }
-    ]
+    ])
   }),
 
   relatedLinks: () => ({

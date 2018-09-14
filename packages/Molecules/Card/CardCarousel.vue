@@ -1,22 +1,22 @@
 <template>
-  <div class="rpl-carousel">
-    <h2 v-if="title" class="rpl-carousel__title">{{ title }}</h2>
-    <div class="rpl-carousel__slider">
+  <div class="rpl-card-carousel">
+    <h2 v-if="title" class="rpl-card-carousel__title">{{ title }}</h2>
+    <div class="rpl-card-carousel__slider">
       <carousel
         :perPage="slidesPerPage"
         :navigateTo="navTo"
         :mouseDrag="false"
         :paginationEnabled="false"
       >
-        <slide v-for="(item, index) in cards" :key="index" class="rpl-carousel__slide">
+        <slide v-for="(item, index) in cards" :key="index" class="rpl-card-carousel__slide">
           <component :is="item.name" v-bind="item.data"></component>
         </slide>
       </carousel>
-      <div class="rpl-carousel__navigation">
-        <button class="rpl-carousel__navigation-button rpl-carousel__navigation-button--prev" role="button" @click="prevSlide" :disabled="prevDisabled" :aria-label="previousLabel">
+      <div class="rpl-card-carousel__navigation">
+        <button class="rpl-card-carousel__navigation-button rpl-card-carousel__navigation-button--prev" role="button" @click="prevSlide" :disabled="prevDisabled" :aria-label="previousLabel">
           <rpl-icon :symbol="prevIcon" :color="iconColor(prevDisabled)" size="1.6" />
         </button>
-        <button class="rpl-carousel__navigation-button rpl-carousel__navigation-button--next" role="button" @click="nextSlide" :disabled="nextDisabled" :aria-label="nextLabel">
+        <button class="rpl-card-carousel__navigation-button rpl-card-carousel__navigation-button--next" role="button" @click="nextSlide" :disabled="nextDisabled" :aria-label="nextLabel">
           <rpl-icon :symbol="nextIcon" :color="iconColor(nextDisabled)" size="1.6" />
         </button>
       </div>
@@ -35,7 +35,7 @@ import RplCardKeydates from './CardKeydates.vue'
 // TODO: Add future card components
 
 export default {
-  name: 'RplCarousel',
+  name: 'RplCardCarousel',
   mixins: [breakpoint],
   props: {
     title: String,
@@ -99,29 +99,29 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-carousel-slide-gutter: $rpl-space * 6 !default;
-  $rpl-carousel-title-ruleset: (
+  $rpl-card-carousel-slide-gutter: $rpl-space * 6 !default;
+  $rpl-card-carousel-title-ruleset: (
     'xs': ('l', 0.9em, 'bold'),
     'l': ('mega', 1.29em, 'bold')
   ) !default;
-  $rpl-carousel-title-padding-xs: ($rpl-space * 6) !default;
-  $rpl-carousel-title-padding-s: ($rpl-space * 8) !default;
-  $rpl-carousel-title-right-margin: ($rpl-space * 14) !default;
-  $rpl-carousel-title-text-color: rpl-color('extra_dark_neutral') !default;
-  $rpl-carousel-padding-l: $rpl-space * 5 !default;
-  $rpl-carousel-inner-padding: $rpl-space-3 !default;
-  $rpl-carousel-navigation-top-margin: $rpl-space * -5 - $rpl-space-4 !default;
+  $rpl-card-carousel-title-padding-xs: ($rpl-space * 6) !default;
+  $rpl-card-carousel-title-padding-s: ($rpl-space * 8) !default;
+  $rpl-card-carousel-title-right-margin: ($rpl-space * 14) !default;
+  $rpl-card-carousel-title-text-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-card-carousel-padding-l: $rpl-space * 5 !default;
+  $rpl-card-carousel-inner-padding: $rpl-space-3 !default;
+  $rpl-card-carousel-navigation-top-margin: $rpl-space * -5 - $rpl-space-4 !default;
 
-  .rpl-carousel {
+  .rpl-card-carousel {
     &__title {
-      @include rpl_typography_ruleset($rpl-carousel-title-ruleset);
-      color: $rpl-carousel-title-text-color;
-      padding-left: $rpl-carousel-title-padding-xs;
-      margin-right: $rpl-carousel-title-right-margin + $rpl-carousel-title-padding-xs;
+      @include rpl_typography_ruleset($rpl-card-carousel-title-ruleset);
+      color: $rpl-card-carousel-title-text-color;
+      padding-left: $rpl-card-carousel-title-padding-xs;
+      margin-right: $rpl-card-carousel-title-right-margin + $rpl-card-carousel-title-padding-xs;
 
       @include rpl_breakpoint('s') {
-        padding-left: $rpl-carousel-title-padding-s;
-        margin-right: $rpl-carousel-title-right-margin + $rpl-carousel-title-padding-s;
+        padding-left: $rpl-card-carousel-title-padding-s;
+        margin-right: $rpl-card-carousel-title-right-margin + $rpl-card-carousel-title-padding-s;
       }
 
       @include rpl_breakpoint('m') {
@@ -141,31 +141,31 @@ export default {
       box-sizing: border-box;
 
       @include rpl_breakpoint('m') {
-        padding-left: $rpl-carousel-slide-gutter / 2;
-        padding-right: $rpl-carousel-slide-gutter / 2;
+        padding-left: $rpl-card-carousel-slide-gutter / 2;
+        padding-right: $rpl-card-carousel-slide-gutter / 2;
       }
     }
 
     .VueCarousel-wrapper {
       @include rpl_breakpoint('m') {
-        width: calc(100% + #{$rpl-carousel-slide-gutter});
-        margin-left: -$rpl-carousel-slide-gutter / 2;
+        width: calc(100% + #{$rpl-card-carousel-slide-gutter});
+        margin-left: -$rpl-card-carousel-slide-gutter / 2;
       }
     }
 
     .VueCarousel-inner {
-      padding-bottom: $rpl-carousel-inner-padding;
+      padding-bottom: $rpl-card-carousel-inner-padding;
     }
 
     &__navigation {
       position: absolute;
       top: 0;
       right: 0;
-      margin-top: $rpl-carousel-navigation-top-margin;
-      margin-right: $rpl-carousel-title-padding-xs;
+      margin-top: $rpl-card-carousel-navigation-top-margin;
+      margin-right: $rpl-card-carousel-title-padding-xs;
 
       @include rpl_breakpoint('s') {
-        margin-right: $rpl-carousel-title-padding-s;
+        margin-right: $rpl-card-carousel-title-padding-s;
       }
 
       @include rpl_breakpoint('m') {
@@ -184,7 +184,7 @@ export default {
 
       @include rpl_breakpoint('l') {
         position: absolute;
-        padding: $rpl-carousel-padding-l;
+        padding: $rpl-card-carousel-padding-l;
         top: 50%;
       }
 

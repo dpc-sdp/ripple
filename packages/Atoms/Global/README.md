@@ -34,6 +34,8 @@ See [Storybook/Typography](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Glo
 
 See [Storybook/Breakpoints](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Breakpoints).
 
+See [Storybook/Divider](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Divider).
+
 --------------------------------------------------------------------------------
 
 ## License

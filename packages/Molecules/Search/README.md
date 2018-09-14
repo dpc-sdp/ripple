@@ -30,6 +30,8 @@ See [Storybook/Search Form](https://ripple.sdp.vic.gov.au/?selectedKind=Molecule
 
 See [Storybook/Search Result](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Search%20Result).
 
+See [Storybook/Search Results](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Search%20Results).
+
 --------------------------------------------------------------------------------
 
 ## License

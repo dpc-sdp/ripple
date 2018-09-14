@@ -16,14 +16,16 @@ npm install @dpc-sdp/ripple-event --save
 
 ```shell
 @dpc-sdp/ripple-event
-└── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-card
+└── @dpc-sdp/ripple-button
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Latest Events](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/UpdatedDate&selectedStory=Latest%20Events).
+See [Storybook/Latest Events](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Event&selectedStory=Latest%20Events).
 
 --------------------------------------------------------------------------------
 

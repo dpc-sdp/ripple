@@ -38,18 +38,18 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "scss/card";
 
-$rpl-card-masonry-background-text-padding: rem(5px);
+$rpl-card-masonry-background-text-padding: $rpl-space;
 $rpl-card-masonry-title-ruleset: (
   'xs': ('xl', 1.467em, 'bold'),
   's': ('mega', 1.857em, 'bold')
-);
+) !default;
 $rpl-card-masonry-summary-ruleset: (
   'xs': ('xxs', 1.333em, 'medium')
-);
-$rpl-card-masonry-title-color: rpl_color('white');
-$rpl-card-masonry-summary-color: rpl_color('white');
-$rpl-card-masonry-title-background-color: rpl_color('secondary');
-$rpl-card-masonry-summary-background: rpl_color('primary') url(rpl_banner_primary_arrow_url('secondary')) no-repeat bottom right;
+) !default;
+$rpl-card-masonry-title-color: rpl_color('white') !default;
+$rpl-card-masonry-summary-color: rpl_color('white') !default;
+$rpl-card-masonry-title-background-color: rpl_color('secondary') !default;
+$rpl-card-masonry-summary-background: rpl_color('primary') url(rpl_banner_primary_arrow_url('secondary')) no-repeat bottom right !default;
 
 .rpl-card-masonry {
   $root: &;
@@ -59,7 +59,7 @@ $rpl-card-masonry-summary-background: rpl_color('primary') url(rpl_banner_primar
   overflow: hidden;
 
   &__image {
-    margin-bottom: rem(-7px);
+    margin-bottom: - $rpl-space-2;
     width: 100%;
   }
 
@@ -80,12 +80,12 @@ $rpl-card-masonry-summary-background: rpl_color('primary') url(rpl_banner_primar
   &__title {
     @include rpl_typography_ruleset($rpl-card-masonry-title-ruleset);
     color: $rpl-card-masonry-title-color;
-    margin: 0 rem(19px) rem(11px);
+    margin: 0 $rpl-space * 5 $rpl-space-3;
 
     span {
       background-color: $rpl-card-masonry-title-background-color;
       box-shadow: $rpl-card-masonry-background-text-padding 0 0 rpl_color('secondary'), -($rpl-card-masonry-background-text-padding) 0 0 rpl_color('secondary');
-      padding: rem(6px) 0 rem(4px);
+      padding: $rpl-space 0;
     }
   }
 
@@ -95,7 +95,7 @@ $rpl-card-masonry-summary-background: rpl_color('primary') url(rpl_banner_primar
     background-position: right calc(100% + 0.5rem);
     color: rpl-color('white');
     margin: 0;
-    padding: rem(17px) rem(47px) rem(18px) rem(19px);
+    padding: $rpl-space-4 $rpl-space * 12 $rpl-space-4 $rpl-space * 5;
   }
 
   .rpl-icon {

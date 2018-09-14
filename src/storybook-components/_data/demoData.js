@@ -210,6 +210,13 @@ const demoData = {
     link: object('Link', { text: 'See event details', url: '#' })
   }),
 
+  cardCta: () => ({
+    image: text('Image', 'https://placehold.it/148x148'),
+    title: text('Title', 'Want to submit an event?'),
+    summary: text('Summary', 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'),
+    link: object('Link', { text: 'Submit a listing', url: '#' })
+  }),
+
   cardCarousel: () => ({
     title: text('Title', 'Featured Content'),
     cards: object('Cards', [

@@ -36,6 +36,8 @@ See [Storybook/Card Keydates](https://ripple.sdp.vic.gov.au/?selectedKind=Molecu
 
 See [Storybook/Card Event](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Event).
 
+See [Storybook/Card Cta](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Cta).
+
 See [Storybook/Card Content (base)](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Content%20(base)).
 
 --------------------------------------------------------------------------------

@@ -141,7 +141,6 @@ import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 // Card
-import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardMasonry } from '@dpc-sdp/ripple-card'
 import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardMasonry, RplCardCta } from '@dpc-sdp/ripple-card'
 
 // Campaign

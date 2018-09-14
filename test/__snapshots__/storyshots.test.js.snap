@@ -6249,6 +6249,8 @@ exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `
         This is page content
       </p>
         
+      <!---->
+       
       <footer
         class="rpl-site-footer-container"
       >
@@ -7035,6 +7037,8 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
     </section>
   </div>
     
+  <!---->
+   
   <footer
     class="rpl-site-footer-container"
   >
@@ -7312,6 +7316,8 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
     </section>
   </div>
     
+  <!---->
+   
   <footer
     class="rpl-site-footer-container"
   >
@@ -14379,6 +14385,8 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
     />
   </div>
     
+  <!---->
+   
   <footer
     class="rpl-site-footer-container"
   >
@@ -16707,6 +16715,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
     </section>
   </div>
     
+  <!---->
+   
   <footer
     class="rpl-site-footer-container"
   >
@@ -17529,6 +17539,8 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
     />
   </div>
     
+  <!---->
+   
   <footer
     class="rpl-site-footer-container"
   >

@@ -23,3 +23,17 @@
     opacity: 0;
   }
 }
+
+// Back to top
+.rpl-back-to-top__fade {
+  &-enter-active,
+  &-leave-active {
+    transition: transform ease-out .3s, opacity ease-out .3s;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: translateY(1.5rem);
+    opacity: 0;
+  }
+}

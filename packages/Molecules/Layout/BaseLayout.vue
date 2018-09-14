@@ -5,6 +5,7 @@
       <slot name="header"></slot>
     </header>
     <slot></slot>
+    <rpl-back-to-top />
     <footer class="rpl-site-footer-container">
       <slot name="footer"></slot>
     </footer>
@@ -13,10 +14,12 @@
 
 <script>
 import RplSkipLink from './SkipLink.vue'
+import RplBackToTop from './BackToTop.vue'
 
 export default {
   components: {
-    RplSkipLink
+    RplSkipLink,
+    RplBackToTop
   }
 }
 </script>

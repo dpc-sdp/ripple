@@ -74,7 +74,7 @@
           <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :topic="mock.cardNavigation.topic" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
+          <rpl-card-cta :image="mock.cardCta.image" :title="mock.cardCta.title" :summary="mock.cardCta.summary" :link="mock.cardCta.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
           <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
@@ -142,6 +142,7 @@ import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 // Card
 import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardMasonry } from '@dpc-sdp/ripple-card'
+import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardMasonry, RplCardCta } from '@dpc-sdp/ripple-card'
 
 // Campaign
 import RplCampaignPrimary from '@dpc-sdp/ripple-campaign-primary'
@@ -184,6 +185,7 @@ export default {
     RplCardKeydates,
     RplCardEvent,
     RplCardMasonry,
+    RplCardCta,
 
     // Campaign
     RplCampaignPrimary,

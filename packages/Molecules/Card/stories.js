@@ -13,6 +13,7 @@ import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
 import RplCardEvent from './CardEvent.vue'
 import RplCardMasonry from './CardMasonry.vue'
+import RplCardCta from './CardCta.vue'
 import readme from './README.md'
 import readmeCardContent from './ReadmeCardContent.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
@@ -60,6 +61,13 @@ storiesOf('Molecules/Card', module)
     template: `<rpl-card-event :image="image" :date="date" :location="location" :title="title" :summary="summary" :link="link" />`,
     data () {
       return demoData.cardEvent()
+    }
+  })))
+  .add('Card Cta', withReadme(readme, () => ({
+    components: { RplCardCta },
+    template: `<rpl-card-cta :image="image" :title="title" :summary="summary" :link="link" />`,
+    data () {
+      return demoData.cardCta()
     }
   })))
   .add('Card Content (base)', withReadme(readmeCardContent, () => ({

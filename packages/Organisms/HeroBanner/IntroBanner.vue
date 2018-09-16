@@ -54,7 +54,6 @@ export default {
   $rpl-intro-banner-title-color: rpl_color('primary') !default;
   $rpl-intro-banner-description-typography-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-intro-banner-description-text-color: rpl_color('extra_dark_neutral') !default;
-  $rpl-intro-banner-description-letter-spacing: rem(-0.12px) !default;
   $rpl-intro-banner-link-heading-typography-rules: (
     'xs': ('xs', 1.7em, 'bold'),
     'm': ('l', 1.4em, 'bold')
@@ -64,8 +63,8 @@ export default {
     'xs': ('xs', 1.7em, 'medium'),
     'm': ('l', 1.7em, 'medium')
   ) !default;
-  $rpl-intro-banner-link-margin: auto auto rem(16px) !default;
-  $rpl-intro-banner-link-heading-margin: 0 auto rem(15px) auto !default;
+  $rpl-intro-banner-link-margin: auto auto $rpl-space-2 !default;
+  $rpl-intro-banner-link-heading-margin: 0 auto $rpl-space-4 auto !default;
   $rpl-intro-banner-vertical-spacing: (
     'xs': ('top': ($rpl-space * 19), 'bottom': ($rpl-space * 5)),
     's': ('top': ($rpl-space * 20), 'bottom': ($rpl-space * 8)),
@@ -90,6 +89,12 @@ export default {
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(8);
       }
+
+      #{$root}--no-links & {
+        @include rpl_breakpoint('xl') {
+          @include rpl_grid_column(10);
+        }
+      }
     }
 
     &__right {
@@ -110,7 +115,6 @@ export default {
     &__description {
       @include rpl_typography_ruleset($rpl-intro-banner-description-typography-ruleset);
       color: $rpl-intro-banner-description-text-color;
-      letter-spacing: $rpl-intro-banner-description-letter-spacing;
       margin-top: $rpl-space;
 
       @include rpl_breakpoint(s) {
@@ -125,7 +129,6 @@ export default {
     &__link-heading {
       @include rpl_typography_ruleset($rpl-intro-banner-link-heading-typography-rules);
       color: $rpl-intro-banner-link-heading-text-color;
-      letter-spacing: rem(-0.08px);
       margin: $rpl-intro-banner-link-heading-margin;
     }
 
@@ -150,14 +153,6 @@ export default {
 
     &__link {
       @include rpl_typography_ruleset($rpl-intro-banner-link-typography-rules);
-    }
-
-    &--no-links {
-      & #{$root}__left {
-        @include rpl_breakpoint('xl') {
-          @include rpl_grid_column(10);
-        }
-      }
     }
   }
 </style>

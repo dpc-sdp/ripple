@@ -13,9 +13,9 @@
  *     - `storiesOf('Story/Element', ...`
  *     - `.add('Button', ...`
  *
- * Script expects to be called via npm in the root directory:
+ * Script expects to be called via yarn in the root directory:
  *
- *   `npm run docs`
+ *   `yarn run docs`
  */
 
 let Twig = require('twig')

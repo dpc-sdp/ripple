@@ -4,7 +4,7 @@ COPY .npmrc .npmrc
 COPY . /app
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
 RUN yarn install \ 
-    && npm run build-storybook
+    && yarn run build-storybook
 
 FROM amazeeio/node:8
 COPY --from=builder /app/public /app

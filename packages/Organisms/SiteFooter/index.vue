@@ -8,9 +8,9 @@
       <div class="rpl-site-footer__bottom-main">
         <rpl-links-and-copyright :links="links" :copyright="copyright"></rpl-links-and-copyright>
       </div>
-      <div class="rpl-site-footer__logo">
-        <rpl-link :href="logoLink">
-          <img :src="logoUrl" :alt="logoAlt" />
+      <div class="rpl-site-footer__logos">
+        <rpl-link class="rpl-site-footer__logo" v-if="logos" v-for="(item, index) in footerLogos" :key="index" :href="item.url">
+          <img :src="item.src" :alt="item.alt" />
         </rpl-link>
       </div>
     </div>
@@ -24,9 +24,12 @@ import RplFooterNavigation from './FooterNavigation'
 import RplLink from '@dpc-sdp/ripple-link'
 
 // The footer logo is hardcoded because they are not required to be configurable.
-import vicLogo from '@dpc-sdp/ripple-global/assets/images/vic-logo.svg'
-const vicLogoAlt = 'Victoria Government Website'
-const vicLogoLink = 'https://vic.gov.au'
+import vicLogoImage from '@dpc-sdp/ripple-global/assets/images/vic-logo.svg'
+const vicLogo = {
+  src: vicLogoImage,
+  alt: 'Victoria Government Website',
+  url: 'https://vic.gov.au'
+}
 
 export default {
   components: {
@@ -39,13 +42,12 @@ export default {
     nav: Array,
     links: Array,
     copyright: String,
-    acknowledgement: String
+    acknowledgement: String,
+    logos: Array
   },
-  data () {
-    return {
-      logoAlt: vicLogoAlt,
-      logoUrl: vicLogo,
-      logoLink: vicLogoLink
+  computed: {
+    footerLogos () {
+      return this.logos ? this.logos.concat([vicLogo]) : [vicLogo]
     }
   }
 }
@@ -62,6 +64,8 @@ $rpl-footer-text-color: rpl-color('white') !default;
 $rpl-footer-border-width: $rpl-border-width !default;
 $rpl-footer-border-color: rpl-color('primary') !default;
 $rpl-footer-border-color-light: rpl-color('white') !default;
+$rpl-footer-logo-width-xs: (100% / 3) !default;
+$rpl-footer-logo-max-width-xs: rem(76px) !default;
 $gutterless-grid: (
   columns: 12,
   gutter: 0
@@ -99,8 +103,7 @@ $gutterless-grid: (
   }
 }
 
-.rpl-site-footer__main,
-{
+.rpl-site-footer__main {
   @include rpl_mobile_padding;
   @include rpl_site_constrain;
   border-bottom: $rpl-footer-border-width solid $rpl-footer-border-color;
@@ -115,17 +118,13 @@ $gutterless-grid: (
 .rpl-site-footer__bottom {
   @include rpl_mobile_padding;
   @include rpl_site_constrain;
-  @include rpl_breakpoint($rpl-footer-breakpoint) {
-    @include rpl_grid_row($gutterless-grid);
-  }
   background-color: $rpl-footer-bottom-bg-color;
   padding-top: $rpl-space-3;
   padding-bottom: $rpl-space-4;
 
-  & .rpl-site-footer__bottom-main {
-    @include rpl_breakpoint($rpl-footer-breakpoint) {
-      @include rpl_grid_column(10, $gutterless-grid);
-    }
+  @include rpl_breakpoint($rpl-footer-breakpoint) {
+    @include rpl_grid_row($gutterless-grid);
+    flex-wrap: nowrap;
   }
 }
 
@@ -208,12 +207,38 @@ $gutterless-grid: (
   }
 }
 
-.rpl-site-footer__logo {
+.rpl-site-footer__logos {
+  display: flex;
+  flex-wrap: nowrap;
+
   @include rpl_breakpoint($rpl-footer-breakpoint) {
-    @include rpl_grid_column(2, $gutterless-grid);
-    display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-left: auto;
+  }
+}
+
+.rpl-site-footer__logo {
+  width: $rpl-footer-logo-width-xs;
+  max-width: $rpl-footer-logo-max-width-xs;
+  margin-left: $rpl-space-2;
+
+  @include rpl_breakpoint('s') {
+    width: auto;
+    margin-left: ($rpl-space * 8);
+    max-width: none;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  img {
+    width: 100%;
+
+    @include rpl_breakpoint('s') {
+      width: initial;
+    }
   }
 }
 </style>

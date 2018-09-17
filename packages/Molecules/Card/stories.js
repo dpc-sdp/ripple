@@ -38,7 +38,7 @@ storiesOf('Molecules/Card', module)
   .add('Card Masonry', withReadme(readme, () => ({
     components: { RplCardMasonry },
     template: `<rpl-card-masonry :title="title" :summary="summary" :link="link" :image="image" />`,
-    data() {
+    data () {
       return demoData.cardMasonry()
     }
   })))

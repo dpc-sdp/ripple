@@ -33,7 +33,7 @@
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 
 export default {
-  name: 'RplHeroBanner',
+  name: 'RplIntroBanner',
   props: {
     title: String,
     introText: String,

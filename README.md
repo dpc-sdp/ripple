@@ -1,6 +1,5 @@
 # Ripple
 
-Test openshift build error.
 Ripple is a Vue.js component pattern library for SDP.
 
 [![Vue.js 2.x](https://img.shields.io/badge/vue.js-2.x-green.svg?style=flat-square)](https://vuejs.org)

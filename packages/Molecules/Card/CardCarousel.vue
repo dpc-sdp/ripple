@@ -109,8 +109,9 @@ export default {
   $rpl-card-carousel-title-right-margin: ($rpl-space * 14) !default;
   $rpl-card-carousel-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-card-carousel-padding-l: $rpl-space * 5 !default;
+  $rpl-card-carousel-padding-xs: $rpl-space $rpl-space-2 !default;
   $rpl-card-carousel-inner-padding: $rpl-space-3 !default;
-  $rpl-card-carousel-navigation-top-margin: $rpl-space * -5 - $rpl-space-4 !default;
+  $rpl-card-carousel-navigation-bottom-margin: $rpl-space-3 !default;
 
   .rpl-card-carousel {
     &__title {
@@ -159,9 +160,9 @@ export default {
 
     &__navigation {
       position: absolute;
-      top: 0;
+      bottom: 100%;
       right: 0;
-      margin-top: $rpl-card-carousel-navigation-top-margin;
+      margin-bottom: $rpl-card-carousel-navigation-bottom-margin;
       margin-right: $rpl-card-carousel-title-padding-xs;
 
       @include rpl_breakpoint('s') {
@@ -181,6 +182,7 @@ export default {
     &__navigation-button {
       border: 0;
       background-color: transparent;
+      padding: $rpl-card-carousel-padding-xs;
 
       @include rpl_breakpoint('l') {
         position: absolute;

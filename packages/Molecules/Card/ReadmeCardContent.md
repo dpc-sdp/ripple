@@ -35,6 +35,8 @@ The style configuration for the card to use. There are two types:
 
 * simple
 
+* inline
+
 #### Default
 
 Best for use with cards which display in columns at large breakpoints.
@@ -66,6 +68,20 @@ Includes:
 * Various padding changes.
 
 * Variable Call to Action font size.
+
+#### Inline
+
+Best for use with cards that take full width at large breakpoints.
+
+Includes:
+
+* Displays image to the left of content at larger breakpoints.
+
+* Variable height.
+
+* Displays as "Default" type at smaller breakpoints.
+
+* Call to Action appears within content area.
 
 ### HTML Content
 

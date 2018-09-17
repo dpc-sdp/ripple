@@ -3,8 +3,10 @@ FROM amazeeio/node:8-builder as builder
 COPY .npmrc .npmrc
 COPY . /app
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
-RUN npm cache clean --force \
+RUN RUN npm config set unsafe-perm true \ 
+    && npm cache clean --force \
     && npm install -g npm@latest \
+    && npm -v \
     && npm install \ 
     && npm run build-storybook
 

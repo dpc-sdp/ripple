@@ -4,6 +4,7 @@ COPY .npmrc .npmrc
 COPY . /app
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
 RUN npm cache clean --force \
+    && npm install -g npm@latest \
     && npm install \ 
     && npm run build-storybook
 

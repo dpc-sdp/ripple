@@ -9,7 +9,7 @@
         <rpl-links-and-copyright :links="links" :copyright="copyright"></rpl-links-and-copyright>
       </div>
       <div class="rpl-site-footer__logos">
-        <rpl-link class="rpl-site-footer__logo" v-if="logos" v-for="(item, index) in footerLogos" :key="index" :href="item.url">
+        <rpl-link class="rpl-site-footer__logo" v-for="(item, index) in footerLogos" :key="index" :href="item.url">
           <img :src="item.src" :alt="item.alt" />
         </rpl-link>
       </div>

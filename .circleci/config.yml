@@ -31,11 +31,11 @@ jobs:
 
       - run:
           name: Lint code.
-          command: docker exec $(docker-compose ps -q test) npm run lint
+          command: docker exec $(docker-compose ps -q test) yarn run lint
 
       - run:
           name: Run tests
-          command: docker exec $(docker-compose ps -q test) npm test
+          command: docker exec $(docker-compose ps -q test) yarn test
 
       - run:
           name: Install non-production packages into containers.

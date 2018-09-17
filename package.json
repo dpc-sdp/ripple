@@ -10,7 +10,7 @@
     "test": "NODE_ENV=test jest",
     "storybook": "start-storybook -p 3000 -c .storybook -s ./static",
     "build-storybook": "NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public",
-    "start": "npm run storybook",
+    "start": "yarn run storybook",
     "bay:start": "docker-compose up -d",
     "bay:rebuild-full": "docker-compose up -d --build --force-recreate",
     "bay:restart": "docker-compose restart",

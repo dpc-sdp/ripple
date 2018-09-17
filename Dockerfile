@@ -3,8 +3,8 @@ FROM amazeeio/node:8-builder as builder
 COPY .npmrc .npmrc
 COPY . /app
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
-RUN npm install \ 
-    && npm run build-storybook
+RUN yarn install \ 
+    && yarn run build-storybook
 
 FROM amazeeio/node:8
 COPY --from=builder /app/public /app

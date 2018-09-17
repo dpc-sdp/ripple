@@ -7,7 +7,7 @@
 Please have the *latest* stable versions of the following on your machine
 
 - node
-- npm
+- yarn
 
 ### Local environment setup
 
@@ -20,34 +20,34 @@ to use [Docker](#work-in-docker) which provide docker container enviorment.
 
 ``` bash
 # install dependencies
-npm install
+yarn install
 
 # Start the storybook server
-npm start
+yarn start
 ```
 
 #### Lint code
 
 ``` bash
 # Boolean check if code conforms to linting rules - uses sass-lint, eslint & markdownlint
-npm run lint
+yarn run lint
 ```
 
 #### Test
 
 ``` bash
 # We uses Jest for unit test and snapshots test
-npm test
+yarn test
 ```
 
 Before commit changes, run test first. If new Ripple components changed, we
-should update snapshots by `npm test -- -u`. Then add it in commit.
+should update snapshots by `yarn test -- -u`. Then add it in commit.
 
 #### Documentation
 
 ``` bash
 # Generate README.md for modules in `./packages/` directory
-npm run docs
+yarn run docs
 ```
 
 ### Work in Docker
@@ -66,15 +66,15 @@ We recomend you work in our Docker enviorment.
 2. Start docker and you should be able to run `docker ps`
 3. Checkout project repo and confirm the path is in docker's file sharing
     config - [https://docs.docker.com/docker-for-mac/#file-sharing](https://docs.docker.com/docker-for-mac/#file-sharing)
-4. Make sure that `node`, `npm` & `pygmy` are installed
+4. Make sure that `node`, `yarn` & `pygmy` are installed
    - Install pygmy `gem install pygmy` (you might need sudo for this depending
      on your ruby configuration)
-   - If you haven't installed `node` yet. Recommand to install `node` & `npm`
-     by [`nvm`](https://github.com/creationix/nvm)
+   - If you haven't installed `node` yet. Recommand to install `node` by
+   [`nvm`](https://github.com/creationix/nvm)
 5. Make sure you don't have anything running on port 80 on the host machine
    (like a web server) then go to the project root run `pygmy up`
-6. Run `npm run bay:start`
-7. Once build has completed, you can run `npm run bay:logs -- --follow` to view
+6. Run `yarn run bay:start`
+7. Once build has completed, you can run `yarn run bay:logs -- --follow` to view
    the real-time logs.
 8. If you want to ssh into the container, use `docker-compose exec ripple sh`
 
@@ -85,27 +85,28 @@ Local URL -- [http://ripple.docker.amazee.io/](http://ripple.docker.amazee.io/)
 
 #### Available workflow commands
 
-- `npm run bay:start` - build and start local development environment.
-- `npm run bay:stop` - stop all Bay containers.
-- `npm run bay:rebuild-full` - rebuild and start local development environment.
-- `npm run bay:destroy` - stop and remove all Bay containers.
-- `npm run bay:logs` - get logs from all running Bay containers.
-- `npm run bay:cli` - run a command in `node` container.
-   Example: `npm run bay:cli -- ls -al`.
-- `npm run bay:pull` - pull latest Bay containers.
-- `npm run bay:test` - Run tests.
+- `yarn run bay:start` - build and start local development environment.
+- `yarn run bay:stop` - stop all Bay containers.
+- `yarn run bay:rebuild-full` - rebuild and start local development environment.
+- `yarn run bay:destroy` - stop and remove all Bay containers.
+- `yarn run bay:logs` - get logs from all running Bay containers.
+- `yarn run bay:cli` - run a command in `node` container.
+   Example: `yarn run bay:cli -- ls -al`.
+- `yarn run bay:pull` - pull latest Bay containers.
+- `yarn run bay:test` - Run tests.
 
 #### Logs
 
-Using the npm run helper script you can get logs from any running container.
+Using the yarn run helper script you can get logs from any running container.
 
-`npm run bay:logs`
+`yarn run bay:logs`
 
 To continue streaming logs, use `--follow`.
-`npm run bay:logs -- --follow`
+`yarn run bay:logs -- --follow`
 
 You can also filter the output to show only logs from a particular service.
-For example `npm run bay:logs -- ripple` will show the log output from the node container.
+For example `yarn run bay:logs -- ripple` will show the log output from the node
+container.
 The full list of services can be found in the `docker-compose.yml`
 
 #### SSHing into Ripple container

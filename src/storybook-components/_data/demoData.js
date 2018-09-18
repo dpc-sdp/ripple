@@ -183,6 +183,13 @@ const demoData = {
     image: text('Image', 'https://placehold.it/818x497')
   }),
 
+  cardMasonry: () => ({
+    title: text('Title', 'Image title'),
+    summary: text('Summary', 'Holden utility, registration no. GOG 871, with police insignia on door, police light on top of vehicle and PA system in the tray of vehicle. Damage to the front bumper, with vehicle raised on hoist. Circa 1956'),
+    link: object('Link', { text: 'Read more', url: '#' }),
+    image: object('Image', { alt: 'Alternative text', src: 'https://placehold.it/580x340' })
+  }),
+
   cardPromotion: () => ({
     image: text('Image', 'https://placehold.it/580x340'),
     date: text('Date', '2018-07-10T09:00:00.000+10:00'),

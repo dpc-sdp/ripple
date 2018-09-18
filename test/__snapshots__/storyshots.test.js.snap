@@ -7332,6 +7332,323 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/List List 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplList
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-list :title="title" :size="size" :iconScale="iconScale" :iconColor="iconColor" :list="list" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-list rpl-list--normal"
+      data-v-d5d40916=""
+    >
+      <h2
+        class="rpl-list__title"
+      >
+        My List
+      </h2>
+       
+      <div
+        class="rpl-list__list"
+      >
+        <div
+          class="rpl-list__list-item"
+        >
+          <span
+            class="rpl-list__icon"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="rpl-list__text"
+          >
+            26 January 2019 - 29 January 2019
+          </span>
+        </div>
+        <div
+          class="rpl-list__list-item"
+        >
+          <span
+            class="rpl-list__icon"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="rpl-list__text"
+          >
+            Level 10,  101 Collins Street, Melbourne
+          </span>
+        </div>
+        <div
+          class="rpl-list__list-item"
+        >
+          <span
+            class="rpl-list__icon"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="rpl-list__text"
+          >
+            $30 - $50
+          </span>
+        </div>
+        <div
+          class="rpl-list__list-item"
+        >
+          <span
+            class="rpl-list__icon"
+          >
+            <!---->
+          </span>
+           
+          <a
+            class="rpl-link rpl-list__text"
+            href="https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/"
+            target="_blank"
+          >
+            https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/
+          </a>
+        </div>
+        <div
+          class="rpl-list__list-item"
+        >
+          <span
+            class="rpl-list__icon"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="rpl-list__text"
+          >
+            Accessible venue
+          </span>
+        </div>
+        <div
+          class="rpl-list__list-item"
+        >
+          <span
+            class="rpl-list__icon"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="rpl-list__text"
+          >
+            Child friendly
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          title
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          size
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          normal
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          iconScale
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          number
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          1
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          iconColor
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          primary
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          list
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          array
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/NewsListing News Listing 1`] = `
 <div
   class="vue-info"

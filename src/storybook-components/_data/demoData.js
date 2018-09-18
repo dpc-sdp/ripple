@@ -1117,6 +1117,38 @@ const demoData = {
     pull: object('Pull', {})
   }),
 
+  list: () => ({
+    title: text('Title', 'My List'),
+    size: selectV2('Size', {normal: 'normal', large: 'large'}, 'normal'),
+    iconScale: number('Icon Scale', 1),
+    iconColor: text('Icon Color', 'primary'),
+    list: object('List', [{
+      symbol: 'calendar',
+      size: '1',
+      text: '26 January 2019 - 29 January 2019'
+    }, {
+      symbol: 'map_marker',
+      color: 'danger',
+      size: '1.2',
+      text: 'Level 10,  101 Collins Street, Melbourne'
+    }, {
+      symbol: 'help',
+      size: '0.8',
+      text: '$30 - $50'
+    }, {
+      symbol: 'star',
+      color: 'success',
+      link: 'https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/',
+      text: 'https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/'
+    }, {
+      symbol: 'addition',
+      text: 'Accessible venue'
+    }, {
+      symbol: 'addition',
+      text: 'Child friendly'
+    }])
+  }),
+
   publishDateAndAuthor: () => ({
     date: text('Date', '2018-04-22T11:00:00.000+10:00'),
     location: text('Location', 'location'),

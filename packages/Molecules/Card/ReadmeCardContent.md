@@ -1,6 +1,6 @@
 # Card Content (base)
 
-> A base component for building new card compoennts. This is not designed
+> A base component for building new card components. This is not designed
 to be used as-is, but to be extended upon for new cards.
 
 ## Properties
@@ -88,12 +88,6 @@ Includes:
 The custom HTML which should sit inside the content area of the card. This is
 not a property of the CardContent component, but should be HTML that sits
 between the component's tags.
-
---------------------------------------------------------------------------------
-
-## Release History
-
-See [CHANGELOG.md](./CHANGELOG.md).
 
 --------------------------------------------------------------------------------
 

@@ -13,6 +13,7 @@ import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
 import RplCardEvent from './CardEvent.vue'
 import RplCardCta from './CardCta.vue'
+import RplCardCarousel from './CardCarousel.vue'
 import readme from './README.md'
 import readmeCardContent from './ReadmeCardContent.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
@@ -69,5 +70,12 @@ storiesOf('Molecules/Card', module)
 </rpl-card-content>`,
     data () {
       return demoData.cardContent()
+    }
+  })))
+  .add('Card Carousel', withReadme(readme, () => ({
+    components: { RplCardCarousel },
+    template: `<rpl-card-carousel :title="title" :cards="cards" />`,
+    data () {
+      return demoData.cardCarousel()
     }
   })))

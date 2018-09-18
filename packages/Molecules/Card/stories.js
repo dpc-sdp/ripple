@@ -12,6 +12,7 @@ import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
 import RplCardEvent from './CardEvent.vue'
+import RplCardMasonry from './CardMasonry.vue'
 import RplCardCta from './CardCta.vue'
 import readme from './README.md'
 import readmeCardContent from './ReadmeCardContent.md'
@@ -32,6 +33,13 @@ storiesOf('Molecules/Card', module)
     template: `<rpl-card-navigation-featured :title="title" :summary="summary" :url="url" :image="image" />`,
     data () {
       return demoData.cardNavigationFeatured()
+    }
+  })))
+  .add('Card Masonry', withReadme(readme, () => ({
+    components: { RplCardMasonry },
+    template: `<rpl-card-masonry :title="title" :summary="summary" :link="link" :image="image" />`,
+    data () {
+      return demoData.cardMasonry()
     }
   })))
   .add('Card Promotion', withReadme(readme, () => ({

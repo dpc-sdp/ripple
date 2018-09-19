@@ -906,7 +906,9 @@ const demoData = {
         email: '',
         tel: '',
         radio: null,
-        textArea: ''
+        textArea: '',
+        dateRange: '',
+        date: ''
       },
 
       schema: {
@@ -971,6 +973,20 @@ const demoData = {
             visible (model) {
               return model && model.was_this_page_helpful !== null
             }
+          },
+
+          {
+            type: 'rpldatepicker',
+            label: 'Date Range',
+            model: 'dateRange',
+            range: true
+          },
+
+          {
+            type: 'rpldatepicker',
+            label: 'Date',
+            model: 'date',
+            range: false
           },
 
           {

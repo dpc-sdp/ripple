@@ -10,6 +10,7 @@
       ref="vfg"
       v-show="hideForm()"
     />
+    {{ formData.model }}
   </form>
 </template>
 
@@ -19,9 +20,11 @@ import RplFormAlert from './formAlert'
 import VueFormGenerator from 'vue-form-generator'
 import Multiselect from 'vue-multiselect'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
+import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 Vue.component('multiselect', Multiselect)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
+Vue.component('fieldRpldatepicker', fieldRpldatepicker)
 Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
 
 export { VueFormGenerator }
@@ -32,6 +35,7 @@ export default {
     'vue-form-generator': VueFormGenerator.component,
     Multiselect,
     fieldRplchecklist,
+    fieldRpldatepicker,
     fieldRplsubmitloader,
     RplFormAlert
   },

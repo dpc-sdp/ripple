@@ -33,6 +33,7 @@
     "@dpc-sdp/ripple-card": "file:packages/Molecules/Card",
     "@dpc-sdp/ripple-contact": "file:packages/Molecules/Contact",
     "@dpc-sdp/ripple-embedded-video": "file:packages/Molecules/EmbeddedVideo",
+    "@dpc-sdp/ripple-event": "file:packages/Organisms/Event",
     "@dpc-sdp/ripple-figure": "file:packages/Molecules/Figure",
     "@dpc-sdp/ripple-form": "file:packages/Molecules/Form",
     "@dpc-sdp/ripple-global": "file:packages/Atoms/Global",

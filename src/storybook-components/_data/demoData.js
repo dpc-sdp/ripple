@@ -1187,6 +1187,67 @@ const demoData = {
       alt: 'A generic square placeholder image.'
     }),
     caption: text('Caption', '1.2 Caption to go here. This should be restricted in characters.')
+  }),
+
+  latestEvents: () => ({
+    title: text('Title', 'Optional heading'),
+    events: object('Events', [
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-01-09T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-12T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-08-01T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2020-02-02T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2020. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2019-07-10T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      }
+    ]),
+    cta: object('Call to Action', {
+      image: 'https://placehold.it/148x148',
+      title: 'Want to submit an event?',
+      summary: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.',
+      link: { text: 'Submit a listing', url: '#' }
+    }),
+    link: object('Link', { text: 'See all events', url: '#' })
   })
 }
 

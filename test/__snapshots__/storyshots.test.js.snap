@@ -12914,6 +12914,672 @@ exports[`RippleStoryshots Organisms/CampaignSecondary Campaign Secondary 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplLatestEvents
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-latest-events :events="events" :cta="cta" :link="link" :title="title" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-latest-events"
+      data-v-d5d40916=""
+    >
+      <h2
+        class="rpl-latest-events__title"
+      >
+        Optional heading
+      </h2>
+       
+      <div
+        class="rpl-latest-events__list"
+      >
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  09 January
+                </div>
+                 
+                <div
+                  class="rpl-card-promotion__tag"
+                >
+                  
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event with a location that will stretch over over 3 lines
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  10 July
+                </div>
+                 
+                <div
+                  class="rpl-card-promotion__tag"
+                >
+                  
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event with a location that will stretch over over 3 lines
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  12 July
+                </div>
+                 
+                <div
+                  class="rpl-card-promotion__tag"
+                >
+                  
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event with a location that will stretch over over 3 lines
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  01 August
+                </div>
+                 
+                <div
+                  class="rpl-card-promotion__tag"
+                >
+                  
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event with a location that will stretch over over 3 lines
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  10 July
+                </div>
+                 
+                <div
+                  class="rpl-card-promotion__tag"
+                >
+                  
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event with a location that will stretch over over 3 lines
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event occurs in 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+         
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
+            href="#"
+          >
+            <!---->
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <img
+                alt=""
+                class="rpl-card-cta__image"
+                src="https://placehold.it/148x148"
+              />
+               
+              <h2
+                class="rpl-card-cta__title"
+              >
+                Want to submit an event?
+              </h2>
+               
+              <p
+                class="rpl-card-cta__summary"
+              >
+                Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+              </p>
+               
+              <span
+                class="rpl-card-cta__button"
+              >
+                Submit a listing
+              </span>
+               
+              <!---->
+            </div>
+             
+            <!---->
+          </a>
+        </div>
+      </div>
+       
+      <a
+        class="rpl-link rpl-button rpl-latest-events__call-to-action rpl-button--primary"
+        href="#"
+      >
+        See all events
+      </a>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          title
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          events
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          array
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          cta
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          object
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          link
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          object
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
 <div
   class="vue-info"

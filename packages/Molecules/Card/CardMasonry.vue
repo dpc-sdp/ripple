@@ -38,7 +38,6 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "scss/card";
 
-$rpl-card-masonry-background-text-padding: $rpl-space;
 $rpl-card-masonry-title-ruleset: (
   'xs': ('xl', 1.467em, 'bold'),
   's': ('mega', 1.857em, 'bold')
@@ -80,11 +79,10 @@ $rpl-card-masonry-summary-background: rpl_color('primary') url(rpl_banner_primar
   &__title {
     @include rpl_typography_ruleset($rpl-card-masonry-title-ruleset);
     color: $rpl-card-masonry-title-color;
-    margin: 0 $rpl-space * 5 $rpl-space-3;
+    margin: 0 $rpl-space * 4 $rpl-space-3;
 
     span {
       background-color: $rpl-card-masonry-title-background-color;
-      box-shadow: $rpl-card-masonry-background-text-padding 0 0 rpl_color('secondary'), -($rpl-card-masonry-background-text-padding) 0 0 rpl_color('secondary');
       padding: $rpl-space 0;
     }
   }

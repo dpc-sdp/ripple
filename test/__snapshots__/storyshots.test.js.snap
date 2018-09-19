@@ -13439,6 +13439,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
 :links="links"
 :copyright="copyright"
 :acknowledgement="acknowledgement"
+:logos="logos"
 /&gt;
     </code>
   </pre>
@@ -13809,10 +13810,28 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         </div>
          
         <div
-          class="rpl-site-footer__logo"
+          class="rpl-site-footer__logos"
         >
           <a
-            class="rpl-link"
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Logo 1"
+              src="https://placehold.it/76x43"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Logo 2"
+              src="https://placehold.it/76x43"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
             href="https://vic.gov.au"
             target="_blank"
           >
@@ -13954,6 +13973,30 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
           data-v-d5d40916=""
         >
           string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          logos
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          array
         </td>
          
         <td
@@ -16080,10 +16123,10 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
         </div>
          
         <div
-          class="rpl-site-footer__logo"
+          class="rpl-site-footer__logos"
         >
           <a
-            class="rpl-link"
+            class="rpl-link rpl-site-footer__logo"
             href="https://vic.gov.au"
             target="_blank"
           >
@@ -19246,10 +19289,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
         </div>
          
         <div
-          class="rpl-site-footer__logo"
+          class="rpl-site-footer__logos"
         >
           <a
-            class="rpl-link"
+            class="rpl-link rpl-site-footer__logo"
             href="https://vic.gov.au"
             target="_blank"
           >
@@ -20066,10 +20109,10 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
         </div>
          
         <div
-          class="rpl-site-footer__logo"
+          class="rpl-site-footer__logos"
         >
           <a
-            class="rpl-link"
+            class="rpl-link rpl-site-footer__logo"
             href="https://vic.gov.au"
             target="_blank"
           >

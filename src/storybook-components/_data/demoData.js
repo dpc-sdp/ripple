@@ -559,7 +559,19 @@ const demoData = {
       }
     ]),
     copyright: text('Copyright', '© Copyright State Government of Victoria'),
-    acknowledgement: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.')
+    acknowledgement: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.'),
+    logos: object('Logos', [
+      {
+        src: 'https://placehold.it/76x43',
+        alt: 'Logo 1',
+        url: '#'
+      },
+      {
+        src: 'https://placehold.it/76x43',
+        alt: 'Logo 2',
+        url: '#'
+      }
+    ])
   }),
 
   newsListing: () => ({

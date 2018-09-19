@@ -154,6 +154,19 @@ const demoData = {
     backgroundGraphic: text('Background Graphic', '/bggraphiclower.png')
   }),
 
+  introBanner: () => ({
+    title: text('Title', 'Welcome to Victoria Police Museum'),
+    introText: text('Intro Text', 'From the largest collection of Kelly Gang armour in Australia to forensic evidence from some of Melbourne\'s most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.'),
+    linkHeading: text('Link Heading', ''),
+    links: object('Links', [
+      { text: 'Plan your visit', url: '#' },
+      { text: 'Collections', url: '#' },
+      { text: 'School Programs', url: '#' },
+      { text: 'Group Bookings', url: '#' }
+    ]),
+    showLinks: boolean('Show Links', true)
+  }),
+
   breadcrumbs: () => ({
     crumbs: object('Crumbs', [
       { text: 'Home', url: '#' },
@@ -215,6 +228,111 @@ const demoData = {
     title: text('Title', 'Want to submit an event?'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'),
     link: object('Link', { text: 'Submit a listing', url: '#' })
+  }),
+
+  cardCarousel: () => ({
+    title: text('Title', 'Featured Content'),
+    cards: object('Cards', [
+      {
+        name: 'rpl-card-event',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          location: 'South Yarra',
+          title: 'This is the headline of an event',
+          summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte',
+          link: { text: 'See event details', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-keydates',
+        data: {
+          title: 'Key calendar dates',
+          keydates: [
+            { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+            { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+          ],
+          link: { text: 'See the events calendar', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-promotion',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          topic: 'News',
+          title: 'This is display copy that wraps 2 lines',
+          summary: 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.',
+          link: { text: 'Read more', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-event',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          location: 'South Yarra',
+          title: 'This is the headline of an event',
+          summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte',
+          link: { text: 'See event details', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-event',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          location: 'South Yarra',
+          title: 'This is the headline of an event',
+          summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte',
+          link: { text: 'See event details', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-keydates',
+        data: {
+          title: 'Key calendar dates',
+          keydates: [
+            { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+            { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+          ],
+          link: { text: 'See the events calendar', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-promotion',
+        data: {
+          image: 'https://placehold.it/580x340',
+          date: '2018-07-10T09:00:00.000+10:00',
+          topic: 'News',
+          title: 'This is display copy that wraps 2 lines',
+          summary: 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.',
+          link: { text: 'Read more', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-keydates',
+        data: {
+          title: 'Key calendar dates',
+          keydates: [
+            { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+            { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+          ],
+          link: { text: 'See the events calendar', url: '#' }
+        }
+      },
+      {
+        name: 'rpl-card-keydates',
+        data: {
+          title: 'Key calendar dates',
+          keydates: [
+            { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
+            { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
+          ],
+          link: { text: 'See the events calendar', url: '#' }
+        }
+      }
+    ])
   }),
 
   relatedLinks: () => ({
@@ -454,7 +572,19 @@ const demoData = {
       }
     ]),
     copyright: text('Copyright', '© Copyright State Government of Victoria'),
-    acknowledgement: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.')
+    acknowledgement: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.'),
+    logos: object('Logos', [
+      {
+        src: 'https://placehold.it/76x43',
+        alt: 'Logo 1',
+        url: '#'
+      },
+      {
+        src: 'https://placehold.it/76x43',
+        alt: 'Logo 2',
+        url: '#'
+      }
+    ])
   }),
 
   newsListing: () => ({
@@ -1010,6 +1140,38 @@ const demoData = {
       m: 6
     }),
     pull: object('Pull', {})
+  }),
+
+  list: () => ({
+    title: text('Title', 'My List'),
+    size: selectV2('Size', {normal: 'normal', large: 'large'}, 'normal'),
+    iconScale: number('Icon Scale', 1),
+    iconColor: text('Icon Color', 'primary'),
+    list: object('List', [{
+      symbol: 'calendar',
+      size: '1',
+      text: '26 January 2019 - 29 January 2019'
+    }, {
+      symbol: 'map_marker',
+      color: 'danger',
+      size: '1.2',
+      text: 'Level 10,  101 Collins Street, Melbourne'
+    }, {
+      symbol: 'help',
+      size: '0.8',
+      text: '$30 - $50'
+    }, {
+      symbol: 'star',
+      color: 'success',
+      link: 'https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/',
+      text: 'https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/'
+    }, {
+      symbol: 'addition',
+      text: 'Accessible venue'
+    }, {
+      symbol: 'addition',
+      text: 'Child friendly'
+    }])
   }),
 
   publishDateAndAuthor: () => ({

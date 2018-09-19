@@ -6,23 +6,17 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import RplSiteFooter from './index.vue'
+import RplList from './index.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
-storiesOf('Organisms/SiteFooter', module)
+storiesOf('Molecules/List', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Site footer', withReadme(readme, () => ({
-    components: { RplSiteFooter },
-    template: `<rpl-site-footer
-:nav="nav"
-:links="links"
-:copyright="copyright"
-:acknowledgement="acknowledgement"
-:logos="logos"
-/>`,
+  .add('List', withReadme(readme, () => ({
+    components: { RplList },
+    template: `<rpl-list :title="title" :size="size" :iconScale="iconScale" :iconColor="iconColor" :list="list" />`,
     data () {
-      return demoData.footer()
+      return demoData.list()
     }
   })))

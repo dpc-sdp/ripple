@@ -13,8 +13,7 @@
           v-for="(searchResult, index) of searchResults"
           :key="index"
         />
-        <div
-          class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter"
+        <div class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter"
           v-if="type === 'RplCardEvent'"
           v-for="(searchResult, index) of searchResults"
           :key="index">

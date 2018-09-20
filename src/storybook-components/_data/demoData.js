@@ -903,10 +903,51 @@ const demoData = {
     locale: text('Locale', 'en-au')
   }),
 
+  eventSearchResultItems: () => (
+    [
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: {text: 'See event details', url: '#'}
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: {text: 'See event details', url: '#'}
+      },
+      {
+        image: '',
+        date: '2018-07-10T09:00:00.000+10:00',
+        title: 'This event has no image.',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: {text: 'See event details', url: '#'}
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: {text: 'See event details', url: '#'}
+      }
+    ]
+  ),
+
   searchResults: () => ({
     count: number('Count', 10),
     type: selectV2('Type', {default: 'default', 'Events': 'RplCardEvent'}, 'default'),
     responseSize: number('Response size', 2),
+    errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
+    noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
+  }),
+
+  eventSearchResults: () => ({
+    count: number('Count', 10),
+    type: selectV2('Type', {default: 'default', 'Events': 'RplCardEvent'}, 'RplCardEvent'),
+    responseSize: number('Response size', 4),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
   }),

@@ -95,4 +95,40 @@ storiesOf('Molecules/Search', module)
         alert('Going to step: ' + newStep)
       }
     }
+  }))).add('Event Search Results', withReadme(readme, () => ({
+    components: { RplSearchResults },
+    template: `<rpl-search-results
+    :searchResults="searchResultsItems"
+    :pager="pager"
+    :responseSize="searchResults.responseSize"
+    :count="searchResults.count"
+    :pagerChangeHandler="pagerChange"
+    :errorMsg="hasError ? searchResults.errorMsg : undefined"
+    :noResultsMsg="searchResults.noResultsMsg"
+    :type="searchResults.type"
+    @pager-change="pagerChange"
+  />`,
+    data () {
+      return {
+        pager: demoData.pagination(),
+        searchResults: demoData.eventSearchResults(),
+        hasError: boolean('Has error', false),
+        noResults: boolean('No results', false)
+      }
+    },
+    computed: {
+      searchResultsItems: function () {
+        if (this.hasError || this.noResults) {
+          return []
+        } else {
+          return demoData.eventSearchResultItems()
+        }
+      }
+    },
+    methods: {
+      pagerChange: function (newStep) {
+        // Use your own custom code to handle it.
+        alert('Going to step: ' + newStep)
+      }
+    }
   })))

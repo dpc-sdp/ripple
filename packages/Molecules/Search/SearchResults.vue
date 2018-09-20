@@ -14,13 +14,11 @@
           :key="index"
         />
         <div
-          class="rpl-search-results__item rpl-component-gutter"
+          class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter"
           v-if="type === 'RplCardEvent'"
-          v-for="(searchResult, index) of searchResults">
-          <rpl-card-event
-            v-bind="searchResult"
-            :key="index"
-          />
+          v-for="(searchResult, index) of searchResults"
+          :key="index">
+          <rpl-card-event v-bind="searchResult" />
         </div>
       </template>
       <div v-if="searchResults.length === 0" class="rpl-search-results__no-results-msg">
@@ -104,7 +102,21 @@ export default {
 
     &__main {
       &--events {
-        background-color: green;
+        @include rpl_grid_row;
+        @include rpl_grid_row_gutter;
+      }
+    }
+    &__item {
+      &--event{
+        @include rpl_breakpoint('m') {
+          @include rpl_grid_column(6);
+        }
+        @include rpl_breakpoint('l') {
+          @include rpl_grid_column(4);
+        }
+        @include rpl_breakpoint('xxxl') {
+          @include rpl_grid_column(3);
+        }
       }
     }
   }

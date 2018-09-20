@@ -4,14 +4,25 @@
       <div v-if="count">Displaying {{ responseSize > count ? count : responseSize }} of {{ count }} results</div>
     </div>
 
-    <div class="rpl-search-results__main">
-      <rpl-search-result
-        class="rpl-search-results__item rpl-component-gutter"
-        v-bind="searchResult"
-        v-if="searchResults && !errorMsg"
-        v-for="(searchResult, index) of searchResults"
-        :key="index"
-      />
+    <div class="rpl-search-results__main" :class="{'rpl-search-results__main--events': type === 'RplCardEvent'}">
+      <template v-if="searchResults && !errorMsg">
+        <rpl-search-result
+          class="rpl-search-results__item rpl-component-gutter"
+          v-bind="searchResult"
+          v-if="type === 'default'"
+          v-for="(searchResult, index) of searchResults"
+          :key="index"
+        />
+        <div
+          class="rpl-search-results__item rpl-component-gutter"
+          v-if="type === 'RplCardEvent'"
+          v-for="(searchResult, index) of searchResults">
+          <rpl-card-event
+            v-bind="searchResult"
+            :key="index"
+          />
+        </div>
+      </template>
       <div v-if="searchResults.length === 0" class="rpl-search-results__no-results-msg">
         {{ noResultsMsg }}
       </div>
@@ -34,14 +45,17 @@
 <script>
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import RplSearchResult from './SearchResult.vue'
+import RplCardEvent from './../Card/CardEvent.vue'
 
 export default {
   name: 'RplSearchResults',
   components: {
     RplPagination,
-    RplSearchResult
+    RplSearchResult,
+    RplCardEvent
   },
   props: {
+    type: { type: String, default: 'default' },
     searchResults: {
       type: Array,
       default: function () {
@@ -86,6 +100,12 @@ export default {
     &__no-results-msg,
     &__error-msg {
       @include rpl_typography('heading_l');
+    }
+
+    &__main {
+      &--events {
+        background-color: green;
+      }
     }
   }
 </style>

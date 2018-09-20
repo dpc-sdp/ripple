@@ -68,6 +68,7 @@ storiesOf('Molecules/Search', module)
   :pagerChangeHandler="pagerChange"
   :errorMsg="hasError ? searchResults.errorMsg : undefined"
   :noResultsMsg="searchResults.noResultsMsg"
+  :type="searchResults.type"
   @pager-change="pagerChange"
 />`,
     data () {

@@ -85,7 +85,7 @@ storiesOf('Molecules/Search', module)
         if (this.hasError || this.noResults) {
           return []
         } else {
-          return [this.searchResult, this.searchResult, this.searchResult, this.searchResult, this.searchResult, this.searchResult]
+          return [this.searchResult, this.searchResult]
         }
       }
     },

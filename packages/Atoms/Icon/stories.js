@@ -6,7 +6,7 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import SIcons from '.../../../src/storybook-components/Icons.vue'
+import SIcons from '../../../src/storybook-components/Icons.vue'
 import RplIcon from './Icon.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'

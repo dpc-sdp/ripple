@@ -938,7 +938,7 @@ const demoData = {
 
   searchResults: () => ({
     count: number('Count', 10),
-    type: selectV2('Type', {default: 'default', 'Events': 'RplCardEvent'}, 'default'),
+    type: 'default',
     responseSize: number('Response size', 2),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
@@ -946,7 +946,7 @@ const demoData = {
 
   eventSearchResults: () => ({
     count: number('Count', 10),
-    type: selectV2('Type', {default: 'default', 'Events': 'RplCardEvent'}, 'RplCardEvent'),
+    type: 'RplCardEvent',
     responseSize: number('Response size', 4),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')

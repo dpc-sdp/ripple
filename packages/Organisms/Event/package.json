@@ -1,12 +1,14 @@
 {
-  "name": "@dpc-sdp/ripple-updated-date",
+  "name": "@dpc-sdp/ripple-event",
   "version": "1.0.0-alpha.16",
-  "description": "A component for displaying the date an article was last changed.",
+  "description": "A set of components for displaying events.",
   "license": "Apache-2.0",
-  "main": "index.vue",
+  "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/UpdatedDate",
   "dependencies": {
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.16",
+    "@dpc-sdp/ripple-card": "1.0.0-alpha.16",
     "@dpc-sdp/ripple-global": "1.0.0-alpha.16"
   }
 }

@@ -154,6 +154,19 @@ const demoData = {
     backgroundGraphic: text('Background Graphic', '/bggraphiclower.png')
   }),
 
+  introBanner: () => ({
+    title: text('Title', 'Welcome to Victoria Police Museum'),
+    introText: text('Intro Text', 'From the largest collection of Kelly Gang armour in Australia to forensic evidence from some of Melbourne\'s most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.'),
+    linkHeading: text('Link Heading', ''),
+    links: object('Links', [
+      { text: 'Plan your visit', url: '#' },
+      { text: 'Collections', url: '#' },
+      { text: 'School Programs', url: '#' },
+      { text: 'Group Bookings', url: '#' }
+    ]),
+    showLinks: boolean('Show Links', true)
+  }),
+
   breadcrumbs: () => ({
     crumbs: object('Crumbs', [
       { text: 'Home', url: '#' },
@@ -559,7 +572,19 @@ const demoData = {
       }
     ]),
     copyright: text('Copyright', '© Copyright State Government of Victoria'),
-    acknowledgement: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.')
+    acknowledgement: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.'),
+    logos: object('Logos', [
+      {
+        src: 'https://placehold.it/76x43',
+        alt: 'Logo 1',
+        url: '#'
+      },
+      {
+        src: 'https://placehold.it/76x43',
+        alt: 'Logo 2',
+        url: '#'
+      }
+    ])
   }),
 
   newsListing: () => ({
@@ -905,6 +930,7 @@ const demoData = {
         text: '',
         email: '',
         tel: '',
+        number: '',
         radio: null,
         textArea: '',
         dateRange: ['', ''],
@@ -923,6 +949,7 @@ const demoData = {
             type: 'input',
             inputType: 'text',
             label: 'Text',
+            hint: 'This is a hint text',
             required: true,
             placeholder: 'Enter some text...',
             model: 'text'
@@ -932,6 +959,7 @@ const demoData = {
             type: 'input',
             inputType: 'email',
             label: 'Email',
+            hint: 'This is a hint text',
             model: 'email'
           },
 
@@ -943,9 +971,21 @@ const demoData = {
           },
 
           {
+            type: 'input',
+            inputType: 'number',
+            label: 'Number',
+            placeholder: 'x10',
+            min: 0,
+            step: 10,
+            max: 100,
+            model: 'number'
+          },
+
+          {
             type: 'vueMultiSelect',
             model: 'select',
             label: 'Select',
+            hint: 'This is a hint text',
             values: [
               'option A',
               'option B'
@@ -956,6 +996,7 @@ const demoData = {
             type: 'radios',
             label: 'Radio',
             model: 'radio',
+            hint: 'This is a hint text',
             values: [
               'Yes',
               'No'
@@ -967,6 +1008,7 @@ const demoData = {
             label: 'text area',
             model: 'textArea',
             placeholder: 'Start typing...',
+            hint: 'This is a hint text',
             rows: 4,
             required: true,
 
@@ -1181,6 +1223,67 @@ const demoData = {
       alt: 'A generic square placeholder image.'
     }),
     caption: text('Caption', '1.2 Caption to go here. This should be restricted in characters.')
+  }),
+
+  latestEvents: () => ({
+    title: text('Title', 'Optional heading'),
+    events: object('Events', [
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-01-09T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-12T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-08-01T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2020-02-02T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2020. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2019-07-10T09:00:00.000+10:00',
+        location: 'South Yarra',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: { text: 'See event details', url: '#' }
+      }
+    ]),
+    cta: object('Call to Action', {
+      image: 'https://placehold.it/148x148',
+      title: 'Want to submit an event?',
+      summary: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.',
+      link: { text: 'Submit a listing', url: '#' }
+    }),
+    link: object('Link', { text: 'See all events', url: '#' })
   })
 }
 

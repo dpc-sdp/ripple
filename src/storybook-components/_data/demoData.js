@@ -930,6 +930,7 @@ const demoData = {
         text: '',
         email: '',
         tel: '',
+        number: '',
         radio: null,
         textArea: ''
       },
@@ -946,6 +947,7 @@ const demoData = {
             type: 'input',
             inputType: 'text',
             label: 'Text',
+            hint: 'This is a hint text',
             required: true,
             placeholder: 'Enter some text...',
             model: 'text'
@@ -955,6 +957,7 @@ const demoData = {
             type: 'input',
             inputType: 'email',
             label: 'Email',
+            hint: 'This is a hint text',
             model: 'email'
           },
 
@@ -966,9 +969,21 @@ const demoData = {
           },
 
           {
+            type: 'input',
+            inputType: 'number',
+            label: 'Number',
+            placeholder: 'x10',
+            min: 0,
+            step: 10,
+            max: 100,
+            model: 'number'
+          },
+
+          {
             type: 'vueMultiSelect',
             model: 'select',
             label: 'Select',
+            hint: 'This is a hint text',
             values: [
               'option A',
               'option B'
@@ -979,6 +994,7 @@ const demoData = {
             type: 'radios',
             label: 'Radio',
             model: 'radio',
+            hint: 'This is a hint text',
             values: [
               'Yes',
               'No'
@@ -990,6 +1006,7 @@ const demoData = {
             label: 'text area',
             model: 'textArea',
             placeholder: 'Start typing...',
+            hint: 'This is a hint text',
             rows: 4,
             required: true,
 

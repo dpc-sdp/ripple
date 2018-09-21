@@ -6812,7 +6812,11 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               </div>
               <!---->
             </div>
-            <!---->
+            <div
+              class="hint"
+            >
+              This is a hint text
+            </div>
             <!---->
           </div>
           <div
@@ -6839,7 +6843,11 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               </div>
               <!---->
             </div>
-            <!---->
+            <div
+              class="hint"
+            >
+              This is a hint text
+            </div>
             <!---->
           </div>
           <div
@@ -6861,6 +6869,37 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                   class="form-control"
                   id="tel"
                   type="tel"
+                />
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="form-group valid field-input"
+          >
+            <label
+              for="number"
+            >
+              Number
+              <!---->
+            </label>
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="wrapper"
+              >
+                <input
+                  class="form-control"
+                  id="number"
+                  max="100"
+                  min="0"
+                  placeholder="x10"
+                  step="10"
+                  type="number"
                 />
                 <!---->
               </div>
@@ -6986,7 +7025,11 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               </div>
               <!---->
             </div>
-            <!---->
+            <div
+              class="hint"
+            >
+              This is a hint text
+            </div>
             <!---->
           </div>
           <div
@@ -7029,7 +7072,11 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               </div>
               <!---->
             </div>
-            <!---->
+            <div
+              class="hint"
+            >
+              This is a hint text
+            </div>
             <!---->
           </div>
           <div
@@ -7052,7 +7099,11 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               />
               <!---->
             </div>
-            <!---->
+            <div
+              class="hint"
+            >
+              This is a hint text
+            </div>
             <!---->
           </div>
           <div
@@ -14064,6 +14115,348 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
           data-v-d5d40916=""
         >
           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplIntroBanner
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-intro-banner
+  :title="title" :introText="introText"
+  :linkHeading="linkHeading" :links="links"
+  :showLinks="showLinks"
+  class="rpl-site-constrain--on-all"
+/&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-intro-banner rpl-site-constrain--on-all"
+      data-v-d5d40916=""
+    >
+      <div
+        class="rpl-row"
+      >
+        <div
+          class="rpl-intro-banner__left"
+        >
+          <h2
+            class="rpl-intro-banner__title"
+          >
+            <span>
+              Welcome to Victoria Police Museum
+            </span>
+          </h2>
+           
+          <p
+            class="rpl-intro-banner__description"
+          >
+            From the largest collection of Kelly Gang armour in Australia to forensic evidence from some of Melbourne's most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.
+          </p>
+        </div>
+         
+        <div
+          class="rpl-intro-banner__right"
+        >
+          <!---->
+           
+          <ul
+            class="rpl-intro-banner__link-list"
+          >
+            <li
+              class="rpl-intro-banner__link-list-item"
+            >
+              <a
+                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                href="#"
+              >
+                <span>
+                  <span>
+                    Plan your
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     visit
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </li>
+            <li
+              class="rpl-intro-banner__link-list-item"
+            >
+              <a
+                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                href="#"
+              >
+                <span>
+                  <!---->
+                   
+                  <!---->
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                    Collections
+                    <!---->
+                  </span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="rpl-intro-banner__link-list-item"
+            >
+              <a
+                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                href="#"
+              >
+                <span>
+                  <span>
+                    School
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Programs
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </li>
+            <li
+              class="rpl-intro-banner__link-list-item"
+            >
+              <a
+                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                href="#"
+              >
+                <span>
+                  <span>
+                    Group
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Bookings
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          title
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          introText
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          linkHeading
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          links
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          array
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          showLinks
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          boolean
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          true
         </td>
       </tr>
     </tbody>

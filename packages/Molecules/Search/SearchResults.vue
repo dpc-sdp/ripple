@@ -42,7 +42,7 @@
 <script>
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import RplSearchResult from './SearchResult.vue'
-import RplCardEvent from './../Card/CardEvent.vue'
+import { RplCardEvent } from '@dpc-sdp/ripple-card'
 
 export default {
   name: 'RplSearchResults',

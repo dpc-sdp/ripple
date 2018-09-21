@@ -28,6 +28,7 @@ export default {
     let pickerOptions = defaults(this.options || {}, {
       showDaysInNextAndPreviousMonths: true,
       format: 'DD/MM/YYYY',
+      theme: 'rpl-pikaday',
       i18n: {
         previousMonth: 'Previous Month',
         nextMonth: 'Next Month',
@@ -66,301 +67,237 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "./scss/form";
 
-// =============================================================================
-/*!
- * Pikaday
- * Copyright © 2014 David Bushell | BSD & MIT license | http://dbushell.com/
- */
+$rpl-pikaday-background: rpl-color('white') !default;
+$rpl-pikaday-border: 1px solid rpl-color('primary') !default;
+$rpl-pikaday-border-radius: rem(4px) !default;
+$rpl-pikaday-padding: $rpl-space-3 !default;
+$rpl-pikaday-label-text-color: rpl-color('extra_dark_neutral') !default;
+$rpl-pikaday-nav-arrow-color: rpl-color('primary') !default;
+$rpl-pikaday-nav-arrow-color-hover: rpl-color('secondary') !default;
+$rpl-pikaday-header-text-color: mix(rpl-color('white'), rpl-color('dark_neutral'), 0.65) !default;
+$rpl-pikaday-date-size: 2.125rem !default;
+$rpl-pikaday-date-text-color: rpl-color('dark_neutral') !default;
+$rpl-pikaday-date-text-color-hover: rpl-color('primary') !default;
+$rpl-pikaday-date-disabled-text-color: rpl-color('mid_neutral_1') !default;
+$rpl-pikaday-date-start-range-background-cover: linear-gradient(to right, rpl-color('white') 0%, rpl-color('white') 49.9%, rpl-color('light_neutral') 50%, rpl-color('light_neutral') 100%) !default;
+$rpl-pikaday-date-end-range-background-cover: linear-gradient(to right, rpl-color('light_neutral') 0%, rpl-color('light_neutral') 49.9%, rpl-color('white') 50%, rpl-color('white') 100%) !default;
+$rpl-pikaday-date-range-text-color: rpl-color('white') !default;
+$rpl-pikaday-date-range-background: rpl-gradient('primary_gradient_90') !default;
+$rpl-pikaday-date-range-border-radius: 100% !default;
+$rpl-pikaday-date-in-range-background: rpl-color('light_neutral') !default;
+$rpl-pikaday-date-in-range-text-color: rpl-color('extra_dark_neutral') !default;
+$rpl-pikaday-date-today-text-color: rpl-color('secondary') !default;
 
-.pika-single {
+// Following styles are adapted from the Pikaday calendar library.
+// Copyright © 2014 David Bushell | BSD & MIT license | http://dbushell.com/
+.rpl-pikaday {
   z-index: 9999;
   display: block;
   position: relative;
-  color: #333;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-bottom-color: #bbb;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+  background: $rpl-pikaday-background;
+  border: $rpl-pikaday-border;
+  border-radius: $rpl-pikaday-border-radius;
+  padding: $rpl-pikaday-padding;
 
-/*
-clear child float (pika-lendar), using the famous micro clearfix hack
-http://nicolasgallagher.com/micro-clearfix-hack/
-*/
-.pika-single:before,
-.pika-single:after {
-  content: " ";
-  display: table;
-}
-.pika-single:after { clear: both }
-.pika-single { *zoom: 1 }
-
-.pika-single.is-hidden {
-  display: none;
-}
-
-.pika-single.is-bound {
-  position: absolute;
-  box-shadow: 0 5px 15px -5px rgba(0,0,0,.5);
-}
-
-.pika-lendar {
-  float: left;
-  width: 240px;
-  margin: 8px;
-}
-
-.pika-title {
-  position: relative;
-  text-align: center;
-}
-
-.pika-label {
-  display: inline-block;
-  position: relative;
-  z-index: 9999;
-  overflow: hidden;
-  margin: 0;
-  padding: 5px 3px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: bold;
-  background-color: #fff;
-}
-.pika-title select {
-  cursor: pointer;
-  position: absolute;
-  z-index: 9998;
-  margin: 0;
-  left: 0;
-  top: 5px;
-  opacity: 0;
-}
-
-.pika-prev,
-.pika-next {
-  display: block;
-  cursor: pointer;
-  position: relative;
-  outline: none;
-  border: 0;
-  padding: 0;
-  width: 20px;
-  height: 30px;
-  /* hide text using text-indent trick, using width value (it's enough) */
-  text-indent: 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  background-color: transparent;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 75% 75%;
-  opacity: .5;
-}
-
-.pika-prev:hover,
-.pika-next:hover {
-  opacity: 1;
-}
-
-.pika-prev,
-.is-rtl .pika-next {
-  float: left;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==');
-}
-
-.pika-next,
-.is-rtl .pika-prev {
-  float: right;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=');
-}
-
-.pika-prev.is-disabled,
-.pika-next.is-disabled {
-  cursor: default;
-  opacity: .2;
-}
-
-.pika-select {
-  display: inline-block;
-}
-
-.pika-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 0;
-}
-
-.pika-table th,
-.pika-table td {
-  width: 14.285714285714286%;
-  padding: 0;
-}
-
-.pika-table th {
-  color: #999;
-  font-size: 12px;
-  line-height: 25px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.pika-button {
-  cursor: pointer;
-  display: block;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  outline: none;
-  border: 0;
-  margin: 0;
-  width: 100%;
-  padding: 5px;
-  color: #666;
-  font-size: 12px;
-  line-height: 15px;
-  text-align: right;
-  background: #f5f5f5;
-}
-
-.pika-week {
-  font-size: 11px;
-  color: #999;
-}
-
-.is-today .pika-button {
-  color: #33aaff;
-  font-weight: bold;
-}
-
-.is-selected .pika-button,
-.has-event .pika-button {
-  color: #fff;
-  font-weight: bold;
-  background: #33aaff;
-  box-shadow: inset 0 1px 3px #178fe5;
-  border-radius: 3px;
-}
-
-.has-event .pika-button {
-  background: #005da9;
-  box-shadow: inset 0 1px 3px #0076c9;
-}
-
-.is-disabled .pika-button,
-.is-inrange .pika-button {
-  background: #D5E9F7;
-}
-
-.is-startrange .pika-button {
-  color: #fff;
-  background: #6CB31D;
-  box-shadow: none;
-  border-radius: 3px;
-}
-
-.is-endrange .pika-button {
-  color: #fff;
-  background: #33aaff;
-  box-shadow: none;
-  border-radius: 3px;
-}
-
-.is-disabled .pika-button,
-.is-outside-current-month .pika-button {
-  pointer-events: none;
-  cursor: default;
-  color: #999;
-  opacity: .3;
-}
-
-.pika-button:hover,
-.pika-row.pick-whole-week:hover .pika-button {
-  color: #fff;
-  background: #ff8000;
-  box-shadow: none;
-  border-radius: 3px;
-}
-
-/* styling for abbr */
-.pika-table abbr {
-  border-bottom: none;
-}
-// =============================================================================
-/*
-.pika-single {
-  background: rpl-color('white');
-  border: 1px solid #0052c2;
-  border-radius: 4px;
-  padding: 20px;
-}
-
-.pika-table {
-  thead {
-    margin-bottom: $rpl-space-4;
-    text-align: center;
-    margin-left: 26px * 2;
-    margin-right: 26px * 2;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
   }
-  th {
-    text-align: center;
-    color: rpl-color('dark_neutral');
-    opacity: 0.65;
-    font-weight: normal;
+
+  &:after {
+    clear: both;
   }
-}
 
-.pika-row {
-  td {
-    width: 34px + 16px;
-    height: 34px;
+  &.is-hidden {
+    display: none;
+  }
+
+  &.is-bound {
+    @include rpl_dropshadow;
+    position: absolute;
+  }
+
+  .pika-lendar {
+    float: left;
+    width: rem(240px);
+    margin: rem(8px);
+  }
+
+  .pika-title {
+    position: relative;
     text-align: center;
-    color: rpl-color('dark_neutral');
-    background-color: rpl-color('light_neutral');
-    color: rpl-color('extra_dark_neutral');
 
-    &.is-outside-current-month {
-      color: rpl-color('mid_neutral_1');
-      background-color: white;
+    select {
+      cursor: pointer;
+      position: absolute;
+      z-index: 9998;
+      margin: 0;
+      left: 0;
+      top: rem(5px);
+      opacity: 0;
+    }
+  }
+
+  .pika-label {
+    display: inline-block;
+    position: relative;
+    z-index: 9999;
+    overflow: hidden;
+    margin: 0;
+    padding: rem(5px) rem(3px);
+    color: $rpl-pikaday-label-text-color;
+  }
+
+  .pika-prev,
+  .pika-next {
+    background-color: transparent;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    width: rem(20px);
+    height: rem(30px);
+    text-indent: rem(20px);
+    white-space: nowrap;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      margin: rem(5px) 0 0 rem(5px);
     }
 
-    &.is-startrange {
-      .pika-button {
-        background-image: linear-gradient(to right, rpl-color('white') 0%, rpl-color('white') 49.9%, rpl-color('light_neutral') 50%, rpl-color('light_neutral') 100%);
+    .is-disabled {
+      cursor: default;
+    }
+  }
+
+  .pika-prev,
+  .is-rtl .pika-next {
+    float: left;
+
+    &::before {
+      border-width: rem(5px) rem(8.7px) rem(5px) 0;
+      border-color: transparent $rpl-pikaday-nav-arrow-color transparent transparent;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        border-color: transparent $rpl-pikaday-nav-arrow-color-hover transparent transparent;
       }
     }
+  }
 
-    &.is-endrange {
-      .pika-button {
-        background-image: linear-gradient(to right, rpl-color('light_neutral') 0%, rpl-color('light_neutral') 49.9%, rpl-color('white') 50%, rpl-color('white') 100%);
+  .pika-next,
+  .is-rtl .pika-prev {
+    float: right;
+
+    &::before {
+      border-width: rem(5px) 0 rem(5px) rem(8.7px);
+      border-color: transparent transparent transparent $rpl-pikaday-nav-arrow-color;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        border-color: transparent transparent transparent $rpl-pikaday-nav-arrow-color-hover;
       }
     }
+  }
 
-    &.is-today {
-      color: red;
+  .pika-select {
+    display: inline-block;
+  }
+
+  .pika-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+
+    abbr {
+      border-bottom: none;
+      text-decoration: none;
     }
 
-    .pika-button {
-      background-color: transparent;
-      border: 0;
-      margin: auto;
-      height: 34px;
-      width: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    th {
+      text-align: center;
+      color: $rpl-pikaday-header-text-color;
+      font-weight: normal;
     }
+  }
 
-    &.is-startrange,
-    &.is-endrange,
-    &.current {
+  .pika-row {
+    td {
+      width: $rpl-pikaday-date-size + $rpl-space-4;
+      height: $rpl-pikaday-date-size;
+      text-align: center;
+
+      &.is-disabled,
+      &.is-outside-current-month {
+        .pika-button {
+          pointer-events: none;
+          color: $rpl-pikaday-date-disabled-text-color;
+        }
+      }
+
+      &.is-startrange {
+        background: $rpl-pikaday-date-start-range-background-cover;
+      }
+
+      &.is-endrange {
+        background: $rpl-pikaday-date-end-range-background-cover;
+      }
+
+      &.is-inrange {
+        background-color: $rpl-pikaday-date-in-range-background;
+
+        .pika-button {
+          color: $rpl-pikaday-date-in-range-text-color;
+        }
+      }
+
+      &.is-today {
+        .pika-button {
+          color: $rpl-pikaday-date-today-text-color;
+        }
+      }
+
       .pika-button {
-        color: rpl-color('white');
-        border-radius: 100%;
-        background-image: rpl-gradient('primary_gradient_90');
+        cursor: pointer;
+        color:  $rpl-pikaday-date-text-color;
+        background-color: transparent;
+        border: 0;
+        margin: 0;
+        height: $rpl-pikaday-date-size;
+        width: $rpl-pikaday-date-size;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover,
+        &:focus {
+          color: $rpl-pikaday-date-text-color-hover;
+        }
+      }
+
+      &.is-startrange,
+      &.is-endrange {
+        .pika-button {
+          color: $rpl-pikaday-date-range-text-color;
+          border-radius: $rpl-pikaday-date-range-border-radius;
+          background-image: $rpl-pikaday-date-range-background;
+        }
       }
     }
   }
 }
-*/
 </style>

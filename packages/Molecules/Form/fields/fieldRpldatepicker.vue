@@ -136,6 +136,7 @@ export default {
 
   &__separator {
     display: none;
+
     @include rpl-breakpoint('s') {
       display: block;
       margin: 0 $rpl-space-2;
@@ -147,6 +148,7 @@ export default {
     input[type='text'] {
       &#{$root}__start {
         margin-bottom: $rpl-form-element-margin-bottom-s;
+
         @include rpl_breakpoint('s') {
           margin-bottom: 0;
         }

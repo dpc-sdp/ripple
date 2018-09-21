@@ -907,7 +907,7 @@ const demoData = {
         tel: '',
         radio: null,
         textArea: '',
-        dateRange: '',
+        dateRange: ['', ''],
         date: ''
       },
 
@@ -977,16 +977,19 @@ const demoData = {
 
           {
             type: 'rpldatepicker',
+            range: true,
             label: 'Date Range',
             model: 'dateRange',
-            range: true
+            startPlaceholder: 'Start',
+            endPlaceholder: 'End'
           },
 
           {
             type: 'rpldatepicker',
+            ranged: false,
             label: 'Date',
             model: 'date',
-            range: false
+            placeholder: 'Enter a date'
           },
 
           {

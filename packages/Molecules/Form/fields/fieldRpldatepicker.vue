@@ -1,60 +1,121 @@
 <template>
-  <div class="rpl-date-picker">
-    <el-date-picker
-      v-if="schema.range"
-      v-model="date"
-      type="daterange"
-      format="dd/MM/yyyy"
-      range-separator="To"
-      start-placeholder="Start date"
-      end-placeholder="End date"
-      @change="dateChange"
-    >
-      <template slot="sidebar">Woo</template>
-    </el-date-picker>
-    <el-date-picker
-      v-if="!schema.range"
-      v-model="date"
-      type="date"
-      format="dd/MM/yyyy"
-      placeholder="Pick a date"
-      @change="dateChange"
-    ></el-date-picker>
+  <div v-if="isRanged" class="rpl-date-picker rpl-date-picker--range">
+    <pikaday
+      class="rpl-date-picker__start"
+      v-model="modelStart"
+      :autocomplete="schema.autocomplete"
+      :disabled="disabled"
+      :placeholder="schema.startPlaceholder"
+      :readonly="schema.readonly"
+      :name="schema.inputName"
+      @change="startChange"
+      @init="startInit" />
+    <span class="rpl-date-picker__separator">-</span>
+    <pikaday
+      class="rpl-date-picker__end"
+      v-model="modelEnd"
+      :autocomplete="schema.autocomplete"
+      :disabled="disabled"
+      :placeholder="schema.endPlaceholder"
+      :readonly="schema.readonly"
+      :name="schema.inputName"
+      @change="endChange"
+      @init="endInit" />
+  </div>
+  <div v-else class="rpl-date-picker rpl-date-picker--single">
+    <pikaday
+      v-model="datePickValue"
+      :autocomplete="schema.autocomplete"
+      :disabled="disabled"
+      :placeholder="schema.placeholder"
+      :readonly="schema.readonly"
+      :name="schema.inputName"
+      @change="singleUpdateDate" />
   </div>
 </template>
 
 <script>
-import { abstractField } from 'vue-form-generator'
+import { abstractField, dateFieldHelper } from 'vue-form-generator'
 import moment from 'moment'
-import RplIcon from '@dpc-sdp/ripple-icon'
-import { DatePicker } from 'element-ui'
-import lang from 'element-ui/lib/locale/lang/en'
-import locale from 'element-ui/lib/locale'
-
-// configure language
-locale.use(lang)
+import pikaday from '../formPikaday.vue'
 
 export default {
   mixins: [abstractField],
   components: {
-    'ElDatePicker': DatePicker,
-    RplIcon
+    pikaday
   },
   data () {
-    return {
-      date: ''
+    if (this.schema.range) {
+      let startValue = ''
+      let endValue = ''
+      if (this.value) {
+        if (this.value[0]) {
+          startValue = moment(this.value[0]).format()
+        }
+        if (this.value[1]) {
+          endValue = moment(this.value[1]).format()
+        }
+      }
+      return {
+        isRanged: true,
+        startPicker: null,
+        endPicker: null,
+        modelStart: startValue,
+        modelEnd: endValue,
+        returnStart: startValue,
+        returnEnd: endValue
+      }
+    } else {
+      return {
+        isRanged: false,
+        datePickValue: this.value
+      }
     }
   },
   methods: {
-    dateChange (val) {
-      // Return array for date range, or single value for single date.
-      const invalidDate = (this.schema.range && (val[0] === null || val[1] === null)) || val === null
-      if (!invalidDate) {
-        this.model[this.schema.model] = (this.schema.range) ? [moment(val[0]).format(), moment(val[1]).format()] : moment(val).format()
-      } else {
-        this.model[this.schema.model] = ''
+    // Range Methods
+    startChange (val) {
+      const pikadate = moment(val)
+      this.returnStart = pikadate.format()
+      this.startRange(pikadate.toDate())
+      this.rangeUpdateDate()
+    },
+    endChange (val) {
+      const pikadate = moment(val)
+      this.returnEnd = pikadate.format()
+      this.endRange(pikadate.toDate())
+      this.rangeUpdateDate()
+    },
+    startRange (date) {
+      this.startPicker.setStartRange(date)
+      this.endPicker.setStartRange(date)
+    },
+    endRange (date) {
+      this.startPicker.setEndRange(date)
+      this.endPicker.setEndRange(date)
+    },
+    startInit (picker) {
+      this.startPicker = picker
+      this.initRanges()
+    },
+    endInit (picker) {
+      this.endPicker = picker
+      this.initRanges()
+    },
+    initRanges () {
+      if (this.startPicker && this.endPicker) {
+        this.startRange(moment(this.modelStart).toDate())
+        this.endRange(moment(this.modelEnd).toDate())
       }
-    }
+    },
+    rangeUpdateDate () {
+      this.value = [this.returnStart, this.returnEnd]
+    },
+    // Single Methods
+    singleUpdateDate (val) {
+      this.value = moment(val).format()
+    },
+    ...dateFieldHelper
   }
 }
 </script>
@@ -63,143 +124,32 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "../scss/form";
 
-.el-picker-panel {
+.rpl-date-picker {
   $root: &;
-  background: rpl-color('white');
-  border: 1px solid #0052c2;
-  border-radius: 4px;
-  padding: 20px;
 
-  &.el-date-range-picker {
-    #{$root}__body {
-      display: flex;
-      flex-wrap: nowrap;
-    }
-
-    #{$root}__content {
-      &:nth-child(2) {
-        margin-left: $rpl-space * 5;
-      }
-    }
-  }
-}
-
-.el-date-picker__header,
-.el-date-range-picker__header {
-  color: rpl-color('dark_neutral');
-
-  button {
-    border: 0;
-    background-color: transparent;
-    width: 26px;
-    height: 26px;
-    padding: 0;
-  }
-
-  [class*=arrow-left] {
-    float: left;
-  }
-
-  [class*=arrow-right] {
-    float: right;
-  }
-}
-
-.el-icon-d-arrow-left {
-  &:before {
-    content: '<<';
-  }
-}
-
-.el-icon-arrow-left {
-  &:before {
-    content: '<';
-  }
-}
-
-.el-icon-arrow-right {
-  &:before {
-    content: '>';
-  }
-}
-
-.el-icon-d-arrow-right {
-  &:before {
-    content: '>>';
-  }
-}
-
-.el-date-picker__header {
-  margin-bottom: $rpl-space-4;
-  text-align: center;
-}
-
-.el-date-range-picker__header {
-  margin-bottom: $rpl-space-4;
-  div {
-    text-align: center;
-    margin-left: 26px * 2;
-    margin-right: 26px * 2;
-  }
-}
-
-th {
-  text-align: center;
-  color: rpl-color('dark_neutral');
-  opacity: 0.65;
-  font-weight: normal;
-}
-
-.el-date-editor--daterange {
-  display: flex;
-  align-items: center;
-}
-
-.el-range-separator {
-  margin: 0 $rpl-space-2;
-}
-
-.el-date-table__row {
-  td {
-    width: 34px + 16px;
-    height: 34px;
-    text-align: center;
-    color: rpl-color('dark_neutral');
-
-    div {
-      margin: auto;
-      height: 34px;
-      width: 34px;
+  &--range {
+    @include rpl-breakpoint('s') {
       display: flex;
       align-items: center;
-      justify-content: center;
     }
+  }
 
-    &.in-range {
-      background-color: rpl-color('light_neutral');
-      color: rpl-color('extra_dark_neutral');
+  &__separator {
+    display: none;
+    @include rpl-breakpoint('s') {
+      display: block;
+      margin: 0 $rpl-space-2;
     }
+  }
 
-    &.prev-month,
-    &.next-month {
-      color: rpl-color('mid_neutral_1');
-    }
-
-    &.start-date {
-      background-image: linear-gradient(to right, rpl-color('white') 0%, rpl-color('white') 49.9%, rpl-color('light_neutral') 50%, rpl-color('light_neutral') 100%);
-    }
-
-    &.end-date {
-      background-image: linear-gradient(to right, rpl-color('light_neutral') 0%, rpl-color('light_neutral') 49.9%, rpl-color('white') 50%, rpl-color('white') 100%);
-    }
-
-    &.start-date,
-    &.end-date,
-    &.current {
-      div {
-        color: rpl-color('white');
-        border-radius: 100%;
-        background-image: rpl-gradient('primary_gradient_90');
+  // Override default rpl-form input margin.
+  .rpl-form & {
+    input[type='text'] {
+      &#{$root}__start {
+        margin-bottom: $rpl-form-element-margin-bottom-s;
+        @include rpl_breakpoint('s') {
+          margin-bottom: 0;
+        }
       }
     }
   }

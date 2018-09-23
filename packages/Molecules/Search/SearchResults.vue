@@ -3,22 +3,22 @@
     <div class="rpl-search-results__info" >
       <div v-if="count">Displaying {{ responseSize > count ? count : responseSize }} of {{ count }} results</div>
     </div>
-
-    <div class="rpl-search-results__main" :class="{'rpl-search-results__main--events': type === 'RplCardEvent'}">
+    <rpl-row row-gutter class="rpl-search-results__main" :class="{'rpl-search-results__main--events': type === 'RplCardEvent'}">
       <template v-if="searchResults && !errorMsg">
-        <rpl-search-result
-          class="rpl-search-results__item rpl-component-gutter"
-          v-bind="searchResult"
-          v-if="type === 'default'"
-          v-for="(searchResult, index) of searchResults"
-          :key="index"
-        />
-        <div class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter"
+        <rpl-col cols="full" v-if="type === 'default'">
+          <rpl-search-result
+            class="rpl-search-results__item rpl-component-gutter"
+            v-bind="searchResult"
+            v-for="(searchResult, index) of searchResults"
+            :key="index"
+          />
+        </rpl-col>
+        <rpl-col cols="full" :colsBp="{m:6,l:4, xxxl:3}" class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter"
           v-if="type === 'RplCardEvent'"
           v-for="(searchResult, index) of searchResults"
           :key="index">
           <rpl-card-event v-bind="searchResult" />
-        </div>
+        </rpl-col>
       </template>
       <div v-if="searchResults.length === 0" class="rpl-search-results__no-results-msg">
         {{ noResultsMsg }}
@@ -26,7 +26,7 @@
       <div v-if="errorMsg" class="rpl-search-results__error-msg">
         {{ errorMsg }}
       </div>
-    </div>
+    </rpl-row>
 
     <div class="rpl-search-results__pager">
       <rpl-pagination
@@ -43,11 +43,14 @@
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import RplSearchResult from './SearchResult.vue'
 import { RplCardEvent } from '@dpc-sdp/ripple-card'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplSearchResults',
   components: {
     RplPagination,
+    RplRow,
+    RplCol,
     RplSearchResult,
     RplCardEvent
   },
@@ -73,6 +76,13 @@ export default {
     noResultsMsg: String,
     responseSize: Number,
     count: Number
+  },
+  data () {
+    return {
+      defaultCols: {
+
+      }
+    }
   }
 }
 </script>
@@ -97,26 +107,6 @@ export default {
     &__no-results-msg,
     &__error-msg {
       @include rpl_typography('heading_l');
-    }
-
-    &__main {
-      &--events {
-        @include rpl_grid_row;
-        @include rpl_grid_row_gutter;
-      }
-    }
-    &__item {
-      &--event{
-        @include rpl_breakpoint('m') {
-          @include rpl_grid_column(6);
-        }
-        @include rpl_breakpoint('l') {
-          @include rpl_grid_column(4);
-        }
-        @include rpl_breakpoint('xxxl') {
-          @include rpl_grid_column(3);
-        }
-      }
     }
   }
 </style>

@@ -885,6 +885,61 @@ const demoData = {
     theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
   }),
 
+  eventSearchForm: () => ({
+    title: text('Title', 'Events search page'),
+    searchPlaceholder: text('Search Placeholder', 'Enter keywords'),
+    prefillSearchTerm: text('Prefilled Search Term', 'Search by keyword or location'),
+    filterForm: object('Filter Form', {
+      tideId: 'tide_search_form',
+      model: {
+        text: '',
+        topic: ''
+      },
+      schema: {
+        fields: [{
+          type: 'rplchecklist',
+          label: 'Select an event category',
+          model: 'topic',
+          values: [
+            'Topic A',
+            'Topic B',
+            'Topic C',
+            'Topic D'
+          ],
+          placeholder: 'Select a topic'
+        }, {
+          type: 'vueMultiSelect',
+          model: 'select',
+          label: 'Event requirements',
+          values: [
+            'Accessible venue',
+            'Child friendly',
+            'Free admission',
+            'Online webinar',
+            'Seniors'
+          ]
+        }, {
+          type: 'input',
+          inputType: 'text',
+          label: 'Enter a location',
+          required: true,
+          placeholder: 'Start typing suburb or postcode…',
+          model: 'text'
+        }, {
+          type: 'rplsubmitloader',
+          buttonText: 'Display 18 results',
+          loading: false
+        }]
+      },
+      formOptions: {
+        validateAfterLoad: true,
+        validateAfterChanged: true
+      },
+      formState: {}
+    }),
+    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
+  }),
+
   searchResult: () => ({
     title: text('Title', 'Schools private policy'),
     link: object('Link', {

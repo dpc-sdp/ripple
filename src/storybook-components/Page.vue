@@ -56,10 +56,10 @@
 
       <rpl-row row-gutter class="demo-main">
         <rpl-col cols="full" :colsBp="defaultCols">
-          <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
-        </rpl-col>
-        <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-anchor-links :title="mock.anchorLinks.title" :links="mock.anchorLinks.links" />
+        </rpl-col>
+        <rpl-col v-if="!sidebar" cols="full" :colsBp="defaultCols">
+          <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-card-navigation-featured :title="mock.cardNavigationFeatured.title" :summary="mock.cardNavigationFeatured.summary" :url="mock.cardNavigationFeatured.url" :image="mock.cardNavigationFeatured.image" />
@@ -144,7 +144,8 @@ import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 // Card
-import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta, RplCardCarousel } from '@dpc-sdp/ripple-card'
+import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta } from '@dpc-sdp/ripple-card'
+import { RplCardCarousel } from '@dpc-sdp/ripple-card/no-ssr'
 
 // Campaign
 import RplCampaignPrimary from '@dpc-sdp/ripple-campaign-primary'

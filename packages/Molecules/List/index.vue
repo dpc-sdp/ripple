@@ -37,7 +37,8 @@ export default {
   },
   methods: {
     iconSize (item) {
-      return (item.size ? item.size : 1) * this.iconScale
+      const size = (item.size ? item.size : 1) * this.iconScale
+      return size.toString()
     }
   }
 }

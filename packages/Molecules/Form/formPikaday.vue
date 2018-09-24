@@ -12,7 +12,6 @@
 <script>
 import { defaults } from 'lodash'
 import moment from 'moment'
-import Pikaday from 'pikaday'
 
 export default {
   props: {
@@ -43,8 +42,9 @@ export default {
       pickerOptions: pickerOptions
     }
   },
-  mounted () {
-    this.$nextTick(() => {
+  methods: {
+    pikadayInit: async function () {
+      const Pikaday = await import('pikaday')
       this.picker = new Pikaday(defaults(this.pickerOptions, {
         field: this.$el,
         onSelect: () => {
@@ -53,6 +53,11 @@ export default {
         }
       }))
       this.$emit('init', this.picker)
+    }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.pikadayInit()
     })
   },
   beforeDestroy () {

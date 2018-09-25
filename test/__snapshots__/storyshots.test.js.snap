@@ -990,6 +990,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          accessible
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           addition
         </code>
       </li>
@@ -1060,6 +1067,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          arrow_down_tertiary
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           arrow_left_primary
         </code>
       </li>
@@ -1123,6 +1137,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          child_friendly
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           close
         </code>
       </li>
@@ -1159,6 +1180,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
          
         <code>
           docx
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          dollar_negative
         </code>
       </li>
       <li>
@@ -1222,6 +1250,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
          
         <code>
           facebook
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          free
         </code>
       </li>
       <li>
@@ -1375,6 +1410,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          senior
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           share
         </code>
       </li>
@@ -1397,6 +1439,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
          
         <code>
           stop
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          success
         </code>
       </li>
       <li>
@@ -1439,6 +1488,20 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
          
         <code>
           upload
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          view
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          webinar
         </code>
       </li>
       <li>

@@ -1265,6 +1265,54 @@ const demoData = {
       link: { text: 'Submit a listing', url: '#' }
     }),
     link: object('Link', { text: 'See all events', url: '#' })
+  }),
+
+  imageGallery: () => ({
+    gallery: object('Gallery Data', [{
+      id: '1',
+      image: 'https://placehold.it/1024x768/990000/fff',
+      alt: 'A test image',
+      thumbnail: 'https://placehold.it/350x350/990000/fff',
+      caption: 'This is my captions'
+    }, {
+      id: '2',
+      image: 'https://placehold.it/1024x768/009900/fff',
+      alt: 'A test image',
+      thumbnail: 'https://placehold.it/350x350/009900/fff',
+      caption: 'This is my captions'
+    }, {
+      id: '3',
+      image: 'https://placehold.it/1024x768/000099/fff',
+      alt: 'A test image',
+      thumbnail: 'https://placehold.it/350x350/000099/fff',
+      caption: 'This is my captions'
+    }, {
+      id: '4',
+      image: 'https://placehold.it/1024x768/999900/fff',
+      alt: 'A test image',
+      thumbnail: 'https://placehold.it/350x350/999900/fff',
+      caption: 'This is my captions'
+    }, {
+      id: '5',
+      image: 'https://placehold.it/1024x768/999999/fff',
+      alt: 'A test image',
+      thumbnail: 'https://placehold.it/350x350/999999/fff',
+      caption: 'This is my captions'
+    }, {
+      id: '6',
+      image: 'https://placehold.it/1024x768/009999/fff',
+      alt: 'A test image',
+      thumbnail: 'https://placehold.it/350x350/009999/fff',
+      caption: 'This is my captions'
+    }, {
+      id: '7',
+      image: 'https://placehold.it/1024x768/990099/fff',
+      alt: 'A test image',
+      thumbnail: 'https://placehold.it/350x350/990099/fff',
+      caption: 'This is my captions'
+    }
+    ]),
+    enlargeText: text('Enlarge Text', 'Click to enlarge')
   })
 }
 

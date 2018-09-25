@@ -7,8 +7,8 @@
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/UpdatedDate",
   "dependencies": {
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.17",
     "@dpc-sdp/ripple-button": "1.0.0-alpha.17",
-    "@dpc-sdp/ripple-card": "1.0.0-alpha.17",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.17"
+    "@dpc-sdp/ripple-card": "1.0.0-alpha.17"
   }
 }

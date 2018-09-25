@@ -40,6 +40,8 @@ See [Storybook/Card Cta](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/C
 
 See [Storybook/Card Content (base)](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Content%20(base)).
 
+See [Storybook/Card Carousel](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Carousel).
+
 --------------------------------------------------------------------------------
 
 ## License

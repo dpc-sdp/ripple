@@ -35,7 +35,7 @@ export default {
     processedEvents () {
       if (this.events) {
         let processedEvents = this.events.slice()
-        processedEvents.sort((a, b) => moment(a.date).isAfter(b.date))
+        processedEvents.sort((a, b) => moment(a.dateStart).isAfter(b.dateStart))
         return this.cta ? processedEvents.slice(0, 5) : processedEvents.slice(0, 6)
       }
       return null

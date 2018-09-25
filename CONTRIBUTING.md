@@ -50,6 +50,21 @@ should update snapshots by `npm test -- -u`. Then add it in commit.
 npm run docs
 ```
 
+#### Create new components
+
+``` bash
+# Generate a new component in the `./packages/**/` directory
+npm run new-component "[Name]" "[Description]" "[Atoms / Molecules / Organisms]"
+```
+
+Example: Creating a new component 'My Component' in the Organism folder:
+
+``` bash
+npm run new-component "My Component" "A demonstration component." "Organisms"
+```
+
+After creating a new component, generate the readme using `npm run docs`.
+
 ### Work in Docker
 
 We recomend you work in our Docker enviorment.

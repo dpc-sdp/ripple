@@ -1,5 +1,5 @@
 /**
- * Generates a Component and folder for a new package, based off the default
+ * Generates a Package and folder for a new package, based off the default
  * templates.
  */
 
@@ -8,8 +8,8 @@ let fs = require('fs')
 let path = require('path')
 
 if (process.argv.length < 5) {
-  console.error('Missing arguments: npm run new-component "[Component name]" "[Component description]" "[Atoms / Molecules / Organisms]"')
-  console.log('e.g. npm run new-component "My Component" "A component to..." "Organisms"')
+  console.error('Missing arguments: npm run new-package "[Package name]" "[Package description]" "[Atoms / Molecules / Organisms]"')
+  console.log('e.g. npm run new-package "My Package" "A package to..." "Organisms"')
   return true
 }
 
@@ -17,8 +17,8 @@ let lerna = fs.readFileSync('./lerna.json', 'utf-8')
 lerna = JSON.parse(lerna)
 
 // Arguments
-let componentName = process.argv.length > 2 ? process.argv[2] : 'My Component'
-let description = process.argv.length > 3 ? process.argv[3] : 'A component for...'
+let packageName = process.argv.length > 2 ? process.argv[2] : 'My Package'
+let description = process.argv.length > 3 ? process.argv[3] : 'A package for...'
 let atom = process.argv.length > 4 ? process.argv[4] : 'Organisms'
 let version = lerna.version
 
@@ -47,22 +47,22 @@ function getCamelCase (val) {
 
 // Get Names
 let data = {
-  componentNaturalName: getTitleCase(componentName),
-  componentSpacelessName: getTitleCaseNoSpace(componentName),
-  componentFileName: getTitleCaseNoSpace(componentName),
-  componentDemoDataName: getCamelCase(componentName),
-  componentRippleName: 'Rpl' + getTitleCaseNoSpace(componentName),
-  componentClassName: 'rpl-' + getSnakeCase(componentName),
-  componentPackageName: 'ripple-' + getSnakeCase(componentName),
-  componentRippleExportName: '{ ' + 'Rpl' + getTitleCaseNoSpace(componentName) + ' }',
-  componentDescription: description,
-  componentAtomFolder: getTitleCaseNoSpace(atom),
-  componentVersion: version
+  packageNaturalName: getTitleCase(packageName),
+  packageSpacelessName: getTitleCaseNoSpace(packageName),
+  packageFileName: getTitleCaseNoSpace(packageName),
+  packageDemoDataName: getCamelCase(packageName),
+  packageRippleName: 'Rpl' + getTitleCaseNoSpace(packageName),
+  packageClassName: 'rpl-' + getSnakeCase(packageName),
+  packagePackageName: 'ripple-' + getSnakeCase(packageName),
+  packageRippleExportName: '{ ' + 'Rpl' + getTitleCaseNoSpace(packageName) + ' }',
+  packageDescription: description,
+  packageAtomFolder: getTitleCaseNoSpace(atom),
+  packageVersion: version
 }
-const directory = './packages/' + data.componentAtomFolder + '/' + data.componentSpacelessName + '/'
+const directory = './packages/' + data.packageAtomFolder + '/' + data.packageSpacelessName + '/'
 const files = [
   { template: '.npmignore', output: '.npmignore' },
-  { template: 'component_template.vue', output: data.componentSpacelessName + '.vue' },
+  { template: 'package_template.vue', output: data.packageSpacelessName + '.vue' },
   { template: 'index_template.js', output: 'index.js' },
   { template: 'LICENSE', output: 'LICENSE' },
   { template: 'package_template.json', output: 'package.json' },
@@ -84,4 +84,4 @@ files.forEach((item) => {
   })
 })
 
-console.log(`Created "${getTitleCase(componentName)}"`)
+console.log(`Created "${getTitleCase(packageName)}"`)

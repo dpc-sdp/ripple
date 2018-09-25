@@ -990,6 +990,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          accessible
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           addition
         </code>
       </li>
@@ -1060,6 +1067,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          arrow_down_tertiary
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           arrow_left_primary
         </code>
       </li>
@@ -1123,6 +1137,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          child_friendly
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           close
         </code>
       </li>
@@ -1159,6 +1180,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
          
         <code>
           docx
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          dollar_negative
         </code>
       </li>
       <li>
@@ -1222,6 +1250,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
          
         <code>
           facebook
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          free
         </code>
       </li>
       <li>
@@ -1375,6 +1410,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          senior
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           share
         </code>
       </li>
@@ -1397,6 +1439,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
          
         <code>
           stop
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          success
         </code>
       </li>
       <li>
@@ -1439,6 +1488,20 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
          
         <code>
           upload
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          view
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
+          webinar
         </code>
       </li>
       <li>
@@ -3291,7 +3354,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       <div
                         class="rpl-card-event__date"
                       >
-                        10 July
+                        10 to 15 July
                       </div>
                        
                       <div
@@ -3375,7 +3438,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       <div
                         class="rpl-card-event__date"
                       >
-                        10 July
+                        10 July to 10 September
                       </div>
                        
                       <div
@@ -4452,7 +4515,7 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
     <code
       data-v-d5d40916=""
     >
-      &lt;rpl-card-event :image="image" :date="date" :location="location" :title="title" :summary="summary" :link="link" /&gt;
+      &lt;rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" /&gt;
     </code>
   </pre>
    
@@ -4490,7 +4553,7 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
           <div
             class="rpl-card-event__date"
           >
-            10 July
+            10 to 11 July
           </div>
            
           <div
@@ -4619,7 +4682,31 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
           data-v-d5d40916=""
         >
           
-          date
+          dateStart
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          dateEnd
           
           <!---->
         </td>
@@ -4778,6 +4865,30 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
           data-v-d5d40916=""
         >
           en-au
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          rangeDivider
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+           to 
         </td>
       </tr>
     </tbody>
@@ -13110,7 +13221,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <div
                   class="rpl-card-event__date"
                 >
-                  09 January
+                  12 February
                 </div>
                  
                 <div
@@ -13123,7 +13234,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
               <h2
                 class="rpl-card-event__title"
               >
-                This is the headline of an event with a location that will stretch over over 3 lines
+                This is the headline of an event
               </h2>
                
               <div
@@ -13133,7 +13244,256 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <p
                   class="rpl-card-event__summary"
                 >
-                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                  This event range occurs in 2018, same day, different time.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  09 to 10 May
+                </div>
+                 
+                <div
+                  class="rpl-card-promotion__tag"
+                >
+                  
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event range occurs in 2018, same month different day.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  01 August to 02 September
+                </div>
+                 
+                <div
+                  class="rpl-card-promotion__tag"
+                >
+                  
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event range occurs in 2018. Same year, different month.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  25 December 2018 to 05 January 2019
+                </div>
+                 
+                <div
+                  class="rpl-card-promotion__tag"
+                >
+                  
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event range occurs in 2018 and goes to 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
                 </p>
               </div>
                
@@ -13216,256 +13576,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <p
                   class="rpl-card-event__summary"
                 >
-                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
-                </p>
-              </div>
-               
-              <p
-                class="rpl-card-event__location"
-              >
-                <!---->
-                South Yarra
-              </p>
-               
-              <!---->
-            </div>
-             
-            <div
-              class="rpl-card-content__link"
-            >
-              <span>
-                <span>
-                  See event
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   details
-                  <!---->
-                </span>
-                 
-                <!---->
-              </span>
-            </div>
-          </a>
-        </div>
-        <div
-          class="rpl-latest-events__card"
-        >
-          <a
-            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-            href="#"
-          >
-            <div
-              class="rpl-card-content__image-wrapper"
-            >
-              <img
-                alt=""
-                class="rpl-card-content__image"
-                src="https://placehold.it/580x340"
-              />
-            </div>
-             
-            <div
-              class="rpl-card-content__details"
-            >
-              <div
-                class="rpl-card-event__meta"
-              >
-                <div
-                  class="rpl-card-event__date"
-                >
-                  12 July
-                </div>
-                 
-                <div
-                  class="rpl-card-promotion__tag"
-                >
-                  
-                </div>
-              </div>
-               
-              <h2
-                class="rpl-card-event__title"
-              >
-                This is the headline of an event with a location that will stretch over over 3 lines
-              </h2>
-               
-              <div
-                class="rpl-card-event__trim-wrapper"
-                style="max-height: none;"
-              >
-                <p
-                  class="rpl-card-event__summary"
-                >
-                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
-                </p>
-              </div>
-               
-              <p
-                class="rpl-card-event__location"
-              >
-                <!---->
-                South Yarra
-              </p>
-               
-              <!---->
-            </div>
-             
-            <div
-              class="rpl-card-content__link"
-            >
-              <span>
-                <span>
-                  See event
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   details
-                  <!---->
-                </span>
-                 
-                <!---->
-              </span>
-            </div>
-          </a>
-        </div>
-        <div
-          class="rpl-latest-events__card"
-        >
-          <a
-            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-            href="#"
-          >
-            <div
-              class="rpl-card-content__image-wrapper"
-            >
-              <img
-                alt=""
-                class="rpl-card-content__image"
-                src="https://placehold.it/580x340"
-              />
-            </div>
-             
-            <div
-              class="rpl-card-content__details"
-            >
-              <div
-                class="rpl-card-event__meta"
-              >
-                <div
-                  class="rpl-card-event__date"
-                >
-                  01 August
-                </div>
-                 
-                <div
-                  class="rpl-card-promotion__tag"
-                >
-                  
-                </div>
-              </div>
-               
-              <h2
-                class="rpl-card-event__title"
-              >
-                This is the headline of an event with a location that will stretch over over 3 lines
-              </h2>
-               
-              <div
-                class="rpl-card-event__trim-wrapper"
-                style="max-height: none;"
-              >
-                <p
-                  class="rpl-card-event__summary"
-                >
-                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
-                </p>
-              </div>
-               
-              <p
-                class="rpl-card-event__location"
-              >
-                <!---->
-                South Yarra
-              </p>
-               
-              <!---->
-            </div>
-             
-            <div
-              class="rpl-card-content__link"
-            >
-              <span>
-                <span>
-                  See event
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   details
-                  <!---->
-                </span>
-                 
-                <!---->
-              </span>
-            </div>
-          </a>
-        </div>
-        <div
-          class="rpl-latest-events__card"
-        >
-          <a
-            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-            href="#"
-          >
-            <div
-              class="rpl-card-content__image-wrapper"
-            >
-              <img
-                alt=""
-                class="rpl-card-content__image"
-                src="https://placehold.it/580x340"
-              />
-            </div>
-             
-            <div
-              class="rpl-card-content__details"
-            >
-              <div
-                class="rpl-card-event__meta"
-              >
-                <div
-                  class="rpl-card-event__date"
-                >
-                  10 July
-                </div>
-                 
-                <div
-                  class="rpl-card-promotion__tag"
-                >
-                  
-                </div>
-              </div>
-               
-              <h2
-                class="rpl-card-event__title"
-              >
-                This is the headline of an event with a location that will stretch over over 3 lines
-              </h2>
-               
-              <div
-                class="rpl-card-event__trim-wrapper"
-                style="max-height: none;"
-              >
-                <p
-                  class="rpl-card-event__summary"
-                >
-                  This event occurs in 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                  This single date event occurs in 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
                 </p>
               </div>
                
@@ -17700,842 +17811,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 class="rpl-col rpl-col--full"
               >
                 <div
-                  class="rpl-card-carousel"
-                >
-                  <h2
-                    class="rpl-card-carousel__title"
-                  >
-                    Featured Content
-                  </h2>
-                   
-                  <div
-                    class="rpl-card-carousel__slider"
-                  >
-                    <section
-                      class="VueCarousel"
-                    >
-                      <div
-                        class="VueCarousel-wrapper"
-                      >
-                        <div
-                          class="VueCarousel-inner"
-                          role="listbox"
-                          style="transform: translate(0px, 0); visibility: hidden;"
-                        >
-                          <div
-                            class="VueCarousel-slide rpl-card-carousel__slide"
-                            tabindex="-1"
-                          >
-                            <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-                              href="#"
-                            >
-                              <div
-                                class="rpl-card-content__image-wrapper"
-                              >
-                                <img
-                                  alt=""
-                                  class="rpl-card-content__image"
-                                  src="https://placehold.it/580x340"
-                                />
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__details"
-                              >
-                                <div
-                                  class="rpl-card-event__meta"
-                                >
-                                  <div
-                                    class="rpl-card-event__date"
-                                  >
-                                    10 July
-                                  </div>
-                                   
-                                  <div
-                                    class="rpl-card-promotion__tag"
-                                  >
-                                    
-                                  </div>
-                                </div>
-                                 
-                                <h2
-                                  class="rpl-card-event__title"
-                                >
-                                  This is the headline of an event
-                                </h2>
-                                 
-                                <div
-                                  class="rpl-card-event__trim-wrapper"
-                                  style="max-height: none;"
-                                >
-                                  <p
-                                    class="rpl-card-event__summary"
-                                  >
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte
-                                  </p>
-                                </div>
-                                 
-                                <p
-                                  class="rpl-card-event__location"
-                                >
-                                  <!---->
-                                  South Yarra
-                                </p>
-                                 
-                                <!---->
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__link"
-                              >
-                                <span>
-                                  <span>
-                                    See event
-                                  </span>
-                                   
-                                  <span
-                                    class="rpl-text-icon__group"
-                                  >
-                                     details
-                                    <!---->
-                                  </span>
-                                   
-                                  <!---->
-                                </span>
-                              </div>
-                            </a>
-                          </div>
-                          <div
-                            class="VueCarousel-slide rpl-card-carousel__slide"
-                            tabindex="-1"
-                          >
-                            <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
-                              href="#"
-                            >
-                              <!---->
-                               
-                              <div
-                                class="rpl-card-content__details"
-                              >
-                                <h2
-                                  class="rpl-card-keydates__title"
-                                >
-                                  Key calendar dates
-                                </h2>
-                                 
-                                <div
-                                  class="rpl-card-keydates__keydate"
-                                >
-                                  <div
-                                    class="rpl-card-keydates__keydate-date"
-                                  >
-                                    <!---->
-                                     
-                                    <span>
-                                      3 April
-                                    </span>
-                                  </div>
-                                   
-                                  <h3
-                                    class="rpl-card-keydates__keydate-title"
-                                  >
-                                    Term two starts
-                                  </h3>
-                                   
-                                  <p
-                                    class="rpl-card-keydates__keydate-description"
-                                  >
-                                    Its back to the classroom as school start term two on the 16th April.
-                                  </p>
-                                </div>
-                                <div
-                                  class="rpl-card-keydates__keydate"
-                                >
-                                  <div
-                                    class="rpl-card-keydates__keydate-date"
-                                  >
-                                    <!---->
-                                     
-                                    <span>
-                                      23 April
-                                    </span>
-                                  </div>
-                                   
-                                  <h3
-                                    class="rpl-card-keydates__keydate-title"
-                                  >
-                                    ANZAC Day
-                                  </h3>
-                                   
-                                  <p
-                                    class="rpl-card-keydates__keydate-description"
-                                  >
-                                    National day of remembrance to commemorate the ANZACs.
-                                  </p>
-                                </div>
-                                 
-                                <!---->
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__link"
-                              >
-                                <span>
-                                  <span>
-                                    See the events
-                                  </span>
-                                   
-                                  <span
-                                    class="rpl-text-icon__group"
-                                  >
-                                     calendar
-                                    <!---->
-                                  </span>
-                                   
-                                  <!---->
-                                </span>
-                              </div>
-                            </a>
-                          </div>
-                          <div
-                            class="VueCarousel-slide rpl-card-carousel__slide"
-                            tabindex="-1"
-                          >
-                            <a
-                              class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
-                              href="#"
-                            >
-                              <div
-                                class="rpl-card-content__image-wrapper"
-                              >
-                                <img
-                                  alt=""
-                                  class="rpl-card-content__image"
-                                  src="https://placehold.it/580x340"
-                                />
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__details"
-                              >
-                                <div
-                                  class="rpl-card-promotion__meta"
-                                >
-                                  <div
-                                    class="rpl-card-promotion__date"
-                                  >
-                                    10 July
-                                  </div>
-                                   
-                                  <div
-                                    class="rpl-card-promotion__tag"
-                                  >
-                                    News
-                                  </div>
-                                </div>
-                                 
-                                <h2
-                                  class="rpl-card-promotion__title"
-                                >
-                                  This is display copy that wraps 2 lines
-                                </h2>
-                                 
-                                <div
-                                  class="rpl-card-promotion__trim-wrapper"
-                                  style="max-height: none;"
-                                >
-                                  <p
-                                    class="rpl-card-promotion__summary"
-                                  >
-                                    We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
-                                  </p>
-                                </div>
-                                 
-                                <!---->
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__link"
-                              >
-                                <span>
-                                  <span>
-                                    Read
-                                  </span>
-                                   
-                                  <span
-                                    class="rpl-text-icon__group"
-                                  >
-                                     more
-                                    <!---->
-                                  </span>
-                                   
-                                  <!---->
-                                </span>
-                              </div>
-                            </a>
-                          </div>
-                          <div
-                            class="VueCarousel-slide rpl-card-carousel__slide"
-                            tabindex="-1"
-                          >
-                            <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-                              href="#"
-                            >
-                              <div
-                                class="rpl-card-content__image-wrapper"
-                              >
-                                <img
-                                  alt=""
-                                  class="rpl-card-content__image"
-                                  src="https://placehold.it/580x340"
-                                />
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__details"
-                              >
-                                <div
-                                  class="rpl-card-event__meta"
-                                >
-                                  <div
-                                    class="rpl-card-event__date"
-                                  >
-                                    10 July
-                                  </div>
-                                   
-                                  <div
-                                    class="rpl-card-promotion__tag"
-                                  >
-                                    
-                                  </div>
-                                </div>
-                                 
-                                <h2
-                                  class="rpl-card-event__title"
-                                >
-                                  This is the headline of an event
-                                </h2>
-                                 
-                                <div
-                                  class="rpl-card-event__trim-wrapper"
-                                  style="max-height: none;"
-                                >
-                                  <p
-                                    class="rpl-card-event__summary"
-                                  >
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte
-                                  </p>
-                                </div>
-                                 
-                                <p
-                                  class="rpl-card-event__location"
-                                >
-                                  <!---->
-                                  South Yarra
-                                </p>
-                                 
-                                <!---->
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__link"
-                              >
-                                <span>
-                                  <span>
-                                    See event
-                                  </span>
-                                   
-                                  <span
-                                    class="rpl-text-icon__group"
-                                  >
-                                     details
-                                    <!---->
-                                  </span>
-                                   
-                                  <!---->
-                                </span>
-                              </div>
-                            </a>
-                          </div>
-                          <div
-                            class="VueCarousel-slide rpl-card-carousel__slide"
-                            tabindex="-1"
-                          >
-                            <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-                              href="#"
-                            >
-                              <div
-                                class="rpl-card-content__image-wrapper"
-                              >
-                                <img
-                                  alt=""
-                                  class="rpl-card-content__image"
-                                  src="https://placehold.it/580x340"
-                                />
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__details"
-                              >
-                                <div
-                                  class="rpl-card-event__meta"
-                                >
-                                  <div
-                                    class="rpl-card-event__date"
-                                  >
-                                    10 July
-                                  </div>
-                                   
-                                  <div
-                                    class="rpl-card-promotion__tag"
-                                  >
-                                    
-                                  </div>
-                                </div>
-                                 
-                                <h2
-                                  class="rpl-card-event__title"
-                                >
-                                  This is the headline of an event
-                                </h2>
-                                 
-                                <div
-                                  class="rpl-card-event__trim-wrapper"
-                                  style="max-height: none;"
-                                >
-                                  <p
-                                    class="rpl-card-event__summary"
-                                  >
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte
-                                  </p>
-                                </div>
-                                 
-                                <p
-                                  class="rpl-card-event__location"
-                                >
-                                  <!---->
-                                  South Yarra
-                                </p>
-                                 
-                                <!---->
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__link"
-                              >
-                                <span>
-                                  <span>
-                                    See event
-                                  </span>
-                                   
-                                  <span
-                                    class="rpl-text-icon__group"
-                                  >
-                                     details
-                                    <!---->
-                                  </span>
-                                   
-                                  <!---->
-                                </span>
-                              </div>
-                            </a>
-                          </div>
-                          <div
-                            class="VueCarousel-slide rpl-card-carousel__slide"
-                            tabindex="-1"
-                          >
-                            <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
-                              href="#"
-                            >
-                              <!---->
-                               
-                              <div
-                                class="rpl-card-content__details"
-                              >
-                                <h2
-                                  class="rpl-card-keydates__title"
-                                >
-                                  Key calendar dates
-                                </h2>
-                                 
-                                <div
-                                  class="rpl-card-keydates__keydate"
-                                >
-                                  <div
-                                    class="rpl-card-keydates__keydate-date"
-                                  >
-                                    <!---->
-                                     
-                                    <span>
-                                      3 April
-                                    </span>
-                                  </div>
-                                   
-                                  <h3
-                                    class="rpl-card-keydates__keydate-title"
-                                  >
-                                    Term two starts
-                                  </h3>
-                                   
-                                  <p
-                                    class="rpl-card-keydates__keydate-description"
-                                  >
-                                    Its back to the classroom as school start term two on the 16th April.
-                                  </p>
-                                </div>
-                                <div
-                                  class="rpl-card-keydates__keydate"
-                                >
-                                  <div
-                                    class="rpl-card-keydates__keydate-date"
-                                  >
-                                    <!---->
-                                     
-                                    <span>
-                                      23 April
-                                    </span>
-                                  </div>
-                                   
-                                  <h3
-                                    class="rpl-card-keydates__keydate-title"
-                                  >
-                                    ANZAC Day
-                                  </h3>
-                                   
-                                  <p
-                                    class="rpl-card-keydates__keydate-description"
-                                  >
-                                    National day of remembrance to commemorate the ANZACs.
-                                  </p>
-                                </div>
-                                 
-                                <!---->
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__link"
-                              >
-                                <span>
-                                  <span>
-                                    See the events
-                                  </span>
-                                   
-                                  <span
-                                    class="rpl-text-icon__group"
-                                  >
-                                     calendar
-                                    <!---->
-                                  </span>
-                                   
-                                  <!---->
-                                </span>
-                              </div>
-                            </a>
-                          </div>
-                          <div
-                            class="VueCarousel-slide rpl-card-carousel__slide"
-                            tabindex="-1"
-                          >
-                            <a
-                              class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
-                              href="#"
-                            >
-                              <div
-                                class="rpl-card-content__image-wrapper"
-                              >
-                                <img
-                                  alt=""
-                                  class="rpl-card-content__image"
-                                  src="https://placehold.it/580x340"
-                                />
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__details"
-                              >
-                                <div
-                                  class="rpl-card-promotion__meta"
-                                >
-                                  <div
-                                    class="rpl-card-promotion__date"
-                                  >
-                                    10 July
-                                  </div>
-                                   
-                                  <div
-                                    class="rpl-card-promotion__tag"
-                                  >
-                                    News
-                                  </div>
-                                </div>
-                                 
-                                <h2
-                                  class="rpl-card-promotion__title"
-                                >
-                                  This is display copy that wraps 2 lines
-                                </h2>
-                                 
-                                <div
-                                  class="rpl-card-promotion__trim-wrapper"
-                                  style="max-height: none;"
-                                >
-                                  <p
-                                    class="rpl-card-promotion__summary"
-                                  >
-                                    We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.
-                                  </p>
-                                </div>
-                                 
-                                <!---->
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__link"
-                              >
-                                <span>
-                                  <span>
-                                    Read
-                                  </span>
-                                   
-                                  <span
-                                    class="rpl-text-icon__group"
-                                  >
-                                     more
-                                    <!---->
-                                  </span>
-                                   
-                                  <!---->
-                                </span>
-                              </div>
-                            </a>
-                          </div>
-                          <div
-                            class="VueCarousel-slide rpl-card-carousel__slide"
-                            tabindex="-1"
-                          >
-                            <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
-                              href="#"
-                            >
-                              <!---->
-                               
-                              <div
-                                class="rpl-card-content__details"
-                              >
-                                <h2
-                                  class="rpl-card-keydates__title"
-                                >
-                                  Key calendar dates
-                                </h2>
-                                 
-                                <div
-                                  class="rpl-card-keydates__keydate"
-                                >
-                                  <div
-                                    class="rpl-card-keydates__keydate-date"
-                                  >
-                                    <!---->
-                                     
-                                    <span>
-                                      3 April
-                                    </span>
-                                  </div>
-                                   
-                                  <h3
-                                    class="rpl-card-keydates__keydate-title"
-                                  >
-                                    Term two starts
-                                  </h3>
-                                   
-                                  <p
-                                    class="rpl-card-keydates__keydate-description"
-                                  >
-                                    Its back to the classroom as school start term two on the 16th April.
-                                  </p>
-                                </div>
-                                <div
-                                  class="rpl-card-keydates__keydate"
-                                >
-                                  <div
-                                    class="rpl-card-keydates__keydate-date"
-                                  >
-                                    <!---->
-                                     
-                                    <span>
-                                      23 April
-                                    </span>
-                                  </div>
-                                   
-                                  <h3
-                                    class="rpl-card-keydates__keydate-title"
-                                  >
-                                    ANZAC Day
-                                  </h3>
-                                   
-                                  <p
-                                    class="rpl-card-keydates__keydate-description"
-                                  >
-                                    National day of remembrance to commemorate the ANZACs.
-                                  </p>
-                                </div>
-                                 
-                                <!---->
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__link"
-                              >
-                                <span>
-                                  <span>
-                                    See the events
-                                  </span>
-                                   
-                                  <span
-                                    class="rpl-text-icon__group"
-                                  >
-                                     calendar
-                                    <!---->
-                                  </span>
-                                   
-                                  <!---->
-                                </span>
-                              </div>
-                            </a>
-                          </div>
-                          <div
-                            class="VueCarousel-slide rpl-card-carousel__slide"
-                            tabindex="-1"
-                          >
-                            <a
-                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
-                              href="#"
-                            >
-                              <!---->
-                               
-                              <div
-                                class="rpl-card-content__details"
-                              >
-                                <h2
-                                  class="rpl-card-keydates__title"
-                                >
-                                  Key calendar dates
-                                </h2>
-                                 
-                                <div
-                                  class="rpl-card-keydates__keydate"
-                                >
-                                  <div
-                                    class="rpl-card-keydates__keydate-date"
-                                  >
-                                    <!---->
-                                     
-                                    <span>
-                                      3 April
-                                    </span>
-                                  </div>
-                                   
-                                  <h3
-                                    class="rpl-card-keydates__keydate-title"
-                                  >
-                                    Term two starts
-                                  </h3>
-                                   
-                                  <p
-                                    class="rpl-card-keydates__keydate-description"
-                                  >
-                                    Its back to the classroom as school start term two on the 16th April.
-                                  </p>
-                                </div>
-                                <div
-                                  class="rpl-card-keydates__keydate"
-                                >
-                                  <div
-                                    class="rpl-card-keydates__keydate-date"
-                                  >
-                                    <!---->
-                                     
-                                    <span>
-                                      23 April
-                                    </span>
-                                  </div>
-                                   
-                                  <h3
-                                    class="rpl-card-keydates__keydate-title"
-                                  >
-                                    ANZAC Day
-                                  </h3>
-                                   
-                                  <p
-                                    class="rpl-card-keydates__keydate-description"
-                                  >
-                                    National day of remembrance to commemorate the ANZACs.
-                                  </p>
-                                </div>
-                                 
-                                <!---->
-                              </div>
-                               
-                              <div
-                                class="rpl-card-content__link"
-                              >
-                                <span>
-                                  <span>
-                                    See the events
-                                  </span>
-                                   
-                                  <span
-                                    class="rpl-text-icon__group"
-                                  >
-                                     calendar
-                                    <!---->
-                                  </span>
-                                   
-                                  <!---->
-                                </span>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                       
-                      <!---->
-                       
-                      <!---->
-                    </section>
-                     
-                    <div
-                      class="rpl-card-carousel__navigation"
-                    >
-                      <button
-                        aria-label="Go to previous slide"
-                        class="rpl-card-carousel__navigation-button rpl-card-carousel__navigation-button--prev"
-                        disabled="disabled"
-                        role="button"
-                      >
-                        <!---->
-                      </button>
-                       
-                      <button
-                        aria-label="Go to next slide"
-                        class="rpl-card-carousel__navigation-button rpl-card-carousel__navigation-button--next"
-                        role="button"
-                      >
-                        <!---->
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full"
-              >
-                <div
                   class="rpl-anchor-links"
                 >
                   <div
@@ -18696,6 +17971,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   </div>
                 </div>
               </div>
+               
+              <!---->
                
               <div
                 class="rpl-col rpl-col--full"
@@ -18934,7 +18211,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <div
                         class="rpl-card-event__date"
                       >
-                        10 July
+                        10 to 11 July
                       </div>
                        
                       <div
@@ -19061,7 +18338,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <div
                         class="rpl-card-event__date"
                       >
-                        10 July
+                        10 to 11 July
                       </div>
                        
                       <div

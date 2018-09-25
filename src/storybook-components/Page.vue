@@ -56,10 +56,10 @@
 
       <rpl-row row-gutter class="demo-main">
         <rpl-col cols="full" :colsBp="defaultCols">
-          <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
-        </rpl-col>
-        <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-anchor-links :title="mock.anchorLinks.title" :links="mock.anchorLinks.links" />
+        </rpl-col>
+        <rpl-col v-if="!sidebar" cols="full" :colsBp="defaultCols">
+          <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-card-navigation-featured :title="mock.cardNavigationFeatured.title" :summary="mock.cardNavigationFeatured.summary" :url="mock.cardNavigationFeatured.url" :image="mock.cardNavigationFeatured.image" />
@@ -74,13 +74,13 @@
           <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
+          <rpl-card-event :image="mock.cardEvent.image" :dateStart="mock.cardEvent.dateStart" :dateEnd="mock.cardEvent.dateEnd" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
           <rpl-card-cta :image="mock.cardCta.image" :title="mock.cardCta.title" :summary="mock.cardCta.summary" :link="mock.cardCta.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-event :image="mock.cardEvent.image" :date="mock.cardEvent.date" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
+          <rpl-card-event :image="mock.cardEvent.image" :dateStart="mock.cardEvent.dateStart" :dateEnd="mock.cardEvent.dateEnd" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
           <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
@@ -144,7 +144,8 @@ import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 // Card
-import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta, RplCardCarousel } from '@dpc-sdp/ripple-card'
+import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta } from '@dpc-sdp/ripple-card'
+import { RplCardCarousel } from '@dpc-sdp/ripple-card/no-ssr'
 
 // Campaign
 import RplCampaignPrimary from '@dpc-sdp/ripple-campaign-primary'

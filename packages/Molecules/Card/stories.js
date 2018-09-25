@@ -13,7 +13,7 @@ import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
 import RplCardEvent from './CardEvent.vue'
 import RplCardCta from './CardCta.vue'
-import RplCardCarousel from './CardCarousel.vue'
+import { RplCardCarousel } from './no-ssr'
 import readme from './README.md'
 import readmeCardContent from './ReadmeCardContent.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
@@ -51,7 +51,7 @@ storiesOf('Molecules/Card', module)
   })))
   .add('Card Event', withReadme(readme, () => ({
     components: { RplCardEvent },
-    template: `<rpl-card-event :image="image" :date="date" :location="location" :title="title" :summary="summary" :link="link" />`,
+    template: `<rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" />`,
     data () {
       return demoData.cardEvent()
     }

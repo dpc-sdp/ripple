@@ -150,6 +150,10 @@ export default {
     }
   }
 
+  .hint {
+    margin-bottom: $rpl-space-2;
+  }
+
   .error {
     input,
     textarea {
@@ -175,8 +179,22 @@ export default {
 
   .form-group {
     margin-bottom: $rpl-form-element-margin-bottom-s;
+    display: flex;
+    flex-direction: column;
     @include rpl_breakpoint(m) {
       margin-bottom: $rpl-form-element-margin-bottom-m;
+    }
+
+    label {
+      order: 1;
+    }
+
+    .hint {
+      order: 2;
+    }
+
+    .field-wrap {
+      order: 3;
     }
   }
 }

@@ -1,15 +1,15 @@
 {
   "name": "@dpc-sdp/ripple-site-header",
-  "version": "1.0.0-alpha.15",
+  "version": "1.0.0-alpha.17",
   "description": "Site header for providing site-wide navigation and search on all pages.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/SiteHeader",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.15",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.15",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.15",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.15"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.17",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.17",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.17",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.17"
   }
 }

@@ -29,9 +29,9 @@ import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import { Carousel, Slide } from 'vue-carousel'
 
-import RplCardPromotion from './CardPromotion.vue'
-import RplCardEvent from './CardEvent.vue'
-import RplCardKeydates from './CardKeydates.vue'
+import RplCardPromotion from './../CardPromotion.vue'
+import RplCardEvent from './../CardEvent.vue'
+import RplCardKeydates from './../CardKeydates.vue'
 // TODO: Add future card components
 
 export default {

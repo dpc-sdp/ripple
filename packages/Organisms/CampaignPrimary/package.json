@@ -1,13 +1,13 @@
 {
   "name": "@dpc-sdp/ripple-campaign-primary",
-  "version": "1.0.0-alpha.15",
+  "version": "1.0.0-alpha.17",
   "description": "A component to showcase a main content preview with an image. Should be used along with Campaign Secondary.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/CampaignPrimary",
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.0.0-alpha.15",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.15"
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.17",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.17"
   }
 }

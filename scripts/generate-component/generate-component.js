@@ -85,11 +85,3 @@ files.forEach((item) => {
 })
 
 console.log(`Created "${getTitleCase(componentName)}"`)
-
-// TODO - Not beautifying or sorting.
-// Add to package.json
-// let packageJSON = fs.readFileSync('./package.json', 'utf-8')
-// packageJSON = JSON.parse(packageJSON)
-// packageJSON.dependencies[`@dpc-sdp/${data.componentPackageName}`] = `file:packages/${data.componentAtomFolder}/${data.componentSpacelessName}`
-// fs.writeFileSync('./package.json', JSON.stringify(packageJSON))
-// console.log(`Added @dpc-sdp/${data.componentPackageName} to package.json`)

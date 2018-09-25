@@ -24,7 +24,7 @@ let version = lerna.version
 
 // Helper functions
 function getSnakeCase (val) {
-  return val.toLowerCase().replace(' ', '-')
+  return val.toLowerCase().replace(/\s/gi, '-')
 }
 
 function getTitleCase (val) {

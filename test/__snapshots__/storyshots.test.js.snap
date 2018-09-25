@@ -7218,6 +7218,69 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
+            class="form-group valid field-rpldatepicker"
+          >
+            <label
+              for="date-range"
+            >
+              Date Range
+              <!---->
+            </label>
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="rpl-date-picker rpl-date-picker--range"
+              >
+                <input
+                  class="rpl-date-picker__start"
+                  placeholder="Start"
+                  type="text"
+                />
+                 
+                <span
+                  class="rpl-date-picker__separator"
+                >
+                  -
+                </span>
+                 
+                <input
+                  class="rpl-date-picker__end"
+                  placeholder="End"
+                  type="text"
+                />
+              </div>
+              <!---->
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="form-group valid field-rpldatepicker"
+          >
+            <label
+              for="date"
+            >
+              Date
+              <!---->
+            </label>
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="rpl-date-picker rpl-date-picker--single"
+              >
+                <input
+                  placeholder="Enter a date"
+                  type="text"
+                />
+              </div>
+              <!---->
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <div
             class="form-group valid field-submit"
           >
             <!---->

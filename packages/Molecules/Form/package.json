@@ -9,6 +9,8 @@
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.18",
     "vue-form-generator": "^2.2.2",
-    "vue-multiselect": "^2.1.0"
+    "vue-multiselect": "^2.1.0",
+    "pikaday": "^1.7.0",
+    "moment": "^2.22.1"
   }
 }

@@ -37,12 +37,20 @@
           :paginationEnabled="false"
         >
           <slide v-for="(item, index) in galleryData" :key="index" class="rpl-image-gallery__large">
-            <div class="rpl-image-gallery__large-image-wrapper">
-              <img class="rpl-image-gallery__large-image" :src="item.image" :alt="item.alt" />
-            </div>
-            <div class="rpl-image-gallery__large-details">
-              <h2 class="rpl-image-gallery__large-title">{{ (index + 1) }} / {{ totalSlides + 1 }} - {{ item.title }}</h2>
-              <p class="rpl-image-gallery__large-caption">{{ item.caption }}</p>
+            <div class="rpl-image-gallery__large-details-and-image">
+              <div class="rpl-image-gallery__large-image-wrapper">
+                <div class="rpl-image-gallery__large-image-sub-wrapper">
+                  <img class="rpl-image-gallery__large-image" :src="item.image" :alt="item.alt" />
+                </div>
+              </div>
+              <div class="rpl-image-gallery__large-details-navigation">
+                <div v-if="!toggleCaption" class="rpl-image-gallery__large-details-navigation-count">{{ (index + 1) }} / {{ totalSlides + 1 }}</div>
+                <button class="rpl-image-gallery__large-details-navigation-toggle" :class="{ 'rpl-image-gallery__large-details-navigation-toggle--expanded': toggleCaption}" @click="toggleCaption = !toggleCaption">View Caption</button>
+              </div>
+              <div class="rpl-image-gallery__large-details" :class="{ 'rpl-image-gallery__large-details--show': toggleCaption}">
+                <h2 class="rpl-image-gallery__large-title">{{ (index + 1) }} / {{ totalSlides + 1 }} - {{ item.title }}</h2>
+                <p class="rpl-image-gallery__large-caption">{{ item.caption }}</p>
+              </div>
             </div>
           </slide>
         </carousel>
@@ -81,7 +89,8 @@ export default {
   data: function () {
     return {
       showModal: false,
-      navTo: 0
+      navTo: 0,
+      toggleCaption: false
     }
   },
   computed: {
@@ -205,47 +214,154 @@ export default {
     // =========================================================================
 
     &__large {
-      display: flex;
-      flex-wrap: wrap;
-      align-content: space-evenly;
-      padding-top: (56px + 32px);
+      // outline: 1px solid red;
+
+      @include rpl-breakpoint('l') {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+
+    &__large-details-and-image {
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+
+      @include rpl-breakpoint('l') {
+        height: auto;
+      }
     }
 
     &__large-image-wrapper {
-      text-align: center;
+      // outline: 1px solid yellow;
       width: 100%;
-      max-height: 70%;
+      position: absolute;
+      height: calc(100vh - #{32px} - #{70px});
+      margin-top: 70px;
+
+      @include rpl-breakpoint('l') {
+        bottom: 100%;
+        height: calc(100vh - 100% - #{56px + 32px});
+        margin-top: 0;
+      }
+    }
+
+    &__large-image-sub-wrapper {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
     }
 
     &__large-image {
       border-radius: rem(4px);
       box-shadow: 0 27px 36px 0 rgba(0, 0, 0, 0.36);
-      width: auto;
       max-height: 100%;
-      max-width: calc(100% - #{$rpl-space * 15})
+      max-width: 100%;
+
+      @include rpl-breakpoint('l') {
+        max-width: calc(100% - #{$rpl-space * 15});
+      }
     }
 
     &__large-details {
+      // outline: 1px solid green;
+      background-color: rgba(rpl-color('extra_dark_neutral'), 0.5);
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      padding: 0 $rpl-space-3;
+      margin-bottom: ($rpl-space * 8);
+      display: none;
 
+      @include rpl-breakpoint('l') {
+        display: block;
+        position: relative;
+        padding: 0;
+        background-color: transparent;
+        margin-bottom: 64px;
+      }
+
+      &--show {
+        display: block;
+      }
     }
 
     &__large-title {
-      @include rpl_typography_ruleset(('giga', 1.11em, 'bold'));
+      @include rpl_typography_ruleset((
+        'xs': ('s', 1em, 'bold'),
+        'l': ('giga', 1.11em, 'bold')
+      ));
       color: rpl-color('white');
     }
 
     &__large-caption {
-      @include rpl_typography_ruleset(('m', 1.33em, 'regular'));
+      @include rpl_typography_ruleset((
+        'xs': ('xs', 1.43em, 'regular'),
+        'l': ('m', 1.33em, 'regular')
+      ));
       color: rpl-color('white');
     }
 
     &__large-navigation {
+      @include rpl-breakpoint('l') {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        display: flex;
+        transform: translateY(-50%);
+      }
+    }
+
+    &__large-details-navigation {
+      width: 100%;
+      justify-content: space-between;
+      padding: 0 $rpl-space-4 $rpl-space-4;
+      box-sizing: border-box;
       position: absolute;
-      top: 50%;
+      vertical-align: top;
+      height: 32px;
+      bottom: 0;
       left: 0;
       right: 0;
-      justify-content: space-between;
-      display: flex;
+
+      @include rpl-breakpoint('l') {
+        display: none;
+      }
+    }
+
+    &__large-details-navigation-count {
+      @include rpl_typography_ruleset(('s', 1em, 'bold'));
+      color: rpl-color('white');
+      float: left;
+    }
+
+    &__large-details-navigation-toggle {
+      @include rpl_typography_ruleset(('xs', 1.14em, 'bold'));
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      color: rpl-color('white');
+      cursor: pointer;
+      float: right;
+
+      &::after {
+        content: '+';
+        color: rpl-color('secondary');
+        margin-left: $rpl-space;
+      }
+
+      &--expanded {
+        &::after {
+          content: '-';
+        }
+      }
     }
 
     &__large-navigation-button {

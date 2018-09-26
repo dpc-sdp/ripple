@@ -2,7 +2,7 @@
   <div class="rpl-image-gallery__modal-mask">
     <div class="rpl-image-gallery__modal-container">
       <button class="rpl-image-gallery__modal-close" @click="closeModal()">
-        <rpl-icon symbol="close" color="white" size="3.375" /><span>Close</span>
+        <rpl-icon symbol="close" color="white" :size="iconSize" /><span>Close</span>
       </button>
       <div class="rpl-image-gallery__modal-body">
         <slot name="body"></slot>
@@ -12,10 +12,12 @@
 </template>
 
 <script>
+import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplImageGalleryModal',
+  mixins: [breakpoint],
   components: {
     RplIcon
   },
@@ -30,6 +32,11 @@ export default {
           this.closeModal()
           break
       }
+    }
+  },
+  computed: {
+    iconSize () {
+      return this.$breakpoint.l ? '3.375' : '1.75'
     }
   },
   mounted () {
@@ -63,9 +70,13 @@ export default {
 
     &__modal-container {
       padding: 0;
-      width: calc(100% - #{($rpl-space * 30)});
-      margin-left: ($rpl-space * 15);
-      margin-right: ($rpl-space * 15);
+      width: 100%;
+
+      @include rpl-breakpoint('l') {
+        width: calc(100% - #{($rpl-space * 30)});
+        margin-left: ($rpl-space * 15);
+        margin-right: ($rpl-space * 15);
+      }
     }
 
     &__modal-close {
@@ -78,6 +89,13 @@ export default {
       padding: 0;
       cursor: pointer;
       z-index: 1;
+      top: $rpl-space-3;
+      right: $rpl-space-3;
+
+      @include rpl-breakpoint('l') {
+        top: ($rpl-space * 8);
+        right: ($rpl-space * 8);
+      }
 
       svg {
         display: block;

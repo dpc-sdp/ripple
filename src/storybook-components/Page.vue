@@ -92,6 +92,9 @@
             </div>
           </div>
         </rpl-col>
+        <rpl-col cols="full" :colsBp="defaultCols">
+          <rpl-image-gallery :gallery-data="mock.imageGallery.gallery" :enlarge-text="mock.imageGallery.enlargeText" />
+        </rpl-col>
       </rpl-row>
 
       <template slot="sidebar">
@@ -160,6 +163,9 @@ import RplShareThis from '@dpc-sdp/ripple-share-this'
 // News Listing
 import RplNewsListing from '@dpc-sdp/ripple-news-listing'
 
+// Image Gallery
+import RplImageGallery from '@dpc-sdp/ripple-image-gallery'
+
 export default {
   name: 'SPage',
   components: {
@@ -201,7 +207,10 @@ export default {
     RplShareThis,
 
     // News Listing
-    RplNewsListing
+    RplNewsListing,
+
+    // Image Gallery
+    RplImageGallery
   },
   props: {
     sidebar: Boolean,

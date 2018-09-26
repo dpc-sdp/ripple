@@ -16,8 +16,7 @@ npm install @dpc-sdp/ripple-image-gallery --save
 
 ```shell
 @dpc-sdp/ripple-image-gallery
-├── @dpc-sdp/ripple-global
-└── lory.js
+└── @dpc-sdp/ripple-global
 ```
 
 --------------------------------------------------------------------------------

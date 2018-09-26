@@ -1,20 +1,60 @@
 <template>
   <div class="rpl-image-gallery">
-    <button class="rpl-image-gallery__enlarge" @click="openModal(0)">{{ enlargeText }}</button>
-    <div class="rpl-image-gallery__thumbnails">
-      <template v-for="(item, index) in galleryData">
-        <div class="rpl-image-gallery__thumbnail" @click="openModal(index)" :key="item.id">
-          <rpl-fitted-img v-if="index === 0" :img-src="item.image" :img-alt="item.alt" />
-          <rpl-fitted-img v-else :img-src="item.thumbnail" :img-alt="item.alt" />
+    <button class="rpl-image-gallery__enlarge" @click="openModal()" :aria-label="enlargeText">
+      <rpl-icon symbol="fullscreen" color="primary" size="2.33" />
+    </button>
+    <carousel
+      :perPage="1"
+      :navigateTo="navTo"
+      :loop="true"
+      :mouseDrag="false"
+      :paginationEnabled="false"
+    >
+      <slide v-for="(item, index) in galleryData" :key="index" class="rpl-image-gallery__thumbnail">
+        <rpl-fitted-img class="rpl-image-gallery__thumbnail-image" :img-src="item.thumbnail" :img-alt="item.alt" />
+        <div class="rpl-image-gallery__thumbnail-details">
+          <h2 class="rpl-image-gallery__thumbnail-title">{{ (index + 1) }} / {{ totalSlides + 1 }} - {{ item.title }}</h2>
+          <p class="rpl-image-gallery__thumbnail-caption">{{ item.caption }}</p>
+        </div>
+      </slide>
+    </carousel>
+    <div class="rpl-image-gallery__thumbnail-navigation">
+      <button class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+        <rpl-icon symbol="arrow_left_secondary" color="white" size="1.6" />
+      </button>
+      <button class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+        <rpl-icon symbol="arrow_right_secondary" color="white" size="1.6" />
+      </button>
+    </div>
+    <!-- Modal -->
+    <rpl-image-gallery-modal v-if="showModal" @close="showModal = false">
+      <template slot="body">
+        <carousel
+          :perPage="1"
+          :navigateTo="navTo"
+          :loop="true"
+          :mouseDrag="false"
+          :paginationEnabled="false"
+        >
+          <slide v-for="(item, index) in galleryData" :key="index" class="rpl-image-gallery__large">
+            <div class="rpl-image-gallery__large-image-wrapper">
+              <img class="rpl-image-gallery__large-image" :src="item.image" :alt="item.alt" />
+            </div>
+            <div class="rpl-image-gallery__large-details">
+              <h2 class="rpl-image-gallery__large-title">{{ (index + 1) }} / {{ totalSlides + 1 }} - {{ item.title }}</h2>
+              <p class="rpl-image-gallery__large-caption">{{ item.caption }}</p>
+            </div>
+          </slide>
+        </carousel>
+        <div class="rpl-image-gallery__large-navigation">
+          <button class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+            <rpl-icon symbol="arrow_left_secondary" color="white" size="2.8" />
+          </button>
+          <button class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+            <rpl-icon symbol="arrow_right_secondary" color="white" size="2.8" />
+          </button>
         </div>
       </template>
-    </div>
-    <div class="rpl-image-gallery__count" @click="openModal(0)">
-      <div class="rpl-image-gallery__count-sm" v-cloak v-if="total >= thumbnailsNumber">+{{ countSm }}</div>
-      <div class="rpl-image-gallery__count-md" v-cloak v-if="total > thumbnailsNumber">+{{ countMd }}</div>
-    </div>
-    <rpl-image-gallery-modal v-if="showModal" @close="showModal = false">
-      <rpl-image-gallery-slides slot="body" :items-data="galleryData"></rpl-image-gallery-slides>
     </rpl-image-gallery-modal>
   </div>
 </template>
@@ -22,191 +62,218 @@
 <script>
 import RplFittedImg from './FittedImg.vue'
 import RplImageGalleryModal from './ImageGalleryModal.vue'
-import RplImageGallerySlides from './ImageGallerySlides.vue'
+import { Carousel, Slide } from 'vue-carousel'
 
 export default {
   name: 'RplImageGallery',
   components: {
     RplFittedImg,
     RplImageGalleryModal,
-    RplImageGallerySlides
+    Carousel,
+    Slide
   },
   props: {
     galleryData: Array,
-    enlargeText: String
+    enlargeText: String,
+    previousLabel: { type: String, default: 'Go to previous slide' },
+    nextLabel: { type: String, default: 'Go to next slide' }
   },
   data: function () {
     return {
-      total: null,
-      thumbnailsNumber: 6,
-      countSm: null,
-      countMd: null,
       showModal: false,
-      imageId: 0
+      navTo: 0
+    }
+  },
+  computed: {
+    totalSlides () {
+      return this.galleryData.length - 1
     }
   },
   methods: {
-    countForSmallScreen () {
-      return this.total - this.thumbnailsNumber + 2
-    },
-    countForNormalScreen () {
-      return this.total - this.thumbnailsNumber
-    },
-    openModal (index) {
+    openModal () {
       this.showModal = true
-      this.imageId = index
+    },
+    nextSlide () {
+      this.navTo = ((this.navTo < this.totalSlides) ? (this.navTo + 1) : 0)
+    },
+    prevSlide () {
+      this.navTo = ((this.navTo > 0) ? (this.navTo - 1) : this.totalSlides)
     }
-  },
-  mounted () {
-    this.total = this.galleryData.length
-    this.countSm = this.countForSmallScreen()
-    this.countMd = this.countForNormalScreen()
   }
 }
 </script>
 
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
-  @import "./scss/imagegallery";
+
+  $rpl-image-gallery-thumbnail-border-color: rpl_color('mid_neutral_1') !default;
+  $rpl-image-gallery-thumbnail-border-width: 1px !default;
+  $rpl-image-gallery-thumbnail-border: $rpl-image-gallery-thumbnail-border-width solid $rpl-image-gallery-thumbnail-border-color !default;
+  $rpl-image-gallery-thumbnail-background: rpl_color('white') !default;
+  $rpl-image-gallery-thumbnail-details-padding: ($rpl-space * 6) !default;
+  $rpl-image-gallery-thumbnail-border-radius: rem(4px) !default;
 
   .rpl-image-gallery {
     position: relative;
 
     &__enlarge {
-      // @include icon('enlarge', 'after');
+      background-color: rpl-color('white');
+      border: 0;
+      padding: 0;
       position: absolute;
-      top: 0;
-      right: 0;
-      z-index: $_zindex-middle;
-      background-color: $_color-overlay;
-      color: $_color-text-on-overlay;
-      font-size: rem(12px);
-      line-height: rem(30px);
-      height: rem(30px);
-      padding: 0 rem(40px) 0 rem(8px);
+      top: $rpl-space-3;
+      right: $rpl-space-3;
+      width: 28px;
+      height: 28px;
+      z-index: 1000;
+      border-radius: rem(4px);
+      cursor: pointer;
 
-      &::after {
-        position: absolute;
-        top: rem(4px);
-        right: rem(8px);
-        font-size: rem(22px);
+      svg {
+        display: block;
       }
-    }
-
-    &__thumbnails {
-      display: flex;
-      flex-wrap: wrap;
-      margin-left: -$_thumbnail-gutter;
     }
 
     &__thumbnail {
-      display: none;
       position: relative;
-      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: start;
       box-sizing: border-box;
-      margin-left: $_thumbnail-gutter;
+      border-bottom: $rpl-image-gallery-thumbnail-border;
+      background-color: $rpl-image-gallery-thumbnail-background;
+      border: $rpl-image-gallery-thumbnail-border;
+      border-width: 0;
+      @include rpl_breakpoint('m') {
+        border-radius: $rpl-image-gallery-thumbnail-border-radius;
+        border-width: $rpl-image-gallery-thumbnail-border-width;
+      }
+    }
 
-      &:first-child {
-        width: calc(100% - #{$_thumbnail-gutter});
-        display: block;
-        margin-bottom: 1px;
+    &__thumbnail-image {
+      @include object_fit_image(cover);
+      width: 100%;
+      height: rem(309px);
+    }
 
-        img {
-          height: rem(240px);
+    &__thumbnail-details {
+      padding: $rpl-image-gallery-thumbnail-details-padding;
+    }
 
-          @include rpl-breakpoint('s') {
-            height: rem(300px);
-          }
+    &__thumbnail-title {
+      @include rpl_typography_ruleset(('s', 1.5em, 'bold'));
+      color: rpl-color('extra_dark_neutral');
+      margin: 0 0 $rpl-space 0;
+    }
 
-          @include rpl-breakpoint('m') {
-            height: rem(400px);
-          }
+    &__thumbnail-caption {
+      @include rpl_typography_ruleset(('xs', 1.14em, 'regular'));
+      color: rpl-color('extra_dark_neutral');
+      margin: 0;
+    }
 
-          @include rpl-breakpoint('xxl') {
-            height: rem(500px);
-          }
-        }
+    &__thumbnail-navigation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      margin-top: ((309px / 2) - (32px / 2));
+    }
+
+    &__thumbnail-navigation-button {
+      background-color: transparent;
+      position: absolute;
+      border: 0;
+      margin: 0;
+      padding: 0;
+
+      &:not([disabled]) {
+        cursor: pointer;
       }
 
-      &:not(:first-child) {
-        height: $_thumbnail-height;
-        overflow: hidden;
-
-        @include rpl-breakpoint('xxl') {
-          height: $_thumbnail-height * 1.2;
-        }
-
-        &::before {
-          display: block;
-          position: absolute;
-          background-color: $_color-overlay;
-          width: 100%;
-          height: 100%;
-          content: '';
-        }
-
-        img {
-          height: $_thumbnail-height;
-
-          @include rpl-breakpoint('xxl') {
-            height: $_thumbnail-height * 1.2;
-          }
-        }
+      &--prev {
+        left: ($rpl-space * 6);
       }
 
-      &:nth-child(2),
-      &:nth-child(3),
-      &:nth-child(4) {
-        width: calc(33.33% - #{$_thumbnail-gutter});
-        display: block;
+      &--next {
+        right: ($rpl-space * 6);
       }
+    }
 
-      @include rpl-breakpoint('m') {
-        &:nth-child(2),
-        &:nth-child(3),
-        &:nth-child(4),
-        &:nth-child(5),
-        &:nth-child(6) {
-          width: calc(20% - #{$_thumbnail-gutter});
-          display: block;
-        }
-      }
+    // =========================================================================
 
-      img {
-        @include object_fit_image(cover);
-        width: 100%;
-        display: block;
-      }
+    &__large {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-evenly;
+      padding-top: (56px + 32px);
+    }
+
+    &__large-image-wrapper {
+      text-align: center;
+      width: 100%;
+      max-height: 70%;
+    }
+
+    &__large-image {
+      border-radius: rem(4px);
+      box-shadow: 0 27px 36px 0 rgba(0, 0, 0, 0.36);
+      width: auto;
+      max-height: 100%;
+      max-width: calc(100% - #{$rpl-space * 15})
+    }
+
+    &__large-details {
 
     }
 
-    &__count {
-      font-size: $font-size-xlg;
-      line-height: $font-size-xlg;
-      color: $_color-text-on-overlay;
-      text-align: center;
+    &__large-title {
+      @include rpl_typography_ruleset(('giga', 1.11em, 'bold'));
+      color: rpl-color('white');
+    }
+
+    &__large-caption {
+      @include rpl_typography_ruleset(('m', 1.33em, 'regular'));
+      color: rpl-color('white');
+    }
+
+    &__large-navigation {
       position: absolute;
-      bottom: rem(32px);
-      right: 15%;
+      top: 50%;
+      left: 0;
+      right: 0;
+      justify-content: space-between;
+      display: flex;
+    }
 
-      @include rpl-breakpoint('m') {
-        font-size: $font-size-xmega;
-        line-height: $font-size-xmega;
-        right: 9%;
+    &__large-navigation-button {
+      background-color: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+
+      &:not([disabled]) {
+        cursor: pointer;
       }
+    }
 
-      &-sm {
-        @include rpl-breakpoint('m') {
-          display: none;
-        }
-      }
+    &__large-navigation-button--prev {
+      margin-left: 32px;
+    }
 
-      &-md {
-        display: none;
+    &__large-navigation-button--next {
+      margin-right: 32px;
+    }
 
-        @include rpl-breakpoint('m') {
-          display: block;
-        }
+    &__modal-body {
+      height: 100vh;
+
+      .VueCarousel,
+      .VueCarousel-wrapper,
+      .VueCarousel-inner {
+        height: 100%;
       }
     }
   }

@@ -1100,6 +1100,7 @@ const demoData = {
       'email_transparent',
       'external_link',
       'facebook',
+      'fullscreen',
       'hamburger',
       'help',
       'home',
@@ -1269,47 +1270,47 @@ const demoData = {
 
   imageGallery: () => ({
     gallery: object('Gallery Data', [{
-      id: '1',
-      image: 'https://placehold.it/1024x768/990000/fff',
+      image: 'https://placehold.it/1024x768/900/fff',
       alt: 'A test image',
-      thumbnail: 'https://placehold.it/350x350/990000/fff',
-      caption: 'This is my captions'
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/900/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate.'
     }, {
-      id: '2',
-      image: 'https://placehold.it/1024x768/009900/fff',
+      image: 'https://placehold.it/1056x540/090/fff',
       alt: 'A test image',
-      thumbnail: 'https://placehold.it/350x350/009900/fff',
-      caption: 'This is my captions'
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/090/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia.'
     }, {
-      id: '3',
-      image: 'https://placehold.it/1024x768/000099/fff',
+      image: 'https://placehold.it/597x843/009/fff',
       alt: 'A test image',
-      thumbnail: 'https://placehold.it/350x350/000099/fff',
-      caption: 'This is my captions'
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/009/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate. Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate.'
     }, {
-      id: '4',
-      image: 'https://placehold.it/1024x768/999900/fff',
+      image: 'https://placehold.it/2560x1880/099/fff',
       alt: 'A test image',
-      thumbnail: 'https://placehold.it/350x350/999900/fff',
-      caption: 'This is my captions'
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/099/fff',
+      caption: 'A small caption.'
     }, {
-      id: '5',
-      image: 'https://placehold.it/1024x768/999999/fff',
+      image: 'https://placehold.it/1920x350/909/fff',
       alt: 'A test image',
-      thumbnail: 'https://placehold.it/350x350/999999/fff',
-      caption: 'This is my captions'
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/909/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium.'
     }, {
-      id: '6',
-      image: 'https://placehold.it/1024x768/009999/fff',
+      image: 'https://placehold.it/1024x768/990/fff',
       alt: 'A test image',
-      thumbnail: 'https://placehold.it/350x350/009999/fff',
-      caption: 'This is my captions'
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/990/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim.'
     }, {
-      id: '7',
-      image: 'https://placehold.it/1024x768/990099/fff',
+      image: 'https://placehold.it/1024x768/000/fff',
       alt: 'A test image',
-      thumbnail: 'https://placehold.it/350x350/990099/fff',
-      caption: 'This is my captions'
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/000/fff',
+      caption: 'Sed ut perspiciatis unde omnis.'
     }
     ]),
     enlargeText: text('Enlarge Text', 'Click to enlarge')

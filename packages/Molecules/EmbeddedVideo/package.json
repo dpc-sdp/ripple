@@ -1,13 +1,13 @@
 {
   "name": "@dpc-sdp/ripple-embedded-video",
-  "version": "1.0.0-alpha.17",
+  "version": "1.0.0-alpha.18",
   "description": "A component for embedding video with transcript.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/EmbeddedVideo",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.17",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.17"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.18",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.18"
   }
 }

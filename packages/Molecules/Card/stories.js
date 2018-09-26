@@ -51,7 +51,7 @@ storiesOf('Molecules/Card', module)
   })))
   .add('Card Event', withReadme(readme, () => ({
     components: { RplCardEvent },
-    template: `<rpl-card-event :image="image" :date="date" :location="location" :title="title" :summary="summary" :link="link" />`,
+    template: `<rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" />`,
     data () {
       return demoData.cardEvent()
     }

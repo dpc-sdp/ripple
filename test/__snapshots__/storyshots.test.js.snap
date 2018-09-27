@@ -6886,6 +6886,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             class="form-group valid field-input"
           >
             <!---->
+             
             <div
               class="field-wrap"
             >
@@ -6899,9 +6900,12 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 />
                 <!---->
               </div>
+               
               <!---->
             </div>
+             
             <!---->
+             
             <!---->
           </div>
           <div
@@ -6910,9 +6914,13 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <label
               for="text"
             >
-              Text
+              <span>
+                Text
+              </span>
+               
               <!---->
             </label>
+             
             <div
               class="field-wrap"
             >
@@ -6928,13 +6936,16 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 />
                 <!---->
               </div>
+               
               <!---->
             </div>
+             
             <div
               class="hint"
             >
               This is a hint text
             </div>
+             
             <!---->
           </div>
           <div
@@ -6943,9 +6954,13 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <label
               for="email"
             >
-              Email
+              <span>
+                Email
+              </span>
+               
               <!---->
             </label>
+             
             <div
               class="field-wrap"
             >
@@ -6959,13 +6974,16 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 />
                 <!---->
               </div>
+               
               <!---->
             </div>
+             
             <div
               class="hint"
             >
               This is a hint text
             </div>
+             
             <!---->
           </div>
           <div
@@ -6974,9 +6992,13 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <label
               for="tel"
             >
-              Tel
+              <span>
+                Tel
+              </span>
+               
               <!---->
             </label>
+             
             <div
               class="field-wrap"
             >
@@ -6990,9 +7012,12 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 />
                 <!---->
               </div>
+               
               <!---->
             </div>
+             
             <!---->
+             
             <!---->
           </div>
           <div
@@ -7001,9 +7026,13 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <label
               for="number"
             >
-              Number
+              <span>
+                Number
+              </span>
+               
               <!---->
             </label>
+             
             <div
               class="field-wrap"
             >
@@ -7021,9 +7050,12 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 />
                 <!---->
               </div>
+               
               <!---->
             </div>
+             
             <!---->
+             
             <!---->
           </div>
           <div
@@ -7032,9 +7064,13 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <label
               for="select"
             >
-              Select
+              <span>
+                Select
+              </span>
+               
               <!---->
             </label>
+             
             <div
               class="field-wrap"
             >
@@ -7141,13 +7177,16 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                   </ul>
                 </div>
               </div>
+               
               <!---->
             </div>
+             
             <div
               class="hint"
             >
               This is a hint text
             </div>
+             
             <!---->
           </div>
           <div
@@ -7156,9 +7195,13 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <label
               for="radio"
             >
-              Radio
+              <span>
+                Radio
+              </span>
+               
               <!---->
             </label>
+             
             <div
               class="field-wrap"
             >
@@ -7188,13 +7231,16 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                   No
                 </label>
               </div>
+               
               <!---->
             </div>
+             
             <div
               class="hint"
             >
               This is a hint text
             </div>
+             
             <!---->
           </div>
           <div
@@ -7203,9 +7249,13 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <label
               for="text-area"
             >
-              text area
+              <span>
+                text area
+              </span>
+               
               <!---->
             </label>
+             
             <div
               class="field-wrap"
             >
@@ -7215,13 +7265,16 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 placeholder="Start typing..."
                 rows="4"
               />
+               
               <!---->
             </div>
+             
             <div
               class="hint"
             >
               This is a hint text
             </div>
+             
             <!---->
           </div>
           <div
@@ -7230,9 +7283,13 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <label
               for="date-range"
             >
-              Date Range
+              <span>
+                Date Range
+              </span>
+               
               <!---->
             </label>
+             
             <div
               class="field-wrap"
             >
@@ -7257,9 +7314,12 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                   type="text"
                 />
               </div>
+               
               <!---->
             </div>
+             
             <!---->
+             
             <!---->
           </div>
           <div
@@ -7268,9 +7328,13 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <label
               for="date"
             >
-              Date
+              <span>
+                Date
+              </span>
+               
               <!---->
             </label>
+             
             <div
               class="field-wrap"
             >
@@ -7282,15 +7346,19 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                   type="text"
                 />
               </div>
+               
               <!---->
             </div>
+             
             <!---->
+             
             <!---->
           </div>
           <div
             class="form-group valid field-submit"
           >
             <!---->
+             
             <div
               class="field-wrap"
             >
@@ -7299,9 +7367,12 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 type="submit"
                 value="Submit"
               />
+               
               <!---->
             </div>
+             
             <!---->
+             
             <!---->
           </div>
         </fieldset>

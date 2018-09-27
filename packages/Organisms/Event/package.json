@@ -1,14 +1,14 @@
 {
   "name": "@dpc-sdp/ripple-event",
-  "version": "1.0.0-alpha.17",
+  "version": "1.0.0-alpha.19",
   "description": "A set of components for displaying events.",
   "license": "Apache-2.0",
   "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/UpdatedDate",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.17",
-    "@dpc-sdp/ripple-button": "1.0.0-alpha.17",
-    "@dpc-sdp/ripple-card": "1.0.0-alpha.17"
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.19",
+    "@dpc-sdp/ripple-card": "1.0.0-alpha.19",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.19"
   }
 }

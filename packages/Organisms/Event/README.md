@@ -16,9 +16,9 @@ npm install @dpc-sdp/ripple-event --save
 
 ```shell
 @dpc-sdp/ripple-event
-├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-button
-└── @dpc-sdp/ripple-card
+├── @dpc-sdp/ripple-card
+└── @dpc-sdp/ripple-global
 ```
 
 --------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 <template>
   <rpl-card-content :image="image" :link="link" class="rpl-card-event">
     <div class="rpl-card-event__meta" v-if="date || topic">
-      <div class="rpl-card-event__date" v-if="date">{{ formatDate(date) }}</div>
+      <div class="rpl-card-event__date" v-if="date">{{ date }}</div>
       <div class="rpl-card-promotion__tag" >{{ topic }}</div>
     </div>
     <h2 class="rpl-card-event__title" v-if="title">{{ title }}</h2>
@@ -23,13 +23,15 @@ export default {
   mixins: [formatdate, cardtrimfield],
   props: {
     image: String,
-    date: String,
+    dateStart: String,
+    dateEnd: String,
     topic: String,
     location: String,
     title: String,
     summary: String,
     link: Object,
-    locale: { default: 'en-au', type: String }
+    locale: { default: 'en-au', type: String },
+    rangeDivider: { default: ' to ', type: String }
   },
   components: {
     RplIcon,
@@ -46,6 +48,17 @@ export default {
       let location = this.$el.querySelector('.rpl-card-event__location')
       let rtnMaxHeight = card.clientHeight - link.clientHeight
       return (location) ? (rtnMaxHeight - location.clientHeight) : rtnMaxHeight
+    }
+  },
+  computed: {
+    date () {
+      if (!this.dateStart && !this.dateEnd) {
+        return null
+      } else if (this.dateStart && !this.dateEnd) {
+        return this.formatDate(this.dateStart)
+      } else if (this.dateStart && this.dateEnd) {
+        return this.formatDateRange(this.dateStart, this.dateEnd)
+      }
     }
   }
 }

@@ -50,7 +50,7 @@ export default {
     },
     iconClass () {
       let rtn = (this.validSymbol) ? `rpl-icon rpl-icon--${this.symbol}` : ''
-      return this.color ? `${rtn} rpl-icon--${this.color}` : rtn
+      return this.color ? `${rtn} rpl-icon--color_${this.color}` : rtn
     },
     iconStyle () {
       if (this.validSymbol) {
@@ -68,7 +68,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/style";
 
   @each $color-name, $color-value in $rpl-colors {
-    .rpl-icon--#{str-replace($color-name, ' ', '-')} {
+    .rpl-icon--color_#{str-replace($color-name, ' ', '-')} {
       fill: rpl-color($color-name);
     }
   }

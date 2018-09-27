@@ -54,16 +54,17 @@ export default {
 
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
+  @import "./scss/image_gallery";
 
   .rpl-image-gallery {
     &__modal-mask {
       position: fixed;
-      z-index: 9998;
+      z-index: $rpl-zindex-modal;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rpl-color('extra_dark_neutral');
+      background-color: $rpl-image-gallery-modal-background-color;
       display: flex;
       align-items: center;
     }
@@ -82,19 +83,17 @@ export default {
     &__modal-close {
       position: absolute;
       background: transparent;
-      top: ($rpl-space * 8);
-      right: ($rpl-space * 8);
       border: 0;
       margin: 0;
       padding: 0;
       cursor: pointer;
       z-index: 1;
-      top: $rpl-space-3;
-      right: $rpl-space-3;
+      top: $rpl-image-gallery-modal-edge-margin-s;
+      right: $rpl-image-gallery-modal-edge-margin-s;
 
       @include rpl-breakpoint('l') {
-        top: ($rpl-space * 8);
-        right: ($rpl-space * 8);
+        top: $rpl-image-gallery-modal-edge-margin-l;
+        right: $rpl-image-gallery-modal-edge-margin-l;
       }
 
       svg {

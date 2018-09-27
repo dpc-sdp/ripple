@@ -45,7 +45,10 @@
               </div>
               <div class="rpl-image-gallery__large-details-navigation">
                 <div v-if="!toggleCaption" class="rpl-image-gallery__large-details-navigation-count">{{ (index + 1) }} / {{ totalSlides + 1 }}</div>
-                <button class="rpl-image-gallery__large-details-navigation-toggle" :class="{ 'rpl-image-gallery__large-details-navigation-toggle--expanded': toggleCaption}" @click="toggleCaption = !toggleCaption">View Caption</button>
+                <button class="rpl-image-gallery__large-details-navigation-toggle" :class="{ 'rpl-image-gallery__large-details-navigation-toggle--expanded': toggleCaption}" @click="toggleCaption = !toggleCaption">
+                  <span v-if="!toggleCaption">View caption</span>
+                  <span v-if="toggleCaption">Close caption</span>
+                </button>
               </div>
               <div class="rpl-image-gallery__large-details" :class="{ 'rpl-image-gallery__large-details--show': toggleCaption}">
                 <h2 class="rpl-image-gallery__large-title">{{ (index + 1) }} / {{ totalSlides + 1 }} - {{ item.title }}</h2>
@@ -114,7 +117,19 @@ export default {
 
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/style";
+  @import "./scss/image_gallery";
 
+  $rpl-image-gallery-enlarge-background-color: rpl-color('white') !default;
+  $rpl-image-gallery-enlarge-border-radius: rem(4px) !default;
+
+  $rpl-image-gallery-thumbnail-title-ruleset: ('s', 1.5em, 'bold') !default;
+  $rpl-image-gallery-thumbnail-title-text-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-image-gallery-thumbnail-title-margin: 0 0 $rpl-space 0 !default;
+  $rpl-image-gallery-thumbnail-caption-ruleset: ('xs', 1.14em, 'regular') !default;
+  $rpl-image-gallery-thumbnail-caption-text-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-image-gallery-thumbnail-caption-margin: 0 !default;
+  $rpl-image-gallery-thumbnail-image-height: rem(309px) !default;
+  $rpl-image-gallery-thumbnail-navigation-margin-top: ($rpl-image-gallery-thumbnail-image-height / 2) - (rem(32px) / 2) !default;
   $rpl-image-gallery-thumbnail-border-color: rpl_color('mid_neutral_1') !default;
   $rpl-image-gallery-thumbnail-border-width: 1px !default;
   $rpl-image-gallery-thumbnail-border: $rpl-image-gallery-thumbnail-border-width solid $rpl-image-gallery-thumbnail-border-color !default;
@@ -122,20 +137,43 @@ export default {
   $rpl-image-gallery-thumbnail-details-padding: ($rpl-space * 6) !default;
   $rpl-image-gallery-thumbnail-border-radius: rem(4px) !default;
 
+  $rpl-image-gallery-large-image-box-shadow: 0 ($rpl-space * 7) ($rpl-space * 9) 0 rgba(0, 0, 0, 0.36) !default;
+  $rpl-image-gallery-large-image-border-radius: rem(4px) !default;
+  $rpl-image-gallery-large-details-mobile-background-image: linear-gradient(to bottom, rgba($rpl-image-gallery-modal-background-color, 0), rgba($rpl-image-gallery-modal-background-color, 0) rem(50px), rgba($rpl-image-gallery-modal-background-color, 0.9) rem(94px), $rpl-image-gallery-modal-background-color rem(120px)) !default;
+  $rpl-image-gallery-large-details-padding: ($rpl-space * 17) $rpl-space-3 ($rpl-space * 8) !default;
+  $rpl-image-gallery-large-details-navigation-height: ($rpl-space * 8) !default;
+  $rpl-image-gallery-large-image-wrapper-offset-top-xs: rem(70px) !default;
+  $rpl-image-gallery-large-image-wrapper-offset-top-l: rem(114px) !default;
+  $rpl-image-gallery-large-title-ruleset: (
+    'xs': ('s', 1em, 'bold'),
+    'l': ('giga', 1.11em, 'bold')
+  ) !default;
+  $rpl-image-gallery-large-title-text-color: rpl-color('white') !default;
+  $rpl-image-gallery-large-caption-ruleset: (
+    'xs': ('xs', 1.43em, 'regular'),
+    'l': ('m', 1.33em, 'regular')
+  ) !default;
+  $rpl-image-gallery-large-caption-text-color: rpl-color('white') !default;
+  $rpl-image-gallery-large-count-ruleset: ('s', 1em, 'bold') !default;
+  $rpl-image-gallery-large-count-text-color: rpl-color('white') !default;
+  $rpl-image-gallery-large-nav-toggle-ruleset: ('xs', 1.14em, 'bold') !default;
+  $rpl-image-gallery-large-nav-toggle-text-color: rpl-color('white') !default;
+  $rpl-image-gallery-large-nav-toggle-icon-color: rpl-color('secondary') !default;
+
   .rpl-image-gallery {
     position: relative;
 
     &__enlarge {
-      background-color: rpl-color('white');
+      background-color: $rpl-image-gallery-enlarge-background-color;
       border: 0;
       padding: 0;
       position: absolute;
       top: $rpl-space-3;
       right: $rpl-space-3;
-      width: 28px;
-      height: 28px;
-      z-index: 1000;
-      border-radius: rem(4px);
+      width: rem(28px);
+      height: rem(28px);
+      z-index: 1;
+      border-radius: $rpl-image-gallery-enlarge-border-radius;
       cursor: pointer;
 
       svg {
@@ -154,6 +192,7 @@ export default {
       background-color: $rpl-image-gallery-thumbnail-background;
       border: $rpl-image-gallery-thumbnail-border;
       border-width: 0;
+
       @include rpl_breakpoint('m') {
         border-radius: $rpl-image-gallery-thumbnail-border-radius;
         border-width: $rpl-image-gallery-thumbnail-border-width;
@@ -163,7 +202,7 @@ export default {
     &__thumbnail-image {
       @include object_fit_image(cover);
       width: 100%;
-      height: rem(309px);
+      height: $rpl-image-gallery-thumbnail-image-height;
     }
 
     &__thumbnail-details {
@@ -171,15 +210,15 @@ export default {
     }
 
     &__thumbnail-title {
-      @include rpl_typography_ruleset(('s', 1.5em, 'bold'));
-      color: rpl-color('extra_dark_neutral');
-      margin: 0 0 $rpl-space 0;
+      @include rpl_typography_ruleset($rpl-image-gallery-thumbnail-title-ruleset);
+      color: $rpl-image-gallery-thumbnail-title-text-color;
+      margin: $rpl-image-gallery-thumbnail-title-margin;
     }
 
     &__thumbnail-caption {
-      @include rpl_typography_ruleset(('xs', 1.14em, 'regular'));
-      color: rpl-color('extra_dark_neutral');
-      margin: 0;
+      @include rpl_typography_ruleset($rpl-image-gallery-thumbnail-caption-ruleset);
+      color: $rpl-image-gallery-thumbnail-caption-text-color;
+      margin: $rpl-image-gallery-thumbnail-caption-margin;
     }
 
     &__thumbnail-navigation {
@@ -188,7 +227,7 @@ export default {
       left: 0;
       right: 0;
       width: 100%;
-      margin-top: ((309px / 2) - (32px / 2));
+      margin-top: $rpl-image-gallery-thumbnail-navigation-margin-top;
     }
 
     &__thumbnail-navigation-button {
@@ -214,8 +253,6 @@ export default {
     // =========================================================================
 
     &__large {
-      // outline: 1px solid red;
-
       @include rpl-breakpoint('l') {
         display: flex;
         align-items: flex-end;
@@ -234,15 +271,14 @@ export default {
     }
 
     &__large-image-wrapper {
-      // outline: 1px solid yellow;
       width: 100%;
       position: absolute;
-      height: calc(100vh - #{32px} - #{70px});
-      margin-top: 70px;
+      height: calc(100vh - #{$rpl-image-gallery-large-image-wrapper-offset-top-xs} - #{$rpl-image-gallery-large-details-navigation-height});
+      margin-top: $rpl-image-gallery-large-image-wrapper-offset-top-xs;
 
       @include rpl-breakpoint('l') {
         bottom: 100%;
-        height: calc(100vh - 100% - #{56px + 32px});
+        height: calc(100vh - 100% - #{$rpl-image-gallery-large-image-wrapper-offset-top-l});
         margin-top: 0;
       }
     }
@@ -257,8 +293,8 @@ export default {
     }
 
     &__large-image {
-      border-radius: rem(4px);
-      box-shadow: 0 27px 36px 0 rgba(0, 0, 0, 0.36);
+      border-radius: $rpl-image-gallery-large-image-border-radius;
+      box-shadow: $rpl-image-gallery-large-image-box-shadow;
       max-height: 100%;
       max-width: 100%;
 
@@ -268,21 +304,22 @@ export default {
     }
 
     &__large-details {
-      // outline: 1px solid green;
-      background-color: rgba(rpl-color('extra_dark_neutral'), 0.5);
+      display: none;
+      background-image: $rpl-image-gallery-large-details-mobile-background-image;
       z-index: 1;
       position: absolute;
       bottom: 0;
-      padding: 0 $rpl-space-3;
-      margin-bottom: ($rpl-space * 8);
-      display: none;
+      left: 0;
+      right: 0;
+      padding: $rpl-image-gallery-large-details-padding;
 
       @include rpl-breakpoint('l') {
         display: block;
         position: relative;
         padding: 0;
         background-color: transparent;
-        margin-bottom: 64px;
+        background-image: none;
+        margin-bottom: ($rpl-space * 16);
       }
 
       &--show {
@@ -291,19 +328,13 @@ export default {
     }
 
     &__large-title {
-      @include rpl_typography_ruleset((
-        'xs': ('s', 1em, 'bold'),
-        'l': ('giga', 1.11em, 'bold')
-      ));
-      color: rpl-color('white');
+      @include rpl_typography_ruleset($rpl-image-gallery-large-title-ruleset);
+      color: $rpl-image-gallery-large-title-text-color;
     }
 
     &__large-caption {
-      @include rpl_typography_ruleset((
-        'xs': ('xs', 1.43em, 'regular'),
-        'l': ('m', 1.33em, 'regular')
-      ));
-      color: rpl-color('white');
+      @include rpl_typography_ruleset($rpl-image-gallery-large-caption-ruleset);
+      color: $rpl-image-gallery-large-caption-text-color;
     }
 
     &__large-navigation {
@@ -325,10 +356,11 @@ export default {
       box-sizing: border-box;
       position: absolute;
       vertical-align: top;
-      height: 32px;
+      height: $rpl-image-gallery-large-details-navigation-height;
       bottom: 0;
       left: 0;
       right: 0;
+      z-index: 2;
 
       @include rpl-breakpoint('l') {
         display: none;
@@ -336,24 +368,24 @@ export default {
     }
 
     &__large-details-navigation-count {
-      @include rpl_typography_ruleset(('s', 1em, 'bold'));
-      color: rpl-color('white');
+      @include rpl_typography_ruleset($rpl-image-gallery-large-count-ruleset);
+      color: $rpl-image-gallery-large-count-text-color;
       float: left;
     }
 
     &__large-details-navigation-toggle {
-      @include rpl_typography_ruleset(('xs', 1.14em, 'bold'));
+      @include rpl_typography_ruleset($rpl-image-gallery-large-nav-toggle-ruleset);
+      color: $rpl-image-gallery-large-nav-toggle-text-color;
       background-color: transparent;
       border: 0;
       padding: 0;
       margin: 0;
-      color: rpl-color('white');
       cursor: pointer;
       float: right;
 
       &::after {
         content: '+';
-        color: rpl-color('secondary');
+        color: $rpl-image-gallery-large-nav-toggle-icon-color;
         margin-left: $rpl-space;
       }
 
@@ -376,11 +408,11 @@ export default {
     }
 
     &__large-navigation-button--prev {
-      margin-left: 32px;
+      margin-left: $rpl-image-gallery-modal-edge-margin-l;
     }
 
     &__large-navigation-button--next {
-      margin-right: 32px;
+      margin-right: $rpl-image-gallery-modal-edge-margin-l;
     }
 
     &__modal-body {

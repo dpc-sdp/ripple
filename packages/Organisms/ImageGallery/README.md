@@ -1,6 +1,7 @@
 # @dpc-sdp/ripple-image-gallery
 
-> A component to display images as an interactive gallery.
+> A component to display images as an interactive gallery. This component only
+works client-side.
 
 --------------------------------------------------------------------------------
 

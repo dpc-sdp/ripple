@@ -164,7 +164,7 @@ import RplShareThis from '@dpc-sdp/ripple-share-this'
 import RplNewsListing from '@dpc-sdp/ripple-news-listing'
 
 // Image Gallery
-import RplImageGallery from '@dpc-sdp/ripple-image-gallery'
+import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'
 
 export default {
   name: 'SPage',

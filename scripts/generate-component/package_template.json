@@ -1,0 +1,12 @@
+{
+  "name": "@dpc-sdp/{{componentPackageName}}",
+  "version": "{{componentVersion}}",
+  "description": "{{componentDescription}}",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/{{componentAtomFolder}}/{{componentSpacelessName}}",
+  "dependencies": {
+    "@dpc-sdp/ripple-global": "{{componentVersion}}"
+  }
+}

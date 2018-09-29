@@ -21,7 +21,8 @@
     "bay:pull": "docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep amazeeio | grep -v none | xargs -n1 docker pull | cat",
     "bay:test": "docker-compose run test npm test",
     "install-curl": "if [ \"$LAGOON_GIT_BRANCH\" != \"production\" ] ; then apk --update add curl;  fi",
-    "docs": "node ./scripts/generate-readme/generate-readme.js"
+    "docs": "node ./scripts/generate-readme/generate-readme.js",
+    "new-package": "node ./scripts/generate-package/generate-package.js"
   },
   "dependencies": {
     "@dpc-sdp/ripple-anchor-links": "file:packages/Molecules/AnchorLinks",

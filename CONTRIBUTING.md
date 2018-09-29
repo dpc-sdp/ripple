@@ -50,6 +50,23 @@ should update snapshots by `npm test -- -u`. Then add it in commit.
 npm run docs
 ```
 
+#### Create new packages
+
+``` bash
+# Generate a new package in the `./packages/**/` directory
+npm run new-package "[Name]" "[Description]" "[Atoms / Molecules / Organisms]"
+```
+
+Example: Creating a new package 'My Package' in the Organism folder:
+
+``` bash
+npm run new-package "My Package" "A demonstration package." "Organisms"
+```
+
+After creating a new package, generate the readme using `npm run docs`.
+
+A `demoData.js` and `package.json` entry will need to be manually included.
+
 ### Work in Docker
 
 We recomend you work in our Docker enviorment.

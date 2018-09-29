@@ -216,7 +216,8 @@ const demoData = {
 
   cardEvent: () => ({
     image: text('Image', 'https://placehold.it/580x340'),
-    date: text('Date', '2018-07-10T09:00:00.000+10:00'),
+    dateStart: text('Date Start', '2018-07-10T09:00:00.000+10:00'),
+    dateEnd: text('Date End', '2018-07-11T09:00:00.000+10:00'),
     location: text('Location', 'South Yarra'),
     title: text('Title', 'This is the headline of an event with a location that will stretch over over 3 lines'),
     summary: text('Summary', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte'),
@@ -237,7 +238,7 @@ const demoData = {
         name: 'rpl-card-event',
         data: {
           image: 'https://placehold.it/580x340',
-          date: '2018-07-10T09:00:00.000+10:00',
+          dateStart: '2018-07-10T09:00:00.000+10:00',
           location: 'South Yarra',
           title: 'This is the headline of an event',
           summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte',
@@ -270,7 +271,8 @@ const demoData = {
         name: 'rpl-card-event',
         data: {
           image: 'https://placehold.it/580x340',
-          date: '2018-07-10T09:00:00.000+10:00',
+          dateStart: '2018-07-10T09:00:00.000+10:00',
+          dateEnd: '2018-07-15T09:00:00.000+10:00',
           location: 'South Yarra',
           title: 'This is the headline of an event',
           summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte',
@@ -281,7 +283,8 @@ const demoData = {
         name: 'rpl-card-event',
         data: {
           image: 'https://placehold.it/580x340',
-          date: '2018-07-10T09:00:00.000+10:00',
+          dateStart: '2018-07-10T09:00:00.000+10:00',
+          dateEnd: '2018-09-10T09:00:00.000+10:00',
           location: 'South Yarra',
           title: 'This is the headline of an event',
           summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte',
@@ -1029,7 +1032,9 @@ const demoData = {
         tel: '',
         number: '',
         radio: null,
-        textArea: ''
+        textArea: '',
+        dateRange: ['', ''],
+        date: ''
       },
 
       schema: {
@@ -1113,6 +1118,23 @@ const demoData = {
           },
 
           {
+            type: 'rpldatepicker',
+            range: true,
+            label: 'Date Range',
+            model: 'dateRange',
+            startPlaceholder: 'Start',
+            endPlaceholder: 'End'
+          },
+
+          {
+            type: 'rpldatepicker',
+            ranged: false,
+            label: 'Date',
+            model: 'date',
+            placeholder: 'Enter a date'
+          },
+
+          {
             type: 'submit',
             buttonText: 'Submit'
           }
@@ -1163,6 +1185,7 @@ const demoData = {
     color: text('Color', 'primary'),
     size: text('Size', 'm'),
     icons: [
+      'accessible',
       'addition',
       'alert_fire',
       'alert_flood',
@@ -1173,6 +1196,7 @@ const demoData = {
       'alert_smoke',
       'alert_transport',
       'arrow_down_primary',
+      'arrow_down_tertiary',
       'arrow_left_primary',
       'arrow_left_secondary',
       'arrow_right_primary',
@@ -1182,12 +1206,14 @@ const demoData = {
       'attach',
       'blank_solid',
       'calendar',
+      'child_friendly',
       'close',
       'csv',
       'doc',
       'document',
       'document_transparent',
       'docx',
+      'dollar_negative',
       'dot',
       'dotm',
       'dotx',
@@ -1197,6 +1223,7 @@ const demoData = {
       'email_transparent',
       'external_link',
       'facebook',
+      'free',
       'hamburger',
       'help',
       'home',
@@ -1218,16 +1245,20 @@ const demoData = {
       'pptx',
       'right',
       'search',
+      'senior',
       'share',
       'share_alternative',
       'star',
       'stop',
+      'success',
       'tick',
       'trash',
       'twitter',
       'txt',
       'up',
       'upload',
+      'view',
+      'webinar',
       'xls',
       'xlsm',
       'xlsx',
@@ -1308,50 +1339,54 @@ const demoData = {
     events: object('Events', [
       {
         image: 'https://placehold.it/580x340',
-        date: '2018-07-10T09:00:00.000+10:00',
+        dateStart: '2018-12-25T09:00:00.000+10:00',
+        dateEnd: '2019-01-05T09:00:00.000+10:00',
         location: 'South Yarra',
-        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
-        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        title: 'This is the headline of an event',
+        summary: 'This event range occurs in 2018 and goes to 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
         link: { text: 'See event details', url: '#' }
       },
       {
         image: 'https://placehold.it/580x340',
-        date: '2018-01-09T09:00:00.000+10:00',
+        dateStart: '2018-05-09T09:00:00.000+10:00',
+        dateEnd: '2018-05-10T09:00:00.000+10:00',
         location: 'South Yarra',
-        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
-        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        title: 'This is the headline of an event',
+        summary: 'This event range occurs in 2018, same month different day.',
         link: { text: 'See event details', url: '#' }
       },
       {
         image: 'https://placehold.it/580x340',
-        date: '2018-07-12T09:00:00.000+10:00',
+        dateStart: '2018-02-12T09:00:00.000+10:00',
+        dateEnd: '2018-02-12T15:00:00.000+10:00',
         location: 'South Yarra',
-        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
-        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        title: 'This is the headline of an event',
+        summary: 'This event range occurs in 2018, same day, different time.',
         link: { text: 'See event details', url: '#' }
       },
       {
         image: 'https://placehold.it/580x340',
-        date: '2018-08-01T09:00:00.000+10:00',
+        dateStart: '2018-08-01T09:00:00.000+10:00',
+        dateEnd: '2018-09-02T09:00:00.000+10:00',
         location: 'South Yarra',
-        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
-        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        title: 'This is the headline of an event',
+        summary: 'This event range occurs in 2018. Same year, different month.',
         link: { text: 'See event details', url: '#' }
       },
       {
         image: 'https://placehold.it/580x340',
-        date: '2020-02-02T09:00:00.000+10:00',
+        dateStart: '2020-02-02T09:00:00.000+10:00',
         location: 'South Yarra',
         title: 'This is the headline of an event with a location that will stretch over over 3 lines',
-        summary: 'This event occurs in 2020. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        summary: 'This single date event occurs in 2020. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
         link: { text: 'See event details', url: '#' }
       },
       {
         image: 'https://placehold.it/580x340',
-        date: '2019-07-10T09:00:00.000+10:00',
+        dateStart: '2019-07-10T09:00:00.000+10:00',
         location: 'South Yarra',
         title: 'This is the headline of an event with a location that will stretch over over 3 lines',
-        summary: 'This event occurs in 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        summary: 'This single date event occurs in 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
         link: { text: 'See event details', url: '#' }
       }
     ]),

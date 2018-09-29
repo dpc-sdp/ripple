@@ -27,11 +27,12 @@
           :theme="mock.eventSearchForm.theme"
           @search="getSearchResults"
           class="rpl-site-constrain--on-all"
+          type="two-cols"
         />
         <rpl-divider />
       </template>
 
-      <rpl-container class="demo-main">
+      <div>
           <rpl-search-results
             :searchResults="noResults ? [] : mock.eventSearchResultItems"
             :pager="noResults ? undefined : mock.pagination"
@@ -42,7 +43,7 @@
             @pager-change="pagerChange"
             :type="mock.eventSearchResults.type"
           />
-      </rpl-container>
+      </div>
 
       <template slot="sidebar">
       </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-search-form" :class="{ 'rpl-search-form--dark': (theme === 'dark') }">
+  <div class="rpl-search-form" :class="{ 'rpl-search-form--dark': (theme === 'dark'), 'rpl-search-form--two-cols': (type === 'two-cols')  }">
     <h1 v-if="title">{{ title }}</h1>
     <div class="rpl-search-form__field">
       <label>
@@ -38,7 +38,8 @@ export default {
     searchPlaceholder: String,
     prefillSearchTerm: String,
     filterForm: Object,
-    theme: String
+    theme: String,
+    type: { type: String, default: 'default' }
   },
   components: {
     RplForm,

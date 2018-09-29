@@ -908,6 +908,13 @@ const demoData = {
           ],
           placeholder: 'Select a topic'
         }, {
+          type: 'input',
+          inputType: 'text',
+          label: 'Enter a location',
+          required: true,
+          placeholder: 'Start typing suburb or postcode…',
+          model: 'text'
+        }, {
           type: 'vueMultiSelect',
           model: 'select',
           label: 'Event requirements',
@@ -918,13 +925,6 @@ const demoData = {
             'Online webinar',
             'Seniors'
           ]
-        }, {
-          type: 'input',
-          inputType: 'text',
-          label: 'Enter a location',
-          required: true,
-          placeholder: 'Start typing suburb or postcode…',
-          model: 'text'
         }, {
           type: 'rplsubmitloader',
           buttonText: 'Display 18 results',

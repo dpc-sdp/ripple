@@ -20,8 +20,7 @@ npm install @dpc-sdp/ripple-global --save
 ├── masonry-layout
 ├── moment
 ├── object-fit-images
-├── vue-focus
-└── vue-social-sharing
+└── vue-focus
 ```
 
 --------------------------------------------------------------------------------

@@ -9,6 +9,7 @@
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.19",
     "@dpc-sdp/ripple-icon": "1.0.0-alpha.19",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.19"
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.19",
+    "vue-carousel": "^0.13.1"
   }
 }

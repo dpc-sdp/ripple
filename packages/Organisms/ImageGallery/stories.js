@@ -6,17 +6,17 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import {{componentRippleName}} from './{{componentFileName}}.vue'
+import RplImageGallery from './ImageGallery.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
 
-storiesOf('{{componentAtomFolder}}/{{componentSpacelessName}}', module)
+storiesOf('Organisms/ImageGallery', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('{{componentNaturalName}}', withReadme(readme, () => ({
-    components: { {{componentRippleName}} },
-    template: `<{{componentClassName}} />`,
+  .add('Image Gallery', withReadme(readme, () => ({
+    components: { RplImageGallery },
+    template: `<rpl-image-gallery :gallery-data="gallery" :enlarge-text="enlargeText" />`,
     data () {
-      return demoData.{{componentDemoDataName}}()
+      return demoData.imageGallery()
     }
   })))

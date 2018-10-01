@@ -18,7 +18,8 @@ npm install @dpc-sdp/ripple-share-this --save
 ```shell
 @dpc-sdp/ripple-share-this
 ├── @dpc-sdp/ripple-global
-└── @dpc-sdp/ripple-icon
+├── @dpc-sdp/ripple-icon
+└── vue-social-sharing
 ```
 
 --------------------------------------------------------------------------------

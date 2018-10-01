@@ -1127,6 +1127,7 @@ const demoData = {
       'external_link',
       'facebook',
       'free',
+      'fullscreen',
       'hamburger',
       'help',
       'home',
@@ -1300,6 +1301,54 @@ const demoData = {
       link: { text: 'Submit a listing', url: '#' }
     }),
     link: object('Link', { text: 'See all events', url: '#' })
+  }),
+
+  imageGallery: () => ({
+    gallery: object('Gallery Data', [{
+      image: 'https://placehold.it/1024x768/900/fff',
+      alt: 'A test image',
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/900/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate.'
+    }, {
+      image: 'https://placehold.it/1056x540/090/fff',
+      alt: 'A test image',
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/090/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia.'
+    }, {
+      image: 'https://placehold.it/597x843/009/fff',
+      alt: 'A test image',
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/009/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate. Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate.'
+    }, {
+      image: 'https://placehold.it/2560x1880/099/fff',
+      alt: 'A test image',
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/099/fff',
+      caption: 'A small caption.'
+    }, {
+      image: 'https://placehold.it/1920x350/909/fff',
+      alt: 'A test image',
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/909/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium.'
+    }, {
+      image: 'https://placehold.it/1024x768/990/fff',
+      alt: 'A test image',
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/990/fff',
+      caption: 'Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim.'
+    }, {
+      image: 'https://placehold.it/1024x768/000/fff',
+      alt: 'A test image',
+      title: 'Image title here',
+      thumbnail: 'https://placehold.it/604x309/000/fff',
+      caption: 'Sed ut perspiciatis unde omnis.'
+    }
+    ]),
+    enlargeText: text('Enlarge Text', 'Click to enlarge')
   })
 }
 

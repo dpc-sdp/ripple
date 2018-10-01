@@ -8,6 +8,7 @@
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/ShareThis",
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.19",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.19"
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.19",
+    "vue-social-sharing": "^2.3.3"
   }
 }

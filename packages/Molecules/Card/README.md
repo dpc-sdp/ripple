@@ -19,7 +19,8 @@ npm install @dpc-sdp/ripple-card --save
 @dpc-sdp/ripple-card
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-icon
-└── @dpc-sdp/ripple-link
+├── @dpc-sdp/ripple-link
+└── vue-carousel
 ```
 
 --------------------------------------------------------------------------------
@@ -39,6 +40,8 @@ See [Storybook/Card Event](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules
 See [Storybook/Card Cta](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Cta).
 
 See [Storybook/Card Content (base)](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Content%20(base)).
+
+See [Storybook/Card Carousel](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Carousel).
 
 --------------------------------------------------------------------------------
 

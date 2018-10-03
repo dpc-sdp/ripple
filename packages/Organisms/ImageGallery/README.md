@@ -1,13 +1,14 @@
-# @dpc-sdp/ripple-event
+# @dpc-sdp/ripple-image-gallery
 
-> A set of components for displaying events.
+> A component to display images as an interactive gallery. This component only
+works client-side.
 
 --------------------------------------------------------------------------------
 
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-event --save
+npm install @dpc-sdp/ripple-image-gallery --save
 ```
 
 --------------------------------------------------------------------------------
@@ -15,17 +16,16 @@ npm install @dpc-sdp/ripple-event --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-event
-├── @dpc-sdp/ripple-button
-├── @dpc-sdp/ripple-card
-└── @dpc-sdp/ripple-global
+@dpc-sdp/ripple-image-gallery
+├── @dpc-sdp/ripple-global
+└── vue-carousel
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Latest Events](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Event&selectedStory=Latest%20Events).
+See [Storybook/Image Gallery](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/ImageGallery&selectedStory=Image%20Gallery).
 
 --------------------------------------------------------------------------------
 

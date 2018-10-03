@@ -10126,6 +10126,640 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Search Event Search Results 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplSearchResults
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-search-results
+    :searchResults="searchResultsItems"
+    :pager="pager"
+    :responseSize="searchResults.responseSize"
+    :count="searchResults.count"
+    :pagerChangeHandler="pagerChange"
+    :errorMsg="hasError ? searchResults.errorMsg : undefined"
+    :noResultsMsg="searchResults.noResultsMsg"
+    :type="searchResults.type"
+    @pager-change="pagerChange"
+  /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-search-results"
+      data-v-d5d40916=""
+      pagerchangehandler="function () { [native code] }"
+    >
+      <div
+        class="rpl-search-results__info"
+      >
+        <div>
+          Displaying 4 of 10 results
+        </div>
+      </div>
+       
+      <div
+        class="rpl-row rpl-search-results__main rpl-row--gutter rpl-search-results__main--events"
+      >
+        <!---->
+         
+        <div
+          class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            date="2018-07-10T09:00:00.000+10:00"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <!---->
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event with a location that will stretch over over 3 lines
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                </p>
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            date="2018-07-10T09:00:00.000+10:00"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <!---->
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event with a location that will stretch over over 3 lines
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                </p>
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+            date="2018-07-10T09:00:00.000+10:00"
+            href="#"
+          >
+            <!---->
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <!---->
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This event has no image.
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                </p>
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            date="2018-07-10T09:00:00.000+10:00"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <!---->
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event with a location that will stretch over over 3 lines
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                </p>
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <div
+        class="rpl-search-results__pager"
+      >
+        <div
+          class="rpl-pagination"
+        >
+          <ol
+            class="rpl-pagination__list"
+          >
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <span
+                class="rpl-pagination__step-current"
+              >
+                1
+              </span>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span>
+                  Go to step 
+                </span>
+                2
+              </button>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span>
+                  Go to step 
+                </span>
+                3
+              </button>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span>
+                  Go to step 
+                </span>
+                4
+              </button>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span>
+                  Go to step 
+                </span>
+                5
+              </button>
+            </li>
+          </ol>
+           
+          <div
+            class="rpl-pagination__controls"
+          >
+            <!---->
+             
+            <button
+              class="rpl-pagination__nav"
+            >
+              <span>
+                Next
+              </span>
+               
+              <!---->
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          type
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          default
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          searchResults
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          array
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          []
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          pager
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          object
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          {
+  "totalSteps": 0,
+  "initialStep": 0,
+  "stepsAround": 0
+}
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          errorMsg
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          noResultsMsg
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          responseSize
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          number
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          count
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          number
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
 <div
   class="vue-info"
@@ -10384,6 +11018,30 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
           data-v-d5d40916=""
         >
           
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          type
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          default
         </td>
       </tr>
     </tbody>
@@ -10724,6 +11382,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
   :pagerChangeHandler="pagerChange"
   :errorMsg="hasError ? searchResults.errorMsg : undefined"
   :noResultsMsg="searchResults.noResultsMsg"
+  :type="searchResults.type"
   @pager-change="pagerChange"
 /&gt;
     </code>
@@ -10753,164 +11412,171 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
       </div>
        
       <div
-        class="rpl-search-results__main"
+        class="rpl-row rpl-search-results__main rpl-row--gutter"
       >
         <div
-          class="rpl-search-result rpl-search-results__item rpl-component-gutter"
+          class="rpl-col rpl-col--full"
         >
-          <a
-            class="rpl-link"
-            href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-            target="_blank"
+          <div
+            class="rpl-search-result rpl-search-results__item rpl-component-gutter"
           >
-            <h2
-              class="rpl-search-result__heading"
+            <a
+              class="rpl-link"
+              href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+              target="_blank"
             >
-              Schools private policy
-            </h2>
-          </a>
-           
-          <a
-            class="rpl-link rpl-search-result__link"
-            href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-            target="_blank"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </a>
-           
-          <p
-            class="rpl-search-result__date-description"
-          >
-            <span
-              class="rpl-search-result__date"
-            >
-              Jul 10, 2018
-            </span>
+              <h2
+                class="rpl-search-result__heading"
+              >
+                Schools private policy
+              </h2>
+            </a>
              
-            <span>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-            </span>
-          </p>
-           
-          <ul
-            class="rpl-search-result__terms"
-          >
-            <li
-              class="rpl-search-result__term"
+            <a
+              class="rpl-link rpl-search-result__link"
+              href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+              target="_blank"
             >
-              <div
-                class="rpl-meta-tag"
-              >
-                <a
-                  class="rpl-link rpl-meta-tag__link"
-                  href="#"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </a>
-              </div>
-            </li>
-            <li
-              class="rpl-search-result__term"
-            >
-              <div
-                class="rpl-meta-tag"
-              >
-                <a
-                  class="rpl-link rpl-meta-tag__link"
-                  href="#"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="rpl-search-result rpl-search-results__item rpl-component-gutter"
-        >
-          <a
-            class="rpl-link"
-            href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-            target="_blank"
-          >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </a>
-           
-          <a
-            class="rpl-link rpl-search-result__link"
-            href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-            target="_blank"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </a>
-           
-          <p
-            class="rpl-search-result__date-description"
-          >
-            <span
-              class="rpl-search-result__date"
-            >
-              Jul 10, 2018
-            </span>
+              www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+            </a>
              
-            <span>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-            </span>
-          </p>
-           
-          <ul
-            class="rpl-search-result__terms"
+            <p
+              class="rpl-search-result__date-description"
+            >
+              <span
+                class="rpl-search-result__date"
+              >
+                Jul 10, 2018
+              </span>
+               
+              <span>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+              </span>
+            </p>
+             
+            <ul
+              class="rpl-search-result__terms"
+            >
+              <li
+                class="rpl-search-result__term"
+              >
+                <div
+                  class="rpl-meta-tag"
+                >
+                  <a
+                    class="rpl-link rpl-meta-tag__link"
+                    href="#"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </a>
+                </div>
+              </li>
+              <li
+                class="rpl-search-result__term"
+              >
+                <div
+                  class="rpl-meta-tag"
+                >
+                  <a
+                    class="rpl-link rpl-meta-tag__link"
+                    href="#"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="rpl-search-result rpl-search-results__item rpl-component-gutter"
           >
-            <li
-              class="rpl-search-result__term"
+            <a
+              class="rpl-link"
+              href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+              target="_blank"
             >
-              <div
-                class="rpl-meta-tag"
+              <h2
+                class="rpl-search-result__heading"
               >
-                <a
-                  class="rpl-link rpl-meta-tag__link"
-                  href="#"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </a>
-              </div>
-            </li>
-            <li
-              class="rpl-search-result__term"
+                Schools private policy
+              </h2>
+            </a>
+             
+            <a
+              class="rpl-link rpl-search-result__link"
+              href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+              target="_blank"
             >
-              <div
-                class="rpl-meta-tag"
+              www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+            </a>
+             
+            <p
+              class="rpl-search-result__date-description"
+            >
+              <span
+                class="rpl-search-result__date"
               >
-                <a
-                  class="rpl-link rpl-meta-tag__link"
-                  href="#"
+                Jul 10, 2018
+              </span>
+               
+              <span>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+              </span>
+            </p>
+             
+            <ul
+              class="rpl-search-result__terms"
+            >
+              <li
+                class="rpl-search-result__term"
+              >
+                <div
+                  class="rpl-meta-tag"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
+                  <a
+                    class="rpl-link rpl-meta-tag__link"
+                    href="#"
                   >
-                    This is a content tag
-                  </span>
-                </a>
-              </div>
-            </li>
-          </ul>
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </a>
+                </div>
+              </li>
+              <li
+                class="rpl-search-result__term"
+              >
+                <div
+                  class="rpl-meta-tag"
+                >
+                  <a
+                    class="rpl-link rpl-meta-tag__link"
+                    href="#"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+         
+        <!---->
+        <!---->
          
         <!---->
          
@@ -11045,6 +11711,30 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
     <tbody
       data-v-d5d40916=""
     >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          type
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          default
+        </td>
+      </tr>
       <tr
         data-v-d5d40916=""
       >
@@ -17873,6 +18563,916 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Templates Event search page demo 1`] = `
+<div
+  class="rpl-site-layout event-search-page-demo"
+>
+  <div
+    class="rpl-skip-link"
+    id="rpl-skip-link"
+  >
+    <a
+      class="rpl-skip-link__link"
+      href="#rpl-main-content"
+    >
+      Skip to main content
+    </a>
+  </div>
+   
+  <header
+    class="rpl-site-header-container"
+  >
+    <div
+      class="rpl-site-header"
+    >
+      <div
+        class="rpl-site-header__inner"
+      >
+        <div
+          class="rpl-site-header__top"
+        >
+          <div
+            class="rpl-site-header__logo-container"
+          >
+            <button
+              aria-expanded="false"
+              class="rpl-site-header__btn rpl-site-header__btn--menu"
+            >
+              <!---->
+               
+              <span>
+                Menu
+              </span>
+            </button>
+             
+            <div
+              class="rpl-site-header__title"
+            >
+              <a
+                class="rpl-link"
+                href="#"
+              >
+                <img
+                  alt="vic.gov.au"
+                  src="/logo.svg"
+                />
+              </a>
+            </div>
+          </div>
+           
+          <!---->
+           
+          <button
+            class="rpl-site-header__btn rpl-site-header__btn--search"
+          >
+            <span>
+              Search website
+            </span>
+             
+            <!---->
+          </button>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </header>
+    
+  <div
+    class="rpl-page main rpl-container"
+  >
+    <section
+      class="rpl-above-content-container"
+    >
+      <div
+        class="rpl-above-content"
+      >
+        <div
+          class="rpl-above-content__inner"
+        >
+          <div
+            class="rpl-search-form rpl-site-constrain--on-all rpl-search-form--two-cols"
+          >
+            <h1>
+              Events search page
+            </h1>
+             
+            <div
+              class="rpl-search-form__field"
+            >
+              <label>
+                <span
+                  class="rpl-search-form__label-text"
+                >
+                  Search for
+                </span>
+                 
+                <input
+                  class="rpl-search-form__input"
+                  placeholder="Enter keywords"
+                  type="text"
+                />
+              </label>
+               
+              <button
+                class="rpl-search-form__btn"
+              >
+                <span>
+                  Search
+                </span>
+                 
+                <!---->
+              </button>
+            </div>
+             
+            <button
+              class="rpl-search-form__show-filters"
+            >
+              <span>
+                Refine search
+              </span>
+               
+              <!---->
+            </button>
+             
+            <!---->
+          </div>
+           
+          <hr
+            class="rpl-divider"
+          />
+        </div>
+      </div>
+       
+      <div
+        class="rpl-above-content-two"
+      />
+    </section>
+     
+    <section
+      class="rpl-content"
+      id="rpl-main-content"
+    >
+      <div
+        class="rpl-container rpl-site-constrain--on-all"
+      >
+        <div
+          class="rpl-row"
+        >
+          <div
+            class="rpl-main rpl-col rpl-col--full"
+          >
+             
+            <div>
+              <div
+                class="rpl-search-results"
+              >
+                <div
+                  class="rpl-search-results__info"
+                >
+                  <div>
+                    Displaying 2 of 10 results
+                  </div>
+                </div>
+                 
+                <div
+                  class="rpl-row rpl-search-results__main rpl-row--gutter rpl-search-results__main--events"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                  >
+                    <a
+                      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+                      date="2018-07-10T09:00:00.000+10:00"
+                      href="#"
+                    >
+                      <div
+                        class="rpl-card-content__image-wrapper"
+                      >
+                        <img
+                          alt=""
+                          class="rpl-card-content__image"
+                          src="https://placehold.it/580x340"
+                        />
+                      </div>
+                       
+                      <div
+                        class="rpl-card-content__details"
+                      >
+                        <!---->
+                         
+                        <h2
+                          class="rpl-card-event__title"
+                        >
+                          This is the headline of an event with a location that will stretch over over 3 lines
+                        </h2>
+                         
+                        <div
+                          class="rpl-card-event__trim-wrapper"
+                          style="max-height: none;"
+                        >
+                          <p
+                            class="rpl-card-event__summary"
+                          >
+                            This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                       
+                      <div
+                        class="rpl-card-content__link"
+                      >
+                        <span>
+                          <span>
+                            See event
+                          </span>
+                           
+                          <span
+                            class="rpl-text-icon__group"
+                          >
+                             details
+                            <!---->
+                          </span>
+                           
+                          <!---->
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                  >
+                    <a
+                      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+                      date="2018-07-10T09:00:00.000+10:00"
+                      href="#"
+                    >
+                      <div
+                        class="rpl-card-content__image-wrapper"
+                      >
+                        <img
+                          alt=""
+                          class="rpl-card-content__image"
+                          src="https://placehold.it/580x340"
+                        />
+                      </div>
+                       
+                      <div
+                        class="rpl-card-content__details"
+                      >
+                        <!---->
+                         
+                        <h2
+                          class="rpl-card-event__title"
+                        >
+                          This is the headline of an event with a location that will stretch over over 3 lines
+                        </h2>
+                         
+                        <div
+                          class="rpl-card-event__trim-wrapper"
+                          style="max-height: none;"
+                        >
+                          <p
+                            class="rpl-card-event__summary"
+                          >
+                            This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                       
+                      <div
+                        class="rpl-card-content__link"
+                      >
+                        <span>
+                          <span>
+                            See event
+                          </span>
+                           
+                          <span
+                            class="rpl-text-icon__group"
+                          >
+                             details
+                            <!---->
+                          </span>
+                           
+                          <!---->
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                  >
+                    <a
+                      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                      date="2018-07-10T09:00:00.000+10:00"
+                      href="#"
+                    >
+                      <!---->
+                       
+                      <div
+                        class="rpl-card-content__details"
+                      >
+                        <!---->
+                         
+                        <h2
+                          class="rpl-card-event__title"
+                        >
+                          This event has no image.
+                        </h2>
+                         
+                        <div
+                          class="rpl-card-event__trim-wrapper"
+                          style="max-height: none;"
+                        >
+                          <p
+                            class="rpl-card-event__summary"
+                          >
+                            This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                       
+                      <div
+                        class="rpl-card-content__link"
+                      >
+                        <span>
+                          <span>
+                            See event
+                          </span>
+                           
+                          <span
+                            class="rpl-text-icon__group"
+                          >
+                             details
+                            <!---->
+                          </span>
+                           
+                          <!---->
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                  >
+                    <a
+                      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+                      date="2018-07-10T09:00:00.000+10:00"
+                      href="#"
+                    >
+                      <div
+                        class="rpl-card-content__image-wrapper"
+                      >
+                        <img
+                          alt=""
+                          class="rpl-card-content__image"
+                          src="https://placehold.it/580x340"
+                        />
+                      </div>
+                       
+                      <div
+                        class="rpl-card-content__details"
+                      >
+                        <!---->
+                         
+                        <h2
+                          class="rpl-card-event__title"
+                        >
+                          This is the headline of an event with a location that will stretch over over 3 lines
+                        </h2>
+                         
+                        <div
+                          class="rpl-card-event__trim-wrapper"
+                          style="max-height: none;"
+                        >
+                          <p
+                            class="rpl-card-event__summary"
+                          >
+                            This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                       
+                      <div
+                        class="rpl-card-content__link"
+                      >
+                        <span>
+                          <span>
+                            See event
+                          </span>
+                           
+                          <span
+                            class="rpl-text-icon__group"
+                          >
+                             details
+                            <!---->
+                          </span>
+                           
+                          <!---->
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-search-results__pager"
+                >
+                  <div
+                    class="rpl-pagination"
+                  >
+                    <ol
+                      class="rpl-pagination__list"
+                    >
+                      <li
+                        class="rpl-pagination__list-item"
+                      >
+                        <span
+                          class="rpl-pagination__step-current"
+                        >
+                          1
+                        </span>
+                      </li>
+                      <li
+                        class="rpl-pagination__list-item"
+                      >
+                        <button
+                          class="rpl-pagination__step"
+                        >
+                          <span>
+                            Go to step 
+                          </span>
+                          2
+                        </button>
+                      </li>
+                      <li
+                        class="rpl-pagination__list-item"
+                      >
+                        <button
+                          class="rpl-pagination__step"
+                        >
+                          <span>
+                            Go to step 
+                          </span>
+                          3
+                        </button>
+                      </li>
+                      <li
+                        class="rpl-pagination__list-item"
+                      >
+                        <button
+                          class="rpl-pagination__step"
+                        >
+                          <span>
+                            Go to step 
+                          </span>
+                          4
+                        </button>
+                      </li>
+                      <li
+                        class="rpl-pagination__list-item"
+                      >
+                        <button
+                          class="rpl-pagination__step"
+                        >
+                          <span>
+                            Go to step 
+                          </span>
+                          5
+                        </button>
+                      </li>
+                    </ol>
+                     
+                    <div
+                      class="rpl-pagination__controls"
+                    >
+                      <!---->
+                       
+                      <button
+                        class="rpl-pagination__nav"
+                      >
+                        <span>
+                          Next
+                        </span>
+                         
+                        <!---->
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+             
+          </div>
+           
+          <!---->
+        </div>
+      </div>
+    </section>
+     
+    <section
+      class="rpl-below-content"
+    />
+  </div>
+    
+  <!---->
+   
+  <footer
+    class="rpl-site-footer-container"
+  >
+    <div
+      class="rpl-site-footer"
+    >
+      <div
+        class="rpl-site-footer__main"
+      >
+        <ul
+          class="rpl-footer-nav"
+        >
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Your Services
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                About VIC Government
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                News
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Events
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Connect with us
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+         
+        <!---->
+      </div>
+       
+      <div
+        class="rpl-site-footer__bottom"
+      >
+        <div
+          class="rpl-site-footer__bottom-main"
+        >
+          <div
+            class="rpl-links-and-copyright"
+          >
+            <ul
+              class="rpl-links-and-copyright__links"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Privacy
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Disclaimer
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Terms of use
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Sitemap
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Accessibility Statement
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Help
+                </a>
+              </li>
+            </ul>
+             
+            <div
+              class="rpl-links-and-copyright__copyright"
+            >
+              © Copyright State Government of Victoria
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-site-footer__logos"
+        >
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="https://vic.gov.au"
+            target="_blank"
+          >
+            <img
+              alt="Victoria Government Website"
+              src="file-stub"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
 exports[`RippleStoryshots Templates Landing page demo 1`] = `
 <div
   class="rpl-site-layout demo"
@@ -20590,7 +22190,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
     </section>
      
     <section
-      class="rpl-content rpl-content--with-sidebar"
+      class="rpl-content"
       id="rpl-main-content"
     >
       <div
@@ -20600,7 +22200,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
           class="rpl-row"
         >
           <div
-            class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
+            class="rpl-main rpl-col rpl-col--full"
           >
              
             <div
@@ -20621,164 +22221,171 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                   </div>
                    
                   <div
-                    class="rpl-search-results__main"
+                    class="rpl-row rpl-search-results__main rpl-row--gutter"
                   >
                     <div
-                      class="rpl-search-result rpl-search-results__item rpl-component-gutter"
+                      class="rpl-col rpl-col--full"
                     >
-                      <a
-                        class="rpl-link"
-                        href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-                        target="_blank"
+                      <div
+                        class="rpl-search-result rpl-search-results__item rpl-component-gutter"
                       >
-                        <h2
-                          class="rpl-search-result__heading"
+                        <a
+                          class="rpl-link"
+                          href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+                          target="_blank"
                         >
-                          Schools private policy
-                        </h2>
-                      </a>
-                       
-                      <a
-                        class="rpl-link rpl-search-result__link"
-                        href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-                        target="_blank"
-                      >
-                        www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-                      </a>
-                       
-                      <p
-                        class="rpl-search-result__date-description"
-                      >
-                        <span
-                          class="rpl-search-result__date"
-                        >
-                          Jul 10, 2018
-                        </span>
+                          <h2
+                            class="rpl-search-result__heading"
+                          >
+                            Schools private policy
+                          </h2>
+                        </a>
                          
-                        <span>
-                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                        </span>
-                      </p>
-                       
-                      <ul
-                        class="rpl-search-result__terms"
-                      >
-                        <li
-                          class="rpl-search-result__term"
+                        <a
+                          class="rpl-link rpl-search-result__link"
+                          href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+                          target="_blank"
                         >
-                          <div
-                            class="rpl-meta-tag"
-                          >
-                            <a
-                              class="rpl-link rpl-meta-tag__link"
-                              href="#"
-                            >
-                              <span
-                                class="rpl-meta-tag__text"
-                              >
-                                This is a content tag
-                              </span>
-                            </a>
-                          </div>
-                        </li>
-                        <li
-                          class="rpl-search-result__term"
-                        >
-                          <div
-                            class="rpl-meta-tag"
-                          >
-                            <a
-                              class="rpl-link rpl-meta-tag__link"
-                              href="#"
-                            >
-                              <span
-                                class="rpl-meta-tag__text"
-                              >
-                                This is a content tag
-                              </span>
-                            </a>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="rpl-search-result rpl-search-results__item rpl-component-gutter"
-                    >
-                      <a
-                        class="rpl-link"
-                        href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-                        target="_blank"
-                      >
-                        <h2
-                          class="rpl-search-result__heading"
-                        >
-                          Schools private policy
-                        </h2>
-                      </a>
-                       
-                      <a
-                        class="rpl-link rpl-search-result__link"
-                        href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-                        target="_blank"
-                      >
-                        www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-                      </a>
-                       
-                      <p
-                        class="rpl-search-result__date-description"
-                      >
-                        <span
-                          class="rpl-search-result__date"
-                        >
-                          Jul 10, 2018
-                        </span>
+                          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+                        </a>
                          
-                        <span>
-                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                        </span>
-                      </p>
-                       
-                      <ul
-                        class="rpl-search-result__terms"
+                        <p
+                          class="rpl-search-result__date-description"
+                        >
+                          <span
+                            class="rpl-search-result__date"
+                          >
+                            Jul 10, 2018
+                          </span>
+                           
+                          <span>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+                          </span>
+                        </p>
+                         
+                        <ul
+                          class="rpl-search-result__terms"
+                        >
+                          <li
+                            class="rpl-search-result__term"
+                          >
+                            <div
+                              class="rpl-meta-tag"
+                            >
+                              <a
+                                class="rpl-link rpl-meta-tag__link"
+                                href="#"
+                              >
+                                <span
+                                  class="rpl-meta-tag__text"
+                                >
+                                  This is a content tag
+                                </span>
+                              </a>
+                            </div>
+                          </li>
+                          <li
+                            class="rpl-search-result__term"
+                          >
+                            <div
+                              class="rpl-meta-tag"
+                            >
+                              <a
+                                class="rpl-link rpl-meta-tag__link"
+                                href="#"
+                              >
+                                <span
+                                  class="rpl-meta-tag__text"
+                                >
+                                  This is a content tag
+                                </span>
+                              </a>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div
+                        class="rpl-search-result rpl-search-results__item rpl-component-gutter"
                       >
-                        <li
-                          class="rpl-search-result__term"
+                        <a
+                          class="rpl-link"
+                          href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+                          target="_blank"
                         >
-                          <div
-                            class="rpl-meta-tag"
+                          <h2
+                            class="rpl-search-result__heading"
                           >
-                            <a
-                              class="rpl-link rpl-meta-tag__link"
-                              href="#"
-                            >
-                              <span
-                                class="rpl-meta-tag__text"
-                              >
-                                This is a content tag
-                              </span>
-                            </a>
-                          </div>
-                        </li>
-                        <li
-                          class="rpl-search-result__term"
+                            Schools private policy
+                          </h2>
+                        </a>
+                         
+                        <a
+                          class="rpl-link rpl-search-result__link"
+                          href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+                          target="_blank"
                         >
-                          <div
-                            class="rpl-meta-tag"
+                          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+                        </a>
+                         
+                        <p
+                          class="rpl-search-result__date-description"
+                        >
+                          <span
+                            class="rpl-search-result__date"
                           >
-                            <a
-                              class="rpl-link rpl-meta-tag__link"
-                              href="#"
+                            Jul 10, 2018
+                          </span>
+                           
+                          <span>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+                          </span>
+                        </p>
+                         
+                        <ul
+                          class="rpl-search-result__terms"
+                        >
+                          <li
+                            class="rpl-search-result__term"
+                          >
+                            <div
+                              class="rpl-meta-tag"
                             >
-                              <span
-                                class="rpl-meta-tag__text"
+                              <a
+                                class="rpl-link rpl-meta-tag__link"
+                                href="#"
                               >
-                                This is a content tag
-                              </span>
-                            </a>
-                          </div>
-                        </li>
-                      </ul>
+                                <span
+                                  class="rpl-meta-tag__text"
+                                >
+                                  This is a content tag
+                                </span>
+                              </a>
+                            </div>
+                          </li>
+                          <li
+                            class="rpl-search-result__term"
+                          >
+                            <div
+                              class="rpl-meta-tag"
+                            >
+                              <a
+                                class="rpl-link rpl-meta-tag__link"
+                                href="#"
+                              >
+                                <span
+                                  class="rpl-meta-tag__text"
+                                >
+                                  This is a content tag
+                                </span>
+                              </a>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
+                     
+                    <!---->
+                    <!---->
                      
                     <!---->
                      
@@ -20876,9 +22483,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
              
           </div>
            
-          <div
-            class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
-          />
+          <!---->
         </div>
       </div>
     </section>

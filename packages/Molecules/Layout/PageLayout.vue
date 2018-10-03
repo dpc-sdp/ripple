@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     mainCols () {
-      return this.sidebar ? {l: 7} : {}
+      return this.sidebar === true ? {l: 7} : {}
     },
     bgGrey () {
       return this.backgroundColor === 'grey'

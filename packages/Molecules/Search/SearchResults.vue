@@ -3,22 +3,30 @@
     <div class="rpl-search-results__info" >
       <div v-if="count">Displaying {{ responseSize > count ? count : responseSize }} of {{ count }} results</div>
     </div>
-
-    <div class="rpl-search-results__main">
-      <rpl-search-result
-        class="rpl-search-results__item rpl-component-gutter"
-        v-bind="searchResult"
-        v-if="searchResults && !errorMsg"
-        v-for="(searchResult, index) of searchResults"
-        :key="index"
-      />
+    <rpl-row row-gutter class="rpl-search-results__main" :class="{'rpl-search-results__main--events': type === 'RplCardEvent'}">
+      <template v-if="searchResults && !errorMsg">
+        <rpl-col cols="full" v-if="type === 'default'">
+          <rpl-search-result
+            class="rpl-search-results__item rpl-component-gutter"
+            v-bind="searchResult"
+            v-for="(searchResult, index) of searchResults"
+            :key="index"
+          />
+        </rpl-col>
+        <rpl-col cols="full" :colsBp="{m:6,l:4, xxxl:3}" class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter"
+          v-if="type === 'RplCardEvent'"
+          v-for="(searchResult, index) of searchResults"
+          :key="index">
+          <rpl-card-event v-bind="searchResult" />
+        </rpl-col>
+      </template>
       <div v-if="searchResults.length === 0" class="rpl-search-results__no-results-msg">
         {{ noResultsMsg }}
       </div>
       <div v-if="errorMsg" class="rpl-search-results__error-msg">
         {{ errorMsg }}
       </div>
-    </div>
+    </rpl-row>
 
     <div class="rpl-search-results__pager">
       <rpl-pagination
@@ -34,14 +42,20 @@
 <script>
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import RplSearchResult from './SearchResult.vue'
+import { RplCardEvent } from '@dpc-sdp/ripple-card'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplSearchResults',
   components: {
     RplPagination,
-    RplSearchResult
+    RplRow,
+    RplCol,
+    RplSearchResult,
+    RplCardEvent
   },
   props: {
+    type: { type: String, default: 'default' },
     searchResults: {
       type: Array,
       default: function () {
@@ -62,6 +76,13 @@ export default {
     noResultsMsg: String,
     responseSize: Number,
     count: Number
+  },
+  data () {
+    return {
+      defaultCols: {
+
+      }
+    }
   }
 }
 </script>

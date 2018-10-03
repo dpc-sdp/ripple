@@ -1,15 +1,18 @@
 {
   "name": "@dpc-sdp/ripple-search",
-  "version": "1.0.0-alpha.19",
+  "version": "1.0.0-alpha.20",
   "description": "Components for generating a search field with filters, and search results.",
   "license": "Apache-2.0",
   "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/Search",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@dpc-sdp/ripple-form": "1.0.0-alpha.19",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.19",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.19",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.19"
+    "@dpc-sdp/ripple-form": "1.0.0-alpha.20",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.20",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.20",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.20"
   }
 }

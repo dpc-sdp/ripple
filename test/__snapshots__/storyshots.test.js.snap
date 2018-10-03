@@ -7102,27 +7102,26 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     class="multiselect__input"
                     name=""
                     placeholder="Select option"
-                    style="display: none;"
+                    style="width: 0px; position: absolute; padding: 0px;"
                     tabindex="0"
                     type="text"
                   />
                    
                   <!---->
                    
-                  <span>
-                    <span
-                      class="multiselect__single"
-                    >
-                      
+                  <span
+                    class="multiselect__placeholder"
+                  >
+                    
             Select option
-          
-                    </span>
+        
                   </span>
                 </div>
                  
                 <div
                   class="multiselect__content-wrapper"
                   style="max-height: 300px; display: none;"
+                  tabindex="-1"
                 >
                   <ul
                     class="multiselect__content"
@@ -7171,6 +7170,16 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="multiselect__option"
                       >
                         No elements found. Consider changing the search query.
+                      </span>
+                    </li>
+                     
+                    <li
+                      style="display: none;"
+                    >
+                      <span
+                        class="multiselect__option"
+                      >
+                        List is empty.
                       </span>
                     </li>
                      

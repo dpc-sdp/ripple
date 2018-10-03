@@ -26,6 +26,26 @@ Vue.component('fieldRplchecklist', fieldRplchecklist)
 Vue.component('fieldRpldatepicker', fieldRpldatepicker)
 Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
 
+// Phone Validation 
+// Custom regex for a phone number 
+// (supplied in : https://stackoverflow.com/q/50033651/2600825)
+// Usage : 
+// Apply this custom validation in mapping-filters.js
+// field.validator.push('phoneValidator')
+VueFormGenerator.validators.phoneValidator = function(value, field, model) {
+  if (value != '') {
+    let re = /^((1[3578][0-9])+\d{8})$/
+
+    if (!re.test(value)) {
+      return ['Invalid phone number!']
+    } else {
+      return []
+    }
+  } else {
+    return []
+  }
+}
+
 export { VueFormGenerator }
 
 export default {

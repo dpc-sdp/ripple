@@ -1,13 +1,16 @@
 {
   "name": "@dpc-sdp/ripple-breadcrumbs",
-  "version": "1.0.0-alpha.19",
+  "version": "1.0.0-alpha.20",
   "description": "A compoennt to display the active path, with links. Does not display on small screens.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/Breadcrumbs",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.19",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.19"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.20",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.20"
   }
 }

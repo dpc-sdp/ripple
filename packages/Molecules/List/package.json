@@ -1,13 +1,16 @@
 {
   "name": "@dpc-sdp/ripple-list",
-  "version": "1.0.0-alpha.19",
+  "version": "1.0.0-alpha.20",
   "description": "List component for displaying an icon and text in a list.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/List",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.19",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.19"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.20",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.20"
   }
 }

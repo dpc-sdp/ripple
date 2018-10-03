@@ -888,6 +888,61 @@ const demoData = {
     theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
   }),
 
+  eventSearchForm: () => ({
+    title: text('Title', 'Events search page'),
+    searchPlaceholder: text('Search Placeholder', 'Enter keywords'),
+    prefillSearchTerm: text('Prefilled Search Term', 'Search by keyword or location'),
+    filterForm: object('Filter Form', {
+      tideId: 'tide_search_form',
+      model: {
+        text: '',
+        topic: ''
+      },
+      schema: {
+        fields: [{
+          type: 'rplchecklist',
+          label: 'Select an event category',
+          model: 'topic',
+          values: [
+            'Topic A',
+            'Topic B',
+            'Topic C',
+            'Topic D'
+          ],
+          placeholder: 'Select a topic'
+        }, {
+          type: 'input',
+          inputType: 'text',
+          label: 'Enter a location',
+          required: true,
+          placeholder: 'Start typing suburb or postcode…',
+          model: 'text'
+        }, {
+          type: 'vueMultiSelect',
+          model: 'select',
+          label: 'Event requirements',
+          values: [
+            'Accessible venue',
+            'Child friendly',
+            'Free admission',
+            'Online webinar',
+            'Seniors'
+          ]
+        }, {
+          type: 'rplsubmitloader',
+          buttonText: 'Display 18 results',
+          loading: false
+        }]
+      },
+      formOptions: {
+        validateAfterLoad: true,
+        validateAfterChanged: true
+      },
+      formState: {}
+    }),
+    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
+  }),
+
   searchResult: () => ({
     title: text('Title', 'Schools private policy'),
     link: object('Link', {
@@ -906,9 +961,51 @@ const demoData = {
     locale: text('Locale', 'en-au')
   }),
 
+  eventSearchResultItems: () => (
+    [
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: {text: 'See event details', url: '#'}
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: {text: 'See event details', url: '#'}
+      },
+      {
+        image: '',
+        date: '2018-07-10T09:00:00.000+10:00',
+        title: 'This event has no image.',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: {text: 'See event details', url: '#'}
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        title: 'This is the headline of an event with a location that will stretch over over 3 lines',
+        summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
+        link: {text: 'See event details', url: '#'}
+      }
+    ]
+  ),
+
   searchResults: () => ({
     count: number('Count', 10),
+    type: 'default',
     responseSize: number('Response size', 2),
+    errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
+    noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
+  }),
+
+  eventSearchResults: () => ({
+    count: number('Count', 10),
+    type: 'RplCardEvent',
+    responseSize: number('Response size', 4),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
   }),

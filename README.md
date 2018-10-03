@@ -33,6 +33,10 @@ Vue template.
 
   Code example: [/src/storybook-components/Page.vue](/src/storybook-components/Page.vue)
 
+- [Event search page demo](https://ripple.sdp.vic.gov.au/?selectedKind=Templates&selectedStory=selectedStory=Event%20search%20page%20demo)
+
+  Code example: [/src/storybook-components/Page.vue](/src/storybook-components/Page.vue)
+
 ## Install Ripple in your Nuxt project
 
 _We will provide a start template soon. Below is just a simple example._

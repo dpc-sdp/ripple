@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import SPage from './Page.vue'
 import SCampaignPage from './CampaignPage.vue'
 import SSearchPage from './SearchPage.vue'
+import SEventSearchPage from './EventSearchPage.vue'
 
 import {
   withKnobs,
@@ -49,7 +50,27 @@ storiesOf('Templates', module)
 </s-search-page>`,
     data () {
       return {
-        sidebar: true,
+        sidebar: false,
+        mock: demoDataLocked,
+        hasError: boolean('Has error', false),
+        noResults: boolean('No results', false)
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Event search page demo', () => ({
+    components: { SEventSearchPage },
+    template: `<s-event-search-page
+:mock="mock"
+:hasError="hasError"
+:noResults="noResults"
+>
+</s-event-search-page>`,
+    data () {
+      return {
+        sidebar: false,
         mock: demoDataLocked,
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)

@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-search-form" :class="{ 'rpl-search-form--dark': (theme === 'dark') }">
+  <div class="rpl-search-form" :class="{ 'rpl-search-form--dark': (theme === 'dark'), 'rpl-search-form--two-cols': (type === 'two-cols')  }">
     <h1 v-if="title">{{ title }}</h1>
     <div class="rpl-search-form__field">
       <label>
@@ -38,7 +38,8 @@ export default {
     searchPlaceholder: String,
     prefillSearchTerm: String,
     filterForm: Object,
-    theme: String
+    theme: String,
+    type: { type: String, default: 'default' }
   },
   components: {
     RplForm,
@@ -89,6 +90,8 @@ export default {
   $rpl-search-form-input-margin: auto auto ($rpl-space-4) auto !default;
   $rpl-search-form-input-margin-s: auto auto ($rpl-space-4) auto !default;
   $rpl-search-form-input-margin-l: auto auto ($rpl-space-4) auto !default;
+  $rpl-search-form--two-cols-col-padding-l: 0 0 0 rem(25px) !default;
+  $rpl-search-form--two-cols-col-width-l: calc(50% - #{$rpl-space-4}) !default;
   $rpl-search-form-input-ruleset: (
     'xs': ('m', 1.22em, 'medium'),
     'm': ('xl', 1.17em, 'medium'),
@@ -218,6 +221,33 @@ export default {
       &--expanded {
         &::after {
           content: ' -';
+        }
+      }
+    }
+
+    &--two-cols {
+      .form-group {
+        @include rpl_breakpoint('l') {
+          width: $rpl-search-form--two-cols-col-width-l;
+          float: left;
+          max-width: 50%;
+        }
+        &:nth-child(2n) {
+          @include rpl_breakpoint('l') {
+            padding: $rpl-search-form--two-cols-col-padding-l;
+          }
+        }
+        &.field-rplsubmitloader {
+          @include rpl_breakpoint('l') {
+            width: 100%;
+            padding: 0;
+            max-width: 100%;
+          }
+          .form-control {
+            @include rpl_breakpoint('l') {
+              width: 100%;
+            }
+          }
         }
       }
     }

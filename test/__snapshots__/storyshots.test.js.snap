@@ -20119,7 +20119,49 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               <div
                 class="rpl-col rpl-col--full"
               >
-                <!---->
+                <a
+                  class="rpl-link rpl-card-content rpl-card-navigation rpl-card-content--no-image rpl-card-content--simple rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <h2
+                      class="rpl-card-navigation__title rpl-card-navigation__title--with-summary"
+                    >
+                      First navigation card
+                    </h2>
+                     
+                    <p
+                      class="rpl-card-navigation__summary"
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        Read
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         more
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
               </div>
                
               <div
@@ -20154,7 +20196,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <div
                         class="rpl-card-promotion__tag"
                       >
-                        
+                        News
                       </div>
                     </div>
                      
@@ -20324,7 +20366,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <div
                         class="rpl-card-event__tag"
                       >
-                        
+                        Housing
                       </div>
                     </div>
                      
@@ -20451,7 +20493,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <div
                         class="rpl-card-event__tag"
                       >
-                        
+                        Housing
                       </div>
                     </div>
                      

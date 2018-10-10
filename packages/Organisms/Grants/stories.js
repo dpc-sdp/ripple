@@ -6,17 +6,17 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import {{packageRippleName}} from './{{packageFileName}}.vue'
+import RplGrantsOverview from './GrantsOverview.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
 
-storiesOf('{{packageAtomFolder}}/{{packageSpacelessName}}', module)
+storiesOf('Organisms/Grants', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('{{packageNaturalName}}', withReadme(readme, () => ({
-    components: { {{packageRippleName}} },
-    template: `<{{packageClassName}} />`,
+  .add('Grants Overview', withReadme(readme, () => ({
+    components: { RplGrantsOverview },
+    template: `<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :status="status" :description="description" :link="link" />`,
     data () {
-      return demoData.{{packageDemoDataName}}()
+      return demoData.grantsOverview()
     }
   })))

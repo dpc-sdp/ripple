@@ -38,6 +38,7 @@
     "@dpc-sdp/ripple-figure": "file:packages/Molecules/Figure",
     "@dpc-sdp/ripple-form": "file:packages/Molecules/Form",
     "@dpc-sdp/ripple-global": "file:packages/Atoms/Global",
+    "@dpc-sdp/ripple-grants": "file:packages/Organisms/Grants",
     "@dpc-sdp/ripple-grid": "file:packages/Atoms/Grid",
     "@dpc-sdp/ripple-hero-banner": "file:packages/Organisms/HeroBanner",
     "@dpc-sdp/ripple-icon": "file:packages/Atoms/Icon",

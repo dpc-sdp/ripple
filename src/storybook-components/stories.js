@@ -83,7 +83,7 @@ storiesOf('Templates', module)
   .addDecorator(withKnobs)
   .add('Landing page with hero banner graphics', () => ({
     components: { SPageHeroGraphics },
-    template: `<s-page-graphics :sidebar="sidebar" :mock="mock" />`,
+    template: `<s-page-hero-graphics :sidebar="sidebar" :mock="mock" />`,
     data () {
       return {
         sidebar: boolean('Sidebar', true),

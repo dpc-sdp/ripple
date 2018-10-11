@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import RplButton from '@dpc-sdp/ripple-button'
 import RplList from '@dpc-sdp/ripple-list'
 
@@ -20,9 +21,20 @@ export default {
     title: { type: String, default: '' },
     funding: { type: String, default: '' },
     audience: { type: String, default: '' },
-    status: { type: String, default: '' },
+    startdate: { type: String, default: '' },
+    enddate: { type: String, default: '' },
     description: { type: String, default: '' },
-    link: { type: Object, default: null }
+    link: { type: Object, default: null },
+    statusTerms: {
+      type: Object,
+      default: function () {
+        return {
+          open: 'Open',
+          closed: 'Closed',
+          ongoing: 'On-going'
+        }
+      }
+    }
   },
   computed: {
     list () {
@@ -41,14 +53,45 @@ export default {
           text: this.audience
         })
       }
-      if (this.status) {
-        list.push({
-          symbol: 'success',
-          color: 'success',
-          size: '0.8333',
-          text: this.status
-        })
+
+      let status = this.statusTerms.ongoing
+      if (this.startdate || this.enddate) {
+        const now = moment()
+        const start = this.startdate ? moment(this.startdate) : null
+        const end = this.enddate ? moment(this.enddate) : null
+        if (start) {
+          if (now.isAfter(start)) {
+            if (end) {
+              if (now.isBefore(end)) {
+                status = this.statusTerms.open
+              } else {
+                status = this.statusTerms.closed
+              }
+            } else {
+              status = this.statusTerms.ongoing
+            }
+          } else {
+            status = this.statusTerms.closed
+          }
+        } else {
+          if (end) {
+            if (now.isBefore(end)) {
+              status = this.statusTerms.open
+            } else {
+              status = this.statusTerms.closed
+            }
+          } else {
+            status = this.statusTerms.ongoing
+          }
+        }
       }
+      list.push({
+        symbol: 'success',
+        color: 'success',
+        size: '0.8333',
+        text: status
+      })
+
       return list.length > 0 ? list : null
     }
   }

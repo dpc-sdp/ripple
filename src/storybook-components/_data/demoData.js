@@ -1453,7 +1453,8 @@ const demoData = {
     title: text('Title', 'Program Overview'),
     funding: text('Funding', '$80,000'),
     audience: text('Audience', 'individuals, organisations, local council'),
-    status: text('Status', 'Open'),
+    startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
+    enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
     description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
     link: object('Call to action', { text: 'Apply Now', url: '#' })
   })

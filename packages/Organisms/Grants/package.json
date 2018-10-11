@@ -10,6 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.20"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.20",
+    "moment": "^2.22.1"
   }
 }

@@ -138,7 +138,7 @@ export default {
   $rpl-hero-banner-link-heading-margin: 0 auto rem(15px) auto !default;
   $rpl-hero-banner-vertical-spacing-logo-offset: rem(48px) !default;
   $rpl-hero-banner-vertical-spacing: (
-    'xs': ('top': rem(76px), 'bottom': rem(20px)),
+    'xs': ('top': rem(56px), 'bottom': rem(100px)),
     's': ('top': rem(88px), 'bottom': rem(64px)),
     'm': ('top': rem(124px), 'bottom': rem(80px)),
     'l': ('top': rem(142px), 'bottom': rem(77px)),
@@ -152,7 +152,7 @@ export default {
     @include rpl_grid_container;
     position: relative;
     background-repeat: no-repeat;
-    background-position: right bottom -1.5rem;
+    background-position: right -3.75rem bottom -1rem;
     background-size: 18rem;
 
     @include rpl_breakpoint('s') {

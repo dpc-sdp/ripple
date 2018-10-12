@@ -4,6 +4,7 @@ import SPage from './Page.vue'
 import SCampaignPage from './CampaignPage.vue'
 import SSearchPage from './SearchPage.vue'
 import SEventSearchPage from './EventSearchPage.vue'
+import SPageHeroGraphics from './PageHeroGraphics.vue'
 
 import {
   withKnobs,
@@ -74,6 +75,19 @@ storiesOf('Templates', module)
         mock: demoDataLocked,
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Landing page with hero banner graphics', () => ({
+    components: { SPageHeroGraphics },
+    template: `<s-page-hero-graphics :sidebar="sidebar" :mock="mock" />`,
+    data () {
+      return {
+        sidebar: boolean('Sidebar', true),
+        mock: demoDataLocked
       }
     }
   }))

@@ -1446,6 +1446,15 @@ const demoData = {
     }
     ]),
     enlargeText: text('Enlarge Text', 'Click to enlarge')
+  }),
+
+  alertBase: () => ({
+    content: text('HTML Content', 'Draft only and not yet published'),
+    iconSymbol: text('Icon Symbol', 'alert_information'),
+    backgroundColor: text('Background Color', 'dark_neutral'),
+    textColor: text('Text Color', 'white'),
+    iconColor: text('Icon Color', 'white'),
+    closeIconColor: text('Close Icon Color', 'white')
   })
 }
 

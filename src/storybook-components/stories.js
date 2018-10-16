@@ -17,10 +17,11 @@ storiesOf('Templates', module)
   .addDecorator(withKnobs)
   .add('Landing page demo', () => ({
     components: { SPage },
-    template: `<s-page :sidebar="sidebar" :mock="mock"></s-page>`,
+    template: `<s-page :sidebar="sidebar" :preview="preview" :mock="mock"></s-page>`,
     data () {
       return {
         sidebar: boolean('Sidebar', true),
+        preview: boolean('Preview', true),
         mock: demoDataLocked
       }
     }

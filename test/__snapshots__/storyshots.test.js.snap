@@ -2530,6 +2530,402 @@ exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplAlert
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-alert :title="'This is a placeholder component.'" @rplAlertClose="close" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-alert-base rpl-alert-base--color-danger"
+      data-v-d5d40916=""
+    >
+      <!---->
+       
+      <div
+        class="rpl-alert-base__content rpl-alert-base__content--color-white"
+      >
+        <span>
+          This is a placeholder component.
+        </span>
+      </div>
+       
+      <button
+        class="rpl-alert-base__close"
+      >
+        <!---->
+        <span>
+          Close
+        </span>
+      </button>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          title
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplAlertBase
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-alert-base :iconSymbol="iconSymbol" :backgroundColor="backgroundColor" :textColor="textColor" :iconColor="iconColor" :closeIconColor="closeIconColor" @rplAlertClose="close"&gt;
+  &lt;div v-html="content"&gt;&lt;/div&gt;
+&lt;/rpl-alert-base&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-alert-base rpl-alert-base--color-dark_neutral"
+      data-v-d5d40916=""
+    >
+      <!---->
+       
+      <div
+        class="rpl-alert-base__content rpl-alert-base__content--color-white"
+      >
+        <div>
+          Draft only and not yet published
+        </div>
+      </div>
+       
+      <button
+        class="rpl-alert-base__close"
+      >
+        <!---->
+        <span>
+          Close
+        </span>
+      </button>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          backgroundColor
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          dark_neutral
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          textColor
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          white
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          iconColor
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          white
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          iconSymbol
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          alert_information
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          closeText
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          Close
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          closeIconColor
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          white
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
 <div
   class="vue-info"
@@ -3109,12 +3505,6 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       >
                         10 July
                       </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        
-                      </div>
                     </div>
                      
                     <h2
@@ -3363,12 +3753,6 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       >
                         10 to 15 July
                       </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        
-                      </div>
                     </div>
                      
                     <h2
@@ -3446,12 +3830,6 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                         class="rpl-card-event__date"
                       >
                         10 July to 10 September
-                      </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        
                       </div>
                     </div>
                      
@@ -4522,7 +4900,7 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
     <code
       data-v-d5d40916=""
     >
-      &lt;rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" :topic="topic" /&gt;
+      &lt;rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" /&gt;
     </code>
   </pre>
    
@@ -4561,12 +4939,6 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
             class="rpl-card-event__date"
           >
             10 to 11 July
-          </div>
-           
-          <div
-            class="rpl-card-event__tag"
-          >
-            Housing
           </div>
         </div>
          
@@ -4714,30 +5086,6 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
         >
           
           dateEnd
-          
-          <!---->
-        </td>
-         
-        <td
-          data-v-d5d40916=""
-        >
-          string
-        </td>
-         
-        <td
-          data-v-d5d40916=""
-        >
-          
-        </td>
-      </tr>
-      <tr
-        data-v-d5d40916=""
-      >
-        <td
-          data-v-d5d40916=""
-        >
-          
-          topic
           
           <!---->
         </td>
@@ -14003,12 +14351,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 >
                   25 December 2018 to 05 January 2019
                 </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
-                </div>
               </div>
                
               <h2
@@ -14085,12 +14427,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                   class="rpl-card-event__date"
                 >
                   09 to 10 May
-                </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
                 </div>
               </div>
                
@@ -14169,12 +14505,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 >
                   12 February
                 </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
-                </div>
               </div>
                
               <h2
@@ -14252,12 +14582,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 >
                   01 August to 02 September
                 </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
-                </div>
               </div>
                
               <h2
@@ -14334,12 +14658,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                   class="rpl-card-event__date"
                 >
                   02 February
-                </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
                 </div>
               </div>
                
@@ -19504,19 +19822,48 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
   <header
     class="rpl-site-header-container"
   >
-    <div>
-      
-      This is a preview bar placeholder.
-    
+    <div
+      class="rpl-alert-base rpl-alert-base--color-dark_neutral"
+    >
+      <!---->
+       
+      <div
+        class="rpl-alert-base__content rpl-alert-base__content--color-white"
+      >
+        Draft only and not yet published
+      </div>
+       
+      <button
+        class="rpl-alert-base__close"
+      >
+        <!---->
+        <span>
+          Close
+        </span>
+      </button>
     </div>
      
-    <div>
-      
-      This is a Alert component placeholder. 
-      <br />
-      
-      Click on me to close me.
-    
+    <div
+      class="rpl-alert-base rpl-alert-base--color-danger"
+    >
+      <!---->
+       
+      <div
+        class="rpl-alert-base__content rpl-alert-base__content--color-white"
+      >
+        <span>
+          This is an emergency alert.
+        </span>
+      </div>
+       
+      <button
+        class="rpl-alert-base__close"
+      >
+        <!---->
+        <span>
+          Close
+        </span>
+      </button>
     </div>
      
     <div
@@ -20365,12 +20712,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       >
                         10 to 11 July
                       </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        Housing
-                      </div>
                     </div>
                      
                     <h2
@@ -20491,12 +20832,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-card-event__date"
                       >
                         10 to 11 July
-                      </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        Housing
                       </div>
                     </div>
                      

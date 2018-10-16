@@ -25,6 +25,7 @@
     "new-package": "node ./scripts/generate-package/generate-package.js"
   },
   "dependencies": {
+    "@dpc-sdp/ripple-alert": "file:packages/Molecules/Alert",
     "@dpc-sdp/ripple-anchor-links": "file:packages/Molecules/AnchorLinks",
     "@dpc-sdp/ripple-breadcrumbs": "file:packages/Molecules/Breadcrumbs",
     "@dpc-sdp/ripple-button": "file:packages/Atoms/Button",

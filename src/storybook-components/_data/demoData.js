@@ -219,7 +219,6 @@ const demoData = {
     dateStart: text('Date Start', '2018-07-10T09:00:00.000+10:00'),
     dateEnd: text('Date End', '2018-07-11T09:00:00.000+10:00'),
     location: text('Location', 'South Yarra'),
-    topic: text('Topic', 'Housing'),
     title: text('Title', 'This is the headline of an event with a location that will stretch over over 3 lines'),
     summary: text('Summary', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte'),
     link: object('Link', { text: 'See event details', url: '#' })
@@ -1447,6 +1446,15 @@ const demoData = {
     }
     ]),
     enlargeText: text('Enlarge Text', 'Click to enlarge')
+  }),
+
+  alertBase: () => ({
+    content: text('HTML Content', 'Draft only and not yet published'),
+    iconSymbol: text('Icon Symbol', 'alert_information'),
+    backgroundColor: text('Background Color', 'dark_neutral'),
+    textColor: text('Text Color', 'white'),
+    iconColor: text('Icon Color', 'white'),
+    closeIconColor: text('Close Icon Color', 'white')
   })
 }
 

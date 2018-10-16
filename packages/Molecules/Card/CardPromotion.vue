@@ -55,7 +55,7 @@ export default {
   $rpl-card-promotion-date-background-color: rpl_color('light_neutral') !default;
   $rpl-card-promotion-date-padding: $rpl-space $rpl-space-2 !default;
   $rpl-card-promotion-tag-ruleset: ('xxs', 1em, 'medium') !default;
-  $rpl-card-promotion-tag-text-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
+  $rpl-card-promotion-tag-text-color: rpl_color('dark_neutral') !default;
   $rpl-card-promotion-tag-margin: 0 0 0 $rpl-space-2 !default;
   $rpl-card-promotion-title-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-card-promotion-title-text-color: rpl_color('extra_dark_neutral') !default;

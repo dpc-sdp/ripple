@@ -216,7 +216,6 @@ export default {
   },
   data () {
     return {
-      alertHidden: false,
       defaultCols: {}
     }
   },

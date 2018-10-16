@@ -293,8 +293,10 @@ export default {
 
     &--has-logo {
       @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
-        @include rpl_breakpoint($bp) {
-          padding-top: (map-get($spacing, top) - $rpl-hero-banner-vertical-spacing-logo-offset);
+        @if $bp != 'xs' {
+          @include rpl_breakpoint($bp) {
+            padding-top: (map-get($spacing, top) - $rpl-hero-banner-vertical-spacing-logo-offset);
+          }
         }
       }
     }

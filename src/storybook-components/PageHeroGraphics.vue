@@ -17,7 +17,7 @@
     <rpl-page-layout
       :sidebar="sidebar"
       class="main rpl-container"
-      :backgroundGraphic="mock.landingPage.backgroundGraphic"
+      :backgroundGraphic="showTopGraphic ? mock.landingPage.backgroundGraphic : null"
     >
       <template slot="aboveContent">
         <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
@@ -31,7 +31,8 @@
             { text: 'This is the fourth and final link', url: '#' }
           ]"
           :showLinks="true"
-          :backgroundGraphic="mock.heroBanner.backgroundGraphic"
+          :backgroundGraphic="showBottomGraphic ? mock.heroBanner.backgroundGraphic : null"
+          :logo="showHeroLogo ? mock.heroBanner.logo : null"
           class="rpl-site-constrain--on-all"
         />
       </template>
@@ -99,6 +100,9 @@ export default {
   },
   props: {
     sidebar: Boolean,
+    showHeroLogo: Boolean,
+    showTopGraphic: Boolean,
+    showBottomGraphic: Boolean,
     mock: Object
   },
   methods: {

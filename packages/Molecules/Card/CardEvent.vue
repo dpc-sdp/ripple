@@ -1,6 +1,6 @@
 <template>
   <rpl-card-content :image="image" :link="link" class="rpl-card-event">
-    <div class="rpl-card-event__meta" v-if="date || topic">
+    <div class="rpl-card-event__meta" v-if="date">
       <div class="rpl-card-event__date" v-if="date">{{ date }}</div>
     </div>
     <h2 class="rpl-card-event__title" v-if="title">{{ title }}</h2>

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-layout",
-  "version": "1.0.0-alpha.21",
+  "version": "1.0.0-alpha.22",
   "description": "Standard grid-based layouts for structuring pages. Includes skip to content link.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.21",
-    "@dpc-sdp/ripple-grid": "1.0.0-alpha.21"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.22",
+    "@dpc-sdp/ripple-grid": "1.0.0-alpha.22"
   }
 }

@@ -2,7 +2,6 @@
   <rpl-card-content :image="image" :link="link" class="rpl-card-event">
     <div class="rpl-card-event__meta" v-if="date || topic">
       <div class="rpl-card-event__date" v-if="date">{{ date }}</div>
-      <div class="rpl-card-promotion__tag" >{{ topic }}</div>
     </div>
     <h2 class="rpl-card-event__title" v-if="title">{{ title }}</h2>
     <div class="rpl-card-event__trim-wrapper" v-if="summary" :style="{ maxHeight: trimFieldMaxHeight }">
@@ -25,7 +24,6 @@ export default {
     image: String,
     dateStart: String,
     dateEnd: String,
-    topic: String,
     location: String,
     title: String,
     summary: String,
@@ -73,9 +71,6 @@ export default {
   $rpl-card-event-date-color: rpl_color('white') !default;
   $rpl-card-event-date-background-color: rpl_color('secondary') !default;
   $rpl-card-event-date-padding: $rpl-space-2 !default;
-  $rpl-card-event-tag-ruleset: ('xxs', 1em, 'medium') !default;
-  $rpl-card-event-tag-text-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
-  $rpl-card-event-tag-margin: 0 0 0 $rpl-space-2 !default;
   $rpl-card-event-title-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-card-event-title-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-event-title-margin: 0 0 $rpl-space-3 0 !default;
@@ -97,14 +92,6 @@ export default {
       color: $rpl-card-event-date-color;
       background-color: $rpl-card-event-date-background-color;
       padding: $rpl-card-event-date-padding;
-    }
-
-    &__tag {
-      @include rpl_typography_ruleset($rpl-card-event-tag-ruleset);
-      display: inline;
-      color: $rpl-card-event-tag-text-color;
-      text-transform: uppercase;
-      margin: $rpl-card-event-tag-margin;
     }
 
     &__title {

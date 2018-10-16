@@ -62,28 +62,28 @@
           <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
-          <rpl-card-navigation-featured :title="mock.cardNavigationFeatured.title" :summary="mock.cardNavigationFeatured.summary" :url="mock.cardNavigationFeatured.url" :image="mock.cardNavigationFeatured.image" />
+          <rpl-card-navigation-featured v-bind="mock.cardNavigationFeatured" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
-          <rpl-card-navigation :title="mock.cardNavigation.title" :summary="mock.cardNavigation.summary" :url="mock.cardNavigation.url" />
+          <rpl-card-navigation v-bind="mock.cardNavigation" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :topic="mock.cardNavigation.topic" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
+          <rpl-card-promotion v-bind="mock.cardPromotion" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
+          <rpl-card-keydates v-bind="mock.cardKeydates" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-event :image="mock.cardEvent.image" :dateStart="mock.cardEvent.dateStart" :dateEnd="mock.cardEvent.dateEnd" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
+          <rpl-card-event v-bind="mock.cardEvent" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-cta :image="mock.cardCta.image" :title="mock.cardCta.title" :summary="mock.cardCta.summary" :link="mock.cardCta.link" />
+          <rpl-card-cta v-bind="mock.cardCta" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-event :image="mock.cardEvent.image" :dateStart="mock.cardEvent.dateStart" :dateEnd="mock.cardEvent.dateEnd" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
+          <rpl-card-event v-bind="mock.cardEvent" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
+          <rpl-card-keydates v-bind="mock.cardKeydates" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <div class="cta" :class="sidebar ? 'rpl-edge--below-l rpl-site-constrain--below-l' : 'rpl-edge--on-all rpl-site-constrain--on-all'">

@@ -3109,12 +3109,6 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       >
                         10 July
                       </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        
-                      </div>
                     </div>
                      
                     <h2
@@ -3363,12 +3357,6 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       >
                         10 to 15 July
                       </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        
-                      </div>
                     </div>
                      
                     <h2
@@ -3446,12 +3434,6 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                         class="rpl-card-event__date"
                       >
                         10 July to 10 September
-                      </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        
                       </div>
                     </div>
                      
@@ -4522,7 +4504,7 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
     <code
       data-v-d5d40916=""
     >
-      &lt;rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" :topic="topic" /&gt;
+      &lt;rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" /&gt;
     </code>
   </pre>
    
@@ -4561,12 +4543,6 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
             class="rpl-card-event__date"
           >
             10 to 11 July
-          </div>
-           
-          <div
-            class="rpl-card-event__tag"
-          >
-            Housing
           </div>
         </div>
          
@@ -4714,30 +4690,6 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
         >
           
           dateEnd
-          
-          <!---->
-        </td>
-         
-        <td
-          data-v-d5d40916=""
-        >
-          string
-        </td>
-         
-        <td
-          data-v-d5d40916=""
-        >
-          
-        </td>
-      </tr>
-      <tr
-        data-v-d5d40916=""
-      >
-        <td
-          data-v-d5d40916=""
-        >
-          
-          topic
           
           <!---->
         </td>
@@ -14003,12 +13955,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 >
                   12 February
                 </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
-                </div>
               </div>
                
               <h2
@@ -14085,12 +14031,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                   class="rpl-card-event__date"
                 >
                   09 to 10 May
-                </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
                 </div>
               </div>
                
@@ -14169,12 +14109,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 >
                   01 August to 02 September
                 </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
-                </div>
               </div>
                
               <h2
@@ -14252,12 +14186,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 >
                   25 December 2018 to 05 January 2019
                 </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
-                </div>
               </div>
                
               <h2
@@ -14334,12 +14262,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                   class="rpl-card-event__date"
                 >
                   10 July
-                </div>
-                 
-                <div
-                  class="rpl-card-event__tag"
-                >
-                  
                 </div>
               </div>
                
@@ -20365,12 +20287,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       >
                         10 to 11 July
                       </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        Housing
-                      </div>
                     </div>
                      
                     <h2
@@ -20491,12 +20407,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-card-event__date"
                       >
                         10 to 11 July
-                      </div>
-                       
-                      <div
-                        class="rpl-card-event__tag"
-                      >
-                        Housing
                       </div>
                     </div>
                      

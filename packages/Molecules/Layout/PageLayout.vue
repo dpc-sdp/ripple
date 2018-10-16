@@ -76,7 +76,7 @@ $rpl-backbround-color: rpl-color('white') !default;
 
 .rpl-above-content {
   background-repeat: no-repeat;
-  background-position: -.5rem -8rem;
+  background-position: -.5rem -9rem;
   background-size: 18rem;
 
   @include rpl_breakpoint(s) {

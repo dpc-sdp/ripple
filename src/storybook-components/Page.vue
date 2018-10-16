@@ -2,19 +2,9 @@
   <rpl-base-layout class="demo">
 
     <template slot="header">
-      <!-- TODO: Replace below div by Content Preview in SDPA-636 -->
-      <div style="background: lavender">
-        This is a preview bar placeholder.
-      </div>
-      <!-- TODO: Replace below div by alerts component in SDPA-27 -->
-      <div
-        style="background: aquamarine"
-        v-show="!alertHidden"
-        @click="alertHidden = true"
-      >
-        This is a Alert component placeholder. <br/>
-        Click on me to close me.
-      </div>
+      <rpl-alert-base v-if="preview">Draft only and not yet published</rpl-alert-base>
+      <!-- TODO: Replace below div by alerts component in SDPA-27 (SDPA-749) -->
+      <rpl-alert :title="'This is an emergency alert.'" />
       <rpl-site-header
         :logo="mock.header.logo"
         :links="mock.header.links"
@@ -160,6 +150,9 @@ import RplWhatsNext from '@dpc-sdp/ripple-whats-next'
 import RplContact from '@dpc-sdp/ripple-contact'
 import RplShareThis from '@dpc-sdp/ripple-share-this'
 
+// Alert
+import { RplAlert, RplAlertBase } from '@dpc-sdp/ripple-alert'
+
 // News Listing
 import RplNewsListing from '@dpc-sdp/ripple-news-listing'
 
@@ -206,6 +199,10 @@ export default {
     RplContact,
     RplShareThis,
 
+    // Alert
+    RplAlert,
+    RplAlertBase,
+
     // News Listing
     RplNewsListing,
 
@@ -214,11 +211,11 @@ export default {
   },
   props: {
     sidebar: Boolean,
+    preview: Boolean,
     mock: Object
   },
   data () {
     return {
-      alertHidden: false,
       defaultCols: {}
     }
   },

@@ -14349,7 +14349,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <div
                   class="rpl-card-event__date"
                 >
-                  12 February
+                  25 December 2018 to 05 January 2019
                 </div>
               </div>
                
@@ -14366,7 +14366,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <p
                   class="rpl-card-event__summary"
                 >
-                  This event range occurs in 2018, same day, different time.
+                  This event range occurs in 2018 and goes to 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
                 </p>
               </div>
                
@@ -14503,6 +14503,83 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <div
                   class="rpl-card-event__date"
                 >
+                  12 February
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event range occurs in 2018, same day, different time.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
                   01 August to 02 September
                 </div>
               </div>
@@ -14580,84 +14657,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <div
                   class="rpl-card-event__date"
                 >
-                  25 December 2018 to 05 January 2019
-                </div>
-              </div>
-               
-              <h2
-                class="rpl-card-event__title"
-              >
-                This is the headline of an event
-              </h2>
-               
-              <div
-                class="rpl-card-event__trim-wrapper"
-                style="max-height: none;"
-              >
-                <p
-                  class="rpl-card-event__summary"
-                >
-                  This event range occurs in 2018 and goes to 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
-                </p>
-              </div>
-               
-              <p
-                class="rpl-card-event__location"
-              >
-                <!---->
-                South Yarra
-              </p>
-               
-              <!---->
-            </div>
-             
-            <div
-              class="rpl-card-content__link"
-            >
-              <span>
-                <span>
-                  See event
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   details
-                  <!---->
-                </span>
-                 
-                <!---->
-              </span>
-            </div>
-          </a>
-        </div>
-        <div
-          class="rpl-latest-events__card"
-        >
-          <a
-            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-            href="#"
-          >
-            <div
-              class="rpl-card-content__image-wrapper"
-            >
-              <img
-                alt=""
-                class="rpl-card-content__image"
-                src="https://placehold.it/580x340"
-              />
-            </div>
-             
-            <div
-              class="rpl-card-content__details"
-            >
-              <div
-                class="rpl-card-event__meta"
-              >
-                <div
-                  class="rpl-card-event__date"
-                >
-                  10 July
+                  02 February
                 </div>
               </div>
                
@@ -14674,7 +14674,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <p
                   class="rpl-card-event__summary"
                 >
-                  This single date event occurs in 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                  This single date event occurs in 2020. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
                 </p>
               </div>
                

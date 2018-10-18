@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 import { RplCardEvent, RplCardCta } from '@dpc-sdp/ripple-card'
 import RplButton from '@dpc-sdp/ripple-button'
 
@@ -35,7 +34,6 @@ export default {
     processedEvents () {
       if (this.events) {
         let processedEvents = this.events.slice()
-        processedEvents.sort((a, b) => moment(a.dateStart).isAfter(b.dateStart))
         return this.cta ? processedEvents.slice(0, 5) : processedEvents.slice(0, 6)
       }
       return null

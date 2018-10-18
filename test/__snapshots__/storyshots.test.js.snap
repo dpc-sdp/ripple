@@ -2537,6 +2537,402 @@ exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplAlert
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-alert :title="'This is a placeholder component.'" @rplAlertClose="close" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-alert-base rpl-alert-base--color-danger"
+      data-v-d5d40916=""
+    >
+      <!---->
+       
+      <div
+        class="rpl-alert-base__content rpl-alert-base__content--color-white"
+      >
+        <span>
+          This is a placeholder component.
+        </span>
+      </div>
+       
+      <button
+        class="rpl-alert-base__close"
+      >
+        <!---->
+        <span>
+          Close
+        </span>
+      </button>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          title
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplAlertBase
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-alert-base :iconSymbol="iconSymbol" :backgroundColor="backgroundColor" :textColor="textColor" :iconColor="iconColor" :closeIconColor="closeIconColor" @rplAlertClose="close"&gt;
+  &lt;div v-html="content"&gt;&lt;/div&gt;
+&lt;/rpl-alert-base&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-alert-base rpl-alert-base--color-dark_neutral"
+      data-v-d5d40916=""
+    >
+      <!---->
+       
+      <div
+        class="rpl-alert-base__content rpl-alert-base__content--color-white"
+      >
+        <div>
+          Draft only and not yet published
+        </div>
+      </div>
+       
+      <button
+        class="rpl-alert-base__close"
+      >
+        <!---->
+        <span>
+          Close
+        </span>
+      </button>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          backgroundColor
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          dark_neutral
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          textColor
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          white
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          iconColor
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          white
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          iconSymbol
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          alert_information
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          closeText
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          Close
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          closeIconColor
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          white
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
 <div
   class="vue-info"
@@ -3116,12 +3512,6 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       >
                         10 July
                       </div>
-                       
-                      <div
-                        class="rpl-card-promotion__tag"
-                      >
-                        
-                      </div>
                     </div>
                      
                     <h2
@@ -3370,12 +3760,6 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       >
                         10 to 15 July
                       </div>
-                       
-                      <div
-                        class="rpl-card-promotion__tag"
-                      >
-                        
-                      </div>
                     </div>
                      
                     <h2
@@ -3453,12 +3837,6 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                         class="rpl-card-event__date"
                       >
                         10 July to 10 September
-                      </div>
-                       
-                      <div
-                        class="rpl-card-promotion__tag"
-                      >
-                        
                       </div>
                     </div>
                      
@@ -4569,12 +4947,6 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
           >
             10 to 11 July
           </div>
-           
-          <div
-            class="rpl-card-promotion__tag"
-          >
-            
-          </div>
         </div>
          
         <h2
@@ -4721,30 +5093,6 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
         >
           
           dateEnd
-          
-          <!---->
-        </td>
-         
-        <td
-          data-v-d5d40916=""
-        >
-          string
-        </td>
-         
-        <td
-          data-v-d5d40916=""
-        >
-          
-        </td>
-      </tr>
-      <tr
-        data-v-d5d40916=""
-      >
-        <td
-          data-v-d5d40916=""
-        >
-          
-          topic
           
           <!---->
         </td>
@@ -14008,262 +14356,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <div
                   class="rpl-card-event__date"
                 >
-                  12 February
-                </div>
-                 
-                <div
-                  class="rpl-card-promotion__tag"
-                >
-                  
-                </div>
-              </div>
-               
-              <h2
-                class="rpl-card-event__title"
-              >
-                This is the headline of an event
-              </h2>
-               
-              <div
-                class="rpl-card-event__trim-wrapper"
-                style="max-height: none;"
-              >
-                <p
-                  class="rpl-card-event__summary"
-                >
-                  This event range occurs in 2018, same day, different time.
-                </p>
-              </div>
-               
-              <p
-                class="rpl-card-event__location"
-              >
-                <!---->
-                South Yarra
-              </p>
-               
-              <!---->
-            </div>
-             
-            <div
-              class="rpl-card-content__link"
-            >
-              <span>
-                <span>
-                  See event
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   details
-                  <!---->
-                </span>
-                 
-                <!---->
-              </span>
-            </div>
-          </a>
-        </div>
-        <div
-          class="rpl-latest-events__card"
-        >
-          <a
-            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-            href="#"
-          >
-            <div
-              class="rpl-card-content__image-wrapper"
-            >
-              <img
-                alt=""
-                class="rpl-card-content__image"
-                src="https://placehold.it/580x340"
-              />
-            </div>
-             
-            <div
-              class="rpl-card-content__details"
-            >
-              <div
-                class="rpl-card-event__meta"
-              >
-                <div
-                  class="rpl-card-event__date"
-                >
-                  09 to 10 May
-                </div>
-                 
-                <div
-                  class="rpl-card-promotion__tag"
-                >
-                  
-                </div>
-              </div>
-               
-              <h2
-                class="rpl-card-event__title"
-              >
-                This is the headline of an event
-              </h2>
-               
-              <div
-                class="rpl-card-event__trim-wrapper"
-                style="max-height: none;"
-              >
-                <p
-                  class="rpl-card-event__summary"
-                >
-                  This event range occurs in 2018, same month different day.
-                </p>
-              </div>
-               
-              <p
-                class="rpl-card-event__location"
-              >
-                <!---->
-                South Yarra
-              </p>
-               
-              <!---->
-            </div>
-             
-            <div
-              class="rpl-card-content__link"
-            >
-              <span>
-                <span>
-                  See event
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   details
-                  <!---->
-                </span>
-                 
-                <!---->
-              </span>
-            </div>
-          </a>
-        </div>
-        <div
-          class="rpl-latest-events__card"
-        >
-          <a
-            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-            href="#"
-          >
-            <div
-              class="rpl-card-content__image-wrapper"
-            >
-              <img
-                alt=""
-                class="rpl-card-content__image"
-                src="https://placehold.it/580x340"
-              />
-            </div>
-             
-            <div
-              class="rpl-card-content__details"
-            >
-              <div
-                class="rpl-card-event__meta"
-              >
-                <div
-                  class="rpl-card-event__date"
-                >
-                  01 August to 02 September
-                </div>
-                 
-                <div
-                  class="rpl-card-promotion__tag"
-                >
-                  
-                </div>
-              </div>
-               
-              <h2
-                class="rpl-card-event__title"
-              >
-                This is the headline of an event
-              </h2>
-               
-              <div
-                class="rpl-card-event__trim-wrapper"
-                style="max-height: none;"
-              >
-                <p
-                  class="rpl-card-event__summary"
-                >
-                  This event range occurs in 2018. Same year, different month.
-                </p>
-              </div>
-               
-              <p
-                class="rpl-card-event__location"
-              >
-                <!---->
-                South Yarra
-              </p>
-               
-              <!---->
-            </div>
-             
-            <div
-              class="rpl-card-content__link"
-            >
-              <span>
-                <span>
-                  See event
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   details
-                  <!---->
-                </span>
-                 
-                <!---->
-              </span>
-            </div>
-          </a>
-        </div>
-        <div
-          class="rpl-latest-events__card"
-        >
-          <a
-            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-            href="#"
-          >
-            <div
-              class="rpl-card-content__image-wrapper"
-            >
-              <img
-                alt=""
-                class="rpl-card-content__image"
-                src="https://placehold.it/580x340"
-              />
-            </div>
-             
-            <div
-              class="rpl-card-content__details"
-            >
-              <div
-                class="rpl-card-event__meta"
-              >
-                <div
-                  class="rpl-card-event__date"
-                >
                   25 December 2018 to 05 January 2019
-                </div>
-                 
-                <div
-                  class="rpl-card-promotion__tag"
-                >
-                  
                 </div>
               </div>
                
@@ -14340,13 +14433,238 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <div
                   class="rpl-card-event__date"
                 >
-                  10 July
+                  09 to 10 May
                 </div>
-                 
-                <div
-                  class="rpl-card-promotion__tag"
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
                 >
-                  
+                  This event range occurs in 2018, same month different day.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  12 February
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event range occurs in 2018, same day, different time.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  01 August to 02 September
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-event__title"
+              >
+                This is the headline of an event
+              </h2>
+               
+              <div
+                class="rpl-card-event__trim-wrapper"
+                style="max-height: none;"
+              >
+                <p
+                  class="rpl-card-event__summary"
+                >
+                  This event range occurs in 2018. Same year, different month.
+                </p>
+              </div>
+               
+              <p
+                class="rpl-card-event__location"
+              >
+                <!---->
+                South Yarra
+              </p>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  See event
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   details
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="rpl-latest-events__card"
+        >
+          <a
+            class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+            href="#"
+          >
+            <div
+              class="rpl-card-content__image-wrapper"
+            >
+              <img
+                alt=""
+                class="rpl-card-content__image"
+                src="https://placehold.it/580x340"
+              />
+            </div>
+             
+            <div
+              class="rpl-card-content__details"
+            >
+              <div
+                class="rpl-card-event__meta"
+              >
+                <div
+                  class="rpl-card-event__date"
+                >
+                  02 February
                 </div>
               </div>
                
@@ -14363,7 +14681,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <p
                   class="rpl-card-event__summary"
                 >
-                  This single date event occurs in 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+                  This single date event occurs in 2020. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
                 </p>
               </div>
                
@@ -19874,19 +20192,48 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
   <header
     class="rpl-site-header-container"
   >
-    <div>
-      
-      This is a preview bar placeholder.
-    
+    <div
+      class="rpl-alert-base rpl-alert-base--color-dark_neutral"
+    >
+      <!---->
+       
+      <div
+        class="rpl-alert-base__content rpl-alert-base__content--color-white"
+      >
+        Draft only and not yet published
+      </div>
+       
+      <button
+        class="rpl-alert-base__close"
+      >
+        <!---->
+        <span>
+          Close
+        </span>
+      </button>
     </div>
      
-    <div>
-      
-      This is a Alert component placeholder. 
-      <br />
-      
-      Click on me to close me.
-    
+    <div
+      class="rpl-alert-base rpl-alert-base--color-danger"
+    >
+      <!---->
+       
+      <div
+        class="rpl-alert-base__content rpl-alert-base__content--color-white"
+      >
+        <span>
+          This is an emergency alert.
+        </span>
+      </div>
+       
+      <button
+        class="rpl-alert-base__close"
+      >
+        <!---->
+        <span>
+          Close
+        </span>
+      </button>
     </div>
      
     <div
@@ -20492,7 +20839,49 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               <div
                 class="rpl-col rpl-col--full"
               >
-                <!---->
+                <a
+                  class="rpl-link rpl-card-content rpl-card-navigation rpl-card-content--no-image rpl-card-content--simple rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <h2
+                      class="rpl-card-navigation__title rpl-card-navigation__title--with-summary"
+                    >
+                      First navigation card
+                    </h2>
+                     
+                    <p
+                      class="rpl-card-navigation__summary"
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        Read
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         more
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
               </div>
                
               <div
@@ -20527,7 +20916,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <div
                         class="rpl-card-promotion__tag"
                       >
-                        
+                        News
                       </div>
                     </div>
                      
@@ -20693,12 +21082,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       >
                         10 to 11 July
                       </div>
-                       
-                      <div
-                        class="rpl-card-promotion__tag"
-                      >
-                        
-                      </div>
                     </div>
                      
                     <h2
@@ -20819,12 +21202,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-card-event__date"
                       >
                         10 to 11 July
-                      </div>
-                       
-                      <div
-                        class="rpl-card-promotion__tag"
-                      >
-                        
                       </div>
                     </div>
                      
@@ -22044,6 +22421,811 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
         </div>
       </div>
     </section>
+  </div>
+    
+  <!---->
+   
+  <footer
+    class="rpl-site-footer-container"
+  >
+    <div
+      class="rpl-site-footer"
+    >
+      <div
+        class="rpl-site-footer__main"
+      >
+        <ul
+          class="rpl-footer-nav"
+        >
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Your Services
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                About VIC Government
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                News
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Events
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Connect with us
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+         
+        <div
+          class="rpl-acknowledgement"
+        >
+          The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
+        </div>
+      </div>
+       
+      <div
+        class="rpl-site-footer__bottom"
+      >
+        <div
+          class="rpl-site-footer__bottom-main"
+        >
+          <div
+            class="rpl-links-and-copyright"
+          >
+            <ul
+              class="rpl-links-and-copyright__links"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Privacy
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Disclaimer
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Terms of use
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Sitemap
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Accessibility Statement
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Help
+                </a>
+              </li>
+            </ul>
+             
+            <div
+              class="rpl-links-and-copyright__copyright"
+            >
+              © Copyright State Government of Victoria
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-site-footer__logos"
+        >
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="https://vic.gov.au"
+            target="_blank"
+          >
+            <img
+              alt="Victoria Government Website"
+              src="file-stub"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] = `
+<div
+  class="rpl-site-layout demo"
+>
+  <div
+    class="rpl-skip-link"
+    id="rpl-skip-link"
+  >
+    <a
+      class="rpl-skip-link__link"
+      href="#rpl-main-content"
+    >
+      Skip to main content
+    </a>
+  </div>
+   
+  <header
+    class="rpl-site-header-container"
+  >
+    <div
+      class="rpl-site-header"
+    >
+      <div
+        class="rpl-site-header__inner"
+      >
+        <div
+          class="rpl-site-header__top"
+        >
+          <div
+            class="rpl-site-header__logo-container"
+          >
+            <button
+              aria-expanded="false"
+              class="rpl-site-header__btn rpl-site-header__btn--menu"
+            >
+              <!---->
+               
+              <span>
+                Menu
+              </span>
+            </button>
+             
+            <div
+              class="rpl-site-header__title"
+            >
+              <a
+                class="rpl-link"
+                href="#"
+              >
+                <img
+                  alt="vic.gov.au"
+                  src="/logo.svg"
+                />
+              </a>
+            </div>
+          </div>
+           
+          <!---->
+           
+          <button
+            class="rpl-site-header__btn rpl-site-header__btn--search"
+          >
+            <span>
+              Search website
+            </span>
+             
+            <!---->
+          </button>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </header>
+    
+  <div
+    class="rpl-page main rpl-container"
+  >
+    <section
+      class="rpl-above-content-container"
+    >
+      <div
+        class="rpl-above-content"
+        style="background-image: url(/bggraphic.png);"
+      >
+        <div
+          class="rpl-above-content__inner"
+        >
+          <div
+            class="rpl-breadcrumbs"
+          >
+            <div
+              class="rpl-breadcrumbs__row"
+            >
+              <nav
+                aria-label="breadcrumbs"
+              >
+                <ul
+                  class="rpl-breadcrumbs__items"
+                >
+                  <li
+                    class="rpl-breadcrumbs__item"
+                  >
+                    <a
+                      class="rpl-link rpl-breadcrumbs__link"
+                      href="#"
+                    >
+                      Home
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-breadcrumbs__item"
+                  >
+                    <a
+                      class="rpl-link rpl-breadcrumbs__link"
+                      href="#"
+                    >
+                      Level 1 page title
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-breadcrumbs__item"
+                  >
+                    <span
+                      class="rpl-breadcrumbs__text"
+                    >
+                      Level 2 page title
+                    </span>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+           
+          <div
+            class="rpl-hero-banner rpl-site-constrain--on-all"
+            style="background-image: url(/bggraphiclower.png);"
+          >
+            <!---->
+             
+            <div
+              class="rpl-row"
+            >
+              <div
+                class="rpl-hero-banner__left"
+              >
+                <h1
+                  class="rpl-hero-banner__title"
+                >
+                  <span>
+                    This is a display copy on home page that can wrap two lines
+                  </span>
+                </h1>
+                 
+                <p
+                  class="rpl-hero-banner__description"
+                >
+                  
+        This is supplementary intro text that can also wrap over a couple of lines.
+      
+                </p>
+              </div>
+               
+              <div
+                class="rpl-hero-banner__right"
+              >
+                <!---->
+                 
+                <ul
+                  class="rpl-hero-banner__link-list"
+                >
+                  <li
+                    class="rpl-hero-banner__link-list-item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          This is a large journey based
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           link
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-hero-banner__link-list-item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          This is a second journey based
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           link
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-hero-banner__link-list-item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          This is a third
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           link
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-hero-banner__link-list-item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          This is the fourth and final
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           link
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                   
+                  <!---->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="rpl-above-content-two"
+      />
+    </section>
+     
+    <section
+      class="rpl-content rpl-content--with-sidebar"
+      id="rpl-main-content"
+    >
+      <div
+        class="rpl-container rpl-site-constrain--on-all"
+      >
+        <div
+          class="rpl-row"
+        >
+          <div
+            class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
+          >
+             
+            <div
+              class="rpl-row demo-main rpl-row--gutter"
+            />
+             
+          </div>
+           
+          <div
+            class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
+          >
+            <div
+              class="rpl-related-links rpl-component-gutter"
+            >
+              <!---->
+               
+              <div
+                class="rpl-related-links__row"
+              >
+                <h2
+                  class="rpl-related-links__title"
+                >
+                  Related links
+                </h2>
+              </div>
+               
+              <div
+                class="rpl-related-links__row"
+              >
+                <ul
+                  class="rpl-related-links__items"
+                >
+                  <li
+                    class="rpl-related-links__item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          Link to additional
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           content
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-related-links__item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          Second link it goes right
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           here
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-related-links__item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          Third link to extra
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           content
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-related-links__item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          This is a long link to extra
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           content
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     
+    <section
+      class="rpl-below-content"
+    />
   </div>
     
   <!---->

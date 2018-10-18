@@ -2,19 +2,9 @@
   <rpl-base-layout class="demo">
 
     <template slot="header">
-      <!-- TODO: Replace below div by Content Preview in SDPA-636 -->
-      <div style="background: lavender">
-        This is a preview bar placeholder.
-      </div>
-      <!-- TODO: Replace below div by alerts component in SDPA-27 -->
-      <div
-        style="background: aquamarine"
-        v-show="!alertHidden"
-        @click="alertHidden = true"
-      >
-        This is a Alert component placeholder. <br/>
-        Click on me to close me.
-      </div>
+      <rpl-alert-base v-if="preview">Draft only and not yet published</rpl-alert-base>
+      <!-- TODO: Replace below div by alerts component in SDPA-27 (SDPA-749) -->
+      <rpl-alert :title="'This is an emergency alert.'" />
       <rpl-site-header
         :logo="mock.header.logo"
         :links="mock.header.links"
@@ -62,28 +52,28 @@
           <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
-          <rpl-card-navigation-featured :title="mock.cardNavigationFeatured.title" :summary="mock.cardNavigationFeatured.summary" :url="mock.cardNavigationFeatured.url" :image="mock.cardNavigationFeatured.image" />
+          <rpl-card-navigation-featured v-bind="mock.cardNavigationFeatured" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
-          <rpl-card-navigation :title="mock.cardNavigation.title" :summary="mock.cardNavigation.summary" :url="mock.cardNavigation.url" />
+          <rpl-card-navigation v-bind="mock.cardNavigation" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-promotion :image="mock.cardPromotion.image" :date="mock.cardPromotion.date" :topic="mock.cardNavigation.topic" :title="mock.cardPromotion.title" :summary="mock.cardPromotion.summary" :link="mock.cardPromotion.link" />
+          <rpl-card-promotion v-bind="mock.cardPromotion" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
+          <rpl-card-keydates v-bind="mock.cardKeydates" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-event :image="mock.cardEvent.image" :dateStart="mock.cardEvent.dateStart" :dateEnd="mock.cardEvent.dateEnd" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
+          <rpl-card-event v-bind="mock.cardEvent" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-cta :image="mock.cardCta.image" :title="mock.cardCta.title" :summary="mock.cardCta.summary" :link="mock.cardCta.link" />
+          <rpl-card-cta v-bind="mock.cardCta" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-event :image="mock.cardEvent.image" :dateStart="mock.cardEvent.dateStart" :dateEnd="mock.cardEvent.dateEnd" :location="mock.cardEvent.location" :title="mock.cardEvent.title" :summary="mock.cardEvent.summary" :link="mock.cardEvent.link" />
+          <rpl-card-event v-bind="mock.cardEvent" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols">
-          <rpl-card-keydates :title="mock.cardKeydates.title" :keydates="mock.cardKeydates.keydates" :link="mock.cardKeydates.link" />
+          <rpl-card-keydates v-bind="mock.cardKeydates" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <div class="cta" :class="sidebar ? 'rpl-edge--below-l rpl-site-constrain--below-l' : 'rpl-edge--on-all rpl-site-constrain--on-all'">
@@ -160,6 +150,9 @@ import RplWhatsNext from '@dpc-sdp/ripple-whats-next'
 import RplContact from '@dpc-sdp/ripple-contact'
 import RplShareThis from '@dpc-sdp/ripple-share-this'
 
+// Alert
+import { RplAlert, RplAlertBase } from '@dpc-sdp/ripple-alert'
+
 // News Listing
 import RplNewsListing from '@dpc-sdp/ripple-news-listing'
 
@@ -206,6 +199,10 @@ export default {
     RplContact,
     RplShareThis,
 
+    // Alert
+    RplAlert,
+    RplAlertBase,
+
     // News Listing
     RplNewsListing,
 
@@ -214,11 +211,11 @@ export default {
   },
   props: {
     sidebar: Boolean,
+    preview: Boolean,
     mock: Object
   },
   data () {
     return {
-      alertHidden: false,
       defaultCols: {}
     }
   },

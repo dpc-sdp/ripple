@@ -1457,6 +1457,15 @@ const demoData = {
     enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
     description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
     link: object('Call to action', { text: 'Apply Now', url: '#' })
+  }),
+
+  alertBase: () => ({
+    content: text('HTML Content', 'Draft only and not yet published'),
+    iconSymbol: text('Icon Symbol', 'alert_information'),
+    backgroundColor: text('Background Color', 'dark_neutral'),
+    textColor: text('Text Color', 'white'),
+    iconColor: text('Icon Color', 'white'),
+    closeIconColor: text('Close Icon Color', 'white')
   })
 }
 

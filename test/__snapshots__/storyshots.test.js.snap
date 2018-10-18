@@ -1501,6 +1501,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          user
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           view
         </code>
       </li>
@@ -14896,6 +14903,369 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
           data-v-d5d40916=""
         >
           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
+<div
+  class="vue-info"
+  data-v-d5d40916=""
+>
+  <h1
+    class="title"
+    data-v-d5d40916=""
+  >
+    
+    RplGrantsOverview
+  
+  </h1>
+   
+  <!---->
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Usage
+  </h2>
+   
+  <pre
+    class="code"
+    data-v-d5d40916=""
+  >
+    <code
+      data-v-d5d40916=""
+    >
+      &lt;rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startdate" :enddate="enddate" :description="description" :link="link" /&gt;
+    </code>
+  </pre>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Preview
+  </h2>
+   
+  <div
+    class="component-area"
+    data-v-d5d40916=""
+  >
+    <div
+      class="rpl-grants-overview"
+      data-v-d5d40916=""
+    >
+      <div
+        class="rpl-list rpl-grants-overview__list rpl-list--large"
+      >
+        <h2
+          class="rpl-list__title"
+        >
+          Program Overview
+        </h2>
+         
+        <div
+          class="rpl-list__list"
+        >
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <span
+              class="rpl-list__text"
+            >
+              $80,000
+            </span>
+          </div>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <span
+              class="rpl-list__text"
+            >
+              individuals, organisations, local council
+            </span>
+          </div>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <span
+              class="rpl-list__text"
+            >
+              Open
+            </span>
+          </div>
+        </div>
+      </div>
+       
+      <p
+        class="rpl-grants-overview__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
+      </p>
+       
+      <a
+        class="rpl-link rpl-button rpl-grants-overview__cta rpl-button--primary"
+        href="#"
+      >
+        Apply Now
+      </a>
+    </div>
+  </div>
+   
+  <h2
+    data-v-d5d40916=""
+  >
+    Props
+  </h2>
+   
+  <table
+    class="props"
+    data-v-d5d40916=""
+  >
+    <thead
+      class="props-head"
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <th
+          data-v-d5d40916=""
+        >
+          Name
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Type
+        </th>
+         
+        <th
+          data-v-d5d40916=""
+        >
+          Default
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody
+      data-v-d5d40916=""
+    >
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          title
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          funding
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          audience
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          startdate
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          enddate
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          description
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          string
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          link
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          object
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          statusTerms
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          object
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          {
+  "open": "Open",
+  "closed": "Closed",
+  "ongoing": "On-going"
+}
         </td>
       </tr>
     </tbody>

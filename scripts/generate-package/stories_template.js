@@ -8,13 +8,13 @@ import {
 
 import {{packageRippleName}} from './{{packageFileName}}.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-packages/_data/demoData'
+import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('{{packageAtomFolder}}/{{packageSpacelessName}}', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
   .add('{{packageNaturalName}}', withReadme(readme, () => ({
-    packages: { {{packageRippleName}} },
+    components: { {{packageRippleName}} },
     template: `<{{packageClassName}} />`,
     data () {
       return demoData.{{packageDemoDataName}}()

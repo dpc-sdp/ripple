@@ -39,7 +39,8 @@ export default {
     prefillSearchTerm: String,
     filterForm: Object,
     theme: String,
-    type: { type: String, default: 'default' }
+    type: { type: String, default: 'default' },
+    allowBlank: { type: Boolean, default: false }
   },
   components: {
     RplForm,
@@ -53,7 +54,7 @@ export default {
   },
   methods: {
     submitSearch: function () {
-      if (this.searchInput) {
+      if (this.allowBlank || (!this.allowBlank && this.searchInput)) {
         this.$emit('search', this.searchInput)
       }
     }

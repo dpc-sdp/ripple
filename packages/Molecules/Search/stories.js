@@ -24,6 +24,7 @@ storiesOf('Molecules/Search', module)
   :prefillSearchTerm="prefillSearchTerm"
   :filterForm="filterForm"
   :theme="theme"
+  :allowBlank="allowBlank"
   @search="searchEvent"
 />`,
     data () {

@@ -14,7 +14,7 @@ const cardtrimfield = {
     },
     setTrimFieldMaxHeight: function () {
       // Set the max height of a summary field.
-      if (typeof window !== 'undefined' && this.$el && this.$breakpoint.m) {
+      if (typeof window !== 'undefined' && this.$el && this.$el.querySelector && this.$breakpoint.m) {
         // Elements
         let card = this.$el
         let summary = card.querySelector(this.trimFieldSelector)

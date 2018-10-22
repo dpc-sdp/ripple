@@ -11162,6 +11162,7 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
   :prefillSearchTerm="prefillSearchTerm"
   :filterForm="filterForm"
   :theme="theme"
+  :allowBlank="allowBlank"
   @search="searchEvent"
 /&gt;
     </code>
@@ -11409,6 +11410,30 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
           data-v-d5d40916=""
         >
           default
+        </td>
+      </tr>
+      <tr
+        data-v-d5d40916=""
+      >
+        <td
+          data-v-d5d40916=""
+        >
+          
+          allowBlank
+          
+          <!---->
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          boolean
+        </td>
+         
+        <td
+          data-v-d5d40916=""
+        >
+          false
         </td>
       </tr>
     </tbody>

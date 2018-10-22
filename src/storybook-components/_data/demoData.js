@@ -885,7 +885,8 @@ const demoData = {
       },
       formState: {}
     }),
-    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
+    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light'),
+    allowBlank: boolean('Allow Blank', false)
   }),
 
   eventSearchForm: () => ({

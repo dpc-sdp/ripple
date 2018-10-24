@@ -5,6 +5,7 @@ import SCampaignPage from './CampaignPage.vue'
 import SSearchPage from './SearchPage.vue'
 import SEventSearchPage from './EventSearchPage.vue'
 import SPageHeroGraphics from './PageHeroGraphics.vue'
+import SPageCardTrim from './PageCardTrim.vue'
 
 import {
   withKnobs,
@@ -88,6 +89,18 @@ storiesOf('Templates', module)
     data () {
       return {
         sidebar: boolean('Sidebar', true),
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Page with trim cards', () => ({
+    components: { SPageCardTrim },
+    template: `<s-page-card-trim :mock="mock" />`,
+    data () {
+      return {
         mock: demoDataLocked
       }
     }

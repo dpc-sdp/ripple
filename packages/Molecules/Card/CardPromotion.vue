@@ -13,7 +13,7 @@
 
 <script>
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
-import cardtrimfield from '@dpc-sdp/ripple-global/mixins/cardtrimfield'
+import cardtrimfield from './mixins/cardtrimfield'
 import RplCardContent from './CardContent.vue'
 
 export default {
@@ -33,7 +33,8 @@ export default {
   },
   data: function () {
     return {
-      trimFieldSelector: '.rpl-card-promotion__summary'
+      trimFieldSelector: '.rpl-card-promotion__summary',
+      trimFieldRefreshOnFonts: ['VIC-Bold']
     }
   },
   methods: {

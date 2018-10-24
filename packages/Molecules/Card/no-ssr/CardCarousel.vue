@@ -9,7 +9,7 @@
         :paginationEnabled="false"
       >
         <slide v-for="(item, index) in cards" :key="index" class="rpl-card-carousel__slide">
-          <component :is="item.name" v-bind="item.data"></component>
+          <component :is="item.name" v-bind="item.data" :trimFieldEventBus="isTrimmed(item.name) ? eventBus : null" :trimFieldUpdateOnResize="false"></component>
         </slide>
       </carousel>
       <div class="rpl-card-carousel__navigation">
@@ -25,10 +25,11 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
-import RplIcon from '@dpc-sdp/ripple-icon'
 import { Carousel, Slide } from 'vue-carousel'
 
+import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCardPromotion from './../CardPromotion.vue'
 import RplCardEvent from './../CardEvent.vue'
 import RplCardKeydates from './../CardKeydates.vue'
@@ -53,7 +54,14 @@ export default {
   },
   data () {
     return {
-      navTo: 0
+      navTo: 0,
+      eventBus: new Vue(),
+      observer: null,
+      lastCarouselInnerFlexBasis: null,
+      trimmedCards: [
+        'rpl-card-event',
+        'rpl-card-promotion'
+      ]
     }
   },
   methods: {
@@ -65,6 +73,18 @@ export default {
     },
     iconColor (isDisabled) {
       return isDisabled ? 'mid_neutral_1' : 'primary'
+    },
+    updateTrimFields (mutations) {
+      if (mutations && mutations.length >= 1) {
+        const currentFlexBasis = mutations[0].target.style.flexBasis
+        if (currentFlexBasis !== this.lastCarouselInnerFlexBasis) {
+          this.eventBus.$emit('setTrimFieldMaxHeight')
+          this.lastCarouselInnerFlexBasis = currentFlexBasis
+        }
+      }
+    },
+    isTrimmed (name) {
+      return (this.trimmedCards.indexOf(name) >= 0)
     }
   },
   computed: {
@@ -91,6 +111,19 @@ export default {
     },
     nextIcon () {
       return (this.$breakpoint.l) ? 'arrow_right_secondary' : 'right'
+    }
+  },
+  mounted () {
+    // Update card size on Carousel width change.
+    if (typeof MutationObserver !== 'undefined') {
+      this.observer = new MutationObserver(this.updateTrimFields)
+      this.observer.observe(this.$el.querySelector('.VueCarousel-inner'), { attributes: true })
+    }
+  },
+  destroyed () {
+    // Update card size on Carousel width change.
+    if (typeof MutationObserver !== 'undefined') {
+      this.observer.disconnect()
     }
   }
 }

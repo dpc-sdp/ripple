@@ -37,7 +37,6 @@ export default {
       @include rpl_typography_ruleset($rpl-figure-caption-ruleset);
       color: $rpl-figure-caption-text-color;
       margin: $rpl-figure-caption-margin;
-      text-transform: uppercase;
     }
   }
 </style>

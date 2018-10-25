@@ -58,6 +58,8 @@ export default {
       eventBus: new Vue(),
       observer: null,
       lastCarouselInnerFlexBasis: null,
+      // Define which cards use cardtrimfield. These will be given the eventBus
+      // object and their resize will be invoked on carousel size changes.
       trimmedCards: [
         'rpl-card-event',
         'rpl-card-promotion'

@@ -5291,7 +5291,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -5617,7 +5617,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -5787,7 +5787,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -5880,7 +5880,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 tabindex="-1"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -7638,7 +7638,7 @@ exports[`RippleStoryshots Molecules/Card Card Keydates 1`] = `
     data-v-6ca0e090=""
   >
     <a
-      class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+      class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
       data-v-6ca0e090=""
       href="#"
     >
@@ -28417,7 +28417,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -28709,7 +28709,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
               >
                 <a
-                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                   href="#"
                 >
                   <!---->
@@ -31042,6 +31042,1089 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
         <div
           class="rpl-site-footer__logos"
         >
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="https://vic.gov.au"
+            target="_blank"
+          >
+            <img
+              alt="Victoria Government Website"
+              src="file-stub"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`RippleStoryshots Templates Page with trim cards 1`] = `
+<div
+  class="rpl-site-layout demo"
+>
+  <div
+    class="rpl-skip-link"
+    id="rpl-skip-link"
+  >
+    <a
+      class="rpl-skip-link__link"
+      href="#rpl-main-content"
+    >
+      Skip to main content
+    </a>
+  </div>
+   
+  <header
+    class="rpl-site-header-container"
+  >
+    <div
+      class="rpl-site-header"
+    >
+      <div
+        class="rpl-site-header__inner"
+      >
+        <div
+          class="rpl-site-header__top"
+        >
+          <div
+            class="rpl-site-header__logo-container"
+          >
+            <button
+              aria-expanded="false"
+              class="rpl-site-header__btn rpl-site-header__btn--menu"
+            >
+              <!---->
+               
+              <span>
+                Menu
+              </span>
+            </button>
+             
+            <div
+              class="rpl-site-header__title"
+            >
+              <a
+                class="rpl-link"
+                href="#"
+              >
+                <img
+                  alt="vic.gov.au"
+                  src="/logo.svg"
+                />
+              </a>
+            </div>
+          </div>
+           
+          <!---->
+           
+          <button
+            class="rpl-site-header__btn rpl-site-header__btn--search"
+          >
+            <span>
+              Search website
+            </span>
+             
+            <!---->
+          </button>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </header>
+    
+  <div
+    class="rpl-page main rpl-container"
+  >
+    <section
+      class="rpl-above-content-container"
+    >
+      <div
+        class="rpl-above-content"
+        style="background-image: url(/bggraphic.png);"
+      >
+        <div
+          class="rpl-above-content__inner"
+        >
+          <div
+            class="rpl-hero-banner rpl-site-constrain--on-all"
+          >
+            <!---->
+             
+            <div
+              class="rpl-row"
+            >
+              <div
+                class="rpl-hero-banner__left"
+              >
+                <h1
+                  class="rpl-hero-banner__title"
+                >
+                  <span>
+                    Card Trimming
+                  </span>
+                </h1>
+                 
+                <p
+                  class="rpl-hero-banner__description"
+                >
+                  
+        Test summary trimming on Promotion and Event cards.
+      
+                </p>
+              </div>
+               
+              <div
+                class="rpl-hero-banner__right"
+              >
+                <!---->
+                 
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="rpl-above-content-two"
+      />
+    </section>
+     
+    <section
+      class="rpl-content"
+      id="rpl-main-content"
+    >
+      <div
+        class="rpl-container rpl-site-constrain--on-all"
+      >
+        <div
+          class="rpl-row"
+        >
+          <div
+            class="rpl-main rpl-col rpl-col--full"
+          >
+             
+            <div
+              class="rpl-row demo-main rpl-row--gutter"
+            >
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <div
+                  class="rpl-card-carousel"
+                >
+                  <h2
+                    class="rpl-card-carousel__title"
+                  >
+                    Carousel Cards
+                  </h2>
+                   
+                  <div
+                    class="rpl-card-carousel__slider"
+                  >
+                    <section
+                      class="VueCarousel"
+                    >
+                      <div
+                        class="VueCarousel-wrapper"
+                      >
+                        <div
+                          class="VueCarousel-inner"
+                          role="listbox"
+                          style="transform: translate(0px, 0); visibility: hidden;"
+                        >
+                          <div
+                            class="VueCarousel-slide rpl-card-carousel__slide"
+                            tabindex="-1"
+                          >
+                            <a
+                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+                              href="#"
+                            >
+                              <div
+                                class="rpl-card-content__image-wrapper"
+                              >
+                                <img
+                                  alt=""
+                                  class="rpl-card-content__image"
+                                  src="https://placehold.it/335x200"
+                                />
+                              </div>
+                               
+                              <div
+                                class="rpl-card-content__details"
+                              >
+                                <div
+                                  class="rpl-card-event__meta"
+                                >
+                                  <div
+                                    class="rpl-card-event__date"
+                                  >
+                                    10 July
+                                  </div>
+                                </div>
+                                 
+                                <h2
+                                  class="rpl-card-event__title"
+                                >
+                                  This is the headline of an event
+                                </h2>
+                                 
+                                <div
+                                  class="rpl-card-event__trim-wrapper"
+                                  style="max-height: none;"
+                                >
+                                  <p
+                                    class="rpl-card-event__summary"
+                                  >
+                                    In consequat consectetur consectetur nisi consectetur aliquip voluptate elit consequat ullamco. Id pariatur voluptate sit elit velit mollit ea magna ea nulla ex. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit.
+                                  </p>
+                                </div>
+                                 
+                                <p
+                                  class="rpl-card-event__location"
+                                >
+                                  <!---->
+                                  South Yarra
+                                </p>
+                                 
+                                <!---->
+                              </div>
+                               
+                              <div
+                                class="rpl-card-content__link"
+                              >
+                                <span>
+                                  <span>
+                                    See event
+                                  </span>
+                                   
+                                  <span
+                                    class="rpl-text-icon__group"
+                                  >
+                                     details
+                                    <!---->
+                                  </span>
+                                   
+                                  <!---->
+                                </span>
+                              </div>
+                            </a>
+                          </div>
+                          <div
+                            class="VueCarousel-slide rpl-card-carousel__slide"
+                            tabindex="-1"
+                          >
+                            <a
+                              class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
+                              href="#"
+                            >
+                              <div
+                                class="rpl-card-content__image-wrapper"
+                              >
+                                <img
+                                  alt=""
+                                  class="rpl-card-content__image"
+                                  src="https://placehold.it/335x200"
+                                />
+                              </div>
+                               
+                              <div
+                                class="rpl-card-content__details"
+                              >
+                                <div
+                                  class="rpl-card-promotion__meta"
+                                >
+                                  <div
+                                    class="rpl-card-promotion__date"
+                                  >
+                                    10 July
+                                  </div>
+                                   
+                                  <div
+                                    class="rpl-card-promotion__tag"
+                                  >
+                                    News
+                                  </div>
+                                </div>
+                                 
+                                <h2
+                                  class="rpl-card-promotion__title"
+                                >
+                                  This is the headline of an event
+                                </h2>
+                                 
+                                <div
+                                  class="rpl-card-promotion__trim-wrapper"
+                                  style="max-height: none;"
+                                >
+                                  <p
+                                    class="rpl-card-promotion__summary"
+                                  >
+                                    In consequat consectetur consectetur nisi consectetur aliquip voluptate elit consequat ullamco. Id pariatur voluptate sit elit velit mollit ea magna ea nulla ex. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit.
+                                  </p>
+                                </div>
+                                 
+                                <!---->
+                              </div>
+                               
+                              <div
+                                class="rpl-card-content__link"
+                              >
+                                <span>
+                                  <span>
+                                    Read
+                                  </span>
+                                   
+                                  <span
+                                    class="rpl-text-icon__group"
+                                  >
+                                     more
+                                    <!---->
+                                  </span>
+                                   
+                                  <!---->
+                                </span>
+                              </div>
+                            </a>
+                          </div>
+                          <div
+                            class="VueCarousel-slide rpl-card-carousel__slide"
+                            tabindex="-1"
+                          >
+                            <a
+                              class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+                              href="#"
+                            >
+                              <div
+                                class="rpl-card-content__image-wrapper"
+                              >
+                                <img
+                                  alt=""
+                                  class="rpl-card-content__image"
+                                  src="https://placehold.it/335x200"
+                                />
+                              </div>
+                               
+                              <div
+                                class="rpl-card-content__details"
+                              >
+                                <div
+                                  class="rpl-card-event__meta"
+                                >
+                                  <div
+                                    class="rpl-card-event__date"
+                                  >
+                                    10 July
+                                  </div>
+                                </div>
+                                 
+                                <h2
+                                  class="rpl-card-event__title"
+                                >
+                                  This is the headline of an event
+                                </h2>
+                                 
+                                <div
+                                  class="rpl-card-event__trim-wrapper"
+                                  style="max-height: none;"
+                                >
+                                  <p
+                                    class="rpl-card-event__summary"
+                                  >
+                                    In consequat consectetur consectetur nisi consectetur aliquip voluptate elit consequat ullamco. Id pariatur voluptate sit elit velit mollit ea magna ea nulla ex. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit.
+                                  </p>
+                                </div>
+                                 
+                                <p
+                                  class="rpl-card-event__location"
+                                >
+                                  <!---->
+                                  South Yarra
+                                </p>
+                                 
+                                <!---->
+                              </div>
+                               
+                              <div
+                                class="rpl-card-content__link"
+                              >
+                                <span>
+                                  <span>
+                                    See event
+                                  </span>
+                                   
+                                  <span
+                                    class="rpl-text-icon__group"
+                                  >
+                                     details
+                                    <!---->
+                                  </span>
+                                   
+                                  <!---->
+                                </span>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                       
+                      <!---->
+                       
+                      <!---->
+                    </section>
+                     
+                    <div
+                      class="rpl-card-carousel__navigation"
+                    >
+                      <button
+                        aria-label="Go to previous slide"
+                        class="rpl-card-carousel__navigation-button rpl-card-carousel__navigation-button--prev"
+                        disabled="disabled"
+                        role="button"
+                      >
+                        <!---->
+                      </button>
+                       
+                      <button
+                        aria-label="Go to next slide"
+                        class="rpl-card-carousel__navigation-button rpl-card-carousel__navigation-button--next"
+                        role="button"
+                      >
+                        <!---->
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <div
+                    class="rpl-card-content__image-wrapper"
+                  >
+                    <img
+                      alt=""
+                      class="rpl-card-content__image"
+                      src="https://placehold.it/335x200"
+                    />
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-event__meta"
+                    >
+                      <div
+                        class="rpl-card-event__date"
+                      >
+                        10 July
+                      </div>
+                    </div>
+                     
+                    <h2
+                      class="rpl-card-event__title"
+                    >
+                      This is the headline of an event
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-event__trim-wrapper"
+                      style="max-height: none;"
+                    >
+                      <p
+                        class="rpl-card-event__summary"
+                      >
+                        In consequat consectetur consectetur nisi consectetur aliquip voluptate elit consequat ullamco. Id pariatur voluptate sit elit velit mollit ea magna ea nulla ex. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit.
+                      </p>
+                    </div>
+                     
+                    <p
+                      class="rpl-card-event__location"
+                    >
+                      <!---->
+                      South Yarra
+                    </p>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        See event
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         details
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <div
+                    class="rpl-card-content__image-wrapper"
+                  >
+                    <img
+                      alt=""
+                      class="rpl-card-content__image"
+                      src="https://placehold.it/335x200"
+                    />
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-promotion__meta"
+                    >
+                      <div
+                        class="rpl-card-promotion__date"
+                      >
+                        10 July
+                      </div>
+                       
+                      <div
+                        class="rpl-card-promotion__tag"
+                      >
+                        News
+                      </div>
+                    </div>
+                     
+                    <h2
+                      class="rpl-card-promotion__title"
+                    >
+                      This is the headline of an event
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-promotion__trim-wrapper"
+                      style="max-height: none;"
+                    >
+                      <p
+                        class="rpl-card-promotion__summary"
+                      >
+                        In consequat consectetur consectetur nisi consectetur aliquip voluptate elit consequat ullamco. Id pariatur voluptate sit elit velit mollit ea magna ea nulla ex. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        Read
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         more
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <div
+                    class="rpl-card-content__image-wrapper"
+                  >
+                    <img
+                      alt=""
+                      class="rpl-card-content__image"
+                      src="https://placehold.it/335x200"
+                    />
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-event__meta"
+                    >
+                      <div
+                        class="rpl-card-event__date"
+                      >
+                        10 July
+                      </div>
+                    </div>
+                     
+                    <h2
+                      class="rpl-card-event__title"
+                    >
+                      This is the headline of an event
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-event__trim-wrapper"
+                      style="max-height: none;"
+                    >
+                      <p
+                        class="rpl-card-event__summary"
+                      >
+                        In consequat consectetur consectetur nisi consectetur aliquip voluptate elit consequat ullamco. Id pariatur voluptate sit elit velit mollit ea magna ea nulla ex. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit. Sit qui quis ut esse ullamco tempor voluptate ipsum mollit anim eu sunt minim velit.
+                      </p>
+                    </div>
+                     
+                    <p
+                      class="rpl-card-event__location"
+                    >
+                      <!---->
+                      South Yarra
+                    </p>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        See event
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         details
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+           
+          <!---->
+        </div>
+      </div>
+    </section>
+     
+    <section
+      class="rpl-below-content"
+    />
+  </div>
+    
+  <!---->
+   
+  <footer
+    class="rpl-site-footer-container"
+  >
+    <div
+      class="rpl-site-footer"
+    >
+      <div
+        class="rpl-site-footer__main"
+      >
+        <ul
+          class="rpl-footer-nav"
+        >
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Your Services
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                About VIC Government
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                News
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Events
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Connect with us
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+         
+        <div
+          class="rpl-acknowledgement"
+        >
+          The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
+        </div>
+      </div>
+       
+      <div
+        class="rpl-site-footer__bottom"
+      >
+        <div
+          class="rpl-site-footer__bottom-main"
+        >
+          <div
+            class="rpl-links-and-copyright"
+          >
+            <ul
+              class="rpl-links-and-copyright__links"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Privacy
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Disclaimer
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Terms of use
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Sitemap
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Accessibility Statement
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Help
+                </a>
+              </li>
+            </ul>
+             
+            <div
+              class="rpl-links-and-copyright__copyright"
+            >
+              © Copyright State Government of Victoria
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-site-footer__logos"
+        >
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Logo 1"
+              src="https://placehold.it/76x43"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Logo 2"
+              src="https://placehold.it/76x43"
+            />
+          </a>
           <a
             class="rpl-link rpl-site-footer__logo"
             href="https://vic.gov.au"

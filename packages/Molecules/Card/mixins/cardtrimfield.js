@@ -1,11 +1,17 @@
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
+import FontFaceObserver from 'fontfaceobserver'
 
 const cardtrimfield = {
   mixins: [breakpoint],
+  props: {
+    trimFieldEventBus: Object,
+    trimFieldUpdateOnResize: { type: Boolean, default: true }
+  },
   data: function () {
     return {
       trimFieldMaxHeight: 'none',
-      trimFieldSelector: ''
+      trimFieldSelector: '',
+      trimFieldRefreshOnFonts: null
     }
   },
   methods: {
@@ -34,16 +40,35 @@ const cardtrimfield = {
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      if (typeof window !== 'undefined') {
-        this.setTrimFieldMaxHeight()
-        window.addEventListener('resize', this.setTrimFieldMaxHeight, {'passive': true})
-      }
-    })
+    if (this.trimFieldRefreshOnFonts) {
+      this.trimFieldRefreshOnFonts.forEach(font => {
+        const fontObserver = new FontFaceObserver(font)
+        fontObserver.load().then(this.setTrimFieldMaxHeight)
+      })
+    }
+
+    if (this.trimFieldEventBus) {
+      this.trimFieldEventBus.$on('setTrimFieldMaxHeight', this.setTrimFieldMaxHeight)
+    }
+
+    if (this.trimFieldUpdateOnResize) {
+      this.$nextTick(() => {
+        if (typeof window !== 'undefined') {
+          this.setTrimFieldMaxHeight()
+          window.addEventListener('resize', this.setTrimFieldMaxHeight, {'passive': true})
+        }
+      })
+    }
   },
   destroyed () {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('resize', this.setTrimFieldMaxHeight)
+    if (this.trimFieldEventBus) {
+      this.trimFieldEventBus.$off('setTrimFieldMaxHeight', this.setTrimFieldMaxHeight)
+    }
+
+    if (this.trimFieldUpdateOnResize) {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', this.setTrimFieldMaxHeight)
+      }
     }
   }
 }

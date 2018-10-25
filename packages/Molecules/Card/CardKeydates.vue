@@ -1,5 +1,5 @@
 <template>
-  <rpl-card-content :link="link" class="rpl-card-event">
+  <rpl-card-content :link="link" class="rpl-card-keydates">
     <h2 class="rpl-card-keydates__title" v-if="title">{{ title }}</h2>
     <div class="rpl-card-keydates__keydate" v-for="(keydate, index) in keydates" :key="index">
       <div class="rpl-card-keydates__keydate-date">

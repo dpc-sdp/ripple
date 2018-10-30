@@ -13,7 +13,7 @@
     v-if="link"
   >
     <div class="rpl-card-content__image-wrapper" v-if="image">
-      <img class="rpl-card-content__image" v-if="image" :src="image" alt="" />
+      <img class="rpl-card-content__image" ref="image" :src="image" alt="" />
     </div>
     <div class="rpl-card-content__details">
       <slot></slot>
@@ -28,11 +28,10 @@
 </template>
 
 <script>
+import objectFitImages from 'object-fit-images'
 import RplLink from '@dpc-sdp/ripple-link'
 import {RplTextIcon} from '@dpc-sdp/ripple-icon'
 import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
-import objectFitImages from 'object-fit-images'
-objectFitImages('img.rpl-card-content__image')
 
 export default {
   name: 'RplCardContent',
@@ -49,6 +48,11 @@ export default {
   computed: {
     iconSymbol () {
       return isExternalUrl(this.link.url, this.rplOptions.hostname) ? 'external_link' : 'arrow_right_primary'
+    }
+  },
+  mounted () {
+    if (this.image) {
+      objectFitImages(this.$refs['image'])
     }
   }
 }

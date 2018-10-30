@@ -1,6 +1,6 @@
 <template>
   <rpl-card-content class="rpl-card-cta" :border="false" :link="linkOnly">
-    <img class="rpl-card-cta__image" :src="image" alt="" />
+    <img class="rpl-card-cta__image" v-if="image" ref="image" :src="image" alt="" />
     <h2 class="rpl-card-cta__title" v-if="title">{{ title }}</h2>
     <p class="rpl-card-cta__summary" v-if="summary">{{ summary }}</p>
     <span class="rpl-card-cta__button" v-if="link.text">{{ link.text }}</span>
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import objectFitImages from 'object-fit-images'
 import RplCardContent from './CardContent.vue'
 
 export default {
@@ -25,6 +26,11 @@ export default {
     return {
       linkOnly: { text: null, url: this.link.url }
     }
+  },
+  mounted () {
+    if (this.image) {
+      objectFitImages(this.$refs['image'])
+    }
   }
 }
 </script>
@@ -41,6 +47,8 @@ export default {
   $rpl-card-cta-button-ruleset: ('xs', 1em, 'bold') !default;
   $rpl-card-cta-button-padding: $rpl-space-3 $rpl-space-4 !default;
   $rpl-card-cta-image-margin: (-$rpl-card-vertical-padding + rem(14px)) 0 ($rpl-space * 6) !default;
+  $rpl-card-cta-image-width: rem(148px) !default;
+  $rpl-card-cta-image-height: rem(148px) !default;
 
   .rpl-card-cta {
     $root: &;
@@ -49,6 +57,9 @@ export default {
     &__image {
       border-radius: 100%;
       margin: $rpl-card-cta-image-margin;
+      width: $rpl-card-cta-image-width;
+      height: $rpl-card-cta-image-height;
+      object-fit: cover;
     }
 
     &__title {

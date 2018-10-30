@@ -1,6 +1,7 @@
 <template>
   <div class="rpl-site-header-search">
     <rpl-search-form
+      class="rpl-site-header-search__form"
       searchPlaceholder="Start typing..."
       theme="dark"
       @search="searchTerm"
@@ -74,6 +75,12 @@ export default {
 
     @include rpl_breakpoint('xl') {
       margin: $rpl-site-header-search-margin-xl;
+    }
+
+    &__form {
+      &.rpl-search-form {
+        padding: 0;
+      }
     }
 
     &__terms {

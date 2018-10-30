@@ -133,6 +133,7 @@ export default {
     &__btn {
       background-color: transparent;
       border: 0;
+      padding: 0;
       width: $rpl-search-form-button-width;
       cursor: pointer;
 
@@ -145,6 +146,7 @@ export default {
       @include rpl_typography_ruleset($rpl-search-form-input-ruleset);
       background-color: transparent;
       border: 0;
+      padding: 1px;
       width: 100%;
       color: $rpl-search-form-input-text-color;
 

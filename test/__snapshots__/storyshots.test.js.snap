@@ -23799,7 +23799,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
           >
             <img
               alt="Logo 1"
-              src="https://placehold.it/76x43"
+              src="https://placehold.it/50x50"
             />
           </a>
           <a
@@ -23808,7 +23808,16 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
           >
             <img
               alt="Logo 2"
-              src="https://placehold.it/76x43"
+              src="https://placehold.it/100x200"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Logo 2"
+              src="https://placehold.it/200x100"
             />
           </a>
           <a
@@ -32113,7 +32122,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
           >
             <img
               alt="Logo 1"
-              src="https://placehold.it/76x43"
+              src="https://placehold.it/50x50"
             />
           </a>
           <a
@@ -32122,7 +32131,16 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
           >
             <img
               alt="Logo 2"
-              src="https://placehold.it/76x43"
+              src="https://placehold.it/100x200"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Logo 2"
+              src="https://placehold.it/200x100"
             />
           </a>
           <a

@@ -64,8 +64,7 @@ $rpl-footer-text-color: rpl-color('white') !default;
 $rpl-footer-border-width: $rpl-border-width !default;
 $rpl-footer-border-color: rpl-color('primary') !default;
 $rpl-footer-border-color-light: rpl-color('white') !default;
-$rpl-footer-logo-width-xs: (100% / 3) !default;
-$rpl-footer-logo-max-width-xs: rem(76px) !default;
+$rpl-footer-logo-max-dimension: rem(76px) !default;
 $gutterless-grid: (
   columns: 12,
   gutter: 0
@@ -219,14 +218,15 @@ $gutterless-grid: (
 }
 
 .rpl-site-footer__logo {
-  width: $rpl-footer-logo-width-xs;
-  max-width: $rpl-footer-logo-max-width-xs;
+  max-width: $rpl-footer-logo-max-dimension;
+  max-height: $rpl-footer-logo-max-dimension;
   margin-left: $rpl-space-2;
 
   @include rpl_breakpoint('s') {
     width: auto;
     margin-left: ($rpl-space * 8);
     max-width: none;
+    max-height: none;
   }
 
   &:first-child {
@@ -234,10 +234,13 @@ $gutterless-grid: (
   }
 
   img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 
     @include rpl_breakpoint('s') {
       width: initial;
+      max-width: $rpl-footer-logo-max-dimension;
+      max-height: $rpl-footer-logo-max-dimension;
     }
   }
 }

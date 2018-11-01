@@ -34,6 +34,12 @@ export default {
 
   .rpl-sitemap-menu {
     $root: &;
+    @include rpl_mobile_padding;
+
+    @include rpl_breakpoint(m) {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     &::before {
       content: '';

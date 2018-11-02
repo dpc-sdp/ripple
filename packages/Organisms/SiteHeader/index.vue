@@ -123,10 +123,16 @@ export default {
   watch: {
     // Close menu after vue route changed.
     $route: function (to, from) {
-      if (this.menuContentOpen && this.menuState === 'opened') {
-        this.menuToggle()
-      } else if (this.menuContentOpen && this.searchState === 'opened') {
-        this.searchToggle()
+      if (this.menuContentOpen) {
+        // Remove focus on any links - this fixes a bug in IE11 [SDPA-1178].
+        document.activeElement.blur()
+
+        // Close the menu / search.
+        if (this.menuState === 'opened') {
+          this.menuToggle()
+        } else if (this.searchState === 'opened') {
+          this.searchToggle()
+        }
       }
     }
   },

@@ -1,28 +1,22 @@
 <template>
   <div class="rpl-contact">
-    <h2 v-if="title" class="rpl-contact__title">{{ title }}</h2>
-    <p class="rpl-contact__contact-details">
-      <span v-if="name" class="rpl-contact__name">{{ name }}</span>
-      <span v-if="department" class="rpl-contact__department">{{ department }}</span>
-      <span v-if="postal" class="rpl-contact__postal">{{ postal }}</span>
-    </p>
-    <p v-if="address" class="rpl-contact__address">
-      <span class="rpl-contact__icon"><rpl-icon symbol="map_marker" color="primary" /></span><rpl-link :href="addressLink">{{ address }}</rpl-link>
-    </p>
-    <p v-if="phone" v-for="(phone_number, index) in phone" :key="`phone-${index}`" class="rpl-contact__phone">
-      <span class="rpl-contact__icon"><rpl-icon symbol="phone_number" color="primary" size="0.857" /></span><rpl-link :href="'tel:' + phone_number">{{ phone_number }}</rpl-link>
-    </p>
-    <p v-if="email" class="rpl-contact__email">
-      <span class="rpl-contact__icon"><rpl-icon symbol="email_solid" color="primary" size="0.65" /></span><rpl-link :href="'mailto:' + email">{{ email }}</rpl-link>
-    </p>
-    <p v-if="social" v-for="(link, index) in social" :key="`social-${index}`" class="rpl-contact__social">
-      <span class="rpl-contact__icon"><rpl-icon :symbol="link.icon" color="primary" :size="socialIconScale[link.icon] || 1" /></span><rpl-link :href="link.url">{{ link.title }}</rpl-link>
-    </p>
+    <rpl-list
+      v-if="title || list"
+      :title="title"
+      :list="list"
+    >
+      <p slot="above-list" class="rpl-contact__contact-details">
+        <span v-if="name" class="rpl-contact__name">{{ name }}</span>
+        <span v-if="department" class="rpl-contact__department">{{ department }}</span>
+        <span v-if="postal" class="rpl-contact__postal">{{ postal }}</span>
+      </p>
+    </rpl-list>
   </div>
 </template>
 
 <script>
 import RplLink from '@dpc-sdp/ripple-link'
+import RplList from '@dpc-sdp/ripple-list'
 import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
@@ -38,6 +32,7 @@ export default {
     social: Array
   },
   components: {
+    RplList,
     RplLink,
     RplIcon
   },
@@ -52,6 +47,44 @@ export default {
     }
   },
   computed: {
+    list () {
+      const _list = []
+      if (this.address) {
+        _list.push({
+          link: this.addressLink,
+          symbol: 'map_marker',
+          text: this.address
+        })
+      }
+      if (this.phone && this.phone.length > 0) {
+        this.phone.forEach(phoneNumber => {
+          _list.push({
+            symbol: 'phone_number',
+            link: `tel: ${phoneNumber}`,
+            size: 0.857,
+            text: phoneNumber
+          })
+        })
+      }
+      if (this.email) {
+        _list.push({
+          symbol: 'email_solid',
+          size: 0.65,
+          text: this.email
+        })
+      }
+      if (this.social && this.social.length > 0) {
+        this.social.forEach(link => {
+          _list.push({
+            symbol: link.icon,
+            link: link.url,
+            size: this.socialIconScale[link.icon],
+            text: link.title
+          })
+        })
+      }
+      return _list
+    },
     addressLink: function () {
       return `https://www.google.com.au/maps?q=${encodeURI(this.address)}`
     }
@@ -72,13 +105,10 @@ export default {
   $rpl-contact-ruleset: ('xs', 1.4em, 'regular');
   $rpl-contact-department-ruleset: ('xs', 1.4em, 'regular');
   $rpl-contact-postal-ruleset: ('xs', 1.4em, 'regular');
-  $rpl-contact-address-ruleset: ('xs', 1.4em, 'medium');
-  $rpl-contact-phone-ruleset: ('xs', 1.4em, 'medium');
-  $rpl-contact-email-ruleset: ('xs', 1.4em, 'medium');
-  $rpl-contact-social-ruleset: ('xs', 1.4em, 'medium');
+  $rpl-contact-list-ruleset: ('xs', 1em, 'medium');
   $rpl-contact-details-padding: 0 0 0 ($rpl-space * 5);
   $rpl-contact-details-border-image: rpl-gradient('decorative_gradient_90');
-  $rpl-contact-paragraph-margin: $rpl-space-3 0;
+  $rpl-contact-paragraph-margin: $rpl-space-4 0;
   $rpl-contact-icon-width: $rpl-space-3;
   $rpl-contact-icon-margin: 0 $rpl-space-2 0 0;
 
@@ -100,17 +130,20 @@ export default {
       margin: $rpl-contact-title-margin;
     }
 
-    p {
-      margin: $rpl-contact-paragraph-margin;
+    .rpl-list__list-item {
+      @include rpl_typography_ruleset($rpl-contact-list-ruleset);
+    }
 
-      &:first-of-type {
-        margin-top: 0;
-      }
+    .rpl-list__text {
+      @include rpl_typography_ruleset($rpl-contact-list-ruleset);
+      margin: $rpl-contact-paragraph-margin;
+      vertical-align: bottom;
     }
 
     &__contact-details {
       position: relative;
       padding: $rpl-contact-details-padding;
+      margin: $rpl-contact-paragraph-margin;
 
       &::before {
         content: '';
@@ -137,30 +170,6 @@ export default {
     &__postal {
       @include rpl_typography_ruleset($rpl-contact-postal-ruleset);
       display: block;
-    }
-
-    &__address {
-      @include rpl_typography_ruleset($rpl-contact-address-ruleset);
-    }
-
-    &__phone {
-      @include rpl_typography_ruleset($rpl-contact-phone-ruleset);
-    }
-
-    &__email {
-      @include rpl_typography_ruleset($rpl-contact-email-ruleset);
-    }
-
-    &__social {
-      @include rpl_typography_ruleset($rpl-contact-social-ruleset);
-    }
-
-    &__icon {
-      display: inline-block;
-      vertical-align: middle;
-      text-align: center;
-      width: $rpl-contact-icon-width;
-      margin: $rpl-contact-icon-margin;
     }
 
     .rpl-link {

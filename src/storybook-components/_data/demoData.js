@@ -1348,7 +1348,7 @@ const demoData = {
     caption: text('Caption', '1.2 Caption to go here. This should be restricted in characters.')
   }),
 
-  latestNewsList: () => ({
+  featuredNews: () => ({
     list: object('List', [
       {
         image: 'https://placehold.it/818x497',
@@ -1356,7 +1356,7 @@ const demoData = {
         topic: 'Community',
         title: 'This heading could wrap over two lines',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
-        link: object('Link', { text: 'Call to action', url: '#' })
+        link: { text: 'Call to action', url: '#' }
       },
       {
         image: 'https://placehold.it/818x497',
@@ -1364,7 +1364,7 @@ const demoData = {
         topic: 'Community',
         title: 'This heading could wrap over two lines',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
-        link: object('Link', { text: 'Call to action', url: '#' })
+        link: { text: 'Call to action', url: '#' }
       },
       {
         image: 'https://placehold.it/818x497',
@@ -1372,7 +1372,7 @@ const demoData = {
         topic: 'Community',
         title: 'This heading could wrap over two lines',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
-        link: object('Link', { text: 'Call to action', url: '#' })
+        link: { text: 'Call to action', url: '#' }
       }
     ])
   }),

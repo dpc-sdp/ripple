@@ -20,7 +20,8 @@ npm install @dpc-sdp/ripple-card --save
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-icon
 ├── @dpc-sdp/ripple-link
-└── vue-carousel
+├── vue-carousel
+└── fontfaceobserver
 ```
 
 --------------------------------------------------------------------------------

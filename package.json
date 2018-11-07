@@ -49,7 +49,6 @@
     "@dpc-sdp/ripple-list": "file:packages/Molecules/List",
     "@dpc-sdp/ripple-meta-tag": "file:packages/Atoms/MetaTag",
     "@dpc-sdp/ripple-news": "file:packages/Organisms/News",
-    "@dpc-sdp/ripple-news-listing": "file:packages/Molecules/NewsListing",
     "@dpc-sdp/ripple-pagination": "file:packages/Molecules/Pagination",
     "@dpc-sdp/ripple-publish-date-and-author": "file:packages/Molecules/PublishDateAndAuthor",
     "@dpc-sdp/ripple-related-links": "file:packages/Molecules/RelatedLinks",

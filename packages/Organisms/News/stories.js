@@ -7,6 +7,7 @@ import {
 } from '@storybook/addon-knobs/vue'
 
 import RplFeaturedNews from './FeaturedNews.vue'
+import RplNewsListing from './NewsListing.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
 
@@ -18,5 +19,12 @@ storiesOf('Organisms/News', module)
     template: `<rpl-featured-news :list="list" />`,
     data () {
       return demoData.featuredNews()
+    }
+  })))
+  .add('News Listing', withReadme(readme, () => ({
+    components: { RplNewsListing },
+    template: `<rpl-news-listing :title="title" :list="list" />`,
+    data () {
+      return demoData.newsListing()
     }
   })))

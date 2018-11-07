@@ -199,12 +199,12 @@ const demoData = {
   }),
 
   cardImageNavigation: () => ({
-    image: text('Image', 'https://placehold.it/304x168'),
+    image: text('Image', 'https://placehold.it/304x199'),
     date: text('Date', '2018-03-23T09:00:00.000+10:00'),
     topic: text('Topic', 'Community'),
     title: text('Title', 'This heading could wrap over two lines'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.'),
-    link: object('Link', { url: '#' })
+    link: object('Link', { text: 'Call to action', url: '#' })
   }),
 
   cardPromotion: () => ({
@@ -1356,7 +1356,7 @@ const demoData = {
         topic: 'Community',
         title: 'This heading could wrap over two lines',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
-        link: { url: '#' }
+        link: object('Link', { text: 'Call to action', url: '#' })
       },
       {
         image: 'https://placehold.it/818x497',
@@ -1364,7 +1364,7 @@ const demoData = {
         topic: 'Community',
         title: 'This heading could wrap over two lines',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
-        link: { url: '#' }
+        link: object('Link', { text: 'Call to action', url: '#' })
       },
       {
         image: 'https://placehold.it/818x497',
@@ -1372,7 +1372,7 @@ const demoData = {
         topic: 'Community',
         title: 'This heading could wrap over two lines',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
-        link: { url: '#' }
+        link: object('Link', { text: 'Call to action', url: '#' })
       }
     ])
   }),

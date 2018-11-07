@@ -43,7 +43,10 @@ export default {
   $rpl-card-image-navigation-tag-ruleset: ('xxs', 1em, 'medium') !default;
   $rpl-card-image-navigation-tag-text-color: rpl_color('primary') !default;
   $rpl-card-image-navigation-tag-margin: 0 0 0 $rpl-space-2 !default;
-  $rpl-card-image-navigation-title-ruleset: ('l', 1.2em, 'bold') !default;
+  $rpl-card-image-navigation-title-ruleset: (
+    'xs': ('l', 1.2em, 'bold'),
+    'm': ('xl', 1.2em, 'bold')
+  ) !default;
   $rpl-card-image-navigation-title-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-image-navigation-title-margin: 0 0 $rpl-space-3 0 !default;
   $rpl-card-image-navigation-summary-ruleset: ('xs', 1.5em, 'regular') !default;

@@ -58,6 +58,7 @@
     "@dpc-sdp/ripple-site-header": "file:packages/Organisms/SiteHeader",
     "@dpc-sdp/ripple-site-section-navigation": "file:packages/Organisms/SiteSectionNavigation",
     "@dpc-sdp/ripple-sitemap": "file:packages/Molecules/Sitemap",
+    "@dpc-sdp/ripple-timeline": "file:packages/Molecules/Timeline",
     "@dpc-sdp/ripple-updated-date": "file:packages/Organisms/UpdatedDate",
     "@dpc-sdp/ripple-whats-next": "file:packages/Molecules/WhatsNext",
     "vue": "^2.5.16"

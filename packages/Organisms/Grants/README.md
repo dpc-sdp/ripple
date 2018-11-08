@@ -16,14 +16,15 @@ npm install @dpc-sdp/ripple-grants --save
 
 ```shell
 @dpc-sdp/ripple-grants
-└── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-global
+└── moment
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Grants](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Grants&selectedStory=Grants).
+See [Storybook/Grants Overview](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Grants&selectedStory=Grants%20Overview).
 
 --------------------------------------------------------------------------------
 

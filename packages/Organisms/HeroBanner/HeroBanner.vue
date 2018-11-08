@@ -146,6 +146,8 @@ export default {
     'xxl': ('top': rem(152px), 'bottom': rem(68px))
   ) !default;
 
+  $rpl-hero-banner-left-padding: rem(60px) - $rpl-component-gutter-l;
+
   .rpl-hero-banner {
     $root: &;
     @include rpl_mobile_padding;
@@ -194,6 +196,7 @@ export default {
 
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(8);
+        padding-right: $rpl-hero-banner-left-padding;
       }
     }
 

@@ -73,15 +73,20 @@ export default {
   $rpl-timeline-sidebar-color: $rpl-timeline-point-color !default;
   $rpl-timeline-sidebar-gutter-width: ($rpl-space * 8) !default;
   $rpl-timeline-list-item-padding: 0 0 rem(48px) $rpl-timeline-sidebar-gutter-width !default;
-  $rpl-timeline-title-ruleset: ('l', 1.2em, 'bold') !default;
-  $rpl-timeline-subtitle-ruleset: ('s', 1.5em, 'medium') !default;
-  $rpl-timeline-description-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-timeline-title-text-color: rpl-color('extra_dark_neutral') !default;
-  $rpl-timeline-subtitle-text-color: rpl-color('extra_dark_neutral') !default;
-  $rpl-timeline-description-text-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-timeline-item-title-ruleset: ('l', 1.2em, 'bold') !default;
+  $rpl-timeline-item-subtitle-ruleset: ('s', 1.5em, 'medium') !default;
+  $rpl-timeline-item-description-ruleset: ('s', 1.5em, 'regular') !default;
+  $rpl-timeline-item-title-text-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-timeline-item-subtitle-text-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-timeline-item-description-text-color: rpl-color('extra_dark_neutral') !default;
 
   .rpl-timeline {
     $root: &;
+
+    &__title {
+      color: $rpl-timeline-title-text-color;
+    }
 
     &__list {
       position: relative;
@@ -160,24 +165,24 @@ export default {
     }
 
     &__item-title {
-      @include rpl_typography_ruleset($rpl-timeline-title-ruleset);
-      color: $rpl-timeline-title-text-color;
+      @include rpl_typography_ruleset($rpl-timeline-item-title-ruleset);
+      color: $rpl-timeline-item-title-text-color;
       margin: 0;
 
       .rpl-link {
-        color: $rpl-timeline-title-text-color;
+        color: $rpl-timeline-item-title-text-color;
       }
     }
 
     &__item-subtitle {
-      @include rpl_typography_ruleset($rpl-timeline-subtitle-ruleset);
-      color: $rpl-timeline-subtitle-text-color;
+      @include rpl_typography_ruleset($rpl-timeline-item-subtitle-ruleset);
+      color: $rpl-timeline-item-subtitle-text-color;
       margin: 0 0 $rpl-space 0;
     }
 
     &__item-description {
-      @include rpl_typography_ruleset($rpl-timeline-description-ruleset);
-      color: $rpl-timeline-description-text-color;
+      @include rpl_typography_ruleset($rpl-timeline-item-description-ruleset);
+      color: $rpl-timeline-item-description-text-color;
       margin: 0 0 $rpl-space 0;
     }
   }

@@ -7,7 +7,7 @@
     <div class="rpl-related-links__row">
       <ul class="rpl-related-links__items" v-if="links">
         <li class="rpl-related-links__item" v-for="(item, index) of links" :key="index">
-          <rpl-text-link :url="item.url" icon-symbol="arrow_right_primary" icon-color="white" icon-size="small" :text="item.text" :underline="true" size="small" theme="dark" />
+          <rpl-text-link :url="item.url" icon-symbol="arrow_right_primary" icon-color="white" :text="item.text" :underline="true" size="small" theme="dark" />
         </li>
       </ul>
     </div>

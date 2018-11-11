@@ -20,6 +20,7 @@ npm install @dpc-sdp/ripple-card --save
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-icon
 ├── @dpc-sdp/ripple-link
+├── fontfaceobserver
 └── vue-carousel
 ```
 
@@ -30,6 +31,8 @@ npm install @dpc-sdp/ripple-card --save
 See [Storybook/Card Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Navigation).
 
 See [Storybook/Card Navigation Featured](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Navigation%20Featured).
+
+See [Storybook/Card Image Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Image%20Navigation).
 
 See [Storybook/Card Promotion](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Promotion).
 

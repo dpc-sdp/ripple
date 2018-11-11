@@ -2,10 +2,16 @@
   <rpl-link class="rpl-card-navigation-featured" :href="url" v-if="url">
     <div class="rpl-card-navigation-featured__inner">
       <img class="rpl-card-navigation-featured__image" :src="image" alt="">
-      <h2
-        v-if="title"
-        class="rpl-card-navigation-featured__title"
-      ><span>{{ title }}</span></h2>
+      <div class="rpl-card-navigation-featured__meta_and_title" v-if="title || date || topic">
+        <div class="rpl-card-navigation-featured__meta" v-if="date || topic">
+          <span class="rpl-card-navigation-featured__date" v-if="date">{{ formatDate(date) }}</span>
+          <span class="rpl-card-navigation-featured__tag" v-if="topic">{{ topic }}</span>
+        </div>
+        <h2
+          v-if="title"
+          class="rpl-card-navigation-featured__title"
+        ><span>{{ title }}</span></h2>
+      </div>
     </div>
     <p v-if="summary" class="rpl-card-navigation-featured__summary">{{ summary }}</p>
     <rpl-icon v-if="summary" symbol="arrow_right_primary" color="white" />
@@ -13,16 +19,20 @@
 </template>
 
 <script>
+import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import RplLink from '@dpc-sdp/ripple-link'
 import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplCardNavigationFeatured',
+  mixins: [formatdate],
   props: {
     title: String,
     summary: String,
     url: String,
-    image: String
+    image: String,
+    date: String,
+    topic: String
   },
   components: {
     RplLink,
@@ -57,6 +67,13 @@ export default {
   $rpl-card-navigation-featured-summary-m: ($rpl-space * 6) $rpl-component-padding-m ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-l: ($rpl-space * 11) $rpl-component-padding-l ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-xl: ($rpl-space * 6) $rpl-component-padding-xl ($rpl-space * 7) !default;
+  $rpl-card-navigation-featured-meta-background: rpl_color('secondary') !default;
+  $rpl-card-navigation-featured-meta-text-color: rpl_color('white') !default;
+  $rpl-card-navigation-featured-meta-padding: 0 $rpl-space-2 !default;
+  $rpl-card-navigation-featured-meta-margin: 0 0 $rpl-space !default;
+  $rpl-card-navigation-featured-date-ruleset: ('xs', 1em, 'semibold') !default;
+  $rpl-card-navigation-featured-tag-ruleset: ('xxs', 1em, 'medium') !default;
+  $rpl-card-navigation-featured-meta-divider-margin: auto $rpl-space-2 !default;
 
   .rpl-card-navigation-featured {
     $root: &;
@@ -96,10 +113,8 @@ export default {
       }
     }
 
-    &__title {
-      @include rpl_typography_ruleset($rpl-card-navigation-featured-title-ruleset);
+    &__meta_and_title {
       position: absolute;
-      margin: 0;
       left: $rpl-component-padding-xs;
       right: $rpl-component-padding-xs;
       bottom: $rpl-space * -8;
@@ -122,6 +137,39 @@ export default {
         left: $rpl-component-padding-xl;
         right: $rpl-component-padding-xl;
         bottom: ($rpl-space * 5);
+      }
+    }
+
+    &__meta {
+      display: inline-block;
+      background-color: $rpl-card-navigation-featured-meta-background;
+      color: $rpl-card-navigation-featured-meta-text-color;
+      padding: $rpl-card-navigation-featured-meta-padding;
+      margin-bottom: $rpl-card-navigation-featured-meta-margin;
+
+      span + span {
+        &:before {
+          content: '|';
+          margin: $rpl-card-navigation-featured-meta-divider-margin;
+        }
+      }
+    }
+
+    &__date {
+      @include rpl_typography_ruleset($rpl-card-navigation-featured-date-ruleset);
+    }
+
+    &__tag {
+      @include rpl_typography_ruleset($rpl-card-navigation-featured-tag-ruleset);
+      text-transform: uppercase;
+    }
+
+    &__title {
+      @include rpl_typography_ruleset($rpl-card-navigation-featured-title-ruleset);
+      margin: 0;
+
+      span {
+        line-height: 1.5em;
       }
     }
 

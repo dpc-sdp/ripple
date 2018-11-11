@@ -6,7 +6,7 @@
     <div class="rpl-whats-next__row">
       <ul class="rpl-whats-next__items" v-if="links">
         <li class="rpl-whats-next__item" v-for="(item, index) of links" :key="index">
-          <rpl-text-link :url="item.url" :text="item.text" icon-symbol="arrow_right_primary" icon-size="small" :underline="true" size="small" />
+          <rpl-text-link :url="item.url" :text="item.text" icon-symbol="arrow_right_primary" :underline="true" size="small" />
         </li>
       </ul>
     </div>

@@ -1,13 +1,13 @@
-# @dpc-sdp/ripple-grants
+# @dpc-sdp/ripple-timeline
 
-> Components for displaying Grants information.
+> A timeline component for displaying sequential items.
 
 --------------------------------------------------------------------------------
 
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-grants --save
+npm install @dpc-sdp/ripple-timeline --save
 ```
 
 --------------------------------------------------------------------------------
@@ -15,16 +15,16 @@ npm install @dpc-sdp/ripple-grants --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-grants
+@dpc-sdp/ripple-timeline
 ├── @dpc-sdp/ripple-global
-└── moment
+└── @dpc-sdp/ripple-link
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Grants Overview](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Grants&selectedStory=Grants%20Overview).
+See [Storybook/Timeline](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Timeline&selectedStory=Timeline).
 
 --------------------------------------------------------------------------------
 

@@ -74,7 +74,10 @@ export default {
     'xs': ('xs', 1em, 'semibold'),
     's': ('s', 1em, 'semibold')
   ) !default;
-  $rpl-card-content-inline-link-ruleset: ('xs', 1em, 'semibold') !default;
+  $rpl-card-content-inline-link-ruleset: (
+    'xs': ('xs', 1em, 'semibold'),
+    'm': ('s', 1em, 'semibold')
+  ) !default;
   $rpl-card-content-link-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-content-link-color-hover: rpl_color('primary') !default;
   $rpl-card-content-link-line-space-xs: $rpl-component-padding-xs !default;
@@ -95,8 +98,8 @@ export default {
   $rpl-card-content-inline-padding-xs: ($rpl-space * 6) ($rpl-space * 6) !default;
   $rpl-card-content-inline-padding-s: ($rpl-space * 8) ($rpl-space * 8) !default;
   $rpl-card-content-inline-padding-m: ($rpl-space * 8) ($rpl-space * 8) !default;
-  $rpl-card-content-inline-link-padding-xs: $rpl-space-3 0 0 0 !default;
-  $rpl-card-content-inline-link-padding-s: $rpl-space-3 0 0 0 !default;
+  $rpl-card-content-inline-link-padding-xs: $rpl-space-3 0 $rpl-space-3 0 !default;
+  $rpl-card-content-inline-link-padding-s: $rpl-space-3 0 $rpl-space-3 0 !default;
   $rpl-card-content-inline-link-padding-m: $rpl-space-3 0 0 0 !default;
 
   .rpl-card-content {
@@ -247,6 +250,8 @@ export default {
           padding: $rpl-card-content-default-details-padding-s;
         }
         @include rpl_breakpoint('m') {
+          display: flex;
+          flex-wrap: wrap;
           padding: 0;
           width: 60%;
         }

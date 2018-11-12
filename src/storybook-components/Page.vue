@@ -154,7 +154,7 @@ import RplShareThis from '@dpc-sdp/ripple-share-this'
 import { RplAlert, RplAlertBase } from '@dpc-sdp/ripple-alert'
 
 // News Listing
-import RplNewsListing from '@dpc-sdp/ripple-news-listing'
+import { RplNewsListing } from '@dpc-sdp/ripple-news'
 
 // Image Gallery
 import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'

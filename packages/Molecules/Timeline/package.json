@@ -1,11 +1,11 @@
 {
-  "name": "@dpc-sdp/ripple-news-listing",
+  "name": "@dpc-sdp/ripple-timeline",
   "version": "1.0.0-alpha.24",
-  "description": "A component for listing article headings with date and tag.",
+  "description": "A timeline component for displaying sequential items.",
   "license": "Apache-2.0",
-  "main": "index.vue",
+  "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
-  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/NewsListing",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/Timeline",
   "publishConfig": {
     "access": "public"
   },

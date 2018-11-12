@@ -6,13 +6,21 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import RplNewsListing from './index.vue'
+import RplFeaturedNews from './FeaturedNews.vue'
+import RplNewsListing from './NewsListing.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData.js'
+import { demoData } from '../../../src/storybook-components/_data/demoData'
 
-storiesOf('Molecules/NewsListing', module)
+storiesOf('Organisms/News', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
+  .add('Featured News', withReadme(readme, () => ({
+    components: { RplFeaturedNews },
+    template: `<rpl-featured-news :list="list" />`,
+    data () {
+      return demoData.featuredNews()
+    }
+  })))
   .add('News Listing', withReadme(readme, () => ({
     components: { RplNewsListing },
     template: `<rpl-news-listing :title="title" :list="list" />`,

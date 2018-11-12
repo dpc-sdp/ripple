@@ -179,7 +179,7 @@ const demoData = {
     link: object('Link', { text: 'Read more', url: '#' }),
     image: text('Image', 'https://placehold.it/580x340'),
     border: boolean('Border', true),
-    type: selectV2('Type', {default: 'default', simple: 'simple'}, 'default'),
+    type: selectV2('Type', {default: 'default', simple: 'simple', inline: 'inline'}, 'default'),
     content: text('HTML content', '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>')
   }),
 
@@ -193,7 +193,18 @@ const demoData = {
     title: text('Title', 'This is display copy that wraps 2 lines'),
     summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
     url: text('Url', '#'),
-    image: text('Image', 'https://placehold.it/818x497')
+    image: text('Image', 'https://placehold.it/818x497'),
+    date: text('Date', '2018-03-23T09:00:00.000+10:00'),
+    topic: text('Topic', 'Community')
+  }),
+
+  cardImageNavigation: () => ({
+    image: text('Image', 'https://placehold.it/304x199'),
+    date: text('Date', '2018-03-23T09:00:00.000+10:00'),
+    topic: text('Topic', 'Community'),
+    title: text('Title', 'This heading could wrap over two lines'),
+    summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.'),
+    link: object('Link', { text: 'Call to action', url: '#' })
   }),
 
   cardPromotion: () => ({
@@ -1337,6 +1348,35 @@ const demoData = {
     caption: text('Caption', '1.2 Caption to go here. This should be restricted in characters.')
   }),
 
+  featuredNews: () => ({
+    list: object('List', [
+      {
+        image: 'https://placehold.it/818x497',
+        date: '2018-03-23T09:00:00.000+10:00',
+        topic: 'Community',
+        title: 'This heading could wrap over two lines',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { text: 'Call to action', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/818x497',
+        date: '2018-03-23T09:00:00.000+10:00',
+        topic: 'Community',
+        title: 'This heading could wrap over two lines',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { text: 'Call to action', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/818x497',
+        date: '2018-03-23T09:00:00.000+10:00',
+        topic: 'Community',
+        title: 'This heading could wrap over two lines',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { text: 'Call to action', url: '#' }
+      }
+    ])
+  }),
+
   latestEvents: () => ({
     title: text('Title', 'Optional heading'),
     events: object('Events', [
@@ -1467,6 +1507,39 @@ const demoData = {
     textColor: text('Text Color', 'white'),
     iconColor: text('Icon Color', 'white'),
     closeIconColor: text('Close Icon Color', 'white')
+  }),
+
+  timeline: () => ({
+    title: text('Title', 'Timeline Heading'),
+    list: object('List', [{
+      image: 'https://placehold.it/320x240',
+      title: 'Timeline item with link',
+      url: '#',
+      dateStart: '2019-01-01T09:00:00.000+10:00',
+      dateEnd: '2020-12-01T09:00:00.000+10:00',
+      description: 'Contains image, title, internal URL, different start / end date and description.'
+    }, {
+      title: 'Timeline item 2',
+      subtitle: 'Contains title and custom subtitle.'
+    }, {
+      image: 'https://placehold.it/88x88',
+      title: 'Timeline item 3',
+      dateStart: '2018-01-01T09:00:00.000+10:00',
+      dateEnd: '2018-01-15T09:00:00.000+10:00',
+      subtitle: 'Custom subtitle - this should not show.',
+      description: 'Contains image, title, different start / end date, subtitle (hidden) and description.'
+    }, {
+      title: 'Timeline item 4',
+      dateStart: '2018-03-01T09:00:00.000+10:00',
+      dateEnd: '2018-03-01T09:00:00.000+10:00',
+      description: 'Contains title, matching start / end date and description.'
+    }, {
+      image: 'https://placehold.it/88x88',
+      title: 'Timeline item 5 with link',
+      url: 'https://www.google.com',
+      description: 'Contains an image, title, external URL and description.'
+    }
+    ])
   })
 }
 

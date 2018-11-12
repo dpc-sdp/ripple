@@ -1,13 +1,13 @@
-# @dpc-sdp/ripple-news-listing
+# @dpc-sdp/ripple-news
 
-> A component for listing article headings with date and tag.
+> Components for displaying news articles.
 
 --------------------------------------------------------------------------------
 
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-news-listing --save
+npm install @dpc-sdp/ripple-news --save
 ```
 
 --------------------------------------------------------------------------------
@@ -15,8 +15,9 @@ npm install @dpc-sdp/ripple-news-listing --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-news-listing
+@dpc-sdp/ripple-news
 ├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-card
 └── @dpc-sdp/ripple-link
 ```
 
@@ -24,7 +25,9 @@ npm install @dpc-sdp/ripple-news-listing --save
 
 ## Usage and Tests
 
-See [Storybook/News Listing](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/NewsListing&selectedStory=News%20Listing).
+See [Storybook/Featured News](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/News&selectedStory=Featured%20News).
+
+See [Storybook/News Listing](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/News&selectedStory=News%20Listing).
 
 --------------------------------------------------------------------------------
 

@@ -7604,6 +7604,480 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Card Card Image Navigation 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Molecules/Card
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Card Image Navigation
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <a
+      class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
+      data-v-6ca0e090=""
+      href="#"
+    >
+      <div
+        class="rpl-card-content__image-wrapper"
+      >
+        <img
+          alt=""
+          class="rpl-card-content__image"
+          src="https://placehold.it/304x199"
+        />
+      </div>
+       
+      <div
+        class="rpl-card-content__details"
+      >
+        <div
+          class="rpl-card-image-navigation__details"
+        >
+          <div
+            class="rpl-card-image-navigation__meta"
+          >
+            <div
+              class="rpl-card-image-navigation__date"
+            >
+              23 March
+            </div>
+             
+            <div
+              class="rpl-card-image-navigation__tag"
+            >
+              Community
+            </div>
+          </div>
+           
+          <h2
+            class="rpl-card-image-navigation__title"
+          >
+            This heading could wrap over two lines
+          </h2>
+           
+          <p
+            class="rpl-card-image-navigation__summary"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+         
+        <div
+          class="rpl-card-content__link"
+        >
+          <span>
+            <span>
+              Call to
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               action
+              <!---->
+            </span>
+             
+            <!---->
+          </span>
+        </div>
+      </div>
+       
+      <!---->
+    </a>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-card-image-navigation
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :image
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "image"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :date
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "date"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :topic
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "topic"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :title
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "title"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :summary
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "summary"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :link
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "link"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplCardImageNavigation" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    image
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    date
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    topic
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    summary
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    link
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/Card Card Keydates 1`] = `
 <div
   class="vue-info"
@@ -8324,13 +8798,33 @@ exports[`RippleStoryshots Molecules/Card Card Navigation Featured 1`] = `
           src="https://placehold.it/818x497"
         />
          
-        <h2
-          class="rpl-card-navigation-featured__title"
+        <div
+          class="rpl-card-navigation-featured__meta_and_title"
         >
-          <span>
-            This is display copy that wraps 2 lines
-          </span>
-        </h2>
+          <div
+            class="rpl-card-navigation-featured__meta"
+          >
+            <span
+              class="rpl-card-navigation-featured__date"
+            >
+              23 March
+            </span>
+             
+            <span
+              class="rpl-card-navigation-featured__tag"
+            >
+              Community
+            </span>
+          </div>
+           
+          <h2
+            class="rpl-card-navigation-featured__title"
+          >
+            <span>
+              This is display copy that wraps 2 lines
+            </span>
+          </h2>
+        </div>
       </div>
        
       <p
@@ -8377,6 +8871,42 @@ exports[`RippleStoryshots Molecules/Card Card Navigation Featured 1`] = `
           <span
             class="hljs-attr"
           >
+            :image
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "image"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :date
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "date"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :topic
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "topic"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
             :title
           </span>
           =
@@ -8408,18 +8938,6 @@ exports[`RippleStoryshots Molecules/Card Card Navigation Featured 1`] = `
             class="hljs-string"
           >
             "url"
-          </span>
-           
-          <span
-            class="hljs-attr"
-          >
-            :image
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "image"
           </span>
            /&gt;
         </span>
@@ -8594,6 +9112,70 @@ exports[`RippleStoryshots Molecules/Card Card Navigation Featured 1`] = `
           >
             
     image
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    date
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    topic
     
             <!---->
           </td>
@@ -13512,493 +14094,6 @@ exports[`RippleStoryshots Molecules/List List 1`] = `
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/NewsListing News Listing 1`] = `
-<div
-  class="vue-info"
-  data-v-6ca0e090=""
->
-  <div
-    class="info-header"
-    data-v-003f20ee=""
-    data-v-6ca0e090=""
-  >
-    <h1
-      class="title"
-      data-v-003f20ee=""
-    >
-      
-    Molecules/NewsListing
-  
-    </h1>
-     
-    <h2
-      class="story-title"
-      data-v-003f20ee=""
-    >
-      
-    News Listing
-  
-    </h2>
-  </div>
-   
-  <div
-    class="info-content"
-    data-v-6ca0e090=""
-  >
-    <div
-      class="rpl-news-listing"
-      data-v-6ca0e090=""
-    >
-      <h2
-        class="rpl-news-listing__heading"
-      >
-        Latest News
-      </h2>
-       
-      <ul
-        class="rpl-news-listing__items"
-      >
-        <li
-          class="rpl-news-listing__item"
-        >
-          <div>
-            <span
-              class="rpl-news-listing__item-date"
-            >
-              26 March 2018
-            </span>
-             
-            <span
-              class="rpl-news-listing__item-tag"
-            >
-              Event
-            </span>
-             
-            <h3
-              class="rpl-news-listing__item-heading"
-            >
-              <a
-                class="rpl-link rpl-text-link"
-                href="#"
-              >
-                <span>
-                  <span>
-                    Australian Indigenous Tourism
-                  </span>
-                   
-                  <span
-                    class="rpl-text-icon__group"
-                  >
-                     Conference
-                    <!---->
-                  </span>
-                   
-                  <!---->
-                </span>
-              </a>
-            </h3>
-          </div>
-        </li>
-        <li
-          class="rpl-news-listing__item"
-        >
-          <div>
-            <span
-              class="rpl-news-listing__item-date"
-            >
-              25 March 2018
-            </span>
-             
-            <span
-              class="rpl-news-listing__item-tag"
-            >
-              Community
-            </span>
-             
-            <h3
-              class="rpl-news-listing__item-heading"
-            >
-              <a
-                class="rpl-link rpl-text-link"
-                href="#"
-              >
-                <span>
-                  <span>
-                    Respect Women: Call it
-                  </span>
-                   
-                  <span
-                    class="rpl-text-icon__group"
-                  >
-                     Out
-                    <!---->
-                  </span>
-                   
-                  <!---->
-                </span>
-              </a>
-            </h3>
-          </div>
-        </li>
-        <li
-          class="rpl-news-listing__item"
-        >
-          <div>
-            <span
-              class="rpl-news-listing__item-date"
-            >
-              24 March 2018
-            </span>
-             
-            <span
-              class="rpl-news-listing__item-tag"
-            >
-              Arts & Culture
-            </span>
-             
-            <h3
-              class="rpl-news-listing__item-heading"
-            >
-              <a
-                class="rpl-link rpl-text-link"
-                href="#"
-              >
-                <span>
-                  <span>
-                    NGV
-                  </span>
-                   
-                  <span
-                    class="rpl-text-icon__group"
-                  >
-                     Triennial
-                    <!---->
-                  </span>
-                   
-                  <!---->
-                </span>
-              </a>
-            </h3>
-          </div>
-        </li>
-        <li
-          class="rpl-news-listing__item"
-        >
-          <div>
-            <span
-              class="rpl-news-listing__item-date"
-            >
-              22 February 2018
-            </span>
-             
-            <span
-              class="rpl-news-listing__item-tag"
-            >
-              Sports
-            </span>
-             
-            <h3
-              class="rpl-news-listing__item-heading"
-            >
-              <a
-                class="rpl-link rpl-text-link"
-                href="#"
-              >
-                <span>
-                  <span>
-                    The World Games Facilities
-                  </span>
-                   
-                  <span
-                    class="rpl-text-icon__group"
-                  >
-                     Fund
-                    <!---->
-                  </span>
-                   
-                  <!---->
-                </span>
-              </a>
-            </h3>
-          </div>
-        </li>
-        <li
-          class="rpl-news-listing__item"
-        >
-          <div>
-            <span
-              class="rpl-news-listing__item-date"
-            >
-              21 February 2018
-            </span>
-             
-            <span
-              class="rpl-news-listing__item-tag"
-            >
-              Law & Justice
-            </span>
-             
-            <h3
-              class="rpl-news-listing__item-heading"
-            >
-              <a
-                class="rpl-link rpl-text-link"
-                href="#"
-              >
-                <span>
-                  <span>
-                    Access to Justice
-                  </span>
-                   
-                  <span
-                    class="rpl-text-icon__group"
-                  >
-                     Review
-                    <!---->
-                  </span>
-                   
-                  <!---->
-                </span>
-              </a>
-            </h3>
-          </div>
-        </li>
-        <li
-          class="rpl-news-listing__item"
-        >
-          <div>
-            <span
-              class="rpl-news-listing__item-date"
-            >
-              19 February 2018
-            </span>
-             
-            <span
-              class="rpl-news-listing__item-tag"
-            >
-              Family Violence
-            </span>
-             
-            <h3
-              class="rpl-news-listing__item-heading"
-            >
-              <a
-                class="rpl-link rpl-text-link"
-                href="#"
-              >
-                <span>
-                  <span>
-                    New Bendigo Refuge for Families Escaping Family
-                  </span>
-                   
-                  <span
-                    class="rpl-text-icon__group"
-                  >
-                     Violence
-                    <!---->
-                  </span>
-                   
-                  <!---->
-                </span>
-              </a>
-            </h3>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-   
-  <!---->
-   
-  <div
-    data-v-6ca0e090=""
-    data-v-b425eb9a=""
-  >
-    <h2
-      class="section-title"
-      data-v-6814cc1a=""
-      data-v-b425eb9a=""
-    >
-      Story Source
-    </h2>
-     
-    <pre
-      class="code html hljs xml"
-      data-v-b425eb9a=""
-    >
-      <code
-        data-v-b425eb9a=""
-      >
-        <span
-          class="hljs-tag"
-        >
-          &lt;
-          <span
-            class="hljs-name"
-          >
-            rpl-news-listing
-          </span>
-           
-          <span
-            class="hljs-attr"
-          >
-            :title
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "title"
-          </span>
-           
-          <span
-            class="hljs-attr"
-          >
-            :list
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "list"
-          </span>
-           /&gt;
-        </span>
-      </code>
-    </pre>
-  </div>
-   
-  <h2
-    class="section-title"
-    data-v-6814cc1a=""
-    data-v-6ca0e090=""
-  >
-    Props
-  </h2>
-   
-  <div
-    data-v-6ca0e090=""
-    data-v-91bb5cde=""
-  >
-    <h3
-      class="component-name"
-      data-v-91bb5cde=""
-    >
-      
-    "RplNewsListing" Component
-  
-    </h3>
-     
-    <table
-      class="props"
-      data-v-91bb5cde=""
-    >
-      <thead
-        class="props-head"
-        data-v-91bb5cde=""
-      >
-        <tr
-          data-v-91bb5cde=""
-        >
-          <th
-            data-v-91bb5cde=""
-          >
-            Name
-          </th>
-           
-          <th
-            data-v-91bb5cde=""
-          >
-            Type
-          </th>
-           
-          <th
-            data-v-91bb5cde=""
-          >
-            Default
-          </th>
-           
-          <th
-            data-v-91bb5cde=""
-          >
-            Description
-          </th>
-        </tr>
-      </thead>
-       
-      <tbody
-        data-v-91bb5cde=""
-      >
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    title
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            string
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    list
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            array
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
 exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
 <div
   class="vue-info"
@@ -18807,6 +18902,393 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Timeline Timeline 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Molecules/Timeline
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Timeline
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-timeline"
+      data-v-6ca0e090=""
+    >
+      <h2
+        class="rpl-timeline__title"
+      >
+        Timeline Heading
+      </h2>
+       
+      <ol
+        class="rpl-timeline__list"
+      >
+        <li
+          class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
+        >
+          <img
+            alt=""
+            class="rpl-timeline__item-image"
+            src="https://placehold.it/320x240"
+          />
+           
+          <h3
+            class="rpl-timeline__item-title"
+          >
+            <!---->
+             
+            <a
+              class="rpl-link"
+              href="#"
+            >
+              Timeline item with link
+            </a>
+          </h3>
+           
+          <p
+            class="rpl-timeline__item-subtitle"
+          >
+            01 January 2019 to 01 December 2020
+          </p>
+           
+          <p
+            class="rpl-timeline__item-description"
+          >
+            Contains image, title, internal URL, different start / end date and description.
+          </p>
+        </li>
+        <li
+          class="rpl-timeline__list-item rpl-timeline__list-item--multi"
+        >
+          <!---->
+           
+          <h3
+            class="rpl-timeline__item-title"
+          >
+            <span>
+              Timeline item 2
+            </span>
+             
+            <!---->
+          </h3>
+           
+          <p
+            class="rpl-timeline__item-subtitle"
+          >
+            Contains title and custom subtitle.
+          </p>
+           
+          <!---->
+        </li>
+        <li
+          class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
+        >
+          <img
+            alt=""
+            class="rpl-timeline__item-image"
+            src="https://placehold.it/88x88"
+          />
+           
+          <h3
+            class="rpl-timeline__item-title"
+          >
+            <span>
+              Timeline item 3
+            </span>
+             
+            <!---->
+          </h3>
+           
+          <p
+            class="rpl-timeline__item-subtitle"
+          >
+            01 to 15 January
+          </p>
+           
+          <p
+            class="rpl-timeline__item-description"
+          >
+            Contains image, title, different start / end date, subtitle (hidden) and description.
+          </p>
+        </li>
+        <li
+          class="rpl-timeline__list-item rpl-timeline__list-item--multi"
+        >
+          <!---->
+           
+          <h3
+            class="rpl-timeline__item-title"
+          >
+            <span>
+              Timeline item 4
+            </span>
+             
+            <!---->
+          </h3>
+           
+          <p
+            class="rpl-timeline__item-subtitle"
+          >
+            01 March
+          </p>
+           
+          <p
+            class="rpl-timeline__item-description"
+          >
+            Contains title, matching start / end date and description.
+          </p>
+        </li>
+        <li
+          class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
+        >
+          <img
+            alt=""
+            class="rpl-timeline__item-image"
+            src="https://placehold.it/88x88"
+          />
+           
+          <h3
+            class="rpl-timeline__item-title"
+          >
+            <!---->
+             
+            <a
+              class="rpl-link"
+              href="https://www.google.com"
+              target="_blank"
+            >
+              Timeline item 5 with link
+            </a>
+          </h3>
+           
+          <!---->
+           
+          <p
+            class="rpl-timeline__item-description"
+          >
+            Contains an image, title, external URL and description.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-timeline
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :title
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "title"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :list
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "list"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplTimeline" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    list
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
 <div
   class="vue-info"
@@ -23388,6 +23870,884 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
             data-v-5bd9cdea=""
           >
             Go to next slide
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/News Featured News 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/News
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Featured News
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <ul
+      class="rpl-featured-news-list"
+      data-v-6ca0e090=""
+    >
+      <li
+        class="rpl-featured-news-list__item"
+      >
+        <a
+          class="rpl-link rpl-card-navigation-featured"
+          href="#"
+        >
+          <div
+            class="rpl-card-navigation-featured__inner"
+          >
+            <img
+              alt=""
+              class="rpl-card-navigation-featured__image"
+              src="https://placehold.it/818x497"
+            />
+             
+            <div
+              class="rpl-card-navigation-featured__meta_and_title"
+            >
+              <div
+                class="rpl-card-navigation-featured__meta"
+              >
+                <span
+                  class="rpl-card-navigation-featured__date"
+                >
+                  23 March
+                </span>
+                 
+                <span
+                  class="rpl-card-navigation-featured__tag"
+                >
+                  Community
+                </span>
+              </div>
+               
+              <h2
+                class="rpl-card-navigation-featured__title"
+              >
+                <span>
+                  This heading could wrap over two lines
+                </span>
+              </h2>
+            </div>
+          </div>
+           
+          <p
+            class="rpl-card-navigation-featured__summary"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+           
+          <!---->
+        </a>
+      </li>
+      <li
+        class="rpl-featured-news-list__item"
+      >
+        <a
+          class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
+          href="#"
+        >
+          <div
+            class="rpl-card-content__image-wrapper"
+          >
+            <img
+              alt=""
+              class="rpl-card-content__image"
+              src="https://placehold.it/818x497"
+            />
+          </div>
+           
+          <div
+            class="rpl-card-content__details"
+          >
+            <div
+              class="rpl-card-image-navigation__details"
+            >
+              <div
+                class="rpl-card-image-navigation__meta"
+              >
+                <div
+                  class="rpl-card-image-navigation__date"
+                >
+                  23 March
+                </div>
+                 
+                <div
+                  class="rpl-card-image-navigation__tag"
+                >
+                  Community
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-image-navigation__title"
+              >
+                This heading could wrap over two lines
+              </h2>
+               
+              <p
+                class="rpl-card-image-navigation__summary"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  Call to
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   action
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </div>
+           
+          <!---->
+        </a>
+      </li>
+      <li
+        class="rpl-featured-news-list__item"
+      >
+        <a
+          class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
+          href="#"
+        >
+          <div
+            class="rpl-card-content__image-wrapper"
+          >
+            <img
+              alt=""
+              class="rpl-card-content__image"
+              src="https://placehold.it/818x497"
+            />
+          </div>
+           
+          <div
+            class="rpl-card-content__details"
+          >
+            <div
+              class="rpl-card-image-navigation__details"
+            >
+              <div
+                class="rpl-card-image-navigation__meta"
+              >
+                <div
+                  class="rpl-card-image-navigation__date"
+                >
+                  23 March
+                </div>
+                 
+                <div
+                  class="rpl-card-image-navigation__tag"
+                >
+                  Community
+                </div>
+              </div>
+               
+              <h2
+                class="rpl-card-image-navigation__title"
+              >
+                This heading could wrap over two lines
+              </h2>
+               
+              <p
+                class="rpl-card-image-navigation__summary"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+             
+            <div
+              class="rpl-card-content__link"
+            >
+              <span>
+                <span>
+                  Call to
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   action
+                  <!---->
+                </span>
+                 
+                <!---->
+              </span>
+            </div>
+          </div>
+           
+          <!---->
+        </a>
+      </li>
+    </ul>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-featured-news
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :list
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "list"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplFeaturedNews" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    list
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/News News Listing 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/News
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    News Listing
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-news-listing"
+      data-v-6ca0e090=""
+    >
+      <h2
+        class="rpl-news-listing__heading"
+      >
+        Latest News
+      </h2>
+       
+      <ul
+        class="rpl-news-listing__items"
+      >
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              26 March 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Event
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    Australian Indigenous Tourism
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Conference
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              25 March 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Community
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    Respect Women: Call it
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Out
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              24 March 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Arts & Culture
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    NGV
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Triennial
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              22 February 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Sports
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    The World Games Facilities
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Fund
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              21 February 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Law & Justice
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    Access to Justice
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Review
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+        <li
+          class="rpl-news-listing__item"
+        >
+          <div>
+            <span
+              class="rpl-news-listing__item-date"
+            >
+              19 February 2018
+            </span>
+             
+            <span
+              class="rpl-news-listing__item-tag"
+            >
+              Family Violence
+            </span>
+             
+            <h3
+              class="rpl-news-listing__item-heading"
+            >
+              <a
+                class="rpl-link rpl-text-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    New Bendigo Refuge for Families Escaping Family
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Violence
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </h3>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-news-listing
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :title
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "title"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :list
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "list"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplNewsListing" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    list
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
           </td>
            
           <td
@@ -28269,13 +29629,33 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       src="https://placehold.it/818x497"
                     />
                      
-                    <h2
-                      class="rpl-card-navigation-featured__title"
+                    <div
+                      class="rpl-card-navigation-featured__meta_and_title"
                     >
-                      <span>
-                        This is display copy that wraps 2 lines
-                      </span>
-                    </h2>
+                      <div
+                        class="rpl-card-navigation-featured__meta"
+                      >
+                        <span
+                          class="rpl-card-navigation-featured__date"
+                        >
+                          23 March
+                        </span>
+                         
+                        <span
+                          class="rpl-card-navigation-featured__tag"
+                        >
+                          Community
+                        </span>
+                      </div>
+                       
+                      <h2
+                        class="rpl-card-navigation-featured__title"
+                      >
+                        <span>
+                          This is display copy that wraps 2 lines
+                        </span>
+                      </h2>
+                    </div>
                   </div>
                    
                   <p

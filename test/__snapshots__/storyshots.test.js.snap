@@ -31252,6 +31252,16 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           </ul>
         </div>
       </div>
+       
+      <div
+        class="rpl-site-constrain--on-all"
+      >
+        <p
+          class="rpl-updated-date"
+        >
+          Reviewed 12 December 2006
+        </p>
+      </div>
     </section>
   </div>
     

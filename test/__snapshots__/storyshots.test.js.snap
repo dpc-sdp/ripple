@@ -14920,11 +14920,12 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
           >
             <a
               class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
-              href="#"
+              href="http://www.google.com"
+              target="_blank"
             >
               <span>
                 <span>
-                  Link to additional
+                  Link to external
                 </span>
                  
                 <span
@@ -18960,11 +18961,12 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
           >
             <a
               class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
-              href="#"
+              href="http://www.google.com"
+              target="_blank"
             >
               <span>
                 <span>
-                  Link to additional
+                  Link to external
                 </span>
                  
                 <span
@@ -27209,11 +27211,12 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                   >
                     <a
                       class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
-                      href="#"
+                      href="http://www.google.com"
+                      target="_blank"
                     >
                       <span>
                         <span>
-                          Link to additional
+                          Link to external
                         </span>
                          
                         <span
@@ -30077,11 +30080,12 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   >
                     <a
                       class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
-                      href="#"
+                      href="http://www.google.com"
+                      target="_blank"
                     >
                       <span>
                         <span>
-                          Link to additional
+                          Link to external
                         </span>
                          
                         <span
@@ -30192,11 +30196,12 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   >
                     <a
                       class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
-                      href="#"
+                      href="http://www.google.com"
+                      target="_blank"
                     >
                       <span>
                         <span>
-                          Link to additional
+                          Link to external
                         </span>
                          
                         <span
@@ -31573,11 +31578,12 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                   >
                     <a
                       class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
-                      href="#"
+                      href="http://www.google.com"
+                      target="_blank"
                     >
                       <span>
                         <span>
-                          Link to additional
+                          Link to external
                         </span>
                          
                         <span

@@ -352,7 +352,7 @@ const demoData = {
   relatedLinks: () => ({
     title: text('Title', 'Related links'),
     links: object('Links', [
-      { text: 'Link to additional content', url: '#' },
+      { text: 'Link to external content', url: 'http://www.google.com' },
       { text: 'Second link it goes right here', url: '#' },
       { text: 'Third link to extra content', url: '#' },
       { text: 'This is a long link to extra content', url: '#' }
@@ -362,7 +362,7 @@ const demoData = {
   whatsNext: () => ({
     title: text('Title', 'What\'s next?'),
     links: object('Links', [
-      { text: 'Link to additional content', url: '#' },
+      { text: 'Link to external content', url: 'http://www.google.com' },
       { text: 'Second link to extra content', url: '#' },
       { text: 'Third link goes here', url: '#' },
       { text: 'Link to additional content', url: '#' },

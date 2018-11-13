@@ -25175,8 +25175,8 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             href="#"
           >
             <img
-              alt="Logo 1"
-              src="https://placehold.it/50x50"
+              alt="Max native size"
+              src="https://placehold.it/112x52"
             />
           </a>
           <a
@@ -25184,8 +25184,8 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             href="#"
           >
             <img
-              alt="Logo 2"
-              src="https://placehold.it/100x200"
+              alt="Smaller than max size"
+              src="https://placehold.it/32x32"
             />
           </a>
           <a
@@ -25193,8 +25193,17 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             href="#"
           >
             <img
-              alt="Logo 2"
-              src="https://placehold.it/200x100"
+              alt="Portrait"
+              src="https://placehold.it/80x200"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Landscape"
+              src="https://placehold.it/200x80"
             />
           </a>
           <a
@@ -33666,8 +33675,8 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
             href="#"
           >
             <img
-              alt="Logo 1"
-              src="https://placehold.it/50x50"
+              alt="Max native size"
+              src="https://placehold.it/112x52"
             />
           </a>
           <a
@@ -33675,8 +33684,8 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
             href="#"
           >
             <img
-              alt="Logo 2"
-              src="https://placehold.it/100x200"
+              alt="Smaller than max size"
+              src="https://placehold.it/32x32"
             />
           </a>
           <a
@@ -33684,8 +33693,17 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
             href="#"
           >
             <img
-              alt="Logo 2"
-              src="https://placehold.it/200x100"
+              alt="Portrait"
+              src="https://placehold.it/80x200"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Landscape"
+              src="https://placehold.it/200x80"
             />
           </a>
           <a
@@ -34758,8 +34776,8 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
             href="#"
           >
             <img
-              alt="Logo 1"
-              src="https://placehold.it/76x43"
+              alt="Max native size"
+              src="https://placehold.it/112x52"
             />
           </a>
           <a
@@ -34767,8 +34785,26 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
             href="#"
           >
             <img
-              alt="Logo 2"
-              src="https://placehold.it/76x43"
+              alt="Smaller than max size"
+              src="https://placehold.it/32x32"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Portrait"
+              src="https://placehold.it/80x200"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Landscape"
+              src="https://placehold.it/200x80"
             />
           </a>
           <a

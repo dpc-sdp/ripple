@@ -7,6 +7,7 @@
     }"
   >
     <h2 v-if="title" class="rpl-list__title">{{ title }}</h2>
+    <slot name="above-list"></slot>
     <div v-if="list" class="rpl-list__list">
       <div v-for="(item, index) in list" :key="index" class="rpl-list__list-item">
         <span class="rpl-list__icon">
@@ -15,6 +16,7 @@
           <span v-else :href="item.link" class="rpl-list__text">{{ item.text }}</span>
       </div>
     </div>
+    <slot name="below-list"></slot>
   </div>
 </template>
 

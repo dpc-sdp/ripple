@@ -9748,162 +9748,175 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
       class="rpl-contact"
       data-v-6ca0e090=""
     >
-      <h2
-        class="rpl-contact__title"
+      <div
+        class="rpl-list rpl-list--normal"
       >
-        Need additional help?
-      </h2>
-       
-      <p
-        class="rpl-contact__contact-details"
-      >
-        <span
-          class="rpl-contact__name"
+        <h2
+          class="rpl-list__title"
         >
-          First Last Name (Job Title)
-        </span>
+          Need additional help?
+        </h2>
          
-        <span
-          class="rpl-contact__department"
+        <p
+          class="rpl-contact__contact-details"
         >
-          Department name
-        </span>
+          <span
+            class="rpl-contact__name"
+          >
+            First Last Name (Job Title)
+          </span>
+           
+          <span
+            class="rpl-contact__department"
+          >
+            Department name
+          </span>
+           
+          <span
+            class="rpl-contact__postal"
+          >
+            PO Box 123, Suburb VIC 3421
+          </span>
+        </p>
          
-        <span
-          class="rpl-contact__postal"
+        <div
+          class="rpl-list__list"
         >
-          PO Box 123, Suburb VIC 3421
-        </span>
-      </p>
-       
-      <p
-        class="rpl-contact__address"
-      >
-        <span
-          class="rpl-contact__icon"
-        >
-          <!---->
-        </span>
-        <a
-          class="rpl-link"
-          href="https://www.google.com.au/maps?q=13%20Street%20Name,%20Suburb%20VIC%203056"
-          target="_blank"
-        >
-          13 Street Name, Suburb VIC 3056
-        </a>
-      </p>
-       
-      <p
-        class="rpl-contact__phone"
-      >
-        <span
-          class="rpl-contact__icon"
-        >
-          <!---->
-        </span>
-        <a
-          class="rpl-link"
-          href="tel:03 9876 6754"
-        >
-          03 9876 6754
-        </a>
-      </p>
-      <p
-        class="rpl-contact__phone"
-      >
-        <span
-          class="rpl-contact__icon"
-        >
-          <!---->
-        </span>
-        <a
-          class="rpl-link"
-          href="tel:03 9876 1234"
-        >
-          03 9876 1234
-        </a>
-      </p>
-       
-      <p
-        class="rpl-contact__email"
-      >
-        <span
-          class="rpl-contact__icon"
-        >
-          <!---->
-        </span>
-        <a
-          class="rpl-link"
-          href="mailto:emailaddress@vic.gov.au"
-        >
-          emailaddress@vic.gov.au
-        </a>
-      </p>
-       
-      <p
-        class="rpl-contact__social"
-      >
-        <span
-          class="rpl-contact__icon"
-        >
-          <!---->
-        </span>
-        <a
-          class="rpl-link"
-          href="https://www.facebook.com"
-          target="_blank"
-        >
-          Name of Facebook Page
-        </a>
-      </p>
-      <p
-        class="rpl-contact__social"
-      >
-        <span
-          class="rpl-contact__icon"
-        >
-          <!---->
-        </span>
-        <a
-          class="rpl-link"
-          href="https://www.twitter.com"
-          target="_blank"
-        >
-          Name of Twitter account
-        </a>
-      </p>
-      <p
-        class="rpl-contact__social"
-      >
-        <span
-          class="rpl-contact__icon"
-        >
-          <!---->
-        </span>
-        <a
-          class="rpl-link"
-          href="https://www.linkedin.com"
-          target="_blank"
-        >
-          Name of LinkedIn profile
-        </a>
-      </p>
-      <p
-        class="rpl-contact__social"
-      >
-        <span
-          class="rpl-contact__icon"
-        >
-          <!---->
-        </span>
-        <a
-          class="rpl-link"
-          href="https://www.intagram.com"
-          target="_blank"
-        >
-          Name of Instagram account
-        </a>
-      </p>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <a
+              class="rpl-link rpl-list__text"
+              href="https://www.google.com.au/maps?q=13%20Street%20Name,%20Suburb%20VIC%203056"
+              target="_blank"
+            >
+              13 Street Name, Suburb VIC 3056
+            </a>
+          </div>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <a
+              class="rpl-link rpl-list__text"
+              href="tel: 03 9876 6754"
+            >
+              03 9876 6754
+            </a>
+          </div>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <a
+              class="rpl-link rpl-list__text"
+              href="tel: 03 9876 1234"
+            >
+              03 9876 1234
+            </a>
+          </div>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <span
+              class="rpl-list__text"
+            >
+              emailaddress@vic.gov.au
+            </span>
+          </div>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <a
+              class="rpl-link rpl-list__text"
+              href="https://www.facebook.com"
+              target="_blank"
+            >
+              Name of Facebook Page
+            </a>
+          </div>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <a
+              class="rpl-link rpl-list__text"
+              href="https://www.twitter.com"
+              target="_blank"
+            >
+              Name of Twitter account
+            </a>
+          </div>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <a
+              class="rpl-link rpl-list__text"
+              href="https://www.linkedin.com"
+              target="_blank"
+            >
+              Name of LinkedIn profile
+            </a>
+          </div>
+          <div
+            class="rpl-list__list-item"
+          >
+            <span
+              class="rpl-list__icon"
+            >
+              <!---->
+            </span>
+             
+            <a
+              class="rpl-link rpl-list__text"
+              href="https://www.intagram.com"
+              target="_blank"
+            >
+              Name of Instagram account
+            </a>
+          </div>
+        </div>
+         
+      </div>
     </div>
   </div>
    
@@ -13671,7 +13684,7 @@ exports[`RippleStoryshots Molecules/List List 1`] = `
       >
         My List
       </h2>
-       
+        
       <div
         class="rpl-list__list"
       >
@@ -13768,6 +13781,7 @@ exports[`RippleStoryshots Molecules/List List 1`] = `
           </span>
         </div>
       </div>
+       
     </div>
   </div>
    
@@ -14920,11 +14934,12 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
           >
             <a
               class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
-              href="#"
+              href="http://www.google.com"
+              target="_blank"
             >
               <span>
                 <span>
-                  Link to additional
+                  Link to external
                 </span>
                  
                 <span
@@ -19347,11 +19362,12 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
           >
             <a
               class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
-              href="#"
+              href="http://www.google.com"
+              target="_blank"
             >
               <span>
                 <span>
-                  Link to additional
+                  Link to external
                 </span>
                  
                 <span
@@ -21613,7 +21629,7 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
         >
           Program Overview
         </h2>
-         
+          
         <div
           class="rpl-list__list"
         >
@@ -21663,6 +21679,7 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
             </span>
           </div>
         </div>
+         
       </div>
        
       <p
@@ -27596,11 +27613,12 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                   >
                     <a
                       class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
-                      href="#"
+                      href="http://www.google.com"
+                      target="_blank"
                     >
                       <span>
                         <span>
-                          Link to additional
+                          Link to external
                         </span>
                          
                         <span
@@ -30464,11 +30482,12 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   >
                     <a
                       class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
-                      href="#"
+                      href="http://www.google.com"
+                      target="_blank"
                     >
                       <span>
                         <span>
-                          Link to additional
+                          Link to external
                         </span>
                          
                         <span
@@ -30579,11 +30598,12 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   >
                     <a
                       class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
-                      href="#"
+                      href="http://www.google.com"
+                      target="_blank"
                     >
                       <span>
                         <span>
-                          Link to additional
+                          Link to external
                         </span>
                          
                         <span
@@ -30719,162 +30739,175 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             <div
               class="rpl-contact rpl-component-gutter"
             >
-              <h2
-                class="rpl-contact__title"
+              <div
+                class="rpl-list rpl-list--normal"
               >
-                Need additional help?
-              </h2>
-               
-              <p
-                class="rpl-contact__contact-details"
-              >
-                <span
-                  class="rpl-contact__name"
+                <h2
+                  class="rpl-list__title"
                 >
-                  First Last Name (Job Title)
-                </span>
+                  Need additional help?
+                </h2>
                  
-                <span
-                  class="rpl-contact__department"
+                <p
+                  class="rpl-contact__contact-details"
                 >
-                  Department name
-                </span>
+                  <span
+                    class="rpl-contact__name"
+                  >
+                    First Last Name (Job Title)
+                  </span>
+                   
+                  <span
+                    class="rpl-contact__department"
+                  >
+                    Department name
+                  </span>
+                   
+                  <span
+                    class="rpl-contact__postal"
+                  >
+                    PO Box 123, Suburb VIC 3421
+                  </span>
+                </p>
                  
-                <span
-                  class="rpl-contact__postal"
+                <div
+                  class="rpl-list__list"
                 >
-                  PO Box 123, Suburb VIC 3421
-                </span>
-              </p>
-               
-              <p
-                class="rpl-contact__address"
-              >
-                <span
-                  class="rpl-contact__icon"
-                >
-                  <!---->
-                </span>
-                <a
-                  class="rpl-link"
-                  href="https://www.google.com.au/maps?q=13%20Street%20Name,%20Suburb%20VIC%203056"
-                  target="_blank"
-                >
-                  13 Street Name, Suburb VIC 3056
-                </a>
-              </p>
-               
-              <p
-                class="rpl-contact__phone"
-              >
-                <span
-                  class="rpl-contact__icon"
-                >
-                  <!---->
-                </span>
-                <a
-                  class="rpl-link"
-                  href="tel:03 9876 6754"
-                >
-                  03 9876 6754
-                </a>
-              </p>
-              <p
-                class="rpl-contact__phone"
-              >
-                <span
-                  class="rpl-contact__icon"
-                >
-                  <!---->
-                </span>
-                <a
-                  class="rpl-link"
-                  href="tel:03 9876 1234"
-                >
-                  03 9876 1234
-                </a>
-              </p>
-               
-              <p
-                class="rpl-contact__email"
-              >
-                <span
-                  class="rpl-contact__icon"
-                >
-                  <!---->
-                </span>
-                <a
-                  class="rpl-link"
-                  href="mailto:emailaddress@vic.gov.au"
-                >
-                  emailaddress@vic.gov.au
-                </a>
-              </p>
-               
-              <p
-                class="rpl-contact__social"
-              >
-                <span
-                  class="rpl-contact__icon"
-                >
-                  <!---->
-                </span>
-                <a
-                  class="rpl-link"
-                  href="https://www.facebook.com"
-                  target="_blank"
-                >
-                  Name of Facebook Page
-                </a>
-              </p>
-              <p
-                class="rpl-contact__social"
-              >
-                <span
-                  class="rpl-contact__icon"
-                >
-                  <!---->
-                </span>
-                <a
-                  class="rpl-link"
-                  href="https://www.twitter.com"
-                  target="_blank"
-                >
-                  Name of Twitter account
-                </a>
-              </p>
-              <p
-                class="rpl-contact__social"
-              >
-                <span
-                  class="rpl-contact__icon"
-                >
-                  <!---->
-                </span>
-                <a
-                  class="rpl-link"
-                  href="https://www.linkedin.com"
-                  target="_blank"
-                >
-                  Name of LinkedIn profile
-                </a>
-              </p>
-              <p
-                class="rpl-contact__social"
-              >
-                <span
-                  class="rpl-contact__icon"
-                >
-                  <!---->
-                </span>
-                <a
-                  class="rpl-link"
-                  href="https://www.intagram.com"
-                  target="_blank"
-                >
-                  Name of Instagram account
-                </a>
-              </p>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.google.com.au/maps?q=13%20Street%20Name,%20Suburb%20VIC%203056"
+                      target="_blank"
+                    >
+                      13 Street Name, Suburb VIC 3056
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="tel: 03 9876 6754"
+                    >
+                      03 9876 6754
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="tel: 03 9876 1234"
+                    >
+                      03 9876 1234
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <span
+                      class="rpl-list__text"
+                    >
+                      emailaddress@vic.gov.au
+                    </span>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.facebook.com"
+                      target="_blank"
+                    >
+                      Name of Facebook Page
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.twitter.com"
+                      target="_blank"
+                    >
+                      Name of Twitter account
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.linkedin.com"
+                      target="_blank"
+                    >
+                      Name of LinkedIn profile
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.intagram.com"
+                      target="_blank"
+                    >
+                      Name of Instagram account
+                    </a>
+                  </div>
+                </div>
+                 
+              </div>
             </div>
              
             <div
@@ -31970,11 +32003,12 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                   >
                     <a
                       class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
-                      href="#"
+                      href="http://www.google.com"
+                      target="_blank"
                     >
                       <span>
                         <span>
-                          Link to additional
+                          Link to external
                         </span>
                          
                         <span

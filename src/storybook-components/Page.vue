@@ -101,6 +101,9 @@
         <div class="rpl-site-constrain--on-all">
           <rpl-news-listing :title="mock.newsListing.title" :list="mock.newsListing.list" />
         </div>
+        <div class="rpl-site-constrain--on-all">
+          <rpl-updated-date v-bind="{date: '12/12/2006'}"></rpl-updated-date>
+        </div>
       </template>
 
     </rpl-page-layout>
@@ -156,6 +159,9 @@ import { RplAlert, RplAlertBase } from '@dpc-sdp/ripple-alert'
 // News Listing
 import { RplNewsListing } from '@dpc-sdp/ripple-news'
 
+// Updated Date
+import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
+
 // Image Gallery
 import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'
 
@@ -207,7 +213,10 @@ export default {
     RplNewsListing,
 
     // Image Gallery
-    RplImageGallery
+    RplImageGallery,
+
+    // Updated date
+    RplUpdatedDate
   },
   props: {
     sidebar: Boolean,

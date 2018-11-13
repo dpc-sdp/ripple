@@ -589,18 +589,23 @@ const demoData = {
     acknowledgement: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.'),
     logos: object('Logos', [
       {
-        src: 'https://placehold.it/50x50',
-        alt: 'Logo 1',
+        src: 'https://placehold.it/112x52',
+        alt: 'Max native size',
         url: '#'
       },
       {
-        src: 'https://placehold.it/100x200',
-        alt: 'Logo 2',
+        src: 'https://placehold.it/32x32',
+        alt: 'Smaller than max size',
         url: '#'
       },
       {
-        src: 'https://placehold.it/200x100',
-        alt: 'Logo 2',
+        src: 'https://placehold.it/80x200',
+        alt: 'Portrait',
+        url: '#'
+      },
+      {
+        src: 'https://placehold.it/200x80',
+        alt: 'Landscape',
         url: '#'
       }
     ])

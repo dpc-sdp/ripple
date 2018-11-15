@@ -114,14 +114,22 @@ export default {
   .rpl-search-form {
     $root: &;
     @include rpl_mobile_padding();
+    padding-top: $rpl-space-4;
+
     @include rpl_breakpoint('m') {
       padding-left: 0;
       padding-right: 0;
+      padding-top: $rpl-space-4 * 2;
+    }
+
+    @include rpl_breakpoint('l') {
+      padding-top: $rpl-space-3 * 3;
     }
 
     h1 {
       @include rpl_typography_ruleset($rpl-search-form-heading-ruleset);
       color: $rpl-search-form-heading-color;
+      margin-top: 0;
 
       @at-root {
         #{$root}--dark h1 {

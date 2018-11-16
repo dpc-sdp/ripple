@@ -83,6 +83,12 @@ export default {
 
   .rpl-timeline {
     $root: &;
+    @include rpl_mobile_padding();
+
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     &__title {
       color: $rpl-timeline-title-text-color;

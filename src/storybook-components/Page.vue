@@ -88,6 +88,9 @@
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-news-listing :title="mock.newsListing.title" :list="mock.newsListing.list" />
         </rpl-col>
+        <rpl-col cols="full" :colsBp="defaultCols">
+          <rpl-timeline :title="mock.timeline.title" :list="mock.timeline.list" />
+        </rpl-col>
       </rpl-row>
 
       <template slot="sidebar">
@@ -162,8 +165,9 @@ import { RplNewsListing } from '@dpc-sdp/ripple-news'
 // Updated Date
 import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 
-// Image Gallery
+// Miscs
 import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'
+import RplTimeline from '@dpc-sdp/ripple-timeline'
 
 export default {
   name: 'SPage',
@@ -212,8 +216,9 @@ export default {
     // News Listing
     RplNewsListing,
 
-    // Image Gallery
+    // Miscs
     RplImageGallery,
+    RplTimeline,
 
     // Updated date
     RplUpdatedDate

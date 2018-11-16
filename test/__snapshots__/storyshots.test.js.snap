@@ -30467,6 +30467,436 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   <!---->
                 </div>
               </div>
+               
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <div
+                  class="rpl-news-listing"
+                >
+                  <h2
+                    class="rpl-news-listing__heading"
+                  >
+                    Latest News
+                  </h2>
+                   
+                  <ul
+                    class="rpl-news-listing__items"
+                  >
+                    <li
+                      class="rpl-news-listing__item"
+                    >
+                      <div>
+                        <span
+                          class="rpl-news-listing__item-date"
+                        >
+                          26 March 2018
+                        </span>
+                         
+                        <span
+                          class="rpl-news-listing__item-tag"
+                        >
+                          Event
+                        </span>
+                         
+                        <h3
+                          class="rpl-news-listing__item-heading"
+                        >
+                          <a
+                            class="rpl-link rpl-text-link"
+                            href="#"
+                          >
+                            <span>
+                              <span>
+                                Australian Indigenous Tourism
+                              </span>
+                               
+                              <span
+                                class="rpl-text-icon__group"
+                              >
+                                 Conference
+                                <!---->
+                              </span>
+                               
+                              <!---->
+                            </span>
+                          </a>
+                        </h3>
+                      </div>
+                    </li>
+                    <li
+                      class="rpl-news-listing__item"
+                    >
+                      <div>
+                        <span
+                          class="rpl-news-listing__item-date"
+                        >
+                          25 March 2018
+                        </span>
+                         
+                        <span
+                          class="rpl-news-listing__item-tag"
+                        >
+                          Community
+                        </span>
+                         
+                        <h3
+                          class="rpl-news-listing__item-heading"
+                        >
+                          <a
+                            class="rpl-link rpl-text-link"
+                            href="#"
+                          >
+                            <span>
+                              <span>
+                                Respect Women: Call it
+                              </span>
+                               
+                              <span
+                                class="rpl-text-icon__group"
+                              >
+                                 Out
+                                <!---->
+                              </span>
+                               
+                              <!---->
+                            </span>
+                          </a>
+                        </h3>
+                      </div>
+                    </li>
+                    <li
+                      class="rpl-news-listing__item"
+                    >
+                      <div>
+                        <span
+                          class="rpl-news-listing__item-date"
+                        >
+                          24 March 2018
+                        </span>
+                         
+                        <span
+                          class="rpl-news-listing__item-tag"
+                        >
+                          Arts & Culture
+                        </span>
+                         
+                        <h3
+                          class="rpl-news-listing__item-heading"
+                        >
+                          <a
+                            class="rpl-link rpl-text-link"
+                            href="#"
+                          >
+                            <span>
+                              <span>
+                                NGV
+                              </span>
+                               
+                              <span
+                                class="rpl-text-icon__group"
+                              >
+                                 Triennial
+                                <!---->
+                              </span>
+                               
+                              <!---->
+                            </span>
+                          </a>
+                        </h3>
+                      </div>
+                    </li>
+                    <li
+                      class="rpl-news-listing__item"
+                    >
+                      <div>
+                        <span
+                          class="rpl-news-listing__item-date"
+                        >
+                          22 February 2018
+                        </span>
+                         
+                        <span
+                          class="rpl-news-listing__item-tag"
+                        >
+                          Sports
+                        </span>
+                         
+                        <h3
+                          class="rpl-news-listing__item-heading"
+                        >
+                          <a
+                            class="rpl-link rpl-text-link"
+                            href="#"
+                          >
+                            <span>
+                              <span>
+                                The World Games Facilities
+                              </span>
+                               
+                              <span
+                                class="rpl-text-icon__group"
+                              >
+                                 Fund
+                                <!---->
+                              </span>
+                               
+                              <!---->
+                            </span>
+                          </a>
+                        </h3>
+                      </div>
+                    </li>
+                    <li
+                      class="rpl-news-listing__item"
+                    >
+                      <div>
+                        <span
+                          class="rpl-news-listing__item-date"
+                        >
+                          21 February 2018
+                        </span>
+                         
+                        <span
+                          class="rpl-news-listing__item-tag"
+                        >
+                          Law & Justice
+                        </span>
+                         
+                        <h3
+                          class="rpl-news-listing__item-heading"
+                        >
+                          <a
+                            class="rpl-link rpl-text-link"
+                            href="#"
+                          >
+                            <span>
+                              <span>
+                                Access to Justice
+                              </span>
+                               
+                              <span
+                                class="rpl-text-icon__group"
+                              >
+                                 Review
+                                <!---->
+                              </span>
+                               
+                              <!---->
+                            </span>
+                          </a>
+                        </h3>
+                      </div>
+                    </li>
+                    <li
+                      class="rpl-news-listing__item"
+                    >
+                      <div>
+                        <span
+                          class="rpl-news-listing__item-date"
+                        >
+                          19 February 2018
+                        </span>
+                         
+                        <span
+                          class="rpl-news-listing__item-tag"
+                        >
+                          Family Violence
+                        </span>
+                         
+                        <h3
+                          class="rpl-news-listing__item-heading"
+                        >
+                          <a
+                            class="rpl-link rpl-text-link"
+                            href="#"
+                          >
+                            <span>
+                              <span>
+                                New Bendigo Refuge for Families Escaping Family
+                              </span>
+                               
+                              <span
+                                class="rpl-text-icon__group"
+                              >
+                                 Violence
+                                <!---->
+                              </span>
+                               
+                              <!---->
+                            </span>
+                          </a>
+                        </h3>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <div
+                  class="rpl-timeline"
+                >
+                  <h2
+                    class="rpl-timeline__title"
+                  >
+                    Timeline Heading
+                  </h2>
+                   
+                  <ol
+                    class="rpl-timeline__list"
+                  >
+                    <li
+                      class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
+                    >
+                      <img
+                        alt=""
+                        class="rpl-timeline__item-image"
+                        src="https://placehold.it/320x240"
+                      />
+                       
+                      <h3
+                        class="rpl-timeline__item-title"
+                      >
+                        <!---->
+                         
+                        <a
+                          class="rpl-link"
+                          href="#"
+                        >
+                          Timeline item with link
+                        </a>
+                      </h3>
+                       
+                      <p
+                        class="rpl-timeline__item-subtitle"
+                      >
+                        01 January 2019 to 01 December 2020
+                      </p>
+                       
+                      <p
+                        class="rpl-timeline__item-description"
+                      >
+                        Contains image, title, internal URL, different start / end date and description.
+                      </p>
+                    </li>
+                    <li
+                      class="rpl-timeline__list-item rpl-timeline__list-item--multi"
+                    >
+                      <!---->
+                       
+                      <h3
+                        class="rpl-timeline__item-title"
+                      >
+                        <span>
+                          Timeline item 2
+                        </span>
+                         
+                        <!---->
+                      </h3>
+                       
+                      <p
+                        class="rpl-timeline__item-subtitle"
+                      >
+                        Contains title and custom subtitle.
+                      </p>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
+                    >
+                      <img
+                        alt=""
+                        class="rpl-timeline__item-image"
+                        src="https://placehold.it/88x88"
+                      />
+                       
+                      <h3
+                        class="rpl-timeline__item-title"
+                      >
+                        <span>
+                          Timeline item 3
+                        </span>
+                         
+                        <!---->
+                      </h3>
+                       
+                      <p
+                        class="rpl-timeline__item-subtitle"
+                      >
+                        01 to 15 January
+                      </p>
+                       
+                      <p
+                        class="rpl-timeline__item-description"
+                      >
+                        Contains image, title, different start / end date, subtitle (hidden) and description.
+                      </p>
+                    </li>
+                    <li
+                      class="rpl-timeline__list-item rpl-timeline__list-item--multi"
+                    >
+                      <!---->
+                       
+                      <h3
+                        class="rpl-timeline__item-title"
+                      >
+                        <span>
+                          Timeline item 4
+                        </span>
+                         
+                        <!---->
+                      </h3>
+                       
+                      <p
+                        class="rpl-timeline__item-subtitle"
+                      >
+                        01 March
+                      </p>
+                       
+                      <p
+                        class="rpl-timeline__item-description"
+                      >
+                        Contains title, matching start / end date and description.
+                      </p>
+                    </li>
+                    <li
+                      class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
+                    >
+                      <img
+                        alt=""
+                        class="rpl-timeline__item-image"
+                        src="https://placehold.it/88x88"
+                      />
+                       
+                      <h3
+                        class="rpl-timeline__item-title"
+                      >
+                        <!---->
+                         
+                        <a
+                          class="rpl-link"
+                          href="https://www.google.com"
+                          target="_blank"
+                        >
+                          Timeline item 5 with link
+                        </a>
+                      </h3>
+                       
+                      <!---->
+                       
+                      <p
+                        class="rpl-timeline__item-description"
+                      >
+                        Contains an image, title, external URL and description.
+                      </p>
+                    </li>
+                  </ol>
+                </div>
+              </div>
             </div>
               
           </div>
@@ -31036,271 +31466,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               </a>
             </div>
           </div>
-        </div>
-      </div>
-       
-      <div
-        class="rpl-site-constrain--on-all"
-      >
-        <div
-          class="rpl-news-listing"
-        >
-          <h2
-            class="rpl-news-listing__heading"
-          >
-            Latest News
-          </h2>
-           
-          <ul
-            class="rpl-news-listing__items"
-          >
-            <li
-              class="rpl-news-listing__item"
-            >
-              <div>
-                <span
-                  class="rpl-news-listing__item-date"
-                >
-                  26 March 2018
-                </span>
-                 
-                <span
-                  class="rpl-news-listing__item-tag"
-                >
-                  Event
-                </span>
-                 
-                <h3
-                  class="rpl-news-listing__item-heading"
-                >
-                  <a
-                    class="rpl-link rpl-text-link"
-                    href="#"
-                  >
-                    <span>
-                      <span>
-                        Australian Indigenous Tourism
-                      </span>
-                       
-                      <span
-                        class="rpl-text-icon__group"
-                      >
-                         Conference
-                        <!---->
-                      </span>
-                       
-                      <!---->
-                    </span>
-                  </a>
-                </h3>
-              </div>
-            </li>
-            <li
-              class="rpl-news-listing__item"
-            >
-              <div>
-                <span
-                  class="rpl-news-listing__item-date"
-                >
-                  25 March 2018
-                </span>
-                 
-                <span
-                  class="rpl-news-listing__item-tag"
-                >
-                  Community
-                </span>
-                 
-                <h3
-                  class="rpl-news-listing__item-heading"
-                >
-                  <a
-                    class="rpl-link rpl-text-link"
-                    href="#"
-                  >
-                    <span>
-                      <span>
-                        Respect Women: Call it
-                      </span>
-                       
-                      <span
-                        class="rpl-text-icon__group"
-                      >
-                         Out
-                        <!---->
-                      </span>
-                       
-                      <!---->
-                    </span>
-                  </a>
-                </h3>
-              </div>
-            </li>
-            <li
-              class="rpl-news-listing__item"
-            >
-              <div>
-                <span
-                  class="rpl-news-listing__item-date"
-                >
-                  24 March 2018
-                </span>
-                 
-                <span
-                  class="rpl-news-listing__item-tag"
-                >
-                  Arts & Culture
-                </span>
-                 
-                <h3
-                  class="rpl-news-listing__item-heading"
-                >
-                  <a
-                    class="rpl-link rpl-text-link"
-                    href="#"
-                  >
-                    <span>
-                      <span>
-                        NGV
-                      </span>
-                       
-                      <span
-                        class="rpl-text-icon__group"
-                      >
-                         Triennial
-                        <!---->
-                      </span>
-                       
-                      <!---->
-                    </span>
-                  </a>
-                </h3>
-              </div>
-            </li>
-            <li
-              class="rpl-news-listing__item"
-            >
-              <div>
-                <span
-                  class="rpl-news-listing__item-date"
-                >
-                  22 February 2018
-                </span>
-                 
-                <span
-                  class="rpl-news-listing__item-tag"
-                >
-                  Sports
-                </span>
-                 
-                <h3
-                  class="rpl-news-listing__item-heading"
-                >
-                  <a
-                    class="rpl-link rpl-text-link"
-                    href="#"
-                  >
-                    <span>
-                      <span>
-                        The World Games Facilities
-                      </span>
-                       
-                      <span
-                        class="rpl-text-icon__group"
-                      >
-                         Fund
-                        <!---->
-                      </span>
-                       
-                      <!---->
-                    </span>
-                  </a>
-                </h3>
-              </div>
-            </li>
-            <li
-              class="rpl-news-listing__item"
-            >
-              <div>
-                <span
-                  class="rpl-news-listing__item-date"
-                >
-                  21 February 2018
-                </span>
-                 
-                <span
-                  class="rpl-news-listing__item-tag"
-                >
-                  Law & Justice
-                </span>
-                 
-                <h3
-                  class="rpl-news-listing__item-heading"
-                >
-                  <a
-                    class="rpl-link rpl-text-link"
-                    href="#"
-                  >
-                    <span>
-                      <span>
-                        Access to Justice
-                      </span>
-                       
-                      <span
-                        class="rpl-text-icon__group"
-                      >
-                         Review
-                        <!---->
-                      </span>
-                       
-                      <!---->
-                    </span>
-                  </a>
-                </h3>
-              </div>
-            </li>
-            <li
-              class="rpl-news-listing__item"
-            >
-              <div>
-                <span
-                  class="rpl-news-listing__item-date"
-                >
-                  19 February 2018
-                </span>
-                 
-                <span
-                  class="rpl-news-listing__item-tag"
-                >
-                  Family Violence
-                </span>
-                 
-                <h3
-                  class="rpl-news-listing__item-heading"
-                >
-                  <a
-                    class="rpl-link rpl-text-link"
-                    href="#"
-                  >
-                    <span>
-                      <span>
-                        New Bendigo Refuge for Families Escaping Family
-                      </span>
-                       
-                      <span
-                        class="rpl-text-icon__group"
-                      >
-                         Violence
-                        <!---->
-                      </span>
-                       
-                      <!---->
-                    </span>
-                  </a>
-                </h3>
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
        

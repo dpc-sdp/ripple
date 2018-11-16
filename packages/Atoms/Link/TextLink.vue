@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     iconSymbolFinal () {
-      if (this.iconSymbol === 'arrow_right_primary' && isExternalUrl(this.url, this.rplOptions.hostname)) {
+      if (isExternalUrl(this.url, this.rplOptions.hostname)) {
         return 'external_link'
       }
       return this.iconSymbol

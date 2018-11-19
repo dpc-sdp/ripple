@@ -35,6 +35,14 @@
       </template>
 
       <template slot="aboveContentTwo">
+        <rpl-search-form
+          :title="mock.searchForm.title"
+          :searchPlaceholder="mock.searchForm.searchPlaceholder"
+          :prefillSearchTerm="mock.searchForm.prefillSearchTerm"
+          :theme="mock.searchForm.theme"
+          :allowBlank="mock.searchForm.allowBlank"
+          class="rpl-site-constrain--on-all"
+        />
         <rpl-campaign-primary
           :title="mock.campaignPrimary.title"
           :summary="mock.campaignPrimary.summary"
@@ -165,6 +173,9 @@ import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 // Image Gallery
 import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'
 
+// Search
+import { RplSearchForm } from '@dpc-sdp/ripple-search'
+
 export default {
   name: 'SPage',
   components: {
@@ -216,7 +227,10 @@ export default {
     RplImageGallery,
 
     // Updated date
-    RplUpdatedDate
+    RplUpdatedDate,
+
+    // Search
+    RplSearchForm
   },
   props: {
     sidebar: Boolean,

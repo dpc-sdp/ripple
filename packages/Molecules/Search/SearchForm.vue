@@ -114,16 +114,17 @@ export default {
   .rpl-search-form {
     $root: &;
     @include rpl_mobile_padding();
-    padding-top: $rpl-space-4;
+    padding-top: $rpl-space-3 * 3;
+    padding-bottom: $rpl-space-4 * 2;
 
     @include rpl_breakpoint('m') {
       padding-left: 0;
       padding-right: 0;
-      padding-top: $rpl-space-4 * 2;
     }
 
     @include rpl_breakpoint('l') {
-      padding-top: $rpl-space-3 * 3;
+      padding-top: $rpl-space-4 * 3;
+      padding-bottom: $rpl-space * 15;
     }
 
     h1 {
@@ -204,8 +205,11 @@ export default {
         bottom: rem(-5px);
         left: 0;
         right: 0;
-        height: rem(4px);
+        height: rem(2px);
         background: $rpl-search-form-field-underline-background;
+        @include rpl_breakpoint('l') {
+          height: rem(3px);
+        }
       }
     }
 
@@ -215,7 +219,6 @@ export default {
       background: transparent;
       border: 0;
       margin-left: auto;
-      margin-bottom: $rpl-space * 12;
       display: block;
       cursor: pointer;
 
@@ -234,6 +237,10 @@ export default {
           content: ' -';
         }
       }
+    }
+
+    &__filters {
+      padding-top: $rpl-space * 12;
     }
 
     &--two-cols {
@@ -275,6 +282,12 @@ export default {
           #{$root}--dark .rpl-form .form-group > label {
             color: $rpl-search-form-dark-text-color;
           }
+        }
+      }
+
+      .form-group {
+        &:last-child {
+          margin-bottom: 0;
         }
       }
     }

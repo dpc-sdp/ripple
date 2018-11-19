@@ -114,7 +114,7 @@ export default {
   .rpl-search-form {
     $root: &;
     @include rpl_mobile_padding();
-    padding-top: $rpl-space-3 * 3;
+    padding-top: $rpl-space * 7;
     padding-bottom: $rpl-space-4 * 2;
 
     @include rpl_breakpoint('m') {

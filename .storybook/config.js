@@ -3,6 +3,8 @@ import { setOptions } from '@storybook/addon-options'
 
 // Apply our Ripple global styles on storybook
 import './../packages/Atoms/Global/style.scss';
+// Apply storybook specific style
+import './../src/storybook-components/scss/story.scss';
 
 import Vue from 'vue'
 import RplGlobal from './../packages/Atoms/Global'

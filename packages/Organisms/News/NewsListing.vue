@@ -57,6 +57,15 @@ export default {
   $rpl-news-listing-item-heading-icon-margin: 0 0 0 $rpl-space !default;
 
   .rpl-news-listing {
+    @include rpl_mobile_padding();
+    padding-top: $rpl-space-4;
+
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: $rpl-space-4 * 2;
+    }
+
     &__heading {
       @include rpl_typography_ruleset($rpl-news-listing-heading-ruleset);
       color: $rpl-news-listing-heading-text-color;

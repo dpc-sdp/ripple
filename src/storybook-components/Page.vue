@@ -93,6 +93,12 @@
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-image-gallery :gallery-data="mock.imageGallery.gallery" :enlarge-text="mock.imageGallery.enlargeText" />
         </rpl-col>
+        <rpl-col cols="full" :colsBp="defaultCols">
+          <rpl-news-listing :title="mock.newsListing.title" :list="mock.newsListing.list" />
+        </rpl-col>
+        <rpl-col cols="full" :colsBp="defaultCols">
+          <rpl-timeline :title="mock.timeline.title" :list="mock.timeline.list" />
+        </rpl-col>
       </rpl-row>
 
       <template slot="sidebar">
@@ -105,9 +111,6 @@
       <template slot="belowContent">
         <div class="rpl-site-constrain--on-all">
           <rpl-campaign-secondary :title="mock.campaignSecondary.title" :summary="mock.campaignSecondary.summary" :link="mock.campaignSecondary.link" :image="mock.campaignSecondary.image" />
-        </div>
-        <div class="rpl-site-constrain--on-all">
-          <rpl-news-listing :title="mock.newsListing.title" :list="mock.newsListing.list" />
         </div>
         <div class="rpl-site-constrain--on-all">
           <rpl-updated-date v-bind="{date: '12/12/2006'}"></rpl-updated-date>
@@ -170,8 +173,9 @@ import { RplNewsListing } from '@dpc-sdp/ripple-news'
 // Updated Date
 import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 
-// Image Gallery
+// Miscs
 import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'
+import RplTimeline from '@dpc-sdp/ripple-timeline'
 
 // Search
 import { RplSearchForm } from '@dpc-sdp/ripple-search'
@@ -223,8 +227,9 @@ export default {
     // News Listing
     RplNewsListing,
 
-    // Image Gallery
+    // Miscs
     RplImageGallery,
+    RplTimeline,
 
     // Updated date
     RplUpdatedDate,

@@ -1529,7 +1529,8 @@ const demoData = {
       'Lightening': 'Lightening',
       'Pollution': 'Pollution',
       'Heat wave': 'Heat wave',
-      'Traffic': 'Traffic'
+      'Traffic': 'Traffic',
+      'Success': 'Success'
     }, 'Emergency'),
     link: object('Link', { text: 'Find out more', url: '#' }),
     alertId: text('Alert ID', 'test_id')

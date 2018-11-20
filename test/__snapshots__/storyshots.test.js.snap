@@ -3847,7 +3847,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
     data-v-6ca0e090=""
   >
     <div
-      class="rpl-alert-base rpl-alert-base--color-danger"
+      class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
       data-v-6ca0e090=""
     >
       <!---->
@@ -3855,9 +3855,31 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
       <div
         class="rpl-alert-base__content rpl-alert-base__content--color-white"
       >
-        <span>
-          This is a placeholder component.
+        <span
+          class="rpl-alert__title"
+        >
+          This is an emergency alert.
         </span>
+         
+        <a
+          class="rpl-link rpl-text-link rpl-alert__link rpl-text-link--dark"
+          href="#"
+        >
+          <span>
+            <span>
+              Find out
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               more
+              <!---->
+            </span>
+             
+            <!---->
+          </span>
+        </a>
       </div>
        
       <button
@@ -3911,7 +3933,43 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
           <span
             class="hljs-string"
           >
-            "'This is a placeholder component.'"
+            "title"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :type
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "type"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :link
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "link"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :alertId
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "alertId"
           </span>
            @
           <span
@@ -4002,6 +4060,102 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
           >
             
     title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    type
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    link
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    alertId
     
             <!---->
           </td>
@@ -29062,16 +29216,20 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
     </div>
      
     <div
-      class="rpl-alert-base rpl-alert-base--color-danger"
+      class="rpl-alert-base rpl-alert"
     >
       <!---->
        
       <div
         class="rpl-alert-base__content rpl-alert-base__content--color-white"
       >
-        <span>
+        <span
+          class="rpl-alert__title"
+        >
           This is an emergency alert.
         </span>
+         
+        <!---->
       </div>
        
       <button

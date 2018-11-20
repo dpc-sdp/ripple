@@ -1519,6 +1519,22 @@ const demoData = {
     closeIconColor: text('Close Icon Color', 'white')
   }),
 
+  alert: () => ({
+    title: text('Title', 'This is an emergency alert.'),
+    type: selectV2('Type', {
+      'Emergency': 'Emergency',
+      'Fire': 'Fire',
+      'Flood': 'Flood',
+      'Medical': 'Medical',
+      'Lightening': 'Lightening',
+      'Pollution': 'Pollution',
+      'Heat wave': 'Heat wave',
+      'Traffic': 'Traffic'
+    }, 'Emergency'),
+    link: object('Link', { text: 'Find out more', url: '#' }),
+    alertId: text('Alert ID', 'test_id')
+  }),
+
   timeline: () => ({
     title: text('Title', 'Timeline Heading'),
     list: object('List', [{

@@ -55,10 +55,6 @@ export default {
         'Traffic': {
           backgroundColor: 'dark_neutral',
           iconSymbol: 'alert_transport'
-        },
-        'Success': {
-          backgroundColor: 'success',
-          iconSymbol: 'success'
         }
       }
     }

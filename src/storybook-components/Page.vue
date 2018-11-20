@@ -3,8 +3,7 @@
 
     <template slot="header">
       <rpl-alert-base v-if="preview">Draft only and not yet published</rpl-alert-base>
-      <!-- TODO: Replace below div by alerts component in SDPA-27 (SDPA-749) -->
-      <rpl-alert :title="'This is an emergency alert.'" />
+      <rpl-alert v-bind="mock.alert" />
       <rpl-site-header
         :logo="mock.header.logo"
         :links="mock.header.links"

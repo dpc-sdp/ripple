@@ -53,7 +53,10 @@ export default {
 
 $rpl-alert-base-background-color: rpl-color('dark_neutral') !default;
 $rpl-alert-base-padding: ($rpl-space * 5) !default;
-$rpl-alert-base-ruleset: ('xs', 1em, 'bold') !default;
+$rpl-alert-base-ruleset: (
+  'xs': ('xs', 1em, 'bold'),
+  's': ('s', 1em, 'bold')
+) !default;
 $rpl-alert-base-text-color: rpl-color('white') !default;
 $rpl-alert-base-icom-margin: 0 $rpl-space-4 0 0 !default;
 

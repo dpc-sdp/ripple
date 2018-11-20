@@ -29633,7 +29633,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
     </div>
      
     <div
-      class="rpl-alert-base rpl-alert"
+      class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
     >
       <!---->
        
@@ -29646,7 +29646,25 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           This is an emergency alert.
         </span>
          
-        <!---->
+        <a
+          class="rpl-link rpl-text-link rpl-alert__link rpl-text-link--dark"
+          href="#"
+        >
+          <span>
+            <span>
+              Find out
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               more
+              <!---->
+            </span>
+             
+            <!---->
+          </span>
+        </a>
       </div>
        
       <button

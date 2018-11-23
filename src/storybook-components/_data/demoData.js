@@ -1323,6 +1323,7 @@ const demoData = {
       'xls',
       'xlsm',
       'xlsx',
+      'zip',
       'zoom_in',
       'zoom_out'
     ]

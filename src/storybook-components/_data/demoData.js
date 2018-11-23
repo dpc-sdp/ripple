@@ -1587,6 +1587,14 @@ const demoData = {
       description: 'Contains an image, title, external URL and description.'
     }
     ])
+  }),
+
+  documentLink: () => ({
+    name: text('Name', 'This is the name of the document'),
+    url: text('Download url', 'https://www.google.com'),
+    caption: text('caption', 'This opens in a new window'),
+    mimetype: text('mimetype', 'application/pdf'),
+    filesize: number('Bytes', 11232)
   })
 }
 

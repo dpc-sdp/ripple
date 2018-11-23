@@ -19,6 +19,12 @@
           :key="index">
           <rpl-card-event v-bind="searchResult" />
         </rpl-col>
+        <rpl-col cols="full" :colsBp="{m:6,l:4, xxxl:3}" class="rpl-search-results__item rpl-search-results__item--news rpl-component-gutter"
+          v-if="type === 'RplCardPromotion'"
+          v-for="(searchResult, index) of searchResults"
+          :key="index">
+          <rpl-card-promotion v-bind="searchResult" />
+        </rpl-col>
       </template>
       <div v-if="searchResults.length === 0" class="rpl-search-results__no-results-msg">
         {{ noResultsMsg }}

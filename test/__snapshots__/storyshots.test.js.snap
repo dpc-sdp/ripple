@@ -1809,6 +1809,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          zip
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           zoom_in
         </code>
       </li>
@@ -10364,6 +10371,409 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
             data-v-5bd9cdea=""
           >
             array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Molecules/DocumentLink
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Document Link
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <figure
+      class="rpl-document-link"
+      data-v-6ca0e090=""
+    >
+      <a
+        aria-label="This is the name of the document File type: pdf. Size: 10.97 KB"
+        class="rpl-document-link__link"
+        href="https://www.google.com"
+        target="_blank"
+      >
+        <!---->
+         
+        <div
+          class="rpl-document-link__info"
+        >
+          <span
+            class="rpl-document-link__title"
+          >
+            This is the name of the document
+          </span>
+           
+          <div
+            class="rpl-document-link__meta"
+          >
+            <span
+              class="rpl-document-link__type"
+            >
+              pdf
+            </span>
+             
+            <span
+              class="rpl-document-link__size rpl-document-link__size--seperator"
+            >
+              10.97 KB
+            </span>
+          </div>
+        </div>
+      </a>
+       
+      <figcaption
+        class="rpl-document-link__caption"
+      >
+        This opens in a new window
+      </figcaption>
+    </figure>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-document-link
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :caption
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "caption"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :name
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "name"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :url
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "url"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :mimetype
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "mimetype"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :filesize
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "filesize"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplDocumentLink" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    caption
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    name
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    url
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    mimetype
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    filesize
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            unknown
           </td>
            
           <td

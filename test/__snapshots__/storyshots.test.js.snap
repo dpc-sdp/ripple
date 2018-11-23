@@ -12228,7 +12228,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
-    <div
+    <main
       class="rpl-page"
       data-v-6ca0e090=""
     >
@@ -12280,7 +12280,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
       >
         Below content
       </section>
-    </div>
+    </main>
   </div>
    
   <!---->
@@ -12659,7 +12659,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
-    <div
+    <main
       class="rpl-page"
       data-v-6ca0e090=""
     >
@@ -12715,7 +12715,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
       >
         Below content
       </section>
-    </div>
+    </main>
   </div>
    
   <!---->
@@ -13132,7 +13132,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
     </div>
   </header>
     
-  <div
+  <main
     class="rpl-page main rpl-container"
   >
     <section
@@ -13345,7 +13345,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
         </div>
       </div>
     </section>
-  </div>
+  </main>
     
   <!---->
    
@@ -13391,7 +13391,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
     </div>
   </header>
     
-  <div
+  <main
     class="rpl-page main rpl-container"
   >
     <section
@@ -13624,7 +13624,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
         </div>
       </div>
     </section>
-  </div>
+  </main>
     
   <!---->
    
@@ -27484,7 +27484,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
     </div>
   </header>
     
-  <div
+  <main
     class="rpl-page main rpl-container"
   >
     <section
@@ -27730,7 +27730,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
     <section
       class="rpl-below-content"
     />
-  </div>
+  </main>
     
   <!---->
    
@@ -28186,7 +28186,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
     </div>
   </header>
     
-  <div
+  <main
     class="rpl-page main rpl-container"
   >
     <section
@@ -28644,7 +28644,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
     <section
       class="rpl-below-content"
     />
-  </div>
+  </main>
     
   <!---->
    
@@ -29140,7 +29140,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
     </div>
   </header>
     
-  <div
+  <main
     class="rpl-page main rpl-container"
   >
     <section
@@ -31519,7 +31519,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
         </p>
       </div>
     </section>
-  </div>
+  </main>
     
   <!---->
    
@@ -31975,7 +31975,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
     </div>
   </header>
     
-  <div
+  <main
     class="rpl-page main rpl-container"
   >
     <section
@@ -32325,7 +32325,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
     <section
       class="rpl-below-content"
     />
-  </div>
+  </main>
     
   <!---->
    
@@ -32781,7 +32781,7 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
     </div>
   </header>
     
-  <div
+  <main
     class="rpl-page main rpl-container"
   >
     <section
@@ -33521,7 +33521,7 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
     <section
       class="rpl-below-content"
     />
-  </div>
+  </main>
     
   <!---->
    
@@ -34013,7 +34013,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
     </div>
   </header>
     
-  <div
+  <main
     class="rpl-page main rpl-container"
   >
     <section
@@ -34622,7 +34622,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
     <section
       class="rpl-below-content"
     />
-  </div>
+  </main>
     
   <!---->
    
@@ -35114,7 +35114,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
     </div>
   </header>
     
-  <div
+  <main
     class="rpl-page main rpl-container"
   >
     <section
@@ -35487,7 +35487,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
     <section
       class="rpl-below-content"
     />
-  </div>
+  </main>
     
   <!---->
    

@@ -32,7 +32,25 @@ export default {
   },
   computed: {
     icon () {
-      return 'pdf'
+      switch (this.extension) {
+        case 'pdf':
+        case 'doc':
+        case 'docx':
+        case 'xls':
+        case 'xlsx':
+        case 'xlsxm':
+        case 'csv':
+        case 'txt':
+        case 'ppt':
+        case 'pptx':
+        case 'dot':
+        case 'dotm':
+        case 'dotx':
+        case 'zip':
+          return this.extension
+        default:
+          return 'document'
+      }
     },
     isExternalLink () {
       return isExternalUrl(this.url, this.rplOptions.hostname)
@@ -58,20 +76,16 @@ export default {
 
   $rpl-document-link-title-ruleset: ('xs', 1em, 'semibold');
   $rpl-document-link-title-color: rpl_color('extra_dark_neutral') !default;
-
   $rpl-document-link-meta-type-ruleset: ('xxs', 1em, 'medium');
   $rpl-document-link-meta-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
   $rpl-document-link-meta-margin-top: $rpl-space;
-
   $rpl-document-link-meta-separator-color: mix(rpl_color('mid_neutral_1'), rpl_color('white'), 93%) !default;
-
   $rpl-document-link-icon-txt: url('/img/txt.svg') !default;
   $rpl-document-link-icon-doc: url('/img/doc.svg') !default;
   $rpl-document-link-icon-csv: url('/img/csv.svg') !default;
   $rpl-document-link-icon-xls: url('/img/xls.svg') !default;
   $rpl-document-link-icon-pdf: url('/img/pdf.svg') !default;
   $rpl-document-link-icon-ppt: url('/img/ppt.svg') !default;
-
   $rpl-document-link-caption-ruleset: ('xs', 1em, 'semibold') !default;
   $rpl-document-link-caption-margin-top: $rpl-space-2 !default;
 

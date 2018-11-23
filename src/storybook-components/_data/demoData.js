@@ -242,6 +242,54 @@ const demoData = {
     link: object('Link', { text: 'Submit a listing', url: '#' })
   }),
 
+  cardEmergencyContact: () => ({
+    title: text('Title', 'Emergency Assistance'),
+    subtitle: text('Subtitle', 'Urgent'),
+    summary: text('Summary', 'Dial 000 for police, fire & ambulance'),
+    link: object('Link', { text: 'Call 000', url: 'tel:000' })
+  }),
+
+  cardBox: () => ({
+    cards: object('Cards', [
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: text('Title', 'Emergency Assistance'),
+          subtitle: text('Subtitle', 'Urgent'),
+          summary: text('Summary', 'Dial 000 for police, fire & ambulance'),
+          link: object('Link', { text: 'Call 000', url: 'tel:000' })
+        }
+      },
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: text('Title', 'Police Assistance Line'),
+          subtitle: text('Subtitle', 'Urgent'),
+          summary: text('Summary', 'Dial 000 for police, fire & ambulance'),
+          link: object('Link', { text: 'Call 000', url: 'tel:000' })
+        }
+      },
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: text('Title', 'Police Assistance Line'),
+          subtitle: text('Subtitle', 'Urgent'),
+          summary: text('Summary', 'Dial 000 for police, fire & ambulance'),
+          link: object('Link', { text: 'Call 000', url: 'tel:000' })
+        }
+      },
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: text('Title', 'Police Assistance Line'),
+          subtitle: text('Subtitle', 'Urgent'),
+          summary: text('Summary', 'Dial 000 for police, fire & ambulance'),
+          link: object('Link', { text: 'Call 000', url: 'tel:000' })
+        }
+      }
+    ])
+  }),
+
   cardCarousel: () => ({
     title: text('Title', 'Featured Content'),
     cards: object('Cards', [

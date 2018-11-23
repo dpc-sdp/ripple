@@ -19,6 +19,12 @@
           :key="index">
           <rpl-card-event v-bind="searchResult" />
         </rpl-col>
+        <rpl-col cols="full" :colsBp="{m:6,l:4, xxxl:3}" class="rpl-search-results__item rpl-search-results__item--promotion rpl-component-gutter"
+          v-if="type === 'RplCardPromotion'"
+          v-for="(searchResult, index) of searchResults"
+          :key="index">
+          <rpl-card-promotion v-bind="searchResult" />
+        </rpl-col>
       </template>
       <div v-if="searchResults.length === 0" class="rpl-search-results__no-results-msg">
         {{ noResultsMsg }}
@@ -42,7 +48,7 @@
 <script>
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import RplSearchResult from './SearchResult.vue'
-import { RplCardEvent } from '@dpc-sdp/ripple-card'
+import { RplCardEvent, RplCardPromotion } from '@dpc-sdp/ripple-card'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
@@ -52,7 +58,8 @@ export default {
     RplRow,
     RplCol,
     RplSearchResult,
-    RplCardEvent
+    RplCardEvent,
+    RplCardPromotion
   },
   props: {
     type: { type: String, default: 'default' },

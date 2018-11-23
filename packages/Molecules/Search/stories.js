@@ -96,7 +96,7 @@ storiesOf('Molecules/Search', module)
         alert('Going to step: ' + newStep)
       }
     }
-  }))).add('Event Search Results', withReadme(readme, () => ({
+  }))).add('Card Search Results', withReadme(readme, () => ({
     components: { RplSearchResults },
     template: `<rpl-search-results
     :searchResults="searchResultsItems"
@@ -122,7 +122,14 @@ storiesOf('Molecules/Search', module)
         if (this.hasError || this.noResults) {
           return []
         } else {
-          return demoData.eventSearchResultItems()
+          switch (this.searchResults.type) {
+            case 'RplCardPromotion':
+              return demoData.newsSearchResultItems()
+
+            case 'RplCardEvent':
+            default:
+              return demoData.eventSearchResultItems()
+          }
         }
       }
     },

@@ -48,7 +48,7 @@
 <script>
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import RplSearchResult from './SearchResult.vue'
-import { RplCardEvent } from '@dpc-sdp/ripple-card'
+import { RplCardEvent, RplCardPromotion } from '@dpc-sdp/ripple-card'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
@@ -58,7 +58,8 @@ export default {
     RplRow,
     RplCol,
     RplSearchResult,
-    RplCardEvent
+    RplCardEvent,
+    RplCardPromotion
   },
   props: {
     type: { type: String, default: 'default' },

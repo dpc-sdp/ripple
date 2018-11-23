@@ -15218,7 +15218,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/Search Event Search Results 1`] = `
+exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
 <div
   class="vue-info"
   data-v-6ca0e090=""
@@ -15242,7 +15242,7 @@ exports[`RippleStoryshots Molecules/Search Event Search Results 1`] = `
       data-v-003f20ee=""
     >
       
-    Event Search Results
+    Card Search Results
   
     </h2>
   </div>

@@ -15,7 +15,7 @@ storiesOf('Molecules/DocumentLink', module)
   .addDecorator(withKnobs)
   .add('Document Link', withReadme(readme, () => ({
     components: { RplDocumentLink },
-    template: `<rpl-document-link :caption="caption" :name="name" :url="url" :mimetype="mimetype" :filesize="filesize" />`,
+    template: `<rpl-document-link :name="name" :caption="caption" :url="url" :extension="extension" :filesize="filesize" />`,
     data () {
       return demoData.documentLink()
     }

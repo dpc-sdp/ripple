@@ -1592,10 +1592,10 @@ const demoData = {
 
   documentLink: () => ({
     name: text('Name', 'This is the name of the document'),
+    caption: text('caption', 'This is a longer description of the document above.'),
     url: text('Download url', 'https://www.google.com'),
-    caption: text('caption', 'This opens in a new window'),
-    mimetype: text('mimetype', 'application/pdf'),
-    filesize: number('Bytes', 11232)
+    extension: text('Extension', 'pdf'),
+    filesize: text('Filesize', '1.4 mb')
   })
 }
 

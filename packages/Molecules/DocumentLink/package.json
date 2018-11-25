@@ -10,7 +10,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.28",
-    "mime-types": "^2.1.21"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.28"
   }
 }

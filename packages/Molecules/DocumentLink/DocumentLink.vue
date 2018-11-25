@@ -1,12 +1,12 @@
 <template>
   <figure class="rpl-document-link">
-    <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${formattedSize}`" :href="url" :download="!isExternalLink" :target="isExternalLink ? '_blank' : false">
+    <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="!isExternalLink" :target="isExternalLink ? '_blank' : false">
       <rpl-icon :symbol="icon" color="primary" size="l" />
       <div class="rpl-document-link__info">
         <span class="rpl-document-link__title">{{name}}</span>
         <div class="rpl-document-link__meta">
           <span v-if="extension" class="rpl-document-link__type">{{extension}}</span>
-          <span v-if="filesize" class="rpl-document-link__size" :class="{'rpl-document-link__size--seperator': extension && formattedSize}">{{formattedSize}}</span>
+          <span v-if="filesize" class="rpl-document-link__size" :class="{'rpl-document-link__size--seperator': extension && filesize}">{{filesize}}</span>
         </div>
       </div>
     </a>
@@ -15,8 +15,6 @@
 </template>
 
 <script>
-// Add imports
-import mime from 'mime-types'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
@@ -24,11 +22,11 @@ export default {
   name: 'RplDocumentLink',
   components: { RplIcon },
   props: {
-    caption: String,
     name: String,
+    caption: String,
     url: String,
-    mimetype: String,
-    filesize: [Number, String]
+    extension: String,
+    filesize: String
   },
   computed: {
     icon () {
@@ -38,7 +36,6 @@ export default {
         case 'docx':
         case 'xls':
         case 'xlsx':
-        case 'xlsxm':
         case 'csv':
         case 'txt':
         case 'ppt':
@@ -54,18 +51,6 @@ export default {
     },
     isExternalLink () {
       return isExternalUrl(this.url, this.rplOptions.hostname)
-    },
-    formattedSize () {
-      // https://stackoverflow.com/a/18650828
-      if (typeof this.filesize === 'string') return this.filesize
-      if (this.filesize === 0) return '0 Bytes'
-      const k = 1024
-      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-      const i = Math.floor(Math.log(this.filesize) / Math.log(k))
-      return parseFloat((this.filesize / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
-    },
-    extension () {
-      return mime.extension(this.mimetype)
     }
   }
 }

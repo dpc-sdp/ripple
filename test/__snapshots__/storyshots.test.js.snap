@@ -10429,7 +10429,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
       data-v-6ca0e090=""
     >
       <a
-        aria-label="This is the name of the document File type: pdf. Size: 10.97 KB"
+        aria-label="This is the name of the document File type: pdf. Size: 1.4 mb"
         class="rpl-document-link__link"
         href="https://www.google.com"
         target="_blank"
@@ -10457,7 +10457,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
             <span
               class="rpl-document-link__size rpl-document-link__size--seperator"
             >
-              10.97 KB
+              1.4 mb
             </span>
           </div>
         </div>
@@ -10466,7 +10466,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
       <figcaption
         class="rpl-document-link__caption"
       >
-        This opens in a new window
+        This is a longer description of the document above.
       </figcaption>
     </figure>
   </div>
@@ -10505,18 +10505,6 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
           <span
             class="hljs-attr"
           >
-            :caption
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "caption"
-          </span>
-           
-          <span
-            class="hljs-attr"
-          >
             :name
           </span>
           =
@@ -10524,6 +10512,18 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
             class="hljs-string"
           >
             "name"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :caption
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "caption"
           </span>
            
           <span
@@ -10541,13 +10541,13 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
           <span
             class="hljs-attr"
           >
-            :mimetype
+            :extension
           </span>
           =
           <span
             class="hljs-string"
           >
-            "mimetype"
+            "extension"
           </span>
            
           <span
@@ -10637,7 +10637,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
             data-v-5bd9cdea=""
           >
             
-    caption
+    name
     
             <!---->
           </td>
@@ -10669,7 +10669,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
             data-v-5bd9cdea=""
           >
             
-    name
+    caption
     
             <!---->
           </td>
@@ -10733,7 +10733,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
             data-v-5bd9cdea=""
           >
             
-    mimetype
+    extension
     
             <!---->
           </td>
@@ -10773,7 +10773,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Document Link 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            unknown
+            string
           </td>
            
           <td

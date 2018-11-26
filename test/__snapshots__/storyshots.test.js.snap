@@ -15218,7 +15218,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/Search Event Search Results 1`] = `
+exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
 <div
   class="vue-info"
   data-v-6ca0e090=""
@@ -15242,7 +15242,7 @@ exports[`RippleStoryshots Molecules/Search Event Search Results 1`] = `
       data-v-003f20ee=""
     >
       
-    Event Search Results
+    Card Search Results
   
     </h2>
   </div>
@@ -15521,6 +15521,11 @@ exports[`RippleStoryshots Molecules/Search Event Search Results 1`] = `
             </div>
           </a>
         </div>
+         
+        <!---->
+        <!---->
+        <!---->
+        <!---->
          
         <!---->
          
@@ -17231,6 +17236,9 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
             </ul>
           </div>
         </div>
+         
+        <!---->
+        <!---->
          
         <!---->
         <!---->
@@ -28542,6 +28550,11 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                   </div>
                    
                   <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                   
+                  <!---->
                    
                   <!---->
                 </div>
@@ -35379,6 +35392,9 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                         </ul>
                       </div>
                     </div>
+                     
+                    <!---->
+                    <!---->
                      
                     <!---->
                     <!---->

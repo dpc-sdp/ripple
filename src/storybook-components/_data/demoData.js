@@ -1016,6 +1016,43 @@ const demoData = {
     ]
   ),
 
+  newsSearchResultItems: () => (
+    [
+      {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
+        topic: text('Topic', 'News'),
+        title: text('Title', 'This is display copy that wraps 2 lines'),
+        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+        link: object('Link', { text: 'Read more', url: '#' })
+      },
+      {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
+        topic: text('Topic', 'News'),
+        title: text('Title', 'This is display copy that wraps 2 lines'),
+        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+        link: object('Link', { text: 'Read more', url: '#' })
+      },
+      {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
+        topic: text('Topic', 'News'),
+        title: text('Title', 'This is display copy that wraps 2 lines'),
+        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+        link: object('Link', { text: 'Read more', url: '#' })
+      },
+      {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
+        topic: text('Topic', 'News'),
+        title: text('Title', 'This is display copy that wraps 2 lines'),
+        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+        link: object('Link', { text: 'Read more', url: '#' })
+      }
+    ]
+  ),
+
   searchResults: () => ({
     count: number('Count', 10),
     type: 'default',
@@ -1026,7 +1063,7 @@ const demoData = {
 
   eventSearchResults: () => ({
     count: number('Count', 10),
-    type: 'RplCardEvent',
+    type: selectV2('Type', {RplCardEvent: 'RplCardEvent', RplCardPromotion: 'RplCardPromotion'}, 'RplCardEvent'),
     responseSize: number('Response size', 4),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')

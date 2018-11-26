@@ -99,6 +99,9 @@
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-timeline :title="mock.timeline.title" :list="mock.timeline.list" />
         </rpl-col>
+        <rpl-col cols="full">
+          <rpl-document-link v-bind="mock.documentLink"></rpl-document-link>
+        </rpl-col>
       </rpl-row>
 
       <template slot="sidebar">
@@ -180,6 +183,8 @@ import RplTimeline from '@dpc-sdp/ripple-timeline'
 // Search
 import { RplSearchForm } from '@dpc-sdp/ripple-search'
 
+import RplDocumentLink from '@dpc-sdp/ripple-document-link'
+
 export default {
   name: 'SPage',
   components: {
@@ -235,7 +240,10 @@ export default {
     RplUpdatedDate,
 
     // Search
-    RplSearchForm
+    RplSearchForm,
+
+    // DocumentLink
+    RplDocumentLink
   },
   props: {
     sidebar: Boolean,

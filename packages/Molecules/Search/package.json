@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-search",
-  "version": "1.0.0-alpha.28",
+  "version": "1.0.0-alpha.29",
   "description": "Components for generating a search field with filters, and search results.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,9 +10,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-form": "1.0.0-alpha.28",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.28",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.28",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.28"
+    "@dpc-sdp/ripple-form": "1.0.0-alpha.29",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.29",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.29",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.29"
   }
 }

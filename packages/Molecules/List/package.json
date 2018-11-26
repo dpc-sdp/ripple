@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-list",
-  "version": "1.0.0-alpha.28",
+  "version": "1.0.0-alpha.29",
   "description": "List component for displaying an icon and text in a list.",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.28",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.28"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.29",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.29"
   }
 }

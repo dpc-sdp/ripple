@@ -24043,13 +24043,7 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
       <div
         class="rpl-image-gallery__thumbnail-navigation"
       >
-        <button
-          aria-label="Go to previous slide"
-          class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev"
-          role="button"
-        >
-          <!---->
-        </button>
+        <!---->
          
         <button
           aria-label="Go to next slide"
@@ -30910,13 +30904,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   <div
                     class="rpl-image-gallery__thumbnail-navigation"
                   >
-                    <button
-                      aria-label="Go to previous slide"
-                      class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev"
-                      role="button"
-                    >
-                      <!---->
-                    </button>
+                    <!---->
                      
                     <button
                       aria-label="Go to next slide"

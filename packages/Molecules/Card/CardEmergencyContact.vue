@@ -8,12 +8,12 @@
     <div class="rpl-card-emergency__cta" v-if="link">
       <span class="rpl-card-emergency__separator"></span>
       <rpl-link
-        class="rpl-card-emergency__cta--link"
+        class="rpl-card-emergency__cta-link"
         :href="link.url"
         v-if="link"
       >
         <rpl-icon :symbol="iconSymbol" color="primary" size="1.05"/>
-        <span class="rpl-card-emergency__cta--link-text" v-if="link.text">
+        <span class="rpl-card-emergency__cta-link-text" v-if="link.text">
           {{ link.text }}
         </span>
       </rpl-link>
@@ -74,7 +74,7 @@ $rpl-card-emergency-summary-color: rpl-color('extra_dark_neutral') !default;
 $rpl-card-emergency-summary-ruleset: ('s', 1.5em, 'regular') !default;
 $rpl-card-emergency-summary-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-emergency-link-color: rpl-color('primary') !default;
-$rpl-card-emergency-link-margin: $rpl-space-3 0 0;
+$rpl-card-emergency-link-margin: $rpl-space-3 0 0 !default;
 $rpl-card-emergency-link-ruleset: ('s', 1.5em, 'regular') !default;
 $rpl-card-emergency-separator-border: 2px solid rpl-color('extra_dark_neutral') !default;
 
@@ -146,7 +146,7 @@ $rpl-card-emergency-separator-border: 2px solid rpl-color('extra_dark_neutral') 
     display: block;
     width: 100%;
 
-    &--link {
+    &-link {
       &.rpl-link {
         @include rpl_typography_ruleset($rpl-card-emergency-link-ruleset);
         color: $rpl-card-emergency-link-color;

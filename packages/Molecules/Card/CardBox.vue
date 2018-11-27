@@ -43,7 +43,7 @@ $rpl-card-box-item-margin:  0 $rpl-space-3 $rpl-space * 6 !default;
   @include rpl_breakpoint('s') {
     padding: $rpl-card-box-padding-s;
   }
-  
+
   @include rpl_breakpoint('m') {
     padding: $rpl-card-box-padding;
   }
@@ -51,7 +51,7 @@ $rpl-card-box-item-margin:  0 $rpl-space-3 $rpl-space * 6 !default;
   &__items {
     display: flex;
     flex-wrap: wrap;
-    
+
     @include rpl_breakpoint('l') {
       justify-content: center;
     }

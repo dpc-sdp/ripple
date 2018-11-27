@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import RplCardContent from './CardContent.vue'
 import RplLink from '@dpc-sdp/ripple-link'
 import { RplTextIcon, RplIcon } from '@dpc-sdp/ripple-icon'
 import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
@@ -78,7 +77,6 @@ $rpl-card-emergency-link-margin: $rpl-space-3 0 0 !default;
 $rpl-card-emergency-link-ruleset: ('s', 1.5em, 'regular') !default;
 $rpl-card-emergency-separator-border: 2px solid rpl-color('extra_dark_neutral') !default;
 
-
 .rpl-card-emergency {
   $root: &;
   background-color: $rpl-card-emergency-background;
@@ -94,7 +92,7 @@ $rpl-card-emergency-separator-border: 2px solid rpl-color('extra_dark_neutral') 
     border: $rpl-card-emergency-hover-border;
     #{$root}__subtitle {
       background-color: $rpl-card-emergency-subtitle-background-color-hover;
-      
+
       span {
         color: $rpl-card-emergency-subtitle-color-hover;
       }

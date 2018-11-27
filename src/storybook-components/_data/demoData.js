@@ -1323,6 +1323,7 @@ const demoData = {
       'xls',
       'xlsm',
       'xlsx',
+      'zip',
       'zoom_in',
       'zoom_out'
     ]
@@ -1587,6 +1588,14 @@ const demoData = {
       description: 'Contains an image, title, external URL and description.'
     }
     ])
+  }),
+
+  documentLink: () => ({
+    name: text('Name', 'This is the name of the document'),
+    caption: text('caption', 'This is a longer description of the document above.'),
+    url: text('Download url', 'https://www.google.com'),
+    extension: text('Extension', 'pdf'),
+    filesize: text('Filesize', '1.4 mb')
   })
 }
 

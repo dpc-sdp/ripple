@@ -5189,14 +5189,13 @@ exports[`RippleStoryshots Molecules/Card Card Box 1`] = `
       data-v-6ca0e090=""
     >
       <div
-        class="rpl-card-box-items"
+        class="rpl-card-box__items"
       >
         <div
-          class="rpl-card-box-item"
+          class="rpl-card-box__item"
         >
           <div
             class="rpl-card-emergency"
-            trimfieldeventbus="[object Object]"
           >
             <div
               class="rpl-card-emergency__content"
@@ -5230,13 +5229,13 @@ exports[`RippleStoryshots Molecules/Card Card Box 1`] = `
               />
                
               <a
-                class="rpl-link rpl-card-emergency__cta--link"
+                class="rpl-link rpl-card-emergency__cta-link"
                 href="tel:000"
               >
                 <!---->
                  
                 <span
-                  class="rpl-card-emergency__cta--link-text"
+                  class="rpl-card-emergency__cta-link-text"
                 >
                   
         Call 000
@@ -5247,11 +5246,10 @@ exports[`RippleStoryshots Molecules/Card Card Box 1`] = `
           </div>
         </div>
         <div
-          class="rpl-card-box-item"
+          class="rpl-card-box__item"
         >
           <div
             class="rpl-card-emergency"
-            trimfieldeventbus="[object Object]"
           >
             <div
               class="rpl-card-emergency__content"
@@ -5285,13 +5283,13 @@ exports[`RippleStoryshots Molecules/Card Card Box 1`] = `
               />
                
               <a
-                class="rpl-link rpl-card-emergency__cta--link"
+                class="rpl-link rpl-card-emergency__cta-link"
                 href="tel:000"
               >
                 <!---->
                  
                 <span
-                  class="rpl-card-emergency__cta--link-text"
+                  class="rpl-card-emergency__cta-link-text"
                 >
                   
         Call 000
@@ -5302,11 +5300,10 @@ exports[`RippleStoryshots Molecules/Card Card Box 1`] = `
           </div>
         </div>
         <div
-          class="rpl-card-box-item"
+          class="rpl-card-box__item"
         >
           <div
             class="rpl-card-emergency"
-            trimfieldeventbus="[object Object]"
           >
             <div
               class="rpl-card-emergency__content"
@@ -5340,16 +5337,16 @@ exports[`RippleStoryshots Molecules/Card Card Box 1`] = `
               />
                
               <a
-                class="rpl-link rpl-card-emergency__cta--link"
-                href="tel:000"
+                class="rpl-link rpl-card-emergency__cta-link"
+                href="/home"
               >
                 <!---->
                  
                 <span
-                  class="rpl-card-emergency__cta--link-text"
+                  class="rpl-card-emergency__cta-link-text"
                 >
                   
-        Call 000
+        Internal link
       
                 </span>
               </a>
@@ -5357,11 +5354,10 @@ exports[`RippleStoryshots Molecules/Card Card Box 1`] = `
           </div>
         </div>
         <div
-          class="rpl-card-box-item"
+          class="rpl-card-box__item"
         >
           <div
             class="rpl-card-emergency"
-            trimfieldeventbus="[object Object]"
           >
             <div
               class="rpl-card-emergency__content"
@@ -5395,16 +5391,17 @@ exports[`RippleStoryshots Molecules/Card Card Box 1`] = `
               />
                
               <a
-                class="rpl-link rpl-card-emergency__cta--link"
-                href="tel:000"
+                class="rpl-link rpl-card-emergency__cta-link"
+                href="http://google.com"
+                target="_blank"
               >
                 <!---->
                  
                 <span
-                  class="rpl-card-emergency__cta--link-text"
+                  class="rpl-card-emergency__cta-link-text"
                 >
                   
-        Call 000
+        External link
       
                 </span>
               </a>
@@ -7500,13 +7497,13 @@ exports[`RippleStoryshots Molecules/Card Card Emergency Contact 1`] = `
         />
          
         <a
-          class="rpl-link rpl-card-emergency__cta--link"
+          class="rpl-link rpl-card-emergency__cta-link"
           href="tel:000"
         >
           <!---->
            
           <span
-            class="rpl-card-emergency__cta--link-text"
+            class="rpl-card-emergency__cta-link-text"
           >
             
         Call 000
@@ -15288,7 +15285,7 @@ exports[`RippleStoryshots Molecules/PublishDateAndAuthor Publish Date and Author
       <div
         class="rpl-publish-date-and-author__date-location"
       >
-        22/04/18 11.00am
+        22/04/18 9.00am
         <span>
            from location
         </span>
@@ -30147,14 +30144,13 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           class="rpl-card-box rpl-site-constrain--on-all"
         >
           <div
-            class="rpl-card-box-items"
+            class="rpl-card-box__items"
           >
             <div
-              class="rpl-card-box-item"
+              class="rpl-card-box__item"
             >
               <div
                 class="rpl-card-emergency"
-                trimfieldeventbus="[object Object]"
               >
                 <div
                   class="rpl-card-emergency__content"
@@ -30188,13 +30184,13 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   />
                    
                   <a
-                    class="rpl-link rpl-card-emergency__cta--link"
+                    class="rpl-link rpl-card-emergency__cta-link"
                     href="tel:000"
                   >
                     <!---->
                      
                     <span
-                      class="rpl-card-emergency__cta--link-text"
+                      class="rpl-card-emergency__cta-link-text"
                     >
                       
         Call 000
@@ -30205,11 +30201,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               </div>
             </div>
             <div
-              class="rpl-card-box-item"
+              class="rpl-card-box__item"
             >
               <div
                 class="rpl-card-emergency"
-                trimfieldeventbus="[object Object]"
               >
                 <div
                   class="rpl-card-emergency__content"
@@ -30243,13 +30238,13 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   />
                    
                   <a
-                    class="rpl-link rpl-card-emergency__cta--link"
+                    class="rpl-link rpl-card-emergency__cta-link"
                     href="tel:000"
                   >
                     <!---->
                      
                     <span
-                      class="rpl-card-emergency__cta--link-text"
+                      class="rpl-card-emergency__cta-link-text"
                     >
                       
         Call 000
@@ -30260,11 +30255,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               </div>
             </div>
             <div
-              class="rpl-card-box-item"
+              class="rpl-card-box__item"
             >
               <div
                 class="rpl-card-emergency"
-                trimfieldeventbus="[object Object]"
               >
                 <div
                   class="rpl-card-emergency__content"
@@ -30298,16 +30292,16 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   />
                    
                   <a
-                    class="rpl-link rpl-card-emergency__cta--link"
-                    href="tel:000"
+                    class="rpl-link rpl-card-emergency__cta-link"
+                    href="/home"
                   >
                     <!---->
                      
                     <span
-                      class="rpl-card-emergency__cta--link-text"
+                      class="rpl-card-emergency__cta-link-text"
                     >
                       
-        Call 000
+        Internal link
       
                     </span>
                   </a>
@@ -30315,11 +30309,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               </div>
             </div>
             <div
-              class="rpl-card-box-item"
+              class="rpl-card-box__item"
             >
               <div
                 class="rpl-card-emergency"
-                trimfieldeventbus="[object Object]"
               >
                 <div
                   class="rpl-card-emergency__content"
@@ -30353,16 +30346,17 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   />
                    
                   <a
-                    class="rpl-link rpl-card-emergency__cta--link"
-                    href="tel:000"
+                    class="rpl-link rpl-card-emergency__cta-link"
+                    href="http://google.com"
+                    target="_blank"
                   >
                     <!---->
                      
                     <span
-                      class="rpl-card-emergency__cta--link-text"
+                      class="rpl-card-emergency__cta-link-text"
                     >
                       
-        Call 000
+        External link
       
                     </span>
                   </a>

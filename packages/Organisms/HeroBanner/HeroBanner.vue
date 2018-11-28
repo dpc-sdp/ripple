@@ -142,7 +142,7 @@ export default {
     'm': rem(48px - 26px),
     'l': rem(48px - 26px),
     'xl': rem(48px - 26px),
-    'xxl': rem(48px - 26px)
+    'xxl': rem(48px - 36px)
   ) !default;
   $rpl-hero-banner-vertical-spacing: (
     'xs': ('top': rem(56px), 'bottom': rem(100px)),

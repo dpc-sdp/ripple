@@ -14,6 +14,8 @@ import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
 import RplCardEvent from './CardEvent.vue'
 import RplCardCta from './CardCta.vue'
+import RplCardEmergencyContact from './CardEmergencyContact.vue'
+import RplCardBox from './CardBox.vue'
 import { RplCardCarousel } from './no-ssr'
 import readme from './README.md'
 import readmeCardContent from './ReadmeCardContent.md'
@@ -69,6 +71,20 @@ storiesOf('Molecules/Card', module)
     template: `<rpl-card-cta :image="image" :title="title" :summary="summary" :link="link" />`,
     data () {
       return demoData.cardCta()
+    }
+  })))
+  .add('Card Emergency Contact', withReadme(readme, () => ({
+    components: { RplCardEmergencyContact },
+    template: `<rpl-card-emergency-contact :title="title" :subtitle="subtitle" :summary="summary" :link="link" />`,
+    data () {
+      return demoData.cardEmergencyContact()
+    }
+  })))
+  .add('Card Box', withReadme(readme, () => ({
+    components: { RplCardBox },
+    template: `<rpl-card-box :cards="cards" />`,
+    data () {
+      return demoData.cardBox()
     }
   })))
   .add('Card Content (base)', withReadme(readmeCardContent, () => ({

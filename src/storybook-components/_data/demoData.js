@@ -242,6 +242,54 @@ const demoData = {
     link: object('Link', { text: 'Submit a listing', url: '#' })
   }),
 
+  cardEmergencyContact: () => ({
+    title: text('Title', 'Emergency Assistance'),
+    subtitle: text('Subtitle', 'Urgent'),
+    summary: text('Summary', 'Dial 000 for police, fire & ambulance'),
+    link: object('Link', { text: 'Call 000', url: 'tel:000' })
+  }),
+
+  cardBox: () => ({
+    cards: object('Cards', [
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: 'Emergency Assistance',
+          subtitle: 'Urgent',
+          summary: 'Dial 000 for police, fire & ambulance',
+          link: { text: 'Call 000', url: 'tel:000' }
+        }
+      },
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: 'Police Assistance Line',
+          subtitle: 'Urgent',
+          summary: 'Dial 000 for police, fire & ambulance',
+          link: { text: 'Call 000', url: 'tel:000' }
+        }
+      },
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: 'Police Assistance Line',
+          subtitle: 'Urgent',
+          summary: 'Dial 000 for police, fire & ambulance',
+          link: { text: 'Internal link', url: '/home' }
+        }
+      },
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: 'Police Assistance Line',
+          subtitle: 'Urgent',
+          summary: 'Dial 000 for police, fire & ambulance',
+          link: { text: 'External link', url: 'http://google.com' }
+        }
+      }
+    ])
+  }),
+
   cardCarousel: () => ({
     title: text('Title', 'Featured Content'),
     cards: object('Cards', [
@@ -1323,6 +1371,7 @@ const demoData = {
       'xls',
       'xlsm',
       'xlsx',
+      'zip',
       'zoom_in',
       'zoom_out'
     ]
@@ -1587,6 +1636,14 @@ const demoData = {
       description: 'Contains an image, title, external URL and description.'
     }
     ])
+  }),
+
+  documentLink: () => ({
+    name: text('Name', 'This is the name of the document'),
+    caption: text('caption', 'This is a longer description of the document above.'),
+    url: text('Download url', 'https://www.google.com'),
+    extension: text('Extension', 'pdf'),
+    filesize: text('Filesize', '1.4 mb')
   })
 }
 

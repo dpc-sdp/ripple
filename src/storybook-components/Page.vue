@@ -35,6 +35,10 @@
       </template>
 
       <template slot="aboveContentTwo">
+        <rpl-card-box
+          v-bind="mock.cardBox"
+          class="rpl-site-constrain--on-all"
+        />
         <rpl-search-form
           :title="mock.searchForm.title"
           :searchPlaceholder="mock.searchForm.searchPlaceholder"
@@ -99,6 +103,9 @@
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-timeline :title="mock.timeline.title" :list="mock.timeline.list" />
         </rpl-col>
+        <rpl-col cols="full">
+          <rpl-document-link v-bind="mock.documentLink"></rpl-document-link>
+        </rpl-col>
       </rpl-row>
 
       <template slot="sidebar">
@@ -151,7 +158,7 @@ import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 // Card
-import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta } from '@dpc-sdp/ripple-card'
+import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta, RplCardBox, RplCardEmergencyContact } from '@dpc-sdp/ripple-card'
 import { RplCardCarousel } from '@dpc-sdp/ripple-card/no-ssr'
 
 // Campaign
@@ -179,6 +186,8 @@ import RplTimeline from '@dpc-sdp/ripple-timeline'
 
 // Search
 import { RplSearchForm } from '@dpc-sdp/ripple-search'
+
+import RplDocumentLink from '@dpc-sdp/ripple-document-link'
 
 export default {
   name: 'SPage',
@@ -209,6 +218,8 @@ export default {
     RplCardEvent,
     RplCardCta,
     RplCardCarousel,
+    RplCardEmergencyContact,
+    RplCardBox,
 
     // Campaign
     RplCampaignPrimary,
@@ -235,7 +246,10 @@ export default {
     RplUpdatedDate,
 
     // Search
-    RplSearchForm
+    RplSearchForm,
+
+    // DocumentLink
+    RplDocumentLink
   },
   props: {
     sidebar: Boolean,

@@ -19,10 +19,10 @@
       </slide>
     </carousel>
     <div class="rpl-image-gallery__thumbnail-navigation">
-      <button class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+      <button v-if="navTo > 0" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
         <rpl-icon symbol="arrow_left_secondary" color="white" size="1.6" />
       </button>
-      <button class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+      <button v-if="navTo < totalSlides" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
         <rpl-icon symbol="arrow_right_secondary" color="white" size="1.6" />
       </button>
     </div>
@@ -58,10 +58,10 @@
           </slide>
         </carousel>
         <div class="rpl-image-gallery__large-navigation">
-          <button class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+          <button v-if="navTo > 0" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
             <rpl-icon symbol="arrow_left_secondary" color="white" size="2.8" />
           </button>
-          <button class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+          <button v-if="navTo < totalSlides" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
             <rpl-icon symbol="arrow_right_secondary" color="white" size="2.8" />
           </button>
         </div>
@@ -343,7 +343,6 @@ export default {
         top: 50%;
         left: 0;
         right: 0;
-        justify-content: space-between;
         display: flex;
         transform: translateY(-50%);
       }
@@ -401,6 +400,7 @@ export default {
       border: 0;
       margin: 0;
       padding: 0;
+      display: block;
 
       &:not([disabled]) {
         cursor: pointer;
@@ -409,9 +409,11 @@ export default {
 
     &__large-navigation-button--prev {
       margin-left: $rpl-image-gallery-modal-edge-margin-l;
+      margin-right: auto;
     }
 
     &__large-navigation-button--next {
+      margin-left: auto;
       margin-right: $rpl-image-gallery-modal-edge-margin-l;
     }
 

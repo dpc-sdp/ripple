@@ -1,13 +1,13 @@
-# @dpc-sdp/ripple-news
+# @dpc-sdp/ripple-document-link
 
-> Components for displaying news articles.
+> A component for rendering a document download link.
 
 --------------------------------------------------------------------------------
 
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-news --save
+npm install @dpc-sdp/ripple-document-link --save
 ```
 
 --------------------------------------------------------------------------------
@@ -15,19 +15,15 @@ npm install @dpc-sdp/ripple-news --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-news
-├── @dpc-sdp/ripple-card
-├── @dpc-sdp/ripple-global
-└── @dpc-sdp/ripple-link
+@dpc-sdp/ripple-document-link
+└── @dpc-sdp/ripple-global
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Featured News](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/News&selectedStory=Featured%20News).
-
-See [Storybook/News Listing](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/News&selectedStory=News%20Listing).
+See [Storybook/Document Link](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/DocumentLink&selectedStory=Document%20Link).
 
 --------------------------------------------------------------------------------
 

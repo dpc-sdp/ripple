@@ -5312,6 +5312,414 @@ exports[`RippleStoryshots Molecules/Breadcrumbs Breadcrumbs 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Card Card Box 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Molecules/Card
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Card Box
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-card-box"
+      data-v-6ca0e090=""
+    >
+      <div
+        class="rpl-card-box__items"
+      >
+        <div
+          class="rpl-card-box__item"
+        >
+          <div
+            class="rpl-card-emergency"
+          >
+            <div
+              class="rpl-card-emergency__content"
+            >
+              <div
+                class="rpl-card-emergency__subtitle"
+              >
+                <span>
+                  Urgent
+                </span>
+              </div>
+               
+              <h2
+                class="rpl-card-emergency__title"
+              >
+                Emergency Assistance
+              </h2>
+               
+              <p
+                class="rpl-card-emergency__summary"
+              >
+                Dial 000 for police, fire & ambulance
+              </p>
+            </div>
+             
+            <div
+              class="rpl-card-emergency__cta"
+            >
+              <span
+                class="rpl-card-emergency__separator"
+              />
+               
+              <a
+                class="rpl-link rpl-card-emergency__cta-link"
+                href="tel:000"
+              >
+                <!---->
+                 
+                <span
+                  class="rpl-card-emergency__cta-link-text"
+                >
+                  
+        Call 000
+      
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rpl-card-box__item"
+        >
+          <div
+            class="rpl-card-emergency"
+          >
+            <div
+              class="rpl-card-emergency__content"
+            >
+              <div
+                class="rpl-card-emergency__subtitle"
+              >
+                <span>
+                  Urgent
+                </span>
+              </div>
+               
+              <h2
+                class="rpl-card-emergency__title"
+              >
+                Police Assistance Line
+              </h2>
+               
+              <p
+                class="rpl-card-emergency__summary"
+              >
+                Dial 000 for police, fire & ambulance
+              </p>
+            </div>
+             
+            <div
+              class="rpl-card-emergency__cta"
+            >
+              <span
+                class="rpl-card-emergency__separator"
+              />
+               
+              <a
+                class="rpl-link rpl-card-emergency__cta-link"
+                href="tel:000"
+              >
+                <!---->
+                 
+                <span
+                  class="rpl-card-emergency__cta-link-text"
+                >
+                  
+        Call 000
+      
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rpl-card-box__item"
+        >
+          <div
+            class="rpl-card-emergency"
+          >
+            <div
+              class="rpl-card-emergency__content"
+            >
+              <div
+                class="rpl-card-emergency__subtitle"
+              >
+                <span>
+                  Urgent
+                </span>
+              </div>
+               
+              <h2
+                class="rpl-card-emergency__title"
+              >
+                Police Assistance Line
+              </h2>
+               
+              <p
+                class="rpl-card-emergency__summary"
+              >
+                Dial 000 for police, fire & ambulance
+              </p>
+            </div>
+             
+            <div
+              class="rpl-card-emergency__cta"
+            >
+              <span
+                class="rpl-card-emergency__separator"
+              />
+               
+              <a
+                class="rpl-link rpl-card-emergency__cta-link"
+                href="/home"
+              >
+                <!---->
+                 
+                <span
+                  class="rpl-card-emergency__cta-link-text"
+                >
+                  
+        Internal link
+      
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rpl-card-box__item"
+        >
+          <div
+            class="rpl-card-emergency"
+          >
+            <div
+              class="rpl-card-emergency__content"
+            >
+              <div
+                class="rpl-card-emergency__subtitle"
+              >
+                <span>
+                  Urgent
+                </span>
+              </div>
+               
+              <h2
+                class="rpl-card-emergency__title"
+              >
+                Police Assistance Line
+              </h2>
+               
+              <p
+                class="rpl-card-emergency__summary"
+              >
+                Dial 000 for police, fire & ambulance
+              </p>
+            </div>
+             
+            <div
+              class="rpl-card-emergency__cta"
+            >
+              <span
+                class="rpl-card-emergency__separator"
+              />
+               
+              <a
+                class="rpl-link rpl-card-emergency__cta-link"
+                href="http://google.com"
+                target="_blank"
+              >
+                <!---->
+                 
+                <span
+                  class="rpl-card-emergency__cta-link-text"
+                >
+                  
+        External link
+      
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-card-box
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :cards
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "cards"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplCardBox" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    cards
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
 <div
   class="vue-info"
@@ -7089,6 +7497,371 @@ exports[`RippleStoryshots Molecules/Card Card Cta 1`] = `
           >
             
     title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    summary
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    link
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Card Card Emergency Contact 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Molecules/Card
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Card Emergency Contact
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-card-emergency"
+      data-v-6ca0e090=""
+    >
+      <div
+        class="rpl-card-emergency__content"
+      >
+        <div
+          class="rpl-card-emergency__subtitle"
+        >
+          <span>
+            Urgent
+          </span>
+        </div>
+         
+        <h2
+          class="rpl-card-emergency__title"
+        >
+          Emergency Assistance
+        </h2>
+         
+        <p
+          class="rpl-card-emergency__summary"
+        >
+          Dial 000 for police, fire & ambulance
+        </p>
+      </div>
+       
+      <div
+        class="rpl-card-emergency__cta"
+      >
+        <span
+          class="rpl-card-emergency__separator"
+        />
+         
+        <a
+          class="rpl-link rpl-card-emergency__cta-link"
+          href="tel:000"
+        >
+          <!---->
+           
+          <span
+            class="rpl-card-emergency__cta-link-text"
+          >
+            
+        Call 000
+      
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-card-emergency-contact
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :title
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "title"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :subtitle
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "subtitle"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :summary
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "summary"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :link
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "link"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplCardEmergencyContact" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    subtitle
     
             <!---->
           </td>
@@ -29960,6 +30733,232 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       <div
         class="rpl-above-content-two"
       >
+        <div
+          class="rpl-card-box rpl-site-constrain--on-all"
+        >
+          <div
+            class="rpl-card-box__items"
+          >
+            <div
+              class="rpl-card-box__item"
+            >
+              <div
+                class="rpl-card-emergency"
+              >
+                <div
+                  class="rpl-card-emergency__content"
+                >
+                  <div
+                    class="rpl-card-emergency__subtitle"
+                  >
+                    <span>
+                      Urgent
+                    </span>
+                  </div>
+                   
+                  <h2
+                    class="rpl-card-emergency__title"
+                  >
+                    Emergency Assistance
+                  </h2>
+                   
+                  <p
+                    class="rpl-card-emergency__summary"
+                  >
+                    Dial 000 for police, fire & ambulance
+                  </p>
+                </div>
+                 
+                <div
+                  class="rpl-card-emergency__cta"
+                >
+                  <span
+                    class="rpl-card-emergency__separator"
+                  />
+                   
+                  <a
+                    class="rpl-link rpl-card-emergency__cta-link"
+                    href="tel:000"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="rpl-card-emergency__cta-link-text"
+                    >
+                      
+        Call 000
+      
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rpl-card-box__item"
+            >
+              <div
+                class="rpl-card-emergency"
+              >
+                <div
+                  class="rpl-card-emergency__content"
+                >
+                  <div
+                    class="rpl-card-emergency__subtitle"
+                  >
+                    <span>
+                      Urgent
+                    </span>
+                  </div>
+                   
+                  <h2
+                    class="rpl-card-emergency__title"
+                  >
+                    Police Assistance Line
+                  </h2>
+                   
+                  <p
+                    class="rpl-card-emergency__summary"
+                  >
+                    Dial 000 for police, fire & ambulance
+                  </p>
+                </div>
+                 
+                <div
+                  class="rpl-card-emergency__cta"
+                >
+                  <span
+                    class="rpl-card-emergency__separator"
+                  />
+                   
+                  <a
+                    class="rpl-link rpl-card-emergency__cta-link"
+                    href="tel:000"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="rpl-card-emergency__cta-link-text"
+                    >
+                      
+        Call 000
+      
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rpl-card-box__item"
+            >
+              <div
+                class="rpl-card-emergency"
+              >
+                <div
+                  class="rpl-card-emergency__content"
+                >
+                  <div
+                    class="rpl-card-emergency__subtitle"
+                  >
+                    <span>
+                      Urgent
+                    </span>
+                  </div>
+                   
+                  <h2
+                    class="rpl-card-emergency__title"
+                  >
+                    Police Assistance Line
+                  </h2>
+                   
+                  <p
+                    class="rpl-card-emergency__summary"
+                  >
+                    Dial 000 for police, fire & ambulance
+                  </p>
+                </div>
+                 
+                <div
+                  class="rpl-card-emergency__cta"
+                >
+                  <span
+                    class="rpl-card-emergency__separator"
+                  />
+                   
+                  <a
+                    class="rpl-link rpl-card-emergency__cta-link"
+                    href="/home"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="rpl-card-emergency__cta-link-text"
+                    >
+                      
+        Internal link
+      
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rpl-card-box__item"
+            >
+              <div
+                class="rpl-card-emergency"
+              >
+                <div
+                  class="rpl-card-emergency__content"
+                >
+                  <div
+                    class="rpl-card-emergency__subtitle"
+                  >
+                    <span>
+                      Urgent
+                    </span>
+                  </div>
+                   
+                  <h2
+                    class="rpl-card-emergency__title"
+                  >
+                    Police Assistance Line
+                  </h2>
+                   
+                  <p
+                    class="rpl-card-emergency__summary"
+                  >
+                    Dial 000 for police, fire & ambulance
+                  </p>
+                </div>
+                 
+                <div
+                  class="rpl-card-emergency__cta"
+                >
+                  <span
+                    class="rpl-card-emergency__separator"
+                  />
+                   
+                  <a
+                    class="rpl-link rpl-card-emergency__cta-link"
+                    href="http://google.com"
+                    target="_blank"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="rpl-card-emergency__cta-link-text"
+                    >
+                      
+        External link
+      
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         
         <div
           class="rpl-search-form rpl-site-constrain--on-all"
         >

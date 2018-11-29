@@ -41,7 +41,7 @@ export default {
   $rpl-breadcrumbs-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-breadcrumbs-separator-color: rpl-color('dark_neutral') !default;
   $rpl-breadcrumbs-separator-padding: 0 ($rpl-space-2) 0 ($rpl-space) !default;
-  $rpl-breadcrumbs-items-margin: $rpl-space 0 !default;
+  $rpl-breadcrumbs-items-margin: 0 !default;
 
   .rpl-breadcrumbs {
     display: none;
@@ -59,7 +59,7 @@ export default {
       border: $rpl-breadcrumbs-border;
       border-radius: $rpl-breadcrumbs-border-radius;
       padding: $rpl-breadcrumbs-padding;
-      margin:  $rpl-breadcrumbs-items-margin;
+      margin: $rpl-breadcrumbs-items-margin;
       @include rpl_dropshadow;
     }
 

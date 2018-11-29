@@ -34,6 +34,10 @@
       </template>
 
       <template slot="aboveContentTwo">
+        <rpl-card-box
+          v-bind="mock.cardBox"
+          class="rpl-site-constrain--on-all"
+        />
         <rpl-search-form
           :title="mock.searchForm.title"
           :searchPlaceholder="mock.searchForm.searchPlaceholder"
@@ -153,7 +157,7 @@ import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 // Card
-import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta } from '@dpc-sdp/ripple-card'
+import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta, RplCardBox, RplCardEmergencyContact } from '@dpc-sdp/ripple-card'
 import { RplCardCarousel } from '@dpc-sdp/ripple-card/no-ssr'
 
 // Campaign
@@ -213,6 +217,8 @@ export default {
     RplCardEvent,
     RplCardCta,
     RplCardCarousel,
+    RplCardEmergencyContact,
+    RplCardBox,
 
     // Campaign
     RplCampaignPrimary,

@@ -72,11 +72,7 @@ export default {
               status = this.statusTerms.ongoing
             }
           } else {
-            if (end) {
-              status = this.statusTerms.openingsoon
-            } else {
-              status = this.statusTerms.ongoing
-            }
+            status = this.statusTerms.openingsoon
           }
         } else {
           if (end) {

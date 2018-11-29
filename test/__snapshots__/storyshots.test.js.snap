@@ -1424,6 +1424,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          cross_circle
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           doc
         </code>
       </li>
@@ -23319,7 +23326,8 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
             {
   "open": "Open",
   "closed": "Closed",
-  "ongoing": "On-going"
+  "ongoing": "On-going",
+  "openingsoon": "Opening soon"
 }
           </td>
            

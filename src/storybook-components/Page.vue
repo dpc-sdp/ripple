@@ -21,8 +21,11 @@
       class="main rpl-container"
       :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
-      <template slot="aboveContent">
+      <template slot="breadcrumbs">
         <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
+      </template>
+
+      <template slot="aboveContent">
         <rpl-hero-banner
           :title="mock.heroBanner.title" :introText="mock.heroBanner.introText"
           :linkHeading="mock.heroBanner.linkHeading" :links="mock.heroBanner.links"

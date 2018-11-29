@@ -5,7 +5,8 @@ const RplGlobal = {
   install (Vue, options) {
     const rplOptions = {
       nuxt: false,
-      hostname: 'localhost'
+      hostname: 'localhost',
+      quickexit: true
     }
 
     const mergedOptions = Object.assign({}, rplOptions, options)

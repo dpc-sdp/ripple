@@ -1,15 +1,16 @@
 <template>
   <div class="rpl-quick-exit">
-    <button
+    <a
       class="rpl-quick-exit__button"
       ref="button"
+      :href="escapeURL"
       :class="{
         'rpl-quick-exit__button--stickable': isSticky,
         'rpl-quick-exit__button--sticky': stickyActive,
         'rpl-quick-exit__button--header-visible': (stickyActive && headerVisible),
       }"
       @click="quickExit"
-    >{{ text }}</button>
+    >{{ text }}</a>
   </div>
 </template>
 
@@ -18,30 +19,38 @@ export default {
   name: 'RplQuickExit',
   props: {
     text: { type: String, default: 'Quick exit' },
-    isSticky: { type: Boolean, default: true }
+    isSticky: { type: Boolean, default: true },
+    escapeURL: { type: String, default: 'https://www.google.com' },
+    menuOffsetElement: HTMLDivElement
   },
   data () {
     return {
+      menuStickyActive: false,
       stickyActive: false,
-      headerVisible: false,
+      headerVisible: true,
       offsetTop: 0,
       lastPageScrollTop: 0
     }
   },
   methods: {
     quickExit () {
-      console.log('Make a quick exit')
+      const newTab = window.open(this.escapeURL, '_blank')
+      if (newTab) {
+        newTab.focus()
+      }
     },
     scroll () {
       const pageScrollTop = window.pageYOffset || document.documentElement.scrollTop
-      const isScrollingUp = (pageScrollTop < this.lastPageScrollTop)
+      const isScrollingUp = (pageScrollTop <= this.lastPageScrollTop)
       const elStyle = getComputedStyle(this.$refs.button)
       const elTop = parseInt(elStyle.top) || 0
       const elMargin = isScrollingUp ? parseInt(elStyle.marginTop) : 0
-      const stickPoint = this.$el.offsetTop - elMargin - elTop
+      const elStickPoint = this.$el.offsetTop - elMargin - elTop
+      const menuStickPoint = this.menuOffsetElement.offsetTop
+      const menuStickyActive = (pageScrollTop > menuStickPoint)
 
-      this.stickyActive = (pageScrollTop > stickPoint)
-      this.headerVisible = isScrollingUp
+      this.stickyActive = (pageScrollTop > elStickPoint) || (isScrollingUp && menuStickyActive)
+      this.headerVisible = isScrollingUp || !this.stickyActive
       this.lastPageScrollTop = pageScrollTop <= 0 ? 0 : pageScrollTop
     }
   },

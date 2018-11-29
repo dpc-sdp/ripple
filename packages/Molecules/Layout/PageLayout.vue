@@ -6,10 +6,10 @@
       :class="{ 'rpl-above-content-container--with-bg': heroBackgroundImage }"
     >
       <div class="rpl-above-content" :style="bgGraphic">
-        <div class="rpl-above-content__inner" :style="backgroundImage">
+        <div class="rpl-above-content__inner" :style="backgroundImage" ref="menuOffset">
           <div class="rpl-above-content__top">
             <slot name="breadcrumbs"></slot>
-            <rpl-quick-exit v-if="quickexit" />
+            <rpl-quick-exit v-if="quickexit" :menuOffsetElement="$refs['menuOffset']" />
           </div>
           <slot name="aboveContent"></slot>
         </div>

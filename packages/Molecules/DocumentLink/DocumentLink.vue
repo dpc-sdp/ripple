@@ -1,7 +1,7 @@
 <template>
   <figure class="rpl-document-link">
     <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="!isExternalLink" :target="isExternalLink ? '_blank' : false">
-      <rpl-icon :symbol="icon" color="primary" size="l" />
+      <rpl-icon class="rpl-document-link__icon" :symbol="icon" color="primary" size="l" />
       <div class="rpl-document-link__info">
         <span class="rpl-document-link__title">{{name}}</span>
         <div class="rpl-document-link__meta">
@@ -67,9 +67,16 @@ export default {
   $rpl-document-link-meta-separator-color: mix(rpl_color('mid_neutral_1'), rpl_color('white'), 93%) !default;
   $rpl-document-link-caption-ruleset: ('xs', 1em, 'semibold') !default;
   $rpl-document-link-caption-margin-top: $rpl-space-2 !default;
+  $rpl-document-link-margin: $rpl-space-2 0 !default;
 
   .rpl-document-link {
-    margin: 0;
+    margin: $rpl-document-link-margin;
+
+    @include rpl_mobile_padding();
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     &__link {
       display: flex;
@@ -84,8 +91,12 @@ export default {
       color: $rpl-document-link-title-color;
     }
 
+    &__icon {
+      flex: 0 0 30px;
+    }
+
     &__info {
-      margin-left: rem(11px)
+      margin-left: rem(11px);
     }
 
     &__meta {

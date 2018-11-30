@@ -17,7 +17,8 @@ npm install @dpc-sdp/ripple-alert --save
 ```shell
 @dpc-sdp/ripple-alert
 ├── @dpc-sdp/ripple-global
-└── @dpc-sdp/ripple-icon
+├── @dpc-sdp/ripple-icon
+└── @dpc-sdp/ripple-link
 ```
 
 --------------------------------------------------------------------------------

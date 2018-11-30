@@ -16,13 +16,13 @@ storiesOf('Molecules/Alert', module)
   .addDecorator(withKnobs)
   .add('Alert', withReadme(readme, () => ({
     components: { RplAlert },
-    template: `<rpl-alert :title="'This is a placeholder component.'" @rplAlertClose="close" />`,
+    template: `<rpl-alert :title="title" :type="type" :link="link" :alertId="alertId" @rplAlertClose="close" />`,
     data () {
-      return {}
+      return demoData.alert()
     },
     methods: {
-      close () {
-        alert('Alert close clicked.')
+      close (alertId) {
+        alert(`Alert has an ID of "${alertId}"`)
       }
     }
   })))

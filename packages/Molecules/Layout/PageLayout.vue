@@ -6,10 +6,10 @@
       :class="{ 'rpl-above-content-container--with-bg': heroBackgroundImage }"
     >
       <div class="rpl-above-content" :style="bgGraphic">
-        <div class="rpl-above-content__inner" :style="backgroundImage" ref="menuOffset">
+        <div class="rpl-above-content__inner" :style="backgroundImage">
           <div class="rpl-above-content__top">
             <slot name="breadcrumbs"></slot>
-            <rpl-quick-exit v-if="quickexit" :menuOffsetElement="$refs['menuOffset']" />
+            <rpl-quick-exit v-if="quickexit" menuOffsetSelector=".rpl-above-content__inner" />
           </div>
           <slot name="aboveContent"></slot>
         </div>
@@ -48,6 +48,7 @@ export default {
   components: { RplContainer, RplRow, RplCol, RplQuickExit },
   props: {
     'sidebar': Boolean,
+    'quickExit': { type: Boolean, default: null },
     'backgroundColor': String,
     'heroBackgroundImage': String,
     'backgroundGraphic': String
@@ -76,7 +77,7 @@ export default {
     }
   },
   created () {
-    this.quickexit = this.rplOptions.quickexit
+    this.quickexit = (this.quickExit !== null) ? this.quickExit : this.rplOptions.quickexit
   }
 }
 </script>
@@ -137,7 +138,6 @@ $rpl-backbround-color: rpl-color('white') !default;
 
   &__top {
     display: flex;
-    justify-content: flex-end;
     padding: 0 $rpl-header-horizontal-padding-xs;
     @include rpl_breakpoint('s') {
       justify-content: space-between;

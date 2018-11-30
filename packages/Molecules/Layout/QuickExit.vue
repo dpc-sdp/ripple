@@ -20,7 +20,7 @@ export default {
   props: {
     text: { type: String, default: 'Quick exit' },
     isSticky: { type: Boolean, default: true },
-    menuOffsetElement: HTMLDivElement
+    menuOffsetSelector: { type: String, default: null }
   },
   data () {
     return {
@@ -29,7 +29,8 @@ export default {
       stickyActive: false,
       headerVisible: true,
       offsetTop: 0,
-      lastPageScrollTop: 0
+      lastPageScrollTop: 0,
+      menuOffsetElement: null
     }
   },
   methods: {
@@ -59,6 +60,7 @@ export default {
   },
   mounted () {
     if (process.browser && this.isSticky) {
+      this.menuOffsetElement = document.querySelector(this.menuOffsetSelector)
       window.addEventListener('scroll', this.scroll)
     }
   },
@@ -74,11 +76,12 @@ export default {
   @import "~@dpc-sdp/ripple-global/style";
 
   $rpl-quick-exit-menu-header-height-xs: rem(48px) !default;
-  $rpl-quick-exit-menu-header-height-s: rem(62px) !default;
+  $rpl-quick-exit-menu-header-height-m: rem(62px) !default;
   $rpl-quick-exit-menu-button-spacing: $rpl-space !default;
 
   .rpl-quick-exit {
-    margin-left: $rpl-space;
+    padding-left: $rpl-space;
+    margin-left: auto;
 
     &--sticky {
       &::before {
@@ -115,8 +118,8 @@ export default {
         transition: margin ease-out .2s;
         margin-top: $rpl-quick-exit-menu-header-height-xs + $rpl-quick-exit-menu-button-spacing;
 
-        @include rpl_breakpoint('s') {
-          margin-top: $rpl-quick-exit-menu-header-height-s + $rpl-quick-exit-menu-button-spacing;
+        @include rpl_breakpoint('m') {
+          margin-top: $rpl-quick-exit-menu-header-height-m + $rpl-quick-exit-menu-button-spacing;
         }
       }
     }

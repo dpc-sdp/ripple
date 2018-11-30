@@ -18,6 +18,7 @@
       :sidebar="sidebar"
       class="main rpl-container"
       :backgroundGraphic="showTopGraphic ? mock.landingPage.backgroundGraphic : null"
+      :quickExit="showQuickExit"
     >
       <template slot="breadcrumbs">
         <rpl-breadcrumbs v-if="showBreadcrumbs" :crumbs="mock.breadcrumbs.crumbs" />
@@ -107,6 +108,7 @@ export default {
     showTopGraphic: Boolean,
     showBottomGraphic: Boolean,
     showBreadcrumbs: Boolean,
+    showQuickExit: Boolean,
     mock: Object
   },
   methods: {

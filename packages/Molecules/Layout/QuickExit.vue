@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-quick-exit">
+  <div class="rpl-quick-exit" :class="{ 'rpl-quick-exit--sticky': stickyActive }" :data-text="text">
     <a
       class="rpl-quick-exit__button"
       ref="button"
@@ -20,11 +20,11 @@ export default {
   props: {
     text: { type: String, default: 'Quick exit' },
     isSticky: { type: Boolean, default: true },
-    escapeURL: { type: String, default: 'https://www.google.com' },
     menuOffsetElement: HTMLDivElement
   },
   data () {
     return {
+      escapeURL: null,
       menuStickyActive: false,
       stickyActive: false,
       headerVisible: true,
@@ -54,6 +54,9 @@ export default {
       this.lastPageScrollTop = pageScrollTop <= 0 ? 0 : pageScrollTop
     }
   },
+  created () {
+    this.escapeURL = this.rplOptions.quickexiturl
+  },
   mounted () {
     if (process.browser && this.isSticky) {
       window.addEventListener('scroll', this.scroll)
@@ -70,34 +73,26 @@ export default {
 <style lang="scss" scoped>
   @import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-quick-exit-text-color: rpl-color('white') !default;
-  $rpl-quick-exit-background-color: rpl-color('danger') !default;
+  $rpl-quick-exit-menu-header-height-xs: rem(48px) !default;
+  $rpl-quick-exit-menu-header-height-s: rem(62px) !default;
+  $rpl-quick-exit-menu-button-spacing: $rpl-space !default;
 
   .rpl-quick-exit {
-    height: rem(48px);
+    margin-left: $rpl-space;
 
-    @include rpl_breakpoint('m') {
-      height: rem(50px);
+    &--sticky {
+      &::before {
+        // A phantom button to keep the space available.
+        content: attr(data-text);
+        @include rpl_narrow_button;
+        pointer-events: none;
+        opacity: 0;
+      }
     }
 
     &__button {
-      @include rpl_button;
-      width: auto;
-      white-space: nowrap;
-      border-radius: $rpl-button-border-radius;
-      background-color: $rpl-quick-exit-background-color;
-      color: $rpl-quick-exit-text-color;
-      padding: $rpl-space-4 ($rpl-space * 4);
-
-      @include rpl_breakpoint('m') {
-        padding: $rpl-button-padding;
-      }
-
-      &:active {
-        background-image: none;
-        background-color: $rpl-quick-exit-background-color;
-        color: $rpl-quick-exit-text-color;
-      }
+      @include rpl_narrow_button;
+      @include rpl_narrow_button_danger;
 
       &--stickable {
         z-index: $rpl-zindex-header;
@@ -118,10 +113,10 @@ export default {
 
       &--header-visible {
         transition: margin ease-out .2s;
-        margin-top: 48px + 4px;
+        margin-top: $rpl-quick-exit-menu-header-height-xs + $rpl-quick-exit-menu-button-spacing;
 
         @include rpl_breakpoint('s') {
-          margin-top: 62px + 4px;
+          margin-top: $rpl-quick-exit-menu-header-height-s + $rpl-quick-exit-menu-button-spacing;
         }
       }
     }

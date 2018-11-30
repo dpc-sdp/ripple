@@ -6,7 +6,8 @@ const RplGlobal = {
     const rplOptions = {
       nuxt: false,
       hostname: 'localhost',
-      quickexit: true
+      quickexit: true,
+      quickexiturl: 'https://www.google.com'
     }
 
     const mergedOptions = Object.assign({}, rplOptions, options)

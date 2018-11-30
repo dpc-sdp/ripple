@@ -13578,7 +13578,23 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
           <div
             class="rpl-above-content__inner"
           >
-            Above content
+            <div
+              class="rpl-above-content__top"
+            >
+               
+              <div
+                class="rpl-quick-exit"
+                data-text="Quick exit"
+              >
+                <a
+                  class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                  href="https://www.google.com"
+                >
+                  Quick exit
+                </a>
+              </div>
+            </div>
+             Above content
           </div>
         </div>
          
@@ -13870,6 +13886,38 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
             data-v-5bd9cdea=""
           >
             
+    quickExit
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
     backgroundColor
     
             <!---->
@@ -14009,7 +14057,23 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
           <div
             class="rpl-above-content__inner"
           >
-            Above content
+            <div
+              class="rpl-above-content__top"
+            >
+               
+              <div
+                class="rpl-quick-exit"
+                data-text="Quick exit"
+              >
+                <a
+                  class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                  href="https://www.google.com"
+                >
+                  Quick exit
+                </a>
+              </div>
+            </div>
+             Above content
           </div>
         </div>
          
@@ -14348,6 +14412,38 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
             data-v-5bd9cdea=""
           >
             
+    quickExit
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
     backgroundColor
     
             <!---->
@@ -14481,6 +14577,23 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
         <div
           class="rpl-above-content__inner"
         >
+          <div
+            class="rpl-above-content__top"
+          >
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
+            </div>
+          </div>
+           
           <div
             class="banner-hero rpl-site-constrain--on-all"
           >
@@ -14740,6 +14853,23 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
         <div
           class="rpl-above-content__inner"
         >
+          <div
+            class="rpl-above-content__top"
+          >
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
+            </div>
+          </div>
+           
           <div
             class="banner-hero rpl-site-constrain--on-all"
           >
@@ -28837,48 +28967,64 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
           style="background-image: url(/herobg.jpg);"
         >
           <div
-            class="rpl-breadcrumbs"
+            class="rpl-above-content__top"
           >
             <div
-              class="rpl-breadcrumbs__row"
+              class="rpl-breadcrumbs"
             >
-              <nav
-                aria-label="breadcrumbs"
+              <div
+                class="rpl-breadcrumbs__row"
               >
-                <ul
-                  class="rpl-breadcrumbs__items"
+                <nav
+                  aria-label="breadcrumbs"
                 >
-                  <li
-                    class="rpl-breadcrumbs__item"
+                  <ul
+                    class="rpl-breadcrumbs__items"
                   >
-                    <a
-                      class="rpl-link rpl-breadcrumbs__link"
-                      href="#"
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Home
-                    </a>
-                  </li>
-                  <li
-                    class="rpl-breadcrumbs__item"
-                  >
-                    <a
-                      class="rpl-link rpl-breadcrumbs__link"
-                      href="#"
+                      <a
+                        class="rpl-link rpl-breadcrumbs__link"
+                        href="#"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Level 1 page title
-                    </a>
-                  </li>
-                  <li
-                    class="rpl-breadcrumbs__item"
-                  >
-                    <span
-                      class="rpl-breadcrumbs__text"
+                      <a
+                        class="rpl-link rpl-breadcrumbs__link"
+                        href="#"
+                      >
+                        Level 1 page title
+                      </a>
+                    </li>
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Level 2 page title
-                    </span>
-                  </li>
-                </ul>
-              </nav>
+                      <span
+                        class="rpl-breadcrumbs__text"
+                      >
+                        Level 2 page title
+                      </span>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
             </div>
           </div>
            
@@ -28934,7 +29080,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
           <div
             class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
           >
-             
+              
             <div
               class="rpl-row demo-main rpl-row--gutter"
             />
@@ -29537,6 +29683,23 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
         <div
           class="rpl-above-content__inner"
         >
+          <div
+            class="rpl-above-content__top"
+          >
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
+            </div>
+          </div>
+           
           <div
             class="rpl-search-form rpl-site-constrain--on-all rpl-search-form--two-cols"
           >
@@ -30520,48 +30683,64 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           class="rpl-above-content__inner"
         >
           <div
-            class="rpl-breadcrumbs"
+            class="rpl-above-content__top"
           >
             <div
-              class="rpl-breadcrumbs__row"
+              class="rpl-breadcrumbs"
             >
-              <nav
-                aria-label="breadcrumbs"
+              <div
+                class="rpl-breadcrumbs__row"
               >
-                <ul
-                  class="rpl-breadcrumbs__items"
+                <nav
+                  aria-label="breadcrumbs"
                 >
-                  <li
-                    class="rpl-breadcrumbs__item"
+                  <ul
+                    class="rpl-breadcrumbs__items"
                   >
-                    <a
-                      class="rpl-link rpl-breadcrumbs__link"
-                      href="#"
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Home
-                    </a>
-                  </li>
-                  <li
-                    class="rpl-breadcrumbs__item"
-                  >
-                    <a
-                      class="rpl-link rpl-breadcrumbs__link"
-                      href="#"
+                      <a
+                        class="rpl-link rpl-breadcrumbs__link"
+                        href="#"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Level 1 page title
-                    </a>
-                  </li>
-                  <li
-                    class="rpl-breadcrumbs__item"
-                  >
-                    <span
-                      class="rpl-breadcrumbs__text"
+                      <a
+                        class="rpl-link rpl-breadcrumbs__link"
+                        href="#"
+                      >
+                        Level 1 page title
+                      </a>
+                    </li>
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Level 2 page title
-                    </span>
-                  </li>
-                </ul>
-              </nav>
+                      <span
+                        class="rpl-breadcrumbs__text"
+                      >
+                        Level 2 page title
+                      </span>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
             </div>
           </div>
            
@@ -31110,7 +31289,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           <div
             class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
           >
-              
+               
             <div
               class="rpl-row demo-main rpl-row--gutter"
             >
@@ -33624,48 +33803,64 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
           class="rpl-above-content__inner"
         >
           <div
-            class="rpl-breadcrumbs"
+            class="rpl-above-content__top"
           >
             <div
-              class="rpl-breadcrumbs__row"
+              class="rpl-breadcrumbs"
             >
-              <nav
-                aria-label="breadcrumbs"
+              <div
+                class="rpl-breadcrumbs__row"
               >
-                <ul
-                  class="rpl-breadcrumbs__items"
+                <nav
+                  aria-label="breadcrumbs"
                 >
-                  <li
-                    class="rpl-breadcrumbs__item"
+                  <ul
+                    class="rpl-breadcrumbs__items"
                   >
-                    <a
-                      class="rpl-link rpl-breadcrumbs__link"
-                      href="#"
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Home
-                    </a>
-                  </li>
-                  <li
-                    class="rpl-breadcrumbs__item"
-                  >
-                    <a
-                      class="rpl-link rpl-breadcrumbs__link"
-                      href="#"
+                      <a
+                        class="rpl-link rpl-breadcrumbs__link"
+                        href="#"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Level 1 page title
-                    </a>
-                  </li>
-                  <li
-                    class="rpl-breadcrumbs__item"
-                  >
-                    <span
-                      class="rpl-breadcrumbs__text"
+                      <a
+                        class="rpl-link rpl-breadcrumbs__link"
+                        href="#"
+                      >
+                        Level 1 page title
+                      </a>
+                    </li>
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Level 2 page title
-                    </span>
-                  </li>
-                </ul>
-              </nav>
+                      <span
+                        class="rpl-breadcrumbs__text"
+                      >
+                        Level 2 page title
+                      </span>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
             </div>
           </div>
            
@@ -33825,7 +34020,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
           <div
             class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
           >
-             
+              
             <div
               class="rpl-row demo-main rpl-row--gutter"
             />
@@ -34429,50 +34624,67 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
           class="rpl-above-content__inner"
         >
           <div
-            class="rpl-breadcrumbs"
+            class="rpl-above-content__top"
           >
             <div
-              class="rpl-breadcrumbs__row"
+              class="rpl-breadcrumbs"
             >
-              <nav
-                aria-label="breadcrumbs"
+              <div
+                class="rpl-breadcrumbs__row"
               >
-                <ul
-                  class="rpl-breadcrumbs__items"
+                <nav
+                  aria-label="breadcrumbs"
                 >
-                  <li
-                    class="rpl-breadcrumbs__item"
+                  <ul
+                    class="rpl-breadcrumbs__items"
                   >
-                    <a
-                      class="rpl-link rpl-breadcrumbs__link"
-                      href="#"
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Home
-                    </a>
-                  </li>
-                  <li
-                    class="rpl-breadcrumbs__item"
-                  >
-                    <a
-                      class="rpl-link rpl-breadcrumbs__link"
-                      href="#"
+                      <a
+                        class="rpl-link rpl-breadcrumbs__link"
+                        href="#"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Level 1 page title
-                    </a>
-                  </li>
-                  <li
-                    class="rpl-breadcrumbs__item"
-                  >
-                    <span
-                      class="rpl-breadcrumbs__text"
+                      <a
+                        class="rpl-link rpl-breadcrumbs__link"
+                        href="#"
+                      >
+                        Level 1 page title
+                      </a>
+                    </li>
+                    <li
+                      class="rpl-breadcrumbs__item"
                     >
-                      Level 2 page title
-                    </span>
-                  </li>
-                </ul>
-              </nav>
+                      <span
+                        class="rpl-breadcrumbs__text"
+                      >
+                        Level 2 page title
+                      </span>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
             </div>
           </div>
+           
         </div>
       </div>
        
@@ -35662,6 +35874,23 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
           class="rpl-above-content__inner"
         >
           <div
+            class="rpl-above-content__top"
+          >
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
+            </div>
+          </div>
+           
+          <div
             class="rpl-hero-banner rpl-site-constrain--on-all"
           >
             <!---->
@@ -36761,6 +36990,23 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
         <div
           class="rpl-above-content__inner"
         >
+          <div
+            class="rpl-above-content__top"
+          >
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
+            </div>
+          </div>
+           
           <div
             class="rpl-search-form rpl-site-constrain--on-all"
           >

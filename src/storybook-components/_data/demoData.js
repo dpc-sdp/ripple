@@ -1316,6 +1316,7 @@ const demoData = {
       'child_friendly',
       'close',
       'csv',
+      'cross_circle',
       'doc',
       'document',
       'document_transparent',

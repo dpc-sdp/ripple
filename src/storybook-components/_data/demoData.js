@@ -257,7 +257,7 @@ const demoData = {
           title: 'Emergency Assistance',
           subtitle: 'Urgent',
           summary: 'Dial 000 for police, fire & ambulance',
-          link: { text: 'Call 000', url: 'tel:000' }
+          link: { text: 'Call 0000', url: 'tel:+0000' }
         }
       },
       {
@@ -282,7 +282,7 @@ const demoData = {
         name: 'rpl-card-emergency-contact',
         data: {
           title: 'Police Assistance Line',
-          subtitle: 'Urgent',
+          subtitle: null,
           summary: 'Dial 000 for police, fire & ambulance',
           link: { text: 'External link', url: 'http://google.com' }
         }

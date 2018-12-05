@@ -168,6 +168,7 @@ export default {
       margin: $rpl-timeline-image-margin;
       border-radius: 100%;
       object-fit: cover;
+      font-family: 'object-fit: cover;';
     }
 
     &__item-title {

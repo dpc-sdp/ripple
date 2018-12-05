@@ -27,7 +27,6 @@ const ol = Vue.ol
 
 const methods = {
   createMap () {
-    console.log(RplMapIndicator)
     map = new ol.Map({
       target: 'map',
       controls: [

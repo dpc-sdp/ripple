@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import ButtonClose from '@dpc-sdp/ripple-map-indicator'
+import ButtonClose from '@dpc-sdp/ripple-close-button'
 
 export default {
   name: 'RplMapIndicator',

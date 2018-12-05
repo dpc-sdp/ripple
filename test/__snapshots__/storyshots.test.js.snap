@@ -6131,7 +6131,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                       <div
                         class="rpl-card-event__date"
                       >
-                        10 July to 10 September
+                        10 July to 10 September 2018
                       </div>
                     </div>
                      
@@ -22469,7 +22469,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                 <div
                   class="rpl-card-event__date"
                 >
-                  01 August to 02 September
+                  01 August to 02 September 2018
                 </div>
               </div>
                
@@ -23474,7 +23474,7 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
             {
   "open": "Open",
   "closed": "Closed",
-  "ongoing": "On-going",
+  "ongoing": "Ongoing",
   "openingsoon": "Opening soon"
 }
           </td>

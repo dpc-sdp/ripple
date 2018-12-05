@@ -1,0 +1,193 @@
+<template>
+  <div>
+    <div
+      id="map-popup"
+      class="ol-popup">
+        <rpl-map-indicator :selectedFeature="feature">
+          <slot :selectedFeature="feature" />
+        </rpl-map-indicator>
+    </div>
+    <div class="rpl-map" id="map" ref="map">
+    </div>
+  </div>
+</template>
+
+<script>
+import Vue from 'vue'
+import RplMapIndicator from '@dpc-sdp/ripple-map-indicator'
+
+let map,
+  baseLayer,
+  baseSource,
+  themeLayer,
+  themeSource,
+  popupOverlay
+
+const ol = Vue.ol
+
+const methods = {
+  createMap () {
+    console.log(RplMapIndicator)
+    map = new ol.Map({
+      target: 'map',
+      controls: [
+        new ol.control.Zoom()
+      ],
+      // interactions: interactions,
+      loadTilesWhileInteracting: true,
+      view: new ol.View({
+        center: this.center,
+        zoom: this.zoom,
+        // maxZoom: 14,
+        minZoom: 7
+      })
+    })
+  },
+  createBaseLayer () {
+    baseSource = new ol.source.XYZ({
+      url: this.basemapUrl,
+      transition: 1000
+    })
+    baseLayer = new ol.layer.Tile({
+      source: baseSource
+    })
+  },
+  createImageIconStyle: (src, crossOrigin, size) => {
+    return new ol.style.Style({
+      image: new ol.style.Icon(/** @type {module:ol/style/Icon~Options} */ ({
+        crossOrigin,
+        src,
+        imgSize: size
+      }))
+    })
+  },
+  createThemeLayer () {
+    if (!this.themeLayerUrl) return
+    themeSource = new ol.source.VectorTile({
+      overlaps: false,
+      format: new ol.format.MVT(),
+      url: this.themeLayerUrl,
+      transition: 1000
+    })
+
+    if (!this.customThemeFunction) return
+    themeLayer = new ol.layer.VectorTile({
+      style: this.customThemeFunction || this.themeFeatureStyleFunction,
+      opacity: 0.9,
+      source: themeSource,
+      updateWhileInteracting: true
+    })
+  },
+  addPopupOverlay () {
+    popupOverlay = new ol.Overlay({
+      element: document.getElementById('map-popup'),
+      autoPan: true,
+      autoPanAnimation: {
+        duration: 250
+      },
+      positioning: 'bottom-center',
+      position: undefined
+    })
+    map.addOverlay(popupOverlay)
+  },
+  onMapClick (evt) {
+    let feature =
+        map.forEachFeatureAtPixel(evt.pixel, function (feature, layer) {
+          if (layer === themeLayer) {
+            return feature
+          }
+        })
+    if (!feature) {
+      // hide popup if you click on the map
+      this.feature = null
+      return
+    }
+    popupOverlay.setPosition(evt.coordinate)
+
+    this.feature = feature
+  },
+  onAppMounted () {
+    this.createMap()
+    this.createBaseLayer()
+    this.createThemeLayer()
+
+    map.addLayer(baseLayer)
+    if (themeLayer) map.addLayer(themeLayer)
+
+    this.addPopupOverlay()
+
+    map.on('singleclick', this.onMapClick)
+  }
+}
+export default {
+  name: 'RplMap',
+  props: {
+    // Fitzroy
+    center: {
+      type: Array,
+      default: () => [16139009.49495, -4551340.1913],
+      validator: value => value.length === 2
+    },
+    zoom: {
+      type: Number,
+      default: 15
+    },
+    refreshOn: {
+      type: Boolean,
+      default: false
+    },
+    themeLayerUrl: {
+      type: String,
+      default: ''
+    },
+    basemapUrl: {
+      type: String,
+      default: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+    },
+    customThemeFunction: {
+      type: Function,
+      default: null
+    }
+  },
+  data: function () {
+    return { feature: null }
+  },
+  components: {
+    RplMapIndicator
+  },
+  watch: {
+    // Used as a prop when the map will be offscreen initially i.e. mobile
+    // OL will hide the canvas
+    // Update size renders the map again
+    refreshOn (val) {
+      if (val) {
+        map.updateSize()
+        // TODO: Calling zoom works but zooms in too close on mobile
+        // Update with mobile specific zoom level
+        // this.zoomOnAppMounted()
+      }
+    }
+  },
+  mounted () {
+    this.onAppMounted()
+  },
+  methods
+}
+</script>
+
+<style lang="scss">
+  @import "~@dpc-sdp/ripple-global/style";
+
+.rpl-map {
+  width: 100%;
+  height: 350px;
+}
+
+.ol-popup {
+  position: absolute;
+  z-index: 999;
+  width: 500px;
+  bottom: 11px;
+  left: -250px;
+}
+</style>

@@ -1394,6 +1394,14 @@ const demoData = {
     disabled: boolean('Disabled', false)
   }),
 
+  closeButton: () => ({ }),
+
+  mapIndicator: () => ({ }),
+
+  map: () => ({ }),
+
+  wifiMap: () => ({ }),
+
   grid: () => ({
     cols: text('Cols default', 'full'),
     colsBp: object('Cols in breakpoints', {

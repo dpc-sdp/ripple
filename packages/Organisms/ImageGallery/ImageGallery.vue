@@ -9,6 +9,7 @@
       :loop="true"
       :mouseDrag="false"
       :paginationEnabled="false"
+      @pageChange="onPageChange"
     >
       <slide v-for="(item, index) in galleryData" :key="index" class="rpl-image-gallery__thumbnail">
         <rpl-fitted-img class="rpl-image-gallery__thumbnail-image" :img-src="item.thumbnail" :img-alt="item.alt" />
@@ -35,6 +36,7 @@
           :loop="true"
           :mouseDrag="false"
           :paginationEnabled="false"
+          @pageChange="onPageChange"
         >
           <slide v-for="(item, index) in galleryData" :key="index" class="rpl-image-gallery__large">
             <div class="rpl-image-gallery__large-details-and-image">
@@ -110,6 +112,9 @@ export default {
     },
     prevSlide () {
       this.navTo = ((this.navTo > 0) ? (this.navTo - 1) : this.totalSlides)
+    },
+    onPageChange (slideNumber) {
+      this.navTo = slideNumber
     }
   }
 }

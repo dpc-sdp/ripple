@@ -31,7 +31,8 @@ export default {
         return {
           open: 'Open',
           closed: 'Closed',
-          ongoing: 'On-going'
+          ongoing: 'On-going',
+          openingsoon: 'Opening soon'
         }
       }
     }
@@ -71,7 +72,7 @@ export default {
               status = this.statusTerms.ongoing
             }
           } else {
-            status = this.statusTerms.closed
+            status = this.statusTerms.openingsoon
           }
         } else {
           if (end) {
@@ -86,8 +87,8 @@ export default {
         }
       }
       list.push({
-        symbol: 'success',
-        color: 'success',
+        symbol: status === 'Closed' ? 'cross_circle' : 'success',
+        color: status === 'Closed' ? 'danger' : 'success',
         size: '0.8333',
         text: status
       })
@@ -108,6 +109,13 @@ export default {
   $rpl-grants-overview-description-margin: 0 0 ($rpl-space * 8) 0 !default;
 
   .rpl-grants-overview {
+    @include rpl_mobile_padding();
+
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     &__list {
       margin: $rpl-grants-overview-title-margin;
 

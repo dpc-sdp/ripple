@@ -190,10 +190,10 @@ export default {
       }
 
       if (scrollTop > this.lastScrollTop && this.stickyActive) {
-        // scroll up and is sticky
+        // scroll down and is sticky
         this.headerVisible = false
       } else {
-        // scroll down or is not sticky
+        // scroll up or is not sticky
         this.headerVisible = true
       }
       this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop

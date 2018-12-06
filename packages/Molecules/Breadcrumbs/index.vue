@@ -45,11 +45,9 @@ export default {
 
   .rpl-breadcrumbs {
     display: none;
-    margin: 0 $rpl-header-horizontal-padding-xs;
 
     @include rpl_breakpoint('s') {
       display: block;
-      margin: 0 $rpl-header-horizontal-padding-s;
     }
 
     &__items {

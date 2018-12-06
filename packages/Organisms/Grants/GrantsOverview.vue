@@ -31,7 +31,7 @@ export default {
         return {
           open: 'Open',
           closed: 'Closed',
-          ongoing: 'On-going',
+          ongoing: 'Ongoing',
           openingsoon: 'Opening soon'
         }
       }

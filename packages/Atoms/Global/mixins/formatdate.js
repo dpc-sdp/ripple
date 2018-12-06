@@ -21,7 +21,7 @@ const formatdate = {
       } else if (start.isSame(end, 'month')) {
         rtn = `${start.format('DD')}${this.rangeDivider}${end.format('DD MMMM')}`
       } else if (start.isSame(end, 'year')) {
-        rtn = `${start.format('DD MMMM')}${this.rangeDivider}${end.format('DD MMMM')}`
+        rtn = `${start.format('DD MMMM')}${this.rangeDivider}${end.format('DD MMMM YYYY')}`
       } else {
         rtn = `${start.format('DD MMMM YYYY')}${this.rangeDivider}${end.format('DD MMMM YYYY')}`
       }

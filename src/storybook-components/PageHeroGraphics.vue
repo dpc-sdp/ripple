@@ -18,9 +18,13 @@
       :sidebar="sidebar"
       class="main rpl-container"
       :backgroundGraphic="showTopGraphic ? mock.landingPage.backgroundGraphic : null"
+      :quickExit="showQuickExit"
     >
-      <template slot="aboveContent">
+      <template slot="breadcrumbs">
         <rpl-breadcrumbs v-if="showBreadcrumbs" :crumbs="mock.breadcrumbs.crumbs" />
+      </template>
+
+      <template slot="aboveContent">
         <rpl-hero-banner
           title="This is a display copy on home page that can wrap two lines"
           introText="This is supplementary intro text that can also wrap over a couple of lines."
@@ -104,6 +108,7 @@ export default {
     showTopGraphic: Boolean,
     showBottomGraphic: Boolean,
     showBreadcrumbs: Boolean,
+    showQuickExit: Boolean,
     mock: Object
   },
   methods: {

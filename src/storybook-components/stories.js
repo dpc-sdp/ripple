@@ -86,7 +86,7 @@ storiesOf('Templates', module)
   .addDecorator(withKnobs)
   .add('Landing page with hero banner graphics', () => ({
     components: { SPageHeroGraphics },
-    template: `<s-page-hero-graphics :sidebar="sidebar" :showHeroLogo="showHeroLogo" :showTopGraphic="showTopGraphic" :showBottomGraphic="showBottomGraphic" :showBreadcrumbs="showBreadcrumbs" :mock="mock" />`,
+    template: `<s-page-hero-graphics :sidebar="sidebar" :showHeroLogo="showHeroLogo" :showTopGraphic="showTopGraphic" :showBottomGraphic="showBottomGraphic" :showBreadcrumbs="showBreadcrumbs" :showQuickExit="showQuickExit" :mock="mock" />`,
     data () {
       return {
         sidebar: boolean('Show Sidebar', true),
@@ -94,6 +94,7 @@ storiesOf('Templates', module)
         showTopGraphic: boolean('Show Top Graphic', true),
         showBottomGraphic: boolean('Show Bottom Graphic', true),
         showBreadcrumbs: boolean('Show Breadcrumbs', true),
+        showQuickExit: boolean('Show Quick Exit', true),
         mock: demoDataLocked
       }
     }

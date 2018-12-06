@@ -65,7 +65,6 @@
     "@dpc-sdp/ripple-close-button": "file:packages/Atoms/CloseButton",
     "@dpc-sdp/ripple-map-indicator": "file:packages/Atoms/MapIndicator",
     "@dpc-sdp/ripple-map": "file:packages/Molecules/Map",
-    "@dpc-sdp/ripple-wifi-map": "file:packages/Organisms/WifiMap",
     "vue": "^2.5.16"
   },
   "devDependencies": {

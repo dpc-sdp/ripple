@@ -165,6 +165,13 @@ export default {
         // Update with mobile specific zoom level
         // this.zoomOnAppMounted()
       }
+    },
+    center (newCenter) {
+      map.getView().setCenter(newCenter)
+      map.getView().setZoom(this.zoom)
+    },
+    zoom (newZoom) {
+      map.getView().setZoom(newZoom)
     }
   },
   mounted () {

@@ -7,6 +7,10 @@
     >
       <div class="rpl-above-content" :style="bgGraphic">
         <div class="rpl-above-content__inner" :style="backgroundImage">
+          <div class="rpl-above-content__top">
+            <slot name="breadcrumbs"></slot>
+            <rpl-quick-exit v-if="quickexit" menuOffsetSelector=".rpl-above-content__inner" />
+          </div>
           <slot name="aboveContent"></slot>
         </div>
       </div>
@@ -37,15 +41,22 @@
 </template>
 
 <script>
+import RplQuickExit from './QuickExit'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
-  components: { RplContainer, RplRow, RplCol },
+  components: { RplContainer, RplRow, RplCol, RplQuickExit },
   props: {
     'sidebar': Boolean,
+    'quickExit': { type: Boolean, default: null },
     'backgroundColor': String,
     'heroBackgroundImage': String,
     'backgroundGraphic': String
+  },
+  data () {
+    return {
+      quickexit: false
+    }
   },
   computed: {
     mainCols () {
@@ -64,6 +75,9 @@ export default {
     bgGraphic () {
       return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
     }
+  },
+  created () {
+    this.quickexit = (this.quickExit !== null) ? this.quickExit : this.rplOptions.quickexit
   }
 }
 </script>
@@ -119,6 +133,15 @@ $rpl-backbround-color: rpl-color('white') !default;
       @include rpl_breakpoint($bp) {
         padding-top: $val;
       }
+    }
+  }
+
+  &__top {
+    display: flex;
+    padding: 0 $rpl-header-horizontal-padding-xs;
+    @include rpl_breakpoint('s') {
+      justify-content: space-between;
+      padding: 0 $rpl-header-horizontal-padding-s;
     }
   }
 }

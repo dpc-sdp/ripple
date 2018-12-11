@@ -16,8 +16,8 @@ npm install @dpc-sdp/ripple-news --save
 
 ```shell
 @dpc-sdp/ripple-news
-├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-card
+├── @dpc-sdp/ripple-global
 └── @dpc-sdp/ripple-link
 ```
 

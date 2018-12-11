@@ -9,6 +9,7 @@
       :loop="true"
       :mouseDrag="false"
       :paginationEnabled="false"
+      @pageChange="onPageChange"
     >
       <slide v-for="(item, index) in galleryData" :key="index" class="rpl-image-gallery__thumbnail">
         <rpl-fitted-img class="rpl-image-gallery__thumbnail-image" :img-src="item.thumbnail" :img-alt="item.alt" />
@@ -19,10 +20,10 @@
       </slide>
     </carousel>
     <div class="rpl-image-gallery__thumbnail-navigation">
-      <button class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+      <button v-if="navTo > 0" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
         <rpl-icon symbol="arrow_left_secondary" color="white" size="1.6" />
       </button>
-      <button class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+      <button v-if="navTo < totalSlides" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
         <rpl-icon symbol="arrow_right_secondary" color="white" size="1.6" />
       </button>
     </div>
@@ -35,6 +36,7 @@
           :loop="true"
           :mouseDrag="false"
           :paginationEnabled="false"
+          @pageChange="onPageChange"
         >
           <slide v-for="(item, index) in galleryData" :key="index" class="rpl-image-gallery__large">
             <div class="rpl-image-gallery__large-details-and-image">
@@ -44,25 +46,25 @@
                 </div>
               </div>
               <div class="rpl-image-gallery__large-details-navigation">
-                <div v-if="!toggleCaption" class="rpl-image-gallery__large-details-navigation-count">{{ (index + 1) }} / {{ totalSlides + 1 }}</div>
+                <div class="rpl-image-gallery__large-details-navigation-count">{{ (index + 1) }} / {{ totalSlides + 1 }}</div>
                 <button class="rpl-image-gallery__large-details-navigation-toggle" :class="{ 'rpl-image-gallery__large-details-navigation-toggle--expanded': toggleCaption}" @click="toggleCaption = !toggleCaption">
                   <span v-if="!toggleCaption">View caption</span>
                   <span v-if="toggleCaption">Close caption</span>
                 </button>
               </div>
               <div class="rpl-image-gallery__large-details" :class="{ 'rpl-image-gallery__large-details--show': toggleCaption}">
-                <h2 class="rpl-image-gallery__large-title">{{ (index + 1) }} / {{ totalSlides + 1 }} - {{ item.title }}</h2>
+                <h2 class="rpl-image-gallery__large-title">{{ item.title }}</h2>
                 <p class="rpl-image-gallery__large-caption">{{ item.caption }}</p>
               </div>
             </div>
           </slide>
         </carousel>
         <div class="rpl-image-gallery__large-navigation">
-          <button class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
-            <rpl-icon symbol="arrow_left_secondary" color="white" size="2.8" />
+          <button :disabled="navTo === 0" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+            <rpl-icon symbol="arrow_left_secondary" :color="arrowColor" :size="arrowSize" />
           </button>
-          <button class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
-            <rpl-icon symbol="arrow_right_secondary" color="white" size="2.8" />
+          <button :disabled="navTo === totalSlides" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+            <rpl-icon symbol="arrow_right_secondary" :color="arrowColor" :size="arrowSize" />
           </button>
         </div>
       </template>
@@ -71,12 +73,14 @@
 </template>
 
 <script>
+import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import RplFittedImg from './FittedImg.vue'
 import RplImageGalleryModal from './ImageGalleryModal.vue'
 import { Carousel, Slide } from 'vue-carousel'
 
 export default {
   name: 'RplImageGallery',
+  mixins: [breakpoint],
   components: {
     RplFittedImg,
     RplImageGalleryModal,
@@ -99,6 +103,12 @@ export default {
   computed: {
     totalSlides () {
       return this.galleryData.length - 1
+    },
+    arrowSize () {
+      return this.$breakpoint.l ? '2.8' : '0.7'
+    },
+    arrowColor () {
+      return this.$breakpoint.l ? 'white' : 'secondary'
     }
   },
   methods: {
@@ -110,6 +120,9 @@ export default {
     },
     prevSlide () {
       this.navTo = ((this.navTo > 0) ? (this.navTo - 1) : this.totalSlides)
+    },
+    onPageChange (slideNumber) {
+      this.navTo = slideNumber
     }
   }
 }
@@ -142,6 +155,7 @@ export default {
   $rpl-image-gallery-large-details-mobile-background-image: linear-gradient(to bottom, rgba($rpl-image-gallery-modal-background-color, 0), rgba($rpl-image-gallery-modal-background-color, 0) rem(50px), rgba($rpl-image-gallery-modal-background-color, 0.9) rem(94px), $rpl-image-gallery-modal-background-color rem(120px)) !default;
   $rpl-image-gallery-large-details-padding: ($rpl-space * 17) $rpl-space-3 ($rpl-space * 8) !default;
   $rpl-image-gallery-large-details-navigation-height: ($rpl-space * 8) !default;
+  $rpl-image-gallery-large-details-navigation-padding-bottom: $rpl-space-4 !default;
   $rpl-image-gallery-large-image-wrapper-offset-top-xs: rem(70px) !default;
   $rpl-image-gallery-large-image-wrapper-offset-top-l: rem(114px) !default;
   $rpl-image-gallery-large-title-ruleset: (
@@ -263,7 +277,7 @@ export default {
       display: inline-block;
       position: relative;
       width: 100%;
-      height: 100vh;
+      height: 100%;
 
       @include rpl-breakpoint('l') {
         height: auto;
@@ -273,7 +287,7 @@ export default {
     &__large-image-wrapper {
       width: 100%;
       position: absolute;
-      height: calc(100vh - #{$rpl-image-gallery-large-image-wrapper-offset-top-xs} - #{$rpl-image-gallery-large-details-navigation-height});
+      height: calc(100% - #{$rpl-image-gallery-large-image-wrapper-offset-top-xs} - #{$rpl-image-gallery-large-details-navigation-height});
       margin-top: $rpl-image-gallery-large-image-wrapper-offset-top-xs;
 
       @include rpl-breakpoint('l') {
@@ -338,13 +352,18 @@ export default {
     }
 
     &__large-navigation {
+      display: flex;
+      position: absolute;
+      left: $rpl-space * 13;
+      height: $rpl-space-4;
+      bottom: $rpl-image-gallery-large-details-navigation-padding-bottom;
+
       @include rpl-breakpoint('l') {
-        position: absolute;
         top: 50%;
         left: 0;
         right: 0;
-        justify-content: space-between;
-        display: flex;
+        bottom: auto;
+        height: auto;
         transform: translateY(-50%);
       }
     }
@@ -352,7 +371,7 @@ export default {
     &__large-details-navigation {
       width: 100%;
       justify-content: space-between;
-      padding: 0 $rpl-space-4 $rpl-space-4;
+      padding: 0 $rpl-space-4 $rpl-image-gallery-large-details-navigation-padding-bottom;
       box-sizing: border-box;
       position: absolute;
       vertical-align: top;
@@ -400,23 +419,39 @@ export default {
       background-color: transparent;
       border: 0;
       margin: 0;
-      padding: 0;
+      padding: 0 $rpl-space-4;
+      display: flex;
 
       &:not([disabled]) {
         cursor: pointer;
       }
+
+      &[disabled] {
+        opacity: 0;
+      }
+
+      @include rpl-breakpoint('l') {
+        padding: 0;
+        display: block;
+      }
     }
 
     &__large-navigation-button--prev {
-      margin-left: $rpl-image-gallery-modal-edge-margin-l;
+      @include rpl-breakpoint('l') {
+        margin-left: $rpl-image-gallery-modal-edge-margin-l;
+        margin-right: auto;
+      }
     }
 
     &__large-navigation-button--next {
-      margin-right: $rpl-image-gallery-modal-edge-margin-l;
+      @include rpl-breakpoint('l') {
+        margin-left: auto;
+        margin-right: $rpl-image-gallery-modal-edge-margin-l;
+      }
     }
 
     &__modal-body {
-      height: 100vh;
+      height: 100%;
 
       .VueCarousel,
       .VueCarousel-wrapper,

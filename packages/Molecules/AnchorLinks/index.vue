@@ -99,18 +99,6 @@ export default {
       list-style: none;
       padding: 0;
       margin: $rpl-anchor-links-items-margin;
-
-      @include rpl_breakpoint('m') {
-        column-count: 2;
-      }
-
-      @include rpl_breakpoint('l') {
-        column-count: 1;
-      }
-
-      @include rpl_breakpoint('xl') {
-        column-count: 2;
-      }
     }
 
     &__item {

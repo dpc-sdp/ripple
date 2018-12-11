@@ -8,9 +8,9 @@ $rpl-space-4: 1rem !default;
 // These spacings coupled with the site header height.
 // Update them if site header height changed.
 $rpl-layout-top-margin: (
-  xs: $rpl-space * 16,
-  s: $rpl-space * 19,
-  m: $rpl-space * 24
+  xs: $rpl-space * 15.5,
+  s: $rpl-space * 18,
+  m: $rpl-space * 21.5
 ) !default;
 
 // Margin for row gutter between components

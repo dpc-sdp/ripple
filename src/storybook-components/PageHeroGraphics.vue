@@ -17,10 +17,14 @@
     <rpl-page-layout
       :sidebar="sidebar"
       class="main rpl-container"
-      :backgroundGraphic="mock.landingPage.backgroundGraphic"
+      :backgroundGraphic="showTopGraphic ? mock.landingPage.backgroundGraphic : null"
+      :quickExit="showQuickExit"
     >
+      <template slot="breadcrumbs">
+        <rpl-breadcrumbs v-if="showBreadcrumbs" :crumbs="mock.breadcrumbs.crumbs" />
+      </template>
+
       <template slot="aboveContent">
-        <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
         <rpl-hero-banner
           title="This is a display copy on home page that can wrap two lines"
           introText="This is supplementary intro text that can also wrap over a couple of lines."
@@ -31,7 +35,8 @@
             { text: 'This is the fourth and final link', url: '#' }
           ]"
           :showLinks="true"
-          :backgroundGraphic="mock.heroBanner.backgroundGraphic"
+          :backgroundGraphic="showBottomGraphic ? mock.heroBanner.backgroundGraphic : null"
+          :logo="showHeroLogo ? mock.heroBanner.logo : null"
           class="rpl-site-constrain--on-all"
         />
       </template>
@@ -99,6 +104,11 @@ export default {
   },
   props: {
     sidebar: Boolean,
+    showHeroLogo: Boolean,
+    showTopGraphic: Boolean,
+    showBottomGraphic: Boolean,
+    showBreadcrumbs: Boolean,
+    showQuickExit: Boolean,
     mock: Object
   },
   methods: {

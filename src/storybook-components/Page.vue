@@ -3,8 +3,7 @@
 
     <template slot="header">
       <rpl-alert-base v-if="preview">Draft only and not yet published</rpl-alert-base>
-      <!-- TODO: Replace below div by alerts component in SDPA-27 (SDPA-749) -->
-      <rpl-alert :title="'This is an emergency alert.'" />
+      <rpl-alert v-bind="mock.alert" />
       <rpl-site-header
         :logo="mock.header.logo"
         :links="mock.header.links"
@@ -22,8 +21,11 @@
       class="main rpl-container"
       :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
-      <template slot="aboveContent">
+      <template slot="breadcrumbs">
         <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
+      </template>
+
+      <template slot="aboveContent">
         <rpl-hero-banner
           :title="mock.heroBanner.title" :introText="mock.heroBanner.introText"
           :linkHeading="mock.heroBanner.linkHeading" :links="mock.heroBanner.links"
@@ -35,6 +37,10 @@
       </template>
 
       <template slot="aboveContentTwo">
+        <rpl-card-box
+          v-bind="mock.cardBox"
+          class="rpl-site-constrain--on-all"
+        />
         <rpl-search-form
           :title="mock.searchForm.title"
           :searchPlaceholder="mock.searchForm.searchPlaceholder"
@@ -99,6 +105,9 @@
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-timeline :title="mock.timeline.title" :list="mock.timeline.list" />
         </rpl-col>
+        <rpl-col cols="full">
+          <rpl-document-link v-bind="mock.documentLink"></rpl-document-link>
+        </rpl-col>
       </rpl-row>
 
       <template slot="sidebar">
@@ -151,7 +160,7 @@ import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 // Card
-import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta } from '@dpc-sdp/ripple-card'
+import { RplCardNavigation, RplCardNavigationFeatured, RplCardPromotion, RplCardKeydates, RplCardEvent, RplCardCta, RplCardBox, RplCardEmergencyContact } from '@dpc-sdp/ripple-card'
 import { RplCardCarousel } from '@dpc-sdp/ripple-card/no-ssr'
 
 // Campaign
@@ -179,6 +188,8 @@ import RplTimeline from '@dpc-sdp/ripple-timeline'
 
 // Search
 import { RplSearchForm } from '@dpc-sdp/ripple-search'
+
+import RplDocumentLink from '@dpc-sdp/ripple-document-link'
 
 export default {
   name: 'SPage',
@@ -209,6 +220,8 @@ export default {
     RplCardEvent,
     RplCardCta,
     RplCardCarousel,
+    RplCardEmergencyContact,
+    RplCardBox,
 
     // Campaign
     RplCampaignPrimary,
@@ -235,7 +248,10 @@ export default {
     RplUpdatedDate,
 
     // Search
-    RplSearchForm
+    RplSearchForm,
+
+    // DocumentLink
+    RplDocumentLink
   },
   props: {
     sidebar: Boolean,

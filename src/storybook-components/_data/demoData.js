@@ -242,6 +242,54 @@ const demoData = {
     link: object('Link', { text: 'Submit a listing', url: '#' })
   }),
 
+  cardEmergencyContact: () => ({
+    title: text('Title', 'Emergency Assistance'),
+    subtitle: text('Subtitle', 'Urgent'),
+    summary: text('Summary', 'Dial 000 for police, fire & ambulance'),
+    link: object('Link', { text: 'Call 000', url: 'tel:000' })
+  }),
+
+  cardBox: () => ({
+    cards: object('Cards', [
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: 'Emergency Assistance',
+          subtitle: 'Urgent',
+          summary: 'Dial 000 for police, fire & ambulance',
+          link: { text: 'Call 0000', url: 'tel:+0000' }
+        }
+      },
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: 'Police Assistance Line',
+          subtitle: 'Urgent',
+          summary: 'Dial 000 for police, fire & ambulance',
+          link: { text: 'Call 000', url: 'tel:000' }
+        }
+      },
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: 'Police Assistance Line',
+          subtitle: 'Urgent',
+          summary: 'Dial 000 for police, fire & ambulance',
+          link: { text: 'Internal link', url: '/home' }
+        }
+      },
+      {
+        name: 'rpl-card-emergency-contact',
+        data: {
+          title: 'Police Assistance Line',
+          subtitle: null,
+          summary: 'Dial 000 for police, fire & ambulance',
+          link: { text: 'External link', url: 'http://google.com' }
+        }
+      }
+    ])
+  }),
+
   cardCarousel: () => ({
     title: text('Title', 'Featured Content'),
     cards: object('Cards', [
@@ -1016,6 +1064,43 @@ const demoData = {
     ]
   ),
 
+  newsSearchResultItems: () => (
+    [
+      {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
+        topic: text('Topic', 'News'),
+        title: text('Title', 'This is display copy that wraps 2 lines'),
+        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+        link: object('Link', { text: 'Read more', url: '#' })
+      },
+      {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
+        topic: text('Topic', 'News'),
+        title: text('Title', 'This is display copy that wraps 2 lines'),
+        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+        link: object('Link', { text: 'Read more', url: '#' })
+      },
+      {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
+        topic: text('Topic', 'News'),
+        title: text('Title', 'This is display copy that wraps 2 lines'),
+        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+        link: object('Link', { text: 'Read more', url: '#' })
+      },
+      {
+        image: text('Image', 'https://placehold.it/580x340'),
+        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
+        topic: text('Topic', 'News'),
+        title: text('Title', 'This is display copy that wraps 2 lines'),
+        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+        link: object('Link', { text: 'Read more', url: '#' })
+      }
+    ]
+  ),
+
   searchResults: () => ({
     count: number('Count', 10),
     type: 'default',
@@ -1026,7 +1111,7 @@ const demoData = {
 
   eventSearchResults: () => ({
     count: number('Count', 10),
-    type: 'RplCardEvent',
+    type: selectV2('Type', {RplCardEvent: 'RplCardEvent', RplCardPromotion: 'RplCardPromotion'}, 'RplCardEvent'),
     responseSize: number('Response size', 4),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
@@ -1231,6 +1316,7 @@ const demoData = {
       'child_friendly',
       'close',
       'csv',
+      'cross_circle',
       'doc',
       'document',
       'document_transparent',
@@ -1286,6 +1372,7 @@ const demoData = {
       'xls',
       'xlsm',
       'xlsx',
+      'zip',
       'zoom_in',
       'zoom_out'
     ]
@@ -1519,6 +1606,22 @@ const demoData = {
     closeIconColor: text('Close Icon Color', 'white')
   }),
 
+  alert: () => ({
+    title: text('Title', 'This is an emergency alert.'),
+    type: selectV2('Type', {
+      'Emergency': 'Emergency',
+      'Fire': 'Fire',
+      'Flood': 'Flood',
+      'Medical': 'Medical',
+      'Lightening': 'Lightening',
+      'Pollution': 'Pollution',
+      'Heat wave': 'Heat wave',
+      'Traffic': 'Traffic'
+    }, 'Emergency'),
+    link: object('Link', { text: 'Find out more', url: '#' }),
+    alertId: text('Alert ID', 'test_id')
+  }),
+
   timeline: () => ({
     title: text('Title', 'Timeline Heading'),
     list: object('List', [{
@@ -1550,6 +1653,14 @@ const demoData = {
       description: 'Contains an image, title, external URL and description.'
     }
     ])
+  }),
+
+  documentLink: () => ({
+    name: text('Name', 'This is the name of the document'),
+    caption: text('caption', 'This is a longer description of the document above.'),
+    url: text('Download url', 'https://www.google.com'),
+    extension: text('Extension', 'pdf'),
+    filesize: text('Filesize', '1.4 mb')
   })
 }
 

@@ -15,7 +15,8 @@
     </template>
 
     <rpl-page-layout class="main rpl-container" :sidebar="true">
-      <template slot="aboveContent">
+
+      <template slot="breadcrumbs">
         <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
       </template>
 

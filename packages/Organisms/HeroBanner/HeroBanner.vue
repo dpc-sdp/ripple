@@ -136,7 +136,14 @@ export default {
     'm': ('l', 1.7em, 'bold')
   ) !default;
   $rpl-hero-banner-link-heading-margin: 0 auto rem(15px) auto !default;
-  $rpl-hero-banner-vertical-spacing-logo-offset: rem(48px) !default;
+  $rpl-hero-banner-vertical-spacing-logo-offset: (
+    'xs': 0rem,
+    's': rem(48px - 26px),
+    'm': rem(48px - 26px),
+    'l': rem(48px - 26px),
+    'xl': rem(48px - 26px),
+    'xxl': rem(48px - 36px)
+  ) !default;
   $rpl-hero-banner-vertical-spacing: (
     'xs': ('top': rem(56px), 'bottom': rem(100px)),
     's': ('top': rem(88px), 'bottom': rem(64px)),
@@ -297,7 +304,7 @@ export default {
     &--has-logo {
       @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
         @include rpl_breakpoint($bp) {
-          padding-top: (map-get($spacing, top) - $rpl-hero-banner-vertical-spacing-logo-offset);
+          padding-top: calc(#{map-get($spacing, top)} - #{map-get($rpl-hero-banner-vertical-spacing-logo-offset, $bp)});
         }
       }
     }

@@ -19,8 +19,11 @@
       class="main rpl-container"
       :heroBackgroundImage="mock.campaign.heroBackgroundImage"
     >
-      <template slot="aboveContent">
+      <template slot="breadcrumbs">
         <rpl-breadcrumbs :crumbs="mock.breadcrumbs.crumbs" />
+      </template>
+
+      <template slot="aboveContent">
         <rpl-hero-banner
           :title="mock.heroBanner.title" :introText="mock.heroBanner.introText"
           :theme="mock.campaign.heroBackgroundImage ? 'dark' : 'light'"

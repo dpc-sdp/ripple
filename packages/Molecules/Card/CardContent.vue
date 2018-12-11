@@ -66,6 +66,7 @@ export default {
   $rpl-card-content-border-width: 1px !default;
   $rpl-card-content-border: $rpl-card-content-border-width solid $rpl-card-content-border-color !default;
   $rpl-card-content-border-radius: rem(4px) !default;
+  $rpl-card-content-border-height: rem(8px) !default;
   $rpl-card-content-background: rpl_color('white') !default;
   $rpl-card-content-no-image-padding: (rem(56px) - $rpl-card-vertical-padding) 0 0 0 !default;
   $rpl-card-content-no-image-background-image: rpl_gradient('decorative_gradient') !default;
@@ -160,15 +161,9 @@ export default {
     }
 
     &--has-border {
-      &:before {
-        content: '';
-        position: absolute;
-        background-image: $rpl-card-content-no-image-background-image;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: rem(8px);
-      }
+      background-image: $rpl-card-content-no-image-background-image;
+      background-size: 100% $rpl-card-content-border-height;
+      background-repeat: no-repeat;
     }
 
     &__image-wrapper {

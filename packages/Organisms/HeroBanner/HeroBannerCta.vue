@@ -40,14 +40,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
-$rpl-hero-banner-cta-secondary-margin: $rpl-space-3 * 2 !default;
-$rpl-hero-banner-cta-secondary-text-margin: $rpl-space-2 $rpl-space-2 $rpl-space-2 0 !default;
-$rpl-hero-banner-cta-secondary-link-ruleset: (
-  'xs': ('s', 1.7em, 'medium'),
-  'm': ('m', 1.2em, 'bold'),
-) !default;
-$rpl-hero-banner-cta-secondary-text-ruleset: ('s', 1.5em, 'regular') !default;
+  @import "~@dpc-sdp/ripple-global/style";
+  $rpl-hero-banner-cta-secondary-margin: $rpl-space-3 * 2 !default;
+  $rpl-hero-banner-cta-secondary-text-margin: $rpl-space-2 $rpl-space-2 $rpl-space-2 0 !default;
+  $rpl-hero-banner-cta-secondary-link-ruleset: (
+    'xs': ('s', 1.7em, 'medium'),
+    'm': ('m', 1.2em, 'bold'),
+  ) !default;
+  $rpl-hero-banner-cta-secondary-text-ruleset: ('s', 1.5em, 'regular') !default;
 
   .rpl-hero-banner--cta {
     &__left-bottom {
@@ -88,9 +88,8 @@ $rpl-hero-banner-cta-secondary-text-ruleset: ('s', 1.5em, 'regular') !default;
         text-decoration: underline;
         .rpl-hero-banner--cta-dark & {
           color: white;
-        }        
+        }
       }
     }
-    
   }
 </style>

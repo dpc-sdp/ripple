@@ -72,6 +72,7 @@ export default {
     &__modal-container {
       padding: 0;
       width: 100%;
+      height: 100%;
 
       @include rpl-breakpoint('l') {
         width: calc(100% - #{($rpl-space * 30)});

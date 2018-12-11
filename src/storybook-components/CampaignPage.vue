@@ -24,10 +24,13 @@
       </template>
 
       <template slot="aboveContent">
-        <rpl-hero-banner
-          :title="mock.heroBanner.title" :introText="mock.heroBanner.introText"
+        <rpl-hero-banner-cta
+          :title="mock.heroBanner.title"
+          :introText="mock.heroBanner.introText"
           :theme="mock.campaign.heroBackgroundImage ? 'dark' : 'light'"
-          :showLinks="mock.campaign.heroBackgroundImage ? false : true"
+          :linkPrimary="mock.heroBannerCta.linkPrimary"
+          :ctaText="mock.heroBannerCta.ctaText"
+          :linkSecondary="mock.heroBannerCta.linkSecondary"
           class="rpl-site-constrain--on-all"
         />
       </template>
@@ -66,7 +69,7 @@ import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 
 // Banner
-import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
+import { RplHeroBannerCta } from '@dpc-sdp/ripple-hero-banner'
 
 // Sidebar
 import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
@@ -87,7 +90,7 @@ export default {
     RplBreadcrumbs,
 
     // Banner
-    RplHeroBanner,
+    RplHeroBannerCta,
 
     // Sidebar
     RplRelatedLinks

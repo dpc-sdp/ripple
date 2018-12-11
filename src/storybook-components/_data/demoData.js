@@ -161,7 +161,6 @@ const demoData = {
     linkPrimary: object('linkPrimary', { text: 'Call to action', url: '#' }),
     linkSecondary: object('linkSecondary', { text: 'Subscribe for tips to prepare', url: '#' }),
     ctaText: text('ctaText', 'Not ready yet?'),
-    backgroundGraphic: text('Background Graphic', '/herobg.jpg')
   }),
 
   introBanner: () => ({

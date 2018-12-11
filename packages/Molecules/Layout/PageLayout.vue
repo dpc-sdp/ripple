@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-page">
+  <main class="rpl-page">
 
     <section
       class="rpl-above-content-container"
@@ -37,7 +37,7 @@
       <slot name="belowContent"></slot>
     </section>
 
-  </div>
+  </main>
 </template>
 
 <script>

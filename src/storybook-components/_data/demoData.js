@@ -160,7 +160,7 @@ const demoData = {
     theme: selectV2('Theme', {dark: 'dark', light: 'light'}, 'light'),
     linkPrimary: object('linkPrimary', { text: 'Call to action', url: '#' }),
     linkSecondary: object('linkSecondary', { text: 'Subscribe for tips to prepare', url: '#' }),
-    ctaText: text('ctaText', 'Not ready yet?'),
+    ctaText: text('ctaText', 'Not ready yet?')
   }),
 
   introBanner: () => ({

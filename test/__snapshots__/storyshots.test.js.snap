@@ -12695,148 +12695,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
-            class="form-group valid field-vueMultiSelect"
-          >
-            <label
-              for="select"
-            >
-              <span>
-                Select
-              </span>
-               
-              <!---->
-            </label>
-             
-            <div
-              class="field-wrap"
-            >
-              <div
-                class="multiselect"
-                tabindex="-1"
-              >
-                <div
-                  class="multiselect__select"
-                />
-                  
-                <div
-                  class="multiselect__tags"
-                >
-                  <div
-                    class="multiselect__tags-wrap"
-                    style="display: none;"
-                  />
-                   
-                  <!---->
-                   
-                  <div
-                    class="multiselect__spinner"
-                    style="display: none;"
-                  />
-                   
-                  <input
-                    autocomplete="off"
-                    class="multiselect__input"
-                    name=""
-                    placeholder="Select option"
-                    style="width: 0px; position: absolute; padding: 0px;"
-                    tabindex="0"
-                    type="text"
-                  />
-                   
-                  <!---->
-                   
-                  <span
-                    class="multiselect__placeholder"
-                  >
-                    
-            Select option
-        
-                  </span>
-                </div>
-                 
-                <div
-                  class="multiselect__content-wrapper"
-                  style="max-height: 300px; display: none;"
-                  tabindex="-1"
-                >
-                  <ul
-                    class="multiselect__content"
-                    style="display: inline-block;"
-                  >
-                     
-                    <!---->
-                     
-                    <li
-                      class="multiselect__element"
-                    >
-                      <span
-                        class="multiselect__option multiselect__option--highlight"
-                        data-deselect="Press enter to remove"
-                        data-select="Press enter to select"
-                        data-selected="Selected"
-                      >
-                        <span>
-                          option A
-                        </span>
-                      </span>
-                       
-                      <!---->
-                    </li>
-                    <li
-                      class="multiselect__element"
-                    >
-                      <span
-                        class="multiselect__option"
-                        data-deselect="Press enter to remove"
-                        data-select="Press enter to select"
-                        data-selected="Selected"
-                      >
-                        <span>
-                          option B
-                        </span>
-                      </span>
-                       
-                      <!---->
-                    </li>
-                     
-                    <li
-                      style="display: none;"
-                    >
-                      <span
-                        class="multiselect__option"
-                      >
-                        <span>
-                          
-                        </span>
-                      </span>
-                    </li>
-                     
-                    <li
-                      style="display: none;"
-                    >
-                      <span
-                        class="multiselect__option"
-                      >
-                        List is empty.
-                      </span>
-                    </li>
-                     
-                  </ul>
-                </div>
-              </div>
-               
-              <!---->
-            </div>
-             
-            <div
-              class="hint"
-            >
-              This is a hint text
-            </div>
-             
-            <!---->
-          </div>
-          <div
             class="form-group valid field-radios"
           >
             <label
@@ -13003,6 +12861,484 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
+            class="form-group valid field-rpldivider"
+          >
+            <!---->
+             
+            <div
+              class="field-wrap"
+            >
+              <hr
+                class="rpl-divider"
+              />
+               
+              <!---->
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
+          <div
+            class="form-group valid field-rplcheckbox"
+          >
+            <!---->
+             
+            <div
+              class="field-wrap"
+            >
+              <label
+                class="rpl-checkbox"
+              >
+                <input
+                  id="checkbox"
+                  type="checkbox"
+                  value="false"
+                />
+                 
+                <span
+                  class="rpl-checkbox__box"
+                >
+                  <!---->
+                </span>
+                 
+                <span
+                  class="rpl-checkbox__inline-label"
+                >
+                  Check box selected
+                </span>
+              </label>
+               
+              <!---->
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
+          <div
+            class="form-group valid field-rplchecklist"
+          >
+            <label
+              for="multi-select-list-box"
+            >
+              <span>
+                Multi-select list box
+              </span>
+               
+              <!---->
+            </label>
+             
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="rpl-checklist wrapper"
+              >
+                <div
+                  class="rpl-checklist__combobox form-control"
+                >
+                  <div
+                    class="rpl-checklist__list"
+                  >
+                    <div
+                      class="rpl-checklist__list-row"
+                    >
+                      <label
+                        class="rpl-checkbox"
+                      >
+                        <input
+                          id="multi-select-list-box"
+                          name="Topic-A"
+                          type="checkbox"
+                          value=""
+                        />
+                         
+                        <span
+                          class="rpl-checkbox__box"
+                        >
+                          <!---->
+                        </span>
+                         
+                        <span
+                          class="rpl-checkbox__inline-label"
+                        >
+                          Topic A
+                        </span>
+                      </label>
+                    </div>
+                    <div
+                      class="rpl-checklist__list-row is-checked"
+                    >
+                      <label
+                        class="rpl-checkbox"
+                      >
+                        <input
+                          id="multi-select-list-box"
+                          name="Topic-B"
+                          type="checkbox"
+                          value=""
+                        />
+                         
+                        <span
+                          class="rpl-checkbox__box"
+                        >
+                          <!---->
+                        </span>
+                         
+                        <span
+                          class="rpl-checkbox__inline-label"
+                        >
+                          Topic B
+                        </span>
+                      </label>
+                    </div>
+                    <div
+                      class="rpl-checklist__list-row"
+                    >
+                      <label
+                        class="rpl-checkbox"
+                      >
+                        <input
+                          id="multi-select-list-box"
+                          name="Topic-C"
+                          type="checkbox"
+                          value=""
+                        />
+                         
+                        <span
+                          class="rpl-checkbox__box"
+                        >
+                          <!---->
+                        </span>
+                         
+                        <span
+                          class="rpl-checkbox__inline-label"
+                        >
+                          Topic C
+                        </span>
+                      </label>
+                    </div>
+                    <div
+                      class="rpl-checklist__list-row"
+                    >
+                      <label
+                        class="rpl-checkbox"
+                      >
+                        <input
+                          id="multi-select-list-box"
+                          name="Topic-D"
+                          type="checkbox"
+                          value=""
+                        />
+                         
+                        <span
+                          class="rpl-checkbox__box"
+                        >
+                          <!---->
+                        </span>
+                         
+                        <span
+                          class="rpl-checkbox__inline-label"
+                        >
+                          Topic D
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="hint"
+            >
+              Implemented using rplchecklist with listBox: true
+            </div>
+             
+            <!---->
+          </div>
+          <div
+            class="form-group valid field-rplchecklist"
+          >
+            <label
+              for="multi-select-drop-down"
+            >
+              <span>
+                Multi-select drop down
+              </span>
+               
+              <!---->
+            </label>
+             
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="rpl-checklist wrapper"
+              >
+                <!---->
+                 
+                <div
+                  class="rpl-checklist__combobox form-control"
+                >
+                  <div
+                    class="rpl-checklist__main-row"
+                  >
+                    <button
+                      class="rpl-checklist__info"
+                      type="button"
+                    >
+                      <span>
+                        
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </button>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </div>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="hint"
+            >
+              Implemented using rplchecklist
+            </div>
+             
+            <!---->
+          </div>
+          <div
+            class="form-group valid field-rplchecklist"
+          >
+            <label
+              for="single-select-drop-down"
+            >
+              <span>
+                Single-select drop down
+              </span>
+               
+              <!---->
+            </label>
+             
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="rpl-checklist wrapper"
+              >
+                <!---->
+                 
+                <div
+                  class="rpl-checklist__combobox form-control"
+                >
+                  <div
+                    class="rpl-checklist__main-row"
+                  >
+                    <button
+                      class="rpl-checklist__info"
+                      type="button"
+                    >
+                      <span>
+                        
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </button>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </div>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="hint"
+            >
+              Implemented using rplchecklist with single: true
+            </div>
+             
+            <!---->
+          </div>
+          <div
+            class="form-group valid field-vueMultiSelect"
+          >
+            <label
+              for="single-select-drop-down"
+            >
+              <span>
+                Single-select drop down
+              </span>
+               
+              <!---->
+            </label>
+             
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="multiselect"
+                tabindex="0"
+              >
+                <div
+                  class="multiselect__select"
+                />
+                  
+                <div
+                  class="multiselect__tags"
+                >
+                  <div
+                    class="multiselect__tags-wrap"
+                    style="display: none;"
+                  />
+                   
+                  <!---->
+                   
+                  <div
+                    class="multiselect__spinner"
+                    style="display: none;"
+                  />
+                   
+                  <!---->
+                   
+                  <!---->
+                   
+                  <span
+                    class="multiselect__placeholder"
+                  >
+                    
+            Select a single topic
+        
+                  </span>
+                </div>
+                 
+                <div
+                  class="multiselect__content-wrapper"
+                  style="max-height: 300px; display: none;"
+                  tabindex="-1"
+                >
+                  <ul
+                    class="multiselect__content"
+                    style="display: inline-block;"
+                  >
+                     
+                    <!---->
+                     
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option multiselect__option--highlight"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          A very long topic option to test the wrapping of topic
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          Topic B
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          Topic C
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          Topic D
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                     
+                    <li
+                      style="display: none;"
+                    >
+                      <span
+                        class="multiselect__option"
+                      >
+                        <span>
+                          
+                        </span>
+                      </span>
+                    </li>
+                     
+                    <li
+                      style="display: none;"
+                    >
+                      <span
+                        class="multiselect__option"
+                      >
+                        List is empty.
+                      </span>
+                    </li>
+                     
+                  </ul>
+                </div>
+              </div>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="hint"
+            >
+              Implemented using vue-multiselect
+            </div>
+             
+            <!---->
+          </div>
+          <div
             class="form-group valid field-submit"
           >
             <!---->
@@ -13025,6 +13361,27 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
           </div>
         </fieldset>
       </div>
+      
+  {
+  "hidden": "",
+  "text": "",
+  "email": "",
+  "tel": "",
+  "number": "",
+  "radio": null,
+  "textArea": "",
+  "dateRange": [
+    "",
+    ""
+  ],
+  "date": "",
+  "checkbox": false,
+  "singlechecklist": null,
+  "multichecklist": [
+    "Topic B"
+  ]
+}
+
     </form>
   </div>
    

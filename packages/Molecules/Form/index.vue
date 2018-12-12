@@ -10,6 +10,7 @@
       ref="vfg"
       v-show="hideForm()"
     />
+    {{ formData.model }}
   </form>
 </template>
 
@@ -18,13 +19,17 @@ import Vue from 'vue'
 import RplFormAlert from './formAlert'
 import VueFormGenerator from 'vue-form-generator'
 import Multiselect from 'vue-multiselect'
+import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
 import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
+import fieldRpldivider from './fields/fieldRpldivider.vue'
 Vue.component('multiselect', Multiselect)
+Vue.component('fieldRplcheckbox', fieldRplcheckbox)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
 Vue.component('fieldRpldatepicker', fieldRpldatepicker)
 Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
+Vue.component('fieldRpldivider', fieldRpldivider)
 
 export { VueFormGenerator }
 
@@ -208,10 +213,35 @@ export default {
     padding-right: rem(40px);
   }
 
-  &__single {
-    background: none;
+  &__placeholder {
     margin-bottom: 0;
+    padding: 0;
   }
+
+  &__single {
+    // font-size: rpl-font-size('xs');
+    background: none;
+  }
+  //   padding: 0;
+  //   white-space: nowrap;
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   margin: auto;
+  //   // background: yellow;
+  //   text-overflow: ellipsis;
+  //   left: 16px;
+  //   overflow: hidden;
+  //   width: calc(100% - 16px - 40px);
+  //   vertical-align: middle;
+  //   height: 16px;
+  // }
+
+  // &__select {
+  //   top: 0;
+  //   bottom: 0;
+  //   margin: auto;
+  // }
 
   &__element {
     &:nth-child(even) {

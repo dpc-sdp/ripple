@@ -928,7 +928,7 @@ const demoData = {
     filterForm: object('Filter Form', {
       tideId: 'tide_search_form',
       model: {
-        topic: ''
+        topic: []
       },
       schema: {
         fields: [{
@@ -966,7 +966,7 @@ const demoData = {
       tideId: 'tide_search_form',
       model: {
         text: '',
-        topic: ''
+        topic: []
       },
       schema: {
         fields: [{
@@ -1141,7 +1141,10 @@ const demoData = {
         radio: null,
         textArea: '',
         dateRange: ['', ''],
-        date: ''
+        date: '',
+        checkbox: false,
+        singlechecklist: null,
+        multichecklist: ['Topic B']
       },
 
       schema: {
@@ -1189,17 +1192,6 @@ const demoData = {
           },
 
           {
-            type: 'vueMultiSelect',
-            model: 'select',
-            label: 'Select',
-            hint: 'This is a hint text',
-            values: [
-              'option A',
-              'option B'
-            ]
-          },
-
-          {
             type: 'radios',
             label: 'Radio',
             model: 'radio',
@@ -1239,6 +1231,61 @@ const demoData = {
             label: 'Date',
             model: 'date',
             placeholder: 'Enter a date'
+          },
+
+          {
+            type: 'rpldivider'
+          },
+
+          {
+            type: 'rplcheckbox',
+            inlineLabel: 'Check box selected',
+            model: 'checkbox',
+            default: true
+          },
+
+          {
+            type: 'rplchecklist',
+            label: 'Multi-select list box',
+            model: 'multichecklist',
+            listBox: true,
+            hint: 'Implemented using rplchecklist with listBox: true',
+            placeholder: 'Select multiple topics',
+            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+          },
+
+          {
+            type: 'rplchecklist',
+            label: 'Multi-select drop down',
+            model: 'multichecklist',
+            hint: 'Implemented using rplchecklist',
+            placeholder: 'Select multiple topics',
+            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+          },
+
+          {
+            type: 'rplchecklist',
+            label: 'Single-select drop down',
+            model: 'singlechecklist',
+            hint: 'Implemented using rplchecklist with single: true',
+            single: true,
+            placeholder: 'Select a topic',
+            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+          },
+
+          {
+            type: 'vueMultiSelect',
+            model: 'singlechecklist',
+            label: 'Single-select drop down',
+            hint: 'Implemented using vue-multiselect',
+            placeholder: 'Select a single topic',
+            selectOptions: {
+              multiSelect: false,
+              closeOnSelect: true,
+              searchable: false,
+              showLabels: false
+            },
+            values: ['A very long topic option to test the wrapping of topic', 'Topic B', 'Topic C', 'Topic D']
           },
 
           {

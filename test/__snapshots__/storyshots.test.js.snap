@@ -12968,7 +12968,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       </label>
                     </div>
                     <div
-                      class="rpl-checklist__list-row is-checked"
+                      class="rpl-checklist__list-row"
                     >
                       <label
                         class="rpl-checkbox"
@@ -13118,61 +13118,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
-            class="form-group valid field-rplchecklist"
-          >
-            <label
-              for="single-select-drop-down"
-            >
-              <span>
-                Single-select drop down
-              </span>
-               
-              <!---->
-            </label>
-             
-            <div
-              class="field-wrap"
-            >
-              <div
-                class="rpl-checklist wrapper"
-              >
-                <!---->
-                 
-                <div
-                  class="rpl-checklist__combobox form-control"
-                >
-                  <div
-                    class="rpl-checklist__main-row"
-                  >
-                    <button
-                      class="rpl-checklist__info"
-                      type="button"
-                    >
-                      <span>
-                        
-                        <!---->
-                      </span>
-                       
-                      <!---->
-                    </button>
-                  </div>
-                   
-                  <!---->
-                </div>
-              </div>
-               
-              <!---->
-            </div>
-             
-            <div
-              class="hint"
-            >
-              Implemented using rplchecklist with single: true
-            </div>
-             
-            <!---->
-          </div>
-          <div
             class="form-group valid field-vueMultiSelect"
           >
             <label
@@ -13246,7 +13191,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         data-selected=""
                       >
                         <span>
-                          A very long topic option to test the wrapping of topic
+                          Topic A
                         </span>
                       </span>
                        
@@ -13361,27 +13306,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
           </div>
         </fieldset>
       </div>
-      
-  {
-  "hidden": "",
-  "text": "",
-  "email": "",
-  "tel": "",
-  "number": "",
-  "radio": null,
-  "textArea": "",
-  "dateRange": [
-    "",
-    ""
-  ],
-  "date": "",
-  "checkbox": false,
-  "singlechecklist": null,
-  "multichecklist": [
-    "Topic B"
-  ]
-}
-
     </form>
   </div>
    

@@ -1144,7 +1144,7 @@ const demoData = {
         date: '',
         checkbox: false,
         singlechecklist: null,
-        multichecklist: ['Topic B']
+        multichecklist: []
       },
 
       schema: {
@@ -1264,16 +1264,6 @@ const demoData = {
           },
 
           {
-            type: 'rplchecklist',
-            label: 'Single-select drop down',
-            model: 'singlechecklist',
-            hint: 'Implemented using rplchecklist with single: true',
-            single: true,
-            placeholder: 'Select a topic',
-            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
-          },
-
-          {
             type: 'vueMultiSelect',
             model: 'singlechecklist',
             label: 'Single-select drop down',
@@ -1285,7 +1275,7 @@ const demoData = {
               searchable: false,
               showLabels: false
             },
-            values: ['A very long topic option to test the wrapping of topic', 'Topic B', 'Topic C', 'Topic D']
+            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
           },
 
           {

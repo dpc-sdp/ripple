@@ -25,9 +25,7 @@
       </div>
       <div class="rpl-checklist__list rpl-checklist__list--dropdown" v-if="comboExpanded">
         <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item)}">
-          <!-- Multi Select -->
           <rpl-checkbox
-            v-if="multiSelect"
             v-model="listValues[index]"
             :inputDisabled="disabled"
             :inputId="getFieldID(schema)"
@@ -35,8 +33,6 @@
             :inlineLabel="getItemName(item)"
             @change="onMultiChange()"
           />
-          <!-- Single Select -->
-          <button type="button" v-if="!multiSelect" @click="onSingleChange(item)" class="rpl-checklist__single-item">{{ getItemName(item) }}</button>
         </div>
       </div>
     </div>
@@ -57,7 +53,6 @@ export default {
   },
   data () {
     return {
-      multiSelect: !this.schema.single,
       listValues: [],
       comboExpanded: false,
       labelMaxLetters: Infinity,
@@ -133,52 +128,39 @@ export default {
       this.value = arr
       this.updateSize()
     },
-    onSingleChange (item) {
-      const itemName = this.getItemName(item)
-      this.value = (itemName !== this.value) ? itemName : ''
-      this.comboExpanded = false
-    },
     onExpandCombo () {
       this.comboExpanded = !this.comboExpanded
     },
     updateSize () {
       let str = this.schema.placeholder
 
-      if (this.multiSelect) {
-        if (this.$el && !this.schema.listBox) {
-          const info = window.getComputedStyle(this.$el.querySelector('.rpl-checklist__info'))
-          const infoWidth = parseFloat(info.width) - parseFloat(info.paddingLeft) - parseFloat(info.paddingRight)
-          this.labelMaxLetters = Math.floor(infoWidth / this.labelLetterWidth)
-        }
+      if (this.$el && !this.schema.listBox) {
+        const info = window.getComputedStyle(this.$el.querySelector('.rpl-checklist__info'))
+        const infoWidth = parseFloat(info.width) - parseFloat(info.paddingLeft) - parseFloat(info.paddingRight)
+        this.labelMaxLetters = Math.floor(infoWidth / this.labelLetterWidth)
+      }
 
-        const moreLetterCount = 9
-        let letterCount = 0
+      const moreLetterCount = 9
+      let letterCount = 0
 
-        this.labelHiddenCount = 0
-        if (this.value && this.value.length > 0) {
-          str = ''
-          this.value.forEach((item, idx) => {
-            letterCount += item.length
-            if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
-              str += ((idx > 0) ? '; ' : '') + item
-            } else {
-              this.labelHiddenCount++
-            }
-          })
-        }
-      } else {
-        if (this.value) {
-          str = this.value
-        }
+      this.labelHiddenCount = 0
+      if (this.value && this.value.length > 0) {
+        str = ''
+        this.value.forEach((item, idx) => {
+          letterCount += item.length
+          if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
+            str += ((idx > 0) ? '; ' : '') + item
+          } else {
+            this.labelHiddenCount++
+          }
+        })
       }
 
       this.labelText = str
     },
     setCheckedValues () {
-      if (this.multiSelect) {
-        // Set initial values for checkboxes
-        this.listValues = this.items.map(item => this.isItemChecked(item))
-      }
+      // Set initial values for checkboxes
+      this.listValues = this.items.map(item => this.isItemChecked(item))
     }
   },
   mounted: function () {

@@ -10,7 +10,6 @@
       ref="vfg"
       v-show="hideForm()"
     />
-    {{ formData.model }}
   </form>
 </template>
 

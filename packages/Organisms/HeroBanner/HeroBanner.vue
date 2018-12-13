@@ -24,6 +24,7 @@
         >
           {{ introText }}
         </p>
+        <slot name="leftbottom"></slot>
       </div>
       <div class="rpl-hero-banner__right" v-if="showLinks">
         <h2

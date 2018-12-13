@@ -154,6 +154,15 @@ const demoData = {
     backgroundGraphic: text('Background Graphic', '/bggraphiclower.png')
   }),
 
+  heroBannerCta: () => ({
+    title: text('Title', 'This is display copy that wraps 2 lines'),
+    introText: text('Intro Text', 'This is supplimentary intro text that can also wrap over a couple of lines.'),
+    theme: selectV2('Theme', {dark: 'dark', light: 'light'}, 'light'),
+    linkPrimary: object('linkPrimary', { text: 'Call to action', url: '#' }),
+    linkSecondary: object('linkSecondary', { text: 'Subscribe for tips to prepare', url: '#' }),
+    ctaText: text('ctaText', 'Not ready yet?')
+  }),
+
   introBanner: () => ({
     title: text('Title', 'Welcome to Victoria Police Museum'),
     introText: text('Intro Text', 'From the largest collection of Kelly Gang armour in Australia to forensic evidence from some of Melbourne\'s most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.'),

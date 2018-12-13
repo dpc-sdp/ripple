@@ -7,6 +7,7 @@ import {
 } from '@storybook/addon-knobs/vue'
 
 import RplHeroBanner from './HeroBanner.vue'
+import RplHeroBannerCta from './HeroBannerCta.vue'
 import RplIntroBanner from './IntroBanner.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
@@ -28,6 +29,20 @@ storiesOf('Organisms/HeroBanner', module)
 />`,
     data () {
       return demoData.heroBanner()
+    }
+  })))
+  .add('Hero Banner with CTA', withReadme(readme, () => ({
+    components: { RplHeroBannerCta },
+    template: `<rpl-hero-banner-cta
+      :title="title"
+      :introText="introText"
+      :theme="theme"
+      :linkPrimary="linkPrimary"
+      :ctaText="ctaText"
+      :linkSecondary="linkSecondary"
+    />`,
+    data () {
+      return demoData.heroBannerCta()
     }
   })))
   .add('Intro Banner', withReadme(readme, () => ({

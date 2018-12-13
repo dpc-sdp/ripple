@@ -23694,6 +23694,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
         This is supplimentary intro text that can also wrap over a couple of lines.
       
           </p>
+           
         </div>
          
         <div
@@ -24332,6 +24333,494 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
             data-v-5bd9cdea=""
           >
             string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/HeroBanner Hero Banner with CTA 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/HeroBanner
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Hero Banner with CTA
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-hero-banner rpl-hero-banner--cta rpl-site-constrain--on-all rpl-hero-banner--cta-light"
+      data-v-6ca0e090=""
+    >
+      <!---->
+       
+      <div
+        class="rpl-row"
+      >
+        <div
+          class="rpl-hero-banner__left"
+        >
+          <h1
+            class="rpl-hero-banner__title"
+          >
+            <span>
+              This is display copy that wraps 2 lines
+            </span>
+          </h1>
+           
+          <p
+            class="rpl-hero-banner__description"
+          >
+            
+        This is supplimentary intro text that can also wrap over a couple of lines.
+      
+          </p>
+           
+          <div
+            class="rpl-hero-banner--cta__left-bottom"
+          >
+            <a
+              class="rpl-link rpl-button rpl-hero-banner--cta__primary rpl-button--primary"
+              href="#"
+            >
+              Call to action
+            </a>
+             
+            <div
+              class="rpl-hero-banner--cta__secondary"
+            >
+              <p
+                class="rpl-hero-banner--cta__secondary-text"
+              >
+                Not ready yet?
+              </p>
+               
+              <a
+                class="rpl-link rpl-text-link rpl-hero-banner--cta__secondary-link"
+                href="#"
+              >
+                <span>
+                  <span>
+                    Subscribe for tips to
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     prepare
+                    <!---->
+                  </span>
+                   
+                  <!---->
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-hero-banner__right"
+        >
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-hero-banner-cta
+          </span>
+          
+  
+          <span
+            class="hljs-attr"
+          >
+            :title
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "title"
+          </span>
+          
+  
+          <span
+            class="hljs-attr"
+          >
+            :introText
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "introText"
+          </span>
+          
+  
+          <span
+            class="hljs-attr"
+          >
+            :theme
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "theme"
+          </span>
+          
+  
+          <span
+            class="hljs-attr"
+          >
+            :linkPrimary
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "linkPrimary"
+          </span>
+          
+  
+          <span
+            class="hljs-attr"
+          >
+            :ctaText
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "ctaText"
+          </span>
+          
+  
+          <span
+            class="hljs-attr"
+          >
+            :linkSecondary
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "linkSecondary"
+          </span>
+          
+/&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplHeroBannerCta" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    introText
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    theme
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            light
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    linkPrimary
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    ctaText
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    linkSecondary
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
           </td>
            
           <td
@@ -29031,7 +29520,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
           </div>
            
           <div
-            class="rpl-hero-banner rpl-site-constrain--on-all rpl-hero-banner--no-links"
+            class="rpl-hero-banner rpl-hero-banner--cta rpl-site-constrain--on-all rpl-site-constrain--on-all rpl-hero-banner--cta-dark"
           >
             <!---->
              
@@ -29056,9 +29545,56 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
         This is supplimentary intro text that can also wrap over a couple of lines.
       
                 </p>
+                 
+                <div
+                  class="rpl-hero-banner--cta__left-bottom"
+                >
+                  <a
+                    class="rpl-link rpl-button rpl-hero-banner--cta__primary rpl-button--secondary"
+                    href="#"
+                  >
+                    Call to action
+                  </a>
+                   
+                  <div
+                    class="rpl-hero-banner--cta__secondary"
+                  >
+                    <p
+                      class="rpl-hero-banner--cta__secondary-text"
+                    >
+                      Not ready yet?
+                    </p>
+                     
+                    <a
+                      class="rpl-link rpl-text-link rpl-hero-banner--cta__secondary-link"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          Subscribe for tips to
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           prepare
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </div>
+                </div>
               </div>
                
-              <!---->
+              <div
+                class="rpl-hero-banner__right"
+              >
+                <!---->
+                 
+                <!---->
+              </div>
             </div>
           </div>
         </div>
@@ -30772,6 +31308,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
         This is supplimentary intro text that can also wrap over a couple of lines.
       
                 </p>
+                 
               </div>
                
               <div
@@ -33887,6 +34424,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
         This is supplementary intro text that can also wrap over a couple of lines.
       
                 </p>
+                 
               </div>
                
               <div
@@ -35912,6 +36450,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
         Test summary trimming on Promotion and Event cards.
       
                 </p>
+                 
               </div>
                
               <div

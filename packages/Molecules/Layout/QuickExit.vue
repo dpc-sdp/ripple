@@ -82,6 +82,7 @@ export default {
   .rpl-quick-exit {
     padding-left: $rpl-space;
     margin-left: auto;
+    z-index: $rpl-zindex-tooltip;
 
     &--sticky {
       &::before {

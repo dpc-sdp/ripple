@@ -1,6 +1,6 @@
 <template>
   <svg v-if="validSymbol" :class="iconClass" :style="iconStyle" aria-hidden="true">
-    <use :xlink:href="'#' + iconPrefix + symbol"></use>
+    <use :href="'#' + iconPrefix + symbol"></use>
   </svg>
 </template>
 

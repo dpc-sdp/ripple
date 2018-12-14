@@ -1,14 +1,8 @@
 <template>
   <div class="rpl-slider">
-    <!-- Spacer -->
-    <svg class="rpl-slider__spacing" width="100%" height="8" viewBox="0 0 100% 8" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="spacers" patternUnits="userSpaceOnUse" :width="spacingCadence" height="8">
-          <line vector-effect="non-scaling-stroke" stroke="black" stroke-width="2" x1="0" y1="0" x2="0" y2="8"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="8" fill="url(#spacers)"/>
-    </svg>
+    <div class="rpl-slider__spacers" aria-hidden="true">
+      <span class="rpl-slider__spacer" v-for="(item, index) in stepCount" :key="index"></span>
+    </div>
     <div class="rpl-slider__wrapper">
       <div
         class="rpl-slider__progress"
@@ -18,14 +12,14 @@
         }"
       ></div>
       <label class="rpl-slider__label rpl-slider__label--lower" :style="{ 'left': lowerPointPosition + '%' }">
-        <span @mousedown="mouseDownHandle('lower')">{{ schema.label }} - Lower value</span>
-        <div aria-hidden="true">{{ lowerValueFormatted }}</div>
-        <input type="number" v-model="lowerValue" :min="absoluteLower" :max="upperValue" :step="step" @input="onInput('lower')">
+        <span class="rpl-slider__handle" @mousedown="mouseDownHandle('lower')" @touchstart="touchStartHandle('lower')">{{ schema.label }} - Lower value</span>
+        <div class="rpl-slider__display-label" aria-hidden="true">{{ lowerValueFormatted }}</div>
+        <input class="rpl-slider__input" type="number" v-model="lowerValue" :min="absoluteLower" :max="upperValue" :step="step" @input="updateValue('lower')" @blur="updateValue('lower')">
       </label>
       <label class="rpl-slider__label rpl-slider__label--upper" :style="{ 'right': upperPointPosition + '%' }">
-        <span @mousedown="mouseDownHandle('upper')">{{ schema.label }} - Upper value</span>
-        <div aria-hidden="true">{{ upperValueFormatted }}</div>
-        <input type="number" v-model="upperValue" :min="lowerValue" :max="absoluteUpper" :step="step" @input="onInput('upper')">
+        <span class="rpl-slider__handle" @mousedown="mouseDownHandle('upper')" @touchstart="touchStartHandle('upper')">{{ schema.label }} - Upper valueue</span>
+        <div class="rpl-slider__display-label" aria-hidden="true">{{ upperValueFormatted }}</div>
+        <input class="rpl-slider__input" type="number" v-model="upperValue" :min="lowerValue" :max="absoluteUpper" :step="step" @input="updateValue('upper')" @blur="updateValue('upper')">
       </label>
     </div>
   </div>
@@ -48,27 +42,49 @@ export default {
     }
   },
   methods: {
-    onInput (type) {
+    updateValue (type) {
+      const intLower = parseInt(this.lowerValue)
+      const intUpper = parseInt(this.upperValue)
       switch (type) {
         case 'lower':
-          this.lowerValue = this.rangeLimit(this.absoluteLower, this.lowerValue, this.upperValue)
+          this.lowerValue = this.rangeLimit(this.absoluteLower, intLower, intUpper)
           break
         case 'upper':
-          this.upperValue = this.rangeLimit(this.lowerValue, this.upperValue, this.absoluteUpper)
+          this.upperValue = this.rangeLimit(intLower, intUpper, this.absoluteUpper)
           break
       }
-      this.value = [parseInt(this.lowerValue), parseInt(this.upperValue)]
+      this.value = [intLower, intUpper]
     },
     mouseDownHandle (set) {
       this.setFor = set
       document.addEventListener('mousemove', this.mousemove)
       document.addEventListener('mouseup', this.mouseup)
     },
+    touchStartHandle (set) {
+      this.setFor = set
+      document.addEventListener('touchmove', this.touchmove)
+      document.addEventListener('touchend', this.touchend)
+    },
+    touchmove (e) {
+      this.updateHandleFromCursor(e.touches[0].clientX)
+    },
     mousemove (e) {
-      const mouseX = e.clientX
+      this.updateHandleFromCursor(e.clientX)
+    },
+    touchend () {
+      document.removeEventListener('touchmove', this.touchmove)
+      document.removeEventListener('touchend', this.touchend)
+      this.updateValue(this.setFor)
+    },
+    mouseup () {
+      document.removeEventListener('mousemove', this.mousemove)
+      document.removeEventListener('mouseup', this.mouseup)
+      this.updateValue(this.setFor)
+    },
+    updateHandleFromCursor (cursorPosition) {
       const sliderLeft = this.$el.offsetLeft
       const sliderWidth = this.$el.offsetWidth
-      const mousePercentage = (mouseX - sliderLeft) / sliderWidth
+      const mousePercentage = (cursorPosition - sliderLeft) / sliderWidth
       const newVal = Math.floor((mousePercentage * this.absoluteUpper) / this.step) * this.step
       switch (this.setFor) {
         case 'lower':
@@ -80,21 +96,23 @@ export default {
           this.upperValue = newUpperVal > this.absoluteUpper ? this.absoluteUpper : newUpperVal
           break
       }
-    },
-    mouseup () {
-      document.removeEventListener('mousemove', this.mousemove)
-      document.removeEventListener('mouseup', this.mouseup)
+      this.updateValue(this.setFor)
     },
     formatNumber (number) {
-      let numberStr = number.toString()
-      if (numberStr.length > 3) {
-        let cursor = numberStr.length - 3
-        while (cursor > 0) {
-          numberStr = numberStr.slice(0, cursor) + ',' + numberStr.slice(cursor)
-          cursor -= 3
+      if (!isNaN(number)) {
+        const commaSpacing = 3
+        let numberStr = number.toString()
+        if (numberStr.length > commaSpacing) {
+          let cursor = numberStr.length - commaSpacing
+          while (cursor > 0) {
+            numberStr = numberStr.slice(0, cursor) + ',' + numberStr.slice(cursor)
+            cursor -= commaSpacing
+          }
         }
+        return numberStr
+      } else {
+        return ''
       }
-      return numberStr
     },
     rangeLimit (lower, current, upper) {
       if (current >= lower && current <= upper) {
@@ -127,8 +145,8 @@ export default {
     upperValueFormatted () {
       return this.prefix + this.formatNumber(this.upperValue)
     },
-    spacingCadence () {
-      return (this.step / (this.absoluteUpper - this.absoluteLower) * 100) + '%'
+    stepCount () {
+      return Math.floor((this.absoluteUpper - this.absoluteLower) / this.step) + 1
     }
   }
 }
@@ -138,27 +156,54 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "../scss/form";
 
+$rpl-slider-spacer-width: rem(2px) !default;
+$rpl-slider-spacer-height: $rpl-space-2 !default;
+$rpl-slider-spacer-color: rpl-color('mid_neutral_2') !default;
+$rpl-slider-bar-height: $rpl-space !default;
+$rpl-slider-bar-color: rpl-color('mid_neutral_2') !default;
+$rpl-slider-bar-padding: rem(2px) 0 0 !default;
+$rpl-slider-bar-margin: ($rpl-space * 7) 0 0 0 !default;
+$rpl-slider-progress-bar-color: rpl-color('secondary') !default;
+$rpl-slider-label-padding: $rpl-space $rpl-space-4 !default;
+$rpl-slider-label-border: 1px solid rpl-color('mid_neutral_2') !default;
+$rpl-slider-label-background: rpl-color('white') !default;
+$rpl-slider-label-border-radius: rem(4px) !default;
+$rpl-slider-label-ruleset: ('s', 1em, 'bold') !default;
+$rpl-slider-handle-color: rpl-color('light_neutral') !default;
+$rpl-slider-handle-border: 1px solid rpl-color('mid_neutral_1') !default;
+$rpl-slider-handle-size: ($rpl-space * 5) !default;
+
 .rpl-slider {
-  height: 8px;
-  padding-top: 2px;
+  height: $rpl-slider-spacer-height;
+  padding: $rpl-slider-bar-padding;
+  margin: $rpl-slider-bar-margin;
   box-sizing: border-box;
   position: relative;
 
-  &__wrapper {
-    position: relative;
-    background-color: rpl-color('mid_neutral_2');
-    height: 4px;
-  }
-
-  &__spacing {
+  &__spacers {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__spacer {
+    height: $rpl-slider-spacer-height;
+    width: $rpl-slider-spacer-width;
+    background-color: $rpl-slider-spacer-color;
+  }
+
+  &__wrapper {
+    position: relative;
+    background-color: $rpl-slider-bar-color;
+    height: $rpl-slider-bar-height;
   }
 
   &__progress {
     position: absolute;
-    background-color: rpl-color('secondary');
+    background-color: $rpl-slider-progress-bar-color;
     top: 0;
     bottom: 0;
     left: 0;
@@ -166,24 +211,24 @@ export default {
   }
 
   &__label {
+    @include rpl_dropshadow;
     position: absolute;
-    bottom: calc(100% + 16px);
-    background-color: rpl-color('white');
-    border-radius: 4px;
-    border: 1px solid rpl-color('mid_neutral_2');
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.08);
-    padding: 4px;
+    bottom: calc(100% + #{rem(16px)});
+    background-color: $rpl-slider-label-background;
+    border-radius: $rpl-slider-label-border-radius;
+    border: $rpl-slider-label-border;
+    padding: $rpl-slider-label-padding;
     margin: 0 !important;
 
     &:before {
       content: '';
       width: 10px;
       height: 10px;
-      background-color: rpl-color('white');
+      background-color: $rpl-slider-label-background;
       transform: rotateZ(45deg);
       display: inline-block;
       position: absolute;
-      bottom: -5px;
+      bottom: rem(-5px);
       right: 0;
       left: 0;
       margin: auto;
@@ -196,47 +241,48 @@ export default {
     &--upper {
       transform: translateX(50%);
     }
+  }
 
-    span {
-      position: absolute;
-      top: calc(100% + 8px);
-      width: 20px;
-      height: 20px;
-      overflow: hidden;
-      text-indent: -9999px;
-      background-color: rpl-color('light_neutral');
-      border: 1px solid rpl-color('mid_neutral_1');
-      border-radius: 100%;
-      left: 0;
-      right: 0;
-      margin: auto;
-      -moz-user-select: none;
-      user-select: none;
-      cursor: col-resize;
-    }
+  &__handle {
+    position: absolute;
+    top: calc(100% + #{$rpl-space-2});
+    width: $rpl-slider-handle-size;
+    height: $rpl-slider-handle-size;
+    overflow: hidden;
+    text-indent: -9999px;
+    background-color: $rpl-slider-handle-color;
+    border: $rpl-slider-handle-border;
+    border-radius: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: col-resize;
+  }
 
-    div {
-      font-size: 16px;
-      -moz-user-select: none;
-      user-select: none;
-    }
+  &__display-label {
+    @include rpl_typography_ruleset($rpl-slider-label-ruleset);
+    -moz-user-select: none;
+    user-select: none;
+  }
 
-    input {
-      opacity: 0;
-      width: 100% !important;
-      height: auto !important;
-      padding: 4px !important;
-      font-size: 16px;
-      border: 0 !important;
-      background-color: white !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+  &__input {
+    @include rpl_typography_ruleset($rpl-slider-label-ruleset);
+    opacity: 0;
+    width: 100% !important;
+    height: auto !important;
+    padding: $rpl-space !important;
+    background-color: $rpl-slider-label-background !important;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-      &:focus {
-        opacity: 1;
-      }
+    &:focus {
+      opacity: 1;
     }
   }
 }

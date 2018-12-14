@@ -1150,7 +1150,9 @@ const demoData = {
         radio: null,
         textArea: '',
         dateRange: ['', ''],
-        date: ''
+        date: '',
+        // rangeslider: [10000, 70000]
+        rangeslider: [2, 8]
       },
 
       schema: {

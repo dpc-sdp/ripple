@@ -14,12 +14,12 @@
       <label class="rpl-slider__label rpl-slider__label--lower" :style="{ 'left': lowerPointPosition + '%' }">
         <span class="rpl-slider__handle" @mousedown="mouseDownHandle('lower')" @touchstart="touchStartHandle('lower')">{{ schema.label }} - Lower value</span>
         <div class="rpl-slider__display-label" aria-hidden="true">{{ lowerValueFormatted }}</div>
-        <input class="rpl-slider__input" type="number" v-model="lowerValue" :min="absoluteLower" :max="upperValue" :step="step" @input="updateValue('lower')" @blur="updateValue('lower')">
+        <input class="rpl-slider__input" type="number" v-model="lowerValue" :min="absoluteLower" :max="upperValue" :step="step" @change="updateValue('lower')">
       </label>
       <label class="rpl-slider__label rpl-slider__label--upper" :style="{ 'right': upperPointPosition + '%' }">
         <span class="rpl-slider__handle" @mousedown="mouseDownHandle('upper')" @touchstart="touchStartHandle('upper')">{{ schema.label }} - Upper valueue</span>
         <div class="rpl-slider__display-label" aria-hidden="true">{{ upperValueFormatted }}</div>
-        <input class="rpl-slider__input" type="number" v-model="upperValue" :min="lowerValue" :max="absoluteUpper" :step="step" @input="updateValue('upper')" @blur="updateValue('upper')">
+        <input class="rpl-slider__input" type="number" v-model="upperValue" :min="lowerValue" :max="absoluteUpper" :step="step" @change="updateValue('upper')">
       </label>
     </div>
   </div>
@@ -36,7 +36,9 @@ export default {
       absoluteLower: this.schema.min || 0,
       absoluteUpper: this.schema.max || 100,
       lowerValue: this.value[0] || 0,
+      finalLower: this.value[0] || 0,
       upperValue: this.value[1] || 100,
+      finalUpper: this.value[1] || 100,
       prefix: this.schema.prefix || '',
       setFor: null
     }
@@ -48,12 +50,14 @@ export default {
       switch (type) {
         case 'lower':
           this.lowerValue = this.rangeLimit(this.absoluteLower, intLower, intUpper)
+          this.finalLower = this.lowerValue
           break
         case 'upper':
           this.upperValue = this.rangeLimit(intLower, intUpper, this.absoluteUpper)
+          this.finalUpper = this.upperValue
           break
       }
-      this.value = [intLower, intUpper]
+      this.value = [this.finalLower, this.finalUpper]
     },
     mouseDownHandle (set) {
       this.setFor = set
@@ -134,16 +138,16 @@ export default {
   },
   computed: {
     lowerPointPosition () {
-      return this.rangeLimit(0, this.sliderPositionFromLeft(this.lowerValue), this.sliderPositionFromLeft(this.upperValue))
+      return this.rangeLimit(0, this.sliderPositionFromLeft(this.finalLower), this.sliderPositionFromLeft(this.finalUpper))
     },
     upperPointPosition () {
-      return this.rangeLimit(0, this.sliderPositionFromRight(this.upperValue), this.sliderPositionFromRight(this.lowerValue))
+      return this.rangeLimit(0, this.sliderPositionFromRight(this.finalUpper), this.sliderPositionFromRight(this.finalLower))
     },
     lowerValueFormatted () {
-      return this.prefix + this.formatNumber(this.lowerValue)
+      return this.prefix + this.formatNumber(this.finalLower)
     },
     upperValueFormatted () {
-      return this.prefix + this.formatNumber(this.upperValue)
+      return this.prefix + this.formatNumber(this.finalUpper)
     },
     stepCount () {
       return Math.floor((this.absoluteUpper - this.absoluteLower) / this.step) + 1
@@ -222,8 +226,8 @@ $rpl-slider-handle-size: ($rpl-space * 5) !default;
 
     &:before {
       content: '';
-      width: 10px;
-      height: 10px;
+      width: rem(10px);
+      height: rem(10px);
       background-color: $rpl-slider-label-background;
       transform: rotateZ(45deg);
       display: inline-block;

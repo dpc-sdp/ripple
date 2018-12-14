@@ -13174,6 +13174,26 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
           </div>
         </fieldset>
       </div>
+      
+  {
+  "hidden": "",
+  "text": "",
+  "email": "",
+  "tel": "",
+  "number": "",
+  "radio": null,
+  "textArea": "",
+  "dateRange": [
+    "",
+    ""
+  ],
+  "date": "",
+  "rangeslider": [
+    10000,
+    70000
+  ]
+}
+
     </form>
   </div>
    

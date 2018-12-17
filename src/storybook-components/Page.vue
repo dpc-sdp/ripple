@@ -256,11 +256,20 @@ export default {
   props: {
     sidebar: Boolean,
     preview: Boolean,
+    quickExit: Boolean,
     mock: Object
   },
   data () {
     return {
       defaultCols: {}
+    }
+  },
+  created () {
+    this.rplOptions.quickexit = this.quickExit
+  },
+  watch: {
+    quickExit: function (val, oldVal) {
+      this.rplOptions.quickexit = val
     }
   },
   methods: {

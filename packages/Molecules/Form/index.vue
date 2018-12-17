@@ -18,12 +18,14 @@ import Vue from 'vue'
 import RplFormAlert from './formAlert'
 import VueFormGenerator from 'vue-form-generator'
 import Multiselect from 'vue-multiselect'
+import fieldRplslider from './fields/fieldRplslider.vue'
 import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
 import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 Vue.component('multiselect', Multiselect)
+Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
 Vue.component('fieldRpldatepicker', fieldRpldatepicker)
@@ -37,6 +39,7 @@ export default {
   components: {
     'vue-form-generator': VueFormGenerator.component,
     Multiselect,
+    fieldRplslider,
     fieldRplchecklist,
     fieldRpldatepicker,
     fieldRplsubmitloader,

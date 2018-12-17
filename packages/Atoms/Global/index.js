@@ -6,7 +6,7 @@ const RplGlobal = {
     const rplOptions = {
       nuxt: false,
       hostname: 'localhost',
-      quickexit: true,
+      quickexit: false,
       quickexiturl: 'https://www.google.com'
     }
 

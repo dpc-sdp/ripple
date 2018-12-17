@@ -84,13 +84,13 @@ export default {
       }
       return schema.slugify(this.getItemValue(item))
     },
-    getItemValue (item) {
+    getItemProperty (item, property) {
       if (isObject(item)) {
-        if (typeof this.schema['checklistOptions'] !== 'undefined' && typeof this.schema['checklistOptions']['value'] !== 'undefined') {
-          return item[this.schema.checklistOptions.value]
+        if (typeof this.schema['checklistOptions'] !== 'undefined' && typeof this.schema['checklistOptions'][property] !== 'undefined') {
+          return item[this.schema.checklistOptions[property]]
         } else {
-          if (typeof item['value'] !== 'undefined') {
-            return item.value
+          if (typeof item[property] !== 'undefined') {
+            return item[property]
           } else {
             // throw '`value` is not defined. If you want to use another key name, add a `value` property under `checklistOptions` in the schema. https://icebob.gitbooks.io/vueformgenerator/content/fields/checklist.html#checklist-field-with-object-values'
           }
@@ -99,20 +99,19 @@ export default {
         return item
       }
     },
+    getItemValue (item) {
+      return this.getItemProperty(item, 'value')
+    },
     getItemName (item) {
-      if (isObject(item)) {
-        if (typeof this.schema['checklistOptions'] !== 'undefined' && typeof this.schema['checklistOptions']['name'] !== 'undefined') {
-          return item[this.schema.checklistOptions.name]
-        } else {
-          if (typeof item['name'] !== 'undefined') {
-            return item.name
-          } else {
-            // throw '`name` is not defined. If you want to use another key name, add a `name` property under `checklistOptions` in the schema. https://icebob.gitbooks.io/vueformgenerator/content/fields/checklist.html#checklist-field-with-object-values'
-          }
+      return this.getItemProperty(item, 'name')
+    },
+    getItemFromValue (value) {
+      for (let i = 0; i < this.items.length; i++) {
+        if (this.getItemValue(this.items[i]) === value) {
+          return this.items[i]
         }
-      } else {
-        return item
       }
+      return null
     },
     isItemChecked (item) {
       return this.value && this.value.indexOf(this.getItemValue(item)) !== -1
@@ -122,7 +121,7 @@ export default {
       let arr = []
       this.listValues.forEach((item, index) => {
         if (item && this.items[index]) {
-          arr.push(this.items[index])
+          arr.push(this.getItemValue(this.items[index]))
         }
       })
       this.value = arr
@@ -146,12 +145,16 @@ export default {
       this.labelHiddenCount = 0
       if (this.value && this.value.length > 0) {
         str = ''
-        this.value.forEach((item, idx) => {
-          letterCount += item.length
-          if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
-            str += ((idx > 0) ? '; ' : '') + item
-          } else {
-            this.labelHiddenCount++
+        this.value.forEach((value, idx) => {
+          const item = this.getItemFromValue(value)
+          if (item) {
+            const itemName = this.getItemName(item)
+            letterCount += itemName.length
+            if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
+              str += ((idx > 0) ? '; ' : '') + itemName
+            } else {
+              this.labelHiddenCount++
+            }
           }
         })
       }

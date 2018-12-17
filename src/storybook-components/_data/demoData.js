@@ -1143,8 +1143,9 @@ const demoData = {
         dateRange: ['', ''],
         date: '',
         checkbox: false,
-        singlechecklist: null,
-        multichecklist: []
+        vuemultiselect: null,
+        checklistlistbox: [],
+        checklistdropdown: []
       },
 
       schema: {
@@ -1247,7 +1248,7 @@ const demoData = {
           {
             type: 'rplchecklist',
             label: 'Multi-select list box',
-            model: 'multichecklist',
+            model: 'checklistlistbox',
             listBox: true,
             hint: 'Implemented using rplchecklist with listBox: true',
             placeholder: 'Select multiple topics',
@@ -1257,15 +1258,15 @@ const demoData = {
           {
             type: 'rplchecklist',
             label: 'Multi-select drop down',
-            model: 'multichecklist',
+            model: 'checklistdropdown',
             hint: 'Implemented using rplchecklist',
             placeholder: 'Select multiple topics',
-            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
           },
 
           {
             type: 'vueMultiSelect',
-            model: 'singlechecklist',
+            model: 'vuemultiselect',
             label: 'Single-select drop down',
             hint: 'Implemented using vue-multiselect',
             placeholder: 'Select a single topic',

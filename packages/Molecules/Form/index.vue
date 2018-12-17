@@ -218,29 +218,8 @@ export default {
   }
 
   &__single {
-    // font-size: rpl-font-size('xs');
     background: none;
   }
-  //   padding: 0;
-  //   white-space: nowrap;
-  //   position: absolute;
-  //   top: 0;
-  //   bottom: 0;
-  //   margin: auto;
-  //   // background: yellow;
-  //   text-overflow: ellipsis;
-  //   left: 16px;
-  //   overflow: hidden;
-  //   width: calc(100% - 16px - 40px);
-  //   vertical-align: middle;
-  //   height: 16px;
-  // }
-
-  // &__select {
-  //   top: 0;
-  //   bottom: 0;
-  //   margin: auto;
-  // }
 
   &__element {
     &:nth-child(even) {

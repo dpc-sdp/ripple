@@ -1,8 +1,8 @@
 <template>
   <div class="rpl-grants-overview">
-    <rpl-list class="rpl-grants-overview__list" size="large" v-if="title || list" :title="title" :list="list" />
+    <rpl-list class="rpl-grants-overview__list" size="large" v-if="title || list" :title="title" :link="!!listing && link && link.url ? link.url : null" :list="list" />
     <p class="rpl-grants-overview__description" v-if="description">{{ description }}</p>
-    <rpl-button class="rpl-grants-overview__cta" v-if="link" :href="link.url" theme="primary">{{ link.text }}</rpl-button>
+    <rpl-button class="rpl-grants-overview__cta" v-if="!listing && link" :href="link.url" theme="primary">{{ link.text }}</rpl-button>
   </div>
 </template>
 
@@ -26,6 +26,7 @@ export default {
     enddate: { type: String, default: '' },
     description: { type: String, default: '' },
     link: { type: Object, default: null },
+    listing: { type: Boolean, default: false },
     statusTerms: {
       type: Object,
       default: function () {
@@ -134,6 +135,9 @@ export default {
         .rpl-list__title {
           margin: $rpl-grants-overview-list-margin;
         }
+      }
+      a.rpl-list__title {
+        display: block;
       }
     }
 

@@ -1191,6 +1191,7 @@ const demoData = {
           from: 10000,
           to: 30000
         }),
+        link: object('Link', { text: 'Read more', url: '#' }),
         audience: text('Audience', 'individuals, organisations, local council'),
         startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
         enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
@@ -1209,6 +1210,7 @@ const demoData = {
           from: 10000,
           to: 30000
         }),
+        link: object('Link', { text: 'Read more', url: '#' }),
         audience: text('Audience', 'individuals, organisations, local council'),
         startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
         enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
@@ -1227,6 +1229,7 @@ const demoData = {
           from: 10000,
           to: 30000
         }),
+        link: object('Link', { text: 'Read more', url: '#' }),
         audience: text('Audience', 'individuals, organisations, local council'),
         startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
         enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
@@ -1245,6 +1248,7 @@ const demoData = {
           from: 10000,
           to: 30000
         }),
+        link: object('Link', { text: 'Read more', url: '#' }),
         audience: text('Audience', 'individuals, organisations, local council'),
         startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
         enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),

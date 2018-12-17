@@ -1,6 +1,6 @@
 <template>
   <div class="rpl-grants-list-item">
-    <rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startdate" :enddate="enddate" :description="description" :link="link"></rpl-grants-overview>
+    <rpl-grants-overview :listing="true" :title="title" :funding="funding" :audience="audience" :startdate="startdate" :enddate="enddate" :description="description" :link="link"></rpl-grants-overview>
     <ul class="rpl-grants-list-item__tags">
       <li class="rpl-grants-list-item__tag" v-for="(tag, index) in tags" :key="index">
         <rpl-meta-tag :linkText="tag.linkText" :linkUrl="tag.linkUrl" />
@@ -20,7 +20,7 @@ export default {
   },
   props: {
     title: { type: String, default: '' },
-    funding: { type: String, default: '' },
+    funding: { type: Object },
     audience: { type: String, default: '' },
     startdate: { type: String, default: '' },
     enddate: { type: String, default: '' },

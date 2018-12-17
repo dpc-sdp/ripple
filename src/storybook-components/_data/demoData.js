@@ -1029,7 +1029,8 @@ const demoData = {
       tideId: 'tide_search_form',
       model: {
         text: '',
-        topic: ''
+        topic: '',
+        fundingrange: [10000, 70000]
       },
       schema: {
         fields: [{
@@ -1069,6 +1070,16 @@ const demoData = {
             'Topic C',
             'Topic D'
           ]
+        },
+        {
+          type: 'rplslider',
+          label: 'Set a funding range',
+          model: 'fundingrange',
+          step: 5000,
+          min: 0,
+          max: 80000,
+          prefix: '$',
+          default: true
         },
         {
           type: 'rplsubmitloader',

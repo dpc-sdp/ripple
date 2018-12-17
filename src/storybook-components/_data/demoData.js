@@ -1150,7 +1150,8 @@ const demoData = {
         radio: null,
         textArea: '',
         dateRange: ['', ''],
-        date: ''
+        date: '',
+        rangeslider: [10000, 70000]
       },
 
       schema: {
@@ -1248,6 +1249,18 @@ const demoData = {
             label: 'Date',
             model: 'date',
             placeholder: 'Enter a date'
+          },
+
+          {
+            type: 'rplslider',
+            label: 'Set a funding range',
+            hint: '$0 - $80,000',
+            model: 'rangeslider',
+            step: 5000,
+            min: 0,
+            max: 80000,
+            prefix: '$',
+            default: true
           },
 
           {

@@ -1,20 +1,23 @@
 <template>
-  <div>
+  <div class="rpl-map">
     <div
       id="map-popup"
-      class="ol-popup">
-        <rpl-map-indicator :selectedFeature="feature">
+      class="rpl-map__popup ol-popup"
+      ref="mapPopup">
+        <map-indicator :selectedFeature="feature" >
           <slot :selectedFeature="feature" />
-        </rpl-map-indicator>
+        </map-indicator>
     </div>
-    <div class="rpl-map" id="map" ref="map">
+    <div class="rpl-map__container">
+      <div class="rpl-map__map" id="map" ref="map">
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import ol from './ol'
-import RplMapIndicator from '@dpc-sdp/ripple-map-indicator'
+import MapIndicator from './MapIndicator'
+import ol from './lib/ol'
 
 let map,
   baseLayer,
@@ -39,6 +42,12 @@ const methods = {
         minZoom: 7
       })
     })
+    map.on('pointermove', (e) => {
+      // set the cursor to a pointer when hovering over an icon
+      var pixel = map.getEventPixel(e.originalEvent)
+      var hit = map.hasFeatureAtPixel(pixel)
+      this.$refs.map.style.cursor = hit ? 'pointer' : ''
+    })
   },
   createBaseLayer () {
     baseSource = new ol.source.XYZ({
@@ -58,16 +67,52 @@ const methods = {
       }))
     })
   },
+  themeFeatureStyleFunction (feature, resolution) {
+    let size = [12, 12]
+    const COLORS = {
+      ACTIVE: '#1caadd',
+      INACTIVE: '#ec4d82',
+      FUTURE: '#86229b',
+      STATION: '#ff9e1b'
+    }
+    const LEGEND_TYPES = {
+      Station: 'station',
+      Future: 'future',
+      Active: 'active'
+    }
+    const legend = feature.get('legend') || ''
+
+    function pointSvgDefinition (fillColor, width, height) {
+      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 8 8"><style>.st0{fill:${fillColor}}</style><circle cx="4" cy="4" r="3.8" class="st0"/></svg>`)
+    }
+
+    if (LEGEND_TYPES[legend] === 'station') {
+      return this.createImageIconStyle(
+        pointSvgDefinition(COLORS.STATION, size[0], size[1]),
+        'anonymous',
+        size
+      )
+    } else if (LEGEND_TYPES[legend] === 'future') {
+      return this.createImageIconStyle(
+        pointSvgDefinition(COLORS.FUTURE, size[0], size[1]),
+        'anonymous',
+        size
+      )
+    } else {
+      return this.createImageIconStyle(
+        pointSvgDefinition(COLORS.ACTIVE, size[0], size[1]),
+        'anonymous',
+        size
+      )
+    }
+  },
   createThemeLayer () {
-    if (!this.themeLayerUrl) return
     themeSource = new ol.source.VectorTile({
       overlaps: false,
       format: new ol.format.MVT(),
       url: this.themeLayerUrl,
       transition: 1000
     })
-
-    if (!this.customThemeFunction) return
     themeLayer = new ol.layer.VectorTile({
       style: this.customThemeFunction || this.themeFeatureStyleFunction,
       opacity: 0.9,
@@ -77,7 +122,7 @@ const methods = {
   },
   addPopupOverlay () {
     popupOverlay = new ol.Overlay({
-      element: document.getElementById('map-popup'),
+      element: this.$refs.mapPopup,
       autoPan: true,
       autoPanAnimation: {
         duration: 250
@@ -86,6 +131,33 @@ const methods = {
       position: undefined
     })
     map.addOverlay(popupOverlay)
+  },
+  zoomToArea (area, {duration}) {
+    /*
+    var featureRequest = new ol.format.WFS().writeGetFeature({
+      srsName: 'EPSG:900913',
+      featureNS: 'myvic',
+      featurePrefix: 'myvic',
+      featureTypes: ['suburb'],
+      outputFormat: 'application/json'// ,
+      // filter: ol.format.filter.equalTo('ssc_name', area, false)
+    })
+    fetch('https://myvic-app-dev-gis.beta.vic.gov.au/geoserver/myvic/wfs', {
+      method: 'POST',
+      body: new XMLSerializer().serializeToString(featureRequest)
+    }).then((response) => {
+      return response.json()
+    }).then((json) => {
+      var features = new ol.format.GeoJSON().readFeatures(json)
+      if (features.length > 0) {
+        let feature = features[0]
+        map.getView().fit(feature.getGeometry().getExtent(), {
+          size: map.getSize(),
+          duration: duration
+        })
+      }
+    })
+    */
   },
   onMapClick (evt) {
     let feature =
@@ -100,7 +172,7 @@ const methods = {
       return
     }
 
-    this.feature = feature
+    this.feature = this.featureMapper(feature)
 
     // wait until popup rendering is complete before positioning the elemtent
     // this means the popup height is now known, so the map will pan correctly
@@ -114,25 +186,39 @@ const methods = {
     this.createThemeLayer()
 
     map.addLayer(baseLayer)
-    if (themeLayer) map.addLayer(themeLayer)
+    map.addLayer(themeLayer)
 
     this.addPopupOverlay()
 
     map.on('singleclick', this.onMapClick)
+  },
+  featureMapper (feature) {
+    // map the feature to a { title, content } object
+    const WIFI_STATUS = {
+      UP: '#VicFreeWifi Access Point',
+      FUTURE: 'Future Access Point'
+    }
+    // prefer long_name to name
+    return {
+      title: WIFI_STATUS[feature.get('status')],
+      content: (feature.get('long_name') || feature.get('name')) + (feature.get('type') ? ` (${feature.get('type')})` : '')
+    }
   }
 }
+
 export default {
   name: 'RplMap',
   props: {
-    // Fitzroy
+    data: Object,
+    // Default center is the center of Victoria
     center: {
       type: Array,
-      default: () => [16139009.49495, -4551340.1913],
+      default: () => [ 16121779.620932763, -4389253.766980502 ],
       validator: value => value.length === 2
     },
     zoom: {
       type: Number,
-      default: 15
+      default: 7
     },
     refreshOn: {
       type: Boolean,
@@ -154,7 +240,7 @@ export default {
     return { feature: null }
   },
   components: {
-    RplMapIndicator
+    MapIndicator
   },
   watch: {
     // Used as a prop when the map will be offscreen initially i.e. mobile
@@ -163,9 +249,6 @@ export default {
     refreshOn (val) {
       if (val) {
         map.updateSize()
-        // TODO: Calling zoom works but zooms in too close on mobile
-        // Update with mobile specific zoom level
-        // this.zoomOnAppMounted()
       }
     },
     center (newCenter) {
@@ -185,18 +268,60 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/style";
+
+// The map should be displayed in a 16:9 aspect ratio
+// Accomplished using this technique:
+// https://css-tricks.com/aspect-ratio-boxes/
+// But we can't use the technique on .rpl-map itself, because
+// OpenLayers uses .rpl-map's height value to draw the map.
+// height: 0 means no map at all. By setting height: 0 and
+// padding-top: (9/16)% on .rpl-map__container, the map
+// itself can be height auto which OL picks up correctly.
+
+$rpl-map-aspect-ratio: (
+  xs: (8/10) * 100%,
+  s: (9/16) * 100%
+);
+
+$rpl-map-popup-width: 300px;
 
 .rpl-map {
-  width: 100%;
-  height: 350px;
-}
+  &__map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    cursor: grab;
 
-.ol-popup {
-  position: absolute;
-  z-index: 999;
-  width: 500px;
-  bottom: 11px;
-  left: -250px;
+    @include rpl_mobile_padding;
+
+    @include rpl_breakpoint(m) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__container {
+    position: relative;
+    height: 0;
+    // https://css-tricks.com/aspect-ratio-boxes/
+    @each $bp, $val in $rpl-map-aspect-ratio {
+      @include rpl_breakpoint($bp) {
+        padding-top: $val;
+      }
+    }
+  }
+
+  &__popup {
+    position: absolute;
+    z-index: 999;
+    width: $rpl-map-popup-width;
+    bottom: 11px;
+    left: $rpl-map-popup-width / 2 * -1;
+    cursor: auto;
+  }
 }
 </style>

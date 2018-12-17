@@ -7,15 +7,7 @@ const resolve = (dir) => {
 module.exports = {
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.js',
-      'ol/style/style': 'ol/style/Style.js',
-      'ol/style/fill': 'ol/style/Fill.js',
-      'ol/style/stroke': 'ol/style/Stroke.js',
-      'ol/style/icon': 'ol/style/Icon.js',
-      'ol/style/text': 'ol/style/Text.js',
-      'ol/style/circle': 'ol/style/Circle.js',
-      'ol/style/point': 'ol/style/Point.js',
-      'ol/geom/point': 'ol/geom/Point.js'
+      vue: 'vue/dist/vue.js'
     }
   },
   module: {

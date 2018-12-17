@@ -1,28 +1,27 @@
 <template>
   <div
     v-if="show"
-    class="rpl-map-indicator">
-    <div class="rpl-map-indicator__close">
+    class="map-indicator">
+    <div class="map-indicator__close">
       <button-close
         :id="'tabs-close-button'"
         :size="'small'"
         @click="close"/>
     </div>
     <slot>
-      <h2 class="map-indicator__title">{{ title }}</h2>
+      <h5 class="map-indicator__title">{{ selectedFeature.title }}</h5>
       <div class="map-indicator__content">
-        <h3 class="map-indicator__value">{{ contentValue }}</h3>
-        <p class="map-indicator__description">{{ contentDescription }}</p>
+        <p class="map-indicator__description">{{ selectedFeature.content }}</p>
       </div>
     </slot>
   </div>
 </template>
 
 <script>
-import ButtonClose from '@dpc-sdp/ripple-close-button'
+import ButtonClose from './CloseButton'
 
 export default {
-  name: 'RplMapIndicator',
+  name: 'MapIndicator',
   components: {
     ButtonClose
   },
@@ -31,17 +30,6 @@ export default {
   ],
   data: function () {
     return { show: false }
-  },
-  computed: {
-    title () {
-      return this.selectedFeature.properties_.long_name
-    },
-    contentValue () {
-      return this.selectedFeature.properties_.status
-    },
-    contentDescription () {
-      return this.selectedFeature.properties_.type
-    }
   },
   methods: {
     close () {
@@ -57,8 +45,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+<style lang="scss" scoped>
+
+  // @import '~assets/styles/includes';
 
   .standard-button {
     // @include button($background: palette(blue,tint5), $background-hover: palette(blue,tint10));
@@ -69,7 +58,7 @@ export default {
     font-weight: 700;
   }
 
-  .rpl-map-indicator {
+  .map-indicator {
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);
@@ -98,6 +87,7 @@ export default {
     &__title {
       color: blue;
       font-size: rem-calc(13);
+      margin-top: 0;
       margin-bottom: 1rem;
     }
 
@@ -118,10 +108,7 @@ export default {
     &__description {
       font-size: rem-calc(13);
       font-weight: 500;
-    }
-
-    &__content {
-      margin-bottom: 1rem;
+      margin-bottom: 0;
     }
   }
 </style>

@@ -2,3 +2,4 @@
 /config/
 /dist/
 /*.js
+/packages/Molecules/Map/node_modules/

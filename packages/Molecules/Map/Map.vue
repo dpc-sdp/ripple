@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
+import ol from './ol'
 import RplMapIndicator from '@dpc-sdp/ripple-map-indicator'
 
 let map,
@@ -22,8 +22,6 @@ let map,
   themeLayer,
   themeSource,
   popupOverlay
-
-const ol = Vue.ol
 
 const methods = {
   createMap () {

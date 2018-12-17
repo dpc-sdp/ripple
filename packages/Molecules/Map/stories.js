@@ -2,8 +2,6 @@ import { storiesOf } from '@storybook/vue'
 import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
 
-import {} from './ol'
-
 import {
   withKnobs
 } from '@storybook/addon-knobs/vue'

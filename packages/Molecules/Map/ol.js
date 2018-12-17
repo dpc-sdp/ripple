@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import 'ol/ol.css'
 import TileLayer from 'ol/layer/Tile'
 import VectorTileLayer from 'ol/layer/VectorTile'
@@ -49,4 +48,4 @@ const ol = {
   },
   Feature: Feature
 }
-Vue.ol = ol
+export default ol

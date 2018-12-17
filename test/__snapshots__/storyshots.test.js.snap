@@ -12859,7 +12859,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                   class=""
                 >
                   <input
-                    id="radio"
+                    id="radio-1"
                     name="radio"
                     type="radio"
                     value="Yes"
@@ -12870,7 +12870,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                   class=""
                 >
                   <input
-                    id="radio"
+                    id="radio-2"
                     name="radio"
                     type="radio"
                     value="No"
@@ -13583,17 +13583,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
               class="rpl-above-content__top"
             >
                
-              <div
-                class="rpl-quick-exit"
-                data-text="Quick exit"
-              >
-                <a
-                  class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
-                  href="https://www.google.com"
-                >
-                  Quick exit
-                </a>
-              </div>
+              <!---->
             </div>
              Above content
           </div>
@@ -14062,17 +14052,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
               class="rpl-above-content__top"
             >
                
-              <div
-                class="rpl-quick-exit"
-                data-text="Quick exit"
-              >
-                <a
-                  class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
-                  href="https://www.google.com"
-                >
-                  Quick exit
-                </a>
-              </div>
+              <!---->
             </div>
              Above content
           </div>
@@ -14582,17 +14562,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
             class="rpl-above-content__top"
           >
              
-            <div
-              class="rpl-quick-exit"
-              data-text="Quick exit"
-            >
-              <a
-                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
-                href="https://www.google.com"
-              >
-                Quick exit
-              </a>
-            </div>
+            <!---->
           </div>
            
           <div
@@ -14858,17 +14828,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
             class="rpl-above-content__top"
           >
              
-            <div
-              class="rpl-quick-exit"
-              data-text="Quick exit"
-            >
-              <a
-                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
-                href="https://www.google.com"
-              >
-                Quick exit
-              </a>
-            </div>
+            <!---->
           </div>
            
           <div

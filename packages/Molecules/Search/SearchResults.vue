@@ -5,25 +5,14 @@
     </div>
     <rpl-row row-gutter class="rpl-search-results__main" :class="{'rpl-search-results__main--events': type === 'RplCardEvent'}">
       <template v-if="searchResults && !errorMsg">
-        <rpl-col cols="full" v-if="type === 'default'">
-          <rpl-search-result
-            class="rpl-search-results__item rpl-component-gutter"
+        <rpl-col cols="full" v-for="(searchResult, index) of searchResults" :key="index" :colsBp="searchResultContent.colsBp">
+          <component
+            v-if="searchResultContent.component"
+            :is="searchResultContent.component"
+            :class="searchResultContent.class"
             v-bind="searchResult"
-            v-for="(searchResult, index) of searchResults"
-            :key="index"
+            class="rpl-search-results__item rpl-component-gutter"
           />
-        </rpl-col>
-        <rpl-col cols="full" :colsBp="{m:6,l:4, xxxl:3}" class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter"
-          v-if="type === 'RplCardEvent'"
-          v-for="(searchResult, index) of searchResults"
-          :key="index">
-          <rpl-card-event v-bind="searchResult" />
-        </rpl-col>
-        <rpl-col cols="full" :colsBp="{m:6,l:4, xxxl:3}" class="rpl-search-results__item rpl-search-results__item--promotion rpl-component-gutter"
-          v-if="type === 'RplCardPromotion'"
-          v-for="(searchResult, index) of searchResults"
-          :key="index">
-          <rpl-card-promotion v-bind="searchResult" />
         </rpl-col>
       </template>
       <div v-if="searchResults.length === 0" class="rpl-search-results__no-results-msg">
@@ -47,8 +36,6 @@
 
 <script>
 import RplPagination from '@dpc-sdp/ripple-pagination'
-import RplSearchResult from './SearchResult.vue'
-import { RplCardEvent, RplCardPromotion } from '@dpc-sdp/ripple-card'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
@@ -56,10 +43,7 @@ export default {
   components: {
     RplPagination,
     RplRow,
-    RplCol,
-    RplSearchResult,
-    RplCardEvent,
-    RplCardPromotion
+    RplCol
   },
   props: {
     type: { type: String, default: 'default' },
@@ -84,8 +68,39 @@ export default {
     responseSize: Number,
     count: Number
   },
+  created () {
+    if (this.type) {
+      switch (this.type) {
+        case 'RplCardEvent':
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-event' */ '@dpc-sdp/ripple-card').then(m => m.RplCardEvent),
+            colsBp: {m: 6, l: 4, xxxl: 3},
+            class: ['rpl-search-results__item--event']
+          }
+          break
+        case 'RplCardPromotion':
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ '@dpc-sdp/ripple-card').then(m => m.RplCardPromotion),
+            colsBp: {m: 6, l: 4, xxxl: 3},
+            class: ['rpl-search-results__item--promotion']
+          }
+          break
+        case 'RplGrantsListItem':
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ '@dpc-sdp/ripple-grants').then(m => m.RplGrantsListItem),
+            class: ['rpl-search-results__item--grant']
+          }
+          break
+        default:
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ './SearchResult.vue')
+          }
+      }
+    }
+  },
   data () {
     return {
+      searchResultContent: null,
       defaultCols: {
 
       }

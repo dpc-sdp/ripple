@@ -1022,6 +1022,69 @@ const demoData = {
     theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
   }),
 
+  grantSearchForm: () => ({
+    title: text('Title', 'Grants and programs'),
+    searchPlaceholder: text('Search Placeholder', 'Search grants and programs'),
+    filterForm: object('Filter Form', {
+      tideId: 'tide_search_form',
+      model: {
+        text: '',
+        topic: ''
+      },
+      schema: {
+        fields: [{
+          type: 'rplchecklist',
+          label: 'View those relevant to',
+          model: 'topic',
+          values: [
+            'Individuals and organisation types',
+            'Topic B',
+            'Topic C',
+            'Topic D'
+          ],
+          placeholder: 'Select a topic'
+        },
+        {
+          type: 'rplchecklist',
+          label: 'Grant or program topic',
+          required: true,
+          placeholder: 'Select a topic',
+          model: 'topic',
+          values: [
+            'topic',
+            'Topic B',
+            'Topic C',
+            'Topic D'
+          ]
+        },
+        {
+          type: 'rplchecklist',
+          label: 'Sort list by',
+          required: true,
+          model: 'sort',
+          placeholder: 'Select a value',
+          values: [
+            'Latest added',
+            'Topic B',
+            'Topic C',
+            'Topic D'
+          ]
+        },
+        {
+          type: 'rplsubmitloader',
+          buttonText: 'Display 18 results',
+          loading: false
+        }]
+      },
+      formOptions: {
+        validateAfterLoad: true,
+        validateAfterChanged: true
+      },
+      formState: {}
+    }),
+    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
+  }),
+
   searchResult: () => ({
     title: text('Title', 'Schools private policy'),
     link: object('Link', {
@@ -1109,6 +1172,70 @@ const demoData = {
       }
     ]
   ),
+  grantSearchResultItems: () => (
+    [
+      {
+        title: text('Title', 'Program Overview'),
+        funding: text('Funding', '$80,000'),
+        audience: text('Audience', 'individuals, organisations, local council'),
+        startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
+        enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
+        description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
+        tags: object('Tags', [{
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }, {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }])
+      },
+      {
+        title: text('Title', 'Program Overview'),
+        funding: text('Funding', '$80,000'),
+        audience: text('Audience', 'individuals, organisations, local council'),
+        startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
+        enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
+        description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
+        tags: object('Tags', [{
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }, {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }])
+      },
+      {
+        title: text('Title', 'Program Overview'),
+        funding: text('Funding', '$80,000'),
+        audience: text('Audience', 'individuals, organisations, local council'),
+        startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
+        enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
+        description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
+        tags: object('Tags', [{
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }, {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }])
+      },
+      {
+        title: text('Title', 'Program Overview'),
+        funding: text('Funding', '$80,000'),
+        audience: text('Audience', 'individuals, organisations, local council'),
+        startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
+        enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
+        description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
+        tags: object('Tags', [{
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }, {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }])
+      }
+    ]
+  ),
 
   searchResults: () => ({
     count: number('Count', 10),
@@ -1121,6 +1248,13 @@ const demoData = {
   eventSearchResults: () => ({
     count: number('Count', 10),
     type: selectV2('Type', {RplCardEvent: 'RplCardEvent', RplCardPromotion: 'RplCardPromotion'}, 'RplCardEvent'),
+    responseSize: number('Response size', 4),
+    errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
+    noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
+  }),
+  grantSearchResults: () => ({
+    count: number('Count', 10),
+    type: 'RplGrantListItem',
     responseSize: number('Response size', 4),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')

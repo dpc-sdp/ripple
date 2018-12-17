@@ -23447,7 +23447,7 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
             <span
               class="rpl-list__text"
             >
-              $80,000
+              $10,000 - $30,000
             </span>
           </div>
           <div
@@ -23729,7 +23729,7 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            string
+            object
           </td>
            
           <td

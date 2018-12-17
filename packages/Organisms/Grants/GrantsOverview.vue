@@ -10,6 +10,7 @@
 import moment from 'moment'
 import RplButton from '@dpc-sdp/ripple-button'
 import RplList from '@dpc-sdp/ripple-list'
+import { formatMoney } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplGrantsOverview',
@@ -19,7 +20,7 @@ export default {
   },
   props: {
     title: { type: String, default: '' },
-    funding: { type: String, default: '' },
+    funding: { type: Object },
     audience: { type: String, default: '' },
     startdate: { type: String, default: '' },
     enddate: { type: String, default: '' },
@@ -41,10 +42,20 @@ export default {
     list () {
       let list = []
       if (this.funding) {
+        const calcFunding = (funding) => {
+          if (funding.from && funding.to) {
+            if (funding.from === funding.to) {
+              return formatMoney(funding.from)
+            } else {
+              return `${formatMoney(funding.from)} - ${formatMoney(funding.to)}`
+            }
+          }
+        }
+
         list.push({
           symbol: 'dollar_negative',
           size: '1.666',
-          text: this.funding
+          text: calcFunding(this.funding)
         })
       }
       if (this.audience) {

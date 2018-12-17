@@ -937,7 +937,7 @@ const demoData = {
     filterForm: object('Filter Form', {
       tideId: 'tide_search_form',
       model: {
-        topic: ''
+        topic: []
       },
       schema: {
         fields: [{
@@ -975,7 +975,7 @@ const demoData = {
       tideId: 'tide_search_form',
       model: {
         text: '',
-        topic: ''
+        topic: []
       },
       schema: {
         fields: [{
@@ -1312,6 +1312,10 @@ const demoData = {
         textArea: '',
         dateRange: ['', ''],
         date: '',
+        checkbox: false,
+        vuemultiselect: null,
+        checklistlistbox: [],
+        checklistdropdown: [],
         rangeslider: [10000, 70000]
       },
 
@@ -1357,17 +1361,6 @@ const demoData = {
             step: 10,
             max: 100,
             model: 'number'
-          },
-
-          {
-            type: 'vueMultiSelect',
-            model: 'select',
-            label: 'Select',
-            hint: 'This is a hint text',
-            values: [
-              'option A',
-              'option B'
-            ]
           },
 
           {
@@ -1422,6 +1415,51 @@ const demoData = {
             max: 80000,
             prefix: '$',
             default: true
+          },
+
+          {
+            type: 'rpldivider'
+          },
+
+          {
+            type: 'rplcheckbox',
+            inlineLabel: 'Check box selected',
+            model: 'checkbox',
+            default: true
+          },
+
+          {
+            type: 'rplchecklist',
+            label: 'Multi-select list box',
+            model: 'checklistlistbox',
+            listBox: true,
+            hint: 'Implemented using rplchecklist with listBox: true',
+            placeholder: 'Select multiple topics',
+            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+          },
+
+          {
+            type: 'rplchecklist',
+            label: 'Multi-select drop down',
+            model: 'checklistdropdown',
+            hint: 'Implemented using rplchecklist',
+            placeholder: 'Select multiple topics',
+            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
+          },
+
+          {
+            type: 'vueMultiSelect',
+            model: 'vuemultiselect',
+            label: 'Single-select drop down',
+            hint: 'Implemented using vue-multiselect',
+            placeholder: 'Select a single topic',
+            selectOptions: {
+              multiSelect: false,
+              closeOnSelect: true,
+              searchable: false,
+              showLabels: false
+            },
+            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
           },
 
           {

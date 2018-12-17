@@ -19,14 +19,18 @@ import RplFormAlert from './formAlert'
 import VueFormGenerator from 'vue-form-generator'
 import Multiselect from 'vue-multiselect'
 import fieldRplslider from './fields/fieldRplslider.vue'
+import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
 import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
+import fieldRpldivider from './fields/fieldRpldivider.vue'
 Vue.component('multiselect', Multiselect)
 Vue.component('fieldRplslider', fieldRplslider)
+Vue.component('fieldRplcheckbox', fieldRplcheckbox)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
 Vue.component('fieldRpldatepicker', fieldRpldatepicker)
 Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
+Vue.component('fieldRpldivider', fieldRpldivider)
 
 export { VueFormGenerator }
 
@@ -211,9 +215,13 @@ export default {
     padding-right: rem(40px);
   }
 
+  &__placeholder {
+    margin-bottom: 0;
+    padding: 0;
+  }
+
   &__single {
     background: none;
-    margin-bottom: 0;
   }
 
   &__element {

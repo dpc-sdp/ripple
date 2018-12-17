@@ -1,0 +1,123 @@
+<template>
+  <label @click="labelClick" class="rpl-checkbox">
+    <input
+      type="checkbox"
+      ref="input_checkbox"
+      :id="inputId"
+      :value="checked"
+      @input="updateValue()"
+      @change="updateChange"
+      :autocomplete="inputAutocomplete"
+      :disabled="inputDisabled"
+      :name="inputName"
+      :class="inputClass"
+      :required="inputRequired"
+    />
+    <span
+      class="rpl-checkbox__box"
+      :class="{ 'rpl-checkbox__box--checked': value }"
+    ><rpl-icon symbol="tick" color="primary" /></span>
+    <span v-if="inlineLabel" class="rpl-checkbox__inline-label">{{ inlineLabel }}</span>
+  </label>
+</template>
+
+<script>
+import RplIcon from '@dpc-sdp/ripple-icon'
+
+export default {
+  name: 'RplCheckbox',
+  props: {
+    inputId: String,
+    value: Boolean,
+    inputAutocomplete: Boolean,
+    inputDisabled: Boolean,
+    inputName: String,
+    inputClass: Object,
+    inputRequired: String,
+    inlineLabel: String
+  },
+  components: {
+    RplIcon
+  },
+  data () {
+    return {
+      checked: this.value
+    }
+  },
+  methods: {
+    labelClick () {
+      this.$refs['input_checkbox'].focus()
+    },
+    updateValue () {
+      this.checked = !this.checked
+      this.$emit('input', this.checked)
+    },
+    updateChange (event) {
+      this.$emit('change', event)
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+  @import "~@dpc-sdp/ripple-global/style";
+  @import "scss/form";
+
+  $rpl-checkbox-box-border: 1px solid rpl-color('mid_neutral_1');
+  $rpl-checkbox-box-border-focus: 1px solid rpl-color('primary');
+  $rpl-checkbox-box-border-radius: rem(4px);
+
+  .rpl-checkbox {
+    position: relative;
+
+    input[type="checkbox"] {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      opacity: 0;
+      width: $rpl-space * 5;
+      height: $rpl-space * 5;
+
+      &:focus {
+        & + .rpl-checkbox__box {
+          border: $rpl-checkbox-box-border-focus;
+        }
+      }
+    }
+
+    &__inline-label {
+      @include rpl_typography_ruleset($rpl-form-element-text-ruleset);
+      margin-left: $rpl-space-2;
+    }
+
+    &__box {
+      display: inline-block;
+      vertical-align: middle;
+      border: $rpl-checkbox-box-border;
+      border-radius: $rpl-checkbox-box-border-radius;
+      background-color: rpl-color('light_neutral');
+      width: $rpl-space * 5;
+      height: $rpl-space * 5;
+      position: relative;
+
+      .rpl-icon {
+        display: none;
+      }
+
+      &--checked {
+        background-color: rpl-color('white');
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+
+        .rpl-icon {
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+    }
+  }
+</style>

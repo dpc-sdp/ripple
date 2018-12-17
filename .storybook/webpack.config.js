@@ -17,22 +17,14 @@ module.exports = {
         loaders: ["style-loader", "css-loader", "sass-loader"],
         include: [
           resolve('packages'),
-          resolve('src'),
-          resolve('node_modules/ol/')
+          resolve('src')
         ]
       },
       {
-        test: /\.(jpe?g|png|svg)(\?[a-z0-9=.]+)?$/,
-        loader: 'file-loader',
+        test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        loader: 'url-loader',
         exclude: [
           resolve('packages/Atoms/Icon/')
-        ],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf)(\?[a-z0-9=.]+)?$/,
-        loader: 'file-loader?prefix=font/',
-        include: [
-          resolve('packages')
         ],
       },
       {

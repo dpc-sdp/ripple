@@ -30,10 +30,17 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-        loader: 'url-loader',
-        include: [
+        test: /\.(jpe?g|png|svg)(\?[a-z0-9=.]+)?$/,
+        loader: 'file-loader',
+        exclude: [
           resolve('packages/Atoms/Icon/')
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)(\?[a-z0-9=.]+)?$/,
+        loader: 'file-loader?prefix=font/',
+        include: [
+          resolve('packages')
         ],
       },
       {

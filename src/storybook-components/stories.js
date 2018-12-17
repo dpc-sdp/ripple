@@ -4,6 +4,7 @@ import SPage from './Page.vue'
 import SCampaignPage from './CampaignPage.vue'
 import SSearchPage from './SearchPage.vue'
 import SEventSearchPage from './EventSearchPage.vue'
+import SGrantSearchPage from './GrantSearchPage.vue'
 import SPageHeroGraphics from './PageHeroGraphics.vue'
 import SPageCardTrim from './PageCardTrim.vue'
 import SPageSitemap from './PageSitemap.vue'
@@ -73,6 +74,25 @@ storiesOf('Templates', module)
 :noResults="noResults"
 >
 </s-event-search-page>`,
+    data () {
+      return {
+        sidebar: false,
+        mock: demoDataLocked,
+        hasError: boolean('Has error', false),
+        noResults: boolean('No results', false)
+      }
+    }
+  }))
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Grant search page demo', () => ({
+    components: { SGrantSearchPage },
+    template: `<s-grant-search-page
+    :mock="mock"
+    :hasError="hasError"
+    :noResults="noResults"
+    >
+    </s-grant-search-page>`,
     data () {
       return {
         sidebar: false,

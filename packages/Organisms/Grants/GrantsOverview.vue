@@ -1,8 +1,8 @@
 <template>
   <div class="rpl-grants-overview">
-    <rpl-list class="rpl-grants-overview__list" size="large" v-if="title || list" :title="title" :list="list" />
+    <rpl-list class="rpl-grants-overview__list" size="large" v-if="title || list" :title="title" :link="!!listing && link && link.url ? link.url : null" :list="list" />
     <p class="rpl-grants-overview__description" v-if="description">{{ description }}</p>
-    <rpl-button class="rpl-grants-overview__cta" v-if="link" :href="link.url" theme="primary">{{ link.text }}</rpl-button>
+    <rpl-button class="rpl-grants-overview__cta" v-if="!listing && link" :href="link.url" theme="primary">{{ link.text }}</rpl-button>
   </div>
 </template>
 
@@ -10,6 +10,7 @@
 import moment from 'moment'
 import RplButton from '@dpc-sdp/ripple-button'
 import RplList from '@dpc-sdp/ripple-list'
+import { formatMoney } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplGrantsOverview',
@@ -19,12 +20,13 @@ export default {
   },
   props: {
     title: { type: String, default: '' },
-    funding: { type: String, default: '' },
+    funding: { type: Object },
     audience: { type: String, default: '' },
     startdate: { type: String, default: '' },
     enddate: { type: String, default: '' },
     description: { type: String, default: '' },
     link: { type: Object, default: null },
+    listing: { type: Boolean, default: false },
     statusTerms: {
       type: Object,
       default: function () {
@@ -41,10 +43,20 @@ export default {
     list () {
       let list = []
       if (this.funding) {
+        const calcFunding = (funding) => {
+          if (funding.from && funding.to) {
+            if (funding.from === funding.to) {
+              return formatMoney(funding.from)
+            } else {
+              return `${formatMoney(funding.from)} - ${formatMoney(funding.to)}`
+            }
+          }
+        }
+
         list.push({
           symbol: 'dollar_negative',
           size: '1.666',
-          text: this.funding
+          text: calcFunding(this.funding)
         })
       }
       if (this.audience) {
@@ -123,6 +135,9 @@ export default {
         .rpl-list__title {
           margin: $rpl-grants-overview-list-margin;
         }
+      }
+      a.rpl-list__title {
+        display: block;
       }
     }
 

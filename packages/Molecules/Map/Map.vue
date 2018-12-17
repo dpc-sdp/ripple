@@ -101,9 +101,14 @@ const methods = {
       this.feature = null
       return
     }
-    popupOverlay.setPosition(evt.coordinate)
 
     this.feature = feature
+
+    // wait until popup rendering is complete before positioning the elemtent
+    // this means the popup height is now known, so the map will pan correctly
+    this.$nextTick(function () {
+      popupOverlay.setPosition(evt.coordinate)
+    })
   },
   onAppMounted () {
     this.createMap()
@@ -136,12 +141,11 @@ export default {
       default: false
     },
     themeLayerUrl: {
-      type: String,
-      default: ''
+      type: String
     },
     basemapUrl: {
       type: String,
-      default: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+      required: true
     },
     customThemeFunction: {
       type: Function,
@@ -169,6 +173,7 @@ export default {
     center (newCenter) {
       map.getView().setCenter(newCenter)
       map.getView().setZoom(this.zoom)
+      this.feature = null
     },
     zoom (newZoom) {
       map.getView().setZoom(newZoom)

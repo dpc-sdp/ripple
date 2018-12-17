@@ -140,3 +140,40 @@ storiesOf('Molecules/Search', module)
       }
     }
   })))
+  .add('Grant Search Results', withReadme(readme, () => ({
+    components: { RplSearchResults },
+    template: `<rpl-search-results
+    :searchResults="searchResultsItems"
+    :pager="pager"
+    :responseSize="searchResults.responseSize"
+    :count="searchResults.count"
+    :pagerChangeHandler="pagerChange"
+    :errorMsg="hasError ? searchResults.errorMsg : undefined"
+    :noResultsMsg="searchResults.noResultsMsg"
+    type="RplGrantsListItem"
+    @pager-change="pagerChange"
+  />`,
+    data () {
+      return {
+        pager: demoData.pagination(),
+        searchResults: demoData.grantSearchResults(),
+        hasError: boolean('Has error', false),
+        noResults: boolean('No results', false)
+      }
+    },
+    computed: {
+      searchResultsItems: function () {
+        if (this.hasError || this.noResults) {
+          return []
+        } else {
+          return demoData.grantSearchResultItems()
+        }
+      }
+    },
+    methods: {
+      pagerChange: function (newStep) {
+        // Use your own custom code to handle it.
+        alert('Going to step: ' + newStep)
+      }
+    }
+  })))

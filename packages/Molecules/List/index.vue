@@ -6,7 +6,7 @@
       'rpl-list--large': (size === 'large')
     }"
   >
-    <h2 v-if="title" class="rpl-list__title">{{ title }}</h2>
+    <h2 :is="link ? 'rpl-link' : 'h2'" :href="link ? link : false" v-if="title" class="rpl-list__title">{{ title }}</h2>
     <slot name="above-list"></slot>
     <div v-if="list" class="rpl-list__list">
       <div v-for="(item, index) in list" :key="index" class="rpl-list__list-item">
@@ -28,6 +28,7 @@ export default {
   name: 'RplList',
   props: {
     title: String,
+    link: String,
     size: { type: String, default: 'normal' },
     iconScale: { type: Number, default: 1 },
     iconColor: { type: String, default: 'primary' },

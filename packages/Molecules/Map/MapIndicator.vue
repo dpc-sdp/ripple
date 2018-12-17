@@ -1,17 +1,17 @@
 <template>
   <div
     v-if="show"
-    class="map-indicator">
-    <div class="map-indicator__close">
+    class="rpl-map-indicator">
+    <div class="rpl-map-indicator__close">
       <button-close
         :id="'tabs-close-button'"
         :size="'small'"
         @click="close"/>
     </div>
     <slot>
-      <h5 class="map-indicator__title">{{ selectedFeature.title }}</h5>
-      <div class="map-indicator__content">
-        <p class="map-indicator__description">{{ selectedFeature.content }}</p>
+      <h5 class="rpl-map-indicator__title">{{ selectedFeature.title }}</h5>
+      <div class="rpl-map-indicator__content">
+        <p class="rpl-map-indicator__description">{{ selectedFeature.content }}</p>
       </div>
     </slot>
   </div>
@@ -58,7 +58,7 @@ export default {
     font-weight: 700;
   }
 
-  .map-indicator {
+  .rpl-map-indicator {
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);

@@ -62,8 +62,6 @@
     "@dpc-sdp/ripple-timeline": "file:packages/Molecules/Timeline",
     "@dpc-sdp/ripple-updated-date": "file:packages/Organisms/UpdatedDate",
     "@dpc-sdp/ripple-whats-next": "file:packages/Molecules/WhatsNext",
-    "@dpc-sdp/ripple-close-button": "file:packages/Atoms/CloseButton",
-    "@dpc-sdp/ripple-map-indicator": "file:packages/Atoms/MapIndicator",
     "@dpc-sdp/ripple-map": "file:packages/Molecules/Map",
     "vue": "^2.5.16"
   },

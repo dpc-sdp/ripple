@@ -1,14 +1,14 @@
 <template>
   <button
     type="button"
-    class="close-button"
+    class="rpl-map-close-button"
     :class="{
       'small': size === 'small',
       'light': color === 'light'
     }"
     @click="handleClick()"
   >
-    <span v-if="label" class="close-btn__label">{{ label }}</span>
+    <span v-if="label" class="rpl-map-close-button__label">{{ label }}</span>
     <svg xmlns="http://www.w3.org/2000/svg" width="17.14" height="17.14" viewBox="0 0 17.14 17.14">
       <path
         class="st0"
@@ -49,7 +49,7 @@ export default {
 <style lang="scss">
 @import "~@dpc-sdp/ripple-global/style";
 
-.close-button {
+.rpl-map-close-button {
   color: grey;
   cursor: pointer;
   padding: 0;

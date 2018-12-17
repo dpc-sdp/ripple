@@ -70,10 +70,10 @@ const methods = {
   themeFeatureStyleFunction (feature, resolution) {
     let size = [12, 12]
     const COLORS = {
-      ACTIVE: '#1caadd',
+      ACTIVE: '#1caadd', // primary
       INACTIVE: '#ec4d82',
-      FUTURE: '#86229b',
-      STATION: '#ff9e1b'
+      FUTURE: '#465870', // dark neutral
+      STATION: '#023b89' // dark primary
     }
     const LEGEND_TYPES = {
       Station: 'station',

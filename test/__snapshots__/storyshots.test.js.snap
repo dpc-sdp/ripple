@@ -15536,6 +15536,841 @@ exports[`RippleStoryshots Molecules/List List 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Molecules/Map
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Map with free wifi data
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-map"
+      data-v-6ca0e090=""
+    >
+       
+      <div
+        class="rpl-map__container"
+      >
+        <div
+          class="rpl-map__map"
+          id="map"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-map
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :basemapUrl
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "basemapUrl"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :themeLayerUrl
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "wifiLayerUrl"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :center
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "wifiCenter"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :zoom
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "wifiZoom"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplMap" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    data
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    center
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            [
+  16121779.620932763,
+  -4389253.766980502
+]
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    zoom
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            number
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            7
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    refreshOn
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            false
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    themeLayerUrl
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    basemapUrl
+    
+            <span
+              class="tag"
+              data-v-31a7e38c=""
+              data-v-5bd9cdea=""
+            >
+              required
+            </span>
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    customThemeFunction
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            function
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Molecules/Map
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Map with no data
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-map"
+      data-v-6ca0e090=""
+    >
+       
+      <div
+        class="rpl-map__container"
+      >
+        <div
+          class="rpl-map__map"
+          id="map"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-map
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :basemapUrl
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "basemapUrl"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplMap" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    data
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    center
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            [
+  16121779.620932763,
+  -4389253.766980502
+]
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    zoom
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            number
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            7
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    refreshOn
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            false
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    themeLayerUrl
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    basemapUrl
+    
+            <span
+              class="tag"
+              data-v-31a7e38c=""
+              data-v-5bd9cdea=""
+            >
+              required
+            </span>
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    customThemeFunction
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            function
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
 <div
   class="vue-info"

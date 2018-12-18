@@ -94,6 +94,7 @@
     "file-loader": "^1.1.4",
     "glob-fs": "^0.1.7",
     "jest": "^23.3.0",
+    "jest-canvas-mock": "^1.1.0",
     "lerna": "^2.11.0",
     "markdown-loader-jest": "^0.1.1",
     "markdownlint-cli": "^0.11.0",

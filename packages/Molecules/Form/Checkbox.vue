@@ -44,7 +44,7 @@ export default {
       id: null
     }
   },
-  mounted () {
+  created () {
     this.id = this._uid
   },
   methods: {

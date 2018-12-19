@@ -1312,7 +1312,7 @@ const demoData = {
         textArea: '',
         dateRange: ['', ''],
         date: '',
-        checkbox: false,
+        checkbox: true,
         vuemultiselect: null,
         checklistlistbox: [],
         checklistdropdown: [],

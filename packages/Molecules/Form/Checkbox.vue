@@ -3,9 +3,8 @@
     <input
       type="checkbox"
       ref="input_checkbox"
-      :id="inputId"
-      :value="checked"
-      @input="updateValue()"
+      :id="`${id}-${inputId}`"
+      v-model="checked"
       @change="updateChange"
       :autocomplete="inputAutocomplete"
       :disabled="inputDisabled"
@@ -15,7 +14,7 @@
     />
     <span
       class="rpl-checkbox__box"
-      :class="{ 'rpl-checkbox__box--checked': value }"
+      :class="{ 'rpl-checkbox__box--checked': checked }"
     ><rpl-icon symbol="tick" color="primary" /></span>
     <span v-if="inlineLabel" class="rpl-checkbox__inline-label">{{ inlineLabel }}</span>
   </label>
@@ -41,16 +40,16 @@ export default {
   },
   data () {
     return {
-      checked: this.value
+      checked: this.value,
+      id: null
     }
+  },
+  created () {
+    this.id = this._uid
   },
   methods: {
     labelClick () {
       this.$refs['input_checkbox'].focus()
-    },
-    updateValue () {
-      this.checked = !this.checked
-      this.$emit('input', this.checked)
     },
     updateChange (event) {
       this.$emit('change', event)

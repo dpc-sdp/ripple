@@ -13040,13 +13040,12 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="rpl-checkbox"
               >
                 <input
-                  id="checkbox"
+                  id="null-checkbox"
                   type="checkbox"
-                  value="false"
                 />
                  
                 <span
-                  class="rpl-checkbox__box"
+                  class="rpl-checkbox__box rpl-checkbox__box--checked"
                 >
                   <!---->
                 </span>
@@ -13097,10 +13096,9 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="multi-select-list-box"
+                          id="null-multi-select-list-box"
                           name="Topic-A"
                           type="checkbox"
-                          value=""
                         />
                          
                         <span
@@ -13123,10 +13121,9 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="multi-select-list-box"
+                          id="null-multi-select-list-box"
                           name="Topic-B"
                           type="checkbox"
-                          value=""
                         />
                          
                         <span
@@ -13149,10 +13146,9 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="multi-select-list-box"
+                          id="null-multi-select-list-box"
                           name="Topic-C"
                           type="checkbox"
-                          value=""
                         />
                          
                         <span
@@ -13175,10 +13171,9 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="multi-select-list-box"
+                          id="null-multi-select-list-box"
                           name="Topic-D"
                           type="checkbox"
-                          value=""
                         />
                          
                         <span

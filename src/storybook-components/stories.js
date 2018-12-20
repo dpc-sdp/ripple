@@ -8,6 +8,7 @@ import SGrantSearchPage from './GrantSearchPage.vue'
 import SPageHeroGraphics from './PageHeroGraphics.vue'
 import SPageCardTrim from './PageCardTrim.vue'
 import SPageSitemap from './PageSitemap.vue'
+import SPageForm from './PageForm.vue'
 
 import {
   withKnobs,
@@ -138,6 +139,18 @@ storiesOf('Templates', module)
   .add('Page with sitemap', () => ({
     components: { SPageSitemap },
     template: `<s-page-sitemap :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Page with form', () => ({
+    components: { SPageForm },
+    template: `<s-page-form :mock="mock" />`,
     data () {
       return {
         mock: demoDataLocked

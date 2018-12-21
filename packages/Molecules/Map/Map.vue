@@ -132,33 +132,6 @@ const methods = {
     })
     map.addOverlay(popupOverlay)
   },
-  zoomToArea (area, {duration}) {
-    /*
-    var featureRequest = new ol.format.WFS().writeGetFeature({
-      srsName: 'EPSG:900913',
-      featureNS: 'myvic',
-      featurePrefix: 'myvic',
-      featureTypes: ['suburb'],
-      outputFormat: 'application/json'// ,
-      // filter: ol.format.filter.equalTo('ssc_name', area, false)
-    })
-    fetch('https://myvic-app-dev-gis.beta.vic.gov.au/geoserver/myvic/wfs', {
-      method: 'POST',
-      body: new XMLSerializer().serializeToString(featureRequest)
-    }).then((response) => {
-      return response.json()
-    }).then((json) => {
-      var features = new ol.format.GeoJSON().readFeatures(json)
-      if (features.length > 0) {
-        let feature = features[0]
-        map.getView().fit(feature.getGeometry().getExtent(), {
-          size: map.getSize(),
-          duration: duration
-        })
-      }
-    })
-    */
-  },
   onMapClick (evt) {
     let feature =
         map.forEachFeatureAtPixel(evt.pixel, function (feature, layer) {
@@ -269,22 +242,24 @@ export default {
 
 <style lang="scss">
 @import "~@dpc-sdp/ripple-global/style";
+@import "node_modules/ol/ol";
 
-// The map should be displayed in a 16:9 aspect ratio
+// The map should be displayed in a set aspect ratio so
+// the size is dependent on the viewport width.
 // Accomplished using this technique:
 // https://css-tricks.com/aspect-ratio-boxes/
 // But we can't use the technique on .rpl-map itself, because
 // OpenLayers uses .rpl-map's height value to draw the map.
-// height: 0 means no map at all. By setting height: 0 and
-// padding-top: (9/16)% on .rpl-map__container, the map
-// itself can be height auto which OL picks up correctly.
+// height: 0 means no map at all. By setting .rpl-map__container
+// to height: 0 and padding-top: (9/16)%, the map itself
+// can be height auto which OL picks up correctly.
 
 $rpl-map-aspect-ratio: (
   xs: (8/10) * 100%,
   s: (9/16) * 100%
-);
+) !default;
 
-$rpl-map-popup-width: 300px;
+$rpl-map-popup-width: rem(300px) !default;
 
 .rpl-map {
   &__map {
@@ -317,9 +292,9 @@ $rpl-map-popup-width: 300px;
 
   &__popup {
     position: absolute;
-    z-index: 999;
+    z-index: $rpl-zindex-popover;
     width: $rpl-map-popup-width;
-    bottom: 11px;
+    bottom: rem(11px);
     left: $rpl-map-popup-width / 2 * -1;
     cursor: auto;
   }

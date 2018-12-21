@@ -1,4 +1,3 @@
-import 'ol/ol.css'
 import TileLayer from 'ol/layer/tile'
 import VectorTileLayer from 'ol/layer/vectortile'
 import VectorTileSource from 'ol/source/vectortile'

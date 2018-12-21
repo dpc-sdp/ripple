@@ -4,8 +4,7 @@
     class="rpl-map-indicator">
     <div class="rpl-map-indicator__close">
       <button-close
-        :id="'tabs-close-button'"
-        :size="'small'"
+        id="tabs-close-button"
         @click="close"/>
     </div>
     <slot>
@@ -46,31 +45,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "~@dpc-sdp/ripple-global/style";
 
-  // @import '~assets/styles/includes';
-
-  .standard-button {
-    // @include button($background: palette(blue,tint5), $background-hover: palette(blue,tint10));
-    border-radius: 5px;
-    font-size: rem-calc(13);
-    display: block;
-    margin-bottom: 0;
-    font-weight: 700;
-  }
+  $rpl-map-indicator-caret-size: rem(12px);
+  $rpl-map-indicator-title-color: rpl_color('primary') !default;
+  $rpl-map-indicator-background-color: rpl_color('white') !default;
 
   .rpl-map-indicator {
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);
+    background-color: $rpl-map-indicator-background-color;
+    border-radius: rem(5px);
+    box-shadow: 0 rem(2px) rem(4px) 0 rgba(0, 0, 0, 0.20);
     padding: 1.25rem 1rem;
 
     &:before {
-      $size: 12px;
+      $size: $rpl-map-indicator-caret-size;
       content: '';
       display: block;
       width: $size;
       height: $size;
-      background-color: white;
+      background-color: $rpl-map-indicator-background-color;
       position: absolute;
       bottom: -($size/2);
       left: 50%;
@@ -85,29 +78,12 @@ export default {
     }
 
     &__title {
-      color: blue;
-      font-size: rem-calc(13);
+      color: $rpl-map-indicator-title-color;
       margin-top: 0;
       margin-bottom: 1rem;
     }
 
-    &__value {
-      color: blue;
-      font-size: rem-calc(16);
-      margin-bottom: .25rem;
-    }
-
-    &__list {
-      font-size: rem-calc(13);
-      font-weight: 500;
-      list-style-type: decimal;
-      margin-top: .25rem;
-      padding-left: 1rem;
-    }
-
     &__description {
-      font-size: rem-calc(13);
-      font-weight: 500;
       margin-bottom: 0;
     }
   }

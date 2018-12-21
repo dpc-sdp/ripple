@@ -1142,7 +1142,7 @@ exports[`RippleStoryshots Atoms/Icon Icon 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            
+            See the Icon Library page for options
           </td>
         </tr>
         <tr
@@ -1174,7 +1174,7 @@ exports[`RippleStoryshots Atoms/Icon Icon 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            
+            Any named color in Global/Colors
           </td>
         </tr>
         <tr
@@ -1206,7 +1206,7 @@ exports[`RippleStoryshots Atoms/Icon Icon 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            
+            One of [s, m, l, xl, xxl]
           </td>
         </tr>
       </tbody>

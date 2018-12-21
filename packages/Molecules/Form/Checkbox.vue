@@ -4,7 +4,7 @@
       type="checkbox"
       ref="input_checkbox"
       :id="`${id}-${inputId}`"
-      v-model="checked"  
+      v-model="checked"
       :autocomplete="inputAutocomplete"
       :disabled="inputDisabled"
       :name="inputName"
@@ -47,9 +47,9 @@ export default {
     this.id = this._uid
   },
   methods: {
-    updateValue () {	
-       this.$emit('input', this.checked)	
-     },
+    updateValue () {
+      this.$emit('input', this.checked)
+    },
     labelClick () {
       this.$refs['input_checkbox'].focus()
     },
@@ -58,11 +58,11 @@ export default {
     }
   },
   watch: {
-    checked: function(val){
+    checked (val) {
       this.updateValue()
       this.updateChange(val)
     }
-  }  
+  }
 
 }
 </script>

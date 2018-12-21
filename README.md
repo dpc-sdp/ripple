@@ -52,7 +52,7 @@ npm install @dpc-sdp/ripple-global @dpc-sdp/ripple-site-header --save
 ``` javascript
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import RplBreadcrumb from '@dpc-sdp/ripple-breadcrumb'
-import RplFooteryNavigation from '@dpc-sdp/ripple-footer-navigation'
+import RplFooterNavigation from '@dpc-sdp/ripple-footer-navigation'
 ```
 
 ## Contributing

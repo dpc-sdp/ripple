@@ -22195,6 +22195,7 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
       data-v-6ca0e090=""
     >
       <a
+        aria-label="Call to action"
         class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large"
         href="#"
       >
@@ -32837,6 +32838,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           class="rpl-campaign-primary rpl-site-constrain--on-all"
         >
           <a
+            aria-label="Call to action"
             class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large"
             href="#"
           >

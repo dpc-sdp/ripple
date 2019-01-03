@@ -143,7 +143,7 @@ $rpl-layout: (
   }
 }
 
-// Use this calss if the item is inside sidebar or main content area beside sidebar and you are using `.rpl-edge--below-l`.
+// Use this class if the item is inside sidebar or main content area beside sidebar and you are using `.rpl-edge--below-l`.
 .rpl-site-constrain--below-l {
   @include rpl_site_constrain(small);
 }
@@ -154,7 +154,7 @@ $rpl-layout: (
   @include rpl_edge;
 }
 
-// Use this calss if the item is inside sidebar or main content area beside sidebar.
+// Use this class if the item is inside sidebar or main content area beside sidebar.
 .rpl-edge--below-l {
   @include rpl_edge(small);
 }

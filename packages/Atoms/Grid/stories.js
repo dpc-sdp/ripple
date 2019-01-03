@@ -8,9 +8,11 @@ import RplCol from './Col.vue'
 import readme from './README.md'
 
 import SGrids from './../../../src/storybook-components/Grids.vue'
+import SGridTest from './../../../src/storybook-components/GridTest.vue'
 
 import {
-  withKnobs
+  withKnobs,
+  boolean
 } from '@storybook/addon-knobs/vue'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
 
@@ -29,4 +31,16 @@ storiesOf('Atoms/Layout', module)
   .add('Grid system', withReadme(readme, () => ({
     components: { SGrids },
     template: '<s-grids></s-grids>'
+  })))
+
+storiesOf('Atoms/Layout', module)
+  .addDecorator(withKnobs)
+  .add('Grid tests', withReadme(readme, () => ({
+    components: { SGridTest },
+    template: '<s-grid-test :overflows="overflows"></s-grid-test>',
+    data () {
+      return {
+        overflows: boolean('Show overflow', false)
+      }
+    }
   })))

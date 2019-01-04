@@ -57,13 +57,15 @@ export default {
         })
       }
       if (this.phone && this.phone.length > 0) {
-        this.phone.forEach(phoneNumber => {
-          _list.push({
-            symbol: 'phone_number',
-            link: `tel: ${phoneNumber}`,
-            size: 0.857,
-            text: phoneNumber
-          })
+        this.phone.forEach(phone => {
+          if (phone.number) {
+            _list.push({
+              symbol: 'phone_number',
+              link: `tel: ${phone.number}`,
+              size: 0.857,
+              text: `${phone.title ? phone.title + ' ' : ''}${phone.number}`
+            })
+          }
         })
       }
       if (this.email) {

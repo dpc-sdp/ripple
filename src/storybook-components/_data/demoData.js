@@ -454,8 +454,8 @@ const demoData = {
     postal: text('Postal', 'PO Box 123, Suburb VIC 3421'),
     address: text('Address', '13 Street Name, Suburb VIC 3056'),
     phone: object('Phone', [
-      '03 9876 6754',
-      '03 9876 1234'
+      {number: '03 9876 6754'},
+      {number: '0400 000 000', title: 'Mob'}
     ]),
     email: text('Email', 'emailaddress@vic.gov.au'),
     social: object('Social', [

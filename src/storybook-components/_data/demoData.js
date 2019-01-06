@@ -139,7 +139,7 @@ const demoData = {
 
   heroBanner: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
-    introText: text('Intro Text', 'This is supplimentary intro text that can also wrap over a couple of lines.'),
+    introText: text('Intro Text', 'This is supplementary intro text that can also wrap over a couple of lines.'),
     linkHeading: text('Link Heading', 'Want to know more about...'),
     links: object('Links', [
       { text: 'First journey based link', url: '#' },
@@ -156,7 +156,7 @@ const demoData = {
 
   heroBannerCta: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
-    introText: text('Intro Text', 'This is supplimentary intro text that can also wrap over a couple of lines.'),
+    introText: text('Intro Text', 'This is supplementary intro text that can also wrap over a couple of lines.'),
     theme: selectV2('Theme', {dark: 'dark', light: 'light'}, 'light'),
     linkPrimary: object('linkPrimary', { text: 'Call to action', url: '#' }),
     linkSecondary: object('linkSecondary', { text: 'Subscribe for tips to prepare', url: '#' }),
@@ -200,7 +200,7 @@ const demoData = {
 
   cardNavigationFeatured: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
-    summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+    summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what\'s happening.'),
     url: text('Url', '#'),
     image: text('Image', 'https://placehold.it/818x497'),
     date: text('Date', '2018-03-23T09:00:00.000+10:00'),
@@ -221,7 +221,7 @@ const demoData = {
     date: text('Date', '2018-07-10T09:00:00.000+10:00'),
     topic: text('Topic', 'News'),
     title: text('Title', 'This is display copy that wraps 2 lines'),
-    summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+    summary: text('Summary', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.'),
     link: object('Link', { text: 'Read more', url: '#' })
   }),
 
@@ -331,7 +331,7 @@ const demoData = {
           date: '2018-07-10T09:00:00.000+10:00',
           topic: 'News',
           title: 'This is display copy that wraps 2 lines',
-          summary: 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.',
+          summary: 'We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what\'s happening.',
           link: { text: 'Read more', url: '#' }
         }
       },
@@ -377,7 +377,7 @@ const demoData = {
           date: '2018-07-10T09:00:00.000+10:00',
           topic: 'News',
           title: 'This is display copy that wraps 2 lines',
-          summary: 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.',
+          summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
           link: { text: 'Read more', url: '#' }
         }
       },
@@ -1150,36 +1150,36 @@ const demoData = {
   newsSearchResultItems: () => (
     [
       {
-        image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
-        topic: text('Topic', 'News'),
-        title: text('Title', 'This is display copy that wraps 2 lines'),
-        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
-        link: object('Link', { text: 'Read more', url: '#' })
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
       },
       {
-        image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
-        topic: text('Topic', 'News'),
-        title: text('Title', 'This is display copy that wraps 2 lines'),
-        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
-        link: object('Link', { text: 'Read more', url: '#' })
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
       },
       {
-        image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
-        topic: text('Topic', 'News'),
-        title: text('Title', 'This is display copy that wraps 2 lines'),
-        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
-        link: object('Link', { text: 'Read more', url: '#' })
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
       },
       {
-        image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
-        topic: text('Topic', 'News'),
-        title: text('Title', 'This is display copy that wraps 2 lines'),
-        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
-        link: object('Link', { text: 'Read more', url: '#' })
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
       }
     ]
   ),

@@ -50,13 +50,12 @@ export default {
             } else {
               return `${formatMoney(funding.from)} - ${formatMoney(funding.to)}`
             }
-          } else if (funding.from > 0 || funding.to > 0) {
-            if (funding.from > 0) {
-              return formatMoney(funding.from)
-            }
-            if (funding.to > 0) {
-              return formatMoney(funding.to)
-            }
+          } else if (funding.from === 0 && funding.to > 0) {
+            return `$0 - ${formatMoney(funding.to)}`
+          } else if (funding.from > 0 && funding.to === 0) {
+            return formatMoney(funding.from)
+          } else {
+            return null
           }
         }
         const fundingLevel = calcFunding(this.funding)

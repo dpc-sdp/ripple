@@ -30,3 +30,53 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "~@dpc-sdp/ripple-global/style";
+
+@mixin _rpl_bp_classes($bp: '') {
+  $modifier: '';
+
+  @if $bp != '' {
+    $modifier: #{'-' + $bp};
+  }
+
+  &.rpl-col--full#{$modifier} {
+    @include rpl_grid_full;
+  }
+
+  @for $col from 1 through rpl_grid_get_columns($rpl-grid) {
+    @if $col <= rpl_grid_get_columns($rpl-grid) {
+      &.rpl-col--#{$col}#{$modifier} {
+        @include rpl_grid_column($col);
+      }
+
+      &.rpl-col--push-#{$col}#{$modifier} {
+        @include rpl_grid_push($col);
+      }
+
+      &.rpl-col--pull-#{$col}#{$modifier} {
+        @include rpl_grid_pull($col);
+      }
+
+      &.rpl-col--order-#{$col}#{$modifier} {
+        @include rpl_grid_order($col);
+      }
+    }
+  }
+}
+
+.rpl-col {
+  @include rpl_grid_column;
+
+  @each $bp, $bp-val in $rpl-breakpoints {
+    @if $bp-val == 0 {
+      @include _rpl_bp_classes;
+    } @else {
+      @include rpl_breakpoint($bp) {
+        @include _rpl_bp_classes($bp);
+      }
+    }
+  }
+}
+</style>

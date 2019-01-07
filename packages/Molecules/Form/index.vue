@@ -195,6 +195,17 @@ export default {
       margin-bottom: $rpl-form-element-margin-bottom-m;
     }
 
+    &.required {
+      label {
+        &:after {
+          margin-left: $rpl-space;
+          @include rpl_typography_ruleset($rpl-form-required-ruleset);
+          color: $rpl-form-required-color;
+          content: $rpl-form-required-message;
+        }
+      }
+    }
+
     label {
       order: 1;
     }

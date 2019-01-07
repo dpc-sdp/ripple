@@ -44,20 +44,29 @@ export default {
       let list = []
       if (this.funding) {
         const calcFunding = (funding) => {
-          if (funding.from && funding.to) {
+          if (funding.from > 0 && funding.to > 0) {
             if (funding.from === funding.to) {
               return formatMoney(funding.from)
             } else {
               return `${formatMoney(funding.from)} - ${formatMoney(funding.to)}`
             }
+          } else if (funding.from === 0 && funding.to > 0) {
+            return `$0 - ${formatMoney(funding.to)}`
+          } else if (funding.from > 0 && funding.to === 0) {
+            return formatMoney(funding.from)
+          } else {
+            return null
           }
         }
+        const fundingLevel = calcFunding(this.funding)
 
-        list.push({
-          symbol: 'dollar_negative',
-          size: '1.666',
-          text: calcFunding(this.funding)
-        })
+        if (fundingLevel) {
+          list.push({
+            symbol: 'dollar_negative',
+            size: '1.666',
+            text: fundingLevel
+          })
+        }
       }
       if (this.audience) {
         list.push({

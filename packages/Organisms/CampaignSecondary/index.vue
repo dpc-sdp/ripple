@@ -1,9 +1,10 @@
 <template>
   <div class="rpl-campaign-secondary">
     <div class="rpl-campaign-secondary__row">
-      <div class="rpl-campaign-secondary__left">
+      <div v-if="image || video" class="rpl-campaign-secondary__left">
         <div class="rpl-campaign-secondary__content">
           <img v-if="image" :src="image" alt="" class="rpl-campaign-secondary__image" />
+          <rpl-embedded-video :variant="video.mediaLink ? 'link' : false" v-else-if="video" :src="video.src" :media-link="video.mediaLink" class="rpl-campaign-secondary__video" />
         </div>
       </div>
       <div class="rpl-campaign-secondary__right">
@@ -20,6 +21,7 @@
 <script>
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import RplButton from '@dpc-sdp/ripple-button'
+import RplEmbeddedVideo from '@dpc-sdp/ripple-embedded-video'
 import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
@@ -29,10 +31,12 @@ export default {
     title: String,
     summary: String,
     link: Object,
+    video: Object,
     image: String
   },
   components: {
     RplButton,
+    RplEmbeddedVideo,
     RplIcon
   }
 }
@@ -116,6 +120,10 @@ export default {
         padding: $rpl-campaign-secondary-content-padding-s;
       }
     }
+    &__video {
+      .rpl-embedded-video-iframe-container iframe {border: 0}
+    }
+
     &__content {
       padding: $rpl-campaign-primary-content-padding-xs;
       @include rpl_breakpoint('s') {

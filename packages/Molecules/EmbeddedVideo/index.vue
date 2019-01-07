@@ -5,7 +5,7 @@
     </div>
     <div v-if="variant === 'link'" class="rpl-embed-video__link" >
       <rpl-icon symbol="view" color="primary" />
-      <rpl-text-link :url="url" :text="mediaLink" />
+      <rpl-text-link v-bind="mediaLink" />
     </div>
     <div v-if="variant === 'full'" class="rpl-embed-video__transcript" >{{ transcript }}</div>
   </div>
@@ -25,7 +25,7 @@ export default {
     variant: String,
     url: String,
     transcript: String,
-    mediaLink: String
+    mediaLink: Object
   },
   components: {
     RplTextLink,

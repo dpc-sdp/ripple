@@ -120,9 +120,6 @@ export default {
         padding: $rpl-campaign-secondary-content-padding-s;
       }
     }
-    &__video {
-      .rpl-embedded-video-iframe-container iframe {border: 0}
-    }
 
     &__content {
       padding: $rpl-campaign-primary-content-padding-xs;

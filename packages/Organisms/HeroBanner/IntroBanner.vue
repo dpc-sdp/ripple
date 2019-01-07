@@ -1,6 +1,6 @@
 <template>
   <div class="rpl-intro-banner" :class="{ 'rpl-intro-banner--no-links': !showLinks }">
-    <div class="rpl-row">
+    <rpl-row>
       <div class="rpl-intro-banner__left">
         <h2 v-if="title" class="rpl-intro-banner__title"><span>{{ title }}</span></h2>
         <p v-if="introText" class="rpl-intro-banner__description">{{ introText }}</p>
@@ -24,12 +24,13 @@
           </li>
         </ul>
       </div>
-    </div>
+    </rpl-row>
   </div>
 </template>
 
 <script>
 import { RplTextLink } from '@dpc-sdp/ripple-link'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplIntroBanner',
@@ -41,7 +42,9 @@ export default {
     showLinks: { type: Boolean, default: true }
   },
   components: {
-    RplTextLink
+    RplTextLink,
+    RplRow,
+    RplCol
   }
 }
 </script>

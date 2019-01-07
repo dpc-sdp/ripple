@@ -154,12 +154,14 @@ export default {
       }
     }
 
-    &__call-to-action.rpl-button {
-      @include rpl_breakpoint('s') {
-        margin: $rpl-campaign-primary-button-margin-s;
-      }
-      @include rpl_breakpoint('m') {
-        margin: 0;
+    &__call-to-action {
+      &.rpl-button {
+        @include rpl_breakpoint('s') {
+          margin: $rpl-campaign-primary-button-margin-s;
+        }
+        @include rpl_breakpoint('m') {
+          margin: 0;
+        }
       }
     }
 

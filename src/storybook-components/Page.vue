@@ -18,7 +18,7 @@
 
     <rpl-page-layout
       :sidebar="sidebar"
-      class="main rpl-container"
+      class="main"
       :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
       <template slot="breadcrumbs">

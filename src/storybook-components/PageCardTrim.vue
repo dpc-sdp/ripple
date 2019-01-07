@@ -15,7 +15,7 @@
     </template>
 
     <rpl-page-layout
-      class="main rpl-container"
+      class="main"
       :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
       <template slot="aboveContent">

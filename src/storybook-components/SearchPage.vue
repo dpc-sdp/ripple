@@ -16,7 +16,7 @@
 
     <rpl-page-layout
       :sidebar="sidebar"
-      class="main rpl-container"
+      class="main"
     >
       <template slot="aboveContent">
         <rpl-search-form

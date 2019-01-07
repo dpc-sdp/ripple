@@ -3,12 +3,12 @@
     'rpl-hero-banner--no-links': !showLinks,
     'rpl-hero-banner--has-logo': logo
   }" :style="heroBannerStyles">
-    <div class="rpl-row" v-if="logo">
+    <rpl-row v-if="logo">
       <div class="rpl-hero-banner__left">
         <img class="rpl-hero-banner__logo" :src="logo" alt="" />
       </div>
-    </div>
-    <div class="rpl-row">
+    </rpl-row>
+    <rpl-row>
       <div class="rpl-hero-banner__left">
         <h1
           v-if="title"
@@ -66,12 +66,13 @@
           </li>
         </ul>
       </div>
-    </div>
+    </rpl-row>
   </div>
 </template>
 
 <script>
 import { RplTextLink } from '@dpc-sdp/ripple-link'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplHeroBanner',
@@ -87,7 +88,9 @@ export default {
     backgroundGraphic: String
   },
   components: {
-    RplTextLink
+    RplTextLink,
+    RplRow,
+    RplCol
   },
   computed: {
     heroBannerStyles () {

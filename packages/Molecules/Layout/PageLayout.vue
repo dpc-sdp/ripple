@@ -21,7 +21,7 @@
     </section>
 
     <section id="rpl-main-content" class="rpl-content" :class="{'rpl-content--with-sidebar': sidebar, 'rpl-content--grey': bgGrey}">
-      <rpl-container class="rpl-site-constrain--on-all">
+      <div class="rpl-site-constrain--on-all">
         <rpl-row>
           <rpl-col cols="full" :colsBp="mainCols" class="rpl-main">
             <slot></slot>
@@ -30,7 +30,7 @@
             <slot name="sidebar"></slot>
           </rpl-col>
         </rpl-row>
-      </rpl-container>
+      </div>
     </section>
 
     <section class="rpl-below-content">

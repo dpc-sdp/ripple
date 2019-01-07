@@ -5,7 +5,7 @@
         site header
       </div>
     </template>
-    <rpl-page-layout :sidebar="sidebar" class="main rpl-container">
+    <rpl-page-layout :sidebar="sidebar" class="main">
       <template slot="aboveContent">
         <div class="banner-hero rpl-site-constrain--on-all">
           <div class="sub-content">banner hero</div>

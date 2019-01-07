@@ -38,6 +38,7 @@ export default {
     title: String,
     searchPlaceholder: String,
     prefillSearchTerm: String,
+    autoFocus: { type: Boolean, default: false },
     filterForm: Object,
     theme: String,
     type: { type: String, default: 'default' },
@@ -54,12 +55,14 @@ export default {
     }
   },
   mounted () {
-    this.$nextTick(function () {
-      timeoutID = setTimeout(() => {
-        // this is needed to prevent a re render issue with the parent component
-        this.focusSearchInput()
-      }, 100)
-    })
+    if (this.autoFocus) {
+      this.$nextTick(function () {
+        timeoutID = setTimeout(() => {
+          // this is needed to prevent a re render issue with the parent component
+          this.focusSearchInput()
+        }, 100)
+      })
+    }
   },
   destroyed () {
     clearTimeout(timeoutID)

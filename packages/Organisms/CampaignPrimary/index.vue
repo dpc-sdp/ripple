@@ -154,7 +154,7 @@ export default {
       }
     }
 
-    &__call-to-action {
+    &__call-to-action.rpl-button {
       @include rpl_breakpoint('s') {
         margin: $rpl-campaign-primary-button-margin-s;
       }

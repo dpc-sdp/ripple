@@ -1265,9 +1265,9 @@ const demoData = {
   ),
 
   searchResults: () => ({
-    count: number('Count', 10),
+    count: number('Count', 70),
     type: 'default',
-    responseSize: number('Response size', 2),
+    responseSize: number('Response size', 10),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
   }),

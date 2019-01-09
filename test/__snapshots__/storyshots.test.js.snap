@@ -10761,9 +10761,9 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
              
             <a
               class="rpl-link rpl-list__text"
-              href="tel: 03 9876 1234"
+              href="tel: 0400 000 000"
             >
-              03 9876 1234
+              Mob 0400 000 000
             </a>
           </div>
           <div
@@ -34774,9 +34774,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                      
                     <a
                       class="rpl-link rpl-list__text"
-                      href="tel: 03 9876 1234"
+                      href="tel: 0400 000 000"
                     >
-                      03 9876 1234
+                      Mob 0400 000 000
                     </a>
                   </div>
                   <div

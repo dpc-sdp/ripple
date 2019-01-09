@@ -117,7 +117,8 @@ const methods = {
       style: this.customThemeFunction || this.themeFeatureStyleFunction,
       opacity: 0.9,
       source: themeSource,
-      updateWhileInteracting: true
+      updateWhileInteracting: true,
+      renderMode: 'image'
     })
   },
   addPopupOverlay () {

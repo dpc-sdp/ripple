@@ -48,11 +48,21 @@
               />
             </div>
           </div>
-          <!-- Search Button -->
-          <button v-if="showSearch" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
-            <span>{{ searchButton[searchState].text }}</span>
-            <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
-          </button>
+          <div class="rpl-site-header__btn-container">
+            <!-- Logout button -->
+            <button
+              v-if="showLogout"
+              class="rpl-site-header__btn rpl-site-header__btn--logout"
+              @click="logoutFunc()">
+                <span>{{ logoutButton.text }}</span>
+                <rpl-icon :symbol="logoutButton.icon" color="white" />
+            </button>
+            <!-- Search Button -->
+            <button v-if="showSearch" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
+              <span>{{ searchButton[searchState].text }}</span>
+              <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
+            </button>
+          </div>
         </div>
         <!-- Search Content -->
         <div v-if="menuContentOpen && searchState == 'opened'" class="rpl-site-header__search-container">
@@ -68,6 +78,7 @@ import RplMenu from './menu'
 import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
+import RplButton from '@dpc-sdp/ripple-button'
 
 export default {
   name: 'RplSiteHeader',
@@ -78,13 +89,15 @@ export default {
     searchTerms: Array,
     sticky: Boolean,
     hideOnScroll: { default: true, type: Boolean },
-    showSearch: { default: false, type: Boolean }
+    showSearch: { default: false, type: Boolean },
+    showLogout: { default: false, type: Boolean }
   },
   components: {
     RplIcon,
     RplLink,
     RplMenu,
-    RplSearch
+    RplSearch,
+    RplButton
   },
   data: function () {
     return {
@@ -117,6 +130,10 @@ export default {
           text: 'Search website',
           icon: 'search'
         }
+      },
+      logoutButton: {
+        text: 'Logout',
+        icon: 'link'
       }
     }
   },
@@ -174,6 +191,9 @@ export default {
     },
     searchFunc: function (value) {
       this.$emit('search', value)
+    },
+    logoutFunc: function () {
+      this.$emit('logout')
     },
     scroll: function () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -234,6 +254,10 @@ export default {
   $rpl-site-header-menu-toggle-border-spacing: $rpl-space-2 !default;
   $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space-2 auto 0 !default;
   $rpl-site-header-search-toggle-icon-margin: auto 0 auto $rpl-space-2 !default;
+  $rpl-site-header-logout-btn-background-color: rpl-color('dark_primary') !default;
+  $rpl-site-header-logout-btn-padding: rem(10px) !default;
+  $rpl-site-header-logout-btn-margin: $rpl-space-4 !default;
+  $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
 
   .rpl-site-header {
     $root: &;
@@ -345,6 +369,10 @@ export default {
         }
     }
 
+    &__btn-container {
+      display: flex;
+    }
+
     &__btn {
       background-color: transparent;
       border: 0;
@@ -397,6 +425,17 @@ export default {
       &--search-open {
         span {
           display: flex;
+        }
+      }
+
+      &--logout {
+        border-radius: $rpl-button-border-radius;
+        background-color: $rpl-site-header-logout-btn-background-color;
+        margin-right: $rpl-site-header-logout-btn-margin;
+        padding: $rpl-site-header-logout-btn-padding;
+
+        .rpl-icon {
+          margin: $rpl-site-header-logout-btn-icon-margin;
         }
       }
 

@@ -2,7 +2,7 @@ $rpl-form-label-ruleset: ('l', 1.2em, 'medium') !default;
 $rpl-form-text-ruleset: ('xs', 1.3em, 'regular') !default;
 $rpl-form-help-ruleset: ('xs', 1em, 'medium') !default;
 $rpl-form-required-ruleset: ('xs', .8em, 'regular') !default;
-$rpl-form-required-color: rpl-color('warning') !default;
+$rpl-form-required-color: rpl-color('danger') !default;
 $rpl-form-required-message: ' (Required)' !default;
 $rpl-form-element-bg-color: rpl-color('light_neutral') !default;
 $rpl-form-element-border-color: rpl-color('mid_neutral_1') !default;

@@ -97,8 +97,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@dpc-sdp/ripple-global/scss/color';
-@import '~@dpc-sdp/ripple-global/scss/variables';
+@import '~@dpc-sdp/ripple-global/scss/settings';
 
 $_section-gutter: $rpl-space;
 

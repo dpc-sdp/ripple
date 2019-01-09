@@ -291,19 +291,19 @@ exports[`RippleStoryshots Atoms/Button Button 1`] = `
 
 exports[`RippleStoryshots Atoms/Global Breakpoints 1`] = `
 <div
-  class="demo"
+  class="demo-content"
 >
-  <h2>
+  <h1>
     Breakpoints
-  </h2>
+  </h1>
    
   <p>
     Resize browser window to change in-use breakpoints.
   </p>
    
-  <h3>
+  <h2>
     CSS breakpoint
-  </h3>
+  </h2>
    
   <ul
     class="breakpoints breakpoints--css"
@@ -366,9 +366,9 @@ exports[`RippleStoryshots Atoms/Global Breakpoints 1`] = `
     </li>
   </ul>
    
-  <h3>
+  <h2>
     JS breakpoint
-  </h3>
+  </h2>
    
   <ul
     class="breakpoints breakpoints--js"
@@ -436,119 +436,167 @@ exports[`RippleStoryshots Atoms/Global Breakpoints 1`] = `
 
 exports[`RippleStoryshots Atoms/Global Colors 1`] = `
 <div
-  class="colors"
+  class="colors demo-content"
 >
   <h2>
     Colors
   </h2>
    
   <ul>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         primary
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--primary"
+        class="color__item color__item--primary"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         dark primary
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--dark_primary"
+        class="color__item color__item--dark_primary"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         secondary
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--secondary"
+        class="color__item color__item--secondary"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         extra dark neutral
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--extra_dark_neutral"
+        class="color__item color__item--extra_dark_neutral"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         dark neutral
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--dark_neutral"
+        class="color__item color__item--dark_neutral"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         mid neutral 1
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--mid_neutral_1"
+        class="color__item color__item--mid_neutral_1"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         mid neutral 2
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--mid_neutral_2"
+        class="color__item color__item--mid_neutral_2"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         light neutral
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--light_neutral"
+        class="color__item color__item--light_neutral"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         danger
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--danger"
+        class="color__item color__item--danger"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         warning
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--warning"
+        class="color__item color__item--warning"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         success
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--success"
+        class="color__item color__item--success"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         white
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--white"
+        class="color__item color__item--white"
       />
     </li>
   </ul>
@@ -558,22 +606,30 @@ exports[`RippleStoryshots Atoms/Global Colors 1`] = `
   </h2>
    
   <ul>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         primary gradient
-      </code>
+      </p>
        
       <div
-        class="colors__item gradient__item--primary_gradient"
+        class="color__item color__item--primary_gradient"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         decorative gradient
-      </code>
+      </p>
        
       <div
-        class="colors__item gradient__item--decorative_gradient"
+        class="color__item color__item--decorative_gradient"
       />
     </li>
   </ul>
@@ -723,11 +779,11 @@ exports[`RippleStoryshots Atoms/Global Divider 1`] = `
 
 exports[`RippleStoryshots Atoms/Global Typography 1`] = `
 <div
-  class="typography"
+  class="typography demo-content"
 >
-  <h2>
+  <h1>
     Typography
-  </h2>
+  </h1>
    
   <ul>
     <li>
@@ -2612,10 +2668,12 @@ exports[`RippleStoryshots Atoms/Layout Grid 1`] = `
 `;
 
 exports[`RippleStoryshots Atoms/Layout Grid system 1`] = `
-<div>
-  <h2>
+<div
+  class="demo-content"
+>
+  <h1>
     Default grid system
-  </h2>
+  </h1>
    
   <div
     class="rpl-container demo-container rpl-site-constrain--on-all"

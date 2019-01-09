@@ -1,18 +1,3 @@
-$rpl-layout: (
-  'site_padding': (
-    'm': rem(32px),
-    'l': rem(68px),
-    'xl': rem(92px),
-    'xxl': rem(272px),
-  ),
-
-  // Note: max width will override site padding
-  'site_max_width': (
-    'xl': rem(1056px),
-    'xxxl': rem(1420px)
-  )
-);
-
 @mixin rpl_component_gutter {
   @each $bp, $gutter in $rpl-row-gutter {
     @include rpl_breakpoint($bp) {
@@ -21,20 +6,22 @@ $rpl-layout: (
   }
 }
 
+// This site constrain is using !important as it should be on top level to keep the site layout consistency 
 @mixin rpl_site_constrain($style: all) {
+  // sass-lint:disable-block no-important
   @if $style == all {
     @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
       @include rpl_breakpoint($bp) {
-        padding-left: $padding;
-        padding-right: $padding;
+        padding-left: $padding !important;
+        padding-right: $padding !important;
       }
     }
 
     // max width will override site padding
     @each $bp, $width in map-get($rpl-layout, 'site_max_width') {
       @include rpl_breakpoint($bp) {
-        padding-left: calc((100% - #{$width}) / 2);
-        padding-right: calc((100% - #{$width}) / 2);
+        padding-left: calc((100% - #{$width}) / 2) !important;
+        padding-right: calc((100% - #{$width}) / 2) !important;
       }
     }
 
@@ -42,14 +29,14 @@ $rpl-layout: (
     @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
       @if index((xs, s, m), $bp) {
         @include rpl_breakpoint($bp) {
-          padding-left: $padding;
-          padding-right: $padding;
+          padding-left: $padding !important;
+          padding-right: $padding !important;
         }
       }
 
       @include rpl_breakpoint(l) {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
       }
     }
   }
@@ -123,38 +110,4 @@ $rpl-layout: (
     padding-left: $rpl-component-padding-s;
     padding-right: $rpl-component-padding-s;
   }
-}
-
-.rpl-component-gutter {
-  @include rpl_component_gutter;
-}
-
-.rpl-site-constrain--on-all {
-  @include rpl_site_constrain;
-
-  // For nested constrain item want to grow to edge.
-  .rpl-site-constrain--on-all {
-    @each $bp, $width in map-get($rpl-layout, 'site_max_width') {
-      @include rpl_breakpoint($bp) {
-        padding-left: calc((100vw - #{$width}) / 2);
-        padding-right: calc((100vw - #{$width}) / 2);
-      }
-    }
-  }
-}
-
-// Use this calss if the item is inside sidebar or main content area beside sidebar and you are using `.rpl-edge--below-l`.
-.rpl-site-constrain--below-l {
-  @include rpl_site_constrain(small);
-}
-
-// Use this class to make a component gorw to reach left/right edge.
-// Don't use this if the component is inside sidebar or main content area beside sidebar.
-.rpl-edge--on-all {
-  @include rpl_edge;
-}
-
-// Use this calss if the item is inside sidebar or main content area beside sidebar.
-.rpl-edge--below-l {
-  @include rpl_edge(small);
 }

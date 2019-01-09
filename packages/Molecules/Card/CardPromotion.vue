@@ -47,7 +47,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/card";
 
   $rpl-card-promotion-meta-margin: 0 0 $rpl-space-3 0 !default;

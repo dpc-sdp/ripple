@@ -35,7 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-embedded-video-padding-bottom: 56.25% !default;
   $rpl-embedded-video-padding-top: $rpl-space-4;

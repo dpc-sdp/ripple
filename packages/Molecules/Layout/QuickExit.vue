@@ -73,7 +73,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
+  @import "~@dpc-sdp/ripple-global/scss/components/button";
 
   $rpl-quick-exit-menu-header-height-xs: rem(48px) !default;
   $rpl-quick-exit-menu-header-height-m: rem(62px) !default;

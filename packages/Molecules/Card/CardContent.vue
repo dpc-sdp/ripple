@@ -59,7 +59,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/card";
 
   $rpl-card-content-border-color: rpl_color('mid_neutral_1') !default;

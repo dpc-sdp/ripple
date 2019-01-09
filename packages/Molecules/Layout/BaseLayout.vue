@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 .rpl-site-layout {
   // Prevent grid margins affecting the horizontal scroll.

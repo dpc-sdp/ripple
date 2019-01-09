@@ -59,7 +59,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-card-emergency-background: rpl-color('white') !default;
 $rpl-card-emergency-padding: $rpl-space * 5 !default;

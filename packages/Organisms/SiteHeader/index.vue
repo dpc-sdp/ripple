@@ -220,7 +220,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/site_header";
 
   $rpl-site-header-logo-width: auto !default;
@@ -236,7 +237,6 @@ export default {
 
   .rpl-site-header {
     $root: &;
-    @include rpl_body;
     position: absolute;
     z-index: $rpl-zindex-header;
     padding: $rpl-header-horizontal-padding-xs;

@@ -1,0 +1,18 @@
+// Default grid
+// @property {number (unitless)} columns [12]
+//   Default number of the total grid columns.
+//
+// @property {number (0 or with unit like 'px' and '%' )} gutter [20px]
+//   Default grid gutter width between columns.
+//
+// @example scss
+//   $rpl-grid: (
+//     columns: 12,
+//     gutter: 20px,
+//     row_gutter: 4px
+//   );
+$rpl-grid: (
+  columns: 12,
+  gutter: rem(24px),
+  row_gutter: $rpl-row-gutter
+) !default;

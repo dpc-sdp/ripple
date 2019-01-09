@@ -48,7 +48,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-form-alert-text-ruleset: ('s', 1em, 'bold') !default;
 $rpl-form-alert-border-color-success: rpl-color('success');

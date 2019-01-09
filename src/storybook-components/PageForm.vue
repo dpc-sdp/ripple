@@ -15,33 +15,22 @@
     </template>
 
     <rpl-page-layout
-      :sidebar="sidebar"
+      :sidebar="true"
       class="main"
-      :backgroundGraphic="showTopGraphic ? mock.landingPage.backgroundGraphic : null"
-      :quickExit="showQuickExit"
+      :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
-      <template slot="breadcrumbs">
-        <rpl-breadcrumbs v-if="showBreadcrumbs" :crumbs="mock.breadcrumbs.crumbs" />
-      </template>
-
       <template slot="aboveContent">
         <rpl-hero-banner
-          title="This is a display copy on home page that can wrap two lines"
-          introText="This is supplementary intro text that can also wrap over a couple of lines."
-          :links="[
-            { text: 'This is a large journey based link', url: '#' },
-            { text: 'This is a second journey based link', url: '#' },
-            { text: 'This is a third link', url: '#' },
-            { text: 'This is the fourth and final link', url: '#' }
-          ]"
-          :showLinks="true"
-          :backgroundGraphic="showBottomGraphic ? mock.heroBanner.backgroundGraphic : null"
-          :logo="showHeroLogo ? mock.heroBanner.logo : null"
+          title="Test Form"
+          introText="Test form on a landing page."
           class="rpl-site-constrain--on-all"
         />
       </template>
 
       <rpl-row row-gutter class="demo-main">
+        <rpl-col cols="full">
+          <rpl-form :formData="formData" />
+        </rpl-col>
       </rpl-row>
 
       <template slot="sidebar">
@@ -51,12 +40,7 @@
     </rpl-page-layout>
 
     <template slot="footer">
-      <rpl-site-footer
-        :nav="mock.footer.nav"
-        :links="mock.footer.links"
-        :copyright="mock.footer.copyright"
-        :acknowledgement="mock.footer.acknowledgement"
-        />
+      <rpl-site-footer v-bind="mock.footer" />
     </template>
 
   </rpl-base-layout>
@@ -65,24 +49,23 @@
 
 <script>
 // This is a page for demo the hero banner graphics for the landing page component.
-// Change story knob `sidebar` can switch layout between with sidebar and without sidebar.
 
 import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 
-// Breadcrumb
-import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
-
-// Banner
-import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
+// Form
+import RplForm from '@dpc-sdp/ripple-form'
 
 // Sidebar
 import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
 
+// Banner
+import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
+
 export default {
-  name: 'SPageHeroGraphics',
+  name: 'SPageForm',
   components: {
     // Layout
     RplBaseLayout,
@@ -93,23 +76,57 @@ export default {
     RplSiteHeader,
     RplSiteFooter,
 
-    // Breadcrumbs
-    RplBreadcrumbs,
-
-    // Banner
-    RplHeroBanner,
+    // Card
+    RplForm,
 
     // Sidebar
-    RplRelatedLinks
+    RplRelatedLinks,
+
+    // Banner
+    RplHeroBanner
   },
   props: {
-    sidebar: Boolean,
-    showHeroLogo: Boolean,
-    showTopGraphic: Boolean,
-    showBottomGraphic: Boolean,
-    showBreadcrumbs: Boolean,
-    showQuickExit: Boolean,
     mock: Object
+  },
+  data () {
+    return {
+      formData: {
+        model: {
+          vuemultiselect: null
+        },
+
+        schema: {
+          fields: [
+            {
+              type: 'vueMultiSelect',
+              model: 'vuemultiselect',
+              label: 'Single-select drop down',
+              hint: 'Implemented using vue-multiselect',
+              placeholder: 'Select a single topic',
+              selectOptions: {
+                multiSelect: false,
+                closeOnSelect: true,
+                searchable: false,
+                showLabels: false
+              },
+              values: ['Topic A', 'Topic B', 'Topic C', 'Topic D', 'Topic E', 'Topic F', 'Topic G']
+            },
+
+            {
+              type: 'submit',
+              buttonText: 'Submit'
+            }
+          ]
+        },
+
+        formOptions: {
+          validateAfterLoad: true,
+          validateAfterChanged: true
+        },
+
+        formState: {}
+      }
+    }
   },
   methods: {
     // Methods for site header.

@@ -78,7 +78,6 @@ import RplMenu from './menu'
 import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
-import RplButton from '@dpc-sdp/ripple-button'
 
 export default {
   name: 'RplSiteHeader',
@@ -96,8 +95,7 @@ export default {
     RplIcon,
     RplLink,
     RplMenu,
-    RplSearch,
-    RplButton
+    RplSearch
   },
   data: function () {
     return {

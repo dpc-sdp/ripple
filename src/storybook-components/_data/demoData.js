@@ -447,12 +447,15 @@ const demoData = {
     image: text('Image', 'http://placehold.it/699x411'),
     video: object('Video', null)
   }),
+
   campaignSecondaryVideo: () => ({
     title: text('Title', 'Secondary campaign headline'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'),
-    image: text('Image', null),
+    link: object('Call to action', { text: 'Call to action', url: '#' }),
+    image: text('Image', ''),
     video: object('Video', {src: 'https://www.youtube.com/embed/bSlnfyGTiss', mediaLink: { text: 'View transcript', url: '#' }})
   }),
+
   contact: () => ({
     title: text('Title', 'Need additional help?'),
     name: text('Name', 'First Last Name (Job Title)'),

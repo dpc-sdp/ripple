@@ -74,6 +74,14 @@ export default {
       }
       return this.totalSteps
     }
+  },
+  watch: {
+    initialStep (newVal, oldVal) {
+      this.currentStep = newVal
+    },
+    totalSteps (newVal, oldVal) {
+      this.currentStep = 1
+    }
   }
 }
 </script>

@@ -10761,9 +10761,9 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
              
             <a
               class="rpl-link rpl-list__text"
-              href="tel: 03 9876 1234"
+              href="tel: 0400 000 000"
             >
-              03 9876 1234
+              Mob 0400 000 000
             </a>
           </div>
           <div
@@ -12212,7 +12212,7 @@ exports[`RippleStoryshots Molecules/EmbeddedVideo Embedded Video 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            string
+            object
           </td>
            
           <td
@@ -22553,7 +22553,7 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
 </div>
 `;
 
-exports[`RippleStoryshots Organisms/CampaignSecondary Campaign Secondary 1`] = `
+exports[`RippleStoryshots Organisms/CampaignSecondary Campaign secondary - Image 1`] = `
 <div
   class="vue-info"
   data-v-6ca0e090=""
@@ -22577,7 +22577,7 @@ exports[`RippleStoryshots Organisms/CampaignSecondary Campaign Secondary 1`] = `
       data-v-003f20ee=""
     >
       
-    Campaign Secondary
+    Campaign secondary - Image
   
     </h2>
   </div>
@@ -22714,6 +22714,18 @@ exports[`RippleStoryshots Organisms/CampaignSecondary Campaign Secondary 1`] = `
             class="hljs-string"
           >
             "image"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :video
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "video"
           </span>
            /&gt;
         </span>
@@ -22856,6 +22868,481 @@ exports[`RippleStoryshots Organisms/CampaignSecondary Campaign Secondary 1`] = `
           >
             
     link
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    video
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    image
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/CampaignSecondary Campaign secondary - Video 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/CampaignSecondary
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Campaign secondary - Video
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-campaign-secondary"
+      data-v-6ca0e090=""
+    >
+      <div
+        class="rpl-campaign-secondary__row"
+      >
+        <div
+          class="rpl-campaign-secondary__left"
+        >
+          <div
+            class="rpl-campaign-secondary__content"
+          >
+            <div
+              class="rpl-embedded-video rpl-campaign-secondary__video"
+            >
+              <div
+                class="rpl-embedded-video-iframe-container"
+              >
+                <iframe
+                  allowfullscreen="allowfullscreen"
+                  class="rpl-embedded-video-frame"
+                  src="https://www.youtube.com/embed/bSlnfyGTiss"
+                />
+              </div>
+               
+              <div
+                class="rpl-embed-video__link"
+              >
+                <!---->
+                 
+                <a
+                  class="rpl-link rpl-text-link"
+                  href="#"
+                >
+                  <span>
+                    <span>
+                      View
+                    </span>
+                     
+                    <span
+                      class="rpl-text-icon__group"
+                    >
+                       transcript
+                      <!---->
+                    </span>
+                     
+                    <!---->
+                  </span>
+                </a>
+              </div>
+               
+              <!---->
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-campaign-secondary__right"
+        >
+          <div
+            class="rpl-campaign-secondary__content"
+          >
+            <h2
+              class="rpl-campaign-secondary__title"
+            >
+              Secondary campaign headline
+            </h2>
+             
+            <div
+              class="rpl-campaign-secondary__summary"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+            </div>
+          </div>
+           
+          <a
+            class="rpl-link rpl-button rpl-button--primary"
+            href="#"
+          >
+            Call to action
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-campaign-secondary
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :title
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "title"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :summary
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "summary"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :link
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "link"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :image
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "image"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :video
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "video"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplCampaignSecondary" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    summary
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    link
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    video
     
             <!---->
           </td>
@@ -34760,9 +35247,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                      
                     <a
                       class="rpl-link rpl-list__text"
-                      href="tel: 03 9876 1234"
+                      href="tel: 0400 000 000"
                     >
-                      03 9876 1234
+                      Mob 0400 000 000
                     </a>
                   </div>
                   <div
@@ -34970,7 +35457,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
         <p
           class="rpl-updated-date"
         >
-          Reviewed 12 December 2006
+          Reviewed 10 July 2018
         </p>
       </div>
     </section>

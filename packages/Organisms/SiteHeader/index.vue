@@ -254,6 +254,8 @@ export default {
   $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space-2 auto 0 !default;
   $rpl-site-header-search-toggle-icon-margin: auto 0 auto $rpl-space-2 !default;
   $rpl-site-header-logout-btn-background-color: rpl-color('dark_primary') !default;
+  $rpl-site-header-logout-btn-background-color-mobile: rpl-color('extra_dark_primary') !default;
+  $rpl-site-header-logout-btn-padding-mobile: rem(8px) rem(10px) !default;
   $rpl-site-header-logout-btn-padding: rem(10px) !default;
   $rpl-site-header-logout-btn-margin: $rpl-space-4 !default;
   $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
@@ -429,17 +431,19 @@ export default {
 
       &--logout {
         border-radius: $rpl-button-border-radius;
-        background-color: $rpl-site-header-logout-btn-background-color;
+        background-color: $rpl-site-header-logout-btn-background-color-mobile;
         display: none;
         margin-right: $rpl-site-header-logout-btn-margin;
-        padding: $rpl-site-header-logout-btn-padding;
+        padding: $rpl-site-header-logout-btn-padding-mobile;
 
         &-open {
           display: inline-block;
         }
 
         @include rpl_breakpoint('m') {
+          background-color: $rpl-site-header-logout-btn-background-color;
           display: inline-block;
+          padding: $rpl-site-header-logout-btn-padding;
         }
         .rpl-icon {
           margin: $rpl-site-header-logout-btn-icon-margin;

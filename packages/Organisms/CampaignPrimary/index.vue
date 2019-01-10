@@ -156,11 +156,13 @@ export default {
     }
 
     &__call-to-action {
-      @include rpl_breakpoint('s') {
-        margin: $rpl-campaign-primary-button-margin-s;
-      }
-      @include rpl_breakpoint('m') {
-        margin: 0;
+      &.rpl-button {
+        @include rpl_breakpoint('s') {
+          margin: $rpl-campaign-primary-button-margin-s;
+        }
+        @include rpl_breakpoint('m') {
+          margin: 0;
+        }
       }
     }
 

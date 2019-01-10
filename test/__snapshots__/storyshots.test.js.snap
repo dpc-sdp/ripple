@@ -19379,13 +19379,12 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
     <div
       class="rpl-search-results"
       data-v-6ca0e090=""
-      pagerchangehandler="function () { [native code] }"
     >
       <div
         class="rpl-search-results__info"
       >
         <div>
-          Displaying 2 of 10 results
+          Displaying 10 of 70 results
         </div>
       </div>
        
@@ -19577,19 +19576,6 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
             class="hljs-string"
           >
             "searchResults.count"
-          </span>
-          
-
-          <span
-            class="hljs-attr"
-          >
-            :pagerChangeHandler
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "pagerChange"
           </span>
           
 
@@ -31530,7 +31516,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                   class="rpl-search-results__info"
                 >
                   <div>
-                    Displaying 2 of 10 results
+                    Displaying 10 of 70 results
                   </div>
                 </div>
                  
@@ -32225,7 +32211,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                   class="rpl-search-results__info"
                 >
                   <div>
-                    Displaying 2 of 10 results
+                    Displaying 10 of 70 results
                   </div>
                 </div>
                  
@@ -40263,13 +40249,53 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                     class="rpl-search-results__info"
                   >
                     <div>
-                      Displaying 2 of 10 results
+                      Displaying 10 of 70 results
                     </div>
                   </div>
                    
                   <div
                     class="rpl-row rpl-search-results__main rpl-row--gutter"
                   >
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
                     <div
                       class="rpl-col rpl-col--full"
                     >

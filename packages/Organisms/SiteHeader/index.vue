@@ -53,6 +53,7 @@
             <button
               v-if="showLogout"
               class="rpl-site-header__btn rpl-site-header__btn--logout"
+              :class="{'rpl-site-header__btn--logout-open' : (menuState === 'opened')}"
               @click="logoutFunc()">
                 <span>{{ logoutButton.text }}</span>
                 <rpl-icon :symbol="logoutButton.icon" color="white" />
@@ -429,9 +430,17 @@ export default {
       &--logout {
         border-radius: $rpl-button-border-radius;
         background-color: $rpl-site-header-logout-btn-background-color;
+        display: none;
         margin-right: $rpl-site-header-logout-btn-margin;
         padding: $rpl-site-header-logout-btn-padding;
 
+        &-open {
+          display: inline-block;
+        }
+
+        @include rpl_breakpoint('m') {
+          display: inline-block;
+        }
         .rpl-icon {
           margin: $rpl-site-header-logout-btn-icon-margin;
         }

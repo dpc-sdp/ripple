@@ -1,23 +1,29 @@
-// Functions
-@import './scss/functions';
+// The scss files are organized by following ITCSS to make it scalable and maintainable.
+// https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
 
-// Settings & Mixins
-@import './scss/normalize';
-@import './scss/variables';
-@import './scss/breakpoints';
-@import './scss/color';
-@import './scss/font';
-@import './scss/typography';
-@import './scss/button';
-@import './scss/graphics';
-@import './scss/image';
+// SETTINGS
+@import './scss/settings';
 
-// Base
-@import './scss/global';
-@import './scss/transition';
-@import './scss/dropshadow';
+// TOOLS
+@import './scss/tools';
 
-// Layout
-@import './scss/grid';
-@import './scss/layout';
-@import './scss/visibility';
+
+// GENERIC
+@import './scss/generic/normalize';
+@import './scss/generic/global';
+
+// ELEMENTS
+@import './scss/elements/font';
+
+
+// OBJECTS
+@import './scss/objects/grid';
+@import './scss/objects/layout';
+
+// COMPONENTS
+@import './scss/components/button';
+
+// UTILITIES
+@import './scss/utilities/transition';
+@import './scss/utilities/constrain';
+@import './scss/utilities/visibility';

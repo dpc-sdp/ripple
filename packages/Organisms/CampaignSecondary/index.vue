@@ -43,7 +43,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-campaign-secondary-padding-s: $rpl-component-padding-s !default;
   $rpl-campaign-secondary-padding-l: ($rpl-component-padding-l) 0 !default ;

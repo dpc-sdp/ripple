@@ -54,7 +54,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-footer-breakpoint: 'l' !default;
 $rpl-footer-bg-color: rpl-color('dark_primary') !default;
@@ -73,7 +74,6 @@ $gutterless-grid: (
 
 .rpl-site-footer {
   @include rpl_grid_container;
-  @include rpl_body;
   @include rpl_typography('copy_extra_small');
   background-color: $rpl-footer-bg-color;
   color: $rpl-footer-text-color;

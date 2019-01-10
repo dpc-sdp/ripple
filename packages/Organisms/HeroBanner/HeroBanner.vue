@@ -101,7 +101,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-hero-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
   $rpl-hero-banner-title-typography-ruleset: (
@@ -162,7 +163,6 @@ export default {
   .rpl-hero-banner {
     $root: &;
     @include rpl_mobile_padding;
-    @include rpl_grid_container;
     position: relative;
     background-repeat: no-repeat;
     background-position: right -3.75rem bottom -1rem;

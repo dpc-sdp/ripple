@@ -24,7 +24,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   .rpl-icon {
     display: block;

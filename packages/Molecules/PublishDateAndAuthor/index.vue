@@ -23,7 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-publish-date-and-author-date-location-ruleset: ('xs', 1em, 'bold');
   $rpl-publish-date-and-author-author-ruleset: ('xs', 1.4em, 'regular');

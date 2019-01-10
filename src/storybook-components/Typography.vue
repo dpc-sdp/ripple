@@ -1,6 +1,6 @@
 <template>
-  <div class="typography">
-    <h2>Typography</h2>
+  <div class="typography demo-content">
+    <h1>Typography</h1>
     <ul>
       <li v-for="(sample, index) in samples" :key="index">
         <code>{{ sample.replace(/\_/gi, ' ') }}</code>
@@ -23,7 +23,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 @each $type-name, $type-value in $rpl-typography {
   .#{str-replace($type-name, '_', '-')} {

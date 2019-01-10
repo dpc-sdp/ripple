@@ -4,25 +4,6 @@
 // https://github.com/philipwalton/flexbugs
 //
 
-// Default grid
-// @property {number (unitless)} columns [12]
-//   Default number of the total grid columns.
-//
-// @property {number (0 or with unit like 'px' and '%' )} gutter [20px]
-//   Default grid gutter width between columns.
-//
-// @example scss
-//   $rpl-grid: (
-//     columns: 12,
-//     gutter: 20px,
-//     row_gutter: 4px
-//   );
-$rpl-grid: (
-  columns: 12,
-  gutter: rem(24px),
-  row_gutter: $rpl-row-gutter
-) !default;
-
 // Helpers
 @function rpl-grid-get-columns($grid) {
   @return map-get($grid, 'columns');
@@ -172,65 +153,4 @@ $rpl-grid: (
 // Order
 @mixin rpl_grid_order($grid-weight) {
   order: $grid-weight;
-}
-
-// Grid classes
-// These are using the $rpl-grid setting.
-// Other custom grids should use mixins.
-.rpl-container {
-  @include rpl_grid_container;
-}
-
-.rpl-row {
-  @include rpl_grid_row;
-}
-
-.rpl-col {
-  @include rpl_grid_column;
-}
-
-.rpl-row--gutter {
-  @include rpl_grid_row_gutter;
-}
-
-@mixin _rpl_bp_classes($bp: '') {
-  $modifier: '';
-
-  @if $bp != '' {
-    $modifier: #{'-' + $bp};
-  }
-
-  .rpl-col--full#{$modifier} {
-    @include rpl_grid_full;
-  }
-
-  @for $col from 1 through rpl_grid_get_columns($rpl-grid) {
-    @if $col <= rpl_grid_get_columns($rpl-grid) {
-      .rpl-col--#{$col}#{$modifier} {
-        @include rpl_grid_column($col);
-      }
-
-      .rpl-col--push-#{$col}#{$modifier} {
-        @include rpl_grid_push($col);
-      }
-
-      .rpl-col--pull-#{$col}#{$modifier} {
-        @include rpl_grid_pull($col);
-      }
-
-      .rpl-col--order-#{$col}#{$modifier} {
-        @include rpl_grid_order($col);
-      }
-    }
-  }
-}
-
-@each $bp, $bp-val in $rpl-breakpoints {
-  @if $bp-val == 0 {
-    @include _rpl_bp_classes;
-  } @else {
-    @include rpl_breakpoint($bp) {
-      @include _rpl_bp_classes($bp);
-    }
-  }
 }

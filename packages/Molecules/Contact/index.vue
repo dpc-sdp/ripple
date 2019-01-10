@@ -95,7 +95,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-contact-background: transparent;
   $rpl-contact-title-ruleset: ('l', 1.2em, 'bold');

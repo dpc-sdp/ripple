@@ -50,7 +50,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-intro-banner-title-typography-ruleset: ('mega', 1.2em, 'bold') !default;
   $rpl-intro-banner-title-color: rpl_color('primary') !default;
@@ -75,7 +76,6 @@ export default {
   .rpl-intro-banner {
     $root: &;
     @include rpl_mobile_padding;
-    @include rpl_grid_container;
     position: relative;
 
     @each $bp, $spacing in $rpl-intro-banner-vertical-spacing {

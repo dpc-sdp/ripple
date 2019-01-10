@@ -69,7 +69,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 @import "./scss/form";
 
 $rpl-pikaday-background: rpl-color('white') !default;

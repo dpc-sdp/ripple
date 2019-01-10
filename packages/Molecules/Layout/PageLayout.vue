@@ -83,7 +83,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 // TODO: we'd better to make a UI color variable so all UI color can refer to the same color.
 $rpl-backbround-color: rpl-color('white') !default;

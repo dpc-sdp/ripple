@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
 
   $rpl-text-link-before-margin: auto $rpl-space-2 auto auto !default;
   $rpl-text-link-after-margin: auto auto auto $rpl-space-2 !default;

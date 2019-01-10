@@ -1,14 +1,14 @@
 <template>
-  <div class="demo">
-    <h2>Breakpoints</h2>
+  <div class="demo-content">
+    <h1>Breakpoints</h1>
     <p>Resize browser window to change in-use breakpoints.</p>
-    <h3>CSS breakpoint</h3>
+    <h2>CSS breakpoint</h2>
     <ul class="breakpoints breakpoints--css">
       <li v-for="(point, index) in breakpoints" :key="index" for="" :class="'breakpoint-' +  point">
         <code>{{ point }}</code>
       </li>
     </ul>
-    <h3>JS breakpoint</h3>
+    <h2>JS breakpoint</h2>
     <ul class="breakpoints breakpoints--js">
       <li v-for="(point, index) in breakpoints" :key="index" :class="['breakpoint-' +  point, $breakpoint[point] ? 'tick' : 'cross']">
         <code>{{ point }}</code>
@@ -50,7 +50,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 .breakpoint-indicator {
   display: flex;

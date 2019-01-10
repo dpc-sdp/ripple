@@ -66,7 +66,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-section-menu-link-ruleset: ('xs', 1em, 'medium') !default;
   $rpl-section-menu-link-sub-ruleset: ('xs', 1em, 'regular') !default;

@@ -129,7 +129,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "./scss/image_gallery";
 
   $rpl-image-gallery-enlarge-background-color: rpl-color('white') !default;

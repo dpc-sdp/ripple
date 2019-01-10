@@ -68,7 +68,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/form";
 
   $rpl-checkbox-box-border: 1px solid rpl-color('mid_neutral_1');

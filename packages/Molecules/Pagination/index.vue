@@ -74,12 +74,21 @@ export default {
       }
       return this.totalSteps
     }
+  },
+  watch: {
+    initialStep (newVal, oldVal) {
+      this.currentStep = newVal
+    },
+    totalSteps (newVal, oldVal) {
+      this.currentStep = 1
+    }
   }
 }
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-pagination-step-ruleset: (
     'xs': ('s', 1.5em, 'bold'),

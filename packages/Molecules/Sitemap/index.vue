@@ -19,7 +19,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-sitemap-menu-list-item-margin: $rpl-space-3 0 !default;
   $rpl-sitemap-menu-list-padding: 0 0 0 ($rpl-space * 9) !default;

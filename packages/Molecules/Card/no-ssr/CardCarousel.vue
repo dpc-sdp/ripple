@@ -132,7 +132,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-card-carousel-slide-gutter: $rpl-space * 6 !default;
   $rpl-card-carousel-title-ruleset: (

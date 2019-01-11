@@ -28813,7 +28813,13 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
            
           <!---->
            
-          <!---->
+          <div
+            class="rpl-site-header__btn-container"
+          >
+            <!---->
+             
+            <!---->
+          </div>
         </div>
          
         <!---->
@@ -28941,6 +28947,32 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
             class="hljs-string"
           >
             "showSearch"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :showLogout
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "showLogout"
+          </span>
+          
+@
+          <span
+            class="hljs-attr"
+          >
+            logout
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "logoutFunc"
           </span>
           
 @
@@ -29238,6 +29270,38 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
           >
             
     showSearch
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            false
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    showLogout
     
             <!---->
           </td>
@@ -30657,15 +30721,21 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
            
           <!---->
            
-          <button
-            class="rpl-site-header__btn rpl-site-header__btn--search"
+          <div
+            class="rpl-site-header__btn-container"
           >
-            <span>
-              Search website
-            </span>
-             
             <!---->
-          </button>
+             
+            <button
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+            >
+              <span>
+                Search website
+              </span>
+               
+              <!---->
+            </button>
+          </div>
         </div>
          
         <!---->
@@ -31422,15 +31492,21 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
            
           <!---->
            
-          <button
-            class="rpl-site-header__btn rpl-site-header__btn--search"
+          <div
+            class="rpl-site-header__btn-container"
           >
-            <span>
-              Search website
-            </span>
-             
             <!---->
-          </button>
+             
+            <button
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+            >
+              <span>
+                Search website
+              </span>
+               
+              <!---->
+            </button>
+          </div>
         </div>
          
         <!---->
@@ -32115,15 +32191,21 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
            
           <!---->
            
-          <button
-            class="rpl-site-header__btn rpl-site-header__btn--search"
+          <div
+            class="rpl-site-header__btn-container"
           >
-            <span>
-              Search website
-            </span>
-             
             <!---->
-          </button>
+             
+            <button
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+            >
+              <span>
+                Search website
+              </span>
+               
+              <!---->
+            </button>
+          </div>
         </div>
          
         <!---->
@@ -32876,15 +32958,21 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
            
           <!---->
            
-          <button
-            class="rpl-site-header__btn rpl-site-header__btn--search"
+          <div
+            class="rpl-site-header__btn-container"
           >
-            <span>
-              Search website
-            </span>
-             
             <!---->
-          </button>
+             
+            <button
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+            >
+              <span>
+                Search website
+              </span>
+               
+              <!---->
+            </button>
+          </div>
         </div>
          
         <!---->
@@ -35991,15 +36079,21 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
            
           <!---->
            
-          <button
-            class="rpl-site-header__btn rpl-site-header__btn--search"
+          <div
+            class="rpl-site-header__btn-container"
           >
-            <span>
-              Search website
-            </span>
-             
             <!---->
-          </button>
+             
+            <button
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+            >
+              <span>
+                Search website
+              </span>
+               
+              <!---->
+            </button>
+          </div>
         </div>
          
         <!---->
@@ -36814,15 +36908,21 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
            
           <!---->
            
-          <button
-            class="rpl-site-header__btn rpl-site-header__btn--search"
+          <div
+            class="rpl-site-header__btn-container"
           >
-            <span>
-              Search website
-            </span>
-             
             <!---->
-          </button>
+             
+            <button
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+            >
+              <span>
+                Search website
+              </span>
+               
+              <!---->
+            </button>
+          </div>
         </div>
          
         <!---->
@@ -37782,15 +37882,21 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
            
           <!---->
            
-          <button
-            class="rpl-site-header__btn rpl-site-header__btn--search"
+          <div
+            class="rpl-site-header__btn-container"
           >
-            <span>
-              Search website
-            </span>
-             
             <!---->
-          </button>
+             
+            <button
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+            >
+              <span>
+                Search website
+              </span>
+               
+              <!---->
+            </button>
+          </div>
         </div>
          
         <!---->
@@ -39031,15 +39137,21 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
            
           <!---->
            
-          <button
-            class="rpl-site-header__btn rpl-site-header__btn--search"
+          <div
+            class="rpl-site-header__btn-container"
           >
-            <span>
-              Search website
-            </span>
-             
             <!---->
-          </button>
+             
+            <button
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+            >
+              <span>
+                Search website
+              </span>
+               
+              <!---->
+            </button>
+          </div>
         </div>
          
         <!---->
@@ -40150,15 +40262,21 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
            
           <!---->
            
-          <button
-            class="rpl-site-header__btn rpl-site-header__btn--search"
+          <div
+            class="rpl-site-header__btn-container"
           >
-            <span>
-              Search website
-            </span>
-             
             <!---->
-          </button>
+             
+            <button
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+            >
+              <span>
+                Search website
+              </span>
+               
+              <!---->
+            </button>
+          </div>
         </div>
          
         <!---->

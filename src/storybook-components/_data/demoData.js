@@ -126,7 +126,8 @@ const demoData = {
     ]),
     sticky: boolean('Sticky', false),
     hideOnScroll: boolean('Hide On Scroll', false),
-    showSearch: boolean('Show search', false)
+    showSearch: boolean('Show search', false),
+    showLogout: boolean('Show logout', false)
   }),
 
   campaign: () => ({

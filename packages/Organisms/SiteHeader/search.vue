@@ -4,6 +4,7 @@
       class="rpl-site-header-search__form"
       searchPlaceholder="Start typing..."
       theme="dark"
+      :auto-focus="true"
       @search="searchTerm"
     />
     <div v-if="terms && terms.length > 0">

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-hero-banner",
-  "version": "1.0.0-alpha.41",
+  "version": "1.0.0-alpha.42",
   "description": "A component to display a page heading, subtext and useful links.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,8 +10,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.41",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.41",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.41"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.42",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.42",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.42"
   }
 }

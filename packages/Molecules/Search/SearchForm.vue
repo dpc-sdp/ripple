@@ -4,7 +4,7 @@
     <div class="rpl-search-form__field">
       <label>
         <span class="rpl-search-form__label-text">Search for</span>
-        <input v-model="searchInput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keydown.enter="submitSearch()" />
+        <input v-model="searchInput" ref="searchinput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keydown.enter="submitSearch()" />
       </label>
       <button @click="submitSearch()" class="rpl-search-form__btn">
         <span>Search</span>
@@ -30,6 +30,7 @@
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplForm from '@dpc-sdp/ripple-form'
+let timeoutID
 
 export default {
   name: 'RplSearchForm',
@@ -37,6 +38,7 @@ export default {
     title: String,
     searchPlaceholder: String,
     prefillSearchTerm: String,
+    autoFocus: { type: Boolean, default: false },
     filterForm: Object,
     theme: String,
     type: { type: String, default: 'default' },
@@ -52,7 +54,25 @@ export default {
       showFilters: false
     }
   },
+  mounted () {
+    if (this.autoFocus) {
+      this.$nextTick(function () {
+        timeoutID = setTimeout(() => {
+          // this is needed to prevent a re render issue with the parent component
+          this.focusSearchInput()
+        }, 100)
+      })
+    }
+  },
+  destroyed () {
+    clearTimeout(timeoutID)
+  },
   methods: {
+    focusSearchInput () {
+      if (document && document.activeElement !== this.$refs.searchinput) {
+        this.$refs.searchinput.focus()
+      }
+    },
     submitSearch: function () {
       if (this.allowBlank || (!this.allowBlank && this.searchInput)) {
         this.$emit('search', this.searchInput)

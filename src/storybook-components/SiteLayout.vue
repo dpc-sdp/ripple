@@ -5,7 +5,7 @@
         site header
       </div>
     </template>
-    <rpl-page-layout :sidebar="sidebar" class="main rpl-container">
+    <rpl-page-layout :sidebar="sidebar" class="main">
       <template slot="aboveContent">
         <div class="banner-hero rpl-site-constrain--on-all">
           <div class="sub-content">banner hero</div>
@@ -97,8 +97,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@dpc-sdp/ripple-global/scss/color';
-@import '~@dpc-sdp/ripple-global/scss/variables';
+@import '~@dpc-sdp/ripple-global/scss/settings';
 
 $_section-gutter: $rpl-space;
 

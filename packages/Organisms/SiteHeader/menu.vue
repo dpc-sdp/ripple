@@ -220,7 +220,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/site_header";
 
   $rpl-menu-vertical-root-margin: ($rpl-space * 10) auto auto !default;

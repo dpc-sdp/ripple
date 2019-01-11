@@ -75,7 +75,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-back-to-top-bottom-offset: $rpl-space-3 !default;
 $rpl-back-to-top-bottom-height: rem(48px) + $rpl-back-to-top-bottom-offset !default;

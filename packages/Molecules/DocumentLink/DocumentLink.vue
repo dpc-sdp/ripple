@@ -57,7 +57,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-document-link-title-ruleset: ('xs', 1em, 'semibold');
   $rpl-document-link-title-color: rpl_color('extra_dark_neutral') !default;

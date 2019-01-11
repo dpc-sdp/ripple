@@ -104,7 +104,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-search-form-button-width: rem(28px) !default;
   $rpl-search-form-input-text-color: rpl-color('extra_dark_neutral') !default;

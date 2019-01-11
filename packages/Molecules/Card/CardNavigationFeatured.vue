@@ -42,7 +42,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/card";
 
   $rpl-card-navigation-featured-margin-xs: $rpl-space-3 auto !default;
@@ -60,8 +61,8 @@ export default {
     's': ('s', 1.5em, 'bold')
   ) !default;
   $rpl-card-navigation-featured-summary-color: rpl_color('white') !default;
-  $rpl-card-navigation-featured-summary-background: transparent url(rpl_banner_primary_arrow_url('secondary')) no-repeat bottom right !default;
-  $rpl-card-navigation-featured-summary-background-hover: rpl_color('secondary') url(rpl_banner_primary_arrow_url('primary')) no-repeat bottom right !default;
+  $rpl-card-navigation-featured-summary-background: transparent url(rpl_graphic_right_angled_triangle('secondary')) no-repeat bottom right !default;
+  $rpl-card-navigation-featured-summary-background-hover: rpl_color('secondary') url(rpl_graphic_right_angled_triangle('primary')) no-repeat bottom right !default;
   $rpl-card-navigation-featured-summary-xs: ($rpl-space * 11) $rpl-component-padding-xs ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-s: ($rpl-space * 6) $rpl-component-padding-s ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-m: ($rpl-space * 6) $rpl-component-padding-m ($rpl-space * 7) !default;

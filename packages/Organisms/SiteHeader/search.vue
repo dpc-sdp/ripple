@@ -42,7 +42,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-site-header-search-max-width: rem(1160px) !default;
   $rpl-site-header-search-margin: ($rpl-space * 9) auto auto !default;

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>Default grid system</h2>
+  <div class="demo-content">
+    <h1>Default grid system</h1>
     <RplContainer class="demo-container rpl-site-constrain--on-all">
       <rpl-row class="demo-row">
         <rpl-col v-for="n in 12" :key="n" cols=1 class="demo-col">{{ n }}</rpl-col>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './../../packages/Atoms/Global/scss/color';
+@import './../../packages/Atoms/Global/scss/settings';
 
 .demo-col {
   background-color: rpl-color('mid_neutral_1');

@@ -291,19 +291,19 @@ exports[`RippleStoryshots Atoms/Button Button 1`] = `
 
 exports[`RippleStoryshots Atoms/Global Breakpoints 1`] = `
 <div
-  class="demo"
+  class="demo-content"
 >
-  <h2>
+  <h1>
     Breakpoints
-  </h2>
+  </h1>
    
   <p>
     Resize browser window to change in-use breakpoints.
   </p>
    
-  <h3>
+  <h2>
     CSS breakpoint
-  </h3>
+  </h2>
    
   <ul
     class="breakpoints breakpoints--css"
@@ -366,9 +366,9 @@ exports[`RippleStoryshots Atoms/Global Breakpoints 1`] = `
     </li>
   </ul>
    
-  <h3>
+  <h2>
     JS breakpoint
-  </h3>
+  </h2>
    
   <ul
     class="breakpoints breakpoints--js"
@@ -436,119 +436,167 @@ exports[`RippleStoryshots Atoms/Global Breakpoints 1`] = `
 
 exports[`RippleStoryshots Atoms/Global Colors 1`] = `
 <div
-  class="colors"
+  class="colors demo-content"
 >
   <h2>
     Colors
   </h2>
    
   <ul>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         primary
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--primary"
+        class="color__item color__item--primary"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         dark primary
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--dark_primary"
+        class="color__item color__item--dark_primary"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         secondary
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--secondary"
+        class="color__item color__item--secondary"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         extra dark neutral
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--extra_dark_neutral"
+        class="color__item color__item--extra_dark_neutral"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         dark neutral
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--dark_neutral"
+        class="color__item color__item--dark_neutral"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         mid neutral 1
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--mid_neutral_1"
+        class="color__item color__item--mid_neutral_1"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         mid neutral 2
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--mid_neutral_2"
+        class="color__item color__item--mid_neutral_2"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         light neutral
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--light_neutral"
+        class="color__item color__item--light_neutral"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         danger
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--danger"
+        class="color__item color__item--danger"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         warning
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--warning"
+        class="color__item color__item--warning"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         success
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--success"
+        class="color__item color__item--success"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         white
-      </code>
+      </p>
        
       <div
-        class="colors__item colors__item--white"
+        class="color__item color__item--white"
       />
     </li>
   </ul>
@@ -558,22 +606,30 @@ exports[`RippleStoryshots Atoms/Global Colors 1`] = `
   </h2>
    
   <ul>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         primary gradient
-      </code>
+      </p>
        
       <div
-        class="colors__item gradient__item--primary_gradient"
+        class="color__item color__item--primary_gradient"
       />
     </li>
-    <li>
-      <code>
+    <li
+      class="color"
+    >
+      <p
+        class="color__name"
+      >
         decorative gradient
-      </code>
+      </p>
        
       <div
-        class="colors__item gradient__item--decorative_gradient"
+        class="color__item color__item--decorative_gradient"
       />
     </li>
   </ul>
@@ -723,11 +779,11 @@ exports[`RippleStoryshots Atoms/Global Divider 1`] = `
 
 exports[`RippleStoryshots Atoms/Global Typography 1`] = `
 <div
-  class="typography"
+  class="typography demo-content"
 >
-  <h2>
+  <h1>
     Typography
-  </h2>
+  </h1>
    
   <ul>
     <li>
@@ -2612,10 +2668,12 @@ exports[`RippleStoryshots Atoms/Layout Grid 1`] = `
 `;
 
 exports[`RippleStoryshots Atoms/Layout Grid system 1`] = `
-<div>
-  <h2>
+<div
+  class="demo-content"
+>
+  <h1>
     Default grid system
-  </h2>
+  </h1>
    
   <div
     class="rpl-container demo-container rpl-site-constrain--on-all"
@@ -10761,9 +10819,9 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
              
             <a
               class="rpl-link rpl-list__text"
-              href="tel: 03 9876 1234"
+              href="tel: 0400 000 000"
             >
-              03 9876 1234
+              Mob 0400 000 000
             </a>
           </div>
           <div
@@ -12212,7 +12270,7 @@ exports[`RippleStoryshots Molecules/EmbeddedVideo Embedded Video 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            string
+            object
           </td>
            
           <td
@@ -14024,7 +14082,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
         id="rpl-main-content"
       >
         <div
-          class="rpl-container rpl-site-constrain--on-all"
+          class="rpl-site-constrain--on-all"
         >
           <div
             class="rpl-row"
@@ -14493,7 +14551,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
         id="rpl-main-content"
       >
         <div
-          class="rpl-container rpl-site-constrain--on-all"
+          class="rpl-site-constrain--on-all"
         >
           <div
             class="rpl-row"
@@ -14972,7 +15030,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container"
@@ -15022,7 +15080,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -15238,7 +15296,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container"
@@ -15288,7 +15346,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -19353,13 +19411,12 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
     <div
       class="rpl-search-results"
       data-v-6ca0e090=""
-      pagerchangehandler="function () { [native code] }"
     >
       <div
         class="rpl-search-results__info"
       >
         <div>
-          Displaying 2 of 10 results
+          Displaying 10 of 70 results
         </div>
       </div>
        
@@ -19551,19 +19608,6 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
             class="hljs-string"
           >
             "searchResults.count"
-          </span>
-          
-
-          <span
-            class="hljs-attr"
-          >
-            :pagerChangeHandler
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "pagerChange"
           </span>
           
 
@@ -22599,7 +22643,7 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
 </div>
 `;
 
-exports[`RippleStoryshots Organisms/CampaignSecondary Campaign Secondary 1`] = `
+exports[`RippleStoryshots Organisms/CampaignSecondary Campaign secondary - Image 1`] = `
 <div
   class="vue-info"
   data-v-6ca0e090=""
@@ -22623,7 +22667,7 @@ exports[`RippleStoryshots Organisms/CampaignSecondary Campaign Secondary 1`] = `
       data-v-003f20ee=""
     >
       
-    Campaign Secondary
+    Campaign secondary - Image
   
     </h2>
   </div>
@@ -22760,6 +22804,18 @@ exports[`RippleStoryshots Organisms/CampaignSecondary Campaign Secondary 1`] = `
             class="hljs-string"
           >
             "image"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :video
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "video"
           </span>
            /&gt;
         </span>
@@ -22902,6 +22958,481 @@ exports[`RippleStoryshots Organisms/CampaignSecondary Campaign Secondary 1`] = `
           >
             
     link
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    video
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    image
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/CampaignSecondary Campaign secondary - Video 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/CampaignSecondary
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Campaign secondary - Video
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-campaign-secondary"
+      data-v-6ca0e090=""
+    >
+      <div
+        class="rpl-campaign-secondary__row"
+      >
+        <div
+          class="rpl-campaign-secondary__left"
+        >
+          <div
+            class="rpl-campaign-secondary__content"
+          >
+            <div
+              class="rpl-embedded-video rpl-campaign-secondary__video"
+            >
+              <div
+                class="rpl-embedded-video-iframe-container"
+              >
+                <iframe
+                  allowfullscreen="allowfullscreen"
+                  class="rpl-embedded-video-frame"
+                  src="https://www.youtube.com/embed/bSlnfyGTiss"
+                />
+              </div>
+               
+              <div
+                class="rpl-embed-video__link"
+              >
+                <!---->
+                 
+                <a
+                  class="rpl-link rpl-text-link"
+                  href="#"
+                >
+                  <span>
+                    <span>
+                      View
+                    </span>
+                     
+                    <span
+                      class="rpl-text-icon__group"
+                    >
+                       transcript
+                      <!---->
+                    </span>
+                     
+                    <!---->
+                  </span>
+                </a>
+              </div>
+               
+              <!---->
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-campaign-secondary__right"
+        >
+          <div
+            class="rpl-campaign-secondary__content"
+          >
+            <h2
+              class="rpl-campaign-secondary__title"
+            >
+              Secondary campaign headline
+            </h2>
+             
+            <div
+              class="rpl-campaign-secondary__summary"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+            </div>
+          </div>
+           
+          <a
+            class="rpl-link rpl-button rpl-button--primary"
+            href="#"
+          >
+            Call to action
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-campaign-secondary
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :title
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "title"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :summary
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "summary"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :link
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "link"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :image
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "image"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :video
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "video"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplCampaignSecondary" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    summary
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    link
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    video
     
             <!---->
           </td>
@@ -30143,7 +30674,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container rpl-above-content-container--with-bg"
@@ -30308,7 +30839,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -30908,7 +31439,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container"
@@ -31000,7 +31531,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -31017,7 +31548,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                   class="rpl-search-results__info"
                 >
                   <div>
-                    Displaying 2 of 10 results
+                    Displaying 10 of 70 results
                   </div>
                 </div>
                  
@@ -31601,7 +32132,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container"
@@ -31695,7 +32226,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -31712,7 +32243,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                   class="rpl-search-results__info"
                 >
                   <div>
-                    Displaying 2 of 10 results
+                    Displaying 10 of 70 results
                   </div>
                 </div>
                  
@@ -32362,7 +32893,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container"
@@ -32968,7 +33499,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -34806,9 +35337,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                      
                     <a
                       class="rpl-link rpl-list__text"
-                      href="tel: 03 9876 1234"
+                      href="tel: 0400 000 000"
                     >
-                      03 9876 1234
+                      Mob 0400 000 000
                     </a>
                   </div>
                   <div
@@ -35016,7 +35547,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
         <p
           class="rpl-updated-date"
         >
-          Reviewed 12 December 2006
+          Reviewed 10 July 2018
         </p>
       </div>
     </section>
@@ -35477,7 +36008,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container"
@@ -35700,7 +36231,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -36224,6 +36755,974 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
 </div>
 `;
 
+exports[`RippleStoryshots Templates Page with form 1`] = `
+<div
+  class="rpl-site-layout demo"
+>
+  <div
+    class="rpl-skip-link"
+    id="rpl-skip-link"
+  >
+    <a
+      class="rpl-skip-link__link"
+      href="#rpl-main-content"
+    >
+      Skip to main content
+    </a>
+  </div>
+   
+  <header
+    class="rpl-site-header-container"
+  >
+    <div
+      class="rpl-site-header"
+    >
+      <div
+        class="rpl-site-header__inner"
+      >
+        <div
+          class="rpl-site-header__top"
+        >
+          <div
+            class="rpl-site-header__logo-container"
+          >
+            <button
+              aria-expanded="false"
+              class="rpl-site-header__btn rpl-site-header__btn--menu"
+            >
+              <!---->
+               
+              <span>
+                Menu
+              </span>
+            </button>
+             
+            <div
+              class="rpl-site-header__title"
+            >
+              <a
+                class="rpl-link"
+                href="#"
+              >
+                <img
+                  alt="vic.gov.au"
+                  src="/logo.svg"
+                />
+              </a>
+            </div>
+          </div>
+           
+          <!---->
+           
+          <button
+            class="rpl-site-header__btn rpl-site-header__btn--search"
+          >
+            <span>
+              Search website
+            </span>
+             
+            <!---->
+          </button>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </header>
+    
+  <main
+    class="rpl-page main"
+  >
+    <section
+      class="rpl-above-content-container"
+    >
+      <div
+        class="rpl-above-content"
+        style="background-image: url(/bggraphic.png);"
+      >
+        <div
+          class="rpl-above-content__inner"
+        >
+          <div
+            class="rpl-above-content__top"
+          >
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
+            </div>
+          </div>
+           
+          <div
+            class="rpl-hero-banner rpl-site-constrain--on-all"
+          >
+            <!---->
+             
+            <div
+              class="rpl-row"
+            >
+              <div
+                class="rpl-hero-banner__left"
+              >
+                <h1
+                  class="rpl-hero-banner__title"
+                >
+                  <span>
+                    Test Form
+                  </span>
+                </h1>
+                 
+                <p
+                  class="rpl-hero-banner__description"
+                >
+                  
+        Test form on a landing page.
+      
+                </p>
+                 
+              </div>
+               
+              <div
+                class="rpl-hero-banner__right"
+              >
+                <!---->
+                 
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="rpl-above-content-two"
+      />
+    </section>
+     
+    <section
+      class="rpl-content rpl-content--with-sidebar"
+      id="rpl-main-content"
+    >
+      <div
+        class="rpl-site-constrain--on-all"
+      >
+        <div
+          class="rpl-row"
+        >
+          <div
+            class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
+          >
+             
+            <div
+              class="rpl-row demo-main rpl-row--gutter"
+            >
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <form
+                  class="rpl-form"
+                >
+                  <!---->
+                   
+                  <div
+                    class="vue-form-generator"
+                  >
+                    <fieldset>
+                      <div
+                        class="form-group valid field-vueMultiSelect"
+                      >
+                        <label
+                          for="single-select-drop-down"
+                        >
+                          <span>
+                            Single-select drop down
+                          </span>
+                           
+                          <!---->
+                        </label>
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <div
+                            class="multiselect"
+                            tabindex="0"
+                          >
+                            <div
+                              class="multiselect__select"
+                            />
+                              
+                            <div
+                              class="multiselect__tags"
+                            >
+                              <div
+                                class="multiselect__tags-wrap"
+                                style="display: none;"
+                              />
+                               
+                              <!---->
+                               
+                              <div
+                                class="multiselect__spinner"
+                                style="display: none;"
+                              />
+                               
+                              <!---->
+                               
+                              <!---->
+                               
+                              <span
+                                class="multiselect__placeholder"
+                              >
+                                
+            Select a single topic
+        
+                              </span>
+                            </div>
+                             
+                            <div
+                              class="multiselect__content-wrapper"
+                              style="max-height: 300px; display: none;"
+                              tabindex="-1"
+                            >
+                              <ul
+                                class="multiselect__content"
+                                style="display: inline-block;"
+                              >
+                                 
+                                <!---->
+                                 
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option multiselect__option--highlight"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic A
+                                    </span>
+                                  </span>
+                                   
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic B
+                                    </span>
+                                  </span>
+                                   
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic C
+                                    </span>
+                                  </span>
+                                   
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic D
+                                    </span>
+                                  </span>
+                                   
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic E
+                                    </span>
+                                  </span>
+                                   
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic F
+                                    </span>
+                                  </span>
+                                   
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic G
+                                    </span>
+                                  </span>
+                                   
+                                  <!---->
+                                </li>
+                                 
+                                <li
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                  >
+                                    <span>
+                                      
+                                    </span>
+                                  </span>
+                                </li>
+                                 
+                                <li
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                  >
+                                    List is empty.
+                                  </span>
+                                </li>
+                                 
+                              </ul>
+                            </div>
+                          </div>
+                           
+                          <!---->
+                        </div>
+                         
+                        <div
+                          class="hint"
+                        >
+                          Implemented using vue-multiselect
+                        </div>
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="form-group valid field-submit"
+                      >
+                        <!---->
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <input
+                            id=""
+                            type="submit"
+                            value="Submit"
+                          />
+                           
+                          <!---->
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                    </fieldset>
+                  </div>
+                </form>
+              </div>
+            </div>
+             
+          </div>
+           
+          <div
+            class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
+          >
+            <div
+              class="rpl-related-links rpl-component-gutter"
+            >
+              <!---->
+               
+              <div
+                class="rpl-related-links__row"
+              >
+                <h2
+                  class="rpl-related-links__title"
+                >
+                  Related links
+                </h2>
+              </div>
+               
+              <div
+                class="rpl-related-links__row"
+              >
+                <ul
+                  class="rpl-related-links__items"
+                >
+                  <li
+                    class="rpl-related-links__item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      href="http://www.google.com"
+                      target="_blank"
+                    >
+                      <span>
+                        <span>
+                          Link to external
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           content
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-related-links__item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          Second link it goes right
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           here
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-related-links__item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          Third link to extra
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           content
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="rpl-related-links__item"
+                  >
+                    <a
+                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      href="#"
+                    >
+                      <span>
+                        <span>
+                          This is a long link to extra
+                        </span>
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                           content
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     
+    <section
+      class="rpl-below-content"
+    />
+  </main>
+    
+  <!---->
+   
+  <footer
+    class="rpl-site-footer-container"
+  >
+    <div
+      class="rpl-site-footer"
+    >
+      <div
+        class="rpl-site-footer__main"
+      >
+        <ul
+          class="rpl-footer-nav"
+        >
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Your Services
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                About VIC Government
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                News
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Events
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Connect with us
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+         
+        <div
+          class="rpl-acknowledgement"
+        >
+          The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
+        </div>
+      </div>
+       
+      <div
+        class="rpl-site-footer__bottom"
+      >
+        <div
+          class="rpl-site-footer__bottom-main"
+        >
+          <div
+            class="rpl-links-and-copyright"
+          >
+            <ul
+              class="rpl-links-and-copyright__links"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Privacy
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Disclaimer
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Terms of use
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Sitemap
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Accessibility Statement
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Help
+                </a>
+              </li>
+            </ul>
+             
+            <div
+              class="rpl-links-and-copyright__copyright"
+            >
+              © Copyright State Government of Victoria
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-site-footer__logos"
+        >
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Max native size"
+              src="https://placehold.it/112x52"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Smaller than max size"
+              src="https://placehold.it/32x32"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Portrait"
+              src="https://placehold.it/80x200"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Landscape"
+              src="https://placehold.it/200x80"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="https://vic.gov.au"
+            target="_blank"
+          >
+            <img
+              alt="Victoria Government Website"
+              src="file-stub"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
 exports[`RippleStoryshots Templates Page with sitemap 1`] = `
 <div
   class="rpl-site-layout demo"
@@ -36300,7 +37799,7 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container"
@@ -36386,7 +37885,7 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -37549,7 +39048,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container"
@@ -37629,7 +39128,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -38668,7 +40167,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
   </header>
     
   <main
-    class="rpl-page main rpl-container"
+    class="rpl-page main"
   >
     <section
       class="rpl-above-content-container"
@@ -38760,7 +40259,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
       id="rpl-main-content"
     >
       <div
-        class="rpl-container rpl-site-constrain--on-all"
+        class="rpl-site-constrain--on-all"
       >
         <div
           class="rpl-row"
@@ -38782,13 +40281,53 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                     class="rpl-search-results__info"
                   >
                     <div>
-                      Displaying 2 of 10 results
+                      Displaying 10 of 70 results
                     </div>
                   </div>
                    
                   <div
                     class="rpl-row rpl-search-results__main rpl-row--gutter"
                   >
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
+                    <div
+                      class="rpl-col rpl-col--full"
+                    >
+                      <!---->
+                    </div>
                     <div
                       class="rpl-col rpl-col--full"
                     >

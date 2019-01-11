@@ -62,7 +62,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-campaign-primary-padding-s: 0 0 39px !default;
   $rpl-campaign-primary-padding-m: 52px 0 66px !default;
@@ -88,7 +89,7 @@ export default {
   $rpl-campaign-primary-content-padding-xs: 0 $rpl-component-padding-xs !default;
   $rpl-campaign-primary-content-padding-s: 0 $rpl-component-padding-s !default;
   $rpl-campaign-primary-button-margin-s: 0 $rpl-component-padding-s !default;
-  $rpl-campaign-primary-primary-arrow-background: transparent url(rpl_banner_primary_arrow_url('secondary')) no-repeat bottom right !default;
+  $rpl-campaign-primary-primary-arrow-background: transparent url(rpl_graphic_right_angled_triangle('secondary')) no-repeat bottom right !default;
 
   .rpl-campaign-primary {
     position: relative;
@@ -155,11 +156,13 @@ export default {
     }
 
     &__call-to-action {
-      @include rpl_breakpoint('s') {
-        margin: $rpl-campaign-primary-button-margin-s;
-      }
-      @include rpl_breakpoint('m') {
-        margin: 0;
+      &.rpl-button {
+        @include rpl_breakpoint('s') {
+          margin: $rpl-campaign-primary-button-margin-s;
+        }
+        @include rpl_breakpoint('m') {
+          margin: 0;
+        }
       }
     }
 

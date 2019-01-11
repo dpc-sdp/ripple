@@ -17,7 +17,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-updated-date-ruleset: ('xs', 1.4em, 'regular');
   $rpl-updated-date-color: rpl_color('extra_dark_neutral');

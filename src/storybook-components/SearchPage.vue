@@ -16,7 +16,7 @@
 
     <rpl-page-layout
       :sidebar="sidebar"
-      class="main rpl-container"
+      class="main"
     >
       <template slot="aboveContent">
         <rpl-search-form
@@ -34,10 +34,10 @@
       <rpl-row row-gutter class="demo-main">
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-search-results
-            :searchResults="noResults ? [] : [mock.searchResult, mock.searchResult]"
-            :pager="noResults ? undefined : mock.pagination"
+            :searchResults="subsetResults"
+            :pager="pagerOptions"
             :responseSize="noResults ? 0 : mock.searchResults.responseSize"
-            :count="noResults ? 0 : mock.searchResults.count"
+            :count="noResults ? 0 : totalResultCount"
             :errorMsg="hasError ? mock.searchResults.errorMsg : undefined"
             :noResultsMsg="mock.searchResults.noResultsMsg"
             @pager-change="pagerChange"
@@ -100,7 +100,10 @@ export default {
   },
   data () {
     return {
-      defaultCols: {}
+      defaultCols: {},
+      searchFor: this.mock.searchForm.prefillSearchTerm,
+      totalResultCount: this.mock.searchResults.count,
+      offset: 0
     }
   },
   methods: {
@@ -118,13 +121,60 @@ export default {
     // Methods for search results
     getSearchResults: function (value) {
       // Use your own custom code to handle it.
-      alert('Search for: "' + value + '"')
+      const split = value.split(' x')
+      if (split.length !== 2) {
+        this.searchFor = value
+      } else {
+        this.searchFor = split[0]
+        this.totalResultCount = parseInt(split[1], 10)
+      }
+      this.offset = 0
     },
 
     // Methods for search results
     pagerChange: function (newStep) {
       // Use your own custom code to handle it.
-      alert('Going to step: ' + newStep)
+      this.offset = (newStep - 1) * this.mock.searchResults.responseSize
+    }
+  },
+  computed: {
+    pagerOptions () {
+      const count = this.totalResultCount
+      const show = this.mock.searchResults.responseSize
+      return {
+        totalSteps: (count > show) ? (count / show) : 0,
+        initialStep: 1,
+        stepsAround: 2
+      }
+    },
+    subsetResults () {
+      let returnedResults = []
+      let step = 0
+      const totalSteps = this.mock.searchResults.responseSize
+      const start = this.offset
+      while (step < totalSteps) {
+        if (this.totalResults[start + step]) {
+          returnedResults.push(this.totalResults[start + step])
+          step++
+        } else {
+          break
+        }
+      }
+      return returnedResults
+    },
+    totalResults () {
+      if (this.totalResultCount === 0) {
+        return []
+      } else {
+        let returnedResults = []
+        const searchResultJSON = JSON.stringify(this.mock.searchResult)
+        for (let i = 0; i < this.totalResultCount; i++) {
+          let newResult = JSON.parse(searchResultJSON)
+          newResult.title = `${this.searchFor} result ${i + 1}`
+          returnedResults.push(newResult)
+        }
+        return returnedResults
+      }
     }
   }
 }

@@ -121,7 +121,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-grants-overview-description-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-grants-overview-description-color: rpl-color('extra_dark_neutral') !default;

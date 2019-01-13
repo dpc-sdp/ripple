@@ -182,7 +182,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 @import "../scss/form";
 
 $rpl-checklist-expanded-border: 1px solid rpl-color('primary');

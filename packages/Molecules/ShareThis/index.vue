@@ -69,7 +69,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-share-this-title-ruleset: ('l', 1.2rem, 'bold');
   $rpl-share-this-title-margin: 0 0 $rpl-space-4;

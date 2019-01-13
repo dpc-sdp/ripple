@@ -16,7 +16,7 @@
 
     <rpl-page-layout
       :sidebar="sidebar"
-      class="main rpl-container"
+      class="main"
       :backgroundGraphic="showTopGraphic ? mock.landingPage.backgroundGraphic : null"
       :quickExit="showQuickExit"
     >

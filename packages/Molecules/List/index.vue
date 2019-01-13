@@ -48,7 +48,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-list-title-normal-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-list-title-large-ruleset: ('mega', 1em, 'bold') !default;

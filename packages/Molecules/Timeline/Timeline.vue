@@ -59,7 +59,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-timeline-image-dimension: rem(88px) !default;
   $rpl-timeline-image-margin: 0 0 0 ($rpl-space * -1) !default;

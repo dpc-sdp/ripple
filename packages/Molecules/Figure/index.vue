@@ -16,7 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-figure-caption-ruleset: ('xxs', 1em, 'medium') !default;
   $rpl-figure-caption-text-color: rpl-color('dark_neutral') !default;

@@ -21,7 +21,7 @@
     </section>
 
     <section id="rpl-main-content" class="rpl-content" :class="{'rpl-content--with-sidebar': sidebar, 'rpl-content--grey': bgGrey}">
-      <rpl-container class="rpl-site-constrain--on-all">
+      <div class="rpl-site-constrain--on-all">
         <rpl-row>
           <rpl-col cols="full" :colsBp="mainCols" class="rpl-main">
             <slot></slot>
@@ -30,7 +30,7 @@
             <slot name="sidebar"></slot>
           </rpl-col>
         </rpl-row>
-      </rpl-container>
+      </div>
     </section>
 
     <section class="rpl-below-content">
@@ -83,7 +83,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 // TODO: we'd better to make a UI color variable so all UI color can refer to the same color.
 $rpl-backbround-color: rpl-color('white') !default;

@@ -75,7 +75,9 @@ export default {
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
+@import "~@dpc-sdp/ripple-global/scss/components/button";
 @import "scss/form";
 
 .rpl-form {

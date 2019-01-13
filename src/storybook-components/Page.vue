@@ -18,7 +18,7 @@
 
     <rpl-page-layout
       :sidebar="sidebar"
-      class="main rpl-container"
+      class="main"
       :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
       <template slot="breadcrumbs">
@@ -119,10 +119,10 @@
 
       <template slot="belowContent">
         <div class="rpl-site-constrain--on-all">
-          <rpl-campaign-secondary :title="mock.campaignSecondary.title" :summary="mock.campaignSecondary.summary" :link="mock.campaignSecondary.link" :image="mock.campaignSecondary.image" />
+          <rpl-campaign-secondary :title="mock.campaignSecondaryImage.title" :summary="mock.campaignSecondaryImage.summary" :link="mock.campaignSecondaryImage.link" :image="mock.campaignSecondaryImage.image" />
         </div>
         <div class="rpl-site-constrain--on-all">
-          <rpl-updated-date v-bind="{date: '12/12/2006'}"></rpl-updated-date>
+          <rpl-updated-date v-bind="mock.updatedDate"></rpl-updated-date>
         </div>
       </template>
 

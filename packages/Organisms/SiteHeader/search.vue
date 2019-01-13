@@ -4,6 +4,7 @@
       class="rpl-site-header-search__form"
       searchPlaceholder="Start typing..."
       theme="dark"
+      :auto-focus="true"
       @search="searchTerm"
     />
     <div v-if="terms && terms.length > 0">
@@ -41,7 +42,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-site-header-search-max-width: rem(1160px) !default;
   $rpl-site-header-search-margin: ($rpl-space * 9) auto auto !default;

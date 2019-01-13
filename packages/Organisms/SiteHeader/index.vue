@@ -48,11 +48,22 @@
               />
             </div>
           </div>
-          <!-- Search Button -->
-          <button v-if="showSearch" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
-            <span>{{ searchButton[searchState].text }}</span>
-            <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
-          </button>
+          <div class="rpl-site-header__btn-container">
+            <!-- Logout button -->
+            <button
+              v-if="showLogout"
+              class="rpl-site-header__btn rpl-site-header__btn--logout"
+              :class="{'rpl-site-header__btn--logout-open' : (menuState === 'opened')}"
+              @click="logoutFunc()">
+                <span>{{ logoutButton.text }}</span>
+                <rpl-icon :symbol="logoutButton.icon" color="white" />
+            </button>
+            <!-- Search Button -->
+            <button v-if="showSearch" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
+              <span>{{ searchButton[searchState].text }}</span>
+              <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
+            </button>
+          </div>
         </div>
         <!-- Search Content -->
         <div v-if="menuContentOpen && searchState == 'opened'" class="rpl-site-header__search-container">
@@ -78,7 +89,8 @@ export default {
     searchTerms: Array,
     sticky: Boolean,
     hideOnScroll: { default: true, type: Boolean },
-    showSearch: { default: false, type: Boolean }
+    showSearch: { default: false, type: Boolean },
+    showLogout: { default: false, type: Boolean }
   },
   components: {
     RplIcon,
@@ -117,6 +129,10 @@ export default {
           text: 'Search website',
           icon: 'search'
         }
+      },
+      logoutButton: {
+        text: 'Logout',
+        icon: 'link'
       }
     }
   },
@@ -175,6 +191,9 @@ export default {
     searchFunc: function (value) {
       this.$emit('search', value)
     },
+    logoutFunc: function () {
+      this.$emit('logout')
+    },
     scroll: function () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop
 
@@ -220,7 +239,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/site_header";
 
   $rpl-site-header-logo-width: auto !default;
@@ -233,10 +253,15 @@ export default {
   $rpl-site-header-menu-toggle-border-spacing: $rpl-space-2 !default;
   $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space-2 auto 0 !default;
   $rpl-site-header-search-toggle-icon-margin: auto 0 auto $rpl-space-2 !default;
+  $rpl-site-header-logout-btn-background-color: rpl-color('dark_primary') !default;
+  $rpl-site-header-logout-btn-background-color-mobile: rpl-color('extra_dark_primary') !default;
+  $rpl-site-header-logout-btn-padding-mobile: rem(8px) rem(10px) !default;
+  $rpl-site-header-logout-btn-padding: rem(10px) !default;
+  $rpl-site-header-logout-btn-margin: $rpl-space-4 !default;
+  $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
 
   .rpl-site-header {
     $root: &;
-    @include rpl_body;
     position: absolute;
     z-index: $rpl-zindex-header;
     padding: $rpl-header-horizontal-padding-xs;
@@ -345,6 +370,10 @@ export default {
         }
     }
 
+    &__btn-container {
+      display: flex;
+    }
+
     &__btn {
       background-color: transparent;
       border: 0;
@@ -397,6 +426,27 @@ export default {
       &--search-open {
         span {
           display: flex;
+        }
+      }
+
+      &--logout {
+        border-radius: $rpl-button-border-radius;
+        background-color: $rpl-site-header-logout-btn-background-color-mobile;
+        display: none;
+        margin-right: $rpl-site-header-logout-btn-margin;
+        padding: $rpl-site-header-logout-btn-padding-mobile;
+
+        &-open {
+          display: inline-block;
+        }
+
+        @include rpl_breakpoint('m') {
+          background-color: $rpl-site-header-logout-btn-background-color;
+          display: inline-block;
+          padding: $rpl-site-header-logout-btn-padding;
+        }
+        .rpl-icon {
+          margin: $rpl-site-header-logout-btn-icon-margin;
         }
       }
 

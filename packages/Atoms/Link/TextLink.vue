@@ -45,7 +45,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-text-link-light-underline: rem(4px) solid #E8EBEE !default;
   $rpl-text-link-light-underline-hover: rem(4px) solid #E8EBEE !default;

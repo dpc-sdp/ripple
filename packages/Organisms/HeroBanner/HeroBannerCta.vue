@@ -40,7 +40,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   $rpl-hero-banner-cta-secondary-margin: $rpl-space-3 * 2 !default;
   $rpl-hero-banner-cta-secondary-text-margin: $rpl-space-2 $rpl-space-2 $rpl-space-2 0 !default;
   $rpl-hero-banner-cta-secondary-link-ruleset: (

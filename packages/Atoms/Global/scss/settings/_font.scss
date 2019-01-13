@@ -1,0 +1,21 @@
+$rpl-font-directory: '~@dpc-sdp/ripple-global/assets/fonts/' !default;
+
+$rpl-font-sizes: (
+  'tera': rem(56px),
+  'xgiga': rem(48px),
+  'giga': rem(36px),
+  'mega': rem(28px),
+  'xl': rem(24px),
+  'l': rem(20px),
+  'm': rem(18px),
+  's': rem(16px),
+  'xs': rem(14px),
+  'xxs': rem(12px)
+) !default;
+
+$rpl-fonts: (
+  'regular': ('VIC-Regular', 'Arial', 'Helvetica', 'sans-serif'),
+  'medium': ('VIC-Medium', 'Arial', 'Helvetica', 'sans-serif'),
+  'semibold': ('VIC-SemiBold', 'Arial', 'Helvetica', 'sans-serif'),
+  'bold': ('VIC-Bold', 'Arial', 'Helvetica', 'sans-serif')
+) !default;

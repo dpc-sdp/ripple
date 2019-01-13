@@ -23,6 +23,8 @@ storiesOf('Organisms/SiteHeader', module)
   :sticky="sticky"
   :hideOnScroll="hideOnScroll"
   :showSearch="showSearch"
+  :showLogout="showLogout"
+  @logout="logoutFunc"
   @open="menuOpenFunc"
   @search="searchFunc"
 />`,
@@ -35,6 +37,9 @@ storiesOf('Organisms/SiteHeader', module)
       },
       menuOpenFunc: function (menuOpenState) {
         document.body.style.overflow = menuOpenState ? 'hidden' : ''
+      },
+      logoutFunc: function () {
+        alert('logout called')
       }
     }
   })))

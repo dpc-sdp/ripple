@@ -1,0 +1,60 @@
+// Grid classes
+// These are using the $rpl-grid setting.
+// Other custom grids should use mixins.
+.rpl-container {
+  @include rpl_grid_container;
+}
+
+.rpl-row {
+  @include rpl_grid_row;
+}
+
+.rpl-col {
+  @include rpl_grid_column;
+}
+
+.rpl-row--gutter {
+  @include rpl_grid_row_gutter;
+}
+
+@mixin _rpl_bp_classes($bp: '') {
+  $modifier: '';
+
+  @if $bp != '' {
+    $modifier: #{'-' + $bp};
+  }
+
+  .rpl-col--full#{$modifier} {
+    @include rpl_grid_full;
+  }
+
+  @for $col from 1 through rpl_grid_get_columns($rpl-grid) {
+    @if $col <= rpl_grid_get_columns($rpl-grid) {
+      .rpl-col--#{$col}#{$modifier} {
+        @include rpl_grid_column($col);
+      }
+
+      .rpl-col--push-#{$col}#{$modifier} {
+        @include rpl_grid_push($col);
+      }
+
+      .rpl-col--pull-#{$col}#{$modifier} {
+        @include rpl_grid_pull($col);
+      }
+
+      .rpl-col--order-#{$col}#{$modifier} {
+        @include rpl_grid_order($col);
+      }
+    }
+  }
+}
+
+@each $bp, $bp-val in $rpl-breakpoints {
+  @if $bp-val == 0 {
+    @include _rpl_bp_classes;
+  } @else {
+    @include rpl_breakpoint($bp) {
+      @include _rpl_bp_classes($bp);
+    }
+  }
+}

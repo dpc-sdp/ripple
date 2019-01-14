@@ -1,6 +1,6 @@
 <template>
   <div class="rpl-campaign-primary">
-    <a v-if="link && image" :href="link.url" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large">
+    <a :aria-label="link.text" v-if="link && image" :href="link.url" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large">
       <span class="rpl-campaign-primary__image-inner">
         <svg class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
           <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">

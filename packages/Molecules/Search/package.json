@@ -13,6 +13,7 @@
     "@dpc-sdp/ripple-form": "1.0.0-alpha.42",
     "@dpc-sdp/ripple-global": "1.0.0-alpha.42",
     "@dpc-sdp/ripple-icon": "1.0.0-alpha.42",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.42"
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.42",
+    "vue-focus-lock": "1.3.0"
   }
 }

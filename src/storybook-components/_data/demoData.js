@@ -1432,6 +1432,11 @@ const demoData = {
           },
 
           {
+            type: 'rplmarkup',
+            markup: '<h3>Markup field</h3><p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>'
+          },
+
+          {
             type: 'rplcheckbox',
             inlineLabel: 'Check box selected',
             model: 'checkbox',

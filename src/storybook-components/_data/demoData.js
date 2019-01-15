@@ -1433,7 +1433,7 @@ const demoData = {
 
           {
             type: 'rplmarkup',
-            markup: '<h3>Markup field</h3><p>Exercitation <strong>labore</strong> pariatur duis enim ad ipsum minim consectetur.</p>'
+            markup: '<h3>Markup field</h3><p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>'
           },
 
           {

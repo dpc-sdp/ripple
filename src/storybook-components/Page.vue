@@ -96,6 +96,9 @@
             </div>
           </div>
         </rpl-col>
+        <rpl-col cols="full">
+          <rpl-card-carousel v-bind="mock.cardCarousel" />
+        </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-image-gallery :gallery-data="mock.imageGallery.gallery" :enlarge-text="mock.imageGallery.enlargeText" />
         </rpl-col>

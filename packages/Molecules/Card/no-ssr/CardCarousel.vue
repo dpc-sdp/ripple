@@ -9,7 +9,9 @@
         :paginationEnabled="false"
       >
         <slide v-for="(item, index) in cards" :key="index" class="rpl-card-carousel__slide">
-          <component :is="item.name" v-bind="item.data" :trimFieldEventBus="isTrimmed(item.name) ? eventBus : null" :trimFieldUpdateOnResize="false"></component>
+          <div class="rpl-card-carousel__slide-wrap">
+            <component :is="item.name" v-bind="item.data" :trimFieldEventBus="isTrimmed(item.name) ? eventBus : null" :trimFieldUpdateOnResize="false"></component>
+          </div>
         </slide>
       </carousel>
       <div class="rpl-card-carousel__navigation">
@@ -177,9 +179,12 @@ export default {
     &__slide {
       box-sizing: border-box;
 
+    }
+
+    &__slide-wrap {
       @include rpl_breakpoint('m') {
-        padding-left: $rpl-card-carousel-slide-gutter / 2;
-        padding-right: $rpl-card-carousel-slide-gutter / 2;
+        margin-left: $rpl-card-carousel-slide-gutter / 2;
+        margin-right: $rpl-card-carousel-slide-gutter / 2;
       }
     }
 

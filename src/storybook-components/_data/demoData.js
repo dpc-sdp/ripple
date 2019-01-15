@@ -1432,6 +1432,11 @@ const demoData = {
           },
 
           {
+            type: 'rplmarkup',
+            markup: '<h3>Markup field</h3><p>Exercitation <strong>labore</strong> pariatur duis enim ad ipsum minim consectetur.</p>'
+          },
+
+          {
             type: 'rplcheckbox',
             inlineLabel: 'Check box selected',
             model: 'checkbox',

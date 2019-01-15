@@ -28774,57 +28774,76 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
     data-v-6ca0e090=""
   >
     <div
-      class="rpl-site-header"
       data-v-6ca0e090=""
     >
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
+            <div
+              class="rpl-site-header__top"
             >
+              <div
+                class="rpl-site-header__logo-container"
+              >
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
+               
               <!---->
                
-              <span>
-                Menu
-              </span>
-            </button>
-             
-            <div
-              class="rpl-site-header__title"
-            >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__btn-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
+                <!---->
+                 
+                <!---->
+              </div>
             </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
              
             <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </div>
    
@@ -30682,65 +30701,83 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
   <header
     class="rpl-site-header-container"
   >
-    <div
-      class="rpl-site-header"
-    >
+    <div>
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-            >
-              <!---->
-               
-              <span>
-                Menu
-              </span>
-            </button>
-             
             <div
-              class="rpl-site-header__title"
+              class="rpl-site-header__top"
             >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__logo-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
-            </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
-             
-            <button
-              class="rpl-site-header__btn rpl-site-header__btn--search"
-            >
-              <span>
-                Search website
-              </span>
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
                
               <!---->
-            </button>
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </header>
     
@@ -31453,65 +31490,83 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
   <header
     class="rpl-site-header-container"
   >
-    <div
-      class="rpl-site-header"
-    >
+    <div>
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-            >
-              <!---->
-               
-              <span>
-                Menu
-              </span>
-            </button>
-             
             <div
-              class="rpl-site-header__title"
+              class="rpl-site-header__top"
             >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__logo-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
-            </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
-             
-            <button
-              class="rpl-site-header__btn rpl-site-header__btn--search"
-            >
-              <span>
-                Search website
-              </span>
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
                
               <!---->
-            </button>
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </header>
     
@@ -32152,65 +32207,83 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
   <header
     class="rpl-site-header-container"
   >
-    <div
-      class="rpl-site-header"
-    >
+    <div>
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-            >
-              <!---->
-               
-              <span>
-                Menu
-              </span>
-            </button>
-             
             <div
-              class="rpl-site-header__title"
+              class="rpl-site-header__top"
             >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__logo-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
-            </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
-             
-            <button
-              class="rpl-site-header__btn rpl-site-header__btn--search"
-            >
-              <span>
-                Search website
-              </span>
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
                
               <!---->
-            </button>
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </header>
     
@@ -32919,65 +32992,83 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       </button>
     </div>
      
-    <div
-      class="rpl-site-header"
-    >
+    <div>
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-            >
-              <!---->
-               
-              <span>
-                Menu
-              </span>
-            </button>
-             
             <div
-              class="rpl-site-header__title"
+              class="rpl-site-header__top"
             >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__logo-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
-            </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
-             
-            <button
-              class="rpl-site-header__btn rpl-site-header__btn--search"
-            >
-              <span>
-                Search website
-              </span>
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
                
               <!---->
-            </button>
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </header>
     
@@ -36041,65 +36132,83 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
   <header
     class="rpl-site-header-container"
   >
-    <div
-      class="rpl-site-header"
-    >
+    <div>
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-            >
-              <!---->
-               
-              <span>
-                Menu
-              </span>
-            </button>
-             
             <div
-              class="rpl-site-header__title"
+              class="rpl-site-header__top"
             >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__logo-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
-            </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
-             
-            <button
-              class="rpl-site-header__btn rpl-site-header__btn--search"
-            >
-              <span>
-                Search website
-              </span>
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
                
               <!---->
-            </button>
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </header>
     
@@ -36870,65 +36979,83 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
   <header
     class="rpl-site-header-container"
   >
-    <div
-      class="rpl-site-header"
-    >
+    <div>
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-            >
-              <!---->
-               
-              <span>
-                Menu
-              </span>
-            </button>
-             
             <div
-              class="rpl-site-header__title"
+              class="rpl-site-header__top"
             >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__logo-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
-            </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
-             
-            <button
-              class="rpl-site-header__btn rpl-site-header__btn--search"
-            >
-              <span>
-                Search website
-              </span>
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
                
               <!---->
-            </button>
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </header>
     
@@ -37844,65 +37971,83 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
   <header
     class="rpl-site-header-container"
   >
-    <div
-      class="rpl-site-header"
-    >
+    <div>
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-            >
-              <!---->
-               
-              <span>
-                Menu
-              </span>
-            </button>
-             
             <div
-              class="rpl-site-header__title"
+              class="rpl-site-header__top"
             >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__logo-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
-            </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
-             
-            <button
-              class="rpl-site-header__btn rpl-site-header__btn--search"
-            >
-              <span>
-                Search website
-              </span>
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
                
               <!---->
-            </button>
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </header>
     
@@ -39099,65 +39244,83 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
   <header
     class="rpl-site-header-container"
   >
-    <div
-      class="rpl-site-header"
-    >
+    <div>
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-            >
-              <!---->
-               
-              <span>
-                Menu
-              </span>
-            </button>
-             
             <div
-              class="rpl-site-header__title"
+              class="rpl-site-header__top"
             >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__logo-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
-            </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
-             
-            <button
-              class="rpl-site-header__btn rpl-site-header__btn--search"
-            >
-              <span>
-                Search website
-              </span>
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
                
               <!---->
-            </button>
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </header>
     
@@ -40224,65 +40387,83 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
   <header
     class="rpl-site-header-container"
   >
-    <div
-      class="rpl-site-header"
-    >
+    <div>
       <div
-        class="rpl-site-header__inner"
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
       >
         <div
-          class="rpl-site-header__top"
+          class="rpl-site-header"
         >
           <div
-            class="rpl-site-header__logo-container"
+            class="rpl-site-header__inner"
           >
-            <button
-              aria-expanded="false"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-            >
-              <!---->
-               
-              <span>
-                Menu
-              </span>
-            </button>
-             
             <div
-              class="rpl-site-header__title"
+              class="rpl-site-header__top"
             >
-              <a
-                class="rpl-link"
-                href="#"
+              <div
+                class="rpl-site-header__logo-container"
               >
-                <img
-                  alt="vic.gov.au"
-                  src="/logo.svg"
-                />
-              </a>
-            </div>
-          </div>
-           
-          <!---->
-           
-          <div
-            class="rpl-site-header__btn-container"
-          >
-            <!---->
-             
-            <button
-              class="rpl-site-header__btn rpl-site-header__btn--search"
-            >
-              <span>
-                Search website
-              </span>
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/logo.svg"
+                    />
+                  </a>
+                </div>
+              </div>
                
               <!---->
-            </button>
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
           </div>
         </div>
-         
-        <!---->
       </div>
+       
+      <div
+        tabindex="-1"
+      />
     </div>
   </header>
     

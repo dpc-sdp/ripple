@@ -213,6 +213,7 @@ export default {
 
     &__primary_arrow {
       display: none;
+      pointer-events: none;
       @include rpl_breakpoint('xl') {
         display: block;
         background: $rpl-campaign-primary-primary-arrow-background;

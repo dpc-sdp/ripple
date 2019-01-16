@@ -1,5 +1,6 @@
 <template>
   <transition name="rpl-header-fade">
+    <Trap :disabled="!menuContentOpen">
     <div v-show="headerVisible"
       class="rpl-site-header"
       :class="{
@@ -67,10 +68,11 @@
         </div>
         <!-- Search Content -->
         <div v-if="menuContentOpen && searchState == 'opened'" class="rpl-site-header__search-container">
-          <rpl-search :terms="searchTerms" @search="searchFunc" />
+            <rpl-search :terms="searchTerms" @search="searchFunc" />
         </div>
       </div>
     </div>
+    </Trap>
   </transition>
 </template>
 
@@ -79,6 +81,7 @@ import RplMenu from './menu'
 import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
+import Trap from 'vue-focus-lock'
 
 export default {
   name: 'RplSiteHeader',
@@ -93,6 +96,7 @@ export default {
     showLogout: { default: false, type: Boolean }
   },
   components: {
+    Trap,
     RplIcon,
     RplLink,
     RplMenu,

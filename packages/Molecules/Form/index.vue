@@ -24,6 +24,7 @@ import fieldRplchecklist from './fields/fieldRplchecklist.vue'
 import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
+import fieldRplmarkup from './fields/fieldRplmarkup.vue'
 Vue.component('multiselect', Multiselect)
 Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)
@@ -31,6 +32,7 @@ Vue.component('fieldRplchecklist', fieldRplchecklist)
 Vue.component('fieldRpldatepicker', fieldRpldatepicker)
 Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
 Vue.component('fieldRpldivider', fieldRpldivider)
+Vue.component('fieldRplmarkup', fieldRplmarkup)
 
 export { VueFormGenerator }
 

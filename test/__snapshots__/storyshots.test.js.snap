@@ -13123,6 +13123,42 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
+            class="form-group valid field-rplmarkup"
+          >
+            <!---->
+             
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="rpl-markup"
+              >
+                <h3>
+                  Markup field
+                </h3>
+                <p>
+                  A paragraph of 
+                  <strong>
+                    text
+                  </strong>
+                   with a 
+                  <a
+                    href="https://vic.gov.au"
+                  >
+                    link
+                  </a>
+                  .
+                </p>
+              </div>
+               
+              <!---->
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
+          <div
             class="form-group valid field-rplcheckbox"
           >
             <!---->
@@ -13134,7 +13170,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="rpl-checkbox"
               >
                 <input
-                  id="693-checkbox"
+                  id="695-checkbox"
                   type="checkbox"
                 />
                  
@@ -13190,7 +13226,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="697-multi-select-list-box"
+                          id="699-multi-select-list-box"
                           name="Topic-A"
                           type="checkbox"
                         />
@@ -13215,7 +13251,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="699-multi-select-list-box"
+                          id="701-multi-select-list-box"
                           name="Topic-B"
                           type="checkbox"
                         />
@@ -13240,7 +13276,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="701-multi-select-list-box"
+                          id="703-multi-select-list-box"
                           name="Topic-C"
                           type="checkbox"
                         />
@@ -13265,7 +13301,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="703-multi-select-list-box"
+                          id="705-multi-select-list-box"
                           name="Topic-D"
                           type="checkbox"
                         />

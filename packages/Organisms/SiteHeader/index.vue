@@ -112,8 +112,8 @@ export default {
   data: function () {
     return {
       vicLogoStatic: {
-        location: '/img/vic_logo.svg',
-        alt: 'buyingfor.vic.gov.au',
+        location: '/vic_logo.svg',
+        alt: 'vic_logo',
         url: '/'
       },
       menuContentOpen: false,

@@ -1,12 +1,18 @@
 <template>
-  <div class="rpl-markup" v-html="schema.markup"></div>
+  <rpl-wysiwyg class="rpl-markup" :html="markup" />
 </template>
 
 <script>
 import { abstractField } from 'vue-form-generator'
-
+import RplWysiwyg from '@dpc-sdp/ripple-wysiwyg'
 export default {
-  mixins: [abstractField]
+  mixins: [abstractField],
+  components: {RplWysiwyg},
+  computed: {
+    markup () {
+      return this.schema.markup
+    }
+  }
 }
 </script>
 

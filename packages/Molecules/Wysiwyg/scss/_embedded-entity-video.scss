@@ -1,0 +1,39 @@
+$wysiwyg-video-padding-bottom: 56.25% !default;
+$wysiwyg-video-padding-top: $rpl-space-4;
+$wysiwyg-video-height: 0;
+$wysiwyg-video-background-image: url('/img/view.svg') !default;
+$wysiwyg-video-link-ruleset: (xs, 1em, 'semibold');
+$wysiwyg-video-link-padding: $rpl-space-4 0 $rpl-space-4 ($rpl-space * 5);
+$wysiwyg-video-link-text-colour: rpl_color('primary') !default;
+
+.tide-wysiwyg {
+
+  .media--type-embedded-video {
+
+    .video-embed-field-responsive-video {
+      position: relative;
+      padding-bottom: $wysiwyg-video-padding-bottom;
+      padding-top: $wysiwyg-video-padding-top;
+      height: $wysiwyg-video-height;
+      overflow: hidden;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .field--name-field-media-link {
+      @include rpl_typography_ruleset($wysiwyg-video-link-ruleset);
+      padding: $wysiwyg-video-link-padding;
+      background: 0 50% $wysiwyg-video-background-image no-repeat transparent;
+
+      a {
+        color: $wysiwyg-video-link-text-colour;
+      }
+    }
+  }
+}

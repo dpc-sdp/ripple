@@ -1,0 +1,48 @@
+$table-stripe-color: rpl-color('light_neutral');
+$table-border: 1px solid rpl-color('mid_neutral_1');
+$table-header-ruleset: ('s', 1em, 'bold');
+$table-padding: $rpl-space-4;
+
+.table-container {
+  border: $table-border;
+  border-radius: rem(4px);
+  overflow: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+    caption {
+      text-align: left;
+      padding: $table-padding;
+      vertical-align: top;
+    }
+
+    thead {
+      tr {
+        background-color: $table-stripe-color;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: $table-stripe-color;
+        }
+      }
+    }
+
+    th {
+      @include rpl_typography_ruleset($table-header-ruleset);
+      text-align: left;
+    }
+
+    th,
+    td {
+      padding: $table-padding;
+      vertical-align: top;
+    }
+  }
+}

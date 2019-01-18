@@ -1310,23 +1310,28 @@ const demoData = {
   }),
 
   form: () => ({
+    submitHandler () {
+      console.log(this.formData.model)
+    },
+    isNewModel: true,
+    options: {
+      validateAfterChanged: true
+    },
     formData: {
-
       model: {
         hidden: '',
-        text: '',
+        text: null,
         email: '',
         tel: '',
         number: '',
         radio: null,
-        textArea: '',
+        textArea: null,
         dateRange: ['', ''],
         date: '',
         checkbox: true,
-        select: [],
-        vuemultiselect: [],
-        checklistlistbox: [],
-        checklistdropdown: [],
+        select: '',
+        checklistlistbox: null,
+        checklistdropdown: null,
         rangeslider: [10000, 70000]
       },
 
@@ -1344,6 +1349,12 @@ const demoData = {
             label: 'Text',
             hint: 'This is a hint text',
             required: true,
+            validator (value) {
+              if (value === '') {
+                return ['This field is required']
+              }
+              return []
+            },
             placeholder: 'Enter some text...',
             model: 'text'
           },
@@ -1393,7 +1404,12 @@ const demoData = {
             hint: 'This is a hint text',
             rows: 4,
             required: true,
-
+            validator (value) {
+              if (value === '') {
+                return ['This field is required']
+              }
+              return []
+            },
             visible (model) {
               return model && model.was_this_page_helpful !== null
             }
@@ -1457,6 +1473,13 @@ const demoData = {
           {
             type: 'rplchecklist',
             label: 'Multi-select drop down',
+            validator (value) {
+              if ((Array.isArray(value) && value.length > 0) || value === null) {
+                return []
+              }
+              return ['Add a selection']
+            },
+            min: 1,
             required: true,
             model: 'checklistdropdown',
             hint: 'Implemented using rplchecklist',
@@ -1466,7 +1489,14 @@ const demoData = {
 
           {
             type: 'rplselect',
-            model: 'vuemultiselect',
+            model: 'select',
+            required: true,
+            validator (value) {
+              if (value === null) {
+                return ['Add a selection']
+              }
+              return []
+            },
             label: 'Single-select drop down',
             hint: 'Implemented using vue-multiselect',
             placeholder: 'Select a single topic',

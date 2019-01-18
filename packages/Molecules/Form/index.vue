@@ -173,7 +173,10 @@ export default {
 
   .error {
     input,
-    textarea {
+    textarea,
+    .multiselect__tags,
+    .form-control
+    {
       @include rpl_from_element_error;
     }
   }
@@ -183,6 +186,8 @@ export default {
     margin-top: $rpl-space-3;
 
     &.errors {
+      order: 2;
+      margin-bottom: $rpl-space-2;
       color: rpl-color('danger');
     }
   }

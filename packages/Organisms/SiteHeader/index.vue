@@ -344,7 +344,7 @@ export default {
       }
 
       img {
-        width: $rpl-site-header-logo-width;
+        width: 6.75rem;
         margin-left: $rpl-site-header-menu-toggle-border-spacing;
       }
 

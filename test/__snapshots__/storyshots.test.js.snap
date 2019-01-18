@@ -13337,7 +13337,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
-            class="form-group valid field-rplchecklist"
+            class="form-group valid required field-rplchecklist"
           >
             <label
               for="multi-select-drop-down"
@@ -13392,7 +13392,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
-            class="form-group valid field-vueMultiSelect"
+            class="form-group valid field-rplselect"
           >
             <label
               for="single-select-drop-down"
@@ -13526,9 +13526,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       <span
                         class="multiselect__option"
                       >
-                        <span>
-                          
-                        </span>
+                        No elements found. Consider changing the search query.
                       </span>
                     </li>
                      

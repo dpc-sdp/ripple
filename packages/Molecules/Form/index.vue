@@ -16,8 +16,9 @@
 <script>
 import Vue from 'vue'
 import RplFormAlert from './formAlert'
-import VueFormGenerator from 'vue-form-generator'
 import Multiselect from 'vue-multiselect'
+import VueFormGenerator from 'vue-form-generator'
+import fieldRplselect from './fields/fieldRplselect.vue'
 import fieldRplslider from './fields/fieldRplslider.vue'
 import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
@@ -25,7 +26,9 @@ import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
-Vue.component('multiselect', Multiselect)
+
+Vue.component('Multiselect', Multiselect)
+Vue.component('fieldRplselect', fieldRplselect)
 Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
@@ -40,7 +43,7 @@ export default {
   name: 'RplForm',
   components: {
     'vue-form-generator': VueFormGenerator.component,
-    Multiselect,
+    fieldRplselect,
     fieldRplslider,
     fieldRplchecklist,
     fieldRpldatepicker,
@@ -200,7 +203,7 @@ export default {
     }
 
     &.required {
-      label {
+      > label {
         &:after {
           margin-left: $rpl-space;
           @include rpl_typography_ruleset($rpl-form-required-ruleset);

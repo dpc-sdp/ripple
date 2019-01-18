@@ -1323,7 +1323,8 @@ const demoData = {
         dateRange: ['', ''],
         date: '',
         checkbox: true,
-        vuemultiselect: null,
+        select: [],
+        vuemultiselect: [],
         checklistlistbox: [],
         checklistdropdown: [],
         rangeslider: [10000, 70000]
@@ -1456,6 +1457,7 @@ const demoData = {
           {
             type: 'rplchecklist',
             label: 'Multi-select drop down',
+            required: true,
             model: 'checklistdropdown',
             hint: 'Implemented using rplchecklist',
             placeholder: 'Select multiple topics',
@@ -1463,18 +1465,19 @@ const demoData = {
           },
 
           {
-            type: 'vueMultiSelect',
+            type: 'rplselect',
             model: 'vuemultiselect',
             label: 'Single-select drop down',
             hint: 'Implemented using vue-multiselect',
             placeholder: 'Select a single topic',
             selectOptions: {
-              multiSelect: false,
+              trackBy: 'id',
+              label: 'name',
               closeOnSelect: true,
               searchable: false,
               showLabels: false
             },
-            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
           },
 
           {

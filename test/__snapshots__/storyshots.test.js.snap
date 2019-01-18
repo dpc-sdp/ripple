@@ -29470,6 +29470,20 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -31396,6 +31410,20 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -32185,6 +32213,20 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -32901,6 +32943,20 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                   </span>
                 </button>
                  
+                <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
                 <div
                   class="rpl-site-header__title"
                 >
@@ -33686,6 +33742,20 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   </span>
                 </button>
                  
+                <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
                 <div
                   class="rpl-site-header__title"
                 >
@@ -37681,6 +37751,20 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -38527,6 +38611,20 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                   </span>
                 </button>
                  
+                <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
                 <div
                   class="rpl-site-header__title"
                 >
@@ -39641,6 +39739,20 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
                   </span>
                 </button>
                  
+                <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
                 <div
                   class="rpl-site-header__title"
                 >
@@ -40915,6 +41027,20 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -42069,6 +42195,20 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                   </span>
                 </button>
                  
+                <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static rpl-site-header__logo-container--vic-logo-static--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="/vic_logo.svg"
+                    />
+                  </a>
+                </div>
+
                 <div
                   class="rpl-site-header__title"
                 >

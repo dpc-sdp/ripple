@@ -23,8 +23,15 @@
               <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
               <span>{{ menuButton[menuState].text }}</span>
             </button>
-            <!-- Logo -->
-            <div v-if="!menuContentOpen && logo" class="rpl-site-header__title">
+            <!-- Static vic.gov.au Logo -->
+            <div v-if="!menuContentOpen" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static" :class = "{'rpl-site-header__logo-container--vic-logo-static--cobrand' : (logo)}"> <!--If there is no cobrand logo, never hide the VIC logo-->
+              <rpl-link :href="vicLogoStatic.url">
+                <img :src="vicLogoStatic.location" :alt="vicLogoStatic.alt" />
+              </rpl-link>
+            </div>
+
+            <!--Co brand logo if it exists-->
+            <div v-if="!menuContentOpen && logo" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
               <rpl-link :href="logo.url">
                 <img :src="logo.image" :alt="logo.alt" />
               </rpl-link>
@@ -104,6 +111,11 @@ export default {
   },
   data: function () {
     return {
+      vicLogoStatic: {
+        location: '/img/vic_logo.svg',
+        alt: 'buyingfor.vic.gov.au',
+        url: '/'
+      },
       menuContentOpen: false,
       searchState: 'closed',
       menuState: 'closed',
@@ -335,6 +347,29 @@ export default {
         width: $rpl-site-header-logo-width;
         margin-left: $rpl-site-header-menu-toggle-border-spacing;
       }
+
+      &--vic-logo-static {
+        display: block; //always show vic.gov logo if no cobrand logo
+
+        img {
+          width: rem(88px);
+        }
+
+        &--cobrand {
+
+          padding-right: 0.5rem;
+          border-right: 1px solid #fff;
+          display: none;
+
+          @include rpl_breakpoint('m'){
+
+            display: block;
+
+          }
+
+        }
+
+      }
     }
 
     // Menu Container - changes for vert / horizontal
@@ -391,6 +426,13 @@ export default {
         border-right: $rpl-site-header-menu-toggle-border-right;
         @include rpl_breakpoint('l') {
           display: none;
+        }
+
+        span{
+          display: none;
+          @include rpl_breakpoint('s') {
+            display: block;
+          }
         }
 
         .rpl-icon {

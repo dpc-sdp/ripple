@@ -12605,6 +12605,8 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
     <form
       class="rpl-form"
       data-v-6ca0e090=""
+      is-new-model="true"
+      options="[object Object]"
     >
       <!---->
        
@@ -13392,7 +13394,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
-            class="form-group valid field-rplselect"
+            class="form-group valid required field-rplselect"
           >
             <label
               for="single-select-drop-down"
@@ -13622,6 +13624,42 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             class="hljs-string"
           >
             "formData"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :submitHandler
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "submitHandler"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :is-new-model
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "isNewModel"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :options
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "options"
           </span>
           &gt;
         </span>

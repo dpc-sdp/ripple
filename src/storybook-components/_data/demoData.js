@@ -1336,7 +1336,7 @@ const demoData = {
         date: '',
         checkbox: true,
         select: '',
-        multiselect: [],
+        multiselect: null,
         checklistlistbox: null,
         checklistdropdown: null,
         rangeslider: [10000, 70000]
@@ -1481,14 +1481,14 @@ const demoData = {
             type: 'rplchecklist',
             label: 'Multi-select drop down',
             validator (value) {
-              if ((Array.isArray(value) && value.length > 0) || value === null) {
+              if (Array.isArray(value) && value.length > 0) {
                 return []
               }
               return ['Add a selection']
             },
             min: 1,
             required: true,
-            model: 'checklistdropdown',
+            model: 'multiselect',
             hint: 'Implemented using rplchecklist',
             placeholder: 'Select multiple topics',
             values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
@@ -1498,12 +1498,7 @@ const demoData = {
             type: 'rplselect',
             model: 'select',
             required: true,
-            validator (value) {
-              if (value === null) {
-                return ['Add a selection']
-              }
-              return []
-            },
+            validator: ['required'],
             label: 'Single-select drop down',
             hint: 'Implemented using vue-multiselect',
             placeholder: 'Select a single topic',

@@ -31,7 +31,7 @@ export default {
     inputDisabled: Boolean,
     inputName: String,
     inputClass: Object,
-    inputRequired: String,
+    inputRequired: Boolean,
     inlineLabel: String
   },
   components: {

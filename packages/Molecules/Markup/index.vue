@@ -29,9 +29,10 @@ export default {
     getTemplate () {
       // Run our transpile to turn html into vue template.
       const html = `<div class="rpl-markup__inner">${this.html}</div>`
+      const plugins = this.plugins || this.rplOptions.markupPlugins
 
-      if (this.rplOptions.markupPlugins && this.rplOptions.markupPlugins.length > 0) {
-        const template = markupTranspiler(html, this.rplOptions.markupPlugins)
+      if (plugins && plugins.length > 0) {
+        const template = markupTranspiler(html, plugins)
         return template
       }
       return html

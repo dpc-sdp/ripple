@@ -22259,7 +22259,81 @@ exports[`RippleStoryshots Molecules/Wysiwyg Wysiwyg 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
-    <!---->
+    <div
+      class="rpl-markup tide-wysiwyg app-wysiwyg"
+      data-v-6ca0e090=""
+    >
+      <div
+        class="rpl-markup__inner"
+      >
+        <figure
+          class="rpl-document-link"
+        >
+          <a
+            aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+            class="rpl-document-link__link"
+            href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+            target="_blank"
+          >
+            <!---->
+             
+            <div
+              class="rpl-document-link__info"
+            >
+              <span
+                class="rpl-document-link__title"
+              >
+                 Detailed Guide on the mandatory IR management criteria 
+              </span>
+               
+              <div
+                class="rpl-document-link__meta"
+              >
+                <span
+                  class="rpl-document-link__type"
+                >
+                  docx
+                </span>
+                 
+                <span
+                  class="rpl-document-link__size rpl-document-link__size--seperator"
+                >
+                  75.22 KB
+                </span>
+              </div>
+            </div>
+          </a>
+           
+          <!---->
+        </figure>
+         
+        <p>
+          A paragraph of 
+          <strong>
+            text
+          </strong>
+           with a 
+          <a
+            class="rpl-link rpl-text-link"
+            href="https://vic.gov.au"
+          >
+            <span>
+              <!---->
+               
+              <!---->
+               
+              <span
+                class="rpl-text-icon__group"
+              >
+                link
+                <!---->
+              </span>
+            </span>
+          </a>
+          .
+        </p>
+      </div>
+    </div>
   </div>
    
   <!---->
@@ -38884,7 +38958,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="2968-checkbox-required"
+                              id="2988-checkbox-required"
                               required="required"
                               type="checkbox"
                             />

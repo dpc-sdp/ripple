@@ -1,5 +1,5 @@
 <template>
-  <rpl-wysiwyg class="rpl-markup" :html="markup" />
+  <rpl-wysiwyg class="rpl-markup" :plugins="this.schema.plugins" :html="markup" />
 </template>
 
 <script>

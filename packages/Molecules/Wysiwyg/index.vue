@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
-import { anchorUtils } from './anchorlinks.js'
 import { wysiwygTranspiler } from './wysiwyg-transpiler'
 
 // To make runtime build work, we need to register the component globally
@@ -25,28 +23,16 @@ export default {
   name: 'RplWysiwyg',
   props: {
     'html': String,
+    'plugins': { type: Array },
     'parseForAnchorLinks': { type: Boolean, default: false }
   },
   mounted () {
     this.$nextTick(function () {
-      this.externalLinksRender()
+      // TODO make this a plugin
       this.tableRender()
     })
   },
   methods: {
-    externalLinksRender () {
-      // Render the external link.
-      const links = Array.from(this.$el.querySelectorAll('a'))
-      links.forEach((link) => {
-        // Some broken HTML has a element without `href`.
-        if (link.attributes.href) {
-          if (isExternalUrl(link.attributes.href.value, this.rplOptions.hostname)) {
-            link.classList.add('rpl-wysiwyg')
-            link.setAttribute('target', '_blank')
-          }
-        }
-      })
-    },
     tableRender () {
       // Wrap tables with a div.
       const tables = Array.from(this.$el.querySelectorAll('table'))
@@ -60,13 +46,14 @@ export default {
   },
   computed: {
     getTemplate () {
-      // TODO: We may add existing achorlinks functionality into wysiwygTranspiler later.
-      const html = this.parseForAnchorLinks ? anchorUtils.getAnchorLinkHTML(this.html) : this.html
-
       // Run our transpile to turn html into vue template.
-      // TODO: template = wysiwygTransple(html)
-      const template = wysiwygTranspiler(html)
-      return template
+      const html = `<div class="rpl-wysiwyg__inner">${this.html}</div>`
+
+      if (this.plugins.length > 0) {
+        const template = wysiwygTranspiler(html, this.plugins)
+        return template
+      }
+      return html
     }
   }
 }

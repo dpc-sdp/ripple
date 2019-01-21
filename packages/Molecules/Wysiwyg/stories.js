@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
-
+import plugins from './examplePlugins'
 import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
@@ -15,8 +15,11 @@ storiesOf('Molecules/Wysiwyg', module)
   .addDecorator(withKnobs)
   .add('Wysiwyg', withReadme(readme, () => ({
     components: { RplWysiwyg },
-    template: `<rpl-wysiwyg :html="html" />`,
+    template: `<rpl-wysiwyg :html="html" :plugins="plugins" />`,
     data () {
-      return demoData.wysiwyg()
+      return {
+        ...demoData.wysiwyg(),
+        plugins
+      }
     }
   })))

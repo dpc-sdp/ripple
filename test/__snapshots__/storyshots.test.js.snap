@@ -38969,7 +38969,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="2974-checkbox-required"
+                              id="2968-checkbox-required"
                               required="required"
                               type="checkbox"
                             />

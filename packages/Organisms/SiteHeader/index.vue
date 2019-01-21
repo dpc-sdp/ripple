@@ -23,8 +23,8 @@
               <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
               <span>{{ menuButton[menuState].text }}</span>
             </button>
-            <!-- Static vic.gov.au Logo -->
-            <div v-if="!menuContentOpen" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-static" :class = "{'rpl-site-header__logo-container--vic-logo-static--cobrand' : (logo)}"> <!--If there is no cobrand logo, never hide the VIC logo-->
+            <!-- Primary vic.gov.au Logo -->
+            <div v-if="!menuContentOpen" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--If there is no cobrand logo, never hide the VIC logo-->
               <rpl-link :href="vicLogoStatic.url">
                 <img :src="vicLogoStatic.location" :alt="vicLogoStatic.alt" />
               </rpl-link>
@@ -260,6 +260,7 @@ export default {
   @import "scss/site_header";
 
   $rpl-site-header-logo-width: auto !default;
+  $rpl-site-header-logo-primary-width: rem(98px);
   $rpl-site-header-text-color: rpl-color('white') !default;
   $rpl-site-header-border-radius: rem(4px) !default;
   $rpl-site-header-background-color: rpl-color('primary') !default;
@@ -344,15 +345,15 @@ export default {
       }
 
       img {
-        width: 6.75rem;
+        width: $rpl-site-header-logo-width;
         margin-left: $rpl-site-header-menu-toggle-border-spacing;
       }
 
-      &--vic-logo-static {
+      &--vic-logo-primary {
         display: block; //always show vic.gov logo if no cobrand logo
 
         img {
-          width: rem(88px);
+          width: $rpl-site-header-logo-primary-width;
         }
 
         &--cobrand {

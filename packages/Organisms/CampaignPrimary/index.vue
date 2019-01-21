@@ -112,6 +112,10 @@ export default {
     }
 
     &__left {
+
+      @include rpl_breakpoint('m'){
+        @include rpl_grid_column(6);
+      }
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(6);
       }
@@ -173,7 +177,7 @@ export default {
       @include rpl_breakpoint('m') {
         position: absolute;
         right: 0;
-        bottom: 100%;
+        bottom: 0%;
         width: 50%;
       }
       @include rpl_breakpoint('xl') {
@@ -214,14 +218,17 @@ export default {
     &__primary_arrow {
       display: none;
       pointer-events: none;
-      @include rpl_breakpoint('xl') {
+
+      background: $rpl-campaign-primary-primary-arrow-background;
+      width: rem(48px);
+      height: rem(100px);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      @include rpl_breakpoint('m')
+      {
         display: block;
-        background: $rpl-campaign-primary-primary-arrow-background;
-        width: rem(48px);
-        height: rem(100px);
-        position: absolute;
-        bottom: 0;
-        right: 0;
       }
 
       .rpl-icon {

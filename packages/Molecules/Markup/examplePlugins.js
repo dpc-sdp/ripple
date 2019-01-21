@@ -17,7 +17,7 @@ const pluginButton = function () {
 const pluginTables = function () {
   // Wrap tables with a div.
   const wrapperClass = 'table-container'
-  this.find('table').map(i, el => {
+  this.find('table').map(el => {
     const $table = this.find(el)
     const markup = `<div class="${wrapperClass}">${$table}</table>`
     return $table.replaceWith(markup)

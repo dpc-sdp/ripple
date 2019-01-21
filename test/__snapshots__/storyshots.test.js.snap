@@ -13142,44 +13142,46 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     Markup field
                   </h3>
                    
-                  <article
-                    class="embedded-entity embedded-entity--media embedded-entity--media--document"
+                  <figure
+                    class="rpl-document-link"
                   >
-                    <article
-                      class="media media--type-document media--view-mode-embedded"
+                    <a
+                      aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+                      class="rpl-document-link__link"
+                      href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+                      target="_blank"
                     >
+                      <!---->
+                       
                       <div
-                        class="field field--name-field-media-file field--type-file field--label-hidden field__item"
+                        class="rpl-document-link__info"
                       >
                         <span
-                          class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"
+                          class="rpl-document-link__title"
                         >
-                          <a
-                            aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB."
-                            class="x-office-document tide-external-link"
-                            href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-                            target="_blank"
-                          >
-                            <span
-                              class="file--title"
-                            >
-                               Detailed Guide on the mandatory IR management criteria 
-                            </span>
-                            <span
-                              class="file--type"
-                            >
-                              Word
-                            </span>
-                            <span
-                              class="file--size"
-                            >
-                              75.22 KB
-                            </span>
-                          </a>
+                           Detailed Guide on the mandatory IR management criteria 
                         </span>
+                         
+                        <div
+                          class="rpl-document-link__meta"
+                        >
+                          <span
+                            class="rpl-document-link__type"
+                          >
+                            docx
+                          </span>
+                           
+                          <span
+                            class="rpl-document-link__size rpl-document-link__size--seperator"
+                          >
+                            75.22 KB
+                          </span>
+                        </div>
                       </div>
-                    </article>
-                  </article>
+                    </a>
+                     
+                    <!---->
+                  </figure>
                    
                   <p>
                     A paragraph of 
@@ -13188,9 +13190,21 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     </strong>
                      with a 
                     <a
+                      class="rpl-link rpl-text-link"
                       href="https://vic.gov.au"
                     >
-                      link
+                      <span>
+                        <!---->
+                         
+                        <!---->
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                          link
+                          <!---->
+                        </span>
+                      </span>
                     </a>
                     .
                   </p>
@@ -13216,7 +13230,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="rpl-checkbox"
               >
                 <input
-                  id="697-checkbox"
+                  id="702-checkbox"
                   type="checkbox"
                 />
                  
@@ -13272,7 +13286,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="701-multi-select-list-box"
+                          id="706-multi-select-list-box"
                           name="Topic-A"
                           type="checkbox"
                         />
@@ -13297,7 +13311,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="703-multi-select-list-box"
+                          id="708-multi-select-list-box"
                           name="Topic-B"
                           type="checkbox"
                         />
@@ -13322,7 +13336,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="705-multi-select-list-box"
+                          id="710-multi-select-list-box"
                           name="Topic-C"
                           type="checkbox"
                         />
@@ -13347,7 +13361,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="707-multi-select-list-box"
+                          id="712-multi-select-list-box"
                           name="Topic-D"
                           type="checkbox"
                         />
@@ -38958,7 +38972,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="2988-checkbox-required"
+                              id="2993-checkbox-required"
                               required="required"
                               type="checkbox"
                             />

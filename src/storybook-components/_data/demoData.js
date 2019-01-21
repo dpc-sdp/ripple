@@ -1312,6 +1312,12 @@ const demoData = {
   form: () => ({
     submitHandler () {
       console.log(this.formData.model)
+      this.formData.formState = {
+        response: {
+          status: 'success',
+          message: `<code>${JSON.stringify(this.formData.model)}</code>`
+        }
+      }
     },
     isNewModel: true,
     options: {
@@ -1330,6 +1336,7 @@ const demoData = {
         date: '',
         checkbox: true,
         select: '',
+        multiselect: [],
         checklistlistbox: null,
         checklistdropdown: null,
         rangeslider: [10000, 70000]
@@ -1503,6 +1510,29 @@ const demoData = {
             selectOptions: {
               trackBy: 'id',
               label: 'name',
+              closeOnSelect: true,
+              searchable: false,
+              showLabels: false
+            },
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+          },
+          {
+            type: 'rplselect',
+            model: 'multiselect',
+            required: true,
+            validator (value) {
+              if (value === null) {
+                return ['Add a selection']
+              }
+              return []
+            },
+            label: 'Multi-select drop down',
+            hint: 'Implemented using vue-multiselect',
+            placeholder: 'Select several topics',
+            selectOptions: {
+              trackBy: 'id',
+              label: 'name',
+              multiple: true,
               closeOnSelect: true,
               searchable: false,
               showLabels: false

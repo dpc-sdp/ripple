@@ -3,7 +3,6 @@
     :options="options"
     :value="localValue"
     v-bind="selectOptions"
-    :multiple="false"
     :placeholder="schema.placeholder"
     :custom-label="customLabel"
     :max="schema.max || null"
@@ -20,6 +19,7 @@ import { abstractField } from 'vue-form-generator'
 
 // See discussion on this issue:
 // https://github.com/shentao/vue-multiselect/issues/385
+// this might be able to removed if vue-multiselect implements fix
 
 export default {
   mixins: [abstractField],
@@ -55,15 +55,47 @@ export default {
   },
   methods: {
     updateSelected (value) {
+      const trackBy = this.selectOptions.trackBy || 'id'
+      const isObj = (v) => typeof v === 'object' && v !== null && v.hasOwnProperty(trackBy)
+
       if (!this.selectOptions.multiple) {
         this.localValue = value
-        if (typeof value === 'object' && value !== null) {
-          this.value = value[this.selectOptions.trackBy || 'id']
+        if (isObj(value)) {
+          this.value = value[trackBy]
         } else {
           this.value = value
         }
       } else {
-        // TODO handle multiple selection
+        if (this.localValue === null) {
+          this.localValue = []
+        }
+        if (this.value === null) {
+          this.value = []
+        }
+        let toRemove = false
+
+        value.forEach(v => {
+          if (!this.localValue.includes(v)) {
+            this.localValue.push(v)
+            this.value.push(isObj(v) ? v[trackBy] : v)
+          } else {
+            toRemove = true
+          }
+        })
+        // value is already selected - remove it
+        if (toRemove) {
+          this.localValue = value
+          if (value.every(v => isObj(v))) {
+            this.value = value[trackBy]
+          } else {
+            this.value = value
+          }
+        }
+
+        if (Array.isArray(value) && value.length === 0) {
+          this.value = []
+          this.localValue = []
+        }
       }
     },
     addTag (newTag, id) {

@@ -1,7 +1,6 @@
 <template>
   <form class="rpl-form" @submit="onSubmit">
-    <rpl-form-alert v-if="formData.formState.response" :variant="formData.formState.response.status">
-      {{ formData.formState.response.message }}
+    <rpl-form-alert ref="alert" v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
     </rpl-form-alert>
     <vue-form-generator
       :schema="formData.schema"
@@ -26,6 +25,7 @@ import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
+import VueScrollTo from 'vue-scrollto'
 
 Vue.component('Multiselect', Multiselect)
 Vue.component('fieldRplselect', fieldRplselect)
@@ -53,7 +53,8 @@ export default {
   props: {
     formData: Object,
     submitHandler: Function,
-    hideAfterSuccess: Boolean
+    hideAfterSuccess: Boolean,
+    scrollTo: {type: Boolean, default: true}
   },
   methods: {
     hideForm () {
@@ -63,11 +64,21 @@ export default {
         return true
       }
     },
+    scrollToMessage () {
+      if (this.scrollTo) {
+        this.$nextTick(function () {
+          if (this.$refs.alert) {
+            VueScrollTo.scrollTo(this.$refs.alert, 500, { offset: -150 })
+          }
+        })
+      }
+    },
     onSubmit (event) {
       event.preventDefault()
       // Run custom submit callback if no error in validation
       if (this.$refs.vfg.errors.length === 0) {
         this.submitHandler()
+        this.scrollToMessage()
       }
     },
     onValidated (isValid, errors) {

@@ -38305,6 +38305,120 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                         <!---->
                       </div>
                       <div
+                        class="form-group valid field-rpldatepicker"
+                      >
+                        <label
+                          for="date-range"
+                        >
+                          <span>
+                            Date range
+                          </span>
+                           
+                          <!---->
+                        </label>
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <div
+                            class="rpl-date-picker rpl-date-picker--range"
+                          >
+                            <input
+                              class="rpl-date-picker__start"
+                              placeholder="Start"
+                              type="text"
+                            />
+                             
+                            <span
+                              class="rpl-date-picker__separator"
+                            >
+                              -
+                            </span>
+                             
+                            <input
+                              class="rpl-date-picker__end"
+                              placeholder="End"
+                              type="text"
+                            />
+                          </div>
+                           
+                          <!---->
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="form-group valid field-rpldatepicker"
+                      >
+                        <label
+                          for="single-date"
+                        >
+                          <span>
+                            Single date
+                          </span>
+                           
+                          <!---->
+                        </label>
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <div
+                            class="rpl-date-picker rpl-date-picker--single"
+                          >
+                            <input
+                              placeholder="Enter a date"
+                              type="text"
+                            />
+                          </div>
+                           
+                          <!---->
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="form-group valid required field-rplcheckbox"
+                      >
+                        <!---->
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <label
+                            class="rpl-checkbox"
+                          >
+                            <input
+                              id="2968-checkbox-required"
+                              required="required"
+                              type="checkbox"
+                            />
+                             
+                            <span
+                              class="rpl-checkbox__box"
+                            >
+                              <!---->
+                            </span>
+                             
+                            <span
+                              class="rpl-checkbox__inline-label"
+                            >
+                              Required check box
+                            </span>
+                          </label>
+                           
+                          <!---->
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                      <div
                         class="form-group valid field-submit"
                       >
                         <!---->
@@ -38328,6 +38442,14 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                     </fieldset>
                   </div>
                 </form>
+                 
+                <button
+                  class="rpl-button rpl-button--secondary"
+                >
+                  Show form data
+                </button>
+                 
+                <!---->
               </div>
             </div>
              

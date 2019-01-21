@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-checklist wrapper">
+  <div v-click-outside="onClickOutside" class="rpl-checklist wrapper">
     <!-- List Box -->
     <div v-if="schema.listBox" class="rpl-checklist__combobox form-control" :disabled="disabled">
       <div class="rpl-checklist__list">
@@ -44,9 +44,13 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCheckbox from '../Checkbox.vue'
 import { isObject } from 'lodash'
 import { abstractField, schema } from 'vue-form-generator'
+import vClickOutside from 'v-click-outside'
 
 export default {
   mixins: [abstractField],
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
   components: {
     RplIcon,
     RplCheckbox
@@ -129,6 +133,9 @@ export default {
     },
     onExpandCombo () {
       this.comboExpanded = !this.comboExpanded
+    },
+    onClickOutside (event) {
+      this.comboExpanded = false
     },
     updateSize () {
       let str = this.schema.placeholder

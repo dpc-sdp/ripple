@@ -75,15 +75,17 @@ export default {
   methods: {
     // Range Methods
     startChange (val) {
-      const pikadate = moment(val)
-      this.returnStart = pikadate.format()
-      this.startRange(pikadate.toDate())
+      const hasVal = !!val
+      const pikadate = hasVal ? moment(val) : null
+      this.returnStart = hasVal ? pikadate.format() : ''
+      this.startRange(hasVal ? pikadate.toDate() : null)
       this.rangeUpdateDate()
     },
     endChange (val) {
-      const pikadate = moment(val)
-      this.returnEnd = pikadate.format()
-      this.endRange(pikadate.toDate())
+      const hasVal = !!val
+      const pikadate = hasVal ? moment(val) : null
+      this.returnEnd = hasVal ? pikadate.format() : ''
+      this.endRange(hasVal ? pikadate.toDate() : null)
       this.rangeUpdateDate()
     },
     startRange (date) {
@@ -113,7 +115,7 @@ export default {
     },
     // Single Methods
     singleUpdateDate (val) {
-      this.value = moment(val).format()
+      this.value = val ? moment(val).format() : null
     },
     ...dateFieldHelper
   }

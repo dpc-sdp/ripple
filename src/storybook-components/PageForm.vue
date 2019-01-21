@@ -30,6 +30,12 @@
       <rpl-row row-gutter class="demo-main">
         <rpl-col cols="full">
           <rpl-form :formData="formData" />
+          <rpl-button theme="secondary" @click.native="toggleFormData()">{{ showData ? 'Hide' : 'Show' }} form data</rpl-button>
+          <ul v-if="showData" class="page-form-data-demo">
+            <li v-for="(model, key) in formData.model" :key="key">
+              <strong>{{ key }}</strong> = <span>{{ model }}</span>
+            </li>
+          </ul>
         </rpl-col>
       </rpl-row>
 
@@ -63,6 +69,7 @@ import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
 
 // Banner
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
+import RplButton from '@dpc-sdp/ripple-button'
 
 export default {
   name: 'SPageForm',
@@ -83,16 +90,21 @@ export default {
     RplRelatedLinks,
 
     // Banner
-    RplHeroBanner
+    RplHeroBanner,
+    RplButton
   },
   props: {
     mock: Object
   },
   data () {
     return {
+      showData: false,
       formData: {
         model: {
-          vuemultiselect: null
+          vuemultiselect: null,
+          dateRange: ['', ''],
+          date: null,
+          checkbox_required: false
         },
 
         schema: {
@@ -113,6 +125,30 @@ export default {
             },
 
             {
+              type: 'rpldatepicker',
+              range: true,
+              label: 'Date range',
+              model: 'dateRange',
+              startPlaceholder: 'Start',
+              endPlaceholder: 'End'
+            },
+
+            {
+              type: 'rpldatepicker',
+              ranged: false,
+              label: 'Single date',
+              model: 'date',
+              placeholder: 'Enter a date'
+            },
+
+            {
+              type: 'rplcheckbox',
+              inlineLabel: 'Required check box',
+              model: 'checkbox_required',
+              required: true
+            },
+
+            {
               type: 'submit',
               buttonText: 'Submit'
             }
@@ -129,6 +165,10 @@ export default {
     }
   },
   methods: {
+    toggleFormData () {
+      this.showData = !this.showData
+    },
+
     // Methods for site header.
     searchFunc: function (value) {
       alert('Search for: "' + value + '"')
@@ -141,3 +181,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "~@dpc-sdp/ripple-global/scss/settings";
+
+.page-form-data-demo {
+  border: 1px dashed rpl-color('extra_dark_neutral');
+  padding: $rpl-space-4;
+  list-style: none;
+}
+</style>

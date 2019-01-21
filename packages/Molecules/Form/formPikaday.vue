@@ -6,7 +6,8 @@
     :disabled="disabled"
     :placeholder="placeholder"
     :readonly="readonly"
-    :name="inputName" />
+    :name="inputName"
+    @keyup="keyup"/>
 </template>
 
 <script>
@@ -53,6 +54,11 @@ export default {
         }
       }))
       this.$emit('init', this.picker)
+    },
+    keyup (e) {
+      if (this.displayVal === '') {
+        this.$emit('change', null)
+      }
     }
   },
   mounted () {

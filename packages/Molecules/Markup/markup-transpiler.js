@@ -1,6 +1,6 @@
 import cheerio from 'cheerio'
 
-export const wysiwygTranspiler = (html, plugins) => {
+export const markupTranspiler = (html, plugins) => {
   const $ = cheerio.load(html)
   const $body = $('body')
 

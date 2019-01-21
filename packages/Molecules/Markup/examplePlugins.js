@@ -14,6 +14,16 @@ const pluginButton = function () {
   })
 }
 
+const pluginTables = function () {
+  // Wrap tables with a div.
+  const wrapperClass = 'table-container'
+  this.find('table').map(i, el => {
+    const $table = this.find(el)
+    const markup = `<div class="${wrapperClass}">${$table}</table>`
+    return $table.replaceWith(markup)
+  })
+}
+
 const pluginEmbeddedDocument = function () {
   this.find('.embedded-entity--media--document, .embedded-entity .media--type-document').map((i, el) => {
     const $root = this.find(el)
@@ -76,7 +86,8 @@ const pluginLinks = function () {
 }
 
 export default [
-  pluginEmbeddedDocument,
   pluginButton,
+  pluginTables,
+  pluginEmbeddedDocument,
   pluginLinks
 ]

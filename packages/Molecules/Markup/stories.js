@@ -6,7 +6,7 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import RplWysiwyg from './index.vue'
+import RplMarkup from './index.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
@@ -14,12 +14,12 @@ storiesOf('Molecules/Wysiwyg', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
   .add('Wysiwyg', withReadme(readme, () => ({
-    components: { RplWysiwyg },
-    template: `<rpl-wysiwyg :html="html" :plugins="plugins" />`,
+    components: { RplMarkup },
+    template: `<rpl-markup :html="html" />`,
+    created () {
+      this.rplOptions.markupPlugins = plugins
+    },
     data () {
-      return {
-        ...demoData.wysiwyg(),
-        plugins
-      }
+      return demoData.wysiwyg()
     }
   })))

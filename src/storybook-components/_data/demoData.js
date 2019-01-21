@@ -11,7 +11,7 @@ import {
   selectV2
 } from '@storybook/addon-knobs/vue'
 
-import examplePlugins from '@dpc-sdp/ripple-wysiwyg/examplePlugins.js'
+import examplePlugins from '@dpc-sdp/ripple-markup/examplePlugins.js'
 
 // We can use general data for some common data type.
 // These data value can be reused.

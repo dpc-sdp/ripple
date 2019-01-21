@@ -1,13 +1,13 @@
 <template>
-  <rpl-wysiwyg class="rpl-markup" :plugins="this.schema.plugins" :html="markup" />
+  <rpl-markup class="rpl-markup" :plugins="this.schema.plugins" :html="markup" />
 </template>
 
 <script>
 import { abstractField } from 'vue-form-generator'
-import RplWysiwyg from '@dpc-sdp/ripple-wysiwyg'
+import RplMarkup from '@dpc-sdp/ripple-markup'
 export default {
   mixins: [abstractField],
-  components: {RplWysiwyg},
+  components: {RplMarkup},
   computed: {
     markup () {
       return this.schema.markup

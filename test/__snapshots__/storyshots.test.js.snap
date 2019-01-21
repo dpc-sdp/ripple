@@ -13133,55 +13133,54 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               class="field-wrap"
             >
               <div
-                class="rpl-wysiwyg tide-wysiwyg app-wysiwyg rpl-markup"
+                class="rpl-markup tide-wysiwyg app-wysiwyg rpl-markup"
               >
                 <div
-                  class="tide-wysiwyg__inner"
+                  class="rpl-markup__inner"
                 >
                   <h3>
                     Markup field
                   </h3>
                    
-                  <figure
-                    class="rpl-document-link"
+                  <article
+                    class="embedded-entity embedded-entity--media embedded-entity--media--document"
                   >
-                    <a
-                      aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
-                      class="rpl-document-link__link"
-                      href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-                      target="_blank"
+                    <article
+                      class="media media--type-document media--view-mode-embedded"
                     >
-                      <!---->
-                       
                       <div
-                        class="rpl-document-link__info"
+                        class="field field--name-field-media-file field--type-file field--label-hidden field__item"
                       >
                         <span
-                          class="rpl-document-link__title"
+                          class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"
                         >
-                           Detailed Guide on the mandatory IR management criteria 
+                          <a
+                            aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB."
+                            class="x-office-document tide-external-link"
+                            href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+                            target="_blank"
+                          >
+                            <span
+                              class="file--title"
+                            >
+                               Detailed Guide on the mandatory IR management criteria 
+                            </span>
+                            <span
+                              class="file--type"
+                            >
+                              Word
+                            </span>
+                            <span
+                              class="file--size"
+                            >
+                              75.22 KB
+                            </span>
+                          </a>
                         </span>
-                         
-                        <div
-                          class="rpl-document-link__meta"
-                        >
-                          <span
-                            class="rpl-document-link__type"
-                          >
-                            docx
-                          </span>
-                           
-                          <span
-                            class="rpl-document-link__size rpl-document-link__size--seperator"
-                          >
-                            75.22 KB
-                          </span>
-                        </div>
                       </div>
-                    </a>
-                     
-                    <!---->
-                  </figure>
+                    </article>
+                  </article>
+                   
                   <p>
                     A paragraph of 
                     <strong>
@@ -13189,21 +13188,9 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     </strong>
                      with a 
                     <a
-                      class="rpl-link rpl-text-link"
                       href="https://vic.gov.au"
                     >
-                      <span>
-                        <!---->
-                         
-                        <!---->
-                         
-                        <span
-                          class="rpl-text-icon__group"
-                        >
-                          link
-                          <!---->
-                        </span>
-                      </span>
+                      link
                     </a>
                     .
                   </p>
@@ -13229,7 +13216,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="rpl-checkbox"
               >
                 <input
-                  id="702-checkbox"
+                  id="697-checkbox"
                   type="checkbox"
                 />
                  
@@ -13285,7 +13272,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="706-multi-select-list-box"
+                          id="701-multi-select-list-box"
                           name="Topic-A"
                           type="checkbox"
                         />
@@ -13310,7 +13297,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="708-multi-select-list-box"
+                          id="703-multi-select-list-box"
                           name="Topic-B"
                           type="checkbox"
                         />
@@ -13335,7 +13322,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="710-multi-select-list-box"
+                          id="705-multi-select-list-box"
                           name="Topic-C"
                           type="checkbox"
                         />
@@ -13360,7 +13347,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="712-multi-select-list-box"
+                          id="707-multi-select-list-box"
                           name="Topic-D"
                           type="checkbox"
                         />
@@ -22272,79 +22259,7 @@ exports[`RippleStoryshots Molecules/Wysiwyg Wysiwyg 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
-    <div
-      class="rpl-wysiwyg tide-wysiwyg app-wysiwyg"
-      data-v-6ca0e090=""
-    >
-      <div
-        class="tide-wysiwyg__inner"
-      >
-        <figure
-          class="rpl-document-link"
-        >
-          <a
-            aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
-            class="rpl-document-link__link"
-            href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-            target="_blank"
-          >
-            <!---->
-             
-            <div
-              class="rpl-document-link__info"
-            >
-              <span
-                class="rpl-document-link__title"
-              >
-                 Detailed Guide on the mandatory IR management criteria 
-              </span>
-               
-              <div
-                class="rpl-document-link__meta"
-              >
-                <span
-                  class="rpl-document-link__type"
-                >
-                  docx
-                </span>
-                 
-                <span
-                  class="rpl-document-link__size rpl-document-link__size--seperator"
-                >
-                  75.22 KB
-                </span>
-              </div>
-            </div>
-          </a>
-           
-          <!---->
-        </figure>
-        <p>
-          A paragraph of 
-          <strong>
-            text
-          </strong>
-           with a 
-          <a
-            class="rpl-link rpl-text-link"
-            href="https://vic.gov.au"
-          >
-            <span>
-              <!---->
-               
-              <!---->
-               
-              <span
-                class="rpl-text-icon__group"
-              >
-                link
-                <!---->
-              </span>
-            </span>
-          </a>
-        </p>
-      </div>
-    </div>
+    <!---->
   </div>
    
   <!---->
@@ -22375,7 +22290,7 @@ exports[`RippleStoryshots Molecules/Wysiwyg Wysiwyg 1`] = `
           <span
             class="hljs-name"
           >
-            rpl-wysiwyg
+            rpl-markup
           </span>
            
           <span
@@ -22412,7 +22327,7 @@ exports[`RippleStoryshots Molecules/Wysiwyg Wysiwyg 1`] = `
       data-v-91bb5cde=""
     >
       
-    "RplWysiwyg" Component
+    "RplMarkup" Component
   
     </h3>
      
@@ -22497,7 +22412,7 @@ exports[`RippleStoryshots Molecules/Wysiwyg Wysiwyg 1`] = `
             data-v-5bd9cdea=""
           >
             
-    parseForAnchorLinks
+    plugins
     
             <!---->
           </td>
@@ -22505,13 +22420,13 @@ exports[`RippleStoryshots Molecules/Wysiwyg Wysiwyg 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            boolean
+            array
           </td>
            
           <td
             data-v-5bd9cdea=""
           >
-            false
+            
           </td>
            
           <td

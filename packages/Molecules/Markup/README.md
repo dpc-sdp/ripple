@@ -1,4 +1,4 @@
-# @dpc-sdp/ripple-wysiwyg
+# @dpc-sdp/ripple-markup
 
 > A component to wrap wysiwyg fields and process markup.
 
@@ -7,7 +7,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-wysiwyg --save
+npm install @dpc-sdp/ripple-markup --save
 ```
 
 --------------------------------------------------------------------------------
@@ -15,7 +15,7 @@ npm install @dpc-sdp/ripple-wysiwyg --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-wysiwyg
+@dpc-sdp/ripple-markup
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-document-link
 ├── @dpc-sdp/ripple-button

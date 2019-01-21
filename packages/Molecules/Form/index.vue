@@ -186,8 +186,7 @@ export default {
     input,
     textarea,
     .multiselect__tags,
-    .form-control
-    {
+    .form-control {
       @include rpl_from_element_error;
     }
   }

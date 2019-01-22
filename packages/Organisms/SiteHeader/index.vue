@@ -364,9 +364,7 @@ export default {
           display: none;
 
           @include rpl_breakpoint('m'){
-
             display: block;
-
           }
 
         }

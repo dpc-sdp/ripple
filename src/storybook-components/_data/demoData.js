@@ -25,7 +25,7 @@ const demoData = {
     logo: object('Logo', {
       alt: 'vic.gov.au',
       url: '#',
-      image: '/logo.svg'
+      image: '/cobrand-logo.svg'
     }),
     breakpoint: number('Menu Breakpoint', 992),
     links: object('Menu Links', [

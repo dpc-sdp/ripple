@@ -11,6 +11,8 @@ import {
   selectV2
 } from '@storybook/addon-knobs/vue'
 
+import examplePlugins from '@dpc-sdp/ripple-markup/examplePlugins.js'
+
 // We can use general data for some common data type.
 // These data value can be reused.
 const generalData = { // eslint-disable-line no-unused-vars
@@ -1458,7 +1460,8 @@ const demoData = {
 
           {
             type: 'rplmarkup',
-            markup: '<h3>Markup field</h3><p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>'
+            plugins: examplePlugins,
+            markup: '<h3>Markup field</h3> <article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>'
           },
 
           {
@@ -1960,6 +1963,9 @@ const demoData = {
     url: text('Download url', 'https://www.google.com'),
     extension: text('Extension', 'pdf'),
     filesize: text('Filesize', '1.4 mb')
+  }),
+  markup: () => ({
+    html: text('Html', '<article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>  <a href="http://www.google.com" class="button">go to google</a> ')
   })
 }
 

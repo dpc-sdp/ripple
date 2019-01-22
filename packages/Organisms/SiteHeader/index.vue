@@ -24,9 +24,9 @@
               <span>{{ menuButton[menuState].text }}</span>
             </button>
             <!-- Primary vic.gov.au Logo -->
-            <div v-if="!menuContentOpen" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--If there is no cobrand logo, never hide the VIC logo-->
-              <rpl-link :href="vicLogoStatic.url">
-                <img :src="vicLogoStatic.location" :alt="vicLogoStatic.alt" />
+            <div v-if="!menuContentOpen && this.rplOptions.viclogo" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
+              <rpl-link :href="vicLogoPrimary.url">
+                <img :src="vicLogoPrimary.image" :alt="vicLogoPrimary.alt" />
               </rpl-link>
             </div>
 
@@ -89,6 +89,7 @@ import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
 import Trap from 'vue-focus-lock'
+import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.svg'
 
 export default {
   name: 'RplSiteHeader',
@@ -111,8 +112,8 @@ export default {
   },
   data: function () {
     return {
-      vicLogoStatic: {
-        location: '/vic_logo.svg',
+      vicLogoPrimary: {
+        image: vicLogoPrimary,
         alt: 'vic_logo',
         url: '/'
       },

@@ -10,9 +10,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.0.0-alpha.43",
-    "@dpc-sdp/ripple-document-link": "1.0.0-alpha.43",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.43",
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.45",
+    "@dpc-sdp/ripple-document-link": "1.0.0-alpha.45",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.45",
     "cheerio": "^1.0.0-rc.2"
   }
 }

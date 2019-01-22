@@ -13133,7 +13133,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               class="field-wrap"
             >
               <div
-                class="rpl-markup tide-wysiwyg app-wysiwyg rpl-markup"
+                class="rpl-markup tide-wysiwyg app-wysiwyg"
               >
                 <div
                   class="rpl-markup__inner"
@@ -22240,295 +22240,6 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/Wysiwyg Wysiwyg 1`] = `
-<div
-  class="vue-info"
-  data-v-6ca0e090=""
->
-  <div
-    class="info-header"
-    data-v-003f20ee=""
-    data-v-6ca0e090=""
-  >
-    <h1
-      class="title"
-      data-v-003f20ee=""
-    >
-      
-    Molecules/Wysiwyg
-  
-    </h1>
-     
-    <h2
-      class="story-title"
-      data-v-003f20ee=""
-    >
-      
-    Wysiwyg
-  
-    </h2>
-  </div>
-   
-  <div
-    class="info-content"
-    data-v-6ca0e090=""
-  >
-    <div
-      class="rpl-markup tide-wysiwyg app-wysiwyg"
-      data-v-6ca0e090=""
-    >
-      <div
-        class="rpl-markup__inner"
-      >
-        <figure
-          class="rpl-document-link"
-        >
-          <a
-            aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
-            class="rpl-document-link__link"
-            href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-            target="_blank"
-          >
-            <!---->
-             
-            <div
-              class="rpl-document-link__info"
-            >
-              <span
-                class="rpl-document-link__title"
-              >
-                 Detailed Guide on the mandatory IR management criteria 
-              </span>
-               
-              <div
-                class="rpl-document-link__meta"
-              >
-                <span
-                  class="rpl-document-link__type"
-                >
-                  docx
-                </span>
-                 
-                <span
-                  class="rpl-document-link__size rpl-document-link__size--seperator"
-                >
-                  75.22 KB
-                </span>
-              </div>
-            </div>
-          </a>
-           
-          <!---->
-        </figure>
-         
-        <p>
-          A paragraph of 
-          <strong>
-            text
-          </strong>
-           with a 
-          <a
-            class="rpl-link rpl-text-link"
-            href="https://vic.gov.au"
-          >
-            <span>
-              <!---->
-               
-              <!---->
-               
-              <span
-                class="rpl-text-icon__group"
-              >
-                link
-                <!---->
-              </span>
-            </span>
-          </a>
-          .
-        </p>
-      </div>
-    </div>
-  </div>
-   
-  <!---->
-   
-  <div
-    data-v-6ca0e090=""
-    data-v-b425eb9a=""
-  >
-    <h2
-      class="section-title"
-      data-v-6814cc1a=""
-      data-v-b425eb9a=""
-    >
-      Story Source
-    </h2>
-     
-    <pre
-      class="code html hljs xml"
-      data-v-b425eb9a=""
-    >
-      <code
-        data-v-b425eb9a=""
-      >
-        <span
-          class="hljs-tag"
-        >
-          &lt;
-          <span
-            class="hljs-name"
-          >
-            rpl-markup
-          </span>
-           
-          <span
-            class="hljs-attr"
-          >
-            :html
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "html"
-          </span>
-           /&gt;
-        </span>
-      </code>
-    </pre>
-  </div>
-   
-  <h2
-    class="section-title"
-    data-v-6814cc1a=""
-    data-v-6ca0e090=""
-  >
-    Props
-  </h2>
-   
-  <div
-    data-v-6ca0e090=""
-    data-v-91bb5cde=""
-  >
-    <h3
-      class="component-name"
-      data-v-91bb5cde=""
-    >
-      
-    "RplMarkup" Component
-  
-    </h3>
-     
-    <table
-      class="props"
-      data-v-91bb5cde=""
-    >
-      <thead
-        class="props-head"
-        data-v-91bb5cde=""
-      >
-        <tr
-          data-v-91bb5cde=""
-        >
-          <th
-            data-v-91bb5cde=""
-          >
-            Name
-          </th>
-           
-          <th
-            data-v-91bb5cde=""
-          >
-            Type
-          </th>
-           
-          <th
-            data-v-91bb5cde=""
-          >
-            Default
-          </th>
-           
-          <th
-            data-v-91bb5cde=""
-          >
-            Description
-          </th>
-        </tr>
-      </thead>
-       
-      <tbody
-        data-v-91bb5cde=""
-      >
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    html
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            string
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    plugins
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            array
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
 exports[`RippleStoryshots Organisms/CallToAction Call to Action 1`] = `
 <div
   class="vue-info"
@@ -27728,6 +27439,303 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
             data-v-5bd9cdea=""
           >
             Go to next slide
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/Markup Markup 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/Markup
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Markup
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-markup tide-wysiwyg app-wysiwyg"
+      data-v-6ca0e090=""
+    >
+      <div
+        class="rpl-markup__inner"
+      >
+        <figure
+          class="rpl-document-link"
+        >
+          <a
+            aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+            class="rpl-document-link__link"
+            href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+            target="_blank"
+          >
+            <!---->
+             
+            <div
+              class="rpl-document-link__info"
+            >
+              <span
+                class="rpl-document-link__title"
+              >
+                 Detailed Guide on the mandatory IR management criteria 
+              </span>
+               
+              <div
+                class="rpl-document-link__meta"
+              >
+                <span
+                  class="rpl-document-link__type"
+                >
+                  docx
+                </span>
+                 
+                <span
+                  class="rpl-document-link__size rpl-document-link__size--seperator"
+                >
+                  75.22 KB
+                </span>
+              </div>
+            </div>
+          </a>
+           
+          <!---->
+        </figure>
+         
+        <p>
+          A paragraph of 
+          <strong>
+            text
+          </strong>
+           with a 
+          <a
+            class="rpl-link rpl-text-link"
+            href="https://vic.gov.au"
+          >
+            <span>
+              <!---->
+               
+              <!---->
+               
+              <span
+                class="rpl-text-icon__group"
+              >
+                link
+                <!---->
+              </span>
+            </span>
+          </a>
+          .
+        </p>
+         
+        <a
+          class="rpl-link rpl-button rpl-button--primary"
+          href="http://www.google.com"
+          target="_blank"
+        >
+          go to google
+        </a>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-markup
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :html
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "html"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplMarkup" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    html
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    plugins
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
           </td>
            
           <td
@@ -38972,7 +38980,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="2993-checkbox-required"
+                              id="2995-checkbox-required"
                               required="required"
                               type="checkbox"
                             />

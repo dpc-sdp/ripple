@@ -10,7 +10,7 @@ import RplMarkup from './index.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
-storiesOf('Molecules/Markup', module)
+storiesOf('Organisms/Markup', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
   .add('Markup', withReadme(readme, () => ({

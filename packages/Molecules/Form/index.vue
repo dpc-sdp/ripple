@@ -25,7 +25,6 @@ import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
-import VueScrollTo from 'vue-scrollto'
 
 Vue.component('Multiselect', Multiselect)
 Vue.component('fieldRplselect', fieldRplselect)
@@ -53,8 +52,7 @@ export default {
   props: {
     formData: Object,
     submitHandler: Function,
-    hideAfterSuccess: Boolean,
-    scrollTo: {type: Boolean, default: true}
+    hideAfterSuccess: Boolean
   },
   methods: {
     hideForm () {
@@ -64,17 +62,11 @@ export default {
         return true
       }
     },
-    scrollToMessage () {
-      if (this.scrollTo) {
-        VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
-      }
-    },
     onSubmit (event) {
       event.preventDefault()
       // Run custom submit callback if no error in validation
       if (this.$refs.vfg.errors.length === 0) {
         this.submitHandler()
-        this.scrollToMessage()
       }
     },
     onValidated (isValid, errors) {
@@ -214,7 +206,8 @@ export default {
     }
 
     &.required {
-      > label {
+      > label,
+      .field-wrap > label {
         &:after {
           margin-left: $rpl-space;
           @include rpl_typography_ruleset($rpl-form-required-ruleset);

@@ -21,7 +21,7 @@ packageJson = JSON.parse(packageJson)
 
 // Strip existing @dpc-sdp keys.
 for (let key in packageJson.dependencies) {
-  if (key.indexOf('@dpc-sdp') === 0) {
+  if (key.indexOf('@dpc-sdp/ripple-') === 0) {
     delete packageJson.dependencies[key]
   }
 }
@@ -37,7 +37,7 @@ packages.forEach(pkg => {
 
 // Order dependencies alphabetically.
 const orderedDependencies = {}
-Object.keys(packageJson.dependencies).sort().forEach(function(key) {
+Object.keys(packageJson.dependencies).sort().forEach(key => {
   orderedDependencies[key] = packageJson.dependencies[key]
 })
 packageJson.dependencies = orderedDependencies

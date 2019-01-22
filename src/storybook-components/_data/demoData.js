@@ -1321,7 +1321,8 @@ const demoData = {
     },
     isNewModel: true,
     options: {
-      validateAfterChanged: true
+      validateAfterChanged: true,
+      validateAfterLoad: false
     },
     formData: {
       model: {
@@ -1474,7 +1475,7 @@ const demoData = {
             listBox: true,
             hint: 'Implemented using rplchecklist with listBox: true',
             placeholder: 'Select multiple topics',
-            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
           },
 
           {
@@ -1488,7 +1489,7 @@ const demoData = {
             },
             min: 1,
             required: true,
-            model: 'multiselect',
+            model: 'checklistdropdown',
             hint: 'Implemented using rplchecklist',
             placeholder: 'Select multiple topics',
             values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
@@ -1515,12 +1516,13 @@ const demoData = {
             type: 'rplselect',
             model: 'multiselect',
             required: true,
-            validator (value) {
-              if (value === null) {
-                return ['Add a selection']
+            validator (value, field) {
+              if (value && value.length >= field.min) {
+                return []
               }
-              return []
+              return ['Add a selection']
             },
+            min: 1,
             label: 'Multi-select drop down',
             hint: 'Implemented using vue-multiselect',
             placeholder: 'Select several topics',

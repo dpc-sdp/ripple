@@ -66,30 +66,19 @@ export default {
           this.value = value
         }
       } else {
-        if (this.localValue === null) {
+        if (!this.localValue) {
           this.localValue = []
         }
-        if (this.value === null) {
+        if (!this.value) {
           this.value = []
         }
-        let toRemove = false
 
-        value.forEach(v => {
-          if (!this.localValue.includes(v)) {
-            this.localValue.push(v)
-            this.value.push(isObj(v) ? v[trackBy] : v)
-          } else {
-            toRemove = true
-          }
-        })
-        // value is already selected - remove it
-        if (toRemove) {
-          this.localValue = value
-          if (value.every(v => isObj(v))) {
-            this.value = value[trackBy]
-          } else {
-            this.value = value
-          }
+        this.localValue = value
+
+        if (value.every(v => isObj(v))) {
+          this.value = value.map(v => v[trackBy])
+        } else {
+          this.value = value
         }
 
         if (Array.isArray(value) && value.length === 0) {

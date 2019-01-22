@@ -1,6 +1,6 @@
 <template>
   <form class="rpl-form" @submit="onSubmit">
-    <rpl-form-alert ref="alert" v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
+    <rpl-form-alert v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
     </rpl-form-alert>
     <vue-form-generator
       :schema="formData.schema"
@@ -66,11 +66,7 @@ export default {
     },
     scrollToMessage () {
       if (this.scrollTo) {
-        this.$nextTick(function () {
-          if (this.$refs.alert) {
-            VueScrollTo.scrollTo(this.$refs.alert, 500, { offset: -150 })
-          }
-        })
+        VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
       }
     },
     onSubmit (event) {

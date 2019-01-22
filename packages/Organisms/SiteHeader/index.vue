@@ -363,7 +363,7 @@ export default {
           border-right: 1px solid #fff;
           display: none;
 
-          @include rpl_breakpoint('m'){
+          @include rpl_breakpoint('m') {
             display: block;
           }
 

@@ -26,7 +26,7 @@ npm install @dpc-sdp/ripple-markup --save
 
 ## Usage and Tests
 
-See [Storybook/Wysiwyg](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Wysiwyg&selectedStory=Wysiwyg).
+See [Storybook/Markup](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup).
 
 --------------------------------------------------------------------------------
 

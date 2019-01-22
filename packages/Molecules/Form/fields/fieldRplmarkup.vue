@@ -1,5 +1,5 @@
 <template>
-  <rpl-markup class="rpl-markup" :plugins="this.schema.plugins" :html="markup" />
+  <rpl-markup :plugins="this.schema.plugins" :html="markup" />
 </template>
 
 <script>

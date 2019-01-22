@@ -10,16 +10,16 @@ import RplMarkup from './index.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 
-storiesOf('Molecules/Wysiwyg', module)
+storiesOf('Molecules/Markup', module)
   .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Wysiwyg', withReadme(readme, () => ({
+  .add('Markup', withReadme(readme, () => ({
     components: { RplMarkup },
     template: `<rpl-markup :html="html" />`,
     created () {
       this.rplOptions.markupPlugins = plugins
     },
     data () {
-      return demoData.wysiwyg()
+      return demoData.markup()
     }
   })))

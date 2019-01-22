@@ -1,3 +1,7 @@
+/*
+ * These are examples of plugins and how they are implemented.
+ * These are meant for example only. Plugins should be passed to RplMArkup component as plugins prop or in rplOptions.markupPlugins
+*/
 
 const pluginButton = function () {
   // Button

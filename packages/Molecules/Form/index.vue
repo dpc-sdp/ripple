@@ -1,7 +1,6 @@
 <template>
   <form class="rpl-form" @submit="onSubmit">
-    <rpl-form-alert v-if="formData.formState.response" :variant="formData.formState.response.status">
-      {{ formData.formState.response.message }}
+    <rpl-form-alert ref="alert" v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
     </rpl-form-alert>
     <vue-form-generator
       :schema="formData.schema"
@@ -16,8 +15,9 @@
 <script>
 import Vue from 'vue'
 import RplFormAlert from './formAlert'
-import VueFormGenerator from 'vue-form-generator'
 import Multiselect from 'vue-multiselect'
+import VueFormGenerator from 'vue-form-generator'
+import fieldRplselect from './fields/fieldRplselect.vue'
 import fieldRplslider from './fields/fieldRplslider.vue'
 import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
@@ -25,7 +25,10 @@ import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
-Vue.component('multiselect', Multiselect)
+import VueScrollTo from 'vue-scrollto'
+
+Vue.component('Multiselect', Multiselect)
+Vue.component('fieldRplselect', fieldRplselect)
 Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
@@ -40,7 +43,7 @@ export default {
   name: 'RplForm',
   components: {
     'vue-form-generator': VueFormGenerator.component,
-    Multiselect,
+    fieldRplselect,
     fieldRplslider,
     fieldRplchecklist,
     fieldRpldatepicker,
@@ -50,7 +53,8 @@ export default {
   props: {
     formData: Object,
     submitHandler: Function,
-    hideAfterSuccess: Boolean
+    hideAfterSuccess: Boolean,
+    scrollTo: {type: Boolean, default: true}
   },
   methods: {
     hideForm () {
@@ -60,11 +64,21 @@ export default {
         return true
       }
     },
+    scrollToMessage () {
+      if (this.scrollTo) {
+        this.$nextTick(function () {
+          if (this.$refs.alert) {
+            VueScrollTo.scrollTo(this.$refs.alert, 500, { offset: -150 })
+          }
+        })
+      }
+    },
     onSubmit (event) {
       event.preventDefault()
       // Run custom submit callback if no error in validation
       if (this.$refs.vfg.errors.length === 0) {
         this.submitHandler()
+        this.scrollToMessage()
       }
     },
     onValidated (isValid, errors) {
@@ -170,7 +184,9 @@ export default {
 
   .error {
     input,
-    textarea {
+    textarea,
+    .multiselect__tags,
+    .form-control {
       @include rpl_from_element_error;
     }
   }
@@ -180,6 +196,8 @@ export default {
     margin-top: $rpl-space-3;
 
     &.errors {
+      order: 2;
+      margin-bottom: $rpl-space-2;
       color: rpl-color('danger');
     }
   }
@@ -200,7 +218,7 @@ export default {
     }
 
     &.required {
-      label {
+      > label {
         &:after {
           margin-left: $rpl-space;
           @include rpl_typography_ruleset($rpl-form-required-ruleset);

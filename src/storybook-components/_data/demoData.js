@@ -1310,22 +1310,36 @@ const demoData = {
   }),
 
   form: () => ({
+    submitHandler () {
+      console.log(this.formData.model)
+      this.formData.formState = {
+        response: {
+          status: 'success',
+          message: `<code>${JSON.stringify(this.formData.model)}</code>`
+        }
+      }
+    },
+    isNewModel: true,
+    options: {
+      validateAfterChanged: true,
+      validateAfterLoad: false
+    },
     formData: {
-
       model: {
         hidden: '',
-        text: '',
+        text: null,
         email: '',
         tel: '',
         number: '',
         radio: null,
-        textArea: '',
+        textArea: null,
         dateRange: ['', ''],
         date: '',
         checkbox: true,
-        vuemultiselect: null,
-        checklistlistbox: [],
-        checklistdropdown: [],
+        select: '',
+        multiselect: null,
+        checklistlistbox: null,
+        checklistdropdown: null,
         rangeslider: [10000, 70000]
       },
 
@@ -1343,6 +1357,12 @@ const demoData = {
             label: 'Text',
             hint: 'This is a hint text',
             required: true,
+            validator (value) {
+              if (value === '') {
+                return ['This field is required']
+              }
+              return []
+            },
             placeholder: 'Enter some text...',
             model: 'text'
           },
@@ -1392,7 +1412,12 @@ const demoData = {
             hint: 'This is a hint text',
             rows: 4,
             required: true,
-
+            validator (value) {
+              if (value === '') {
+                return ['This field is required']
+              }
+              return []
+            },
             visible (model) {
               return model && model.was_this_page_helpful !== null
             }
@@ -1450,12 +1475,20 @@ const demoData = {
             listBox: true,
             hint: 'Implemented using rplchecklist with listBox: true',
             placeholder: 'Select multiple topics',
-            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
           },
 
           {
             type: 'rplchecklist',
             label: 'Multi-select drop down',
+            validator (value) {
+              if (Array.isArray(value) && value.length > 0) {
+                return []
+              }
+              return ['Add a selection']
+            },
+            min: 1,
+            required: true,
             model: 'checklistdropdown',
             hint: 'Implemented using rplchecklist',
             placeholder: 'Select multiple topics',
@@ -1463,18 +1496,45 @@ const demoData = {
           },
 
           {
-            type: 'vueMultiSelect',
-            model: 'vuemultiselect',
+            type: 'rplselect',
+            model: 'select',
+            required: true,
+            validator: ['required'],
             label: 'Single-select drop down',
             hint: 'Implemented using vue-multiselect',
             placeholder: 'Select a single topic',
             selectOptions: {
-              multiSelect: false,
+              trackBy: 'id',
+              label: 'name',
               closeOnSelect: true,
               searchable: false,
               showLabels: false
             },
-            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+          },
+          {
+            type: 'rplselect',
+            model: 'multiselect',
+            required: true,
+            validator (value, field) {
+              if (value && value.length >= field.min) {
+                return []
+              }
+              return ['Add a selection']
+            },
+            min: 1,
+            label: 'Multi-select drop down',
+            hint: 'Implemented using vue-multiselect',
+            placeholder: 'Select several topics',
+            selectOptions: {
+              trackBy: 'id',
+              label: 'name',
+              multiple: true,
+              closeOnSelect: true,
+              searchable: false,
+              showLabels: false
+            },
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
           },
 
           {

@@ -12605,6 +12605,8 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
     <form
       class="rpl-form"
       data-v-6ca0e090=""
+      isnewmodel="true"
+      options="[object Object]"
     >
       <!---->
        
@@ -13227,7 +13229,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       >
                         <input
                           id="699-multi-select-list-box"
-                          name="Topic-A"
+                          name="topic_a"
                           type="checkbox"
                         />
                          
@@ -13252,7 +13254,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       >
                         <input
                           id="701-multi-select-list-box"
-                          name="Topic-B"
+                          name="topic_b"
                           type="checkbox"
                         />
                          
@@ -13277,7 +13279,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       >
                         <input
                           id="703-multi-select-list-box"
-                          name="Topic-C"
+                          name="topic_c"
                           type="checkbox"
                         />
                          
@@ -13302,7 +13304,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       >
                         <input
                           id="705-multi-select-list-box"
-                          name="Topic-D"
+                          name="topic_d"
                           type="checkbox"
                         />
                          
@@ -13337,7 +13339,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
-            class="form-group valid field-rplchecklist"
+            class="form-group valid required field-rplchecklist"
           >
             <label
               for="multi-select-drop-down"
@@ -13392,7 +13394,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
-            class="form-group valid field-vueMultiSelect"
+            class="form-group valid required field-rplselect"
           >
             <label
               for="single-select-drop-down"
@@ -13526,9 +13528,171 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       <span
                         class="multiselect__option"
                       >
+                        No elements found. Consider changing the search query.
+                      </span>
+                    </li>
+                     
+                    <li
+                      style="display: none;"
+                    >
+                      <span
+                        class="multiselect__option"
+                      >
+                        List is empty.
+                      </span>
+                    </li>
+                     
+                  </ul>
+                </div>
+              </div>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="hint"
+            >
+              Implemented using vue-multiselect
+            </div>
+             
+            <!---->
+          </div>
+          <div
+            class="form-group valid required field-rplselect"
+          >
+            <label
+              for="multi-select-drop-down"
+            >
+              <span>
+                Multi-select drop down
+              </span>
+               
+              <!---->
+            </label>
+             
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="multiselect"
+                tabindex="0"
+              >
+                <div
+                  class="multiselect__select"
+                />
+                  
+                <div
+                  class="multiselect__tags"
+                >
+                  <div
+                    class="multiselect__tags-wrap"
+                    style="display: none;"
+                  />
+                   
+                  <!---->
+                   
+                  <div
+                    class="multiselect__spinner"
+                    style="display: none;"
+                  />
+                   
+                  <!---->
+                   
+                  <!---->
+                   
+                  <span
+                    class="multiselect__placeholder"
+                  >
+                    
+            Select several topics
+        
+                  </span>
+                </div>
+                 
+                <div
+                  class="multiselect__content-wrapper"
+                  style="max-height: 300px; display: none;"
+                  tabindex="-1"
+                >
+                  <ul
+                    class="multiselect__content"
+                    style="display: inline-block;"
+                  >
+                     
+                    <!---->
+                     
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option multiselect__option--highlight"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
                         <span>
-                          
+                          Topic A
                         </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          Topic B
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          Topic C
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          Topic D
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                     
+                    <li
+                      style="display: none;"
+                    >
+                      <span
+                        class="multiselect__option"
+                      >
+                        No elements found. Consider changing the search query.
                       </span>
                     </li>
                      
@@ -13624,6 +13788,42 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             class="hljs-string"
           >
             "formData"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :submitHandler
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "submitHandler"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :isNewModel
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "isNewModel"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :options
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "options"
           </span>
           &gt;
         </span>
@@ -13791,6 +13991,38 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             data-v-5bd9cdea=""
           >
             
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    scrollTo
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            true
           </td>
            
           <td
@@ -38393,7 +38625,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="2968-checkbox-required"
+                              id="2974-checkbox-required"
                               required="required"
                               type="checkbox"
                             />

@@ -89,7 +89,7 @@ import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
 import Trap from 'vue-focus-lock'
-import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.svg'
+import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.png'
 
 export default {
   name: 'RplSiteHeader',

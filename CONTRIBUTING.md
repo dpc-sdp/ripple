@@ -46,8 +46,15 @@ should update snapshots by `npm test -- -u`. Then add it in commit.
 #### Documentation
 
 ``` bash
-# Generate README.md for modules in `./packages/` directory
+# Generate README.md for all modules in `./packages/` directory
 npm run docs
+```
+
+#### Updating ripple depdendencies
+
+``` bash
+# Update root ./package.json with ripple dependencies
+npm run package-dependencies
 ```
 
 #### Create new packages
@@ -63,9 +70,12 @@ Example: Creating a new package 'My Package' in the Organism folder:
 npm run new-package "My Package" "A demonstration package." "Organisms"
 ```
 
-After creating a new package, generate the readme using `npm run docs`.
+After creating a new package:
 
-A `demoData.js` and `package.json` entry will need to be manually included.
+- Generate the readme using `npm run docs`.
+- Update `package.json` by using `npm run package-dependencies`.
+
+A `demoData.js` entry will need to be manually included.
 
 ### Work in Docker
 

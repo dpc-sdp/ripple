@@ -13287,7 +13287,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       >
                         <input
                           id="706-multi-select-list-box"
-                          name="Topic-A"
+                          name="topic_a"
                           type="checkbox"
                         />
                          
@@ -13312,7 +13312,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       >
                         <input
                           id="708-multi-select-list-box"
-                          name="Topic-B"
+                          name="topic_b"
                           type="checkbox"
                         />
                          
@@ -13337,7 +13337,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       >
                         <input
                           id="710-multi-select-list-box"
-                          name="Topic-C"
+                          name="topic_c"
                           type="checkbox"
                         />
                          
@@ -13362,7 +13362,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       >
                         <input
                           id="712-multi-select-list-box"
-                          name="Topic-D"
+                          name="topic_d"
                           type="checkbox"
                         />
                          
@@ -38980,7 +38980,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="2995-checkbox-required"
+                              id="3001-checkbox-required"
                               required="required"
                               type="checkbox"
                             />

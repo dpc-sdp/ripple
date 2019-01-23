@@ -52,7 +52,9 @@ export default {
   props: {
     formData: Object,
     submitHandler: Function,
-    hideAfterSuccess: Boolean
+    hideAfterSuccess: Boolean,
+    scrollToMessage: {type: Boolean, default: true},
+    validateOnSubmit: {type: Boolean, default: true}
   },
   methods: {
     hideForm () {
@@ -62,15 +64,27 @@ export default {
         return true
       }
     },
-    onSubmit (event) {
+    async onSubmit (event) {
       event.preventDefault()
+      
+      // call validation manually
+      if (this.validateOnSubmit) {
+        this.$refs.vfg.validate()
+      }
+
       // Run custom submit callback if no error in validation
       if (this.$refs.vfg.errors.length === 0) {
-        this.submitHandler()
+        await this.submitHandler()
+        if (this.scrollToMessage) {
+          VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
+        }
+      } else {
+        // scroll into view first element with error
+        const firstError = this.$refs.vfg.$children.find(child => child.field.model === this.$refs.vfg.errors[0].field.model)
+        if (firstError) {
+          VueScrollTo.scrollTo(firstError.$el, 500, { offset: -100 })
+        }
       }
-    },
-    onValidated (isValid, errors) {
-      // console.log('Validation result: ', isValid, ', Errors:', errors)
     }
   }
 }

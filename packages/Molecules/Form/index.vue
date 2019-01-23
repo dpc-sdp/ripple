@@ -25,6 +25,7 @@ import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
+import VueScrollTo from 'vue-scrollto'
 
 Vue.component('Multiselect', Multiselect)
 Vue.component('fieldRplselect', fieldRplselect)
@@ -66,7 +67,7 @@ export default {
     },
     async onSubmit (event) {
       event.preventDefault()
-      
+
       // call validation manually
       if (this.validateOnSubmit) {
         this.$refs.vfg.validate()

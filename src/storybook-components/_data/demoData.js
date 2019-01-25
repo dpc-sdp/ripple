@@ -1972,8 +1972,20 @@ const demoData = {
     extension: text('Extension', 'pdf'),
     filesize: text('Filesize', '1.4 mb')
   }),
+
   markup: () => ({
     html: text('Html', '<article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>  <a href="http://www.google.com" class="button">go to google</a> ')
+  }),
+
+  profileHightlight: () => ({
+    image: text('Image', 'http://placehold.it/156x156'),
+    content: text('Content', '<p>HTML Content</p>')
+  }),
+
+  profileHightlightHonourRoll: () => ({
+    image: text('Image', 'http://placehold.it/156x156'),
+    inductedYear: text('Inducted Year', '2018'),
+    category: text('Category', 'Local Champion')
   })
 }
 

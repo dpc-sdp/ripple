@@ -27,7 +27,7 @@ import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
 import VueScrollTo from 'vue-scrollto'
 
-Vue.component('Multiselect', Multiselect)
+Vue.component('multiselect', Multiselect)
 Vue.component('fieldRplselect', fieldRplselect)
 Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)

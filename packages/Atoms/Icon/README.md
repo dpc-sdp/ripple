@@ -27,6 +27,8 @@ See [Storybook/Icon Library](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/I
 
 See [Storybook/Icon](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Icon&selectedStory=Icon).
 
+See [Storybook/Text Icon](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Icon&selectedStory=Text%20Icon).
+
 --------------------------------------------------------------------------------
 
 ## License

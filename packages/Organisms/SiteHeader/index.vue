@@ -23,8 +23,15 @@
               <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
               <span>{{ menuButton[menuState].text }}</span>
             </button>
-            <!-- Logo -->
-            <div v-if="!menuContentOpen && logo" class="rpl-site-header__title">
+            <!-- Primary vic.gov.au Logo -->
+            <div v-if="!menuContentOpen && this.rplOptions.viclogo" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
+              <rpl-link :href="vicLogoPrimary.url">
+                <img :src="vicLogoPrimary.image" :alt="vicLogoPrimary.alt" />
+              </rpl-link>
+            </div>
+
+            <!--Co brand logo if it exists-->
+            <div v-if="!menuContentOpen && logo" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
               <rpl-link :href="logo.url">
                 <img :src="logo.image" :alt="logo.alt" />
               </rpl-link>
@@ -82,6 +89,7 @@ import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
 import Trap from 'vue-focus-lock'
+import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.png'
 
 export default {
   name: 'RplSiteHeader',
@@ -104,6 +112,11 @@ export default {
   },
   data: function () {
     return {
+      vicLogoPrimary: {
+        image: vicLogoPrimary,
+        alt: 'vic_logo',
+        url: '/'
+      },
       menuContentOpen: false,
       searchState: 'closed',
       menuState: 'closed',
@@ -248,6 +261,7 @@ export default {
   @import "scss/site_header";
 
   $rpl-site-header-logo-width: auto !default;
+  $rpl-site-header-logo-primary-width: rem(98px);
   $rpl-site-header-text-color: rpl-color('white') !default;
   $rpl-site-header-border-radius: rem(4px) !default;
   $rpl-site-header-background-color: rpl-color('primary') !default;
@@ -335,6 +349,27 @@ export default {
         width: $rpl-site-header-logo-width;
         margin-left: $rpl-site-header-menu-toggle-border-spacing;
       }
+
+      &--vic-logo-primary {
+        display: block; //always show vic.gov logo if no cobrand logo
+
+        img {
+          width: $rpl-site-header-logo-primary-width;
+        }
+
+        &--cobrand {
+
+          padding-right: 0.5rem;
+          border-right: 1px solid #fff;
+          display: none;
+
+          @include rpl_breakpoint('m') {
+            display: block;
+          }
+
+        }
+
+      }
     }
 
     // Menu Container - changes for vert / horizontal
@@ -391,6 +426,13 @@ export default {
         border-right: $rpl-site-header-menu-toggle-border-right;
         @include rpl_breakpoint('l') {
           display: none;
+        }
+
+        span{
+          display: none;
+          @include rpl_breakpoint('s') {
+            display: block;
+          }
         }
 
         .rpl-icon {

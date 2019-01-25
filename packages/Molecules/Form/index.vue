@@ -1,6 +1,6 @@
 <template>
   <form class="rpl-form" @submit="onSubmit">
-    <rpl-form-alert ref="alert" v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
+    <rpl-form-alert v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
     </rpl-form-alert>
     <vue-form-generator
       :schema="formData.schema"
@@ -27,7 +27,7 @@ import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
 import VueScrollTo from 'vue-scrollto'
 
-Vue.component('Multiselect', Multiselect)
+Vue.component('multiselect', Multiselect)
 Vue.component('fieldRplselect', fieldRplselect)
 Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)
@@ -54,7 +54,8 @@ export default {
     formData: Object,
     submitHandler: Function,
     hideAfterSuccess: Boolean,
-    scrollTo: {type: Boolean, default: true}
+    scrollToMessage: {type: Boolean, default: true},
+    validateOnSubmit: {type: Boolean, default: true}
   },
   methods: {
     hideForm () {
@@ -64,25 +65,27 @@ export default {
         return true
       }
     },
-    scrollToMessage () {
-      if (this.scrollTo) {
-        this.$nextTick(function () {
-          if (this.$refs.alert) {
-            VueScrollTo.scrollTo(this.$refs.alert, 500, { offset: -150 })
-          }
-        })
-      }
-    },
-    onSubmit (event) {
+    async onSubmit (event) {
       event.preventDefault()
+
+      // call validation manually
+      if (this.validateOnSubmit) {
+        this.$refs.vfg.validate()
+      }
+
       // Run custom submit callback if no error in validation
       if (this.$refs.vfg.errors.length === 0) {
-        this.submitHandler()
-        this.scrollToMessage()
+        await this.submitHandler()
+        if (this.scrollToMessage) {
+          VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
+        }
+      } else {
+        // scroll into view first element with error
+        const firstError = this.$refs.vfg.$children.find(child => child.field.model === this.$refs.vfg.errors[0].field.model)
+        if (firstError) {
+          VueScrollTo.scrollTo(firstError.$el, 500, { offset: -100 })
+        }
       }
-    },
-    onValidated (isValid, errors) {
-      // console.log('Validation result: ', isValid, ', Errors:', errors)
     }
   }
 }
@@ -218,7 +221,8 @@ export default {
     }
 
     &.required {
-      > label {
+      > label,
+      .field-wrap > label {
         &:after {
           margin-left: $rpl-space;
           @include rpl_typography_ruleset($rpl-form-required-ruleset);

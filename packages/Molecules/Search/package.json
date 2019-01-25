@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-form": "1.0.0-alpha.46",
+    "@dpc-sdp/ripple-form": "1.0.0-alpha.48",
     "@dpc-sdp/ripple-global": "1.0.0-alpha.48",
     "@dpc-sdp/ripple-icon": "1.0.0-alpha.48",
     "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.48",

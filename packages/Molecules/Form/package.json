@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.47",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.48",
     "moment": "^2.22.1",
     "pikaday": "^1.7.0",
     "v-click-outside": "^2.0.0",

@@ -1587,6 +1587,14 @@ const demoData = {
     size: text('Size', 'm')
   }),
 
+  textIcon: () => ({
+    text: text('Text', 'Text Link'),
+    placement: selectV2('Placement', {before: 'before', after: 'after'}, 'after'),
+    icon: text('Symbol', 'search'),
+    color: text('Color', 'primary'),
+    size: text('Size', 'm')
+  }),
+
   iconLibrary: () => ({
     color: text('Color', 'primary'),
     size: text('Size', 'm'),

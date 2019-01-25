@@ -22,10 +22,10 @@ npm install @dpc-sdp/ripple-form --save
 ├── @dpc-sdp/ripple-global
 ├── moment
 ├── pikaday
+├── v-click-outside
 ├── vue-form-generator
 ├── vue-multiselect
-├── vue-scrollto
-└── v-click-outside
+└── vue-scrollto
 ```
 
 --------------------------------------------------------------------------------

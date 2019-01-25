@@ -16,9 +16,9 @@ npm install @dpc-sdp/ripple-markup --save
 
 ```shell
 @dpc-sdp/ripple-markup
-├── @dpc-sdp/ripple-global
-├── @dpc-sdp/ripple-document-link
 ├── @dpc-sdp/ripple-button
+├── @dpc-sdp/ripple-document-link
+├── @dpc-sdp/ripple-global
 └── cheerio
 ```
 

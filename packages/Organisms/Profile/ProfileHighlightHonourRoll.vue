@@ -37,6 +37,13 @@ export default {
   $rpl-rpl-profile-highlight-honour-roll-value-ruleset: ('s', 1.5em, 'medium') !default;
 
   .rpl-profile-highlight-honour-roll {
+    @include rpl_mobile_padding;
+
+    @include rpl_breakpoint('m') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     &__label {
       @include rpl_typography_ruleset($rpl-rpl-profile-highlight-honour-roll-label-ruleset);
     }

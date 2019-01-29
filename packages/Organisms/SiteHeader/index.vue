@@ -272,7 +272,7 @@ export default {
   $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space-2 auto 0 !default;
   $rpl-site-header-search-toggle-icon-margin: auto 0 auto $rpl-space-2 !default;
   $rpl-site-header-logout-btn-background-color: rpl-color('dark_primary') !default;
-  $rpl-site-header-logout-btn-background-color-mobile: rpl-color('extra_dark_primary') !default;
+  $rpl-site-header-logout-btn-background-color-mobile: darken($rpl-site-header-logout-btn-background-color, 10%) !default;
   $rpl-site-header-logout-btn-padding-mobile: rem(8px) rem(10px) !default;
   $rpl-site-header-logout-btn-padding: rem(10px) !default;
   $rpl-site-header-logout-btn-margin: $rpl-space-4 !default;

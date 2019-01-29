@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-site-header",
-  "version": "1.0.0-alpha.50",
+  "version": "1.0.0-alpha.51",
   "description": "Site header for providing site-wide navigation and search on all pages.",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -10,9 +10,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.50",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.50",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.50",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.50"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.51",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.51",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.51",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.51"
   }
 }

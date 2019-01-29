@@ -13,7 +13,6 @@
     "@dpc-sdp/ripple-global": "1.0.0-alpha.48",
     "moment": "^2.22.1",
     "pikaday": "^1.7.0",
-    "v-click-outside": "^2.0.0",
     "vue-form-generator": "^2.2.2",
     "vue-multiselect": "^2.1.3",
     "vue-scrollto": "^2.13.0"

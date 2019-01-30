@@ -9533,38 +9533,6 @@ exports[`RippleStoryshots Molecules/Card Card Honour Roll 1`] = `
             
           </td>
         </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    locale
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            string
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            en-au
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
       </tbody>
     </table>
   </div>
@@ -14168,7 +14136,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="rpl-checkbox"
               >
                 <input
-                  id="740-checkbox"
+                  id="739-checkbox"
                   type="checkbox"
                 />
                  
@@ -14224,7 +14192,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="744-multi-select-list-box"
+                          id="743-multi-select-list-box"
                           name="topic_a"
                           type="checkbox"
                         />
@@ -14249,7 +14217,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="746-multi-select-list-box"
+                          id="745-multi-select-list-box"
                           name="topic_b"
                           type="checkbox"
                         />
@@ -14274,7 +14242,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="748-multi-select-list-box"
+                          id="747-multi-select-list-box"
                           name="topic_c"
                           type="checkbox"
                         />
@@ -14299,7 +14267,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="750-multi-select-list-box"
+                          id="749-multi-select-list-box"
                           name="topic_d"
                           type="checkbox"
                         />
@@ -40048,7 +40016,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="3050-checkbox-required"
+                              id="3049-checkbox-required"
                               required="required"
                               type="checkbox"
                             />

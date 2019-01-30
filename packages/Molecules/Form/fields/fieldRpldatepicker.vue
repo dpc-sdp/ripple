@@ -72,6 +72,19 @@ export default {
       }
     }
   },
+  watch: {
+    value (newVal, oldVal) {
+      if (newVal === null || newVal === undefined) {
+        this.$nextTick(() => {
+          if (this.isRanged) {
+            this.value = ['', '']
+          } else {
+            this.value = ''
+          }
+        })
+      }
+    }
+  },
   methods: {
     // Range Methods
     startChange (val) {

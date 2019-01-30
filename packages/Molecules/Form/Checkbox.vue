@@ -39,7 +39,6 @@ export default {
   },
   data () {
     return {
-      checked: this.value,
       id: null
     }
   },
@@ -47,8 +46,8 @@ export default {
     this.id = this._uid
   },
   methods: {
-    updateValue () {
-      this.$emit('input', this.checked)
+    updateValue (val) {
+      this.$emit('input', val)
     },
     labelClick () {
       this.$refs['input_checkbox'].focus()
@@ -57,13 +56,20 @@ export default {
       this.$emit('change', event)
     }
   },
-  watch: {
-    checked (val) {
-      this.updateValue()
-      this.updateChange(val)
+  computed: {
+    checked: {
+      set (val) {
+        this.updateValue(val)
+        this.updateChange(val)
+      },
+      get () {
+        if (this.value === null || this.value === undefined) {
+          return false
+        }
+        return this.value
+      }
     }
   }
-
 }
 </script>
 

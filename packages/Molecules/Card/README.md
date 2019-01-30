@@ -46,6 +46,8 @@ See [Storybook/Card Emergency Contact](https://ripple.sdp.vic.gov.au/?selectedKi
 
 See [Storybook/Card Box](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Box).
 
+See [Storybook/Card Honour Roll](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Honour%20Roll).
+
 See [Storybook/Card Content (base)](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Content%20(base)).
 
 See [Storybook/Card Carousel](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Carousel).

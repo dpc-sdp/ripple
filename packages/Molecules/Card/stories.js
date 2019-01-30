@@ -16,6 +16,7 @@ import RplCardEvent from './CardEvent.vue'
 import RplCardCta from './CardCta.vue'
 import RplCardEmergencyContact from './CardEmergencyContact.vue'
 import RplCardBox from './CardBox.vue'
+import RplCardHonourRoll from './CardHonourRoll.vue'
 import { RplCardCarousel } from './no-ssr'
 import readme from './README.md'
 import readmeCardContent from './ReadmeCardContent.md'
@@ -85,6 +86,21 @@ storiesOf('Molecules/Card', module)
     template: `<rpl-card-box :cards="cards" />`,
     data () {
       return demoData.cardBox()
+    }
+  })))
+  .add('Card Honour Roll', withReadme(readme, () => ({
+    components: { RplCardHonourRoll },
+    template: `<rpl-card-honour-roll
+  :name="name"
+  :inductionYear="inductionYear"
+  :category="category"
+  :lifespan="lifespan"
+  :summary="summary"
+  :link="link"
+  :image="image"
+/>`,
+    data () {
+      return demoData.cardHonourRoll()
     }
   })))
   .add('Card Content (base)', withReadme(readmeCardContent, () => ({

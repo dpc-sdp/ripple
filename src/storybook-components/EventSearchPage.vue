@@ -41,7 +41,7 @@
             :errorMsg="hasError ? mock.searchResults.errorMsg : undefined"
             :noResultsMsg="mock.searchResults.noResultsMsg"
             @pager-change="pagerChange"
-            :type="mock.eventSearchResults.type"
+            :type="mock.cardSearchResults.type"
           />
       </div>
 

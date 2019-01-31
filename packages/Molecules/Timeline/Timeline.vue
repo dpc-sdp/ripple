@@ -101,8 +101,17 @@ export default {
       position: relative;
       padding: $rpl-timeline-list-item-padding;
 
+      @media print {
+        page-break-inside: avoid;
+        padding-left: 0;
+      }
+
       &--multi {
         border-left: $rpl-timeline-sidebar-size solid $rpl-timeline-sidebar-color;
+
+        @media print {
+          border-left: 0;
+        }
 
         &::before {
           content: '';
@@ -112,6 +121,10 @@ export default {
           position: absolute;
           top: $rpl-timeline-point-top;
           left: 0;
+
+          @media print {
+            display: none;
+          }
         }
 
         &:first-child, &:last-child {
@@ -126,6 +139,10 @@ export default {
             bottom: 0;
             left: 0;
             position: absolute;
+
+            @media print {
+              display: none;
+            }
           }
         }
 

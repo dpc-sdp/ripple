@@ -204,12 +204,22 @@ export default {
       }
     }
 
+    @media print {
+      padding: 0;
+      border: 0;
+    }
+
     &__left {
       @include rpl_grid_full;
 
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(8);
         padding-right: $rpl-hero-banner-left-padding;
+      }
+
+      @media print {
+        @include rpl_grid_full;
+        padding-right: 0;
       }
     }
 
@@ -219,6 +229,10 @@ export default {
 
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(4);
+      }
+
+      @media print {
+        display: none;
       }
     }
 
@@ -237,6 +251,10 @@ export default {
       color: $rpl-hero-banner-title-color;
       margin: 0;
 
+      @media print {
+        color: $rpl-print-text;
+      }
+
       &--dark {
         @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset-dark);
       }
@@ -254,6 +272,10 @@ export default {
 
       @include rpl_breakpoint(l) {
         margin-top: $rpl-space-4;
+      }
+
+      @media print {
+        color: $rpl-print-text;
       }
 
       &--dark {

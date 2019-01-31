@@ -108,6 +108,10 @@ export default {
       padding: $rpl-campaign-primary-padding-xxl;
     }
 
+    @media print {
+      border-bottom: 0;
+    }
+
     &__row {
       @include rpl_grid_row;
       @include rpl_grid_row_gutter;
@@ -199,6 +203,11 @@ export default {
         height: 100%;
         vertical-align: bottom;
       }
+
+      @media print {
+        width: auto;
+        height: $rpl-print-image-height;
+      }
     }
 
     &__primary_arrow {
@@ -212,9 +221,12 @@ export default {
       bottom: 0;
       right: 0;
 
-      @include rpl_breakpoint('m')
-      {
+      @include rpl_breakpoint('m') {
         display: block;
+      }
+
+      @media print {
+        display: none;
       }
 
       .rpl-icon {

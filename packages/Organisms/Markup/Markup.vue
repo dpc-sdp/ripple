@@ -65,5 +65,12 @@ $rpl-markup-link-color: rpl_color('primary') !default;
       text-decoration: underline;
     }
   }
+
+  img {
+    @media print {
+      width: auto;
+      height: $rpl-print-image-height;
+    }
+  }
 }
 </style>

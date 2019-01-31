@@ -92,6 +92,10 @@ $rpl-back-to-top-button-padding-l: $rpl-space-4 ($rpl-space * 5) !default;
 $rpl-back-to-top-icon-margin: 0 0 0 $rpl-space !default;
 
 .rpl-back-to-top {
+  @media print {
+    display: none;
+  }
+
   &__inner {
     @include rpl_mobile_padding;
     @include rpl_site_constrain;

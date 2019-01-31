@@ -71,6 +71,10 @@ export default {
       padding-left: $rpl-anchor-links-left-padding-xl;
     }
 
+    @media print {
+      display: none;
+    }
+
     &__row {
       @include rpl_breakpoint('s') {
         max-width: $rpl-anchor-links-max-width-s;

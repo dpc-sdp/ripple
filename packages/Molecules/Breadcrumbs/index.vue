@@ -51,6 +51,10 @@ export default {
       display: block;
     }
 
+    @media print {
+      display: none;
+    }
+
     &__items {
       display: inline-block;
       list-style: none;

@@ -11,6 +11,7 @@ import SPageSitemap from './PageSitemap.vue'
 import SPageForm from './PageForm.vue'
 import SPageProfile from './PageProfile.vue'
 import SPageCards from './PageCards.vue'
+import SPrintPage from './PrintPage.vue'
 
 import {
   withKnobs,
@@ -179,6 +180,18 @@ storiesOf('Templates', module)
   .add('Page with Cards', () => ({
     components: { SPageCards },
     template: `<s-page-cards :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Print Page', () => ({
+    components: { SPrintPage },
+    template: `<s-print-page :mock="mock" />`,
     data () {
       return {
         mock: demoDataLocked

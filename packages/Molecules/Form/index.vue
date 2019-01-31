@@ -143,6 +143,10 @@ export default {
     margin-top: 0;
   }
 
+  @media print {
+    display: none;
+  }
+
   label {
     @include rpl_typography_ruleset(('s', 1em, 'bold'));
     color: rpl-color('extra_dark_neutral');

@@ -1,6 +1,6 @@
 <template>
   <button class="rpl-clearform" @click="clearForm">
-    <rpl-text-icon :text="schema.buttonText" symbol="cross_circle" placement="before" color="danger" size="m" />
+    <rpl-text-icon :text="schema.buttonText" symbol="cross_circle" placement="before" color="danger" size="0.833334" />
   </button>
 </template>
 
@@ -30,7 +30,6 @@ export default {
 
 $rpl-clearform-typography-emphasis: ('s', 1.6em, 'bold') !default;
 $rpl-clearform-padding: $rpl-space-2;
-$rpl-clearform-icon-size: 20px;
 
 .rpl-clearform {
   padding: $rpl-clearform-padding;
@@ -45,8 +44,6 @@ $rpl-clearform-icon-size: 20px;
   @include rpl_typography_ruleset($rpl-clearform-typography-emphasis);
 
   .rpl-icon {
-    max-width: $rpl-clearform-icon-size;
-    max-height: $rpl-clearform-icon-size;
     vertical-align: -4px; /* fix icon alignment */
   }
 }

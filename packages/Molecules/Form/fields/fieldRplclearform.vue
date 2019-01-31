@@ -15,7 +15,12 @@ export default {
     clearForm (e) {
       e.preventDefault()
       for (let key in this.model) {
-        this.model[key] = null
+        if (typeof this.model[key] === 'object' && !Array.isArray(this.model[key]) && this.model[key] !== null) {
+          // nested objects need to be initalized back to an empty object to work
+          this.model[key] = {}
+        } else {
+          this.model[key] = null
+        }
       }
       this.vfg.clearValidationErrors()
     }

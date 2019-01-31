@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.51",
   "description": "A component to wrap wysiwyg fields and process markup.",
   "license": "Apache-2.0",
-  "main": "index.vue",
+  "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/Organisms/Markup",
   "publishConfig": {

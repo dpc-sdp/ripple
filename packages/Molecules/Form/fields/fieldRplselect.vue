@@ -28,6 +28,14 @@ export default {
       localValue: null
     }
   },
+  watch: {
+    value (newVal, oldVal) {
+      if (newVal === null) {
+        this.updateSelected(this.selectOptions.multiple ? [] : null)
+        this.vfg.clearValidationErrors()
+      }
+    }
+  },
   computed: {
     selectOptions () {
       return this.schema.selectOptions || {}
@@ -57,7 +65,6 @@ export default {
     updateSelected (value) {
       const trackBy = this.selectOptions.trackBy || 'id'
       const isObj = (v) => typeof v === 'object' && v !== null && v.hasOwnProperty(trackBy)
-
       if (!this.selectOptions.multiple) {
         this.localValue = value
         if (isObj(value)) {

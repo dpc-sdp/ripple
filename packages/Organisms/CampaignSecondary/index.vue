@@ -86,6 +86,10 @@ export default {
       padding: $rpl-campaign-secondary-padding-xxl;
     }
 
+    @media print {
+      padding: 0;
+    }
+
     &__row {
       margin: auto;
       @include rpl_breakpoint('l') {

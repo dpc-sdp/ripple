@@ -85,6 +85,11 @@ export default {
     max-width: $rpl-card-navigation-featured-max-width;
     border-radius: $rpl-card-navigation-featured-border-radius;
 
+    @media print {
+      background: transparent;
+      border-radius: 0;
+    }
+
     &:hover,
     &:focus {
       @include rpl_dropshadow;
@@ -107,6 +112,11 @@ export default {
       width: 100%;
       @include rpl_breakpoint('s') {
         border-radius: $rpl-card-navigation-featured-border-radius $rpl-card-navigation-featured-border-radius 0 0;
+      }
+      @media print {
+        width: auto;
+        height: $rpl-print-image-height;
+        border-radius: 0;
       }
     }
 
@@ -135,6 +145,12 @@ export default {
         right: $rpl-component-padding-xl;
         bottom: ($rpl-space * 5);
       }
+      @media print {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+      }
     }
 
     &__meta {
@@ -143,6 +159,11 @@ export default {
       color: $rpl-card-navigation-featured-meta-text-color;
       padding: $rpl-card-navigation-featured-meta-padding;
       margin-bottom: $rpl-space;
+
+      @media print {
+        color: $rpl-print-text;
+        background-color: transparent;
+      }
 
       span + span {
         &:before {
@@ -167,6 +188,10 @@ export default {
 
       span {
         line-height: 1.5em;
+        @media print {
+          background-color: transparent;
+          color: $rpl-print-text;
+        }
       }
     }
 
@@ -187,6 +212,10 @@ export default {
       }
       @include rpl_breakpoint('xl') {
         padding: $rpl-card-navigation-featured-summary-xl;
+      }
+      @media print {
+        color: $rpl-print-text;
+        background: transparent;
       }
     }
 

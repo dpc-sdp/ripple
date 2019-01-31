@@ -94,6 +94,12 @@ $gutterless-grid: (
     background-position: calc(100% + #{rem(100px)}) bottom;
   }
 
+  @media print {
+    background-image: none;
+    background-color: transparent;
+    color: $rpl-print-text;
+  }
+
   a {
     color: $rpl-footer-text-color;
   }
@@ -109,6 +115,10 @@ $gutterless-grid: (
   @include rpl_site_constrain;
   border-bottom: $rpl-footer-border-width solid $rpl-footer-border-color;
   padding-top: $rpl-space;
+
+  @media print {
+    display: none;
+  }
 
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     padding-top: $rpl-space-4 * 2;
@@ -126,6 +136,10 @@ $gutterless-grid: (
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     @include rpl_grid_row($gutterless-grid);
     flex-wrap: nowrap;
+  }
+
+  @media print {
+    background-color: transparent;
   }
 }
 
@@ -184,6 +198,10 @@ $gutterless-grid: (
 .rpl-links-and-copyright__links {
   margin: 0;
 
+  @media print {
+    display: none;
+  }
+
   li {
     display: inline-block;
     border-left: $rpl-footer-border-width solid $rpl-footer-border-color-light;
@@ -232,6 +250,10 @@ $gutterless-grid: (
     margin-left: ($rpl-space * 8);
     max-width: none;
     max-height: none;
+  }
+
+  @media print {
+    display: none;
   }
 
   &:first-child {

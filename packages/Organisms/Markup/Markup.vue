@@ -141,6 +141,11 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
         max-width: 100%;
         max-height: rem(400px);
       }
+
+      @media print {
+        width: auto;
+        height: $rpl-print-image-height;
+      }
     }
   }
 

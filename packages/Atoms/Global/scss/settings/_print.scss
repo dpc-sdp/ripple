@@ -1,0 +1,20 @@
+// Add visible URL after links.
+// a[href]:after {
+//   content: ' (' attr(href) ')';
+//   font-weight: normal;
+//   font-size: $base-font-size;
+// }
+
+// Only display useful links.
+// a[href^='javascript:']:after,
+// a[href^='#']:after {
+//   content: ';
+// }
+
+// Add visible title after abbreviations.
+// abbr[title]:after {
+//   content: ' (' attr(title) ')';
+// }
+
+$rpl-print-text: rpl_color('black') !default;
+$rpl-print-image-height: rem(150px) !default;

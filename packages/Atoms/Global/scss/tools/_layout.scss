@@ -43,6 +43,11 @@
       }
     }
   }
+
+  @media print {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 // Make a item inside site constrain container to grow to viewport edge.
@@ -116,5 +121,9 @@
   @include rpl_breakpoint(s) {
     padding-left: $rpl-component-padding-s;
     padding-right: $rpl-component-padding-s;
+  }
+
+  @media print {
+    padding: 0;
   }
 }

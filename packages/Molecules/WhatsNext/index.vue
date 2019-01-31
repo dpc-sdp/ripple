@@ -51,6 +51,10 @@ export default {
       border-radius: $rpl-whats-next-border-radius;
     }
 
+    @media print {
+      display: none;
+    }
+
     &__row {
       @include rpl_breakpoint('s') {
         max-width: $rpl-whats-next-max-width-s;

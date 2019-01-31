@@ -54,8 +54,25 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@dpc-sdp/ripple-global/scss/settings";
+
 .rpl-link {
   text-decoration: none;
+
+  @media print {
+    &[href]:after {
+      content: ' <' attr(href) '> ';
+      color: $rpl-print-text;
+      text-decoration: none;
+    }
+  }
+
+  span {
+    @media print {
+      color: $rpl-print-text;
+      text-decoration: underline;
+    }
+  }
 
   &:hover,
   &:focus {

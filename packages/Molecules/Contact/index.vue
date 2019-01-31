@@ -122,6 +122,10 @@ export default {
     color: $rpl-contact-text-color;
     position: relative;
 
+    @media print {
+      page-break-inside: avoid;
+    }
+
     &__title {
       @include rpl_typography_ruleset($rpl-contact-title-ruleset);
       color: $rpl-contact-title-color;
@@ -143,6 +147,10 @@ export default {
       padding: $rpl-contact-details-padding;
       margin: $rpl-contact-paragraph-margin;
 
+      @media print {
+        padding: 0;
+      }
+
       &::before {
         content: '';
         display: inline-block;
@@ -152,7 +160,12 @@ export default {
         left: 0;
         width: rem(4px);
         background-image: $rpl-contact-details-border-image;
+
+        @media print {
+          display: none;
+        }
       }
+
     }
 
     &__name {

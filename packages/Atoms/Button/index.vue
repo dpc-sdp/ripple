@@ -65,6 +65,17 @@ export default {
     }
 
     &--primary,
+    &--secondary,
+    &--disabled {
+      @media print {
+        display: inline;
+        padding: 0;
+        background-color: transparent;
+        color: $rpl-print-text;
+      }
+    }
+
+    &--primary,
     &--secondary {
       &.rpl-link {
         &:hover,

@@ -1,17 +1,18 @@
 {
-  "name": "@dpc-sdp/ripple-call-to-action",
+  "name": "@dpc-sdp/ripple-markup",
   "version": "1.0.0-alpha.51",
-  "description": "A component for displaying key content with image and link.",
+  "description": "A component to wrap wysiwyg fields and process markup.",
   "license": "Apache-2.0",
   "main": "index.vue",
   "homepage": "https://ripple.sdp.vic.gov.au",
-  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/CallToAction",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/Organisms/Markup",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
     "@dpc-sdp/ripple-button": "1.0.0-alpha.51",
+    "@dpc-sdp/ripple-document-link": "1.0.0-alpha.51",
     "@dpc-sdp/ripple-global": "1.0.0-alpha.51",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.51"
+    "cheerio": "^1.0.0-rc.2"
   }
 }

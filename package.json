@@ -22,7 +22,8 @@
     "bay:test": "docker-compose run test npm test",
     "install-curl": "if [ \"$LAGOON_GIT_BRANCH\" != \"production\" ] ; then apk --update add curl;  fi",
     "docs": "node ./scripts/generate-readme/generate-readme.js",
-    "new-package": "node ./scripts/generate-package/generate-package.js"
+    "new-package": "node ./scripts/generate-package/generate-package.js",
+    "package-dependencies": "node ./scripts/generate-dependencies/generate-dependencies.js"
   },
   "dependencies": {
     "@dpc-sdp/ripple-alert": "file:packages/Molecules/Alert",
@@ -48,6 +49,7 @@
     "@dpc-sdp/ripple-layout": "file:packages/Molecules/Layout",
     "@dpc-sdp/ripple-link": "file:packages/Atoms/Link",
     "@dpc-sdp/ripple-list": "file:packages/Molecules/List",
+    "@dpc-sdp/ripple-markup": "file:packages/Organisms/Markup",
     "@dpc-sdp/ripple-meta-tag": "file:packages/Atoms/MetaTag",
     "@dpc-sdp/ripple-news": "file:packages/Organisms/News",
     "@dpc-sdp/ripple-pagination": "file:packages/Molecules/Pagination",
@@ -75,12 +77,12 @@
     "@storybook/addons": "3.4.11",
     "@storybook/vue": "3.4.11",
     "babel-core": "^6.22.1",
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "8.0.1",
     "babel-plugin-dynamic-import-node": "^2.0.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-vue": "^2.0.2",
     "css-loader": "^0.28.0",
-    "eslint": "^4.15.0",
+    "eslint": "4.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",

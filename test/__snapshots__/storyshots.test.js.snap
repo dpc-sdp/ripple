@@ -2127,6 +2127,380 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Atoms/Icon Text Icon 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Atoms/Icon
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Text Icon
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <span
+      data-v-6ca0e090=""
+    >
+      <span>
+        Text
+      </span>
+       
+      <span
+        class="rpl-text-icon__group"
+      >
+         Link
+        <!---->
+      </span>
+       
+      <!---->
+    </span>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-text-icon
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :symbol
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "icon"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :color
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "color"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :size
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "size"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :text
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "text"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :placement
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "placement"
+          </span>
+          /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplTextIcon" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    symbol
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    color
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            primary
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    placement
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            after
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    size
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            m
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    text
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Atoms/Layout Grid 1`] = `
 <div
   class="vue-info"
@@ -12605,6 +12979,8 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
     <form
       class="rpl-form"
       data-v-6ca0e090=""
+      isnewmodel="true"
+      options="[object Object]"
     >
       <!---->
        
@@ -13131,24 +13507,82 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               class="field-wrap"
             >
               <div
-                class="rpl-markup"
+                class="rpl-markup tide-wysiwyg app-wysiwyg"
               >
-                <h3>
-                  Markup field
-                </h3>
-                <p>
-                  A paragraph of 
-                  <strong>
-                    text
-                  </strong>
-                   with a 
-                  <a
-                    href="https://vic.gov.au"
+                <div
+                  class="rpl-markup__inner"
+                >
+                  <h3>
+                    Markup field
+                  </h3>
+                   
+                  <figure
+                    class="rpl-document-link"
                   >
-                    link
-                  </a>
-                  .
-                </p>
+                    <a
+                      aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+                      class="rpl-document-link__link"
+                      href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+                      target="_blank"
+                    >
+                      <!---->
+                       
+                      <div
+                        class="rpl-document-link__info"
+                      >
+                        <span
+                          class="rpl-document-link__title"
+                        >
+                           Detailed Guide on the mandatory IR management criteria 
+                        </span>
+                         
+                        <div
+                          class="rpl-document-link__meta"
+                        >
+                          <span
+                            class="rpl-document-link__type"
+                          >
+                            docx
+                          </span>
+                           
+                          <span
+                            class="rpl-document-link__size rpl-document-link__size--seperator"
+                          >
+                            75.22 KB
+                          </span>
+                        </div>
+                      </div>
+                    </a>
+                     
+                    <!---->
+                  </figure>
+                   
+                  <p>
+                    A paragraph of 
+                    <strong>
+                      text
+                    </strong>
+                     with a 
+                    <a
+                      class="rpl-link rpl-text-link"
+                      href="https://vic.gov.au"
+                    >
+                      <span>
+                        <!---->
+                         
+                        <!---->
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                          link
+                          <!---->
+                        </span>
+                      </span>
+                    </a>
+                    .
+                  </p>
+                </div>
               </div>
                
               <!---->
@@ -13170,7 +13604,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="rpl-checkbox"
               >
                 <input
-                  id="695-checkbox"
+                  id="718-checkbox"
                   type="checkbox"
                 />
                  
@@ -13226,8 +13660,8 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="699-multi-select-list-box"
-                          name="Topic-A"
+                          id="722-multi-select-list-box"
+                          name="topic_a"
                           type="checkbox"
                         />
                          
@@ -13251,8 +13685,8 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="701-multi-select-list-box"
-                          name="Topic-B"
+                          id="724-multi-select-list-box"
+                          name="topic_b"
                           type="checkbox"
                         />
                          
@@ -13276,8 +13710,8 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="703-multi-select-list-box"
-                          name="Topic-C"
+                          id="726-multi-select-list-box"
+                          name="topic_c"
                           type="checkbox"
                         />
                          
@@ -13301,8 +13735,8 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="705-multi-select-list-box"
-                          name="Topic-D"
+                          id="728-multi-select-list-box"
+                          name="topic_d"
                           type="checkbox"
                         />
                          
@@ -13337,7 +13771,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
-            class="form-group valid field-rplchecklist"
+            class="form-group valid required field-rplchecklist"
           >
             <label
               for="multi-select-drop-down"
@@ -13392,7 +13826,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
           </div>
           <div
-            class="form-group valid field-vueMultiSelect"
+            class="form-group valid required field-rplselect"
           >
             <label
               for="single-select-drop-down"
@@ -13526,9 +13960,171 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       <span
                         class="multiselect__option"
                       >
+                        No elements found. Consider changing the search query.
+                      </span>
+                    </li>
+                     
+                    <li
+                      style="display: none;"
+                    >
+                      <span
+                        class="multiselect__option"
+                      >
+                        List is empty.
+                      </span>
+                    </li>
+                     
+                  </ul>
+                </div>
+              </div>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="hint"
+            >
+              Implemented using vue-multiselect
+            </div>
+             
+            <!---->
+          </div>
+          <div
+            class="form-group valid required field-rplselect"
+          >
+            <label
+              for="multi-select-drop-down"
+            >
+              <span>
+                Multi-select drop down
+              </span>
+               
+              <!---->
+            </label>
+             
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="multiselect"
+                tabindex="0"
+              >
+                <div
+                  class="multiselect__select"
+                />
+                  
+                <div
+                  class="multiselect__tags"
+                >
+                  <div
+                    class="multiselect__tags-wrap"
+                    style="display: none;"
+                  />
+                   
+                  <!---->
+                   
+                  <div
+                    class="multiselect__spinner"
+                    style="display: none;"
+                  />
+                   
+                  <!---->
+                   
+                  <!---->
+                   
+                  <span
+                    class="multiselect__placeholder"
+                  >
+                    
+            Select several topics
+        
+                  </span>
+                </div>
+                 
+                <div
+                  class="multiselect__content-wrapper"
+                  style="max-height: 300px; display: none;"
+                  tabindex="-1"
+                >
+                  <ul
+                    class="multiselect__content"
+                    style="display: inline-block;"
+                  >
+                     
+                    <!---->
+                     
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option multiselect__option--highlight"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
                         <span>
-                          
+                          Topic A
                         </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          Topic B
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          Topic C
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="multiselect__element"
+                    >
+                      <span
+                        class="multiselect__option"
+                        data-deselect=""
+                        data-select=""
+                        data-selected=""
+                      >
+                        <span>
+                          Topic D
+                        </span>
+                      </span>
+                       
+                      <!---->
+                    </li>
+                     
+                    <li
+                      style="display: none;"
+                    >
+                      <span
+                        class="multiselect__option"
+                      >
+                        No elements found. Consider changing the search query.
                       </span>
                     </li>
                      
@@ -13624,6 +14220,42 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             class="hljs-string"
           >
             "formData"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :submitHandler
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "submitHandler"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :isNewModel
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "isNewModel"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :options
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "options"
           </span>
           &gt;
         </span>
@@ -13791,6 +14423,70 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             data-v-5bd9cdea=""
           >
             
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    scrollToMessage
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            true
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    validateOnSubmit
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            true
           </td>
            
           <td
@@ -27162,6 +27858,303 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Organisms/Markup Markup 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/Markup
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Markup
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-markup tide-wysiwyg app-wysiwyg"
+      data-v-6ca0e090=""
+    >
+      <div
+        class="rpl-markup__inner"
+      >
+        <figure
+          class="rpl-document-link"
+        >
+          <a
+            aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+            class="rpl-document-link__link"
+            href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+            target="_blank"
+          >
+            <!---->
+             
+            <div
+              class="rpl-document-link__info"
+            >
+              <span
+                class="rpl-document-link__title"
+              >
+                 Detailed Guide on the mandatory IR management criteria 
+              </span>
+               
+              <div
+                class="rpl-document-link__meta"
+              >
+                <span
+                  class="rpl-document-link__type"
+                >
+                  docx
+                </span>
+                 
+                <span
+                  class="rpl-document-link__size rpl-document-link__size--seperator"
+                >
+                  75.22 KB
+                </span>
+              </div>
+            </div>
+          </a>
+           
+          <!---->
+        </figure>
+         
+        <p>
+          A paragraph of 
+          <strong>
+            text
+          </strong>
+           with a 
+          <a
+            class="rpl-link rpl-text-link"
+            href="https://vic.gov.au"
+          >
+            <span>
+              <!---->
+               
+              <!---->
+               
+              <span
+                class="rpl-text-icon__group"
+              >
+                link
+                <!---->
+              </span>
+            </span>
+          </a>
+          .
+        </p>
+         
+        <a
+          class="rpl-link rpl-button rpl-button--primary"
+          href="http://www.google.com"
+          target="_blank"
+        >
+          go to google
+        </a>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-markup
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :html
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "html"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplMarkup" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    html
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    plugins
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Organisms/News Featured News 1`] = `
 <div
   class="vue-info"
@@ -28882,6 +29875,20 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -28890,7 +29897,7 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>
@@ -30808,6 +31815,20 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -30816,7 +31837,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>
@@ -31597,6 +32618,20 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -31605,7 +32640,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>
@@ -32314,6 +33349,20 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -32322,7 +33371,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>
@@ -33099,6 +34148,20 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -33107,7 +34170,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>
@@ -37092,6 +38155,20 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -37100,7 +38177,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>
@@ -37939,6 +39016,20 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -37947,7 +39038,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>
@@ -38303,6 +39394,120 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                         <!---->
                       </div>
                       <div
+                        class="form-group valid field-rpldatepicker"
+                      >
+                        <label
+                          for="date-range"
+                        >
+                          <span>
+                            Date range
+                          </span>
+                           
+                          <!---->
+                        </label>
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <div
+                            class="rpl-date-picker rpl-date-picker--range"
+                          >
+                            <input
+                              class="rpl-date-picker__start"
+                              placeholder="Start"
+                              type="text"
+                            />
+                             
+                            <span
+                              class="rpl-date-picker__separator"
+                            >
+                              -
+                            </span>
+                             
+                            <input
+                              class="rpl-date-picker__end"
+                              placeholder="End"
+                              type="text"
+                            />
+                          </div>
+                           
+                          <!---->
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="form-group valid field-rpldatepicker"
+                      >
+                        <label
+                          for="single-date"
+                        >
+                          <span>
+                            Single date
+                          </span>
+                           
+                          <!---->
+                        </label>
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <div
+                            class="rpl-date-picker rpl-date-picker--single"
+                          >
+                            <input
+                              placeholder="Enter a date"
+                              type="text"
+                            />
+                          </div>
+                           
+                          <!---->
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="form-group valid required field-rplcheckbox"
+                      >
+                        <!---->
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <label
+                            class="rpl-checkbox"
+                          >
+                            <input
+                              id="3028-checkbox-required"
+                              required="required"
+                              type="checkbox"
+                            />
+                             
+                            <span
+                              class="rpl-checkbox__box"
+                            >
+                              <!---->
+                            </span>
+                             
+                            <span
+                              class="rpl-checkbox__inline-label"
+                            >
+                              Required check box
+                            </span>
+                          </label>
+                           
+                          <!---->
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                      <div
                         class="form-group valid field-submit"
                       >
                         <!---->
@@ -38326,6 +39531,14 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                     </fieldset>
                   </div>
                 </form>
+                 
+                <button
+                  class="rpl-button rpl-button--secondary"
+                >
+                  Show form data
+                </button>
+                 
+                <!---->
               </div>
             </div>
              
@@ -38931,6 +40144,20 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -38939,7 +40166,7 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>
@@ -40204,6 +41431,20 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -40212,7 +41453,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>
@@ -41359,6 +42600,20 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                 </button>
                  
                 <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
                   class="rpl-site-header__title"
                 >
                   <a
@@ -41367,7 +42622,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                   >
                     <img
                       alt="vic.gov.au"
-                      src="/logo.svg"
+                      src="/cobrand-logo.png"
                     />
                   </a>
                 </div>

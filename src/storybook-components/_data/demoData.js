@@ -11,6 +11,8 @@ import {
   selectV2
 } from '@storybook/addon-knobs/vue'
 
+import examplePlugins from '@dpc-sdp/ripple-markup/examplePlugins.js'
+
 // We can use general data for some common data type.
 // These data value can be reused.
 const generalData = { // eslint-disable-line no-unused-vars
@@ -23,7 +25,7 @@ const demoData = {
     logo: object('Logo', {
       alt: 'vic.gov.au',
       url: '#',
-      image: '/logo.svg'
+      image: '/cobrand-logo.png'
     }),
     breakpoint: number('Menu Breakpoint', 992),
     links: object('Menu Links', [
@@ -1310,22 +1312,36 @@ const demoData = {
   }),
 
   form: () => ({
+    submitHandler () {
+      console.log(this.formData.model)
+      this.formData.formState = {
+        response: {
+          status: 'success',
+          message: `<code>${JSON.stringify(this.formData.model)}</code>`
+        }
+      }
+    },
+    isNewModel: true,
+    options: {
+      validateAfterChanged: true,
+      validateAfterLoad: false
+    },
     formData: {
-
       model: {
         hidden: '',
-        text: '',
+        text: null,
         email: '',
         tel: '',
         number: '',
         radio: null,
-        textArea: '',
+        textArea: null,
         dateRange: ['', ''],
         date: '',
         checkbox: true,
-        vuemultiselect: null,
-        checklistlistbox: [],
-        checklistdropdown: [],
+        select: '',
+        multiselect: null,
+        checklistlistbox: null,
+        checklistdropdown: null,
         rangeslider: [10000, 70000]
       },
 
@@ -1343,6 +1359,12 @@ const demoData = {
             label: 'Text',
             hint: 'This is a hint text',
             required: true,
+            validator (value) {
+              if (value === '') {
+                return ['This field is required']
+              }
+              return []
+            },
             placeholder: 'Enter some text...',
             model: 'text'
           },
@@ -1392,7 +1414,12 @@ const demoData = {
             hint: 'This is a hint text',
             rows: 4,
             required: true,
-
+            validator (value) {
+              if (value === '') {
+                return ['This field is required']
+              }
+              return []
+            },
             visible (model) {
               return model && model.was_this_page_helpful !== null
             }
@@ -1433,7 +1460,8 @@ const demoData = {
 
           {
             type: 'rplmarkup',
-            markup: '<h3>Markup field</h3><p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>'
+            plugins: examplePlugins,
+            markup: '<h3>Markup field</h3> <article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>'
           },
 
           {
@@ -1450,12 +1478,20 @@ const demoData = {
             listBox: true,
             hint: 'Implemented using rplchecklist with listBox: true',
             placeholder: 'Select multiple topics',
-            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
           },
 
           {
             type: 'rplchecklist',
             label: 'Multi-select drop down',
+            validator (value) {
+              if (Array.isArray(value) && value.length > 0) {
+                return []
+              }
+              return ['Add a selection']
+            },
+            min: 1,
+            required: true,
             model: 'checklistdropdown',
             hint: 'Implemented using rplchecklist',
             placeholder: 'Select multiple topics',
@@ -1463,18 +1499,45 @@ const demoData = {
           },
 
           {
-            type: 'vueMultiSelect',
-            model: 'vuemultiselect',
+            type: 'rplselect',
+            model: 'select',
+            required: true,
+            validator: ['required'],
             label: 'Single-select drop down',
             hint: 'Implemented using vue-multiselect',
             placeholder: 'Select a single topic',
             selectOptions: {
-              multiSelect: false,
+              trackBy: 'id',
+              label: 'name',
               closeOnSelect: true,
               searchable: false,
               showLabels: false
             },
-            values: ['Topic A', 'Topic B', 'Topic C', 'Topic D']
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+          },
+          {
+            type: 'rplselect',
+            model: 'multiselect',
+            required: true,
+            validator (value, field) {
+              if (value && value.length >= field.min) {
+                return []
+              }
+              return ['Add a selection']
+            },
+            min: 1,
+            label: 'Multi-select drop down',
+            hint: 'Implemented using vue-multiselect',
+            placeholder: 'Select several topics',
+            selectOptions: {
+              trackBy: 'id',
+              label: 'name',
+              multiple: true,
+              closeOnSelect: true,
+              searchable: false,
+              showLabels: false
+            },
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
           },
 
           {
@@ -1519,6 +1582,14 @@ const demoData = {
   }),
 
   icon: () => ({
+    icon: text('Symbol', 'search'),
+    color: text('Color', 'primary'),
+    size: text('Size', 'm')
+  }),
+
+  textIcon: () => ({
+    text: text('Text', 'Text Link'),
+    placement: selectV2('Placement', {before: 'before', after: 'after'}, 'after'),
     icon: text('Symbol', 'search'),
     color: text('Color', 'primary'),
     size: text('Size', 'm')
@@ -1900,6 +1971,9 @@ const demoData = {
     url: text('Download url', 'https://www.google.com'),
     extension: text('Extension', 'pdf'),
     filesize: text('Filesize', '1.4 mb')
+  }),
+  markup: () => ({
+    html: text('Html', '<article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>  <a href="http://www.google.com" class="button">go to google</a> ')
   })
 }
 

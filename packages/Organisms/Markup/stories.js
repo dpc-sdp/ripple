@@ -6,7 +6,7 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import RplMarkup from './index.vue'
+import RplMarkup from './Markup.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData.js'
 

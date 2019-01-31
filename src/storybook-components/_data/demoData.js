@@ -1591,7 +1591,7 @@ const demoData = {
           },
           {
             legend: 'Event location (grouped fields)',
-            styleClasses: ['rpl-form-group--row'],
+            styleClasses: ['rpl-fieldset__row'],
             fields: [
               {
                 type: 'input',
@@ -1599,7 +1599,7 @@ const demoData = {
                 label: 'Building name',
                 placeholder: 'Enter some text...',
                 model: 'address.address_line1',
-                styleClasses: ['rpl-form-group__col', 'rpl-form-group__col-one']
+                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-one']
               },
               {
                 type: 'input',
@@ -1607,7 +1607,7 @@ const demoData = {
                 label: 'Street address',
                 placeholder: 'Enter some text...',
                 model: 'address.address_line2',
-                styleClasses: ['rpl-form-group__col', 'rpl-form-group__col-two']
+                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-two']
               },
               {
                 type: 'input',
@@ -1615,7 +1615,7 @@ const demoData = {
                 label: 'Suburb',
                 placeholder: 'Enter some text...',
                 model: 'address.locality',
-                styleClasses: ['rpl-form-group__col', 'rpl-form-group__col-two']
+                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-two']
               },
               {
                 type: 'rplselect',
@@ -1629,7 +1629,7 @@ const demoData = {
                   showLabels: false
                 },
                 values: [{id: 'vic', name: 'Vic'}, {id: 'nsw', name: 'New South Wales'}, {id: 'wa', name: 'Western Australia'}, {id: 'ql', name: 'Queensland'}],
-                styleClasses: ['rpl-form-group__col', 'rpl-form-group__col-two']
+                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-two']
               },
               {
                 type: 'input',
@@ -1637,22 +1637,22 @@ const demoData = {
                 label: 'Postcode',
                 placeholder: 'Enter some text...',
                 model: 'address.postcode',
-                styleClasses: ['rpl-form-group__col', 'rpl-form-group__col-two']
+                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-two']
               }
             ]
           },
           {
-            styleClasses: ['rpl-form-group--row'],
+            styleClasses: ['rpl-fieldset__row'],
             fields: [
               {
                 type: 'submit',
                 buttonText: 'Submit',
-                styleClasses: ['rpl-form-group__col']
+                styleClasses: ['rpl-fieldset__col']
               },
               {
                 type: 'rplclearform',
                 buttonText: 'Clear search filters',
-                styleClasses: ['rpl-form-group__col']
+                styleClasses: ['rpl-fieldset__col']
               }
               return ['Add a selection']
             },

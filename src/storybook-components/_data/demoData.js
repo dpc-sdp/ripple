@@ -1460,7 +1460,6 @@ const demoData = {
                   'No'
                 ]
               },
-    
               {
                 type: 'textArea',
                 label: 'text area',
@@ -1479,7 +1478,6 @@ const demoData = {
                   return model && model.was_this_page_helpful !== null
                 }
               },
-    
               {
                 type: 'rpldatepicker',
                 range: true,

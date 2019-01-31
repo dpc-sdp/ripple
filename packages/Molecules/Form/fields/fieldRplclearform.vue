@@ -22,7 +22,9 @@ export default {
           this.model[key] = null
         }
       }
-      this.vfg.clearValidationErrors()
+      if (this.vfg.errors && this.vfg.errors.length > 0) {
+        this.vfg.clearValidationErrors()
+      }
     }
   }
 

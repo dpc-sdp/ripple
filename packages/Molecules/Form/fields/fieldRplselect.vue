@@ -30,9 +30,11 @@ export default {
   },
   watch: {
     value (newVal, oldVal) {
-      if (newVal === null) {
+      if (newVal === null || newVal === undefined) {
         this.updateSelected(this.selectOptions.multiple ? [] : null)
-        this.vfg.clearValidationErrors()
+        if (this.errors && this.errors.length > 0) {
+          this.vfg.clearValidationErrors()
+        }
       }
     }
   },

@@ -9014,6 +9014,538 @@ exports[`RippleStoryshots Molecules/Card Card Event 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Molecules/Card Card Honour Roll 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Molecules/Card
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Card Honour Roll
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <a
+      class="rpl-link rpl-card-content rpl-card-honour-roll rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
+      data-v-6ca0e090=""
+      href="#"
+    >
+      <!---->
+       
+      <div
+        class="rpl-card-content__details"
+      >
+        <div
+          class="rpl-card-honour-roll__inner"
+        >
+          <img
+            alt=""
+            class="rpl-card-honour-roll__image"
+            src="https://placehold.it/148x148"
+          />
+           
+          <h2
+            class="rpl-card-honour-roll__name rpl-card-honour-roll__name--no-margin"
+          >
+            Stella Young
+          </h2>
+           
+          <p
+            class="rpl-card-honour-roll__lifespan"
+          >
+            (1982 - 2014)
+          </p>
+           
+          <p
+            class="rpl-card-honour-roll__induction"
+          >
+            <span>
+              2017
+            </span>
+             
+            <span
+              class="rpl-card-honour-roll__separator"
+            >
+              |
+            </span>
+             
+            <span>
+              Local Champion
+            </span>
+          </p>
+           
+          <p
+            class="rpl-card-honour-roll__summary"
+          >
+            Journalist, comedian, feminist and fierce disability activist.
+          </p>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <div
+        class="rpl-card-content__link"
+      >
+        <span>
+          <span>
+            Read Stella's
+          </span>
+           
+          <span
+            class="rpl-text-icon__group"
+          >
+             profile
+            <!---->
+          </span>
+           
+          <!---->
+        </span>
+      </div>
+    </a>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-card-honour-roll
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :name
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "name"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :inductionYear
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "inductionYear"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :category
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "category"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :lifespan
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "lifespan"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :summary
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "summary"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :link
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "link"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :image
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "image"
+          </span>
+          
+/&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplCardHonourRoll" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    name
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    inductionYear
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    category
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    lifespan
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    summary
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    link
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    image
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Molecules/Card Card Image Navigation 1`] = `
 <div
   class="vue-info"

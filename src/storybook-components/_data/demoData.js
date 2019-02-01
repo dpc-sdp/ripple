@@ -302,6 +302,16 @@ const demoData = {
     ])
   }),
 
+  cardHonourRoll: () => ({
+    name: text('Name', 'Stella Young'),
+    inductionYear: text('Induction Year', '2017'),
+    category: text('Category', 'Local Champion'),
+    lifespan: text('Lifespan', '1982 - 2014'),
+    summary: text('Summary', 'Journalist, comedian, feminist and fierce disability activist.'),
+    link: object('Link', { text: 'Read Stella\'s profile', url: '#' }),
+    image: text('Image', 'https://placehold.it/148x148')
+  }),
+
   cardCarousel: () => ({
     title: text('Title', 'Featured Content'),
     cards: object('Cards', [
@@ -1195,6 +1205,48 @@ const demoData = {
       }
     ]
   ),
+
+  honourRollSearchResultItems: () => (
+    [
+      {
+        name: 'Stella Young',
+        inductionYear: '2017',
+        category: 'Local Champion',
+        lifespan: '1982 - 2014',
+        summary: 'Journalist, comedian, feminist and fierce disability activist.',
+        link: { text: 'Read Stella\'s profile', url: '#' },
+        image: 'https://placehold.it/148x148'
+      },
+      {
+        name: 'Stella Young',
+        inductionYear: '2017',
+        category: 'Local Champion',
+        lifespan: '1982 - 2014',
+        summary: 'Journalist, comedian, feminist and fierce disability activist.',
+        link: { text: 'Read Stella\'s profile', url: '#' },
+        image: 'https://placehold.it/148x148'
+      },
+      {
+        name: 'Stella Young',
+        inductionYear: '2017',
+        category: 'Local Champion',
+        lifespan: '1982 - 2014',
+        summary: 'Journalist, comedian, feminist and fierce disability activist.',
+        link: { text: 'Read Stella\'s profile', url: '#' },
+        image: 'https://placehold.it/148x148'
+      },
+      {
+        name: 'Stella Young',
+        inductionYear: '2017',
+        category: 'Local Champion',
+        lifespan: '1982 - 2014',
+        summary: 'Journalist, comedian, feminist and fierce disability activist.',
+        link: { text: 'Read Stella\'s profile', url: '#' },
+        image: 'https://placehold.it/148x148'
+      }
+    ]
+  ),
+
   grantSearchResultItems: () => (
     [
       {
@@ -1284,13 +1336,14 @@ const demoData = {
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
   }),
 
-  eventSearchResults: () => ({
+  cardSearchResults: () => ({
     count: number('Count', 10),
-    type: selectV2('Type', {RplCardEvent: 'RplCardEvent', RplCardPromotion: 'RplCardPromotion'}, 'RplCardEvent'),
+    type: selectV2('Type', {RplCardEvent: 'RplCardEvent', RplCardPromotion: 'RplCardPromotion', RplCardHonourRoll: 'RplCardHonourRoll'}, 'RplCardEvent'),
     responseSize: number('Response size', 4),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
   }),
+
   grantSearchResults: () => ({
     count: number('Count', 10),
     type: 'RplGrantListItem',

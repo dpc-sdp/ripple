@@ -111,7 +111,7 @@ storiesOf('Molecules/Search', module)
     data () {
       return {
         pager: demoData.pagination(),
-        searchResults: demoData.eventSearchResults(),
+        searchResults: demoData.cardSearchResults(),
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)
       }
@@ -124,6 +124,9 @@ storiesOf('Molecules/Search', module)
           switch (this.searchResults.type) {
             case 'RplCardPromotion':
               return demoData.newsSearchResultItems()
+
+            case 'RplCardHonourRoll':
+              return demoData.honourRollSearchResultItems()
 
             case 'RplCardEvent':
             default:

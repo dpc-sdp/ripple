@@ -85,6 +85,13 @@ export default {
             class: ['rpl-search-results__item--promotion']
           }
           break
+        case 'RplCardHonourRoll':
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-honour-roll' */ '@dpc-sdp/ripple-card').then(m => m.RplCardHonourRoll),
+            colsBp: {m: 6, l: 4, xxxl: 3},
+            class: ['rpl-search-results__item--honour-roll']
+          }
+          break
         case 'RplGrantsListItem':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ '@dpc-sdp/ripple-grants').then(m => m.RplGrantsListItem),

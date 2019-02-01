@@ -1591,7 +1591,7 @@ const demoData = {
           },
           {
             legend: 'Event location (grouped fields)',
-            styleClasses: ['rpl-fieldset__row'],
+            styleClasses: ['rpl-fieldset--pad'],
             fields: [
               {
                 type: 'input',
@@ -1601,7 +1601,7 @@ const demoData = {
                 validator: ['required'],
                 placeholder: 'Enter some text...',
                 model: 'address.address_line1',
-                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-one']
+                styleClasses: ['form-group--col-two']
               },
               {
                 type: 'input',
@@ -1611,7 +1611,7 @@ const demoData = {
                 label: 'Street address',
                 placeholder: 'Enter some text...',
                 model: 'address.address_line2',
-                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-two']
+                styleClasses: ['form-group--col-two']
               },
               {
                 type: 'input',
@@ -1621,7 +1621,7 @@ const demoData = {
                 validator: ['required'],
                 placeholder: 'Enter some text...',
                 model: 'address.locality',
-                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-two']
+                styleClasses: ['form-group--col-two']
               },
               {
                 type: 'rplselect',
@@ -1637,7 +1637,7 @@ const demoData = {
                   showLabels: false
                 },
                 values: [{id: 'vic', name: 'Vic'}, {id: 'nsw', name: 'New South Wales'}, {id: 'wa', name: 'Western Australia'}, {id: 'ql', name: 'Queensland'}],
-                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-two']
+                styleClasses: ['form-group--col-two']
               },
               {
                 type: 'input',
@@ -1645,22 +1645,22 @@ const demoData = {
                 label: 'Postcode',
                 placeholder: 'Enter some text...',
                 model: 'address.postcode',
-                styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-two']
+                styleClasses: ['form-group--col-two']
               }
             ]
           },
           {
-            styleClasses: ['rpl-fieldset__row'],
+            styleClasses: ['rpl-fieldset--pad'],
             fields: [
               {
                 type: 'submit',
                 buttonText: 'Submit',
-                styleClasses: ['rpl-fieldset__col']
+                styleClasses: ['form-group--inline']
               },
               {
                 type: 'rplclearform',
                 buttonText: 'Clear search filters',
-                styleClasses: ['rpl-fieldset__col']
+                styleClasses: ['form-group--inline']
               }
               return ['Add a selection']
             },
@@ -1731,7 +1731,7 @@ const demoData = {
       },
 
       formOptions: {
-        validateAfterLoad: true,
+        validateAfterLoad: false,
         validateAfterChanged: true
       },
       tag: 'rpl-fieldset',

@@ -7,7 +7,7 @@
       :model="formData.model"
       :options="formData.formOptions"
       ref="vfg"
-      :tag="formData.tag || 'rpl-fieldset'"
+      :tag="formData.tag"
       v-show="hideForm()"
     />
   </form>

@@ -17,6 +17,7 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/tools";
 $rpl-fieldset-col-padding: $rpl-space-2;
 $rpl-fieldset-legend-margin: 0 0 $rpl-space-4 $rpl-space-2;
+$rpl-fieldset-margin: $rpl-space-4 0;
 
 .rpl-fieldset {
   $root: &;
@@ -27,29 +28,32 @@ $rpl-fieldset-legend-margin: 0 0 $rpl-space-4 $rpl-space-2;
     margin: $rpl-fieldset-legend-margin;
   }
 
-  &__row {
-    #{$root}__inner {
-      flex-wrap: wrap;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin: 0 -$rpl-fieldset-col-padding;
-    }
+  &__inner {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 -$rpl-fieldset-col-padding;
   }
 
-  &__col {
+  &--pad {
+    margin: $rpl-fieldset-margin;
+  }
+
+  .form-group {
     margin: $rpl-fieldset-col-padding;
+    flex: 0 1 100%;
 
-    &-one {
-      flex: 0 1 100%;
-    }
-
-    &-two {
+    &--col-two {
       flex: 0 1 calc(50% - (#{$rpl-fieldset-col-padding} * 2));
     }
 
-    &-three {
+    &--col-three {
       flex: 0 1 calc(33.3% - (#{$rpl-fieldset-col-padding} * 2));
+    }
+
+    &--inline {
+      flex: initial;
     }
   }
 }

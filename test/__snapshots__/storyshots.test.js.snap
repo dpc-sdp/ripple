@@ -14322,10 +14322,9 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               <label
                 for="multi-select-drop-down"
               >
-                <input
-                  id="checkbox-3"
-                  type="checkbox"
-                />
+                <span>
+                  Multi-select drop down
+                </span>
                  
                 <!---->
               </label>
@@ -14439,12 +14438,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       <li
                         class="multiselect__element"
                       >
-                        <input
-                          id="multi-select-list-box-4"
-                          name="topic_a"
-                          type="checkbox"
-                        />
-                         
                         <span
                           class="multiselect__option multiselect__option--highlight"
                           data-deselect=""
@@ -14477,12 +14470,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       <li
                         class="multiselect__element"
                       >
-                        <input
-                          id="multi-select-list-box-5"
-                          name="topic_b"
-                          type="checkbox"
-                        />
-                         
                         <span
                           class="multiselect__option"
                           data-deselect=""
@@ -14499,12 +14486,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       <li
                         class="multiselect__element"
                       >
-                        <input
-                          id="multi-select-list-box-6"
-                          name="topic_c"
-                          type="checkbox"
-                        />
-                         
                         <span
                           class="multiselect__option"
                           data-deselect=""
@@ -14532,12 +14513,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       <li
                         style="display: none;"
                       >
-                        <input
-                          id="multi-select-list-box-7"
-                          name="topic_d"
-                          type="checkbox"
-                        />
-                         
                         <span
                           class="multiselect__option"
                         >

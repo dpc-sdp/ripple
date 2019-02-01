@@ -66,6 +66,18 @@ export default {
       this.pikadayInit()
     })
   },
+  computed: {
+    model () {
+      return this.$parent.model[this.$parent.schema.model]
+    }
+  },
+  watch: {
+    model (newVal, oldVal) {
+      if (newVal === null || newVal === undefined) {
+        this.displayVal = ''
+      }
+    }
+  },
   beforeDestroy () {
     if (this.picker) {
       this.picker.destroy()

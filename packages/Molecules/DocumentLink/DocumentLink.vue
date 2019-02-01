@@ -44,6 +44,7 @@ export default {
         case 'dotm':
         case 'dotx':
         case 'zip':
+        case 'ics':
           return this.extension
         default:
           return 'document'

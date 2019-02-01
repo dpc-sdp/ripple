@@ -13816,11 +13816,17 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 <div
                   class="rpl-date-picker rpl-date-picker--range"
                 >
-                  <input
-                    class="rpl-date-picker__start"
-                    placeholder="Start"
-                    type="text"
-                  />
+                  <div
+                    class="rpl-form-pikaday rpl-date-picker__start"
+                  >
+                    <input
+                      class="rpl-form-pikaday__input"
+                      placeholder="Start"
+                      type="text"
+                    />
+                     
+                    <!---->
+                  </div>
                    
                   <span
                     class="rpl-date-picker__separator"
@@ -13828,11 +13834,17 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     -
                   </span>
                    
-                  <input
-                    class="rpl-date-picker__end"
-                    placeholder="End"
-                    type="text"
-                  />
+                  <div
+                    class="rpl-form-pikaday rpl-date-picker__end"
+                  >
+                    <input
+                      class="rpl-form-pikaday__input"
+                      placeholder="End"
+                      type="text"
+                    />
+                     
+                    <!---->
+                  </div>
                 </div>
                  
                 <!---->
@@ -13861,10 +13873,17 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 <div
                   class="rpl-date-picker rpl-date-picker--single"
                 >
-                  <input
-                    placeholder="Enter a date"
-                    type="text"
-                  />
+                  <div
+                    class="rpl-form-pikaday"
+                  >
+                    <input
+                      class="rpl-form-pikaday__input"
+                      placeholder="Enter a date"
+                      type="text"
+                    />
+                     
+                    <!---->
+                  </div>
                 </div>
                  
                 <!---->
@@ -40922,11 +40941,17 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                           <div
                             class="rpl-date-picker rpl-date-picker--range"
                           >
-                            <input
-                              class="rpl-date-picker__start"
-                              placeholder="Start"
-                              type="text"
-                            />
+                            <div
+                              class="rpl-form-pikaday rpl-date-picker__start"
+                            >
+                              <input
+                                class="rpl-form-pikaday__input"
+                                placeholder="Start"
+                                type="text"
+                              />
+                               
+                              <!---->
+                            </div>
                              
                             <span
                               class="rpl-date-picker__separator"
@@ -40934,11 +40959,17 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                               -
                             </span>
                              
-                            <input
-                              class="rpl-date-picker__end"
-                              placeholder="End"
-                              type="text"
-                            />
+                            <div
+                              class="rpl-form-pikaday rpl-date-picker__end"
+                            >
+                              <input
+                                class="rpl-form-pikaday__input"
+                                placeholder="End"
+                                type="text"
+                              />
+                               
+                              <!---->
+                            </div>
                           </div>
                            
                           <!---->
@@ -40967,10 +40998,17 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                           <div
                             class="rpl-date-picker rpl-date-picker--single"
                           >
-                            <input
-                              placeholder="Enter a date"
-                              type="text"
-                            />
+                            <div
+                              class="rpl-form-pikaday"
+                            >
+                              <input
+                                class="rpl-form-pikaday__input"
+                                placeholder="Enter a date"
+                                type="text"
+                              />
+                               
+                              <!---->
+                            </div>
                           </div>
                            
                           <!---->

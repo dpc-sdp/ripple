@@ -1620,6 +1620,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          ics
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           instagram
         </code>
       </li>
@@ -13604,7 +13611,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="rpl-checkbox"
               >
                 <input
-                  id="718-checkbox"
+                  id="checkbox-3"
                   type="checkbox"
                 />
                  
@@ -13660,7 +13667,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="722-multi-select-list-box"
+                          id="multi-select-list-box-4"
                           name="topic_a"
                           type="checkbox"
                         />
@@ -13685,7 +13692,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="724-multi-select-list-box"
+                          id="multi-select-list-box-5"
                           name="topic_b"
                           type="checkbox"
                         />
@@ -13710,7 +13717,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="726-multi-select-list-box"
+                          id="multi-select-list-box-6"
                           name="topic_c"
                           type="checkbox"
                         />
@@ -13735,7 +13742,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="728-multi-select-list-box"
+                          id="multi-select-list-box-7"
                           name="topic_d"
                           type="checkbox"
                         />
@@ -14166,6 +14173,40 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 type="submit"
                 value="Submit"
               />
+               
+              <!---->
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
+          <div
+            class="form-group valid field-rplclearform"
+          >
+            <!---->
+             
+            <div
+              class="field-wrap"
+            >
+              <button
+                class="rpl-clearform"
+              >
+                <span>
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                    <!---->
+                    Clear
+                  </span>
+                   
+                  <span>
+                     search filters
+                  </span>
+                   
+                  <!---->
+                </span>
+              </button>
                
               <!---->
             </div>
@@ -27594,7 +27635,6 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
         <button
           aria-label="Go to next slide"
           class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next"
-          role="button"
         >
           <!---->
         </button>
@@ -37252,7 +37292,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     <button
                       aria-label="Go to next slide"
                       class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next"
-                      role="button"
                     >
                       <!---->
                     </button>
@@ -40085,7 +40124,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="3053-checkbox-required"
+                              id="checkbox-required-12"
                               required="required"
                               type="checkbox"
                             />

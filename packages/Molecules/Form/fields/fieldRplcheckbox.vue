@@ -1,6 +1,6 @@
 <template>
   <rpl-checkbox
-    :inputId="getFieldID(schema)"
+    :inputId="getFieldID(schema, true)"
     v-model="value"
     :inputAutocomplete="schema.autocomplete"
     :inputDisabled="disabled"

@@ -3,7 +3,7 @@
     <input
       type="checkbox"
       ref="input_checkbox"
-      :id="`${id}-${inputId}`"
+      :id="inputId"
       v-model="checked"
       :autocomplete="inputAutocomplete"
       :disabled="inputDisabled"
@@ -37,18 +37,9 @@ export default {
   components: {
     RplIcon
   },
-  data () {
-    return {
-      checked: this.value,
-      id: null
-    }
-  },
-  created () {
-    this.id = this._uid
-  },
   methods: {
-    updateValue () {
-      this.$emit('input', this.checked)
+    updateValue (val) {
+      this.$emit('input', val)
     },
     labelClick () {
       this.$refs['input_checkbox'].focus()
@@ -57,13 +48,20 @@ export default {
       this.$emit('change', event)
     }
   },
-  watch: {
-    checked (val) {
-      this.updateValue()
-      this.updateChange(val)
+  computed: {
+    checked: {
+      set (val) {
+        this.updateValue(val)
+        this.updateChange(val)
+      },
+      get () {
+        if (this.value === null || this.value === undefined) {
+          return false
+        }
+        return this.value
+      }
     }
   }
-
 }
 </script>
 

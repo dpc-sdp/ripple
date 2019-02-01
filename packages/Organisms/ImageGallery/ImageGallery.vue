@@ -20,10 +20,10 @@
       </slide>
     </carousel>
     <div class="rpl-image-gallery__thumbnail-navigation">
-      <button v-if="navTo > 0" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+      <button v-if="navTo > 0" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" @click="prevSlide" :aria-label="previousLabel">
         <rpl-icon symbol="arrow_left_secondary" color="white" size="1.6" />
       </button>
-      <button v-if="navTo < totalSlides" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+      <button v-if="navTo < totalSlides" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" @click="nextSlide" :aria-label="nextLabel">
         <rpl-icon symbol="arrow_right_secondary" color="white" size="1.6" />
       </button>
     </div>
@@ -60,10 +60,10 @@
           </slide>
         </carousel>
         <div class="rpl-image-gallery__large-navigation">
-          <button :disabled="navTo === 0" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+          <button :disabled="navTo === 0" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--prev" @click="prevSlide" :aria-label="previousLabel">
             <rpl-icon symbol="arrow_left_secondary" :color="arrowColor" :size="arrowSize" />
           </button>
-          <button :disabled="navTo === totalSlides" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+          <button :disabled="navTo === totalSlides" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--next" @click="nextSlide" :aria-label="nextLabel">
             <rpl-icon symbol="arrow_right_secondary" :color="arrowColor" :size="arrowSize" />
           </button>
         </div>

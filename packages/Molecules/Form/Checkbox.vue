@@ -3,7 +3,7 @@
     <input
       type="checkbox"
       ref="input_checkbox"
-      :id="`${id}-${inputId}`"
+      :id="inputId"
       v-model="checked"
       :autocomplete="inputAutocomplete"
       :disabled="inputDisabled"
@@ -36,14 +36,6 @@ export default {
   },
   components: {
     RplIcon
-  },
-  data () {
-    return {
-      id: null
-    }
-  },
-  created () {
-    this.id = this._uid
   },
   methods: {
     updateValue (val) {

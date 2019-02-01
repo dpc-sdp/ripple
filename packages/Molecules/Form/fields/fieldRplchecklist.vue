@@ -7,7 +7,7 @@
           <rpl-checkbox
             v-model="listValues[index]"
             :inputDisabled="disabled"
-            :inputId="getFieldID(schema)"
+            :inputId="getFieldID(schema, true)"
             :inputName="getInputName(item)"
             :inlineLabel="getItemName(item)"
             @change="onMultiChange()"
@@ -28,7 +28,7 @@
           <rpl-checkbox
             v-model="listValues[index]"
             :inputDisabled="disabled"
-            :inputId="getFieldID(schema)"
+            :inputId="getFieldID(schema, true)"
             :inputName="getInputName(item)"
             :inlineLabel="getItemName(item)"
             @change="onMultiChange()"

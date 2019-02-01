@@ -1539,10 +1539,13 @@ const demoData = {
             },
             values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
           },
-
           {
             type: 'submit',
             buttonText: 'Submit'
+          },
+          {
+            type: 'rplclearform',
+            buttonText: 'Clear search filters'
           }
         ]
       },

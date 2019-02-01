@@ -14174,6 +14174,40 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
              
             <!---->
           </div>
+          <div
+            class="form-group valid field-rplclearform"
+          >
+            <!---->
+             
+            <div
+              class="field-wrap"
+            >
+              <button
+                class="rpl-clearform"
+              >
+                <span>
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                    <!---->
+                    Clear
+                  </span>
+                   
+                  <span>
+                     search filters
+                  </span>
+                   
+                  <!---->
+                </span>
+              </button>
+               
+              <!---->
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
         </fieldset>
       </div>
     </form>
@@ -39482,7 +39516,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="3028-checkbox-required"
+                              id="3032-checkbox-required"
                               required="required"
                               type="checkbox"
                             />

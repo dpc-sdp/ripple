@@ -14150,7 +14150,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                   class="rpl-checkbox"
                 >
                   <input
-                    id="718-checkbox"
+                    id="checkbox-3"
                     type="checkbox"
                   />
                    
@@ -14206,7 +14206,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                           class="rpl-checkbox"
                         >
                           <input
-                            id="722-multi-select-list-box"
+                            id="multi-select-list-box-4"
                             name="topic_a"
                             type="checkbox"
                           />
@@ -14231,7 +14231,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                           class="rpl-checkbox"
                         >
                           <input
-                            id="724-multi-select-list-box"
+                            id="multi-select-list-box-5"
                             name="topic_b"
                             type="checkbox"
                           />
@@ -14256,7 +14256,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                           class="rpl-checkbox"
                         >
                           <input
-                            id="726-multi-select-list-box"
+                            id="multi-select-list-box-6"
                             name="topic_c"
                             type="checkbox"
                           />
@@ -14281,7 +14281,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                           class="rpl-checkbox"
                         >
                           <input
-                            id="728-multi-select-list-box"
+                            id="multi-select-list-box-7"
                             name="topic_d"
                             type="checkbox"
                           />
@@ -14746,7 +14746,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
           </div>
         </fieldset>
         <fieldset
-          class="rpl-fieldset valid rpl-fieldset__row"
+          class="rpl-fieldset valid rpl-fieldset--pad"
         >
           <div
             class="rpl-fieldset__inner"
@@ -14755,7 +14755,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               Event location (grouped fields)
             </legend>
             <div
-              class="form-group valid rpl-fieldset__col rpl-fieldset__col-one field-input"
+              class="form-group valid required form-group--col-two field-input"
             >
               <label
                 for="building-name"
@@ -14777,6 +14777,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     class="form-control"
                     id="building-name"
                     placeholder="Enter some text..."
+                    required="required"
                     type="text"
                   />
                   <!---->
@@ -14790,7 +14791,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               <!---->
             </div>
             <div
-              class="form-group valid rpl-fieldset__col rpl-fieldset__col-two field-input"
+              class="form-group valid required form-group--col-two field-input"
             >
               <label
                 for="street-address"
@@ -14812,6 +14813,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     class="form-control"
                     id="street-address"
                     placeholder="Enter some text..."
+                    required="required"
                     type="text"
                   />
                   <!---->
@@ -14825,7 +14827,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               <!---->
             </div>
             <div
-              class="form-group valid rpl-fieldset__col rpl-fieldset__col-two field-input"
+              class="form-group valid required form-group--col-two field-input"
             >
               <label
                 for="suburb"
@@ -14847,6 +14849,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     class="form-control"
                     id="suburb"
                     placeholder="Enter some text..."
+                    required="required"
                     type="text"
                   />
                   <!---->
@@ -14860,7 +14863,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               <!---->
             </div>
             <div
-              class="form-group valid rpl-fieldset__col rpl-fieldset__col-two field-rplselect"
+              class="form-group valid required form-group--col-two field-rplselect"
             >
               <label
                 for="state"
@@ -15020,7 +15023,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               <!---->
             </div>
             <div
-              class="form-group valid rpl-fieldset__col rpl-fieldset__col-two field-input"
+              class="form-group valid form-group--col-two field-input"
             >
               <label
                 for="postcode"
@@ -15057,14 +15060,14 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
           </div>
         </fieldset>
         <fieldset
-          class="rpl-fieldset valid rpl-fieldset__row"
+          class="rpl-fieldset valid rpl-fieldset--pad"
         >
           <div
             class="rpl-fieldset__inner"
           >
             <!---->
             <div
-              class="form-group valid rpl-fieldset__col field-submit"
+              class="form-group valid form-group--inline field-submit"
             >
               <!---->
                
@@ -15123,7 +15126,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             <!---->
              
             <div
-              class="form-group valid rpl-fieldset__col field-rplclearform"
+              class="form-group valid form-group--inline field-rplclearform"
             >
               <!---->
                
@@ -40762,347 +40765,308 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                   <div
                     class="vue-form-generator"
                   >
-                    <fieldset
-                      class="rpl-fieldset"
-                    >
+                    <fieldset>
                       <div
-                        class="rpl-fieldset__inner"
+                        class="form-group valid field-vueMultiSelect"
                       >
-                        <div
-                          class="form-group valid field-vueMultiSelect"
+                        <label
+                          for="single-select-drop-down"
                         >
-                          <label
-                            for="single-select-drop-down"
-                          >
-                            <span>
-                              Single-select drop down
-                            </span>
-                             
-                            <!---->
-                          </label>
+                          <span>
+                            Single-select drop down
+                          </span>
                            
+                          <!---->
+                        </label>
+                         
+                        <div
+                          class="field-wrap"
+                        >
                           <div
-                            class="field-wrap"
+                            class="multiselect"
+                            tabindex="0"
                           >
                             <div
-                              class="multiselect"
-                              tabindex="0"
+                              class="multiselect__select"
+                            />
+                              
+                            <div
+                              class="multiselect__tags"
                             >
                               <div
-                                class="multiselect__select"
+                                class="multiselect__tags-wrap"
+                                style="display: none;"
                               />
-                                
+                               
+                              <!---->
+                               
                               <div
-                                class="multiselect__tags"
+                                class="multiselect__spinner"
+                                style="display: none;"
+                              />
+                               
+                              <!---->
+                               
+                              <!---->
+                               
+                              <span
+                                class="multiselect__placeholder"
                               >
-                                <div
-                                  class="multiselect__tags-wrap"
-                                  style="display: none;"
-                                />
-                                 
-                                <!---->
-                                 
-                                <div
-                                  class="multiselect__spinner"
-                                  style="display: none;"
-                                />
-                                 
-                                <!---->
-                                 
-                                <!---->
-                                 
-                                <span
-                                  class="multiselect__placeholder"
-                                >
-                                  
+                                
             Select a single topic
         
-                                </span>
-                              </div>
-                               
-                              <div
-                                class="multiselect__content-wrapper"
-                                style="max-height: 300px; display: none;"
-                                tabindex="-1"
+                              </span>
+                            </div>
+                             
+                            <div
+                              class="multiselect__content-wrapper"
+                              style="max-height: 300px; display: none;"
+                              tabindex="-1"
+                            >
+                              <ul
+                                class="multiselect__content"
+                                style="display: inline-block;"
                               >
-                                <ul
-                                  class="multiselect__content"
-                                  style="display: inline-block;"
+                                 
+                                <!---->
+                                 
+                                <li
+                                  class="multiselect__element"
                                 >
+                                  <span
+                                    class="multiselect__option multiselect__option--highlight"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic A
+                                    </span>
+                                  </span>
                                    
                                   <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic B
+                                    </span>
+                                  </span>
                                    
-                                  <li
-                                    class="multiselect__element"
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
                                   >
-                                    <span
-                                      class="multiselect__option multiselect__option--highlight"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic A
-                                      </span>
+                                    <span>
+                                      Topic C
                                     </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic B
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic C
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic D
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic E
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic F
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic G
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
+                                  </span>
                                    
-                                  <li
-                                    style="display: none;"
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                    >
-                                      <span>
-                                        
-                                      </span>
+                                    <span>
+                                      Topic D
                                     </span>
-                                  </li>
+                                  </span>
                                    
-                                  <li
-                                    style="display: none;"
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                    >
-                                      List is empty.
+                                    <span>
+                                      Topic E
                                     </span>
-                                  </li>
+                                  </span>
                                    
-                                </ul>
-                              </div>
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic F
+                                    </span>
+                                  </span>
+                                   
+                                  <!---->
+                                </li>
+                                <li
+                                  class="multiselect__element"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                    data-deselect=""
+                                    data-select=""
+                                    data-selected=""
+                                  >
+                                    <span>
+                                      Topic G
+                                    </span>
+                                  </span>
+                                   
+                                  <!---->
+                                </li>
+                                 
+                                <li
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                  >
+                                    <span>
+                                      
+                                    </span>
+                                  </span>
+                                </li>
+                                 
+                                <li
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="multiselect__option"
+                                  >
+                                    List is empty.
+                                  </span>
+                                </li>
+                                 
+                              </ul>
                             </div>
-                             
-                            <!---->
-                          </div>
-                           
-                          <div
-                            class="hint"
-                          >
-                            Implemented using vue-multiselect
                           </div>
                            
                           <!---->
                         </div>
+                         
                         <div
-                          class="form-group valid field-rpldatepicker"
+                          class="hint"
                         >
-                          <label
-                            for="date-range"
+                          Implemented using vue-multiselect
+                        </div>
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="form-group valid field-rpldatepicker"
+                      >
+                        <label
+                          for="date-range"
+                        >
+                          <span>
+                            Date range
+                          </span>
+                           
+                          <!---->
+                        </label>
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <div
+                            class="rpl-date-picker rpl-date-picker--range"
                           >
-                            <span>
-                              Date range
+                            <input
+                              class="rpl-date-picker__start"
+                              placeholder="Start"
+                              type="text"
+                            />
+                             
+                            <span
+                              class="rpl-date-picker__separator"
+                            >
+                              -
                             </span>
                              
-                            <!---->
-                          </label>
-                           
-                          <div
-                            class="field-wrap"
-                          >
-                            <div
-                              class="rpl-date-picker rpl-date-picker--range"
-                            >
-                              <input
-                                class="rpl-date-picker__start"
-                                placeholder="Start"
-                                type="text"
-                              />
-                               
-                              <span
-                                class="rpl-date-picker__separator"
-                              >
-                                -
-                              </span>
-                               
-                              <input
-                                class="rpl-date-picker__end"
-                                placeholder="End"
-                                type="text"
-                              />
-                            </div>
-                             
-                            <!---->
+                            <input
+                              class="rpl-date-picker__end"
+                              placeholder="End"
+                              type="text"
+                            />
                           </div>
                            
                           <!---->
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="form-group valid field-rpldatepicker"
+                      >
+                        <label
+                          for="single-date"
+                        >
+                          <span>
+                            Single date
+                          </span>
+                           
+                          <!---->
+                        </label>
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <div
+                            class="rpl-date-picker rpl-date-picker--single"
+                          >
+                            <input
+                              placeholder="Enter a date"
+                              type="text"
+                            />
+                          </div>
                            
                           <!---->
                         </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="form-group valid required field-rplcheckbox"
+                      >
+                        <!---->
+                         
                         <div
-                          class="form-group valid field-rpldatepicker"
+                          class="field-wrap"
                         >
                           <label
-                            for="single-date"
-                          >
-                            <span>
-                              Single date
-                            </span>
-                             
-                            <!---->
-                          </label>
-                           
-                          <div
-                            class="field-wrap"
-                          >
-                            <div
-                              class="rpl-date-picker rpl-date-picker--single"
-                            >
-                              <input
-                                placeholder="Enter a date"
-                                type="text"
-                              />
-                            </div>
-                             
-                            <!---->
-                          </div>
-                           
-                          <!---->
-                           
-                          <!---->
-                        </div>
-                        <div
-                          class="form-group valid required field-rplcheckbox"
-                        >
-                          <!---->
-                           
-                          <div
-                            class="field-wrap"
-                          >
-                            <label
-                              class="rpl-checkbox"
-                            >
-                              <input
-                                id="3048-checkbox-required"
-                                required="required"
-                                type="checkbox"
-                              />
-                               
-                              <span
-                                class="rpl-checkbox__box"
-                              >
-                                <!---->
-                              </span>
-                               
-                              <span
-                                class="rpl-checkbox__inline-label"
-                              >
-                                Required check box
-                              </span>
-                            </label>
-                             
-                            <!---->
-                          </div>
-                           
-                          <!---->
-                           
-                          <!---->
-                        </div>
-                        <div
-                          class="form-group valid field-submit"
-                        >
-                          <!---->
-                           
-                          <div
-                            class="field-wrap"
+                            class="rpl-checkbox"
                           >
                             <input
                               id="checkbox-required-12"
@@ -41110,13 +41074,46 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                               type="checkbox"
                             />
                              
-                            <!---->
-                          </div>
-                           
-                          <!---->
+                            <span
+                              class="rpl-checkbox__box"
+                            >
+                              <!---->
+                            </span>
+                             
+                            <span
+                              class="rpl-checkbox__inline-label"
+                            >
+                              Required check box
+                            </span>
+                          </label>
                            
                           <!---->
                         </div>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="form-group valid field-submit"
+                      >
+                        <!---->
+                         
+                        <div
+                          class="field-wrap"
+                        >
+                          <input
+                            id=""
+                            type="submit"
+                            value="Submit"
+                          />
+                           
+                          <!---->
+                        </div>
+                         
+                        <!---->
+                         
+                        <!---->
                       </div>
                     </fieldset>
                   </div>

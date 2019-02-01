@@ -1597,6 +1597,8 @@ const demoData = {
                 type: 'input',
                 inputType: 'text',
                 label: 'Building name',
+                required: true,
+                validator: ['required'],
                 placeholder: 'Enter some text...',
                 model: 'address.address_line1',
                 styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-one']
@@ -1604,6 +1606,8 @@ const demoData = {
               {
                 type: 'input',
                 inputType: 'text',
+                required: true,
+                validator: ['required'],
                 label: 'Street address',
                 placeholder: 'Enter some text...',
                 model: 'address.address_line2',
@@ -1613,6 +1617,8 @@ const demoData = {
                 type: 'input',
                 inputType: 'text',
                 label: 'Suburb',
+                required: true,
+                validator: ['required'],
                 placeholder: 'Enter some text...',
                 model: 'address.locality',
                 styleClasses: ['rpl-fieldset__col', 'rpl-fieldset__col-two']
@@ -1621,6 +1627,8 @@ const demoData = {
                 type: 'rplselect',
                 label: 'State',
                 model: 'address.state',
+                required: true,
+                validator: ['required'],
                 selectOptions: {
                   trackBy: 'id',
                   label: 'name',

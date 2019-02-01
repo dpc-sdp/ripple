@@ -1,18 +1,24 @@
 <template>
-  <input
-    type="text"
-    v-model="displayVal"
-    :autocomplete="autocomplete"
-    :disabled="disabled"
-    :placeholder="placeholder"
-    :readonly="readonly"
-    :name="inputName"
-    @keyup="keyup"/>
+  <div class="rpl-form-pikaday">
+    <input
+      class="rpl-form-pikaday__input"
+      type="text"
+      v-model="displayVal"
+      :autocomplete="autocomplete"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      :readonly="readonly"
+      :name="inputName"
+      @keyup="keyup"
+    />
+    <rpl-icon class="rpl-form-pikaday__icon" symbol="calendar" color="primary" />
+  </div>
 </template>
 
 <script>
 import { defaults } from 'lodash'
 import moment from 'moment'
+import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   props: {
@@ -23,6 +29,9 @@ export default {
     readonly: String,
     inputName: String,
     options: Object
+  },
+  components: {
+    RplIcon
   },
   data () {
     let pickerOptions = defaults(this.options || {}, {
@@ -322,6 +331,20 @@ $rpl-pikaday-date-today-text-color: rpl-color('secondary') !default;
         }
       }
     }
+  }
+}
+
+.rpl-form-pikaday {
+  position: relative;
+  flex-grow: 1;
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: $rpl-space-4;
+    margin: auto;
+    pointer-events: none;
   }
 }
 </style>

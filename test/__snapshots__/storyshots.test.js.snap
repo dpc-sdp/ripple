@@ -27628,7 +27628,6 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
         <button
           aria-label="Go to next slide"
           class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next"
-          role="button"
         >
           <!---->
         </button>
@@ -36685,7 +36684,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     <button
                       aria-label="Go to next slide"
                       class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next"
-                      role="button"
                     >
                       <!---->
                     </button>

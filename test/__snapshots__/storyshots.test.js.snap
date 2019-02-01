@@ -13604,7 +13604,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="rpl-checkbox"
               >
                 <input
-                  id="718-checkbox"
+                  id="checkbox-3"
                   type="checkbox"
                 />
                  
@@ -13660,7 +13660,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="722-multi-select-list-box"
+                          id="multi-select-list-box-4"
                           name="topic_a"
                           type="checkbox"
                         />
@@ -13685,7 +13685,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="724-multi-select-list-box"
+                          id="multi-select-list-box-5"
                           name="topic_b"
                           type="checkbox"
                         />
@@ -13710,7 +13710,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="726-multi-select-list-box"
+                          id="multi-select-list-box-6"
                           name="topic_c"
                           type="checkbox"
                         />
@@ -13735,7 +13735,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         class="rpl-checkbox"
                       >
                         <input
-                          id="728-multi-select-list-box"
+                          id="multi-select-list-box-7"
                           name="topic_d"
                           type="checkbox"
                         />
@@ -39516,7 +39516,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                             class="rpl-checkbox"
                           >
                             <input
-                              id="3032-checkbox-required"
+                              id="checkbox-required-12"
                               required="required"
                               type="checkbox"
                             />

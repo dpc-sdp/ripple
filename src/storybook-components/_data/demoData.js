@@ -1646,6 +1646,7 @@ const demoData = {
       'hamburger',
       'help',
       'home',
+      'ics',
       'instagram',
       'left',
       'link',

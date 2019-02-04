@@ -1378,6 +1378,7 @@ const demoData = {
         }, 500)
       })
     },
+    title: 'Example Form',
     isNewModel: true,
     options: {
       validateAfterChanged: true,

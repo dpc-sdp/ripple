@@ -60,8 +60,19 @@ export default {
     scrollToMessage: {type: Boolean, default: true},
     validateOnSubmit: {type: Boolean, default: true}
   },
+  computed: {
+    submitLoaderFields () {
+      return this.formData.schema.fields.filter(item => (item.type === 'rplsubmitloader' && item.autoUpdate))
+    }
+  },
   methods: {
+    showLoadingAnimation (enabled) {
+      if (this.submitLoaderFields.length > 0) {
+        this.submitLoaderFields.forEach(field => { field.loading = enabled })
+      }
+    },
     hideForm () {
+      this.showLoadingAnimation(false)
       if (this.formData.formState.response) {
         return !(this.hideAfterSuccess && this.formData.formState.response.status === 'success')
       } else {
@@ -70,6 +81,8 @@ export default {
     },
     async onSubmit (event) {
       event.preventDefault()
+
+      this.showLoadingAnimation(true)
 
       // call validation manually
       if (this.validateOnSubmit) {

@@ -1366,13 +1366,17 @@ const demoData = {
 
   form: () => ({
     submitHandler () {
-      console.log(this.formData.model)
-      this.formData.formState = {
-        response: {
-          status: 'success',
-          message: `<code>${JSON.stringify(this.formData.model)}</code>`
-        }
-      }
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.formData.formState = {
+            response: {
+              status: 'success',
+              message: `<code>${JSON.stringify(this.formData.model)}</code>`
+            }
+          }
+          resolve()
+        }, 500)
+      })
     },
     isNewModel: true,
     options: {
@@ -1595,6 +1599,12 @@ const demoData = {
           {
             type: 'submit',
             buttonText: 'Submit'
+          },
+          {
+            type: 'rplsubmitloader',
+            buttonText: 'Submit (with animation)',
+            loading: false,
+            autoUpdate: true
           },
           {
             type: 'rplclearform',

@@ -25725,11 +25725,83 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
          
       </div>
        
-      <p
-        class="rpl-grants-overview__description"
+      <div
+        class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
       >
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
-      </p>
+        <div
+          class="rpl-markup__inner"
+        >
+          <p>
+            This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit. 
+          </p>
+          <figure
+            class="rpl-document-link"
+          >
+            <a
+              aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+              class="rpl-document-link__link"
+              href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+              target="_blank"
+            >
+              <!---->
+               
+              <div
+                class="rpl-document-link__info"
+              >
+                <span
+                  class="rpl-document-link__title"
+                >
+                   Detailed Guide on the mandatory IR management criteria 
+                </span>
+                 
+                <div
+                  class="rpl-document-link__meta"
+                >
+                  <span
+                    class="rpl-document-link__type"
+                  >
+                    docx
+                  </span>
+                   
+                  <span
+                    class="rpl-document-link__size rpl-document-link__size--seperator"
+                  >
+                    75.22 KB
+                  </span>
+                </div>
+              </div>
+            </a>
+             
+            <!---->
+          </figure>
+           
+          <p>
+            A paragraph of 
+            <strong>
+              text
+            </strong>
+             with a 
+            <a
+              class="rpl-link rpl-text-link"
+              href="https://vic.gov.au"
+            >
+              <span>
+                <!---->
+                 
+                <!---->
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                  link
+                  <!---->
+                </span>
+              </span>
+            </a>
+            .
+          </p>
+        </div>
+      </div>
        
       <a
         class="rpl-link rpl-button rpl-grants-overview__cta rpl-button--primary"

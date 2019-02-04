@@ -13526,14 +13526,12 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
       <div
         class="vue-form-generator"
       >
-        <!---->
         <fieldset
-          class="rpl-fieldset valid"
+          class="rpl-fieldset"
         >
           <div
             class="rpl-fieldset__inner"
           >
-            <!---->
             <div
               class="form-group valid field-input"
             >
@@ -14699,25 +14697,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                
               <!---->
             </div>
-            <div
-              class="form-group valid field-rpldivider"
-            >
-              <!---->
-               
-              <div
-                class="field-wrap"
-              >
-                <hr
-                  class="rpl-divider"
-                />
-                 
-                <!---->
-              </div>
-               
-              <!---->
-               
-              <!---->
-            </div>
           </div>
         </fieldset>
         <fieldset
@@ -15035,25 +15014,32 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
           </div>
         </fieldset>
         <fieldset
-          class="rpl-fieldset valid rpl-fieldset--pad"
+          class="rpl-fieldset valid"
         >
           <div
             class="rpl-fieldset__inner"
           >
             <!---->
             <div
-              class="form-group valid form-group--inline field-submit"
+              class="form-group valid form-group--inline field-rplsubmitloader"
             >
               <!---->
                
               <div
                 class="field-wrap"
               >
-                <input
-                  id=""
+                <button
+                  class="rpl-submit-loader form-control"
                   type="submit"
-                  value="Submit"
-                />
+                >
+                  <span
+                    class="rpl-submit-loader__text"
+                  >
+                    Submit (with animation)
+                  </span>
+                   
+                  <!---->
+                </button>
                  
                 <!---->
               </div>
@@ -15062,44 +15048,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                
               <!---->
             </div>
-             
-            <!---->
-             
-            <!---->
-          </div>
-          <div
-            class="form-group valid field-rplsubmitloader"
-          >
-            <!---->
-             
-            <div
-              class="field-wrap"
-            >
-              <button
-                class="rpl-submit-loader form-control"
-                type="submit"
-              >
-                <span
-                  class="rpl-submit-loader__text"
-                >
-                  Submit (with animation)
-                </span>
-                 
-                <!---->
-              </button>
-               
-              <!---->
-            </div>
-             
-            <!---->
-             
-            <!---->
-          </div>
-          <div
-            class="form-group valid field-rplclearform"
-          >
-            <!---->
-             
             <div
               class="form-group valid form-group--inline field-rplclearform"
             >

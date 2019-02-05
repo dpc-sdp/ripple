@@ -56,7 +56,6 @@ export default {
   props: {
     formData: Object,
     submitHandler: Function,
-    hideAfterSuccess: Boolean,
     scrollToMessage: {type: Boolean, default: true},
     validateOnSubmit: {type: Boolean, default: true}
   },
@@ -74,7 +73,7 @@ export default {
     hideForm () {
       this.showLoadingAnimation(false)
       if (this.formData.formState.response) {
-        return !(this.hideAfterSuccess && this.formData.formState.response.status === 'success')
+        return !(this.formData.formState.response.status === 'success')
       } else {
         return true
       }

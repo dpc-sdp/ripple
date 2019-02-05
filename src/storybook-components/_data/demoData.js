@@ -1394,6 +1394,7 @@ const demoData = {
         textArea: null,
         dateRange: ['', ''],
         date: '',
+        address: {},
         checkbox: true,
         select: '',
         multiselect: null,
@@ -1595,26 +1596,90 @@ const demoData = {
               showLabels: false
             },
             values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+          }
+        ],
+        groups: [
+          {
+            legend: 'Event location (grouped fields)',
+            styleClasses: ['rpl-fieldset--pad'],
+            fields: [
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Building name',
+                required: true,
+                validator: ['required'],
+                placeholder: 'Enter some text...',
+                model: 'address.address_line1',
+                styleClasses: ['form-group--col-two']
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                required: true,
+                validator: ['required'],
+                label: 'Street address',
+                placeholder: 'Enter some text...',
+                model: 'address.address_line2',
+                styleClasses: ['form-group--col-two']
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Suburb',
+                required: true,
+                validator: ['required'],
+                placeholder: 'Enter some text...',
+                model: 'address.locality',
+                styleClasses: ['form-group--col-two']
+              },
+              {
+                type: 'rplselect',
+                label: 'State',
+                model: 'address.state',
+                required: true,
+                validator: ['required'],
+                selectOptions: {
+                  trackBy: 'id',
+                  label: 'name',
+                  closeOnSelect: true,
+                  searchable: false,
+                  showLabels: false
+                },
+                values: [{id: 'vic', name: 'Vic'}, {id: 'nsw', name: 'New South Wales'}, {id: 'wa', name: 'Western Australia'}, {id: 'ql', name: 'Queensland'}],
+                styleClasses: ['form-group--col-two']
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Postcode',
+                placeholder: 'Enter some text...',
+                model: 'address.postcode',
+                styleClasses: ['form-group--col-two']
+              }
+            ]
           },
           {
-            type: 'submit',
-            buttonText: 'Submit'
-          },
-          {
-            type: 'rplsubmitloader',
-            buttonText: 'Submit (with animation)',
-            loading: false,
-            autoUpdate: true
-          },
-          {
-            type: 'rplclearform',
-            buttonText: 'Clear search filters'
+            fields: [
+              {
+                type: 'rplsubmitloader',
+                buttonText: 'Submit (with animation)',
+                loading: false,
+                autoUpdate: true,
+                styleClasses: ['form-group--inline']
+              },
+              {
+                type: 'rplclearform',
+                buttonText: 'Clear search filters',
+                styleClasses: ['form-group--inline']
+              }
+            ]
           }
         ]
       },
-
+      tag: 'rpl-fieldset',
       formOptions: {
-        validateAfterLoad: true,
+        validateAfterLoad: false,
         validateAfterChanged: true
       },
 

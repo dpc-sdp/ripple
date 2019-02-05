@@ -22,7 +22,9 @@ export default {
           this.model[key] = null
         }
       }
-      this.vfg.clearValidationErrors()
+      if (this.vfg.errors && this.vfg.errors.length > 0) {
+        this.vfg.clearValidationErrors()
+      }
     }
   }
 
@@ -37,7 +39,7 @@ $rpl-clearform-typography-emphasis: ('s', 1.6em, 'bold') !default;
 $rpl-clearform-padding: $rpl-space-2;
 
 .rpl-clearform {
-  padding: $rpl-clearform-padding;
+  padding: $rpl-clearform-padding 0;
   border: 0;
   background: none;
   cursor: pointer;

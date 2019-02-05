@@ -15009,38 +15009,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             data-v-5bd9cdea=""
           >
             
-    hideAfterSuccess
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            boolean
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
     scrollToMessage
     
             <!---->

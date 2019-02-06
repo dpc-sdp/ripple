@@ -122,13 +122,6 @@ export default {
       }
     }
 
-    &__content {
-      padding: $rpl-campaign-primary-content-padding-xs;
-      @include rpl_breakpoint('s') {
-        padding: $rpl-campaign-secondary-content-padding-s;
-      }
-    }
-
     &__title {
       @include rpl_typography_ruleset($rpl-campaign-secondary-title-ruleset);
       box-sizing: border-box;

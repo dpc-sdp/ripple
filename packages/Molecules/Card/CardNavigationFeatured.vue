@@ -84,10 +84,7 @@ export default {
     color: $rpl-card-navigation-featured-color;
     background-color: $rpl-card-navigation-featured-background;
     max-width: $rpl-card-navigation-featured-max-width;
-
-    @include rpl_breakpoint('s') {
-      border-radius: $rpl-card-navigation-featured-border-radius;
-    }
+    border-radius: $rpl-card-navigation-featured-border-radius;
 
     &:hover,
     &:focus {

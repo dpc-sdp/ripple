@@ -51,17 +51,13 @@ export default {
   $rpl-related-links-item-margin: auto auto $rpl-space-3;
 
   .rpl-related-links {
-    @include rpl_mobile_padding;
     padding: $rpl-related-links-padding;
     background-color: $rpl-related-links-background-color;
     background-image: $rpl-related-links-background-image;
     background-position: $rpl-related-links-background-position;
     background-repeat: $rpl-related-links-background-repeat;
     position: relative;
-
-    @include rpl_breakpoint('l') {
-      border-radius: $rpl-related-links-border-radius;
-    }
+    border-radius: $rpl-related-links-border-radius;
 
     &__row {
       @include rpl_breakpoint('s') {

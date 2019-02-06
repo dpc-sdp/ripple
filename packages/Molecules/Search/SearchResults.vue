@@ -124,12 +124,9 @@ export default {
     &__info,
     &__no-results-msg,
     &__error-msg {
-      @include rpl_mobile_padding();
       margin-bottom: $rpl-space-4;
 
       @include rpl_breakpoint('m') {
-        padding-left: 0;
-        padding-right: 0;
         margin-bottom: $rpl-space-4 * 2;
       }
     }

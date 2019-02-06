@@ -40,8 +40,7 @@ export default {
       height: $rpl-profile-highlight-image-size;
       margin: $rpl-profile-highlight-image-margin;
       border-radius: $rpl-profile-highlight-image-border-radius;
-      object-fit: cover;
-      font-family: 'object-fit: cover;';
+      @include object_fit_image(cover);
     }
   }
 </style>

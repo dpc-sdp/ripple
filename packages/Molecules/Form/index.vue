@@ -7,6 +7,7 @@
       :model="formData.model"
       :options="formData.formOptions"
       ref="vfg"
+      :tag="formData.tag"
       v-show="hideForm()"
     />
   </form>
@@ -15,6 +16,7 @@
 <script>
 import Vue from 'vue'
 import RplFormAlert from './formAlert'
+import RplFieldset from './Fieldset'
 import Multiselect from 'vue-multiselect'
 import VueFormGenerator from 'vue-form-generator'
 import fieldRplselect from './fields/fieldRplselect.vue'
@@ -38,6 +40,7 @@ Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
 Vue.component('fieldRplclearform', fieldRplclearform)
 Vue.component('fieldRpldivider', fieldRpldivider)
 Vue.component('fieldRplmarkup', fieldRplmarkup)
+Vue.component('RplFieldset', RplFieldset)
 
 export { VueFormGenerator }
 
@@ -51,7 +54,8 @@ export default {
     fieldRpldatepicker,
     fieldRplsubmitloader,
     fieldRplclearform,
-    RplFormAlert
+    RplFormAlert,
+    RplFieldset
   },
   props: {
     formData: Object,

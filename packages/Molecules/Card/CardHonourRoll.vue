@@ -68,6 +68,7 @@ export default {
       width: $rpl-card-honour-roll-image-width;
       height: $rpl-card-honour-roll-image-height;
       object-fit: cover;
+      font-family: 'object-fit: cover;';
     }
 
     &__name {

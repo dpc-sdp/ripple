@@ -60,8 +60,7 @@ export default {
       margin: $rpl-card-cta-image-margin;
       width: $rpl-card-cta-image-width;
       height: $rpl-card-cta-image-height;
-      object-fit: cover;
-      font-family: 'object-fit: cover;';
+      @include object_fit_image(cover);
     }
 
     &__title {

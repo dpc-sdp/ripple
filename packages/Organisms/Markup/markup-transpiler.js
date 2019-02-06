@@ -12,3 +12,5 @@ export const markupTranspiler = (html, plugins) => {
 
   return $('body').html()
 }
+
+export default markupTranspiler

@@ -1,13 +1,11 @@
 <template>
   <rpl-profile-highlight class="rpl-profile-highlight-honour-roll" :image="image">
     <template slot="details">
-      <div v-if="inductedYear">
-        <span class="rpl-profile-highlight-honour-roll__label">Inducted:</span>
-        <span class="rpl-profile-highlight-honour-roll__value">{{ inductedYear }}</span>
+      <div class="rpl-profile-highlight-honour-roll__detail" v-if="inductedYear">
+        <span class="rpl-profile-highlight-honour-roll__label">Inducted:</span> {{ inductedYear }}
       </div>
-      <div v-if="category">
-        <span class="rpl-profile-highlight-honour-roll__label">Category:</span>
-        <span class="rpl-profile-highlight-honour-roll__value">{{ category }}</span>
+      <div class="rpl-profile-highlight-honour-roll__detail" v-if="category">
+        <span class="rpl-profile-highlight-honour-roll__label">Category:</span> {{ category }}
       </div>
     </template>
   </rpl-profile-highlight>
@@ -34,7 +32,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-rpl-profile-highlight-honour-roll-label-ruleset: ('s', 1.5em, 'bold') !default;
-  $rpl-rpl-profile-highlight-honour-roll-value-ruleset: ('s', 1.5em, 'medium') !default;
+  $rpl-rpl-profile-highlight-honour-roll-detail-ruleset: ('s', 1.5em, 'medium') !default;
 
   .rpl-profile-highlight-honour-roll {
     @include rpl_mobile_padding;
@@ -44,12 +42,12 @@ export default {
       padding-right: 0;
     }
 
-    &__label {
-      @include rpl_typography_ruleset($rpl-rpl-profile-highlight-honour-roll-label-ruleset);
+    &__detail {
+      @include rpl_typography_ruleset($rpl-rpl-profile-highlight-honour-roll-detail-ruleset);
     }
 
-    &__value {
-      @include rpl_typography_ruleset($rpl-rpl-profile-highlight-honour-roll-value-ruleset);
+    &__label {
+      @include rpl_typography_ruleset($rpl-rpl-profile-highlight-honour-roll-label-ruleset);
     }
   }
 </style>

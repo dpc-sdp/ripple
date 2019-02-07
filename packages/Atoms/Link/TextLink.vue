@@ -49,8 +49,8 @@
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-text-link-light-underline: solid #E8EBEE;
-  $rpl-text-link-light-underline-hover: solid #E8EBEE;
+  $rpl-text-link-light-underline: solid rpl-color('mid_neutral_2');
+  $rpl-text-link-light-underline-hover: solid rpl-color('mid_neutral_2');
   $rpl-text-link-dark-underline: solid rpl-color('secondary');
   $rpl-text-link-dark-underline-hover: solid rpl-color('white');
 

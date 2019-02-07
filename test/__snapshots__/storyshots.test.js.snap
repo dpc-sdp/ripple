@@ -30296,32 +30296,28 @@ exports[`RippleStoryshots Organisms/Profile Profile Highlight Honour Roll 1`] = 
       <div
         class="rpl-profile-highlight__content"
       >
-        <div>
+        <div
+          class="rpl-profile-highlight-honour-roll__detail"
+        >
           <span
             class="rpl-profile-highlight-honour-roll__label"
           >
             Inducted:
           </span>
-           
-          <span
-            class="rpl-profile-highlight-honour-roll__value"
-          >
-            2018
-          </span>
+           2018
+    
         </div>
          
-        <div>
+        <div
+          class="rpl-profile-highlight-honour-roll__detail"
+        >
           <span
             class="rpl-profile-highlight-honour-roll__label"
           >
             Category:
           </span>
-           
-          <span
-            class="rpl-profile-highlight-honour-roll__value"
-          >
-            Local Champion
-          </span>
+           Local Champion
+    
         </div>
       </div>
     </div>
@@ -44314,32 +44310,28 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
                   <div
                     class="rpl-profile-highlight__content"
                   >
-                    <div>
+                    <div
+                      class="rpl-profile-highlight-honour-roll__detail"
+                    >
                       <span
                         class="rpl-profile-highlight-honour-roll__label"
                       >
                         Inducted:
                       </span>
-                       
-                      <span
-                        class="rpl-profile-highlight-honour-roll__value"
-                      >
-                        2018
-                      </span>
+                       2018
+    
                     </div>
                      
-                    <div>
+                    <div
+                      class="rpl-profile-highlight-honour-roll__detail"
+                    >
                       <span
                         class="rpl-profile-highlight-honour-roll__label"
                       >
                         Category:
                       </span>
-                       
-                      <span
-                        class="rpl-profile-highlight-honour-roll__value"
-                      >
-                        Local Champion
-                      </span>
+                       Local Champion
+    
                     </div>
                   </div>
                 </div>

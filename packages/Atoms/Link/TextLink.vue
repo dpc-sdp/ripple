@@ -1,6 +1,7 @@
 <template>
   <rpl-link class="rpl-text-link" :class="{
-    'rpl-text-link--underline': underline,
+    'rpl-text-link--underline-small': (underline && size === 'small'),
+    'rpl-text-link--underline-large': (underline && size === 'large'),
     'rpl-text-link--dark': (theme === 'dark'),
     'rpl-text-link--small': (size === 'small'),
     'rpl-text-link--large': (size === 'large'),
@@ -11,47 +12,60 @@
 </template>
 
 <script>
-import {RplTextIcon} from '@dpc-sdp/ripple-icon'
-import RplLink from './Link.vue'
-import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+  import {RplTextIcon} from '@dpc-sdp/ripple-icon'
+  import RplLink from './Link.vue'
+  import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
-export default {
-  name: 'RplTextLink',
-  props: {
-    iconSymbol: {default: null, type: String},
-    iconColor: {default: 'primary', type: String},
-    iconPlacement: {default: 'after', type: String},
-    iconSize: {default: 'm', type: String},
-    text: {default: null, type: String},
-    url: {default: null, type: String},
-    underline: {default: false, type: Boolean},
-    theme: {default: 'light', type: String},
-    size: {default: null, type: String},
-    emphasis: {default: false, type: Boolean}
-  },
-  components: {
-    RplTextIcon,
-    RplLink
-  },
-  computed: {
-    iconSymbolFinal () {
-      if (isExternalUrl(this.url, this.rplOptions.hostname)) {
-        return 'external_link'
+  export default {
+    name: 'RplTextLink',
+    props: {
+      iconSymbol: {default: null, type: String},
+      iconColor: {default: 'primary', type: String},
+      iconPlacement: {default: 'after', type: String},
+      iconSize: {default: 'm', type: String},
+      text: {default: null, type: String},
+      url: {default: null, type: String},
+      underline: {default: false, type: Boolean},
+      theme: {default: 'light', type: String},
+      size: {default: null, type: String},
+      emphasis: {default: false, type: Boolean}
+    },
+    components: {
+      RplTextIcon,
+      RplLink
+    },
+    computed: {
+      iconSymbolFinal () {
+        if (isExternalUrl(this.url, this.rplOptions.hostname)) {
+          return 'external_link'
+        }
+        return this.iconSymbol
       }
-      return this.iconSymbol
     }
   }
-}
 </script>
 
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-text-link-light-underline: rem(4px) solid #E8EBEE !default;
-  $rpl-text-link-light-underline-hover: rem(4px) solid #E8EBEE !default;
-  $rpl-text-link-dark-underline: rem(4px) solid rpl-color('secondary') !default;
-  $rpl-text-link-dark-underline-hover: rem(4px) solid rpl-color('white') !default;
+  $rpl-text-link-light-underline: solid #E8EBEE;
+  $rpl-text-link-light-underline-hover: solid #E8EBEE;
+  $rpl-text-link-dark-underline: solid rpl-color('secondary');
+  $rpl-text-link-dark-underline-hover: solid rpl-color('white');
+
+  $rpl-text-link-light-underline-large: rem(3px) $rpl-text-link-light-underline !default;
+  $rpl-text-link-light-underline-small: rem(2px) $rpl-text-link-light-underline !default;
+
+  $rpl-text-link-light-underline-hover-large: rem(3px) $rpl-text-link-light-underline-hover !default;
+  $rpl-text-link-light-underline-hover-small: rem(2px) $rpl-text-link-light-underline-hover !default;
+
+  $rpl-text-link-dark-underline-large: rem(3px) $rpl-text-link-dark-underline !default;
+  $rpl-text-link-dark-underline-small: rem(2px) $rpl-text-link-dark-underline !default;
+
+  $rpl-text-link-dark-underline-hover-large: rem(3px) $rpl-text-link-dark-underline-hover !default;
+  $rpl-text-link-dark-underline-hover-small: rem(2px) $rpl-text-link-dark-underline-hover !default;
+
   $rpl-text-link-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-text-link-text-color-hover: rpl_color('primary') !default;
   $rpl-text-link-dark-text-color: rpl-color('white') !default;
@@ -72,13 +86,30 @@ export default {
     }
 
     &--underline {
-      border-bottom: $rpl-text-link-light-underline;
 
-      &:hover,
-      &:focus {
-        border-bottom: $rpl-text-link-light-underline-hover;
-        &.rpl-link {
-          text-decoration: none;
+      &-small {
+        border-bottom: $rpl-text-link-light-underline-small;
+
+        &:hover,
+        &:focus {
+          border-bottom: $rpl-text-link-light-underline-hover-small;
+
+          &.rpl-link {
+            text-decoration: none;
+          }
+        }
+      }
+
+      &-large {
+        border-bottom: $rpl-text-link-light-underline-large;
+
+        &:hover,
+        &:focus {
+          border-bottom: $rpl-text-link-light-underline-hover-large;
+
+          &.rpl-link {
+            text-decoration: none;
+          }
         }
       }
     }
@@ -110,11 +141,32 @@ export default {
       }
 
       &#{$root}--underline {
-        border-bottom: $rpl-text-link-dark-underline;
 
-        &:hover,
-        &:focus {
-          border-bottom: $rpl-text-link-dark-underline-hover;
+        &-small {
+          border-bottom: $rpl-text-link-dark-underline-small;
+
+          &:hover,
+          &:focus {
+            border-bottom: $rpl-text-link-dark-underline-hover-small;
+
+            &.rpl-link {
+              text-decoration: none;
+            }
+          }
+        }
+
+        &-large {
+          border-bottom: $rpl-text-link-dark-underline-large;
+
+          &:hover,
+          &:focus {
+            border-bottom: $rpl-text-link-dark-underline-hover-large;
+
+            &.rpl-link {
+              text-decoration: none;
+            }
+          }
+
         }
       }
     }

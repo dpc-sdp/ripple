@@ -12,37 +12,37 @@
 </template>
 
 <script>
-  import {RplTextIcon} from '@dpc-sdp/ripple-icon'
-  import RplLink from './Link.vue'
-  import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import {RplTextIcon} from '@dpc-sdp/ripple-icon'
+import RplLink from './Link.vue'
+import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
-  export default {
-    name: 'RplTextLink',
-    props: {
-      iconSymbol: {default: null, type: String},
-      iconColor: {default: 'primary', type: String},
-      iconPlacement: {default: 'after', type: String},
-      iconSize: {default: 'm', type: String},
-      text: {default: null, type: String},
-      url: {default: null, type: String},
-      underline: {default: false, type: Boolean},
-      theme: {default: 'light', type: String},
-      size: {default: null, type: String},
-      emphasis: {default: false, type: Boolean}
-    },
-    components: {
-      RplTextIcon,
-      RplLink
-    },
-    computed: {
-      iconSymbolFinal () {
-        if (isExternalUrl(this.url, this.rplOptions.hostname)) {
-          return 'external_link'
-        }
-        return this.iconSymbol
+export default {
+  name: 'RplTextLink',
+  props: {
+    iconSymbol: {default: null, type: String},
+    iconColor: {default: 'primary', type: String},
+    iconPlacement: {default: 'after', type: String},
+    iconSize: {default: 'm', type: String},
+    text: {default: null, type: String},
+    url: {default: null, type: String},
+    underline: {default: false, type: Boolean},
+    theme: {default: 'light', type: String},
+    size: {default: null, type: String},
+    emphasis: {default: false, type: Boolean}
+  },
+  components: {
+    RplTextIcon,
+    RplLink
+  },
+  computed: {
+    iconSymbolFinal () {
+      if (isExternalUrl(this.url, this.rplOptions.hostname)) {
+        return 'external_link'
       }
+      return this.iconSymbol
     }
   }
+}
 </script>
 
 <style lang="scss">

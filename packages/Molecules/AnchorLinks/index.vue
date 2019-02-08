@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-anchor-links">
+  <div v-if="(links.length)" class="rpl-anchor-links">
     <div class="rpl-anchor-links__row">
       <h2 class="rpl-anchor-links__title">{{ title }}</h2>
     </div>

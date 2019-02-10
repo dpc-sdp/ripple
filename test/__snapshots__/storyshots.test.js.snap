@@ -20122,6 +20122,8 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
         Search results
       </h1>
        
+      <!---->
+       
       <div
         class="rpl-search-form__field"
       >
@@ -20394,6 +20396,38 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
             data-v-5bd9cdea=""
           >
             
+    subtitle
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
     searchPlaceholder
     
             <!---->
@@ -20459,6 +20493,70 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
           >
             
     autoFocus
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            false
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    textSearch
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            true
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    expandFilters
     
             <!---->
           </td>
@@ -34309,6 +34407,8 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
               Events search page
             </h1>
              
+            <!---->
+             
             <div
               class="rpl-search-form__field"
             >
@@ -35039,6 +35139,8 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
             <h1>
               Grants and programs
             </h1>
+             
+            <!---->
              
             <div
               class="rpl-search-form__field"
@@ -36273,6 +36375,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           <h1>
             Search results
           </h1>
+           
+          <!---->
            
           <div
             class="rpl-search-form__field"
@@ -45210,6 +45314,8 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
             <h1>
               Search results
             </h1>
+             
+            <!---->
              
             <div
               class="rpl-search-form__field"

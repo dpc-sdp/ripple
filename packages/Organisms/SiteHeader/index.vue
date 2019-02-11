@@ -388,6 +388,7 @@ export default {
         @include rpl_breakpoint('s') {
           left: $rpl-header-horizontal-padding-s;
           right: $rpl-header-horizontal-padding-s;
+          width: auto;
         }
       }
 

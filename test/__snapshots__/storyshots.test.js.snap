@@ -5168,7 +5168,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
             class="rpl-anchor-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -5191,7 +5191,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
             class="rpl-anchor-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -5214,7 +5214,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
             class="rpl-anchor-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -5237,7 +5237,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
             class="rpl-anchor-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -5260,7 +5260,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
             class="rpl-anchor-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -5283,7 +5283,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
             class="rpl-anchor-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -18598,8 +18598,6 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
       class="rpl-related-links"
       data-v-6ca0e090=""
     >
-      <!---->
-       
       <div
         class="rpl-related-links__row"
       >
@@ -18620,7 +18618,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
             class="rpl-related-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
               href="http://www.google.com"
               target="_blank"
             >
@@ -18644,7 +18642,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
             class="rpl-related-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -18667,7 +18665,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
             class="rpl-related-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -18690,7 +18688,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
             class="rpl-related-links__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -23389,7 +23387,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
             class="rpl-whats-next__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="http://www.google.com"
               target="_blank"
             >
@@ -23413,7 +23411,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
             class="rpl-whats-next__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -23436,7 +23434,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
             class="rpl-whats-next__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -23459,7 +23457,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
             class="rpl-whats-next__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -23482,7 +23480,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
             class="rpl-whats-next__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -23505,7 +23503,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
             class="rpl-whats-next__item"
           >
             <a
-              class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+              class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
               href="#"
             >
               <span>
@@ -26859,7 +26857,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
               class="rpl-hero-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                 href="#"
               >
                 <span>
@@ -26882,7 +26880,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
               class="rpl-hero-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                 href="#"
               >
                 <span>
@@ -26905,7 +26903,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
               class="rpl-hero-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                 href="#"
               >
                 <span>
@@ -26928,7 +26926,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
               class="rpl-hero-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                 href="#"
               >
                 <span>
@@ -26952,7 +26950,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
               class="rpl-hero-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-hero-banner__more-link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-hero-banner__more-link rpl-text-link--large rpl-text-link--large--underline"
                 href="#"
               >
                 <span>
@@ -28055,7 +28053,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
               class="rpl-intro-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-intro-banner__link"
                 href="#"
               >
                 <span>
@@ -28078,7 +28076,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
               class="rpl-intro-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-intro-banner__link"
                 href="#"
               >
                 <span>
@@ -28099,7 +28097,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
               class="rpl-intro-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-intro-banner__link"
                 href="#"
               >
                 <span>
@@ -28122,7 +28120,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
               class="rpl-intro-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-intro-banner__link"
                 href="#"
               >
                 <span>
@@ -33803,8 +33801,6 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
             <div
               class="rpl-related-links rpl-component-gutter"
             >
-              <!---->
-               
               <div
                 class="rpl-related-links__row"
               >
@@ -33825,7 +33821,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="http://www.google.com"
                       target="_blank"
                     >
@@ -33849,7 +33845,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -33872,7 +33868,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -33895,7 +33891,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -36075,7 +36071,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-hero-banner__link-list-item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                       href="#"
                     >
                       <span>
@@ -36098,7 +36094,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-hero-banner__link-list-item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                       href="#"
                     >
                       <span>
@@ -36121,7 +36117,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-hero-banner__link-list-item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                       href="#"
                     >
                       <span>
@@ -36144,7 +36140,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-hero-banner__link-list-item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                       href="#"
                     >
                       <span>
@@ -36168,7 +36164,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-hero-banner__link-list-item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-hero-banner__more-link rpl-text-link--underline"
+                      class="rpl-link rpl-text-link rpl-hero-banner__more-link rpl-text-link--large rpl-text-link--large--underline"
                       href="#"
                     >
                       <span>
@@ -36601,7 +36597,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-anchor-links__item"
                       >
                         <a
-                          class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                          class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                           href="#"
                         >
                           <span>
@@ -36624,7 +36620,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-anchor-links__item"
                       >
                         <a
-                          class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                          class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                           href="#"
                         >
                           <span>
@@ -36647,7 +36643,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-anchor-links__item"
                       >
                         <a
-                          class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                          class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                           href="#"
                         >
                           <span>
@@ -36670,7 +36666,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-anchor-links__item"
                       >
                         <a
-                          class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                          class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                           href="#"
                         >
                           <span>
@@ -36693,7 +36689,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-anchor-links__item"
                       >
                         <a
-                          class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                          class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                           href="#"
                         >
                           <span>
@@ -36716,7 +36712,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-anchor-links__item"
                       >
                         <a
-                          class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                          class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                           href="#"
                         >
                           <span>
@@ -38896,8 +38892,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             <div
               class="rpl-related-links rpl-component-gutter"
             >
-              <!---->
-               
               <div
                 class="rpl-related-links__row"
               >
@@ -38918,7 +38912,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="http://www.google.com"
                       target="_blank"
                     >
@@ -38942,7 +38936,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -38965,7 +38959,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -38988,7 +38982,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -39034,7 +39028,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-whats-next__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                       href="http://www.google.com"
                       target="_blank"
                     >
@@ -39058,7 +39052,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-whats-next__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -39081,7 +39075,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-whats-next__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -39104,7 +39098,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-whats-next__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -39127,7 +39121,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-whats-next__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -39150,7 +39144,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     class="rpl-whats-next__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -40079,7 +40073,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                     class="rpl-hero-banner__link-list-item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                       href="#"
                     >
                       <span>
@@ -40102,7 +40096,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                     class="rpl-hero-banner__link-list-item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                       href="#"
                     >
                       <span>
@@ -40125,7 +40119,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                     class="rpl-hero-banner__link-list-item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                       href="#"
                     >
                       <span>
@@ -40148,7 +40142,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                     class="rpl-hero-banner__link-list-item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
+                      class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--large rpl-text-link--large--underline"
                       href="#"
                     >
                       <span>
@@ -40207,8 +40201,6 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
             <div
               class="rpl-related-links rpl-component-gutter"
             >
-              <!---->
-               
               <div
                 class="rpl-related-links__row"
               >
@@ -40229,7 +40221,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="http://www.google.com"
                       target="_blank"
                     >
@@ -40253,7 +40245,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -40276,7 +40268,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -40299,7 +40291,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -41320,8 +41312,6 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
             <div
               class="rpl-related-links rpl-component-gutter"
             >
-              <!---->
-               
               <div
                 class="rpl-related-links__row"
               >
@@ -41342,7 +41332,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="http://www.google.com"
                       target="_blank"
                     >
@@ -41366,7 +41356,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -41389,7 +41379,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>
@@ -41412,7 +41402,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                     class="rpl-related-links__item"
                   >
                     <a
-                      class="rpl-link rpl-text-link rpl-text-link--underline rpl-text-link--dark rpl-text-link--small"
+                      class="rpl-link rpl-text-link rpl-text-link--dark rpl-text-link--dark--underline rpl-text-link--small rpl-text-link--small--underline"
                       href="#"
                     >
                       <span>

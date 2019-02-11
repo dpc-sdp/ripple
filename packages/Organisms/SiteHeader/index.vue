@@ -385,6 +385,10 @@ export default {
         -webkit-overflow-scrolling: touch;
         top: $rpl-site-header-top-height-s;
 
+        @include rpl_breakpoint('m') {
+          top: $rpl-site-header-top-height-m;
+        }
+
         @include rpl_breakpoint('s') {
           left: $rpl-header-horizontal-padding-s;
           right: $rpl-header-horizontal-padding-s;

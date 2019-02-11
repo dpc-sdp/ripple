@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { markupTranspiler } from './markup-transpiler'
+import markupTranspiler from './markup-transpiler'
 
 // To make runtime build work, we need to register the component globally
 import Vue from 'vue'

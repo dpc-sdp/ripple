@@ -1,6 +1,6 @@
 import cheerio from 'cheerio'
 
-export const markupTranspiler = (html, plugins) => {
+const markupTranspiler = (html, plugins) => {
   const $ = cheerio.load(html)
   const $body = $('body')
 
@@ -12,3 +12,5 @@ export const markupTranspiler = (html, plugins) => {
 
   return $('body').html()
 }
+
+export default markupTranspiler

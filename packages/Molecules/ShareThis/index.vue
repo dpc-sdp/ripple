@@ -84,10 +84,7 @@ export default {
   $rpl-share-this-social-margin-l: 0 0 $rpl-space;
 
   .rpl-share-this {
-    @include rpl_mobile_padding;
     @include rpl_breakpoint('l') {
-      padding-left: 0;
-      padding-right: 0;
       margin: $rpl-share-this-margin-l;
     }
 

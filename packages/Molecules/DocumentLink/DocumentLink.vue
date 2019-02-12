@@ -74,12 +74,6 @@ export default {
   .rpl-document-link {
     margin: $rpl-document-link-margin;
 
-    @include rpl_mobile_padding();
-    @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
     &__link {
       display: flex;
       justify-content: flex-start;

@@ -86,9 +86,6 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
-// TODO: we'd better to make a UI color variable so all UI color can refer to the same color.
-$rpl-backbround-color: rpl-color('white') !default;
-
 .rpl-above-content {
   background-repeat: no-repeat;
   background-position: -.5rem -9rem;
@@ -161,16 +158,6 @@ $rpl-backbround-color: rpl-color('white') !default;
 
   &--grey {
     background: rpl-color('light_neutral')
-  }
-}
-
-.rpl-sidebar {
-  background-color: $rpl-backbround-color;
-}
-
-@include rpl_breakpoint(l) {
-  .rpl-sidebar {
-    background-color: transparent;
   }
 }
 </style>

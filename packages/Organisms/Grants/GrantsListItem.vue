@@ -58,11 +58,9 @@ export default {
     }
 
     &__tags {
-      @include rpl_mobile_padding();
+      padding: 0;
       list-style: none;
       @include rpl_breakpoint('m') {
-        padding-left: 0;
-        padding-right: 0;
         display: flex;
         flex-direction: row;
       }

@@ -25,11 +25,6 @@ export default {
 
   .rpl-updated-date {
     @include rpl_typography_ruleset($rpl-updated-date-ruleset);
-    @include rpl_mobile_padding();
-    @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
-    }
     color: $rpl-updated-date-color;
   }
 </style>

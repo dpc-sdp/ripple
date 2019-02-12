@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-grants-overview">
     <rpl-list class="rpl-grants-overview__list" size="large" v-if="title || list" :title="title" :link="!!listing && link && link.url ? link.url : null" :list="list" />
-    <p class="rpl-grants-overview__description" v-if="description">{{ description }}</p>
+    <rpl-markup class="rpl-grants-overview__description" v-if="description" :html="description"></rpl-markup>
     <rpl-button class="rpl-grants-overview__cta" v-if="!listing && link" :href="link.url" theme="primary">{{ link.text }}</rpl-button>
   </div>
 </template>
@@ -9,6 +9,7 @@
 <script>
 import moment from 'moment'
 import RplButton from '@dpc-sdp/ripple-button'
+import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplList from '@dpc-sdp/ripple-list'
 import { formatMoney } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
@@ -16,6 +17,7 @@ export default {
   name: 'RplGrantsOverview',
   components: {
     RplButton,
+    RplMarkup,
     RplList
   },
   props: {

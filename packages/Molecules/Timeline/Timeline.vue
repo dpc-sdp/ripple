@@ -162,8 +162,7 @@ export default {
       height: $rpl-timeline-image-dimension;
       margin: $rpl-timeline-image-margin;
       border-radius: 100%;
-      object-fit: cover;
-      font-family: 'object-fit: cover;';
+      @include object_fit_image(cover);
     }
 
     &__item-title {

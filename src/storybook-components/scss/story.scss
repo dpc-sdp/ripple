@@ -2,6 +2,9 @@
 
 // Style for stories using vue info
 .vue-info {
+  // To override storybook-readme plugin inline css.
+  text-align: left;
+
   // Add background color so we can see the spacing of a component, this can help dev to address the spacing issue
   .info-content {
     background-color: #f6f6f9;

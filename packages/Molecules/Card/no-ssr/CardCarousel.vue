@@ -142,9 +142,6 @@ export default {
     'xs': ('l', 0.9em, 'bold'),
     'l': ('mega', 1.29em, 'bold')
   ) !default;
-  $rpl-card-carousel-title-padding-xs: ($rpl-space * 6) !default;
-  $rpl-card-carousel-title-padding-s: ($rpl-space * 8) !default;
-  $rpl-card-carousel-title-right-margin: ($rpl-space * 14) !default;
   $rpl-card-carousel-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-card-carousel-padding-l: $rpl-space * 5 !default;
   $rpl-card-carousel-padding-xs: $rpl-space $rpl-space-2 !default;
@@ -155,21 +152,6 @@ export default {
     &__title {
       @include rpl_typography_ruleset($rpl-card-carousel-title-ruleset);
       color: $rpl-card-carousel-title-text-color;
-      padding-left: $rpl-card-carousel-title-padding-xs;
-      margin-right: $rpl-card-carousel-title-right-margin + $rpl-card-carousel-title-padding-xs;
-
-      @include rpl_breakpoint('s') {
-        padding-left: $rpl-card-carousel-title-padding-s;
-        margin-right: $rpl-card-carousel-title-right-margin + $rpl-card-carousel-title-padding-s;
-      }
-
-      @include rpl_breakpoint('m') {
-        padding-left: 0;
-      }
-
-      @include rpl_breakpoint('l') {
-        margin-right: 0;
-      }
     }
 
     &__slider {
@@ -204,15 +186,6 @@ export default {
       bottom: 100%;
       right: 0;
       margin-bottom: $rpl-card-carousel-navigation-bottom-margin;
-      margin-right: $rpl-card-carousel-title-padding-xs;
-
-      @include rpl_breakpoint('s') {
-        margin-right: $rpl-card-carousel-title-padding-s;
-      }
-
-      @include rpl_breakpoint('m') {
-        margin-right: 0;
-      }
 
       @include rpl_breakpoint('l') {
         position: static;

@@ -1,6 +1,5 @@
 <template>
   <div class="rpl-related-links">
-    <rpl-icon class="rpl-related-links__icon" symbol="link_65" color="white"></rpl-icon>
     <div class="rpl-related-links__row">
       <h2 class="rpl-related-links__title">{{ title }}</h2>
     </div>
@@ -37,7 +36,6 @@ export default {
 
   $rpl-related-links-max-width-s: rem(583px);
   $rpl-related-links-background-color: rpl_color('primary') !default;
-  $rpl-related-links-background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2246%22%20viewBox%3D%220%200%2040%2046%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M0%200L17.3374%2038.3827L40%2045.3584V0H0Z%22%20fill%3D%22%23#{str-slice(quote(rpl_color("secondary")), 2)}%22%2F%3E%3C%2Fsvg%3E') !default;
   $rpl-related-links-background-position: top right !default;
   $rpl-related-links-background-repeat: no-repeat !default;
   $rpl-related-links-padding-xs: ($rpl-space * 7) $rpl-component-padding-xs;
@@ -51,17 +49,12 @@ export default {
   $rpl-related-links-item-margin: auto auto $rpl-space-3;
 
   .rpl-related-links {
-    @include rpl_mobile_padding;
     padding: $rpl-related-links-padding;
     background-color: $rpl-related-links-background-color;
-    background-image: $rpl-related-links-background-image;
     background-position: $rpl-related-links-background-position;
     background-repeat: $rpl-related-links-background-repeat;
     position: relative;
-
-    @include rpl_breakpoint('l') {
-      border-radius: $rpl-related-links-border-radius;
-    }
+    border-radius: $rpl-related-links-border-radius;
 
     &__row {
       @include rpl_breakpoint('s') {

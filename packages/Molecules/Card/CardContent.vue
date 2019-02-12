@@ -64,8 +64,7 @@ export default {
   @import "scss/card";
 
   $rpl-card-content-border-color: rpl_color('mid_neutral_1') !default;
-  $rpl-card-content-border-width: 1px !default;
-  $rpl-card-content-border: $rpl-card-content-border-width solid $rpl-card-content-border-color !default;
+  $rpl-card-content-border: 1px solid $rpl-card-content-border-color !default;
   $rpl-card-content-border-radius: rem(4px) !default;
   $rpl-card-content-border-height: rem(8px) !default;
   $rpl-card-content-background: rpl_color('white') !default;
@@ -111,9 +110,9 @@ export default {
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    border-bottom: $rpl-card-content-border;
     background-color: $rpl-card-content-background;
     border: $rpl-card-content-border;
+    border-radius: $rpl-card-content-border-radius;
 
     &:hover,
     &:focus {
@@ -129,10 +128,7 @@ export default {
     }
 
     &--default {
-      border-width: 0;
       @include rpl_breakpoint('m') {
-        border-radius: $rpl-card-content-border-radius;
-        border-width: $rpl-card-content-border-width;
         height: rem(460px);
       }
       @include rpl_breakpoint('l') {
@@ -147,16 +143,9 @@ export default {
       }
     }
 
-    &--simple {
-      border-radius: $rpl-card-content-border-radius;
-    }
-
     &--inline {
-      border-width: 0;
       @include rpl_breakpoint('m') {
         flex-wrap: nowrap;
-        border-radius: $rpl-card-content-border-radius;
-        border-width: $rpl-card-content-border-width;
         padding: $rpl-card-content-inline-padding-m;
       }
     }

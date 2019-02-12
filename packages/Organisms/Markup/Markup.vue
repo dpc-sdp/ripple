@@ -45,12 +45,6 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 
 .rpl-markup {
-  @include rpl_mobile_padding;
-
-  @include rpl_breakpoint(m) {
-    padding-left: 0;
-    padding-right: 0;
-  }
 
   &__inner {
     > h2:first-of-type {

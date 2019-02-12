@@ -16,8 +16,8 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
-$rpl-fieldset-col-padding: $rpl-space-2;
-$rpl-fieldset-legend-margin: 0 0 $rpl-space-4 $rpl-space-2;
+$rpl-fieldset-col-padding: $rpl-space-3;
+$rpl-fieldset-legend-margin: 0 0 $rpl-space-4 $rpl-space-3;
 $rpl-fieldset-margin: $rpl-space-4 0;
 
 .rpl-fieldset {

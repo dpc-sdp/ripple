@@ -385,6 +385,45 @@ exports[`RippleStoryshots Atoms/Button Button 1`] = `
         
 
         <h2
+          id="import"
+        >
+          Import
+        </h2>
+        
+
+        <pre
+          class=" language-js"
+        >
+          <code
+            class=" language-js"
+          >
+            <span
+              class="token keyword"
+            >
+              import
+            </span>
+             RplButton 
+            <span
+              class="token keyword"
+            >
+              from
+            </span>
+             
+            <span
+              class="token string"
+            >
+              '@dpc-sdp/ripple-button'
+            </span>
+            
+
+          </code>
+        </pre>
+        
+
+        <hr />
+        
+
+        <h2
           id="usage-and-tests"
         >
           Usage and Tests
@@ -397,6 +436,17 @@ exports[`RippleStoryshots Atoms/Button Button 1`] = `
             href="https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Button&selectedStory=Button"
           >
             Storybook/Button
+          </a>
+          .
+        </p>
+        
+
+        <p>
+          See 
+          <a
+            href="https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Button&selectedStory=Button%20with%20click%20action"
+          >
+            Storybook/Button with click action
           </a>
           .
         </p>

@@ -32731,7 +32731,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 <span
                   class="rpl-section-menu__item-link-text"
                 >
-                  Sub child B
+                  Sub child B - With level 3
                 </span>
                  
                 <!---->
@@ -32749,7 +32749,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                     class="rpl-link rpl-section-menu__item-link"
                     href="#"
                   >
-                    Sub child B
+                    Sub child B - With level 3
                   </a>
                    
                   <!---->
@@ -32757,14 +32757,73 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent"
                 >
-                  <a
-                    class="rpl-link rpl-section-menu__item-link"
-                    href="#"
+                  <button
+                    aria-expanded="false"
+                    class="rpl-section-menu__item-link rpl-section-menu__item-link--parent"
                   >
-                    Sub child I
-                  </a>
+                    <span
+                      class="rpl-section-menu__item-link-text"
+                    >
+                      Sub child I
+                    </span>
+                     
+                    <!---->
+                  </button>
                    
-                  <!---->
+                  <ul
+                    class="rpl-section-menu"
+                    data-depth="3"
+                    style="display: none;"
+                  >
+                    <li
+                      class="rpl-section-menu__item rpl-section-menu__item--parent"
+                    >
+                      <a
+                        class="rpl-link rpl-section-menu__item-link"
+                        href="#"
+                      >
+                        Sub child I
+                      </a>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="rpl-section-menu__item rpl-section-menu__item--parent"
+                    >
+                      <a
+                        class="rpl-link rpl-section-menu__item-link"
+                        href="#"
+                      >
+                        Level 3 child I
+                      </a>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="rpl-section-menu__item rpl-section-menu__item--parent"
+                    >
+                      <a
+                        class="rpl-link rpl-section-menu__item-link"
+                        href="#"
+                      >
+                        Level 3 child II
+                      </a>
+                       
+                      <!---->
+                    </li>
+                    <li
+                      class="rpl-section-menu__item rpl-section-menu__item--parent"
+                    >
+                      <a
+                        class="rpl-link rpl-section-menu__item-link"
+                        href="#"
+                      >
+                        Level 3 child III
+                      </a>
+                       
+                      <!---->
+                    </li>
+                  </ul>
                 </li>
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent"

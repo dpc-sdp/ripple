@@ -25,6 +25,15 @@ npm install @dpc-sdp/ripple-global --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplDivider } from '@dpc-sdp/ripple-global'
+import RplGlobal from '@dpc-sdp/ripple-global'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Colors](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Colors).

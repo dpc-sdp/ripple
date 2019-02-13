@@ -26,6 +26,25 @@ npm install @dpc-sdp/ripple-card --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import {
+  RplCardImageNavigation,
+  RplCardNavigation,
+  RplCardNavigationFeatured,
+  RplCardPromotion,
+  RplCardKeydates,
+  RplCardEvent,
+  RplCardCta,
+  RplCardEmergencyContact,
+  RplCardBox,
+  RplCardHonourRoll
+} from '@dpc-sdp/ripple-card'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Card Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Navigation).

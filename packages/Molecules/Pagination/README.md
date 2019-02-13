@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-pagination --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplPagination from '@dpc-sdp/ripple-pagination'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Pagination](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Pagination&selectedStory=Pagination).

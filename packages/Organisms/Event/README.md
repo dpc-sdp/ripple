@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-event --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplLatestEvents } from '@dpc-sdp/ripple-event'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Latest Events](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Event&selectedStory=Latest%20Events).

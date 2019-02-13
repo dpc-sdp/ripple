@@ -21,6 +21,14 @@ npm install @dpc-sdp/ripple-updated-date --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Updated Date](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/UpdatedDate&selectedStory=Updated%20Date).

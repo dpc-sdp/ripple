@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-related-links --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Related Links](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/RelatedLinks&selectedStory=Related%20Links).

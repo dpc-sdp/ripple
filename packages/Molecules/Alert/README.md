@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-alert --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplAlert, RplAlertBase } from '@dpc-sdp/ripple-alert'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Alert](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Alert&selectedStory=Alert).

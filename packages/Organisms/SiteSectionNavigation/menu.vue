@@ -217,6 +217,14 @@ export default {
           background-color: $rpl-section-menu-first-level-item-background-color;
         }
       }
+
+      #{$root}__item--active {
+        #{$root}__item-link {
+          &::after {
+            display: none;
+          }
+        }
+      }
     }
 
     &[data-depth="2"] {

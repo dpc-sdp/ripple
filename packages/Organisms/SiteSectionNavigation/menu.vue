@@ -70,19 +70,21 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-section-menu-link-ruleset: ('xs', 1em, 'medium') !default;
-  $rpl-section-menu-link-sub-ruleset: ('xs', 1em, 'regular') !default;
-  $rpl-section-menu-item-background-color: rpl_color('secondary') !default;
+  $rpl-section-menu-link-sub-ruleset: ('xs', 1em, 'medium') !default;
+  $rpl-section-menu-item-background-color: rpl_color('primary') !default;
   $rpl-section-menu-item-link-padding: $rpl-space-4 $rpl-component-padding-s !default;
   $rpl-section-menu-item-link-color: rpl_color('white') !default;
   $rpl-section-menu-item-link-parent-hover-background-color: rpl_color('primary') !default;
   $rpl-section-menu-item-link-parent-hover-background-image: rpl_gradient('primary_gradient') !default;
   $rpl-section-menu-item-link-parent-background-color: rpl_color('secondary') !default;
   $rpl-section-menu-item-link-active-background-color: rpl_color('primary') !default;
-  $rpl-section-menu-item-link-active-border: 1px solid rpl_color('dark_primary') !default;
+  $rpl-section-menu-item-link-active-border-height: 1px;
+  $rpl-section-menu-item-link-active-border: $rpl-section-menu-item-link-active-border-height solid rpl_color('dark_primary') !default;
   $rpl-section-menu-first-level-background: rpl_color('primary') !default;
   $rpl-section-menu-first-level-item-background-color: rpl_color('dark_primary') !default;
   $rpl-section-menu-item-link-parent-text-margin: 0 ($rpl-space * 5) 0 0 !default;
   $rpl-section-menu-item-link-parent-icon-min-width: rem(8px) !default;
+  $rpl-section-menu-item-indent-padding: rem(13px) !default;
   $rpl-section-menu-item-link-active-text-color: mix(rpl-color('white'), rpl-color('primary'), 65%) !default;
   $rpl-section-menu-active-left-bar: url('data:image/svg+xml,%3Csvg%20width%3D%224%22%20height%3D%221%22%20viewBox%3D%220%200%204%201%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%224%22%20height%3D%221%22%20fill%3D%22%23#{str-slice(quote(rpl_color("secondary")), 2)}%22%2F%3E%3C%2Fsvg%3E') !default;
 
@@ -117,7 +119,7 @@ export default {
 
       &::before {
         content: '';
-        height: 1px;
+        height: $rpl-section-menu-item-link-active-border-height;
         position: absolute;
         top: 0;
         left: $rpl-component-padding-s;
@@ -172,9 +174,9 @@ export default {
 
         &::after {
           content: '';
-          height: 1px;
+          height: $rpl-section-menu-item-link-active-border-height;
           position: absolute;
-          bottom: -1px;
+          bottom: -$rpl-section-menu-item-link-active-border-height;
           left: $rpl-component-padding-s;
           right: $rpl-component-padding-s;
           background-color: $rpl-section-menu-first-level-item-background-color;
@@ -225,6 +227,20 @@ export default {
       }
 
       #{$root}__item-link {
+        padding-left: $rpl-section-menu-item-indent-padding * 3;
+        @include rpl_typography_ruleset($rpl-section-menu-link-sub-ruleset);
+      }
+    }
+
+    &[data-depth="3"] {
+      #{$root}__item {
+        &::before {
+          display: none;
+        }
+      }
+
+      #{$root}__item-link {
+        padding-left: $rpl-section-menu-item-indent-padding * 4;
         @include rpl_typography_ruleset($rpl-section-menu-link-sub-ruleset);
       }
     }

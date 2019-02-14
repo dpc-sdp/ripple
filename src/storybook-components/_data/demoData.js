@@ -2053,7 +2053,7 @@ const demoData = {
       'Fire': 'Fire',
       'Flood': 'Flood',
       'Medical': 'Medical',
-      'Lightening': 'Lightening',
+      'Lightning': 'Lightning',
       'Pollution': 'Pollution',
       'Heat wave': 'Heat wave',
       'Traffic': 'Traffic'

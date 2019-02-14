@@ -1,7 +1,8 @@
 <template>
   <div class="rpl-search-form" :class="{ 'rpl-search-form--dark': (theme === 'dark'), 'rpl-search-form--two-cols': (type === 'two-cols')  }">
     <h1 v-if="title">{{ title }}</h1>
-    <div class="rpl-search-form__field">
+    <h3 v-if="subtitle">{{ subtitle }}</h3>
+    <div class="rpl-search-form__field" v-if="textSearch">
       <label>
         <span class="rpl-search-form__label-text">Search for</span>
         <input v-model="searchInput" ref="searchinput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keydown.enter="submitSearch()" />
@@ -12,7 +13,7 @@
       </button>
     </div>
     <button
-      v-if="filterForm"
+      v-if="filterForm && !expandFilters"
       :aria-expanded="showFilters"
       class="rpl-search-form__show-filters"
       :class="{ 'rpl-search-form__show-filters--expanded': showFilters }"
@@ -36,9 +37,12 @@ export default {
   name: 'RplSearchForm',
   props: {
     title: String,
+    subtitle: String,
     searchPlaceholder: String,
     prefillSearchTerm: String,
     autoFocus: { type: Boolean, default: false },
+    textSearch: { type: Boolean, default: true },
+    expandFilters: { type: Boolean, default: false },
     filterForm: Object,
     theme: String,
     type: { type: String, default: 'default' },
@@ -62,6 +66,9 @@ export default {
           this.focusSearchInput()
         }, 100)
       })
+    }
+    if (this.expandFilters) {
+      this.showFilters = true
     }
   },
   destroyed () {
@@ -129,7 +136,11 @@ export default {
     'm': ('xgiga', 1em, 'bold'),
     'xxl': ('tera', 1em, 'bold')
   ) !default;
+  $rpl-search-form-sub-heading-ruleset: (
+    'm': ('mega', 1em, 'medium'),
+  ) !default;
   $rpl-search-form-show-filters-ruleset: ('s', .87em, 'bold') !default;
+  $rpl-search-form-legend-ruleset: (2em, 2.2em, 'bold') !default;
   $rpl-search-form-show-filters-text-color: rpl-color('primary') !default;
 
   .rpl-search-form {
@@ -160,6 +171,10 @@ export default {
       }
     }
 
+    h3 {
+       @include rpl_typography_ruleset($rpl-search-form-sub-heading-ruleset);
+    }
+
     &__btn {
       background-color: transparent;
       border: 0;
@@ -169,6 +184,12 @@ export default {
 
       span {
         @include rpl_visually_hidden;
+      }
+    }
+
+    fieldset {
+      legend {
+        @include rpl_typography_ruleset($rpl-search-form-legend-ruleset);
       }
     }
 
@@ -264,53 +285,5 @@ export default {
       padding-top: $rpl-space * 12;
     }
 
-    &--two-cols {
-      .form-group {
-        @include rpl_breakpoint('l') {
-          width: $rpl-search-form--two-cols-col-width-l;
-          float: left;
-          max-width: 50%;
-        }
-        &:nth-child(2n) {
-          @include rpl_breakpoint('l') {
-            padding: $rpl-search-form--two-cols-col-padding-l;
-          }
-        }
-        &.field-rplsubmitloader {
-          @include rpl_breakpoint('l') {
-            width: 100%;
-            padding: 0;
-            max-width: 100%;
-          }
-          .form-control {
-            @include rpl_breakpoint('l') {
-              width: 100%;
-            }
-          }
-        }
-      }
-    }
-
-    .rpl-form {
-      padding: 0;
-
-      fieldset {
-        margin: 0;
-      }
-
-      label {
-        @at-root {
-          #{$root}--dark .rpl-form .form-group > label {
-            color: $rpl-search-form-dark-text-color;
-          }
-        }
-      }
-
-      .form-group {
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
   }
 </style>

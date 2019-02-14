@@ -136,18 +136,6 @@ export default {
 
 .rpl-form {
   @include rpl_typography_ruleset($rpl-form-text-ruleset);
-  padding-left: $rpl-component-padding-xs;
-  padding-right: $rpl-component-padding-xs;
-
-  @include rpl_breakpoint(s) {
-    padding-left: $rpl-component-padding-s;
-    padding-right: $rpl-component-padding-s;
-  }
-
-  @include rpl_breakpoint(m) {
-    padding-left: 0;
-    padding-right: 0;
-  }
 
   label {
     @include rpl_typography_ruleset(('s', 1em, 'bold'));

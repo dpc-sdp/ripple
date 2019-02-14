@@ -15,6 +15,7 @@ Vue.use(RplGlobal, { markupPlugins: RplMarkupExamplePlugins })
 
 setOptions({
   name: 'Ripple',
+  downPanelInRight: true,
 })
 
 // automatically import all files ending in *.stories.js

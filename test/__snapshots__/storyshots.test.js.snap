@@ -2,6 +2,441 @@
 
 exports[`RippleStoryshots Atoms/Button Button 1`] = `
 <div
+  style="margin: 16px 16px 36px;"
+>
+  <div>
+    <!---->
+  </div>
+   
+  <div
+    style="position: relative; box-sizing: border-box; margin: 16px 0px 16px 0px; padding: 50px 35px; border: 1px dashed #e5e5e5; background-color: rgb(255, 255, 255); text-align: center;"
+  >
+    <div
+      class="vue-info"
+      data-v-6ca0e090=""
+    >
+      <div
+        class="info-header"
+        data-v-003f20ee=""
+        data-v-6ca0e090=""
+      >
+        <h1
+          class="title"
+          data-v-003f20ee=""
+        >
+          
+    Atoms/Button
+  
+        </h1>
+         
+        <h2
+          class="story-title"
+          data-v-003f20ee=""
+        >
+          
+    Button
+  
+        </h2>
+      </div>
+       
+      <div
+        class="info-content"
+        data-v-6ca0e090=""
+      >
+        <a
+          class="rpl-link rpl-button rpl-button--primary"
+          data-v-6ca0e090=""
+          href="#"
+        >
+          Ripple Button
+        </a>
+      </div>
+       
+      <!---->
+       
+      <div
+        data-v-6ca0e090=""
+        data-v-b425eb9a=""
+      >
+        <h2
+          class="section-title"
+          data-v-6814cc1a=""
+          data-v-b425eb9a=""
+        >
+          Story Source
+        </h2>
+         
+        <pre
+          class="code html hljs xml"
+          data-v-b425eb9a=""
+        >
+          <code
+            data-v-b425eb9a=""
+          >
+            <span
+              class="hljs-tag"
+            >
+              &lt;
+              <span
+                class="hljs-name"
+              >
+                rpl-button
+              </span>
+               
+              <span
+                class="hljs-attr"
+              >
+                :href
+              </span>
+              =
+              <span
+                class="hljs-string"
+              >
+                "href"
+              </span>
+               
+              <span
+                class="hljs-attr"
+              >
+                :theme
+              </span>
+              =
+              <span
+                class="hljs-string"
+              >
+                "theme"
+              </span>
+               
+              <span
+                class="hljs-attr"
+              >
+                :disabled
+              </span>
+              =
+              <span
+                class="hljs-string"
+              >
+                "disabled"
+              </span>
+              &gt;
+            </span>
+            {{ content }}
+            <span
+              class="hljs-tag"
+            >
+              &lt;/
+              <span
+                class="hljs-name"
+              >
+                rpl-button
+              </span>
+              &gt;
+            </span>
+          </code>
+        </pre>
+      </div>
+       
+      <h2
+        class="section-title"
+        data-v-6814cc1a=""
+        data-v-6ca0e090=""
+      >
+        Props
+      </h2>
+       
+      <div
+        data-v-6ca0e090=""
+        data-v-91bb5cde=""
+      >
+        <h3
+          class="component-name"
+          data-v-91bb5cde=""
+        >
+          
+    "RplButton" Component
+  
+        </h3>
+         
+        <table
+          class="props"
+          data-v-91bb5cde=""
+        >
+          <thead
+            class="props-head"
+            data-v-91bb5cde=""
+          >
+            <tr
+              data-v-91bb5cde=""
+            >
+              <th
+                data-v-91bb5cde=""
+              >
+                Name
+              </th>
+               
+              <th
+                data-v-91bb5cde=""
+              >
+                Type
+              </th>
+               
+              <th
+                data-v-91bb5cde=""
+              >
+                Default
+              </th>
+               
+              <th
+                data-v-91bb5cde=""
+              >
+                Description
+              </th>
+            </tr>
+          </thead>
+           
+          <tbody
+            data-v-91bb5cde=""
+          >
+            <tr
+              class="props-table-row"
+              data-v-5bd9cdea=""
+              data-v-91bb5cde=""
+            >
+              <td
+                data-v-5bd9cdea=""
+              >
+                
+    href
+    
+                <!---->
+              </td>
+               
+              <td
+                data-v-5bd9cdea=""
+              >
+                string
+              </td>
+               
+              <td
+                data-v-5bd9cdea=""
+              >
+                
+              </td>
+               
+              <td
+                data-v-5bd9cdea=""
+              >
+                
+              </td>
+            </tr>
+            <tr
+              class="props-table-row"
+              data-v-5bd9cdea=""
+              data-v-91bb5cde=""
+            >
+              <td
+                data-v-5bd9cdea=""
+              >
+                
+    theme
+    
+                <!---->
+              </td>
+               
+              <td
+                data-v-5bd9cdea=""
+              >
+                string
+              </td>
+               
+              <td
+                data-v-5bd9cdea=""
+              >
+                
+              </td>
+               
+              <td
+                data-v-5bd9cdea=""
+              >
+                
+              </td>
+            </tr>
+            <tr
+              class="props-table-row"
+              data-v-5bd9cdea=""
+              data-v-91bb5cde=""
+            >
+              <td
+                data-v-5bd9cdea=""
+              >
+                
+    disabled
+    
+                <!---->
+              </td>
+               
+              <td
+                data-v-5bd9cdea=""
+              >
+                boolean
+              </td>
+               
+              <td
+                data-v-5bd9cdea=""
+              >
+                
+              </td>
+               
+              <td
+                data-v-5bd9cdea=""
+              >
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div>
+      <div
+        class="markdown-body"
+      >
+        <h1
+          id="-dpc-sdp-ripple-button"
+        >
+          @dpc-sdp/ripple-button
+        </h1>
+        
+
+        <blockquote>
+          
+
+          <p>
+            A button themed element. Will be a 
+            <code>
+              &lt;button&gt;
+            </code>
+             by default, or a an 
+            <code>
+              &lt;a&gt;
+            </code>
+             if a
+
+            <code>
+              href
+            </code>
+             is provided.
+          </p>
+          
+
+        </blockquote>
+        
+
+        <hr />
+        
+
+        <h2
+          id="install"
+        >
+          Install
+        </h2>
+        
+
+        <pre
+          class=" language-shell"
+        >
+          <code
+            class=" language-shell"
+          >
+            npm install @dpc-sdp/ripple-button --save
+
+          </code>
+        </pre>
+        
+
+        <hr />
+        
+
+        <h2
+          id="dependency-graph"
+        >
+          Dependency graph
+        </h2>
+        
+
+        <pre
+          class=" language-shell"
+        >
+          <code
+            class=" language-shell"
+          >
+            @dpc-sdp/ripple-button
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-link
+
+          </code>
+        </pre>
+        
+
+        <hr />
+        
+
+        <h2
+          id="usage-and-tests"
+        >
+          Usage and Tests
+        </h2>
+        
+
+        <p>
+          See 
+          <a
+            href="https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Button&selectedStory=Button"
+          >
+            Storybook/Button
+          </a>
+          .
+        </p>
+        
+
+        <hr />
+        
+
+        <h2
+          id="license"
+        >
+          License
+        </h2>
+        
+
+        <p>
+          Licensed under the Apache-2.0 License.
+        </p>
+        
+
+      </div>
+    </div>
+  </div>
+   
+  <div
+    style="border-top: 1px dashed #e5e5e5; padding-top: 16px;"
+  >
+    <div>
+      <div>
+        <div
+          class="markdown-body"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Atoms/Button Button with click action 1`] = `
+<div
   class="vue-info"
   data-v-6ca0e090=""
 >
@@ -24,7 +459,7 @@ exports[`RippleStoryshots Atoms/Button Button 1`] = `
       data-v-003f20ee=""
     >
       
-    Button
+    Button with click action
   
     </h2>
   </div>
@@ -42,7 +477,21 @@ exports[`RippleStoryshots Atoms/Button Button 1`] = `
     </a>
   </div>
    
-  <!---->
+  <p
+    class="summary"
+    data-v-1401b552=""
+    data-v-6ca0e090=""
+  >
+    <p>
+      We can use 
+      <code>
+        @click.native.prevent
+      </code>
+       to add custom action. Check "Action logger" to see the click log.
+    </p>
+    
+
+  </p>
    
   <div
     data-v-6ca0e090=""
@@ -107,6 +556,18 @@ exports[`RippleStoryshots Atoms/Button Button 1`] = `
             class="hljs-string"
           >
             "disabled"
+          </span>
+           @
+          <span
+            class="hljs-attr"
+          >
+            click.native.prevent
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "log"
           </span>
           &gt;
         </span>
@@ -20168,6 +20629,8 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
         Search results
       </h1>
        
+      <!---->
+       
       <div
         class="rpl-search-form__field"
       >
@@ -20440,6 +20903,38 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
             data-v-5bd9cdea=""
           >
             
+    subtitle
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
     searchPlaceholder
     
             <!---->
@@ -20505,6 +21000,70 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
           >
             
     autoFocus
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            false
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    textSearch
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            true
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    expandFilters
     
             <!---->
           </td>
@@ -34353,6 +34912,8 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
               Events search page
             </h1>
              
+            <!---->
+             
             <div
               class="rpl-search-form__field"
             >
@@ -35083,6 +35644,8 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
             <h1>
               Grants and programs
             </h1>
+             
+            <!---->
              
             <div
               class="rpl-search-form__field"
@@ -36317,6 +36880,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
           <h1>
             Search results
           </h1>
+           
+          <!---->
            
           <div
             class="rpl-search-form__field"
@@ -45250,6 +45815,8 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
             <h1>
               Search results
             </h1>
+             
+            <!---->
              
             <div
               class="rpl-search-form__field"

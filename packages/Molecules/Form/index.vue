@@ -121,6 +121,11 @@ export default {
           VueScrollTo.scrollTo(firstError.$el, 500, { offset: -100 })
         }
       }
+
+      // Call form reset function defined in fieldRplclearform.vue if submitted successfully
+      if (this.formData.formState.response.status === 'success') {
+        fieldRplclearform.methods.clearForm(event, this.formData.model, this.$refs.vfg)
+      }
     }
   }
 }

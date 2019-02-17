@@ -1,5 +1,5 @@
 <template>
-  <button class="rpl-clearform" @click="clearForm">
+  <button class="rpl-clearform" @click="handleClearButtonEvent">
     <rpl-text-icon :text="schema.buttonText" symbol="cross_circle" placement="before" color="danger" size="0.833334" />
   </button>
 </template>
@@ -12,24 +12,27 @@ export default {
   mixins: [abstractField],
   components: {RplTextIcon},
   methods: {
-    clearForm (e) {
+    clearForm (e, model, vfg) {
       e.preventDefault()
-      for (let key in this.model) {
-        if (Array.isArray(this.model[key])) {
-          this.model[key] = []
-        } else if (typeof this.model[key] === 'object' && this.model[key] !== null) {
+      for (let key in model) {
+        if (Array.isArray(model[key])) {
+          model[key] = []
+        } else if (typeof model[key] === 'object' && model[key] !== null) {
           // nested objects need to be initalized back to an empty object to work
-          this.model[key] = {}
+          model[key] = {}
         } else {
-          this.model[key] = null
+          model[key] = null
         }
       }
-      if (this.vfg.errors && this.vfg.errors.length > 0) {
-        this.vfg.clearValidationErrors()
+      if (vfg.errors && vfg.errors.length > 0) {
+        vfg.clearValidationErrors()
       }
+    },
+    handleClearButtonEvent (e) {
+      this.clearForm(e, this.model, this.vfg)
     }
-  }
 
+  }
 }
 </script>
 

@@ -866,10 +866,18 @@ const demoData = {
         children: [
           { text: 'Sub child A', url: '#' },
           {
-            text: 'Sub child B',
+            text: 'Sub child B - With level 3',
             url: '#',
             children: [
-              { text: 'Sub child I', url: '#' },
+              {
+                text: 'Sub child I',
+                url: '#',
+                children: [
+                  { text: 'Level 3 child I', url: '#' },
+                  { text: 'Level 3 child II', url: '#' },
+                  { text: 'Level 3 child III', url: '#' }
+                ]
+              },
               { text: 'Sub child II', url: '#' },
               { text: 'Sub child III', url: '#' }
             ]

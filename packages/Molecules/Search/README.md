@@ -25,6 +25,14 @@ npm install @dpc-sdp/ripple-search --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplSearchForm } from '@dpc-sdp/ripple-search'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Search Form](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Search%20Form).

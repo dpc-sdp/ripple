@@ -22,6 +22,14 @@ npm install @dpc-sdp/ripple-embedded-video --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplEmbeddedVideo from '@dpc-sdp/ripple-embedded-video'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Embedded Video](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/EmbeddedVideo&selectedStory=Embedded%20Video).

@@ -32,6 +32,7 @@ const vicLogo = {
 }
 
 export default {
+  name: 'RplSiteFooter',
   components: {
     RplAcknowledgement,
     RplLinksAndCopyright,

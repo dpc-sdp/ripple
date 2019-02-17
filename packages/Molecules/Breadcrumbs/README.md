@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-breadcrumbs --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Breadcrumbs](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Breadcrumbs&selectedStory=Breadcrumbs).

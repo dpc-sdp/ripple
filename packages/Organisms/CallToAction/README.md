@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-call-to-action --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplCallToAction from '@dpc-sdp/ripple-call-to-action'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Call to Action](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CallToAction&selectedStory=Call%20to%20Action).

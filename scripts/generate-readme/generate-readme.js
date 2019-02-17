@@ -23,14 +23,26 @@ let fs = require('fs')
 let path = require('path')
 let glob = require('glob-fs')({ gitignore: true })
 let wrap = require('wordwrap')(80)
+let getImports = require('./get-imports')
 
 function generateTemplate (directory) {
   let data = {
     packageName: '',
     packageDescription: '',
     packageDependencies: '',
+    packageImports: '',
     storybookParams: []
   }
+
+  // Get imports.
+  let imports = getImports(directory + 'package.json')
+  imports.forEach((importStatement, idx) => {
+    let print = importStatement
+    if (print.length > 80) {
+      print = print.replace(/,\s/gi, ',\n  ').replace(/{ /gi, '{\n  ').replace(/ }/gi, '\n}')
+    }
+    data.packageImports += ((idx > 0) ? '\n' : '') + print
+  })
 
   // Get package data.
   let file = fs.readFileSync(directory + 'package.json', 'utf8')

@@ -9,7 +9,7 @@ exports[`RippleStoryshots Atoms/Button Button 1`] = `
   </div>
    
   <div
-    style="position: relative; box-sizing: border-box; margin: 16px 0px 16px 0px; padding: 50px 35px; border: 1px dashed #e5e5e5; background-color: rgb(255, 255, 255); text-align: center;"
+    style="position: relative; box-sizing: border-box; margin: 16px 0px 16px 0px; padding: 50px 35px; border: 1px dashed #e5e5e5; background-color: rgb(255, 255, 255); transition: background-color 0.2s; text-align: center;"
   >
     <div
       class="vue-info"
@@ -6726,7 +6726,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
             <div
               class="VueCarousel-inner"
               role="listbox"
-              style="transform: translate(0px, 0); visibility: hidden;"
+              style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
             >
               <div
                 class="VueCarousel-slide rpl-card-carousel__slide"
@@ -29049,7 +29049,7 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
           <div
             class="VueCarousel-inner"
             role="listbox"
-            style="transform: translate(0px, 0); visibility: hidden;"
+            style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
           >
             <div
               class="VueCarousel-slide rpl-image-gallery__thumbnail"
@@ -37913,7 +37913,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         <div
                           class="VueCarousel-inner"
                           role="listbox"
-                          style="transform: translate(0px, 0); visibility: hidden;"
+                          style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
                         >
                           <div
                             class="VueCarousel-slide rpl-card-carousel__slide"
@@ -38765,7 +38765,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <div
                         class="VueCarousel-inner"
                         role="listbox"
-                        style="transform: translate(0px, 0); visibility: hidden;"
+                        style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
                       >
                         <div
                           class="VueCarousel-slide rpl-image-gallery__thumbnail"
@@ -43936,7 +43936,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                         <div
                           class="VueCarousel-inner"
                           role="listbox"
-                          style="transform: translate(0px, 0); visibility: hidden;"
+                          style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
                         >
                           <div
                             class="VueCarousel-slide rpl-card-carousel__slide"

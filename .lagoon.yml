@@ -1,1 +1,14 @@
 docker-compose-yaml: docker-compose.yml
+
+project: ripple
+endpoint: api-lagoon-master.lagoon.vicsdp.amazee.io:30454
+api: api-lagoon-master.lagoon.vicsdp.amazee.io:80
+
+tasks:
+    - run:
+        name: Post deployed URL to JIRA
+        command: |
+          if [[ "$LAGOON_PR_HEAD_BRANCH" != "production" ]]; then
+            . scripts/jira-post-comment.sh "https://digital-engagement.atlassian.net/" $JIRA_USER $JIRA_PASSWORD $LAGOON_GIT_BRANCH sdpa $LAGOON_GIT_BRANCH "$LAGOON_PR_TITLE"
+          fi
+        service: storybook

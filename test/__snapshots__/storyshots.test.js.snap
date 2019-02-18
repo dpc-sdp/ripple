@@ -9,7 +9,7 @@ exports[`RippleStoryshots Atoms/Button Button 1`] = `
   </div>
    
   <div
-    style="position: relative; box-sizing: border-box; margin: 16px 0px 16px 0px; padding: 50px 35px; border: 1px dashed #e5e5e5; background-color: rgb(255, 255, 255); text-align: center;"
+    style="position: relative; box-sizing: border-box; margin: 16px 0px 16px 0px; padding: 50px 35px; border: 1px dashed #e5e5e5; background-color: rgb(255, 255, 255); transition: background-color 0.2s; text-align: center;"
   >
     <div
       class="vue-info"
@@ -6726,7 +6726,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
             <div
               class="VueCarousel-inner"
               role="listbox"
-              style="transform: translate(0px, 0); visibility: hidden;"
+              style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
             >
               <div
                 class="VueCarousel-slide rpl-card-carousel__slide"
@@ -12207,7 +12207,11 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
         <h2
           class="rpl-list__title"
         >
-          Need additional help?
+          <span
+            class="rpl-list__title-inner"
+          >
+            Need additional help?
+          </span>
         </h2>
          
         <p
@@ -17848,7 +17852,11 @@ exports[`RippleStoryshots Molecules/List List 1`] = `
       <h2
         class="rpl-list__title"
       >
-        My List
+        <span
+          class="rpl-list__title-inner"
+        >
+          My List
+        </span>
       </h2>
         
       <div
@@ -18040,6 +18048,18 @@ exports[`RippleStoryshots Molecules/List List 1`] = `
             class="hljs-string"
           >
             "list"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :link
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "link"
           </span>
            /&gt;
         </span>
@@ -26652,7 +26672,11 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
         <h2
           class="rpl-list__title"
         >
-          Program Overview
+          <span
+            class="rpl-list__title-inner"
+          >
+            Program Overview
+          </span>
         </h2>
           
         <div
@@ -26907,6 +26931,18 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
             class="hljs-string"
           >
             "link"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :listing
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "listing"
           </span>
            /&gt;
         </span>
@@ -29049,7 +29085,7 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
           <div
             class="VueCarousel-inner"
             role="listbox"
-            style="transform: translate(0px, 0); visibility: hidden;"
+            style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
           >
             <div
               class="VueCarousel-slide rpl-image-gallery__thumbnail"
@@ -37913,7 +37949,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         <div
                           class="VueCarousel-inner"
                           role="listbox"
-                          style="transform: translate(0px, 0); visibility: hidden;"
+                          style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
                         >
                           <div
                             class="VueCarousel-slide rpl-card-carousel__slide"
@@ -38765,7 +38801,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <div
                         class="VueCarousel-inner"
                         role="listbox"
-                        style="transform: translate(0px, 0); visibility: hidden;"
+                        style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
                       >
                         <div
                           class="VueCarousel-slide rpl-image-gallery__thumbnail"
@@ -39746,7 +39782,11 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 <h2
                   class="rpl-list__title"
                 >
-                  Need additional help?
+                  <span
+                    class="rpl-list__title-inner"
+                  >
+                    Need additional help?
+                  </span>
                 </h2>
                  
                 <p
@@ -43936,7 +43976,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                         <div
                           class="VueCarousel-inner"
                           role="listbox"
-                          style="transform: translate(0px, 0); visibility: hidden;"
+                          style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
                         >
                           <div
                             class="VueCarousel-slide rpl-card-carousel__slide"
@@ -45187,7 +45227,11 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
                 <h2
                   class="rpl-list__title"
                 >
-                  Need additional help?
+                  <span
+                    class="rpl-list__title-inner"
+                  >
+                    Need additional help?
+                  </span>
                 </h2>
                  
                 <p

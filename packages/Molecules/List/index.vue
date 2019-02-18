@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { RplTextLink } from '@dpc-sdp/ripple-link'
+import { RplLink, RplTextLink } from '@dpc-sdp/ripple-link'
 import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
@@ -38,6 +38,7 @@ export default {
     list: Array
   },
   components: {
+    RplLink,
     RplTextLink,
     RplIcon
   },

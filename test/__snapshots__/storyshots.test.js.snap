@@ -12207,7 +12207,11 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
         <h2
           class="rpl-list__title"
         >
-          Need additional help?
+          <span
+            class="rpl-list__title-inner"
+          >
+            Need additional help?
+          </span>
         </h2>
          
         <p
@@ -17848,7 +17852,11 @@ exports[`RippleStoryshots Molecules/List List 1`] = `
       <h2
         class="rpl-list__title"
       >
-        My List
+        <span
+          class="rpl-list__title-inner"
+        >
+          My List
+        </span>
       </h2>
         
       <div
@@ -18040,6 +18048,18 @@ exports[`RippleStoryshots Molecules/List List 1`] = `
             class="hljs-string"
           >
             "list"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :link
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "link"
           </span>
            /&gt;
         </span>
@@ -26652,7 +26672,11 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
         <h2
           class="rpl-list__title"
         >
-          Program Overview
+          <span
+            class="rpl-list__title-inner"
+          >
+            Program Overview
+          </span>
         </h2>
           
         <div
@@ -26907,6 +26931,18 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
             class="hljs-string"
           >
             "link"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :listing
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "listing"
           </span>
            /&gt;
         </span>
@@ -39746,7 +39782,11 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 <h2
                   class="rpl-list__title"
                 >
-                  Need additional help?
+                  <span
+                    class="rpl-list__title-inner"
+                  >
+                    Need additional help?
+                  </span>
                 </h2>
                  
                 <p
@@ -45187,7 +45227,11 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
                 <h2
                   class="rpl-list__title"
                 >
-                  Need additional help?
+                  <span
+                    class="rpl-list__title-inner"
+                  >
+                    Need additional help?
+                  </span>
                 </h2>
                  
                 <p

@@ -15,7 +15,7 @@ storiesOf('Organisms/Grants', module)
   .addDecorator(withKnobs)
   .add('Grants Overview', withReadme(readme, () => ({
     components: { RplGrantsOverview },
-    template: `<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startdate" :enddate="enddate" :description="description" :link="link" />`,
+    template: `<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startdate" :enddate="enddate" :description="description" :link="link" :listing="listing" />`,
     data () {
       return demoData.grantsOverview()
     }

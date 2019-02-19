@@ -1,6 +1,6 @@
 <template>
   <figure class="rpl-document-link">
-    <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="!isExternalLink" :target="isExternalLink ? '_blank' : false">
+    <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="isExternalLink ? false : ''" :target="isExternalLink ? '_blank' : false">
       <rpl-icon class="rpl-document-link__icon" :symbol="icon" color="primary" size="l" />
       <div class="rpl-document-link__info">
         <span class="rpl-document-link__title">{{name}}</span>

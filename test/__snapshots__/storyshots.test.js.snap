@@ -14034,7 +14034,9 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
       class="rpl-form"
       data-v-6ca0e090=""
     >
-      <h3>
+      <h3
+        class="rpl-form__title"
+      >
         Example Form
       </h3>
        
@@ -15919,7 +15921,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            true
+            false
           </td>
            
           <td

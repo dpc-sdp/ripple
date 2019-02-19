@@ -14033,8 +14033,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
     <form
       class="rpl-form"
       data-v-6ca0e090=""
-      isnewmodel="true"
-      options="[object Object]"
     >
       <h3>
         Example Form
@@ -15692,30 +15690,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
           >
             "title"
           </span>
-           
-          <span
-            class="hljs-attr"
-          >
-            :isNewModel
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "isNewModel"
-          </span>
-           
-          <span
-            class="hljs-attr"
-          >
-            :options
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "options"
-          </span>
           &gt;
         </span>
         <span
@@ -15914,6 +15888,70 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
             data-v-5bd9cdea=""
           >
             
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    clearFormOnSuccess
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            true
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    submitFormOnClear
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            false
           </td>
            
           <td

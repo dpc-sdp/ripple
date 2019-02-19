@@ -1,6 +1,6 @@
 <template>
   <form class="rpl-form" @submit="onSubmit">
-    <h3 v-if="title">{{title}}</h3>
+    <h3 class="rpl-form__title" v-if="title">{{title}}</h3>
     <rpl-form-alert v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
     </rpl-form-alert>
     <vue-form-generator
@@ -162,6 +162,10 @@ export default {
 
 .rpl-form {
   @include rpl_typography_ruleset($rpl-form-text-ruleset);
+
+  &__title {
+    margin-top: 0;
+  }
 
   label {
     @include rpl_typography_ruleset(('s', 1em, 'bold'));

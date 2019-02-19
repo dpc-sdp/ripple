@@ -50,11 +50,11 @@ $rpl-fieldset-margin: $rpl-space-4 0;
 
     @include rpl_breakpoint(m) {
       &--col-two {
-        flex: 0 1 calc(50% - (#{$rpl-fieldset-col-padding} * 2));
+        flex-basis: calc(50% - (#{$rpl-fieldset-col-padding} * 2));
       }
 
       &--col-three {
-        flex: 0 1 calc(33.3% - (#{$rpl-fieldset-col-padding} * 2));
+        flex-basis: calc(33.3% - (#{$rpl-fieldset-col-padding} * 2));
       }
     }
 

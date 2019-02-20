@@ -19,8 +19,7 @@ npm install @dpc-sdp/ripple-campaign-secondary --save
 @dpc-sdp/ripple-campaign-secondary
 ├── @dpc-sdp/ripple-button
 ├── @dpc-sdp/ripple-embedded-video
-├── @dpc-sdp/ripple-global
-└── @dpc-sdp/ripple-icon
+└── @dpc-sdp/ripple-global
 ```
 
 --------------------------------------------------------------------------------

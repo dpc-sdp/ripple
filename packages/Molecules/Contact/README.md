@@ -18,8 +18,6 @@ npm install @dpc-sdp/ripple-contact --save
 ```shell
 @dpc-sdp/ripple-contact
 ├── @dpc-sdp/ripple-global
-├── @dpc-sdp/ripple-icon
-├── @dpc-sdp/ripple-link
 └── @dpc-sdp/ripple-list
 ```
 

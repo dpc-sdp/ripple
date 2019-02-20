@@ -12267,7 +12267,7 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
              
             <a
               class="rpl-link rpl-list__text"
-              href="tel: 03 9876 6754"
+              href="tel:0398766754"
             >
               03 9876 6754
             </a>
@@ -12283,7 +12283,7 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
              
             <a
               class="rpl-link rpl-list__text"
-              href="tel: 0400 000 000"
+              href="tel:0400000000"
             >
               Mob 0400 000 000
             </a>
@@ -39882,7 +39882,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                      
                     <a
                       class="rpl-link rpl-list__text"
-                      href="tel: 03 9876 6754"
+                      href="tel:0398766754"
                     >
                       03 9876 6754
                     </a>
@@ -39898,7 +39898,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                      
                     <a
                       class="rpl-link rpl-list__text"
-                      href="tel: 0400 000 000"
+                      href="tel:0400000000"
                     >
                       Mob 0400 000 000
                     </a>
@@ -45327,7 +45327,7 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
                      
                     <a
                       class="rpl-link rpl-list__text"
-                      href="tel: 03 9876 6754"
+                      href="tel:0398766754"
                     >
                       03 9876 6754
                     </a>
@@ -45343,7 +45343,7 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
                      
                     <a
                       class="rpl-link rpl-list__text"
-                      href="tel: 0400 000 000"
+                      href="tel:0400000000"
                     >
                       Mob 0400 000 000
                     </a>

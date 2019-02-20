@@ -61,7 +61,7 @@ export default {
           if (phone.number) {
             _list.push({
               symbol: 'phone_number',
-              link: `tel: ${phone.number}`,
+              link: `tel:${phone.number.replace(/ /g, '')}`,
               size: 0.857,
               text: `${phone.title ? phone.title + ' ' : ''}${phone.number}`
             })

@@ -27,6 +27,11 @@ will show.
 Show / hide a top border style. If an `image` is supplied, then this border
 will not show.
 
+### Center
+
+Works only on type `default`, with no `image`. Vertically centres the details
+within the card.
+
 ### Type
 
 The style configuration for the card to use. There are two types:

@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-share-this">
     <h2 v-if="title" class="rpl-share-this__title">{{ title }}</h2>
-    <social-sharing :url="url" inline-template>
+    <social-sharing :url="url" inline-template hashtags="">
       <div>
         <network v-if="$parent.en.twitter" network="twitter" class="rpl-share-this__social">
           <span class="rpl-share-this__icon"><rpl-icon symbol="twitter" color="primary" /></span>Twitter
@@ -20,7 +20,7 @@
 <script>
 import Vue from 'vue'
 import RplIcon from '@dpc-sdp/ripple-icon'
-import SocialSharing from 'vue-social-sharing'
+import SocialSharing from 'vue-social-sharing/src/index.js' // This is a temporary fix - please just use the package name after version bump to 2.4.2
 
 // Need to register as global component so it can be used inside vue-social-sharing.
 Vue.component('rpl-icon', RplIcon)

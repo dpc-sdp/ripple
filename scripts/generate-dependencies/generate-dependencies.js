@@ -1,46 +1,27 @@
 /**
- * Adds package dependencies to the ripple package.json file based on available
- * packages.
+ * Adds package dependencies to:
+ * * Root `./package.json`
+ * * Components `./packages/.../package.json`
  *
- * Requires each ripple package to have:
+ * Requires each ripple component package to have:
  *
- *   1. A `package.json` file with:
- *     - name
+ * 1. A `package.json` file with:
+ *   - name
+ * 2. A `lerna.json` file with:
+ *   - version
  *
  * Script expects to be called via npm in the root directory:
  *
  *   `npm run package-dependencies`
  */
 
-let fs = require('fs')
-let glob = require('glob-fs')({ gitignore: true })
-
-// Get Package JSON.
-let packageJson = fs.readFileSync('./package.json')
-packageJson = JSON.parse(packageJson)
-
-// Strip existing @dpc-sdp keys.
-for (let key in packageJson.dependencies) {
-  if (key.indexOf('@dpc-sdp/ripple-') === 0) {
-    delete packageJson.dependencies[key]
-  }
-}
+const utils = require('./dependency-utils')
 
 // Get all ripple packages and add depdendencies.
-let packages = glob.readdirSync('./packages/**/package.json')
-packages.forEach(pkg => {
-  let pkgPath = pkg.substr(0, (pkg.lastIndexOf('/')))
-  let pkgJson = fs.readFileSync(pkg)
-  pkgJson = JSON.parse(pkgJson)
-  packageJson.dependencies[pkgJson.name] = `file:${pkgPath}`
-})
+const packages = utils.getPackageDirectories()
 
-// Order dependencies alphabetically.
-const orderedDependencies = {}
-Object.keys(packageJson.dependencies).sort().forEach(key => {
-  orderedDependencies[key] = packageJson.dependencies[key]
-})
-packageJson.dependencies = orderedDependencies
+// Add all ripple `./packages/` to `./package.json`.
+utils.addComponentsToRootPackage(packages)
 
-// Save to package.json.
-fs.writeFileSync('./package.json', `${JSON.stringify(packageJson, null, 2)}\n`)
+// Add all imported ripple `./packages/` to `./packages/**/package.json`.
+utils.fixMissingPackages(packages)

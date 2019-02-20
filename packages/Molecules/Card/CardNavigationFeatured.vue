@@ -71,7 +71,6 @@ export default {
   $rpl-card-navigation-featured-meta-background: rpl_color('secondary') !default;
   $rpl-card-navigation-featured-meta-text-color: rpl_color('white') !default;
   $rpl-card-navigation-featured-meta-padding: 0 $rpl-space-2 !default;
-  $rpl-card-navigation-featured-meta-margin: 0 0 $rpl-space !default;
   $rpl-card-navigation-featured-date-ruleset: ('xs', 1em, 'semibold') !default;
   $rpl-card-navigation-featured-tag-ruleset: ('xxs', 1em, 'medium') !default;
   $rpl-card-navigation-featured-meta-divider-margin: auto $rpl-space-2 !default;
@@ -143,7 +142,7 @@ export default {
       background-color: $rpl-card-navigation-featured-meta-background;
       color: $rpl-card-navigation-featured-meta-text-color;
       padding: $rpl-card-navigation-featured-meta-padding;
-      margin-bottom: $rpl-card-navigation-featured-meta-margin;
+      margin-bottom: $rpl-space;
 
       span + span {
         &:before {

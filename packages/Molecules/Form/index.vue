@@ -1,6 +1,6 @@
 <template>
   <form class="rpl-form" @submit="onSubmit">
-    <h3 v-if="title">{{title}}</h3>
+    <h3 class="rpl-form__title" v-if="title">{{title}}</h3>
     <rpl-form-alert v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
     </rpl-form-alert>
     <vue-form-generator
@@ -44,6 +44,7 @@ Vue.component('fieldRplmarkup', fieldRplmarkup)
 Vue.component('RplFieldset', RplFieldset)
 
 export { VueFormGenerator }
+export const RplFormEventBus = new Vue()
 
 export default {
   name: 'RplForm',
@@ -63,8 +64,13 @@ export default {
     formData: Object,
     submitHandler: Function,
     hideAfterSuccess: Boolean,
+    clearFormOnSuccess: {type: Boolean, default: false},
+    submitFormOnClear: {type: Boolean, default: false},
     scrollToMessage: {type: Boolean, default: true},
     validateOnSubmit: {type: Boolean, default: true}
+  },
+  mounted () {
+    RplFormEventBus.$on('clearform', this.clearForm)
   },
   computed: {
     submitLoaderFields () {
@@ -99,6 +105,23 @@ export default {
         return true
       }
     },
+    clearForm () {
+      for (let key in this.formData.model) {
+        const model = this.formData.model[key]
+        if (typeof model === 'object' && !Array.isArray(model) && model !== null) {
+          // nested objects need to be initalized back to an empty object to work
+          this.formData.model[key] = {}
+        } else {
+          this.formData.model[key] = null
+        }
+      }
+      if (this.$refs.vfg && this.$refs.vfg.errors && this.$refs.vfg.errors.length > 0) {
+        this.$refs.vfg.clearValidationErrors()
+      }
+      if (this.submitFormOnClear) {
+        this.onSubmit()
+      }
+    },
     async onSubmit (event) {
       event.preventDefault()
 
@@ -113,6 +136,9 @@ export default {
         await this.submitHandler()
         if (this.scrollToMessage) {
           VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
+        }
+        if (this.clearFormOnSuccess) {
+          this.clearForm()
         }
       } else {
         // scroll into view first element with error
@@ -136,6 +162,10 @@ export default {
 
 .rpl-form {
   @include rpl_typography_ruleset($rpl-form-text-ruleset);
+
+  &__title {
+    margin-top: 0;
+  }
 
   label {
     @include rpl_typography_ruleset(('s', 1em, 'bold'));

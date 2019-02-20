@@ -375,7 +375,7 @@ export default {
     // Menu Container - changes for vert / horizontal
     &__menu-container {
       &--vertical {
-        width: 100%;
+        width: auto;
         position: absolute;
         bottom: 0;
         left: $rpl-header-horizontal-padding-xs;
@@ -388,7 +388,6 @@ export default {
         @include rpl_breakpoint('s') {
           left: $rpl-header-horizontal-padding-s;
           right: $rpl-header-horizontal-padding-s;
-          width: auto;
         }
       }
 

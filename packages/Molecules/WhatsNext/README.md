@@ -18,6 +18,7 @@ npm install @dpc-sdp/ripple-whats-next --save
 ```shell
 @dpc-sdp/ripple-whats-next
 ├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-icon
 └── @dpc-sdp/ripple-link
 ```
 

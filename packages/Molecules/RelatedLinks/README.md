@@ -18,6 +18,7 @@ npm install @dpc-sdp/ripple-related-links --save
 ```shell
 @dpc-sdp/ripple-related-links
 ├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-icon
 └── @dpc-sdp/ripple-link
 ```
 

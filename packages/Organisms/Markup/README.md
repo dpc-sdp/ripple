@@ -24,6 +24,14 @@ npm install @dpc-sdp/ripple-markup --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { markupTranspiler, RplMarkup } from '@dpc-sdp/ripple-markup'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Markup](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup).

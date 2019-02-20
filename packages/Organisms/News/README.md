@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-news --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplFeaturedNews, RplNewsListing } from '@dpc-sdp/ripple-news'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Featured News](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/News&selectedStory=Featured%20News).

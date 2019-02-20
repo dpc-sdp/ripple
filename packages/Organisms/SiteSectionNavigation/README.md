@@ -21,6 +21,14 @@ npm install @dpc-sdp/ripple-site-section-navigation --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplSiteSectionNavigation from '@dpc-sdp/ripple-site-section-navigation'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Site Section Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/SiteSectionNavigation&selectedStory=Site%20Section%20Navigation).

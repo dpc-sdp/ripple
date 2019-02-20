@@ -21,6 +21,17 @@ npm install @dpc-sdp/ripple-profile --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import {
+  RplProfileHighlight,
+  RplProfileHighlightHonourRoll
+} from '@dpc-sdp/ripple-profile'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Profile Highlight](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Profile&selectedStory=Profile%20Highlight).

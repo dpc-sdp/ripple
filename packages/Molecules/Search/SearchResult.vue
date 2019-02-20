@@ -64,12 +64,9 @@ export default {
   ) !default;
 
   .rpl-search-result {
-    @include rpl_mobile_padding();
     padding-bottom: $rpl-space-4;
 
     @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
       padding-bottom: $rpl-space-4 * 2;
     }
 

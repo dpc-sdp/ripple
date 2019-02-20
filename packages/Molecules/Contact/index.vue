@@ -61,7 +61,7 @@ export default {
           if (phone.number) {
             _list.push({
               symbol: 'phone_number',
-              link: `tel: ${phone.number}`,
+              link: `tel:${phone.number.replace(/ /g, '')}`,
               size: 0.857,
               text: `${phone.title ? phone.title + ' ' : ''}${phone.number}`
             })
@@ -116,16 +116,10 @@ export default {
   $rpl-contact-icon-margin: 0 $rpl-space-2 0 0;
 
   .rpl-contact {
-    @include rpl_mobile_padding;
     padding-top: $rpl-space-4;
     background: $rpl-contact-background;
     color: $rpl-contact-text-color;
     position: relative;
-
-    @include rpl_breakpoint('l') {
-      padding-left: 0;
-      padding-right: 0;
-    }
 
     &__title {
       @include rpl_typography_ruleset($rpl-contact-title-ruleset);

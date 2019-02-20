@@ -24,6 +24,14 @@ npm install @dpc-sdp/ripple-share-this --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplShareThis from '@dpc-sdp/ripple-share-this'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Share this](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/ShareThis&selectedStory=Share%20this).

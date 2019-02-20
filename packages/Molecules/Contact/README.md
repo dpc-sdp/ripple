@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-contact --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplContact from '@dpc-sdp/ripple-contact'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Contact](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Contact&selectedStory=Contact).

@@ -11,7 +11,7 @@ storiesOf('Molecules/Form', module)
   .addDecorator(VueInfoAddon)
   .add('Form', withReadme(readme, () => ({
     components: { RplForm },
-    template: `<rpl-form :formData="formData" :submitHandler="submitHandler" :isNewModel="isNewModel" :options="options"></rpl-form>`,
+    template: `<rpl-form :formData="formData" :submitHandler="submitHandler" :title="title"></rpl-form>`,
     data () {
       return demoData.form()
     }

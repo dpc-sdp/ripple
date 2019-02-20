@@ -6,10 +6,13 @@
   }
 }
 
-// This site constrain is using !important as it should be on top level to keep the site layout consistency 
+// This site constrain is using !important as it should be on top level to keep the site layout consistency
 @mixin rpl_site_constrain($style: all) {
   // sass-lint:disable-block no-important
   @if $style == all {
+    padding-left: $rpl-component-padding-xs !important;
+    padding-right: $rpl-component-padding-xs !important;
+
     @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
       @include rpl_breakpoint($bp) {
         padding-left: $padding !important;
@@ -53,6 +56,10 @@
 // Argument `card element` is used for making a card element grow to edge in small screen, e.g a card image.
 @mixin rpl_edge($style: all) {
   @if $style == all {
+    margin-left: -$rpl-component-padding-xs;
+    margin-right: -$rpl-component-padding-xs;
+
+    // sass-lint:disable-block no-important
     @each $bp, $padding in map-get($rpl-layout, 'site_padding') {
       @include rpl_breakpoint($bp) {
         margin-left: -$padding;

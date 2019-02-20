@@ -40,7 +40,7 @@ export default {
           backgroundColor: 'danger',
           iconSymbol: 'alert_medical'
         },
-        'Lightening': {
+        'Lightning': {
           backgroundColor: 'warning',
           iconSymbol: 'alert_lightning'
         },

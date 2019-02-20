@@ -7,6 +7,7 @@
 <script>
 import { abstractField } from 'vue-form-generator'
 import {RplTextIcon} from '@dpc-sdp/ripple-icon'
+import { RplFormEventBus } from '@dpc-sdp/ripple-form'
 
 export default {
   mixins: [abstractField],
@@ -14,17 +15,7 @@ export default {
   methods: {
     clearForm (e) {
       e.preventDefault()
-      for (let key in this.model) {
-        if (typeof this.model[key] === 'object' && !Array.isArray(this.model[key]) && this.model[key] !== null) {
-          // nested objects need to be initalized back to an empty object to work
-          this.model[key] = {}
-        } else {
-          this.model[key] = null
-        }
-      }
-      if (this.vfg.errors && this.vfg.errors.length > 0) {
-        this.vfg.clearValidationErrors()
-      }
+      RplFormEventBus.$emit('clearform')
     }
   }
 

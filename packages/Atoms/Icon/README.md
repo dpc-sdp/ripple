@@ -21,6 +21,14 @@ npm install @dpc-sdp/ripple-icon --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplIcon, RplTextIcon } from '@dpc-sdp/ripple-icon'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Icon Library](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Icon&selectedStory=Icon%20Library).

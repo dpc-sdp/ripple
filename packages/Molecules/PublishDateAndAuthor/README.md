@@ -21,6 +21,14 @@ npm install @dpc-sdp/ripple-publish-date-and-author --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplPublishDateAndAuthor from '@dpc-sdp/ripple-publish-date-and-author'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Publish Date and Author](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/PublishDateAndAuthor&selectedStory=Publish%20Date%20and%20Author).

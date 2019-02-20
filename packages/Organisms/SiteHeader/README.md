@@ -24,6 +24,14 @@ npm install @dpc-sdp/ripple-site-header --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplSiteHeader from '@dpc-sdp/ripple-site-header'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Site Header](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/SiteHeader&selectedStory=Site%20Header).

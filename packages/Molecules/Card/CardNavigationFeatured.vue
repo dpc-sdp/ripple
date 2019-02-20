@@ -143,7 +143,7 @@ export default {
       background-color: $rpl-card-navigation-featured-meta-background;
       color: $rpl-card-navigation-featured-meta-text-color;
       padding: $rpl-card-navigation-featured-meta-padding;
-      margin-bottom: $rpl-card-navigation-featured-meta-margin;
+      margin-bottom: $rpl-space;
 
       span + span {
         &:before {

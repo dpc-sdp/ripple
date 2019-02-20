@@ -22,7 +22,6 @@
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import RplButton from '@dpc-sdp/ripple-button'
 import RplEmbeddedVideo from '@dpc-sdp/ripple-embedded-video'
-import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplCampaignSecondary',
@@ -36,8 +35,7 @@ export default {
   },
   components: {
     RplButton,
-    RplEmbeddedVideo,
-    RplIcon
+    RplEmbeddedVideo
   }
 }
 </script>

@@ -48,6 +48,7 @@
               iconColor="primary"
               :underline="true"
               :theme="theme"
+              size="large"
             />
           </li>
           <li
@@ -62,6 +63,7 @@
               iconColor="primary"
               :underline="true"
               :theme="theme"
+              size="large"
             />
           </li>
         </ul>

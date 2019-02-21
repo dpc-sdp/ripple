@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-campaign-primary --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplCampaignPrimary from '@dpc-sdp/ripple-campaign-primary'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Campaign Primary](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CampaignPrimary&selectedStory=Campaign%20Primary).

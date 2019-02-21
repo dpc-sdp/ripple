@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-layout --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Base Layout](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Base%20Layout).

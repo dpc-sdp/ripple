@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-image-gallery --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Image Gallery](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/ImageGallery&selectedStory=Image%20Gallery).

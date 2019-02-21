@@ -22,6 +22,14 @@ npm install @dpc-sdp/ripple-grants --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplGrantsOverview, RplGrantsListItem } from '@dpc-sdp/ripple-grants'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Grants Overview](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Grants&selectedStory=Grants%20Overview).

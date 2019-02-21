@@ -9,11 +9,11 @@
   width: 100%;
   padding: $rpl-button-padding;
   border: $rpl-button-border;
+  border-radius: $rpl-button-border-radius;
   cursor: pointer;
 
   @include rpl_breakpoint('s') {
     width: auto;
-    border-radius: $rpl-button-border-radius;
   }
 
   &:hover,

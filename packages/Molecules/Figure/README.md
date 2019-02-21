@@ -21,6 +21,14 @@ npm install @dpc-sdp/ripple-figure --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplFigure from '@dpc-sdp/ripple-figure'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Figure](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Figure&selectedStory=Figure).

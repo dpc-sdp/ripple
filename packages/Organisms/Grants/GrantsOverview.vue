@@ -133,12 +133,6 @@ export default {
   $rpl-grants-overview-description-margin: 0 0 ($rpl-space * 8) 0 !default;
 
   .rpl-grants-overview {
-    @include rpl_mobile_padding();
-
-    @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
-    }
 
     &__list {
       margin: $rpl-grants-overview-title-margin;

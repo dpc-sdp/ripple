@@ -10,6 +10,7 @@ import SPageCardTrim from './PageCardTrim.vue'
 import SPageSitemap from './PageSitemap.vue'
 import SPageForm from './PageForm.vue'
 import SPageProfile from './PageProfile.vue'
+import SPageCards from './PageCards.vue'
 
 import {
   withKnobs,
@@ -164,6 +165,18 @@ storiesOf('Templates', module)
   .add('Profile Page', () => ({
     components: { SPageProfile },
     template: `<s-page-profile :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Page with Cards', () => ({
+    components: { SPageCards },
+    template: `<s-page-cards :mock="mock" />`,
     data () {
       return {
         mock: demoDataLocked

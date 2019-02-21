@@ -190,6 +190,7 @@ const demoData = {
     image: text('Image', 'https://placehold.it/580x340'),
     border: boolean('Border', true),
     type: selectV2('Type', {default: 'default', simple: 'simple', inline: 'inline'}, 'default'),
+    center: boolean('Center', false),
     content: text('HTML content', '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>')
   }),
 

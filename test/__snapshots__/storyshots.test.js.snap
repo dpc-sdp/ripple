@@ -7973,6 +7973,18 @@ exports[`RippleStoryshots Molecules/Card Card Content (base) 1`] = `
           >
             "type"
           </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :center
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "center"
+          </span>
           &gt;
         </span>
         
@@ -8177,6 +8189,38 @@ exports[`RippleStoryshots Molecules/Card Card Content (base) 1`] = `
             data-v-5bd9cdea=""
           >
             true
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    center
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            false
           </td>
            
           <td
@@ -41335,6 +41379,1283 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
         <div
           class="rpl-site-footer__logos"
         >
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="https://vic.gov.au"
+            target="_blank"
+          >
+            <img
+              alt="Victoria Government Website"
+              src="file-stub"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`RippleStoryshots Templates Page with Cards 1`] = `
+<div
+  class="rpl-site-layout demo"
+>
+  <div
+    class="rpl-skip-link"
+    id="rpl-skip-link"
+  >
+    <a
+      class="rpl-skip-link__link"
+      href="#rpl-main-content"
+    >
+      Skip to main content
+    </a>
+  </div>
+   
+  <header
+    class="rpl-site-header-container"
+  >
+    <div>
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
+      >
+        <div
+          class="rpl-site-header"
+        >
+          <div
+            class="rpl-site-header__inner"
+          >
+            <div
+              class="rpl-site-header__top"
+            >
+              <div
+                class="rpl-site-header__logo-container"
+              >
+                <button
+                  aria-expanded="false"
+                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                >
+                  <!---->
+                   
+                  <span>
+                    Menu
+                  </span>
+                </button>
+                 
+                <div
+                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                >
+                  <a
+                    class="rpl-link"
+                    href="/"
+                  >
+                    <img
+                      alt="vic_logo"
+                      src="file-stub"
+                    />
+                  </a>
+                </div>
+                 
+                <div
+                  class="rpl-site-header__title"
+                >
+                  <a
+                    class="rpl-link"
+                    href="#"
+                  >
+                    <img
+                      alt="vic.gov.au"
+                      src="/cobrand-logo.png"
+                    />
+                  </a>
+                </div>
+              </div>
+               
+              <!---->
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+        </div>
+      </div>
+       
+      <div
+        tabindex="-1"
+      />
+    </div>
+  </header>
+    
+  <main
+    class="rpl-page main"
+  >
+    <section
+      class="rpl-above-content-container"
+    >
+      <div
+        class="rpl-above-content"
+        style="background-image: url(/bggraphic.png);"
+      >
+        <div
+          class="rpl-above-content__inner"
+        >
+          <div
+            class="rpl-above-content__top"
+          >
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
+            </div>
+          </div>
+           
+          <div
+            class="rpl-hero-banner rpl-site-constrain--on-all"
+          >
+            <!---->
+             
+            <div
+              class="rpl-row"
+            >
+              <div
+                class="rpl-hero-banner__left"
+              >
+                <h1
+                  class="rpl-hero-banner__title"
+                >
+                  <span>
+                    Card
+                  </span>
+                </h1>
+                 
+                <p
+                  class="rpl-hero-banner__description"
+                >
+                  
+        Test cards.
+      
+                </p>
+                 
+              </div>
+               
+              <div
+                class="rpl-hero-banner__right"
+              >
+                <!---->
+                 
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="rpl-above-content-two"
+      />
+    </section>
+     
+    <section
+      class="rpl-content"
+      id="rpl-main-content"
+    >
+      <div
+        class="rpl-site-constrain--on-all"
+      >
+        <div
+          class="rpl-row"
+        >
+          <div
+            class="rpl-main rpl-col rpl-col--full"
+          >
+             
+            <div
+              class="rpl-row demo-main rpl-row--gutter"
+            >
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <img
+                      alt=""
+                      class="rpl-card-cta__image"
+                      src="https://placehold.it/148x148"
+                    />
+                     
+                    <h2
+                      class="rpl-card-cta__title"
+                    >
+                      Want to submit an event?
+                    </h2>
+                     
+                    <p
+                      class="rpl-card-cta__summary"
+                    >
+                      Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+                    </p>
+                     
+                    <span
+                      class="rpl-card-cta__button"
+                    >
+                      Submit a listing
+                    </span>
+                     
+                    <!---->
+                  </div>
+                   
+                  <!---->
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-honour-roll rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-honour-roll__inner"
+                    >
+                      <img
+                        alt=""
+                        class="rpl-card-honour-roll__image"
+                        src="https://placehold.it/148x148"
+                      />
+                       
+                      <h2
+                        class="rpl-card-honour-roll__name rpl-card-honour-roll__name--no-margin"
+                      >
+                        Stella Young
+                      </h2>
+                       
+                      <p
+                        class="rpl-card-honour-roll__lifespan"
+                      >
+                        (1982 - 2014)
+                      </p>
+                       
+                      <p
+                        class="rpl-card-honour-roll__induction"
+                      >
+                        <span>
+                          2017
+                        </span>
+                         
+                        <span
+                          class="rpl-card-honour-roll__separator"
+                        >
+                          |
+                        </span>
+                         
+                        <span>
+                          Local Champion
+                        </span>
+                      </p>
+                       
+                      <p
+                        class="rpl-card-honour-roll__summary"
+                      >
+                        Journalist, comedian, feminist and fierce disability activist.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        Read Stella's
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         profile
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <h2
+                      class="rpl-card-keydates__title"
+                    >
+                      Key calendar dates
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-keydates__keydate"
+                    >
+                      <div
+                        class="rpl-card-keydates__keydate-date"
+                      >
+                        <!---->
+                         
+                        <span>
+                          3 April
+                        </span>
+                      </div>
+                       
+                      <h3
+                        class="rpl-card-keydates__keydate-title"
+                      >
+                        Term two starts
+                      </h3>
+                       
+                      <p
+                        class="rpl-card-keydates__keydate-description"
+                      >
+                        Its back to the classroom as school start term two on the 16th April.
+                      </p>
+                    </div>
+                    <div
+                      class="rpl-card-keydates__keydate"
+                    >
+                      <div
+                        class="rpl-card-keydates__keydate-date"
+                      >
+                        <!---->
+                         
+                        <span>
+                          23 April
+                        </span>
+                      </div>
+                       
+                      <h3
+                        class="rpl-card-keydates__keydate-title"
+                      >
+                        ANZAC Day
+                      </h3>
+                       
+                      <p
+                        class="rpl-card-keydates__keydate-description"
+                      >
+                        National day of remembrance to commemorate the ANZACs.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        See the events
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         calendar
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <!---->
+                     
+                    <h2
+                      class="rpl-card-cta__title"
+                    >
+                      Want to submit an event?
+                    </h2>
+                     
+                    <p
+                      class="rpl-card-cta__summary"
+                    >
+                      Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+                    </p>
+                     
+                    <span
+                      class="rpl-card-cta__button"
+                    >
+                      Submit a listing
+                    </span>
+                     
+                    <!---->
+                  </div>
+                   
+                  <!---->
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-honour-roll rpl-card-content--no-image rpl-card-content--center rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-honour-roll__inner"
+                    >
+                      <!---->
+                       
+                      <h2
+                        class="rpl-card-honour-roll__name rpl-card-honour-roll__name--no-margin"
+                      >
+                        Stella Young
+                      </h2>
+                       
+                      <p
+                        class="rpl-card-honour-roll__lifespan"
+                      >
+                        (1982 - 2014)
+                      </p>
+                       
+                      <p
+                        class="rpl-card-honour-roll__induction"
+                      >
+                        <span>
+                          2017
+                        </span>
+                         
+                        <span
+                          class="rpl-card-honour-roll__separator"
+                        >
+                          |
+                        </span>
+                         
+                        <span>
+                          Local Champion
+                        </span>
+                      </p>
+                       
+                      <p
+                        class="rpl-card-honour-roll__summary"
+                      >
+                        Journalist, comedian, feminist and fierce disability activist.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        Read Stella's
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         profile
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <h2
+                      class="rpl-card-keydates__title"
+                    >
+                      Key calendar dates
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-keydates__keydate"
+                    >
+                      <div
+                        class="rpl-card-keydates__keydate-date"
+                      >
+                        <!---->
+                         
+                        <span>
+                          3 April
+                        </span>
+                      </div>
+                       
+                      <h3
+                        class="rpl-card-keydates__keydate-title"
+                      >
+                        Term two starts
+                      </h3>
+                       
+                      <p
+                        class="rpl-card-keydates__keydate-description"
+                      >
+                        Its back to the classroom as school start term two on the 16th April.
+                      </p>
+                    </div>
+                    <div
+                      class="rpl-card-keydates__keydate"
+                    >
+                      <div
+                        class="rpl-card-keydates__keydate-date"
+                      >
+                        <!---->
+                         
+                        <span>
+                          23 April
+                        </span>
+                      </div>
+                       
+                      <h3
+                        class="rpl-card-keydates__keydate-title"
+                      >
+                        ANZAC Day
+                      </h3>
+                       
+                      <p
+                        class="rpl-card-keydates__keydate-description"
+                      >
+                        National day of remembrance to commemorate the ANZACs.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        See the events
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         calendar
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <div
+                    class="rpl-card-content__image-wrapper"
+                  >
+                    <img
+                      alt=""
+                      class="rpl-card-content__image"
+                      src="https://placehold.it/580x340"
+                    />
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-promotion__meta"
+                    >
+                      <div
+                        class="rpl-card-promotion__date"
+                      >
+                        10 July
+                      </div>
+                       
+                      <div
+                        class="rpl-card-promotion__tag"
+                      >
+                        News
+                      </div>
+                    </div>
+                     
+                    <h2
+                      class="rpl-card-promotion__title"
+                    >
+                      This is display copy that wraps 2 lines
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-promotion__trim-wrapper"
+                      style="max-height: none;"
+                    >
+                      <p
+                        class="rpl-card-promotion__summary"
+                      >
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        Read
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         more
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-promotion__meta"
+                    >
+                      <div
+                        class="rpl-card-promotion__date"
+                      >
+                        10 July
+                      </div>
+                       
+                      <div
+                        class="rpl-card-promotion__tag"
+                      >
+                        News
+                      </div>
+                    </div>
+                     
+                    <h2
+                      class="rpl-card-promotion__title"
+                    >
+                      This is display copy that wraps 2 lines
+                    </h2>
+                     
+                    <div
+                      class="rpl-card-promotion__trim-wrapper"
+                      style="max-height: none;"
+                    >
+                      <p
+                        class="rpl-card-promotion__summary"
+                      >
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        Read
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         more
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+              >
+                <a
+                  class="rpl-link rpl-card-content rpl-card-honour-roll rpl-card-content--no-image rpl-card-content--center rpl-card-content--default rpl-card-content--has-link-text"
+                  href="#"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-card-content__details"
+                  >
+                    <div
+                      class="rpl-card-honour-roll__inner"
+                    >
+                      <!---->
+                       
+                      <h2
+                        class="rpl-card-honour-roll__name rpl-card-honour-roll__name--no-margin"
+                      >
+                        Stella Young
+                      </h2>
+                       
+                      <p
+                        class="rpl-card-honour-roll__lifespan"
+                      >
+                        (1982 - 2014)
+                      </p>
+                       
+                      <p
+                        class="rpl-card-honour-roll__induction"
+                      >
+                        <span>
+                          2017
+                        </span>
+                         
+                        <span
+                          class="rpl-card-honour-roll__separator"
+                        >
+                          |
+                        </span>
+                         
+                        <span>
+                          Local Champion
+                        </span>
+                      </p>
+                       
+                      <p
+                        class="rpl-card-honour-roll__summary"
+                      >
+                        Journalist, comedian, feminist and fierce disability activist.
+                      </p>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-card-content__link"
+                  >
+                    <span>
+                      <span>
+                        Read Stella's
+                      </span>
+                       
+                      <span
+                        class="rpl-text-icon__group"
+                      >
+                         profile
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+           
+          <!---->
+        </div>
+      </div>
+    </section>
+     
+    <section
+      class="rpl-below-content"
+    />
+  </main>
+    
+  <!---->
+   
+  <footer
+    class="rpl-site-footer-container"
+  >
+    <div
+      class="rpl-site-footer"
+    >
+      <div
+        class="rpl-site-footer__main"
+      >
+        <ul
+          class="rpl-footer-nav"
+        >
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Your Services
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                About VIC Government
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Grants awards and assistance
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Law and safety
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Business and Industry
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Jobs and the Workplace
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Transport and Traffic
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Community
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Art, Culture and Sport
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Environment and Water
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                News
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Events
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                Connect with us
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Housing and Property
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Health
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+         
+        <div
+          class="rpl-acknowledgement"
+        >
+          The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
+        </div>
+      </div>
+       
+      <div
+        class="rpl-site-footer__bottom"
+      >
+        <div
+          class="rpl-site-footer__bottom-main"
+        >
+          <div
+            class="rpl-links-and-copyright"
+          >
+            <ul
+              class="rpl-links-and-copyright__links"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Privacy
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Disclaimer
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Terms of use
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Sitemap
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Accessibility Statement
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  Help
+                </a>
+              </li>
+            </ul>
+             
+            <div
+              class="rpl-links-and-copyright__copyright"
+            >
+              © Copyright State Government of Victoria
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-site-footer__logos"
+        >
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Max native size"
+              src="https://placehold.it/112x52"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Smaller than max size"
+              src="https://placehold.it/32x32"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Portrait"
+              src="https://placehold.it/80x200"
+            />
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <img
+              alt="Landscape"
+              src="https://placehold.it/200x80"
+            />
+          </a>
           <a
             class="rpl-link rpl-site-footer__logo"
             href="https://vic.gov.au"

@@ -1,5 +1,5 @@
 <template>
-  <rpl-card-content :link="link" :border="false" class="rpl-card-honour-roll">
+  <rpl-card-content :link="link" :border="false" :center="!image" class="rpl-card-honour-roll">
     <div class="rpl-card-honour-roll__inner">
       <img class="rpl-card-honour-roll__image" v-if="image" ref="image" :src="image" alt="" />
       <h2 class="rpl-card-honour-roll__name" :class="{ 'rpl-card-honour-roll__name--no-margin' : lifespan }" v-if="name">{{ name }}</h2>

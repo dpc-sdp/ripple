@@ -5,6 +5,7 @@
     :class="{
       'rpl-card-content--no-image': !image,
       'rpl-card-content--has-border': (border && !image),
+      'rpl-card-content--center': (center && !image),
       'rpl-card-content--default': (type === 'default'),
       'rpl-card-content--simple': (type === 'simple'),
       'rpl-card-content--inline': (type === 'inline'),
@@ -39,6 +40,7 @@ export default {
     link: Object,
     image: String,
     border: { type: Boolean, default: true },
+    center: { type: Boolean, default: false },
     type: { type: String, default: 'default' }
   },
   components: {
@@ -141,6 +143,14 @@ export default {
       &#{$root}--no-image {
         padding: $rpl-card-content-no-image-padding;
       }
+
+      &#{$root}--center {
+        @include rpl_breakpoint('m') {
+          padding-top: 0;
+          flex-direction: column;
+          width: 100%;
+        }
+      }
     }
 
     &--inline {
@@ -208,6 +218,7 @@ export default {
 
     &__details {
       width: 100%;
+      box-sizing: border-box;
 
       #{$root}--default & {
         padding: $rpl-card-content-default-details-padding-xs;
@@ -216,6 +227,12 @@ export default {
         }
         @include rpl_breakpoint('m') {
           padding: $rpl-card-content-default-details-padding-m;
+        }
+      }
+
+      #{$root}--default#{$root}--center & {
+        @include rpl_breakpoint('m') {
+          margin: auto 0;
         }
       }
 
@@ -257,6 +274,7 @@ export default {
       color: $rpl-card-content-link-color;
       align-self: flex-end;
       display: block;
+      box-sizing: border-box;
       position: relative;
       width: 100%;
 

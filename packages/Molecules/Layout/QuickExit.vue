@@ -125,6 +125,12 @@ export default {
           margin-top: $rpl-quick-exit-menu-header-height-m + $rpl-quick-exit-menu-button-spacing;
         }
       }
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $rpl-button-quick-exit-hover-background-color;
+      }
     }
   }
 </style>

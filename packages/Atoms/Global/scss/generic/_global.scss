@@ -26,8 +26,7 @@ $rpl-global-css: true !default;
 // Fix fonts that render as bold in Firefox.
 // See https://www.lockedownseo.com/firefox-font-weight-too-bold/
 html {
-  // sass-lint:disable-block no-vendor-prefixes no-misspelled-properties
+  // sass-lint:disable-block no-vendor-prefixes
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
 }

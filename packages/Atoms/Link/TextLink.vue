@@ -102,7 +102,7 @@ export default {
       &--underline {
         border-bottom-style: solid;
         border-bottom-color: $rpl-text-link-light-underline;
-        border-bottom-wdith: $rpl-text-link-underline-large;
+        border-bottom-width: $rpl-text-link-underline-large;
 
         &:hover,
         &:focus {

@@ -90,6 +90,7 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
 import Trap from 'vue-focus-lock'
 import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.png'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 export default {
   name: 'RplSiteHeader',
@@ -117,6 +118,7 @@ export default {
         alt: 'vic_logo',
         url: '/'
       },
+      menuEl: null,
       menuContentOpen: false,
       searchState: 'closed',
       menuState: 'closed',
@@ -182,6 +184,17 @@ export default {
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
       this.$emit('open', this.menuContentOpen)
     },
+    toggleBodyScroll () {
+      console.log('toggleBodyScroll', this.menuContentOpen, this.menuEl)
+      if (this.menuContentOpen) {
+        console.log('menuEl', this.menuEl)
+        if (this.menuEl) {
+          disableBodyScroll(this.menuEl)
+        }
+      } else {
+        console.log(enableBodyScroll(this.menuEl))
+      }
+    },
     windowResize: function (e) {
       var w = window.innerWidth || document.documentElement.clientWidth
       if (w >= this.breakpoint && (this.menuWideEnabled || this.menuWideEnabled === null)) {
@@ -242,11 +255,16 @@ export default {
       if (this.hideOnScroll) {
         window.addEventListener('scroll', this.scroll)
       }
+      this.menuEl = document.querySelector('.rpl-site-header')
+      this.$on('open', function () {
+        this.toggleBodyScroll()
+      })
     }
   },
   beforeDestroy: function () {
     if (process.browser) {
       window.removeEventListener('resize', this.windowResize)
+      clearAllBodyScrollLocks()
       if (this.hideOnScroll) {
         window.removeEventListener('scroll', this.scroll)
       }

@@ -35,9 +35,6 @@ storiesOf('Organisms/SiteHeader', module)
       searchFunc: function (value) {
         alert('Search for: "' + value + '"')
       },
-      menuOpenFunc: function (menuOpenState) {
-        document.body.style.overflow = menuOpenState ? 'hidden' : ''
-      },
       logoutFunc: function () {
         alert('logout called')
       }

@@ -12341,11 +12341,12 @@ exports[`RippleStoryshots Molecules/Contact Contact 1`] = `
               <!---->
             </span>
              
-            <span
-              class="rpl-list__text"
+            <a
+              class="rpl-link rpl-list__text"
+              href="mailto:emailaddress@vic.gov.au"
             >
               emailaddress@vic.gov.au
-            </span>
+            </a>
           </div>
           <div
             class="rpl-list__list-item"
@@ -39956,11 +39957,12 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <!---->
                     </span>
                      
-                    <span
-                      class="rpl-list__text"
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="mailto:emailaddress@vic.gov.au"
                     >
                       emailaddress@vic.gov.au
-                    </span>
+                    </a>
                   </div>
                   <div
                     class="rpl-list__list-item"
@@ -46678,11 +46680,12 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
                       <!---->
                     </span>
                      
-                    <span
-                      class="rpl-list__text"
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="mailto:emailaddress@vic.gov.au"
                     >
                       emailaddress@vic.gov.au
-                    </span>
+                    </a>
                   </div>
                   <div
                     class="rpl-list__list-item"

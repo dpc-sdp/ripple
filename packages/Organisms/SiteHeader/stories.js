@@ -25,7 +25,6 @@ storiesOf('Organisms/SiteHeader', module)
   :showSearch="showSearch"
   :showLogout="showLogout"
   @logout="logoutFunc"
-  @open="menuOpenFunc"
   @search="searchFunc"
 />`,
     data () {

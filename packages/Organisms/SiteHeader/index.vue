@@ -90,7 +90,7 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
 import Trap from 'vue-focus-lock'
 import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.png'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 export default {
   name: 'RplSiteHeader',
@@ -185,14 +185,15 @@ export default {
       this.$emit('open', this.menuContentOpen)
     },
     toggleBodyScroll () {
-      console.log('toggleBodyScroll', this.menuContentOpen, this.menuEl)
       if (this.menuContentOpen) {
-        console.log('menuEl', this.menuEl)
-        if (this.menuEl) {
-          disableBodyScroll(this.menuEl)
-        }
+        this.$nextTick(function () {
+          this.menuEl = document.querySelector('.rpl-site-header__menu-container')
+          if (this.menuEl) {
+            disableBodyScroll(this.menuEl)
+          }
+        })
       } else {
-        console.log(enableBodyScroll(this.menuEl))
+        clearAllBodyScrollLocks()
       }
     },
     windowResize: function (e) {
@@ -255,7 +256,6 @@ export default {
       if (this.hideOnScroll) {
         window.addEventListener('scroll', this.scroll)
       }
-      this.menuEl = document.querySelector('.rpl-site-header')
       this.$on('open', function () {
         this.toggleBodyScroll()
       })
@@ -400,7 +400,7 @@ export default {
         right: $rpl-header-horizontal-padding-xs;
         overflow-x: hidden;
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: auto;
         top: $rpl-site-header-top-height-s;
 
         @include rpl_breakpoint('m') {

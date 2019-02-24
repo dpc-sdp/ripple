@@ -32449,19 +32449,6 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
           <span
             class="hljs-attr"
           >
-            open
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "menuOpenFunc"
-          </span>
-          
-@
-          <span
-            class="hljs-attr"
-          >
             search
           </span>
           =
@@ -44054,6 +44041,174 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
                       <ul
                         class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-1"
                       >
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
+                        <li
+                          class="rpl-sitemap-menu__list-item"
+                        >
+                          <a
+                            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+                            href="#"
+                          >
+                            Sub child A
+                          </a>
+                           
+                          <!---->
+                        </li>
                         <li
                           class="rpl-sitemap-menu__list-item"
                         >

@@ -9,7 +9,6 @@
         :searchTerms="mock.header.searchTerms"
         showSearch
         sticky
-        @open="menuOpenFunc"
         @search="searchFunc"
       />
     </template>
@@ -111,11 +110,6 @@ export default {
     searchFunc: function (value) {
       // Use your own custom code to handle it.
       alert('Search for: "' + value + '"')
-    },
-
-    // Methods for site header.
-    menuOpenFunc: function (menuOpenState) {
-      document.body.style.overflow = menuOpenState ? 'hidden' : ''
     },
 
     // Methods for search results

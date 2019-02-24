@@ -23,16 +23,18 @@ export default {
   name: 'RplMarkup',
   props: {
     'html': String,
-    'plugins': { type: Array }
+    'plugins': { type: Array },
+    'options': { type: Object }
   },
   computed: {
     getTemplate () {
       // Run our transpile to turn html into vue template.
       const html = `<div class="rpl-markup__inner">${this.html}</div>`
-      const plugins = this.plugins || this.rplOptions.markupPlugins
+      const plugins = this.plugins || this.rplOptions.rplMarkup.plugins
+      const options = this.options || this.rplOptions.rplMarkup.options
 
       if (plugins && plugins.length > 0) {
-        const template = markupTranspiler(html, plugins)
+        const template = markupTranspiler(html, plugins, options)
         return template
       }
       return html

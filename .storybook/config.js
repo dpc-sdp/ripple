@@ -11,7 +11,7 @@ import RplGlobal from './../packages/Atoms/Global'
 import RplMarkupExamplePlugins from './../packages/Organisms/Markup/examplePlugins'
 
 // Install Ripple Global plugin
-Vue.use(RplGlobal, { markupPlugins: RplMarkupExamplePlugins })
+Vue.use(RplGlobal, { rplMarkup: {plugins: RplMarkupExamplePlugins, options: { decodeEntities: false }}})
 
 setOptions({
   name: 'Ripple',

@@ -1,7 +1,7 @@
 import cheerio from 'cheerio'
 
-const markupTranspiler = (html, plugins) => {
-  const $ = cheerio.load(html)
+const markupTranspiler = (html, plugins, options = { decodeEntities: false }) => {
+  const $ = cheerio.load(html, options)
   const $body = $('body')
 
   // Load plugins to transpile embedded components

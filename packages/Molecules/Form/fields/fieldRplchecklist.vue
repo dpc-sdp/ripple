@@ -62,6 +62,12 @@ export default {
       labelText: ''
     }
   },
+  mounted () {
+    if (this.value) {
+      this.updateSize()
+      this.setCheckedValues()
+    }
+  },
   watch: {
     value (newVal, oldVal) {
       this.updateSize()

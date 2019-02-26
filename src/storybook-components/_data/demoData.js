@@ -1416,12 +1416,14 @@ const demoData = {
         textArea: null,
         dateRange: ['', ''],
         date: '',
-        address: {},
+        address: {
+          state: 'vic'
+        },
         checkbox: true,
         select: '',
         multiselect: null,
-        checklistlistbox: null,
-        checklistdropdown: null,
+        checklistlistbox: ['topic_a'],
+        checklistdropdown: ['topic_a', 'topic_b', 'invalid'],
         rangeslider: [10000, 70000]
       },
 

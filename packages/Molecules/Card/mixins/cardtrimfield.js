@@ -15,6 +15,12 @@ const cardtrimfield = {
     }
   },
   methods: {
+    /**
+     * Return trimmed field's bottom-most position (in pixels) from top of card.
+     * Value will be subtracted from field's top position to get field height.
+     * Override if elements below trimmed field will affect the available space.
+     * @param {Object} card The HTML element for the card.
+     */
     getTrimFieldMaxHeightOffset: function (card) {
       return card.clientHeight
     },

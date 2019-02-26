@@ -327,7 +327,7 @@ export default {
     &--open {
       position: fixed;
       top: 0;
-      height: 100vh;
+      height: 100%;
 
       #{$root}__inner {
         margin: 0;
@@ -395,7 +395,7 @@ export default {
       &--vertical {
         width: auto;
         position: absolute;
-        bottom: 0;
+        bottom: $rpl-header-horizontal-padding-xs;
         left: $rpl-header-horizontal-padding-xs;
         right: $rpl-header-horizontal-padding-xs;
         overflow-x: hidden;

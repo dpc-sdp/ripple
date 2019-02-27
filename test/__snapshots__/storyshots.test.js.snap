@@ -1963,6 +1963,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          browser
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           calendar
         </code>
       </li>

@@ -7610,6 +7610,30 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
           >
             "cards"
           </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :colsBp
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "colsBp"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :totalGridColumns
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "totalGridColumns"
+          </span>
            /&gt;
         </span>
       </code>
@@ -7797,6 +7821,73 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
             data-v-5bd9cdea=""
           >
             Go to next slide
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    colsBp
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            {
+  "l": 4,
+  "m": 6
+}
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    totalGridColumns
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            number
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            12
           </td>
            
           <td

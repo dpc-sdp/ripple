@@ -45,7 +45,7 @@ export default {
     cards: Array,
     previousLabel: { type: String, default: 'Go to previous slide' },
     nextLabel: { type: String, default: 'Go to next slide' },
-    colsBp: { type: Object },
+    colsBp: { type: Object, default: () => ({ l: 4, m: 6 }) },
     totalGridColumns: { type: Number, default: 12 }
   },
   components: {
@@ -95,11 +95,13 @@ export default {
   },
   computed: {
     slidesPerPage () {
-      // Determine # of cards to display based on defined column breakpoints.
-      for (let i = this.breakpointsSmallToLarge.length - 1; i >= 0; i--) {
-        const bp = this.breakpointsSmallToLarge[i].label
-        if (this.colsBp[bp] && this.$breakpoint[bp]) {
-          return this.totalGridColumns / this.colsBp[bp]
+      if (this.colsBp && this.totalGridColumns) {
+        // Determine # of cards to display based on defined column breakpoints.
+        for (let i = this.breakpointsSmallToLarge.length - 1; i >= 0; i--) {
+          const bp = this.breakpointsSmallToLarge[i].label
+          if (this.colsBp[bp] && this.$breakpoint[bp]) {
+            return this.totalGridColumns / this.colsBp[bp]
+          }
         }
       }
       return 1

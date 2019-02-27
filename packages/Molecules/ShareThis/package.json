@@ -12,6 +12,6 @@
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.62",
     "@dpc-sdp/ripple-icon": "1.0.0-alpha.62",
-    "vue-social-sharing": "2.3.3"
+    "vue-social-sharing": "^2.4.2"
   }
 }

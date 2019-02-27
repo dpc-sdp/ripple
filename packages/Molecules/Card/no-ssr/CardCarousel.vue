@@ -44,7 +44,9 @@ export default {
     title: String,
     cards: Array,
     previousLabel: { type: String, default: 'Go to previous slide' },
-    nextLabel: { type: String, default: 'Go to next slide' }
+    nextLabel: { type: String, default: 'Go to next slide' },
+    colsBp: { type: Object },
+    totalGridColumns: { type: Number, default: 12 }
   },
   components: {
     RplIcon,
@@ -93,13 +95,14 @@ export default {
   },
   computed: {
     slidesPerPage () {
-      if (this.$breakpoint.l) {
-        return 3
-      } else if (this.$breakpoint.m) {
-        return 2
-      } else {
-        return 1
+      // Determine # of cards to display based on defined column breakpoints.
+      for (let i = this.breakpointsSmallToLarge.length - 1; i >= 0; i--) {
+        const bp = this.breakpointsSmallToLarge[i].label
+        if (this.colsBp[bp] && this.$breakpoint[bp]) {
+          return this.totalGridColumns / this.colsBp[bp]
+        }
       }
+      return 1
     },
     totalSlides () {
       return Math.ceil(this.cards.length / this.slidesPerPage) - 1

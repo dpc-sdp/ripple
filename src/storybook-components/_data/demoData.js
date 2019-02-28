@@ -1023,45 +1023,73 @@ const demoData = {
         topic: []
       },
       schema: {
-        fields: [{
-          type: 'rplchecklist',
-          label: 'Select an event category',
-          model: 'topic',
-          values: [
-            'Topic A',
-            'Topic B',
-            'Topic C',
-            'Topic D'
-          ],
-          placeholder: 'Select a topic'
-        }, {
-          type: 'input',
-          inputType: 'text',
-          label: 'Enter a location',
-          required: true,
-          placeholder: 'Start typing suburb or postcode…',
-          model: 'text'
-        }, {
-          type: 'vueMultiSelect',
-          model: 'select',
-          label: 'Event requirements',
-          values: [
-            'Accessible venue',
-            'Child friendly',
-            'Free admission',
-            'Online webinar',
-            'Seniors'
-          ]
-        }, {
-          type: 'rplsubmitloader',
-          buttonText: 'Display 18 results',
-          loading: false
-        }]
+        groups: [
+          {
+            fields: [
+              {
+                type: 'rplchecklist',
+                label: 'Select an event category',
+                model: 'topic',
+                styleClasses: ['form-group--col-two'],
+                values: [
+                  'Topic A',
+                  'Topic B',
+                  'Topic C',
+                  'Topic D'
+                ],
+                placeholder: 'Select a topic'
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Enter a location',
+                required: true,
+                styleClasses: ['form-group--col-two'],
+                placeholder: 'Start typing suburb or postcode…',
+                model: 'text'
+              }
+            ]
+          },
+          {
+            fields: [
+              {
+                type: 'vueMultiSelect',
+                model: 'select',
+                label: 'Event requirements',
+                styleClasses: ['form-group--col-two'],
+                values: [
+                  'Accessible venue',
+                  'Child friendly',
+                  'Free admission',
+                  'Online webinar',
+                  'Seniors'
+                ]
+              }
+            ]
+          },
+          {
+            fields: [
+              {
+                type: 'rplsubmitloader',
+                buttonText: 'Submit (with animation)',
+                loading: false,
+                autoUpdate: true,
+                styleClasses: ['form-group--inline']
+              },
+              {
+                type: 'rplclearform',
+                buttonText: 'Clear search filters',
+                styleClasses: ['form-group--inline']
+              }
+            ]
+          }
+        ]
       },
       formOptions: {
         validateAfterLoad: true,
         validateAfterChanged: true
       },
+      tag: 'rpl-fieldset',
       formState: {}
     }),
     theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')

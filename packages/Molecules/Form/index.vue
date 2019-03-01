@@ -1,7 +1,7 @@
 <template>
   <form class="rpl-form" @submit="onSubmit">
     <h3 class="rpl-form__title" v-if="title">{{title}}</h3>
-    <rpl-form-alert v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
+    <rpl-form-alert v-if="formData.formState.response && formData.formState.response.message" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
     </rpl-form-alert>
     <vue-form-generator
       :schema="formData.schema"
@@ -73,6 +73,7 @@ export default {
     RplFormEventBus.$on('clearform', this.clearForm)
   },
   methods: {
+
     hideForm () {
       if (this.formData.formState.response) {
         return !(this.hideAfterSuccess && this.formData.formState.response.status === 'success')

@@ -43,10 +43,10 @@ export default {
   },
   methods: {
     getTrimFieldMaxHeightOffset: function (card) {
-      let link = this.$el.querySelector('.rpl-card-content__link')
-      let location = this.$el.querySelector('.rpl-card-event__location')
-      let rtnMaxHeight = card.clientHeight - link.clientHeight
-      return (location) ? (rtnMaxHeight - location.clientHeight) : rtnMaxHeight
+      const link = this.$el.querySelector('.rpl-card-content__link')
+      const location = this.$el.querySelector('.rpl-card-event__location')
+      const rtnMaxHeight = link ? (card.clientHeight - link.clientHeight) : card.clientHeight
+      return location ? (rtnMaxHeight - location.clientHeight) : rtnMaxHeight
     }
   },
   computed: {

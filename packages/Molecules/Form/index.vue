@@ -287,6 +287,7 @@ export default {
 
   &__single {
     background: none;
+    margin-bottom: 0;
   }
 
   &__element {

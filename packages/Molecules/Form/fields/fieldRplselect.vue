@@ -38,6 +38,11 @@ export default {
       }
     }
   },
+  mounted () {
+    if (this.value) {
+      this.updateSelected(this.options.find(opt => opt[this.selectOptions.trackBy] === this.value))
+    }
+  },
   computed: {
     selectOptions () {
       return this.schema.selectOptions || {}

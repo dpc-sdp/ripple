@@ -14872,7 +14872,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       class="rpl-checklist__list"
                     >
                       <div
-                        class="rpl-checklist__list-row"
+                        class="rpl-checklist__list-row is-checked"
                       >
                         <label
                           class="rpl-checkbox"

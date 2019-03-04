@@ -14921,23 +14921,41 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                   <div
                     class="rpl-checklist__combobox form-control"
                   >
-                    <div
-                      class="rpl-checklist__main-row"
-                    >
-                      <button
-                        class="rpl-checklist__info"
-                        type="button"
+                    <div>
+                      <div
+                        tabindex="-1"
+                      />
+                       
+                      <div
+                        tabindex="-1"
+                      />
+                       
+                      <div
+                        data-lock=""
                       >
-                        <span>
-                          
-                          <!---->
-                        </span>
+                        <div
+                          class="rpl-checklist__main-row"
+                        >
+                          <button
+                            class="rpl-checklist__info"
+                            type="button"
+                          >
+                            <span>
+                              
+                              <!---->
+                            </span>
+                             
+                            <!---->
+                          </button>
+                        </div>
                          
                         <!---->
-                      </button>
+                      </div>
+                       
+                      <div
+                        tabindex="-1"
+                      />
                     </div>
-                     
-                    <!---->
                   </div>
                 </div>
                  

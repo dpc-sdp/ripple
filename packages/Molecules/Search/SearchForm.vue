@@ -30,7 +30,7 @@
 
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
-import RplForm from '@dpc-sdp/ripple-form'
+import RplForm, { RplFormEventBus } from '@dpc-sdp/ripple-form'
 let timeoutID
 
 export default {
@@ -70,6 +70,7 @@ export default {
     if (this.expandFilters) {
       this.showFilters = true
     }
+    RplFormEventBus.$on('clearform', this.clearSearch)
   },
   destroyed () {
     clearTimeout(timeoutID)
@@ -84,6 +85,9 @@ export default {
       if (this.allowBlank || (!this.allowBlank && this.searchInput)) {
         this.$emit('search', this.searchInput)
       }
+    },
+    clearSearch () {
+      this.searchInput = ''
     }
   },
   computed: {

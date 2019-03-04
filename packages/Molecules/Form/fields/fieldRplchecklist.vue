@@ -1,5 +1,5 @@
 <template>
-  <div v-on-click-outside="onClickOutside" class="rpl-checklist wrapper">
+  <div v-on-click-outside="closeCombo" class="rpl-checklist wrapper">
     <!-- List Box -->
     <div v-if="schema.listBox" class="rpl-checklist__combobox form-control" :disabled="disabled">
       <div class="rpl-checklist__list">
@@ -16,25 +16,27 @@
       </div>
     </div>
     <!-- Combo Box -->
-    <div v-if="!schema.listBox" class="rpl-checklist__combobox form-control" :class="{ 'rpl-checklist__combobox--expanded': comboExpanded }" :disabled="disabled">
-      <div class="rpl-checklist__main-row" @click="onExpandCombo" :class="{ expanded: comboExpanded }">
-        <button :aria-expanded="comboExpanded" class="rpl-checklist__info" type="button">
-          <span>{{ labelText }}<span class="rpl-checklist__more-count" v-if="labelHiddenCount"> + {{ labelHiddenCount }} more</span></span>
-          <rpl-icon symbol="down" color="primary" />
-        </button>
-      </div>
-      <div class="rpl-checklist__list rpl-checklist__list--dropdown" v-if="comboExpanded">
-        <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item)}">
-          <rpl-checkbox
-            v-model="listValues[index]"
-            :inputDisabled="disabled"
-            :inputId="getFieldID(schema, true)"
-            :inputName="getInputName(item)"
-            :inlineLabel="getItemName(item)"
-            @change="onMultiChange()"
-          />
+    <div v-if="!schema.listBox" class="rpl-checklist__combobox form-control" :class="{ 'rpl-checklist__combobox--expanded': comboExpanded }" @keyup.esc="closeCombo" :disabled="disabled">
+      <Trap :disabled="!comboExpanded">
+        <div class="rpl-checklist__main-row" :class="{ expanded: comboExpanded }">
+          <button :aria-expanded="comboExpanded" @click="onExpandCombo" @keydown.enter="onExpandCombo" class="rpl-checklist__info" type="button">
+            <span>{{ labelText }}<span class="rpl-checklist__more-count" v-if="labelHiddenCount"> + {{ labelHiddenCount }} more</span></span>
+            <rpl-icon symbol="down" color="primary" />
+          </button>
         </div>
-      </div>
+        <div class="rpl-checklist__list rpl-checklist__list--dropdown" v-if="comboExpanded">
+          <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item)}">
+            <rpl-checkbox
+              v-model="listValues[index]"
+              :inputDisabled="disabled"
+              :inputId="getFieldID(schema, true)"
+              :inputName="getInputName(item)"
+              :inlineLabel="getItemName(item)"
+              @change="onMultiChange()"
+            />
+          </div>
+        </div>
+      </Trap>
     </div>
   </div>
 </template>
@@ -45,12 +47,14 @@ import RplCheckbox from '../Checkbox.vue'
 import { isObject } from 'lodash'
 import { abstractField, schema } from 'vue-form-generator'
 import { mixin as onClickOutside } from 'vue-on-click-outside'
+import Trap from 'vue-focus-lock'
 
 export default {
   mixins: [abstractField, onClickOutside],
   components: {
     RplIcon,
-    RplCheckbox
+    RplCheckbox,
+    Trap
   },
   data () {
     return {
@@ -128,10 +132,11 @@ export default {
       this.value = arr
       this.updateSize()
     },
-    onExpandCombo () {
+    onExpandCombo (e) {
+      e.preventDefault()
       this.comboExpanded = !this.comboExpanded
     },
-    onClickOutside (event) {
+    closeCombo (event) {
       this.comboExpanded = false
     },
     updateSize () {

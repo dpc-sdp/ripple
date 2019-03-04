@@ -62,7 +62,7 @@
           <rpl-anchor-links :title="mock.anchorLinks.title" :links="mock.anchorLinks.links" />
         </rpl-col>
         <rpl-col v-if="!sidebar" cols="full" :colsBp="defaultCols">
-          <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
+          <rpl-card-carousel v-bind="mock.cardCarousel" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-card-navigation-featured v-bind="mock.cardNavigationFeatured" />
@@ -96,7 +96,7 @@
           </div>
         </rpl-col>
         <rpl-col cols="full">
-          <rpl-card-carousel v-bind="mock.cardCarousel" />
+          <rpl-card-carousel v-bind="mock.cardCarousel" :colsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-image-gallery :gallery-data="mock.imageGallery.gallery" :enlarge-text="mock.imageGallery.enlargeText" />

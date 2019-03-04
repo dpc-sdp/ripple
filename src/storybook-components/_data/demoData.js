@@ -429,7 +429,9 @@ const demoData = {
           link: { text: 'See the events calendar', url: '#' }
         }
       }
-    ])
+    ]),
+    colsBp: object('Column breakpoints', { l: 4, m: 6 }),
+    totalGridColumns: number('Total grid columns', 12)
   }),
 
   relatedLinks: () => ({

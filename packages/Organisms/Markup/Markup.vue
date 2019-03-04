@@ -42,26 +42,26 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/style";
 
-  $rpl-markup-link-color: rpl_color('primary') !default;
+$rpl-markup-link-color: rpl_color('primary') !default;
 
-  .rpl-markup {
+.rpl-markup {
 
-    &__inner {
-      > h2:first-of-type {
-        margin-top: 0;
-      }
-    }
-
-    a:not(.rpl-button) {
-      text-decoration: none;
-      color: $rpl-markup-link-color;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
+  &__inner {
+    > h2:first-of-type {
+      margin-top: 0;
     }
   }
+
+  a:not(.rpl-button) {
+    text-decoration: none;
+    color: $rpl-markup-link-color;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
 </style>

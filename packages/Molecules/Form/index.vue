@@ -1,7 +1,7 @@
 <template>
   <form class="rpl-form" @submit="onSubmit">
     <h3 class="rpl-form__title" v-if="title">{{title}}</h3>
-    <rpl-form-alert v-if="formData.formState.response" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
+    <rpl-form-alert v-if="formData.formState.response && formData.formState.response.message" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
     </rpl-form-alert>
     <vue-form-generator
       :schema="formData.schema"
@@ -72,33 +72,9 @@ export default {
   mounted () {
     RplFormEventBus.$on('clearform', this.clearForm)
   },
-  computed: {
-    submitLoaderFields () {
-      const fields = []
-      if (this.formData) {
-        if (this.formData.schema.groups) {
-          this.formData.schema.groups.forEach(group => {
-            fields.push(...group.fields.filter(this.isAutoUpdatedSubmitField))
-          })
-        }
-        if (this.formData.schema.fields) {
-          fields.push(...this.formData.schema.fields.filter(this.isAutoUpdatedSubmitField))
-        }
-      }
-      return fields
-    }
-  },
   methods: {
-    isAutoUpdatedSubmitField (field) {
-      return (field.type === 'rplsubmitloader' && field.autoUpdate)
-    },
-    showLoadingAnimation (enabled) {
-      if (this.submitLoaderFields.length > 0) {
-        this.submitLoaderFields.forEach(field => { field.loading = enabled })
-      }
-    },
+
     hideForm () {
-      this.showLoadingAnimation(false)
       if (this.formData.formState.response) {
         return !(this.hideAfterSuccess && this.formData.formState.response.status === 'success')
       } else {
@@ -124,7 +100,6 @@ export default {
     },
     async onSubmit (event) {
       event.preventDefault()
-
       // call validation manually
       if (this.validateOnSubmit) {
         this.$refs.vfg.validate()
@@ -132,7 +107,7 @@ export default {
 
       // Run custom submit callback if no error in validation
       if (this.$refs.vfg.errors.length === 0) {
-        this.showLoadingAnimation(true)
+        RplFormEventBus.$emit('loading', true)
         await this.submitHandler()
         if (this.scrollToMessage) {
           VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
@@ -147,6 +122,7 @@ export default {
           VueScrollTo.scrollTo(firstError.$el, 500, { offset: -100 })
         }
       }
+      RplFormEventBus.$emit('loading', false)
     }
   }
 }
@@ -312,6 +288,7 @@ export default {
 
   &__single {
     background: none;
+    margin-bottom: 0;
   }
 
   &__element {

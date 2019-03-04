@@ -22,9 +22,18 @@
 
 <script>
 import { abstractField } from 'vue-form-generator'
+import { RplFormEventBus } from '@dpc-sdp/ripple-form'
 
 export default {
-  mixins: [abstractField]
+  mixins: [abstractField],
+  mounted () {
+    RplFormEventBus.$on('loading', this.updateLoading)
+  },
+  methods: {
+    updateLoading (val) {
+      this.schema.loading = val
+    }
+  }
 }
 </script>
 

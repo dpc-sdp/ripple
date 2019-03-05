@@ -429,7 +429,9 @@ const demoData = {
           link: { text: 'See the events calendar', url: '#' }
         }
       }
-    ])
+    ]),
+    colsBp: object('Column breakpoints', { l: 4, m: 6 }),
+    totalGridColumns: number('Total grid columns', 12)
   }),
 
   relatedLinks: () => ({
@@ -1021,45 +1023,73 @@ const demoData = {
         topic: []
       },
       schema: {
-        fields: [{
-          type: 'rplchecklist',
-          label: 'Select an event category',
-          model: 'topic',
-          values: [
-            'Topic A',
-            'Topic B',
-            'Topic C',
-            'Topic D'
-          ],
-          placeholder: 'Select a topic'
-        }, {
-          type: 'input',
-          inputType: 'text',
-          label: 'Enter a location',
-          required: true,
-          placeholder: 'Start typing suburb or postcode…',
-          model: 'text'
-        }, {
-          type: 'vueMultiSelect',
-          model: 'select',
-          label: 'Event requirements',
-          values: [
-            'Accessible venue',
-            'Child friendly',
-            'Free admission',
-            'Online webinar',
-            'Seniors'
-          ]
-        }, {
-          type: 'rplsubmitloader',
-          buttonText: 'Display 18 results',
-          loading: false
-        }]
+        groups: [
+          {
+            fields: [
+              {
+                type: 'rplchecklist',
+                label: 'Select an event category',
+                model: 'topic',
+                styleClasses: ['form-group--col-two'],
+                values: [
+                  'Topic A',
+                  'Topic B',
+                  'Topic C',
+                  'Topic D'
+                ],
+                placeholder: 'Select a topic'
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Enter a location',
+                required: true,
+                styleClasses: ['form-group--col-two'],
+                placeholder: 'Start typing suburb or postcode…',
+                model: 'text'
+              }
+            ]
+          },
+          {
+            fields: [
+              {
+                type: 'vueMultiSelect',
+                model: 'select',
+                label: 'Event requirements',
+                styleClasses: ['form-group--col-two'],
+                values: [
+                  'Accessible venue',
+                  'Child friendly',
+                  'Free admission',
+                  'Online webinar',
+                  'Seniors'
+                ]
+              }
+            ]
+          },
+          {
+            fields: [
+              {
+                type: 'rplsubmitloader',
+                buttonText: 'Submit (with animation)',
+                loading: false,
+                autoUpdate: true,
+                styleClasses: ['form-group--inline']
+              },
+              {
+                type: 'rplclearform',
+                buttonText: 'Clear search filters',
+                styleClasses: ['form-group--inline']
+              }
+            ]
+          }
+        ]
       },
       formOptions: {
         validateAfterLoad: true,
         validateAfterChanged: true
       },
+      tag: 'rpl-fieldset',
       formState: {}
     }),
     theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
@@ -1416,12 +1446,14 @@ const demoData = {
         textArea: null,
         dateRange: ['', ''],
         date: '',
-        address: {},
+        address: {
+          state: 'vic'
+        },
         checkbox: true,
         select: '',
         multiselect: null,
-        checklistlistbox: null,
-        checklistdropdown: null,
+        checklistlistbox: ['topic_a'],
+        checklistdropdown: ['topic_a', 'topic_b', 'invalid'],
         rangeslider: [10000, 70000]
       },
 
@@ -1753,6 +1785,7 @@ const demoData = {
     icons: [
       'accessible',
       'addition',
+      'ai',
       'alert_fire',
       'alert_flood',
       'alert_high_temperature',
@@ -1789,6 +1822,7 @@ const demoData = {
       'download',
       'email_solid',
       'email_transparent',
+      'eps',
       'external_link',
       'facebook',
       'free',
@@ -1797,6 +1831,7 @@ const demoData = {
       'help',
       'home',
       'ics',
+      'indd',
       'instagram',
       'left',
       'link',
@@ -1822,6 +1857,7 @@ const demoData = {
       'stop',
       'success',
       'tick',
+      'tif',
       'trash',
       'twitter',
       'txt',

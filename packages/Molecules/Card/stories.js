@@ -114,7 +114,7 @@ storiesOf('Molecules/Card', module)
   })))
   .add('Card Carousel', withReadme(readme, () => ({
     components: { RplCardCarousel },
-    template: `<rpl-card-carousel :title="title" :cards="cards" />`,
+    template: `<rpl-card-carousel :title="title" :cards="cards" :colsBp="colsBp" :totalGridColumns="totalGridColumns" />`,
     data () {
       return demoData.cardCarousel()
     }

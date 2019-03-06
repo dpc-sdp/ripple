@@ -31,20 +31,24 @@ export default {
   computed: {
     icon () {
       switch (this.extension) {
-        case 'pdf':
+        case 'ai':
+        case 'csv':
         case 'doc':
         case 'docx':
-        case 'xls':
-        case 'xlsx':
-        case 'csv':
-        case 'txt':
-        case 'ppt':
-        case 'pptx':
         case 'dot':
         case 'dotm':
         case 'dotx':
-        case 'zip':
+        case 'eps':
         case 'ics':
+        case 'indd':
+        case 'pdf':
+        case 'ppt':
+        case 'pptx':
+        case 'tif':
+        case 'txt':
+        case 'xls':
+        case 'xlsx':
+        case 'zip':
           return this.extension
         default:
           return 'document'

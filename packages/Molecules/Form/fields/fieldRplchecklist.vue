@@ -62,6 +62,13 @@ export default {
       labelText: ''
     }
   },
+  mounted () {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', this.updateSize)
+      this.updateSize()
+    }
+    this.setCheckedValues()
+  },
   watch: {
     value (newVal, oldVal) {
       this.updateSize()
@@ -169,13 +176,6 @@ export default {
       // Set initial values for checkboxes
       this.listValues = this.items.map(item => this.isItemChecked(item))
     }
-  },
-  mounted: function () {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', this.updateSize)
-      this.updateSize()
-    }
-    this.setCheckedValues()
   },
   beforeDestroy: function () {
     if (typeof window !== 'undefined') {

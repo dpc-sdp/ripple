@@ -71,6 +71,7 @@ export default {
       if (this.email) {
         _list.push({
           symbol: 'email_solid',
+          link: `mailto:${this.email}`,
           size: 0.65,
           text: this.email
         })

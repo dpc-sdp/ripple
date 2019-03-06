@@ -200,17 +200,6 @@ export default {
   computed: {
     showMenuHeading: function () {
       return (!this.isRoot && this.isVerticalLayout) || (!this.isVerticalLayout && this.depth >= 1)
-    },
-    showQuickExit () {
-      if (this.rplOptions.quickexit && this.open) {
-        if (this.isVerticalLayout) {
-          return true
-        } else if (this.isRoot === false) {
-          return true
-        }
-        return false
-      }
-      return false
     }
   },
   watch: {

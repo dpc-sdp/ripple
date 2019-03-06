@@ -1804,6 +1804,7 @@ const demoData = {
       'arrow_up_primary',
       'attach',
       'blank_solid',
+      'browser',
       'calendar',
       'child_friendly',
       'close',

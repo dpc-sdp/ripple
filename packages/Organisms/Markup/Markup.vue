@@ -49,7 +49,7 @@ export default {
 .rpl-markup {
 
   &__inner {
-    > h2:first-of-type {
+    > h2:first-child {
       margin-top: 0;
     }
   }

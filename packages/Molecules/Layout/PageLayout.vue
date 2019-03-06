@@ -9,7 +9,7 @@
         <div class="rpl-above-content__inner" :style="backgroundImage">
           <div class="rpl-above-content__top">
             <slot name="breadcrumbs"></slot>
-            <rpl-quick-exit v-if="quickexit" menuOffsetSelector=".rpl-above-content__inner" />
+            <rpl-quick-exit v-if="quickexit && !menuopen" menuOffsetSelector=".rpl-above-content__inner" />
           </div>
           <slot name="aboveContent"></slot>
         </div>
@@ -43,6 +43,7 @@
 <script>
 import RplQuickExit from './QuickExit'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { RplSiteHeaderEventBus } from '@dpc-sdp/ripple-site-header'
 
 export default {
   components: { RplContainer, RplRow, RplCol, RplQuickExit },
@@ -55,7 +56,8 @@ export default {
   },
   data () {
     return {
-      quickexit: false
+      quickexit: false,
+      menuopen: false
     }
   },
   computed: {
@@ -76,8 +78,16 @@ export default {
       return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
     }
   },
+  mounted () {
+    RplSiteHeaderEventBus.$on('open', this.setMenuOpen)
+  },
   created () {
     this.quickexit = (this.quickExit !== null) ? this.quickExit : this.rplOptions.quickexit
+  },
+  methods: {
+    setMenuOpen (val) {
+      this.menuopen = val
+    }
   }
 }
 </script>

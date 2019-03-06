@@ -22,15 +22,16 @@
         {{ errorMsg }}
       </div>
     </rpl-row>
-
-    <div class="rpl-search-results__pager">
-      <rpl-pagination
-        :totalSteps="pager.totalSteps"
-        :initialStep="pager.initialStep"
-        :stepsAround="pager.stepsAround"
-        @change="$emit('pager-change', $event)"
-      />
-    </div>
+    <rpl-row row-gutter>
+      <rpl-col cols="full" :colsBp="{m: 6, l: 4, xxxl: 3}">
+        <rpl-pagination
+          :totalSteps="pager.totalSteps"
+          :initialStep="pager.initialStep"
+          :stepsAround="pager.stepsAround"
+          @change="$emit('pager-change', $event)"
+        />
+      </rpl-col>
+    </rpl-row>
   </div>
 </template>
 

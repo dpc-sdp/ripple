@@ -29,6 +29,7 @@
 <script>
 import Vue from 'vue'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
+import ProvideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import { Carousel, Slide } from 'vue-carousel'
 
 import RplIcon from '@dpc-sdp/ripple-icon'
@@ -39,13 +40,13 @@ import RplCardKeydates from './../CardKeydates.vue'
 
 export default {
   name: 'RplCardCarousel',
-  mixins: [breakpoint],
+  mixins: [breakpoint, ProvideChildCols],
   props: {
     title: String,
     cards: Array,
     previousLabel: { type: String, default: 'Go to previous slide' },
     nextLabel: { type: String, default: 'Go to next slide' },
-    colsBp: { type: Object, default: () => ({ l: 4, m: 6 }) },
+    childColsBp: { type: Object, default: () => ({ l: 4, m: 6 }) },
     totalGridColumns: { type: Number, default: 12 }
   },
   components: {
@@ -95,12 +96,12 @@ export default {
   },
   computed: {
     slidesPerPage () {
-      if (this.colsBp && this.totalGridColumns) {
+      if (this.childColsBp && this.totalGridColumns) {
         // Determine # of cards to display based on defined column breakpoints.
         for (let i = this.breakpointsSmallToLarge.length - 1; i >= 0; i--) {
           const bp = this.breakpointsSmallToLarge[i].label
-          if (this.colsBp[bp] && this.$breakpoint[bp]) {
-            return this.totalGridColumns / this.colsBp[bp]
+          if (this.childColsBp[bp] && this.$breakpoint[bp]) {
+            return this.totalGridColumns / this.childColsBp[bp]
           }
         }
       }

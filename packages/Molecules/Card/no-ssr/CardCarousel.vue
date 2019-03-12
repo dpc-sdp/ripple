@@ -29,7 +29,7 @@
 <script>
 import Vue from 'vue'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
-import ProvideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
+import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import { Carousel, Slide } from 'vue-carousel'
 
 import RplIcon from '@dpc-sdp/ripple-icon'
@@ -40,7 +40,7 @@ import RplCardKeydates from './../CardKeydates.vue'
 
 export default {
   name: 'RplCardCarousel',
-  mixins: [breakpoint, ProvideChildCols],
+  mixins: [breakpoint, provideChildCols],
   props: {
     title: String,
     cards: Array,

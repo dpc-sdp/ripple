@@ -7649,13 +7649,13 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
           <span
             class="hljs-attr"
           >
-            :colsBp
+            :childColsBp
           </span>
           =
           <span
             class="hljs-string"
           >
-            "colsBp"
+            "childColsBp"
           </span>
            
           <span
@@ -7873,7 +7873,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
             data-v-5bd9cdea=""
           >
             
-    colsBp
+    childColsBp
     
             <!---->
           </td>
@@ -38180,6 +38180,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               >
                 <div
                   class="rpl-card-carousel"
+                  colsbp="[object Object]"
                 >
                   <h2
                     class="rpl-card-carousel__title"

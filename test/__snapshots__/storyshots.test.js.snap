@@ -38180,7 +38180,6 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               >
                 <div
                   class="rpl-card-carousel"
-                  colsbp="[object Object]"
                 >
                   <h2
                     class="rpl-card-carousel__title"

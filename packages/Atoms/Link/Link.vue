@@ -30,7 +30,7 @@ export default {
     onFocus: function (e) {
       this.$emit('focus', e)
     },
-    routeLinkClick:  function (e) {
+    routeLinkClick: function (e) {
       // Triggering an active link will reload the page.
       if (e.originalTarget.classList.contains('nuxt-link-active')) {
         window.location.href = e.originalTarget.attributes.href.value

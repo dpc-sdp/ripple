@@ -22,15 +22,16 @@
         {{ errorMsg }}
       </div>
     </rpl-row>
-
-    <div class="rpl-search-results__pager">
-      <rpl-pagination
-        :totalSteps="pager.totalSteps"
-        :initialStep="pager.initialStep"
-        :stepsAround="pager.stepsAround"
-        @change="$emit('pager-change', $event)"
-      />
-    </div>
+    <rpl-row row-gutter>
+      <rpl-col cols="full" :colsBp="cardColsBp">
+        <rpl-pagination
+          :totalSteps="pager.totalSteps"
+          :initialStep="pager.initialStep"
+          :stepsAround="pager.stepsAround"
+          @change="$emit('pager-change', $event)"
+        />
+      </rpl-col>
+    </rpl-row>
   </div>
 </template>
 
@@ -74,21 +75,21 @@ export default {
         case 'RplCardEvent':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-event' */ '@dpc-sdp/ripple-card').then(m => m.RplCardEvent),
-            colsBp: {m: 6, l: 4, xxxl: 3},
+            colsBp: this.cardColsBp,
             class: ['rpl-search-results__item--event']
           }
           break
         case 'RplCardPromotion':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ '@dpc-sdp/ripple-card').then(m => m.RplCardPromotion),
-            colsBp: {m: 6, l: 4, xxxl: 3},
+            colsBp: this.cardColsBp,
             class: ['rpl-search-results__item--promotion']
           }
           break
         case 'RplCardHonourRoll':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-honour-roll' */ '@dpc-sdp/ripple-card').then(m => m.RplCardHonourRoll),
-            colsBp: {m: 6, l: 4, xxxl: 3},
+            colsBp: this.cardColsBp,
             class: ['rpl-search-results__item--honour-roll']
           }
           break
@@ -108,9 +109,7 @@ export default {
   data () {
     return {
       searchResultContent: null,
-      defaultCols: {
-
-      }
+      cardColsBp: {m: 6, l: 4, xxxl: 3}
     }
   }
 }

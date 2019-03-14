@@ -177,6 +177,10 @@ export default {
   .rpl-image-gallery {
     position: relative;
 
+    @media print {
+      display: none;
+    }
+
     &__enlarge {
       background-color: $rpl-image-gallery-enlarge-background-color;
       border: 0;

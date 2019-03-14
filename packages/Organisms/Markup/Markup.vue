@@ -49,7 +49,8 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "~@dpc-sdp/ripple-markup/scss/iframe";
 
-$rpl-markup-link-color: rpl_color('primary') !default;
+$rpl-markup-text-color: rpl-color('extra_dark_neutral') !default;
+$rpl-markup-link-color: rpl-color('primary') !default;
 
 $callout-text-color: rpl_color('extra_dark_neutral') !default;
 $callout-author-ruleset: (rem(20px), 1.2em, 'medium');
@@ -83,6 +84,8 @@ $responsive-iframe-padding-bottom: 56.25% !default;
 $responsive-iframe-padding-top: $rpl-space-4 !default;
 
 .rpl-markup {
+  @include rpl_text_color($rpl-markup-text-color);
+
   /* Lists  */
   ul {
     list-style-type: disc;
@@ -104,7 +107,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
 
   a:not(.rpl-button) {
     text-decoration: none;
-    color: $rpl-markup-link-color;
+    @include rpl_text_color($rpl-markup-link-color);
 
     &:hover,
     &:focus {

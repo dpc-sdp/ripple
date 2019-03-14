@@ -49,6 +49,10 @@ $rpl-card-box-item-margin:  0 $rpl-space-3 $rpl-space * 6 !default;
     padding: $rpl-card-box-padding;
   }
 
+  @media print {
+    display: none;
+  }
+
   &__items {
     display: flex;
     flex-wrap: wrap;

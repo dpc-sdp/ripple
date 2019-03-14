@@ -70,7 +70,7 @@ export default {
 
   .rpl-list {
     $root: &;
-    color: $rpl-list-text-color;
+    @include rpl_text_color($rpl-list-text-color);
 
     &__title {
       #{$root}--normal & {
@@ -85,7 +85,7 @@ export default {
     }
 
     &__title-inner {
-      color: $rpl-list-title-color;
+      @include rpl_text_color($rpl-list-title-color);
     }
 
     &__list {
@@ -110,8 +110,8 @@ export default {
     }
 
     &__text {
+      @include rpl_text_color($rpl-list-link-color);
       display: table-cell;
-      color: $rpl-list-link-color;
       padding: $rpl-list-text-padding;
 
       #{$root}--normal & {

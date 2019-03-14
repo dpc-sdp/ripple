@@ -207,6 +207,7 @@ export default {
     @media print {
       padding: 0;
       border: 0;
+      background-image: none !important; // Needs to override inline definition.
     }
 
     &__left {
@@ -248,12 +249,8 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset);
-      color: $rpl-hero-banner-title-color;
+      @include rpl_text_color($rpl-hero-banner-title-color);
       margin: 0;
-
-      @media print {
-        color: $rpl-print-text;
-      }
 
       &--dark {
         @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset-dark);
@@ -262,7 +259,7 @@ export default {
 
     &__description {
       @include rpl_typography_ruleset($rpl-hero-banner-description-typography-ruleset);
-      color: $rpl-hero-banner-description-text-color;
+      @include rpl_text_color($rpl-hero-banner-description-text-color);
       letter-spacing: $rpl-hero-banner-description-letter-spacing;
       margin-top: $rpl-space;
 
@@ -272,10 +269,6 @@ export default {
 
       @include rpl_breakpoint(l) {
         margin-top: $rpl-space-4;
-      }
-
-      @media print {
-        color: $rpl-print-text;
       }
 
       &--dark {

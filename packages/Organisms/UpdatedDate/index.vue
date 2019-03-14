@@ -25,10 +25,6 @@ export default {
 
   .rpl-updated-date {
     @include rpl_typography_ruleset($rpl-updated-date-ruleset);
-    color: $rpl-updated-date-color;
-
-    @media print {
-      color: $rpl-print-text;
-    }
+    @include rpl_text_color($rpl-updated-date-color);
   }
 </style>

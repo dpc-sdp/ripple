@@ -117,9 +117,9 @@ export default {
   $rpl-contact-icon-margin: 0 $rpl-space-2 0 0;
 
   .rpl-contact {
+    @include rpl_text_color($rpl-contact-text-color);
     padding-top: $rpl-space-4;
     background: $rpl-contact-background;
-    color: $rpl-contact-text-color;
     position: relative;
 
     @media print {
@@ -128,7 +128,7 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-contact-title-ruleset);
-      color: $rpl-contact-title-color;
+      @include rpl_text_color($rpl-contact-title-color);
       margin: $rpl-contact-title-margin;
     }
 
@@ -184,7 +184,7 @@ export default {
     }
 
     .rpl-link {
-      color: $rpl-contact-link-color;
+      @include rpl_text_color($rpl-contact-link-color);
     }
   }
 </style>

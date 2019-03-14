@@ -137,8 +137,8 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-campaign-primary-title-ruleset);
+      @include rpl_text_color($rpl-campaign-primary-title-text-color);
       box-sizing: border-box;
-      color: $rpl-campaign-primary-title-text-color;
       margin: $rpl-campaign-primary-title-margin-xs;
       width: 100%;
       @include rpl_breakpoint('l') {
@@ -148,8 +148,8 @@ export default {
 
     &__summary {
       @include rpl_typography_ruleset($rpl-campaign-primary-summary-ruleset);
+      @include rpl_text_color($rpl-campaign-primary-summary-text-color);
       box-sizing: border-box;
-      color: $rpl-campaign-primary-summary-text-color;
       margin: $rpl-campaign-primary-summary-margin-xs;
       width: 100%;
       @include rpl_breakpoint('s') {
@@ -233,6 +233,12 @@ export default {
         position: absolute;
         bottom: rem(9px);
         right: rem(9px);
+      }
+    }
+
+    &__call-to-action {
+      @media print {
+        display: none;
       }
     }
   }

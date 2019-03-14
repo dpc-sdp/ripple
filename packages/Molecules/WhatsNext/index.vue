@@ -68,8 +68,8 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-whats-next-title-ruleset);
+      @include rpl_text_color($rpl-whats-next-title-color);
       margin: 0;
-      color: $rpl-whats-next-title-color;
     }
 
     &__items {

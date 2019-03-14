@@ -47,6 +47,12 @@ export default {
   $rpl-embedded-video-transcript-padding: $rpl-space-4 0 $rpl-space-4;
   $rpl-embedded-video-height: 0;
 
+  .rpl-embedded-video {
+    @media print {
+      display: none;
+    }
+  }
+
   .rpl-embedded-video-iframe-container {
     position: relative;
     padding-bottom: $rpl-embedded-video-padding-bottom;

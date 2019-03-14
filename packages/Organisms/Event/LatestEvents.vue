@@ -56,7 +56,7 @@ export default {
   .rpl-latest-events {
     &__title {
       @include rpl_typography_ruleset($rpl-latest-events-title-ruleset);
-      color: $rpl-latest-events-title-color;
+      @include rpl_text_color($rpl-latest-events-title-color);
     }
 
     &__list {

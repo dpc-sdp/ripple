@@ -149,7 +149,7 @@ export default {
 
     &__description {
       @include rpl_typography_ruleset($rpl-grants-overview-description-ruleset);
-      color: $rpl-grants-overview-description-color;
+      @include rpl_text_color($rpl-grants-overview-description-color);
       margin: $rpl-grants-overview-description-margin;
     }
   }

@@ -74,7 +74,7 @@ export default {
       }
 
       .rpl-link {
-        color: $rpl-sitemap-menu-link-color;
+        @include rpl_text_color($rpl-sitemap-menu-link-color);
       }
     }
 

@@ -74,6 +74,10 @@ export default {
       border: $rpl-call-to-action-border;
     }
 
+    @media print {
+      display: none;
+    }
+
     &__image {
       width: 100%;
     }

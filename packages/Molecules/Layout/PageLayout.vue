@@ -191,10 +191,12 @@ export default {
   }
 }
 
-.rpl-main {
+.rpl-main,
+.rpl-sidebar {
   @media print {
     width: 100%;
     margin: 0;
+    left: 0;
   }
 }
 

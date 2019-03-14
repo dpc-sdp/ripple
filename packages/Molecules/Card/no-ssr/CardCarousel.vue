@@ -155,6 +155,11 @@ export default {
   $rpl-card-carousel-navigation-bottom-margin: $rpl-space-3 !default;
 
   .rpl-card-carousel {
+
+    @media print {
+      display: none;
+    }
+
     &__title {
       @include rpl_typography_ruleset($rpl-card-carousel-title-ruleset);
       color: $rpl-card-carousel-title-text-color;

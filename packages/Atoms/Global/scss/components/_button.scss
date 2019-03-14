@@ -1,6 +1,6 @@
 @mixin rpl_button {
   @include rpl_typography_ruleset($rpl-button-ruleset);
-  color: $rpl-button-text-color;
+  @include rpl_text_color($rpl-button-text-color);
   text-align: center;
   display: inline-block;
   margin: 0;
@@ -29,17 +29,17 @@
 }
 
 @mixin rpl_button_disabled {
+  @include rpl_text_color($rpl-button-disabled-text-color);
   cursor: default;
   pointer-events: none;
   background-color: transparent;
   background-image: none;
   border: $rpl-button-disabled-border;
-  color: $rpl-button-disabled-text-color;
 }
 
 @mixin rpl_button_primary {
+  @include rpl_text_color($rpl-button-primary-text-color);
   background-color: $rpl-button-primary-background-color;
-  color: $rpl-button-primary-text-color;
 
   &:hover,
   &:focus {
@@ -48,13 +48,13 @@
   }
 
   &:active {
-    color: $rpl-button-active-text-color;
+    @include rpl_text_color($rpl-button-active-text-color);
   }
 }
 
 @mixin rpl_button_secondary {
+  @include rpl_text_color($rpl-button-secondary-text-color);
   background-color: $rpl-button-secondary-background-color;
-  color: $rpl-button-secondary-text-color;
 
   &:hover,
   &:focus {
@@ -63,18 +63,18 @@
   }
 
   &:active {
+    @include rpl_text_color($rpl-button-secondary-active-text-color);
     background-color: $rpl-button-secondary-active-background-color;
     background-image: $rpl-button-secondary-active-background-image;
-    color: $rpl-button-secondary-active-text-color;
   }
 }
 
 @mixin rpl_narrow_button {
   @include rpl_typography_ruleset($rpl-button-ruleset);
+  @include rpl_text_color($rpl-button-text-color);
   border-radius: $rpl-button-border-radius;
   border: $rpl-button-border;
   box-sizing: border-box;
-  color: $rpl-button-text-color;
   cursor: pointer;
   display: inline-block;
   margin: 0;
@@ -90,11 +90,11 @@
 }
 
 @mixin rpl_narrow_button_primary {
+  @include rpl_text_color($rpl-button-primary-text-color);
   background-color: $rpl-button-primary-background-color;
-  color: $rpl-button-primary-text-color;
 }
 
 @mixin rpl_narrow_button_danger {
+  @include rpl_text_color($rpl-button-danger-text-color);
   background-color: $rpl-button-danger-background-color;
-  color: $rpl-button-danger-text-color;
 }

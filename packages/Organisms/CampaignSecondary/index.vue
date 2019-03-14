@@ -128,8 +128,8 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-campaign-secondary-title-ruleset);
+      @include rpl_text_color($rpl-campaign-secondary-title-text-color);
       box-sizing: border-box;
-      color: $rpl-campaign-secondary-title-text-color;
       margin: $rpl-campaign-secondary-title-margin-xs;
       width: 100%;
       @include rpl_breakpoint('m') {
@@ -142,8 +142,8 @@ export default {
 
     &__summary {
       @include rpl_typography_ruleset($rpl-campaign-secondary-summary-ruleset);
+      @include rpl_text_color($rpl-campaign-secondary-summary-text-color);
       box-sizing: border-box;
-      color: $rpl-campaign-secondary-summary-text-color;
       margin: $rpl-campaign-secondary-summary-margin-xs;
       width: 100%;
       @include rpl_breakpoint('s') {

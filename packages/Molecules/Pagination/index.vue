@@ -105,10 +105,13 @@ export default {
   $rpl-pagination-nav-margin: 0 0 0 ($rpl-space * 5) !default;
 
   .rpl-pagination {
-
     display: flex;
     align-items: center;
     width: 100%;
+
+    @media print {
+      display: none;
+    }
 
     &__list {
       padding: 0;

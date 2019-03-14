@@ -86,7 +86,7 @@ export default {
     $root: &;
 
     &__title {
-      color: $rpl-timeline-title-text-color;
+      @include rpl_text_color($rpl-timeline-title-text-color);
     }
 
     &__list {
@@ -184,23 +184,23 @@ export default {
 
     &__item-title {
       @include rpl_typography_ruleset($rpl-timeline-item-title-ruleset);
-      color: $rpl-timeline-item-title-text-color;
+      @include rpl_text_color($rpl-timeline-item-title-text-color);
       margin: 0;
 
       .rpl-link {
-        color: $rpl-timeline-item-title-text-color;
+        @include rpl_text_color($rpl-timeline-item-title-text-color);
       }
     }
 
     &__item-subtitle {
       @include rpl_typography_ruleset($rpl-timeline-item-subtitle-ruleset);
-      color: $rpl-timeline-item-subtitle-text-color;
+      @include rpl_text_color($rpl-timeline-item-subtitle-text-color);
       margin: 0 0 $rpl-space 0;
     }
 
     &__item-description {
       @include rpl_typography_ruleset($rpl-timeline-item-description-ruleset);
-      color: $rpl-timeline-item-description-text-color;
+      @include rpl_text_color($rpl-timeline-item-description-text-color);
       margin: 0 0 $rpl-space 0;
     }
   }

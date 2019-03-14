@@ -62,15 +62,7 @@ export default {
   @media print {
     &[href]:after {
       content: ' <' attr(href) '> ';
-      color: $rpl-print-text;
       text-decoration: none;
-    }
-  }
-
-  span {
-    @media print {
-      color: $rpl-print-text;
-      text-decoration: underline;
     }
   }
 

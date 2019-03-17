@@ -1,118 +1,390 @@
 <template>
-  <multiselect
-    :options="options"
-    :value="localValue"
-    v-bind="selectOptions"
-    :placeholder="schema.placeholder"
-    :custom-label="customLabel"
-    :max="schema.max || null"
-    :disabled="disabled"
-    @input="updateSelected"
-    @search-change="onSearchChange"
-    @tag="addTag"
-    :option-height="selectOptions.optionHeight"
-  >
-  </multiselect>
+  <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
+    <media :query="{maxWidth: 575}">
+      <div class="rpl-select__native">
+        <select
+          :multiple="schema.multiselect"
+          v-model="value"
+        >
+          <option v-if="!schema.multiselect" disabled value="">{{placeholder}}</option>
+          <option
+            :value="option.id"
+            v-for="(option) in options"
+            :key="option.id"
+          >{{option.name}}</option>
+        </select>
+        <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
+      </div>
+    </media>
+    <div
+      class="rpl-select__inner"
+    >
+      <div
+        class="rpl-select__trigger"
+        tabindex="0"
+        aria-haspopup="listbox"
+        :aria-labelledby="`${schema.model}-rpl-select-trigger ${schema.model}-rpl-select-value`"
+        :aria-expanded="isOpen ? 'true' : false"
+        role="button"
+        ref="trigger"
+        @click="toggleOpen"
+        v-on:keyup.enter.prevent="toggleOpen"
+      >
+        <template v-if="value && value.length > 0">
+          <span :id="`${schema.model}-rpl-select-value`">{{selectedTitles}}</span>
+        </template>
+        <span v-else :id="`${schema.model}-rpl-select-trigger`">{{placeholder}}</span>
+        <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
+      </div>
+      <div
+        class="rpl-select__dropdown"
+        v-show="isOpen"
+      >
+        <div
+          class="rpl-select__listbox"
+          ref="listbox"
+          tabindex="-1"
+          :aria-multiselectable="schema.multiselect && 'true'"
+          :aria-activedescendant="activedescendant"
+          role="listbox"
+          v-on:keyup.enter.prevent="toggleOpen"
+          v-on:keyup.up.self="handleKeys"
+          v-on:keyup.down.self="handleKeys"
+          @keyup.space="clickItem(options.find(i => i.focussed))"
+          @keyup.esc.self="close"
+        >
+          <div
+            :id="option.id"
+            class="rpl-select__listitem"
+            :aria-selected="option.selected"
+            :class="{'rpl-select__listitem--selected': option.selected && !schema.multiselect, 'rpl-select__listitem--focussed': option.focussed && schema.multiselect}"
+            @click="clickItem(option)"
+            tabindex="-1"
+            role="option"
+            v-for="(option, index) in options"
+            :key="`${option.id}${index}`"
+          >
+            <rpl-checkbox :presentational="true" v-if="schema.multiselect" :value="option.selected" class="rpl-select__checkbox" />
+            {{option.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 import { abstractField } from 'vue-form-generator'
-
-// See discussion on this issue:
-// https://github.com/shentao/vue-multiselect/issues/385
-// this might be able to removed if vue-multiselect implements fix
+import RplIcon from '@dpc-sdp/ripple-icon'
+import RplCheckbox from '../Checkbox.vue'
+import Media from 'vue-media'
 
 export default {
+  name: 'RplSelect',
   mixins: [abstractField],
+  components: {
+    Media,
+    RplIcon,
+    RplCheckbox
+  },
   data () {
     return {
-      localValue: null
+      isOpen: false,
+      focussed: null
+    }
+  },
+  computed: {
+    placeholder () {
+      return this.schema.placeholder || 'Select'
+    },
+    selectOptions () {
+      return this.schema.selectOptions || {}
+    },
+    options () {
+      let options = this.schema.values
+      if (typeof options === 'function') {
+        return options.apply(this, [this.model, this.schema])
+      } else {
+        return options.map(opt => {
+          opt.selected = this.isSelected(opt)
+          opt.focussed = opt.id === this.focussed
+          if (!opt.selected) {
+            delete opt.selected
+          }
+          if (!opt.focussed) {
+            delete opt.focussed
+          }
+          return opt
+        })
+      }
+    },
+    activedescendant () {
+      return this.selectedItems ? this.createUniqueId(this.selectedItems[0]) : false
+    },
+    selectedItems () {
+      return this.options.filter(opt => opt.selected)
+    },
+    selectedTitles () {
+      return this.selectedItems.map(itm => itm.name).join(', ')
     }
   },
   watch: {
     value (newVal, oldVal) {
+      // fixes issue with errors not clearing after selecting new val
+      console.log('new', newVal)
       if (newVal === null || newVal === undefined) {
-        this.updateSelected(this.selectOptions.multiple ? [] : null)
+        if (this.schema.multiselect) {
+          newVal = []
+        } else {
+          newVal = ''
+        }
+      }
+      if (this.schema.multiselect && newVal.length > 0) {
         if (this.errors && this.errors.length > 0) {
           this.vfg.clearValidationErrors()
         }
       }
     }
   },
-  mounted () {
-    if (this.value) {
-      this.updateSelected(this.options.find(opt => opt[this.selectOptions.trackBy] === this.value))
-    }
-  },
-  computed: {
-    selectOptions () {
-      return this.schema.selectOptions || {}
-    },
-    options () {
-      let values = this.schema.values
-      if (typeof values === 'function') {
-        return values.apply(this, [this.model, this.schema])
-      } else {
-        return values
-      }
-    },
-    customLabel () {
-      if (
-        typeof this.schema.selectOptions !== 'undefined' &&
-        typeof this.schema.selectOptions.customLabel !== 'undefined' &&
-        typeof this.schema.selectOptions.customLabel === 'function'
-      ) {
-        return this.schema.selectOptions.customLabel
-      } else {
-        // this will let the multiselect library use the default behavior if customLabel is not specified
-        return undefined
-      }
-    }
-  },
   methods: {
-    updateSelected (value) {
-      const trackBy = this.selectOptions.trackBy || 'id'
-      const isObj = (v) => typeof v === 'object' && v !== null && v.hasOwnProperty(trackBy)
-      if (!this.selectOptions.multiple) {
-        this.localValue = value
-        if (isObj(value)) {
-          this.value = value[trackBy]
+    createUniqueId (opt) {
+      if (opt) {
+        return opt.id
+      }
+      return null
+    },
+    toggleOpen () {
+      this.isOpen = !this.isOpen
+      if (this.isOpen) {
+        this.addOutsideTest()
+        this.$nextTick(function () {
+          if (!this.schema.multiselect && !this.selectedItems) {
+            this.selectItem(this.options[0])
+          } else if (this.selectedItems.length === 0) {
+            this.focusItem(this.options[0])
+          }
+          this.$refs.listbox.focus()
+        })
+      } else {
+        this.removeOutsideTest()
+        this.$refs.trigger.focus()
+      }
+    },
+    close () {
+      this.isOpen = false
+    },
+    clickItem (item) {
+      this.selectItem(item)
+      if (!this.schema.multiselect) {
+        this.toggleOpen()
+      }
+    },
+    selectItem (item) {
+      if (this.schema.multiselect) {
+        if (this.value.includes(item.id)) {
+          this.value = this.value.filter(itm => itm !== item.id)
         } else {
-          this.value = value
+          this.value.push(item.id)
         }
       } else {
-        if (!this.localValue) {
-          this.localValue = []
+        this.value = item.id
+      }
+    },
+    isSelected (item) {
+      if (item && this.value) {
+        if (this.schema.multiselect && this.value.find(val => val === item.id)) {
+          return true
+        } else if (this.value === item.id) {
+          return true
         }
-        if (!this.value) {
-          this.value = []
-        }
+        return false
+      }
+      return false
+    },
+    focusItem (selected) {
+      this.focussed = selected.id
+      const item = this.$el.querySelector(`#${selected.id}`)
+      const listbox = this.$refs.listbox
 
-        this.localValue = value
-
-        if (value.every(v => isObj(v))) {
-          this.value = value.map(v => v[trackBy])
-        } else {
-          this.value = value
-        }
-
-        if (Array.isArray(value) && value.length === 0) {
-          this.value = []
-          this.localValue = []
+      if (listbox.scrollHeight > listbox.clientHeight) {
+        let scrollBottom = listbox.clientHeight + listbox.scrollTop
+        let elementBottom = item.offsetTop + item.offsetHeight
+        if (elementBottom > scrollBottom) {
+          listbox.scrollTop = elementBottom - listbox.clientHeight
+        } else if (item.offsetTop < listbox.scrollTop) {
+          listbox.scrollTop = item.offsetTop
         }
       }
     },
-    addTag (newTag, id) {
-      let onNewTag = this.selectOptions.onNewTag
-      if (typeof onNewTag === 'function') {
-        onNewTag(newTag, id, this.options, this.value)
+    handleKeys (e) {
+      let selectedIdx
+      let selected = null
+      if (!this.schema.multiselect) {
+        selectedIdx = this.options.findIndex(opt => opt.id === this.selectedItems[0].id)
+      } else {
+        selectedIdx = this.options.findIndex(opt => opt.focussed === true)
+      }
+      switch (e.key) {
+        case 'Up':
+        case 'ArrowUp':
+          selected = this.options[selectedIdx - 1]
+          if (selected) {
+            if (!this.schema.multiselect) {
+              this.selectItem(selected)
+            }
+            this.focusItem(selected)
+          }
+          break
+        case 'Down': // IE/Edge specific value
+        case 'ArrowDown':
+          if (this.options.length > (selectedIdx + 1)) {
+            selected = this.options[selectedIdx + 1]
+            if (!this.schema.multiselect) {
+              this.selectItem(selected)
+            }
+            this.focusItem(selected)
+          }
+          break
       }
     },
-    onSearchChange (searchQuery, id) {
-      let onSearch = this.selectOptions.onSearch
-      if (typeof onSearch === 'function') {
-        onSearch(searchQuery, id, this.options)
+    addOutsideTest () {
+      if (typeof window !== 'undefined') {
+        document.addEventListener('click', this.testOutside)
       }
+    },
+    testOutside (event) {
+      if (typeof window !== 'undefined') {
+        if (!this.$el.contains(event.target)) {
+          this.isOpen = false
+          this.removeOutsideTest()
+        }
+      }
+    },
+    removeOutsideTest (event) {
+      if (typeof window !== 'undefined') {
+        document.removeEventListener('click', this.testOutside)
+      }
+    },
+    preventKeyboardScroll (e) {
+      const keys = ['Up', 'ArrowUp', 'Down', 'ArrowDown', ' ', 'Space'] // up down and space keys
+      if (this.isOpen && keys.includes(e.key)) {
+        e.preventDefault()
+      }
+    }
+  },
+  mounted () {
+    document.body.addEventListener('keydown', (e) => {
+      this.preventKeyboardScroll(e)
+    })
+    if (this.schema.multiselect && !this.value) {
+      this.value = []
     }
   }
 }
 </script>
+
+<style lang="scss">
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
+@import "../scss/form";
+
+$rpl-select-inner-padding: $rpl-space-4;
+
+.rpl-select {
+  $root: &;
+
+  &__native {
+    position: relative;
+    @include rpl-breakpoint("s") {
+      @include rpl_visually_hidden;
+    }
+    select {
+      @include rpl_form_text_element;
+      width: 100%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+  }
+
+  &__inner {
+    display: none;
+    @include rpl_form_text_element;
+    @include rpl-breakpoint("s") {
+      padding: 0;
+      display: block;
+    }
+  }
+
+  &__trigger {
+    padding: $rpl-form-element-padding-m-horizontal;
+    position: relative;
+
+    &-icon {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 1rem;
+      margin: auto;
+      transition: transform .25s;
+
+      #{$root}--open & {
+        transform: rotate(-180deg);
+      }
+    }
+
+  }
+
+  &__dropdown {
+    top: 0;
+    background-color: $rpl-form-element-bg-color;
+    position: relative;
+    width: 100%;
+  }
+
+  &__listbox {
+    outline: 0;
+    position: absolute;
+    top: -1px;
+    z-index: 1;
+    background: $rpl-form-element-bg-color;
+    left: -1px;
+    width: 100%;
+    border: 1px solid $rpl-form-element-border-color;
+    border-radius: $rpl-form-element-border-radius;
+    border-top: 1px solid $rpl-form-element-border-color;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    height: 10rem;
+    overflow-y: scroll;
+  }
+
+  &__listitem {
+    padding: $rpl-space-3 $rpl-form-element-padding-m-horizontal;
+    background: $rpl-form-element-bg-color;
+
+    &:nth-child(odd) {
+      background-color: rpl-color("white");
+    }
+
+    &:hover {
+      background-color: rpl-color("secondary");
+      color: white;
+    }
+
+    &--selected[aria-selected="true"] {
+      background-color: rpl-color("primary");
+      color: white;
+    }
+
+    &--focussed {
+      color: white !important;
+      background-color: rpl-color("secondary") !important;
+    }
+  }
+
+  &__checkbox {
+    float: left;
+    margin-right: 1rem;
+  }
+}
+</style>

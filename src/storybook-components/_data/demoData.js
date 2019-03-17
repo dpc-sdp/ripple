@@ -1601,7 +1601,6 @@ const demoData = {
             placeholder: 'Select multiple topics',
             values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
           },
-
           {
             type: 'rplchecklist',
             single: true,
@@ -1635,16 +1634,8 @@ const demoData = {
             required: true,
             validator: ['required'],
             label: 'Single-select drop down',
-            hint: 'Implemented using vue-multiselect',
             placeholder: 'Select a single topic',
-            selectOptions: {
-              trackBy: 'id',
-              label: 'name',
-              closeOnSelect: true,
-              searchable: false,
-              showLabels: false
-            },
-            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}, {id: 'topic_e', name: 'Topic e'}, {id: 'topic_f', name: 'Topic f'}, {id: 'topic_g', name: 'Topic g'}, {id: 'topic_h', name: 'Topic h'}]
           },
           {
             type: 'rplselect',
@@ -1660,14 +1651,7 @@ const demoData = {
             label: 'Multi-select drop down',
             hint: 'Implemented using vue-multiselect',
             placeholder: 'Select several topics',
-            selectOptions: {
-              trackBy: 'id',
-              label: 'name',
-              multiple: true,
-              closeOnSelect: true,
-              searchable: false,
-              showLabels: false
-            },
+            multiselect: true,
             values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
           }
         ],

@@ -10,6 +10,7 @@
       :name="inputName"
       :class="inputClass"
       :required="inputRequired"
+      v-if="!presentational"
     />
     <span
       class="rpl-checkbox__box"
@@ -29,6 +30,7 @@ export default {
     value: Boolean,
     inputAutocomplete: Boolean,
     inputDisabled: Boolean,
+    presentational: Boolean,
     inputName: String,
     inputClass: Object,
     inputRequired: Boolean,

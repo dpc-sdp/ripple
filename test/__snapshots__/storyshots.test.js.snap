@@ -15082,61 +15082,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               class="form-group valid required field-rplchecklist"
             >
               <label
-                for="multi-select-drop-down"
-              >
-                <span>
-                  Multi-select drop down
-                </span>
-                 
-                <!---->
-              </label>
-               
-              <div
-                class="field-wrap"
-              >
-                <div
-                  class="rpl-checklist wrapper"
-                >
-                  <!---->
-                   
-                  <div
-                    class="rpl-checklist__combobox form-control"
-                  >
-                    <div
-                      class="rpl-checklist__main-row"
-                    >
-                      <button
-                        class="rpl-checklist__info"
-                        type="button"
-                      >
-                        <span>
-                          
-                          <!---->
-                        </span>
-                         
-                        <!---->
-                      </button>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="hint"
-              >
-                Implemented using rplchecklist
-              </div>
-               
-              <!---->
-            </div>
-            <div
-              class="form-group valid required field-rplselect"
-            >
-              <label
                 for="single-select-drop-down"
               >
                 <span>
@@ -15150,150 +15095,135 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="field-wrap"
               >
                 <div
-                  class="multiselect"
-                  tabindex="0"
+                  class="rpl-select"
                 >
-                  <div
-                    class="multiselect__select"
-                  />
-                    
-                  <div
-                    class="multiselect__tags"
-                  >
-                    <div
-                      class="multiselect__tags-wrap"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <div
-                      class="multiselect__spinner"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <!---->
-                     
-                    <span
-                      class="multiselect__placeholder"
-                    >
-                      
-            Select a single topic
-        
-                    </span>
-                  </div>
+                  <!---->
                    
                   <div
-                    class="multiselect__content-wrapper"
-                    style="max-height: 300px; display: none;"
-                    tabindex="-1"
+                    class="rpl-select__inner"
                   >
-                    <ul
-                      class="multiselect__content"
-                      style="display: inline-block;"
+                    <div
+                      aria-haspopup="listbox"
+                      aria-labelledby="select-rpl-select-trigger select-rpl-select-value"
+                      class="rpl-select__trigger"
+                      role="button"
+                      tabindex="0"
                     >
+                      <span
+                        id="select-rpl-select-trigger"
+                      >
+                        Select a single topic
+                      </span>
                        
                       <!---->
-                       
-                      <li
-                        class="multiselect__element"
+                    </div>
+                     
+                    <div
+                      class="rpl-select__dropdown"
+                      style="display: none;"
+                    >
+                      <div
+                        class="rpl-select__listbox"
+                        role="listbox"
+                        tabindex="-1"
                       >
-                        <span
-                          class="multiselect__option multiselect__option--highlight"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_a"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Topic A
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
-                      >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                          <!---->
+                          
+          Topic A
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_b"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Topic B
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
-                      >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                          <!---->
+                          
+          Topic B
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_c"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Topic C
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
-                      >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                          <!---->
+                          
+          Topic C
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_d"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Topic D
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
+                          <!---->
+                          
+          Topic D
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_e"
+                          role="option"
+                          tabindex="-1"
                         >
-                          No elements found. Consider changing the search query.
-                        </span>
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
+                          <!---->
+                          
+          Topic e
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_f"
+                          role="option"
+                          tabindex="-1"
                         >
-                          List is empty.
-                        </span>
-                      </li>
-                       
-                    </ul>
+                          <!---->
+                          
+          Topic f
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_g"
+                          role="option"
+                          tabindex="-1"
+                        >
+                          <!---->
+                          
+          Topic g
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_h"
+                          role="option"
+                          tabindex="-1"
+                        >
+                          <!---->
+                          
+          Topic h
+        
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                  
                 <!---->
               </div>
                
-              <div
-                class="hint"
-              >
-                Implemented using vue-multiselect
-              </div>
+              <!---->
                
               <!---->
             </div>
@@ -15314,139 +15244,133 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="field-wrap"
               >
                 <div
-                  class="multiselect"
-                  tabindex="0"
+                  class="rpl-select"
                 >
-                  <div
-                    class="multiselect__select"
-                  />
-                    
-                  <div
-                    class="multiselect__tags"
-                  >
-                    <div
-                      class="multiselect__tags-wrap"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <div
-                      class="multiselect__spinner"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <!---->
-                     
-                    <span
-                      class="multiselect__placeholder"
-                    >
-                      
-            Select several topics
-        
-                    </span>
-                  </div>
+                  <!---->
                    
                   <div
-                    class="multiselect__content-wrapper"
-                    style="max-height: 300px; display: none;"
-                    tabindex="-1"
+                    class="rpl-select__inner"
                   >
-                    <ul
-                      class="multiselect__content"
-                      style="display: inline-block;"
+                    <div
+                      aria-haspopup="listbox"
+                      aria-labelledby="multiselect-rpl-select-trigger multiselect-rpl-select-value"
+                      class="rpl-select__trigger"
+                      role="button"
+                      tabindex="0"
                     >
+                      <span
+                        id="multiselect-rpl-select-trigger"
+                      >
+                        Select several topics
+                      </span>
                        
                       <!---->
-                       
-                      <li
-                        class="multiselect__element"
+                    </div>
+                     
+                    <div
+                      class="rpl-select__dropdown"
+                      style="display: none;"
+                    >
+                      <div
+                        aria-multiselectable="true"
+                        class="rpl-select__listbox"
+                        role="listbox"
+                        tabindex="-1"
                       >
-                        <span
-                          class="multiselect__option multiselect__option--highlight"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_a"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Topic A
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
-                      >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                          <label
+                            class="rpl-checkbox rpl-select__checkbox"
+                          >
+                            <!---->
+                             
+                            <span
+                              class="rpl-checkbox__box"
+                            >
+                              <!---->
+                            </span>
+                             
+                            <!---->
+                          </label>
+                          
+          Topic A
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_b"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Topic B
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
-                      >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                          <label
+                            class="rpl-checkbox rpl-select__checkbox"
+                          >
+                            <!---->
+                             
+                            <span
+                              class="rpl-checkbox__box"
+                            >
+                              <!---->
+                            </span>
+                             
+                            <!---->
+                          </label>
+                          
+          Topic B
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_c"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Topic C
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
-                      >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                          <label
+                            class="rpl-checkbox rpl-select__checkbox"
+                          >
+                            <!---->
+                             
+                            <span
+                              class="rpl-checkbox__box"
+                            >
+                              <!---->
+                            </span>
+                             
+                            <!---->
+                          </label>
+                          
+          Topic C
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="topic_d"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Topic D
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
-                        >
-                          No elements found. Consider changing the search query.
-                        </span>
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
-                        >
-                          List is empty.
-                        </span>
-                      </li>
-                       
-                    </ul>
+                          <label
+                            class="rpl-checkbox rpl-select__checkbox"
+                          >
+                            <!---->
+                             
+                            <span
+                              class="rpl-checkbox__box"
+                            >
+                              <!---->
+                            </span>
+                             
+                            <!---->
+                          </label>
+                          
+          Topic D
+        
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                  
@@ -15597,139 +15521,86 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="field-wrap"
               >
                 <div
-                  class="multiselect"
-                  tabindex="0"
+                  class="rpl-select"
                 >
-                  <div
-                    class="multiselect__select"
-                  />
-                    
-                  <div
-                    class="multiselect__tags"
-                  >
-                    <div
-                      class="multiselect__tags-wrap"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <div
-                      class="multiselect__spinner"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <!---->
-                     
-                    <span
-                      class="multiselect__placeholder"
-                    >
-                      
-            Select option
-        
-                    </span>
-                  </div>
+                  <!---->
                    
                   <div
-                    class="multiselect__content-wrapper"
-                    style="max-height: 300px; display: none;"
-                    tabindex="-1"
+                    class="rpl-select__inner"
                   >
-                    <ul
-                      class="multiselect__content"
-                      style="display: inline-block;"
+                    <div
+                      aria-haspopup="listbox"
+                      aria-labelledby="address.state-rpl-select-trigger address.state-rpl-select-value"
+                      class="rpl-select__trigger"
+                      role="button"
+                      tabindex="0"
                     >
+                      <span
+                        id="address.state-rpl-select-value"
+                      >
+                        Vic
+                      </span>
                        
                       <!---->
-                       
-                      <li
-                        class="multiselect__element"
+                    </div>
+                     
+                    <div
+                      class="rpl-select__dropdown"
+                      style="display: none;"
+                    >
+                      <div
+                        aria-activedescendant="vic"
+                        class="rpl-select__listbox"
+                        role="listbox"
+                        tabindex="-1"
                       >
-                        <span
-                          class="multiselect__option multiselect__option--highlight"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                        <div
+                          aria-selected="true"
+                          class="rpl-select__listitem rpl-select__listitem--selected"
+                          id="vic"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Vic
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
-                      >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                          <!---->
+                          
+          Vic
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="nsw"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            New South Wales
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
-                      >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                          <!---->
+                          
+          New South Wales
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="wa"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Western Australia
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
-                      >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
+                          <!---->
+                          
+          Western Australia
+        
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="ql"
+                          role="option"
+                          tabindex="-1"
                         >
-                          <span>
-                            Queensland
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
-                        >
-                          No elements found. Consider changing the search query.
-                        </span>
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
-                        >
-                          List is empty.
-                        </span>
-                      </li>
-                       
-                    </ul>
+                          <!---->
+                          
+          Queensland
+        
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                  

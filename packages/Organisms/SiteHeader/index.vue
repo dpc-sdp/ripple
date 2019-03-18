@@ -91,6 +91,9 @@ import RplLink from '@dpc-sdp/ripple-link'
 import Trap from 'vue-focus-lock'
 import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.png'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import Vue from 'vue'
+
+export const RplSiteHeaderEventBus = new Vue()
 
 export default {
   name: 'RplSiteHeader',
@@ -169,6 +172,11 @@ export default {
           this.searchToggle()
         }
       }
+    },
+    menuContentOpen: function (to, from) {
+      this.$emit('open', to)
+      RplSiteHeaderEventBus.$emit('open', to)
+      this.toggleBodyScroll()
     }
   },
   methods: {
@@ -176,13 +184,11 @@ export default {
       this.menuContentOpen = !(this.menuContentOpen && this.searchState === 'opened')
       this.searchState = this.menuContentOpen ? 'opened' : 'closed'
       this.menuState = 'closed'
-      this.$emit('open', this.menuContentOpen)
     },
     menuToggle: function () {
       this.menuContentOpen = !(this.menuContentOpen && this.menuState === 'opened')
       this.searchState = 'closed'
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
-      this.$emit('open', this.menuContentOpen)
     },
     toggleBodyScroll () {
       if (this.menuContentOpen) {
@@ -217,7 +223,6 @@ export default {
       this.menuContentOpen = !(this.menuContentOpen && this.lastRootMenuClicked === rootMenuIndex)
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
       this.lastRootMenuClicked = rootMenuIndex
-      this.$emit('open', this.menuContentOpen)
     },
     searchFunc: function (value) {
       this.$emit('search', value)
@@ -256,9 +261,6 @@ export default {
       if (this.hideOnScroll) {
         window.addEventListener('scroll', this.scroll)
       }
-      this.$on('open', function () {
-        this.toggleBodyScroll()
-      })
     }
   },
   beforeDestroy: function () {

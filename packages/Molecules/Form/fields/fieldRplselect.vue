@@ -2,23 +2,14 @@
   <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
     <media :query="{maxWidth: 575}">
       <div class="rpl-select__native">
-        <select
-          :multiple="schema.multiselect"
-          v-model="value"
-        >
+        <select :multiple="schema.multiselect" v-model="value">
           <option v-if="!schema.multiselect" disabled value="">{{placeholder}}</option>
-          <option
-            :value="option.id"
-            v-for="(option) in options"
-            :key="option.id"
-          >{{option.name}}</option>
+          <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
         </select>
         <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
       </div>
     </media>
-    <div
-      class="rpl-select__inner"
-    >
+    <div class="rpl-select__inner">
       <div
         class="rpl-select__trigger"
         tabindex="0"
@@ -36,10 +27,7 @@
         <span v-else :id="`${schema.model}-rpl-select-trigger`">{{placeholder}}</span>
         <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
       </div>
-      <div
-        class="rpl-select__dropdown"
-        v-show="isOpen"
-      >
+      <div class="rpl-select__dropdown" v-show="isOpen">
         <div
           class="rpl-select__listbox"
           ref="listbox"
@@ -52,6 +40,7 @@
           v-on:keyup.down.self="handleKeys"
           @keyup.space="clickItem(options.find(i => i.focussed))"
           @keyup.esc.self="close"
+          @keyup.tab.self="close"
         >
           <div
             :id="option.id"

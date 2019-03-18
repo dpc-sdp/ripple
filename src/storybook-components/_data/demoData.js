@@ -1542,8 +1542,8 @@ const demoData = {
             range: true,
             label: 'Date Range',
             model: 'dateRange',
-            startPlaceholder: 'Start',
-            endPlaceholder: 'End'
+            startPlaceholder: 'Enter start date',
+            endPlaceholder: 'Enter end date'
           },
 
           {

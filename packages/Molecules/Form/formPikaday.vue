@@ -9,6 +9,7 @@
       :placeholder="placeholder"
       :readonly="readonly"
       :name="inputName"
+      :aria-label="placeholder || 'enter a date'"
       @keyup="keyup"
     />
     <rpl-icon class="rpl-form-pikaday__icon" symbol="calendar" color="primary" />
@@ -346,5 +347,6 @@ $rpl-pikaday-date-today-text-color: rpl-color('secondary') !default;
     margin: auto;
     pointer-events: none;
   }
+
 }
 </style>

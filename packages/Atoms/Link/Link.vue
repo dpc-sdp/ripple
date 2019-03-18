@@ -2,7 +2,7 @@
   <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
     <slot></slot>
   </a>
-  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href">
+  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick">
     <slot></slot>
   </nuxt-link>
 </template>
@@ -29,6 +29,12 @@ export default {
   methods: {
     onFocus: function (e) {
       this.$emit('focus', e)
+    },
+    routeLinkClick: function (e) {
+      // Triggering an active link will reload the page.
+      if (e.originalTarget.classList.contains('nuxt-link-active')) {
+        window.location.href = e.originalTarget.attributes.href.value
+      }
     }
   },
   created: function () {

@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-share-this">
     <h2 v-if="title" class="rpl-share-this__title">{{ title }}</h2>
-    <social-sharing :url="url" inline-template>
+    <social-sharing :url="url" inline-template network-tag="button">
       <div>
         <network v-if="$parent.en.twitter" network="twitter" class="rpl-share-this__social">
           <span class="rpl-share-this__icon"><rpl-icon symbol="twitter" color="primary" /></span>Twitter
@@ -94,11 +94,18 @@ export default {
     }
 
     &__social {
+      // <button> reset
+      appearance: none;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      // ripple styles
       @include rpl_typography_ruleset($rpl-share-this-social-ruleset);
       margin: $rpl-share-this-social-margin-xs;
       display: inline-block;
       cursor: pointer;
-      &:hover {
+      &:hover,
+      &:focus {
         text-decoration: underline;
       }
       @include rpl_breakpoint('l') {

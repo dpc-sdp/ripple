@@ -59,7 +59,7 @@ storiesOf('Templates', module)
 </s-search-page>`,
     data () {
       return {
-        sidebar: false,
+        sidebar: boolean('Has sidebar', false),
         mock: demoDataLocked,
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)
@@ -72,6 +72,7 @@ storiesOf('Templates', module)
   .add('Event search page demo', () => ({
     components: { SEventSearchPage },
     template: `<s-event-search-page
+:sidebar="sidebar"
 :mock="mock"
 :hasError="hasError"
 :noResults="noResults"
@@ -79,7 +80,7 @@ storiesOf('Templates', module)
 </s-event-search-page>`,
     data () {
       return {
-        sidebar: false,
+        sidebar: boolean('Has sidebar', false),
         mock: demoDataLocked,
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)
@@ -91,6 +92,7 @@ storiesOf('Templates', module)
   .add('Grant search page demo', () => ({
     components: { SGrantSearchPage },
     template: `<s-grant-search-page
+    :sidebar="sidebar"
     :mock="mock"
     :hasError="hasError"
     :noResults="noResults"
@@ -98,7 +100,7 @@ storiesOf('Templates', module)
     </s-grant-search-page>`,
     data () {
       return {
-        sidebar: false,
+        sidebar: boolean('Has sidebar', false),
         mock: demoDataLocked,
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)

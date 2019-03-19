@@ -22601,7 +22601,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
       </h2>
        
       <div>
-        <span
+        <button
           class="rpl-share-this__social"
           data-link="#share-twitter"
         >
@@ -22612,9 +22612,9 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
           </span>
           Twitter
       
-        </span>
+        </button>
          
-        <span
+        <button
           class="rpl-share-this__social"
           data-link="#share-facebook"
         >
@@ -22625,9 +22625,9 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
           </span>
           Facebook
       
-        </span>
+        </button>
          
-        <span
+        <button
           class="rpl-share-this__social"
           data-link="#share-linkedin"
         >
@@ -22638,7 +22638,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
           </span>
           LinkedIn
       
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -40212,7 +40212,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               </h2>
                
               <div>
-                <span
+                <button
                   class="rpl-share-this__social"
                   data-link="#share-twitter"
                 >
@@ -40223,9 +40223,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   </span>
                   Twitter
       
-                </span>
+                </button>
                  
-                <span
+                <button
                   class="rpl-share-this__social"
                   data-link="#share-facebook"
                 >
@@ -40236,9 +40236,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   </span>
                   Facebook
       
-                </span>
+                </button>
                  
-                <span
+                <button
                   class="rpl-share-this__social"
                   data-link="#share-linkedin"
                 >
@@ -40249,7 +40249,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   </span>
                   LinkedIn
       
-                </span>
+                </button>
               </div>
             </div>
           </div>

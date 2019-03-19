@@ -46,6 +46,8 @@ export default {
 <style lang="scss">
 @import "~@dpc-sdp/ripple-global/style";
 
+$rpl-markup-link-color: rpl_color('primary') !default;
+
 .rpl-markup {
 
   &__inner {
@@ -56,7 +58,7 @@ export default {
 
   a:not(.rpl-button) {
     text-decoration: none;
-    color: rpl-color('primary');
+    color: $rpl-markup-link-color;
 
     &:hover,
     &:focus {

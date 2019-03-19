@@ -7649,13 +7649,13 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
           <span
             class="hljs-attr"
           >
-            :colsBp
+            :childColsBp
           </span>
           =
           <span
             class="hljs-string"
           >
-            "colsBp"
+            "childColsBp"
           </span>
            
           <span
@@ -7873,7 +7873,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
             data-v-5bd9cdea=""
           >
             
-    colsBp
+    childColsBp
     
             <!---->
           </td>
@@ -19721,87 +19721,91 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
       </div>
        
       <div
-        class="rpl-search-results__pager"
+        class="rpl-row rpl-row--gutter"
       >
         <div
-          class="rpl-pagination"
+          class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
-          <ol
-            class="rpl-pagination__list"
-          >
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <span
-                class="rpl-pagination__step-current"
-              >
-                1
-              </span>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                2
-              </button>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                3
-              </button>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                4
-              </button>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                5
-              </button>
-            </li>
-          </ol>
-           
           <div
-            class="rpl-pagination__controls"
+            class="rpl-pagination"
           >
-            <!---->
-             
-            <button
-              class="rpl-pagination__nav"
+            <ol
+              class="rpl-pagination__list"
             >
-              <span>
-                Next
-              </span>
-               
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <span
+                  class="rpl-pagination__step-current"
+                >
+                  1
+                </span>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  2
+                </button>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  3
+                </button>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  4
+                </button>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  5
+                </button>
+              </li>
+            </ol>
+             
+            <div
+              class="rpl-pagination__controls"
+            >
               <!---->
-            </button>
+               
+              <button
+                class="rpl-pagination__nav"
+              >
+                <span>
+                  Next
+                </span>
+                 
+                <!---->
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -20333,87 +20337,91 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
       </div>
        
       <div
-        class="rpl-search-results__pager"
+        class="rpl-row rpl-row--gutter"
       >
         <div
-          class="rpl-pagination"
+          class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
-          <ol
-            class="rpl-pagination__list"
-          >
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <span
-                class="rpl-pagination__step-current"
-              >
-                1
-              </span>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                2
-              </button>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                3
-              </button>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                4
-              </button>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                5
-              </button>
-            </li>
-          </ol>
-           
           <div
-            class="rpl-pagination__controls"
+            class="rpl-pagination"
           >
-            <!---->
-             
-            <button
-              class="rpl-pagination__nav"
+            <ol
+              class="rpl-pagination__list"
             >
-              <span>
-                Next
-              </span>
-               
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <span
+                  class="rpl-pagination__step-current"
+                >
+                  1
+                </span>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  2
+                </button>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  3
+                </button>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  4
+                </button>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  5
+                </button>
+              </li>
+            </ol>
+             
+            <div
+              class="rpl-pagination__controls"
+            >
               <!---->
-            </button>
+               
+              <button
+                class="rpl-pagination__nav"
+              >
+                <span>
+                  Next
+                </span>
+                 
+                <!---->
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -22022,87 +22030,91 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
       </div>
        
       <div
-        class="rpl-search-results__pager"
+        class="rpl-row rpl-row--gutter"
       >
         <div
-          class="rpl-pagination"
+          class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
-          <ol
-            class="rpl-pagination__list"
-          >
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <span
-                class="rpl-pagination__step-current"
-              >
-                1
-              </span>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                2
-              </button>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                3
-              </button>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                4
-              </button>
-            </li>
-            <li
-              class="rpl-pagination__list-item"
-            >
-              <button
-                class="rpl-pagination__step"
-              >
-                <span>
-                  Go to step 
-                </span>
-                5
-              </button>
-            </li>
-          </ol>
-           
           <div
-            class="rpl-pagination__controls"
+            class="rpl-pagination"
           >
-            <!---->
-             
-            <button
-              class="rpl-pagination__nav"
+            <ol
+              class="rpl-pagination__list"
             >
-              <span>
-                Next
-              </span>
-               
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <span
+                  class="rpl-pagination__step-current"
+                >
+                  1
+                </span>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  2
+                </button>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  3
+                </button>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  4
+                </button>
+              </li>
+              <li
+                class="rpl-pagination__list-item"
+              >
+                <button
+                  class="rpl-pagination__step"
+                >
+                  <span>
+                    Go to step 
+                  </span>
+                  5
+                </button>
+              </li>
+            </ol>
+             
+            <div
+              class="rpl-pagination__controls"
+            >
               <!---->
-            </button>
+               
+              <button
+                class="rpl-pagination__nav"
+              >
+                <span>
+                  Next
+                </span>
+                 
+                <!---->
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -35397,87 +35409,91 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                 </div>
                  
                 <div
-                  class="rpl-search-results__pager"
+                  class="rpl-row rpl-row--gutter"
                 >
                   <div
-                    class="rpl-pagination"
+                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                   >
-                    <ol
-                      class="rpl-pagination__list"
-                    >
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <span
-                          class="rpl-pagination__step-current"
-                        >
-                          1
-                        </span>
-                      </li>
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <button
-                          class="rpl-pagination__step"
-                        >
-                          <span>
-                            Go to step 
-                          </span>
-                          2
-                        </button>
-                      </li>
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <button
-                          class="rpl-pagination__step"
-                        >
-                          <span>
-                            Go to step 
-                          </span>
-                          3
-                        </button>
-                      </li>
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <button
-                          class="rpl-pagination__step"
-                        >
-                          <span>
-                            Go to step 
-                          </span>
-                          4
-                        </button>
-                      </li>
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <button
-                          class="rpl-pagination__step"
-                        >
-                          <span>
-                            Go to step 
-                          </span>
-                          5
-                        </button>
-                      </li>
-                    </ol>
-                     
                     <div
-                      class="rpl-pagination__controls"
+                      class="rpl-pagination"
                     >
-                      <!---->
-                       
-                      <button
-                        class="rpl-pagination__nav"
+                      <ol
+                        class="rpl-pagination__list"
                       >
-                        <span>
-                          Next
-                        </span>
-                         
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <span
+                            class="rpl-pagination__step-current"
+                          >
+                            1
+                          </span>
+                        </li>
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <button
+                            class="rpl-pagination__step"
+                          >
+                            <span>
+                              Go to step 
+                            </span>
+                            2
+                          </button>
+                        </li>
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <button
+                            class="rpl-pagination__step"
+                          >
+                            <span>
+                              Go to step 
+                            </span>
+                            3
+                          </button>
+                        </li>
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <button
+                            class="rpl-pagination__step"
+                          >
+                            <span>
+                              Go to step 
+                            </span>
+                            4
+                          </button>
+                        </li>
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <button
+                            class="rpl-pagination__step"
+                          >
+                            <span>
+                              Go to step 
+                            </span>
+                            5
+                          </button>
+                        </li>
+                      </ol>
+                       
+                      <div
+                        class="rpl-pagination__controls"
+                      >
                         <!---->
-                      </button>
+                         
+                        <button
+                          class="rpl-pagination__nav"
+                        >
+                          <span>
+                            Next
+                          </span>
+                           
+                          <!---->
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -36132,87 +36148,91 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                 </div>
                  
                 <div
-                  class="rpl-search-results__pager"
+                  class="rpl-row rpl-row--gutter"
                 >
                   <div
-                    class="rpl-pagination"
+                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                   >
-                    <ol
-                      class="rpl-pagination__list"
-                    >
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <span
-                          class="rpl-pagination__step-current"
-                        >
-                          1
-                        </span>
-                      </li>
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <button
-                          class="rpl-pagination__step"
-                        >
-                          <span>
-                            Go to step 
-                          </span>
-                          2
-                        </button>
-                      </li>
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <button
-                          class="rpl-pagination__step"
-                        >
-                          <span>
-                            Go to step 
-                          </span>
-                          3
-                        </button>
-                      </li>
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <button
-                          class="rpl-pagination__step"
-                        >
-                          <span>
-                            Go to step 
-                          </span>
-                          4
-                        </button>
-                      </li>
-                      <li
-                        class="rpl-pagination__list-item"
-                      >
-                        <button
-                          class="rpl-pagination__step"
-                        >
-                          <span>
-                            Go to step 
-                          </span>
-                          5
-                        </button>
-                      </li>
-                    </ol>
-                     
                     <div
-                      class="rpl-pagination__controls"
+                      class="rpl-pagination"
                     >
-                      <!---->
-                       
-                      <button
-                        class="rpl-pagination__nav"
+                      <ol
+                        class="rpl-pagination__list"
                       >
-                        <span>
-                          Next
-                        </span>
-                         
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <span
+                            class="rpl-pagination__step-current"
+                          >
+                            1
+                          </span>
+                        </li>
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <button
+                            class="rpl-pagination__step"
+                          >
+                            <span>
+                              Go to step 
+                            </span>
+                            2
+                          </button>
+                        </li>
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <button
+                            class="rpl-pagination__step"
+                          >
+                            <span>
+                              Go to step 
+                            </span>
+                            3
+                          </button>
+                        </li>
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <button
+                            class="rpl-pagination__step"
+                          >
+                            <span>
+                              Go to step 
+                            </span>
+                            4
+                          </button>
+                        </li>
+                        <li
+                          class="rpl-pagination__list-item"
+                        >
+                          <button
+                            class="rpl-pagination__step"
+                          >
+                            <span>
+                              Go to step 
+                            </span>
+                            5
+                          </button>
+                        </li>
+                      </ol>
+                       
+                      <div
+                        class="rpl-pagination__controls"
+                      >
                         <!---->
-                      </button>
+                         
+                        <button
+                          class="rpl-pagination__nav"
+                        >
+                          <span>
+                            Next
+                          </span>
+                           
+                          <!---->
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -47791,87 +47811,91 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                   </div>
                    
                   <div
-                    class="rpl-search-results__pager"
+                    class="rpl-row rpl-row--gutter"
                   >
                     <div
-                      class="rpl-pagination"
+                      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                     >
-                      <ol
-                        class="rpl-pagination__list"
-                      >
-                        <li
-                          class="rpl-pagination__list-item"
-                        >
-                          <span
-                            class="rpl-pagination__step-current"
-                          >
-                            1
-                          </span>
-                        </li>
-                        <li
-                          class="rpl-pagination__list-item"
-                        >
-                          <button
-                            class="rpl-pagination__step"
-                          >
-                            <span>
-                              Go to step 
-                            </span>
-                            2
-                          </button>
-                        </li>
-                        <li
-                          class="rpl-pagination__list-item"
-                        >
-                          <button
-                            class="rpl-pagination__step"
-                          >
-                            <span>
-                              Go to step 
-                            </span>
-                            3
-                          </button>
-                        </li>
-                        <li
-                          class="rpl-pagination__list-item"
-                        >
-                          <button
-                            class="rpl-pagination__step"
-                          >
-                            <span>
-                              Go to step 
-                            </span>
-                            4
-                          </button>
-                        </li>
-                        <li
-                          class="rpl-pagination__list-item"
-                        >
-                          <button
-                            class="rpl-pagination__step"
-                          >
-                            <span>
-                              Go to step 
-                            </span>
-                            5
-                          </button>
-                        </li>
-                      </ol>
-                       
                       <div
-                        class="rpl-pagination__controls"
+                        class="rpl-pagination"
                       >
-                        <!---->
-                         
-                        <button
-                          class="rpl-pagination__nav"
+                        <ol
+                          class="rpl-pagination__list"
                         >
-                          <span>
-                            Next
-                          </span>
-                           
+                          <li
+                            class="rpl-pagination__list-item"
+                          >
+                            <span
+                              class="rpl-pagination__step-current"
+                            >
+                              1
+                            </span>
+                          </li>
+                          <li
+                            class="rpl-pagination__list-item"
+                          >
+                            <button
+                              class="rpl-pagination__step"
+                            >
+                              <span>
+                                Go to step 
+                              </span>
+                              2
+                            </button>
+                          </li>
+                          <li
+                            class="rpl-pagination__list-item"
+                          >
+                            <button
+                              class="rpl-pagination__step"
+                            >
+                              <span>
+                                Go to step 
+                              </span>
+                              3
+                            </button>
+                          </li>
+                          <li
+                            class="rpl-pagination__list-item"
+                          >
+                            <button
+                              class="rpl-pagination__step"
+                            >
+                              <span>
+                                Go to step 
+                              </span>
+                              4
+                            </button>
+                          </li>
+                          <li
+                            class="rpl-pagination__list-item"
+                          >
+                            <button
+                              class="rpl-pagination__step"
+                            >
+                              <span>
+                                Go to step 
+                              </span>
+                              5
+                            </button>
+                          </li>
+                        </ol>
+                         
+                        <div
+                          class="rpl-pagination__controls"
+                        >
                           <!---->
-                        </button>
+                           
+                          <button
+                            class="rpl-pagination__nav"
+                          >
+                            <span>
+                              Next
+                            </span>
+                             
+                            <!---->
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

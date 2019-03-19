@@ -23,9 +23,23 @@ npm install @dpc-sdp/ripple-hero-banner --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import {
+  RplHeroBanner,
+  RplIntroBanner,
+  RplHeroBannerCta
+} from '@dpc-sdp/ripple-hero-banner'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Hero Banner](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/HeroBanner&selectedStory=Hero%20Banner).
+
+See [Storybook/Hero Banner with CTA](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/HeroBanner&selectedStory=Hero%20Banner%20with%20CTA).
 
 See [Storybook/Intro Banner](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/HeroBanner&selectedStory=Intro%20Banner).
 

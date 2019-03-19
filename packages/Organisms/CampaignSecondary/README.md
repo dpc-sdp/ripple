@@ -23,9 +23,19 @@ npm install @dpc-sdp/ripple-campaign-secondary --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplCampaignSecondary from '@dpc-sdp/ripple-campaign-secondary'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
-See [Storybook/Campaign Secondary](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CampaignSecondary&selectedStory=Campaign%20Secondary).
+See [Storybook/Campaign secondary - Image](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CampaignSecondary&selectedStory=Campaign%20secondary%20-%20Image).
+
+See [Storybook/Campaign secondary - Video](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CampaignSecondary&selectedStory=Campaign%20secondary%20-%20Video).
 
 --------------------------------------------------------------------------------
 

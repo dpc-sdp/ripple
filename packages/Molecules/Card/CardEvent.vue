@@ -43,10 +43,10 @@ export default {
   },
   methods: {
     getTrimFieldMaxHeightOffset: function (card) {
-      let link = this.$el.querySelector('.rpl-card-content__link')
-      let location = this.$el.querySelector('.rpl-card-event__location')
-      let rtnMaxHeight = card.clientHeight - link.clientHeight
-      return (location) ? (rtnMaxHeight - location.clientHeight) : rtnMaxHeight
+      const link = this.$el.querySelector('.rpl-card-content__link')
+      const location = this.$el.querySelector('.rpl-card-event__location')
+      const rtnMaxHeight = link ? (card.clientHeight - link.clientHeight) : card.clientHeight
+      return location ? (rtnMaxHeight - location.clientHeight) : rtnMaxHeight
     }
   },
   computed: {
@@ -64,7 +64,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/card";
 
   $rpl-card-event-meta-margin: 0 0 $rpl-space-3 0 !default;

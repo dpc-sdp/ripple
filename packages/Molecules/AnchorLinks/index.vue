@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-anchor-links">
+  <div v-if="(links.length)" class="rpl-anchor-links">
     <div class="rpl-anchor-links__row">
       <h2 class="rpl-anchor-links__title">{{ title }}</h2>
     </div>
@@ -31,7 +31,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-anchor-links-max-width-s: rem(510px);
   $rpl-anchor-links-max-width-xl: rem(463px);

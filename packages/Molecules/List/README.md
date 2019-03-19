@@ -22,6 +22,14 @@ npm install @dpc-sdp/ripple-list --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplList from '@dpc-sdp/ripple-list'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/List](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/List&selectedStory=List).

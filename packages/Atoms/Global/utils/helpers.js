@@ -33,6 +33,14 @@ const isAnchorLink = (url) => {
   return (typeof url === 'string' && url.length > 0 && url[0] === '#')
 }
 
+const formatMoney = (value) => {
+  if (value && !isNaN(value)) {
+    // Thousands seperator - https://stackoverflow.com/a/2901298
+    return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
+  return ''
+}
+
 // https://stackoverflow.com/a/23945027/1212791
 function _extractHostname (url) {
   let hostname
@@ -69,4 +77,4 @@ function _isTelOrEmailUrl (url) {
   return false
 }
 
-export { isRelativeUrl, isExternalUrl, isAnchorLink }
+export { isRelativeUrl, isExternalUrl, isAnchorLink, formatMoney }

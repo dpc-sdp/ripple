@@ -1,0 +1,62 @@
+@mixin rpl_typography_font($font-size: 's', $line-height: 1.2em, $font-family: 'inherit') {
+  @if $font-family != 'inherit' {
+    font-family: rpl-font($font-family);
+  }
+  @if type-of($font-size) == string {
+    font-size: rpl-font-size($font-size);
+  }
+  @if type-of($font-size) == number {
+    font-size: $font-size;
+  }
+  line-height: $line-height;
+  // The custom Vicfont has fixed font weight,
+  // so we set this to always normal,
+  // this will make all browsers render the font more consistently.
+  // See: https://stormconsultancy.co.uk/blog/development/tips-tricks/dealing-with-firefox-rendering-fonts-too-bold-with-browser-specific-css/
+  font-weight: normal;
+}
+
+@mixin rpl_display_background {
+  background-color: rpl-color('secondary');
+  color: rpl-color('white');
+  display: inline;
+  line-height: 1.4em;
+}
+
+@mixin rpl_typography($name: 'body_default') {
+  @if map-get($rpl-typography, $name) == null {
+    @error '"#{$name}" is not an available typeset';
+  }
+  $typography-rules: map-get($rpl-typography, $name);
+  @include rpl_typography_ruleset($typography-rules);
+}
+
+@mixin rpl_typography_ruleset($ruleset) {
+  // Print rules
+  @if type-of($ruleset) == list {
+    @include rpl_typography_print_rules($ruleset);
+  }
+  // Print breakpoints
+  @if type-of($ruleset) == map {
+    @each $breakpoint, $breakpoint-rules in $ruleset {
+      @include rpl_breakpoint($breakpoint) {
+        @include rpl_typography_print_rules($breakpoint-rules);
+      }
+    }
+  }
+}
+
+@mixin rpl_typography_print_rules($rules) {
+  $font-size: nth($rules, 1);
+  $line-height: nth($rules, 2);
+  $font-family: nth($rules, 3);
+  @include rpl_typography_font($font-size, $line-height, $font-family);
+  @if length($rules) > 3 {
+    $include-back: nth($rules, 4);
+    @if $include-back == true {
+      span {
+        @include rpl_display_background;
+      }
+    }
+  }
+}

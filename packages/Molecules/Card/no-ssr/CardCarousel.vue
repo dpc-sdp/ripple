@@ -9,7 +9,9 @@
         :paginationEnabled="false"
       >
         <slide v-for="(item, index) in cards" :key="index" class="rpl-card-carousel__slide">
-          <component :is="item.name" v-bind="item.data" :trimFieldEventBus="isTrimmed(item.name) ? eventBus : null" :trimFieldUpdateOnResize="false"></component>
+          <div class="rpl-card-carousel__slide-wrap">
+            <component :is="item.name" v-bind="item.data" :trimFieldEventBus="isTrimmed(item.name) ? eventBus : null" :trimFieldUpdateOnResize="false"></component>
+          </div>
         </slide>
       </carousel>
       <div class="rpl-card-carousel__navigation">
@@ -27,6 +29,7 @@
 <script>
 import Vue from 'vue'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
+import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import { Carousel, Slide } from 'vue-carousel'
 
 import RplIcon from '@dpc-sdp/ripple-icon'
@@ -37,12 +40,14 @@ import RplCardKeydates from './../CardKeydates.vue'
 
 export default {
   name: 'RplCardCarousel',
-  mixins: [breakpoint],
+  mixins: [breakpoint, provideChildCols],
   props: {
     title: String,
     cards: Array,
     previousLabel: { type: String, default: 'Go to previous slide' },
-    nextLabel: { type: String, default: 'Go to next slide' }
+    nextLabel: { type: String, default: 'Go to next slide' },
+    childColsBp: { type: Object, default: () => ({ l: 4, m: 6 }) },
+    totalGridColumns: { type: Number, default: 12 }
   },
   components: {
     RplIcon,
@@ -91,13 +96,16 @@ export default {
   },
   computed: {
     slidesPerPage () {
-      if (this.$breakpoint.l) {
-        return 3
-      } else if (this.$breakpoint.m) {
-        return 2
-      } else {
-        return 1
+      if (this.childColsBp && this.totalGridColumns) {
+        // Determine # of cards to display based on defined column breakpoints.
+        for (let i = this.breakpointsSmallToLarge.length - 1; i >= 0; i--) {
+          const bp = this.breakpointsSmallToLarge[i].label
+          if (this.childColsBp[bp] && this.$breakpoint[bp]) {
+            return this.totalGridColumns / this.childColsBp[bp]
+          }
+        }
       }
+      return 1
     },
     totalSlides () {
       return Math.ceil(this.cards.length / this.slidesPerPage) - 1
@@ -132,16 +140,14 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-card-carousel-slide-gutter: $rpl-space * 6 !default;
   $rpl-card-carousel-title-ruleset: (
     'xs': ('l', 0.9em, 'bold'),
     'l': ('mega', 1.29em, 'bold')
   ) !default;
-  $rpl-card-carousel-title-padding-xs: ($rpl-space * 6) !default;
-  $rpl-card-carousel-title-padding-s: ($rpl-space * 8) !default;
-  $rpl-card-carousel-title-right-margin: ($rpl-space * 14) !default;
   $rpl-card-carousel-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-card-carousel-padding-l: $rpl-space * 5 !default;
   $rpl-card-carousel-padding-xs: $rpl-space $rpl-space-2 !default;
@@ -152,21 +158,6 @@ export default {
     &__title {
       @include rpl_typography_ruleset($rpl-card-carousel-title-ruleset);
       color: $rpl-card-carousel-title-text-color;
-      padding-left: $rpl-card-carousel-title-padding-xs;
-      margin-right: $rpl-card-carousel-title-right-margin + $rpl-card-carousel-title-padding-xs;
-
-      @include rpl_breakpoint('s') {
-        padding-left: $rpl-card-carousel-title-padding-s;
-        margin-right: $rpl-card-carousel-title-right-margin + $rpl-card-carousel-title-padding-s;
-      }
-
-      @include rpl_breakpoint('m') {
-        padding-left: 0;
-      }
-
-      @include rpl_breakpoint('l') {
-        margin-right: 0;
-      }
     }
 
     &__slider {
@@ -176,9 +167,12 @@ export default {
     &__slide {
       box-sizing: border-box;
 
+    }
+
+    &__slide-wrap {
       @include rpl_breakpoint('m') {
-        padding-left: $rpl-card-carousel-slide-gutter / 2;
-        padding-right: $rpl-card-carousel-slide-gutter / 2;
+        margin-left: $rpl-card-carousel-slide-gutter / 2;
+        margin-right: $rpl-card-carousel-slide-gutter / 2;
       }
     }
 
@@ -198,15 +192,6 @@ export default {
       bottom: 100%;
       right: 0;
       margin-bottom: $rpl-card-carousel-navigation-bottom-margin;
-      margin-right: $rpl-card-carousel-title-padding-xs;
-
-      @include rpl_breakpoint('s') {
-        margin-right: $rpl-card-carousel-title-padding-s;
-      }
-
-      @include rpl_breakpoint('m') {
-        margin-right: 0;
-      }
 
       @include rpl_breakpoint('l') {
         position: static;

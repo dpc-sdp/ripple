@@ -7,6 +7,7 @@ import RplCardEvent from './CardEvent.vue'
 import RplCardCta from './CardCta.vue'
 import RplCardEmergencyContact from './CardEmergencyContact.vue'
 import RplCardBox from './CardBox.vue'
+import RplCardHonourRoll from './CardHonourRoll.vue'
 
 export {RplCardImageNavigation}
 export {RplCardNavigation}
@@ -17,4 +18,5 @@ export {RplCardEvent}
 export {RplCardCta}
 export {RplCardEmergencyContact}
 export {RplCardBox}
+export {RplCardHonourRoll}
 export default RplCardNavigation

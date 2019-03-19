@@ -57,18 +57,21 @@ export default {
         })
       }
       if (this.phone && this.phone.length > 0) {
-        this.phone.forEach(phoneNumber => {
-          _list.push({
-            symbol: 'phone_number',
-            link: `tel: ${phoneNumber}`,
-            size: 0.857,
-            text: phoneNumber
-          })
+        this.phone.forEach(phone => {
+          if (phone.number) {
+            _list.push({
+              symbol: 'phone_number',
+              link: `tel:${phone.number.replace(/ /g, '')}`,
+              size: 0.857,
+              text: `${phone.title ? phone.title + ' ' : ''}${phone.number}`
+            })
+          }
         })
       }
       if (this.email) {
         _list.push({
           symbol: 'email_solid',
+          link: `mailto:${this.email}`,
           size: 0.65,
           text: this.email
         })
@@ -93,7 +96,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-contact-background: transparent;
   $rpl-contact-title-ruleset: ('l', 1.2em, 'bold');
@@ -113,16 +117,10 @@ export default {
   $rpl-contact-icon-margin: 0 $rpl-space-2 0 0;
 
   .rpl-contact {
-    @include rpl_mobile_padding;
     padding-top: $rpl-space-4;
     background: $rpl-contact-background;
     color: $rpl-contact-text-color;
     position: relative;
-
-    @include rpl_breakpoint('l') {
-      padding-left: 0;
-      padding-right: 0;
-    }
 
     &__title {
       @include rpl_typography_ruleset($rpl-contact-title-ruleset);

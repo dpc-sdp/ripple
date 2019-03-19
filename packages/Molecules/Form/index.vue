@@ -1,13 +1,14 @@
 <template>
   <form class="rpl-form" @submit="onSubmit">
-    <rpl-form-alert v-if="formData.formState.response" :variant="formData.formState.response.status">
-      {{ formData.formState.response.message }}
+    <h3 class="rpl-form__title" v-if="title">{{title}}</h3>
+    <rpl-form-alert v-if="formData.formState.response && formData.formState.response.message" :variant="formData.formState.response.status" v-html="formData.formState.response.message">
     </rpl-form-alert>
     <vue-form-generator
       :schema="formData.schema"
       :model="formData.model"
       :options="formData.formOptions"
       ref="vfg"
+      :tag="formData.tag"
       v-show="hideForm()"
     />
   </form>
@@ -16,34 +17,63 @@
 <script>
 import Vue from 'vue'
 import RplFormAlert from './formAlert'
-import VueFormGenerator from 'vue-form-generator'
+import RplFieldset from './Fieldset'
 import Multiselect from 'vue-multiselect'
+import VueFormGenerator from 'vue-form-generator'
+import fieldRplselect from './fields/fieldRplselect.vue'
+import fieldRplslider from './fields/fieldRplslider.vue'
+import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
 import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
+import fieldRplclearform from './fields/fieldRplclearform.vue'
+import fieldRpldivider from './fields/fieldRpldivider.vue'
+import fieldRplmarkup from './fields/fieldRplmarkup.vue'
+import VueScrollTo from 'vue-scrollto'
+
 Vue.component('multiselect', Multiselect)
+Vue.component('fieldRplselect', fieldRplselect)
+Vue.component('fieldRplslider', fieldRplslider)
+Vue.component('fieldRplcheckbox', fieldRplcheckbox)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
 Vue.component('fieldRpldatepicker', fieldRpldatepicker)
 Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
+Vue.component('fieldRplclearform', fieldRplclearform)
+Vue.component('fieldRpldivider', fieldRpldivider)
+Vue.component('fieldRplmarkup', fieldRplmarkup)
+Vue.component('RplFieldset', RplFieldset)
 
 export { VueFormGenerator }
+export const RplFormEventBus = new Vue()
 
 export default {
   name: 'RplForm',
   components: {
     'vue-form-generator': VueFormGenerator.component,
-    Multiselect,
+    fieldRplselect,
+    fieldRplslider,
     fieldRplchecklist,
     fieldRpldatepicker,
     fieldRplsubmitloader,
-    RplFormAlert
+    fieldRplclearform,
+    RplFormAlert,
+    RplFieldset
   },
   props: {
+    title: String,
     formData: Object,
     submitHandler: Function,
-    hideAfterSuccess: Boolean
+    hideAfterSuccess: Boolean,
+    clearFormOnSuccess: {type: Boolean, default: false},
+    submitFormOnClear: {type: Boolean, default: false},
+    scrollToMessage: {type: Boolean, default: true},
+    validateOnSubmit: {type: Boolean, default: true}
+  },
+  mounted () {
+    RplFormEventBus.$on('clearform', this.clearForm)
   },
   methods: {
+
     hideForm () {
       if (this.formData.formState.response) {
         return !(this.hideAfterSuccess && this.formData.formState.response.status === 'success')
@@ -51,15 +81,48 @@ export default {
         return true
       }
     },
-    onSubmit (event) {
-      event.preventDefault()
-      // Run custom submit callback if no error in validation
-      if (this.$refs.vfg.errors.length === 0) {
-        this.submitHandler()
+    clearForm () {
+      for (let key in this.formData.model) {
+        const model = this.formData.model[key]
+        if (typeof model === 'object' && !Array.isArray(model) && model !== null) {
+          // nested objects need to be initalized back to an empty object to work
+          this.formData.model[key] = {}
+        } else {
+          this.formData.model[key] = null
+        }
+      }
+      if (this.$refs.vfg && this.$refs.vfg.errors && this.$refs.vfg.errors.length > 0) {
+        this.$refs.vfg.clearValidationErrors()
+      }
+      if (this.submitFormOnClear) {
+        this.onSubmit()
       }
     },
-    onValidated (isValid, errors) {
-      // console.log('Validation result: ', isValid, ', Errors:', errors)
+    async onSubmit (event) {
+      event.preventDefault()
+      // call validation manually
+      if (this.validateOnSubmit) {
+        this.$refs.vfg.validate()
+      }
+
+      // Run custom submit callback if no error in validation
+      if (this.$refs.vfg.errors.length === 0) {
+        RplFormEventBus.$emit('loading', true)
+        await this.submitHandler()
+        if (this.scrollToMessage) {
+          VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
+        }
+        if (this.clearFormOnSuccess) {
+          this.clearForm()
+        }
+      } else {
+        // scroll into view first element with error
+        const firstError = this.$refs.vfg.$children.find(child => child.field.model === this.$refs.vfg.errors[0].field.model)
+        if (firstError) {
+          VueScrollTo.scrollTo(firstError.$el, 500, { offset: -100 })
+        }
+      }
+      RplFormEventBus.$emit('loading', false)
     }
   }
 }
@@ -68,22 +131,16 @@ export default {
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
+@import "~@dpc-sdp/ripple-global/scss/components/button";
 @import "scss/form";
 
 .rpl-form {
   @include rpl_typography_ruleset($rpl-form-text-ruleset);
-  padding-left: $rpl-component-padding-xs;
-  padding-right: $rpl-component-padding-xs;
 
-  @include rpl_breakpoint(s) {
-    padding-left: $rpl-component-padding-s;
-    padding-right: $rpl-component-padding-s;
-  }
-
-  @include rpl_breakpoint(m) {
-    padding-left: 0;
-    padding-right: 0;
+  &__title {
+    margin-top: 0;
   }
 
   label {
@@ -159,7 +216,9 @@ export default {
 
   .error {
     input,
-    textarea {
+    textarea,
+    .multiselect__tags,
+    .form-control {
       @include rpl_from_element_error;
     }
   }
@@ -169,6 +228,8 @@ export default {
     margin-top: $rpl-space-3;
 
     &.errors {
+      order: 2;
+      margin-bottom: $rpl-space-2;
       color: rpl-color('danger');
     }
   }
@@ -186,6 +247,18 @@ export default {
     flex-direction: column;
     @include rpl_breakpoint(m) {
       margin-bottom: $rpl-form-element-margin-bottom-m;
+    }
+
+    &.required {
+      > label,
+      .field-wrap > label {
+        &:after {
+          margin-left: $rpl-space;
+          @include rpl_typography_ruleset($rpl-form-required-ruleset);
+          color: $rpl-form-required-color;
+          content: $rpl-form-required-message;
+        }
+      }
     }
 
     label {
@@ -206,6 +279,11 @@ export default {
   &__tags {
     @include rpl_form_text_element;
     padding-right: rem(40px);
+  }
+
+  &__placeholder {
+    margin-bottom: 0;
+    padding: 0;
   }
 
   &__single {

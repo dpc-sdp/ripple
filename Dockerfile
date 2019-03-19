@@ -1,4 +1,4 @@
-FROM amazeeio/node:8-builder as builder
+FROM amazeeio/node:10-builder as builder
 
 COPY . /app
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
@@ -6,7 +6,7 @@ RUN npm cache clean --force \
     && npm ci \ 
     && npm run build-storybook
 
-FROM amazeeio/node:8
+FROM amazeeio/node:10
 COPY --from=builder /app/public /app
 COPY scripts/jira-post-comment.sh /app/scripts/jira-post-comment.sh
 

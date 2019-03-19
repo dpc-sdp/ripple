@@ -22,14 +22,24 @@
 
 <script>
 import { abstractField } from 'vue-form-generator'
+import { RplFormEventBus } from '@dpc-sdp/ripple-form'
 
 export default {
-  mixins: [abstractField]
+  mixins: [abstractField],
+  mounted () {
+    RplFormEventBus.$on('loading', this.updateLoading)
+  },
+  methods: {
+    updateLoading (val) {
+      this.schema.loading = val
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 @import "../scss/form";
 
 $rpl-field-submit-loader-total-duration: 2 !default;

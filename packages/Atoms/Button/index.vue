@@ -45,7 +45,9 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
+  @import "~@dpc-sdp/ripple-global/scss/components/button";
 
   .rpl-button {
     @include rpl_button;

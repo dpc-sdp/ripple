@@ -1,5 +1,6 @@
 <template>
   <transition name="rpl-header-fade">
+    <Trap :disabled="!menuContentOpen">
     <div v-show="headerVisible"
       class="rpl-site-header"
       :class="{
@@ -22,8 +23,15 @@
               <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
               <span>{{ menuButton[menuState].text }}</span>
             </button>
-            <!-- Logo -->
-            <div v-if="!menuContentOpen && logo" class="rpl-site-header__title">
+            <!-- Primary vic.gov.au Logo -->
+            <div v-if="!menuContentOpen && this.rplOptions.viclogo" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
+              <rpl-link :href="vicLogoPrimary.url">
+                <img :src="vicLogoPrimary.image" :alt="vicLogoPrimary.alt" />
+              </rpl-link>
+            </div>
+
+            <!--Co brand logo if it exists-->
+            <div v-if="!menuContentOpen && logo" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
               <rpl-link :href="logo.url">
                 <img :src="logo.image" :alt="logo.alt" />
               </rpl-link>
@@ -48,18 +56,30 @@
               />
             </div>
           </div>
-          <!-- Search Button -->
-          <button v-if="showSearch" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
-            <span>{{ searchButton[searchState].text }}</span>
-            <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
-          </button>
+          <div class="rpl-site-header__btn-container">
+            <!-- Logout button -->
+            <button
+              v-if="showLogout"
+              class="rpl-site-header__btn rpl-site-header__btn--logout"
+              :class="{'rpl-site-header__btn--logout-open' : (menuState === 'opened')}"
+              @click="logoutFunc()">
+                <span>{{ logoutButton.text }}</span>
+                <rpl-icon :symbol="logoutButton.icon" color="white" />
+            </button>
+            <!-- Search Button -->
+            <button v-if="showSearch" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
+              <span>{{ searchButton[searchState].text }}</span>
+              <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
+            </button>
+          </div>
         </div>
         <!-- Search Content -->
         <div v-if="menuContentOpen && searchState == 'opened'" class="rpl-site-header__search-container">
-          <rpl-search :terms="searchTerms" @search="searchFunc" />
+            <rpl-search :terms="searchTerms" @search="searchFunc" />
         </div>
       </div>
     </div>
+    </Trap>
   </transition>
 </template>
 
@@ -68,6 +88,12 @@ import RplMenu from './menu'
 import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
+import Trap from 'vue-focus-lock'
+import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.png'
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import Vue from 'vue'
+
+export const RplSiteHeaderEventBus = new Vue()
 
 export default {
   name: 'RplSiteHeader',
@@ -78,9 +104,11 @@ export default {
     searchTerms: Array,
     sticky: Boolean,
     hideOnScroll: { default: true, type: Boolean },
-    showSearch: { default: false, type: Boolean }
+    showSearch: { default: false, type: Boolean },
+    showLogout: { default: false, type: Boolean }
   },
   components: {
+    Trap,
     RplIcon,
     RplLink,
     RplMenu,
@@ -88,6 +116,12 @@ export default {
   },
   data: function () {
     return {
+      vicLogoPrimary: {
+        image: vicLogoPrimary,
+        alt: 'vic_logo',
+        url: '/'
+      },
+      menuEl: null,
       menuContentOpen: false,
       searchState: 'closed',
       menuState: 'closed',
@@ -117,6 +151,10 @@ export default {
           text: 'Search website',
           icon: 'search'
         }
+      },
+      logoutButton: {
+        text: 'Logout',
+        icon: 'link'
       }
     }
   },
@@ -134,6 +172,11 @@ export default {
           this.searchToggle()
         }
       }
+    },
+    menuContentOpen: function (to, from) {
+      this.$emit('open', to)
+      RplSiteHeaderEventBus.$emit('open', to)
+      this.toggleBodyScroll()
     }
   },
   methods: {
@@ -141,13 +184,23 @@ export default {
       this.menuContentOpen = !(this.menuContentOpen && this.searchState === 'opened')
       this.searchState = this.menuContentOpen ? 'opened' : 'closed'
       this.menuState = 'closed'
-      this.$emit('open', this.menuContentOpen)
     },
     menuToggle: function () {
       this.menuContentOpen = !(this.menuContentOpen && this.menuState === 'opened')
       this.searchState = 'closed'
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
-      this.$emit('open', this.menuContentOpen)
+    },
+    toggleBodyScroll () {
+      if (this.menuContentOpen) {
+        this.$nextTick(function () {
+          this.menuEl = document.querySelector('.rpl-site-header__menu-container')
+          if (this.menuEl) {
+            disableBodyScroll(this.menuEl)
+          }
+        })
+      } else {
+        clearAllBodyScrollLocks()
+      }
     },
     windowResize: function (e) {
       var w = window.innerWidth || document.documentElement.clientWidth
@@ -170,10 +223,12 @@ export default {
       this.menuContentOpen = !(this.menuContentOpen && this.lastRootMenuClicked === rootMenuIndex)
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
       this.lastRootMenuClicked = rootMenuIndex
-      this.$emit('open', this.menuContentOpen)
     },
     searchFunc: function (value) {
       this.$emit('search', value)
+    },
+    logoutFunc: function () {
+      this.$emit('logout')
     },
     scroll: function () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -211,6 +266,7 @@ export default {
   beforeDestroy: function () {
     if (process.browser) {
       window.removeEventListener('resize', this.windowResize)
+      clearAllBodyScrollLocks()
       if (this.hideOnScroll) {
         window.removeEventListener('scroll', this.scroll)
       }
@@ -220,10 +276,12 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/site_header";
 
   $rpl-site-header-logo-width: auto !default;
+  $rpl-site-header-logo-primary-width: rem(98px);
   $rpl-site-header-text-color: rpl-color('white') !default;
   $rpl-site-header-border-radius: rem(4px) !default;
   $rpl-site-header-background-color: rpl-color('primary') !default;
@@ -233,10 +291,15 @@ export default {
   $rpl-site-header-menu-toggle-border-spacing: $rpl-space-2 !default;
   $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space-2 auto 0 !default;
   $rpl-site-header-search-toggle-icon-margin: auto 0 auto $rpl-space-2 !default;
+  $rpl-site-header-logout-btn-background-color: rpl-color('dark_primary') !default;
+  $rpl-site-header-logout-btn-background-color-mobile: darken($rpl-site-header-logout-btn-background-color, 10%) !default;
+  $rpl-site-header-logout-btn-padding-mobile: rem(8px) rem(10px) !default;
+  $rpl-site-header-logout-btn-padding: rem(10px) !default;
+  $rpl-site-header-logout-btn-margin: $rpl-space-4 !default;
+  $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
 
   .rpl-site-header {
     $root: &;
-    @include rpl_body;
     position: absolute;
     z-index: $rpl-zindex-header;
     padding: $rpl-header-horizontal-padding-xs;
@@ -266,7 +329,7 @@ export default {
     &--open {
       position: fixed;
       top: 0;
-      height: 100vh;
+      height: 100%;
 
       #{$root}__inner {
         margin: 0;
@@ -306,20 +369,45 @@ export default {
         width: $rpl-site-header-logo-width;
         margin-left: $rpl-site-header-menu-toggle-border-spacing;
       }
+
+      &--vic-logo-primary {
+        display: block; //always show vic.gov logo if no cobrand logo
+
+        img {
+          width: $rpl-site-header-logo-primary-width;
+        }
+
+        &--cobrand {
+
+          padding-right: 0.5rem;
+          border-right: 1px solid #fff;
+          display: none;
+
+          @include rpl_breakpoint('m') {
+            display: block;
+          }
+
+        }
+
+      }
     }
 
     // Menu Container - changes for vert / horizontal
     &__menu-container {
       &--vertical {
-        width: 100%;
+        width: auto;
         position: absolute;
-        bottom: 0;
+        bottom: $rpl-header-horizontal-padding-xs;
         left: $rpl-header-horizontal-padding-xs;
         right: $rpl-header-horizontal-padding-xs;
         overflow-x: hidden;
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: auto;
         top: $rpl-site-header-top-height-s;
+
+        @include rpl_breakpoint('m') {
+          top: $rpl-site-header-top-height-m;
+        }
 
         @include rpl_breakpoint('s') {
           left: $rpl-header-horizontal-padding-s;
@@ -345,6 +433,10 @@ export default {
         }
     }
 
+    &__btn-container {
+      display: flex;
+    }
+
     &__btn {
       background-color: transparent;
       border: 0;
@@ -358,6 +450,13 @@ export default {
         border-right: $rpl-site-header-menu-toggle-border-right;
         @include rpl_breakpoint('l') {
           display: none;
+        }
+
+        span{
+          display: none;
+          @include rpl_breakpoint('s') {
+            display: block;
+          }
         }
 
         .rpl-icon {
@@ -397,6 +496,27 @@ export default {
       &--search-open {
         span {
           display: flex;
+        }
+      }
+
+      &--logout {
+        border-radius: $rpl-button-border-radius;
+        background-color: $rpl-site-header-logout-btn-background-color-mobile;
+        display: none;
+        margin-right: $rpl-site-header-logout-btn-margin;
+        padding: $rpl-site-header-logout-btn-padding-mobile;
+
+        &-open {
+          display: inline-block;
+        }
+
+        @include rpl_breakpoint('m') {
+          background-color: $rpl-site-header-logout-btn-background-color;
+          display: inline-block;
+          padding: $rpl-site-header-logout-btn-padding;
+        }
+        .rpl-icon {
+          margin: $rpl-site-header-logout-btn-icon-margin;
         }
       }
 

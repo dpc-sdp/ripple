@@ -1,6 +1,6 @@
 <template>
   <figure class="rpl-document-link">
-    <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="!isExternalLink" :target="isExternalLink ? '_blank' : false">
+    <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="isExternalLink ? false : ''" :target="isExternalLink ? '_blank' : false">
       <rpl-icon class="rpl-document-link__icon" :symbol="icon" color="primary" size="l" />
       <div class="rpl-document-link__info">
         <span class="rpl-document-link__title">{{name}}</span>
@@ -31,18 +31,23 @@ export default {
   computed: {
     icon () {
       switch (this.extension) {
-        case 'pdf':
+        case 'ai':
+        case 'csv':
         case 'doc':
         case 'docx':
-        case 'xls':
-        case 'xlsx':
-        case 'csv':
-        case 'txt':
-        case 'ppt':
-        case 'pptx':
         case 'dot':
         case 'dotm':
         case 'dotx':
+        case 'eps':
+        case 'ics':
+        case 'indd':
+        case 'pdf':
+        case 'ppt':
+        case 'pptx':
+        case 'tif':
+        case 'txt':
+        case 'xls':
+        case 'xlsx':
         case 'zip':
           return this.extension
         default:
@@ -57,7 +62,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-document-link-title-ruleset: ('xs', 1em, 'semibold');
   $rpl-document-link-title-color: rpl_color('extra_dark_neutral') !default;
@@ -71,12 +77,6 @@ export default {
 
   .rpl-document-link {
     margin: $rpl-document-link-margin;
-
-    @include rpl_mobile_padding();
-    @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
-    }
 
     &__link {
       display: flex;

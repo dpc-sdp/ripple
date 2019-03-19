@@ -1,0 +1,14 @@
+.rpl-component-gutter {
+  @include rpl_component_gutter;
+}
+
+// Use this class to make a component gorw to reach left/right edge.
+// Don't use this if the component is inside sidebar or main content area beside sidebar.
+.rpl-edge--on-all {
+  @include rpl_edge;
+}
+
+// Use this calss if the item is inside sidebar or main content area beside sidebar.
+.rpl-edge--below-l {
+  @include rpl_edge(small);
+}

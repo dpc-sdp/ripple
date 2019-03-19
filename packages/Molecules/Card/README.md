@@ -26,6 +26,25 @@ npm install @dpc-sdp/ripple-card --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import {
+  RplCardImageNavigation,
+  RplCardNavigation,
+  RplCardNavigationFeatured,
+  RplCardPromotion,
+  RplCardKeydates,
+  RplCardEvent,
+  RplCardCta,
+  RplCardEmergencyContact,
+  RplCardBox,
+  RplCardHonourRoll
+} from '@dpc-sdp/ripple-card'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Card Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Navigation).
@@ -41,6 +60,12 @@ See [Storybook/Card Keydates](https://ripple.sdp.vic.gov.au/?selectedKind=Molecu
 See [Storybook/Card Event](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Event).
 
 See [Storybook/Card Cta](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Cta).
+
+See [Storybook/Card Emergency Contact](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Emergency%20Contact).
+
+See [Storybook/Card Box](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Box).
+
+See [Storybook/Card Honour Roll](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Honour%20Roll).
 
 See [Storybook/Card Content (base)](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Content%20(base)).
 

@@ -75,7 +75,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-back-to-top-bottom-offset: $rpl-space-3 !default;
 $rpl-back-to-top-bottom-height: rem(48px) + $rpl-back-to-top-bottom-offset !default;
@@ -91,19 +92,18 @@ $rpl-back-to-top-button-padding-l: $rpl-space-4 ($rpl-space * 5) !default;
 $rpl-back-to-top-icon-margin: 0 0 0 $rpl-space !default;
 
 .rpl-back-to-top {
-  height: $rpl-back-to-top-bottom-height;
-
   &__inner {
     @include rpl_mobile_padding;
     @include rpl_site_constrain;
     text-align: right;
-    padding-bottom: $rpl-back-to-top-bottom-offset;
+    position: relative;
+    z-index: $rpl-zindex-fixed;
+    height: 0;
+    bottom: $rpl-back-to-top-bottom-height;
+    right: 0;
 
     &--sticky {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
     }
   }
 

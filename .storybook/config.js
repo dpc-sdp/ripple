@@ -8,12 +8,14 @@ import './../src/storybook-components/scss/story.scss';
 
 import Vue from 'vue'
 import RplGlobal from './../packages/Atoms/Global'
+import RplMarkupExamplePlugins from './../packages/Organisms/Markup/examplePlugins'
 
 // Install Ripple Global plugin
-Vue.use(RplGlobal)
+Vue.use(RplGlobal, { rplMarkup: {plugins: RplMarkupExamplePlugins, options: { decodeEntities: false }}})
 
 setOptions({
   name: 'Ripple',
+  downPanelInRight: true,
 })
 
 // automatically import all files ending in *.stories.js

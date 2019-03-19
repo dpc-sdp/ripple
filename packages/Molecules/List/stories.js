@@ -15,7 +15,7 @@ storiesOf('Molecules/List', module)
   .addDecorator(withKnobs)
   .add('List', withReadme(readme, () => ({
     components: { RplList },
-    template: `<rpl-list :title="title" :size="size" :iconScale="iconScale" :iconColor="iconColor" :list="list" />`,
+    template: `<rpl-list :title="title" :size="size" :iconScale="iconScale" :iconColor="iconColor" :list="list" :link="link" />`,
     data () {
       return demoData.list()
     }

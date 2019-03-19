@@ -20,10 +20,10 @@
       </slide>
     </carousel>
     <div class="rpl-image-gallery__thumbnail-navigation">
-      <button v-if="navTo > 0" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+      <button v-if="navTo > 0" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" @click="prevSlide" :aria-label="previousLabel">
         <rpl-icon symbol="arrow_left_secondary" color="white" size="1.6" />
       </button>
-      <button v-if="navTo < totalSlides" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+      <button v-if="navTo < totalSlides" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" @click="nextSlide" :aria-label="nextLabel">
         <rpl-icon symbol="arrow_right_secondary" color="white" size="1.6" />
       </button>
     </div>
@@ -60,10 +60,10 @@
           </slide>
         </carousel>
         <div class="rpl-image-gallery__large-navigation">
-          <button :disabled="navTo === 0" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--prev" role="button" @click="prevSlide" :aria-label="previousLabel">
+          <button :disabled="navTo === 0" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--prev" @click="prevSlide" :aria-label="previousLabel">
             <rpl-icon symbol="arrow_left_secondary" :color="arrowColor" :size="arrowSize" />
           </button>
-          <button :disabled="navTo === totalSlides" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--next" role="button" @click="nextSlide" :aria-label="nextLabel">
+          <button :disabled="navTo === totalSlides" class="rpl-image-gallery__large-navigation-button rpl-image-gallery__large-navigation-button--next" @click="nextSlide" :aria-label="nextLabel">
             <rpl-icon symbol="arrow_right_secondary" :color="arrowColor" :size="arrowSize" />
           </button>
         </div>
@@ -129,7 +129,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "./scss/image_gallery";
 
   $rpl-image-gallery-enlarge-background-color: rpl-color('white') !default;
@@ -144,8 +145,7 @@ export default {
   $rpl-image-gallery-thumbnail-image-height: rem(309px) !default;
   $rpl-image-gallery-thumbnail-navigation-margin-top: ($rpl-image-gallery-thumbnail-image-height / 2) - (rem(32px) / 2) !default;
   $rpl-image-gallery-thumbnail-border-color: rpl_color('mid_neutral_1') !default;
-  $rpl-image-gallery-thumbnail-border-width: 1px !default;
-  $rpl-image-gallery-thumbnail-border: $rpl-image-gallery-thumbnail-border-width solid $rpl-image-gallery-thumbnail-border-color !default;
+  $rpl-image-gallery-thumbnail-border: 1px solid $rpl-image-gallery-thumbnail-border-color !default;
   $rpl-image-gallery-thumbnail-background: rpl_color('white') !default;
   $rpl-image-gallery-thumbnail-details-padding: ($rpl-space * 6) !default;
   $rpl-image-gallery-thumbnail-border-radius: rem(4px) !default;
@@ -205,12 +205,7 @@ export default {
       border-bottom: $rpl-image-gallery-thumbnail-border;
       background-color: $rpl-image-gallery-thumbnail-background;
       border: $rpl-image-gallery-thumbnail-border;
-      border-width: 0;
-
-      @include rpl_breakpoint('m') {
-        border-radius: $rpl-image-gallery-thumbnail-border-radius;
-        border-width: $rpl-image-gallery-thumbnail-border-width;
-      }
+      border-radius: $rpl-image-gallery-thumbnail-border-radius;
     }
 
     &__thumbnail-image {

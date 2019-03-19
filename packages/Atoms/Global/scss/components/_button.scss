@@ -1,0 +1,100 @@
+@mixin rpl_button {
+  @include rpl_typography_ruleset($rpl-button-ruleset);
+  color: $rpl-button-text-color;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  width: 100%;
+  padding: $rpl-button-padding;
+  border: $rpl-button-border;
+  border-radius: $rpl-button-border-radius;
+  cursor: pointer;
+
+  @include rpl_breakpoint('s') {
+    width: auto;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: $rpl-button-active-background-color;
+    background-image: $rpl-button-active-background-image;
+    color: $rpl-button-active-text-color;
+  }
+}
+
+@mixin rpl_button_disabled {
+  cursor: default;
+  pointer-events: none;
+  background-color: transparent;
+  background-image: none;
+  border: $rpl-button-disabled-border;
+  color: $rpl-button-disabled-text-color;
+}
+
+@mixin rpl_button_primary {
+  background-color: $rpl-button-primary-background-color;
+  color: $rpl-button-primary-text-color;
+
+  &:hover,
+  &:focus {
+    background-color: $rpl-button-primary-hover-background-color;
+    color: $rpl-button-primary-hover-text-color;
+  }
+
+  &:active {
+    color: $rpl-button-active-text-color;
+  }
+}
+
+@mixin rpl_button_secondary {
+  background-color: $rpl-button-secondary-background-color;
+  color: $rpl-button-secondary-text-color;
+
+  &:hover,
+  &:focus {
+    background-color: $rpl-button-secondary-hover-background-color;
+    color: $rpl-button-secondary-hover-text-color;
+  }
+
+  &:active {
+    background-color: $rpl-button-secondary-active-background-color;
+    background-image: $rpl-button-secondary-active-background-image;
+    color: $rpl-button-secondary-active-text-color;
+  }
+}
+
+@mixin rpl_narrow_button {
+  @include rpl_typography_ruleset($rpl-button-ruleset);
+  border-radius: $rpl-button-border-radius;
+  border: $rpl-button-border;
+  box-sizing: border-box;
+  color: $rpl-button-text-color;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  padding: $rpl-narrow-button-padding-xs;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  width: auto;
+
+  @include rpl_breakpoint('l') {
+    padding: $rpl-narrow-button-padding-m;
+  }
+}
+
+@mixin rpl_narrow_button_primary {
+  background-color: $rpl-button-primary-background-color;
+  color: $rpl-button-primary-text-color;
+}
+
+@mixin rpl_narrow_button_danger {
+  background-color: $rpl-button-danger-background-color;
+  color: $rpl-button-danger-text-color;
+}

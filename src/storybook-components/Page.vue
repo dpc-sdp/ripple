@@ -11,14 +11,13 @@
         :searchTerms="mock.header.searchTerms"
         showSearch
         sticky
-        @open="menuOpenFunc"
         @search="searchFunc"
       />
     </template>
 
     <rpl-page-layout
       :sidebar="sidebar"
-      class="main rpl-container"
+      class="main"
       :backgroundGraphic="mock.landingPage.backgroundGraphic"
     >
       <template slot="breadcrumbs">
@@ -63,7 +62,7 @@
           <rpl-anchor-links :title="mock.anchorLinks.title" :links="mock.anchorLinks.links" />
         </rpl-col>
         <rpl-col v-if="!sidebar" cols="full" :colsBp="defaultCols">
-          <rpl-card-carousel :title="mock.cardCarousel.title" :cards="mock.cardCarousel.cards" />
+          <rpl-card-carousel v-bind="mock.cardCarousel" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-card-navigation-featured v-bind="mock.cardNavigationFeatured" />
@@ -96,6 +95,9 @@
             </div>
           </div>
         </rpl-col>
+        <rpl-col cols="full">
+          <rpl-card-carousel v-bind="mock.cardCarousel" :childColsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols" />
+        </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-image-gallery :gallery-data="mock.imageGallery.gallery" :enlarge-text="mock.imageGallery.enlargeText" />
         </rpl-col>
@@ -119,10 +121,10 @@
 
       <template slot="belowContent">
         <div class="rpl-site-constrain--on-all">
-          <rpl-campaign-secondary :title="mock.campaignSecondary.title" :summary="mock.campaignSecondary.summary" :link="mock.campaignSecondary.link" :image="mock.campaignSecondary.image" />
+          <rpl-campaign-secondary :title="mock.campaignSecondaryImage.title" :summary="mock.campaignSecondaryImage.summary" :link="mock.campaignSecondaryImage.link" :image="mock.campaignSecondaryImage.image" />
         </div>
         <div class="rpl-site-constrain--on-all">
-          <rpl-updated-date v-bind="{date: '12/12/2006'}"></rpl-updated-date>
+          <rpl-updated-date v-bind="mock.updatedDate"></rpl-updated-date>
         </div>
       </template>
 
@@ -276,11 +278,6 @@ export default {
     // Methods for site header.
     searchFunc: function (value) {
       alert('Search for: "' + value + '"')
-    },
-
-    // Methods for site header.
-    menuOpenFunc: function (menuOpenState) {
-      document.body.style.overflow = menuOpenState ? 'hidden' : ''
     }
   }
 }

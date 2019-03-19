@@ -22,6 +22,14 @@ npm install @dpc-sdp/ripple-sitemap --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplSitemap from '@dpc-sdp/ripple-sitemap'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Sitemap](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Sitemap&selectedStory=Sitemap).

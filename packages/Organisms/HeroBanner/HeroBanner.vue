@@ -3,12 +3,12 @@
     'rpl-hero-banner--no-links': !showLinks,
     'rpl-hero-banner--has-logo': logo
   }" :style="heroBannerStyles">
-    <div class="rpl-row" v-if="logo">
+    <rpl-row v-if="logo">
       <div class="rpl-hero-banner__left">
         <img class="rpl-hero-banner__logo" :src="logo" alt="" />
       </div>
-    </div>
-    <div class="rpl-row">
+    </rpl-row>
+    <rpl-row>
       <div class="rpl-hero-banner__left">
         <h1
           v-if="title"
@@ -48,6 +48,7 @@
               iconColor="primary"
               :underline="true"
               :theme="theme"
+              size="large"
             />
           </li>
           <li
@@ -62,16 +63,18 @@
               iconColor="primary"
               :underline="true"
               :theme="theme"
+              size="large"
             />
           </li>
         </ul>
       </div>
-    </div>
+    </rpl-row>
   </div>
 </template>
 
 <script>
 import { RplTextLink } from '@dpc-sdp/ripple-link'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplHeroBanner',
@@ -87,7 +90,9 @@ export default {
     backgroundGraphic: String
   },
   components: {
-    RplTextLink
+    RplTextLink,
+    RplRow,
+    RplCol
   },
   computed: {
     heroBannerStyles () {
@@ -98,7 +103,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-hero-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
   $rpl-hero-banner-title-typography-ruleset: (
@@ -159,7 +165,6 @@ export default {
   .rpl-hero-banner {
     $root: &;
     @include rpl_mobile_padding;
-    @include rpl_grid_container;
     position: relative;
     background-repeat: no-repeat;
     background-position: right -3.75rem bottom -1rem;

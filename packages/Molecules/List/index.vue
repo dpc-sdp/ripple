@@ -6,7 +6,10 @@
       'rpl-list--large': (size === 'large')
     }"
   >
-    <h2 v-if="title" class="rpl-list__title">{{ title }}</h2>
+    <h2 v-if="title" class="rpl-list__title">
+      <rpl-text-link v-if="link" :url="link" :text="title" class="rpl-list__title-inner" />
+      <span v-else class="rpl-list__title-inner">{{ title }}</span>
+    </h2>
     <slot name="above-list"></slot>
     <div v-if="list" class="rpl-list__list">
       <div v-for="(item, index) in list" :key="index" class="rpl-list__list-item">
@@ -21,13 +24,14 @@
 </template>
 
 <script>
-import RplLink from '@dpc-sdp/ripple-link'
+import { RplLink, RplTextLink } from '@dpc-sdp/ripple-link'
 import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplList',
   props: {
     title: String,
+    link: String,
     size: { type: String, default: 'normal' },
     iconScale: { type: Number, default: 1 },
     iconColor: { type: String, default: 'primary' },
@@ -35,6 +39,7 @@ export default {
   },
   components: {
     RplLink,
+    RplTextLink,
     RplIcon
   },
   methods: {
@@ -47,7 +52,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-list-title-normal-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-list-title-large-ruleset: ('mega', 1em, 'bold') !default;
@@ -67,8 +73,6 @@ export default {
     color: $rpl-list-text-color;
 
     &__title {
-      color: $rpl-list-title-color;
-
       #{$root}--normal & {
         @include rpl_typography_ruleset($rpl-list-title-normal-ruleset);
         margin: $rpl-list-title-normal-margin;
@@ -78,6 +82,10 @@ export default {
         @include rpl_typography_ruleset($rpl-list-title-large-ruleset);
         margin: $rpl-list-title-large-margin;
       }
+    }
+
+    &__title-inner {
+      color: $rpl-list-title-color;
     }
 
     &__list {

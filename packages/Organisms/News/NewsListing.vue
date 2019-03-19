@@ -33,7 +33,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-news-listing-tag-text-color: rpl-color('primary') !default;
   $rpl-news-listing-tag-padding: $rpl-space $rpl-space-2 !default;
@@ -57,12 +58,9 @@ export default {
   $rpl-news-listing-item-heading-icon-margin: 0 0 0 $rpl-space !default;
 
   .rpl-news-listing {
-    @include rpl_mobile_padding();
     padding-top: $rpl-space-4;
 
     @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
       padding-top: $rpl-space-4 * 2;
     }
 

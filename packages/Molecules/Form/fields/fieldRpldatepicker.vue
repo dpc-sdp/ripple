@@ -72,18 +72,33 @@ export default {
       }
     }
   },
+  watch: {
+    value (newVal, oldVal) {
+      if (newVal === null || newVal === undefined) {
+        this.$nextTick(() => {
+          if (this.isRanged) {
+            this.value = ['', '']
+          } else {
+            this.value = ''
+          }
+        })
+      }
+    }
+  },
   methods: {
     // Range Methods
     startChange (val) {
-      const pikadate = moment(val)
-      this.returnStart = pikadate.format()
-      this.startRange(pikadate.toDate())
+      const hasVal = !!val
+      const pikadate = hasVal ? moment(val) : null
+      this.returnStart = hasVal ? pikadate.format() : ''
+      this.startRange(hasVal ? pikadate.toDate() : null)
       this.rangeUpdateDate()
     },
     endChange (val) {
-      const pikadate = moment(val)
-      this.returnEnd = pikadate.format()
-      this.endRange(pikadate.toDate())
+      const hasVal = !!val
+      const pikadate = hasVal ? moment(val) : null
+      this.returnEnd = hasVal ? pikadate.format() : ''
+      this.endRange(hasVal ? pikadate.toDate() : null)
       this.rangeUpdateDate()
     },
     startRange (date) {
@@ -113,7 +128,7 @@ export default {
     },
     // Single Methods
     singleUpdateDate (val) {
-      this.value = moment(val).format()
+      this.value = val ? moment(val).format() : null
     },
     ...dateFieldHelper
   }
@@ -121,7 +136,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 @import "../scss/form";
 
 .rpl-date-picker {

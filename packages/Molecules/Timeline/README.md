@@ -22,6 +22,14 @@ npm install @dpc-sdp/ripple-timeline --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplTimeline } from '@dpc-sdp/ripple-timeline'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Timeline](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Timeline&selectedStory=Timeline).

@@ -5,6 +5,7 @@
     :class="{
       'rpl-card-content--no-image': !image,
       'rpl-card-content--has-border': (border && !image),
+      'rpl-card-content--center': (center && !image),
       'rpl-card-content--default': (type === 'default'),
       'rpl-card-content--simple': (type === 'simple'),
       'rpl-card-content--inline': (type === 'inline'),
@@ -39,6 +40,7 @@ export default {
     link: Object,
     image: String,
     border: { type: Boolean, default: true },
+    center: { type: Boolean, default: false },
     type: { type: String, default: 'default' }
   },
   components: {
@@ -59,12 +61,12 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/card";
 
   $rpl-card-content-border-color: rpl_color('mid_neutral_1') !default;
-  $rpl-card-content-border-width: 1px !default;
-  $rpl-card-content-border: $rpl-card-content-border-width solid $rpl-card-content-border-color !default;
+  $rpl-card-content-border: 1px solid $rpl-card-content-border-color !default;
   $rpl-card-content-border-radius: rem(4px) !default;
   $rpl-card-content-border-height: rem(8px) !default;
   $rpl-card-content-background: rpl_color('white') !default;
@@ -110,9 +112,9 @@ export default {
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    border-bottom: $rpl-card-content-border;
     background-color: $rpl-card-content-background;
     border: $rpl-card-content-border;
+    border-radius: $rpl-card-content-border-radius;
 
     &:hover,
     &:focus {
@@ -128,10 +130,7 @@ export default {
     }
 
     &--default {
-      border-width: 0;
       @include rpl_breakpoint('m') {
-        border-radius: $rpl-card-content-border-radius;
-        border-width: $rpl-card-content-border-width;
         height: rem(460px);
       }
       @include rpl_breakpoint('l') {
@@ -144,18 +143,19 @@ export default {
       &#{$root}--no-image {
         padding: $rpl-card-content-no-image-padding;
       }
-    }
 
-    &--simple {
-      border-radius: $rpl-card-content-border-radius;
+      &#{$root}--center {
+        @include rpl_breakpoint('m') {
+          padding-top: 0;
+          flex-direction: column;
+          width: 100%;
+        }
+      }
     }
 
     &--inline {
-      border-width: 0;
       @include rpl_breakpoint('m') {
         flex-wrap: nowrap;
-        border-radius: $rpl-card-content-border-radius;
-        border-width: $rpl-card-content-border-width;
         padding: $rpl-card-content-inline-padding-m;
       }
     }
@@ -218,6 +218,7 @@ export default {
 
     &__details {
       width: 100%;
+      box-sizing: border-box;
 
       #{$root}--default & {
         padding: $rpl-card-content-default-details-padding-xs;
@@ -226,6 +227,12 @@ export default {
         }
         @include rpl_breakpoint('m') {
           padding: $rpl-card-content-default-details-padding-m;
+        }
+      }
+
+      #{$root}--default#{$root}--center & {
+        @include rpl_breakpoint('m') {
+          margin: auto 0;
         }
       }
 
@@ -267,6 +274,7 @@ export default {
       color: $rpl-card-content-link-color;
       align-self: flex-end;
       display: block;
+      box-sizing: border-box;
       position: relative;
       width: 100%;
 

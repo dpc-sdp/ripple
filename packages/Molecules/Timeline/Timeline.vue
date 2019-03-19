@@ -59,7 +59,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-timeline-image-dimension: rem(88px) !default;
   $rpl-timeline-image-margin: 0 0 0 ($rpl-space * -1) !default;
@@ -83,12 +84,6 @@ export default {
 
   .rpl-timeline {
     $root: &;
-    @include rpl_mobile_padding();
-
-    @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
-    }
 
     &__title {
       color: $rpl-timeline-title-text-color;
@@ -167,8 +162,7 @@ export default {
       height: $rpl-timeline-image-dimension;
       margin: $rpl-timeline-image-margin;
       border-radius: 100%;
-      object-fit: cover;
-      font-family: 'object-fit: cover;';
+      @include object_fit_image(cover);
     }
 
     &__item-title {

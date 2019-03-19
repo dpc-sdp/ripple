@@ -23,7 +23,17 @@ npm install @dpc-sdp/ripple-form --save
 ├── moment
 ├── pikaday
 ├── vue-form-generator
-└── vue-multiselect
+├── vue-multiselect
+├── vue-on-click-outside
+└── vue-scrollto
+```
+
+--------------------------------------------------------------------------------
+
+## Import
+
+```js
+import RplForm from '@dpc-sdp/ripple-form'
 ```
 
 --------------------------------------------------------------------------------

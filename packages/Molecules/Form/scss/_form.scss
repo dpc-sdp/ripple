@@ -1,12 +1,16 @@
 $rpl-form-label-ruleset: ('l', 1.2em, 'medium') !default;
 $rpl-form-text-ruleset: ('xs', 1.3em, 'regular') !default;
 $rpl-form-help-ruleset: ('xs', 1em, 'medium') !default;
+$rpl-form-required-ruleset: ('xs', .8em, 'regular') !default;
+$rpl-form-required-color: rpl-color('danger') !default;
+$rpl-form-required-message: ' (Required)' !default;
 $rpl-form-element-bg-color: rpl-color('light_neutral') !default;
 $rpl-form-element-border-color: rpl-color('mid_neutral_1') !default;
 $rpl-form-element-border-color-focus: rpl-color('primary') !default;
 $rpl-form-element-border-radius: rem(4px) !default;
 $rpl-form-element-text-color: rpl-color('extra_dark_neutral') !default;
 $rpl-form-element-text-highlighted: rpl-color('secondary') !default;
+$rpl-form-element-text-ruleset: ('xs', 1em, 'regular');
 $rpl-form-element-padding-s-horizontal: $rpl-space-4;
 $rpl-form-element-padding-m-horizontal: $rpl-space * 5;
 $rpl-form-element-padding-s: $rpl-space-4 !default;
@@ -15,6 +19,11 @@ $rpl-form-element-margin-bottom-s: $rpl-space-4 !default;
 $rpl-form-element-margin-bottom-m: $rpl-space * 7 !default;
 $rpl-form-textarea-height-s: rem(180px) !default;
 $rpl-form-textarea-height-m: rem(75px) !default;
+
+@mixin rpl_form_text {
+  @include rpl_typography_ruleset($rpl-form-element-text-ruleset);
+  color: $rpl-form-element-text-color;
+}
 
 @mixin rpl_form_text_element {
   background-color: $rpl-form-element-bg-color;

@@ -23,9 +23,19 @@ npm install @dpc-sdp/ripple-button --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplButton from '@dpc-sdp/ripple-button'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Button](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Button&selectedStory=Button).
+
+See [Storybook/Button with click action](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Button&selectedStory=Button%20with%20click%20action).
 
 --------------------------------------------------------------------------------
 

@@ -17,18 +17,14 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-updated-date-ruleset: ('xs', 1.4em, 'regular');
   $rpl-updated-date-color: rpl_color('extra_dark_neutral');
 
   .rpl-updated-date {
     @include rpl_typography_ruleset($rpl-updated-date-ruleset);
-    @include rpl_mobile_padding();
-    @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
-    }
     color: $rpl-updated-date-color;
   }
 </style>

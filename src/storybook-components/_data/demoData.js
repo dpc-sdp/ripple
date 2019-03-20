@@ -977,8 +977,16 @@ const demoData = {
 
   searchForm: () => ({
     title: text('Title', 'Search results'),
+    subtitle: text('Subtitle', ''),
     searchPlaceholder: text('Search Placeholder', 'Enter keywords'),
     prefillSearchTerm: text('Prefilled Search Term', 'Bananas'),
+    searchInputLabel: text('Search Input Label', 'Search for'),
+    buttonLabel: text('Button Label', 'Search'),
+    buttonHiddenLabel: boolean('Button Hidden Label', true),
+    autoFocus: boolean('Auto Focus', false),
+    textSearch: boolean('Text Search', true),
+    expandFilters: boolean('Expand Filters', false),
+    showExpandButton: boolean('Show Expand Button', true),
     filterForm: object('Filter Form', {
       tideId: 'tide_search_form',
       model: {
@@ -1008,7 +1016,9 @@ const demoData = {
       },
       formState: {}
     }),
+    filterText: text('Filter Text', 'Refine search'),
     theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light'),
+    type: selectV2('Type', {'two-cols': 'two-cols', default: 'default'}, 'default'),
     allowBlank: boolean('Allow Blank', false)
   }),
 

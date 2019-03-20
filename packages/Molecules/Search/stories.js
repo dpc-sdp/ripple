@@ -20,10 +20,20 @@ storiesOf('Molecules/Search', module)
     components: { RplSearchForm },
     template: `<rpl-search-form
   :title="title"
+  :subtitle="subtitle"
   :searchPlaceholder="searchPlaceholder"
   :prefillSearchTerm="prefillSearchTerm"
+  :searchInputLabel="searchInputLabel"
+  :buttonLabel="buttonLabel"
+  :buttonHiddenLabel="buttonHiddenLabel"
+  :autoFocus="autoFocus"
+  :textSearch="textSearch"
+  :expandFilters="expandFilters"
+  :showExpandButton="showExpandButton"
   :filterForm="filterForm"
+  :filterText="filterText"
   :theme="theme"
+  :type="type"
   :allowBlank="allowBlank"
   @search="searchEvent"
 />`,

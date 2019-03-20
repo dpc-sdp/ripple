@@ -38,6 +38,7 @@
           :count="noResults ? 0 : mock.searchResults.count"
           :errorMsg="hasError ? mock.searchResults.errorMsg : undefined"
           :noResultsMsg="mock.searchResults.noResultsMsg"
+          :childColsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols"
           @pager-change="pagerChange"
           type="RplGrantsListItem"
         />

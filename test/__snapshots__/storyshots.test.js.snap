@@ -20136,6 +20136,42 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
             data-v-5bd9cdea=""
           >
             
+    childColsBp
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            {
+  "m": 6,
+  "l": 4,
+  "xxxl": 3
+}
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
     errorMsg
     
             <!---->
@@ -20734,6 +20770,42 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
   "totalSteps": 0,
   "initialStep": 0,
   "stepsAround": 0
+}
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    childColsBp
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            {
+  "m": 6,
+  "l": 4,
+  "xxxl": 3
 }
           </td>
            
@@ -22414,6 +22486,42 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
   "totalSteps": 0,
   "initialStep": 0,
   "stepsAround": 0
+}
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    childColsBp
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            {
+  "m": 6,
+  "l": 4,
+  "xxxl": 3
 }
           </td>
            

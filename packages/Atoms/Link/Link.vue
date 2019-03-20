@@ -32,8 +32,8 @@ export default {
     },
     routeLinkClick: function (e) {
       // Triggering an active link will reload the page.
-      if (e.originalTarget.classList.contains('nuxt-link-active')) {
-        window.location.href = e.originalTarget.attributes.href.value
+      if (e.target.classList.contains('nuxt-link-active')) {
+        window.location.href = e.target.attributes.href.value
       }
     }
   },

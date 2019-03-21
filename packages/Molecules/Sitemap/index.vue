@@ -23,14 +23,14 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-sitemap-header-ruleset: (3.5rem, 3.75rem, 'bold') !default;
-  $rpl-sitemap-header-ruleset-xs: (1.75rem, 2rem, 'bold') !default;
+  $rpl-sitemap-header-ruleset: ('tera' , 3.75rem, 'bold') !default;
+  $rpl-sitemap-header-ruleset-xs: ('mega', 2em, 'bold') !default;
   $rpl-sitemap-menu-list-item-margin: $rpl-space-3 0 !default;
   $rpl-sitemap-menu-list-padding: 0 0 0 ($rpl-space * 9) !default;
   $rpl-sitemap-menu-list-item-border: 1px solid rpl-color('mid_neutral_2') !default;
   $rpl-sitemap-menu-list-item-border-spacing: $rpl-space-3 !default;
   $rpl-sitemap-menu-before-background: rpl-gradient('decorative_gradient_180') !default;
-  $rpl-sitemap-menu-list-item-level-0-ruleset: (1.25rem, 1.5rem, 'bold') !default;
+  $rpl-sitemap-menu-list-item-level-0-ruleset: ('l', 1.5rem, 'bold') !default;
   $rpl-sitemap-menu-list-item-level-1-ruleset: ('s', 1.5em, 'bold') !default;
   $rpl-sitemap-menu-list-item-level-2-ruleset: ('s', 1.5em, 'medium') !default;
   $rpl-sitemap-menu-list-item-ruleset: ('s', 1.5em, 'regular') !default;

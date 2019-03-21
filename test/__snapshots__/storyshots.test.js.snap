@@ -21201,19 +21201,6 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
           <span
             class="hljs-attr"
           >
-            :showExpandButton
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "showExpandButton"
-          </span>
-          
-
-          <span
-            class="hljs-attr"
-          >
             :filterForm
           </span>
           =
@@ -21667,38 +21654,6 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
             data-v-5bd9cdea=""
           >
             false
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    showExpandButton
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            boolean
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            true
           </td>
            
           <td

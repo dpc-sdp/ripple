@@ -70,9 +70,10 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-section-menu-link-ruleset: ('xs', 1em, 'medium') !default;
-  $rpl-section-menu-link-sub-ruleset: ('xs', 1em, 'medium') !default;
+  $rpl-section-menu-link-sub-ruleset: ('xs', 1em, 'regular') !default;
   $rpl-section-menu-item-background-color: rpl_color('primary') !default;
-  $rpl-section-menu-item-link-padding: $rpl-space-4 ($rpl-space * 6) !default;
+  $rpl-section-menu-item-left-padding: ($rpl-space * 6) !default;
+  $rpl-section-menu-item-link-padding: $rpl-space-4 $rpl-section-menu-item-left-padding !default;
   $rpl-section-menu-item-link-color: rpl_color('white') !default;
   $rpl-section-menu-item-link-parent-hover-background-color: rpl_color('primary') !default;
   $rpl-section-menu-item-link-parent-hover-background-image: rpl_gradient('primary_gradient') !default;
@@ -82,7 +83,7 @@ export default {
   $rpl-section-menu-item-link-active-border: $rpl-section-menu-item-link-active-border-height solid rpl_color('dark_primary') !default;
   $rpl-section-menu-first-level-background: rpl_color('primary') !default;
   $rpl-section-menu-first-level-item-background-color: rpl_color('dark_primary') !default;
-  $rpl-section-menu-item-link-parent-text-margin: 0 ($rpl-space * 5) 0 0 !default; //update parent title to have 24px margin up from 20px.
+  $rpl-section-menu-item-link-parent-text-margin: 0 ($rpl-space * 5) 0 0 !default;
   $rpl-section-menu-item-link-parent-icon-min-width: rem(8px) !default;
   $rpl-section-menu-item-indent-padding: rem(13px) !default;
   $rpl-section-menu-item-link-active-text-color: rpl-color('white') !default;
@@ -213,13 +214,12 @@ export default {
 
       #{$root}__item {
         &::before {
-          top: 90px;
           left: $rpl-component-padding-s;
           right: $rpl-component-padding-s;
           background-color: $rpl-section-menu-first-level-item-background-color;
         }
         #{$root}__item-link {
-          padding-left: ($rpl-space * 6) + rem(1 * 16px);
+          padding-left: $rpl-section-menu-item-left-padding + rem(1 * 16px);
         }
       }
 
@@ -239,7 +239,7 @@ export default {
 
         }
         #{$root}__item-link {
-          padding-left: ($rpl-space * 6) + rem(2 * 16px);
+          padding-left: $rpl-section-menu-item-left-padding + rem(2 * 16px);
         }
       }
 
@@ -253,6 +253,10 @@ export default {
       #{$root}__item {
         &::before {
           display: none;
+        }
+
+        #{$root}__item-link {
+          padding-left: $rpl-section-menu-item-left-padding + rem(3 * 16px);
         }
       }
 

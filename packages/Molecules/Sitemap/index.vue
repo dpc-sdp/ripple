@@ -1,5 +1,6 @@
 <template>
   <div class="rpl-sitemap-menu">
+    <h1 class="rpl-sitemap-header">Site Map</h1>
     <rpl-sitemap-menu :menu="menu"></rpl-sitemap-menu>
   </div>
 </template>
@@ -22,27 +23,37 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
+  $rpl-sitemap-header-ruleset: (3.5rem, 3.75rem, 'bold') !default;
+  $rpl-sitemap-header-ruleset-xs: (1.75rem, 2rem, 'bold') !default;
   $rpl-sitemap-menu-list-item-margin: $rpl-space-3 0 !default;
   $rpl-sitemap-menu-list-padding: 0 0 0 ($rpl-space * 9) !default;
   $rpl-sitemap-menu-list-item-border: 1px solid rpl-color('mid_neutral_2') !default;
   $rpl-sitemap-menu-list-item-border-spacing: $rpl-space-3 !default;
   $rpl-sitemap-menu-before-background: rpl-gradient('decorative_gradient_180') !default;
-  $rpl-sitemap-menu-list-item-level-0-ruleset: ('mega', 1.3em, 'bold') !default;
+  $rpl-sitemap-menu-list-item-level-0-ruleset: (1.25rem, 1.5rem, 'bold') !default;
   $rpl-sitemap-menu-list-item-level-1-ruleset: ('s', 1.5em, 'bold') !default;
   $rpl-sitemap-menu-list-item-level-2-ruleset: ('s', 1.5em, 'medium') !default;
   $rpl-sitemap-menu-list-item-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-sitemap-menu-link-color: rpl-color('extra_dark_neutral') !default;
 
-  .rpl-sitemap-menu {
-    $root: &;
-
-    &::before {
+  .rpl-sitemap-header {
+    &::after {
       content: '';
       display: inline-block;
       height: rem(8px);
       width: 100%;
       background: $rpl-sitemap-menu-before-background;
     }
+    margin: 0;
+    color: rpl-color('primary');
+    @include rpl-typography_ruleset($rpl-sitemap-header-ruleset-xs);
+
+    @include rpl-breakpoint('s') {
+      @include rpl-typography_ruleset($rpl-sitemap-header-ruleset);
+    }
+  }
+  .rpl-sitemap-menu {
+    $root: &;
 
     &__list {
       list-style: none;

@@ -29,7 +29,6 @@ storiesOf('Molecules/Search', module)
   :autoFocus="autoFocus"
   :textSearch="textSearch"
   :expandFilters="expandFilters"
-  :showExpandButton="showExpandButton"
   :filterForm="filterForm"
   :filterText="filterText"
   :theme="theme"

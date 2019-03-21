@@ -986,7 +986,6 @@ const demoData = {
     autoFocus: boolean('Auto Focus', false),
     textSearch: boolean('Text Search', true),
     expandFilters: boolean('Expand Filters', false),
-    showExpandButton: boolean('Show Expand Button', true),
     filterForm: object('Filter Form', {
       tideId: 'tide_search_form',
       model: {

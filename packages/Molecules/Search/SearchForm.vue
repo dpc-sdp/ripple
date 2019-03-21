@@ -13,7 +13,7 @@
       </button>
     </div>
     <button
-      v-if="filterForm && showExpandButton"
+      v-if="filterForm && !expandFilters"
       :aria-expanded="showFilters"
       class="rpl-search-form__show-filters"
       :class="{ 'rpl-search-form__show-filters--expanded': showFilters }"
@@ -46,7 +46,6 @@ export default {
     autoFocus: { type: Boolean, default: false },
     textSearch: { type: Boolean, default: true },
     expandFilters: { type: Boolean, default: false },
-    showExpandButton: { type: Boolean, default: true },
     filterForm: Object,
     filterText: { type: String, default: 'Refine search' },
     theme: String,

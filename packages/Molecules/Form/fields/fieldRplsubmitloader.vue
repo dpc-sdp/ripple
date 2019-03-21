@@ -4,7 +4,6 @@
     :class="{ 'rpl-submit-loader--loading': schema.loading }"
     :disabled="disabled || schema.loading"
     :readonly="schema.readonly"
-    :data-field-id="getFieldID(schema)"
     type="submit"
   >
     <span class="rpl-submit-loader__text" :class="{ 'rpl-submit-loader__text--loading': schema.loading }">{{ schema.buttonText }}</span>

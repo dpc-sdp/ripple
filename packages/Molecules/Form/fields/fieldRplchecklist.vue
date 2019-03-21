@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-checklist wrapper">
     <!-- List Box -->
-    <div class="rpl-checklist__combobox form-control" :disabled="disabled">
+    <div v-if="schema.listBox" class="rpl-checklist__combobox form-control" :disabled="disabled">
       <div class="rpl-checklist__list">
         <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item)}">
           <rpl-checkbox
@@ -72,8 +72,16 @@ export default {
       labelText: ''
     }
   },
+  mounted () {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', this.updateSize)
+      this.updateSize()
+    }
+    this.setCheckedValues()
+  },
   watch: {
     value (newVal, oldVal) {
+      this.updateSize()
       this.setCheckedValues()
     }
   },
@@ -188,6 +196,37 @@ export default {
 
       this.labelText = str
     },
+    updateSize () {
+      let str = this.schema.placeholder
+
+      if (this.$el && !this.schema.listBox) {
+        const info = window.getComputedStyle(this.$el.querySelector('.rpl-checklist__info'))
+        const infoWidth = parseFloat(info.width) - parseFloat(info.paddingLeft) - parseFloat(info.paddingRight)
+        this.labelMaxLetters = Math.floor(infoWidth / this.labelLetterWidth)
+      }
+
+      const moreLetterCount = 9
+      let letterCount = 0
+
+      this.labelHiddenCount = 0
+      if (this.value && this.value.length > 0) {
+        str = ''
+        this.value.forEach((value, idx) => {
+          const item = this.getItemFromValue(value)
+          if (item) {
+            const itemName = this.getItemName(item)
+            letterCount += itemName.length
+            if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
+              str += ((idx > 0) ? '; ' : '') + itemName
+            } else {
+              this.labelHiddenCount++
+            }
+          }
+        })
+      }
+
+      this.labelText = str
+    },
     setCheckedValues () {
       // Set initial values for checkboxes
       this.listValues = this.items.map(item => this.isItemChecked(item))
@@ -240,7 +279,27 @@ $rpl-checklist-dropdown-max-height: (rem(38px) * 10);
 .rpl-checklist {
   $root: &;
 
+  &__combobox {
+    background-color: $rpl-form-element-bg-color;
+    border: 1px solid $rpl-form-element-border-color;
+    border-radius: $rpl-form-element-border-radius;
+    position: relative;
 
+    &--expanded {
+      border: $rpl-checklist-expanded-border;
+
+      @include rpl_breakpoint('m') {
+        border-radius: $rpl-form-element-border-radius $rpl-form-element-border-radius 0 0;
+        border-bottom: 1px solid transparent;
+      }
+
+      #{$root}__info {
+        .rpl-icon {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
 
   &__info {
     position: relative;

@@ -1,5 +1,5 @@
 <template>
-  <button :data-field-id="getFieldID(schema)" class="rpl-clearform" @click="clearForm">
+  <button class="rpl-clearform" @click="clearForm">
     <rpl-text-icon :text="schema.buttonText" symbol="cross_circle" placement="before" color="danger" size="0.833334" />
   </button>
 </template>

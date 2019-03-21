@@ -51,7 +51,7 @@ $rpl-markup-link-color: rpl_color('primary') !default;
 .rpl-markup {
 
   &__inner {
-    > h2:first-of-type {
+    > h2:first-child {
       margin-top: 0;
     }
   }

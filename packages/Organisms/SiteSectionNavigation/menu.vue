@@ -72,7 +72,7 @@ export default {
   $rpl-section-menu-link-ruleset: ('xs', 1em, 'medium') !default;
   $rpl-section-menu-link-sub-ruleset: ('xs', 1em, 'medium') !default;
   $rpl-section-menu-item-background-color: rpl_color('primary') !default;
-  $rpl-section-menu-item-link-padding: $rpl-space-4 $rpl-component-padding-s !default;
+  $rpl-section-menu-item-link-padding: $rpl-space-4 ($rpl-space * 6) !default;
   $rpl-section-menu-item-link-color: rpl_color('white') !default;
   $rpl-section-menu-item-link-parent-hover-background-color: rpl_color('primary') !default;
   $rpl-section-menu-item-link-parent-hover-background-image: rpl_gradient('primary_gradient') !default;
@@ -82,10 +82,10 @@ export default {
   $rpl-section-menu-item-link-active-border: $rpl-section-menu-item-link-active-border-height solid rpl_color('dark_primary') !default;
   $rpl-section-menu-first-level-background: rpl_color('primary') !default;
   $rpl-section-menu-first-level-item-background-color: rpl_color('dark_primary') !default;
-  $rpl-section-menu-item-link-parent-text-margin: 0 ($rpl-space * 5) 0 0 !default;
+  $rpl-section-menu-item-link-parent-text-margin: 0 ($rpl-space * 5) 0 0 !default; //update parent title to have 24px margin up from 20px.
   $rpl-section-menu-item-link-parent-icon-min-width: rem(8px) !default;
   $rpl-section-menu-item-indent-padding: rem(13px) !default;
-  $rpl-section-menu-item-link-active-text-color: mix(rpl-color('white'), rpl-color('primary'), 65%) !default;
+  $rpl-section-menu-item-link-active-text-color: rpl-color('white') !default;
   $rpl-section-menu-active-left-bar: url('data:image/svg+xml,%3Csvg%20width%3D%224%22%20height%3D%221%22%20viewBox%3D%220%200%204%201%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%224%22%20height%3D%221%22%20fill%3D%22%23#{str-slice(quote(rpl_color("secondary")), 2)}%22%2F%3E%3C%2Fsvg%3E') !default;
 
   @mixin rpl-section-menu-active-left-border {
@@ -210,11 +210,16 @@ export default {
     }
 
     &[data-depth="1"] {
+
       #{$root}__item {
         &::before {
+          top: 90px;
           left: $rpl-component-padding-s;
           right: $rpl-component-padding-s;
           background-color: $rpl-section-menu-first-level-item-background-color;
+        }
+        #{$root}__item-link {
+          padding-left: ($rpl-space * 6) + rem(1 * 16px);
         }
       }
 
@@ -231,6 +236,10 @@ export default {
       #{$root}__item {
         &::before {
           display: none;
+
+        }
+        #{$root}__item-link {
+          padding-left: ($rpl-space * 6) + rem(2 * 16px);
         }
       }
 

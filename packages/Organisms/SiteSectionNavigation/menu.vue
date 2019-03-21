@@ -219,7 +219,7 @@ export default {
           background-color: $rpl-section-menu-first-level-item-background-color;
         }
         #{$root}__item-link {
-          padding-left: $rpl-section-menu-item-left-padding + rem(1 * 16px);
+          padding-left: $rpl-section-menu-item-left-padding + $rpl-space-4;
         }
       }
 
@@ -239,7 +239,7 @@ export default {
 
         }
         #{$root}__item-link {
-          padding-left: $rpl-section-menu-item-left-padding + rem(2 * 16px);
+          padding-left: $rpl-section-menu-item-left-padding + ($rpl-space-4 * 2);
         }
       }
 
@@ -256,7 +256,7 @@ export default {
         }
 
         #{$root}__item-link {
-          padding-left: $rpl-section-menu-item-left-padding + rem(3 * 16px);
+          padding-left: $rpl-section-menu-item-left-padding + ($rpl-space-4 * 3);
         }
       }
 

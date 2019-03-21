@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-checklist wrapper">
     <!-- List Box -->
-    <div v-if="schema.listBox" class="rpl-checklist__combobox form-control" :disabled="disabled">
+    <div class="rpl-checklist__combobox form-control" :disabled="disabled">
       <div class="rpl-checklist__list">
         <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item)}">
           <rpl-checkbox
@@ -72,16 +72,8 @@ export default {
       labelText: ''
     }
   },
-  mounted () {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', this.updateSize)
-      this.updateSize()
-    }
-    this.setCheckedValues()
-  },
   watch: {
     value (newVal, oldVal) {
-      this.updateSize()
       this.setCheckedValues()
     }
   },
@@ -248,27 +240,7 @@ $rpl-checklist-dropdown-max-height: (rem(38px) * 10);
 .rpl-checklist {
   $root: &;
 
-  &__combobox {
-    background-color: $rpl-form-element-bg-color;
-    border: 1px solid $rpl-form-element-border-color;
-    border-radius: $rpl-form-element-border-radius;
-    position: relative;
 
-    &--expanded {
-      border: $rpl-checklist-expanded-border;
-
-      @include rpl_breakpoint('m') {
-        border-radius: $rpl-form-element-border-radius $rpl-form-element-border-radius 0 0;
-        border-bottom: 1px solid transparent;
-      }
-
-      #{$root}__info {
-        .rpl-icon {
-          transform: rotate(-180deg);
-        }
-      }
-    }
-  }
 
   &__info {
     position: relative;

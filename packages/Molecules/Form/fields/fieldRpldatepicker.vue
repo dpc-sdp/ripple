@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isRanged" class="rpl-date-picker rpl-date-picker--range">
+  <div v-if="isRanged" :data-field-id="getFieldID(schema)" class="rpl-date-picker rpl-date-picker--range">
     <pikaday
       class="rpl-date-picker__start"
       v-model="modelStart"
@@ -22,7 +22,7 @@
       @change="endChange"
       @init="endInit" />
   </div>
-  <div v-else class="rpl-date-picker rpl-date-picker--single">
+  <div v-else :data-field-id="getFieldID(schema)" class="rpl-date-picker rpl-date-picker--single">
     <pikaday
       v-model="datePickValue"
       :autocomplete="schema.autocomplete"

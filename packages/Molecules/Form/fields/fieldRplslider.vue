@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-slider">
+  <div class="rpl-slider" :data-field-id="getFieldID(schema)">
     <div class="rpl-slider__spacers" aria-hidden="true">
       <span class="rpl-slider__spacer" v-for="(item, index) in stepCount" :key="index"></span>
     </div>

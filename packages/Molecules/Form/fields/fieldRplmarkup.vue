@@ -1,5 +1,5 @@
 <template>
-  <rpl-markup :plugins="this.schema.plugins" :html="markup" />
+  <rpl-markup :data-field-id="getFieldID(schema)" :plugins="this.schema.plugins" :html="markup" />
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
+  <div :data-field-id="fieldId" class="rpl-select" :class="{'rpl-select--open' : isOpen}">
     <media :query="{maxWidth: 575}">
       <div class="rpl-select__native">
         <select :multiple="schema.multiselect" v-model="value">
@@ -35,15 +35,15 @@
           :aria-multiselectable="schema.multiselect && 'true'"
           :aria-activedescendant="activedescendant"
           role="listbox"
-          v-on:keyup.enter.prevent="toggleOpen"
-          v-on:keyup.up.self="handleKeys"
-          v-on:keyup.down.self="handleKeys"
+          @keyup.enter.prevent="toggleOpen"
+          @keydown.up.self="handleKeys"
+          @keydown.down.self="handleKeys"
           @keyup.space="clickItem(options.find(i => i.focussed))"
           @keyup.esc.self="close"
           @keyup.tab.self="close"
         >
           <div
-            :id="option.id"
+            :id="createUniqueId(option)"
             class="rpl-select__listitem"
             :aria-selected="option.selected"
             :class="{'rpl-select__listitem--selected': option.selected && !schema.multiselect, 'rpl-select__listitem--focussed': option.focussed && schema.multiselect}"
@@ -114,6 +114,9 @@ export default {
     },
     selectedTitles () {
       return this.selectedItems.map(itm => itm.name).join(', ')
+    },
+    fieldId () {
+      return this.getFieldID(this.schema)
     }
   },
   watch: {
@@ -136,7 +139,7 @@ export default {
   methods: {
     createUniqueId (opt) {
       if (opt) {
-        return opt.id
+        return `${this.fieldId}-${opt.id}`
       }
       return null
     },
@@ -255,7 +258,8 @@ export default {
       }
     },
     preventKeyboardScroll (e) {
-      const keys = ['Up', 'ArrowUp', 'Down', 'ArrowDown', ' ', 'Space'] // up down and space keys
+      // up down and space keys
+      const keys = ['Up', 'ArrowUp', 'Down', 'ArrowDown', ' ', 'Space'] 
       if (this.isOpen && keys.includes(e.key)) {
         e.preventDefault()
       }
@@ -267,7 +271,7 @@ export default {
       this.value = []
     }
   },
-  destroyed () {
+  beforeDestroy () {
     document.body.removeEventListener('keydown', this.preventKeyboardScroll)
   }
 }
@@ -279,6 +283,7 @@ export default {
 @import "../scss/form";
 
 $rpl-select-inner-padding: $rpl-space-4;
+$rpl-select-dropdown-height: 10rem !default;
 
 .rpl-select {
   $root: &;
@@ -345,7 +350,7 @@ $rpl-select-inner-padding: $rpl-space-4;
     border-top: 1px solid $rpl-form-element-border-color;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    height: 10rem;
+    height: $rpl-select-dropdown-height;
     overflow-y: scroll;
   }
 

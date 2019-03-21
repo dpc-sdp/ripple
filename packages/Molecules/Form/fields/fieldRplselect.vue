@@ -119,7 +119,6 @@ export default {
   watch: {
     value (newVal, oldVal) {
       // fixes issue with errors not clearing after selecting new val
-      console.log('new', newVal)
       if (newVal === null || newVal === undefined) {
         if (this.schema.multiselect) {
           newVal = []
@@ -146,10 +145,12 @@ export default {
       if (this.isOpen) {
         this.addOutsideTest()
         this.$nextTick(function () {
-          if (!this.schema.multiselect && !this.selectedItems) {
-            this.selectItem(this.options[0])
-          } else if (this.selectedItems.length === 0) {
-            this.focusItem(this.options[0])
+          if (this.selectedItems.length === 0) {
+            if (this.schema.multiselect) {
+              this.focusItem(this.options[0])
+            } else {
+              this.selectItem(this.options[0])
+            }
           }
           this.$refs.listbox.focus()
         })
@@ -261,12 +262,13 @@ export default {
     }
   },
   mounted () {
-    document.body.addEventListener('keydown', (e) => {
-      this.preventKeyboardScroll(e)
-    })
+    document.body.addEventListener('keydown', this.preventKeyboardScroll)
     if (this.schema.multiselect && !this.value) {
       this.value = []
     }
+  },
+  destroyed () {
+    document.body.removeEventListener('keydown', this.preventKeyboardScroll)
   }
 }
 </script>

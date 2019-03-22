@@ -43,7 +43,7 @@
           @keyup.tab.self="close"
         >
           <div
-            :id="createUniqueId(option)"
+            :id="option.uuid"
             class="rpl-select__listitem"
             :aria-selected="option.selected"
             :class="{'rpl-select__listitem--selected': option.selected && !schema.multiselect, 'rpl-select__listitem--focussed': option.focussed && schema.multiselect}"
@@ -96,6 +96,7 @@ export default {
         return options.map(opt => {
           opt.selected = this.isSelected(opt)
           opt.focussed = opt.id === this.focussed
+          opt.uuid = this.createUniqueId(opt)
           if (!opt.selected) {
             delete opt.selected
           }
@@ -139,7 +140,7 @@ export default {
   methods: {
     createUniqueId (opt) {
       if (opt) {
-        return `${this.fieldId}-${opt.id}`
+        return `${this.fieldId}__${opt.id}`
       }
       return null
     },
@@ -195,7 +196,7 @@ export default {
     },
     focusItem (selected) {
       this.focussed = selected.id
-      const item = this.$el.querySelector(`#${selected.id}`)
+      const item = this.$el.querySelector(`#${selected.uuid}`)
       const listbox = this.$refs.listbox
 
       if (listbox.scrollHeight > listbox.clientHeight) {

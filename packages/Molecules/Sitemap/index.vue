@@ -24,7 +24,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-sitemap-header-ruleset: ('tera' , 3.75rem, 'bold') !default;
-  $rpl-sitemap-header-ruleset-xs: ('mega', 2em, 'bold') !default;
+  $rpl-sitemap-header-ruleset-xs: ('mega', 2rem, 'bold') !default;
   $rpl-sitemap-menu-list-item-margin: $rpl-space-3 0 !default;
   $rpl-sitemap-menu-list-padding: 0 0 0 ($rpl-space * 9) !default;
   $rpl-sitemap-menu-list-item-border: 1px solid rpl-color('mid_neutral_2') !default;

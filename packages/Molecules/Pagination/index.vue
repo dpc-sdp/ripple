@@ -1,5 +1,5 @@
 <template>
-  <nav class="rpl-pagination" :aria-label="label || 'search'">
+  <nav class="rpl-pagination" :aria-label="label">
     <ol class="rpl-pagination__list">
       <li v-for="n in visibleStepRange" :aria-current="n === currentStep ? 'page' : false" :aria-disabled="n === currentStep ? 'true' : false" :key="n" class="rpl-pagination__list-item">
         <button
@@ -33,7 +33,10 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 export default {
   name: 'RplPagination',
   props: {
-    label: String,
+    label: {
+      type: String,
+      default: 'Search'
+    },
     totalSteps: Number,
     initialStep: { type: Number, default: 1 },
     stepsAround: { type: Number, default: 2 }

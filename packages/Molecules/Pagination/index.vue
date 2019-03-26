@@ -1,5 +1,5 @@
 <template>
-  <nav class="rpl-pagination" role="navigation" :aria-label="label || 'search'">
+  <nav class="rpl-pagination" :aria-label="label || 'search'">
     <ol class="rpl-pagination__list">
       <li v-for="n in visibleStepRange" :aria-current="n === currentStep ? 'page' : false" :aria-disabled="n === currentStep ? 'true' : false" :key="n" class="rpl-pagination__list-item">
         <button

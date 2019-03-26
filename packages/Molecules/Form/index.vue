@@ -284,6 +284,7 @@ export default {
   &__placeholder {
     margin-bottom: 0;
     padding: 0;
+    color: $rpl-form-element-placeholder-color;
   }
 
   &__single {

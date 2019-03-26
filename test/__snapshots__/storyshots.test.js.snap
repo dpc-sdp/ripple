@@ -18571,10 +18571,9 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
     data-v-6ca0e090=""
   >
     <nav
-      aria-label="search"
+      aria-label="Search"
       class="rpl-pagination"
       data-v-6ca0e090=""
-      role="navigation"
     >
       <ol
         class="rpl-pagination__list"
@@ -18614,7 +18613,7 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
             <span
               class="rpl-pagination__step-label"
             >
-              Go to step
+              Go to page
             </span>
             
         2
@@ -18637,7 +18636,7 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
             <span
               class="rpl-pagination__step-label"
             >
-              Go to step
+              Go to page
             </span>
             
         3
@@ -18660,7 +18659,7 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
             <span
               class="rpl-pagination__step-label"
             >
-              Go to step
+              Go to page
             </span>
             
         4
@@ -18683,7 +18682,7 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
             <span
               class="rpl-pagination__step-label"
             >
-              Go to step
+              Go to page
             </span>
             
         5
@@ -18703,7 +18702,7 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           class="rpl-pagination__nav"
         >
           <span>
-            Next
+            Next page
           </span>
            
           <!---->
@@ -18880,7 +18879,39 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           <td
             data-v-5bd9cdea=""
           >
+            Search
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
             
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    stepLabel
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            page
           </td>
            
           <td
@@ -19817,9 +19848,8 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
           class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
           <nav
-            aria-label="search"
+            aria-label="Search"
             class="rpl-pagination"
-            role="navigation"
           >
             <ol
               class="rpl-pagination__list"
@@ -19859,7 +19889,7 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         2
@@ -19882,7 +19912,7 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         3
@@ -19905,7 +19935,7 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         4
@@ -19928,7 +19958,7 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         5
@@ -19948,7 +19978,7 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 class="rpl-pagination__nav"
               >
                 <span>
-                  Next
+                  Next page
                 </span>
                  
                 <!---->
@@ -20491,9 +20521,8 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
           class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
           <nav
-            aria-label="search"
+            aria-label="Search"
             class="rpl-pagination"
-            role="navigation"
           >
             <ol
               class="rpl-pagination__list"
@@ -20533,7 +20562,7 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         2
@@ -20556,7 +20585,7 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         3
@@ -20579,7 +20608,7 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         4
@@ -20602,7 +20631,7 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         5
@@ -20622,7 +20651,7 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 class="rpl-pagination__nav"
               >
                 <span>
-                  Next
+                  Next page
                 </span>
                  
                 <!---->
@@ -22242,9 +22271,8 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
           class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
           <nav
-            aria-label="search"
+            aria-label="Search"
             class="rpl-pagination"
-            role="navigation"
           >
             <ol
               class="rpl-pagination__list"
@@ -22284,7 +22312,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         2
@@ -22307,7 +22335,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         3
@@ -22330,7 +22358,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         4
@@ -22353,7 +22381,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                   <span
                     class="rpl-pagination__step-label"
                   >
-                    Go to step
+                    Go to page
                   </span>
                   
         5
@@ -22373,7 +22401,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 class="rpl-pagination__nav"
               >
                 <span>
-                  Next
+                  Next page
                 </span>
                  
                 <!---->
@@ -35679,9 +35707,8 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                     class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                   >
                     <nav
-                      aria-label="search"
+                      aria-label="Search"
                       class="rpl-pagination"
-                      role="navigation"
                     >
                       <ol
                         class="rpl-pagination__list"
@@ -35721,7 +35748,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                             <span
                               class="rpl-pagination__step-label"
                             >
-                              Go to step
+                              Go to page
                             </span>
                             
         2
@@ -35744,7 +35771,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                             <span
                               class="rpl-pagination__step-label"
                             >
-                              Go to step
+                              Go to page
                             </span>
                             
         3
@@ -35767,7 +35794,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                             <span
                               class="rpl-pagination__step-label"
                             >
-                              Go to step
+                              Go to page
                             </span>
                             
         4
@@ -35790,7 +35817,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                             <span
                               class="rpl-pagination__step-label"
                             >
-                              Go to step
+                              Go to page
                             </span>
                             
         5
@@ -35810,7 +35837,7 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           class="rpl-pagination__nav"
                         >
                           <span>
-                            Next
+                            Next page
                           </span>
                            
                           <!---->
@@ -36476,9 +36503,8 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                     class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                   >
                     <nav
-                      aria-label="search"
+                      aria-label="Search"
                       class="rpl-pagination"
-                      role="navigation"
                     >
                       <ol
                         class="rpl-pagination__list"
@@ -36518,7 +36544,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                             <span
                               class="rpl-pagination__step-label"
                             >
-                              Go to step
+                              Go to page
                             </span>
                             
         2
@@ -36541,7 +36567,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                             <span
                               class="rpl-pagination__step-label"
                             >
-                              Go to step
+                              Go to page
                             </span>
                             
         3
@@ -36564,7 +36590,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                             <span
                               class="rpl-pagination__step-label"
                             >
-                              Go to step
+                              Go to page
                             </span>
                             
         4
@@ -36587,7 +36613,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                             <span
                               class="rpl-pagination__step-label"
                             >
-                              Go to step
+                              Go to page
                             </span>
                             
         5
@@ -36607,7 +36633,7 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           class="rpl-pagination__nav"
                         >
                           <span>
-                            Next
+                            Next page
                           </span>
                            
                           <!---->
@@ -48197,9 +48223,8 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                     >
                       <nav
-                        aria-label="search"
+                        aria-label="Search"
                         class="rpl-pagination"
-                        role="navigation"
                       >
                         <ol
                           class="rpl-pagination__list"
@@ -48239,7 +48264,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                               <span
                                 class="rpl-pagination__step-label"
                               >
-                                Go to step
+                                Go to page
                               </span>
                               
         2
@@ -48262,7 +48287,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                               <span
                                 class="rpl-pagination__step-label"
                               >
-                                Go to step
+                                Go to page
                               </span>
                               
         3
@@ -48285,7 +48310,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                               <span
                                 class="rpl-pagination__step-label"
                               >
-                                Go to step
+                                Go to page
                               </span>
                               
         4
@@ -48308,7 +48333,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                               <span
                                 class="rpl-pagination__step-label"
                               >
-                                Go to step
+                                Go to page
                               </span>
                               
         5
@@ -48328,7 +48353,7 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             class="rpl-pagination__nav"
                           >
                             <span>
-                              Next
+                              Next page
                             </span>
                              
                             <!---->

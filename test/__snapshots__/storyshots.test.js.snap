@@ -23265,6 +23265,12 @@ exports[`RippleStoryshots Molecules/Sitemap Sitemap 1`] = `
       class="rpl-sitemap-menu"
       data-v-6ca0e090=""
     >
+      <h1
+        class="rpl-sitemap-header"
+      >
+        Site Map
+      </h1>
+       
       <ul
         class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-0"
       >
@@ -44566,6 +44572,12 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
                 <div
                   class="rpl-sitemap-menu"
                 >
+                  <h1
+                    class="rpl-sitemap-header"
+                  >
+                    Site Map
+                  </h1>
+                   
                   <ul
                     class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-0"
                   >

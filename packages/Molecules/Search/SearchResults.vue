@@ -23,7 +23,7 @@
       </div>
     </rpl-row>
     <rpl-row row-gutter>
-      <rpl-col cols="full" :colsBp="cardColsBp">
+      <rpl-col cols="full" :colsBp="childColsBp">
         <rpl-pagination
           :totalSteps="pager.totalSteps"
           :initialStep="pager.initialStep"
@@ -36,11 +36,13 @@
 </template>
 
 <script>
+import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplSearchResults',
+  mixins: [provideChildCols],
   components: {
     RplPagination,
     RplRow,
@@ -64,6 +66,12 @@ export default {
         }
       }
     },
+    childColsBp: {
+      type: Object,
+      default: function () {
+        return {m: 6, l: 4, xxxl: 3}
+      }
+    },
     errorMsg: String,
     noResultsMsg: String,
     responseSize: Number,
@@ -75,21 +83,21 @@ export default {
         case 'RplCardEvent':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-event' */ '@dpc-sdp/ripple-card').then(m => m.RplCardEvent),
-            colsBp: this.cardColsBp,
+            colsBp: this.childColsBp,
             class: ['rpl-search-results__item--event']
           }
           break
         case 'RplCardPromotion':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ '@dpc-sdp/ripple-card').then(m => m.RplCardPromotion),
-            colsBp: this.cardColsBp,
+            colsBp: this.childColsBp,
             class: ['rpl-search-results__item--promotion']
           }
           break
         case 'RplCardHonourRoll':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-honour-roll' */ '@dpc-sdp/ripple-card').then(m => m.RplCardHonourRoll),
-            colsBp: this.cardColsBp,
+            colsBp: this.childColsBp,
             class: ['rpl-search-results__item--honour-roll']
           }
           break
@@ -108,8 +116,7 @@ export default {
   },
   data () {
     return {
-      searchResultContent: null,
-      cardColsBp: {m: 6, l: 4, xxxl: 3}
+      searchResultContent: null
     }
   }
 }

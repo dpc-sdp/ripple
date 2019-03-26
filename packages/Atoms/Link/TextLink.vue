@@ -50,10 +50,10 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-text-link-light-underline: rpl-color('mid_neutral_2');
-  $rpl-text-link-light-underline-hover: rpl-color('mid_neutral_2');
-  $rpl-text-link-dark-underline: rpl-color('secondary');
-  $rpl-text-link-dark-underline-hover: rpl-color('white');
+  $rpl-text-link-light-underline: rpl-color('mid_neutral_2') !default;
+  $rpl-text-link-light-underline-hover: rpl-color('mid_neutral_2') !default;
+  $rpl-text-link-dark-underline: rpl-color('secondary') !default;
+  $rpl-text-link-dark-underline-hover: rpl-color('white') !default;
 
   $rpl-text-link-underline-small: rem(2px);
   $rpl-text-link-underline-large: rem(3px);

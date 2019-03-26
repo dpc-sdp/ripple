@@ -21012,7 +21012,9 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
         <button
           class="rpl-search-form__btn"
         >
-          <span>
+          <span
+            class="rpl-visually-hidden"
+          >
             Search
           </span>
            
@@ -21082,6 +21084,19 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
           <span
             class="hljs-attr"
           >
+            :subtitle
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "subtitle"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
             :searchPlaceholder
           </span>
           =
@@ -21108,6 +21123,84 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
           <span
             class="hljs-attr"
           >
+            :searchInputLabel
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "searchInputLabel"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :buttonLabel
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "buttonLabel"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :buttonHiddenLabel
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "buttonHiddenLabel"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :autoFocus
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "autoFocus"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :textSearch
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "textSearch"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :expandFilters
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "expandFilters"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
             :filterForm
           </span>
           =
@@ -21121,6 +21214,19 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
           <span
             class="hljs-attr"
           >
+            :filterText
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "filterText"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
             :theme
           </span>
           =
@@ -21128,6 +21234,19 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
             class="hljs-string"
           >
             "theme"
+          </span>
+          
+
+          <span
+            class="hljs-attr"
+          >
+            :type
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "type"
           </span>
           
 
@@ -21360,6 +21479,102 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
             data-v-5bd9cdea=""
           >
             
+    searchInputLabel
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            Search for
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    buttonLabel
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            Search
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    buttonHiddenLabel
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            true
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
     autoFocus
     
             <!---->
@@ -21471,6 +21686,38 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
             data-v-5bd9cdea=""
           >
             
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    filterText
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            Refine search
           </td>
            
           <td
@@ -35435,7 +35682,9 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
               <button
                 class="rpl-search-form__btn"
               >
-                <span>
+                <span
+                  class="rpl-visually-hidden"
+                >
                   Search
                 </span>
                  
@@ -36172,7 +36421,9 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
               <button
                 class="rpl-search-form__btn"
               >
-                <span>
+                <span
+                  class="rpl-visually-hidden"
+                >
                   Search
                 </span>
                  
@@ -37412,7 +37663,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             <button
               class="rpl-search-form__btn"
             >
-              <span>
+              <span
+                class="rpl-visually-hidden"
+              >
                 Search
               </span>
                
@@ -47808,7 +48061,9 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
               <button
                 class="rpl-search-form__btn"
               >
-                <span>
+                <span
+                  class="rpl-visually-hidden"
+                >
                   Search
                 </span>
                  

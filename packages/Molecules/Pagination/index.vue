@@ -8,7 +8,7 @@
           :class="{'rpl-pagination__step-current' : n === currentStep}"
           :disabled="n === currentStep"
           >
-          <span class="rpl-pagination__step-label">{{n !== currentStep ? 'Go to step' : 'current page'}}</span>
+          <span class="rpl-pagination__step-label">{{n !== currentStep ? 'Go to ' + stepLabel : 'current ' + stepLabel}}</span>
           {{ n }}
         </button>
         <span aria-hidden="true" v-if="n < visibleStepRange" class="rpl-pagination__list-item-slash">/</span>
@@ -16,11 +16,11 @@
     </ol>
     <div class="rpl-pagination__controls">
       <button v-if="currentStep > 1" @click="previousClick" class="rpl-pagination__nav">
-        <span>Previous</span>
+        <span>Previous {{stepLabel}}</span>
         <rpl-icon symbol="left" color="primary" size="1.6" />
       </button>
       <button v-if="totalSteps" :disabled="currentStep === totalSteps" @click="nextClick" class="rpl-pagination__nav">
-        <span>Next</span>
+        <span>Next {{stepLabel}}</span>
         <rpl-icon symbol="right" :color="currentStep < totalSteps ? 'primary' : 'mid_neutral_1'" size="1.6" />
       </button>
     </div>
@@ -36,6 +36,10 @@ export default {
     label: {
       type: String,
       default: 'Search'
+    },
+    stepLabel: {
+      type: String,
+      default: 'page'
     },
     totalSteps: Number,
     initialStep: { type: Number, default: 1 },

@@ -1,5 +1,5 @@
 <template>
-  <div v-on-click-outside="onClickOutside" class="rpl-checklist wrapper">
+  <div class="rpl-checklist wrapper">
     <!-- List Box -->
     <div v-if="schema.listBox" class="rpl-checklist__combobox form-control" :disabled="disabled">
       <div class="rpl-checklist__list">
@@ -17,15 +17,26 @@
     </div>
     <!-- Combo Box -->
     <div v-if="!schema.listBox" class="rpl-checklist__combobox form-control" :class="{ 'rpl-checklist__combobox--expanded': comboExpanded }" :disabled="disabled">
-      <div class="rpl-checklist__main-row" @click="onExpandCombo" :class="{ expanded: comboExpanded }">
-        <button :aria-expanded="comboExpanded" class="rpl-checklist__info" type="button">
+      <div class="rpl-checklist__main-row" :class="{ expanded: comboExpanded }">
+        <button :aria-expanded="comboExpanded" class="rpl-checklist__info" type="button" @click="onExpandCombo()">
           <span>{{ labelText }}<span class="rpl-checklist__more-count" v-if="labelHiddenCount"> + {{ labelHiddenCount }} more</span></span>
           <rpl-icon symbol="down" color="primary" />
         </button>
       </div>
       <div class="rpl-checklist__list rpl-checklist__list--dropdown" v-if="comboExpanded">
-        <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item)}">
+        <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item), 'rpl-checklist__list-row--single': schema.single }">
+          <button
+            type="button"
+            v-if="schema.single"
+            class="rpl-checklist__single-item"
+            :class="{'rpl-checklist__single-item--selected': isItemChecked(item)}"
+            @click="onSingleClick(item)"
+          >
+            <span>{{ getItemName(item) }}</span>
+            <span v-if="isItemChecked(item)" class="rpl-visually-hidden">(Selected)</span>
+          </button>
           <rpl-checkbox
+            v-if="!schema.single"
             v-model="listValues[index]"
             :inputDisabled="disabled"
             :inputId="getFieldID(schema, true)"
@@ -44,10 +55,9 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCheckbox from '../Checkbox.vue'
 import { isObject } from 'lodash'
 import { abstractField, schema } from 'vue-form-generator'
-import { mixin as onClickOutside } from 'vue-on-click-outside'
 
 export default {
-  mixins: [abstractField, onClickOutside],
+  mixins: [abstractField],
   components: {
     RplIcon,
     RplCheckbox
@@ -135,11 +145,18 @@ export default {
       this.value = arr
       this.updateSize()
     },
+    onSingleClick (item) {
+      this.value = this.getInputName(item)
+      this.comboExpanded = false
+    },
     onExpandCombo () {
       this.comboExpanded = !this.comboExpanded
-    },
-    onClickOutside (event) {
-      this.comboExpanded = false
+
+      if (this.comboExpanded) {
+        this.addOutsideTest()
+      } else {
+        this.removeOutsideTest()
+      }
     },
     updateSize () {
       let str = this.schema.placeholder
@@ -156,18 +173,25 @@ export default {
       this.labelHiddenCount = 0
       if (this.value && this.value.length > 0) {
         str = ''
-        this.value.forEach((value, idx) => {
-          const item = this.getItemFromValue(value)
-          if (item) {
-            const itemName = this.getItemName(item)
-            letterCount += itemName.length
-            if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
-              str += ((idx > 0) ? '; ' : '') + itemName
-            } else {
-              this.labelHiddenCount++
+        if (Array.isArray(this.value)) {
+          // Set display label for multi-select
+          this.value.forEach((value, idx) => {
+            const item = this.getItemFromValue(value)
+            if (item) {
+              const itemName = this.getItemName(item)
+              letterCount += itemName.length
+              if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
+                str += ((idx > 0) ? '; ' : '') + itemName
+              } else {
+                this.labelHiddenCount++
+              }
             }
-          }
-        })
+          })
+        } else {
+          // Set display label for single-select
+          const item = this.getItemFromValue(this.value)
+          str = this.getItemName(item)
+        }
       }
 
       this.labelText = str
@@ -175,6 +199,24 @@ export default {
     setCheckedValues () {
       // Set initial values for checkboxes
       this.listValues = this.items.map(item => this.isItemChecked(item))
+    },
+    addOutsideTest () {
+      if (typeof window !== 'undefined') {
+        document.addEventListener('click', this.testOutside)
+      }
+    },
+    testOutside (event) {
+      if (typeof window !== 'undefined') {
+        if (!this.$el.contains(event.target)) {
+          this.comboExpanded = false
+          this.removeOutsideTest()
+        }
+      }
+    },
+    removeOutsideTest (event) {
+      if (typeof window !== 'undefined') {
+        document.removeEventListener('click', this.testOutside)
+      }
     }
   },
   beforeDestroy: function () {
@@ -191,6 +233,8 @@ export default {
 @import "../scss/form";
 
 $rpl-checklist-expanded-border: 1px solid rpl-color('primary');
+$rpl-checklist-hover-color: rpl-color('white');
+$rpl-checklist-hover-background-color: rpl-color('primary');
 $rpl-checklist-label-ruleset: ('xs', 1.4em, 'regular');
 $rpl-checklist-label-text-color: rpl-color('extra_dark_neutral');
 $rpl-checklist-checkbox-border: 1px solid rpl-color('mid_neutral_1');
@@ -199,6 +243,7 @@ $rpl-checklist-list-row-padding: $rpl-space-3 $rpl-form-element-padding-m-horizo
 $rpl-checklist-list-row-odd-background: rpl-color('white');
 $rpl-checklist-checkbox-border-radius: rem(4px);
 $rpl-checklist-more-text-color: rpl-color('primary');
+$rpl-checklist-dropdown-max-height: (rem(38px) * 10);
 
 .rpl-checklist {
   $root: &;
@@ -261,6 +306,8 @@ $rpl-checklist-more-text-color: rpl-color('primary');
       z-index: 1;
       left: -1px;
       width: 100%;
+      max-height: $rpl-checklist-dropdown-max-height;
+      overflow: auto;
     }
   }
 
@@ -270,21 +317,29 @@ $rpl-checklist-more-text-color: rpl-color('primary');
     &:nth-child(odd) {
       background: $rpl-checklist-list-row-odd-background;
     }
+
+    &--single {
+      padding: 0;
+    }
   }
 
   &__single-item {
     @include rpl_form_text;
     background-color: transparent;
+    padding: $rpl-checklist-list-row-padding;
     border: 0;
-    padding: 0;
     margin: 0;
     width: 100%;
     text-align: left;
     cursor: pointer;
 
     &:hover, &:focus {
+      color: $rpl-checklist-hover-color;
+      background-color: $rpl-checklist-hover-background-color;
+    }
+
+    &--selected {
       text-decoration: underline;
-      color: rpl-color('primary');
     }
   }
 

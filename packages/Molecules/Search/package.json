@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-search",
-  "version": "1.0.0-alpha.63",
+  "version": "1.0.0-alpha.65",
   "description": "Components for generating a search field with filters, and search results.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,10 +10,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-form": "1.0.0-alpha.63",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.63",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.63",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.63",
+    "@dpc-sdp/ripple-form": "1.0.0-alpha.65",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.65",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.65",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.65",
     "vue-focus-lock": "1.3.0"
   }
 }

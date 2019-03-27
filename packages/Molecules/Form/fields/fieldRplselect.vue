@@ -1,14 +1,12 @@
 <template>
-  <div :data-field-id="fieldId" class="rpl-select" :class="{'rpl-select--open' : isOpen}">
-    <media :query="{maxWidth: 575}">
-      <div class="rpl-select__native">
-        <select :multiple="schema.multiselect" v-model="value">
-          <option v-if="!schema.multiselect" disabled value="">{{placeholder}}</option>
-          <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
-        </select>
-        <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
-      </div>
-    </media>
+  <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
+    <div v-if="$breakpoint.s" class="rpl-select__native">
+      <select :multiple="schema.multiselect" v-model="value">
+        <option v-if="!schema.multiselect" disabled value="">{{placeholder}}</option>
+        <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
+      </select>
+      <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
+    </div>
     <div class="rpl-select__inner">
       <div
         class="rpl-select__trigger"
@@ -65,13 +63,12 @@
 import { abstractField } from 'vue-form-generator'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCheckbox from '../Checkbox.vue'
-import Media from 'vue-media'
+import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 
 export default {
   name: 'RplSelect',
-  mixins: [abstractField],
+  mixins: [abstractField, breakpoint],
   components: {
-    Media,
     RplIcon,
     RplCheckbox
   },

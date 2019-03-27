@@ -196,37 +196,6 @@ export default {
 
       this.labelText = str
     },
-    updateSize () {
-      let str = this.schema.placeholder
-
-      if (this.$el && !this.schema.listBox) {
-        const info = window.getComputedStyle(this.$el.querySelector('.rpl-checklist__info'))
-        const infoWidth = parseFloat(info.width) - parseFloat(info.paddingLeft) - parseFloat(info.paddingRight)
-        this.labelMaxLetters = Math.floor(infoWidth / this.labelLetterWidth)
-      }
-
-      const moreLetterCount = 9
-      let letterCount = 0
-
-      this.labelHiddenCount = 0
-      if (this.value && this.value.length > 0) {
-        str = ''
-        this.value.forEach((value, idx) => {
-          const item = this.getItemFromValue(value)
-          if (item) {
-            const itemName = this.getItemName(item)
-            letterCount += itemName.length
-            if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
-              str += ((idx > 0) ? '; ' : '') + itemName
-            } else {
-              this.labelHiddenCount++
-            }
-          }
-        })
-      }
-
-      this.labelText = str
-    },
     setCheckedValues () {
       // Set initial values for checkboxes
       this.listValues = this.items.map(item => this.isItemChecked(item))

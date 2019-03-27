@@ -1,13 +1,13 @@
 <template>
   <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
     <div v-if="!$breakpoint.s" class="rpl-select__native">
-      <select :multiple="schema.multiselect" v-model="value">
+      <select :id="getFieldID(schema)" :disabled="disabled" :name="schema.inputName" :multiple="schema.multiselect" v-model="value">
         <option v-if="!schema.multiselect" disabled value="">{{placeholder}}</option>
         <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
       </select>
-      <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
+      <rpl-icon v-if="!schema.multiselect" class="rpl-select__trigger-icon" symbol="down" color="primary" />
     </div>
-    <div class="rpl-select__inner">
+    <div class="rpl-select__inner" v-else>
       <div
         class="rpl-select__trigger"
         tabindex="0"
@@ -38,7 +38,6 @@
           @keydown.down.self="handleKeys"
           @keyup.space="clickItem(options.find(i => i.focussed))"
           @keyup.esc.self="close"
-          @keyup.tab.self="close"
         >
           <div
             :id="option.uuid"
@@ -240,7 +239,7 @@ export default {
     },
     preventKeyboardScroll (e) {
       // up down and space keys
-      const keys = ['Up', 'ArrowUp', 'Down', 'ArrowDown', ' ', 'Space']
+      const keys = ['Up', 'ArrowUp', 'Down', 'ArrowDown', ' ', 'Space', 'Tab']
       if (this.isOpen && keys.includes(e.key)) {
         e.preventDefault()
       }
@@ -248,8 +247,13 @@ export default {
   },
   mounted () {
     document.body.addEventListener('keydown', this.preventKeyboardScroll)
-    if (this.schema.multiselect && !this.value) {
-      this.value = []
+    if (!this.value) {
+      if (this.schema.multiselect) {
+        console.log('here')
+        this.value = []
+      } else {
+        this.value = ''
+      }
     }
   },
   beforeDestroy () {

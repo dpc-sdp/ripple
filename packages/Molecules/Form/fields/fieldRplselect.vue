@@ -64,10 +64,11 @@ import { abstractField } from 'vue-form-generator'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCheckbox from '../Checkbox.vue'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
+import clickoutside from '@dpc-sdp/ripple-global/mixins/clickoutside'
 
 export default {
   name: 'RplSelect',
-  mixins: [abstractField, breakpoint],
+  mixins: [abstractField, breakpoint, clickoutside],
   components: {
     RplIcon,
     RplCheckbox
@@ -144,7 +145,7 @@ export default {
     toggleOpen () {
       this.isOpen = !this.isOpen
       if (this.isOpen) {
-        this.addOutsideTest()
+        this.onClickOutside(this.close)
         this.$nextTick(function () {
           if (this.selectedItems.length === 0) {
             if (this.schema.multiselect) {
@@ -237,27 +238,9 @@ export default {
           break
       }
     },
-    addOutsideTest () {
-      if (typeof window !== 'undefined') {
-        document.addEventListener('click', this.testOutside)
-      }
-    },
-    testOutside (event) {
-      if (typeof window !== 'undefined') {
-        if (!this.$el.contains(event.target)) {
-          this.isOpen = false
-          this.removeOutsideTest()
-        }
-      }
-    },
-    removeOutsideTest (event) {
-      if (typeof window !== 'undefined') {
-        document.removeEventListener('click', this.testOutside)
-      }
-    },
     preventKeyboardScroll (e) {
       // up down and space keys
-      const keys = ['Up', 'ArrowUp', 'Down', 'ArrowDown', ' ', 'Space'] 
+      const keys = ['Up', 'ArrowUp', 'Down', 'ArrowDown', ' ', 'Space']
       if (this.isOpen && keys.includes(e.key)) {
         e.preventDefault()
       }

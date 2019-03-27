@@ -1,6 +1,6 @@
 <template>
   <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
-    <div v-if="$breakpoint.s" class="rpl-select__native">
+    <div v-if="!$breakpoint.s" class="rpl-select__native">
       <select :multiple="schema.multiselect" v-model="value">
         <option v-if="!schema.multiselect" disabled value="">{{placeholder}}</option>
         <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
@@ -293,7 +293,7 @@ $rpl-select-dropdown-height: 10rem !default;
   }
 
   &__trigger {
-    padding: $rpl-form-element-padding-m-horizontal;
+    padding: $rpl-form-element-padding-m;
     position: relative;
 
     &-icon {

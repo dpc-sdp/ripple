@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-event",
-  "version": "1.0.0-alpha.65",
+  "version": "1.0.0-alpha.66",
   "description": "A set of components for displaying events.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,8 +10,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.0.0-alpha.65",
-    "@dpc-sdp/ripple-card": "1.0.0-alpha.65",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.65"
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.66",
+    "@dpc-sdp/ripple-card": "1.0.0-alpha.66",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.66"
   }
 }

@@ -1634,6 +1634,7 @@ const demoData = {
             required: true,
             validator: ['required'],
             label: 'Single-select drop down',
+            hint: 'Implemented using rplSelect',
             placeholder: 'Select a single topic',
             values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}, {id: 'topic_e', name: 'Topic e'}, {id: 'topic_f', name: 'Topic f'}, {id: 'topic_g', name: 'Topic g'}, {id: 'topic_h', name: 'Topic h'}]
           },
@@ -1649,7 +1650,7 @@ const demoData = {
             },
             min: 1,
             label: 'Multi-select drop down',
-            hint: 'Implemented using vue-multiselect',
+            hint: 'Implemented using rplSelect',
             placeholder: 'Select several topics',
             multiselect: true,
             values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]

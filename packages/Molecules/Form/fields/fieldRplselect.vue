@@ -34,15 +34,16 @@
           :aria-activedescendant="activedescendant"
           role="listbox"
           @keyup.enter.prevent="toggleOpen"
-          @keydown.up.self="handleKeys"
-          @keydown.down.self="handleKeys"
+          @keydown.up="handleKeys"
+          @keydown.down="handleKeys"
           @keyup.space="clickItem(options.find(i => i.focussed))"
-          @keyup.esc.self="close"
+          @keyup.esc="close"
         >
           <div
             :id="option.uuid"
+            :ref="option.uuid"
             class="rpl-select__listitem"
-            :aria-selected="option.selected"
+            :aria-selected="isAriaSelected(option)"
             :class="{'rpl-select__listitem--selected': option.selected && !schema.multiselect, 'rpl-select__listitem--focussed': option.focussed && schema.multiselect}"
             @click="clickItem(option)"
             tabindex="-1"
@@ -92,7 +93,9 @@ export default {
       } else {
         return options.map(opt => {
           opt.selected = this.isSelected(opt)
-          opt.focussed = opt.id === this.focussed
+          if (this.focussed) {
+            opt.focussed = opt.id === this.focussed.id
+          }
           opt.uuid = this.createUniqueId(opt)
           if (!opt.selected) {
             delete opt.selected
@@ -105,7 +108,7 @@ export default {
       }
     },
     activedescendant () {
-      return this.selectedItems ? this.createUniqueId(this.selectedItems[0]) : false
+      return this.focussed && this.createUniqueId(this.focussed)
     },
     selectedItems () {
       return this.options.filter(opt => opt.selected)
@@ -135,6 +138,15 @@ export default {
     }
   },
   methods: {
+    isAriaSelected (item) {
+      if (this.schema.multiselet) {
+        if (item.selected) {
+          return 'true'
+        }
+        return 'false'
+      }
+      return false
+    },
     createUniqueId (opt) {
       if (opt) {
         return `${this.fieldId}__${opt.id}`
@@ -153,11 +165,10 @@ export default {
               this.selectItem(this.options[0])
             }
           }
-          this.$refs.listbox.focus()
+          this.$refs.listbox && this.$refs.listbox.focus()
         })
       } else {
         this.removeOutsideTest()
-        this.$refs.trigger.focus()
       }
     },
     close () {
@@ -192,10 +203,9 @@ export default {
       return false
     },
     focusItem (selected) {
-      this.focussed = selected.id
+      this.focussed = selected
       const item = this.$el.querySelector(`#${selected.uuid}`)
       const listbox = this.$refs.listbox
-
       if (listbox.scrollHeight > listbox.clientHeight) {
         let scrollBottom = listbox.clientHeight + listbox.scrollTop
         let elementBottom = item.offsetTop + item.offsetHeight
@@ -204,6 +214,11 @@ export default {
         } else if (item.offsetTop < listbox.scrollTop) {
           listbox.scrollTop = item.offsetTop
         }
+      }
+      if (item) {
+        this.$nextTick(function () {
+          item.focus()
+        })
       }
     },
     handleKeys (e) {
@@ -245,16 +260,17 @@ export default {
       }
     }
   },
-  mounted () {
-    document.body.addEventListener('keydown', this.preventKeyboardScroll)
+  created () {
     if (!this.value) {
       if (this.schema.multiselect) {
-        console.log('here')
         this.value = []
       } else {
         this.value = ''
       }
     }
+  },
+  mounted () {
+    document.body.addEventListener('keydown', this.preventKeyboardScroll)
   },
   beforeDestroy () {
     document.body.removeEventListener('keydown', this.preventKeyboardScroll)
@@ -269,6 +285,10 @@ export default {
 
 $rpl-select-inner-padding: $rpl-space-4;
 $rpl-select-dropdown-height: 10rem !default;
+$rpl-select-focus-bg-color: rpl-color("secondary") !default;
+$rpl-select-focus-color: rpl-color("white") !default;
+$rpl-select-selected-bg-color: rpl-color("primary") !default;
+$rpl-select-selected-color: rpl-color("white") !default;
 
 .rpl-select {
   $root: &;
@@ -343,23 +363,26 @@ $rpl-select-dropdown-height: 10rem !default;
     padding: $rpl-space-3 $rpl-form-element-padding-m-horizontal;
     background: $rpl-form-element-bg-color;
 
-    &:nth-child(odd) {
-      background-color: rpl-color("white");
+    &:not(#{$root}__listitem--selected):not(#{$root}__listitem--focussed) {
+      &:nth-child(odd) {
+        background-color: rpl-color("white");
+      }
+      &:hover {
+        background-color: $rpl-select-focus-bg-color;
+        color: $rpl-select-focus-color;
+      }
     }
 
-    &:hover {
-      background-color: rpl-color("secondary");
-      color: white;
-    }
-
-    &--selected[aria-selected="true"] {
-      background-color: rpl-color("primary");
-      color: white;
+    &--selected {
+      outline: 0;
+      background-color: $rpl-select-selected-bg-color;
+      color: $rpl-select-selected-color;
     }
 
     &--focussed {
-      color: white !important;
-      background-color: rpl-color("secondary") !important;
+      outline: 0;
+      color: $rpl-select-focus-color;
+      background-color: $rpl-select-focus-bg-color;
     }
   }
 

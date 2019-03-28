@@ -11,7 +11,7 @@
           <span class="rpl-pagination__step-label">{{n !== currentStep ? 'Go to ' + stepLabel : 'current ' + stepLabel}}</span>
           {{ n }}
         </button>
-        <span aria-hidden="true" v-if="n < visibleStepRange" class="rpl-pagination__list-item-slash">/</span>
+        <span aria-hidden="true" class="rpl-pagination__list-item-slash">/</span>
       </li>
     </ol>
     <div class="rpl-pagination__controls">
@@ -140,6 +140,12 @@ export default {
         @include rpl_typography_ruleset($rpl-pagination-step-ruleset);
         color: $rpl-pagination-list-item-divider-color;
         padding-left: $rpl-space;
+      }
+
+      &:last-child {
+        .rpl-pagination__list-item-slash {
+          display: none;
+        }
       }
     }
 

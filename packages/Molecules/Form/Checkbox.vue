@@ -1,5 +1,5 @@
 <template>
-  <label @click="labelClick" class="rpl-checkbox">
+  <label :is="presentational ? 'div' : 'label'" @click="labelClick" class="rpl-checkbox">
     <input
       type="checkbox"
       ref="input_checkbox"

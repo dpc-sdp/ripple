@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
     <div v-if="!$breakpoint.s" class="rpl-select__native">
-      <select :id="getFieldID(schema)" :disabled="disabled" :name="schema.inputName" :multiple="schema.multiselect" v-model="value">
+      <select :id="fieldId" :disabled="disabled" :name="schema.inputName" :multiple="schema.multiselect" v-model="value">
         <option v-if="!schema.multiselect" disabled value="">{{placeholder}}</option>
         <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
       </select>
@@ -43,7 +43,7 @@
             :id="option.uuid"
             :ref="option.uuid"
             class="rpl-select__listitem"
-            :aria-selected="isAriaSelected(option)"
+            :aria-selected="schema.multiselect ? option.selected : false"
             :class="{'rpl-select__listitem--selected': option.selected && !schema.multiselect, 'rpl-select__listitem--focussed': option.focussed && schema.multiselect}"
             @click="clickItem(option)"
             tabindex="-1"
@@ -53,6 +53,7 @@
           >
             <rpl-checkbox :presentational="true" v-if="schema.multiselect" :value="option.selected" class="rpl-select__checkbox" />
             {{option.name}}
+            <span v-if="schema.multiselect && option.selected" aria-label="Checked"></span>
           </div>
         </div>
       </div>
@@ -108,7 +109,9 @@ export default {
       }
     },
     activedescendant () {
-      return this.focussed && this.createUniqueId(this.focussed)
+      if (this.schema.multiselect) {
+        return this.focussed && this.createUniqueId(this.focussed)
+      }
     },
     selectedItems () {
       return this.options.filter(opt => opt.selected)

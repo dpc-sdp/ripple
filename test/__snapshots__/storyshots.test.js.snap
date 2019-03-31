@@ -18761,7 +18761,12 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
       
           </button>
            
-          <!---->
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
+          </span>
         </li>
       </ol>
        
@@ -20037,7 +20042,12 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
       
                 </button>
                  
-                <!---->
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
             </ol>
              
@@ -20746,7 +20756,12 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
       
                 </button>
                  
-                <!---->
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
             </ol>
              
@@ -22779,7 +22794,12 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
       
                 </button>
                  
-                <!---->
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
             </ol>
              
@@ -36272,7 +36292,12 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
       
                           </button>
                            
-                          <!---->
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                       </ol>
                        
@@ -37070,7 +37095,12 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
       
                           </button>
                            
-                          <!---->
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                       </ol>
                        
@@ -48835,7 +48865,12 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
       
                             </button>
                              
-                            <!---->
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
+                            </span>
                           </li>
                         </ol>
                          

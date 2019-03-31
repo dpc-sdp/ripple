@@ -6752,7 +6752,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
       <div
         class="rpl-card-carousel__slider"
       >
-        <section
+        <div
           class="VueCarousel"
         >
           <div
@@ -6760,11 +6760,12 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
           >
             <div
               class="VueCarousel-inner"
-              role="listbox"
-              style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
+              style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden; height: auto;"
             >
               <div
+                aria-hidden="true"
                 class="VueCarousel-slide rpl-card-carousel__slide"
+                role="tabpanel"
                 tabindex="-1"
               >
                 <div
@@ -6846,7 +6847,9 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 </div>
               </div>
               <div
+                aria-hidden="true"
                 class="VueCarousel-slide rpl-card-carousel__slide"
+                role="tabpanel"
                 tabindex="-1"
               >
                 <div
@@ -6943,7 +6946,9 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 </div>
               </div>
               <div
+                aria-hidden="true"
                 class="VueCarousel-slide rpl-card-carousel__slide"
+                role="tabpanel"
                 tabindex="-1"
               >
                 <div
@@ -7024,7 +7029,9 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 </div>
               </div>
               <div
+                aria-hidden="true"
                 class="VueCarousel-slide rpl-card-carousel__slide"
+                role="tabpanel"
                 tabindex="-1"
               >
                 <div
@@ -7106,7 +7113,9 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 </div>
               </div>
               <div
+                aria-hidden="true"
                 class="VueCarousel-slide rpl-card-carousel__slide"
+                role="tabpanel"
                 tabindex="-1"
               >
                 <div
@@ -7188,7 +7197,9 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 </div>
               </div>
               <div
+                aria-hidden="true"
                 class="VueCarousel-slide rpl-card-carousel__slide"
+                role="tabpanel"
                 tabindex="-1"
               >
                 <div
@@ -7285,7 +7296,9 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 </div>
               </div>
               <div
+                aria-hidden="true"
                 class="VueCarousel-slide rpl-card-carousel__slide"
+                role="tabpanel"
                 tabindex="-1"
               >
                 <div
@@ -7366,7 +7379,9 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 </div>
               </div>
               <div
+                aria-hidden="true"
                 class="VueCarousel-slide rpl-card-carousel__slide"
+                role="tabpanel"
                 tabindex="-1"
               >
                 <div
@@ -7463,7 +7478,9 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
                 </div>
               </div>
               <div
+                aria-hidden="true"
                 class="VueCarousel-slide rpl-card-carousel__slide"
+                role="tabpanel"
                 tabindex="-1"
               >
                 <div
@@ -7565,7 +7582,7 @@ exports[`RippleStoryshots Molecules/Card Card Carousel 1`] = `
           <!---->
            
           <!---->
-        </section>
+        </div>
          
         <div
           class="rpl-card-carousel__navigation"
@@ -30007,7 +30024,7 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
         <!---->
       </button>
        
-      <section
+      <div
         class="VueCarousel"
       >
         <div
@@ -30015,11 +30032,12 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
         >
           <div
             class="VueCarousel-inner"
-            role="listbox"
-            style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
+            style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden; height: auto;"
           >
             <div
+              aria-hidden="true"
               class="VueCarousel-slide rpl-image-gallery__thumbnail"
+              role="tabpanel"
               tabindex="-1"
             >
               <img
@@ -30045,7 +30063,9 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
               </div>
             </div>
             <div
+              aria-hidden="true"
               class="VueCarousel-slide rpl-image-gallery__thumbnail"
+              role="tabpanel"
               tabindex="-1"
             >
               <img
@@ -30071,7 +30091,9 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
               </div>
             </div>
             <div
+              aria-hidden="true"
               class="VueCarousel-slide rpl-image-gallery__thumbnail"
+              role="tabpanel"
               tabindex="-1"
             >
               <img
@@ -30097,7 +30119,9 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
               </div>
             </div>
             <div
+              aria-hidden="true"
               class="VueCarousel-slide rpl-image-gallery__thumbnail"
+              role="tabpanel"
               tabindex="-1"
             >
               <img
@@ -30123,7 +30147,9 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
               </div>
             </div>
             <div
+              aria-hidden="true"
               class="VueCarousel-slide rpl-image-gallery__thumbnail"
+              role="tabpanel"
               tabindex="-1"
             >
               <img
@@ -30149,7 +30175,9 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
               </div>
             </div>
             <div
+              aria-hidden="true"
               class="VueCarousel-slide rpl-image-gallery__thumbnail"
+              role="tabpanel"
               tabindex="-1"
             >
               <img
@@ -30175,7 +30203,9 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
               </div>
             </div>
             <div
+              aria-hidden="true"
               class="VueCarousel-slide rpl-image-gallery__thumbnail"
+              role="tabpanel"
               tabindex="-1"
             >
               <img
@@ -30206,7 +30236,7 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
         <!---->
          
         <!---->
-      </section>
+      </div>
        
       <div
         class="rpl-image-gallery__thumbnail-navigation"
@@ -39018,7 +39048,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   <div
                     class="rpl-card-carousel__slider"
                   >
-                    <section
+                    <div
                       class="VueCarousel"
                     >
                       <div
@@ -39026,11 +39056,12 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       >
                         <div
                           class="VueCarousel-inner"
-                          role="listbox"
-                          style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
+                          style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden; height: auto;"
                         >
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -39112,7 +39143,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -39209,7 +39242,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -39290,7 +39325,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -39372,7 +39409,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -39454,7 +39493,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -39551,7 +39592,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -39632,7 +39675,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -39729,7 +39774,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -39831,7 +39878,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                       <!---->
                        
                       <!---->
-                    </section>
+                    </div>
                      
                     <div
                       class="rpl-card-carousel__navigation"
@@ -39870,7 +39917,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     <!---->
                   </button>
                    
-                  <section
+                  <div
                     class="VueCarousel"
                   >
                     <div
@@ -39878,11 +39925,12 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     >
                       <div
                         class="VueCarousel-inner"
-                        role="listbox"
-                        style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
+                        style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden; height: auto;"
                       >
                         <div
+                          aria-hidden="true"
                           class="VueCarousel-slide rpl-image-gallery__thumbnail"
+                          role="tabpanel"
                           tabindex="-1"
                         >
                           <img
@@ -39908,7 +39956,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           </div>
                         </div>
                         <div
+                          aria-hidden="true"
                           class="VueCarousel-slide rpl-image-gallery__thumbnail"
+                          role="tabpanel"
                           tabindex="-1"
                         >
                           <img
@@ -39934,7 +39984,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           </div>
                         </div>
                         <div
+                          aria-hidden="true"
                           class="VueCarousel-slide rpl-image-gallery__thumbnail"
+                          role="tabpanel"
                           tabindex="-1"
                         >
                           <img
@@ -39960,7 +40012,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           </div>
                         </div>
                         <div
+                          aria-hidden="true"
                           class="VueCarousel-slide rpl-image-gallery__thumbnail"
+                          role="tabpanel"
                           tabindex="-1"
                         >
                           <img
@@ -39986,7 +40040,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           </div>
                         </div>
                         <div
+                          aria-hidden="true"
                           class="VueCarousel-slide rpl-image-gallery__thumbnail"
+                          role="tabpanel"
                           tabindex="-1"
                         >
                           <img
@@ -40012,7 +40068,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           </div>
                         </div>
                         <div
+                          aria-hidden="true"
                           class="VueCarousel-slide rpl-image-gallery__thumbnail"
+                          role="tabpanel"
                           tabindex="-1"
                         >
                           <img
@@ -40038,7 +40096,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           </div>
                         </div>
                         <div
+                          aria-hidden="true"
                           class="VueCarousel-slide rpl-image-gallery__thumbnail"
+                          role="tabpanel"
                           tabindex="-1"
                         >
                           <img
@@ -40069,7 +40129,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     <!---->
                      
                     <!---->
-                  </section>
+                  </div>
                    
                   <div
                     class="rpl-image-gallery__thumbnail-navigation"
@@ -46497,7 +46557,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                   <div
                     class="rpl-card-carousel__slider"
                   >
-                    <section
+                    <div
                       class="VueCarousel"
                     >
                       <div
@@ -46505,11 +46565,12 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                       >
                         <div
                           class="VueCarousel-inner"
-                          role="listbox"
-                          style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden;"
+                          style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden; height: auto;"
                         >
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -46591,7 +46652,9 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -46672,7 +46735,9 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                             </div>
                           </div>
                           <div
+                            aria-hidden="true"
                             class="VueCarousel-slide rpl-card-carousel__slide"
+                            role="tabpanel"
                             tabindex="-1"
                           >
                             <div
@@ -46759,7 +46824,7 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
                       <!---->
                        
                       <!---->
-                    </section>
+                    </div>
                      
                     <div
                       class="rpl-card-carousel__navigation"

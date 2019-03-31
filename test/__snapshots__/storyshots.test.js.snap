@@ -15099,6 +15099,61 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               class="form-group valid required field-rplchecklist"
             >
               <label
+                for="multi-select-drop-down"
+              >
+                <span>
+                  Multi-select drop down
+                </span>
+                 
+                <!---->
+              </label>
+               
+              <div
+                class="field-wrap"
+              >
+                <div
+                  class="rpl-checklist wrapper"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-checklist__combobox form-control"
+                  >
+                    <div
+                      class="rpl-checklist__main-row"
+                    >
+                      <button
+                        class="rpl-checklist__info"
+                        type="button"
+                      >
+                        <span>
+                          
+                          <!---->
+                        </span>
+                         
+                        <!---->
+                      </button>
+                    </div>
+                     
+                    <!---->
+                  </div>
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <div
+                class="hint"
+              >
+                Implemented using rplchecklist
+              </div>
+               
+              <!---->
+            </div>
+            <div
+              class="form-group valid required field-rplselect"
+            >
+              <label
                 for="single-select-drop-down"
               >
                 <span>
@@ -15114,133 +15169,73 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 <div
                   class="rpl-select"
                 >
-                  <!---->
-                   
                   <div
-                    class="rpl-select__inner"
+                    class="rpl-select__native"
                   >
-                    <div
-                      aria-haspopup="listbox"
-                      aria-labelledby="select-rpl-select-trigger select-rpl-select-value"
-                      class="rpl-select__trigger"
-                      role="button"
-                      tabindex="0"
+                    <select
+                      id="single-select-drop-down"
                     >
-                      <span
-                        id="select-rpl-select-trigger"
+                      <option
+                        disabled="disabled"
+                        value=""
                       >
                         Select a single topic
-                      </span>
+                      </option>
                        
-                      <!---->
-                    </div>
-                     
-                    <div
-                      class="rpl-select__dropdown"
-                      style="display: none;"
-                    >
-                      <div
-                        class="rpl-select__listbox"
-                        role="listbox"
-                        tabindex="-1"
+                      <option
+                        value="topic_a"
                       >
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_a"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Topic A
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_b"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Topic B
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_c"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Topic C
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_d"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Topic D
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_e"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Topic e
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_f"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Topic f
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_g"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Topic g
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_h"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Topic h
-        
-                        </div>
-                      </div>
-                    </div>
+                        Topic A
+                      </option>
+                      <option
+                        value="topic_b"
+                      >
+                        Topic B
+                      </option>
+                      <option
+                        value="topic_c"
+                      >
+                        Topic C
+                      </option>
+                      <option
+                        value="topic_d"
+                      >
+                        Topic D
+                      </option>
+                      <option
+                        value="topic_e"
+                      >
+                        Topic e
+                      </option>
+                      <option
+                        value="topic_f"
+                      >
+                        Topic f
+                      </option>
+                      <option
+                        value="topic_g"
+                      >
+                        Topic g
+                      </option>
+                      <option
+                        value="topic_h"
+                      >
+                        Topic h
+                      </option>
+                    </select>
+                     
+                    <!---->
                   </div>
                 </div>
                  
                 <!---->
               </div>
                
-              <!---->
+              <div
+                class="hint"
+              >
+                Implemented using rplSelect
+              </div>
                
               <!---->
             </div>
@@ -15263,131 +15258,38 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 <div
                   class="rpl-select"
                 >
-                  <!---->
-                   
                   <div
-                    class="rpl-select__inner"
+                    class="rpl-select__native"
                   >
-                    <div
-                      aria-haspopup="listbox"
-                      aria-labelledby="multiselect-rpl-select-trigger multiselect-rpl-select-value"
-                      class="rpl-select__trigger"
-                      role="button"
-                      tabindex="0"
+                    <select
+                      id="multi-select-drop-down"
+                      multiple="multiple"
                     >
-                      <span
-                        id="multiselect-rpl-select-trigger"
-                      >
-                        Select several topics
-                      </span>
-                       
                       <!---->
-                    </div>
-                     
-                    <div
-                      class="rpl-select__dropdown"
-                      style="display: none;"
-                    >
-                      <div
-                        aria-multiselectable="true"
-                        class="rpl-select__listbox"
-                        role="listbox"
-                        tabindex="-1"
+                       
+                      <option
+                        value="topic_a"
                       >
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_a"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <label
-                            class="rpl-checkbox rpl-select__checkbox"
-                          >
-                            <!---->
-                             
-                            <span
-                              class="rpl-checkbox__box"
-                            >
-                              <!---->
-                            </span>
-                             
-                            <!---->
-                          </label>
-                          
-          Topic A
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_b"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <label
-                            class="rpl-checkbox rpl-select__checkbox"
-                          >
-                            <!---->
-                             
-                            <span
-                              class="rpl-checkbox__box"
-                            >
-                              <!---->
-                            </span>
-                             
-                            <!---->
-                          </label>
-                          
-          Topic B
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_c"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <label
-                            class="rpl-checkbox rpl-select__checkbox"
-                          >
-                            <!---->
-                             
-                            <span
-                              class="rpl-checkbox__box"
-                            >
-                              <!---->
-                            </span>
-                             
-                            <!---->
-                          </label>
-                          
-          Topic C
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="topic_d"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <label
-                            class="rpl-checkbox rpl-select__checkbox"
-                          >
-                            <!---->
-                             
-                            <span
-                              class="rpl-checkbox__box"
-                            >
-                              <!---->
-                            </span>
-                             
-                            <!---->
-                          </label>
-                          
-          Topic D
-        
-                        </div>
-                      </div>
-                    </div>
+                        Topic A
+                      </option>
+                      <option
+                        value="topic_b"
+                      >
+                        Topic B
+                      </option>
+                      <option
+                        value="topic_c"
+                      >
+                        Topic C
+                      </option>
+                      <option
+                        value="topic_d"
+                      >
+                        Topic D
+                      </option>
+                    </select>
+                     
+                    <!---->
                   </div>
                 </div>
                  
@@ -15397,7 +15299,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               <div
                 class="hint"
               >
-                Implemented using vue-multiselect
+                Implemented using rplSelect
               </div>
                
               <!---->
@@ -15540,84 +15442,42 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 <div
                   class="rpl-select"
                 >
-                  <!---->
-                   
                   <div
-                    class="rpl-select__inner"
+                    class="rpl-select__native"
                   >
-                    <div
-                      aria-haspopup="listbox"
-                      aria-labelledby="address.state-rpl-select-trigger address.state-rpl-select-value"
-                      class="rpl-select__trigger"
-                      role="button"
-                      tabindex="0"
+                    <select
+                      id="state"
                     >
-                      <span
-                        id="address.state-rpl-select-value"
+                      <option
+                        disabled="disabled"
+                        value=""
+                      >
+                        Select
+                      </option>
+                       
+                      <option
+                        value="vic"
                       >
                         Vic
-                      </span>
-                       
-                      <!---->
-                    </div>
-                     
-                    <div
-                      class="rpl-select__dropdown"
-                      style="display: none;"
-                    >
-                      <div
-                        aria-activedescendant="vic"
-                        class="rpl-select__listbox"
-                        role="listbox"
-                        tabindex="-1"
+                      </option>
+                      <option
+                        value="nsw"
                       >
-                        <div
-                          aria-selected="true"
-                          class="rpl-select__listitem rpl-select__listitem--selected"
-                          id="vic"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Vic
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="nsw"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          New South Wales
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="wa"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Western Australia
-        
-                        </div>
-                        <div
-                          class="rpl-select__listitem"
-                          id="ql"
-                          role="option"
-                          tabindex="-1"
-                        >
-                          <!---->
-                          
-          Queensland
-        
-                        </div>
-                      </div>
-                    </div>
+                        New South Wales
+                      </option>
+                      <option
+                        value="wa"
+                      >
+                        Western Australia
+                      </option>
+                      <option
+                        value="ql"
+                      >
+                        Queensland
+                      </option>
+                    </select>
+                     
+                    <!---->
                   </div>
                 </div>
                  

@@ -17,10 +17,12 @@
         role="button"
         ref="trigger"
         @click="toggleOpen"
-        v-on:keyup.enter.prevent="toggleOpen"
+        @keyup.space.prevent="toggleOpen"
+        @keyup.enter.prevent="toggleOpen"
       >
         <template v-if="value && value.length > 0">
           <span :id="`${schema.model}-rpl-select-value`">{{selectedTitles}}</span>
+          <span class="rpl-select__label-info"> Selected</span>
         </template>
         <span v-else :id="`${schema.model}-rpl-select-trigger`">{{placeholder}}</span>
         <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
@@ -36,7 +38,6 @@
           @keyup.enter.prevent="toggleOpen"
           @keydown.up="handleKeys"
           @keydown.down="handleKeys"
-          @keyup.space="clickItem(options.find(i => i.focussed))"
           @keyup.esc="close"
         >
           <div
@@ -45,7 +46,7 @@
             class="rpl-select__listitem"
             :aria-selected="schema.multiselect ? option.selected : false"
             :class="{'rpl-select__listitem--selected': option.selected && !schema.multiselect, 'rpl-select__listitem--focussed': option.focussed && schema.multiselect}"
-            @click="clickItem(option)"
+            @click.self="clickItem(option)"
             tabindex="-1"
             role="option"
             v-for="(option, index) in options"
@@ -260,6 +261,9 @@ export default {
       const keys = ['Up', 'ArrowUp', 'Down', 'ArrowDown', ' ', 'Space', 'Tab']
       if (this.isOpen && keys.includes(e.key)) {
         e.preventDefault()
+      } else if (document.activeElement === this.$el.querySelector('.rpl-select__trigger') && [' ', 'Space'].includes(e.key)) {
+        // prevent space from scrolling window if the trigger button has focus
+        e.preventDefault()
       }
     }
   },
@@ -336,6 +340,10 @@ $rpl-select-selected-color: rpl-color("white") !default;
       }
     }
 
+  }
+
+  &__label-info {
+    @include rpl_visually_hidden;
   }
 
   &__dropdown {

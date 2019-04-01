@@ -200,7 +200,7 @@ export default {
       overflow: hidden;
       display: flex;
       flex-wrap: wrap;
-      align-content: start;
+      align-content: flex-start;
       box-sizing: border-box;
       border-bottom: $rpl-image-gallery-thumbnail-border;
       background-color: $rpl-image-gallery-thumbnail-background;

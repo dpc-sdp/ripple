@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-timeline",
-  "version": "1.0.0-alpha.63",
+  "version": "1.0.0-alpha.66",
   "description": "A timeline component for displaying sequential items.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.63",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.63"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.66",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.66"
   }
 }

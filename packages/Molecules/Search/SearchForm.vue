@@ -4,11 +4,11 @@
     <h3 v-if="subtitle">{{ subtitle }}</h3>
     <div class="rpl-search-form__field" v-if="textSearch">
       <label>
-        <span class="rpl-search-form__label-text">Search for</span>
+        <span class="rpl-search-form__label-text">{{ searchInputLabel }}</span>
         <input v-model="searchInput" ref="searchinput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keydown.enter="submitSearch()" />
       </label>
       <button @click="submitSearch()" class="rpl-search-form__btn">
-        <span>Search</span>
+        <span :class="{'rpl-visually-hidden' : buttonHiddenLabel}">{{ buttonLabel }}</span>
         <rpl-icon symbol="search" :color="(theme === 'dark') ? 'white' : 'primary'" size="l"></rpl-icon>
       </button>
     </div>
@@ -19,7 +19,7 @@
       :class="{ 'rpl-search-form__show-filters--expanded': showFilters }"
       @click="showFilters = !showFilters"
     >
-      <span>Refine search</span>
+      <span>{{ filterText }}</span>
       <span v-if="filterCount > 0">( {{ filterCount }} )</span>
     </button>
     <div v-if="showFilters" class="rpl-search-form__filters">
@@ -40,10 +40,14 @@ export default {
     subtitle: String,
     searchPlaceholder: String,
     prefillSearchTerm: String,
+    searchInputLabel: { type: String, default: 'Search for' },
+    buttonLabel: { type: String, default: 'Search' },
+    buttonHiddenLabel: { type: Boolean, default: true },
     autoFocus: { type: Boolean, default: false },
     textSearch: { type: Boolean, default: true },
     expandFilters: { type: Boolean, default: false },
     filterForm: Object,
+    filterText: { type: String, default: 'Refine search' },
     theme: String,
     type: { type: String, default: 'default' },
     allowBlank: { type: Boolean, default: false }
@@ -146,6 +150,8 @@ export default {
   $rpl-search-form-show-filters-ruleset: ('s', .87em, 'bold') !default;
   $rpl-search-form-legend-ruleset: (2em, 2.2em, 'bold') !default;
   $rpl-search-form-show-filters-text-color: rpl-color('primary') !default;
+  $rpl-search-form-search-button-text: $rpl-search-form-show-filters-ruleset !default;
+  $rpl-search-form-search-button-text-color: rpl-color('primary') !default;
 
   .rpl-search-form {
     $root: &;
@@ -183,11 +189,19 @@ export default {
       background-color: transparent;
       border: 0;
       padding: 0;
-      width: $rpl-search-form-button-width;
       cursor: pointer;
+      display: flex;
+      align-items: center;
 
       span {
-        @include rpl_visually_hidden;
+        @include rpl_typography_ruleset($rpl-search-form-search-button-text);
+        color: $rpl-search-form-search-button-text-color;
+        margin-right: $rpl-space-2;
+      }
+
+      svg {
+        width: $rpl-search-form-button-width;
+        height: $rpl-search-form-button-width;
       }
     }
 

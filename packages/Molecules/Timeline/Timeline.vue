@@ -180,6 +180,10 @@ export default {
       margin: $rpl-timeline-image-margin;
       border-radius: 100%;
       @include object_fit_image(cover);
+
+      @media print {
+        margin: 0;
+      }
     }
 
     &__item-title {

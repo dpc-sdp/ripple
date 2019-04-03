@@ -62,6 +62,10 @@ $rpl-markup-link-color: rpl-color('primary') !default;
     text-decoration: none;
     @include rpl_text_color($rpl-markup-link-color);
 
+    @media print {
+      text-decoration: underline;
+    }
+
     &:hover,
     &:focus {
       text-decoration: underline;

@@ -60,6 +60,8 @@ export default {
   text-decoration: none;
 
   @media print {
+    text-decoration: underline;
+
     &[href]:after {
       content: ' <' attr(href) '> ';
       text-decoration: none;

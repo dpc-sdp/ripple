@@ -16,6 +16,13 @@
     width: auto;
   }
 
+  @media print {
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
+    text-decoration: underline;
+  }
+
   &:hover,
   &:focus {
     text-decoration: none;
@@ -41,6 +48,10 @@
   @include rpl_text_color($rpl-button-primary-text-color);
   background-color: $rpl-button-primary-background-color;
 
+  @media print {
+    background-color: transparent;
+  }
+
   &:hover,
   &:focus {
     background-color: $rpl-button-primary-hover-background-color;
@@ -55,6 +66,10 @@
 @mixin rpl_button_secondary {
   @include rpl_text_color($rpl-button-secondary-text-color);
   background-color: $rpl-button-secondary-background-color;
+
+  @media print {
+    background-color: transparent;
+  }
 
   &:hover,
   &:focus {

@@ -79,6 +79,10 @@ export default {
       padding: $rpl-news-listing-item-padding;
       list-style: none;
 
+      @media print {
+        page-break-inside: avoid;
+      }
+
       &:last-child {
         border-bottom: 0;
       }

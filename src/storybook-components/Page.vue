@@ -101,7 +101,7 @@
           <rpl-card-carousel v-bind="mock.cardCarousel" :childColsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
-          <rpl-image-gallery :gallery-data="mock.imageGallery.gallery" :enlarge-text="mock.imageGallery.enlargeText" />
+          <rpl-image-gallery v-bind="mock.imageGallery" />
         </rpl-col>
         <rpl-col cols="full" :colsBp="defaultCols">
           <rpl-news-listing :title="mock.newsListing.title" :list="mock.newsListing.list" />

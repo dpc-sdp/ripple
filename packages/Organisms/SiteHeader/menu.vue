@@ -372,6 +372,7 @@ export default {
     .rpl-menu__items--root {
       display: flex;
       list-style: none;
+      justify-content: flex-end;
 
       & > .rpl-menu__item > .rpl-menu__item-link {
         @include rpl_typography_font('xs', 1em, 'bold');

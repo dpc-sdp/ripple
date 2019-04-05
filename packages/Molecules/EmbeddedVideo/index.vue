@@ -48,9 +48,7 @@ export default {
   $rpl-embedded-video-height: 0;
 
   .rpl-embedded-video {
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
   }
 
   .rpl-embedded-video-iframe-container {

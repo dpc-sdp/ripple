@@ -85,9 +85,7 @@ export default {
     max-width: $rpl-card-navigation-featured-max-width;
     border-radius: $rpl-card-navigation-featured-border-radius;
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &:hover,
     &:focus {

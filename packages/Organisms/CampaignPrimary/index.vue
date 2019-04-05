@@ -108,7 +108,7 @@ export default {
       padding: $rpl-campaign-primary-padding-xxl;
     }
 
-    @media print {
+    @include rpl_print {
       border-bottom: 0;
     }
 
@@ -204,7 +204,7 @@ export default {
         vertical-align: bottom;
       }
 
-      @media print {
+      @include rpl_print {
         width: auto;
         height: $rpl-print-image-height;
       }
@@ -225,9 +225,7 @@ export default {
         display: block;
       }
 
-      @media print {
-        display: none;
-      }
+      @include rpl_print_hidden;
 
       .rpl-icon {
         position: absolute;
@@ -237,9 +235,7 @@ export default {
     }
 
     &__call-to-action {
-      @media print {
-        display: none;
-      }
+      @include rpl_print_hidden;
     }
   }
 </style>

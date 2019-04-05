@@ -5,3 +5,15 @@
     color: $print;
   }
 }
+
+@mixin rpl_print {
+  @media print {
+    @content;
+  }
+}
+
+@mixin rpl_print_hidden {
+  @media print {
+    display: none;
+  }
+}

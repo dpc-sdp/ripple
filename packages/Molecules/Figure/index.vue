@@ -33,7 +33,7 @@ export default {
       height: auto;
       max-width: 100%;
 
-      @media print {
+      @include rpl_print {
         max-height: $rpl-print-image-height;
       }
     }

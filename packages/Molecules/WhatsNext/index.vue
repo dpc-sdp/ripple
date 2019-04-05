@@ -51,9 +51,7 @@ export default {
       border-radius: $rpl-whats-next-border-radius;
     }
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &__row {
       @include rpl_breakpoint('s') {

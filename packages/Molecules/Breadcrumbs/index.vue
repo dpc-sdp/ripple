@@ -51,9 +51,7 @@ export default {
       display: block;
     }
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &__items {
       display: inline-block;

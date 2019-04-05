@@ -125,9 +125,7 @@ export default {
     align-items: center;
     width: 100%;
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &__list {
       padding: 0;

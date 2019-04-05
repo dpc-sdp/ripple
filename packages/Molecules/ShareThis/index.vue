@@ -98,9 +98,7 @@ export default {
       margin: $rpl-share-this-margin-l;
     }
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &__title {
       @include rpl_typography_ruleset($rpl-share-this-title-ruleset);

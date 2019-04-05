@@ -56,9 +56,7 @@ export default {
     position: relative;
     border-radius: $rpl-related-links-border-radius;
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &__row {
       @include rpl_breakpoint('s') {

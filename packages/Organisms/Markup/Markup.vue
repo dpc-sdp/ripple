@@ -109,7 +109,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     text-decoration: none;
     @include rpl_text_color($rpl-markup-link-color);
 
-    @media print {
+    @include rpl_print {
       text-decoration: underline;
     }
 

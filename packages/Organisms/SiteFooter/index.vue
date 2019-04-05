@@ -94,7 +94,7 @@ $gutterless-grid: (
     background-position: calc(100% + #{rem(100px)}) bottom;
   }
 
-  @media print {
+  @include rpl_print {
     background-image: none;
     background-color: transparent;
   }
@@ -115,9 +115,7 @@ $gutterless-grid: (
   border-bottom: $rpl-footer-border-width solid $rpl-footer-border-color;
   padding-top: $rpl-space;
 
-  @media print {
-    display: none;
-  }
+  @include rpl_print_hidden;
 
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     padding-top: $rpl-space-4 * 2;
@@ -137,7 +135,7 @@ $gutterless-grid: (
     flex-wrap: nowrap;
   }
 
-  @media print {
+  @include rpl_print {
     background-color: transparent;
   }
 }
@@ -197,9 +195,7 @@ $gutterless-grid: (
 .rpl-links-and-copyright__links {
   margin: 0;
 
-  @media print {
-    display: none;
-  }
+  @include rpl_print_hidden;
 
   li {
     display: inline-block;
@@ -251,9 +247,7 @@ $gutterless-grid: (
     max-height: none;
   }
 
-  @media print {
-    display: none;
-  }
+  @include rpl_print_hidden;
 
   &:first-child {
     margin-left: 0;

@@ -204,7 +204,7 @@ export default {
       }
     }
 
-    @media print {
+    @include rpl_print {
       padding: 0;
       border: 0;
       background-image: none !important; // Needs to override inline definition.
@@ -218,7 +218,7 @@ export default {
         padding-right: $rpl-hero-banner-left-padding;
       }
 
-      @media print {
+      @include rpl_print {
         @include rpl_grid_full;
         padding-right: 0;
       }
@@ -232,9 +232,7 @@ export default {
         @include rpl_grid_column(4);
       }
 
-      @media print {
-        display: none;
-      }
+      @include rpl_print_hidden;
     }
 
     &__logo {

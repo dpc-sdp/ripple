@@ -101,7 +101,7 @@ export default {
       position: relative;
       padding: $rpl-timeline-list-item-padding;
 
-      @media print {
+      @include rpl_print {
         page-break-inside: avoid;
         padding-left: 0;
       }
@@ -109,7 +109,7 @@ export default {
       &--multi {
         border-left: $rpl-timeline-sidebar-size solid $rpl-timeline-sidebar-color;
 
-        @media print {
+        @include rpl_print {
           border-left: 0;
         }
 
@@ -122,9 +122,7 @@ export default {
           top: $rpl-timeline-point-top;
           left: 0;
 
-          @media print {
-            display: none;
-          }
+          @include rpl_print_hidden;
         }
 
         &:first-child, &:last-child {
@@ -140,9 +138,7 @@ export default {
             left: 0;
             position: absolute;
 
-            @media print {
-              display: none;
-            }
+            @include rpl_print_hidden;
           }
         }
 
@@ -181,7 +177,7 @@ export default {
       border-radius: 100%;
       @include object_fit_image(cover);
 
-      @media print {
+      @include rpl_print {
         margin: 0;
       }
     }

@@ -71,9 +71,7 @@ export default {
       padding-left: $rpl-anchor-links-left-padding-xl;
     }
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &__row {
       @include rpl_breakpoint('s') {

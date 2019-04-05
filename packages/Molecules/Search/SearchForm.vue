@@ -169,9 +169,7 @@ export default {
       padding-bottom: $rpl-space * 15;
     }
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     h1 {
       @include rpl_typography_ruleset($rpl-search-form-heading-ruleset);

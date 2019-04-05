@@ -62,7 +62,7 @@ export default {
         align-items: center;
       }
 
-      @media print {
+      @include rpl_print {
         display: block;
       }
     }
@@ -101,9 +101,7 @@ export default {
 
     &__primary {
       &.rpl-button {
-        @media print {
-          display: none;
-        }
+        @include rpl_print_hidden;
       }
     }
   }

@@ -16,7 +16,7 @@
     width: auto;
   }
 
-  @media print {
+  @include rpl_print {
     padding-left: 0;
     padding-right: 0;
     width: auto;
@@ -48,7 +48,7 @@
   @include rpl_text_color($rpl-button-primary-text-color);
   background-color: $rpl-button-primary-background-color;
 
-  @media print {
+  @include rpl_print {
     background-color: transparent;
   }
 
@@ -67,7 +67,7 @@
   @include rpl_text_color($rpl-button-secondary-text-color);
   background-color: $rpl-button-secondary-background-color;
 
-  @media print {
+  @include rpl_print {
     background-color: transparent;
   }
 

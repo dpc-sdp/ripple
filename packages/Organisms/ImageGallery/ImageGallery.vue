@@ -177,9 +177,7 @@ export default {
   .rpl-image-gallery {
     position: relative;
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &__enlarge {
       background-color: $rpl-image-gallery-enlarge-background-color;

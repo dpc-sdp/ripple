@@ -122,7 +122,7 @@ export default {
     background: $rpl-contact-background;
     position: relative;
 
-    @media print {
+    @include rpl_print {
       page-break-inside: avoid;
     }
 
@@ -147,7 +147,7 @@ export default {
       padding: $rpl-contact-details-padding;
       margin: $rpl-contact-paragraph-margin;
 
-      @media print {
+      @include rpl_print {
         padding: 0;
       }
 
@@ -161,9 +161,7 @@ export default {
         width: rem(4px);
         background-image: $rpl-contact-details-border-image;
 
-        @media print {
-          display: none;
-        }
+        @include rpl_print_hidden;
       }
 
     }

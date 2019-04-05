@@ -51,9 +51,7 @@ export default {
     border-radius: $rpl-section-menu-border-radius;
     box-sizing: border-box;
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &__title {
       @include rpl_typography_ruleset($rpl-section-menu-title-ruleset);

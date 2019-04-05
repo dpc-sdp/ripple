@@ -116,9 +116,7 @@ export default {
     border: $rpl-card-content-border;
     border-radius: $rpl-card-content-border-radius;
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &:hover,
     &:focus {

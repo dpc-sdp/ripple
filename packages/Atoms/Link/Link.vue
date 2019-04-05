@@ -55,11 +55,12 @@ export default {
 
 <style lang="scss">
 @import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 .rpl-link {
   text-decoration: none;
 
-  @media print {
+  @include rpl_print {
     text-decoration: underline;
 
     &[href]:after {

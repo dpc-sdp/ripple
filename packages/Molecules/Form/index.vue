@@ -138,13 +138,10 @@ export default {
 
 .rpl-form {
   @include rpl_typography_ruleset($rpl-form-text-ruleset);
+  @include rpl_print_hidden;
 
   &__title {
     margin-top: 0;
-  }
-
-  @media print {
-    display: none;
   }
 
   label {

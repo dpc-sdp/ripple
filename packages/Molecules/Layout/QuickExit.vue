@@ -86,9 +86,7 @@ export default {
     margin-left: auto;
     z-index: $rpl-zindex-tooltip;
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &--sticky {
       &::before {

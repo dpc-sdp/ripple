@@ -132,7 +132,7 @@ export default {
     background-position: left -13rem;
   }
 
-  @media print {
+  @include rpl_print {
     background-image: none !important;
   }
 
@@ -147,7 +147,7 @@ export default {
       }
     }
 
-    @media print {
+    @include rpl_print {
       padding-top: 0;
     }
   }
@@ -174,7 +174,7 @@ export default {
     }
   }
 
-  @media print {
+  @include rpl_print {
     padding: 0;
   }
 
@@ -183,7 +183,7 @@ export default {
   }
 
   .rpl-row {
-    @media print {
+    @include rpl_print {
       display: block;
       margin: 0;
       width: auto;
@@ -193,7 +193,7 @@ export default {
 
 .rpl-main,
 .rpl-sidebar {
-  @media print {
+  @include rpl_print {
     width: 100%;
     margin: 0;
     left: 0;

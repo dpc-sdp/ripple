@@ -74,9 +74,7 @@ export default {
       border: $rpl-call-to-action-border;
     }
 
-    @media print {
-      display: none;
-    }
+    @include rpl_print_hidden;
 
     &__image {
       width: 100%;

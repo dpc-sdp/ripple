@@ -86,7 +86,7 @@ export default {
       padding: $rpl-campaign-secondary-padding-xxl;
     }
 
-    @media print {
+    @include rpl_print {
       padding: 0;
     }
 

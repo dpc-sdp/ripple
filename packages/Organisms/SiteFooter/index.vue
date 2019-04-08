@@ -172,7 +172,7 @@ $gutterless-grid: (
       cursor: pointer;
 
       @include rpl_breakpoint($rpl-footer-breakpoint) {
-        cursor: none;
+        cursor: auto;
       }
     }
   }

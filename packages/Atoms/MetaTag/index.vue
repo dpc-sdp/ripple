@@ -46,6 +46,7 @@ export default {
 
       #{$root}--dark & {
         border-color: $rpl-meta-tag-dark-border-color;
+        @include rpl_focus_dark;
       }
     }
 

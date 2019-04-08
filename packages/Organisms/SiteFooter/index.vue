@@ -101,6 +101,7 @@ $gutterless-grid: (
 
   a {
     color: $rpl-footer-text-color;
+    @include rpl_focus_dark;
   }
 
   ul {
@@ -240,6 +241,7 @@ $gutterless-grid: (
   max-width: $rpl-footer-logo-max-width;
   max-height: $rpl-footer-logo-max-height;
   margin-left: $rpl-space-2;
+  @include rpl_focus_dark;
 
   @include rpl_breakpoint('s') {
     width: auto;

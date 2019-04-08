@@ -308,12 +308,14 @@ export default {
 
     .rpl-menu__heading {
       margin: $rpl-menu-vertical-heading-margin;
+      @include rpl_focus_dark;
     }
 
     .rpl-menu__quickexit {
       padding: $rpl-menu-vertical-quickexit-padding;
       > a {
         width: 100%;
+        @include rpl_focus_dark;
       }
       @include rpl_breakpoint('s') {
         float: right;
@@ -355,6 +357,7 @@ export default {
       border: 0;
       padding: 0;
       cursor: pointer;
+      @include rpl_focus_dark;
 
       .rpl-icon {
         margin: $rpl-menu-vertical-back-icon-margin;
@@ -367,6 +370,7 @@ export default {
 
     .rpl-menu__heading {
       margin: 0;
+      @include rpl_focus_dark;
     }
 
     .rpl-menu__items--root {
@@ -385,6 +389,7 @@ export default {
         cursor: pointer;
         color: $rpl-menu-horizontal-items-root-link-color;
         margin: $rpl-menu-horizontal-items-root-margin;
+        @include rpl_focus_dark;
 
         &:hover, &:focus {
           &::after {
@@ -557,6 +562,7 @@ export default {
       padding: $rpl-menu-item-link-padding;
       color: $rpl-menu-item-link-color;
       transition: padding-left .25s;
+      @include rpl_focus_dark;
 
       .rpl-icon {
         margin: $rpl-menu-item-link-icon-margin;

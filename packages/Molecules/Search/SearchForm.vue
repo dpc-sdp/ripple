@@ -194,6 +194,7 @@ export default {
       cursor: pointer;
       display: flex;
       align-items: center;
+      @include rpl_focus_dark;
 
       span {
         @include rpl_typography_ruleset($rpl-search-form-search-button-text);
@@ -224,6 +225,7 @@ export default {
       @at-root {
         #{$root}--dark #{$root}__input {
           color: $rpl-search-form-dark-text-color;
+          @include rpl_focus_dark;
         }
       }
 

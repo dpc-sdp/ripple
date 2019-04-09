@@ -32852,43 +32852,47 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -34838,43 +34842,47 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -35639,43 +35647,47 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -36378,43 +36390,47 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -37185,43 +37201,47 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -41229,43 +41249,47 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -42088,43 +42112,47 @@ exports[`RippleStoryshots Templates Page with Cards 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -43365,43 +43393,47 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -44512,43 +44544,47 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -45973,43 +46009,47 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -47147,43 +47187,47 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -48053,43 +48097,47 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                

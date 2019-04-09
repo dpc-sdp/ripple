@@ -18,31 +18,40 @@ export default {
   props: {
     variant: String
   },
-  data () {
-    return {
-      icon: null,
-      classes: [],
-      color: null
+  computed: {
+    icon () {
+      return this.getValues().icon
+    },
+    color () {
+      return this.getValues().color
+    },
+    classes () {
+      return [ 'rpl-form-alert--' + this.variant ]
     }
   },
-  created () {
-    switch (this.variant) {
-      case 'success':
-        this.icon = 'success'
-        this.color = 'success'
-        break
+  methods: {
+    getValues () {
+      let icon, color
+      switch (this.variant) {
+        case 'success':
+          icon = 'success'
+          color = 'success'
+          break
 
-      case 'danger':
-        this.icon = 'alert_information'
-        this.color = 'danger'
-        break
+        case 'danger':
+          icon = 'alert_information'
+          color = 'danger'
+          break
 
-      default:
-        this.icon = 'alert_information'
-        break
+        default:
+          icon = 'alert_information'
+          break
+      }
+      return {
+        icon,
+        color
+      }
     }
-
-    this.classes = [ 'rpl-form-alert--' + this.variant ]
   }
 }
 </script>

@@ -235,9 +235,7 @@ export default {
       }
 
       switch (e.keyCode) {
-        case 38:
-        case 'Up':
-        case 'ArrowUp':
+        case 38: // Up key
           selected = this.options[selectedIdx - 1]
           if (selected) {
             if (!this.schema.multiselect) {
@@ -246,9 +244,7 @@ export default {
             this.focusItem(selected)
           }
           break
-        case 40:
-        case 'Down': // IE/Edge specific value
-        case 'ArrowDown':
+        case 40: // Down key
           if (this.options.length > (selectedIdx + 1)) {
             selected = this.options[selectedIdx + 1]
             if (!this.schema.multiselect) {

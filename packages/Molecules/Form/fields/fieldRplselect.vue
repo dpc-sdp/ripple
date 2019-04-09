@@ -233,7 +233,9 @@ export default {
       } else {
         selectedIdx = this.options.findIndex(opt => opt.focussed === true)
       }
-      switch (e.key) {
+
+      switch (e.keyCode) {
+        case 38:
         case 'Up':
         case 'ArrowUp':
           selected = this.options[selectedIdx - 1]
@@ -244,6 +246,7 @@ export default {
             this.focusItem(selected)
           }
           break
+        case 40:
         case 'Down': // IE/Edge specific value
         case 'ArrowDown':
           if (this.options.length > (selectedIdx + 1)) {

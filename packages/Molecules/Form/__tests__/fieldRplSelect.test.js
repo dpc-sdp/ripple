@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import RplSelect from './../fields/fieldRplSelect'
+import RplSelect from './../fields/fieldRplselect'
 
 let wrapper
 

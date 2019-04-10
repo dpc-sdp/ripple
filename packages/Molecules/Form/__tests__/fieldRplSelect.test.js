@@ -1,6 +1,13 @@
 import { mount } from '@vue/test-utils'
 import RplSelect from './../fields/fieldRplSelect'
 
+let wrapper
+
+afterEach(() => {
+  wrapper.destroy()
+  wrapper = null
+})
+
 describe('FieldRplSelect', () => {
   const basePropsData = {
     model: {
@@ -83,7 +90,7 @@ describe('FieldRplSelect', () => {
   }
 
   it('has native select on mobile', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       propsData: {
         ...basePropsData
       },
@@ -100,7 +107,7 @@ describe('FieldRplSelect', () => {
   })
 
   it('does not have native select on desktop', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       ...baseConfig
     })
     expect(wrapper.isVueInstance()).toBeTruthy()
@@ -108,7 +115,7 @@ describe('FieldRplSelect', () => {
   })
 
   it('is closed on load', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       ...baseConfig
     })
     expect(wrapper.find('.rpl-select__trigger').attributes('aria-expanded')).toBeUndefined()
@@ -116,7 +123,7 @@ describe('FieldRplSelect', () => {
   })
 
   it('opens on click', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       ...baseConfig
     })
     wrapper.find('.rpl-select__trigger').trigger('click')
@@ -126,7 +133,7 @@ describe('FieldRplSelect', () => {
   })
 
   it('opens on spacebar', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       ...baseConfig
     })
     wrapper.find('.rpl-select__trigger').trigger('keyup.space')
@@ -136,7 +143,7 @@ describe('FieldRplSelect', () => {
   })
 
   it('opens on enter', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       ...baseConfig
     })
     wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
@@ -146,7 +153,7 @@ describe('FieldRplSelect', () => {
   })
 
   it('closes on esc', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       ...baseConfig
     })
     wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
@@ -157,7 +164,7 @@ describe('FieldRplSelect', () => {
   })
 
   it('Selects first item when opened', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       ...baseConfig
     })
     wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
@@ -165,10 +172,11 @@ describe('FieldRplSelect', () => {
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
     expect(wrapper.find('#single-select-drop-down__topic_a').classes()).toContain('rpl-select__listitem--selected')
     expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic A')
+    expect(wrapper.find('.rpl-select__listitem--selected').attributes('aria-selected')).toBeUndefined()
   })
 
   it('navigates to next item when press down arrow', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       ...baseConfig,
       propsData: {
         ...baseConfig.propsData,
@@ -186,7 +194,7 @@ describe('FieldRplSelect', () => {
   })
 
   it('navigates to previous item when press up arrow', () => {
-    const wrapper = mount(RplSelect, {
+    wrapper = mount(RplSelect, {
       ...baseConfig,
       propsData: {
         ...baseConfig.propsData,
@@ -201,8 +209,81 @@ describe('FieldRplSelect', () => {
     wrapper.find('.rpl-select__listbox').trigger('keydown.down')
     wrapper.find('.rpl-select__listbox').trigger('keydown.down')
     wrapper.find('.rpl-select__listbox').trigger('keydown.up')
-    wrapper.find('.rpl-select__listbox').trigger('keydown.up')
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
-    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic A')
+    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic B')
+  })
+
+  describe('multiselect', () => {
+    it('sets aria attibutes correctly', () => {
+      wrapper = mount(RplSelect, {
+        ...baseConfig,
+        propsData: {
+          ...baseConfig.propsData,
+          schema: {
+            ...baseConfig.propsData.schema,
+            multiselect: true
+          },
+          model: {
+            select: ['topic_a', 'topic_b']
+          }
+        },
+        attachToDocument: true
+      })
+
+      expect(wrapper.find('.rpl-select__listbox').attributes('role')).toEqual('listbox')
+      expect(wrapper.find('.rpl-select__listbox').attributes('aria-multiselectable')).toEqual('true')
+      expect(wrapper.find('.rpl-select__trigger').attributes('aria-haspopup')).toEqual('listbox')
+    })
+
+    it('shows multiple options when selected', () => {
+      wrapper = mount(RplSelect, {
+        ...baseConfig,
+        propsData: {
+          ...baseConfig.propsData,
+          schema: {
+            ...baseConfig.propsData.schema,
+            multiselect: true
+          },
+          model: {
+            select: ['topic_a', 'topic_b']
+          }
+        },
+        attachToDocument: true
+      })
+
+      expect(wrapper.find('#select-rpl-select-value').text()).toContain('Topic A, Topic B')
+      wrapper.destroy()
+    })
+
+    it('makes selections with spacebar', () => {
+      wrapper = mount(RplSelect, {
+        ...baseConfig,
+        propsData: {
+          ...baseConfig.propsData,
+          schema: {
+            ...baseConfig.propsData.schema,
+            multiselect: true,
+            placeholder: 'Select multiple topics'
+          },
+          model: {
+            select: []
+          }
+        },
+        attachToDocument: true
+      })
+
+      wrapper.find('.rpl-select__trigger').trigger('click')
+      expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
+      expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic B')
+      wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+      expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic C')
+      wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+      expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic D')
+      wrapper.find('.rpl-select__listitem--focussed').trigger('click')
+      expect(wrapper.find('.rpl-select__listitem--focussed').find('.rpl-select__checkbox').exists()).toBeTruthy()
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.find('.rpl-select__trigger').text()).toContain('Topic D')
+      })
+    })
   })
 })

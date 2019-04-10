@@ -47,6 +47,7 @@
             :aria-selected="schema.multiselect ? option.selected : false"
             :class="{'rpl-select__listitem--selected': option.selected && !schema.multiselect, 'rpl-select__listitem--focussed': option.focussed && schema.multiselect}"
             @click.self="clickItem(option)"
+            @keyup.space="clickItem(option)"
             tabindex="-1"
             role="option"
             v-for="(option, index) in options"
@@ -210,6 +211,7 @@ export default {
       this.focussed = selected
       const item = this.$el.querySelector(`#${selected.uuid}`)
       const listbox = this.$refs.listbox
+
       if (listbox.scrollHeight > listbox.clientHeight) {
         let scrollBottom = listbox.clientHeight + listbox.scrollTop
         let elementBottom = item.offsetTop + item.offsetHeight

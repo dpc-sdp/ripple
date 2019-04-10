@@ -1461,9 +1461,7 @@ const demoData = {
         checkbox: true,
         select: '',
         multiselect: null,
-        singleselect: null,
         checklistlistbox: ['topic_a'],
-        checklistdropdown: ['topic_a', 'topic_b', 'invalid'],
         rangeslider: [10000, 70000]
       },
 
@@ -1598,32 +1596,6 @@ const demoData = {
             model: 'checklistlistbox',
             listBox: true,
             hint: 'Implemented using rplchecklist with listBox: true',
-            placeholder: 'Select multiple topics',
-            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
-          },
-          {
-            type: 'rplchecklist',
-            single: true,
-            label: 'Single-select drop down',
-            model: 'singleselect',
-            hint: 'Implemented using rplchecklist',
-            placeholder: 'Select a single topic',
-            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
-          },
-
-          {
-            type: 'rplchecklist',
-            label: 'Multi-select drop down',
-            validator (value) {
-              if (Array.isArray(value) && value.length > 0) {
-                return []
-              }
-              return ['Add a selection']
-            },
-            min: 1,
-            required: true,
-            model: 'checklistdropdown',
-            hint: 'Implemented using rplchecklist',
             placeholder: 'Select multiple topics',
             values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
           },

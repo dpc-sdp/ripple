@@ -5,7 +5,7 @@
     </div>
     <rpl-row row-gutter class="rpl-search-results__main" :class="{'rpl-search-results__main--events': type === 'RplCardEvent'}">
       <template v-if="searchResults && !errorMsg">
-        <rpl-col cols="full" v-for="(searchResult, index) of searchResults" :key="index" :colsBp="searchResultContent.colsBp">
+        <rpl-col cols="full" v-for="(searchResult, index) of searchResults" :key="`${index}-${searchResult.id}`" :colsBp="searchResultContent.colsBp">
           <component
             v-if="searchResultContent.component"
             :is="searchResultContent.component"

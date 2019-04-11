@@ -977,8 +977,15 @@ const demoData = {
 
   searchForm: () => ({
     title: text('Title', 'Search results'),
+    subtitle: text('Subtitle', ''),
     searchPlaceholder: text('Search Placeholder', 'Enter keywords'),
     prefillSearchTerm: text('Prefilled Search Term', 'Bananas'),
+    searchInputLabel: text('Search Input Label', 'Search for'),
+    buttonLabel: text('Button Label', 'Search'),
+    buttonHiddenLabel: boolean('Button Hidden Label', true),
+    autoFocus: boolean('Auto Focus', false),
+    textSearch: boolean('Text Search', true),
+    expandFilters: boolean('Expand Filters', false),
     filterForm: object('Filter Form', {
       tideId: 'tide_search_form',
       model: {
@@ -1008,7 +1015,9 @@ const demoData = {
       },
       formState: {}
     }),
+    filterText: text('Filter Text', 'Refine search'),
     theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light'),
+    type: selectV2('Type', {'two-cols': 'two-cols', default: 'default'}, 'default'),
     allowBlank: boolean('Allow Blank', false)
   }),
 
@@ -1452,6 +1461,7 @@ const demoData = {
         checkbox: true,
         select: '',
         multiselect: null,
+        singleselect: null,
         checklistlistbox: ['topic_a'],
         checklistdropdown: ['topic_a', 'topic_b', 'invalid'],
         rangeslider: [10000, 70000]
@@ -1589,6 +1599,16 @@ const demoData = {
             listBox: true,
             hint: 'Implemented using rplchecklist with listBox: true',
             placeholder: 'Select multiple topics',
+            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
+          },
+
+          {
+            type: 'rplchecklist',
+            single: true,
+            label: 'Single-select drop down',
+            model: 'singleselect',
+            hint: 'Implemented using rplchecklist',
+            placeholder: 'Select a single topic',
             values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
           },
 

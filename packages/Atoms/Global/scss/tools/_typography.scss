@@ -16,11 +16,13 @@
   font-weight: normal;
 }
 
-@mixin rpl_display_background {
+@mixin rpl_display_background($font-size) {
   background-color: rpl-color('secondary');
   color: rpl-color('white');
   display: inline;
-  line-height: 1.4em;
+  @if $font-size {
+    line-height: map-get($rpl-font-display-background-line-height, $font-size);
+  }
 }
 
 @mixin rpl_typography($name: 'body_default') {
@@ -50,13 +52,17 @@
   $font-size: nth($rules, 1);
   $line-height: nth($rules, 2);
   $font-family: nth($rules, 3);
-  @include rpl_typography_font($font-size, $line-height, $font-family);
+  $include-back: false;
   @if length($rules) > 3 {
     $include-back: nth($rules, 4);
-    @if $include-back == true {
-      span {
-        @include rpl_display_background;
-      }
+  }
+  @if $include-back == true {
+    $line-height: 0;
+  }
+  @include rpl_typography_font($font-size, $line-height, $font-family);
+  @if $include-back == true {
+    span {
+      @include rpl_display_background($font-size);
     }
   }
 }

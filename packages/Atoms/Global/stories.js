@@ -17,7 +17,6 @@ import RplDivider from './components/Divider.vue'
 import readme from './README.md'
 
 storiesOf('Atoms/Global', module)
-  .addDecorator(withKnobs)
   .add('Colors', withReadme(readme, () => ({
     components: { SColors },
     template: '<s-colors :colors="colors" :gradients="gradients"/>',
@@ -45,6 +44,8 @@ storiesOf('Atoms/Global', module)
     }
   })))
 
+storiesOf('Atoms/Global', module)
+  .addDecorator(withKnobs)
   .add('Fonts', withReadme(readme, () => ({
     components: { SFonts },
     template: '<s-fonts :size="size" :lineHeight="lineHeight" :weight="weight" :text="text" :background="background" />',
@@ -75,6 +76,8 @@ storiesOf('Atoms/Global', module)
     }
   })))
 
+storiesOf('Atoms/Global', module)
+  .addDecorator(withKnobs)
   .add('Typography', withReadme(readme, () => ({
     components: { STypography },
     template: '<s-typography :samples="samples" :text="text" :paragraph="paragraph"/>',
@@ -102,6 +105,7 @@ storiesOf('Atoms/Global', module)
     }
   })))
 
+storiesOf('Atoms/Global', module)
   .add('Breakpoints', withReadme(readme, () => ({
     components: { SBreakpoints },
     template: '<s-breakpoints :breakpoints="breakpoints"/>',
@@ -120,6 +124,7 @@ storiesOf('Atoms/Global', module)
     }
   })))
 
+storiesOf('Atoms/Global', module)
   .addDecorator(VueInfoAddon)
   .add('Divider', withReadme(readme, () => ({
     components: { RplDivider },

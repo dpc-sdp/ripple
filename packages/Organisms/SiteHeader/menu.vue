@@ -15,7 +15,7 @@
   >
     <div class="rpl-menu__inner">
       <div class="rpl-menu__inner_root">
-        <rpl-quick-exit class="rpl-menu__quickexit"  v-if="rplOptions.quickexit && open && !isVerticalLayout && !isRoot" />
+        <rpl-quick-exit class="rpl-menu__quickexit"  v-if="rplOptions.quickexit && open && ((!isVerticalLayout && depth === 1) || isVerticalLayout)" />
         <div class="rpl-menu__column">
           <div class="rpl-menu__header">
             <button
@@ -28,7 +28,6 @@
               <span class="rpl-visually-hidden">Close {{ title }} and return to </span><span>{{ backTitle }}</span>
             </button>
             <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url">{{ parent.text }}</rpl-link>
-            <rpl-quick-exit class="rpl-menu__quickexit"  v-if="rplOptions.quickexit && open && isVerticalLayout" />
           </div>
           <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
             <li
@@ -265,6 +264,7 @@ export default {
   $rpl-menu-heading-sub-padding: $rpl-space-3 0;
   $rpl-menu-gutter: rpl_grid_get_gutter($rpl-grid) !default;
   $rpl-menu-horizontal-quickexit-right-margin: ($rpl-space * 10) !default;
+  $rpl-menu-vertical-quickexit-padding: $rpl-space-4 !default;
 
   // Simplified rpl_grid_column() - returns quotient as non-percentage. Ignores gutters.
   @function rpl_menu_column($grid-cols: 1, $grid: $rpl-grid) {
@@ -311,6 +311,7 @@ export default {
     }
 
     .rpl-menu__quickexit {
+      padding: $rpl-menu-vertical-quickexit-padding;
       > a {
         width: 100%;
       }
@@ -320,7 +321,6 @@ export default {
           width: auto;
         }
       }
-      margin-bottom: 1.5rem;
     }
 
     .rpl-menu {

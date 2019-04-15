@@ -1,9 +1,13 @@
 <template>
   <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
-    <slot></slot>
+    <span>
+      <slot></slot>
+    </span>
   </a>
   <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick">
-    <slot></slot>
+    <span>
+      <slot></slot>
+    </span>
   </nuxt-link>
 </template>
 
@@ -61,11 +65,17 @@ export default {
   text-decoration: none;
 
   @include rpl_print {
-    text-decoration: underline;
-
     &[href]:after {
       content: ' <' attr(href) '> ';
-      text-decoration: none;
+    }
+    &[href^="tel:"]:after {
+      content: "";
+    }
+  }
+
+  & > span {
+    @include rpl_print {
+      text-decoration: underline;
     }
   }
 

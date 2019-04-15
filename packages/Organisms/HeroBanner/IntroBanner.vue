@@ -85,6 +85,8 @@ export default {
       }
     }
 
+    @include rpl_print_margin('l');
+
     &__left {
       @include rpl_grid_full;
 
@@ -106,6 +108,8 @@ export default {
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(4);
       }
+
+      @include rpl_print_hidden;
     }
 
     &__title {

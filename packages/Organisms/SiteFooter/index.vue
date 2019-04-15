@@ -219,6 +219,7 @@ $gutterless-grid: (
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     margin-bottom: $rpl-space-2;
   }
+  @include rpl_print_margin('l', 'before');
 }
 
 .rpl-site-footer__logos {

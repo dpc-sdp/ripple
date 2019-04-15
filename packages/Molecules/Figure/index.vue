@@ -33,9 +33,7 @@ export default {
       height: auto;
       max-width: 100%;
 
-      @include rpl_print {
-        max-height: $rpl-print-image-height;
-      }
+      @include rpl_print_image;
     }
 
     &__caption {

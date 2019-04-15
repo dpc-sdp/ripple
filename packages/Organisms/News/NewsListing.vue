@@ -64,6 +64,8 @@ export default {
       padding-top: $rpl-space-4 * 2;
     }
 
+    @include rpl_print_hidden;
+
     &__heading {
       @include rpl_typography_ruleset($rpl-news-listing-heading-ruleset);
       @include rpl_text_color($rpl-news-listing-heading-text-color);
@@ -78,10 +80,6 @@ export default {
       border-bottom: $rpl-news-listing-item-border;
       padding: $rpl-news-listing-item-padding;
       list-style: none;
-
-      @include rpl_print {
-        page-break-inside: avoid;
-      }
 
       &:last-child {
         border-bottom: 0;

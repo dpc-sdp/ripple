@@ -269,6 +269,8 @@ export default {
         margin-top: $rpl-space-4;
       }
 
+      @include rpl_print_margin('s');
+
       &--dark {
         color: $rpl-hero-banner-description-text-color-dark;
       }

@@ -81,6 +81,8 @@ export default {
         margin-left: $rpl-hero-banner-cta-secondary-margin;
       }
 
+      @include rpl_print_hidden;
+
       &-text {
         @include rpl_typography_ruleset($rpl-hero-banner-cta-secondary-text-ruleset);
         @include rpl_text_color($rpl-hero-banner-cta-secondary-text-color);

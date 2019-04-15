@@ -204,9 +204,10 @@ export default {
         vertical-align: bottom;
       }
 
+      @include rpl_print_image;
+
       @include rpl_print {
         width: auto;
-        height: $rpl-print-image-height;
       }
     }
 

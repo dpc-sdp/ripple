@@ -180,6 +180,7 @@ export default {
       @include rpl_print {
         margin: 0;
       }
+      @include rpl_print_image;
     }
 
     &__item-title {

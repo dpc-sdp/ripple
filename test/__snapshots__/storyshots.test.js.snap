@@ -23030,50 +23030,81 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
     >
       <h2
         class="rpl-share-this__title"
+        id="rpl-share-this__title"
       >
         Share this
       </h2>
        
-      <div>
-        <span
+      <ul
+        aria-label="Social networks"
+        class="rpl-share-this__list"
+      >
+        <li
           class="rpl-share-this__social"
           data-link="#share-twitter"
         >
-          <span
-            class="rpl-share-this__icon"
+          <button
+            class="rpl-share-this__button"
           >
-            <!---->
-          </span>
-          Twitter
-      
-        </span>
+            <span
+              class="rpl-share-this__icon"
+            >
+              <!---->
+            </span>
+            Twitter
+          
+            <span
+              class="rpl-share-this__hint"
+            >
+              , opens a new window
+            </span>
+          </button>
+        </li>
          
-        <span
+        <li
           class="rpl-share-this__social"
           data-link="#share-facebook"
         >
-          <span
-            class="rpl-share-this__icon"
+          <button
+            class="rpl-share-this__button"
           >
-            <!---->
-          </span>
-          Facebook
-      
-        </span>
+            <span
+              class="rpl-share-this__icon"
+            >
+              <!---->
+            </span>
+            Facebook
+          
+            <span
+              class="rpl-share-this__hint"
+            >
+              , opens a new window
+            </span>
+          </button>
+        </li>
          
-        <span
+        <li
           class="rpl-share-this__social"
           data-link="#share-linkedin"
         >
-          <span
-            class="rpl-share-this__icon"
+          <button
+            class="rpl-share-this__button"
           >
-            <!---->
-          </span>
-          LinkedIn
-      
-        </span>
-      </div>
+            <span
+              class="rpl-share-this__icon"
+            >
+              <!---->
+            </span>
+            LinkedIn
+          
+            <span
+              class="rpl-share-this__hint"
+            >
+              , opens a new window
+            </span>
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
    
@@ -23243,6 +23274,38 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
           >
             
     title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    label
     
             <!---->
           </td>
@@ -40725,50 +40788,81 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             >
               <h2
                 class="rpl-share-this__title"
+                id="rpl-share-this__title"
               >
                 Share this
               </h2>
                
-              <div>
-                <span
+              <ul
+                aria-label="Social networks"
+                class="rpl-share-this__list"
+              >
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-twitter"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  Twitter
-      
-                </span>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    Twitter
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
                  
-                <span
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-facebook"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  Facebook
-      
-                </span>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    Facebook
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
                  
-                <span
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-linkedin"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  LinkedIn
-      
-                </span>
-              </div>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    LinkedIn
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

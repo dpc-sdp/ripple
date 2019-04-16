@@ -1,9 +1,11 @@
 <template>
   <rpl-base-layout class="demo">
-
-    <template slot="header">
+    <template slot="alert">
       <rpl-alert-base v-if="preview">Draft only and not yet published</rpl-alert-base>
       <rpl-alert v-bind="mock.alert" />
+    </template>
+
+    <template slot="header">
       <rpl-site-header
         :logo="mock.header.logo"
         :links="mock.header.links"

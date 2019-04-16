@@ -4848,6 +4848,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
     <div
       class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
       data-v-6ca0e090=""
+      role="alert"
     >
       <!---->
        
@@ -4886,7 +4887,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
       >
         <!---->
         <span>
-          Close
+          Dismiss alert
         </span>
       </button>
     </div>
@@ -16312,6 +16313,8 @@ exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `
       class="rpl-site-layout"
       data-v-6ca0e090=""
     >
+      <section />
+       
       <div
         class="rpl-skip-link"
         id="rpl-skip-link"
@@ -17547,6 +17550,8 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -17813,6 +17818,8 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -35178,6 +35185,8 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
 <div
   class="rpl-site-layout campaign-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -35983,6 +35992,8 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
 <div
   class="rpl-site-layout event-search-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -36788,6 +36799,8 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
 <div
   class="rpl-site-layout event-search-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -37595,21 +37608,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
 <div
   class="rpl-site-layout demo"
 >
-  <div
-    class="rpl-skip-link"
-    id="rpl-skip-link"
-  >
-    <a
-      class="rpl-skip-link__link"
-      href="#rpl-main-content"
-    >
-      Skip to main content
-    </a>
-  </div>
-   
-  <header
-    class="rpl-site-header-container"
-  >
+  <section>
     <div
       class="rpl-alert-base rpl-alert-base--color-dark_neutral"
     >
@@ -37633,6 +37632,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
      
     <div
       class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
+      role="alert"
     >
       <!---->
        
@@ -37671,11 +37671,27 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       >
         <!---->
         <span>
-          Close
+          Dismiss alert
         </span>
       </button>
     </div>
-     
+  </section>
+   
+  <div
+    class="rpl-skip-link"
+    id="rpl-skip-link"
+  >
+    <a
+      class="rpl-skip-link__link"
+      href="#rpl-main-content"
+    >
+      Skip to main content
+    </a>
+  </div>
+   
+  <header
+    class="rpl-site-header-container"
+  >
     <div>
       <div
         tabindex="-1"
@@ -37773,7 +37789,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       />
     </div>
   </header>
-    
+     
   <main
     class="rpl-page main"
   >
@@ -41740,6 +41756,8 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -42603,6 +42621,8 @@ exports[`RippleStoryshots Templates Page with Cards 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -43884,6 +43904,8 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -45035,6 +45057,8 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -46500,6 +46524,8 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -47678,6 +47704,8 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -48588,6 +48616,8 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
 <div
   class="rpl-site-layout search-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"

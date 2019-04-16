@@ -18649,7 +18649,8 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
-    <div
+    <nav
+      aria-label="Search"
       class="rpl-pagination"
       data-v-6ca0e090=""
     >
@@ -18657,12 +18658,29 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
         class="rpl-pagination__list"
       >
         <li
+          aria-current="page"
+          aria-disabled="true"
           class="rpl-pagination__list-item"
         >
-          <span
-            class="rpl-pagination__step-current"
+          <button
+            class="rpl-pagination__step rpl-pagination__step-current"
+            disabled="disabled"
           >
-            1
+            <span
+              class="rpl-pagination__step-label"
+            >
+              current page
+            </span>
+            
+        1
+      
+          </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
           </span>
         </li>
         <li
@@ -18671,11 +18689,22 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           <button
             class="rpl-pagination__step"
           >
-            <span>
-              Go to step 
+            <span
+              class="rpl-pagination__step-label"
+            >
+              Go to page
             </span>
-            2
+            
+        2
+      
           </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
+          </span>
         </li>
         <li
           class="rpl-pagination__list-item"
@@ -18683,11 +18712,22 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           <button
             class="rpl-pagination__step"
           >
-            <span>
-              Go to step 
+            <span
+              class="rpl-pagination__step-label"
+            >
+              Go to page
             </span>
-            3
+            
+        3
+      
           </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
+          </span>
         </li>
         <li
           class="rpl-pagination__list-item"
@@ -18695,11 +18735,22 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           <button
             class="rpl-pagination__step"
           >
-            <span>
-              Go to step 
+            <span
+              class="rpl-pagination__step-label"
+            >
+              Go to page
             </span>
-            4
+            
+        4
+      
           </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
+          </span>
         </li>
         <li
           class="rpl-pagination__list-item"
@@ -18707,11 +18758,22 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           <button
             class="rpl-pagination__step"
           >
-            <span>
-              Go to step 
+            <span
+              class="rpl-pagination__step-label"
+            >
+              Go to page
             </span>
-            5
+            
+        5
+      
           </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
+          </span>
         </li>
       </ol>
        
@@ -18724,13 +18786,13 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           class="rpl-pagination__nav"
         >
           <span>
-            Next
+            Next page
           </span>
            
           <!---->
         </button>
       </div>
-    </div>
+    </nav>
   </div>
    
   <!---->
@@ -18878,6 +18940,70 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
       <tbody
         data-v-91bb5cde=""
       >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    label
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            Search
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    stepLabel
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            page
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
         <tr
           class="props-table-row"
           data-v-5bd9cdea=""
@@ -19805,19 +19931,37 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
         <div
           class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
-          <div
+          <nav
+            aria-label="Search"
             class="rpl-pagination"
           >
             <ol
               class="rpl-pagination__list"
             >
               <li
+                aria-current="page"
+                aria-disabled="true"
                 class="rpl-pagination__list-item"
               >
-                <span
-                  class="rpl-pagination__step-current"
+                <button
+                  class="rpl-pagination__step rpl-pagination__step-current"
+                  disabled="disabled"
                 >
-                  1
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    current page
+                  </span>
+                  
+        1
+      
+                </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
                 </span>
               </li>
               <li
@@ -19826,11 +19970,22 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  2
+                  
+        2
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -19838,11 +19993,22 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  3
+                  
+        3
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -19850,11 +20016,22 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  4
+                  
+        4
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -19862,11 +20039,22 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  5
+                  
+        5
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
             </ol>
              
@@ -19879,13 +20067,13 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 class="rpl-pagination__nav"
               >
                 <span>
-                  Next
+                  Next page
                 </span>
                  
                 <!---->
               </button>
             </div>
-          </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -20457,19 +20645,37 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
         <div
           class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
-          <div
+          <nav
+            aria-label="Search"
             class="rpl-pagination"
           >
             <ol
               class="rpl-pagination__list"
             >
               <li
+                aria-current="page"
+                aria-disabled="true"
                 class="rpl-pagination__list-item"
               >
-                <span
-                  class="rpl-pagination__step-current"
+                <button
+                  class="rpl-pagination__step rpl-pagination__step-current"
+                  disabled="disabled"
                 >
-                  1
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    current page
+                  </span>
+                  
+        1
+      
+                </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
                 </span>
               </li>
               <li
@@ -20478,11 +20684,22 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  2
+                  
+        2
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -20490,11 +20707,22 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  3
+                  
+        3
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -20502,11 +20730,22 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  4
+                  
+        4
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -20514,11 +20753,22 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  5
+                  
+        5
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
             </ol>
              
@@ -20531,13 +20781,13 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 class="rpl-pagination__nav"
               >
                 <span>
-                  Next
+                  Next page
                 </span>
                  
                 <!---->
               </button>
             </div>
-          </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -22433,19 +22683,37 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
         <div
           class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
-          <div
+          <nav
+            aria-label="Search"
             class="rpl-pagination"
           >
             <ol
               class="rpl-pagination__list"
             >
               <li
+                aria-current="page"
+                aria-disabled="true"
                 class="rpl-pagination__list-item"
               >
-                <span
-                  class="rpl-pagination__step-current"
+                <button
+                  class="rpl-pagination__step rpl-pagination__step-current"
+                  disabled="disabled"
                 >
-                  1
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    current page
+                  </span>
+                  
+        1
+      
+                </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
                 </span>
               </li>
               <li
@@ -22454,11 +22722,22 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  2
+                  
+        2
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -22466,11 +22745,22 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  3
+                  
+        3
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -22478,11 +22768,22 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  4
+                  
+        4
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -22490,11 +22791,22 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  5
+                  
+        5
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
             </ol>
              
@@ -22507,13 +22819,13 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 class="rpl-pagination__nav"
               >
                 <span>
-                  Next
+                  Next page
                 </span>
                  
                 <!---->
               </button>
             </div>
-          </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -35948,19 +36260,37 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                   <div
                     class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                   >
-                    <div
+                    <nav
+                      aria-label="Search"
                       class="rpl-pagination"
                     >
                       <ol
                         class="rpl-pagination__list"
                       >
                         <li
+                          aria-current="page"
+                          aria-disabled="true"
                           class="rpl-pagination__list-item"
                         >
-                          <span
-                            class="rpl-pagination__step-current"
+                          <button
+                            class="rpl-pagination__step rpl-pagination__step-current"
+                            disabled="disabled"
                           >
-                            1
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              current page
+                            </span>
+                            
+        1
+      
+                          </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
                           </span>
                         </li>
                         <li
@@ -35969,11 +36299,22 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            2
+                            
+        2
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -35981,11 +36322,22 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            3
+                            
+        3
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -35993,11 +36345,22 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            4
+                            
+        4
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -36005,11 +36368,22 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            5
+                            
+        5
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                       </ol>
                        
@@ -36022,13 +36396,13 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           class="rpl-pagination__nav"
                         >
                           <span>
-                            Next
+                            Next page
                           </span>
                            
                           <!---->
                         </button>
                       </div>
-                    </div>
+                    </nav>
                   </div>
                 </div>
               </div>
@@ -36695,19 +37069,37 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                   <div
                     class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                   >
-                    <div
+                    <nav
+                      aria-label="Search"
                       class="rpl-pagination"
                     >
                       <ol
                         class="rpl-pagination__list"
                       >
                         <li
+                          aria-current="page"
+                          aria-disabled="true"
                           class="rpl-pagination__list-item"
                         >
-                          <span
-                            class="rpl-pagination__step-current"
+                          <button
+                            class="rpl-pagination__step rpl-pagination__step-current"
+                            disabled="disabled"
                           >
-                            1
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              current page
+                            </span>
+                            
+        1
+      
+                          </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
                           </span>
                         </li>
                         <li
@@ -36716,11 +37108,22 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            2
+                            
+        2
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -36728,11 +37131,22 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            3
+                            
+        3
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -36740,11 +37154,22 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            4
+                            
+        4
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -36752,11 +37177,22 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            5
+                            
+        5
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                       </ol>
                        
@@ -36769,13 +37205,13 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           class="rpl-pagination__nav"
                         >
                           <span>
-                            Next
+                            Next page
                           </span>
                            
                           <!---->
                         </button>
                       </div>
-                    </div>
+                    </nav>
                   </div>
                 </div>
               </div>
@@ -48483,19 +48919,37 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                     <div
                       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                     >
-                      <div
+                      <nav
+                        aria-label="Search"
                         class="rpl-pagination"
                       >
                         <ol
                           class="rpl-pagination__list"
                         >
                           <li
+                            aria-current="page"
+                            aria-disabled="true"
                             class="rpl-pagination__list-item"
                           >
-                            <span
-                              class="rpl-pagination__step-current"
+                            <button
+                              class="rpl-pagination__step rpl-pagination__step-current"
+                              disabled="disabled"
                             >
-                              1
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                current page
+                              </span>
+                              
+        1
+      
+                            </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
                             </span>
                           </li>
                           <li
@@ -48504,11 +48958,22 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             <button
                               class="rpl-pagination__step"
                             >
-                              <span>
-                                Go to step 
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                Go to page
                               </span>
-                              2
+                              
+        2
+      
                             </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
+                            </span>
                           </li>
                           <li
                             class="rpl-pagination__list-item"
@@ -48516,11 +48981,22 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             <button
                               class="rpl-pagination__step"
                             >
-                              <span>
-                                Go to step 
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                Go to page
                               </span>
-                              3
+                              
+        3
+      
                             </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
+                            </span>
                           </li>
                           <li
                             class="rpl-pagination__list-item"
@@ -48528,11 +49004,22 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             <button
                               class="rpl-pagination__step"
                             >
-                              <span>
-                                Go to step 
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                Go to page
                               </span>
-                              4
+                              
+        4
+      
                             </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
+                            </span>
                           </li>
                           <li
                             class="rpl-pagination__list-item"
@@ -48540,11 +49027,22 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             <button
                               class="rpl-pagination__step"
                             >
-                              <span>
-                                Go to step 
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                Go to page
                               </span>
-                              5
+                              
+        5
+      
                             </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
+                            </span>
                           </li>
                         </ol>
                          
@@ -48557,13 +49055,13 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             class="rpl-pagination__nav"
                           >
                             <span>
-                              Next
+                              Next page
                             </span>
                              
                             <!---->
                           </button>
                         </div>
-                      </div>
+                      </nav>
                     </div>
                   </div>
                 </div>

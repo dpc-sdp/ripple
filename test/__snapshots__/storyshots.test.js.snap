@@ -4848,6 +4848,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
     <div
       class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
       data-v-6ca0e090=""
+      role="alert"
     >
       <!---->
        
@@ -4886,7 +4887,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
       >
         <!---->
         <span>
-          Close
+          Dismiss alert
         </span>
       </button>
     </div>
@@ -16313,6 +16314,8 @@ exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `
       class="rpl-site-layout"
       data-v-6ca0e090=""
     >
+      <section />
+       
       <div
         class="rpl-skip-link"
         id="rpl-skip-link"
@@ -17548,6 +17551,8 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -17814,6 +17819,8 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -18643,7 +18650,8 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
     class="info-content"
     data-v-6ca0e090=""
   >
-    <div
+    <nav
+      aria-label="Search"
       class="rpl-pagination"
       data-v-6ca0e090=""
     >
@@ -18651,12 +18659,29 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
         class="rpl-pagination__list"
       >
         <li
+          aria-current="page"
+          aria-disabled="true"
           class="rpl-pagination__list-item"
         >
-          <span
-            class="rpl-pagination__step-current"
+          <button
+            class="rpl-pagination__step rpl-pagination__step-current"
+            disabled="disabled"
           >
-            1
+            <span
+              class="rpl-pagination__step-label"
+            >
+              current page
+            </span>
+            
+        1
+      
+          </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
           </span>
         </li>
         <li
@@ -18665,11 +18690,22 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           <button
             class="rpl-pagination__step"
           >
-            <span>
-              Go to step 
+            <span
+              class="rpl-pagination__step-label"
+            >
+              Go to page
             </span>
-            2
+            
+        2
+      
           </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
+          </span>
         </li>
         <li
           class="rpl-pagination__list-item"
@@ -18677,11 +18713,22 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           <button
             class="rpl-pagination__step"
           >
-            <span>
-              Go to step 
+            <span
+              class="rpl-pagination__step-label"
+            >
+              Go to page
             </span>
-            3
+            
+        3
+      
           </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
+          </span>
         </li>
         <li
           class="rpl-pagination__list-item"
@@ -18689,11 +18736,22 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           <button
             class="rpl-pagination__step"
           >
-            <span>
-              Go to step 
+            <span
+              class="rpl-pagination__step-label"
+            >
+              Go to page
             </span>
-            4
+            
+        4
+      
           </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
+          </span>
         </li>
         <li
           class="rpl-pagination__list-item"
@@ -18701,11 +18759,22 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           <button
             class="rpl-pagination__step"
           >
-            <span>
-              Go to step 
+            <span
+              class="rpl-pagination__step-label"
+            >
+              Go to page
             </span>
-            5
+            
+        5
+      
           </button>
+           
+          <span
+            aria-hidden="true"
+            class="rpl-pagination__list-item-slash"
+          >
+            /
+          </span>
         </li>
       </ol>
        
@@ -18718,13 +18787,13 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
           class="rpl-pagination__nav"
         >
           <span>
-            Next
+            Next page
           </span>
            
           <!---->
         </button>
       </div>
-    </div>
+    </nav>
   </div>
    
   <!---->
@@ -18872,6 +18941,70 @@ exports[`RippleStoryshots Molecules/Pagination Pagination 1`] = `
       <tbody
         data-v-91bb5cde=""
       >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    label
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            Search
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    stepLabel
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            page
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
         <tr
           class="props-table-row"
           data-v-5bd9cdea=""
@@ -19799,19 +19932,37 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
         <div
           class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
-          <div
+          <nav
+            aria-label="Search"
             class="rpl-pagination"
           >
             <ol
               class="rpl-pagination__list"
             >
               <li
+                aria-current="page"
+                aria-disabled="true"
                 class="rpl-pagination__list-item"
               >
-                <span
-                  class="rpl-pagination__step-current"
+                <button
+                  class="rpl-pagination__step rpl-pagination__step-current"
+                  disabled="disabled"
                 >
-                  1
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    current page
+                  </span>
+                  
+        1
+      
+                </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
                 </span>
               </li>
               <li
@@ -19820,11 +19971,22 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  2
+                  
+        2
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -19832,11 +19994,22 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  3
+                  
+        3
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -19844,11 +20017,22 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  4
+                  
+        4
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -19856,11 +20040,22 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  5
+                  
+        5
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
             </ol>
              
@@ -19873,13 +20068,13 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
                 class="rpl-pagination__nav"
               >
                 <span>
-                  Next
+                  Next page
                 </span>
                  
                 <!---->
               </button>
             </div>
-          </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -20451,19 +20646,37 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
         <div
           class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
-          <div
+          <nav
+            aria-label="Search"
             class="rpl-pagination"
           >
             <ol
               class="rpl-pagination__list"
             >
               <li
+                aria-current="page"
+                aria-disabled="true"
                 class="rpl-pagination__list-item"
               >
-                <span
-                  class="rpl-pagination__step-current"
+                <button
+                  class="rpl-pagination__step rpl-pagination__step-current"
+                  disabled="disabled"
                 >
-                  1
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    current page
+                  </span>
+                  
+        1
+      
+                </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
                 </span>
               </li>
               <li
@@ -20472,11 +20685,22 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  2
+                  
+        2
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -20484,11 +20708,22 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  3
+                  
+        3
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -20496,11 +20731,22 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  4
+                  
+        4
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -20508,11 +20754,22 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  5
+                  
+        5
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
             </ol>
              
@@ -20525,13 +20782,13 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
                 class="rpl-pagination__nav"
               >
                 <span>
-                  Next
+                  Next page
                 </span>
                  
                 <!---->
               </button>
             </div>
-          </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -22427,19 +22684,37 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
         <div
           class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
         >
-          <div
+          <nav
+            aria-label="Search"
             class="rpl-pagination"
           >
             <ol
               class="rpl-pagination__list"
             >
               <li
+                aria-current="page"
+                aria-disabled="true"
                 class="rpl-pagination__list-item"
               >
-                <span
-                  class="rpl-pagination__step-current"
+                <button
+                  class="rpl-pagination__step rpl-pagination__step-current"
+                  disabled="disabled"
                 >
-                  1
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    current page
+                  </span>
+                  
+        1
+      
+                </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
                 </span>
               </li>
               <li
@@ -22448,11 +22723,22 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  2
+                  
+        2
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -22460,11 +22746,22 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  3
+                  
+        3
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -22472,11 +22769,22 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  4
+                  
+        4
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
               <li
                 class="rpl-pagination__list-item"
@@ -22484,11 +22792,22 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 <button
                   class="rpl-pagination__step"
                 >
-                  <span>
-                    Go to step 
+                  <span
+                    class="rpl-pagination__step-label"
+                  >
+                    Go to page
                   </span>
-                  5
+                  
+        5
+      
                 </button>
+                 
+                <span
+                  aria-hidden="true"
+                  class="rpl-pagination__list-item-slash"
+                >
+                  /
+                </span>
               </li>
             </ol>
              
@@ -22501,13 +22820,13 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
                 class="rpl-pagination__nav"
               >
                 <span>
-                  Next
+                  Next page
                 </span>
                  
                 <!---->
               </button>
             </div>
-          </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -23024,50 +23343,81 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
     >
       <h2
         class="rpl-share-this__title"
+        id="rpl-share-this__title"
       >
         Share this
       </h2>
        
-      <div>
-        <span
+      <ul
+        aria-label="Social networks"
+        class="rpl-share-this__list"
+      >
+        <li
           class="rpl-share-this__social"
           data-link="#share-twitter"
         >
-          <span
-            class="rpl-share-this__icon"
+          <button
+            class="rpl-share-this__button"
           >
-            <!---->
-          </span>
-          Twitter
-      
-        </span>
+            <span
+              class="rpl-share-this__icon"
+            >
+              <!---->
+            </span>
+            Twitter
+          
+            <span
+              class="rpl-share-this__hint"
+            >
+              , opens a new window
+            </span>
+          </button>
+        </li>
          
-        <span
+        <li
           class="rpl-share-this__social"
           data-link="#share-facebook"
         >
-          <span
-            class="rpl-share-this__icon"
+          <button
+            class="rpl-share-this__button"
           >
-            <!---->
-          </span>
-          Facebook
-      
-        </span>
+            <span
+              class="rpl-share-this__icon"
+            >
+              <!---->
+            </span>
+            Facebook
+          
+            <span
+              class="rpl-share-this__hint"
+            >
+              , opens a new window
+            </span>
+          </button>
+        </li>
          
-        <span
+        <li
           class="rpl-share-this__social"
           data-link="#share-linkedin"
         >
-          <span
-            class="rpl-share-this__icon"
+          <button
+            class="rpl-share-this__button"
           >
-            <!---->
-          </span>
-          LinkedIn
-      
-        </span>
-      </div>
+            <span
+              class="rpl-share-this__icon"
+            >
+              <!---->
+            </span>
+            LinkedIn
+          
+            <span
+              class="rpl-share-this__hint"
+            >
+              , opens a new window
+            </span>
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
    
@@ -23237,6 +23587,38 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
           >
             
     title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    label
     
             <!---->
           </td>
@@ -35317,43 +35699,47 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -37264,6 +37650,8 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
 <div
   class="rpl-site-layout campaign-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -37303,43 +37691,47 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -38065,6 +38457,8 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
 <div
   class="rpl-site-layout event-search-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -38104,43 +38498,47 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -38327,19 +38725,37 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                   <div
                     class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                   >
-                    <div
+                    <nav
+                      aria-label="Search"
                       class="rpl-pagination"
                     >
                       <ol
                         class="rpl-pagination__list"
                       >
                         <li
+                          aria-current="page"
+                          aria-disabled="true"
                           class="rpl-pagination__list-item"
                         >
-                          <span
-                            class="rpl-pagination__step-current"
+                          <button
+                            class="rpl-pagination__step rpl-pagination__step-current"
+                            disabled="disabled"
                           >
-                            1
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              current page
+                            </span>
+                            
+        1
+      
+                          </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
                           </span>
                         </li>
                         <li
@@ -38348,11 +38764,22 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            2
+                            
+        2
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -38360,11 +38787,22 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            3
+                            
+        3
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -38372,11 +38810,22 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            4
+                            
+        4
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -38384,11 +38833,22 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            5
+                            
+        5
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                       </ol>
                        
@@ -38401,13 +38861,13 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
                           class="rpl-pagination__nav"
                         >
                           <span>
-                            Next
+                            Next page
                           </span>
                            
                           <!---->
                         </button>
                       </div>
-                    </div>
+                    </nav>
                   </div>
                 </div>
               </div>
@@ -38804,6 +39264,8 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
 <div
   class="rpl-site-layout event-search-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -38843,43 +39305,47 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -39068,19 +39534,37 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                   <div
                     class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                   >
-                    <div
+                    <nav
+                      aria-label="Search"
                       class="rpl-pagination"
                     >
                       <ol
                         class="rpl-pagination__list"
                       >
                         <li
+                          aria-current="page"
+                          aria-disabled="true"
                           class="rpl-pagination__list-item"
                         >
-                          <span
-                            class="rpl-pagination__step-current"
+                          <button
+                            class="rpl-pagination__step rpl-pagination__step-current"
+                            disabled="disabled"
                           >
-                            1
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              current page
+                            </span>
+                            
+        1
+      
+                          </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
                           </span>
                         </li>
                         <li
@@ -39089,11 +39573,22 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            2
+                            
+        2
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -39101,11 +39596,22 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            3
+                            
+        3
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -39113,11 +39619,22 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            4
+                            
+        4
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                         <li
                           class="rpl-pagination__list-item"
@@ -39125,11 +39642,22 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           <button
                             class="rpl-pagination__step"
                           >
-                            <span>
-                              Go to step 
+                            <span
+                              class="rpl-pagination__step-label"
+                            >
+                              Go to page
                             </span>
-                            5
+                            
+        5
+      
                           </button>
+                           
+                          <span
+                            aria-hidden="true"
+                            class="rpl-pagination__list-item-slash"
+                          >
+                            /
+                          </span>
                         </li>
                       </ol>
                        
@@ -39142,13 +39670,13 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
                           class="rpl-pagination__nav"
                         >
                           <span>
-                            Next
+                            Next page
                           </span>
                            
                           <!---->
                         </button>
                       </div>
-                    </div>
+                    </nav>
                   </div>
                 </div>
               </div>
@@ -39545,21 +40073,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
 <div
   class="rpl-site-layout demo"
 >
-  <div
-    class="rpl-skip-link"
-    id="rpl-skip-link"
-  >
-    <a
-      class="rpl-skip-link__link"
-      href="#rpl-main-content"
-    >
-      Skip to main content
-    </a>
-  </div>
-   
-  <header
-    class="rpl-site-header-container"
-  >
+  <section>
     <div
       class="rpl-alert-base rpl-alert-base--color-dark_neutral"
     >
@@ -39583,6 +40097,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
      
     <div
       class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
+      role="alert"
     >
       <!---->
        
@@ -39621,11 +40136,27 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       >
         <!---->
         <span>
-          Close
+          Dismiss alert
         </span>
       </button>
     </div>
-     
+  </section>
+   
+  <div
+    class="rpl-skip-link"
+    id="rpl-skip-link"
+  >
+    <a
+      class="rpl-skip-link__link"
+      href="#rpl-main-content"
+    >
+      Skip to main content
+    </a>
+  </div>
+   
+  <header
+    class="rpl-site-header-container"
+  >
     <div>
       <div
         tabindex="-1"
@@ -39650,43 +40181,47 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -39719,7 +40254,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       />
     </div>
   </header>
-    
+     
   <main
     class="rpl-page main"
   >
@@ -43154,50 +43689,81 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             >
               <h2
                 class="rpl-share-this__title"
+                id="rpl-share-this__title"
               >
                 Share this
               </h2>
                
-              <div>
-                <span
+              <ul
+                aria-label="Social networks"
+                class="rpl-share-this__list"
+              >
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-twitter"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  Twitter
-      
-                </span>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    Twitter
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
                  
-                <span
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-facebook"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  Facebook
-      
-                </span>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    Facebook
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
                  
-                <span
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-linkedin"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  LinkedIn
-      
-                </span>
-              </div>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    LinkedIn
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -43655,6 +44221,8 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -43694,43 +44262,47 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -44514,6 +45086,8 @@ exports[`RippleStoryshots Templates Page with Cards 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -44553,43 +45127,47 @@ exports[`RippleStoryshots Templates Page with Cards 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -45791,6 +46369,8 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -45830,43 +46410,47 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -46938,6 +47522,8 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -46977,43 +47563,47 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -48399,6 +48989,8 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -48438,43 +49030,47 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -49573,6 +50169,8 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -49612,43 +50210,47 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -50479,6 +51081,8 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
 <div
   class="rpl-site-layout search-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -50518,43 +51122,47 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -50776,19 +51384,37 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                     <div
                       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
                     >
-                      <div
+                      <nav
+                        aria-label="Search"
                         class="rpl-pagination"
                       >
                         <ol
                           class="rpl-pagination__list"
                         >
                           <li
+                            aria-current="page"
+                            aria-disabled="true"
                             class="rpl-pagination__list-item"
                           >
-                            <span
-                              class="rpl-pagination__step-current"
+                            <button
+                              class="rpl-pagination__step rpl-pagination__step-current"
+                              disabled="disabled"
                             >
-                              1
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                current page
+                              </span>
+                              
+        1
+      
+                            </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
                             </span>
                           </li>
                           <li
@@ -50797,11 +51423,22 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             <button
                               class="rpl-pagination__step"
                             >
-                              <span>
-                                Go to step 
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                Go to page
                               </span>
-                              2
+                              
+        2
+      
                             </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
+                            </span>
                           </li>
                           <li
                             class="rpl-pagination__list-item"
@@ -50809,11 +51446,22 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             <button
                               class="rpl-pagination__step"
                             >
-                              <span>
-                                Go to step 
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                Go to page
                               </span>
-                              3
+                              
+        3
+      
                             </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
+                            </span>
                           </li>
                           <li
                             class="rpl-pagination__list-item"
@@ -50821,11 +51469,22 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             <button
                               class="rpl-pagination__step"
                             >
-                              <span>
-                                Go to step 
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                Go to page
                               </span>
-                              4
+                              
+        4
+      
                             </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
+                            </span>
                           </li>
                           <li
                             class="rpl-pagination__list-item"
@@ -50833,11 +51492,22 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             <button
                               class="rpl-pagination__step"
                             >
-                              <span>
-                                Go to step 
+                              <span
+                                class="rpl-pagination__step-label"
+                              >
+                                Go to page
                               </span>
-                              5
+                              
+        5
+      
                             </button>
+                             
+                            <span
+                              aria-hidden="true"
+                              class="rpl-pagination__list-item-slash"
+                            >
+                              /
+                            </span>
                           </li>
                         </ol>
                          
@@ -50850,13 +51520,13 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
                             class="rpl-pagination__nav"
                           >
                             <span>
-                              Next
+                              Next page
                             </span>
                              
                             <!---->
                           </button>
                         </div>
-                      </div>
+                      </nav>
                     </div>
                   </div>
                 </div>

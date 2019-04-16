@@ -4848,6 +4848,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
     <div
       class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
       data-v-6ca0e090=""
+      role="alert"
     >
       <!---->
        
@@ -4886,7 +4887,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
       >
         <!---->
         <span>
-          Close
+          Dismiss alert
         </span>
       </button>
     </div>
@@ -16312,6 +16313,8 @@ exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `
       class="rpl-site-layout"
       data-v-6ca0e090=""
     >
+      <section />
+       
       <div
         class="rpl-skip-link"
         id="rpl-skip-link"
@@ -17547,6 +17550,8 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -17813,6 +17818,8 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -23023,50 +23030,81 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
     >
       <h2
         class="rpl-share-this__title"
+        id="rpl-share-this__title"
       >
         Share this
       </h2>
        
-      <div>
-        <span
+      <ul
+        aria-label="Social networks"
+        class="rpl-share-this__list"
+      >
+        <li
           class="rpl-share-this__social"
           data-link="#share-twitter"
         >
-          <span
-            class="rpl-share-this__icon"
+          <button
+            class="rpl-share-this__button"
           >
-            <!---->
-          </span>
-          Twitter
-      
-        </span>
+            <span
+              class="rpl-share-this__icon"
+            >
+              <!---->
+            </span>
+            Twitter
+          
+            <span
+              class="rpl-share-this__hint"
+            >
+              , opens a new window
+            </span>
+          </button>
+        </li>
          
-        <span
+        <li
           class="rpl-share-this__social"
           data-link="#share-facebook"
         >
-          <span
-            class="rpl-share-this__icon"
+          <button
+            class="rpl-share-this__button"
           >
-            <!---->
-          </span>
-          Facebook
-      
-        </span>
+            <span
+              class="rpl-share-this__icon"
+            >
+              <!---->
+            </span>
+            Facebook
+          
+            <span
+              class="rpl-share-this__hint"
+            >
+              , opens a new window
+            </span>
+          </button>
+        </li>
          
-        <span
+        <li
           class="rpl-share-this__social"
           data-link="#share-linkedin"
         >
-          <span
-            class="rpl-share-this__icon"
+          <button
+            class="rpl-share-this__button"
           >
-            <!---->
-          </span>
-          LinkedIn
-      
-        </span>
-      </div>
+            <span
+              class="rpl-share-this__icon"
+            >
+              <!---->
+            </span>
+            LinkedIn
+          
+            <span
+              class="rpl-share-this__hint"
+            >
+              , opens a new window
+            </span>
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
    
@@ -23236,6 +23274,38 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
           >
             
     title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    label
     
             <!---->
           </td>
@@ -34803,6 +34873,8 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
 <div
   class="rpl-site-layout campaign-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -35608,6 +35680,8 @@ exports[`RippleStoryshots Templates Event search page demo 1`] = `
 <div
   class="rpl-site-layout event-search-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -36351,6 +36425,8 @@ exports[`RippleStoryshots Templates Grant search page demo 1`] = `
 <div
   class="rpl-site-layout event-search-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -37096,21 +37172,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
 <div
   class="rpl-site-layout demo"
 >
-  <div
-    class="rpl-skip-link"
-    id="rpl-skip-link"
-  >
-    <a
-      class="rpl-skip-link__link"
-      href="#rpl-main-content"
-    >
-      Skip to main content
-    </a>
-  </div>
-   
-  <header
-    class="rpl-site-header-container"
-  >
+  <section>
     <div
       class="rpl-alert-base rpl-alert-base--color-dark_neutral"
     >
@@ -37134,6 +37196,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
      
     <div
       class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
+      role="alert"
     >
       <!---->
        
@@ -37172,11 +37235,27 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       >
         <!---->
         <span>
-          Close
+          Dismiss alert
         </span>
       </button>
     </div>
-     
+  </section>
+   
+  <div
+    class="rpl-skip-link"
+    id="rpl-skip-link"
+  >
+    <a
+      class="rpl-skip-link__link"
+      href="#rpl-main-content"
+    >
+      Skip to main content
+    </a>
+  </div>
+   
+  <header
+    class="rpl-site-header-container"
+  >
     <div>
       <div
         tabindex="-1"
@@ -37274,7 +37353,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
       />
     </div>
   </header>
-    
+     
   <main
     class="rpl-page main"
   >
@@ -40709,50 +40788,81 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             >
               <h2
                 class="rpl-share-this__title"
+                id="rpl-share-this__title"
               >
                 Share this
               </h2>
                
-              <div>
-                <span
+              <ul
+                aria-label="Social networks"
+                class="rpl-share-this__list"
+              >
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-twitter"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  Twitter
-      
-                </span>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    Twitter
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
                  
-                <span
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-facebook"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  Facebook
-      
-                </span>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    Facebook
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
                  
-                <span
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-linkedin"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  LinkedIn
-      
-                </span>
-              </div>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    LinkedIn
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -41210,6 +41320,8 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -42073,6 +42185,8 @@ exports[`RippleStoryshots Templates Page with Cards 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -43354,6 +43468,8 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -44505,6 +44621,8 @@ exports[`RippleStoryshots Templates Page with sitemap 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -45970,6 +46088,8 @@ exports[`RippleStoryshots Templates Page with trim cards 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -47148,6 +47268,8 @@ exports[`RippleStoryshots Templates Profile Page 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -48058,6 +48180,8 @@ exports[`RippleStoryshots Templates Search page demo 1`] = `
 <div
   class="rpl-site-layout search-page-demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"

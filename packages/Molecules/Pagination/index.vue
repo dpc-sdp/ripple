@@ -1,22 +1,30 @@
 <template>
-  <div class="rpl-pagination">
+  <nav class="rpl-pagination" :aria-label="label">
     <ol class="rpl-pagination__list">
-      <li v-for="n in visibleStepRange" :key="n" class="rpl-pagination__list-item">
-        <button v-if="n !== currentStep" @click="gotoStep(n)" class="rpl-pagination__step"><span>Go to step </span>{{ n }}</button>
-        <span v-else class="rpl-pagination__step-current">{{ n }}</span>
+      <li v-for="n in visibleStepRange" :aria-current="n === currentStep ? 'page' : false" :aria-disabled="n === currentStep ? 'true' : false" :key="n" class="rpl-pagination__list-item">
+        <button
+          @click="gotoStep(n)"
+          class="rpl-pagination__step"
+          :class="{'rpl-pagination__step-current' : n === currentStep}"
+          :disabled="n === currentStep"
+          >
+          <span class="rpl-pagination__step-label">{{n !== currentStep ? 'Go to ' + stepLabel : 'current ' + stepLabel}}</span>
+          {{ n }}
+        </button>
+        <span aria-hidden="true" class="rpl-pagination__list-item-slash">/</span>
       </li>
     </ol>
     <div class="rpl-pagination__controls">
       <button v-if="currentStep > 1" @click="previousClick" class="rpl-pagination__nav">
-        <span>Previous</span>
+        <span>Previous {{stepLabel}}</span>
         <rpl-icon symbol="left" color="primary" size="1.6" />
       </button>
       <button v-if="totalSteps" :disabled="currentStep === totalSteps" @click="nextClick" class="rpl-pagination__nav">
-        <span>Next</span>
+        <span>Next {{stepLabel}}</span>
         <rpl-icon symbol="right" :color="currentStep < totalSteps ? 'primary' : 'mid_neutral_1'" size="1.6" />
       </button>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -25,6 +33,14 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 export default {
   name: 'RplPagination',
   props: {
+    label: {
+      type: String,
+      default: 'Search'
+    },
+    stepLabel: {
+      type: String,
+      default: 'page'
+    },
     totalSteps: Number,
     initialStep: { type: Number, default: 1 },
     stepsAround: { type: Number, default: 2 }
@@ -120,16 +136,15 @@ export default {
       display: inline-block;
       padding: $rpl-pagination-list-item-padding;
 
-      &::after {
+      &-slash {
         @include rpl_typography_ruleset($rpl-pagination-step-ruleset);
-        content: '/';
         color: $rpl-pagination-list-item-divider-color;
-        padding: $rpl-pagination-list-item-padding;
+        padding-left: $rpl-space;
       }
 
       &:last-child {
-        &::after {
-          content: '';
+        .rpl-pagination__list-item-slash {
+          display: none;
         }
       }
     }
@@ -162,6 +177,12 @@ export default {
     &__step-current {
       color: $rpl-pagination-step-current-color;
       border-bottom: $rpl-pagination-step-current-border-bottom;
+      display: inline-block;
+
+      &-label {
+        @include rpl_visually_hidden;
+      }
+
     }
 
     &__controls {

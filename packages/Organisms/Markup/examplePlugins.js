@@ -1,3 +1,8 @@
+/*
+* These are examples of plugins and how they are implemented.
+* These are meant for example only. Plugins should be passed to RplMArkup component as plugins prop or in rplOptions.markupPlugins
+*/
+
 const pluginButton = function () {
   // Button
   this.find('.button').map((i, el) => {
@@ -141,7 +146,6 @@ const pluginLinks = function () {
   this.find('a').map((i, el) => {
     const $a = this.find(el)
     const href = $a.attr('href')
-    // const text = htmlUtilities.decodeSpecialCharacters($a.text())
     const text = $a.text()
 
     const target = $a.attr('target')

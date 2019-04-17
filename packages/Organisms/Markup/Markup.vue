@@ -73,13 +73,11 @@ $table-border: 1px solid rpl-color('mid_neutral_1');
 $table-header-ruleset: ('s', 1em, 'bold');
 $table-padding: $rpl-space-4;
 
-$embedded-video-padding-bottom: 56.25% !default;
-$embedded-video-padding-top: $rpl-space-4;
-$embedded-video-height: 0;
-$embedded-video-background-image: url('/img/view.svg') !default;
 $embedded-video-link-ruleset: (xs, 1em, 'semibold');
-$embedded-video-link-padding: $rpl-space-4 0 $rpl-space-4 ($rpl-space * 5);
+$embedded-video-link-padding: $rpl-space-4 0;
 $embedded-video-link-text-colour: rpl_color('primary') !default;
+$embedded-video-figcaption-ruleset: ('xxs', 1em, 'medium');
+$embedded-video-figcaption-color: rpl_color('dark_neutral') !default;
 
 $responsive-iframe-padding-bottom: 56.25% !default;
 $responsive-iframe-padding-top: $rpl-space-4 !default;
@@ -121,7 +119,8 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
   }
 
   /* Callouts */
-  &__callout {
+  &__callout,
+  .wysiwyg-callout {
     @include rpl_typography_ruleset($callout-author-ruleset);
     color: $callout-text-color;
     border-left: $callout-mark-border;
@@ -237,32 +236,19 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     }
   }
 
-  &__embedded-video,
-  .media--type-embedded-video {
-    @include rpl_responsive_iframe;
+  &__embedded-video {
 
-    padding-bottom: $embedded-video-padding-bottom;
-    padding-top: $embedded-video-padding-top;
-
-    &--16x9 {
-      padding-top: 56.25%;
-    }
-    &--4x3 {
-      padding-top: 75%;
-    }
-    &--1x1 {
-      padding-top: 100%;
-    }
-
-    &-link {
-      @include rpl_typography_ruleset($embedded-video-link-ruleset);
+    .rpl-embed-video__link {
       padding: $embedded-video-link-padding;
-      background: 0 50% $embedded-video-background-image no-repeat transparent;
-
-      a {
-        color: $embedded-video-link-text-colour;
-      }
+      @include rpl_typography_ruleset($embedded-video-link-ruleset);
     }
+
+    .rpl-embed-video__transcript {
+      @include rpl_typography_ruleset($embedded-video-figcaption-ruleset);
+      color: $embedded-video-figcaption-color;
+      text-transform: uppercase;
+    }
+
   }
 
 }

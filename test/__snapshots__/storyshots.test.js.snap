@@ -13938,6 +13938,38 @@ exports[`RippleStoryshots Molecules/EmbeddedVideo Embedded Video 1`] = `
             
           </td>
         </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    displayTranscript
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            false
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -31622,7 +31654,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Embedded video 1`] = `
         class="rpl-markup__inner"
       >
         <div
-          class="rpl-embedded-video"
+          class="rpl-embedded-video rpl-markup__embedded-video"
         >
           <div
             class="rpl-embedded-video-iframe-container"
@@ -31663,7 +31695,11 @@ exports[`RippleStoryshots Organisms/Markup Markup/Embedded video 1`] = `
             </a>
           </div>
            
-          <!---->
+          <div
+            class="rpl-embed-video__transcript"
+          >
+            This is a caption
+          </div>
         </div>
       </div>
     </div>

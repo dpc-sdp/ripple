@@ -1,9 +1,13 @@
 <template>
   <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
-    <slot></slot>
+    <div class="rpl-link__inner">
+      <slot></slot>
+    </div>
   </a>
   <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick">
-    <slot></slot>
+    <div class="rpl-link__inner">
+      <slot></slot>
+    </div>
   </nuxt-link>
 </template>
 
@@ -69,7 +73,7 @@ export default {
     }
   }
 
-  & > span {
+  &__inner {
     @include rpl_print {
       text-decoration: underline;
     }

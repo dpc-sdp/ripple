@@ -4,7 +4,7 @@
     <ol class="rpl-accordion__list" v-if="type === 'numbered'">
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
         <h2 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
-          <button @click="accordionClick(index)" class="rpl-accordion__button" :class="{'rpl-accordion__button--expanded': accordionIsOpen(index)}">
+          <button @click="accordionClick(index)" class="rpl-accordion__button" :class="{'rpl-accordion__button--expanded': accordionIsOpen(index)}" :aria-expanded="accordionIsOpen(index).toString()" :aria-controls="accordionId(index)">
             <span aria-hidden="true" class="rpl-accordion__title-number">{{ (index + 1) }}</span>
             <span>{{ accordion.title }}</span>
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
@@ -17,7 +17,7 @@
           @before-leave="start"
           @after-leave="end"
         >
-          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)">
+          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)" :id="accordionId(index)">
             <rpl-markup class="rpl-accordion__content-inner"  :html="accordion.content" />
           </div>
         </transition>
@@ -26,7 +26,7 @@
     <ul class="rpl-accordion__list" v-else>
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
         <h2 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
-          <button @click="accordionClick(index)" class="rpl-accordion__button" :class="{'rpl-accordion__button--expanded': accordionIsOpen(index)}">
+          <button @click="accordionClick(index)" class="rpl-accordion__button" :class="{'rpl-accordion__button--expanded': accordionIsOpen(index)}" :aria-expanded="accordionIsOpen(index).toString()" :aria-controls="accordionId(index)">
             <span class="rpl-accordion__button-text">{{ accordion.title }}</span>
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
@@ -38,7 +38,7 @@
           @before-leave="start"
           @after-leave="end"
         >
-          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)">
+          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)" :id="accordionId(index)">
             <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
           </div>
         </transition>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import uniqueid from '@dpc-sdp/ripple-global/mixins/uniqueid'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import Vue from 'vue'
@@ -65,6 +66,7 @@ export default {
     RplIcon,
     RplMarkup
   },
+  mixins: [uniqueid],
   data: function () {
     return {
       itemOpen: {}
@@ -100,6 +102,9 @@ export default {
     },
     accordionIsOpen: function (index) {
       return (this.itemOpen[index] === undefined) ? false : this.itemOpen[index]
+    },
+    accordionId (index) {
+      return `rpl-accordion-${this.getIdFromLocalRegistry(index)}`
     }
   }
 }

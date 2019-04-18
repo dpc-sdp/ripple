@@ -2236,14 +2236,14 @@ const demoData = {
   }),
 
   accordion: () => ({
-    title: text('Title', 'Test'),
+    title: text('Title', 'Accordion Set'),
     type: selectV2('Type', ['numbered', 'default'], 'default'),
     accordions: object('Accordion', [{
-      title: 'Test',
-      content: 'lorem ipsum'
+      title: 'Accordion Item',
+      content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
     }, {
-      title: 'Test',
-      content: 'lorem ipsum'
+      title: 'Accordion Item',
+      content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
     }]),
     single: boolean('Single', false)
   })

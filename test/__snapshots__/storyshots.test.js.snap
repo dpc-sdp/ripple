@@ -50205,6 +50205,8 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+  <section />
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -50222,6 +50224,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
   >
     <div
       class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
+      role="alert"
     >
       <!---->
        
@@ -50260,7 +50263,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
       >
         <!---->
         <span>
-          Close
+          Dismiss alert
         </span>
       </button>
     </div>
@@ -50289,43 +50292,47 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
               <div
                 class="rpl-site-header__logo-container"
               >
-                <button
-                  aria-expanded="false"
-                  class="rpl-site-header__btn rpl-site-header__btn--menu"
+                <div
+                  class="rpl-site-header__logo-container-inner"
                 >
-                  <!---->
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
                    
-                  <span>
-                    Menu
-                  </span>
-                </button>
-                 
-                <div
-                  class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
-                >
-                  <a
-                    class="rpl-link"
-                    href="/"
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
                   >
-                    <img
-                      alt="vic_logo"
-                      src="file-stub"
-                    />
-                  </a>
-                </div>
-                 
-                <div
-                  class="rpl-site-header__title"
-                >
-                  <a
-                    class="rpl-link"
-                    href="#"
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <img
+                        alt="vic_logo"
+                        src="file-stub"
+                      />
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
                   >
-                    <img
-                      alt="vic.gov.au"
-                      src="/cobrand-logo.png"
-                    />
-                  </a>
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <img
+                        alt="vic.gov.au"
+                        src="/cobrand-logo.png"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
                
@@ -51301,14 +51308,21 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                   <div
                     class="rpl-markup__inner"
                   >
+                    <h2
+                      id="embedded-document"
+                    >
+                      Embedded document
+                    </h2>
+                     
                     <figure
                       class="rpl-document-link"
                     >
                       <a
-                        aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+                        aria-label="
+                Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
                         class="rpl-document-link__link"
-                        href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-                        target="_blank"
+                        download=""
+                        href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
                       >
                         <!---->
                          
@@ -51318,7 +51332,8 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           <span
                             class="rpl-document-link__title"
                           >
-                             Detailed Guide on the mandatory IR management criteria 
+                            
+                Detailed Guide on the mandatory IR management criteria 
                           </span>
                            
                           <div
@@ -51342,15 +51357,24 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       <!---->
                     </figure>
                      
+                    <h2
+                      id="link"
+                    >
+                      Link
+                    </h2>
+                     
                     <p>
-                      A paragraph of 
+                      
+      A paragraph of 
                       <strong>
                         text
                       </strong>
-                       with a 
+                       with a
+      
                       <a
                         class="rpl-link rpl-text-link"
                         href="https://vic.gov.au"
+                        target="_blank"
                       >
                         <span>
                           <!---->
@@ -51366,7 +51390,14 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         </span>
                       </a>
                       .
+    
                     </p>
+                     
+                    <h2
+                      id="button"
+                    >
+                      Button
+                    </h2>
                      
                     <a
                       class="rpl-link rpl-button rpl-button--primary"
@@ -51375,6 +51406,73 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                     >
                       go to google
                     </a>
+                     
+                    <h2
+                      id="quotation"
+                    >
+                      Quotation
+                    </h2>
+                     
+                    <blockquote
+                      class="quotation"
+                    >
+                      <p>
+                        
+        Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis
+        dolorpo rrorem reptaep elenis net.
+      
+                      </p>
+                       
+                      <footer>
+                        <cite>
+                          <span
+                            class="quotation__author"
+                          >
+                            Her Excellency the Honourable Linda Dessau AC
+                          </span>
+                          <br />
+                           
+                          <span
+                            class="quotation__author-title"
+                          >
+                            Governor of Victoria
+                          </span>
+                        </cite>
+                      </footer>
+                    </blockquote>
+                     
+                    <h2
+                      id="image"
+                    >
+                      Image
+                    </h2>
+                     
+                    <figure
+                      class="caption caption-article embedded-entity embedded-entity--media embedded-entity--media--image"
+                      role="group"
+                    >
+                      <article>
+                        <article
+                          class="media media--type-image media--view-mode-embedded"
+                        >
+                          <div
+                            class="field field--name-field-media-image field--type-image field--label-hidden field__item"
+                          >
+                            <img
+                              alt=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
+                              height="150"
+                              src="https://www.develop.content.vic.gov.au/sites/default/files/2019-03/womens-honour-roll-2019-Judy-Tegart-Dalton.png"
+                              title=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
+                              width="150"
+                            />
+                          </div>
+                        </article>
+                      </article>
+                       
+                      <figcaption>
+                        caption
+                      </figcaption>
+                    </figure>
                   </div>
                 </div>
               </div>
@@ -52430,8 +52528,8 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         <a
                           aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
                           class="rpl-document-link__link"
-                          href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-                          target="_blank"
+                          download=""
+                          href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
                         >
                           <!---->
                            
@@ -52474,6 +52572,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         <a
                           class="rpl-link rpl-text-link"
                           href="https://vic.gov.au"
+                          target="_blank"
                         >
                           <span>
                             <!---->
@@ -52692,19 +52791,37 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
               <div
                 class="rpl-col rpl-col--full"
               >
-                <div
+                <nav
+                  aria-label="Search"
                   class="rpl-pagination"
                 >
                   <ol
                     class="rpl-pagination__list"
                   >
                     <li
+                      aria-current="page"
+                      aria-disabled="true"
                       class="rpl-pagination__list-item"
                     >
-                      <span
-                        class="rpl-pagination__step-current"
+                      <button
+                        class="rpl-pagination__step rpl-pagination__step-current"
+                        disabled="disabled"
                       >
-                        1
+                        <span
+                          class="rpl-pagination__step-label"
+                        >
+                          current page
+                        </span>
+                        
+        1
+      
+                      </button>
+                       
+                      <span
+                        aria-hidden="true"
+                        class="rpl-pagination__list-item-slash"
+                      >
+                        /
                       </span>
                     </li>
                     <li
@@ -52713,11 +52830,22 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       <button
                         class="rpl-pagination__step"
                       >
-                        <span>
-                          Go to step 
+                        <span
+                          class="rpl-pagination__step-label"
+                        >
+                          Go to page
                         </span>
-                        2
+                        
+        2
+      
                       </button>
+                       
+                      <span
+                        aria-hidden="true"
+                        class="rpl-pagination__list-item-slash"
+                      >
+                        /
+                      </span>
                     </li>
                     <li
                       class="rpl-pagination__list-item"
@@ -52725,11 +52853,22 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       <button
                         class="rpl-pagination__step"
                       >
-                        <span>
-                          Go to step 
+                        <span
+                          class="rpl-pagination__step-label"
+                        >
+                          Go to page
                         </span>
-                        3
+                        
+        3
+      
                       </button>
+                       
+                      <span
+                        aria-hidden="true"
+                        class="rpl-pagination__list-item-slash"
+                      >
+                        /
+                      </span>
                     </li>
                     <li
                       class="rpl-pagination__list-item"
@@ -52737,11 +52876,22 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       <button
                         class="rpl-pagination__step"
                       >
-                        <span>
-                          Go to step 
+                        <span
+                          class="rpl-pagination__step-label"
+                        >
+                          Go to page
                         </span>
-                        4
+                        
+        4
+      
                       </button>
+                       
+                      <span
+                        aria-hidden="true"
+                        class="rpl-pagination__list-item-slash"
+                      >
+                        /
+                      </span>
                     </li>
                     <li
                       class="rpl-pagination__list-item"
@@ -52749,11 +52899,22 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       <button
                         class="rpl-pagination__step"
                       >
-                        <span>
-                          Go to step 
+                        <span
+                          class="rpl-pagination__step-label"
+                        >
+                          Go to page
                         </span>
-                        5
+                        
+        5
+      
                       </button>
+                       
+                      <span
+                        aria-hidden="true"
+                        class="rpl-pagination__list-item-slash"
+                      >
+                        /
+                      </span>
                     </li>
                   </ol>
                    
@@ -52766,13 +52927,13 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       class="rpl-pagination__nav"
                     >
                       <span>
-                        Next
+                        Next page
                       </span>
                        
                       <!---->
                     </button>
                   </div>
-                </div>
+                </nav>
               </div>
                
               <div
@@ -53398,8 +53559,8 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                   <a
                                     aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
                                     class="rpl-document-link__link"
-                                    href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-                                    target="_blank"
+                                    download=""
+                                    href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
                                   >
                                     <!---->
                                      
@@ -53442,6 +53603,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                   <a
                                     class="rpl-link rpl-text-link"
                                     href="https://vic.gov.au"
+                                    target="_blank"
                                   >
                                     <span>
                                       <!---->
@@ -55788,50 +55950,81 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
             >
               <h2
                 class="rpl-share-this__title"
+                id="rpl-share-this__title"
               >
                 Share this
               </h2>
                
-              <div>
-                <span
+              <ul
+                aria-label="Social networks"
+                class="rpl-share-this__list"
+              >
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-twitter"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  Twitter
-      
-                </span>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    Twitter
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
                  
-                <span
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-facebook"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  Facebook
-      
-                </span>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    Facebook
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
                  
-                <span
+                <li
                   class="rpl-share-this__social"
                   data-link="#share-linkedin"
                 >
-                  <span
-                    class="rpl-share-this__icon"
+                  <button
+                    class="rpl-share-this__button"
                   >
-                    <!---->
-                  </span>
-                  LinkedIn
-      
-                </span>
-              </div>
+                    <span
+                      class="rpl-share-this__icon"
+                    >
+                      <!---->
+                    </span>
+                    LinkedIn
+          
+                    <span
+                      class="rpl-share-this__hint"
+                    >
+                      , opens a new window
+                    </span>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

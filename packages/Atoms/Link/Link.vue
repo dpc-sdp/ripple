@@ -1,9 +1,13 @@
 <template>
   <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
-    <slot></slot>
+    <div class="rpl-link__inner">
+      <slot></slot>
+    </div>
   </a>
   <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick">
-    <slot></slot>
+    <div class="rpl-link__inner">
+      <slot></slot>
+    </div>
   </nuxt-link>
 </template>
 
@@ -54,8 +58,26 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
+
 .rpl-link {
   text-decoration: none;
+
+  @include rpl_print {
+    &[href]:after {
+      content: ' <' attr(href) '> ';
+    }
+    &[href^="tel:"]:after {
+      content: "";
+    }
+  }
+
+  &__inner {
+    @include rpl_print {
+      text-decoration: underline;
+    }
+  }
 
   &:hover,
   &:focus {

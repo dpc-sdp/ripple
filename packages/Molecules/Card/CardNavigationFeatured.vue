@@ -77,13 +77,15 @@ export default {
 
   .rpl-card-navigation-featured {
     $root: &;
+    @include rpl_text_color($rpl-card-navigation-featured-color);
     overflow: hidden;
     display: block;
     position: relative;
-    color: $rpl-card-navigation-featured-color;
     background-color: $rpl-card-navigation-featured-background;
     max-width: $rpl-card-navigation-featured-max-width;
     border-radius: $rpl-card-navigation-featured-border-radius;
+
+    @include rpl_print_hidden;
 
     &:hover,
     &:focus {
@@ -138,9 +140,9 @@ export default {
     }
 
     &__meta {
+      @include rpl_text_color($rpl-card-navigation-featured-meta-text-color);
       display: inline-block;
       background-color: $rpl-card-navigation-featured-meta-background;
-      color: $rpl-card-navigation-featured-meta-text-color;
       padding: $rpl-card-navigation-featured-meta-padding;
       margin-bottom: $rpl-space;
 
@@ -173,8 +175,8 @@ export default {
     &__summary {
       background: $rpl-card-navigation-featured-summary-background;
       @include rpl_typography_ruleset($rpl-card-navigation-featured-summary-ruleset);
+      @include rpl_text_color($rpl-card-navigation-featured-summary-color);
       margin: 0;
-      color: $rpl-card-navigation-featured-summary-color;
       padding: $rpl-card-navigation-featured-summary-xs;
       @include rpl_breakpoint('s') {
         padding: $rpl-card-navigation-featured-summary-s;

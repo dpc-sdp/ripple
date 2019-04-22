@@ -1,0 +1,7 @@
+$rpl-print-text: rpl_color('black') !default;
+$rpl-print-image-height: rem(150px) !default;
+$rpl-print-margin: (
+  's': rem(16px),
+  'm': rem(28px),
+  'l': rem(32px)
+) !default;

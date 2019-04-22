@@ -2058,7 +2058,7 @@ const demoData = {
   }),
 
   imageGallery: () => ({
-    gallery: object('Gallery Data', [{
+    galleryData: object('Gallery Data', [{
       image: 'https://placehold.it/1024x768/900/fff',
       alt: 'A test image',
       title: 'Image title here',
@@ -2263,7 +2263,7 @@ const demoData = {
     content: text('Content', '<p>HTML Content</p>')
   }),
 
-  profileHightlightHonourRoll: () => ({
+  profileHighlightHonourRoll: () => ({
     image: text('Image', 'http://placehold.it/156x156'),
     inductedYear: text('Inducted Year', '2018'),
     category: text('Category', 'Local Champion')

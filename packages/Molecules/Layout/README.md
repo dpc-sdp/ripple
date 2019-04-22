@@ -26,7 +26,11 @@ npm install @dpc-sdp/ripple-layout --save
 ## Import
 
 ```js
-import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
+import {
+  RplBaseLayout,
+  RplPageLayout,
+  RplQuickExit
+} from '@dpc-sdp/ripple-layout'
 ```
 
 --------------------------------------------------------------------------------

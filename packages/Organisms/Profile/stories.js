@@ -29,6 +29,6 @@ storiesOf('Organisms/Profile', module)
     components: { RplProfileHighlightHonourRoll },
     template: `<rpl-profile-highlight-honour-roll :image="image" :inductedYear="inductedYear" :category="category"/>`,
     data () {
-      return demoData.profileHightlightHonourRoll()
+      return demoData.profileHighlightHonourRoll()
     }
   })))

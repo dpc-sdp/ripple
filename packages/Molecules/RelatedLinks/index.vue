@@ -56,6 +56,8 @@ export default {
     position: relative;
     border-radius: $rpl-related-links-border-radius;
 
+    @include rpl_print_hidden;
+
     &__row {
       @include rpl_breakpoint('s') {
         max-width: $rpl-related-links-max-width-s;

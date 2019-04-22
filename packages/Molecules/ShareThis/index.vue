@@ -98,6 +98,8 @@ export default {
       margin: $rpl-share-this-margin-l;
     }
 
+    @include rpl_print_hidden;
+
     &__title {
       @include rpl_typography_ruleset($rpl-share-this-title-ruleset);
       margin: $rpl-share-this-title-margin;

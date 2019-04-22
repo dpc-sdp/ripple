@@ -33,11 +33,13 @@ export default {
 
   $rpl-rpl-profile-highlight-honour-roll-label-ruleset: ('s', 1.5em, 'bold') !default;
   $rpl-rpl-profile-highlight-honour-roll-detail-ruleset: ('s', 1.5em, 'medium') !default;
+  $rpl-rpl-profile-highlight-honour-roll-detail-color: rpl-color('extra_dark_neutral') !default;
 
   .rpl-profile-highlight-honour-roll {
 
     &__detail {
       @include rpl_typography_ruleset($rpl-rpl-profile-highlight-honour-roll-detail-ruleset);
+      @include rpl_text_color($rpl-rpl-profile-highlight-honour-roll-detail-color);
     }
 
     &__label {

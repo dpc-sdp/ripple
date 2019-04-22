@@ -71,6 +71,8 @@ export default {
       padding-left: $rpl-anchor-links-left-padding-xl;
     }
 
+    @include rpl_print_hidden;
+
     &__row {
       @include rpl_breakpoint('s') {
         max-width: $rpl-anchor-links-max-width-s;

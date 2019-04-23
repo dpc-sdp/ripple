@@ -11,6 +11,7 @@
       'rpl-card-content--inline': (type === 'inline'),
       'rpl-card-content--has-link-text': link.text
     }"
+    :innerWrap="false"
     v-if="link"
   >
     <div class="rpl-card-content__image-wrapper" v-if="image">

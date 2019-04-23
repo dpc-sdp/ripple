@@ -1,5 +1,5 @@
 <template>
-  <rpl-link class="rpl-card-navigation-featured" :href="url" v-if="url">
+  <rpl-link class="rpl-card-navigation-featured" :href="url" v-if="url" :innerWrap="false">
     <div class="rpl-card-navigation-featured__inner">
       <img class="rpl-card-navigation-featured__image" :src="image" alt="">
       <div class="rpl-card-navigation-featured__meta_and_title" v-if="title || date || topic">

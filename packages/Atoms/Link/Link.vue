@@ -74,6 +74,8 @@ export default {
   }
 
   &__inner {
+    display: inline;
+
     @include rpl_print {
       text-decoration: underline;
     }

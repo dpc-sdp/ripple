@@ -22,6 +22,14 @@ npm install @dpc-sdp/ripple-anchor-links --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Anchor Links](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/AnchorLinks&selectedStory=Anchor%20Links).

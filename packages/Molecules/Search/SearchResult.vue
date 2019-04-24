@@ -39,7 +39,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-search-result-term-margin: 0 $rpl-space-2 $rpl-space-2 0 !default;
   $rpl-search-result-terms-margin-xs: ($rpl-space * 6) 0 0 !default;
@@ -63,12 +64,9 @@ export default {
   ) !default;
 
   .rpl-search-result {
-    @include rpl_mobile_padding();
     padding-bottom: $rpl-space-4;
 
     @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
       padding-bottom: $rpl-space-4 * 2;
     }
 

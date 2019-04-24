@@ -1,17 +1,17 @@
 <template>
-  <div class="colors">
+  <div class="colors demo-content">
     <h2>Colors</h2>
     <ul>
-      <li v-for="color in colors" :key="color">
-        <code>{{ color.replace(/\_/gi, ' ') }}</code>
+      <li class="color" v-for="color in colors" :key="color">
+        <p class="color__name">{{ color.replace(/\_/gi, ' ') }}</p>
         <div :class="classes(color)"></div>
       </li>
     </ul>
 
     <h2>Gradients</h2>
     <ul>
-      <li v-for="gradient in gradients" :key="gradient">
-        <code>{{ gradient.replace(/\_/gi, ' ') }}</code>
+      <li class="color" v-for="gradient in gradients" :key="gradient">
+        <p class="color__name">{{ gradient.replace(/\_/gi, ' ') }}</p>
         <div :class="gradientClasses(gradient)"></div>
       </li>
     </ul>
@@ -28,33 +28,46 @@ export default {
   methods: {
     classes: function (color) {
       let modifier = color.replace(' ', '-')
-      return 'colors__item colors__item--' + modifier
+      return 'color__item color__item--' + modifier
     },
     gradientClasses: function (gradient) {
       let modifier = gradient.replace(' ', '-')
-      return 'colors__item gradient__item--' + modifier
+      return 'color__item color__item--' + modifier
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import './../../packages/Atoms/Global/scss/functions';
-@import './../../packages/Atoms/Global/scss/color';
+@import './../../packages/Atoms/Global/scss/settings';
 
-.colors__item {
-  height: 3rem;
-  width: 3rem;
+.color {
+  list-style: none;
+  width: 20rem;
+  padding: 0 .25rem;
+
+  &__item {
+    height: 4rem;
+    width: 100%;
+    max-width: 20rem;
+    border: 1px solid #eee;
+  }
+}
+
+ul {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @each $color-name, $color-value in $rpl-colors {
-  .colors__item--#{str-replace($color-name, ' ', '-')} {
+  .color__item--#{str-replace($color-name, ' ', '-')} {
     background-color: rpl-color($color-name);
   }
 }
 
 @each $gradient-name, $gradient-value in $rpl-gradients {
-  .gradient__item--#{str-replace($gradient-name, ' ', '-')} {
+  .color__item--#{str-replace($gradient-name, ' ', '-')} {
     background-image: rpl-gradient($gradient-name);
   }
 }

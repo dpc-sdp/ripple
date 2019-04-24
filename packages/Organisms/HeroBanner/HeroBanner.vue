@@ -3,12 +3,12 @@
     'rpl-hero-banner--no-links': !showLinks,
     'rpl-hero-banner--has-logo': logo
   }" :style="heroBannerStyles">
-    <div class="rpl-row" v-if="logo">
+    <rpl-row v-if="logo">
       <div class="rpl-hero-banner__left">
         <img class="rpl-hero-banner__logo" :src="logo" alt="" />
       </div>
-    </div>
-    <div class="rpl-row">
+    </rpl-row>
+    <rpl-row>
       <div class="rpl-hero-banner__left">
         <h1
           v-if="title"
@@ -48,6 +48,7 @@
               iconColor="primary"
               :underline="true"
               :theme="theme"
+              size="large"
             />
           </li>
           <li
@@ -62,16 +63,18 @@
               iconColor="primary"
               :underline="true"
               :theme="theme"
+              size="large"
             />
           </li>
         </ul>
       </div>
-    </div>
+    </rpl-row>
   </div>
 </template>
 
 <script>
 import { RplTextLink } from '@dpc-sdp/ripple-link'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplHeroBanner',
@@ -87,7 +90,9 @@ export default {
     backgroundGraphic: String
   },
   components: {
-    RplTextLink
+    RplTextLink,
+    RplRow,
+    RplCol
   },
   computed: {
     heroBannerStyles () {
@@ -98,7 +103,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-hero-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
   $rpl-hero-banner-title-typography-ruleset: (
@@ -159,7 +165,6 @@ export default {
   .rpl-hero-banner {
     $root: &;
     @include rpl_mobile_padding;
-    @include rpl_grid_container;
     position: relative;
     background-repeat: no-repeat;
     background-position: right -3.75rem bottom -1rem;
@@ -199,12 +204,23 @@ export default {
       }
     }
 
+    @include rpl_print {
+      padding: 0;
+      border: 0;
+      background-image: none !important; // Needs to override inline definition.
+    }
+
     &__left {
       @include rpl_grid_full;
 
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(8);
         padding-right: $rpl-hero-banner-left-padding;
+      }
+
+      @include rpl_print {
+        @include rpl_grid_full;
+        padding-right: 0;
       }
     }
 
@@ -215,6 +231,8 @@ export default {
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(4);
       }
+
+      @include rpl_print_hidden;
     }
 
     &__logo {
@@ -229,7 +247,7 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset);
-      color: $rpl-hero-banner-title-color;
+      @include rpl_text_color($rpl-hero-banner-title-color);
       margin: 0;
 
       &--dark {
@@ -239,7 +257,7 @@ export default {
 
     &__description {
       @include rpl_typography_ruleset($rpl-hero-banner-description-typography-ruleset);
-      color: $rpl-hero-banner-description-text-color;
+      @include rpl_text_color($rpl-hero-banner-description-text-color);
       letter-spacing: $rpl-hero-banner-description-letter-spacing;
       margin-top: $rpl-space;
 
@@ -250,6 +268,8 @@ export default {
       @include rpl_breakpoint(l) {
         margin-top: $rpl-space-4;
       }
+
+      @include rpl_print_margin('s');
 
       &--dark {
         color: $rpl-hero-banner-description-text-color-dark;

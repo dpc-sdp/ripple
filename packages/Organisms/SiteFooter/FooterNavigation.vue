@@ -75,20 +75,22 @@ export default {
     msnryInit: async function () {
       // For more about dynamic import check below article.
       // https://developers.google.com/web/updates/2017/11/dynamic-import
-      const Masonry = await import('masonry-layout')
-
-      this.msnry = new Masonry('.rpl-footer-nav', {
-        itemSelector: '.rpl-footer-nav__menu-item',
-        gutter: 24,
-        transitionDuration: 0
-      })
+      if (!this.msnry) {
+        const Masonry = await import('masonry-layout').then(module => module.default ? module.default : module)
+        this.msnry = new Masonry('.rpl-footer-nav', {
+          itemSelector: '.rpl-footer-nav__menu-item',
+          gutter: 24,
+          transitionDuration: 0
+        })
+      }
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
 .rpl-footer-nav {
   padding: 0;

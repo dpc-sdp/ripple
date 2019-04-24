@@ -15,6 +15,7 @@
   >
     <div class="rpl-menu__inner">
       <div class="rpl-menu__inner_root">
+        <rpl-quick-exit class="rpl-menu__quickexit"  v-if="rplOptions.quickexit && open && ((!isVerticalLayout && depth === 1) || isVerticalLayout)" />
         <div class="rpl-menu__column">
           <div class="rpl-menu__header">
             <button
@@ -85,6 +86,7 @@ import { focus } from 'vue-focus'
 
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
+import RplQuickExit from '@dpc-sdp/ripple-layout/QuickExit.vue'
 
 export default {
   name: 'RplMenu',
@@ -103,7 +105,8 @@ export default {
   },
   components: {
     RplIcon,
-    RplLink
+    RplLink,
+    RplQuickExit
   },
   data: function () {
     return {
@@ -220,7 +223,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/site_header";
 
   $rpl-menu-vertical-root-margin: ($rpl-space * 10) auto auto !default;
@@ -259,6 +263,8 @@ export default {
   ) !default;
   $rpl-menu-heading-sub-padding: $rpl-space-3 0;
   $rpl-menu-gutter: rpl_grid_get_gutter($rpl-grid) !default;
+  $rpl-menu-horizontal-quickexit-right-margin: ($rpl-space * 10) !default;
+  $rpl-menu-vertical-quickexit-padding: $rpl-space-4 !default;
 
   // Simplified rpl_grid_column() - returns quotient as non-percentage. Ignores gutters.
   @function rpl_menu_column($grid-cols: 1, $grid: $rpl-grid) {
@@ -302,6 +308,19 @@ export default {
 
     .rpl-menu__heading {
       margin: $rpl-menu-vertical-heading-margin;
+    }
+
+    .rpl-menu__quickexit {
+      padding: $rpl-menu-vertical-quickexit-padding;
+      > a {
+        width: 100%;
+      }
+      @include rpl_breakpoint('s') {
+        float: right;
+        > a {
+          width: auto;
+        }
+      }
     }
 
     .rpl-menu {
@@ -353,6 +372,7 @@ export default {
     .rpl-menu__items--root {
       display: flex;
       list-style: none;
+      justify-content: flex-end;
 
       & > .rpl-menu__item > .rpl-menu__item-link {
         @include rpl_typography_font('xs', 1em, 'bold');
@@ -403,6 +423,12 @@ export default {
           }
         }
       }
+    }
+
+    .rpl-menu__quickexit {
+      margin-bottom: 1.5rem;
+      position: absolute;
+      right: $rpl-menu-horizontal-quickexit-right-margin;
     }
 
     .rpl-menu__items:not(.rpl-menu__items--root) {
@@ -565,5 +591,6 @@ export default {
         color: $rpl-menu-item-link-color-active;
       }
     }
+
   }
 </style>

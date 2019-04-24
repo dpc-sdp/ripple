@@ -1,5 +1,6 @@
 <template>
   <div class="rpl-site-layout">
+    <section><slot name="alert"></slot></section>
     <rpl-skip-link />
     <header class="rpl-site-header-container">
       <slot name="header"></slot>
@@ -23,3 +24,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "~@dpc-sdp/ripple-global/scss/tools";
+
+.rpl-site-layout {
+  // Prevent grid margins affecting the horizontal scroll.
+  @include rpl_grid_container;
+}
+</style>

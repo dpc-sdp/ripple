@@ -24,33 +24,29 @@ const breakpoint = {
   data () {
     return {
       clientWidth: 0,
-      clientHeight: 0
+      clientHeight: 0,
+      breakpointsSmallToLarge: [
+        { label: 'xs', value: 0 },
+        { label: 's', value: 576 },
+        { label: 'm', value: 768 },
+        { label: 'l', value: 992 },
+        { label: 'xl', value: 1200 },
+        { label: 'xxl', value: 1600 },
+        { label: 'xxxl', value: 2560 }
+      ]
     }
   },
   computed: {
     $breakpoint () {
-      const xs = this.clientWidth >= 0
-      const s = this.clientWidth >= 576
-      const m = this.clientWidth >= 768
-      const l = this.clientWidth >= 992
-      const xl = this.clientWidth >= 1200
-      const xxl = this.clientWidth >= 1600
-      const xxxl = this.clientWidth >= 2560
-
       const result = {
-        // Definite breakpoint.
-        'xs': xs,
-        's': s,
-        'm': m,
-        'l': l,
-        'xl': xl,
-        'xxl': xxl,
-        'xxxl': xxxl,
-
         // For custom breakpoint logic.
         'width': this.clientWidth,
         'height': this.clientHeight
       }
+      // Define breakpoints.
+      this.breakpointsSmallToLarge.forEach(bp => {
+        result[bp.label] = (this.clientWidth >= bp.value)
+      })
       return result
     }
   },

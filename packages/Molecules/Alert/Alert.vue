@@ -1,5 +1,5 @@
 <template>
-  <rpl-alert-base class="rpl-alert" :backgroundColor="typeProp('backgroundColor')" :iconSymbol="typeProp('iconSymbol')" @rplAlertClose="close()">
+  <rpl-alert-base role="alert" class="rpl-alert" closeText="Dismiss alert" :backgroundColor="typeProp('backgroundColor')" :iconSymbol="typeProp('iconSymbol')" @rplAlertClose="close()">
     <span v-if="title" class="rpl-alert__title">{{ title }}</span>
     <rpl-text-link v-if="link" class="rpl-alert__link" :text="link.text" :url="link.url" iconSymbol="right" iconColor="white" theme="dark" />
   </rpl-alert-base>
@@ -40,7 +40,7 @@ export default {
           backgroundColor: 'danger',
           iconSymbol: 'alert_medical'
         },
-        'Lightening': {
+        'Lightning': {
           backgroundColor: 'warning',
           iconSymbol: 'alert_lightning'
         },
@@ -71,7 +71,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   .rpl-alert {
     &__title {

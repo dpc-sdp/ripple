@@ -1,6 +1,6 @@
 <template>
   <div class="rpl-campaign-primary">
-    <a v-if="link && image" :href="link.url" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large">
+    <a :aria-label="link.text" v-if="link && image" :href="link.url" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large">
       <span class="rpl-campaign-primary__image-inner">
         <svg class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
           <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
@@ -62,7 +62,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-campaign-primary-padding-s: 0 0 39px !default;
   $rpl-campaign-primary-padding-m: 52px 0 66px !default;
@@ -88,9 +89,10 @@ export default {
   $rpl-campaign-primary-content-padding-xs: 0 $rpl-component-padding-xs !default;
   $rpl-campaign-primary-content-padding-s: 0 $rpl-component-padding-s !default;
   $rpl-campaign-primary-button-margin-s: 0 $rpl-component-padding-s !default;
-  $rpl-campaign-primary-primary-arrow-background: transparent url(rpl_banner_primary_arrow_url('secondary')) no-repeat bottom right !default;
+  $rpl-campaign-primary-primary-arrow-background: transparent url(rpl_graphic_right_angled_triangle('secondary')) no-repeat bottom right !default;
 
   .rpl-campaign-primary {
+    @include rpl_site_constrain;
     position: relative;
     @include rpl_breakpoint('s') {
       padding: $rpl-campaign-primary-padding-s;
@@ -106,11 +108,22 @@ export default {
       padding: $rpl-campaign-primary-padding-xxl;
     }
 
+    @include rpl_print {
+      border-bottom: 0;
+    }
+
     &__row {
-      @include rpl_site_constrain;
+      @include rpl_grid_row;
+      @include rpl_grid_row_gutter;
     }
 
     &__left {
+      @include rpl_grid_full;
+
+      @include rpl_breakpoint('m'){
+        @include rpl_grid_column(6);
+        margin-bottom: 0 !important;
+      }
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(6);
       }
@@ -122,20 +135,10 @@ export default {
       }
     }
 
-    &__content {
-      padding: $rpl-campaign-primary-content-padding-xs;
-      @include rpl_breakpoint('s') {
-        padding: $rpl-campaign-primary-content-padding-s;
-      }
-      @include rpl_breakpoint('m') {
-        padding: 0;
-      }
-    }
-
     &__title {
       @include rpl_typography_ruleset($rpl-campaign-primary-title-ruleset);
+      @include rpl_text_color($rpl-campaign-primary-title-text-color);
       box-sizing: border-box;
-      color: $rpl-campaign-primary-title-text-color;
       margin: $rpl-campaign-primary-title-margin-xs;
       width: 100%;
       @include rpl_breakpoint('l') {
@@ -145,21 +148,12 @@ export default {
 
     &__summary {
       @include rpl_typography_ruleset($rpl-campaign-primary-summary-ruleset);
+      @include rpl_text_color($rpl-campaign-primary-summary-text-color);
       box-sizing: border-box;
-      color: $rpl-campaign-primary-summary-text-color;
       margin: $rpl-campaign-primary-summary-margin-xs;
       width: 100%;
       @include rpl_breakpoint('s') {
         margin: $rpl-campaign-primary-summary-margin-s;
-      }
-    }
-
-    &__call-to-action {
-      @include rpl_breakpoint('s') {
-        margin: $rpl-campaign-primary-button-margin-s;
-      }
-      @include rpl_breakpoint('m') {
-        margin: 0;
       }
     }
 
@@ -170,7 +164,7 @@ export default {
       @include rpl_breakpoint('m') {
         position: absolute;
         right: 0;
-        bottom: 100%;
+        bottom: 0%;
         width: 50%;
       }
       @include rpl_breakpoint('xl') {
@@ -201,30 +195,48 @@ export default {
 
     &__image {
       width: 100%;
+      margin-left: -$rpl-component-padding-xs;
+      width: calc(100% + #{$rpl-component-padding-xs * 2});
+
       @include rpl_breakpoint('m') {
         position: absolute;
         height: 100%;
         vertical-align: bottom;
       }
+
+      @include rpl_print_image;
+
+      @include rpl_print {
+        width: auto;
+      }
     }
 
     &__primary_arrow {
       display: none;
-      @include rpl_breakpoint('xl') {
+      pointer-events: none;
+
+      background: $rpl-campaign-primary-primary-arrow-background;
+      width: rem(48px);
+      height: rem(100px);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      @include rpl_breakpoint('m') {
         display: block;
-        background: $rpl-campaign-primary-primary-arrow-background;
-        width: rem(48px);
-        height: rem(100px);
-        position: absolute;
-        bottom: 0;
-        right: 0;
       }
+
+      @include rpl_print_hidden;
 
       .rpl-icon {
         position: absolute;
         bottom: rem(9px);
         right: rem(9px);
       }
+    }
+
+    &__call-to-action {
+      @include rpl_print_hidden;
     }
   }
 </style>

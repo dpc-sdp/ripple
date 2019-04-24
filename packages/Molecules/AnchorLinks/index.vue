@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-anchor-links">
+  <div v-if="(links.length)" class="rpl-anchor-links">
     <div class="rpl-anchor-links__row">
       <h2 class="rpl-anchor-links__title">{{ title }}</h2>
     </div>
@@ -31,24 +31,25 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-anchor-links-max-width-s: rem(510px);
-  $rpl-anchor-links-max-width-xl: rem(463px);
-  $rpl-anchor-links-border-image: rpl-gradient('decorative_gradient_0') 1 100%;
-  $rpl-anchor-links-border: rem(6px) solid;
-  $rpl-anchor-links-margin: $rpl-space-4 0;
-  $rpl-anchor-links-left-padding-xs: $rpl-space-4;
-  $rpl-anchor-links-left-padding-s: ($rpl-space * 9);
-  $rpl-anchor-links-left-padding-xl: ($rpl-space * 8);
-  $rpl-anchor-links-title-padding: $rpl-space-3;
+  $rpl-anchor-links-max-width-s: rem(510px) !default;
+  $rpl-anchor-links-max-width-xl: rem(463px) !default;
+  $rpl-anchor-links-border-image: rpl-gradient('decorative_gradient_0') 1 100% !default;
+  $rpl-anchor-links-border: rem(6px) solid !default;
+  $rpl-anchor-links-margin: $rpl-space-4 0 !default;
+  $rpl-anchor-links-left-padding-xs: $rpl-space-4 !default;
+  $rpl-anchor-links-left-padding-s: ($rpl-space * 9) !default;
+  $rpl-anchor-links-left-padding-xl: ($rpl-space * 8) !default;
+  $rpl-anchor-links-title-padding: $rpl-space-3 !default;
   $rpl-anchor-links-title-ruleset: (
     'xs': ('l', 1.5em, 'bold'),
     's': ('mega', 1em, 'bold')
   ) !default;
-  $rpl-anchor-links-title-color: rpl_color('extra_dark_neutral');
-  $rpl-anchor-links-items-margin: $rpl-space-2 auto;
-  $rpl-anchor-links-item-margin: auto auto $rpl-space-3;
+  $rpl-anchor-links-title-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-anchor-links-items-margin: $rpl-space-2 auto !default;
+  $rpl-anchor-links-item-margin: auto auto $rpl-space-3 !default;
 
   .rpl-anchor-links {
     @include rpl_mobile_padding;
@@ -69,6 +70,8 @@ export default {
     @include rpl_breakpoint('xl') {
       padding-left: $rpl-anchor-links-left-padding-xl;
     }
+
+    @include rpl_print_hidden;
 
     &__row {
       @include rpl_breakpoint('s') {

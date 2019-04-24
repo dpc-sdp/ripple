@@ -31,7 +31,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-whats-next-max-width-s: rem(583px);
   $rpl-whats-next-background: transparent;
@@ -42,16 +43,15 @@ export default {
   $rpl-whats-next-item-margin: auto auto $rpl-space-3;
 
   .rpl-whats-next {
-    @include rpl_mobile_padding;
     padding-top: $rpl-space-4;
     background: $rpl-whats-next-background;
     position: relative;
 
     @include rpl_breakpoint('l') {
       border-radius: $rpl-whats-next-border-radius;
-      padding-left: 0;
-      padding-right: 0;
     }
+
+    @include rpl_print_hidden;
 
     &__row {
       @include rpl_breakpoint('s') {
@@ -66,8 +66,8 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-whats-next-title-ruleset);
+      @include rpl_text_color($rpl-whats-next-title-color);
       margin: 0;
-      color: $rpl-whats-next-title-color;
     }
 
     &__items {

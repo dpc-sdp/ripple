@@ -20,10 +20,19 @@ storiesOf('Molecules/Search', module)
     components: { RplSearchForm },
     template: `<rpl-search-form
   :title="title"
+  :subtitle="subtitle"
   :searchPlaceholder="searchPlaceholder"
   :prefillSearchTerm="prefillSearchTerm"
+  :searchInputLabel="searchInputLabel"
+  :buttonLabel="buttonLabel"
+  :buttonHiddenLabel="buttonHiddenLabel"
+  :autoFocus="autoFocus"
+  :textSearch="textSearch"
+  :expandFilters="expandFilters"
   :filterForm="filterForm"
+  :filterText="filterText"
   :theme="theme"
+  :type="type"
   :allowBlank="allowBlank"
   @search="searchEvent"
 />`,
@@ -66,7 +75,6 @@ storiesOf('Molecules/Search', module)
   :pager="pager"
   :responseSize="searchResults.responseSize"
   :count="searchResults.count"
-  :pagerChangeHandler="pagerChange"
   :errorMsg="hasError ? searchResults.errorMsg : undefined"
   :noResultsMsg="searchResults.noResultsMsg"
   :type="searchResults.type"
@@ -112,7 +120,7 @@ storiesOf('Molecules/Search', module)
     data () {
       return {
         pager: demoData.pagination(),
-        searchResults: demoData.eventSearchResults(),
+        searchResults: demoData.cardSearchResults(),
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)
       }
@@ -126,10 +134,50 @@ storiesOf('Molecules/Search', module)
             case 'RplCardPromotion':
               return demoData.newsSearchResultItems()
 
+            case 'RplCardHonourRoll':
+              return demoData.honourRollSearchResultItems()
+
             case 'RplCardEvent':
             default:
               return demoData.eventSearchResultItems()
           }
+        }
+      }
+    },
+    methods: {
+      pagerChange: function (newStep) {
+        // Use your own custom code to handle it.
+        alert('Going to step: ' + newStep)
+      }
+    }
+  })))
+  .add('Grant Search Results', withReadme(readme, () => ({
+    components: { RplSearchResults },
+    template: `<rpl-search-results
+    :searchResults="searchResultsItems"
+    :pager="pager"
+    :responseSize="searchResults.responseSize"
+    :count="searchResults.count"
+    :pagerChangeHandler="pagerChange"
+    :errorMsg="hasError ? searchResults.errorMsg : undefined"
+    :noResultsMsg="searchResults.noResultsMsg"
+    type="RplGrantsListItem"
+    @pager-change="pagerChange"
+  />`,
+    data () {
+      return {
+        pager: demoData.pagination(),
+        searchResults: demoData.grantSearchResults(),
+        hasError: boolean('Has error', false),
+        noResults: boolean('No results', false)
+      }
+    },
+    computed: {
+      searchResultsItems: function () {
+        if (this.hasError || this.noResults) {
+          return []
+        } else {
+          return demoData.grantSearchResultItems()
         }
       }
     },

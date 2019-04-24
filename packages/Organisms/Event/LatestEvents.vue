@@ -43,7 +43,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-latest-events-call-to-action-margin: $rpl-space-3 0 !default;
   $rpl-latest-events-title-ruleset: (
@@ -55,7 +56,7 @@ export default {
   .rpl-latest-events {
     &__title {
       @include rpl_typography_ruleset($rpl-latest-events-title-ruleset);
-      color: $rpl-latest-events-title-color;
+      @include rpl_text_color($rpl-latest-events-title-color);
     }
 
     &__list {

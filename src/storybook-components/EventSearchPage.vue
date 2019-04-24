@@ -9,14 +9,13 @@
         :searchTerms="mock.header.searchTerms"
         showSearch
         sticky
-        @open="menuOpenFunc"
         @search="searchFunc"
       />
     </template>
 
     <rpl-page-layout
       :sidebar="sidebar"
-      class="main rpl-container"
+      class="main"
     >
       <template slot="aboveContent">
         <rpl-search-form
@@ -40,8 +39,9 @@
             :count="noResults ? 0 : mock.searchResults.count"
             :errorMsg="hasError ? mock.searchResults.errorMsg : undefined"
             :noResultsMsg="mock.searchResults.noResultsMsg"
+            :childColsBp="sidebar ? mock.siteLayout.cardColsWithSidebar : mock.siteLayout.cardCols"
             @pager-change="pagerChange"
-            :type="mock.eventSearchResults.type"
+            :type="mock.cardSearchResults.type"
           />
       </div>
 
@@ -108,11 +108,6 @@ export default {
     searchFunc: function (value) {
       // Use your own custom code to handle it.
       alert('Search for: "' + value + '"')
-    },
-
-    // Methods for site header.
-    menuOpenFunc: function (menuOpenState) {
-      document.body.style.overflow = menuOpenState ? 'hidden' : ''
     },
 
     // Methods for search results

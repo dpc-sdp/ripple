@@ -31,7 +31,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   // TODO: extract these border, background setting out from each component and better put
   // them into a landing page component global setting. So all landing page components style
@@ -72,6 +73,8 @@ export default {
       border-radius: $rpl-call-to-action-border-radius;
       border: $rpl-call-to-action-border;
     }
+
+    @include rpl_print_hidden;
 
     &__image {
       width: 100%;

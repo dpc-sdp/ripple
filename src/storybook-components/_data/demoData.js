@@ -23,7 +23,7 @@ const demoData = {
     logo: object('Logo', {
       alt: 'vic.gov.au',
       url: '#',
-      image: '/logo.svg'
+      image: '/cobrand-logo.png'
     }),
     breakpoint: number('Menu Breakpoint', 992),
     links: object('Menu Links', [
@@ -31,6 +31,20 @@ const demoData = {
         text: 'Your services',
         url: '#',
         children: [
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
+          { text: 'Sub child A', url: '#' },
           { text: 'Sub child A', url: '#' },
           {
             text: 'Sub child B',
@@ -126,7 +140,8 @@ const demoData = {
     ]),
     sticky: boolean('Sticky', false),
     hideOnScroll: boolean('Hide On Scroll', false),
-    showSearch: boolean('Show search', false)
+    showSearch: boolean('Show search', false),
+    showLogout: boolean('Show logout', false)
   }),
 
   campaign: () => ({
@@ -139,7 +154,7 @@ const demoData = {
 
   heroBanner: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
-    introText: text('Intro Text', 'This is supplimentary intro text that can also wrap over a couple of lines.'),
+    introText: text('Intro Text', 'This is supplementary intro text that can also wrap over a couple of lines.'),
     linkHeading: text('Link Heading', 'Want to know more about...'),
     links: object('Links', [
       { text: 'First journey based link', url: '#' },
@@ -156,7 +171,7 @@ const demoData = {
 
   heroBannerCta: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
-    introText: text('Intro Text', 'This is supplimentary intro text that can also wrap over a couple of lines.'),
+    introText: text('Intro Text', 'This is supplementary intro text that can also wrap over a couple of lines.'),
     theme: selectV2('Theme', {dark: 'dark', light: 'light'}, 'light'),
     linkPrimary: object('linkPrimary', { text: 'Call to action', url: '#' }),
     linkSecondary: object('linkSecondary', { text: 'Subscribe for tips to prepare', url: '#' }),
@@ -189,6 +204,7 @@ const demoData = {
     image: text('Image', 'https://placehold.it/580x340'),
     border: boolean('Border', true),
     type: selectV2('Type', {default: 'default', simple: 'simple', inline: 'inline'}, 'default'),
+    center: boolean('Center', false),
     content: text('HTML content', '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>')
   }),
 
@@ -200,7 +216,7 @@ const demoData = {
 
   cardNavigationFeatured: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
-    summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+    summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what\'s happening.'),
     url: text('Url', '#'),
     image: text('Image', 'https://placehold.it/818x497'),
     date: text('Date', '2018-03-23T09:00:00.000+10:00'),
@@ -221,7 +237,7 @@ const demoData = {
     date: text('Date', '2018-07-10T09:00:00.000+10:00'),
     topic: text('Topic', 'News'),
     title: text('Title', 'This is display copy that wraps 2 lines'),
-    summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
+    summary: text('Summary', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.'),
     link: object('Link', { text: 'Read more', url: '#' })
   }),
 
@@ -299,6 +315,16 @@ const demoData = {
     ])
   }),
 
+  cardHonourRoll: () => ({
+    name: text('Name', 'Stella Young'),
+    inductionYear: text('Induction Year', '2017'),
+    category: text('Category', 'Local Champion'),
+    lifespan: text('Lifespan', '1982 - 2014'),
+    summary: text('Summary', 'Journalist, comedian, feminist and fierce disability activist.'),
+    link: object('Link', { text: 'Read Stella\'s profile', url: '#' }),
+    image: text('Image', 'https://placehold.it/148x148')
+  }),
+
   cardCarousel: () => ({
     title: text('Title', 'Featured Content'),
     cards: object('Cards', [
@@ -331,7 +357,7 @@ const demoData = {
           date: '2018-07-10T09:00:00.000+10:00',
           topic: 'News',
           title: 'This is display copy that wraps 2 lines',
-          summary: 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.',
+          summary: 'We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what\'s happening.',
           link: { text: 'Read more', url: '#' }
         }
       },
@@ -377,7 +403,7 @@ const demoData = {
           date: '2018-07-10T09:00:00.000+10:00',
           topic: 'News',
           title: 'This is display copy that wraps 2 lines',
-          summary: 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.',
+          summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
           link: { text: 'Read more', url: '#' }
         }
       },
@@ -403,7 +429,9 @@ const demoData = {
           link: { text: 'See the events calendar', url: '#' }
         }
       }
-    ])
+    ]),
+    childColsBp: object('Column breakpoints', { l: 4, m: 6 }),
+    totalGridColumns: number('Total grid columns', 12)
   }),
 
   relatedLinks: () => ({
@@ -440,11 +468,20 @@ const demoData = {
     ])
   }),
 
-  campaignSecondary: () => ({
+  campaignSecondaryImage: () => ({
     title: text('Title', 'Secondary campaign headline'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'),
     link: object('Call to action', { text: 'Call to action', url: '#' }),
-    image: text('Image', 'http://placehold.it/699x411')
+    image: text('Image', 'http://placehold.it/699x411'),
+    video: object('Video', null)
+  }),
+
+  campaignSecondaryVideo: () => ({
+    title: text('Title', 'Secondary campaign headline'),
+    summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'),
+    link: object('Call to action', { text: 'Call to action', url: '#' }),
+    image: text('Image', ''),
+    video: object('Video', {src: 'https://www.youtube.com/embed/bSlnfyGTiss', mediaLink: { text: 'View transcript', url: '#' }})
   }),
 
   contact: () => ({
@@ -454,8 +491,8 @@ const demoData = {
     postal: text('Postal', 'PO Box 123, Suburb VIC 3421'),
     address: text('Address', '13 Street Name, Suburb VIC 3056'),
     phone: object('Phone', [
-      '03 9876 6754',
-      '03 9876 1234'
+      {number: '03 9876 6754'},
+      {number: '0400 000 000', title: 'Mob'}
     ]),
     email: text('Email', 'emailaddress@vic.gov.au'),
     social: object('Social', [
@@ -814,7 +851,7 @@ const demoData = {
     lang: text('langcode', 'en'),
     transcript: text('field_media_transcript', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'),
     variant: selectV2('Variant', {full: 'full', link: 'link'}, 'full'),
-    mediaLink: text('field_media_link', 'View transcript')
+    mediaLink: object('field_media_link', {text: 'View transcript', url: '#'})
   }),
 
   callToAction: () => ({
@@ -846,10 +883,18 @@ const demoData = {
         children: [
           { text: 'Sub child A', url: '#' },
           {
-            text: 'Sub child B',
+            text: 'Sub child B - With level 3',
             url: '#',
             children: [
-              { text: 'Sub child I', url: '#' },
+              {
+                text: 'Sub child I',
+                url: '#',
+                children: [
+                  { text: 'Level 3 child I', url: '#' },
+                  { text: 'Level 3 child II', url: '#' },
+                  { text: 'Level 3 child III', url: '#' }
+                ]
+              },
               { text: 'Sub child II', url: '#' },
               { text: 'Sub child III', url: '#' }
             ]
@@ -932,12 +977,19 @@ const demoData = {
 
   searchForm: () => ({
     title: text('Title', 'Search results'),
+    subtitle: text('Subtitle', ''),
     searchPlaceholder: text('Search Placeholder', 'Enter keywords'),
     prefillSearchTerm: text('Prefilled Search Term', 'Bananas'),
+    searchInputLabel: text('Search Input Label', 'Search for'),
+    buttonLabel: text('Button Label', 'Search'),
+    buttonHiddenLabel: boolean('Button Hidden Label', true),
+    autoFocus: boolean('Auto Focus', false),
+    textSearch: boolean('Text Search', true),
+    expandFilters: boolean('Expand Filters', false),
     filterForm: object('Filter Form', {
       tideId: 'tide_search_form',
       model: {
-        topic: ''
+        topic: []
       },
       schema: {
         fields: [{
@@ -963,7 +1015,9 @@ const demoData = {
       },
       formState: {}
     }),
+    filterText: text('Filter Text', 'Refine search'),
     theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light'),
+    type: selectV2('Type', {'two-cols': 'two-cols', default: 'default'}, 'default'),
     allowBlank: boolean('Allow Blank', false)
   }),
 
@@ -975,39 +1029,141 @@ const demoData = {
       tideId: 'tide_search_form',
       model: {
         text: '',
-        topic: ''
+        topic: []
+      },
+      schema: {
+        groups: [
+          {
+            fields: [
+              {
+                type: 'rplchecklist',
+                label: 'Select an event category',
+                model: 'topic',
+                styleClasses: ['form-group--col-two'],
+                values: [
+                  'Topic A',
+                  'Topic B',
+                  'Topic C',
+                  'Topic D'
+                ],
+                placeholder: 'Select a topic'
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Enter a location',
+                required: true,
+                styleClasses: ['form-group--col-two'],
+                placeholder: 'Start typing suburb or postcode…',
+                model: 'text'
+              }
+            ]
+          },
+          {
+            fields: [
+              {
+                type: 'vueMultiSelect',
+                model: 'select',
+                label: 'Event requirements',
+                styleClasses: ['form-group--col-two'],
+                values: [
+                  'Accessible venue',
+                  'Child friendly',
+                  'Free admission',
+                  'Online webinar',
+                  'Seniors'
+                ]
+              }
+            ]
+          },
+          {
+            fields: [
+              {
+                type: 'rplsubmitloader',
+                buttonText: 'Submit (with animation)',
+                loading: false,
+                autoUpdate: true,
+                styleClasses: ['form-group--inline']
+              },
+              {
+                type: 'rplclearform',
+                buttonText: 'Clear search filters',
+                styleClasses: ['form-group--inline']
+              }
+            ]
+          }
+        ]
+      },
+      formOptions: {
+        validateAfterLoad: true,
+        validateAfterChanged: true
+      },
+      tag: 'rpl-fieldset',
+      formState: {}
+    }),
+    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
+  }),
+
+  grantSearchForm: () => ({
+    title: text('Title', 'Grants and programs'),
+    searchPlaceholder: text('Search Placeholder', 'Search grants and programs'),
+    filterForm: object('Filter Form', {
+      tideId: 'tide_search_form',
+      model: {
+        text: '',
+        topic: '',
+        fundingrange: [10000, 70000]
       },
       schema: {
         fields: [{
           type: 'rplchecklist',
-          label: 'Select an event category',
+          label: 'View those relevant to',
           model: 'topic',
           values: [
-            'Topic A',
+            'Individuals and organisation types',
             'Topic B',
             'Topic C',
             'Topic D'
           ],
           placeholder: 'Select a topic'
-        }, {
-          type: 'input',
-          inputType: 'text',
-          label: 'Enter a location',
+        },
+        {
+          type: 'rplchecklist',
+          label: 'Grant or program topic',
           required: true,
-          placeholder: 'Start typing suburb or postcode…',
-          model: 'text'
-        }, {
-          type: 'vueMultiSelect',
-          model: 'select',
-          label: 'Event requirements',
+          placeholder: 'Select a topic',
+          model: 'topic',
           values: [
-            'Accessible venue',
-            'Child friendly',
-            'Free admission',
-            'Online webinar',
-            'Seniors'
+            'topic',
+            'Topic B',
+            'Topic C',
+            'Topic D'
           ]
-        }, {
+        },
+        {
+          type: 'rplchecklist',
+          label: 'Sort list by',
+          required: true,
+          model: 'sort',
+          placeholder: 'Select a value',
+          values: [
+            'Latest added',
+            'Topic B',
+            'Topic C',
+            'Topic D'
+          ]
+        },
+        {
+          type: 'rplslider',
+          label: 'Set a funding range',
+          model: 'fundingrange',
+          step: 5000,
+          min: 0,
+          max: 80000,
+          prefix: '$',
+          default: true
+        },
+        {
           type: 'rplsubmitloader',
           buttonText: 'Display 18 results',
           loading: false
@@ -1076,51 +1232,181 @@ const demoData = {
   newsSearchResultItems: () => (
     [
       {
-        image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
-        topic: text('Topic', 'News'),
-        title: text('Title', 'This is display copy that wraps 2 lines'),
-        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
-        link: object('Link', { text: 'Read more', url: '#' })
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
       },
       {
-        image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
-        topic: text('Topic', 'News'),
-        title: text('Title', 'This is display copy that wraps 2 lines'),
-        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
-        link: object('Link', { text: 'Read more', url: '#' })
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
       },
       {
-        image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
-        topic: text('Topic', 'News'),
-        title: text('Title', 'This is display copy that wraps 2 lines'),
-        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
-        link: object('Link', { text: 'Read more', url: '#' })
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
       },
       {
-        image: text('Image', 'https://placehold.it/580x340'),
-        date: text('Date', '2018-07-10T09:00:00.000+10:00'),
-        topic: text('Topic', 'News'),
-        title: text('Title', 'This is display copy that wraps 2 lines'),
-        summary: text('Summary', 'We are looking at ways to make housing more affordable and renting more securey. Tell us what works for you or find out whats happening.'),
-        link: object('Link', { text: 'Read more', url: '#' })
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
+      }
+    ]
+  ),
+
+  honourRollSearchResultItems: () => (
+    [
+      {
+        name: 'Stella Young',
+        inductionYear: '2017',
+        category: 'Local Champion',
+        lifespan: '1982 - 2014',
+        summary: 'Journalist, comedian, feminist and fierce disability activist.',
+        link: { text: 'Read Stella\'s profile', url: '#' },
+        image: 'https://placehold.it/148x148'
+      },
+      {
+        name: 'Stella Young',
+        inductionYear: '2017',
+        category: 'Local Champion',
+        lifespan: '1982 - 2014',
+        summary: 'Journalist, comedian, feminist and fierce disability activist.',
+        link: { text: 'Read Stella\'s profile', url: '#' },
+        image: 'https://placehold.it/148x148'
+      },
+      {
+        name: 'Stella Young',
+        inductionYear: '2017',
+        category: 'Local Champion',
+        lifespan: '1982 - 2014',
+        summary: 'Journalist, comedian, feminist and fierce disability activist.',
+        link: { text: 'Read Stella\'s profile', url: '#' },
+        image: 'https://placehold.it/148x148'
+      },
+      {
+        name: 'Stella Young',
+        inductionYear: '2017',
+        category: 'Local Champion',
+        lifespan: '1982 - 2014',
+        summary: 'Journalist, comedian, feminist and fierce disability activist.',
+        link: { text: 'Read Stella\'s profile', url: '#' },
+        image: 'https://placehold.it/148x148'
+      }
+    ]
+  ),
+
+  grantSearchResultItems: () => (
+    [
+      {
+        title: text('Title', 'Program Overview'),
+        funding: object('Funding', {
+          from: 10000,
+          to: 30000
+        }),
+        link: object('Link', { text: 'Read more', url: '#' }),
+        audience: text('Audience', 'individuals, organisations, local council'),
+        startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
+        enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
+        description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
+        tags: object('Tags', [{
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }, {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }])
+      },
+      {
+        title: text('Title', 'Program Overview'),
+        funding: object('Funding', {
+          from: 10000,
+          to: 30000
+        }),
+        link: object('Link', { text: 'Read more', url: '#' }),
+        audience: text('Audience', 'individuals, organisations, local council'),
+        startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
+        enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
+        description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
+        tags: object('Tags', [{
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }, {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }])
+      },
+      {
+        title: text('Title', 'Program Overview'),
+        funding: object('Funding', {
+          from: 10000,
+          to: 30000
+        }),
+        link: object('Link', { text: 'Read more', url: '#' }),
+        audience: text('Audience', 'individuals, organisations, local council'),
+        startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
+        enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
+        description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
+        tags: object('Tags', [{
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }, {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }])
+      },
+      {
+        title: text('Title', 'Program Overview'),
+        funding: object('Funding', {
+          from: 10000,
+          to: 30000
+        }),
+        link: object('Link', { text: 'Read more', url: '#' }),
+        audience: text('Audience', 'individuals, organisations, local council'),
+        startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
+        enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
+        description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
+        tags: object('Tags', [{
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }, {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        }])
       }
     ]
   ),
 
   searchResults: () => ({
-    count: number('Count', 10),
+    count: number('Count', 70),
     type: 'default',
-    responseSize: number('Response size', 2),
+    responseSize: number('Response size', 10),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
   }),
 
-  eventSearchResults: () => ({
+  cardSearchResults: () => ({
     count: number('Count', 10),
-    type: selectV2('Type', {RplCardEvent: 'RplCardEvent', RplCardPromotion: 'RplCardPromotion'}, 'RplCardEvent'),
+    type: selectV2('Type', {RplCardEvent: 'RplCardEvent', RplCardPromotion: 'RplCardPromotion', RplCardHonourRoll: 'RplCardHonourRoll'}, 'RplCardEvent'),
+    responseSize: number('Response size', 4),
+    errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
+    noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
+  }),
+
+  grantSearchResults: () => ({
+    count: number('Count', 10),
+    type: 'RplGrantListItem',
     responseSize: number('Response size', 4),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
@@ -1139,18 +1425,46 @@ const demoData = {
   }),
 
   form: () => ({
+    submitHandler () {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.formData.formState = {
+            response: {
+              status: 'success',
+              message: `<code>${JSON.stringify(this.formData.model)}</code>`
+            }
+          }
+          resolve()
+        }, 500)
+      })
+    },
+    title: 'Example Form',
+    isNewModel: true,
+    options: {
+      validateAfterChanged: true,
+      validateAfterLoad: false
+    },
     formData: {
-
       model: {
         hidden: '',
-        text: '',
+        text: null,
         email: '',
         tel: '',
         number: '',
         radio: null,
-        textArea: '',
+        textArea: null,
         dateRange: ['', ''],
-        date: ''
+        date: '',
+        address: {
+          state: 'vic'
+        },
+        checkbox: true,
+        select: '',
+        multiselect: null,
+        singleselect: null,
+        checklistlistbox: ['topic_a'],
+        checklistdropdown: ['topic_a', 'topic_b', 'invalid'],
+        rangeslider: [10000, 70000]
       },
 
       schema: {
@@ -1167,6 +1481,12 @@ const demoData = {
             label: 'Text',
             hint: 'This is a hint text',
             required: true,
+            validator (value) {
+              if (value === '') {
+                return ['This field is required']
+              }
+              return []
+            },
             placeholder: 'Enter some text...',
             model: 'text'
           },
@@ -1198,17 +1518,6 @@ const demoData = {
           },
 
           {
-            type: 'vueMultiSelect',
-            model: 'select',
-            label: 'Select',
-            hint: 'This is a hint text',
-            values: [
-              'option A',
-              'option B'
-            ]
-          },
-
-          {
             type: 'radios',
             label: 'Radio',
             model: 'radio',
@@ -1227,7 +1536,12 @@ const demoData = {
             hint: 'This is a hint text',
             rows: 4,
             required: true,
-
+            validator (value) {
+              if (value === '') {
+                return ['This field is required']
+              }
+              return []
+            },
             visible (model) {
               return model && model.was_this_page_helpful !== null
             }
@@ -1251,14 +1565,194 @@ const demoData = {
           },
 
           {
-            type: 'submit',
-            buttonText: 'Submit'
+            type: 'rplslider',
+            label: 'Set a funding range',
+            hint: '$0 - $80,000',
+            model: 'rangeslider',
+            step: 5000,
+            min: 0,
+            max: 80000,
+            prefix: '$',
+            default: true
+          },
+
+          {
+            type: 'rpldivider'
+          },
+
+          {
+            type: 'rplmarkup',
+            markup: '<h3>Markup field</h3> <article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>'
+          },
+
+          {
+            type: 'rplcheckbox',
+            inlineLabel: 'Check box selected',
+            model: 'checkbox',
+            default: true
+          },
+
+          {
+            type: 'rplchecklist',
+            label: 'Multi-select list box',
+            model: 'checklistlistbox',
+            listBox: true,
+            hint: 'Implemented using rplchecklist with listBox: true',
+            placeholder: 'Select multiple topics',
+            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
+          },
+
+          {
+            type: 'rplchecklist',
+            single: true,
+            label: 'Single-select drop down',
+            model: 'singleselect',
+            hint: 'Implemented using rplchecklist',
+            placeholder: 'Select a single topic',
+            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
+          },
+
+          {
+            type: 'rplchecklist',
+            label: 'Multi-select drop down',
+            validator (value) {
+              if (Array.isArray(value) && value.length > 0) {
+                return []
+              }
+              return ['Add a selection']
+            },
+            min: 1,
+            required: true,
+            model: 'checklistdropdown',
+            hint: 'Implemented using rplchecklist',
+            placeholder: 'Select multiple topics',
+            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
+          },
+
+          {
+            type: 'rplselect',
+            model: 'select',
+            required: true,
+            validator: ['required'],
+            label: 'Single-select drop down',
+            hint: 'Implemented using vue-multiselect',
+            placeholder: 'Select a single topic',
+            selectOptions: {
+              trackBy: 'id',
+              label: 'name',
+              closeOnSelect: true,
+              searchable: false,
+              showLabels: false
+            },
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+          },
+          {
+            type: 'rplselect',
+            model: 'multiselect',
+            required: true,
+            validator (value, field) {
+              if (value && value.length >= field.min) {
+                return []
+              }
+              return ['Add a selection']
+            },
+            min: 1,
+            label: 'Multi-select drop down',
+            hint: 'Implemented using vue-multiselect',
+            placeholder: 'Select several topics',
+            selectOptions: {
+              trackBy: 'id',
+              label: 'name',
+              multiple: true,
+              closeOnSelect: true,
+              searchable: false,
+              showLabels: false
+            },
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+          }
+        ],
+        groups: [
+          {
+            legend: 'Event location (grouped fields)',
+            styleClasses: ['rpl-fieldset--pad'],
+            fields: [
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Building name',
+                required: true,
+                validator: ['required'],
+                placeholder: 'Enter some text...',
+                model: 'address.address_line1',
+                styleClasses: ['form-group--col-two']
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                required: true,
+                validator: ['required'],
+                label: 'Street address',
+                placeholder: 'Enter some text...',
+                model: 'address.address_line2',
+                styleClasses: ['form-group--col-two']
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Suburb',
+                required: true,
+                validator: ['required'],
+                placeholder: 'Enter some text...',
+                model: 'address.locality',
+                styleClasses: ['form-group--col-two']
+              },
+              {
+                type: 'rplselect',
+                label: 'State',
+                model: 'address.state',
+                required: true,
+                validator: ['required'],
+                selectOptions: {
+                  trackBy: 'id',
+                  label: 'name',
+                  closeOnSelect: true,
+                  searchable: false,
+                  showLabels: false
+                },
+                values: [{id: 'vic', name: 'Vic'}, {id: 'nsw', name: 'New South Wales'}, {id: 'wa', name: 'Western Australia'}, {id: 'ql', name: 'Queensland'}],
+                styleClasses: ['form-group--col-two']
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Postcode',
+                placeholder: 'Enter some text...',
+                model: 'address.postcode',
+                styleClasses: ['form-group--col-two']
+              }
+            ]
+          },
+          {
+            fields: [
+              {
+                type: 'rplsubmitloader',
+                buttonText: 'Submit (with animation)',
+                loading: false,
+                autoUpdate: true,
+                styleClasses: ['form-group--inline']
+              },
+              {
+                type: 'rplclearform',
+                buttonText: 'Clear search filters',
+                styleClasses: ['form-group--inline']
+              }
+            ]
           }
         ]
       },
-
+      tag: 'rpl-fieldset',
       formOptions: {
-        validateAfterLoad: true,
+        validateAfterLoad: false,
         validateAfterChanged: true
       },
 
@@ -1297,12 +1791,21 @@ const demoData = {
     size: text('Size', 'm')
   }),
 
+  textIcon: () => ({
+    text: text('Text', 'Text Link'),
+    placement: selectV2('Placement', {before: 'before', after: 'after'}, 'after'),
+    icon: text('Symbol', 'search'),
+    color: text('Color', 'primary'),
+    size: text('Size', 'm')
+  }),
+
   iconLibrary: () => ({
     color: text('Color', 'primary'),
     size: text('Size', 'm'),
     icons: [
       'accessible',
       'addition',
+      'ai',
       'alert_fire',
       'alert_flood',
       'alert_high_temperature',
@@ -1321,6 +1824,7 @@ const demoData = {
       'arrow_up_primary',
       'attach',
       'blank_solid',
+      'browser',
       'calendar',
       'child_friendly',
       'close',
@@ -1338,6 +1842,7 @@ const demoData = {
       'download',
       'email_solid',
       'email_transparent',
+      'eps',
       'external_link',
       'facebook',
       'free',
@@ -1345,6 +1850,8 @@ const demoData = {
       'hamburger',
       'help',
       'home',
+      'ics',
+      'indd',
       'instagram',
       'left',
       'link',
@@ -1370,6 +1877,7 @@ const demoData = {
       'stop',
       'success',
       'tick',
+      'tif',
       'trash',
       'twitter',
       'txt',
@@ -1418,6 +1926,7 @@ const demoData = {
 
   list: () => ({
     title: text('Title', 'My List'),
+    link: text('Link', ''),
     size: selectV2('Size', {normal: 'normal', large: 'large'}, 'normal'),
     iconScale: number('Icon Scale', 1),
     iconColor: text('Icon Color', 'primary'),
@@ -1558,7 +2067,7 @@ const demoData = {
   }),
 
   imageGallery: () => ({
-    gallery: object('Gallery Data', [{
+    galleryData: object('Gallery Data', [{
       image: 'https://placehold.it/1024x768/900/fff',
       alt: 'A test image',
       title: 'Image title here',
@@ -1607,12 +2116,16 @@ const demoData = {
 
   grantsOverview: () => ({
     title: text('Title', 'Program Overview'),
-    funding: text('Funding', '$80,000'),
+    funding: object('Funding', {
+      from: 10000,
+      to: 30000
+    }),
     audience: text('Audience', 'individuals, organisations, local council'),
     startdate: text('Start Date', '2018-10-10T09:00:00.000+10:00'),
     enddate: text('End Date', '2018-12-10T09:00:00.000+10:00'),
-    description: text('Description', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.'),
-    link: object('Call to action', { text: 'Apply Now', url: '#' })
+    description: text('Description', '<p>This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit. <article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>'),
+    link: object('Call to action', { text: 'Apply Now', url: '#' }),
+    listing: boolean('Listing', false)
   }),
 
   alertBase: () => ({
@@ -1631,7 +2144,7 @@ const demoData = {
       'Fire': 'Fire',
       'Flood': 'Flood',
       'Medical': 'Medical',
-      'Lightening': 'Lightening',
+      'Lightning': 'Lightning',
       'Pollution': 'Pollution',
       'Heat wave': 'Heat wave',
       'Traffic': 'Traffic'
@@ -1679,6 +2192,90 @@ const demoData = {
     url: text('Download url', 'https://www.google.com'),
     extension: text('Extension', 'pdf'),
     filesize: text('Filesize', '1.4 mb')
+  }),
+
+  markup: () => ({
+    html: text('Html', `
+    <h2>Embedded document</h2>
+    <article
+      class="embedded-entity embedded-entity--media embedded-entity--media--document"
+    >
+      <article class="media media--type-document media--view-mode-embedded">
+        <div
+          class="field field--name-field-media-file field--type-file field--label-hidden field__item"
+        >
+          <span
+            class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"
+            ><a
+              href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+              aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB."
+              class="x-office-document tide-external-link"
+              target="_blank"
+              ><span class="file--title">
+                Detailed Guide on the mandatory IR management criteria </span
+              ><span class="file--type">Word</span
+              ><span class="file--size">75.22 KB</span></a
+            ></span
+          >
+        </div>
+      </article>
+    </article>
+    <h2>Link</h2>
+    <p>
+      A paragraph of <strong>text</strong> with a
+      <a href="https://vic.gov.au">link</a>.
+    </p>
+    <h2>Button</h2>
+    <a href="http://www.google.com" class="button">go to google</a>
+    <h2>Quotation</h2>
+    <blockquote class="quotation">
+      <p>
+        Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis
+        dolorpo rrorem reptaep elenis net.
+      </p>
+      <footer>
+        <cite
+          ><span class="quotation__author"
+            >Her Excellency the Honourable Linda Dessau AC</span
+          ><br />
+          <span class="quotation__author-title">Governor of Victoria</span></cite
+        >
+      </footer>
+    </blockquote>
+    <h2>Image</h2>
+    <figure
+      role="group"
+      class="caption caption-article embedded-entity embedded-entity--media embedded-entity--media--image"
+    >
+      <article>
+        <article class="media media--type-image media--view-mode-embedded">
+          <div
+            class="field field--name-field-media-image field--type-image field--label-hidden field__item"
+          >
+            <img
+              alt=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
+              height="150"
+              src="https://www.develop.content.vic.gov.au/sites/default/files/2019-03/womens-honour-roll-2019-Judy-Tegart-Dalton.png"
+              title=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
+              width="150"
+            />
+          </div>
+        </article>
+      </article>
+      <figcaption>caption</figcaption>
+    </figure>
+    `)
+  }),
+
+  profileHightlight: () => ({
+    image: text('Image', 'http://placehold.it/156x156'),
+    content: text('Content', '<p>HTML Content</p>')
+  }),
+
+  profileHighlightHonourRoll: () => ({
+    image: text('Image', 'http://placehold.it/156x156'),
+    inductedYear: text('Inducted Year', '2018'),
+    category: text('Category', 'Local Champion')
   })
 }
 

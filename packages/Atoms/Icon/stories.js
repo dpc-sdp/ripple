@@ -7,7 +7,7 @@ import {
 } from '@storybook/addon-knobs/vue'
 
 import SIcons from '../../../src/storybook-components/Icons.vue'
-import RplIcon from './Icon.vue'
+import { RplIcon, RplTextIcon } from './index'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
 
@@ -32,5 +32,12 @@ storiesOf('Atoms/Icon', module)
     },
     data () {
       return demoData.icon()
+    }
+  })))
+  .add('Text Icon', withReadme(readme, () => ({
+    components: { RplTextIcon },
+    template: '<rpl-text-icon :symbol="icon" :color="color" :size="size" :text="text" :placement="placement"/>',
+    data () {
+      return demoData.textIcon()
     }
   })))

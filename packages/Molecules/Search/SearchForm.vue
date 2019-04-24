@@ -1,24 +1,25 @@
 <template>
   <div class="rpl-search-form" :class="{ 'rpl-search-form--dark': (theme === 'dark'), 'rpl-search-form--two-cols': (type === 'two-cols')  }">
     <h1 v-if="title">{{ title }}</h1>
-    <div class="rpl-search-form__field">
+    <h3 v-if="subtitle">{{ subtitle }}</h3>
+    <div class="rpl-search-form__field" v-if="textSearch">
       <label>
-        <span class="rpl-search-form__label-text">Search for</span>
-        <input v-model="searchInput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keydown.enter="submitSearch()" />
+        <span class="rpl-search-form__label-text">{{ searchInputLabel }}</span>
+        <input v-model="searchInput" ref="searchinput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keydown.enter="submitSearch()" />
       </label>
       <button @click="submitSearch()" class="rpl-search-form__btn">
-        <span>Search</span>
+        <span :class="{'rpl-visually-hidden' : buttonHiddenLabel}">{{ buttonLabel }}</span>
         <rpl-icon symbol="search" :color="(theme === 'dark') ? 'white' : 'primary'" size="l"></rpl-icon>
       </button>
     </div>
     <button
-      v-if="filterForm"
+      v-if="filterForm && !expandFilters"
       :aria-expanded="showFilters"
       class="rpl-search-form__show-filters"
       :class="{ 'rpl-search-form__show-filters--expanded': showFilters }"
       @click="showFilters = !showFilters"
     >
-      <span>Refine search</span>
+      <span>{{ filterText }}</span>
       <span v-if="filterCount > 0">( {{ filterCount }} )</span>
     </button>
     <div v-if="showFilters" class="rpl-search-form__filters">
@@ -29,15 +30,24 @@
 
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
-import RplForm from '@dpc-sdp/ripple-form'
+import RplForm, { RplFormEventBus } from '@dpc-sdp/ripple-form'
+let timeoutID
 
 export default {
   name: 'RplSearchForm',
   props: {
     title: String,
+    subtitle: String,
     searchPlaceholder: String,
     prefillSearchTerm: String,
+    searchInputLabel: { type: String, default: 'Search for' },
+    buttonLabel: { type: String, default: 'Search' },
+    buttonHiddenLabel: { type: Boolean, default: true },
+    autoFocus: { type: Boolean, default: false },
+    textSearch: { type: Boolean, default: true },
+    expandFilters: { type: Boolean, default: false },
     filterForm: Object,
+    filterText: { type: String, default: 'Refine search' },
     theme: String,
     type: { type: String, default: 'default' },
     allowBlank: { type: Boolean, default: false }
@@ -52,11 +62,36 @@ export default {
       showFilters: false
     }
   },
+  mounted () {
+    if (this.autoFocus) {
+      this.$nextTick(function () {
+        timeoutID = setTimeout(() => {
+          // this is needed to prevent a re render issue with the parent component
+          this.focusSearchInput()
+        }, 100)
+      })
+    }
+    if (this.expandFilters) {
+      this.showFilters = true
+    }
+    RplFormEventBus.$on('clearform', this.clearSearch)
+  },
+  destroyed () {
+    clearTimeout(timeoutID)
+  },
   methods: {
+    focusSearchInput () {
+      if (document && document.activeElement !== this.$refs.searchinput) {
+        this.$refs.searchinput.focus()
+      }
+    },
     submitSearch: function () {
       if (this.allowBlank || (!this.allowBlank && this.searchInput)) {
         this.$emit('search', this.searchInput)
       }
+    },
+    clearSearch () {
+      this.searchInput = ''
     }
   },
   computed: {
@@ -84,7 +119,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-search-form-button-width: rem(28px) !default;
   $rpl-search-form-input-text-color: rpl-color('extra_dark_neutral') !default;
@@ -108,8 +144,14 @@ export default {
     'm': ('xgiga', 1em, 'bold'),
     'xxl': ('tera', 1em, 'bold')
   ) !default;
+  $rpl-search-form-sub-heading-ruleset: (
+    'm': ('mega', 1em, 'medium'),
+  ) !default;
   $rpl-search-form-show-filters-ruleset: ('s', .87em, 'bold') !default;
+  $rpl-search-form-legend-ruleset: (2em, 2.2em, 'bold') !default;
   $rpl-search-form-show-filters-text-color: rpl-color('primary') !default;
+  $rpl-search-form-search-button-text: $rpl-search-form-show-filters-ruleset !default;
+  $rpl-search-form-search-button-text-color: rpl-color('primary') !default;
 
   .rpl-search-form {
     $root: &;
@@ -127,6 +169,8 @@ export default {
       padding-bottom: $rpl-space * 15;
     }
 
+    @include rpl_print_hidden;
+
     h1 {
       @include rpl_typography_ruleset($rpl-search-form-heading-ruleset);
       color: $rpl-search-form-heading-color;
@@ -139,15 +183,33 @@ export default {
       }
     }
 
+    h3 {
+       @include rpl_typography_ruleset($rpl-search-form-sub-heading-ruleset);
+    }
+
     &__btn {
       background-color: transparent;
       border: 0;
       padding: 0;
-      width: $rpl-search-form-button-width;
       cursor: pointer;
+      display: flex;
+      align-items: center;
 
       span {
-        @include rpl_visually_hidden;
+        @include rpl_typography_ruleset($rpl-search-form-search-button-text);
+        color: $rpl-search-form-search-button-text-color;
+        margin-right: $rpl-space-2;
+      }
+
+      svg {
+        width: $rpl-search-form-button-width;
+        height: $rpl-search-form-button-width;
+      }
+    }
+
+    fieldset {
+      legend {
+        @include rpl_typography_ruleset($rpl-search-form-legend-ruleset);
       }
     }
 
@@ -243,53 +305,5 @@ export default {
       padding-top: $rpl-space * 12;
     }
 
-    &--two-cols {
-      .form-group {
-        @include rpl_breakpoint('l') {
-          width: $rpl-search-form--two-cols-col-width-l;
-          float: left;
-          max-width: 50%;
-        }
-        &:nth-child(2n) {
-          @include rpl_breakpoint('l') {
-            padding: $rpl-search-form--two-cols-col-padding-l;
-          }
-        }
-        &.field-rplsubmitloader {
-          @include rpl_breakpoint('l') {
-            width: 100%;
-            padding: 0;
-            max-width: 100%;
-          }
-          .form-control {
-            @include rpl_breakpoint('l') {
-              width: 100%;
-            }
-          }
-        }
-      }
-    }
-
-    .rpl-form {
-      padding: 0;
-
-      fieldset {
-        margin: 0;
-      }
-
-      label {
-        @at-root {
-          #{$root}--dark .rpl-form .form-group > label {
-            color: $rpl-search-form-dark-text-color;
-          }
-        }
-      }
-
-      .form-group {
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
   }
 </style>

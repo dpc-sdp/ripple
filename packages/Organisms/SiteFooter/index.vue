@@ -32,6 +32,7 @@ const vicLogo = {
 }
 
 export default {
+  name: 'RplSiteFooter',
   components: {
     RplAcknowledgement,
     RplLinksAndCopyright,
@@ -54,7 +55,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-footer-breakpoint: 'l' !default;
 $rpl-footer-bg-color: rpl-color('dark_primary') !default;
@@ -73,10 +75,9 @@ $gutterless-grid: (
 
 .rpl-site-footer {
   @include rpl_grid_container;
-  @include rpl_body;
   @include rpl_typography('copy_extra_small');
+  @include rpl_text_color($rpl-footer-text-color);
   background-color: $rpl-footer-bg-color;
-  color: $rpl-footer-text-color;
 
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     background-image: $rpl-footer-bg-image;
@@ -91,6 +92,11 @@ $gutterless-grid: (
 
   @include rpl_breakpoint(xxxl) {
     background-position: calc(100% + #{rem(100px)}) bottom;
+  }
+
+  @include rpl_print {
+    background-image: none;
+    background-color: transparent;
   }
 
   a {
@@ -109,6 +115,8 @@ $gutterless-grid: (
   border-bottom: $rpl-footer-border-width solid $rpl-footer-border-color;
   padding-top: $rpl-space;
 
+  @include rpl_print_hidden;
+
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     padding-top: $rpl-space-4 * 2;
     padding-bottom: $rpl-space-4 * 2;
@@ -125,6 +133,10 @@ $gutterless-grid: (
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     @include rpl_grid_row($gutterless-grid);
     flex-wrap: nowrap;
+  }
+
+  @include rpl_print {
+    background-color: transparent;
   }
 }
 
@@ -183,6 +195,8 @@ $gutterless-grid: (
 .rpl-links-and-copyright__links {
   margin: 0;
 
+  @include rpl_print_hidden;
+
   li {
     display: inline-block;
     border-left: $rpl-footer-border-width solid $rpl-footer-border-color-light;
@@ -205,6 +219,7 @@ $gutterless-grid: (
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     margin-bottom: $rpl-space-2;
   }
+  @include rpl_print_margin('l', 'before');
 }
 
 .rpl-site-footer__logos {
@@ -232,6 +247,8 @@ $gutterless-grid: (
     max-width: none;
     max-height: none;
   }
+
+  @include rpl_print_hidden;
 
   &:first-child {
     margin-left: 0;

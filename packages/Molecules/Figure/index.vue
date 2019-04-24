@@ -16,7 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-figure-caption-ruleset: ('xxs', 1em, 'medium') !default;
   $rpl-figure-caption-text-color: rpl-color('dark_neutral') !default;
@@ -31,11 +32,13 @@ export default {
       border-radius: $rpl-figure-image-border-radius;
       height: auto;
       max-width: 100%;
+
+      @include rpl_print_image;
     }
 
     &__caption {
       @include rpl_typography_ruleset($rpl-figure-caption-ruleset);
-      color: $rpl-figure-caption-text-color;
+      @include rpl_text_color($rpl-figure-caption-text-color);
       margin: $rpl-figure-caption-margin;
     }
   }

@@ -23,7 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-meta-tag-padding: $rpl-space-2 ($rpl-space * 5) !default;
   $rpl-meta-tag-border: 2px solid rpl-color('primary') !default;
@@ -33,7 +34,6 @@ export default {
   $rpl-meta-tag-dark-text-color: rpl-color('white') !default;
 
   .rpl-meta-tag {
-    @include rpl_body;
     $root: &;
     display: inline-block;
 
@@ -51,8 +51,8 @@ export default {
 
     &__text {
       @include rpl_typography_font('xxs', 1.2em, 'medium');
+      @include rpl_text_color($rpl-meta-tag-text-color);
       text-transform: uppercase;
-      color: $rpl-meta-tag-text-color;
 
       #{$root}--dark & {
         color: $rpl-meta-tag-dark-text-color;

@@ -9,7 +9,7 @@
         <div class="rpl-above-content__inner" :style="backgroundImage">
           <div class="rpl-above-content__top">
             <slot name="breadcrumbs"></slot>
-            <rpl-quick-exit v-if="quickexit" menuOffsetSelector=".rpl-above-content__inner" />
+            <rpl-quick-exit v-if="quickexit && !menuopen" menuOffsetSelector=".rpl-above-content__inner" />
           </div>
           <slot name="aboveContent"></slot>
         </div>
@@ -21,7 +21,7 @@
     </section>
 
     <section id="rpl-main-content" class="rpl-content" :class="{'rpl-content--with-sidebar': sidebar, 'rpl-content--grey': bgGrey}">
-      <rpl-container class="rpl-site-constrain--on-all">
+      <div class="rpl-site-constrain--on-all">
         <rpl-row>
           <rpl-col cols="full" :colsBp="mainCols" class="rpl-main">
             <slot></slot>
@@ -30,7 +30,7 @@
             <slot name="sidebar"></slot>
           </rpl-col>
         </rpl-row>
-      </rpl-container>
+      </div>
     </section>
 
     <section class="rpl-below-content">
@@ -43,6 +43,7 @@
 <script>
 import RplQuickExit from './QuickExit'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { RplSiteHeaderEventBus } from '@dpc-sdp/ripple-site-header'
 
 export default {
   components: { RplContainer, RplRow, RplCol, RplQuickExit },
@@ -55,7 +56,8 @@ export default {
   },
   data () {
     return {
-      quickexit: false
+      quickexit: false,
+      menuopen: false
     }
   },
   computed: {
@@ -76,17 +78,23 @@ export default {
       return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
     }
   },
+  mounted () {
+    RplSiteHeaderEventBus.$on('open', this.setMenuOpen)
+  },
   created () {
     this.quickexit = (this.quickExit !== null) ? this.quickExit : this.rplOptions.quickexit
+  },
+  methods: {
+    setMenuOpen (val) {
+      this.menuopen = val
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import "~@dpc-sdp/ripple-global/style";
-
-// TODO: we'd better to make a UI color variable so all UI color can refer to the same color.
-$rpl-backbround-color: rpl-color('white') !default;
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 .rpl-above-content {
   background-repeat: no-repeat;
@@ -124,6 +132,10 @@ $rpl-backbround-color: rpl-color('white') !default;
     background-position: left -13rem;
   }
 
+  @include rpl_print {
+    background-image: none !important;
+  }
+
   &__inner {
     background-repeat: no-repeat;
     background-position: center;
@@ -133,6 +145,10 @@ $rpl-backbround-color: rpl-color('white') !default;
       @include rpl_breakpoint($bp) {
         padding-top: $val;
       }
+    }
+
+    @include rpl_print {
+      padding-top: 0;
     }
   }
 
@@ -158,18 +174,30 @@ $rpl-backbround-color: rpl-color('white') !default;
     }
   }
 
+  @include rpl_print {
+    padding: 0;
+  }
+
   &--grey {
     background: rpl-color('light_neutral')
   }
-}
 
-.rpl-sidebar {
-  background-color: $rpl-backbround-color;
-}
-
-@include rpl_breakpoint(l) {
-  .rpl-sidebar {
-    background-color: transparent;
+  .rpl-row {
+    @include rpl_print {
+      display: block;
+      margin: 0;
+      width: auto;
+    }
   }
 }
+
+.rpl-main,
+.rpl-sidebar {
+  @include rpl_print {
+    width: 100%;
+    margin: 0;
+    left: 0;
+  }
+}
+
 </style>

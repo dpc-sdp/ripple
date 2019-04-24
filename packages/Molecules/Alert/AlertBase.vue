@@ -49,7 +49,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-alert-base-background-color: rpl-color('dark_neutral') !default;
 $rpl-alert-base-padding: ($rpl-space * 5) !default;
@@ -65,6 +66,7 @@ $rpl-alert-base-icom-margin: 0 $rpl-space-4 0 0 !default;
   padding: $rpl-alert-base-padding;
   display: flex;
   align-items: center;
+  @include rpl_print_hidden;
 
   @each $color-name, $color-value in $rpl-colors {
     &--color-#{str-replace($color-name, ' ', '-')} {

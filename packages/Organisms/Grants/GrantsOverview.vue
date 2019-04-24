@@ -1,30 +1,34 @@
 <template>
   <div class="rpl-grants-overview">
-    <rpl-list class="rpl-grants-overview__list" size="large" v-if="title || list" :title="title" :list="list" />
-    <p class="rpl-grants-overview__description" v-if="description">{{ description }}</p>
-    <rpl-button class="rpl-grants-overview__cta" v-if="link" :href="link.url" theme="primary">{{ link.text }}</rpl-button>
+    <rpl-list class="rpl-grants-overview__list" size="large" v-if="title || list" :title="title" :link="!!listing && link && link.url ? link.url : null" :list="list" />
+    <rpl-markup class="rpl-grants-overview__description" v-if="description" :html="description"></rpl-markup>
+    <rpl-button class="rpl-grants-overview__cta" v-if="!listing && link" :href="link.url" theme="primary">{{ link.text }}</rpl-button>
   </div>
 </template>
 
 <script>
 import moment from 'moment'
 import RplButton from '@dpc-sdp/ripple-button'
+import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplList from '@dpc-sdp/ripple-list'
+import { formatMoney } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplGrantsOverview',
   components: {
     RplButton,
+    RplMarkup,
     RplList
   },
   props: {
     title: { type: String, default: '' },
-    funding: { type: String, default: '' },
+    funding: { type: Object },
     audience: { type: String, default: '' },
     startdate: { type: String, default: '' },
     enddate: { type: String, default: '' },
     description: { type: String, default: '' },
     link: { type: Object, default: null },
+    listing: { type: Boolean, default: false },
     statusTerms: {
       type: Object,
       default: function () {
@@ -41,11 +45,30 @@ export default {
     list () {
       let list = []
       if (this.funding) {
-        list.push({
-          symbol: 'dollar_negative',
-          size: '1.666',
-          text: this.funding
-        })
+        const calcFunding = (funding) => {
+          if (funding.from > 0 && funding.to > 0) {
+            if (funding.from === funding.to) {
+              return formatMoney(funding.from)
+            } else {
+              return `${formatMoney(funding.from)} - ${formatMoney(funding.to)}`
+            }
+          } else if (funding.from === 0 && funding.to > 0) {
+            return `$0 - ${formatMoney(funding.to)}`
+          } else if (funding.from > 0 && funding.to === 0) {
+            return formatMoney(funding.from)
+          } else {
+            return null
+          }
+        }
+        const fundingLevel = calcFunding(this.funding)
+
+        if (fundingLevel) {
+          list.push({
+            symbol: 'dollar_negative',
+            size: '1.666',
+            text: fundingLevel
+          })
+        }
       }
       if (this.audience) {
         list.push({
@@ -100,7 +123,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-grants-overview-description-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-grants-overview-description-color: rpl-color('extra_dark_neutral') !default;
@@ -109,12 +133,6 @@ export default {
   $rpl-grants-overview-description-margin: 0 0 ($rpl-space * 8) 0 !default;
 
   .rpl-grants-overview {
-    @include rpl_mobile_padding();
-
-    @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
-    }
 
     &__list {
       margin: $rpl-grants-overview-title-margin;
@@ -124,11 +142,14 @@ export default {
           margin: $rpl-grants-overview-list-margin;
         }
       }
+      a.rpl-list__title {
+        display: block;
+      }
     }
 
     &__description {
       @include rpl_typography_ruleset($rpl-grants-overview-description-ruleset);
-      color: $rpl-grants-overview-description-color;
+      @include rpl_text_color($rpl-grants-overview-description-color);
       margin: $rpl-grants-overview-description-margin;
     }
   }

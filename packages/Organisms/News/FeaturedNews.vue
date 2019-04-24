@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
 
   .rpl-featured-news-list {
     list-style: none;

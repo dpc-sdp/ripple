@@ -23,7 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-card-box-padding: ($rpl-space * 15) 0 ($rpl-space * 9) !default;
 $rpl-card-box-padding-s: ($rpl-space * 9) ($rpl-space * 7) $rpl-space-3 !default;
@@ -47,6 +48,8 @@ $rpl-card-box-item-margin:  0 $rpl-space-3 $rpl-space * 6 !default;
   @include rpl_breakpoint('m') {
     padding: $rpl-card-box-padding;
   }
+
+  @include rpl_print_hidden;
 
   &__items {
     display: flex;

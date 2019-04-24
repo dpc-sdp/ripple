@@ -29,7 +29,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-breadcrumbs-background: rpl-color('white') !default;
   $rpl-breadcrumbs-border: 1px solid rpl-color('mid_neutral_1') !default;
@@ -49,6 +50,8 @@ export default {
     @include rpl_breakpoint('s') {
       display: block;
     }
+
+    @include rpl_print_hidden;
 
     &__items {
       display: inline-block;

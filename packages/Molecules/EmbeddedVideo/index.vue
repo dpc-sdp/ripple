@@ -5,9 +5,9 @@
     </div>
     <div v-if="variant === 'link'" class="rpl-embed-video__link" >
       <rpl-icon symbol="view" color="primary" />
-      <rpl-text-link :url="url" :text="mediaLink" />
+      <rpl-text-link v-bind="mediaLink" />
     </div>
-    <div v-if="variant === 'full'" class="rpl-embed-video__transcript" >{{ transcript }}</div>
+    <div v-if="variant === 'full' || displayTranscript" class="rpl-embed-video__transcript" >{{ transcript }}</div>
   </div>
 </template>
 
@@ -25,7 +25,11 @@ export default {
     variant: String,
     url: String,
     transcript: String,
-    mediaLink: String
+    mediaLink: Object,
+    displayTranscript: {
+      type: Boolean,
+      default: false
+    }
   },
   components: {
     RplTextLink,
@@ -35,12 +39,17 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-embedded-video-padding-bottom: 56.25% !default;
   $rpl-embedded-video-padding-top: $rpl-space-4;
   $rpl-embedded-video-transcript-padding: $rpl-space-4 0 $rpl-space-4;
   $rpl-embedded-video-height: 0;
+
+  .rpl-embedded-video {
+    @include rpl_print_hidden;
+  }
 
   .rpl-embedded-video-iframe-container {
     position: relative;
@@ -51,6 +60,7 @@ export default {
   }
 
   iframe {
+    border: 0;
     position: absolute;
     top: 0;
     left: 0;

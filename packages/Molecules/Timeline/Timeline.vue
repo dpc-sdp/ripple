@@ -59,7 +59,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-timeline-image-dimension: rem(88px) !default;
   $rpl-timeline-image-margin: 0 0 0 ($rpl-space * -1) !default;
@@ -83,15 +84,9 @@ export default {
 
   .rpl-timeline {
     $root: &;
-    @include rpl_mobile_padding();
-
-    @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
-    }
 
     &__title {
-      color: $rpl-timeline-title-text-color;
+      @include rpl_text_color($rpl-timeline-title-text-color);
     }
 
     &__list {
@@ -106,8 +101,17 @@ export default {
       position: relative;
       padding: $rpl-timeline-list-item-padding;
 
+      @include rpl_print {
+        page-break-inside: avoid;
+        padding-left: 0;
+      }
+
       &--multi {
         border-left: $rpl-timeline-sidebar-size solid $rpl-timeline-sidebar-color;
+
+        @include rpl_print {
+          border-left: 0;
+        }
 
         &::before {
           content: '';
@@ -117,6 +121,8 @@ export default {
           position: absolute;
           top: $rpl-timeline-point-top;
           left: 0;
+
+          @include rpl_print_hidden;
         }
 
         &:first-child, &:last-child {
@@ -131,6 +137,8 @@ export default {
             bottom: 0;
             left: 0;
             position: absolute;
+
+            @include rpl_print_hidden;
           }
         }
 
@@ -167,29 +175,33 @@ export default {
       height: $rpl-timeline-image-dimension;
       margin: $rpl-timeline-image-margin;
       border-radius: 100%;
-      object-fit: cover;
-      font-family: 'object-fit: cover;';
+      @include object_fit_image(cover);
+
+      @include rpl_print {
+        margin: 0;
+      }
+      @include rpl_print_image;
     }
 
     &__item-title {
       @include rpl_typography_ruleset($rpl-timeline-item-title-ruleset);
-      color: $rpl-timeline-item-title-text-color;
+      @include rpl_text_color($rpl-timeline-item-title-text-color);
       margin: 0;
 
       .rpl-link {
-        color: $rpl-timeline-item-title-text-color;
+        @include rpl_text_color($rpl-timeline-item-title-text-color);
       }
     }
 
     &__item-subtitle {
       @include rpl_typography_ruleset($rpl-timeline-item-subtitle-ruleset);
-      color: $rpl-timeline-item-subtitle-text-color;
+      @include rpl_text_color($rpl-timeline-item-subtitle-text-color);
       margin: 0 0 $rpl-space 0;
     }
 
     &__item-description {
       @include rpl_typography_ruleset($rpl-timeline-item-description-ruleset);
-      color: $rpl-timeline-item-description-text-color;
+      @include rpl_text_color($rpl-timeline-item-description-text-color);
       margin: 0 0 $rpl-space 0;
     }
   }

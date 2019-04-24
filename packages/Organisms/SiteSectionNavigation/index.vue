@@ -34,7 +34,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-section-menu-background-color: rpl_color('dark_primary');
   $rpl-section-menu-padding: ($rpl-space * 6) 0;
@@ -49,6 +50,8 @@ export default {
     padding: $rpl-section-menu-padding;
     border-radius: $rpl-section-menu-border-radius;
     box-sizing: border-box;
+
+    @include rpl_print_hidden;
 
     &__title {
       @include rpl_typography_ruleset($rpl-section-menu-title-ruleset);

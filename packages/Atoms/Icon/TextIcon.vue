@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     textWordCount: function () {
-      return this.text.length > 0 ? this.text.match(/[\w\d-\\/]+/gi).length : 0
+      return (this.text.match(/[.*]|[^ \r\n]+/gi) || []).length
     },
     textWithoutLastWord: function () {
       return this.text.substr(0, this.text.lastIndexOf(' '))
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
 
   $rpl-text-link-before-margin: auto $rpl-space-2 auto auto !default;
   $rpl-text-link-after-margin: auto auto auto $rpl-space-2 !default;

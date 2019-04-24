@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-site-footer --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Site footer](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/SiteFooter&selectedStory=Site%20footer).

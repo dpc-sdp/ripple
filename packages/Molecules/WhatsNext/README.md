@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-whats-next --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplWhatsNext from '@dpc-sdp/ripple-whats-next'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/What's Next](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/WhatsNext&selectedStory=What%5C's%20Next).

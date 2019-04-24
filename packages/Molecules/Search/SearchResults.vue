@@ -5,25 +5,14 @@
     </div>
     <rpl-row row-gutter class="rpl-search-results__main" :class="{'rpl-search-results__main--events': type === 'RplCardEvent'}">
       <template v-if="searchResults && !errorMsg">
-        <rpl-col cols="full" v-if="type === 'default'">
-          <rpl-search-result
-            class="rpl-search-results__item rpl-component-gutter"
+        <rpl-col cols="full" v-for="(searchResult, index) of searchResults" :key="`${index}-${searchResult.id}`" :colsBp="searchResultContent.colsBp">
+          <component
+            v-if="searchResultContent.component"
+            :is="searchResultContent.component"
+            :class="searchResultContent.class"
             v-bind="searchResult"
-            v-for="(searchResult, index) of searchResults"
-            :key="index"
+            class="rpl-search-results__item rpl-component-gutter"
           />
-        </rpl-col>
-        <rpl-col cols="full" :colsBp="{m:6,l:4, xxxl:3}" class="rpl-search-results__item rpl-search-results__item--event rpl-component-gutter"
-          v-if="type === 'RplCardEvent'"
-          v-for="(searchResult, index) of searchResults"
-          :key="index">
-          <rpl-card-event v-bind="searchResult" />
-        </rpl-col>
-        <rpl-col cols="full" :colsBp="{m:6,l:4, xxxl:3}" class="rpl-search-results__item rpl-search-results__item--promotion rpl-component-gutter"
-          v-if="type === 'RplCardPromotion'"
-          v-for="(searchResult, index) of searchResults"
-          :key="index">
-          <rpl-card-promotion v-bind="searchResult" />
         </rpl-col>
       </template>
       <div v-if="searchResults.length === 0" class="rpl-search-results__no-results-msg">
@@ -33,33 +22,31 @@
         {{ errorMsg }}
       </div>
     </rpl-row>
-
-    <div class="rpl-search-results__pager">
-      <rpl-pagination
-        :totalSteps="pager.totalSteps"
-        :initialStep="pager.initialStep"
-        :stepsAround="pager.stepsAround"
-        @change="$emit('pager-change', $event)"
-      />
-    </div>
+    <rpl-row row-gutter>
+      <rpl-col cols="full" :colsBp="childColsBp">
+        <rpl-pagination
+          :totalSteps="pager.totalSteps"
+          :initialStep="pager.initialStep"
+          :stepsAround="pager.stepsAround"
+          @change="$emit('pager-change', $event)"
+        />
+      </rpl-col>
+    </rpl-row>
   </div>
 </template>
 
 <script>
+import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import RplPagination from '@dpc-sdp/ripple-pagination'
-import RplSearchResult from './SearchResult.vue'
-import { RplCardEvent, RplCardPromotion } from '@dpc-sdp/ripple-card'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplSearchResults',
+  mixins: [provideChildCols],
   components: {
     RplPagination,
     RplRow,
-    RplCol,
-    RplSearchResult,
-    RplCardEvent,
-    RplCardPromotion
+    RplCol
   },
   props: {
     type: { type: String, default: 'default' },
@@ -79,34 +66,73 @@ export default {
         }
       }
     },
+    childColsBp: {
+      type: Object,
+      default: function () {
+        return {m: 6, l: 4, xxxl: 3}
+      }
+    },
     errorMsg: String,
     noResultsMsg: String,
     responseSize: Number,
     count: Number
   },
+  created () {
+    if (this.type) {
+      switch (this.type) {
+        case 'RplCardEvent':
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-event' */ '@dpc-sdp/ripple-card').then(m => m.RplCardEvent),
+            colsBp: this.childColsBp,
+            class: ['rpl-search-results__item--event']
+          }
+          break
+        case 'RplCardPromotion':
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ '@dpc-sdp/ripple-card').then(m => m.RplCardPromotion),
+            colsBp: this.childColsBp,
+            class: ['rpl-search-results__item--promotion']
+          }
+          break
+        case 'RplCardHonourRoll':
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-honour-roll' */ '@dpc-sdp/ripple-card').then(m => m.RplCardHonourRoll),
+            colsBp: this.childColsBp,
+            class: ['rpl-search-results__item--honour-roll']
+          }
+          break
+        case 'RplGrantsListItem':
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ '@dpc-sdp/ripple-grants').then(m => m.RplGrantsListItem),
+            class: ['rpl-search-results__item--grant']
+          }
+          break
+        default:
+          this.searchResultContent = {
+            component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ './SearchResult.vue')
+          }
+      }
+    }
+  },
   data () {
     return {
-      defaultCols: {
-
-      }
+      searchResultContent: null
     }
   }
 }
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   .rpl-search-results {
     &__info,
     &__no-results-msg,
     &__error-msg {
-      @include rpl_mobile_padding();
       margin-bottom: $rpl-space-4;
 
       @include rpl_breakpoint('m') {
-        padding-left: 0;
-        padding-right: 0;
         margin-bottom: $rpl-space-4 * 2;
       }
     }
@@ -114,6 +140,15 @@ export default {
     &__no-results-msg,
     &__error-msg {
       @include rpl_typography('heading_l');
+    }
+
+    .rpl-pagination {
+      // Allow space (72px) for the back-to-top button in BaseLayout.
+      width: calc(100% - #{$rpl-space * 18});
+
+      @include rpl_breakpoint(m) {
+        width: 100%;
+      }
     }
   }
 </style>

@@ -9,14 +9,13 @@
         :searchTerms="mock.header.searchTerms"
         showSearch
         sticky
-        @open="menuOpenFunc"
         @search="searchFunc"
       />
     </template>
 
     <rpl-page-layout
       :sidebar="sidebar"
-      class="main rpl-container"
+      class="main"
       :heroBackgroundImage="mock.campaign.heroBackgroundImage"
     >
       <template slot="breadcrumbs">
@@ -108,11 +107,6 @@ export default {
     // Methods for site header.
     searchFunc: function (value) {
       alert('Search for: "' + value + '"')
-    },
-
-    // Methods for site header.
-    menuOpenFunc: function (menuOpenState) {
-      document.body.style.overflow = menuOpenState ? 'hidden' : ''
     }
   }
 }

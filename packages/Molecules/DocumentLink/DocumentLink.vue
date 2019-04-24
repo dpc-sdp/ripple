@@ -1,6 +1,6 @@
 <template>
   <figure class="rpl-document-link">
-    <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="!isExternalLink" :target="isExternalLink ? '_blank' : false">
+    <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="isExternalLink ? false : ''" :target="isExternalLink ? '_blank' : false">
       <rpl-icon class="rpl-document-link__icon" :symbol="icon" color="primary" size="l" />
       <div class="rpl-document-link__info">
         <span class="rpl-document-link__title">{{name}}</span>
@@ -31,18 +31,23 @@ export default {
   computed: {
     icon () {
       switch (this.extension) {
-        case 'pdf':
+        case 'ai':
+        case 'csv':
         case 'doc':
         case 'docx':
-        case 'xls':
-        case 'xlsx':
-        case 'csv':
-        case 'txt':
-        case 'ppt':
-        case 'pptx':
         case 'dot':
         case 'dotm':
         case 'dotx':
+        case 'eps':
+        case 'ics':
+        case 'indd':
+        case 'pdf':
+        case 'ppt':
+        case 'pptx':
+        case 'tif':
+        case 'txt':
+        case 'xls':
+        case 'xlsx':
         case 'zip':
           return this.extension
         default:
@@ -57,10 +62,12 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-document-link-title-ruleset: ('xs', 1em, 'semibold');
   $rpl-document-link-title-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-document-link-caption-color: rpl_color('extra_dark_neutral') !default;
   $rpl-document-link-meta-type-ruleset: ('xxs', 1em, 'medium');
   $rpl-document-link-meta-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
   $rpl-document-link-meta-margin-top: $rpl-space;
@@ -72,12 +79,6 @@ export default {
   .rpl-document-link {
     margin: $rpl-document-link-margin;
 
-    @include rpl_mobile_padding();
-    @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
     &__link {
       display: flex;
       justify-content: flex-start;
@@ -88,7 +89,7 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-document-link-title-ruleset);
-      color: $rpl-document-link-title-color;
+      @include rpl_text_color($rpl-document-link-title-color);
     }
 
     &__icon {
@@ -101,7 +102,7 @@ export default {
 
     &__meta {
       @include rpl_typography_ruleset($rpl-document-link-meta-type-ruleset);
-      color: $rpl-document-link-meta-color;
+      @include rpl_text_color($rpl-document-link-meta-color);
       text-transform: uppercase;
       margin-top: $rpl-document-link-meta-margin-top;
     }
@@ -109,15 +110,16 @@ export default {
     &__size{
       &--seperator {
         &::before {
+          @include rpl_text_color($rpl-document-link-meta-separator-color);
           content: '|';
           padding: 0 $rpl-space;
-          color: $rpl-document-link-meta-separator-color;
         }
       }
     }
 
     &__caption {
       @include rpl_typography('body_small');
+      @include rpl_text_color($rpl-document-link-caption-color);
       margin-top: $rpl-document-link-caption-margin-top;
     }
   }

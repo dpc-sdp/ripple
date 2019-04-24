@@ -1,30 +1,49 @@
 <template>
   <div class="rpl-checklist wrapper">
-    <div class="rpl-checklist__combobox form-control" v-if="schema.listBox" :disabled="disabled">
-      <div class="rpl-checklist__drop-list">
+    <!-- List Box -->
+    <div v-if="schema.listBox" class="rpl-checklist__combobox form-control" :disabled="disabled">
+      <div class="rpl-checklist__list">
         <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item)}">
-          <label>
-            <input :id="getFieldID(schema)" type="checkbox" :checked="isItemChecked(item)" :disabled="disabled" @change="onChanged($event, item)" :name="getInputName(item)"/>
-            <span class="rpl-checklist__checkbox" :class="{ 'rpl-checklist__checkbox--checked': isItemChecked(item) }"><rpl-icon symbol="tick" color="primary" /></span>
-            {{ getItemName(item) }}
-          </label>
+          <rpl-checkbox
+            v-model="listValues[index]"
+            :inputDisabled="disabled"
+            :inputId="getFieldID(schema, true)"
+            :inputName="getInputName(item)"
+            :inlineLabel="getItemName(item)"
+            @change="onMultiChange()"
+          />
         </div>
       </div>
     </div>
-    <div class="rpl-checklist__combobox form-control" :class="{ 'rpl-checklist__combobox--expanded': comboExpanded }" v-if="!schema.listBox" :disabled="disabled">
-      <div class="rpl-checklist__main-row" @click="onExpandCombo" :class="{ expanded: comboExpanded }">
-        <button :aria-expanded="comboExpanded" class="rpl-checklist__info" type="button">
+    <!-- Combo Box -->
+    <div v-if="!schema.listBox" class="rpl-checklist__combobox form-control" :class="{ 'rpl-checklist__combobox--expanded': comboExpanded }" :disabled="disabled">
+      <div class="rpl-checklist__main-row" :class="{ expanded: comboExpanded }">
+        <button :aria-expanded="comboExpanded" class="rpl-checklist__info" type="button" @click="onExpandCombo()">
           <span>{{ labelText }}<span class="rpl-checklist__more-count" v-if="labelHiddenCount"> + {{ labelHiddenCount }} more</span></span>
           <rpl-icon symbol="down" color="primary" />
         </button>
       </div>
-      <div class="rpl-checklist__drop-list" v-if="comboExpanded">
-        <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item)}">
-          <label>
-            <input :id="getFieldID(schema)" type="checkbox" :checked="isItemChecked(item)" :disabled="disabled" @change="onChanged($event, item)" :name="getInputName(item)"/>
-            <span class="rpl-checklist__checkbox" :class="{ 'rpl-checklist__checkbox--checked': isItemChecked(item) }"><rpl-icon symbol="tick" color="primary" /></span>
-            {{ getItemName(item) }}
-          </label>
+      <div class="rpl-checklist__list rpl-checklist__list--dropdown" v-if="comboExpanded">
+        <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item), 'rpl-checklist__list-row--single': schema.single }">
+          <button
+            type="button"
+            v-if="schema.single"
+            class="rpl-checklist__single-item"
+            :class="{'rpl-checklist__single-item--selected': isItemChecked(item)}"
+            @click="onSingleClick(item)"
+          >
+            <span>{{ getItemName(item) }}</span>
+            <span v-if="isItemChecked(item)" class="rpl-visually-hidden">(Selected)</span>
+          </button>
+          <rpl-checkbox
+            v-if="!schema.single"
+            v-model="listValues[index]"
+            :inputDisabled="disabled"
+            :inputId="getFieldID(schema, true)"
+            :inputName="getInputName(item)"
+            :inlineLabel="getItemName(item)"
+            @change="onMultiChange()"
+          />
         </div>
       </div>
     </div>
@@ -33,21 +52,37 @@
 
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
-import { isObject, isNil, clone } from 'lodash'
+import RplCheckbox from '../Checkbox.vue'
+import { isObject } from 'lodash'
 import { abstractField, schema } from 'vue-form-generator'
 
 export default {
   mixins: [abstractField],
   components: {
-    RplIcon
+    RplIcon,
+    RplCheckbox
   },
   data () {
     return {
+      listValues: [],
       comboExpanded: false,
       labelMaxLetters: Infinity,
       labelHiddenCount: 0,
       labelLetterWidth: 11,
       labelText: ''
+    }
+  },
+  mounted () {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', this.updateSize)
+      this.updateSize()
+    }
+    this.setCheckedValues()
+  },
+  watch: {
+    value (newVal, oldVal) {
+      this.updateSize()
+      this.setCheckedValues()
     }
   },
   computed: {
@@ -58,12 +93,6 @@ export default {
       } else {
         return values
       }
-    },
-    selectedCount () {
-      if (this.value) {
-        return this.value.length
-      }
-      return 0
     }
   },
   methods: {
@@ -73,13 +102,13 @@ export default {
       }
       return schema.slugify(this.getItemValue(item))
     },
-    getItemValue (item) {
+    getItemProperty (item, property) {
       if (isObject(item)) {
-        if (typeof this.schema['checklistOptions'] !== 'undefined' && typeof this.schema['checklistOptions']['value'] !== 'undefined') {
-          return item[this.schema.checklistOptions.value]
+        if (typeof this.schema['checklistOptions'] !== 'undefined' && typeof this.schema['checklistOptions'][property] !== 'undefined') {
+          return item[this.schema.checklistOptions[property]]
         } else {
-          if (typeof item['value'] !== 'undefined') {
-            return item.value
+          if (typeof item[property] !== 'undefined') {
+            return item[property]
           } else {
             // throw '`value` is not defined. If you want to use another key name, add a `value` property under `checklistOptions` in the schema. https://icebob.gitbooks.io/vueformgenerator/content/fields/checklist.html#checklist-field-with-object-values'
           }
@@ -88,77 +117,106 @@ export default {
         return item
       }
     },
+    getItemValue (item) {
+      return this.getItemProperty(item, 'value')
+    },
     getItemName (item) {
-      if (isObject(item)) {
-        if (typeof this.schema['checklistOptions'] !== 'undefined' && typeof this.schema['checklistOptions']['name'] !== 'undefined') {
-          return item[this.schema.checklistOptions.name]
-        } else {
-          if (typeof item['name'] !== 'undefined') {
-            return item.name
-          } else {
-            // throw '`name` is not defined. If you want to use another key name, add a `name` property under `checklistOptions` in the schema. https://icebob.gitbooks.io/vueformgenerator/content/fields/checklist.html#checklist-field-with-object-values'
-          }
+      return this.getItemProperty(item, 'name')
+    },
+    getItemFromValue (value) {
+      for (let i = 0; i < this.items.length; i++) {
+        if (this.getItemValue(this.items[i]) === value) {
+          return this.items[i]
         }
-      } else {
-        return item
       }
+      return null
     },
     isItemChecked (item) {
       return this.value && this.value.indexOf(this.getItemValue(item)) !== -1
     },
-    onChanged (event, item) {
-      if (isNil(this.value) || !Array.isArray(this.value)) {
-        this.value = []
-      }
-
-      if (event.target.checked) {
-        // Note: If you modify this.value array, it won't trigger the `set` in computed field
-        const arr = clone(this.value)
-        arr.push(this.getItemValue(item))
-        this.value = arr
-      } else {
-        // Note: If you modify this.value array, it won't trigger the `set` in computed field
-        const arr = clone(this.value)
-        arr.splice(this.value.indexOf(this.getItemValue(item)), 1)
-        this.value = arr
-      }
-
+    onMultiChange () {
+      // Set convert checked boxes into value array.
+      let arr = []
+      this.listValues.forEach((item, index) => {
+        if (item && this.items[index]) {
+          arr.push(this.getItemValue(this.items[index]))
+        }
+      })
+      this.value = arr
       this.updateSize()
+    },
+    onSingleClick (item) {
+      this.value = this.getInputName(item)
+      this.comboExpanded = false
     },
     onExpandCombo () {
       this.comboExpanded = !this.comboExpanded
+
+      if (this.comboExpanded) {
+        this.addOutsideTest()
+      } else {
+        this.removeOutsideTest()
+      }
     },
     updateSize () {
+      let str = this.schema.placeholder
+
       if (this.$el && !this.schema.listBox) {
         const info = window.getComputedStyle(this.$el.querySelector('.rpl-checklist__info'))
         const infoWidth = parseFloat(info.width) - parseFloat(info.paddingLeft) - parseFloat(info.paddingRight)
         this.labelMaxLetters = Math.floor(infoWidth / this.labelLetterWidth)
       }
 
+      const moreLetterCount = 9
       let letterCount = 0
-      let moreLetterCount = 9
-      let str = this.schema.placeholder
 
       this.labelHiddenCount = 0
       if (this.value && this.value.length > 0) {
         str = ''
-        this.value.forEach((item, idx) => {
-          letterCount += item.length
-          if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
-            str += ((idx > 0) ? '; ' : '') + item
-          } else {
-            this.labelHiddenCount++
-          }
-        })
+        if (Array.isArray(this.value)) {
+          // Set display label for multi-select
+          this.value.forEach((value, idx) => {
+            const item = this.getItemFromValue(value)
+            if (item) {
+              const itemName = this.getItemName(item)
+              letterCount += itemName.length
+              if (letterCount < (this.labelMaxLetters - moreLetterCount)) {
+                str += ((idx > 0) ? '; ' : '') + itemName
+              } else {
+                this.labelHiddenCount++
+              }
+            }
+          })
+        } else {
+          // Set display label for single-select
+          const item = this.getItemFromValue(this.value)
+          str = this.getItemName(item)
+        }
       }
 
       this.labelText = str
-    }
-  },
-  mounted: function () {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', this.updateSize)
-      this.updateSize()
+    },
+    setCheckedValues () {
+      // Set initial values for checkboxes
+      this.listValues = this.items.map(item => this.isItemChecked(item))
+    },
+    addOutsideTest () {
+      if (typeof window !== 'undefined') {
+        document.addEventListener('click', this.testOutside)
+      }
+    },
+    testOutside (event) {
+      if (typeof window !== 'undefined') {
+        if (!this.$el.contains(event.target)) {
+          this.comboExpanded = false
+          this.removeOutsideTest()
+        }
+      }
+    },
+    removeOutsideTest (event) {
+      if (typeof window !== 'undefined') {
+        document.removeEventListener('click', this.testOutside)
+      }
     }
   },
   beforeDestroy: function () {
@@ -170,10 +228,13 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
 @import "../scss/form";
 
 $rpl-checklist-expanded-border: 1px solid rpl-color('primary');
+$rpl-checklist-hover-color: rpl-color('white');
+$rpl-checklist-hover-background-color: rpl-color('primary');
 $rpl-checklist-label-ruleset: ('xs', 1.4em, 'regular');
 $rpl-checklist-label-text-color: rpl-color('extra_dark_neutral');
 $rpl-checklist-checkbox-border: 1px solid rpl-color('mid_neutral_1');
@@ -182,6 +243,7 @@ $rpl-checklist-list-row-padding: $rpl-space-3 $rpl-form-element-padding-m-horizo
 $rpl-checklist-list-row-odd-background: rpl-color('white');
 $rpl-checklist-checkbox-border-radius: rem(4px);
 $rpl-checklist-more-text-color: rpl-color('primary');
+$rpl-checklist-dropdown-max-height: (rem(38px) * 10);
 
 .rpl-checklist {
   $root: &;
@@ -210,7 +272,6 @@ $rpl-checklist-more-text-color: rpl-color('primary');
 
   &__info {
     position: relative;
-    z-index: 2;
     cursor: pointer;
     color: $rpl-form-element-text-color;
     text-align: left;
@@ -236,7 +297,7 @@ $rpl-checklist-more-text-color: rpl-color('primary');
     }
   }
 
-  &__drop-list {
+  &__list--dropdown {
     @include rpl_breakpoint('m') {
       background-color: $rpl-form-element-bg-color;
       border: $rpl-checklist-expanded-border;
@@ -245,28 +306,8 @@ $rpl-checklist-more-text-color: rpl-color('primary');
       z-index: 1;
       left: -1px;
       width: 100%;
-    }
-
-    label {
-      @include rpl_typography_ruleset($rpl-checklist-label-ruleset);
-      color: $rpl-checklist-label-text-color;
-      margin: 0;
-      position: relative;
-    }
-
-    input[type="checkbox"] {
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      opacity: 0;
-      width: $rpl-space * 6;
-      height: $rpl-space * 6;
-
-      &:focus {
-        & + .rpl-checklist__checkbox {
-          border: $rpl-checklist-checkbox-border-focus;
-        }
-      }
+      max-height: $rpl-checklist-dropdown-max-height;
+      overflow: auto;
     }
   }
 
@@ -276,36 +317,38 @@ $rpl-checklist-more-text-color: rpl-color('primary');
     &:nth-child(odd) {
       background: $rpl-checklist-list-row-odd-background;
     }
+
+    &--single {
+      padding: 0;
+    }
   }
 
-  &__checkbox {
-    display: inline-block;
-    vertical-align: middle;
-    border: $rpl-checklist-checkbox-border;
-    border-radius: $rpl-checklist-checkbox-border-radius;
-    width: $rpl-space * 6;
-    height: $rpl-space * 6;
-    position: relative;
+  &__single-item {
+    @include rpl_form_text;
+    background-color: transparent;
+    padding: $rpl-checklist-list-row-padding;
+    border: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
 
-    .rpl-icon {
-      display: none;
+    &:hover, &:focus {
+      color: $rpl-checklist-hover-color;
+      background-color: $rpl-checklist-hover-background-color;
     }
 
-    &--checked {
-      .rpl-icon {
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-      }
+    &--selected {
+      text-decoration: underline;
     }
   }
 
   &__more-count {
     color: $rpl-checklist-more-text-color;
+  }
+
+  .rpl-checkbox {
+    margin-bottom: 0;
   }
 }
 </style>

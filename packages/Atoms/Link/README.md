@@ -23,6 +23,14 @@ npm install @dpc-sdp/ripple-link --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplLink, RplTextLink } from '@dpc-sdp/ripple-link'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Link](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Link&selectedStory=Link).

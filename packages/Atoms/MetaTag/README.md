@@ -22,6 +22,14 @@ npm install @dpc-sdp/ripple-meta-tag --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import RplMetaTag from '@dpc-sdp/ripple-meta-tag'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Meta Tag](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/MetaTag&selectedStory=Meta%20Tag).

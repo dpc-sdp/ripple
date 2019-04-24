@@ -33,7 +33,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-news-listing-tag-text-color: rpl-color('primary') !default;
   $rpl-news-listing-tag-padding: $rpl-space $rpl-space-2 !default;
@@ -57,18 +58,17 @@ export default {
   $rpl-news-listing-item-heading-icon-margin: 0 0 0 $rpl-space !default;
 
   .rpl-news-listing {
-    @include rpl_mobile_padding();
     padding-top: $rpl-space-4;
 
     @include rpl_breakpoint('m') {
-      padding-left: 0;
-      padding-right: 0;
       padding-top: $rpl-space-4 * 2;
     }
 
+    @include rpl_print_hidden;
+
     &__heading {
       @include rpl_typography_ruleset($rpl-news-listing-heading-ruleset);
-      color: $rpl-news-listing-heading-text-color;
+      @include rpl_text_color($rpl-news-listing-heading-text-color);
       margin: $rpl-news-listing-heading-margin;
     }
 
@@ -88,14 +88,14 @@ export default {
 
     &__item-date {
       @include rpl_typography_ruleset($rpl-news-listing-date-ruleset);
-      color: $rpl-news-listing-date-text-color;
+      @include rpl_text_color($rpl-news-listing-date-text-color);
       background-color: $rpl-news-listing-date-background;
       padding: $rpl-news-listing-date-padding;
     }
 
     &__item-tag {
       @include rpl_typography_ruleset($rpl-news-listing-tag-ruleset);
-      color: $rpl-news-listing-tag-text-color;
+      @include rpl_text_color($rpl-news-listing-tag-text-color);
       padding: $rpl-news-listing-tag-padding;
       box-sizing: border-box;
       text-transform: uppercase;
@@ -106,7 +106,7 @@ export default {
 
       .rpl-text-link {
         @include rpl_typography_ruleset($rpl-news-listing-item-heading-ruleset);
-        color: $rpl-news-listing-item-heading-color;
+        @include rpl_text_color($rpl-news-listing-item-heading-color);
 
         &:hover,
         &:focus {

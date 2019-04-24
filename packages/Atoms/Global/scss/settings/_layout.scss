@@ -1,0 +1,14 @@
+$rpl-layout: (
+  'site_padding': (
+    'm': rem(32px),
+    'l': rem(68px),
+    'xl': rem(92px),
+    'xxl': rem(272px),
+  ),
+
+  // Note: max width will override site padding
+  'site_max_width': (
+    'xl': rem(1056px),
+    'xxxl': rem(1420px)
+  )
+);

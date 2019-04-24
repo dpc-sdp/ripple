@@ -21,6 +21,14 @@ npm install @dpc-sdp/ripple-grid --save
 
 --------------------------------------------------------------------------------
 
+## Import
+
+```js
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+```
+
+--------------------------------------------------------------------------------
+
 ## Usage and Tests
 
 See [Storybook/Grid](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Layout&selectedStory=Grid).

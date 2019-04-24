@@ -23,7 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-publish-date-and-author-date-location-ruleset: ('xs', 1em, 'bold');
   $rpl-publish-date-and-author-author-ruleset: ('xs', 1.4em, 'regular');
@@ -32,12 +33,12 @@ export default {
   .rpl-publish-date-and-author {
     &__date-location {
       @include rpl_typography_ruleset($rpl-publish-date-and-author-date-location-ruleset);
-      color: rpl-color('extra_dark_neutral');
+      @include rpl_text_color(rpl-color('extra_dark_neutral'));
     }
 
     &__author {
       @include rpl_typography_ruleset($rpl-publish-date-and-author-author-ruleset);
-      color: rpl-color('extra_dark_neutral');
+      @include rpl_text_color(rpl-color('extra_dark_neutral'));
       margin: $rpl-publish-date-and-author-author-margin;
     }
   }

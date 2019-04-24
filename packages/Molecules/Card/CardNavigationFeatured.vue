@@ -42,7 +42,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/card";
 
   $rpl-card-navigation-featured-margin-xs: $rpl-space-3 auto !default;
@@ -60,8 +61,8 @@ export default {
     's': ('s', 1.5em, 'bold')
   ) !default;
   $rpl-card-navigation-featured-summary-color: rpl_color('white') !default;
-  $rpl-card-navigation-featured-summary-background: transparent url(rpl_banner_primary_arrow_url('secondary')) no-repeat bottom right !default;
-  $rpl-card-navigation-featured-summary-background-hover: rpl_color('secondary') url(rpl_banner_primary_arrow_url('primary')) no-repeat bottom right !default;
+  $rpl-card-navigation-featured-summary-background: transparent url(rpl_graphic_right_angled_triangle('secondary')) no-repeat bottom right !default;
+  $rpl-card-navigation-featured-summary-background-hover: rpl_color('secondary') url(rpl_graphic_right_angled_triangle('primary')) no-repeat bottom right !default;
   $rpl-card-navigation-featured-summary-xs: ($rpl-space * 11) $rpl-component-padding-xs ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-s: ($rpl-space * 6) $rpl-component-padding-s ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-m: ($rpl-space * 6) $rpl-component-padding-m ($rpl-space * 7) !default;
@@ -70,23 +71,21 @@ export default {
   $rpl-card-navigation-featured-meta-background: rpl_color('secondary') !default;
   $rpl-card-navigation-featured-meta-text-color: rpl_color('white') !default;
   $rpl-card-navigation-featured-meta-padding: 0 $rpl-space-2 !default;
-  $rpl-card-navigation-featured-meta-margin: 0 0 $rpl-space !default;
   $rpl-card-navigation-featured-date-ruleset: ('xs', 1em, 'semibold') !default;
   $rpl-card-navigation-featured-tag-ruleset: ('xxs', 1em, 'medium') !default;
   $rpl-card-navigation-featured-meta-divider-margin: auto $rpl-space-2 !default;
 
   .rpl-card-navigation-featured {
     $root: &;
+    @include rpl_text_color($rpl-card-navigation-featured-color);
     overflow: hidden;
     display: block;
     position: relative;
-    color: $rpl-card-navigation-featured-color;
     background-color: $rpl-card-navigation-featured-background;
     max-width: $rpl-card-navigation-featured-max-width;
+    border-radius: $rpl-card-navigation-featured-border-radius;
 
-    @include rpl_breakpoint('s') {
-      border-radius: $rpl-card-navigation-featured-border-radius;
-    }
+    @include rpl_print_hidden;
 
     &:hover,
     &:focus {
@@ -141,11 +140,11 @@ export default {
     }
 
     &__meta {
+      @include rpl_text_color($rpl-card-navigation-featured-meta-text-color);
       display: inline-block;
       background-color: $rpl-card-navigation-featured-meta-background;
-      color: $rpl-card-navigation-featured-meta-text-color;
       padding: $rpl-card-navigation-featured-meta-padding;
-      margin-bottom: $rpl-card-navigation-featured-meta-margin;
+      margin-bottom: $rpl-space;
 
       span + span {
         &:before {
@@ -176,8 +175,8 @@ export default {
     &__summary {
       background: $rpl-card-navigation-featured-summary-background;
       @include rpl_typography_ruleset($rpl-card-navigation-featured-summary-ruleset);
+      @include rpl_text_color($rpl-card-navigation-featured-summary-color);
       margin: 0;
-      color: $rpl-card-navigation-featured-summary-color;
       padding: $rpl-card-navigation-featured-summary-xs;
       @include rpl_breakpoint('s') {
         padding: $rpl-card-navigation-featured-summary-s;

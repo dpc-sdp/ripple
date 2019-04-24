@@ -16,7 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-skip-link-padding: $rpl-space-4 ($rpl-space * 5) !default;
   $rpl-skip-link-text-color: rpl-color('white') !default;

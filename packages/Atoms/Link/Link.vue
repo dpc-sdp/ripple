@@ -1,13 +1,19 @@
 <template>
   <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
-    <div class="rpl-link__inner">
+    <div v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </div>
+    <template v-else>
+      <slot></slot>
+    </template>
   </a>
   <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick">
-    <div class="rpl-link__inner">
+    <div v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </div>
+    <template v-else>
+      <slot></slot>
+    </template>
   </nuxt-link>
 </template>
 
@@ -19,7 +25,8 @@ export default {
   name: 'RplLink',
   props: {
     href: String,
-    target: { type: String, default: '' }
+    target: { type: String, default: '' },
+    innerWrap: { type: Boolean, default: true }
   },
   directives: {
     focus
@@ -74,6 +81,8 @@ export default {
   }
 
   &__inner {
+    display: inline;
+
     @include rpl_print {
       text-decoration: underline;
     }

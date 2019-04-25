@@ -132,6 +132,10 @@ export default {
     background-position: left -13rem;
   }
 
+  @include rpl_print {
+    background-image: none !important;
+  }
+
   &__inner {
     background-repeat: no-repeat;
     background-position: center;
@@ -141,6 +145,10 @@ export default {
       @include rpl_breakpoint($bp) {
         padding-top: $val;
       }
+    }
+
+    @include rpl_print {
+      padding-top: 0;
     }
   }
 
@@ -166,8 +174,30 @@ export default {
     }
   }
 
+  @include rpl_print {
+    padding: 0;
+  }
+
   &--grey {
     background: rpl-color('light_neutral')
   }
+
+  .rpl-row {
+    @include rpl_print {
+      display: block;
+      margin: 0;
+      width: auto;
+    }
+  }
 }
+
+.rpl-main,
+.rpl-sidebar {
+  @include rpl_print {
+    width: 100%;
+    margin: 0;
+    left: 0;
+  }
+}
+
 </style>

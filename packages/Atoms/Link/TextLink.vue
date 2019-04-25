@@ -69,8 +69,8 @@ export default {
 
   .rpl-text-link {
     $root: &;
+    @include rpl_text_color($rpl-text-link-text-color);
     text-decoration: none;
-    color: $rpl-text-link-text-color;
 
     &:hover,
     &:focus {

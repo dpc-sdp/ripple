@@ -67,6 +67,7 @@ export default {
 
   $rpl-document-link-title-ruleset: ('xs', 1em, 'semibold');
   $rpl-document-link-title-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-document-link-caption-color: rpl_color('extra_dark_neutral') !default;
   $rpl-document-link-meta-type-ruleset: ('xxs', 1em, 'medium');
   $rpl-document-link-meta-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
   $rpl-document-link-meta-margin-top: $rpl-space;
@@ -88,7 +89,7 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-document-link-title-ruleset);
-      color: $rpl-document-link-title-color;
+      @include rpl_text_color($rpl-document-link-title-color);
     }
 
     &__icon {
@@ -101,7 +102,7 @@ export default {
 
     &__meta {
       @include rpl_typography_ruleset($rpl-document-link-meta-type-ruleset);
-      color: $rpl-document-link-meta-color;
+      @include rpl_text_color($rpl-document-link-meta-color);
       text-transform: uppercase;
       margin-top: $rpl-document-link-meta-margin-top;
     }
@@ -109,15 +110,16 @@ export default {
     &__size{
       &--seperator {
         &::before {
+          @include rpl_text_color($rpl-document-link-meta-separator-color);
           content: '|';
           padding: 0 $rpl-space;
-          color: $rpl-document-link-meta-separator-color;
         }
       }
     }
 
     &__caption {
       @include rpl_typography('body_small');
+      @include rpl_text_color($rpl-document-link-caption-color);
       margin-top: $rpl-document-link-caption-margin-top;
     }
   }

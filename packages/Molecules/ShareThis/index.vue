@@ -1,18 +1,27 @@
 <template>
   <div class="rpl-share-this">
-    <h2 v-if="title" class="rpl-share-this__title">{{ title }}</h2>
-    <social-sharing :url="url" inline-template>
-      <div>
+    <h2 v-if="title" class="rpl-share-this__title" id="rpl-share-this__title">{{ title }}</h2>
+    <social-sharing :url="url" inline-template networkTag="li">
+      <ul class="rpl-share-this__list" :aria-label="label || 'Social networks'">
         <network v-if="$parent.en.twitter" network="twitter" class="rpl-share-this__social">
-          <span class="rpl-share-this__icon"><rpl-icon symbol="twitter" color="primary" /></span>Twitter
+          <button class="rpl-share-this__button">
+            <span class="rpl-share-this__icon"><rpl-icon symbol="twitter" color="primary" /></span>Twitter
+            <span class="rpl-share-this__hint">, opens a new window</span>
+          </button>
         </network>
         <network v-if="$parent.en.facebook" network="facebook" class="rpl-share-this__social">
-          <span class="rpl-share-this__icon"><rpl-icon symbol="facebook" color="primary" /></span>Facebook
+          <button class="rpl-share-this__button">
+            <span class="rpl-share-this__icon"><rpl-icon symbol="facebook" color="primary" /></span>Facebook
+            <span class="rpl-share-this__hint">, opens a new window</span>
+          </button>
         </network>
-         <network v-if="$parent.en.linkedin" network="linkedin" class="rpl-share-this__social">
-          <span class="rpl-share-this__icon"><rpl-icon symbol="linkedin" color="primary" /></span>LinkedIn
+        <network v-if="$parent.en.linkedin" network="linkedin" class="rpl-share-this__social">
+          <button class="rpl-share-this__button">
+            <span class="rpl-share-this__icon"><rpl-icon symbol="linkedin" color="primary" /></span>LinkedIn
+            <span class="rpl-share-this__hint">, opens a new window</span>
+          </button>
         </network>
-      </div>
+      </ul>
     </social-sharing>
   </div>
 </template>
@@ -30,6 +39,7 @@ export default {
   props: {
     url: String,
     title: String,
+    label: String,
     enabled: {
       type: Object,
       default: function () {
@@ -88,6 +98,8 @@ export default {
       margin: $rpl-share-this-margin-l;
     }
 
+    @include rpl_print_hidden;
+
     &__title {
       @include rpl_typography_ruleset($rpl-share-this-title-ruleset);
       margin: $rpl-share-this-title-margin;
@@ -116,6 +128,23 @@ export default {
       @include rpl_breakpoint('l') {
         margin-right: $rpl-share-this-icon-margin-l;
       }
+    }
+
+    &__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__button {
+      border: 0;
+      background: 0;
+      padding: 0;
+      line-height: inherit;
+    }
+
+    &__hint {
+      @include rpl_visually_hidden;
     }
 
   }

@@ -15219,116 +15219,6 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               <!---->
             </div>
             <div
-              class="form-group valid field-rplchecklist"
-            >
-              <label
-                for="single-select-drop-down"
-              >
-                <span>
-                  Single-select drop down
-                </span>
-                 
-                <!---->
-              </label>
-               
-              <div
-                class="field-wrap"
-              >
-                <div
-                  class="rpl-checklist wrapper"
-                >
-                  <!---->
-                   
-                  <div
-                    class="rpl-checklist__combobox form-control"
-                  >
-                    <div
-                      class="rpl-checklist__main-row"
-                    >
-                      <button
-                        class="rpl-checklist__info"
-                        type="button"
-                      >
-                        <span>
-                          
-                          <!---->
-                        </span>
-                         
-                        <!---->
-                      </button>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="hint"
-              >
-                Implemented using rplchecklist
-              </div>
-               
-              <!---->
-            </div>
-            <div
-              class="form-group valid required field-rplchecklist"
-            >
-              <label
-                for="multi-select-drop-down"
-              >
-                <span>
-                  Multi-select drop down
-                </span>
-                 
-                <!---->
-              </label>
-               
-              <div
-                class="field-wrap"
-              >
-                <div
-                  class="rpl-checklist wrapper"
-                >
-                  <!---->
-                   
-                  <div
-                    class="rpl-checklist__combobox form-control"
-                  >
-                    <div
-                      class="rpl-checklist__main-row"
-                    >
-                      <button
-                        class="rpl-checklist__info"
-                        type="button"
-                      >
-                        <span>
-                          
-                          <!---->
-                        </span>
-                         
-                        <!---->
-                      </button>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="hint"
-              >
-                Implemented using rplchecklist
-              </div>
-               
-              <!---->
-            </div>
-            <div
               class="form-group valid required field-rplselect"
             >
               <label
@@ -15345,139 +15235,64 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="field-wrap"
               >
                 <div
-                  class="multiselect"
-                  tabindex="0"
+                  class="rpl-select"
                 >
                   <div
-                    class="multiselect__select"
-                  />
-                    
-                  <div
-                    class="multiselect__tags"
+                    class="rpl-select__native"
                   >
-                    <div
-                      class="multiselect__tags-wrap"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <div
-                      class="multiselect__spinner"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <!---->
-                     
-                    <span
-                      class="multiselect__placeholder"
+                    <select
+                      id="single-select-drop-down"
                     >
-                      
-            Select a single topic
-        
-                    </span>
-                  </div>
-                   
-                  <div
-                    class="multiselect__content-wrapper"
-                    style="max-height: 300px; display: none;"
-                    tabindex="-1"
-                  >
-                    <ul
-                      class="multiselect__content"
-                      style="display: inline-block;"
-                    >
+                      <option
+                        disabled="disabled"
+                        value=""
+                      >
+                        Select a single topic
+                      </option>
                        
-                      <!---->
-                       
-                      <li
-                        class="multiselect__element"
+                      <option
+                        value="topic_a"
                       >
-                        <span
-                          class="multiselect__option multiselect__option--highlight"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Topic A
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
+                        Topic A
+                      </option>
+                      <option
+                        value="topic_b"
                       >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Topic B
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
+                        Topic B
+                      </option>
+                      <option
+                        value="topic_c"
                       >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Topic C
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
+                        Topic C
+                      </option>
+                      <option
+                        value="topic_d"
                       >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Topic D
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                       
-                      <li
-                        style="display: none;"
+                        Topic D
+                      </option>
+                      <option
+                        value="topic_e"
                       >
-                        <span
-                          class="multiselect__option"
-                        >
-                          No elements found. Consider changing the search query.
-                        </span>
-                      </li>
-                       
-                      <li
-                        style="display: none;"
+                        Topic e
+                      </option>
+                      <option
+                        value="topic_f"
                       >
-                        <span
-                          class="multiselect__option"
-                        >
-                          List is empty.
-                        </span>
-                      </li>
-                       
-                    </ul>
+                        Topic f
+                      </option>
+                      <option
+                        value="topic_g"
+                      >
+                        Topic g
+                      </option>
+                      <option
+                        value="topic_h"
+                      >
+                        Topic h
+                      </option>
+                    </select>
+                     
+                    <!---->
                   </div>
                 </div>
                  
@@ -15487,7 +15302,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               <div
                 class="hint"
               >
-                Implemented using vue-multiselect
+                Implemented using rplSelect
               </div>
                
               <!---->
@@ -15509,139 +15324,40 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="field-wrap"
               >
                 <div
-                  class="multiselect"
-                  tabindex="0"
+                  class="rpl-select"
                 >
                   <div
-                    class="multiselect__select"
-                  />
-                    
-                  <div
-                    class="multiselect__tags"
+                    class="rpl-select__native"
                   >
-                    <div
-                      class="multiselect__tags-wrap"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <div
-                      class="multiselect__spinner"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <!---->
-                     
-                    <span
-                      class="multiselect__placeholder"
+                    <select
+                      id="multi-select-drop-down"
+                      multiple="multiple"
                     >
-                      
-            Select several topics
-        
-                    </span>
-                  </div>
-                   
-                  <div
-                    class="multiselect__content-wrapper"
-                    style="max-height: 300px; display: none;"
-                    tabindex="-1"
-                  >
-                    <ul
-                      class="multiselect__content"
-                      style="display: inline-block;"
-                    >
-                       
                       <!---->
                        
-                      <li
-                        class="multiselect__element"
+                      <option
+                        value="topic_a"
                       >
-                        <span
-                          class="multiselect__option multiselect__option--highlight"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Topic A
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
+                        Topic A
+                      </option>
+                      <option
+                        value="topic_b"
                       >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Topic B
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
+                        Topic B
+                      </option>
+                      <option
+                        value="topic_c"
                       >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Topic C
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
+                        Topic C
+                      </option>
+                      <option
+                        value="topic_d"
                       >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Topic D
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
-                        >
-                          No elements found. Consider changing the search query.
-                        </span>
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
-                        >
-                          List is empty.
-                        </span>
-                      </li>
-                       
-                    </ul>
+                        Topic D
+                      </option>
+                    </select>
+                     
+                    <!---->
                   </div>
                 </div>
                  
@@ -15651,7 +15367,7 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
               <div
                 class="hint"
               >
-                Implemented using vue-multiselect
+                Implemented using rplSelect
               </div>
                
               <!---->
@@ -15792,139 +15508,44 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                 class="field-wrap"
               >
                 <div
-                  class="multiselect"
-                  tabindex="0"
+                  class="rpl-select"
                 >
                   <div
-                    class="multiselect__select"
-                  />
-                    
-                  <div
-                    class="multiselect__tags"
+                    class="rpl-select__native"
                   >
-                    <div
-                      class="multiselect__tags-wrap"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <div
-                      class="multiselect__spinner"
-                      style="display: none;"
-                    />
-                     
-                    <!---->
-                     
-                    <!---->
-                     
-                    <span
-                      class="multiselect__placeholder"
+                    <select
+                      id="state"
                     >
-                      
-            Select option
-        
-                    </span>
-                  </div>
-                   
-                  <div
-                    class="multiselect__content-wrapper"
-                    style="max-height: 300px; display: none;"
-                    tabindex="-1"
-                  >
-                    <ul
-                      class="multiselect__content"
-                      style="display: inline-block;"
-                    >
+                      <option
+                        disabled="disabled"
+                        value=""
+                      >
+                        Select
+                      </option>
                        
-                      <!---->
-                       
-                      <li
-                        class="multiselect__element"
+                      <option
+                        value="vic"
                       >
-                        <span
-                          class="multiselect__option multiselect__option--highlight"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Vic
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
+                        Vic
+                      </option>
+                      <option
+                        value="nsw"
                       >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            New South Wales
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
+                        New South Wales
+                      </option>
+                      <option
+                        value="wa"
                       >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Western Australia
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                      <li
-                        class="multiselect__element"
+                        Western Australia
+                      </option>
+                      <option
+                        value="ql"
                       >
-                        <span
-                          class="multiselect__option"
-                          data-deselect=""
-                          data-select=""
-                          data-selected=""
-                        >
-                          <span>
-                            Queensland
-                          </span>
-                        </span>
-                         
-                        <!---->
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
-                        >
-                          No elements found. Consider changing the search query.
-                        </span>
-                      </li>
-                       
-                      <li
-                        style="display: none;"
-                      >
-                        <span
-                          class="multiselect__option"
-                        >
-                          List is empty.
-                        </span>
-                      </li>
-                       
-                    </ul>
+                        Queensland
+                      </option>
+                    </select>
+                     
+                    <!---->
                   </div>
                 </div>
                  
@@ -57736,116 +57357,6 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           <!---->
                         </div>
                         <div
-                          class="form-group valid field-rplchecklist"
-                        >
-                          <label
-                            for="single-select-drop-down"
-                          >
-                            <span>
-                              Single-select drop down
-                            </span>
-                             
-                            <!---->
-                          </label>
-                           
-                          <div
-                            class="field-wrap"
-                          >
-                            <div
-                              class="rpl-checklist wrapper"
-                            >
-                              <!---->
-                               
-                              <div
-                                class="rpl-checklist__combobox form-control"
-                              >
-                                <div
-                                  class="rpl-checklist__main-row"
-                                >
-                                  <button
-                                    class="rpl-checklist__info"
-                                    type="button"
-                                  >
-                                    <span>
-                                      
-                                      <!---->
-                                    </span>
-                                     
-                                    <!---->
-                                  </button>
-                                </div>
-                                 
-                                <!---->
-                              </div>
-                            </div>
-                             
-                            <!---->
-                          </div>
-                           
-                          <div
-                            class="hint"
-                          >
-                            Implemented using rplchecklist
-                          </div>
-                           
-                          <!---->
-                        </div>
-                        <div
-                          class="form-group valid required field-rplchecklist"
-                        >
-                          <label
-                            for="multi-select-drop-down"
-                          >
-                            <span>
-                              Multi-select drop down
-                            </span>
-                             
-                            <!---->
-                          </label>
-                           
-                          <div
-                            class="field-wrap"
-                          >
-                            <div
-                              class="rpl-checklist wrapper"
-                            >
-                              <!---->
-                               
-                              <div
-                                class="rpl-checklist__combobox form-control"
-                              >
-                                <div
-                                  class="rpl-checklist__main-row"
-                                >
-                                  <button
-                                    class="rpl-checklist__info"
-                                    type="button"
-                                  >
-                                    <span>
-                                      
-                                      <!---->
-                                    </span>
-                                     
-                                    <!---->
-                                  </button>
-                                </div>
-                                 
-                                <!---->
-                              </div>
-                            </div>
-                             
-                            <!---->
-                          </div>
-                           
-                          <div
-                            class="hint"
-                          >
-                            Implemented using rplchecklist
-                          </div>
-                           
-                          <!---->
-                        </div>
-                        <div
                           class="form-group valid required field-rplselect"
                         >
                           <label
@@ -57862,139 +57373,64 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                             class="field-wrap"
                           >
                             <div
-                              class="multiselect"
-                              tabindex="0"
+                              class="rpl-select"
                             >
                               <div
-                                class="multiselect__select"
-                              />
-                                
-                              <div
-                                class="multiselect__tags"
+                                class="rpl-select__native"
                               >
-                                <div
-                                  class="multiselect__tags-wrap"
-                                  style="display: none;"
-                                />
-                                 
-                                <!---->
-                                 
-                                <div
-                                  class="multiselect__spinner"
-                                  style="display: none;"
-                                />
-                                 
-                                <!---->
-                                 
-                                <!---->
-                                 
-                                <span
-                                  class="multiselect__placeholder"
+                                <select
+                                  id="single-select-drop-down"
                                 >
-                                  
-            Select a single topic
-        
-                                </span>
-                              </div>
-                               
-                              <div
-                                class="multiselect__content-wrapper"
-                                style="max-height: 300px; display: none;"
-                                tabindex="-1"
-                              >
-                                <ul
-                                  class="multiselect__content"
-                                  style="display: inline-block;"
-                                >
+                                  <option
+                                    disabled="disabled"
+                                    value=""
+                                  >
+                                    Select a single topic
+                                  </option>
                                    
-                                  <!---->
-                                   
-                                  <li
-                                    class="multiselect__element"
+                                  <option
+                                    value="topic_a"
                                   >
-                                    <span
-                                      class="multiselect__option multiselect__option--highlight"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic A
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
+                                    Topic A
+                                  </option>
+                                  <option
+                                    value="topic_b"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic B
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
+                                    Topic B
+                                  </option>
+                                  <option
+                                    value="topic_c"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic C
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
+                                    Topic C
+                                  </option>
+                                  <option
+                                    value="topic_d"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic D
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                   
-                                  <li
-                                    style="display: none;"
+                                    Topic D
+                                  </option>
+                                  <option
+                                    value="topic_e"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                    >
-                                      No elements found. Consider changing the search query.
-                                    </span>
-                                  </li>
-                                   
-                                  <li
-                                    style="display: none;"
+                                    Topic e
+                                  </option>
+                                  <option
+                                    value="topic_f"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                    >
-                                      List is empty.
-                                    </span>
-                                  </li>
-                                   
-                                </ul>
+                                    Topic f
+                                  </option>
+                                  <option
+                                    value="topic_g"
+                                  >
+                                    Topic g
+                                  </option>
+                                  <option
+                                    value="topic_h"
+                                  >
+                                    Topic h
+                                  </option>
+                                </select>
+                                 
+                                <!---->
                               </div>
                             </div>
                              
@@ -58004,7 +57440,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           <div
                             class="hint"
                           >
-                            Implemented using vue-multiselect
+                            Implemented using rplSelect
                           </div>
                            
                           <!---->
@@ -58026,139 +57462,40 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                             class="field-wrap"
                           >
                             <div
-                              class="multiselect"
-                              tabindex="0"
+                              class="rpl-select"
                             >
                               <div
-                                class="multiselect__select"
-                              />
-                                
-                              <div
-                                class="multiselect__tags"
+                                class="rpl-select__native"
                               >
-                                <div
-                                  class="multiselect__tags-wrap"
-                                  style="display: none;"
-                                />
-                                 
-                                <!---->
-                                 
-                                <div
-                                  class="multiselect__spinner"
-                                  style="display: none;"
-                                />
-                                 
-                                <!---->
-                                 
-                                <!---->
-                                 
-                                <span
-                                  class="multiselect__placeholder"
+                                <select
+                                  id="multi-select-drop-down"
+                                  multiple="multiple"
                                 >
-                                  
-            Select several topics
-        
-                                </span>
-                              </div>
-                               
-                              <div
-                                class="multiselect__content-wrapper"
-                                style="max-height: 300px; display: none;"
-                                tabindex="-1"
-                              >
-                                <ul
-                                  class="multiselect__content"
-                                  style="display: inline-block;"
-                                >
-                                   
                                   <!---->
                                    
-                                  <li
-                                    class="multiselect__element"
+                                  <option
+                                    value="topic_a"
                                   >
-                                    <span
-                                      class="multiselect__option multiselect__option--highlight"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic A
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
+                                    Topic A
+                                  </option>
+                                  <option
+                                    value="topic_b"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic B
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
+                                    Topic B
+                                  </option>
+                                  <option
+                                    value="topic_c"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic C
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
+                                    Topic C
+                                  </option>
+                                  <option
+                                    value="topic_d"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Topic D
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                   
-                                  <li
-                                    style="display: none;"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                    >
-                                      No elements found. Consider changing the search query.
-                                    </span>
-                                  </li>
-                                   
-                                  <li
-                                    style="display: none;"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                    >
-                                      List is empty.
-                                    </span>
-                                  </li>
-                                   
-                                </ul>
+                                    Topic D
+                                  </option>
+                                </select>
+                                 
+                                <!---->
                               </div>
                             </div>
                              
@@ -58168,7 +57505,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           <div
                             class="hint"
                           >
-                            Implemented using vue-multiselect
+                            Implemented using rplSelect
                           </div>
                            
                           <!---->
@@ -58309,139 +57646,44 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                             class="field-wrap"
                           >
                             <div
-                              class="multiselect"
-                              tabindex="0"
+                              class="rpl-select"
                             >
                               <div
-                                class="multiselect__select"
-                              />
-                                
-                              <div
-                                class="multiselect__tags"
+                                class="rpl-select__native"
                               >
-                                <div
-                                  class="multiselect__tags-wrap"
-                                  style="display: none;"
-                                />
-                                 
-                                <!---->
-                                 
-                                <div
-                                  class="multiselect__spinner"
-                                  style="display: none;"
-                                />
-                                 
-                                <!---->
-                                 
-                                <!---->
-                                 
-                                <span
-                                  class="multiselect__placeholder"
+                                <select
+                                  id="state"
                                 >
-                                  
-            Select option
-        
-                                </span>
-                              </div>
-                               
-                              <div
-                                class="multiselect__content-wrapper"
-                                style="max-height: 300px; display: none;"
-                                tabindex="-1"
-                              >
-                                <ul
-                                  class="multiselect__content"
-                                  style="display: inline-block;"
-                                >
+                                  <option
+                                    disabled="disabled"
+                                    value=""
+                                  >
+                                    Select
+                                  </option>
                                    
-                                  <!---->
-                                   
-                                  <li
-                                    class="multiselect__element"
+                                  <option
+                                    value="vic"
                                   >
-                                    <span
-                                      class="multiselect__option multiselect__option--highlight"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Vic
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
+                                    Vic
+                                  </option>
+                                  <option
+                                    value="nsw"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        New South Wales
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
+                                    New South Wales
+                                  </option>
+                                  <option
+                                    value="wa"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Western Australia
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                  <li
-                                    class="multiselect__element"
+                                    Western Australia
+                                  </option>
+                                  <option
+                                    value="ql"
                                   >
-                                    <span
-                                      class="multiselect__option"
-                                      data-deselect=""
-                                      data-select=""
-                                      data-selected=""
-                                    >
-                                      <span>
-                                        Queensland
-                                      </span>
-                                    </span>
-                                     
-                                    <!---->
-                                  </li>
-                                   
-                                  <li
-                                    style="display: none;"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                    >
-                                      No elements found. Consider changing the search query.
-                                    </span>
-                                  </li>
-                                   
-                                  <li
-                                    style="display: none;"
-                                  >
-                                    <span
-                                      class="multiselect__option"
-                                    >
-                                      List is empty.
-                                    </span>
-                                  </li>
-                                   
-                                </ul>
+                                    Queensland
+                                  </option>
+                                </select>
+                                 
+                                <!---->
                               </div>
                             </div>
                              

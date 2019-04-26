@@ -26588,10 +26588,8 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
       class="rpl-campaign-primary"
       data-v-6ca0e090=""
     >
-      <a
-        aria-label="Call to action"
+      <div
         class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large"
-        href="#"
       >
         <span
           class="rpl-campaign-primary__image-inner"
@@ -26603,8 +26601,9 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
             viewBox="0 0 699 411"
             width="699"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
+            <!---->
+             
             <mask
               height="411"
               id="mask0"
@@ -26627,17 +26626,10 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
                 height="411"
                 href="http://placehold.it/699x411"
                 width="699"
-                xlink:href="http://placehold.it/699x411"
               />
             </g>
           </svg>
         </span>
-      </a>
-       
-      <div
-        class="rpl-campaign-primary__primary_arrow"
-      >
-        <!---->
       </div>
        
       <div
@@ -26646,6 +26638,7 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
         <img
           alt=""
           class="rpl-campaign-primary__image"
+          role="presentational"
           src="http://placehold.it/699x411"
         />
       </div>
@@ -26945,7 +26938,7 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            string
+            object
           </td>
            
           <td
@@ -42738,10 +42731,8 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
         <div
           class="rpl-campaign-primary rpl-site-constrain--on-all"
         >
-          <a
-            aria-label="Call to action"
+          <div
             class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large"
-            href="#"
           >
             <span
               class="rpl-campaign-primary__image-inner"
@@ -42753,8 +42744,9 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 viewBox="0 0 699 411"
                 width="699"
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
               >
+                <!---->
+                 
                 <mask
                   height="411"
                   id="mask0"
@@ -42777,17 +42769,10 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     height="411"
                     href="http://placehold.it/699x411"
                     width="699"
-                    xlink:href="http://placehold.it/699x411"
                   />
                 </g>
               </svg>
             </span>
-          </a>
-           
-          <div
-            class="rpl-campaign-primary__primary_arrow"
-          >
-            <!---->
           </div>
            
           <div
@@ -42796,6 +42781,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
             <img
               alt=""
               class="rpl-campaign-primary__image"
+              role="presentational"
               src="http://placehold.it/699x411"
             />
           </div>
@@ -54133,10 +54119,8 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
         <div
           class="rpl-campaign-primary rpl-site-constrain--on-all"
         >
-          <a
-            aria-label="Call to action"
+          <div
             class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large"
-            href="#"
           >
             <span
               class="rpl-campaign-primary__image-inner"
@@ -54148,8 +54132,9 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                 viewBox="0 0 699 411"
                 width="699"
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
               >
+                <!---->
+                 
                 <mask
                   height="411"
                   id="mask0"
@@ -54172,17 +54157,10 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                     height="411"
                     href="http://placehold.it/699x411"
                     width="699"
-                    xlink:href="http://placehold.it/699x411"
                   />
                 </g>
               </svg>
             </span>
-          </a>
-           
-          <div
-            class="rpl-campaign-primary__primary_arrow"
-          >
-            <!---->
           </div>
            
           <div
@@ -54191,6 +54169,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
             <img
               alt=""
               class="rpl-campaign-primary__image"
+              role="presentational"
               src="http://placehold.it/699x411"
             />
           </div>

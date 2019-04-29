@@ -20,7 +20,7 @@
         @keyup.space.prevent="toggleOpen"
         @keyup.enter.prevent="toggleOpen"
       >
-        <template v-if="value && value.length > 0">
+        <template v-if="selectedItems && selectedItems.length > 0">
           <span :id="`${schema.model}-rpl-select-value`">{{selectedTitles}}</span>
           <span class="rpl-select__label-info"> Selected</span>
         </template>

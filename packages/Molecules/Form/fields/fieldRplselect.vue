@@ -22,7 +22,8 @@
       >
         <template v-if="selectedItems && selectedItems.length > 0">
           <span :id="`${schema.model}-rpl-select-value`">{{selectedTitles}}</span>
-          <span class="rpl-select__label-info"> Selected</span>
+          <span class="rpl-select__label-count" v-if="selectedItems.length > showItemLimit">+ {{selectedItems.length - 1}} more</span>
+          <span class="rpl-select__label-visually-hidden"> Selected</span>
         </template>
         <span v-else :id="`${schema.model}-rpl-select-trigger`">{{placeholder}}</span>
         <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
@@ -55,7 +56,7 @@
           >
             <rpl-checkbox :presentational="true" v-if="schema.multiselect" :value="option.selected" class="rpl-select__checkbox" />
             {{option.name}}
-            <span v-if="schema.multiselect && option.selected" aria-label="Checked"></span>
+            <span v-if="schema.multiselect && option.selected" class="rpl-select__label-visually-hidden" >Checked</span>
           </div>
         </div>
       </div>
@@ -83,6 +84,9 @@ export default {
     }
   },
   computed: {
+    showItemLimit () {
+      return this.schema.showItemLimit || 4
+    },
     placeholder () {
       return this.schema.placeholder || 'Select'
     },
@@ -119,7 +123,21 @@ export default {
       return this.options.filter(opt => opt.selected)
     },
     selectedTitles () {
-      return this.selectedItems.map(itm => itm.name).join(', ')
+      return this.selectedItems
+        .slice(0, this.selectedItems.length > this.showItemLimit ? 1 : this.selectedItems.length)
+        .sort((a, b) => {
+          const nameA = a.name.toLowerCase()
+          const nameB = b.name.toLowerCase()
+          if (nameA < nameB) {
+            return -1
+          }
+          if (nameA > nameB) {
+            return 1
+          }
+          return 0
+        })
+        .map(itm => itm.name)
+        .join(', ')
     },
     fieldId () {
       return this.getFieldID(this.schema)
@@ -342,8 +360,11 @@ $rpl-select-selected-color: rpl-color("white") !default;
     }
 
   }
+  &__label-count {
+    color: rpl-color('primary');
+  }
 
-  &__label-info {
+  &__label-visually-hidden {
     @include rpl_visually_hidden;
   }
 

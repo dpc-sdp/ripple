@@ -15355,6 +15355,26 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                       >
                         Topic D
                       </option>
+                      <option
+                        value="topic_e"
+                      >
+                        Topic E
+                      </option>
+                      <option
+                        value="topic_f"
+                      >
+                        Topic F
+                      </option>
+                      <option
+                        value="topic_g"
+                      >
+                        Topic G
+                      </option>
+                      <option
+                        value="topic_h"
+                      >
+                        Topic H
+                      </option>
                     </select>
                      
                     <!---->
@@ -49256,7 +49276,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                                 class="multiselect__placeholder"
                               >
                                 
-            Select a single topic
+          Select a single topic
         
                               </span>
                             </div>
@@ -57471,6 +57491,26 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                     value="topic_d"
                                   >
                                     Topic D
+                                  </option>
+                                  <option
+                                    value="topic_e"
+                                  >
+                                    Topic E
+                                  </option>
+                                  <option
+                                    value="topic_f"
+                                  >
+                                    Topic F
+                                  </option>
+                                  <option
+                                    value="topic_g"
+                                  >
+                                    Topic G
+                                  </option>
+                                  <option
+                                    value="topic_h"
+                                  >
+                                    Topic H
                                   </option>
                                 </select>
                                  

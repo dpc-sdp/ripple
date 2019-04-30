@@ -1625,7 +1625,7 @@ const demoData = {
             hint: 'Implemented using rplSelect',
             placeholder: 'Select several topics',
             multiselect: true,
-            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'},{id: 'topic_e', name: 'Topic E'},{id: 'topic_f', name: 'Topic F'},{id: 'topic_g', name: 'Topic G'},{id: 'topic_h', name: 'Topic H'}]
           }
         ],
         groups: [

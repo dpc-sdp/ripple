@@ -31,49 +31,7 @@ describe('FieldRplSelect', () => {
         { id: 'topic_g', name: 'Topic g' },
         { id: 'topic_h', name: 'Topic h' }
       ]
-    },
-    values: [
-      {
-        id: 'topic_a',
-        name: 'Topic A',
-        uuid: 'single-select-drop-down__topic_a'
-      },
-      {
-        id: 'topic_b',
-        name: 'Topic B',
-        uuid: 'single-select-drop-down__topic_b'
-      },
-      {
-        id: 'topic_c',
-        name: 'Topic C',
-        uuid: 'single-select-drop-down__topic_c'
-      },
-      {
-        id: 'topic_d',
-        name: 'Topic D',
-        uuid: 'single-select-drop-down__topic_d'
-      },
-      {
-        id: 'topic_e',
-        name: 'Topic e',
-        uuid: 'single-select-drop-down__topic_e'
-      },
-      {
-        id: 'topic_f',
-        name: 'Topic f',
-        uuid: 'single-select-drop-down__topic_f'
-      },
-      {
-        id: 'topic_g',
-        name: 'Topic g',
-        uuid: 'single-select-drop-down__topic_g'
-      },
-      {
-        id: 'topic_h',
-        name: 'Topic h',
-        uuid: 'single-select-drop-down__topic_h'
-      }
-    ]
+    }
   }
 
   const baseConfig = {
@@ -252,6 +210,25 @@ describe('FieldRplSelect', () => {
       })
 
       expect(wrapper.find('#select-rpl-select-value').text()).toContain('Topic A, Topic B')
+      wrapper.destroy()
+    })
+
+    it('shows count if more than limit selected', () => {
+      wrapper = mount(RplSelect, {
+        ...baseConfig,
+        propsData: {
+          ...baseConfig.propsData,
+          schema: {
+            ...baseConfig.propsData.schema,
+            multiselect: true
+          },
+          model: {
+            select: ['topic_a', 'topic_b', 'topic_c', 'topic_d', 'topic_e', 'topic_f', 'topic_g']
+          }
+        },
+        attachToDocument: true
+      })
+      expect(wrapper.find('.rpl-select__trigger').text()).toContain('Topic A + 6 more')
       wrapper.destroy()
     })
 

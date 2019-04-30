@@ -20,7 +20,7 @@
         @keyup.space.prevent="toggleOpen"
         @keyup.enter.prevent="toggleOpen"
       >
-        <template v-if="selectedItems && selectedItems.length > 0">
+        <template v-if="value && value.length > 0">
           <span :id="`${schema.model}-rpl-select-value`">{{selectedTitles}}</span>
           <span class="rpl-select__label-count" v-if="selectedItems.length > showItemLimit">+ {{selectedItems.length - 1}} more</span>
           <span class="rpl-select__label-visually-hidden"> Selected</span>
@@ -47,7 +47,7 @@
             class="rpl-select__listitem"
             :aria-selected="schema.multiselect ? option.selected : false"
             :class="{'rpl-select__listitem--selected': option.selected && !schema.multiselect, 'rpl-select__listitem--focussed': option.focussed && schema.multiselect}"
-            @click.self="clickItem(option)"
+            @click="clickItem(option)"
             @keyup.space="clickItem(option)"
             tabindex="-1"
             role="option"
@@ -55,7 +55,7 @@
             :key="`${option.id}${index}`"
           >
             <rpl-checkbox :presentational="true" v-if="schema.multiselect" :value="option.selected" class="rpl-select__checkbox" />
-            {{option.name}}
+            <span class="rpl-select__listitem-label">{{option.name}}</span>
             <span v-if="schema.multiselect && option.selected" class="rpl-select__label-visually-hidden" >Checked</span>
           </div>
         </div>
@@ -310,7 +310,7 @@ export default {
 @import "../scss/form";
 
 $rpl-select-inner-padding: $rpl-space-4;
-$rpl-select-dropdown-height: 10rem !default;
+$rpl-select-dropdown-height: 18.5rem !default; /* 7 items */
 $rpl-select-focus-bg-color: rpl-color("secondary") !default;
 $rpl-select-focus-color: rpl-color("white") !default;
 $rpl-select-selected-bg-color: rpl-color("primary") !default;
@@ -388,7 +388,7 @@ $rpl-select-selected-color: rpl-color("white") !default;
     border-top: 1px solid $rpl-form-element-border-color;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    height: $rpl-select-dropdown-height;
+    max-height: $rpl-select-dropdown-height;
     overflow-y: scroll;
   }
 

@@ -396,6 +396,11 @@ $rpl-select-selected-color: rpl-color("white") !default;
       color: $rpl-select-focus-color;
       background-color: $rpl-select-focus-bg-color;
     }
+
+    &-label {
+      position: relative;
+      top: $rpl-space / 2;
+    }
   }
 
   &__checkbox {

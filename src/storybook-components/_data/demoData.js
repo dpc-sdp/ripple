@@ -2233,6 +2233,15 @@ const demoData = {
     image: text('Image', 'http://placehold.it/156x156'),
     inductedYear: text('Inducted Year', '2018'),
     category: text('Category', 'Local Champion')
+  }),
+
+  publicationPagination: () => ({
+    previousLink: text('Previous Link', '#'),
+    previousText: text('Previous Text', 'Previous'),
+    previousDescription: text('Previous Description', 'Previous page title can wrap over two lines'),
+    nextLink: text('Next Link', '#'),
+    nextText: text('Next Text', 'Next'),
+    nextDescription: text('Next Description', 'Next page title can wrap over two lines')
   })
 }
 

@@ -1460,7 +1460,7 @@ const demoData = {
         },
         checkbox: true,
         select: '',
-        multiselect: null,
+        multiselect: ['topic_b'],
         checklistlistbox: ['topic_a'],
         rangeslider: [10000, 70000]
       },

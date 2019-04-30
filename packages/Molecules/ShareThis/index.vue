@@ -109,10 +109,6 @@ export default {
       @include rpl_typography_ruleset($rpl-share-this-social-ruleset);
       margin: $rpl-share-this-social-margin-xs;
       display: inline-block;
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline;
-      }
       @include rpl_breakpoint('l') {
         display: block;
         margin: $rpl-share-this-social-margin-l;
@@ -141,6 +137,12 @@ export default {
       background: 0;
       padding: 0;
       line-height: inherit;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
     }
 
     &__hint {

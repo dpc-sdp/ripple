@@ -1,5 +1,5 @@
 <template>
-  <label :is="presentational ? 'div' : 'label'" class="rpl-checkbox">
+  <label :is="presentational ? 'div' : 'label'" @click="labelClick" class="rpl-checkbox">
     <input
       type="checkbox"
       ref="input_checkbox"
@@ -39,16 +39,12 @@ export default {
   components: {
     RplIcon
   },
-  data () {
-    return {
-      checked: Boolean(this.value)
-    }
-  },
   methods: {
-    updateValue () {
+    updateValue (val) {
+      this.$emit('input', val)
+    },
+    labelClick () {
       if (!this.presentational) {
-        this.updateChange(this.checked)
-        this.checked = !this.checked
         this.$refs['input_checkbox'].focus()
       }
     },
@@ -56,11 +52,18 @@ export default {
       this.$emit('change', event)
     }
   },
-  watch: {
-    value: function (to, from) {
-      this.$nextTick(function () {
-        this.checked = Boolean(to)
-      })
+  computed: {
+    checked: {
+      set (val) {
+        this.updateValue(val)
+        this.updateChange(val)
+      },
+      get () {
+        if (this.value === null || this.value === undefined) {
+          return false
+        }
+        return this.value
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-publication-pagination">
     <div class="rpl-publication-pagination__previous">
-      <rpl-link v-if="previousLink" :href="previousLink" class="rpl-publication-pagination__link" :innerWrap="false">
+      <rpl-link v-if="previousLink" :href="previousLink" class="rpl-publication-pagination__link">
         <rpl-icon class="rpl-publication-pagination__link-icon" symbol="arrow_left_primary" color="primary" />
         <div v-if="previousText" class="rpl-publication-pagination__link-title">{{ previousText }}</div>
         <div v-if="previousDescription">
@@ -13,7 +13,7 @@
       <div v-if="previousLink && nextLink" class="rpl-publication-pagination__spacer-graphic"></div>
     </div>
     <div class="rpl-publication-pagination__next">
-      <rpl-link v-if="nextLink" :href="nextLink" class="rpl-publication-pagination__link" :innerWrap="false">
+      <rpl-link v-if="nextLink" :href="nextLink" class="rpl-publication-pagination__link">
         <rpl-icon class="rpl-publication-pagination__link-icon" symbol="arrow_right_primary" color="primary" />
         <div v-if="nextText" class="rpl-publication-pagination__link-title">{{ nextText }}</div>
         <div v-if="nextDescription">
@@ -50,37 +50,67 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
+  $rpl-publication-pagination-margin-xs: rem(44px) 0 !default;
+  $rpl-publication-pagination-margin-m: rem(60px) 0 !default;
+  $rpl-publication-pagination-spacer-margin-horizontal: rem(48px) !default;
+  $rpl-publication-pagination-spacer-margin: 0 $rpl-publication-pagination-spacer-margin-horizontal !default;
+  $rpl-publication-pagination-spacer-graphic-width: rem(35px) !default;
+  $rpl-publication-pagination-spacer-graphic-height: rem(72px) !default;
+  $rpl-publication-pagination-spacer-height-xs: rem(32px) !default;
+  $rpl-publication-pagination-spacer-graphic-background-image: url('./assets/images/separator.svg') !default;
+  $rpl-publication-pagination-link-max-width: rem(200px) !default;
+  $rpl-publication-pagination-link-title-ruleset: ('m', 1em, 'bold') !default;
+  $rpl-publication-pagination-link-title-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-publication-pagination-link-title-color-hover: rpl-color('primary') !default;
+  $rpl-publication-pagination-link-description-color-hover: rpl-color('primary') !default;
+  $rpl-publication-pagination-link-icon-margin: 0 0 $rpl-space-4 0 !default;
+  $rpl-publication-pagination-link-title-margin: 0 0 $rpl-space-2 0 !default;
+
   .rpl-publication-pagination {
     $root: &;
-    margin: rem(44px) 0;
+    margin: $rpl-publication-pagination-margin-xs;
 
     @include rpl-breakpoint('m') {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      margin: rem(60px) 0;
+      align-items: flex-start;
+      margin: $rpl-publication-pagination-margin-m;
+    }
+
+    &__spacer {
+      align-self: flex-end;
+      margin: $rpl-publication-pagination-spacer-margin;
     }
 
     &__spacer-graphic {
-      height: rem(32px);
+      height: $rpl-publication-pagination-spacer-height-xs;
 
       @include rpl-breakpoint('m') {
-        background-image: url('./assets/images/separator.svg');
-        width: 35px;
-        height: 72px;
+        background-image: $rpl-publication-pagination-spacer-graphic-background-image;
+        width: $rpl-publication-pagination-spacer-graphic-width;
+        height: $rpl-publication-pagination-spacer-graphic-height;
       }
     }
 
+    &__previous,
     &__next {
-      @include rpl-breakpoint('m') {
-        text-align: right;
+      width: calc(50% - #{ ($rpl-publication-pagination-spacer-graphic-width / 2) + $rpl-publication-pagination-spacer-margin-horizontal });
+    }
+
+    &__next {
+      .rpl-link {
+        & > .rpl-link__inner {
+          @include rpl-breakpoint('m') {
+            align-items: flex-end;
+            text-align: right;
+          }
+        }
       }
     }
 
     &__link {
       display: block;
       text-decoration: none;
-      max-width: rem(200px);
 
       &.rpl-link {
         &:hover,
@@ -88,25 +118,29 @@ export default {
           text-decoration: none;
 
           #{$root}__link-title {
-            color: rpl-color('primary');
+            color: $rpl-publication-pagination-link-title-color-hover;
           }
 
           #{$root}__link-description {
-            color: rpl-color('primary');
+            color: $rpl-publication-pagination-link-description-color-hover;
           }
         }
 
+        & > .rpl-link__inner {
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
 
     &__link-icon {
-      margin-bottom: $rpl-space-4;
+      margin: $rpl-publication-pagination-link-icon-margin;
     }
 
     &__link-title {
-      @include rpl_typography_ruleset(('m', 1em, 'bold'));
-      color: rpl-color('extra_dark_neutral');
-      margin-bottom: $rpl-space-2;
+      @include rpl_typography_ruleset($rpl-publication-pagination-link-title-ruleset);
+      color: $rpl-publication-pagination-link-title-color;
+      margin: $rpl-publication-pagination-link-title-margin;
     }
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-publication-pagination">
+  <nav class="rpl-publication-pagination" :aria-label="label">
     <div class="rpl-publication-pagination__previous">
       <rpl-link v-if="previousLink" :href="previousLink" class="rpl-publication-pagination__link">
         <rpl-icon class="rpl-publication-pagination__link-icon" symbol="arrow_left_primary" color="primary" size="1.167" />
@@ -21,7 +21,7 @@
         </div>
       </rpl-link>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -36,6 +36,7 @@ export default {
     RplLinkText
   },
   props: {
+    label: { type: String, default: 'Publication' },
     previousLink: { type: String, default: null },
     previousText: { type: String, default: 'Previous' },
     previousDescription: { type: String, default: '' },

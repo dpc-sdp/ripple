@@ -22,7 +22,8 @@
       >
         <template v-if="value && value.length > 0">
           <span :id="`${schema.model}-rpl-select-value`">{{selectedTitles}}</span>
-          <span class="rpl-select__label-info"> Selected</span>
+          <span class="rpl-select__label-count" v-if="selectedItems.length > showItemLimit">+ {{selectedItems.length - 1}} more</span>
+          <span class="rpl-select__label-visually-hidden"> Selected</span>
         </template>
         <span v-else :id="`${schema.model}-rpl-select-trigger`">{{placeholder}}</span>
         <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
@@ -46,7 +47,7 @@
             class="rpl-select__listitem"
             :aria-selected="schema.multiselect ? option.selected : false"
             :class="{'rpl-select__listitem--selected': option.selected && !schema.multiselect, 'rpl-select__listitem--focussed': option.focussed && schema.multiselect}"
-            @click.self="clickItem(option)"
+            @click="clickItem(option)"
             @keyup.space="clickItem(option)"
             tabindex="-1"
             role="option"
@@ -54,8 +55,8 @@
             :key="`${option.id}${index}`"
           >
             <rpl-checkbox :presentational="true" v-if="schema.multiselect" :value="option.selected" class="rpl-select__checkbox" />
-            {{option.name}}
-            <span v-if="schema.multiselect && option.selected" aria-label="Checked"></span>
+            <span class="rpl-select__listitem-label">{{option.name}}</span>
+            <span v-if="schema.multiselect && option.selected" class="rpl-select__label-visually-hidden" >Checked</span>
           </div>
         </div>
       </div>
@@ -83,6 +84,9 @@ export default {
     }
   },
   computed: {
+    showItemLimit () {
+      return this.schema.showItemLimit || 4
+    },
     placeholder () {
       return this.schema.placeholder || 'Select'
     },
@@ -119,7 +123,21 @@ export default {
       return this.options.filter(opt => opt.selected)
     },
     selectedTitles () {
-      return this.selectedItems.map(itm => itm.name).join(', ')
+      return this.selectedItems
+        .slice(0, this.selectedItems.length > this.showItemLimit ? 1 : this.selectedItems.length)
+        .sort((a, b) => {
+          const nameA = a.name.toLowerCase()
+          const nameB = b.name.toLowerCase()
+          if (nameA < nameB) {
+            return -1
+          }
+          if (nameA > nameB) {
+            return 1
+          }
+          return 0
+        })
+        .map(itm => itm.name)
+        .join(', ')
     },
     fieldId () {
       return this.getFieldID(this.schema)
@@ -292,7 +310,7 @@ export default {
 @import "../scss/form";
 
 $rpl-select-inner-padding: $rpl-space-4;
-$rpl-select-dropdown-height: 10rem !default;
+$rpl-select-dropdown-height: 18.5rem !default; /* 7 items */
 $rpl-select-focus-bg-color: rpl-color("secondary") !default;
 $rpl-select-focus-color: rpl-color("white") !default;
 $rpl-select-selected-bg-color: rpl-color("primary") !default;
@@ -342,8 +360,11 @@ $rpl-select-selected-color: rpl-color("white") !default;
     }
 
   }
+  &__label-count {
+    color: rpl-color('primary');
+  }
 
-  &__label-info {
+  &__label-visually-hidden {
     @include rpl_visually_hidden;
   }
 
@@ -367,7 +388,7 @@ $rpl-select-selected-color: rpl-color("white") !default;
     border-top: 1px solid $rpl-form-element-border-color;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    height: $rpl-select-dropdown-height;
+    max-height: $rpl-select-dropdown-height;
     overflow-y: scroll;
   }
 
@@ -395,6 +416,11 @@ $rpl-select-selected-color: rpl-color("white") !default;
       outline: 0;
       color: $rpl-select-focus-color;
       background-color: $rpl-select-focus-bg-color;
+    }
+
+    &-label {
+      position: relative;
+      top: $rpl-space / 2;
     }
   }
 

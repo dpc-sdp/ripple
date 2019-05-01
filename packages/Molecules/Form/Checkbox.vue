@@ -44,7 +44,9 @@ export default {
       this.$emit('input', val)
     },
     labelClick () {
-      this.$refs['input_checkbox'].focus()
+      if (!this.presentational) {
+        this.$refs['input_checkbox'].focus()
+      }
     },
     updateChange (event) {
       this.$emit('change', event)

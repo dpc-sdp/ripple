@@ -1,16 +1,16 @@
 <template>
   <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
-    <div v-if="innerWrap" class="rpl-link__inner">
+    <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
-    </div>
+    </span>
     <template v-else>
       <slot></slot>
     </template>
   </a>
   <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick">
-    <div v-if="innerWrap" class="rpl-link__inner">
+    <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
-    </div>
+    </span>
     <template v-else>
       <slot></slot>
     </template>

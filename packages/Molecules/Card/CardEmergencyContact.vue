@@ -10,6 +10,7 @@
       <rpl-link
         class="rpl-card-emergency__cta-link"
         :href="filterLink"
+        :innerWrap="false"
         v-if="link"
       >
         <rpl-icon :symbol="iconSymbol" color="primary" size="1.05"/>

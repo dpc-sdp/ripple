@@ -1,11 +1,13 @@
 <template>
   <nav class="rpl-publication-pagination" :aria-label="label">
     <div class="rpl-publication-pagination__previous">
-      <rpl-link v-if="previousLink" :href="previousLink" class="rpl-publication-pagination__link">
-        <rpl-icon class="rpl-publication-pagination__link-icon" symbol="arrow_left_primary" color="primary" size="1.167" />
-        <div v-if="previousText" class="rpl-publication-pagination__link-title">{{ previousText }}</div>
-        <div v-if="previousDescription" class="rpl-publication-pagination__link-description">
-          <rpl-link-text class="rpl-publication-pagination__link-description-text" size="small" :underline="true">{{ previousDescription }}</rpl-link-text>
+      <rpl-link v-if="previousLink" :href="previousLink" class="rpl-publication-pagination__link" :innerWrap="false">
+        <div class="rpl-publication-pagination__link-inner">
+          <rpl-icon class="rpl-publication-pagination__link-icon" symbol="arrow_left_primary" color="primary" size="1.167" />
+          <div v-if="previousText" class="rpl-publication-pagination__link-title">{{ previousText }}</div>
+          <div v-if="previousDescription" class="rpl-publication-pagination__link-description">
+            <rpl-link-text class="rpl-publication-pagination__link-description-text" size="small" :underline="true">{{ previousDescription }}</rpl-link-text>
+          </div>
         </div>
       </rpl-link>
     </div>
@@ -13,11 +15,13 @@
       <div v-if="previousLink && nextLink" class="rpl-publication-pagination__spacer-graphic"></div>
     </div>
     <div class="rpl-publication-pagination__next">
-      <rpl-link v-if="nextLink" :href="nextLink" class="rpl-publication-pagination__link">
-        <rpl-icon class="rpl-publication-pagination__link-icon" symbol="arrow_right_primary" color="primary" size="1.167" />
-        <div v-if="nextText" class="rpl-publication-pagination__link-title">{{ nextText }}</div>
-        <div v-if="nextDescription" class="rpl-publication-pagination__link-description">
-          <rpl-link-text class="rpl-publication-pagination__link-description-text" size="small" :underline="true">{{ nextDescription }}</rpl-link-text>
+      <rpl-link v-if="nextLink" :href="nextLink" class="rpl-publication-pagination__link" :innerWrap="false">
+        <div class="rpl-publication-pagination__link-inner">
+          <rpl-icon class="rpl-publication-pagination__link-icon" symbol="arrow_right_primary" color="primary" size="1.167" />
+          <div v-if="nextText" class="rpl-publication-pagination__link-title">{{ nextText }}</div>
+          <div v-if="nextDescription" class="rpl-publication-pagination__link-description">
+            <rpl-link-text class="rpl-publication-pagination__link-description-text" size="small" :underline="true">{{ nextDescription }}</rpl-link-text>
+          </div>
         </div>
       </rpl-link>
     </div>
@@ -104,7 +108,7 @@ export default {
 
     &__next {
       .rpl-link {
-        & > .rpl-link__inner {
+        #{$root}__link-inner {
           @include rpl-breakpoint('m') {
             align-items: flex-end;
             text-align: right;
@@ -131,7 +135,7 @@ export default {
           }
         }
 
-        & > .rpl-link__inner {
+        #{$root}__link-inner {
           display: flex;
           flex-direction: column;
         }

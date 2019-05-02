@@ -1,4 +1,3 @@
-
 # Ripple
 
 Ripple is a Vue.js component pattern library for SDP.

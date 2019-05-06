@@ -2233,6 +2233,19 @@ const demoData = {
     image: text('Image', 'http://placehold.it/156x156'),
     inductedYear: text('Inducted Year', '2018'),
     category: text('Category', 'Local Champion')
+  }),
+
+  accordion: () => ({
+    title: text('Title', 'Accordion Set'),
+    type: selectV2('Type', ['numbered', 'default'], 'default'),
+    accordions: object('Accordion', [{
+      title: 'Accordion Item',
+      content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
+    }, {
+      title: 'Accordion Item',
+      content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
+    }]),
+    single: boolean('Single', false)
   })
 }
 

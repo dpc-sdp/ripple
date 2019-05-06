@@ -1863,9 +1863,6 @@ const demoData = {
   // a JavaScript function already.
   mapData: () => ({
     baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
-    themeLayerUrl: 'https://prod-gis.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=myvic:public_wifi&outputFormat=application/json&srsname=EPSG:3857',
-    center: [16136905.843820328, -4553057.013522999],
-    zoom: 15
   }),
 
   grid: () => ({

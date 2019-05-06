@@ -18,13 +18,11 @@ npm install @dpc-sdp/ripple-site-header --save
 @dpc-sdp/ripple-site-header
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-icon
+├── @dpc-sdp/ripple-layout
 ├── @dpc-sdp/ripple-link
 ├── @dpc-sdp/ripple-meta-tag
-<<<<<<< HEAD
+├── @dpc-sdp/ripple-search
 └── body-scroll-lock
-=======
-└── @dpc-sdp/ripple-search
->>>>>>> Update package dependencies / docs.
 ```
 
 --------------------------------------------------------------------------------

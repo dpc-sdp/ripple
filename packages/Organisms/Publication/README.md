@@ -16,6 +16,7 @@ npm install @dpc-sdp/ripple-publication --save
 
 ```shell
 @dpc-sdp/ripple-publication
+├── @dpc-sdp/ripple-document-link
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-icon
 └── @dpc-sdp/ripple-link
@@ -26,7 +27,10 @@ npm install @dpc-sdp/ripple-publication --save
 ## Import
 
 ```js
-import { RplPublicationPagination } from '@dpc-sdp/ripple-publication'
+import {
+  RplPublicationPagination,
+  RplPublicationDownloadPrint
+} from '@dpc-sdp/ripple-publication'
 ```
 
 --------------------------------------------------------------------------------
@@ -34,6 +38,8 @@ import { RplPublicationPagination } from '@dpc-sdp/ripple-publication'
 ## Usage and Tests
 
 See [Storybook/Publication Pagination](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Publication&selectedStory=Publication%20Pagination).
+
+See [Storybook/Publication Download Print](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Publication&selectedStory=Publication%20Download%20Print).
 
 --------------------------------------------------------------------------------
 

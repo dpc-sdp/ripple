@@ -1,15 +1,6 @@
 /**
- * Adds package dependencies to the ripple package.json file based on available
- * packages.
- *
- * Requires each ripple package to have:
- *
- *   1. A `package.json` file with:
- *     - name
- *
- * Script expects to be called via npm in the root directory:
- *
- *   `npm run package-dependencies`
+ * Utility methods which provide functionality to
+ * the `npm run package-dependencies` command.
  */
 
 let fs = require('fs')

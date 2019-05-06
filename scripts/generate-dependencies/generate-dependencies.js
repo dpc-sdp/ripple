@@ -3,11 +3,11 @@
  * * Root `./package.json`
  * * Components `./packages/.../package.json`
  *
- * Requires each ripple component package to have:
+ * Requires:
  *
- * 1. A `package.json` file with:
+ * 1. Each ripple component package to have a `package.json` file with:
  *   - name
- * 2. A `lerna.json` file with:
+ * 2. The root directory to have a `lerna.json` file with:
  *   - version
  *
  * Script expects to be called via npm in the root directory:

@@ -16,7 +16,7 @@ storiesOf('Molecules/Map', module)
   .add('Map with no data', withReadme(readme, () => ({
     components: { RplMap },
     template: `<rpl-map
-      :basemapUrl="basemapUrl" />`,
+      :baseMapUrl="baseMapUrl" />`,
     data () {
       return demoData.mapData()
     }
@@ -24,10 +24,10 @@ storiesOf('Molecules/Map', module)
   .add('Map with free wifi data', withReadme(readme, () => ({
     components: { RplMap },
     template: `<rpl-map
-      :basemapUrl="basemapUrl"
-      :themeLayerUrl="wifiLayerUrl"
-      :center="wifiCenter"
-      :zoom="wifiZoom" />`,
+      :baseMapUrl="baseMapUrl"
+      :themeLayerUrl="themeLayerUrl"
+      :center="center"
+      :zoom="zoom" />`,
     data () {
       return demoData.mapData()
     }

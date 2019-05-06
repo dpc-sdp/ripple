@@ -1,23 +1,49 @@
-import TileLayer from 'ol/layer/tile'
-import VectorTileLayer from 'ol/layer/vectortile'
-import VectorTileSource from 'ol/source/vectortile'
-import VectorLayer from 'ol/layer/vector'
-import VectorSource from 'ol/source/vector'
-import XYZSource from 'ol/source/xyz'
-import Style from 'ol/style/style'
-import Text from 'ol/style/text'
-import Fill from 'ol/style/fill'
-import Stroke from 'ol/style/stroke'
-import MVT from 'ol/format/mvt'
-import WFS from 'ol/format/wfs'
-import Map from 'ol/map'
-import View from 'ol/view'
-import Feature from 'ol/feature'
-import Overlay from 'ol/overlay'
-import Zoom from 'ol/control/zoom'
-import Icon from 'ol/style/icon'
+import TileLayer from 'ol/layer/Tile'
+import VectorTileLayer from 'ol/layer/VectorTile'
+import VectorTileSource from 'ol/source/VectorTile'
+import VectorLayer from 'ol/layer/Vector'
+import VectorSource from 'ol/source/Vector'
+import XYZSource from 'ol/source/XYZ'
+import ClusterSource from 'ol/source/Cluster'
+import Style from 'ol/style/Style'
+import Text from 'ol/style/Text'
+import Fill from 'ol/style/Fill'
+import Stroke from 'ol/style/Stroke'
+import MVT from 'ol/format/MVT'
+import WFS from 'ol/format/WFS'
+import Map from 'ol/Map'
+import View from 'ol/View'
+import Feature from 'ol/Feature'
+import Overlay from 'ol/Overlay'
+import Zoom from 'ol/control/Zoom'
+import Icon from 'ol/style/Icon'
+import GeoJSON from 'ol/format/GeoJSON'
+import { bbox } from 'ol/loadingstrategy'
+import AnimatedCluster from 'ol-ext/layer/AnimatedCluster'
+
+const doFeaturesShareSameLocation = features => {
+  if (features.length <= 1) return true
+  const [x1, y1] = features[0].getGeometry().getCoordinates()
+  for (let i = 1; i < features.length; i++) {
+    const [x2, y2] = features[i].getGeometry().getCoordinates()
+    if (x1 !== x2 || y1 !== y2) return false
+  }
+  return true
+}
+
+const createImageIconStyle = (src, crossOrigin, size) => {
+  return new Style({
+    image: new Icon(/** @type {module:ol/style/Icon~Options} */ ({
+      crossOrigin,
+      src,
+      imgSize: size
+    }))
+  })
+}
 
 const ol = {
+  doFeaturesShareSameLocation,
+  createImageIconStyle,
   Map: Map,
   View: View,
   Overlay: Overlay,
@@ -31,20 +57,28 @@ const ol = {
   },
   source: {
     Vector: VectorSource,
-    VectorTile: VectorTileSource,
-    XYZ: XYZSource
+    VectorTileSource,
+    XYZ: XYZSource,
+    ClusterSource,
+    VectorLayer,
+    AnimatedCluster
   },
   style: {
-    Style: Style,
-    Text: Text,
-    Fill: Fill,
-    Stroke: Stroke,
-    Icon: Icon
+    Style,
+    Text,
+    Fill,
+    Stroke,
+    Icon
   },
   format: {
-    MVT: MVT,
-    WFS: WFS
+    MVT,
+    WFS,
+    GeoJSON
+  },
+  loadingstrategy: {
+    bbox
   },
   Feature: Feature
 }
+
 export default ol

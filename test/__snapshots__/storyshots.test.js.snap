@@ -18502,13 +18502,13 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
           <span
             class="hljs-attr"
           >
-            :basemapUrl
+            :baseMapUrl
           </span>
           =
           <span
             class="hljs-string"
           >
-            "basemapUrl"
+            "baseMapUrl"
           </span>
           
 
@@ -18521,7 +18521,7 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
           <span
             class="hljs-string"
           >
-            "wifiLayerUrl"
+            "themeLayerUrl"
           </span>
           
 
@@ -18534,7 +18534,7 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
           <span
             class="hljs-string"
           >
-            "wifiCenter"
+            "center"
           </span>
           
 
@@ -18547,7 +18547,7 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
           <span
             class="hljs-string"
           >
-            "wifiZoom"
+            "zoom"
           </span>
            /&gt;
         </span>
@@ -18625,38 +18625,6 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
             data-v-5bd9cdea=""
           >
             
-    data
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            object
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
     center
     
             <!---->
@@ -18672,9 +18640,41 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
             data-v-5bd9cdea=""
           >
             [
-  16121779.620932763,
-  -4389253.766980502
+  16136905.843820328,
+  -4383057.013522999
 ]
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    zoom
+
+            <!---->
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+            number
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+            7
           </td>
            
           <td
@@ -18692,7 +18692,7 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
             data-v-5bd9cdea=""
           >
             
-    zoom
+    maxZoom
     
             <!---->
           </td>
@@ -18706,7 +18706,39 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            7
+            20
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    minZoom
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            number
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            1
           </td>
            
           <td
@@ -18788,7 +18820,7 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
             data-v-5bd9cdea=""
           >
             
-    basemapUrl
+    baseMapUrl
     
             <span
               class="tag"
@@ -18847,6 +18879,38 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
             data-v-5bd9cdea=""
           >
             
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+
+    customMethods
+
+            <!---->
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+            {}
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+
           </td>
         </tr>
       </tbody>
@@ -18939,13 +19003,13 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
           <span
             class="hljs-attr"
           >
-            :basemapUrl
+            :baseMapUrl
           </span>
           =
           <span
             class="hljs-string"
           >
-            "basemapUrl"
+            "baseMapUrl"
           </span>
            /&gt;
         </span>
@@ -19023,38 +19087,6 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
             data-v-5bd9cdea=""
           >
             
-    data
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            object
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
     center
     
             <!---->
@@ -19065,13 +19097,13 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
           >
             array
           </td>
-           
+
           <td
             data-v-5bd9cdea=""
           >
             [
-  16121779.620932763,
-  -4389253.766980502
+  16136905.843820328,
+  -4383057.013522999
 ]
           </td>
            
@@ -19089,8 +19121,40 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            
+
     zoom
+
+            <!---->
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+            number
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+            7
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    maxZoom
     
             <!---->
           </td>
@@ -19104,7 +19168,39 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-            7
+            20
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    minZoom
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            number
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            1
           </td>
            
           <td
@@ -19186,7 +19282,7 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
             data-v-5bd9cdea=""
           >
             
-    basemapUrl
+    baseMapUrl
     
             <span
               class="tag"
@@ -19245,6 +19341,38 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
             data-v-5bd9cdea=""
           >
             
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+
+    customMethods
+
+            <!---->
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+            {}
+          </td>
+
+          <td
+            data-v-5bd9cdea=""
+          >
+
           </td>
         </tr>
       </tbody>

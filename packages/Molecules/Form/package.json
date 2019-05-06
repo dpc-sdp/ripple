@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.75",
     "moment": "^2.22.1",
     "pikaday": "^1.7.0",
     "vue-form-generator": "^2.2.2",

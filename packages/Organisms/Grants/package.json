@@ -10,7 +10,11 @@
     "access": "public"
   },
   "dependencies": {
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.75",
     "@dpc-sdp/ripple-global": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-list": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-markup": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.75",
     "moment": "^2.22.1"
   }
 }

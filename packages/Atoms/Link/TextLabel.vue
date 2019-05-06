@@ -1,12 +1,12 @@
 <template>
-  <span class="rpl-link-text" :class="{
-    'rpl-link-text--dark': (theme === 'dark'),
-    'rpl-link-text--dark--underline': (theme === 'dark' && underline),
-    'rpl-link-text--small': (size === 'small'),
-    'rpl-link-text--small--underline': (size === 'small' && underline),
-    'rpl-link-text--large': (size === 'large'),
-    'rpl-link-text--large--underline': (size === 'large' && underline),
-    'rpl-link-text--emphasis': emphasis
+  <span class="rpl-text-label" :class="{
+    'rpl-text-label--dark': (theme === 'dark'),
+    'rpl-text-label--dark--underline': (theme === 'dark' && underline),
+    'rpl-text-label--small': (size === 'small'),
+    'rpl-text-label--small--underline': (size === 'small' && underline),
+    'rpl-text-label--large': (size === 'large'),
+    'rpl-text-label--large--underline': (size === 'large' && underline),
+    'rpl-text-label--emphasis': emphasis
   }">
     <slot></slot>
   </span>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'RplLinkText',
+  name: 'RplTextLabel',
   props: {
     underline: { default: false, type: Boolean },
     theme: { default: 'light', type: String },
@@ -43,7 +43,7 @@ export default {
   $rpl-text-link-small-typography-emphasis: ('xs', 1.7em, 'bold') !default;
   $rpl-text-link-large-typography-emphasis: ('l', 1.7em, 'bold') !default;
 
-  .rpl-link-text {
+  .rpl-text-label {
     $root: &;
     @include rpl_text_color($rpl-text-link-text-color);
     text-decoration: none;

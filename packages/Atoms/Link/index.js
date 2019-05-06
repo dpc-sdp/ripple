@@ -1,8 +1,8 @@
 import RplLink from './Link.vue'
 import RplTextLink from './TextLink.vue'
-import RplLinkText from './LinkText.vue'
+import RplTextLabel from './TextLabel.vue'
 
 export {RplLink}
 export {RplTextLink}
-export {RplLinkText}
+export {RplTextLabel}
 export default RplLink

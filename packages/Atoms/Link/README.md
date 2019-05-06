@@ -26,7 +26,7 @@ npm install @dpc-sdp/ripple-link --save
 ## Import
 
 ```js
-import { RplLink, RplTextLink, RplLinkText } from '@dpc-sdp/ripple-link'
+import { RplLink, RplTextLink, RplTextLabel } from '@dpc-sdp/ripple-link'
 ```
 
 --------------------------------------------------------------------------------

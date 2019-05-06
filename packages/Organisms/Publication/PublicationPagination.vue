@@ -6,7 +6,7 @@
           <rpl-icon class="rpl-publication-pagination__link-icon" symbol="arrow_left_primary" color="primary" size="1.167" />
           <div v-if="previousText" class="rpl-publication-pagination__link-title">{{ previousText }}</div>
           <div v-if="previousDescription" class="rpl-publication-pagination__link-description">
-            <rpl-link-text class="rpl-publication-pagination__link-description-text" size="small" :underline="true">{{ previousDescription }}</rpl-link-text>
+            <rpl-text-label class="rpl-publication-pagination__link-description-text" size="small" :underline="true">{{ previousDescription }}</rpl-text-label>
           </div>
         </div>
       </rpl-link>
@@ -20,7 +20,7 @@
           <rpl-icon class="rpl-publication-pagination__link-icon" symbol="arrow_right_primary" color="primary" size="1.167" />
           <div v-if="nextText" class="rpl-publication-pagination__link-title">{{ nextText }}</div>
           <div v-if="nextDescription" class="rpl-publication-pagination__link-description">
-            <rpl-link-text class="rpl-publication-pagination__link-description-text" size="small" :underline="true">{{ nextDescription }}</rpl-link-text>
+            <rpl-text-label class="rpl-publication-pagination__link-description-text" size="small" :underline="true">{{ nextDescription }}</rpl-text-label>
           </div>
         </div>
       </rpl-link>
@@ -30,14 +30,14 @@
 
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
-import { RplLink, RplLinkText } from '@dpc-sdp/ripple-link'
+import { RplLink, RplTextLabel } from '@dpc-sdp/ripple-link'
 
 export default {
   name: 'RplPublicationPagination',
   components: {
     RplIcon,
     RplLink,
-    RplLinkText
+    RplTextLabel
   },
   props: {
     label: { type: String, default: 'Publication' },

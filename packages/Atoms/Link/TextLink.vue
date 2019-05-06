@@ -1,15 +1,15 @@
 <template>
   <rpl-link class="rpl-text-link" :class="{ 'rpl-text-link--underline': underline }" :href="url" :innerWrap="innerWrap">
-    <rpl-link-text :theme="theme" :size="size" :underline="underline" :emphasis="emphasis">
+    <rpl-text-label :theme="theme" :size="size" :underline="underline" :emphasis="emphasis">
       <rpl-text-icon :text="text" :symbol="iconSymbolFinal" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
-    </rpl-link-text>
+    </rpl-text-label>
   </rpl-link>
 </template>
 
 <script>
 import {RplTextIcon} from '@dpc-sdp/ripple-icon'
 import RplLink from './Link.vue'
-import RplLinkText from './LinkText.vue'
+import RplTextLabel from './TextLabel.vue'
 import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
@@ -30,7 +30,7 @@ export default {
   components: {
     RplTextIcon,
     RplLink,
-    RplLinkText
+    RplTextLabel
   },
   computed: {
     iconSymbolFinal () {
@@ -66,7 +66,7 @@ export default {
     &:focus {
       color: $rpl-text-link-text-color-hover;
 
-      .rpl-link-text {
+      .rpl-text-label {
         color: $rpl-text-link-text-color-hover;
 
         &--small {

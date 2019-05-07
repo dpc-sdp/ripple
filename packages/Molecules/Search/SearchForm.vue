@@ -218,14 +218,17 @@ export default {
       @include rpl_typography_ruleset($rpl-search-form-input-ruleset);
       background-color: transparent;
       border: 0;
-      padding: 1px;
       width: 100%;
       color: $rpl-search-form-input-text-color;
+      padding: rem(1px) $rpl-space;
+      margin-left: $rpl-space * -1;
+      box-sizing: border-box;
 
       @at-root {
         #{$root}--dark #{$root}__input {
-          color: $rpl-search-form-dark-text-color;
           @include rpl_focus_dark;
+          outline-offset: 0;
+          color: $rpl-search-form-dark-text-color;
         }
       }
 

@@ -1,5 +1,5 @@
 <template>
-  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
+  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget" :data-print-url="printUrl">
     <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </span>
@@ -7,7 +7,7 @@
       <slot></slot>
     </template>
   </a>
-  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick">
+  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick" :data-print-url="printUrl">
     <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </span>
@@ -35,6 +35,11 @@ export default {
     return {
       isNuxtLink: false,
       linkTarget: null
+    }
+  },
+  computed: {
+    printUrl () {
+      return isRelativeUrl(this.href) ? `${this.rplOptions.origin}${this.href}` : this.href
     }
   },
   methods: {
@@ -73,7 +78,7 @@ export default {
 
   @include rpl_print {
     &[href]:after {
-      content: ' <' attr(href) '> ';
+      content: ' <' attr(data-print-url) '> ';
     }
     &[href^="tel:"]:after {
       content: "";

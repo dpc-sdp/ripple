@@ -282,7 +282,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~ol/ol.css';
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 

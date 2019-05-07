@@ -1,16 +1,16 @@
 <template>
   <div
     v-if="show"
-    id="popup-content"
-    class="map-indicator">
-    <div class="map-indicator__close">
+    id="rpl-map-popup-content"
+    class="rpl-map-indicator">
+    <div class="rpl-map-indicator__close">
       <button-close
         :id="'tabs-close-button'"
         :size="'small'"
         @click="close"/>
     </div>
     <div
-      class="map-indicator__inner"
+      class="rpl-map-indicator__inner"
       :ref="'contentElement'"
       :style="{
         maxHeight: this.maxHeight,
@@ -20,20 +20,20 @@
         <div
           v-for="(feature, index) in selectedFeature"
           :key="index"
-          class="map-indicator__feature-multiple">
-          <h5 class="map-indicator__title">{{ feature.title }}</h5>
-          <div class="map-indicator__content">
-            <div class="map-indicator__readmore" @click="readMoreMultiClick(index)" v-html="showDescOpenMuliText(index)" ></div>
-            <div class="map-indicator__description" v-if="descIsOpen(index)" v-html="feature.content" />
+          class="rpl-map-indicator__feature-multiple">
+          <h5 class="rpl-map-indicator__title">{{ feature.title }}</h5>
+          <div class="rpl-map-indicator__content">
+            <div class="rpl-map-indicator__readmore" @click="readMoreMultiClick(index)" v-html="showDescOpenMuliText(index)" ></div>
+            <div class="rpl-map-indicator__description" v-if="descIsOpen(index)" v-html="feature.content" />
           </div>
           <hr v-if="index !== selectedFeature.length - 1" />
         </div>
       </template>
       <div v-else>
-        <h5 class="map-indicator__title">{{ selectedFeature.title }}</h5>
-        <div class="map-indicator__content">
-          <div class="map-indicator__readmore" @click="readMoreClick" v-html="this.descOpenText" ></div>
-          <div class="map-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
+        <h5 class="rpl-map-indicator__title">{{ selectedFeature.title }}</h5>
+        <div class="rpl-map-indicator__content">
+          <div class="rpl-map-indicator__readmore" @click="readMoreClick" v-html="this.descOpenText" ></div>
+          <div class="rpl-map-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
         </div>
       </div>
     </div>
@@ -144,28 +144,20 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  .standard-button {
-    border-radius: 5px;
-    font-size: 1rem;
-    display: block;
-    margin-bottom: 0;
-    font-weight: 700;
-  }
-
-  .map-indicator {
+  .rpl-map-indicator {
     $root: &;
-    background-color: white;
-    border-radius: 5px;
+    background-color: rpl-color('white');
+    border-radius: rem(5px);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);
     overflow: hidden;
 
     &:before {
-      $size: 12px;
+      $size: rem(12px);
       content: '';
       display: block;
       width: $size;
       height: $size;
-      background-color: white;
+      background-color: rpl-color('white');
       position: absolute;
       bottom: -($size/2);
       left: 50%;
@@ -183,29 +175,27 @@ export default {
 
     &__close {
       position: absolute;
-      right: 1.25rem;
-      top: 1.25rem;
+      right: $rpl-space * 5;
+      top: $rpl-space * 5;
       z-index: 10;
     }
 
     &__title {
       color: rpl-color('primary');
-      font-size: 1rem;
+      font-size: rpl-font-size('s');
       margin-top: 0;
-      margin-bottom: 1rem;
+      margin-bottom: $rpl-space-4;
     }
 
     &__list {
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: rpl-font-size('s');
       list-style-type: decimal;
-      margin-top: .25rem;
-      padding-left: 1rem;
+      margin-top: $rpl-space;
+      padding-left: $rpl-space-4;
     }
 
     &__description {
-      font-size: 0.95rem;
-      font-weight: 500;
+      font-size: rpl-font-size('xs');
       margin-bottom: 0;
 
       // The /deep/ selector helps style elements
@@ -216,19 +206,20 @@ export default {
     }
 
     &__readmore {
-      font-size: 0.85rem;
+      font-size: rpl-font-size('xs');
       text-decoration: underline;
       font-style: italic;
-      margin-top: -9px;
-      margin-bottom: 16px;
+      margin-top: -$rpl-space-2;
+      margin-bottom: $rpl-space-4;
+      cursor: pointer;
     }
 
     // When there are multiple features, style
     // the first block in the list differently
     &__feature-multiple:first-child {
       #{$root}__title {
-        font-size: 1.05rem;
-        color: black;
+      font-size: rpl-font-size('m');
+        color: rpl-color('black');
       }
     }
     &__feature-multiple:first-child {

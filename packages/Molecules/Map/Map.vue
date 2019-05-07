@@ -326,7 +326,7 @@ export default {
     &__popup {
       position: absolute;
       z-index: $rpl-zindex-popover;
-      bottom: rem(11px);
+      bottom: $rpl-space-3;
       transform: translateX(-50%);
       cursor: auto;
     }

@@ -18452,17 +18452,21 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
     data-v-6ca0e090=""
   >
     <div
-      class="rpl-map"
+      class="free-wifi-map demo-content"
       data-v-6ca0e090=""
     >
-       
       <div
-        class="rpl-map__container"
+        class="rpl-map"
       >
+         
         <div
-          class="rpl-map__map"
-          id="map"
-        />
+          class="rpl-map__container"
+        >
+          <div
+            class="rpl-map__map"
+            id="map"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -18495,59 +18499,7 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
           <span
             class="hljs-name"
           >
-            rpl-map
-          </span>
-          
-
-          <span
-            class="hljs-attr"
-          >
-            :baseMapUrl
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "baseMapUrl"
-          </span>
-          
-
-          <span
-            class="hljs-attr"
-          >
-            :themeLayerUrl
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "themeLayerUrl"
-          </span>
-          
-
-          <span
-            class="hljs-attr"
-          >
-            :center
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "center"
-          </span>
-          
-
-          <span
-            class="hljs-attr"
-          >
-            :zoom
-          </span>
-          =
-          <span
-            class="hljs-string"
-          >
-            "zoom"
+            s-vic-free-wifi-map
           </span>
            /&gt;
         </span>
@@ -18572,7 +18524,7 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
       data-v-91bb5cde=""
     >
       
-    "RplMap" Component
+    "SVicFreeWifiMap" Component
   
     </h3>
      
@@ -18615,305 +18567,7 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
        
       <tbody
         data-v-91bb5cde=""
-      >
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    center
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            array
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            [
-  16136905.843820328,
-  -4383057.013522999
-]
-          </td>
-
-          <td
-            data-v-5bd9cdea=""
-          >
-
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    zoom
-
-            <!---->
-          </td>
-
-          <td
-            data-v-5bd9cdea=""
-          >
-            number
-          </td>
-
-          <td
-            data-v-5bd9cdea=""
-          >
-            7
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    maxZoom
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            number
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            20
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    minZoom
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            number
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            1
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    refreshOn
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            boolean
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            false
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    themeLayerUrl
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            string
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    baseMapUrl
-    
-            <span
-              class="tag"
-              data-v-31a7e38c=""
-              data-v-5bd9cdea=""
-            >
-              required
-            </span>
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            string
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-    customThemeFunction
-    
-            <!---->
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            function
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-           
-          <td
-            data-v-5bd9cdea=""
-          >
-            
-          </td>
-        </tr>
-        <tr
-          class="props-table-row"
-          data-v-5bd9cdea=""
-          data-v-91bb5cde=""
-        >
-          <td
-            data-v-5bd9cdea=""
-          >
-
-    customMethods
-
-            <!---->
-          </td>
-
-          <td
-            data-v-5bd9cdea=""
-          >
-            object
-          </td>
-
-          <td
-            data-v-5bd9cdea=""
-          >
-            {}
-          </td>
-
-          <td
-            data-v-5bd9cdea=""
-          >
-
-          </td>
-        </tr>
-      </tbody>
+      />
     </table>
   </div>
 </div>
@@ -19097,7 +18751,7 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
           >
             array
           </td>
-
+           
           <td
             data-v-5bd9cdea=""
           >
@@ -19121,18 +18775,18 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-
+            
     zoom
-
+    
             <!---->
           </td>
-
+           
           <td
             data-v-5bd9cdea=""
           >
             number
           </td>
-
+           
           <td
             data-v-5bd9cdea=""
           >
@@ -19351,28 +19005,28 @@ exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
           <td
             data-v-5bd9cdea=""
           >
-
+            
     customMethods
-
+    
             <!---->
           </td>
-
+           
           <td
             data-v-5bd9cdea=""
           >
             object
           </td>
-
+           
           <td
             data-v-5bd9cdea=""
           >
             {}
           </td>
-
+           
           <td
             data-v-5bd9cdea=""
           >
-
+            
           </td>
         </tr>
       </tbody>

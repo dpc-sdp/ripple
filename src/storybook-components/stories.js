@@ -10,6 +10,7 @@ import SPageCardTrim from './PageCardTrim.vue'
 import SPageSitemap from './PageSitemap.vue'
 import SPageForm from './PageForm.vue'
 import SPageProfile from './PageProfile.vue'
+import SPageAccordion from './PageAccordion.vue'
 import SPagePublication from './PagePublication.vue'
 import SPageCards from './PageCards.vue'
 import SPrintPage from './PrintPage.vue'
@@ -169,6 +170,18 @@ storiesOf('Templates', module)
   .add('Profile Page', () => ({
     components: { SPageProfile },
     template: `<s-page-profile :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Accordion Page', () => ({
+    components: { SPageAccordion },
+    template: `<s-page-accordion :mock="mock" />`,
     data () {
       return {
         mock: demoDataLocked

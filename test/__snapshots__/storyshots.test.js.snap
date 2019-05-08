@@ -26300,6 +26300,410 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Organisms/Accordion Accordion 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/Accordion
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Accordion
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-accordion"
+      data-v-6ca0e090=""
+    >
+      <h2
+        class="rpl-accordion__title-top"
+        id="accordion-set"
+      >
+        Accordion Set
+      </h2>
+       
+      <ul
+        class="rpl-accordion__list"
+      >
+        <li
+          class="rpl-accordion__list-item"
+        >
+          <h2
+            class="rpl-accordion__title"
+          >
+            <button
+              aria-controls="rpl-accordion-0"
+              aria-expanded="false"
+              class="rpl-accordion__button"
+            >
+              <span
+                class="rpl-accordion__button-text"
+              >
+                Accordion Item
+              </span>
+               
+              <!---->
+            </button>
+          </h2>
+           
+          <div
+            class="rpl-accordion__content"
+            id="rpl-accordion-0"
+            style="display: none;"
+          >
+            <div
+              class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+            >
+              <div
+                class="rpl-markup__inner"
+              >
+                Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="rpl-accordion__list-item"
+        >
+          <h2
+            class="rpl-accordion__title"
+          >
+            <button
+              aria-controls="rpl-accordion-1"
+              aria-expanded="false"
+              class="rpl-accordion__button"
+            >
+              <span
+                class="rpl-accordion__button-text"
+              >
+                Accordion Item
+              </span>
+               
+              <!---->
+            </button>
+          </h2>
+           
+          <div
+            class="rpl-accordion__content"
+            id="rpl-accordion-1"
+            style="display: none;"
+          >
+            <div
+              class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+            >
+              <div
+                class="rpl-markup__inner"
+              >
+                Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-accordion
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :title
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "title"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :type
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "type"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :accordions
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "accordions"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :single
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "single"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplAccordion" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    type
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    accordions
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    single
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Organisms/CallToAction Call to Action 1`] = `
 <div
   class="vue-info"
@@ -39753,6 +40157,1359 @@ exports[`RippleStoryshots Organisms/UpdatedDate Updated Date 1`] = `
       </tbody>
     </table>
   </div>
+</div>
+`;
+
+exports[`RippleStoryshots Templates Accordion Page 1`] = `
+<div
+  class="rpl-site-layout demo"
+>
+  <section />
+   
+  <div
+    class="rpl-skip-link"
+    id="rpl-skip-link"
+  >
+    <a
+      class="rpl-skip-link__link"
+      href="#rpl-main-content"
+    >
+      Skip to main content
+    </a>
+  </div>
+   
+  <header
+    class="rpl-site-header-container"
+  >
+    <div>
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        tabindex="-1"
+      />
+       
+      <div
+        data-lock=""
+      >
+        <div
+          class="rpl-site-header"
+        >
+          <div
+            class="rpl-site-header__inner"
+          >
+            <div
+              class="rpl-site-header__top"
+            >
+              <div
+                class="rpl-site-header__logo-container"
+              >
+                <div
+                  class="rpl-site-header__logo-container-inner"
+                >
+                  <button
+                    aria-expanded="false"
+                    class="rpl-site-header__btn rpl-site-header__btn--menu"
+                  >
+                    <!---->
+                     
+                    <span>
+                      Menu
+                    </span>
+                  </button>
+                   
+                  <div
+                    class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
+                  >
+                    <a
+                      class="rpl-link"
+                      href="/"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        <img
+                          alt="vic_logo"
+                          src="file-stub"
+                        />
+                      </span>
+                    </a>
+                  </div>
+                   
+                  <div
+                    class="rpl-site-header__title"
+                  >
+                    <a
+                      class="rpl-link"
+                      href="#"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        <img
+                          alt="vic.gov.au"
+                          src="/cobrand-logo.png"
+                        />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+               
+              <!---->
+               
+              <div
+                class="rpl-site-header__btn-container"
+              >
+                <!---->
+                 
+                <button
+                  class="rpl-site-header__btn rpl-site-header__btn--search"
+                >
+                  <span>
+                    Search website
+                  </span>
+                   
+                  <!---->
+                </button>
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+        </div>
+      </div>
+       
+      <div
+        tabindex="-1"
+      />
+    </div>
+  </header>
+    
+  <main
+    class="rpl-page main"
+  >
+    <section
+      class="rpl-above-content-container"
+    >
+      <div
+        class="rpl-above-content"
+        style="background-image: url(/bggraphic.png);"
+      >
+        <div
+          class="rpl-above-content__inner"
+        >
+          <div
+            class="rpl-above-content__top"
+          >
+             
+            <div
+              class="rpl-quick-exit"
+              data-text="Quick exit"
+            >
+              <a
+                class="rpl-quick-exit__button rpl-quick-exit__button--stickable"
+                href="https://www.google.com"
+              >
+                Quick exit
+              </a>
+            </div>
+          </div>
+           
+          <div
+            class="rpl-hero-banner rpl-site-constrain--on-all"
+          >
+            <!---->
+             
+            <div
+              class="rpl-row"
+            >
+              <div
+                class="rpl-hero-banner__left"
+              >
+                <h1
+                  class="rpl-hero-banner__title"
+                >
+                  <span>
+                    Accordion Page
+                  </span>
+                </h1>
+                 
+                <p
+                  class="rpl-hero-banner__description"
+                >
+                  
+        Test accordion page.
+      
+                </p>
+                 
+              </div>
+               
+              <div
+                class="rpl-hero-banner__right"
+              >
+                <!---->
+                 
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="rpl-above-content-two"
+      />
+    </section>
+     
+    <section
+      class="rpl-content rpl-content--with-sidebar"
+      id="rpl-main-content"
+    >
+      <div
+        class="rpl-site-constrain--on-all"
+      >
+        <div
+          class="rpl-row"
+        >
+          <div
+            class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
+          >
+             
+            <div
+              class="rpl-row rpl-row--gutter"
+            >
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <div
+                  class="rpl-accordion"
+                >
+                  <h2
+                    class="rpl-accordion__title-top"
+                    id="accordion-set"
+                  >
+                    Accordion Set
+                  </h2>
+                   
+                  <ul
+                    class="rpl-accordion__list"
+                  >
+                    <li
+                      class="rpl-accordion__list-item"
+                    >
+                      <h2
+                        class="rpl-accordion__title"
+                      >
+                        <button
+                          aria-controls="rpl-accordion-2"
+                          aria-expanded="false"
+                          class="rpl-accordion__button"
+                        >
+                          <span
+                            class="rpl-accordion__button-text"
+                          >
+                            Accordion Item
+                          </span>
+                           
+                          <!---->
+                        </button>
+                      </h2>
+                       
+                      <div
+                        class="rpl-accordion__content"
+                        id="rpl-accordion-2"
+                        style="display: none;"
+                      >
+                        <div
+                          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+                        >
+                          <div
+                            class="rpl-markup__inner"
+                          >
+                            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="rpl-accordion__list-item"
+                    >
+                      <h2
+                        class="rpl-accordion__title"
+                      >
+                        <button
+                          aria-controls="rpl-accordion-3"
+                          aria-expanded="false"
+                          class="rpl-accordion__button"
+                        >
+                          <span
+                            class="rpl-accordion__button-text"
+                          >
+                            Accordion Item
+                          </span>
+                           
+                          <!---->
+                        </button>
+                      </h2>
+                       
+                      <div
+                        class="rpl-accordion__content"
+                        id="rpl-accordion-3"
+                        style="display: none;"
+                      >
+                        <div
+                          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+                        >
+                          <div
+                            class="rpl-markup__inner"
+                          >
+                            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+             
+            <div
+              class="rpl-row rpl-row--gutter"
+            >
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <div
+                  class="rpl-markup tide-wysiwyg app-wysiwyg"
+                >
+                  <div
+                    class="rpl-markup__inner"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodent tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                     
+                    <p>
+                      Unde omnis ist natus error siten voluptatem accusantium doloremque laudantium, totam rement eaque ipsa quae ab illo inventore veritatis et quasi architecto.
+                    </p>
+                     
+                    <p>
+                      <a
+                        class="rpl-link rpl-button rpl-button--primary"
+                        href="http://www.google.com"
+                        target="_blank"
+                      >
+                        <span
+                          class="rpl-link__inner"
+                        >
+                          This is a link
+                        </span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+             
+            <div
+              class="rpl-row rpl-row--gutter"
+            >
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <div
+                  class="rpl-accordion"
+                >
+                  <h2
+                    class="rpl-accordion__title-top"
+                    id="accordion-set"
+                  >
+                    Accordion Set
+                  </h2>
+                   
+                  <ul
+                    class="rpl-accordion__list"
+                  >
+                    <li
+                      class="rpl-accordion__list-item"
+                    >
+                      <h2
+                        class="rpl-accordion__title"
+                      >
+                        <button
+                          aria-controls="rpl-accordion-4"
+                          aria-expanded="false"
+                          class="rpl-accordion__button"
+                        >
+                          <span
+                            class="rpl-accordion__button-text"
+                          >
+                            Accordion Item
+                          </span>
+                           
+                          <!---->
+                        </button>
+                      </h2>
+                       
+                      <div
+                        class="rpl-accordion__content"
+                        id="rpl-accordion-4"
+                        style="display: none;"
+                      >
+                        <div
+                          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+                        >
+                          <div
+                            class="rpl-markup__inner"
+                          >
+                            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="rpl-accordion__list-item"
+                    >
+                      <h2
+                        class="rpl-accordion__title"
+                      >
+                        <button
+                          aria-controls="rpl-accordion-5"
+                          aria-expanded="false"
+                          class="rpl-accordion__button"
+                        >
+                          <span
+                            class="rpl-accordion__button-text"
+                          >
+                            Accordion Item
+                          </span>
+                           
+                          <!---->
+                        </button>
+                      </h2>
+                       
+                      <div
+                        class="rpl-accordion__content"
+                        id="rpl-accordion-5"
+                        style="display: none;"
+                      >
+                        <div
+                          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+                        >
+                          <div
+                            class="rpl-markup__inner"
+                          >
+                            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+             
+            <div
+              class="rpl-row rpl-row--gutter"
+            >
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <div
+                  class="rpl-accordion"
+                >
+                  <h2
+                    class="rpl-accordion__title-top"
+                    id="accordion-set"
+                  >
+                    Accordion Set
+                  </h2>
+                   
+                  <ul
+                    class="rpl-accordion__list"
+                  >
+                    <li
+                      class="rpl-accordion__list-item"
+                    >
+                      <h2
+                        class="rpl-accordion__title"
+                      >
+                        <button
+                          aria-controls="rpl-accordion-6"
+                          aria-expanded="false"
+                          class="rpl-accordion__button"
+                        >
+                          <span
+                            class="rpl-accordion__button-text"
+                          >
+                            Accordion Item
+                          </span>
+                           
+                          <!---->
+                        </button>
+                      </h2>
+                       
+                      <div
+                        class="rpl-accordion__content"
+                        id="rpl-accordion-6"
+                        style="display: none;"
+                      >
+                        <div
+                          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+                        >
+                          <div
+                            class="rpl-markup__inner"
+                          >
+                            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="rpl-accordion__list-item"
+                    >
+                      <h2
+                        class="rpl-accordion__title"
+                      >
+                        <button
+                          aria-controls="rpl-accordion-7"
+                          aria-expanded="false"
+                          class="rpl-accordion__button"
+                        >
+                          <span
+                            class="rpl-accordion__button-text"
+                          >
+                            Accordion Item
+                          </span>
+                           
+                          <!---->
+                        </button>
+                      </h2>
+                       
+                      <div
+                        class="rpl-accordion__content"
+                        id="rpl-accordion-7"
+                        style="display: none;"
+                      >
+                        <div
+                          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+                        >
+                          <div
+                            class="rpl-markup__inner"
+                          >
+                            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+             
+          </div>
+           
+          <div
+            class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
+          >
+            <div
+              class="rpl-contact rpl-component-gutter"
+            >
+              <div
+                class="rpl-list rpl-list--normal"
+              >
+                <h2
+                  class="rpl-list__title"
+                >
+                  <span
+                    class="rpl-list__title-inner"
+                  >
+                    Need additional help?
+                  </span>
+                </h2>
+                 
+                <p
+                  class="rpl-contact__contact-details"
+                >
+                  <span
+                    class="rpl-contact__name"
+                  >
+                    First Last Name (Job Title)
+                  </span>
+                   
+                  <span
+                    class="rpl-contact__department"
+                  >
+                    Department name
+                  </span>
+                   
+                  <span
+                    class="rpl-contact__postal"
+                  >
+                    PO Box 123, Suburb VIC 3421
+                  </span>
+                </p>
+                 
+                <div
+                  class="rpl-list__list"
+                >
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.google.com.au/maps?q=13%20Street%20Name,%20Suburb%20VIC%203056"
+                      target="_blank"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        13 Street Name, Suburb VIC 3056
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="tel:0398766754"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        03 9876 6754
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="tel:0400000000"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        Mob 0400 000 000
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="mailto:emailaddress@vic.gov.au"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        emailaddress@vic.gov.au
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.facebook.com"
+                      target="_blank"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        Name of Facebook Page
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.twitter.com"
+                      target="_blank"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        Name of Twitter account
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.linkedin.com"
+                      target="_blank"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        Name of LinkedIn profile
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="rpl-list__list-item"
+                  >
+                    <span
+                      class="rpl-list__icon"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <a
+                      class="rpl-link rpl-list__text"
+                      href="https://www.intagram.com"
+                      target="_blank"
+                    >
+                      <span
+                        class="rpl-link__inner"
+                      >
+                        Name of Instagram account
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     
+    <section
+      class="rpl-below-content"
+    />
+  </main>
+    
+  <!---->
+   
+  <footer
+    class="rpl-site-footer-container"
+  >
+    <div
+      class="rpl-site-footer"
+    >
+      <div
+        class="rpl-site-footer__main"
+      >
+        <ul
+          class="rpl-footer-nav"
+        >
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                <span
+                  class="rpl-link__inner"
+                >
+                  Your Services
+                </span>
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Grants awards and assistance
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Law and safety
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Business and Industry
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Jobs and the Workplace
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Transport and Traffic
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Education
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Housing and Property
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Health
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Community
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Art, Culture and Sport
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Environment and Water
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                <span
+                  class="rpl-link__inner"
+                >
+                  About VIC Government
+                </span>
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Grants awards and assistance
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Law and safety
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Business and Industry
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Jobs and the Workplace
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Transport and Traffic
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Education
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Housing and Property
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Health
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Community
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Art, Culture and Sport
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Environment and Water
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                <span
+                  class="rpl-link__inner"
+                >
+                  News
+                </span>
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                <span
+                  class="rpl-link__inner"
+                >
+                  Events
+                </span>
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <!---->
+          </li>
+          <li
+            class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent"
+          >
+            <h2
+              class="rpl-footer-nav__heading"
+            >
+              <a
+                class="rpl-link"
+              >
+                <span
+                  class="rpl-link__inner"
+                >
+                  Connect with us
+                </span>
+              </a>
+               
+              <!---->
+            </h2>
+             
+            <ul
+              class="rpl-footer-nav__submenu-item"
+              style="display: none;"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Education
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Housing and Property
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Health
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+         
+        <div
+          class="rpl-acknowledgement"
+        >
+          The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
+        </div>
+      </div>
+       
+      <div
+        class="rpl-site-footer__bottom"
+      >
+        <div
+          class="rpl-site-footer__bottom-main"
+        >
+          <div
+            class="rpl-links-and-copyright"
+          >
+            <ul
+              class="rpl-links-and-copyright__links"
+            >
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Privacy
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Disclaimer
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Terms of use
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Sitemap
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Accessibility Statement
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="rpl-link"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    Help
+                  </span>
+                </a>
+              </li>
+            </ul>
+             
+            <div
+              class="rpl-links-and-copyright__copyright"
+            >
+              © Copyright State Government of Victoria
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-site-footer__logos"
+        >
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <img
+                alt="Max native size"
+                src="https://placehold.it/112x52"
+              />
+            </span>
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <img
+                alt="Smaller than max size"
+                src="https://placehold.it/32x32"
+              />
+            </span>
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <img
+                alt="Portrait"
+                src="https://placehold.it/80x200"
+              />
+            </span>
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <img
+                alt="Landscape"
+                src="https://placehold.it/200x80"
+              />
+            </span>
+          </a>
+          <a
+            class="rpl-link rpl-site-footer__logo"
+            href="https://vic.gov.au"
+            target="_blank"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <img
+                alt="Victoria Government Website"
+                src="file-stub"
+              />
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>
 `;
 

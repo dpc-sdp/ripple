@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-publication",
-  "version": "1.0.0-alpha.74",
+  "version": "1.0.0-alpha.75",
   "description": "A package for publication components.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,8 +10,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.74",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.74",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.74"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.75"
   }
 }

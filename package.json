@@ -50,6 +50,7 @@
     "@dpc-sdp/ripple-layout": "file:packages/Molecules/Layout",
     "@dpc-sdp/ripple-link": "file:packages/Atoms/Link",
     "@dpc-sdp/ripple-list": "file:packages/Molecules/List",
+    "@dpc-sdp/ripple-map": "file:packages/Molecules/Map",
     "@dpc-sdp/ripple-markup": "file:packages/Organisms/Markup",
     "@dpc-sdp/ripple-meta-tag": "file:packages/Atoms/MetaTag",
     "@dpc-sdp/ripple-news": "file:packages/Organisms/News",
@@ -66,7 +67,6 @@
     "@dpc-sdp/ripple-timeline": "file:packages/Molecules/Timeline",
     "@dpc-sdp/ripple-updated-date": "file:packages/Organisms/UpdatedDate",
     "@dpc-sdp/ripple-whats-next": "file:packages/Molecules/WhatsNext",
-    "@dpc-sdp/ripple-map": "file:packages/Molecules/Map",
     "vue": "^2.5.16"
   },
   "devDependencies": {

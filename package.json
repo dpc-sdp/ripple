@@ -56,6 +56,7 @@
     "@dpc-sdp/ripple-news": "file:packages/Organisms/News",
     "@dpc-sdp/ripple-pagination": "file:packages/Molecules/Pagination",
     "@dpc-sdp/ripple-profile": "file:packages/Organisms/Profile",
+    "@dpc-sdp/ripple-publication": "file:packages/Organisms/Publication",
     "@dpc-sdp/ripple-publish-date-and-author": "file:packages/Molecules/PublishDateAndAuthor",
     "@dpc-sdp/ripple-related-links": "file:packages/Molecules/RelatedLinks",
     "@dpc-sdp/ripple-search": "file:packages/Molecules/Search",

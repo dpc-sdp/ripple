@@ -2243,6 +2243,15 @@ const demoData = {
       content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
     }]),
     single: boolean('Single', false)
+  }),
+
+  publicationPagination: () => ({
+    previousLink: text('Previous Link', '#'),
+    previousText: text('Previous Text', 'Previous'),
+    previousDescription: text('Previous Description', 'Previous page title can wrap over two lines'),
+    nextLink: text('Next Link', '#'),
+    nextText: text('Next Text', 'Next'),
+    nextDescription: text('Next Description', 'Next page title can wrap over two lines')
   })
 }
 

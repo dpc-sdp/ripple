@@ -7,6 +7,7 @@ import {
 } from '@storybook/addon-knobs/vue'
 
 import RplPublicationPagination from './PublicationPagination.vue'
+import RplPublicationDownloadPrint from './PublicationDownloadPrint.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
 
@@ -18,5 +19,12 @@ storiesOf('Organisms/Publication', module)
     template: `<rpl-publication-pagination :previousLink="previousLink" :previousText="previousText" :previousDescription="previousDescription" :nextLink="nextLink" :nextText="nextText" :nextDescription="nextDescription" />`,
     data () {
       return demoData.publicationPagination()
+    }
+  })))
+  .add('Publication Download Print', withReadme(readme, () => ({
+    components: { RplPublicationDownloadPrint },
+    template: `<rpl-publication-download-print :links="links" :showPrint="showPrint" />`,
+    data () {
+      return demoData.publicationDownloadPrint()
     }
   })))

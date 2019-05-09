@@ -2288,6 +2288,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
         <!---->
          
         <code>
+          print
+        </code>
+      </li>
+      <li>
+        <!---->
+         
+        <code>
           right
         </code>
       </li>
@@ -36421,6 +36428,373 @@ exports[`RippleStoryshots Organisms/Profile Profile Highlight Honour Roll 1`] = 
 </div>
 `;
 
+exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/Publication
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Publication Download Print
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <ul
+      class="rpl-publication-download-print"
+      data-v-6ca0e090=""
+    >
+      <li>
+        <figure
+          class="rpl-document-link rpl-publication-download-print__print-item"
+        >
+          <a
+            aria-label="Short title of a document File type: pdf. Size: 1.2 mb"
+            class="rpl-document-link__link"
+            download=""
+            href="#"
+          >
+            <!---->
+             
+            <div
+              class="rpl-document-link__info"
+            >
+              <span
+                class="rpl-document-link__title"
+              >
+                Short title of a document
+              </span>
+               
+              <div
+                class="rpl-document-link__meta"
+              >
+                <span
+                  class="rpl-document-link__type"
+                >
+                  pdf
+                </span>
+                 
+                <span
+                  class="rpl-document-link__size rpl-document-link__size--seperator"
+                >
+                  1.2 mb
+                </span>
+              </div>
+            </div>
+          </a>
+           
+          <!---->
+        </figure>
+      </li>
+      <li>
+        <figure
+          class="rpl-document-link rpl-publication-download-print__print-item"
+        >
+          <a
+            aria-label="External document link File type: pdf. Size: 1.2 mb"
+            class="rpl-document-link__link"
+            href="https://www.google.com"
+            target="_blank"
+          >
+            <!---->
+             
+            <div
+              class="rpl-document-link__info"
+            >
+              <span
+                class="rpl-document-link__title"
+              >
+                External document link
+              </span>
+               
+              <div
+                class="rpl-document-link__meta"
+              >
+                <span
+                  class="rpl-document-link__type"
+                >
+                  pdf
+                </span>
+                 
+                <span
+                  class="rpl-document-link__size rpl-document-link__size--seperator"
+                >
+                  1.2 mb
+                </span>
+              </div>
+            </div>
+          </a>
+           
+          <!---->
+        </figure>
+      </li>
+       
+      <li
+        class="rpl-publication-download-print__print-list-item"
+      >
+        <button
+          class="rpl-publication-download-print__print-item rpl-publication-download-print__print-button"
+        >
+          <!---->
+           
+          <div
+            class="rpl-publication-download-print__print-button-info"
+          >
+            <span
+              class="rpl-publication-download-print__print-button-title"
+            >
+              Print this page
+            </span>
+          </div>
+        </button>
+      </li>
+    </ul>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-publication-download-print
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :links
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "links"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :showPrint
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "showPrint"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplPublicationDownloadPrint" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    links
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            array
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    showPrint
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            boolean
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            true
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    printText
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            Print this page
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Organisms/Publication Publication Pagination 1`] = `
 <div
   class="vue-info"
@@ -68230,6 +68604,115 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
           <div
             class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
           >
+            <ul
+              class="rpl-publication-download-print rpl-component-gutter"
+            >
+              <li>
+                <figure
+                  class="rpl-document-link rpl-publication-download-print__print-item"
+                >
+                  <a
+                    aria-label="Short title of a document File type: pdf. Size: 1.2 mb"
+                    class="rpl-document-link__link"
+                    download=""
+                    href="#"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="rpl-document-link__info"
+                    >
+                      <span
+                        class="rpl-document-link__title"
+                      >
+                        Short title of a document
+                      </span>
+                       
+                      <div
+                        class="rpl-document-link__meta"
+                      >
+                        <span
+                          class="rpl-document-link__type"
+                        >
+                          pdf
+                        </span>
+                         
+                        <span
+                          class="rpl-document-link__size rpl-document-link__size--seperator"
+                        >
+                          1.2 mb
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                   
+                  <!---->
+                </figure>
+              </li>
+              <li>
+                <figure
+                  class="rpl-document-link rpl-publication-download-print__print-item"
+                >
+                  <a
+                    aria-label="External document link File type: pdf. Size: 1.2 mb"
+                    class="rpl-document-link__link"
+                    href="https://www.google.com"
+                    target="_blank"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="rpl-document-link__info"
+                    >
+                      <span
+                        class="rpl-document-link__title"
+                      >
+                        External document link
+                      </span>
+                       
+                      <div
+                        class="rpl-document-link__meta"
+                      >
+                        <span
+                          class="rpl-document-link__type"
+                        >
+                          pdf
+                        </span>
+                         
+                        <span
+                          class="rpl-document-link__size rpl-document-link__size--seperator"
+                        >
+                          1.2 mb
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                   
+                  <!---->
+                </figure>
+              </li>
+               
+              <li
+                class="rpl-publication-download-print__print-list-item"
+              >
+                <button
+                  class="rpl-publication-download-print__print-item rpl-publication-download-print__print-button"
+                >
+                  <!---->
+                   
+                  <div
+                    class="rpl-publication-download-print__print-button-info"
+                  >
+                    <span
+                      class="rpl-publication-download-print__print-button-title"
+                    >
+                      Print this page
+                    </span>
+                  </div>
+                </button>
+              </li>
+            </ul>
+             
             <div
               class="rpl-site-section-navigation rpl-component-gutter"
             >

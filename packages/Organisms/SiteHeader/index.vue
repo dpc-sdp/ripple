@@ -308,6 +308,8 @@ export default {
     box-sizing: border-box;
     width: 100%;
 
+    @include rpl_print_hidden;
+
     @include rpl_breakpoint('s') {
       padding: $rpl-header-horizontal-padding-s;
     }

@@ -51,6 +51,8 @@ export default {
       display: block;
     }
 
+    @include rpl_print_hidden;
+
     &__items {
       display: inline-block;
       list-style: none;

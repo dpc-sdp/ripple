@@ -169,6 +169,8 @@ export default {
       padding-bottom: $rpl-space * 15;
     }
 
+    @include rpl_print_hidden;
+
     h1 {
       @include rpl_typography_ruleset($rpl-search-form-heading-ruleset);
       color: $rpl-search-form-heading-color;

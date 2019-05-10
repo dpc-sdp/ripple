@@ -117,14 +117,18 @@ export default {
   $rpl-contact-icon-margin: 0 $rpl-space-2 0 0;
 
   .rpl-contact {
+    @include rpl_text_color($rpl-contact-text-color);
     padding-top: $rpl-space-4;
     background: $rpl-contact-background;
-    color: $rpl-contact-text-color;
     position: relative;
+
+    @include rpl_print {
+      page-break-inside: avoid;
+    }
 
     &__title {
       @include rpl_typography_ruleset($rpl-contact-title-ruleset);
-      color: $rpl-contact-title-color;
+      @include rpl_text_color($rpl-contact-title-color);
       margin: $rpl-contact-title-margin;
     }
 
@@ -143,6 +147,10 @@ export default {
       padding: $rpl-contact-details-padding;
       margin: $rpl-contact-paragraph-margin;
 
+      @include rpl_print {
+        padding: 0;
+      }
+
       &::before {
         content: '';
         display: inline-block;
@@ -152,7 +160,10 @@ export default {
         left: 0;
         width: rem(4px);
         background-image: $rpl-contact-details-border-image;
+
+        @include rpl_print_hidden;
       }
+
     }
 
     &__name {
@@ -171,7 +182,7 @@ export default {
     }
 
     .rpl-link {
-      color: $rpl-contact-link-color;
+      @include rpl_text_color($rpl-contact-link-color);
     }
   }
 </style>

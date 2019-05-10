@@ -15,7 +15,7 @@ storiesOf('Organisms/ImageGallery', module)
   .addDecorator(withKnobs)
   .add('Image Gallery', withReadme(readme, () => ({
     components: { RplImageGallery },
-    template: `<rpl-image-gallery :gallery-data="gallery" :enlarge-text="enlargeText" />`,
+    template: `<rpl-image-gallery :galleryData="galleryData" :enlargeText="enlargeText" />`,
     data () {
       return demoData.imageGallery()
     }

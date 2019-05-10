@@ -10,7 +10,10 @@ import SPageCardTrim from './PageCardTrim.vue'
 import SPageSitemap from './PageSitemap.vue'
 import SPageForm from './PageForm.vue'
 import SPageProfile from './PageProfile.vue'
+import SPageAccordion from './PageAccordion.vue'
+import SPagePublication from './PagePublication.vue'
 import SPageCards from './PageCards.vue'
+import SPrintPage from './PrintPage.vue'
 
 import {
   withKnobs,
@@ -176,9 +179,45 @@ storiesOf('Templates', module)
 
 storiesOf('Templates', module)
   .addDecorator(withKnobs)
+  .add('Accordion Page', () => ({
+    components: { SPageAccordion },
+    template: `<s-page-accordion :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Publication Page', () => ({
+    components: { SPagePublication },
+    template: `<s-page-publication :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
   .add('Page with Cards', () => ({
     components: { SPageCards },
     template: `<s-page-cards :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Print Page', () => ({
+    components: { SPrintPage },
+    template: `<s-print-page :mock="mock" />`,
     data () {
       return {
         mock: demoDataLocked

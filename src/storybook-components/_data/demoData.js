@@ -865,7 +865,7 @@ const demoData = {
     title: text('Title', 'Primary campaign headline'),
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'),
     link: object('Call to action', { text: 'Call to action', url: '#' }),
-    image: text('Image', 'http://placehold.it/699x411')
+    image: object('Image', { src: 'http://placehold.it/699x411', alt: '' })
   }),
 
   updatedDate: () => ({
@@ -1460,10 +1460,8 @@ const demoData = {
         },
         checkbox: true,
         select: '',
-        multiselect: null,
-        singleselect: null,
+        multiselect: ['topic_b'],
         checklistlistbox: ['topic_a'],
-        checklistdropdown: ['topic_a', 'topic_b', 'invalid'],
         rangeslider: [10000, 70000]
       },
 
@@ -1603,48 +1601,14 @@ const demoData = {
           },
 
           {
-            type: 'rplchecklist',
-            single: true,
-            label: 'Single-select drop down',
-            model: 'singleselect',
-            hint: 'Implemented using rplchecklist',
-            placeholder: 'Select a single topic',
-            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
-          },
-
-          {
-            type: 'rplchecklist',
-            label: 'Multi-select drop down',
-            validator (value) {
-              if (Array.isArray(value) && value.length > 0) {
-                return []
-              }
-              return ['Add a selection']
-            },
-            min: 1,
-            required: true,
-            model: 'checklistdropdown',
-            hint: 'Implemented using rplchecklist',
-            placeholder: 'Select multiple topics',
-            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
-          },
-
-          {
             type: 'rplselect',
             model: 'select',
             required: true,
             validator: ['required'],
             label: 'Single-select drop down',
-            hint: 'Implemented using vue-multiselect',
+            hint: 'Implemented using rplSelect',
             placeholder: 'Select a single topic',
-            selectOptions: {
-              trackBy: 'id',
-              label: 'name',
-              closeOnSelect: true,
-              searchable: false,
-              showLabels: false
-            },
-            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}, {id: 'topic_e', name: 'Topic e'}, {id: 'topic_f', name: 'Topic f'}, {id: 'topic_g', name: 'Topic g'}, {id: 'topic_h', name: 'Topic h'}]
           },
           {
             type: 'rplselect',
@@ -1658,17 +1622,10 @@ const demoData = {
             },
             min: 1,
             label: 'Multi-select drop down',
-            hint: 'Implemented using vue-multiselect',
+            hint: 'Implemented using rplSelect',
             placeholder: 'Select several topics',
-            selectOptions: {
-              trackBy: 'id',
-              label: 'name',
-              multiple: true,
-              closeOnSelect: true,
-              searchable: false,
-              showLabels: false
-            },
-            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}]
+            multiselect: true,
+            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}, {id: 'topic_e', name: 'Topic E'}, {id: 'topic_f', name: 'Topic F'}, {id: 'topic_g', name: 'Topic G'}, {id: 'topic_h', name: 'Topic H'}]
           }
         ],
         groups: [
@@ -1902,6 +1859,12 @@ const demoData = {
     disabled: boolean('Disabled', false)
   }),
 
+  // This function name isn't map() because that's
+  // a JavaScript function already.
+  mapData: () => ({
+    baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+  }),
+
   grid: () => ({
     cols: text('Cols default', 'full'),
     colsBp: object('Cols in breakpoints', {
@@ -2058,7 +2021,7 @@ const demoData = {
   }),
 
   imageGallery: () => ({
-    gallery: object('Gallery Data', [{
+    galleryData: object('Gallery Data', [{
       image: 'https://placehold.it/1024x768/900/fff',
       alt: 'A test image',
       title: 'Image title here',
@@ -2186,7 +2149,76 @@ const demoData = {
   }),
 
   markup: () => ({
-    html: text('Html', '<article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>  <a href="http://www.google.com" class="button">go to google</a> ')
+    html: text('Html', `
+    <h2>Embedded document</h2>
+    <article
+      class="embedded-entity embedded-entity--media embedded-entity--media--document"
+    >
+      <article class="media media--type-document media--view-mode-embedded">
+        <div
+          class="field field--name-field-media-file field--type-file field--label-hidden field__item"
+        >
+          <span
+            class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"
+            ><a
+              href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+              aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB."
+              class="x-office-document tide-external-link"
+              target="_blank"
+              ><span class="file--title">
+                Detailed Guide on the mandatory IR management criteria </span
+              ><span class="file--type">Word</span
+              ><span class="file--size">75.22 KB</span></a
+            ></span
+          >
+        </div>
+      </article>
+    </article>
+    <h2>Link</h2>
+    <p>
+      A paragraph of <strong>text</strong> with a
+      <a href="https://vic.gov.au">link</a>.
+    </p>
+    <h2>Button</h2>
+    <a href="http://www.google.com" class="button">go to google</a>
+    <h2>Quotation</h2>
+    <blockquote class="quotation">
+      <p>
+        Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis
+        dolorpo rrorem reptaep elenis net.
+      </p>
+      <footer>
+        <cite
+          ><span class="quotation__author"
+            >Her Excellency the Honourable Linda Dessau AC</span
+          ><br />
+          <span class="quotation__author-title">Governor of Victoria</span></cite
+        >
+      </footer>
+    </blockquote>
+    <h2>Image</h2>
+    <figure
+      role="group"
+      class="caption caption-article embedded-entity embedded-entity--media embedded-entity--media--image"
+    >
+      <article>
+        <article class="media media--type-image media--view-mode-embedded">
+          <div
+            class="field field--name-field-media-image field--type-image field--label-hidden field__item"
+          >
+            <img
+              alt=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
+              height="150"
+              src="https://www.develop.content.vic.gov.au/sites/default/files/2019-03/womens-honour-roll-2019-Judy-Tegart-Dalton.png"
+              title=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
+              width="150"
+            />
+          </div>
+        </article>
+      </article>
+      <figcaption>caption</figcaption>
+    </figure>
+    `)
   }),
 
   profileHightlight: () => ({
@@ -2194,10 +2226,32 @@ const demoData = {
     content: text('Content', '<p>HTML Content</p>')
   }),
 
-  profileHightlightHonourRoll: () => ({
+  profileHighlightHonourRoll: () => ({
     image: text('Image', 'http://placehold.it/156x156'),
     inductedYear: text('Inducted Year', '2018'),
     category: text('Category', 'Local Champion')
+  }),
+
+  accordion: () => ({
+    title: text('Title', 'Accordion Set'),
+    type: selectV2('Type', ['numbered', 'default'], 'default'),
+    accordions: object('Accordion', [{
+      title: 'Accordion Item',
+      content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
+    }, {
+      title: 'Accordion Item',
+      content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
+    }]),
+    single: boolean('Single', false)
+  }),
+
+  publicationPagination: () => ({
+    previousLink: text('Previous Link', '#'),
+    previousText: text('Previous Text', 'Previous'),
+    previousDescription: text('Previous Description', 'Previous page title can wrap over two lines'),
+    nextLink: text('Next Link', '#'),
+    nextText: text('Next Text', 'Next'),
+    nextDescription: text('Next Description', 'Next page title can wrap over two lines')
   })
 }
 

@@ -22,6 +22,9 @@ rules:
     -
       exclude:
         - rpl_breakpoint
+        - rpl_breakpoint_down
+        - rpl_breakpoint_between
+        - rpl_print
   variable-name-format:
     - 1
     -

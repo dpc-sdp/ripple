@@ -1,9 +1,19 @@
 <template>
   <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
-    <slot></slot>
+    <span v-if="innerWrap" class="rpl-link__inner">
+      <slot></slot>
+    </span>
+    <template v-else>
+      <slot></slot>
+    </template>
   </a>
   <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick">
-    <slot></slot>
+    <span v-if="innerWrap" class="rpl-link__inner">
+      <slot></slot>
+    </span>
+    <template v-else>
+      <slot></slot>
+    </template>
   </nuxt-link>
 </template>
 
@@ -15,7 +25,8 @@ export default {
   name: 'RplLink',
   props: {
     href: String,
-    target: { type: String, default: '' }
+    target: { type: String, default: '' },
+    innerWrap: { type: Boolean, default: true }
   },
   directives: {
     focus
@@ -54,8 +65,28 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
+
 .rpl-link {
   text-decoration: none;
+
+  @include rpl_print {
+    &[href]:after {
+      content: ' <' attr(href) '> ';
+    }
+    &[href^="tel:"]:after {
+      content: "";
+    }
+  }
+
+  &__inner {
+    display: inline;
+
+    @include rpl_print {
+      text-decoration: underline;
+    }
+  }
 
   &:hover,
   &:focus {

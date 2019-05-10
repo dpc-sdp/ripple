@@ -204,12 +204,23 @@ export default {
       }
     }
 
+    @include rpl_print {
+      padding: 0;
+      border: 0;
+      background-image: none !important; // Needs to override inline definition.
+    }
+
     &__left {
       @include rpl_grid_full;
 
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(8);
         padding-right: $rpl-hero-banner-left-padding;
+      }
+
+      @include rpl_print {
+        @include rpl_grid_full;
+        padding-right: 0;
       }
     }
 
@@ -220,6 +231,8 @@ export default {
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(4);
       }
+
+      @include rpl_print_hidden;
     }
 
     &__logo {
@@ -234,7 +247,7 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset);
-      color: $rpl-hero-banner-title-color;
+      @include rpl_text_color($rpl-hero-banner-title-color);
       margin: 0;
 
       &--dark {
@@ -244,7 +257,7 @@ export default {
 
     &__description {
       @include rpl_typography_ruleset($rpl-hero-banner-description-typography-ruleset);
-      color: $rpl-hero-banner-description-text-color;
+      @include rpl_text_color($rpl-hero-banner-description-text-color);
       letter-spacing: $rpl-hero-banner-description-letter-spacing;
       margin-top: $rpl-space;
 
@@ -255,6 +268,8 @@ export default {
       @include rpl_breakpoint(l) {
         margin-top: $rpl-space-4;
       }
+
+      @include rpl_print_margin('s');
 
       &--dark {
         color: $rpl-hero-banner-description-text-color-dark;

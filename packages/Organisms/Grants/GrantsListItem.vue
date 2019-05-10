@@ -64,6 +64,7 @@ export default {
         display: flex;
         flex-direction: row;
       }
+      @include rpl_print_hidden;
     }
 
     &__tag {

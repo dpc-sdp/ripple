@@ -19,7 +19,8 @@ npm install @dpc-sdp/ripple-site-header --save
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-icon
 ├── @dpc-sdp/ripple-link
-└── @dpc-sdp/ripple-meta-tag
+├── @dpc-sdp/ripple-meta-tag
+└── body-scroll-lock
 ```
 
 --------------------------------------------------------------------------------

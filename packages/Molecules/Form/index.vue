@@ -131,6 +131,13 @@ export default {
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style lang="scss">
+$rpl-form-radio-size: 20px !default;
+$rpl-form-radio-size-s: 24px !default;
+$rpl-form-radio-dot-size: 30% !default; // to center dot use percentage size
+$rpl-form-radio-dot-size-s: 8px !default; // to center dot use percentage size
+$rpl-form-radio-checked-transition: background-color .2s ease !default;
+$rpl-form-radio-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !default;
+
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 @import "~@dpc-sdp/ripple-global/scss/components/button";
@@ -191,12 +198,57 @@ export default {
   .radio-list {
     label {
       @include rpl_typography_ruleset($rpl-form-text-ruleset);
-      display: inline;
+      display: inline-flex;
+      align-items: center;
       margin-right: $rpl-space-4;
     }
 
     input[type="radio"] {
       margin-right: $rpl-space-2;
+    }
+  }
+
+  // only style radio buttons if the browser supports changing their appearance
+  @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+    input[type="radio"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      outline: 0; // outline disabled to mimic native radio
+      border-radius: 100%;
+      background-color: rpl-color('light_neutral');
+      border: solid 1px rpl-color('mid_neutral_1');
+      box-shadow: $rpl-form-radio-shadow;
+      width: $rpl-form-radio-size-s;
+      height: $rpl-form-radio-size-s;
+
+      @include rpl_breakpoint(s) {
+        width: $rpl-form-radio-size;
+        height: $rpl-form-radio-size;
+      }
+
+      &:before {
+        content:'';
+        display:block;
+        width: calc(#{$rpl-form-radio-dot-size} + 1px);
+        height: calc(#{$rpl-form-radio-dot-size} + 1px);
+        border-radius:50%;
+        transition: $rpl-form-radio-checked-transition;
+        margin: calc((#{$rpl-form-radio-size-s} / 2) - (#{$rpl-form-radio-dot-size-s} / 2) - 1px) auto;
+        @include rpl_breakpoint(s) {
+          margin: calc((#{$rpl-form-radio-size} / 2) - (#{$rpl-form-radio-dot-size} / 2) - 2px) auto;
+        }
+      }
+
+      &:checked {
+        border: solid 1px rpl-color('secondary');
+        &:before {
+          background-color: rpl-color('secondary');
+        }
+      }
+
+      &:focus {
+        border-color: rpl-color('primary');
+      }
     }
   }
 

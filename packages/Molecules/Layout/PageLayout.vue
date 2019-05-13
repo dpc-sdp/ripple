@@ -26,7 +26,12 @@
           <rpl-col cols="full" :colsBp="mainCols" class="rpl-main">
             <slot></slot>
           </rpl-col>
-          <rpl-col cols="full" :colsBp="{l:4}" :push="{l:1}" class="rpl-sidebar" v-if="sidebar">
+          <rpl-col
+            v-if="sidebar"
+            :colsBp="columns.sidebar.colsBp"
+            :push="columns.sidebar.push"
+            cols="full"
+            class="rpl-sidebar" >
             <slot name="sidebar"></slot>
           </rpl-col>
         </rpl-row>
@@ -49,6 +54,18 @@ export default {
   components: { RplContainer, RplRow, RplCol, RplQuickExit },
   props: {
     'sidebar': Boolean,
+    'columns': {
+      type: Object,
+      default () {
+        return {
+          main: {l: 7},
+          sidebar: {
+            colsBp: {l: 4},
+            push: {l: 1}
+          }
+        }
+      }
+    },
     'quickExit': { type: Boolean, default: null },
     'backgroundColor': String,
     'heroBackgroundImage': String,
@@ -62,7 +79,7 @@ export default {
   },
   computed: {
     mainCols () {
-      return this.sidebar === true ? {l: 7} : {}
+      return this.sidebar === true ? this.columns.main : {}
     },
     bgGrey () {
       return this.backgroundColor === 'grey'

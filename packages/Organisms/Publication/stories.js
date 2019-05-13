@@ -23,8 +23,16 @@ storiesOf('Organisms/Publication', module)
   })))
   .add('Publication Download Print', withReadme(readme, () => ({
     components: { RplPublicationDownloadPrint },
-    template: `<rpl-publication-download-print :links="links" :showPrint="showPrint" />`,
+    template: `<rpl-publication-download-print :links="links" :showPrint="showPrint" @publicationPrint="print" @publicationDownload="download" />`,
     data () {
       return demoData.publicationDownloadPrint()
+    },
+    methods: {
+      print () {
+        console.log('PublicationDownloadPrint event received: print')
+      },
+      download (name) {
+        console.log(`PublicationDownloadPrint event received: download "${name}"`)
+      }
     }
   })))

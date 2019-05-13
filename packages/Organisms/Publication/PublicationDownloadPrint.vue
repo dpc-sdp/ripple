@@ -1,7 +1,7 @@
 <template>
   <ul class="rpl-publication-download-print">
     <li v-for="(link, index) in links" :key="index">
-      <rpl-document-link class="rpl-publication-download-print__print-item" v-bind="link" />
+      <rpl-document-link class="rpl-publication-download-print__print-item" v-bind="link" @click.native="downloadClick(link.name)" />
     </li>
     <li v-if="showPrint" class="rpl-publication-download-print__print-list-item">
       <button class="rpl-publication-download-print__print-item rpl-publication-download-print__print-button" @click="printClick()">
@@ -31,7 +31,11 @@ export default {
   },
   methods: {
     printClick () {
+      this.$emit('publicationPrint')
       window.print()
+    },
+    downloadClick (downloadName) {
+      this.$emit('publicationDownload', downloadName)
     }
   }
 }

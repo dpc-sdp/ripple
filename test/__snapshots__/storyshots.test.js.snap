@@ -36626,6 +36626,30 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
           >
             "showPrint"
           </span>
+           @
+          <span
+            class="hljs-attr"
+          >
+            publicationPrint
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "print"
+          </span>
+           @
+          <span
+            class="hljs-attr"
+          >
+            publicationDownload
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "download"
+          </span>
            /&gt;
         </span>
       </code>

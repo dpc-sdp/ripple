@@ -2252,6 +2252,16 @@ const demoData = {
     nextLink: text('Next Link', '#'),
     nextText: text('Next Text', 'Next'),
     nextDescription: text('Next Description', 'Next page title can wrap over two lines')
+  }),
+
+  pageLayout: () => ({
+    columns: object('Columns', {
+      main: {l: 8},
+      sidebar: {
+        colsBp: {l: 3},
+        push: {l: 1}
+      }
+    })
   })
 }
 

@@ -28,7 +28,7 @@
       </rpl-row>
 
       <template slot="sidebar">
-        <!-- Add publication document component -->
+        <rpl-publication-download-print v-bind="mock.publicationDownloadPrint" class="rpl-component-gutter"/>
         <rpl-site-section-navigation v-bind="mock.siteSectionNavigation" activeLink="" class="rpl-component-gutter"/>
         <rpl-contact v-bind="mock.contact" class="rpl-component-gutter"/>
         <rpl-share-this v-bind="mock.shareThis" class="rpl-component-gutter" />
@@ -55,7 +55,7 @@ import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 
 // Publication Content
 import RplMarkup from '@dpc-sdp/ripple-markup'
-import { RplPublicationPagination } from '@dpc-sdp/ripple-publication'
+import { RplPublicationPagination, RplPublicationDownloadPrint } from '@dpc-sdp/ripple-publication'
 
 // Sidebar
 import RplSiteSectionNavigation from '@dpc-sdp/ripple-site-section-navigation'
@@ -83,6 +83,7 @@ export default {
 
     // Publication
     RplPublicationPagination,
+    RplPublicationDownloadPrint,
     RplMarkup,
 
     // Sidebar

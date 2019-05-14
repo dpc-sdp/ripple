@@ -59,7 +59,8 @@ $rpl-form-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !default; // sass-lint:disable
 
 @mixin rpl_radio_button {
   @supports (-webkit-appearance: none) or (-moz-appearance: none) { // sass-lint:disable-line no-vendor-prefixes
-    appearance: none;
+    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     outline: 0; // outline disabled to mimic native radio
     border-radius: 100%;
     background-color: rpl-color('light_neutral');

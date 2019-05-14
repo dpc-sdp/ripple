@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.75",
-    "@dpc-sdp/ripple-grid": "1.0.0-alpha.75"
+    "@dpc-sdp/ripple-grid": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-site-header": "1.0.0-alpha.75"
   }
 }

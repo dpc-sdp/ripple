@@ -18,6 +18,7 @@ npm install @dpc-sdp/ripple-image-gallery --save
 ```shell
 @dpc-sdp/ripple-image-gallery
 ├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-icon
 └── vue-carousel
 ```
 

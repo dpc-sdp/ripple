@@ -18,7 +18,8 @@ npm install @dpc-sdp/ripple-campaign-primary --save
 ```shell
 @dpc-sdp/ripple-campaign-primary
 ├── @dpc-sdp/ripple-button
-└── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-global
+└── @dpc-sdp/ripple-icon
 ```
 
 --------------------------------------------------------------------------------

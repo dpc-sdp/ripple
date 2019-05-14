@@ -17,7 +17,6 @@ npm install @dpc-sdp/ripple-map --save
 ```shell
 @dpc-sdp/ripple-map
 ├── @dpc-sdp/ripple-global
-├── @dpc-sdp/ripple-icon
 ├── ol
 └── ol-ext
 ```

@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.75",
-    "@dpc-sdp/ripple-icon": "1.0.0-alpha.75",
     "ol": "^5.3.1",
     "ol-ext": "^3.1.2"
   }

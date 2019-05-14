@@ -15,9 +15,7 @@
 </template>
 
 <script>
-import RplLink from '@dpc-sdp/ripple-link'
 import RplList from '@dpc-sdp/ripple-list'
-import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplContact',
@@ -32,9 +30,7 @@ export default {
     social: Array
   },
   components: {
-    RplList,
-    RplLink,
-    RplIcon
+    RplList
   },
   data: function () {
     return {
@@ -113,8 +109,6 @@ export default {
   $rpl-contact-details-padding: 0 0 0 ($rpl-space * 5);
   $rpl-contact-details-border-image: rpl-gradient('decorative_gradient_90');
   $rpl-contact-paragraph-margin: $rpl-space-4 0;
-  $rpl-contact-icon-width: $rpl-space-3;
-  $rpl-contact-icon-margin: 0 $rpl-space-2 0 0;
 
   .rpl-contact {
     @include rpl_text_color($rpl-contact-text-color);

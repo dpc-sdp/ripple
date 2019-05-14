@@ -20,6 +20,7 @@ npm install @dpc-sdp/ripple-form --save
 ```shell
 @dpc-sdp/ripple-form
 ├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-icon
 ├── moment
 ├── pikaday
 ├── vue-form-generator

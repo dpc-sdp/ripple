@@ -15,7 +15,6 @@
 
 <script>
 import { RplTextLink } from '@dpc-sdp/ripple-link'
-import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplAnchorLinks',
@@ -24,8 +23,7 @@ export default {
     links: Array
   },
   components: {
-    RplTextLink,
-    RplIcon
+    RplTextLink
   }
 }
 </script>

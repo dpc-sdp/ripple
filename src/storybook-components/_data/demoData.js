@@ -528,127 +528,127 @@ const demoData = {
     nav: object('Nav', [
       {
         text: 'Your Services',
-        link: '#',
+        url: '#',
         children: [
           {
             text: 'Grants awards and assistance',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Law and safety',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Business and Industry',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Jobs and the Workplace',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Transport and Traffic',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Education',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Housing and Property',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Health',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Community',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Art, Culture and Sport',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Environment and Water',
-            link: '#'
+            url: '#'
           }
         ]
       },
       {
         text: 'About VIC Government',
-        link: '#',
+        url: '#',
         children: [
           {
             text: 'Grants awards and assistance',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Law and safety',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Business and Industry',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Jobs and the Workplace',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Transport and Traffic',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Education',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Housing and Property',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Health',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Community',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Art, Culture and Sport',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Environment and Water',
-            link: '#'
+            url: '#'
           }
         ]
       },
       {
         text: 'News',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Events',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Connect with us',
-        link: '#',
+        url: '#',
         children: [
           {
             text: 'Education',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Housing and Property',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Health',
-            link: '#'
+            url: '#'
           }
         ]
       }
@@ -656,27 +656,27 @@ const demoData = {
     links: object('Links', [
       {
         text: 'Privacy',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Disclaimer',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Terms of use',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Sitemap',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Accessibility Statement',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Help',
-        link: '#'
+        url: '#'
       }
     ]),
     copyright: text('Copyright', '© Copyright State Government of Victoria'),
@@ -1825,6 +1825,7 @@ const demoData = {
       'play',
       'ppt',
       'pptx',
+      'print',
       'right',
       'search',
       'senior',
@@ -2252,6 +2253,31 @@ const demoData = {
     nextLink: text('Next Link', '#'),
     nextText: text('Next Text', 'Next'),
     nextDescription: text('Next Description', 'Next page title can wrap over two lines')
+  }),
+
+  publicationDownloadPrint: () => ({
+    links: object('Links', [{
+      name: 'Short title of a document',
+      url: '#',
+      extension: 'pdf',
+      filesize: '1.2 mb'
+    }, {
+      name: 'External document link',
+      url: 'https://www.google.com',
+      extension: 'pdf',
+      filesize: '1.2 mb'
+    }]),
+    showPrint: boolean('Show print', true)
+  }),
+
+  pageLayout: () => ({
+    columns: object('Columns', {
+      main: {l: 8},
+      sidebar: {
+        colsBp: {l: 3},
+        push: {l: 1}
+      }
+    })
   })
 }
 

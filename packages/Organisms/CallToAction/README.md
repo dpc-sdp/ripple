@@ -17,8 +17,7 @@ npm install @dpc-sdp/ripple-call-to-action --save
 ```shell
 @dpc-sdp/ripple-call-to-action
 ├── @dpc-sdp/ripple-button
-├── @dpc-sdp/ripple-global
-└── @dpc-sdp/ripple-link
+└── @dpc-sdp/ripple-global
 ```
 
 --------------------------------------------------------------------------------

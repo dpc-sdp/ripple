@@ -10,6 +10,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@dpc-sdp/ripple-document-link": "1.0.0-alpha.75",
     "@dpc-sdp/ripple-global": "1.0.0-alpha.75",
     "@dpc-sdp/ripple-icon": "1.0.0-alpha.75",
     "@dpc-sdp/ripple-link": "1.0.0-alpha.75"

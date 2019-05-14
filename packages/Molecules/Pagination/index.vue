@@ -107,8 +107,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-pagination-step-ruleset: (
-    'xs': ('s', 1.5em, 'bold'),
-    'l': ('l', 1.2em, 'bold')
+    'xs': ('l', 1.2em, 'bold')
   ) !default;
   $rpl-pagination-list-item-padding: 0 0 0 $rpl-space-2 !default;
   $rpl-pagination-list-item-divider-color: rpl-color('mid_neutral_1') !default;
@@ -118,7 +117,7 @@ export default {
   $rpl-pagination-step-hover-border-bottom: 2px solid rpl-color('secondary') !default;
   $rpl-pagination-step-current-color: rpl-color('secondary') !default;
   $rpl-pagination-step-current-border-bottom: 2px solid rpl-color('secondary') !default;
-  $rpl-pagination-nav-margin: 0 0 0 ($rpl-space * 5) !default;
+  $rpl-pagination-nav-margin: 0 0 0 ($rpl-space * 6) !default;
 
   .rpl-pagination {
     display: flex;
@@ -140,7 +139,8 @@ export default {
       &-slash {
         @include rpl_typography_ruleset($rpl-pagination-step-ruleset);
         color: $rpl-pagination-list-item-divider-color;
-        padding-left: $rpl-space;
+        padding-left: $rpl-space-2;
+        padding-right: $rpl-space;
       }
 
       &:last-child {

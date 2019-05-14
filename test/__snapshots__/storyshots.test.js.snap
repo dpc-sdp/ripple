@@ -1298,6 +1298,23 @@ exports[`RippleStoryshots Atoms/Global Divider 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Atoms/Global Fonts 1`] = `
+<div
+  class="typography demo-content"
+>
+  <h1>
+    Font
+  </h1>
+   
+  <div
+    class="rpl-font-size--tera rpl-font-weight--bold rpl-background--false"
+    style="line-height: 1.1em;"
+  >
+    The quick brown fox jumps over the lazy dog
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Atoms/Global Typography 1`] = `
 <div
   class="typography demo-content"

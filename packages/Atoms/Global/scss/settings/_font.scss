@@ -13,6 +13,23 @@ $rpl-font-sizes: (
   'xxs': rem(12px)
 ) !default;
 
+// Defines line heights for typography with a background.
+// The values below read as:
+// 'font-size': touching-point + spacing
+// Where touching point = the line-height where 2 lines will touch.
+$rpl-font-display-background-line-height: (
+  'tera': rem(76px + 4px),
+  'xgiga': rem(65px + 4px),
+  'giga': rem(49px + 4px),
+  'mega': rem(38px + 3px),
+  'xl': rem(33px + 3px),
+  'l': rem(27px + 2px),
+  'm': rem(25px + 2px),
+  's': rem(22px + 2px),
+  'xs': rem(19px + 2px),
+  'xxs': rem(17px + 2px)
+) !default;
+
 $rpl-fonts: (
   'regular': ('VIC-Regular', 'Arial', 'Helvetica', 'sans-serif'),
   'medium': ('VIC-Medium', 'Arial', 'Helvetica', 'sans-serif'),

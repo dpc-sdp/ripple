@@ -2270,7 +2270,7 @@ const demoData = {
     showPrint: boolean('Show print', true)
   }),
 
-publicationImage: () => ({
+  publicationImage: () => ({
     title: text('Title', 'Figure 1.2'),
     image: object('Image', {
       src: 'https://placehold.it/800x400.jpg',
@@ -2281,51 +2281,49 @@ publicationImage: () => ({
     fullscreen: text('Fullscreen', 'View Figure 1.2 in full screen'),
     expand: text('Expand', 'View Figure 1.2 in table format'),
     expandTitle: text('Expand Title', 'Figure 1.2'),
-    html: text('Html', `
-      <div class="rpl-markup__table">
-        <table>
-          <thead>
-            <tr>
-              <th>Column header one</th>
-              <th>Header number two</th>
-              <th>Third column header</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Data point one</td>
-              <td>This is a piece of data</td>
-              <td>Third column information</td>
-            </tr>
-            <tr>
-              <td>Data pt two</td>
-              <td>This is data</td>
-              <td>Fourth col info here</td>
-            </tr>
-            <tr>
-              <td>Data point three</td>
-              <td>This is a piece of data</td>
-              <td>Third column info here</td>
-            </tr>
-            <tr>
-              <td>Point four</td>
-              <td>This is some data</td>
-              <td>Information goes here</td>
-            </tr>
-            <tr>
-              <td>Five</td>
-              <td>This is a piece of data</td>
-              <td>Third column info here</td>
-            </tr>
-            <tr>
-              <td>Data point six</td>
-              <td>This is some data</td>
-              <td>Information</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    `),
+    html: text('Html', `<div class="rpl-markup__table">
+  <table>
+    <thead>
+      <tr>
+        <th>Column header one</th>
+        <th>Header number two</th>
+        <th>Third column header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Data point one</td>
+        <td>This is a piece of data</td>
+        <td>Third column information</td>
+      </tr>
+      <tr>
+        <td>Data pt two</td>
+        <td>This is data</td>
+        <td>Fourth col info here</td>
+      </tr>
+      <tr>
+        <td>Data point three</td>
+        <td>This is a piece of data</td>
+        <td>Third column info here</td>
+      </tr>
+      <tr>
+        <td>Point four</td>
+        <td>This is some data</td>
+        <td>Information goes here</td>
+      </tr>
+      <tr>
+        <td>Five</td>
+        <td>This is a piece of data</td>
+        <td>Third column info here</td>
+      </tr>
+      <tr>
+        <td>Data point six</td>
+        <td>This is some data</td>
+        <td>Information</td>
+      </tr>
+    </tbody>
+  </table>
+</div>`),
     download: text('Download', 'Download Figure 1.2')
   }),
 

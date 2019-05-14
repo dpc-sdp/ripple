@@ -29,6 +29,7 @@
 
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
+import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 
 export default {
   name: 'RplPagination',
@@ -45,6 +46,7 @@ export default {
     initialStep: { type: Number, default: 1 },
     stepsAround: { type: Number, default: 2 }
   },
+  mixins: [breakpoint],
   components: {
     RplIcon
   },
@@ -68,7 +70,18 @@ export default {
   computed: {
     visibleStepRange () {
       // Returns Array or Number of visible steps.
-      const visibleCount = (this.stepsAround * 2) + 1
+      let visibleCount = this.stepsAround * 2
+
+      if (this.$breakpoint.xs) {
+        visibleCount = this.stepsAround * 2 - 1
+      }
+      if (this.$breakpoint.s) {
+        visibleCount = this.stepsAround * 2
+      }
+      if (this.$breakpoint.m) {
+        visibleCount = visibleCount + 1
+      }
+
       if (this.totalSteps > visibleCount) {
         if (this.currentStep >= (this.stepsAround + 1)) {
           // Set start offset (e.g. -2 from current pos). Smaller number if near end of range.

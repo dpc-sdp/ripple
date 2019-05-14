@@ -12,8 +12,10 @@
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.75",
     "@dpc-sdp/ripple-icon": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-layout": "1.0.0-alpha.75",
     "@dpc-sdp/ripple-link": "1.0.0-alpha.75",
     "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.75",
+    "@dpc-sdp/ripple-search": "1.0.0-alpha.75",
     "body-scroll-lock": "^2.6.1"
   }
 }

@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-alpha.75",
-    "@dpc-sdp/ripple-link": "1.0.0-alpha.75"
+    "@dpc-sdp/ripple-list": "1.0.0-alpha.75"
   }
 }

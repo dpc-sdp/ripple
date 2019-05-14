@@ -16,7 +16,6 @@
 <script>
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
-import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplNewsListing',
@@ -26,8 +25,7 @@ export default {
     list: Array
   },
   components: {
-    RplTextLink,
-    RplIcon
+    RplTextLink
   }
 }
 </script>

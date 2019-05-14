@@ -24,7 +24,7 @@ $rpl-form-radio-size-s: rem(24px) !default;
 $rpl-form-radio-dot-size: $rpl-form-radio-size / 4 !default;
 $rpl-form-radio-dot-size-s: $rpl-form-radio-size / 4 !default;
 $rpl-form-radio-checked-transition: background-color .2s ease !default;
-$rpl-form-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !default;
+$rpl-form-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !default; // sass-lint:disable-line leading-zero
 
 
 @mixin rpl_form_text {
@@ -58,9 +58,8 @@ $rpl-form-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !default;
 }
 
 @mixin rpl_radio_button {
-  @supports (-webkit-appearance: none) or (-moz-appearance: none) {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+  @supports (-webkit-appearance: none) or (-moz-appearance: none) { // sass-lint:disable-line no-vendor-prefixes
+    appearance: none;
     outline: 0; // outline disabled to mimic native radio
     border-radius: 100%;
     background-color: rpl-color('light_neutral');
@@ -68,32 +67,33 @@ $rpl-form-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !default;
     box-shadow: $rpl-form-shadow;
     width: $rpl-form-radio-size-s;
     height: $rpl-form-radio-size-s;
-  
+
     @include rpl_breakpoint(s) {
       width: $rpl-form-radio-size;
       height: $rpl-form-radio-size;
     }
-  
-    &:before {
-      content:'';
-      display:block;
+
+    &::before {
+      content: '';
+      display: block;
       width: calc(#{$rpl-form-radio-dot-size} + 1px);
       height: calc(#{$rpl-form-radio-dot-size} + 1px);
-      border-radius:50%;
+      border-radius: 50%;
       transition: $rpl-form-radio-checked-transition;
       margin: calc((#{$rpl-form-radio-size-s} / 2) - (#{$rpl-form-radio-dot-size-s} / 2) - 2px) auto;
       @include rpl_breakpoint(s) {
         margin: calc((#{$rpl-form-radio-size} / 2) - (#{$rpl-form-radio-dot-size} / 2) - 2px) auto;
       }
     }
-  
+
     &:checked {
       border: solid 1px rpl-color('secondary');
-      &:before {
+
+      &::before {
         background-color: rpl-color('secondary');
       }
     }
-  
+
     &:focus {
       border-color: rpl-color('primary');
     }

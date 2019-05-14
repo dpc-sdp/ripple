@@ -2268,6 +2268,16 @@ const demoData = {
       filesize: '1.2 mb'
     }]),
     showPrint: boolean('Show print', true)
+  }),
+
+  pageLayout: () => ({
+    columns: object('Columns', {
+      main: {l: 8},
+      sidebar: {
+        colsBp: {l: 3},
+        push: {l: 1}
+      }
+    })
   })
 }
 

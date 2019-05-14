@@ -64,19 +64,19 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
+  @import "scss/document-link";
 
-  $rpl-document-link-title-ruleset: ('xs', 1em, 'semibold');
-  $rpl-document-link-title-color: rpl_color('extra_dark_neutral') !default;
   $rpl-document-link-caption-color: rpl_color('extra_dark_neutral') !default;
-  $rpl-document-link-meta-type-ruleset: ('xxs', 1em, 'medium');
+  $rpl-document-link-meta-type-ruleset: ('xxs', 1em, 'medium') !default;
   $rpl-document-link-meta-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
-  $rpl-document-link-meta-margin-top: $rpl-space;
+  $rpl-document-link-meta-margin-top: $rpl-space !default;
   $rpl-document-link-meta-separator-color: mix(rpl_color('mid_neutral_1'), rpl_color('white'), 93%) !default;
   $rpl-document-link-caption-ruleset: ('xs', 1em, 'semibold') !default;
   $rpl-document-link-caption-margin-top: $rpl-space-2 !default;
   $rpl-document-link-margin: $rpl-space-2 0 !default;
 
   .rpl-document-link {
+    $root: &;
     margin: $rpl-document-link-margin;
 
     &__link {
@@ -85,6 +85,14 @@ export default {
       align-items: center;
       line-height: 1;
       text-decoration: none;
+
+      &:hover,
+      &:focus {
+        #{$root}__title {
+          @include rpl_text_color($rpl-document-link-title-color-hover);
+          text-decoration: underline;
+        }
+      }
     }
 
     &__title {
@@ -93,7 +101,7 @@ export default {
     }
 
     &__icon {
-      flex: 0 0 30px;
+      flex: $rpl-document-link-icon-flex;
     }
 
     &__info {

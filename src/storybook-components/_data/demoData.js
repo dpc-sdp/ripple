@@ -1825,6 +1825,7 @@ const demoData = {
       'play',
       'ppt',
       'pptx',
+      'print',
       'right',
       'search',
       'senior',
@@ -2252,6 +2253,21 @@ const demoData = {
     nextLink: text('Next Link', '#'),
     nextText: text('Next Text', 'Next'),
     nextDescription: text('Next Description', 'Next page title can wrap over two lines')
+  }),
+
+  publicationDownloadPrint: () => ({
+    links: object('Links', [{
+      name: 'Short title of a document',
+      url: '#',
+      extension: 'pdf',
+      filesize: '1.2 mb'
+    }, {
+      name: 'External document link',
+      url: 'https://www.google.com',
+      extension: 'pdf',
+      filesize: '1.2 mb'
+    }]),
+    showPrint: boolean('Show print', true)
   }),
 
   pageLayout: () => ({

@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { withReadme } from 'storybook-readme'
 import VueInfoAddon from 'storybook-addon-vue-info'
+import SVicFreeWifiMap from './../../../src/storybook-components/MapVicFreeWifi'
 
 import {
   withKnobs
@@ -16,19 +17,12 @@ storiesOf('Molecules/Map', module)
   .add('Map with no data', withReadme(readme, () => ({
     components: { RplMap },
     template: `<rpl-map
-      :basemapUrl="basemapUrl" />`,
+      :baseMapUrl="baseMapUrl" />`,
     data () {
       return demoData.mapData()
     }
   })))
   .add('Map with free wifi data', withReadme(readme, () => ({
-    components: { RplMap },
-    template: `<rpl-map
-      :basemapUrl="basemapUrl"
-      :themeLayerUrl="wifiLayerUrl"
-      :center="wifiCenter"
-      :zoom="wifiZoom" />`,
-    data () {
-      return demoData.mapData()
-    }
+    components: { SVicFreeWifiMap },
+    template: `<s-vic-free-wifi-map />`
   })))

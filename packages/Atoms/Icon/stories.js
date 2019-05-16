@@ -21,6 +21,10 @@ storiesOf('Atoms/Icon', module)
       return demoData.iconLibrary()
     }
   })))
+  .add('Icon Custom', withReadme(readme, () => ({
+    components: { RplIcon },
+    template: '<rpl-icon symbol="custom_icon" color="primary" size="m" />'
+  })))
   .add('Icon', withReadme(readme, () => ({
     components: { RplIcon },
     template: '<rpl-icon :symbol="icon" :color="color" :size="size" />',

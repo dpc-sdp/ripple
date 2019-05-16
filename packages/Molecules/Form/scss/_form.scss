@@ -19,8 +19,8 @@ $rpl-form-element-margin-bottom-s: $rpl-space-4 !default;
 $rpl-form-element-margin-bottom-m: $rpl-space * 7 !default;
 $rpl-form-textarea-height-s: rem(180px) !default;
 $rpl-form-textarea-height-m: rem(75px) !default;
-$rpl-form-radio-size: rem(20px) !default; // these must be evenly divisible by 4
-$rpl-form-radio-size-s: rem(24px) !default;
+$rpl-form-radio-size: 20px !default; // these must be evenly divisible by 4
+$rpl-form-radio-size-s: 24px !default; // dont use rem - safari rounding bug
 $rpl-form-radio-dot-size: $rpl-form-radio-size / 4 !default;
 $rpl-form-radio-dot-size-s: $rpl-form-radio-size / 4 !default;
 $rpl-form-radio-checked-transition: background-color .2s ease !default;

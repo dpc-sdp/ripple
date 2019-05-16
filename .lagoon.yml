@@ -1,1 +1,11 @@
 docker-compose-yaml: docker-compose.yml
+
+tasks:
+  post-rollout:
+    - run:
+        name: Post deployed URL to JIRA
+        command: |
+          if [[ "$LAGOON_PR_HEAD_BRANCH" != "production" ]]; then
+            . scripts/jira-post-comment.sh $JIRA_ENDPOINT $JIRA_USERNAME $JIRA_PASSWORD $LAGOON_GIT_BRANCH sdpa $LAGOON_GIT_BRANCH "$LAGOON_PR_TITLE"
+          fi
+        service: storybook

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-image-gallery",
-  "version": "1.0.0-alpha.65",
+  "version": "1.0.0-alpha.76",
   "description": "A component to display images as an interactive gallery. This component only works client-side.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.65",
-    "vue-carousel": "^0.13.1"
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.76",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.76",
+    "vue-carousel": "^0.18.0"
   }
 }

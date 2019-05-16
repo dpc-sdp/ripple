@@ -3,7 +3,7 @@
   @if $breakpoint-value == null {
     @error '"#{$break}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
   }
-  @media (min-width: $breakpoint-value) {
+  @media screen and (min-width: $breakpoint-value) {
     @content;
   }
 }
@@ -13,7 +13,7 @@
   @if $breakpoint-value == null {
     @error '"#{$break}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
   }
-  @media (max-width: $breakpoint-value - 1) {
+  @media screen and (max-width: $breakpoint-value - 1) {
     @content;
   }
 }
@@ -27,7 +27,7 @@
   @if $breakpoint-value-max == null {
     @error '"#{$breakpoint-value-max}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
   }
-  @media (min-width: $breakpoint-value-min) and (max-width: $breakpoint-value-max - 1) {
+  @media screen and (min-width: $breakpoint-value-min) and (max-width: $breakpoint-value-max - 1) {
     @content;
   }
 }

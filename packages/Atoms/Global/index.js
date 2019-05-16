@@ -6,6 +6,7 @@ const RplGlobal = {
     const rplOptions = {
       nuxt: false,
       hostname: 'localhost',
+      origin: '', // URL with protocol://host(:port) e.g. http://localhost:3000
       quickexit: false,
       quickexiturl: 'https://www.google.com',
       viclogo: true

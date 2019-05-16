@@ -16,7 +16,6 @@
 <script>
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
-import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplNewsListing',
@@ -26,8 +25,7 @@ export default {
     list: Array
   },
   components: {
-    RplTextLink,
-    RplIcon
+    RplTextLink
   }
 }
 </script>
@@ -64,9 +62,11 @@ export default {
       padding-top: $rpl-space-4 * 2;
     }
 
+    @include rpl_print_hidden;
+
     &__heading {
       @include rpl_typography_ruleset($rpl-news-listing-heading-ruleset);
-      color: $rpl-news-listing-heading-text-color;
+      @include rpl_text_color($rpl-news-listing-heading-text-color);
       margin: $rpl-news-listing-heading-margin;
     }
 
@@ -86,14 +86,14 @@ export default {
 
     &__item-date {
       @include rpl_typography_ruleset($rpl-news-listing-date-ruleset);
-      color: $rpl-news-listing-date-text-color;
+      @include rpl_text_color($rpl-news-listing-date-text-color);
       background-color: $rpl-news-listing-date-background;
       padding: $rpl-news-listing-date-padding;
     }
 
     &__item-tag {
       @include rpl_typography_ruleset($rpl-news-listing-tag-ruleset);
-      color: $rpl-news-listing-tag-text-color;
+      @include rpl_text_color($rpl-news-listing-tag-text-color);
       padding: $rpl-news-listing-tag-padding;
       box-sizing: border-box;
       text-transform: uppercase;
@@ -104,7 +104,7 @@ export default {
 
       .rpl-text-link {
         @include rpl_typography_ruleset($rpl-news-listing-item-heading-ruleset);
-        color: $rpl-news-listing-item-heading-color;
+        @include rpl_text_color($rpl-news-listing-item-heading-color);
 
         &:hover,
         &:focus {

@@ -66,6 +66,7 @@ $rpl-alert-base-icom-margin: 0 $rpl-space-4 0 0 !default;
   padding: $rpl-alert-base-padding;
   display: flex;
   align-items: center;
+  @include rpl_print_hidden;
 
   @each $color-name, $color-value in $rpl-colors {
     &--color-#{str-replace($color-name, ' ', '-')} {

@@ -32,11 +32,13 @@ export default {
       border-radius: $rpl-figure-image-border-radius;
       height: auto;
       max-width: 100%;
+
+      @include rpl_print_image;
     }
 
     &__caption {
       @include rpl_typography_ruleset($rpl-figure-caption-ruleset);
-      color: $rpl-figure-caption-text-color;
+      @include rpl_text_color($rpl-figure-caption-text-color);
       margin: $rpl-figure-caption-margin;
     }
   }

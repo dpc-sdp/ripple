@@ -80,14 +80,18 @@
 // @endcode
 //
 @mixin rpl_grid_container {
-  overflow-x: hidden;
+  @media screen {
+    overflow-x: hidden;
+  }
 }
 
 @mixin rpl_grid_row($grid: $rpl-grid) {
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  @media screen {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 
   @if rpl_grid_get_gutter($grid) != 0 {
     $_container-margin: rpl_grid_get_gutter($grid) / 2;
@@ -119,8 +123,10 @@
 }
 
 @mixin rpl_grid_column($grid-cols: 1, $grid: $rpl-grid) {
-  box-sizing: border-box;
-  flex: 0 0 auto;
+  @media screen {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+  }
 
   @if rpl_grid_get_gutter($grid) != 0 {
     width: calc(#{percentage($grid-cols / rpl_grid_get_columns($grid))} - #{rpl_grid_get_gutter($grid)});

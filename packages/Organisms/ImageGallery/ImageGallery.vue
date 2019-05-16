@@ -177,6 +177,8 @@ export default {
   .rpl-image-gallery {
     position: relative;
 
+    @include rpl_print_hidden;
+
     &__enlarge {
       background-color: $rpl-image-gallery-enlarge-background-color;
       border: 0;
@@ -451,7 +453,9 @@ export default {
       .VueCarousel,
       .VueCarousel-wrapper,
       .VueCarousel-inner {
-        height: 100%;
+        // Force 100% height to override inline auto height introduced in:
+        // https://github.com/SSENSE/vue-carousel/commit/f1e631427f533b5f7846f95fa7099abd818e1683
+        height: 100% !important; // sass-lint:disable-line no-important
       }
     }
   }

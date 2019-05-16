@@ -18,7 +18,9 @@ npm install @dpc-sdp/ripple-layout --save
 ```shell
 @dpc-sdp/ripple-layout
 ├── @dpc-sdp/ripple-global
-└── @dpc-sdp/ripple-grid
+├── @dpc-sdp/ripple-grid
+├── @dpc-sdp/ripple-icon
+└── @dpc-sdp/ripple-site-header
 ```
 
 --------------------------------------------------------------------------------
@@ -26,7 +28,11 @@ npm install @dpc-sdp/ripple-layout --save
 ## Import
 
 ```js
-import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
+import {
+  RplBaseLayout,
+  RplPageLayout,
+  RplQuickExit
+} from '@dpc-sdp/ripple-layout'
 ```
 
 --------------------------------------------------------------------------------
@@ -38,6 +44,8 @@ See [Storybook/Base Layout](https://ripple.sdp.vic.gov.au/?selectedKind=Molecule
 See [Storybook/Page Layout](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Page%20Layout).
 
 See [Storybook/Page Layout with Sidebar](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Page%20Layout%20with%20Sidebar).
+
+See [Storybook/Page Layout with custom columns](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Page%20Layout%20with%20custom%20columns).
 
 See [Storybook/Site Layout](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Site%20Layout).
 

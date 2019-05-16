@@ -169,6 +169,8 @@ export default {
       padding-bottom: $rpl-space * 15;
     }
 
+    @include rpl_print_hidden;
+
     h1 {
       @include rpl_typography_ruleset($rpl-search-form-heading-ruleset);
       color: $rpl-search-form-heading-color;
@@ -192,6 +194,7 @@ export default {
       cursor: pointer;
       display: flex;
       align-items: center;
+      @include rpl_focus_dark;
 
       span {
         @include rpl_typography_ruleset($rpl-search-form-search-button-text);
@@ -215,12 +218,16 @@ export default {
       @include rpl_typography_ruleset($rpl-search-form-input-ruleset);
       background-color: transparent;
       border: 0;
-      padding: 1px;
       width: 100%;
       color: $rpl-search-form-input-text-color;
+      padding: rem(1px) $rpl-space;
+      margin-left: $rpl-space * -1;
+      box-sizing: border-box;
 
       @at-root {
         #{$root}--dark #{$root}__input {
+          @include rpl_focus_dark;
+          outline-offset: 0;
           color: $rpl-search-form-dark-text-color;
         }
       }

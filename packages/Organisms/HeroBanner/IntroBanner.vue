@@ -85,6 +85,8 @@ export default {
       }
     }
 
+    @include rpl_print_margin('l');
+
     &__left {
       @include rpl_grid_full;
 
@@ -106,17 +108,19 @@ export default {
       @include rpl_breakpoint('xl') {
         @include rpl_grid_column(4);
       }
+
+      @include rpl_print_hidden;
     }
 
     &__title {
       @include rpl_typography_ruleset($rpl-intro-banner-title-typography-ruleset);
-      color: $rpl-intro-banner-title-color;
+      @include rpl_text_color($rpl-intro-banner-title-color);
       margin: 0;
     }
 
     &__description {
       @include rpl_typography_ruleset($rpl-intro-banner-description-typography-ruleset);
-      color: $rpl-intro-banner-description-text-color;
+      @include rpl_text_color($rpl-intro-banner-description-text-color);
       margin-top: $rpl-space;
 
       @include rpl_breakpoint(s) {
@@ -130,7 +134,7 @@ export default {
 
     &__link-heading {
       @include rpl_typography_ruleset($rpl-intro-banner-link-heading-typography-rules);
-      color: $rpl-intro-banner-link-heading-text-color;
+      @include rpl_text_color($rpl-intro-banner-link-heading-text-color);
       margin: $rpl-intro-banner-link-heading-margin;
     }
 

@@ -25,6 +25,7 @@ export default {
 
   $rpl-sitemap-header-ruleset: ('tera' , 3.75rem, 'bold') !default;
   $rpl-sitemap-header-ruleset-xs: ('mega', 2rem, 'bold') !default;
+  $rpl-sitemap-header-text-color: rpl-color('primary') !default;
   $rpl-sitemap-menu-list-item-margin: $rpl-space-3 0 !default;
   $rpl-sitemap-menu-list-padding: 0 0 0 ($rpl-space * 9) !default;
   $rpl-sitemap-menu-list-item-border: 1px solid rpl-color('mid_neutral_2') !default;
@@ -37,6 +38,14 @@ export default {
   $rpl-sitemap-menu-link-color: rpl-color('extra_dark_neutral') !default;
 
   .rpl-sitemap-header {
+    @include rpl_text_color($rpl-sitemap-header-text-color);
+    @include rpl-typography_ruleset($rpl-sitemap-header-ruleset-xs);
+    margin: 0;
+
+    @include rpl-breakpoint('s') {
+      @include rpl-typography_ruleset($rpl-sitemap-header-ruleset);
+    }
+
     &::after {
       content: '';
       display: inline-block;
@@ -44,14 +53,8 @@ export default {
       width: 100%;
       background: $rpl-sitemap-menu-before-background;
     }
-    margin: 0;
-    color: rpl-color('primary');
-    @include rpl-typography_ruleset($rpl-sitemap-header-ruleset-xs);
-
-    @include rpl-breakpoint('s') {
-      @include rpl-typography_ruleset($rpl-sitemap-header-ruleset);
-    }
   }
+
   .rpl-sitemap-menu {
     $root: &;
 
@@ -74,7 +77,7 @@ export default {
       }
 
       .rpl-link {
-        color: $rpl-sitemap-menu-link-color;
+        @include rpl_text_color($rpl-sitemap-menu-link-color);
       }
     }
 

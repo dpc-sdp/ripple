@@ -1809,6 +1809,277 @@ exports[`RippleStoryshots Atoms/Icon Icon 1`] = `
 </div>
 `;
 
+exports[`RippleStoryshots Atoms/Icon Icon Custom 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Atoms/Icon
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Icon Custom
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <!---->
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-icon
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            symbol
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "custom_icon"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            color
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "primary"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            size
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "m"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplIcon" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    symbol
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    color
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    size
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
 <div
   class="vue-info"

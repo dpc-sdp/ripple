@@ -1,8 +1,9 @@
 const iconProps = {}
+let hasRunOnce = false
 
 /**
  * Add icon properties from a require.context() response to `iconProps`.
- * Custom icons should be added before Vue is invoked.
+ * Custom icons should be added before the ripple-icon component is used.
  *
  * Can be used as:
  *   addIconsToLibrary(require.context('./custom_assets/', true, /\.svg$/))
@@ -24,6 +25,20 @@ function addIconsToLibrary (webpackContext) {
   })
 }
 
-export { iconProps }
+function getIconProps () {
+  // Add default icons on first call.
+  // For correct overrides; this must run after custom icons have been added.
+  if (!hasRunOnce) {
+    hasRunOnce = true
+    // In Jest there is no webpack require.context support, also we don't transform files.
+    // Let's skip this part in tests.
+    if (process.env.NODE_ENV !== 'test') {
+      addIconsToLibrary(require.context('./assets/img/', true, /\.svg$/))
+    }
+  }
+  return iconProps
+}
+
+export { getIconProps }
 export { addIconsToLibrary }
-export default iconProps
+export default getIconProps

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { iconProps } from './icon-library'
+import { getIconProps } from './icon-library'
 
 export default {
   props: {
@@ -17,7 +17,7 @@ export default {
   data: function () {
     return {
       iconPrefix: 'rpl_icon_',
-      iconProperties: iconProps,
+      iconProperties: getIconProps(),
       sizes: {
         's': 0.5,
         'm': 1,

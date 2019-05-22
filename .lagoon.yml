@@ -23,5 +23,4 @@ environments:
             insecure: Allow
             hsts: max-age=31536000
     monitoring_urls:
-      - "www.ripple.sdp.vic.gov.au"
       - "ripple.sdp.vic.gov.au"

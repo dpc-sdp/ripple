@@ -1,13 +1,13 @@
-# @dpc-sdp/ripple-profile
+# @dpc-sdp/ripple-description-list
 
-> Components for displaying Component information.
+> A list of descriptions.
 
 --------------------------------------------------------------------------------
 
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-profile --save
+npm install @dpc-sdp/ripple-description-list --save
 ```
 
 --------------------------------------------------------------------------------
@@ -15,8 +15,7 @@ npm install @dpc-sdp/ripple-profile --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-profile
-├── @dpc-sdp/ripple-description-list
+@dpc-sdp/ripple-description-list
 └── @dpc-sdp/ripple-global
 ```
 
@@ -25,19 +24,14 @@ npm install @dpc-sdp/ripple-profile --save
 ## Import
 
 ```js
-import {
-  RplProfileHighlight,
-  RplProfileHighlightHonourRoll
-} from '@dpc-sdp/ripple-profile'
+import { RplDescriptionList } from '@dpc-sdp/ripple-description-list'
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Profile Highlight](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Profile&selectedStory=Profile%20Highlight).
-
-See [Storybook/Profile Highlight Honour Roll](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Profile&selectedStory=Profile%20Highlight%20Honour%20Roll).
+See [Storybook/Description List](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/DescriptionList&selectedStory=Description%20List).
 
 --------------------------------------------------------------------------------
 

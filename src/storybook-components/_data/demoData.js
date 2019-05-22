@@ -2278,6 +2278,21 @@ const demoData = {
         push: {l: 1}
       }
     })
+  }),
+
+  descriptionList: () => ({
+    list: object('List', [
+      { term: 'List Item 1', description: 'Description' },
+      { term: 'List Item 2', description: 'Description 2' },
+      { term: 'List Item 3', description: 'Description 3' }
+    ])
+  }),
+
+  publicationAuthorInformation: () => ({
+    author: text('Author', 'Department of Premier and Cabinet'),
+    date: text('Date', '2018-03-23T09:00:00.000+10:00'),
+    copyright: text('Copyright', 'This is licensed under a Creative Commons Attribution 4.0 International licence. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'),
+    locale: text('Locale', 'en-au')
   })
 }
 

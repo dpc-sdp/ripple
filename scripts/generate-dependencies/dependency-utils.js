@@ -95,10 +95,12 @@ function fixMissingPackages (packageDirectories) {
 
 function orderDependencies (obj) {
   const orderedDependencies = {}
-  Object.keys(obj.dependencies).sort().forEach(key => {
-    orderedDependencies[key] = obj.dependencies[key]
-  })
-  obj.dependencies = orderedDependencies
+  if (obj.dependencies !== undefined) {
+    Object.keys(obj.dependencies).sort().forEach(key => {
+      orderedDependencies[key] = obj.dependencies[key]
+    })
+    obj.dependencies = orderedDependencies
+  }
 }
 
 function getPackageDirectories () {

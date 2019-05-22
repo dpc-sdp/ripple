@@ -7,14 +7,13 @@ JIRA_URL=$1
 USER=$2
 PASSWORD=$3
 BRANCH=$4
-PREFIX=$5
-PR=$6
-PR_TITLE=$7
+PR=$5
+PR_TITLE=$6
 
 extract_issue() {
-  local prefix=$1
-  local branch=$(echo $2 | tr '[:upper:]' '[:lower:]')
-  local title=$(echo $3 | tr '[:upper:]' '[:lower:]')
+  local prefix=$(echo $branch|sed -n "s/feature\/\([a-zA-Z]\{1,\}\).*/\1/p")
+  local branch=$(echo $1 | tr '[:upper:]' '[:lower:]')
+  local title=$(echo $2 | tr '[:upper:]' '[:lower:]')
   # Extracting from branch.
   local issue=$(echo $branch|sed -n "s/feature\/\($prefix-[0-9]\{1,\}\).*/\1/p")
   if [ "$issue" == "" ]; then
@@ -32,10 +31,10 @@ generate_data() {
 EOF
 }
 
-ISSUE=$(extract_issue $PREFIX "$BRANCH" "$PR_TITLE")
+ISSUE=$(extract_issue "$BRANCH" "$PR_TITLE")
 [ "$ISSUE" == "" ] && echo "Branch does not contain issue number" && exit 0
 
-COMMENT="Deployed to https://storybook-ripple-$PR.lagoon.vicsdp.amazee.io "
+COMMENT="Deployed to https://storybook-ripple-$PR.lagoon.vicsdp.amazee.io"
 
 echo "Posting comment \"$COMMENT\" for issue \"$ISSUE\""
 

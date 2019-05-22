@@ -1,5 +1,5 @@
 <template>
-  <dl class="rpl-description-list">
+  <dl class="rpl-description-list" v-if="list && list.length > 0">
     <div class="rpl-description-list__row" v-for="(item, index) in list" :key="index">
       <dt class="rpl-description-list__cell rpl-description-list__term">{{ item.term }}{{ divider }}</dt>
       <dd class="rpl-description-list__cell rpl-description-list__description">{{ item.description }}</dd>
@@ -8,7 +8,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'RplDescriptionList',
   props: {

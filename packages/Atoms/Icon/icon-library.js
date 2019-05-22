@@ -1,4 +1,4 @@
-const iconProps = {}
+let iconProps = {}
 let hasRunOnce = false
 
 /**
@@ -39,6 +39,16 @@ function getIconProps () {
   return iconProps
 }
 
-export { getIconProps }
+/**
+ * Reset properties.
+ * Use before calling addIconsToLibrary() to allow property reset on hot reload.
+ */
+function resetLibrary () {
+  iconProps = {}
+  hasRunOnce = false
+}
+
+export { resetLibrary }
 export { addIconsToLibrary }
+export { getIconProps }
 export default getIconProps

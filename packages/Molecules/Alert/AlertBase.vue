@@ -62,6 +62,7 @@ $rpl-alert-base-text-color: rpl-color('white') !default;
 $rpl-alert-base-icom-margin: 0 $rpl-space-4 0 0 !default;
 
 .rpl-alert-base {
+  $root: &;
   background-color: $rpl-alert-base-background-color;
   padding: $rpl-alert-base-padding;
   display: flex;
@@ -84,6 +85,17 @@ $rpl-alert-base-icom-margin: 0 $rpl-space-4 0 0 !default;
     @each $color-name, $color-value in $rpl-colors {
       &--color-#{str-replace($color-name, ' ', '-')} {
         color: rpl-color($color-name);
+      }
+    }
+
+    a {
+      color: $rpl-alert-base-text-color;
+      @at-root {
+        @each $color-name, $color-value in $rpl-colors {
+          #{$root}__content--color-#{str-replace($color-name, ' ', '-')} a {
+            color: rpl-color($color-name);
+          }
+        }
       }
     }
   }

@@ -94,9 +94,11 @@ export default {
 
       &-link {
         @include rpl_typography_ruleset($rpl-hero-banner-cta-secondary-link-ruleset);
-        text-decoration: underline;
         .rpl-hero-banner--cta-dark & {
           color: white;
+        }
+        .rpl-text-label {
+          text-decoration: underline;
         }
       }
     }

@@ -307,11 +307,15 @@ export default {
     }
 
     &__link {
-      @include rpl_typography_ruleset($rpl-hero-banner-link-typography-rules);
+      .rpl-text-label {
+        @include rpl_typography_ruleset($rpl-hero-banner-link-typography-rules);
+      }
     }
 
     &__more-link {
-      @include rpl_typography_ruleset($rpl-hero-banner-more-link-typography-rules);
+      .rpl-text-label {
+        @include rpl_typography_ruleset($rpl-hero-banner-more-link-typography-rules);
+      }
     }
 
     &--no-links {

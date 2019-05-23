@@ -19,7 +19,6 @@
               :url="item.url"
               iconSymbol="arrow_right_primary"
               iconColor="primary"
-              :underline="true"
             />
           </li>
         </ul>

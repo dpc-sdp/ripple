@@ -30330,7 +30330,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -30362,7 +30362,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -30394,7 +30394,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -30426,7 +30426,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -30459,7 +30459,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline rpl-text-label--emphasis"
                   >
                     <span>
                       <span>
@@ -46079,7 +46079,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -46111,7 +46111,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -46143,7 +46143,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -46175,7 +46175,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -46208,7 +46208,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline rpl-text-label--emphasis"
                         >
                           <span>
                             <span>
@@ -50559,7 +50559,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -50591,7 +50591,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -50623,7 +50623,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -50655,7 +50655,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -57995,7 +57995,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -58027,7 +58027,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -58059,7 +58059,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -58091,7 +58091,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -58124,7 +58124,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline rpl-text-label--emphasis"
                         >
                           <span>
                             <span>

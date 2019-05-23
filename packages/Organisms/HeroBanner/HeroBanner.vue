@@ -48,7 +48,7 @@
               iconColor="primary"
               :underline="true"
               :theme="theme"
-              size="large"
+              :size="textLinkSize"
             />
           </li>
           <li
@@ -63,7 +63,8 @@
               iconColor="primary"
               :underline="true"
               :theme="theme"
-              size="large"
+              :emphasis="true"
+              :size="textLinkSize"
             />
           </li>
         </ul>
@@ -73,11 +74,13 @@
 </template>
 
 <script>
+import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplHeroBanner',
+  mixins: [breakpoint],
   props: {
     title: String,
     introText: String,
@@ -97,6 +100,9 @@ export default {
   computed: {
     heroBannerStyles () {
       return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
+    },
+    textLinkSize () {
+      return this.$breakpoint.m ? 'large' : 'small'
     }
   }
 }
@@ -133,15 +139,7 @@ export default {
   ) !default;
   $rpl-hero-banner-link-heading-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-link-heading-text-color-dark: rpl_color('white') !default;
-  $rpl-hero-banner-link-typography-rules: (
-    'xs': ('xs', 1.7em, 'medium'),
-    'm': ('l', 1.7em, 'medium')
-  ) !default;
   $rpl-hero-banner-link-margin: auto auto rem(16px) !default;
-  $rpl-hero-banner-more-link-typography-rules: (
-    'xs': ('xs', 1.7em, 'bold'),
-    'm': ('l', 1.7em, 'bold')
-  ) !default;
   $rpl-hero-banner-link-heading-margin: 0 auto rem(15px) auto !default;
   $rpl-hero-banner-vertical-spacing-logo-offset: (
     'xs': 0rem,
@@ -304,18 +302,6 @@ export default {
     &__link-list-item {
       list-style: none;
       margin: $rpl-hero-banner-link-margin;
-    }
-
-    &__link {
-      .rpl-text-label {
-        @include rpl_typography_ruleset($rpl-hero-banner-link-typography-rules);
-      }
-    }
-
-    &__more-link {
-      .rpl-text-label {
-        @include rpl_typography_ruleset($rpl-hero-banner-more-link-typography-rules);
-      }
     }
 
     &--no-links {

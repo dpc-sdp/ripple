@@ -31577,7 +31577,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
               class="rpl-intro-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-intro-banner__link"
                 data-print-url="#"
                 href="#"
               >
@@ -31609,7 +31609,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
               class="rpl-intro-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-intro-banner__link"
                 data-print-url="#"
                 href="#"
               >
@@ -31639,7 +31639,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
               class="rpl-intro-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-intro-banner__link"
                 data-print-url="#"
                 href="#"
               >
@@ -31671,7 +31671,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
               class="rpl-intro-banner__link-list-item"
             >
               <a
-                class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                class="rpl-link rpl-text-link rpl-intro-banner__link"
                 data-print-url="#"
                 href="#"
               >
@@ -58378,7 +58378,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                   class="rpl-intro-banner__link-list-item"
                 >
                   <a
-                    class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                    class="rpl-link rpl-text-link rpl-intro-banner__link"
                     data-print-url="#"
                     href="#"
                   >
@@ -58410,7 +58410,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                   class="rpl-intro-banner__link-list-item"
                 >
                   <a
-                    class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                    class="rpl-link rpl-text-link rpl-intro-banner__link"
                     data-print-url="#"
                     href="#"
                   >
@@ -58440,7 +58440,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                   class="rpl-intro-banner__link-list-item"
                 >
                   <a
-                    class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                    class="rpl-link rpl-text-link rpl-intro-banner__link"
                     data-print-url="#"
                     href="#"
                   >
@@ -58472,7 +58472,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                   class="rpl-intro-banner__link-list-item"
                 >
                   <a
-                    class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
+                    class="rpl-link rpl-text-link rpl-intro-banner__link"
                     data-print-url="#"
                     href="#"
                   >

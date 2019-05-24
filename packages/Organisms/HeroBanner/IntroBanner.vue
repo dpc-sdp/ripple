@@ -19,6 +19,8 @@
               :url="item.url"
               iconSymbol="arrow_right_primary"
               iconColor="primary"
+              :underline="true"
+              :size="textLinkSize"
             />
           </li>
         </ul>
@@ -28,11 +30,13 @@
 </template>
 
 <script>
+import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplIntroBanner',
+  mixins: [breakpoint],
   props: {
     title: String,
     introText: String,
@@ -44,6 +48,11 @@ export default {
     RplTextLink,
     RplRow,
     RplCol
+  },
+  computed: {
+    textLinkSize () {
+      return this.$breakpoint.m ? 'large' : 'small'
+    }
   }
 }
 </script>
@@ -61,10 +70,6 @@ export default {
     'm': ('l', 1.4em, 'bold')
   ) !default;
   $rpl-intro-banner-link-heading-text-color: rpl_color('extra_dark_neutral') !default;
-  $rpl-intro-banner-link-typography-rules: (
-    'xs': ('xs', 1.7em, 'medium'),
-    'm': ('l', 1.7em, 'medium')
-  ) !default;
   $rpl-intro-banner-link-margin: auto auto $rpl-space-2 !default;
   $rpl-intro-banner-link-heading-margin: 0 auto $rpl-space-4 auto !default;
   $rpl-intro-banner-vertical-spacing: (
@@ -154,10 +159,6 @@ export default {
     &__link-list-item {
       list-style: none;
       margin: $rpl-intro-banner-link-margin;
-    }
-
-    &__link {
-      @include rpl_typography_ruleset($rpl-intro-banner-link-typography-rules);
     }
   }
 </style>

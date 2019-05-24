@@ -97,6 +97,12 @@ $rpl-alert-base-icom-margin: 0 $rpl-space-4 0 0 !default;
           }
         }
       }
+      &.rpl-text-link {
+        &:hover,
+        &:focus {
+          color: inherit;
+        }
+      }
     }
   }
 

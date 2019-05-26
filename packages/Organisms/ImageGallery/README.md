@@ -27,7 +27,11 @@ npm install @dpc-sdp/ripple-image-gallery --save
 ## Import
 
 ```js
-import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'
+import {
+  RplImageGalleryModal,
+  RplFullscreenImage,
+  RplImageGallery
+} from '@dpc-sdp/ripple-image-gallery'
 ```
 
 --------------------------------------------------------------------------------

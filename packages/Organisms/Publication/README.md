@@ -18,9 +18,12 @@ npm install @dpc-sdp/ripple-publication --save
 @dpc-sdp/ripple-publication
 ├── @dpc-sdp/ripple-description-list
 ├── @dpc-sdp/ripple-document-link
+├── @dpc-sdp/ripple-figure
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-icon
-└── @dpc-sdp/ripple-link
+├── @dpc-sdp/ripple-image-gallery
+├── @dpc-sdp/ripple-link
+└── @dpc-sdp/ripple-markup
 ```
 
 --------------------------------------------------------------------------------
@@ -32,6 +35,7 @@ import {
   RplPublicationPagination,
   RplPublicationDownloadPrint,
   RplPublicationAuthorInformation
+  RplPublicationImage
 } from '@dpc-sdp/ripple-publication'
 ```
 
@@ -44,6 +48,7 @@ See [Storybook/Publication Pagination](https://ripple.sdp.vic.gov.au/?selectedKi
 See [Storybook/Publication Download Print](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Publication&selectedStory=Publication%20Download%20Print).
 
 See [Storybook/Publication Author Information](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Publication&selectedStory=Publication%20Author%20Information).
+See [Storybook/Publication Image](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Publication&selectedStory=Publication%20Image).
 
 --------------------------------------------------------------------------------
 

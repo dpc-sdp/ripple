@@ -14536,10 +14536,14 @@ exports[`RippleStoryshots Molecules/Figure Figure 1`] = `
         src="https://placehold.it/800x400"
       />
        
-      <figcaption
-        class="rpl-figure__caption"
-      >
-        1.2 Caption to go here. This should be restricted in characters.
+      <figcaption>
+        <span
+          class="rpl-figure__caption"
+        >
+          1.2 Caption to go here. This should be restricted in characters.
+        </span>
+         
+        <!---->
       </figcaption>
     </figure>
   </div>
@@ -14707,6 +14711,38 @@ exports[`RippleStoryshots Molecules/Figure Figure 1`] = `
           >
             
     caption
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    source
     
             <!---->
           </td>
@@ -38126,6 +38162,673 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
             data-v-5bd9cdea=""
           >
             Print this page
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
+<div
+  class="vue-info"
+  data-v-6ca0e090=""
+>
+  <div
+    class="info-header"
+    data-v-003f20ee=""
+    data-v-6ca0e090=""
+  >
+    <h1
+      class="title"
+      data-v-003f20ee=""
+    >
+      
+    Organisms/Publication
+  
+    </h1>
+     
+    <h2
+      class="story-title"
+      data-v-003f20ee=""
+    >
+      
+    Publication Image
+  
+    </h2>
+  </div>
+   
+  <div
+    class="info-content"
+    data-v-6ca0e090=""
+  >
+    <div
+      class="rpl-publication-image"
+      data-v-6ca0e090=""
+    >
+      <h3
+        class="rpl-publication-image__title"
+      >
+        Figure 1.2
+      </h3>
+       
+      <figure
+        class="rpl-figure"
+      >
+        <img
+          alt="A generic square placeholder image."
+          class="rpl-figure__image"
+          src="https://placehold.it/800x400.jpg"
+        />
+         
+        <figcaption>
+          <span
+            class="rpl-figure__caption"
+          >
+            This is caption copy for use alongside informational images or for legal information.
+          </span>
+           
+          <span
+            class="rpl-figure__source"
+          >
+            Source: This is for the source to use alongside informational images or for legal information.
+          </span>
+        </figcaption>
+      </figure>
+       
+      <div
+        class="rpl-publication-image__controls"
+      >
+        <button
+          class="rpl-publication-image__button"
+        >
+          <span>
+            <span
+              class="rpl-text-icon__group"
+            >
+              <!---->
+              View
+            </span>
+             
+            <span>
+               Figure 1.2 in full screen
+            </span>
+             
+            <!---->
+          </span>
+        </button>
+         
+        <button
+          class="rpl-publication-image__button"
+        >
+          <span>
+            <span
+              class="rpl-text-icon__group"
+            >
+              <!---->
+              View
+            </span>
+             
+            <span>
+               Figure 1.2 in table format
+            </span>
+             
+            <!---->
+          </span>
+        </button>
+         
+        <!---->
+         
+        <a
+          class="rpl-publication-image__button"
+          download="800x400.jpg"
+          href="https://placehold.it/800x400.jpg"
+        >
+          <span>
+            <span
+              class="rpl-text-icon__group"
+            >
+              <!---->
+              Download
+            </span>
+             
+            <span>
+               Figure 1.2
+            </span>
+             
+            <!---->
+          </span>
+        </a>
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+   
+  <!---->
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-b425eb9a=""
+  >
+    <h2
+      class="section-title"
+      data-v-6814cc1a=""
+      data-v-b425eb9a=""
+    >
+      Story Source
+    </h2>
+     
+    <pre
+      class="code html hljs xml"
+      data-v-b425eb9a=""
+    >
+      <code
+        data-v-b425eb9a=""
+      >
+        <span
+          class="hljs-tag"
+        >
+          &lt;
+          <span
+            class="hljs-name"
+          >
+            rpl-publication-image
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :title
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "title"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :image
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "image"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :caption
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "caption"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :source
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "source"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :fullscreen
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "fullscreen"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :expand
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "expand"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :expandTitle
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "expandTitle"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :html
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "html"
+          </span>
+           
+          <span
+            class="hljs-attr"
+          >
+            :download
+          </span>
+          =
+          <span
+            class="hljs-string"
+          >
+            "download"
+          </span>
+           /&gt;
+        </span>
+      </code>
+    </pre>
+  </div>
+   
+  <h2
+    class="section-title"
+    data-v-6814cc1a=""
+    data-v-6ca0e090=""
+  >
+    Props
+  </h2>
+   
+  <div
+    data-v-6ca0e090=""
+    data-v-91bb5cde=""
+  >
+    <h3
+      class="component-name"
+      data-v-91bb5cde=""
+    >
+      
+    "RplPublicationImage" Component
+  
+    </h3>
+     
+    <table
+      class="props"
+      data-v-91bb5cde=""
+    >
+      <thead
+        class="props-head"
+        data-v-91bb5cde=""
+      >
+        <tr
+          data-v-91bb5cde=""
+        >
+          <th
+            data-v-91bb5cde=""
+          >
+            Name
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Type
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Default
+          </th>
+           
+          <th
+            data-v-91bb5cde=""
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        data-v-91bb5cde=""
+      >
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    title
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    image
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            object
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    caption
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    source
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    fullscreen
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    expand
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    expandTitle
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    html
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    download
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+          </td>
+        </tr>
+        <tr
+          class="props-table-row"
+          data-v-5bd9cdea=""
+          data-v-91bb5cde=""
+        >
+          <td
+            data-v-5bd9cdea=""
+          >
+            
+    expandcloseText
+    
+            <!---->
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            string
+          </td>
+           
+          <td
+            data-v-5bd9cdea=""
+          >
+            Close
           </td>
            
           <td
@@ -61577,10 +62280,14 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                     src="https://placehold.it/800x400"
                   />
                    
-                  <figcaption
-                    class="rpl-figure__caption"
-                  >
-                    1.2 Caption to go here. This should be restricted in characters.
+                  <figcaption>
+                    <span
+                      class="rpl-figure__caption"
+                    >
+                      1.2 Caption to go here. This should be restricted in characters.
+                    </span>
+                     
+                    <!---->
                   </figcaption>
                 </figure>
               </div>
@@ -70326,6 +71033,127 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                       This is a hyperlink. And here it is on hover. Unde omnis ist natus error siten voluptatem accusantium doloremque laudantium, totam rement eaque ipsa quae ab illo inventore veritatis et quasi architecto.
                     </p>
                      
+                    <p>
+                      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+                    </p>
+                  </div>
+                </div>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <div
+                  class="rpl-publication-image"
+                >
+                  <h3
+                    class="rpl-publication-image__title"
+                  >
+                    Figure 1.2
+                  </h3>
+                   
+                  <figure
+                    class="rpl-figure"
+                  >
+                    <img
+                      alt="A generic square placeholder image."
+                      class="rpl-figure__image"
+                      src="https://placehold.it/800x400.jpg"
+                    />
+                     
+                    <figcaption>
+                      <span
+                        class="rpl-figure__caption"
+                      >
+                        This is caption copy for use alongside informational images or for legal information.
+                      </span>
+                       
+                      <span
+                        class="rpl-figure__source"
+                      >
+                        Source: This is for the source to use alongside informational images or for legal information.
+                      </span>
+                    </figcaption>
+                  </figure>
+                   
+                  <div
+                    class="rpl-publication-image__controls"
+                  >
+                    <button
+                      class="rpl-publication-image__button"
+                    >
+                      <span>
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                          <!---->
+                          View
+                        </span>
+                         
+                        <span>
+                           Figure 1.2 in full screen
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </button>
+                     
+                    <button
+                      class="rpl-publication-image__button"
+                    >
+                      <span>
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                          <!---->
+                          View
+                        </span>
+                         
+                        <span>
+                           Figure 1.2 in table format
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </button>
+                     
+                    <!---->
+                     
+                    <a
+                      class="rpl-publication-image__button"
+                      download="800x400.jpg"
+                      href="https://placehold.it/800x400.jpg"
+                    >
+                      <span>
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                          <!---->
+                          Download
+                        </span>
+                         
+                        <span>
+                           Figure 1.2
+                        </span>
+                         
+                        <!---->
+                      </span>
+                    </a>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </div>
+               
+              <div
+                class="rpl-col rpl-col--full"
+              >
+                <div
+                  class="rpl-markup tide-wysiwyg app-wysiwyg"
+                >
+                  <div
+                    class="rpl-markup__inner"
+                  >
                     <p>
                       Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
                     </p>

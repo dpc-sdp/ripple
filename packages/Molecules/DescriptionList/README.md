@@ -1,14 +1,13 @@
-# @dpc-sdp/ripple-image-gallery
+# @dpc-sdp/ripple-description-list
 
-> A component to display images as an interactive gallery. This component only
-works client-side.
+> A list of descriptions.
 
 --------------------------------------------------------------------------------
 
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-image-gallery --save
+npm install @dpc-sdp/ripple-description-list --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,10 +15,8 @@ npm install @dpc-sdp/ripple-image-gallery --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-image-gallery
-├── @dpc-sdp/ripple-global
-├── @dpc-sdp/ripple-icon
-└── vue-carousel
+@dpc-sdp/ripple-description-list
+└── @dpc-sdp/ripple-global
 ```
 
 --------------------------------------------------------------------------------
@@ -27,18 +24,14 @@ npm install @dpc-sdp/ripple-image-gallery --save
 ## Import
 
 ```js
-import {
-  RplImageGalleryModal,
-  RplFullscreenImage,
-  RplImageGallery
-} from '@dpc-sdp/ripple-image-gallery'
+import { RplDescriptionList } from '@dpc-sdp/ripple-description-list'
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Image Gallery](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/ImageGallery&selectedStory=Image%20Gallery).
+See [Storybook/Description List](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/DescriptionList&selectedStory=Description%20List).
 
 --------------------------------------------------------------------------------
 

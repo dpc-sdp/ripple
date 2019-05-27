@@ -38,25 +38,13 @@
           :paginationEnabled="false"
           @pageChange="onPageChange"
         >
-          <slide v-for="(item, index) in galleryData" :key="index" class="rpl-image-gallery__large">
-            <div class="rpl-image-gallery__large-details-and-image">
-              <div class="rpl-image-gallery__large-image-wrapper">
-                <div class="rpl-image-gallery__large-image-sub-wrapper">
-                  <img class="rpl-image-gallery__large-image" :src="item.image" :alt="item.alt" />
-                </div>
-              </div>
-              <div class="rpl-image-gallery__large-details-navigation">
-                <div class="rpl-image-gallery__large-details-navigation-count">{{ (index + 1) }} / {{ totalSlides + 1 }}</div>
-                <button class="rpl-image-gallery__large-details-navigation-toggle" :class="{ 'rpl-image-gallery__large-details-navigation-toggle--expanded': toggleCaption}" @click="toggleCaption = !toggleCaption">
-                  <span v-if="!toggleCaption">View caption</span>
-                  <span v-if="toggleCaption">Close caption</span>
-                </button>
-              </div>
-              <div class="rpl-image-gallery__large-details" :class="{ 'rpl-image-gallery__large-details--show': toggleCaption}">
-                <h2 class="rpl-image-gallery__large-title">{{ item.title }}</h2>
-                <p class="rpl-image-gallery__large-caption">{{ item.caption }}</p>
-              </div>
-            </div>
+          <slide v-for="(item, index) in galleryData" :key="index">
+            <rpl-fullscreen-image
+              :image="{ src: item.image, alt: item.alt }"
+              :title="item.title"
+              :caption="item.caption"
+              :aboveCaption="`${(index + 1)} / ${totalSlides + 1}`"
+            />
           </slide>
         </carousel>
         <div class="rpl-image-gallery__large-navigation">
@@ -76,6 +64,7 @@
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import RplFittedImg from './FittedImg.vue'
 import RplImageGalleryModal from './ImageGalleryModal.vue'
+import RplFullscreenImage from './FullscreenImage.vue'
 import { Carousel, Slide } from 'vue-carousel'
 
 export default {
@@ -84,6 +73,7 @@ export default {
   components: {
     RplFittedImg,
     RplImageGalleryModal,
+    RplFullscreenImage,
     Carousel,
     Slide
   },
@@ -149,30 +139,6 @@ export default {
   $rpl-image-gallery-thumbnail-background: rpl_color('white') !default;
   $rpl-image-gallery-thumbnail-details-padding: ($rpl-space * 6) !default;
   $rpl-image-gallery-thumbnail-border-radius: rem(4px) !default;
-
-  $rpl-image-gallery-large-image-box-shadow: 0 ($rpl-space * 7) ($rpl-space * 9) 0 rgba(0, 0, 0, 0.36) !default;
-  $rpl-image-gallery-large-image-border-radius: rem(4px) !default;
-  $rpl-image-gallery-large-details-mobile-background-image: linear-gradient(to bottom, rgba($rpl-image-gallery-modal-background-color, 0), rgba($rpl-image-gallery-modal-background-color, 0) rem(50px), rgba($rpl-image-gallery-modal-background-color, 0.9) rem(94px), $rpl-image-gallery-modal-background-color rem(120px)) !default;
-  $rpl-image-gallery-large-details-padding: ($rpl-space * 17) $rpl-space-3 ($rpl-space * 8) !default;
-  $rpl-image-gallery-large-details-navigation-height: ($rpl-space * 8) !default;
-  $rpl-image-gallery-large-details-navigation-padding-bottom: $rpl-space-4 !default;
-  $rpl-image-gallery-large-image-wrapper-offset-top-xs: rem(70px) !default;
-  $rpl-image-gallery-large-image-wrapper-offset-top-l: rem(114px) !default;
-  $rpl-image-gallery-large-title-ruleset: (
-    'xs': ('s', 1em, 'bold'),
-    'l': ('giga', 1.11em, 'bold')
-  ) !default;
-  $rpl-image-gallery-large-title-text-color: rpl-color('white') !default;
-  $rpl-image-gallery-large-caption-ruleset: (
-    'xs': ('xs', 1.43em, 'regular'),
-    'l': ('m', 1.33em, 'regular')
-  ) !default;
-  $rpl-image-gallery-large-caption-text-color: rpl-color('white') !default;
-  $rpl-image-gallery-large-count-ruleset: ('s', 1em, 'bold') !default;
-  $rpl-image-gallery-large-count-text-color: rpl-color('white') !default;
-  $rpl-image-gallery-large-nav-toggle-ruleset: ('xs', 1.14em, 'bold') !default;
-  $rpl-image-gallery-large-nav-toggle-text-color: rpl-color('white') !default;
-  $rpl-image-gallery-large-nav-toggle-icon-color: rpl-color('secondary') !default;
 
   .rpl-image-gallery {
     position: relative;
@@ -261,99 +227,12 @@ export default {
       }
     }
 
-    // =========================================================================
-
-    &__large {
-      @include rpl-breakpoint('l') {
-        display: flex;
-        align-items: flex-end;
-      }
-    }
-
-    &__large-details-and-image {
-      display: inline-block;
-      position: relative;
-      width: 100%;
-      height: 100%;
-
-      @include rpl-breakpoint('l') {
-        height: auto;
-      }
-    }
-
-    &__large-image-wrapper {
-      width: 100%;
-      position: absolute;
-      height: calc(100% - #{$rpl-image-gallery-large-image-wrapper-offset-top-xs} - #{$rpl-image-gallery-large-details-navigation-height});
-      margin-top: $rpl-image-gallery-large-image-wrapper-offset-top-xs;
-
-      @include rpl-breakpoint('l') {
-        bottom: 100%;
-        height: calc(100vh - 100% - #{$rpl-image-gallery-large-image-wrapper-offset-top-l});
-        margin-top: 0;
-      }
-    }
-
-    &__large-image-sub-wrapper {
-      position: relative;
-      height: 100%;
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: center;
-    }
-
-    &__large-image {
-      border-radius: $rpl-image-gallery-large-image-border-radius;
-      box-shadow: $rpl-image-gallery-large-image-box-shadow;
-      max-height: 100%;
-      max-width: 100%;
-
-      @include rpl-breakpoint('l') {
-        max-width: calc(100% - #{$rpl-space * 15});
-      }
-    }
-
-    &__large-details {
-      display: none;
-      background-image: $rpl-image-gallery-large-details-mobile-background-image;
-      z-index: 1;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: $rpl-image-gallery-large-details-padding;
-
-      @include rpl-breakpoint('l') {
-        display: block;
-        position: relative;
-        padding: 0;
-        background-color: transparent;
-        background-image: none;
-        margin-bottom: ($rpl-space * 16);
-      }
-
-      &--show {
-        display: block;
-      }
-    }
-
-    &__large-title {
-      @include rpl_typography_ruleset($rpl-image-gallery-large-title-ruleset);
-      color: $rpl-image-gallery-large-title-text-color;
-    }
-
-    &__large-caption {
-      @include rpl_typography_ruleset($rpl-image-gallery-large-caption-ruleset);
-      color: $rpl-image-gallery-large-caption-text-color;
-    }
-
     &__large-navigation {
       display: flex;
       position: absolute;
       left: $rpl-space * 13;
       height: $rpl-space-4;
-      bottom: $rpl-image-gallery-large-details-navigation-padding-bottom;
+      bottom: $rpl-image-gallery-fullscreen-details-navigation-padding-bottom;
 
       @include rpl-breakpoint('l') {
         top: 50%;
@@ -362,53 +241,6 @@ export default {
         bottom: auto;
         height: auto;
         transform: translateY(-50%);
-      }
-    }
-
-    &__large-details-navigation {
-      width: 100%;
-      justify-content: space-between;
-      padding: 0 $rpl-space-4 $rpl-image-gallery-large-details-navigation-padding-bottom;
-      box-sizing: border-box;
-      position: absolute;
-      vertical-align: top;
-      height: $rpl-image-gallery-large-details-navigation-height;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-
-      @include rpl-breakpoint('l') {
-        display: none;
-      }
-    }
-
-    &__large-details-navigation-count {
-      @include rpl_typography_ruleset($rpl-image-gallery-large-count-ruleset);
-      color: $rpl-image-gallery-large-count-text-color;
-      float: left;
-    }
-
-    &__large-details-navigation-toggle {
-      @include rpl_typography_ruleset($rpl-image-gallery-large-nav-toggle-ruleset);
-      color: $rpl-image-gallery-large-nav-toggle-text-color;
-      background-color: transparent;
-      border: 0;
-      padding: 0;
-      margin: 0;
-      cursor: pointer;
-      float: right;
-
-      &::after {
-        content: '+';
-        color: $rpl-image-gallery-large-nav-toggle-icon-color;
-        margin-left: $rpl-space;
-      }
-
-      &--expanded {
-        &::after {
-          content: '-';
-        }
       }
     }
 

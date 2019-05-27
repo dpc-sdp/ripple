@@ -10,7 +10,7 @@
       :name="schema.inputName"
       @change="startChange"
       @init="startInit" />
-    <span class="rpl-date-picker__separator">-</span>
+    <span class="rpl-date-picker__separator" aria-hidden="true">-</span>
     <pikaday
       class="rpl-date-picker__end"
       v-model="modelEnd"

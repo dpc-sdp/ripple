@@ -5852,18 +5852,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      This is the first anchor
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       link
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    This is the first anchor link
                   </span>
                 </span>
               </span>
@@ -5884,18 +5873,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Second link to extra
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       content
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Second link to extra content
                   </span>
                 </span>
               </span>
@@ -5916,18 +5894,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Third link goes
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       here
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Third link goes here
                   </span>
                 </span>
               </span>
@@ -5948,18 +5915,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Link to additional
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       content
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Link to additional content
                   </span>
                 </span>
               </span>
@@ -5980,18 +5936,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Another link to extra
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       content
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Another link to extra content
                   </span>
                 </span>
               </span>
@@ -6012,18 +5957,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      This is another
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       link
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    This is another link
                   </span>
                 </span>
               </span>
@@ -21081,18 +21015,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
                   class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Second link it goes right
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       here
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Second link it goes right here
                   </span>
                 </span>
               </span>
@@ -21113,18 +21036,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
                   class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Third link to extra
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       content
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Third link to extra content
                   </span>
                 </span>
               </span>
@@ -21145,18 +21057,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Related Links 1`] = `
                   class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      This is a long link to extra
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       content
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    This is a long link to extra content
                   </span>
                 </span>
               </span>
@@ -26655,18 +26556,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Second link to extra
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       content
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Second link to extra content
                   </span>
                 </span>
               </span>
@@ -26687,18 +26577,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Third link goes
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       here
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Third link goes here
                   </span>
                 </span>
               </span>
@@ -26719,18 +26598,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Link to additional
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       content
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Link to additional content
                   </span>
                 </span>
               </span>
@@ -26751,18 +26619,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      Second link to extra
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       content
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    Second link to extra content
                   </span>
                 </span>
               </span>
@@ -26783,18 +26640,7 @@ exports[`RippleStoryshots Molecules/WhatsNext What's Next 1`] = `
                   class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                 >
                   <span>
-                    <span>
-                      This is another
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       link
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    This is another link
                   </span>
                 </span>
               </span>
@@ -28659,18 +28505,7 @@ exports[`RippleStoryshots Organisms/CampaignSecondary Campaign secondary - Video
                       class="rpl-text-label"
                     >
                       <span>
-                        <span>
-                          View
-                        </span>
-                         
-                        <span
-                          class="rpl-text-icon__group"
-                        >
-                           transcript
-                          <!---->
-                        </span>
-                         
-                        <!---->
+                        View transcript
                       </span>
                     </span>
                   </span>
@@ -30613,7 +30448,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -30645,7 +30480,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -30677,7 +30512,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -30709,7 +30544,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -30742,7 +30577,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Hero Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline rpl-text-label--emphasis"
                   >
                     <span>
                       <span>
@@ -31868,7 +31703,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -31900,7 +31735,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <!---->
@@ -31930,7 +31765,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -31962,7 +31797,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                   class="rpl-link__inner"
                 >
                   <span
-                    class="rpl-text-label"
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                   >
                     <span>
                       <span>
@@ -33929,18 +33764,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Embedded video 1`] = `
                   class="rpl-text-label"
                 >
                   <span>
-                    <span>
-                      View
-                    </span>
-                     
-                    <span
-                      class="rpl-text-icon__group"
-                    >
-                       transcript
-                      <!---->
-                    </span>
-                     
-                    <!---->
+                    View transcript
                   </span>
                 </span>
               </span>
@@ -34765,6 +34589,25 @@ exports[`RippleStoryshots Organisms/Markup Markup/Link 1`] = `
             
           <a
             class="rpl-link rpl-text-link"
+            data-print-url="#"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <span
+                class="rpl-text-label"
+              >
+                <span>
+                  relative link
+                </span>
+              </span>
+            </span>
+          </a>
+           and
+            
+          <a
+            class="rpl-link rpl-text-link"
             data-print-url="https://vic.gov.au"
             href="https://vic.gov.au"
             target="_blank"
@@ -34776,16 +34619,18 @@ exports[`RippleStoryshots Organisms/Markup Markup/Link 1`] = `
                 class="rpl-text-label"
               >
                 <span>
-                  <!---->
-                   
-                  <!---->
+                  <span>
+                    external
+                  </span>
                    
                   <span
                     class="rpl-text-icon__group"
                   >
-                    link
+                     link
                     <!---->
                   </span>
+                   
+                  <!---->
                 </span>
               </span>
             </span>
@@ -44315,18 +44160,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Second link it goes right
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               here
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Second link it goes right here
                           </span>
                         </span>
                       </span>
@@ -44347,18 +44181,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Third link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Third link to extra content
                           </span>
                         </span>
                       </span>
@@ -44379,18 +44202,7 @@ exports[`RippleStoryshots Templates Campaign page demo 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              This is a long link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            This is a long link to extra content
                           </span>
                         </span>
                       </span>
@@ -47340,7 +47152,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -47372,7 +47184,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -47404,7 +47216,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -47436,7 +47248,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -47469,7 +47281,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline rpl-text-label--emphasis"
                         >
                           <span>
                             <span>
@@ -47920,18 +47732,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  This is the first anchor
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   link
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                This is the first anchor link
                               </span>
                             </span>
                           </span>
@@ -47952,18 +47753,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Second link to extra
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   content
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Second link to extra content
                               </span>
                             </span>
                           </span>
@@ -47984,18 +47774,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Third link goes
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   here
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Third link goes here
                               </span>
                             </span>
                           </span>
@@ -48016,18 +47795,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Link to additional
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   content
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Link to additional content
                               </span>
                             </span>
                           </span>
@@ -48048,18 +47816,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Another link to extra
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   content
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Another link to extra content
                               </span>
                             </span>
                           </span>
@@ -48080,18 +47837,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  This is another
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   link
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                This is another link
                               </span>
                             </span>
                           </span>
@@ -50433,18 +50179,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Second link it goes right
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               here
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Second link it goes right here
                           </span>
                         </span>
                       </span>
@@ -50465,18 +50200,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Third link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Third link to extra content
                           </span>
                         </span>
                       </span>
@@ -50497,18 +50221,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              This is a long link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            This is a long link to extra content
                           </span>
                         </span>
                       </span>
@@ -50585,18 +50298,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Second link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Second link to extra content
                           </span>
                         </span>
                       </span>
@@ -50617,18 +50319,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Third link goes
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               here
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Third link goes here
                           </span>
                         </span>
                       </span>
@@ -50649,18 +50340,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Link to additional
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Link to additional content
                           </span>
                         </span>
                       </span>
@@ -50681,18 +50361,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Second link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Second link to extra content
                           </span>
                         </span>
                       </span>
@@ -50713,18 +50382,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              This is another
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               link
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            This is another link
                           </span>
                         </span>
                       </span>
@@ -51976,7 +51634,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -52008,7 +51666,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -52040,7 +51698,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -52072,7 +51730,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -52196,18 +51854,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Second link it goes right
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               here
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Second link it goes right here
                           </span>
                         </span>
                       </span>
@@ -52228,18 +51875,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Third link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Third link to extra content
                           </span>
                         </span>
                       </span>
@@ -52260,18 +51896,7 @@ exports[`RippleStoryshots Templates Landing page with hero banner graphics 1`] =
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              This is a long link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            This is a long link to extra content
                           </span>
                         </span>
                       </span>
@@ -54909,18 +54534,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Second link it goes right
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               here
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Second link it goes right here
                           </span>
                         </span>
                       </span>
@@ -54941,18 +54555,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Third link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Third link to extra content
                           </span>
                         </span>
                       </span>
@@ -54973,18 +54576,7 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              This is a long link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            This is a long link to extra content
                           </span>
                         </span>
                       </span>
@@ -59478,7 +59070,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -59510,7 +59102,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -59542,7 +59134,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -59574,7 +59166,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
                             <span>
@@ -59607,7 +59199,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         class="rpl-link__inner"
                       >
                         <span
-                          class="rpl-text-label rpl-text-label--large rpl-text-label--large--underline"
+                          class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline rpl-text-label--emphasis"
                         >
                           <span>
                             <span>
@@ -59871,7 +59463,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       class="rpl-link__inner"
                     >
                       <span
-                        class="rpl-text-label"
+                        class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                       >
                         <span>
                           <span>
@@ -59903,7 +59495,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       class="rpl-link__inner"
                     >
                       <span
-                        class="rpl-text-label"
+                        class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                       >
                         <span>
                           <!---->
@@ -59933,7 +59525,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       class="rpl-link__inner"
                     >
                       <span
-                        class="rpl-text-label"
+                        class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                       >
                         <span>
                           <span>
@@ -59965,7 +59557,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       class="rpl-link__inner"
                     >
                       <span
-                        class="rpl-text-label"
+                        class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                       >
                         <span>
                           <span>
@@ -60256,18 +59848,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  This is the first anchor
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   link
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                This is the first anchor link
                               </span>
                             </span>
                           </span>
@@ -60288,18 +59869,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Second link to extra
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   content
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Second link to extra content
                               </span>
                             </span>
                           </span>
@@ -60320,18 +59890,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Third link goes
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   here
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Third link goes here
                               </span>
                             </span>
                           </span>
@@ -60352,18 +59911,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Link to additional
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   content
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Link to additional content
                               </span>
                             </span>
                           </span>
@@ -60384,18 +59932,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Another link to extra
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   content
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Another link to extra content
                               </span>
                             </span>
                           </span>
@@ -60416,18 +59953,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  This is another
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   link
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                This is another link
                               </span>
                             </span>
                           </span>
@@ -61862,18 +61388,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                               class="rpl-text-label"
                             >
                               <span>
-                                <span>
-                                  Program
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   Overview
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Program Overview
                               </span>
                             </span>
                           </span>
@@ -64772,18 +64287,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Second link it goes right
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               here
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Second link it goes right here
                           </span>
                         </span>
                       </span>
@@ -64804,18 +64308,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Third link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Third link to extra content
                           </span>
                         </span>
                       </span>
@@ -64836,18 +64329,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              This is a long link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            This is a long link to extra content
                           </span>
                         </span>
                       </span>
@@ -64924,18 +64406,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Second link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Second link to extra content
                           </span>
                         </span>
                       </span>
@@ -64956,18 +64427,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Third link goes
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               here
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Third link goes here
                           </span>
                         </span>
                       </span>
@@ -64988,18 +64448,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Link to additional
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Link to additional content
                           </span>
                         </span>
                       </span>
@@ -65020,18 +64469,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              Second link to extra
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               content
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            Second link to extra content
                           </span>
                         </span>
                       </span>
@@ -65052,18 +64490,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                           class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                         >
                           <span>
-                            <span>
-                              This is another
-                            </span>
-                             
-                            <span
-                              class="rpl-text-icon__group"
-                            >
-                               link
-                              <!---->
-                            </span>
-                             
-                            <!---->
+                            This is another link
                           </span>
                         </span>
                       </span>
@@ -70506,18 +69933,7 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  This is the first anchor
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   link
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                This is the first anchor link
                               </span>
                             </span>
                           </span>
@@ -70538,18 +69954,7 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Second link to extra
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   content
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Second link to extra content
                               </span>
                             </span>
                           </span>
@@ -70570,18 +69975,7 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Third link goes
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   here
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Third link goes here
                               </span>
                             </span>
                           </span>
@@ -70602,18 +69996,7 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Link to additional
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   content
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Link to additional content
                               </span>
                             </span>
                           </span>
@@ -70634,18 +70017,7 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  Another link to extra
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   content
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                Another link to extra content
                               </span>
                             </span>
                           </span>
@@ -70666,18 +70038,7 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                               class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
                             >
                               <span>
-                                <span>
-                                  This is another
-                                </span>
-                                 
-                                <span
-                                  class="rpl-text-icon__group"
-                                >
-                                   link
-                                  <!---->
-                                </span>
-                                 
-                                <!---->
+                                This is another link
                               </span>
                             </span>
                           </span>

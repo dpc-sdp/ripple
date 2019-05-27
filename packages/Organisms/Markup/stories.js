@@ -128,7 +128,8 @@ storiesOf('Organisms/Markup', module)
         html: `
           <p>
             A paragraph of <strong>text</strong> with a
-            <a href="https://vic.gov.au">link</a>.
+            <a href="#">relative link</a> and
+            <a href="https://vic.gov.au">external link</a>.
           </p>
         `
       }

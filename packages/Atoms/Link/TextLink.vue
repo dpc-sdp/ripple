@@ -67,7 +67,7 @@ export default {
       color: $rpl-text-link-text-color-hover;
 
       .rpl-text-label {
-        color: $rpl-text-link-text-color-hover;
+        color: inherit;
 
         &--small {
           &--underline {

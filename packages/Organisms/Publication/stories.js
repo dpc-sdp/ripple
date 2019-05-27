@@ -8,6 +8,7 @@ import {
 
 import RplPublicationPagination from './PublicationPagination.vue'
 import RplPublicationDownloadPrint from './PublicationDownloadPrint.vue'
+import RplPublicationAuthorInformation from './PublicationAuthorInformation.vue'
 import RplPublicationImage from './PublicationImage.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
@@ -35,6 +36,18 @@ storiesOf('Organisms/Publication', module)
       download (name) {
         console.log(`PublicationDownloadPrint event received: download "${name}"`)
       }
+    }
+  })))
+  .add('Publication Author Information', withReadme(readme, () => ({
+    components: { RplPublicationAuthorInformation },
+    template: `<rpl-publication-author-information
+      :date="date"
+      :copyright="copyright"
+      :author="author"
+      :locale="locale"
+    />`,
+    data () {
+      return demoData.publicationAuthorInformation()
     }
   })))
   .add('Publication Image', withReadme(readme, () => ({

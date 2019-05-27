@@ -10,6 +10,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@dpc-sdp/ripple-description-list": "1.0.0-alpha.76",
     "@dpc-sdp/ripple-global": "1.0.0-alpha.76"
   }
 }

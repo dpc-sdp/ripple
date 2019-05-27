@@ -18,7 +18,6 @@
 import Vue from 'vue'
 import RplFormAlert from './formAlert'
 import RplFieldset from './Fieldset'
-import Multiselect from 'vue-multiselect'
 import VueFormGenerator from 'vue-form-generator'
 import fieldRplselect from './fields/fieldRplselect.vue'
 import fieldRplslider from './fields/fieldRplslider.vue'
@@ -31,7 +30,6 @@ import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
 import VueScrollTo from 'vue-scrollto'
 
-Vue.component('multiselect', Multiselect)
 Vue.component('fieldRplselect', fieldRplselect)
 Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)

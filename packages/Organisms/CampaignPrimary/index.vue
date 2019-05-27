@@ -2,13 +2,13 @@
   <div class="rpl-campaign-primary">
     <div v-if="image" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large">
       <span class="rpl-campaign-primary__image-inner">
-        <svg :aria-hidden="!hasAlt ? 'true' : false" class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg">
+        <svg :aria-hidden="!hasAlt ? 'true' : false" class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <title v-if="hasAlt">{{image.alt}}</title>
           <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
             <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
           </mask>
           <g mask="url(#mask0)">
-            <image width="699" height="411" :href="image.src" />
+            <image width="699" height="411" :xlink:href="image.src" :href="image.src" />
           </g>
         </svg>
       </span>

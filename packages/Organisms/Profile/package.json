@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-profile",
-  "version": "1.0.0-alpha.74",
+  "version": "1.0.0-alpha.76",
   "description": "Components for displaying Component information.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,6 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.74"
+    "@dpc-sdp/ripple-description-list": "1.0.0-alpha.76",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.76"
   }
 }

@@ -369,6 +369,7 @@ export default {
       .rpl-link {
         display: flex;
         flex-flow: column;
+        @include rpl_focus_dark;
       }
 
       img {
@@ -450,6 +451,7 @@ export default {
       display: flex;
       align-items: center;
       cursor: pointer;
+      @include rpl_focus_dark;
 
       &--menu {
         padding-right: $rpl-site-header-menu-toggle-border-spacing;
@@ -458,7 +460,7 @@ export default {
           display: none;
         }
 
-        span{
+        span {
           display: none;
           @include rpl_breakpoint('s') {
             display: block;

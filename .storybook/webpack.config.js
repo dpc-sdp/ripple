@@ -16,6 +16,7 @@ module.exports = {
         test: /\.(scss|css)$/,
         loaders: ["style-loader", "css-loader", "sass-loader"],
         include: [
+          resolve('node_modules'),
           resolve('packages'),
           resolve('src')
         ]

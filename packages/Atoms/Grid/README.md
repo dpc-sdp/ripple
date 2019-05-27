@@ -16,7 +16,7 @@ npm install @dpc-sdp/ripple-grid --save
 
 ```shell
 @dpc-sdp/ripple-grid
-└── @dpc-sdp/ripple-global
+
 ```
 
 --------------------------------------------------------------------------------

@@ -528,127 +528,127 @@ const demoData = {
     nav: object('Nav', [
       {
         text: 'Your Services',
-        link: '#',
+        url: '#',
         children: [
           {
             text: 'Grants awards and assistance',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Law and safety',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Business and Industry',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Jobs and the Workplace',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Transport and Traffic',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Education',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Housing and Property',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Health',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Community',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Art, Culture and Sport',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Environment and Water',
-            link: '#'
+            url: '#'
           }
         ]
       },
       {
         text: 'About VIC Government',
-        link: '#',
+        url: '#',
         children: [
           {
             text: 'Grants awards and assistance',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Law and safety',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Business and Industry',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Jobs and the Workplace',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Transport and Traffic',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Education',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Housing and Property',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Health',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Community',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Art, Culture and Sport',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Environment and Water',
-            link: '#'
+            url: '#'
           }
         ]
       },
       {
         text: 'News',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Events',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Connect with us',
-        link: '#',
+        url: '#',
         children: [
           {
             text: 'Education',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Housing and Property',
-            link: '#'
+            url: '#'
           },
           {
             text: 'Health',
-            link: '#'
+            url: '#'
           }
         ]
       }
@@ -656,27 +656,27 @@ const demoData = {
     links: object('Links', [
       {
         text: 'Privacy',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Disclaimer',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Terms of use',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Sitemap',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Accessibility Statement',
-        link: '#'
+        url: '#'
       },
       {
         text: 'Help',
-        link: '#'
+        url: '#'
       }
     ]),
     copyright: text('Copyright', '© Copyright State Government of Victoria'),
@@ -1825,6 +1825,7 @@ const demoData = {
       'play',
       'ppt',
       'pptx',
+      'print',
       'right',
       'search',
       'senior',
@@ -1862,10 +1863,7 @@ const demoData = {
   // This function name isn't map() because that's
   // a JavaScript function already.
   mapData: () => ({
-    basemapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
-    wifiLayerUrl: 'https://prod-gis.myvictoria.vic.gov.au/geoserver/gwc/service/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=myvic:public_wifi&TILEMATRIX=EPSG:3857:{z}&TILEMATRIXSET=EPSG:3857&FORMAT=application/x-protobuf;type=mapbox-vector&TILECOL={x}&TILEROW={y}',
-    wifiCenter: [16136905.843820328, -4553057.013522999],
-    wifiZoom: 15
+    baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
   }),
 
   grid: () => ({
@@ -2246,6 +2244,112 @@ const demoData = {
       content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
     }]),
     single: boolean('Single', false)
+  }),
+
+  publicationPagination: () => ({
+    previousLink: text('Previous Link', '#'),
+    previousText: text('Previous Text', 'Previous'),
+    previousDescription: text('Previous Description', 'Previous page title can wrap over two lines'),
+    nextLink: text('Next Link', '#'),
+    nextText: text('Next Text', 'Next'),
+    nextDescription: text('Next Description', 'Next page title can wrap over two lines')
+  }),
+
+  publicationDownloadPrint: () => ({
+    links: object('Links', [{
+      name: 'Short title of a document',
+      url: '#',
+      extension: 'pdf',
+      filesize: '1.2 mb'
+    }, {
+      name: 'External document link',
+      url: 'https://www.google.com',
+      extension: 'pdf',
+      filesize: '1.2 mb'
+    }]),
+    showPrint: boolean('Show print', true)
+  }),
+
+  publicationImage: () => ({
+    title: text('Title', 'Figure 1.2'),
+    image: object('Image', {
+      src: 'https://placehold.it/800x400.jpg',
+      alt: 'A generic square placeholder image.'
+    }),
+    caption: text('Caption', 'This is caption copy for use alongside informational images or for legal information.'),
+    source: text('Source', 'Source: This is for the source to use alongside informational images or for legal information.'),
+    fullscreen: text('Fullscreen', 'View Figure 1.2 in full screen'),
+    expand: text('Expand', 'View Figure 1.2 in table format'),
+    expandTitle: text('Expand Title', 'Figure 1.2'),
+    html: text('Html', `<div class="rpl-markup__table">
+  <table>
+    <thead>
+      <tr>
+        <th>Column header one</th>
+        <th>Header number two</th>
+        <th>Third column header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Data point one</td>
+        <td>This is a piece of data</td>
+        <td>Third column information</td>
+      </tr>
+      <tr>
+        <td>Data pt two</td>
+        <td>This is data</td>
+        <td>Fourth col info here</td>
+      </tr>
+      <tr>
+        <td>Data point three</td>
+        <td>This is a piece of data</td>
+        <td>Third column info here</td>
+      </tr>
+      <tr>
+        <td>Point four</td>
+        <td>This is some data</td>
+        <td>Information goes here</td>
+      </tr>
+      <tr>
+        <td>Five</td>
+        <td>This is a piece of data</td>
+        <td>Third column info here</td>
+      </tr>
+      <tr>
+        <td>Data point six</td>
+        <td>This is some data</td>
+        <td>Information</td>
+      </tr>
+    </tbody>
+  </table>
+</div>`),
+    download: text('Download', 'Download Figure 1.2')
+  }),
+
+  pageLayout: () => ({
+    columns: object('Columns', {
+      main: {l: 8},
+      sidebar: {
+        colsBp: {l: 3},
+        push: {l: 1}
+      }
+    })
+  }),
+
+  descriptionList: () => ({
+    list: object('List', [
+      { term: 'List Item 1', description: 'Description' },
+      { term: 'List Item 2', description: 'Description 2' },
+      { term: 'List Item 3', description: 'Description 3' }
+    ])
+  }),
+
+  publicationAuthorInformation: () => ({
+    author: text('Author', 'Department of Premier and Cabinet'),
+    date: text('Date', '2018-03-23T09:00:00.000+10:00'),
+    copyright: text('Copyright', 'This is licensed under a Creative Commons Attribution 4.0 International licence. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'),
+    locale: text('Locale', 'en-au')
   })
 }
 

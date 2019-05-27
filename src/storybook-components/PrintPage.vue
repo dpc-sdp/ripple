@@ -42,6 +42,7 @@
         <rpl-col cols="full"><rpl-pagination v-bind="mock.pagination" /></rpl-col>
         <rpl-col cols="full"><rpl-call-to-action v-bind="mock.callToAction" /></rpl-col>
         <rpl-col cols="full"><rpl-form v-bind="mock.form" /></rpl-col>
+        <rpl-col cols="full"><rpl-publication-pagination v-bind="mock.publicationPagination" /></rpl-col>
       </rpl-row>
 
       <template slot="sidebar">
@@ -78,13 +79,13 @@
           <rpl-campaign-secondary v-bind="mock.campaignSecondary" />
         </div>
         <div class="rpl-site-constrain--on-all">
-          <rpl-updated-date v-bind="mock.updatedDate"></rpl-updated-date>
-        </div>
-        <div class="rpl-site-constrain--on-all">
           <rpl-latest-events v-bind="mock.latestEvents" />
         </div>
         <div class="rpl-site-constrain--on-all">
           <rpl-sitemap v-bind="mock.sitemap" />
+        </div>
+        <div class="rpl-site-constrain--on-all">
+          <rpl-updated-date v-bind="mock.updatedDate" />
         </div>
       </template>
 
@@ -135,6 +136,7 @@ import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'
 import { RplMarkup } from '@dpc-sdp/ripple-markup'
 import { RplFeaturedNews, RplNewsListing } from '@dpc-sdp/ripple-news'
 import { RplProfileHighlight, RplProfileHighlightHonourRoll } from '@dpc-sdp/ripple-profile'
+import { RplPublicationPagination } from '@dpc-sdp/ripple-publication'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import RplSiteSectionNavigation from '@dpc-sdp/ripple-site-section-navigation'
@@ -199,6 +201,7 @@ export default {
     RplNewsListing,
     RplProfileHighlight,
     RplProfileHighlightHonourRoll,
+    RplPublicationPagination,
     RplSiteFooter,
     RplSiteHeader,
     RplSiteSectionNavigation,

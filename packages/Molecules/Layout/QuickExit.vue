@@ -86,6 +86,8 @@ export default {
     margin-left: auto;
     z-index: $rpl-zindex-tooltip;
 
+    @include rpl_print_hidden;
+
     &--sticky {
       &::before {
         // A phantom button to keep the space available.

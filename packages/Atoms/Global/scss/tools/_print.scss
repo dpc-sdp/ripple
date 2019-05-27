@@ -1,0 +1,39 @@
+@mixin rpl_text_color($screen, $print: $rpl-print-text) {
+  color: $screen;
+
+  @media print {
+    color: $print;
+  }
+}
+
+@mixin rpl_print {
+  @media print {
+    @content;
+  }
+}
+
+@mixin rpl_print_hidden {
+  @media print {
+    display: none;
+  }
+}
+
+@mixin rpl_print_margin($size: 'l', $placement: 'both') {
+  @media print {
+    margin-top: 0;
+    margin-bottom: 0;
+    @if $placement == 'before' or $placement == 'both' {
+      margin-top: map-get($rpl-print-margin, $size);
+    }
+    @if $placement == 'after' or $placement == 'both' {
+      margin-bottom: map-get($rpl-print-margin, $size);
+    }
+  }
+}
+
+@mixin rpl_print_image {
+  @include rpl_print_margin('m');
+  @media print {
+    max-height: $rpl-print-image-height;
+  }
+}

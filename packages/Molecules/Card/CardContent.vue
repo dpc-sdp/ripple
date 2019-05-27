@@ -11,6 +11,7 @@
       'rpl-card-content--inline': (type === 'inline'),
       'rpl-card-content--has-link-text': link.text
     }"
+    :innerWrap="false"
     v-if="link"
   >
     <div class="rpl-card-content__image-wrapper" v-if="image">
@@ -115,6 +116,8 @@ export default {
     background-color: $rpl-card-content-background;
     border: $rpl-card-content-border;
     border-radius: $rpl-card-content-border-radius;
+
+    @include rpl_print_hidden;
 
     &:hover,
     &:focus {

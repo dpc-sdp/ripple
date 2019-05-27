@@ -10,7 +10,10 @@ import SPageCardTrim from './PageCardTrim.vue'
 import SPageSitemap from './PageSitemap.vue'
 import SPageForm from './PageForm.vue'
 import SPageProfile from './PageProfile.vue'
+import SPageAccordion from './PageAccordion.vue'
+import SPagePublication from './PagePublication.vue'
 import SPageCards from './PageCards.vue'
+import SPrintPage from './PrintPage.vue'
 
 import {
   withKnobs,
@@ -59,7 +62,7 @@ storiesOf('Templates', module)
 </s-search-page>`,
     data () {
       return {
-        sidebar: false,
+        sidebar: boolean('Has sidebar', false),
         mock: demoDataLocked,
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)
@@ -72,6 +75,7 @@ storiesOf('Templates', module)
   .add('Event search page demo', () => ({
     components: { SEventSearchPage },
     template: `<s-event-search-page
+:sidebar="sidebar"
 :mock="mock"
 :hasError="hasError"
 :noResults="noResults"
@@ -79,7 +83,7 @@ storiesOf('Templates', module)
 </s-event-search-page>`,
     data () {
       return {
-        sidebar: false,
+        sidebar: boolean('Has sidebar', false),
         mock: demoDataLocked,
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)
@@ -91,6 +95,7 @@ storiesOf('Templates', module)
   .add('Grant search page demo', () => ({
     components: { SGrantSearchPage },
     template: `<s-grant-search-page
+    :sidebar="sidebar"
     :mock="mock"
     :hasError="hasError"
     :noResults="noResults"
@@ -98,7 +103,7 @@ storiesOf('Templates', module)
     </s-grant-search-page>`,
     data () {
       return {
-        sidebar: false,
+        sidebar: boolean('Has sidebar', false),
         mock: demoDataLocked,
         hasError: boolean('Has error', false),
         noResults: boolean('No results', false)
@@ -174,9 +179,45 @@ storiesOf('Templates', module)
 
 storiesOf('Templates', module)
   .addDecorator(withKnobs)
+  .add('Accordion Page', () => ({
+    components: { SPageAccordion },
+    template: `<s-page-accordion :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Publication Page', () => ({
+    components: { SPagePublication },
+    template: `<s-page-publication :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
   .add('Page with Cards', () => ({
     components: { SPageCards },
     template: `<s-page-cards :mock="mock" />`,
+    data () {
+      return {
+        mock: demoDataLocked
+      }
+    }
+  }))
+
+storiesOf('Templates', module)
+  .addDecorator(withKnobs)
+  .add('Print Page', () => ({
+    components: { SPrintPage },
+    template: `<s-print-page :mock="mock" />`,
     data () {
       return {
         mock: demoDataLocked

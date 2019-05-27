@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     textWordCount: function () {
-      return this.text.length > 0 ? this.text.match(/[.*]|[^ \r\n]+/gi).length : 0
+      return (this.text.match(/[.*]|[^ \r\n]+/gi) || []).length
     },
     textWithoutLastWord: function () {
       return this.text.substr(0, this.text.lastIndexOf(' '))

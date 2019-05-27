@@ -46,13 +46,14 @@ export default {
 
       #{$root}--dark & {
         border-color: $rpl-meta-tag-dark-border-color;
+        @include rpl_focus_dark;
       }
     }
 
     &__text {
       @include rpl_typography_font('xxs', 1.2em, 'medium');
+      @include rpl_text_color($rpl-meta-tag-text-color);
       text-transform: uppercase;
-      color: $rpl-meta-tag-text-color;
 
       #{$root}--dark & {
         color: $rpl-meta-tag-dark-text-color;

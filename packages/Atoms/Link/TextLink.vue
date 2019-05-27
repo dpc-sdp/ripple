@@ -1,20 +1,15 @@
 <template>
-  <rpl-link class="rpl-text-link" :class="{
-    'rpl-text-link--dark': (theme === 'dark'),
-    'rpl-text-link--dark--underline': (theme === 'dark' && underline),
-    'rpl-text-link--small': (size === 'small'),
-    'rpl-text-link--small--underline': (size === 'small' && underline),
-    'rpl-text-link--large': (size === 'large'),
-    'rpl-text-link--large--underline': (size === 'large' && underline),
-    'rpl-text-link--emphasis': emphasis
-  }" :href="url">
-    <rpl-text-icon :text="text" :symbol="iconSymbolFinal" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
+  <rpl-link class="rpl-text-link" :class="{ 'rpl-text-link--underline': underline }" :href="url" :innerWrap="innerWrap">
+    <rpl-text-label :theme="theme" :size="size" :underline="underline" :emphasis="emphasis">
+      <rpl-text-icon :text="text" :symbol="iconSymbolFinal" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
+    </rpl-text-label>
   </rpl-link>
 </template>
 
 <script>
 import {RplTextIcon} from '@dpc-sdp/ripple-icon'
 import RplLink from './Link.vue'
+import RplTextLabel from './TextLabel.vue'
 import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
@@ -26,6 +21,7 @@ export default {
     iconSize: {default: 'm', type: String},
     text: {default: null, type: String},
     url: {default: null, type: String},
+    innerWrap: {default: true, type: Boolean},
     underline: {default: false, type: Boolean},
     theme: {default: 'light', type: String},
     size: {default: null, type: String},
@@ -33,7 +29,8 @@ export default {
   },
   components: {
     RplTextIcon,
-    RplLink
+    RplLink,
+    RplTextLabel
   },
   computed: {
     iconSymbolFinal () {
@@ -50,91 +47,45 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-text-link-light-underline: rpl-color('mid_neutral_2');
-  $rpl-text-link-light-underline-hover: rpl-color('mid_neutral_2');
-  $rpl-text-link-dark-underline: rpl-color('secondary');
-  $rpl-text-link-dark-underline-hover: rpl-color('white');
-
-  $rpl-text-link-underline-small: rem(2px);
-  $rpl-text-link-underline-large: rem(3px);
-
-  $rpl-text-link-text-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-text-link-light-underline-hover: rpl-color('mid_neutral_2') !default;
+  $rpl-text-link-dark-underline-hover: rpl-color('white') !default;
   $rpl-text-link-text-color-hover: rpl_color('primary') !default;
-  $rpl-text-link-dark-text-color: rpl-color('white') !default;
   $rpl-text-link-dark-text-color-hover: rpl-color('white') !default;
-  $rpl-text-link-small-typography: ('xs', 1.7em, 'medium') !default;
-  $rpl-text-link-large-typography: ('l', 1.7em, 'medium') !default;
-  $rpl-text-link-small-typography-emphasis: ('xs', 1.7em, 'bold') !default;
-  $rpl-text-link-large-typography-emphasis: ('l', 1.7em, 'bold') !default;
 
   .rpl-text-link {
-    $root: &;
-    text-decoration: none;
-    color: $rpl-text-link-text-color;
+    &--underline {
+      &.rpl-link {
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+      }
+    }
 
     &:hover,
     &:focus {
       color: $rpl-text-link-text-color-hover;
-    }
 
-    &--small {
-      @include rpl_typography_ruleset($rpl-text-link-small-typography);
+      .rpl-text-label {
+        color: $rpl-text-link-text-color-hover;
 
-      &--underline {
-        border-bottom-style: solid;
-        border-bottom-color: $rpl-text-link-light-underline;
-        border-bottom-width: $rpl-text-link-underline-small;
-
-        &:hover,
-        &:focus {
-          border-bottom-color: $rpl-text-link-light-underline-hover;
-
-          &.rpl-link {
-            text-decoration: none;
+        &--small {
+          &--underline {
+            border-bottom-color: $rpl-text-link-light-underline-hover;
           }
         }
-      }
-    }
 
-    &--large {
-      @include rpl_typography_ruleset($rpl-text-link-large-typography);
-
-      &--underline {
-        border-bottom-style: solid;
-        border-bottom-color: $rpl-text-link-light-underline;
-        border-bottom-width: $rpl-text-link-underline-large;
-
-        &:hover,
-        &:focus {
-          border-bottom-color: $rpl-text-link-light-underline-hover;
-
-          &.rpl-link {
-            text-decoration: none;
+        &--large {
+          &--underline {
+            border-bottom-color: $rpl-text-link-light-underline-hover;
           }
         }
-      }
-    }
 
-    &--emphasis {
-      &#{$root}--small {
-        @include rpl_typography_ruleset($rpl-text-link-small-typography-emphasis);
-      }
-
-      &#{$root}--large {
-        @include rpl_typography_ruleset($rpl-text-link-large-typography-emphasis);
-      }
-    }
-
-    &--dark {
-      color: $rpl-text-link-dark-text-color;
-
-      &--underline {
-        border-bottom-color: $rpl-text-link-dark-underline;
-
-        &:hover,
-        &:focus {
-          color: $rpl-text-link-dark-text-color-hover;
-          border-bottom-color: $rpl-text-link-dark-underline-hover;
+        &--dark {
+          &--underline {
+            color: $rpl-text-link-dark-text-color-hover;
+            border-bottom-color: $rpl-text-link-dark-underline-hover;
+          }
         }
       }
     }

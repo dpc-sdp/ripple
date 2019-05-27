@@ -38,6 +38,8 @@ import RplGlobal from '@dpc-sdp/ripple-global'
 
 See [Storybook/Colors](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Colors).
 
+See [Storybook/Fonts](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Fonts).
+
 See [Storybook/Typography](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Typography).
 
 See [Storybook/Breakpoints](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Global&selectedStory=Breakpoints).

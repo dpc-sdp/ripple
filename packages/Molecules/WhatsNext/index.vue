@@ -15,7 +15,6 @@
 
 <script>
 import { RplTextLink } from '@dpc-sdp/ripple-link'
-import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplWhatsNext',
@@ -24,8 +23,7 @@ export default {
     links: Array
   },
   components: {
-    RplTextLink,
-    RplIcon
+    RplTextLink
   }
 }
 </script>
@@ -51,6 +49,8 @@ export default {
       border-radius: $rpl-whats-next-border-radius;
     }
 
+    @include rpl_print_hidden;
+
     &__row {
       @include rpl_breakpoint('s') {
         max-width: $rpl-whats-next-max-width-s;
@@ -64,8 +64,8 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-whats-next-title-ruleset);
+      @include rpl_text_color($rpl-whats-next-title-color);
       margin: 0;
-      color: $rpl-whats-next-title-color;
     }
 
     &__items {

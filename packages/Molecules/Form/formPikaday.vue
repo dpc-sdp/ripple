@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     pikadayInit: async function () {
-      const Pikaday = await import('pikaday')
+      const Pikaday = await import('pikaday').then(module => module.default ? module.default : module)
       this.picker = new Pikaday(defaults(this.pickerOptions, {
         field: this.$el,
         onSelect: () => {

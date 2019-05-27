@@ -5,7 +5,7 @@
     </div>
     <rpl-row row-gutter class="rpl-search-results__main" :class="{'rpl-search-results__main--events': type === 'RplCardEvent'}">
       <template v-if="searchResults && !errorMsg">
-        <rpl-col cols="full" v-for="(searchResult, index) of searchResults" :key="index" :colsBp="searchResultContent.colsBp">
+        <rpl-col cols="full" v-for="(searchResult, index) of searchResults" :key="`${index}-${searchResult.id}`" :colsBp="searchResultContent.colsBp">
           <component
             v-if="searchResultContent.component"
             :is="searchResultContent.component"
@@ -23,7 +23,7 @@
       </div>
     </rpl-row>
     <rpl-row row-gutter>
-      <rpl-col cols="full" :colsBp="cardColsBp">
+      <rpl-col cols="full" :colsBp="childColsBp">
         <rpl-pagination
           :totalSteps="pager.totalSteps"
           :initialStep="pager.initialStep"
@@ -36,11 +36,13 @@
 </template>
 
 <script>
+import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   name: 'RplSearchResults',
+  mixins: [provideChildCols],
   components: {
     RplPagination,
     RplRow,
@@ -64,6 +66,12 @@ export default {
         }
       }
     },
+    childColsBp: {
+      type: Object,
+      default: function () {
+        return {m: 6, l: 4, xxxl: 3}
+      }
+    },
     errorMsg: String,
     noResultsMsg: String,
     responseSize: Number,
@@ -75,21 +83,21 @@ export default {
         case 'RplCardEvent':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-event' */ '@dpc-sdp/ripple-card').then(m => m.RplCardEvent),
-            colsBp: this.cardColsBp,
+            colsBp: this.childColsBp,
             class: ['rpl-search-results__item--event']
           }
           break
         case 'RplCardPromotion':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-promotion' */ '@dpc-sdp/ripple-card').then(m => m.RplCardPromotion),
-            colsBp: this.cardColsBp,
+            colsBp: this.childColsBp,
             class: ['rpl-search-results__item--promotion']
           }
           break
         case 'RplCardHonourRoll':
           this.searchResultContent = {
             component: () => import(/* webpackChunkName: 'rpl-card-honour-roll' */ '@dpc-sdp/ripple-card').then(m => m.RplCardHonourRoll),
-            colsBp: this.cardColsBp,
+            colsBp: this.childColsBp,
             class: ['rpl-search-results__item--honour-roll']
           }
           break
@@ -108,8 +116,7 @@ export default {
   },
   data () {
     return {
-      searchResultContent: null,
-      cardColsBp: {m: 6, l: 4, xxxl: 3}
+      searchResultContent: null
     }
   }
 }
@@ -133,6 +140,15 @@ export default {
     &__no-results-msg,
     &__error-msg {
       @include rpl_typography('heading_l');
+    }
+
+    .rpl-pagination {
+      // Allow space (72px) for the back-to-top button in BaseLayout.
+      width: calc(100% - #{$rpl-space * 18});
+
+      @include rpl_breakpoint(m) {
+        width: 100%;
+      }
     }
   }
 </style>

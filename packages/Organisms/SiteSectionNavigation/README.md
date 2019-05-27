@@ -16,7 +16,9 @@ npm install @dpc-sdp/ripple-site-section-navigation --save
 
 ```shell
 @dpc-sdp/ripple-site-section-navigation
-└── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-icon
+└── @dpc-sdp/ripple-link
 ```
 
 --------------------------------------------------------------------------------

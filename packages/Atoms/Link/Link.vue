@@ -1,9 +1,19 @@
 <template>
-  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget">
-    <slot></slot>
+  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget" :data-print-url="printUrl">
+    <span v-if="innerWrap" class="rpl-link__inner">
+      <slot></slot>
+    </span>
+    <template v-else>
+      <slot></slot>
+    </template>
   </a>
-  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href">
-    <slot></slot>
+  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick" :data-print-url="printUrl">
+    <span v-if="innerWrap" class="rpl-link__inner">
+      <slot></slot>
+    </span>
+    <template v-else>
+      <slot></slot>
+    </template>
   </nuxt-link>
 </template>
 
@@ -15,7 +25,8 @@ export default {
   name: 'RplLink',
   props: {
     href: String,
-    target: { type: String, default: '' }
+    target: { type: String, default: '' },
+    innerWrap: { type: Boolean, default: true }
   },
   directives: {
     focus
@@ -26,9 +37,20 @@ export default {
       linkTarget: null
     }
   },
+  computed: {
+    printUrl () {
+      return isRelativeUrl(this.href) ? `${this.rplOptions.origin}${this.href}` : this.href
+    }
+  },
   methods: {
     onFocus: function (e) {
       this.$emit('focus', e)
+    },
+    routeLinkClick: function (e) {
+      // Triggering an active link will reload the page.
+      if (e.target.classList.contains('nuxt-link-active')) {
+        window.location.href = e.target.attributes.href.value
+      }
     }
   },
   created: function () {
@@ -48,8 +70,28 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
+
 .rpl-link {
   text-decoration: none;
+
+  @include rpl_print {
+    &[href]:after {
+      content: ' <' attr(data-print-url) '> ';
+    }
+    &[href^="tel:"]:after {
+      content: "";
+    }
+  }
+
+  &__inner {
+    display: inline;
+
+    @include rpl_print {
+      text-decoration: underline;
+    }
+  }
 
   &:hover,
   &:focus {

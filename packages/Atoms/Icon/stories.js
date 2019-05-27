@@ -24,6 +24,12 @@ storiesOf('Atoms/Icon', module)
   .add('Icon', withReadme(readme, () => ({
     components: { RplIcon },
     template: '<rpl-icon :symbol="icon" :color="color" :size="size" />',
+    propsDescription: {
+      // These description will appear in `description` column in props table
+      symbol: 'See the Icon Library page for options',
+      color: 'Any named color in Global/Colors',
+      size: 'One of [s, m, l, xl, xxl]'
+    },
     data () {
       return demoData.icon()
     }

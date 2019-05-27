@@ -12,29 +12,31 @@
         <!-- Top Bar -->
         <div class="rpl-site-header__top">
           <div class="rpl-site-header__logo-container">
-            <!-- Menu Button -->
-            <button
-              v-if="searchState !== 'opened'"
-              class="rpl-site-header__btn rpl-site-header__btn--menu"
-              :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
-              :aria-expanded="(menuState === 'opened').toString()"
-              @click="menuToggle()"
-            >
-              <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
-              <span>{{ menuButton[menuState].text }}</span>
-            </button>
-            <!-- Primary vic.gov.au Logo -->
-            <div v-if="!menuContentOpen && this.rplOptions.viclogo" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
-              <rpl-link :href="vicLogoPrimary.url">
-                <img :src="vicLogoPrimary.image" :alt="vicLogoPrimary.alt" />
-              </rpl-link>
-            </div>
+            <div class="rpl-site-header__logo-container-inner">
+              <!-- Menu Button -->
+              <button
+                v-if="searchState !== 'opened'"
+                class="rpl-site-header__btn rpl-site-header__btn--menu"
+                :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
+                :aria-expanded="(menuState === 'opened').toString()"
+                @click="menuToggle()"
+              >
+                <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
+                <span>{{ menuButton[menuState].text }}</span>
+              </button>
+              <!-- Primary vic.gov.au Logo -->
+              <div v-if="!menuContentOpen && this.rplOptions.viclogo" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
+                <rpl-link :href="vicLogoPrimary.url">
+                  <img :src="vicLogoPrimary.image" :alt="vicLogoPrimary.alt" />
+                </rpl-link>
+              </div>
 
-            <!--Co brand logo if it exists-->
-            <div v-if="!menuContentOpen && logo" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
-              <rpl-link :href="logo.url">
-                <img :src="logo.image" :alt="logo.alt" />
-              </rpl-link>
+              <!--Co brand logo if it exists-->
+              <div v-if="!menuContentOpen && logo" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
+                <rpl-link :href="logo.url">
+                  <img :src="logo.image" :alt="logo.alt" />
+                </rpl-link>
+              </div>
             </div>
           </div>
           <!-- Top Menu -->
@@ -306,6 +308,8 @@ export default {
     box-sizing: border-box;
     width: 100%;
 
+    @include rpl_print_hidden;
+
     @include rpl_breakpoint('s') {
       padding: $rpl-header-horizontal-padding-s;
     }
@@ -357,12 +361,15 @@ export default {
     }
 
     &__logo-container {
-      display: flex;
-      align-items: center;
+      &-inner {
+        display: flex;
+        align-items: center;
+      }
 
       .rpl-link {
         display: flex;
         flex-flow: column;
+        @include rpl_focus_dark;
       }
 
       img {
@@ -416,7 +423,7 @@ export default {
       }
 
       &--horizontal {
-        margin-left: auto;
+        flex: 1;
       }
     }
 
@@ -444,6 +451,7 @@ export default {
       display: flex;
       align-items: center;
       cursor: pointer;
+      @include rpl_focus_dark;
 
       &--menu {
         padding-right: $rpl-site-header-menu-toggle-border-spacing;
@@ -452,7 +460,7 @@ export default {
           display: none;
         }
 
-        span{
+        span {
           display: none;
           @include rpl_breakpoint('s') {
             display: block;

@@ -16,8 +16,9 @@ npm install @dpc-sdp/ripple-hero-banner --save
 
 ```shell
 @dpc-sdp/ripple-hero-banner
+├── @dpc-sdp/ripple-button
 ├── @dpc-sdp/ripple-global
-├── @dpc-sdp/ripple-icon
+├── @dpc-sdp/ripple-grid
 └── @dpc-sdp/ripple-link
 ```
 

@@ -15,7 +15,6 @@
 
 <script>
 import { RplTextLink } from '@dpc-sdp/ripple-link'
-import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplRelatedLinks',
@@ -24,8 +23,7 @@ export default {
     links: Array
   },
   components: {
-    RplTextLink,
-    RplIcon
+    RplTextLink
   }
 }
 </script>
@@ -55,6 +53,8 @@ export default {
     background-repeat: $rpl-related-links-background-repeat;
     position: relative;
     border-radius: $rpl-related-links-border-radius;
+
+    @include rpl_print_hidden;
 
     &__row {
       @include rpl_breakpoint('s') {

@@ -49,6 +49,7 @@ export default {
     'm': ('m', 1.2em, 'bold'),
   ) !default;
   $rpl-hero-banner-cta-secondary-text-ruleset: ('s', 1.5em, 'regular') !default;
+  $rpl-hero-banner-cta-secondary-text-color: rpl-color('extra_dark_neutral') !default;
 
   .rpl-hero-banner--cta {
     &__left-bottom {
@@ -59,6 +60,10 @@ export default {
       @include rpl_breakpoint('m') {
         flex-direction: row;
         align-items: center;
+      }
+
+      @include rpl_print {
+        display: block;
       }
     }
 
@@ -76,8 +81,11 @@ export default {
         margin-left: $rpl-hero-banner-cta-secondary-margin;
       }
 
+      @include rpl_print_hidden;
+
       &-text {
         @include rpl_typography_ruleset($rpl-hero-banner-cta-secondary-text-ruleset);
+        @include rpl_text_color($rpl-hero-banner-cta-secondary-text-color);
         margin: $rpl-hero-banner-cta-secondary-text-margin;
         .rpl-hero-banner--cta-dark & {
           color: white;
@@ -90,6 +98,12 @@ export default {
         .rpl-hero-banner--cta-dark & {
           color: white;
         }
+      }
+    }
+
+    &__primary {
+      &.rpl-button {
+        @include rpl_print_hidden;
       }
     }
   }

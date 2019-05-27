@@ -1,5 +1,5 @@
 <template>
-  <label @click="labelClick" class="rpl-checkbox">
+  <label :is="presentational ? 'div' : 'label'" @click="labelClick" class="rpl-checkbox">
     <input
       type="checkbox"
       ref="input_checkbox"
@@ -10,6 +10,7 @@
       :name="inputName"
       :class="inputClass"
       :required="inputRequired"
+      v-if="!presentational"
     />
     <span
       class="rpl-checkbox__box"
@@ -29,6 +30,7 @@ export default {
     value: Boolean,
     inputAutocomplete: Boolean,
     inputDisabled: Boolean,
+    presentational: Boolean,
     inputName: String,
     inputClass: Object,
     inputRequired: Boolean,
@@ -42,7 +44,9 @@ export default {
       this.$emit('input', val)
     },
     labelClick () {
-      this.$refs['input_checkbox'].focus()
+      if (!this.presentational) {
+        this.$refs['input_checkbox'].focus()
+      }
     },
     updateChange (event) {
       this.$emit('change', event)

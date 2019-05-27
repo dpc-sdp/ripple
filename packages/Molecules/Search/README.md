@@ -18,8 +18,11 @@ npm install @dpc-sdp/ripple-search --save
 @dpc-sdp/ripple-search
 ├── @dpc-sdp/ripple-form
 ├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-grid
 ├── @dpc-sdp/ripple-icon
+├── @dpc-sdp/ripple-link
 ├── @dpc-sdp/ripple-meta-tag
+├── @dpc-sdp/ripple-pagination
 └── vue-focus-lock
 ```
 

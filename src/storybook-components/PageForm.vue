@@ -108,20 +108,6 @@ export default {
 
         schema: {
           fields: [
-            {
-              type: 'vueMultiSelect',
-              model: 'vuemultiselect',
-              label: 'Single-select drop down',
-              hint: 'Implemented using vue-multiselect',
-              placeholder: 'Select a single topic',
-              selectOptions: {
-                multiSelect: false,
-                closeOnSelect: true,
-                searchable: false,
-                showLabels: false
-              },
-              values: ['Topic A', 'Topic B', 'Topic C', 'Topic D', 'Topic E', 'Topic F', 'Topic G']
-            },
 
             {
               type: 'rpldatepicker',

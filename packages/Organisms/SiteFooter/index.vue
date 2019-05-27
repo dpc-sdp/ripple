@@ -76,8 +76,8 @@ $gutterless-grid: (
 .rpl-site-footer {
   @include rpl_grid_container;
   @include rpl_typography('copy_extra_small');
+  @include rpl_text_color($rpl-footer-text-color);
   background-color: $rpl-footer-bg-color;
-  color: $rpl-footer-text-color;
 
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     background-image: $rpl-footer-bg-image;
@@ -94,8 +94,14 @@ $gutterless-grid: (
     background-position: calc(100% + #{rem(100px)}) bottom;
   }
 
+  @include rpl_print {
+    background-image: none;
+    background-color: transparent;
+  }
+
   a {
     color: $rpl-footer-text-color;
+    @include rpl_focus_dark;
   }
 
   ul {
@@ -109,6 +115,8 @@ $gutterless-grid: (
   @include rpl_site_constrain;
   border-bottom: $rpl-footer-border-width solid $rpl-footer-border-color;
   padding-top: $rpl-space;
+
+  @include rpl_print_hidden;
 
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     padding-top: $rpl-space-4 * 2;
@@ -126,6 +134,10 @@ $gutterless-grid: (
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     @include rpl_grid_row($gutterless-grid);
     flex-wrap: nowrap;
+  }
+
+  @include rpl_print {
+    background-color: transparent;
   }
 }
 
@@ -160,7 +172,7 @@ $gutterless-grid: (
       cursor: pointer;
 
       @include rpl_breakpoint($rpl-footer-breakpoint) {
-        cursor: none;
+        cursor: auto;
       }
     }
   }
@@ -184,6 +196,8 @@ $gutterless-grid: (
 .rpl-links-and-copyright__links {
   margin: 0;
 
+  @include rpl_print_hidden;
+
   li {
     display: inline-block;
     border-left: $rpl-footer-border-width solid $rpl-footer-border-color-light;
@@ -206,6 +220,7 @@ $gutterless-grid: (
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     margin-bottom: $rpl-space-2;
   }
+  @include rpl_print_margin('l', 'before');
 }
 
 .rpl-site-footer__logos {
@@ -226,6 +241,7 @@ $gutterless-grid: (
   max-width: $rpl-footer-logo-max-width;
   max-height: $rpl-footer-logo-max-height;
   margin-left: $rpl-space-2;
+  @include rpl_focus_dark;
 
   @include rpl_breakpoint('s') {
     width: auto;
@@ -233,6 +249,8 @@ $gutterless-grid: (
     max-width: none;
     max-height: none;
   }
+
+  @include rpl_print_hidden;
 
   &:first-child {
     margin-left: 0;

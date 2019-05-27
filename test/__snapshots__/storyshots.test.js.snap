@@ -27997,6 +27997,7 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
             viewBox="0 0 699 411"
             width="699"
             xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!---->
              
@@ -28022,6 +28023,7 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Campaign Primary 1`] = `
                 height="411"
                 href="http://placehold.it/699x411"
                 width="699"
+                xlink:href="http://placehold.it/699x411"
               />
             </g>
           </svg>
@@ -48060,6 +48062,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 viewBox="0 0 699 411"
                 width="699"
                 xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
               >
                 <!---->
                  
@@ -48085,6 +48088,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     height="411"
                     href="http://placehold.it/699x411"
                     width="699"
+                    xlink:href="http://placehold.it/699x411"
                   />
                 </g>
               </svg>
@@ -60024,6 +60028,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                 viewBox="0 0 699 411"
                 width="699"
                 xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
               >
                 <!---->
                  
@@ -60049,6 +60054,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                     height="411"
                     href="http://placehold.it/699x411"
                     width="699"
+                    xlink:href="http://placehold.it/699x411"
                   />
                 </g>
               </svg>

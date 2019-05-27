@@ -1,28 +1,37 @@
 <template>
   <rpl-profile-highlight class="rpl-profile-highlight-honour-roll" :image="image">
     <template slot="details">
-      <div class="rpl-profile-highlight-honour-roll__detail" v-if="inductedYear">
-        <span class="rpl-profile-highlight-honour-roll__label">Inducted:</span> {{ inductedYear }}
-      </div>
-      <div class="rpl-profile-highlight-honour-roll__detail" v-if="category">
-        <span class="rpl-profile-highlight-honour-roll__label">Category:</span> {{ category }}
-      </div>
+      <rpl-description-list :list="profileListing" />
     </template>
   </rpl-profile-highlight>
 </template>
 
 <script>
 import RplProfileHighlight from './ProfileHighlight.vue'
+import RplDescriptionList from '@dpc-sdp/ripple-description-list'
 
 export default {
   name: 'RplProfileHighlightHonourRoll',
   components: {
-    RplProfileHighlight
+    RplProfileHighlight,
+    RplDescriptionList
   },
   props: {
     image: String,
     inductedYear: String,
     category: String
+  },
+  computed: {
+    profileListing () {
+      const terms = []
+      if (this.inductedYear) {
+        terms.push({term: 'Inducted', description: this.inductedYear})
+      }
+      if (this.category) {
+        terms.push({term: 'Category', description: this.category})
+      }
+      return terms
+    }
   }
 }
 </script>
@@ -31,19 +40,11 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-rpl-profile-highlight-honour-roll-label-ruleset: ('s', 1.5em, 'bold') !default;
   $rpl-rpl-profile-highlight-honour-roll-detail-ruleset: ('s', 1.5em, 'medium') !default;
-  $rpl-rpl-profile-highlight-honour-roll-detail-color: rpl-color('extra_dark_neutral') !default;
 
   .rpl-profile-highlight-honour-roll {
-
-    &__detail {
+    .rpl-description-list__description {
       @include rpl_typography_ruleset($rpl-rpl-profile-highlight-honour-roll-detail-ruleset);
-      @include rpl_text_color($rpl-rpl-profile-highlight-honour-roll-detail-color);
-    }
-
-    &__label {
-      @include rpl_typography_ruleset($rpl-rpl-profile-highlight-honour-roll-label-ruleset);
     }
   }
 </style>

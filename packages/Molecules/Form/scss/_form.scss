@@ -19,6 +19,13 @@ $rpl-form-element-margin-bottom-s: $rpl-space-4 !default;
 $rpl-form-element-margin-bottom-m: $rpl-space * 7 !default;
 $rpl-form-textarea-height-s: rem(180px) !default;
 $rpl-form-textarea-height-m: rem(75px) !default;
+$rpl-form-radio-size: 20px !default; // these must be evenly divisible by 4
+$rpl-form-radio-size-s: 24px !default; // dont use rem - safari rounding bug
+$rpl-form-radio-dot-size: $rpl-form-radio-size / 4 !default;
+$rpl-form-radio-dot-size-s: $rpl-form-radio-size / 4 !default;
+$rpl-form-radio-checked-transition: background-color .2s ease !default;
+$rpl-form-shadow: 0 2px 4px 0 rgba(0, 0, 0, .08) !default;
+
 
 @mixin rpl_form_text {
   @include rpl_typography_ruleset($rpl-form-element-text-ruleset);
@@ -48,4 +55,47 @@ $rpl-form-textarea-height-m: rem(75px) !default;
 @mixin rpl_from_element_error {
   border-color: rpl-color('danger');
   background-color: $rpl-danger-bg-color;
+}
+
+@mixin rpl_radio_button {
+  @supports (-webkit-appearance: none) or (-moz-appearance: none) { // sass-lint:disable-line no-vendor-prefixes
+    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    outline: 0; // outline disabled to mimic native radio
+    border-radius: 100%;
+    background-color: rpl-color('light_neutral');
+    border: solid 1px rpl-color('mid_neutral_1');
+    box-shadow: $rpl-form-shadow;
+    width: $rpl-form-radio-size-s;
+    height: $rpl-form-radio-size-s;
+
+    @include rpl_breakpoint(s) {
+      width: $rpl-form-radio-size;
+      height: $rpl-form-radio-size;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: '';
+      display: block;
+      width: calc(#{$rpl-form-radio-dot-size} + 1px);
+      height: calc(#{$rpl-form-radio-dot-size} + 1px);
+      border-radius: 50%;
+      transition: $rpl-form-radio-checked-transition;
+    }
+
+    &:checked {
+      border: solid 1px rpl-color('secondary');
+
+      &::before {
+        background-color: rpl-color('secondary');
+      }
+    }
+
+    &:focus {
+      border-color: rpl-color('primary');
+    }
+  }
 }

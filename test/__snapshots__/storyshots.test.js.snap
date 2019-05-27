@@ -15047,15 +15047,22 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     class="rpl-form-pikaday rpl-date-picker__start"
                   >
                     <input
+                      aria-label="Enter start date"
                       class="rpl-form-pikaday__input"
-                      placeholder="Start"
+                      placeholder="Enter start date"
                       type="text"
                     />
                      
                     <!---->
+                     
+                    <div
+                      aria-hidden="true"
+                      class="rpl-form-pikaday__container"
+                    />
                   </div>
                    
                   <span
+                    aria-hidden="true"
                     class="rpl-date-picker__separator"
                   >
                     -
@@ -15065,12 +15072,18 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     class="rpl-form-pikaday rpl-date-picker__end"
                   >
                     <input
+                      aria-label="Enter end date"
                       class="rpl-form-pikaday__input"
-                      placeholder="End"
+                      placeholder="Enter end date"
                       type="text"
                     />
                      
                     <!---->
+                     
+                    <div
+                      aria-hidden="true"
+                      class="rpl-form-pikaday__container"
+                    />
                   </div>
                 </div>
                  
@@ -15104,12 +15117,18 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     class="rpl-form-pikaday"
                   >
                     <input
+                      aria-label="Enter a date"
                       class="rpl-form-pikaday__input"
                       placeholder="Enter a date"
                       type="text"
                     />
                      
                     <!---->
+                     
+                    <div
+                      aria-hidden="true"
+                      class="rpl-form-pikaday__container"
+                    />
                   </div>
                 </div>
                  
@@ -54317,15 +54336,22 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                               class="rpl-form-pikaday rpl-date-picker__start"
                             >
                               <input
+                                aria-label="Start"
                                 class="rpl-form-pikaday__input"
                                 placeholder="Start"
                                 type="text"
                               />
                                
                               <!---->
+                               
+                              <div
+                                aria-hidden="true"
+                                class="rpl-form-pikaday__container"
+                              />
                             </div>
                              
                             <span
+                              aria-hidden="true"
                               class="rpl-date-picker__separator"
                             >
                               -
@@ -54335,12 +54361,18 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                               class="rpl-form-pikaday rpl-date-picker__end"
                             >
                               <input
+                                aria-label="End"
                                 class="rpl-form-pikaday__input"
                                 placeholder="End"
                                 type="text"
                               />
                                
                               <!---->
+                               
+                              <div
+                                aria-hidden="true"
+                                class="rpl-form-pikaday__container"
+                              />
                             </div>
                           </div>
                            
@@ -54374,12 +54406,18 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                               class="rpl-form-pikaday"
                             >
                               <input
+                                aria-label="Enter a date"
                                 class="rpl-form-pikaday__input"
                                 placeholder="Enter a date"
                                 type="text"
                               />
                                
                               <!---->
+                               
+                              <div
+                                aria-hidden="true"
+                                class="rpl-form-pikaday__container"
+                              />
                             </div>
                           </div>
                            
@@ -62025,15 +62063,22 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                 class="rpl-form-pikaday rpl-date-picker__start"
                               >
                                 <input
+                                  aria-label="Enter start date"
                                   class="rpl-form-pikaday__input"
-                                  placeholder="Start"
+                                  placeholder="Enter start date"
                                   type="text"
                                 />
                                  
                                 <!---->
+                                 
+                                <div
+                                  aria-hidden="true"
+                                  class="rpl-form-pikaday__container"
+                                />
                               </div>
                                
                               <span
+                                aria-hidden="true"
                                 class="rpl-date-picker__separator"
                               >
                                 -
@@ -62043,12 +62088,18 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                 class="rpl-form-pikaday rpl-date-picker__end"
                               >
                                 <input
+                                  aria-label="Enter end date"
                                   class="rpl-form-pikaday__input"
-                                  placeholder="End"
+                                  placeholder="Enter end date"
                                   type="text"
                                 />
                                  
                                 <!---->
+                                 
+                                <div
+                                  aria-hidden="true"
+                                  class="rpl-form-pikaday__container"
+                                />
                               </div>
                             </div>
                              
@@ -62082,12 +62133,18 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                 class="rpl-form-pikaday"
                               >
                                 <input
+                                  aria-label="Enter a date"
                                   class="rpl-form-pikaday__input"
                                   placeholder="Enter a date"
                                   type="text"
                                 />
                                  
                                 <!---->
+                                 
+                                <div
+                                  aria-hidden="true"
+                                  class="rpl-form-pikaday__container"
+                                />
                               </div>
                             </div>
                              

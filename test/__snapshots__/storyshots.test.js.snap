@@ -15120,9 +15120,15 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     />
                      
                     <!---->
+                     
+                    <div
+                      aria-hidden="true"
+                      class="rpl-form-pikaday__container"
+                    />
                   </div>
                    
                   <span
+                    aria-hidden="true"
                     class="rpl-date-picker__separator"
                   >
                     -
@@ -15139,6 +15145,11 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     />
                      
                     <!---->
+                     
+                    <div
+                      aria-hidden="true"
+                      class="rpl-form-pikaday__container"
+                    />
                   </div>
                 </div>
                  
@@ -15179,6 +15190,11 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                     />
                      
                     <!---->
+                     
+                    <div
+                      aria-hidden="true"
+                      class="rpl-form-pikaday__container"
+                    />
                   </div>
                 </div>
                  
@@ -54978,9 +54994,15 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                               />
                                
                               <!---->
+                               
+                              <div
+                                aria-hidden="true"
+                                class="rpl-form-pikaday__container"
+                              />
                             </div>
                              
                             <span
+                              aria-hidden="true"
                               class="rpl-date-picker__separator"
                             >
                               -
@@ -54997,6 +55019,11 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                               />
                                
                               <!---->
+                               
+                              <div
+                                aria-hidden="true"
+                                class="rpl-form-pikaday__container"
+                              />
                             </div>
                           </div>
                            
@@ -55037,6 +55064,11 @@ exports[`RippleStoryshots Templates Page with form 1`] = `
                               />
                                
                               <!---->
+                               
+                              <div
+                                aria-hidden="true"
+                                class="rpl-form-pikaday__container"
+                              />
                             </div>
                           </div>
                            
@@ -62845,9 +62877,15 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                 />
                                  
                                 <!---->
+                                 
+                                <div
+                                  aria-hidden="true"
+                                  class="rpl-form-pikaday__container"
+                                />
                               </div>
                                
                               <span
+                                aria-hidden="true"
                                 class="rpl-date-picker__separator"
                               >
                                 -
@@ -62864,6 +62902,11 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                 />
                                  
                                 <!---->
+                                 
+                                <div
+                                  aria-hidden="true"
+                                  class="rpl-form-pikaday__container"
+                                />
                               </div>
                             </div>
                              
@@ -62904,6 +62947,11 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                 />
                                  
                                 <!---->
+                                 
+                                <div
+                                  aria-hidden="true"
+                                  class="rpl-form-pikaday__container"
+                                />
                               </div>
                             </div>
                              

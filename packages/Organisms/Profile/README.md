@@ -16,6 +16,7 @@ npm install @dpc-sdp/ripple-profile --save
 
 ```shell
 @dpc-sdp/ripple-profile
+├── @dpc-sdp/ripple-description-list
 └── @dpc-sdp/ripple-global
 ```
 

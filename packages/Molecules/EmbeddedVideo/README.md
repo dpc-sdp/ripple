@@ -17,6 +17,7 @@ npm install @dpc-sdp/ripple-embedded-video --save
 ```shell
 @dpc-sdp/ripple-embedded-video
 ├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-icon
 └── @dpc-sdp/ripple-link
 ```
 

@@ -16,7 +16,11 @@ npm install @dpc-sdp/ripple-grants --save
 
 ```shell
 @dpc-sdp/ripple-grants
+├── @dpc-sdp/ripple-button
 ├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-list
+├── @dpc-sdp/ripple-markup
+├── @dpc-sdp/ripple-meta-tag
 └── moment
 ```
 

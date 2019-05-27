@@ -53,9 +53,14 @@ npm run docs
 #### Updating ripple depdendencies
 
 ``` bash
-# Update root ./package.json with ripple dependencies
+# Update all ripple dependencies (./package.json & ./packages/**/package.json)
 npm run package-dependencies
 ```
+
+This script requires:
+
+- Each ripple component package to have a `package.json` file with `name`
+- The root directory to have a `lerna.json` file with `version`
 
 #### Create new packages
 

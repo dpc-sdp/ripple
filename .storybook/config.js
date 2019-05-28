@@ -11,9 +11,8 @@ import RplGlobal from './../packages/Atoms/Global'
 import RplMarkupExamplePlugins from './../packages/Organisms/Markup/examplePlugins'
 
 // Add custom icons to library.
-import { addIconsToLibrary, resetLibrary } from '../packages/Atoms/Icon/icon-library'
-resetLibrary()
-addIconsToLibrary(require.context('../static/custom_icons/', true, /\.svg$/))
+import { addCustomIcons } from '../packages/Atoms/Icon'
+addCustomIcons(require.context('../static/custom_icons/', true, /\.svg$/))
 
 // Install Ripple Global plugin
 Vue.use(RplGlobal, { rplMarkup: {plugins: RplMarkupExamplePlugins, options: { decodeEntities: false }}})

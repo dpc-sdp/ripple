@@ -3,7 +3,6 @@ let hasRunOnce = false
 
 /**
  * Add icon properties from a require.context() response to `iconProps`.
- * Custom icons should be added before the ripple-icon component is used.
  *
  * Can be used as:
  *   addIconsToLibrary(require.context('./custom_assets/', true, /\.svg$/))
@@ -41,14 +40,26 @@ function getIconProps () {
 
 /**
  * Reset properties.
- * Use before calling addIconsToLibrary() to allow property reset on hot reload.
+ * Use before calling addIconsToLibrary() to allow property reset on dev mode hot reload.
  */
 function resetLibrary () {
   iconProps = {}
   hasRunOnce = false
 }
 
-export { resetLibrary }
-export { addIconsToLibrary }
+/**
+ * Add custom icon properties from a require.context() response.
+ * Custom icons should be added before the ripple-icon component is used.
+ *
+ * Can be used as:
+ *   addCustomIcons(require.context('./custom_assets/', true, /\.svg$/))
+ *
+ * @param {Function} webpackContext The function returned from a require.context() call.
+ */
+function addCustomIcons (webpackContext) {
+  resetLibrary()
+  addIconsToLibrary(webpackContext)
+}
+
+export { addCustomIcons }
 export { getIconProps }
-export default getIconProps

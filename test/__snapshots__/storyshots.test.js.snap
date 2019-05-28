@@ -1845,7 +1845,111 @@ exports[`RippleStoryshots Atoms/Icon Icon Custom 1`] = `
     <!---->
   </div>
    
-  <!---->
+  <p
+    class="summary"
+    data-v-1401b552=""
+    data-v-6ca0e090=""
+  >
+    <h3
+      id="add-custom-icons"
+    >
+      Add custom icons
+    </h3>
+    
+
+    <p>
+      To use your own svg icon, you need to name your own custom icon in the same format as Ripple does.
+A example: 
+      <code>
+        rpl_icon_arrow
+      </code>
+      . Always use 
+      <code>
+        rpl_icon_
+      </code>
+       prefix.
+    </p>
+    
+
+    <p>
+      You can put your custom icons in any directory in your project, e.g. "/assets/ripple-icons/".
+    </p>
+    
+
+    <p>
+      To add icons, below code has to be added before you start your app by calling 
+      <code>
+        new Vue()
+      </code>
+      :
+    </p>
+    
+
+    <pre>
+      <code
+        class="hljs"
+      >
+        <span
+          class="hljs-keyword"
+        >
+          import
+        </span>
+         { addCustomIcons } 
+        <span
+          class="hljs-keyword"
+        >
+          from
+        </span>
+         
+        <span
+          class="hljs-string"
+        >
+          '@dpc-sdp/ripple-icon'
+        </span>
+        
+addCustomIcons(
+        <span
+          class="hljs-built_in"
+        >
+          require
+        </span>
+        .context(
+        <span
+          class="hljs-string"
+        >
+          './assets/ripple-icons/'
+        </span>
+        , 
+        <span
+          class="hljs-literal"
+        >
+          true
+        </span>
+        , /\\.svg$/))
+      </code>
+    </pre>
+    <p>
+      Then you should able to use your own icon as others.
+    </p>
+    
+
+    <p>
+      To use your own svg icon to replace the default icon, you must use the exact same file name as default.
+    </p>
+    
+
+    <p>
+      You can find the default icons in 
+      <a
+        href="https://github.com/dpc-sdp/ripple/tree/master/packages/Atoms/Icon/assets/img"
+      >
+        Icon/assets/img
+      </a>
+      .
+    </p>
+    
+
+  </p>
    
   <div
     data-v-6ca0e090=""

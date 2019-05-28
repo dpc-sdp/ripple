@@ -117,8 +117,7 @@ export default {
 
       &--checked {
         background-color: rpl-color('white');
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-
+        box-shadow: $rpl-form-shadow;
         .rpl-icon {
           display: block;
           position: absolute;

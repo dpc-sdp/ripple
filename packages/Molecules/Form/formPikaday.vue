@@ -9,9 +9,11 @@
       :placeholder="placeholder"
       :readonly="readonly"
       :name="inputName"
+      :aria-label="placeholder || 'enter a date'"
       @keyup="keyup"
     />
     <rpl-icon class="rpl-form-pikaday__icon" symbol="calendar" color="primary" />
+    <div ref="pikacontainer" class="rpl-form-pikaday__container" aria-hidden="true"></div>
   </div>
 </template>
 
@@ -57,6 +59,7 @@ export default {
       const Pikaday = await import('pikaday').then(module => module.default ? module.default : module)
       this.picker = new Pikaday(defaults(this.pickerOptions, {
         field: this.$el,
+        container: this.$refs.pikacontainer,
         onSelect: () => {
           this.displayVal = this.picker.toString()
           this.$emit('change', this.picker.getDate())
@@ -338,6 +341,11 @@ $rpl-pikaday-date-today-text-color: rpl-color('secondary') !default;
   position: relative;
   flex-grow: 1;
 
+  &__container {
+    position: absolute;
+    z-index: 1;
+  }
+
   &__icon {
     position: absolute;
     top: 0;
@@ -346,5 +354,6 @@ $rpl-pikaday-date-today-text-color: rpl-color('secondary') !default;
     margin: auto;
     pointer-events: none;
   }
+
 }
 </style>

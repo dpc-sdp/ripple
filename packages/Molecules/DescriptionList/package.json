@@ -1,11 +1,11 @@
 {
-  "name": "@dpc-sdp/ripple-icon",
+  "name": "@dpc-sdp/ripple-description-list",
   "version": "1.0.0-alpha.77",
-  "description": "A configurable SVG, sprite-based icon set for use with ripple components.",
+  "description": "A list of descriptions.",
   "license": "Apache-2.0",
   "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
-  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Atoms/Icon",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Molecules/DescriptionList",
   "publishConfig": {
     "access": "public"
   },

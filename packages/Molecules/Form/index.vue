@@ -18,7 +18,6 @@
 import Vue from 'vue'
 import RplFormAlert from './formAlert'
 import RplFieldset from './Fieldset'
-import Multiselect from 'vue-multiselect'
 import VueFormGenerator from 'vue-form-generator'
 import fieldRplselect from './fields/fieldRplselect.vue'
 import fieldRplslider from './fields/fieldRplslider.vue'
@@ -31,7 +30,6 @@ import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
 import VueScrollTo from 'vue-scrollto'
 
-Vue.component('multiselect', Multiselect)
 Vue.component('fieldRplselect', fieldRplselect)
 Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)
@@ -128,9 +126,8 @@ export default {
 }
 </script>
 
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
-
 <style lang="scss">
+
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 @import "~@dpc-sdp/ripple-global/scss/components/button";
@@ -191,13 +188,18 @@ export default {
   .radio-list {
     label {
       @include rpl_typography_ruleset($rpl-form-text-ruleset);
-      display: inline;
+      display: inline-flex;
+      align-items: center;
       margin-right: $rpl-space-4;
     }
 
     input[type="radio"] {
       margin-right: $rpl-space-2;
     }
+  }
+
+  input[type="radio"] {
+    @include rpl_radio_button;
   }
 
   [type='submit'] {
@@ -285,6 +287,7 @@ export default {
   &__placeholder {
     margin-bottom: 0;
     padding: 0;
+    color: $rpl-form-element-placeholder-color;
   }
 
   &__single {

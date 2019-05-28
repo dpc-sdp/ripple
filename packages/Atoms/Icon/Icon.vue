@@ -6,25 +6,7 @@
 </template>
 
 <script>
-// Require all SVG assets and calculate width based on view box.
-let iconProps = {}
-
-// In Jest there is no webpack require.context support, aslo we don't transform files.
-// Let's skip this part in tests.
-if (process.env.NODE_ENV !== 'test') {
-  const _require = require.context('./assets/img/', true, /\.svg$/)
-
-  _require.keys().forEach(key => {
-    let icon = _require(key)
-    if (icon.default) {
-      let viewBoxSplit = icon.default.viewBox.split(' ')
-      iconProps[icon.default.id] = {
-        width: parseFloat(viewBoxSplit[2]),
-        height: parseFloat(viewBoxSplit[3])
-      }
-    }
-  })
-}
+import { getIconProps } from './icon-library'
 
 export default {
   props: {
@@ -35,7 +17,7 @@ export default {
   data: function () {
     return {
       iconPrefix: 'rpl_icon_',
-      iconProperties: iconProps,
+      iconProperties: getIconProps(),
       sizes: {
         's': 0.5,
         'm': 1,

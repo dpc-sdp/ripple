@@ -25,13 +25,15 @@ module.exports = {
         test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
         loader: 'url-loader',
         exclude: [
-          resolve('packages/Atoms/Icon/')
+          resolve('packages/Atoms/Icon/'),
+          resolve('static/custom_icons/')
         ],
       },
       {
         test: /\.svg$/,
         include: [
-          resolve('packages/Atoms/Icon/')
+          resolve('packages/Atoms/Icon/'),
+          resolve('static/custom_icons/')
         ],
         use: [
           'svg-sprite-loader',

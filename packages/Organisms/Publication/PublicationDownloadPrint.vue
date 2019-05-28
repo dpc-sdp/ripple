@@ -29,10 +29,16 @@ export default {
     showPrint: { type: Boolean, default: true },
     printText: { type: String, default: 'Print this page' }
   },
+  mounted () {
+    this.$on('publicationPrint', function () {
+      if (typeof window !== 'undefined') {
+        window.print()
+      }
+    })
+  },
   methods: {
     printClick () {
       this.$emit('publicationPrint')
-      window.print()
     },
     downloadClick (downloadName) {
       this.$emit('publicationDownload', downloadName)

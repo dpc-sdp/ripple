@@ -15,8 +15,11 @@
 </template>
 
 <script>
+import serversiderendering from '@dpc-sdp/ripple-global/mixins/serversiderendering'
+
 export default {
   name: 'RplQuickExit',
+  mixins: [serversiderendering],
   props: {
     text: { type: String, default: 'Quick exit' },
     isSticky: { type: Boolean, default: true },
@@ -59,13 +62,13 @@ export default {
     this.escapeURL = this.rplOptions.quickexiturl
   },
   mounted () {
-    if (process.browser && this.isSticky) {
+    if (this.isClientSide && this.isSticky) {
       this.menuOffsetElement = document.querySelector(this.menuOffsetSelector)
       window.addEventListener('scroll', this.scroll)
     }
   },
   beforeDestroy () {
-    if (process.browser && this.isSticky) {
+    if (this.isClientSide && this.isSticky) {
       window.removeEventListener('scroll', this.scroll)
     }
   }

@@ -70,7 +70,7 @@ function generateTemplate (directory) {
   let storiesOf = /(?:storiesOf\(')(.+)(?:',)/g
   let storiesOfMatch = storiesOf.exec(story)
 
-  let add = /(?:add\(')(.+)(?:',)/gim
+  let add = /(?:add\([\n\s]*)(?:')(.+)(?:',)/gim
   let addMatch = add.exec(story)
   while (addMatch !== null) {
     data.storybookParams.push({
@@ -79,6 +79,8 @@ function generateTemplate (directory) {
     })
     addMatch = add.exec(story)
   }
+
+  // Add check for no-ssr folder.
 
   // Render template.
   Twig.renderFile(path.join(__dirname, '/README_template.md'), data, (err, html) => {

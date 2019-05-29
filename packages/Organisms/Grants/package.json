@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-grants",
-  "version": "1.0.0-alpha.79",
+  "version": "1.0.0-alpha.80",
   "description": "Components for displaying Grants information.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,11 +10,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.0.0-alpha.79",
-    "@dpc-sdp/ripple-global": "1.0.0-alpha.79",
-    "@dpc-sdp/ripple-list": "1.0.0-alpha.79",
-    "@dpc-sdp/ripple-markup": "1.0.0-alpha.79",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.79",
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.80",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.80",
+    "@dpc-sdp/ripple-list": "1.0.0-alpha.80",
+    "@dpc-sdp/ripple-markup": "1.0.0-alpha.80",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.80",
     "moment": "^2.22.1"
   }
 }

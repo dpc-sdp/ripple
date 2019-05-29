@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
+
 export default {
   name: 'RplQuickExit',
   props: {
@@ -59,13 +61,13 @@ export default {
     this.escapeURL = this.rplOptions.quickexiturl
   },
   mounted () {
-    if (process.browser && this.isSticky) {
+    if (isClient() && this.isSticky) {
       this.menuOffsetElement = document.querySelector(this.menuOffsetSelector)
       window.addEventListener('scroll', this.scroll)
     }
   },
   beforeDestroy () {
-    if (process.browser && this.isSticky) {
+    if (isClient() && this.isSticky) {
       window.removeEventListener('scroll', this.scroll)
     }
   }

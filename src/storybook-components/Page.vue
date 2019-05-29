@@ -187,7 +187,7 @@ import { RplNewsListing } from '@dpc-sdp/ripple-news'
 import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 
 // Miscs
-import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery'
+import { RplImageGallery } from '@dpc-sdp/ripple-image-gallery/no-ssr'
 import RplTimeline from '@dpc-sdp/ripple-timeline'
 
 // Search

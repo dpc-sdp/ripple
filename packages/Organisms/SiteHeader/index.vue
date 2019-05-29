@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import RplMenu from './menu'
 import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
@@ -257,7 +258,7 @@ export default {
     }
   },
   mounted: function () {
-    if (process.browser) {
+    if (isClient()) {
       window.addEventListener('resize', this.windowResize)
       this.windowResize()
       if (this.hideOnScroll) {
@@ -266,7 +267,7 @@ export default {
     }
   },
   beforeDestroy: function () {
-    if (process.browser) {
+    if (isClient()) {
       window.removeEventListener('resize', this.windowResize)
       clearAllBodyScrollLocks()
       if (this.hideOnScroll) {

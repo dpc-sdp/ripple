@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import DocumentLink from '@dpc-sdp/ripple-document-link'
 
@@ -29,16 +30,12 @@ export default {
     showPrint: { type: Boolean, default: true },
     printText: { type: String, default: 'Print this page' }
   },
-  mounted () {
-    this.$on('publicationPrint', function () {
-      if (typeof window !== 'undefined') {
-        window.print()
-      }
-    })
-  },
   methods: {
     printClick () {
       this.$emit('publicationPrint')
+      if (isClient()) {
+        window.print()
+      }
     },
     downloadClick (downloadName) {
       this.$emit('publicationDownload', downloadName)

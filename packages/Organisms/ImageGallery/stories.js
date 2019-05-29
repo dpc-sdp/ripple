@@ -6,7 +6,7 @@ import {
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import RplImageGallery from './ImageGallery.vue'
+import RplImageGallery from './no-ssr/ImageGallery.vue'
 import readme from './README.md'
 import { demoData } from '../../../src/storybook-components/_data/demoData'
 

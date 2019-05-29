@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 
@@ -40,12 +41,12 @@ export default {
     }
   },
   mounted () {
-    if (process.browser) {
+    if (isClient()) {
       window.addEventListener('keyup', this.keyNav)
     }
   },
   destroyed () {
-    if (process.browser) {
+    if (isClient()) {
       window.removeEventListener('keyup', this.keyNav)
     }
   }

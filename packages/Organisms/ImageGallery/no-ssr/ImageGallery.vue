@@ -62,9 +62,9 @@
 
 <script>
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
-import RplFittedImg from './FittedImg.vue'
-import RplImageGalleryModal from './ImageGalleryModal.vue'
-import RplFullscreenImage from './FullscreenImage.vue'
+import RplFittedImg from './../FittedImg.vue'
+import RplImageGalleryModal from './../ImageGalleryModal.vue'
+import RplFullscreenImage from './../FullscreenImage.vue'
 import { Carousel, Slide } from 'vue-carousel'
 
 export default {
@@ -121,7 +121,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
-  @import "./scss/image_gallery";
+  @import "./../scss/image_gallery";
 
   $rpl-image-gallery-enlarge-background-color: rpl-color('white') !default;
   $rpl-image-gallery-enlarge-border-radius: rem(4px) !default;

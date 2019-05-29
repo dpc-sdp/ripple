@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import serversiderendering from '@dpc-sdp/ripple-global/mixins/serversiderendering'
+import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplImageGalleryModal',
-  mixins: [breakpoint, serversiderendering],
+  mixins: [breakpoint],
   components: {
     RplIcon
   },
@@ -41,12 +41,12 @@ export default {
     }
   },
   mounted () {
-    if (this.isClientSide) {
+    if (isClient()) {
       window.addEventListener('keyup', this.keyNav)
     }
   },
   destroyed () {
-    if (this.isClientSide) {
+    if (isClient()) {
       window.removeEventListener('keyup', this.keyNav)
     }
   }

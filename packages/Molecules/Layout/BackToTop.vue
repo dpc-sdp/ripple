@@ -15,12 +15,11 @@
 </template>
 
 <script>
-import serversiderendering from '@dpc-sdp/ripple-global/mixins/serversiderendering'
+import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplBackToTop',
-  mixins: [serversiderendering],
   components: {
     RplIcon
   },
@@ -61,14 +60,14 @@ export default {
     }
   },
   mounted () {
-    if (this.isClientSide) {
+    if (isClient()) {
       window.addEventListener('scroll', this.setScrollVisibility)
       window.addEventListener('resize', this.resize)
       this.resize()
     }
   },
   destroyed () {
-    if (this.isClientSide) {
+    if (isClient()) {
       window.removeEventListener('scroll', this.setScrollVisibility)
       window.removeEventListener('resize', this.resize)
     }

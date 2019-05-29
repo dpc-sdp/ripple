@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import serversiderendering from '@dpc-sdp/ripple-global/mixins/serversiderendering'
+import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import RplMenu from './menu'
 import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
@@ -100,7 +100,6 @@ export const RplSiteHeaderEventBus = new Vue()
 
 export default {
   name: 'RplSiteHeader',
-  mixins: [serversiderendering],
   props: {
     logo: Object,
     links: Array,
@@ -259,7 +258,7 @@ export default {
     }
   },
   mounted: function () {
-    if (this.isClientSide) {
+    if (isClient()) {
       window.addEventListener('resize', this.windowResize)
       this.windowResize()
       if (this.hideOnScroll) {
@@ -268,7 +267,7 @@ export default {
     }
   },
   beforeDestroy: function () {
-    if (this.isClientSide) {
+    if (isClient()) {
       window.removeEventListener('resize', this.windowResize)
       clearAllBodyScrollLocks()
       if (this.hideOnScroll) {

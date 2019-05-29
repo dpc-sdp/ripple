@@ -19,13 +19,13 @@
 </template>
 
 <script>
-import serversiderendering from '@dpc-sdp/ripple-global/mixins/serversiderendering'
+import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import RplLink from '@dpc-sdp/ripple-link'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 
 export default {
-  mixins: [breakpoint, serversiderendering],
+  mixins: [breakpoint],
   components: {
     RplIcon,
     RplLink
@@ -42,7 +42,7 @@ export default {
   computed: {
     minimize () {
       let minimize = true
-      if (this.isClientSide) {
+      if (isClient()) {
         minimize = this.$breakpoint.l === false
       }
       return minimize

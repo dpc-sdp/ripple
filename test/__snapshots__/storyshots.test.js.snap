@@ -25039,6 +25039,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         <li
           class="rpl-share-this__social"
           data-link="#share-twitter"
+          tabindex="0"
         >
           <button
             class="rpl-share-this__button"
@@ -25061,6 +25062,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         <li
           class="rpl-share-this__social"
           data-link="#share-facebook"
+          tabindex="0"
         >
           <button
             class="rpl-share-this__button"
@@ -25083,6 +25085,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         <li
           class="rpl-share-this__social"
           data-link="#share-linkedin"
+          tabindex="0"
         >
           <button
             class="rpl-share-this__button"
@@ -51022,6 +51025,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 <li
                   class="rpl-share-this__social"
                   data-link="#share-twitter"
+                  tabindex="0"
                 >
                   <button
                     class="rpl-share-this__button"
@@ -51044,6 +51048,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 <li
                   class="rpl-share-this__social"
                   data-link="#share-facebook"
+                  tabindex="0"
                 >
                   <button
                     class="rpl-share-this__button"
@@ -51066,6 +51071,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                 <li
                   class="rpl-share-this__social"
                   data-link="#share-linkedin"
+                  tabindex="0"
                 >
                   <button
                     class="rpl-share-this__button"
@@ -65168,6 +65174,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                 <li
                   class="rpl-share-this__social"
                   data-link="#share-twitter"
+                  tabindex="0"
                 >
                   <button
                     class="rpl-share-this__button"
@@ -65190,6 +65197,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                 <li
                   class="rpl-share-this__social"
                   data-link="#share-facebook"
+                  tabindex="0"
                 >
                   <button
                     class="rpl-share-this__button"
@@ -65212,6 +65220,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                 <li
                   class="rpl-share-this__social"
                   data-link="#share-linkedin"
+                  tabindex="0"
                 >
                   <button
                     class="rpl-share-this__button"
@@ -72198,6 +72207,7 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                 <li
                   class="rpl-share-this__social"
                   data-link="#share-twitter"
+                  tabindex="0"
                 >
                   <button
                     class="rpl-share-this__button"
@@ -72220,6 +72230,7 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                 <li
                   class="rpl-share-this__social"
                   data-link="#share-facebook"
+                  tabindex="0"
                 >
                   <button
                     class="rpl-share-this__button"
@@ -72242,6 +72253,7 @@ exports[`RippleStoryshots Templates Publication Page 1`] = `
                 <li
                   class="rpl-share-this__social"
                   data-link="#share-linkedin"
+                  tabindex="0"
                 >
                   <button
                     class="rpl-share-this__button"

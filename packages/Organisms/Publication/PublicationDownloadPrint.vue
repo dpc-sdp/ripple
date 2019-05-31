@@ -78,7 +78,7 @@ export default {
 
     @include rpl_print_hidden;
 
-    &__print-list-item {
+    li + &__print-list-item {
       border-top: $rpl-publication-download-print-dividing-border;
     }
 

@@ -25,7 +25,7 @@ export default {
         terms.push({term: 'Author', description: this.author})
       }
       if (this.date) {
-        terms.push({term: 'Date', description: this.formatDate(this.date, 'MM YYYY')})
+        terms.push({term: 'Date', description: this.formatDate(this.date, 'MMMM YYYY')})
       }
       if (this.copyright) {
         terms.push({term: 'Copyright', description: this.copyright})

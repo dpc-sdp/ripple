@@ -118,7 +118,8 @@ export default {
   $rpl-pagination-step-hover-border-bottom: 2px solid rpl-color('secondary') !default;
   $rpl-pagination-step-current-color: rpl-color('secondary') !default;
   $rpl-pagination-step-current-border-bottom: 2px solid rpl-color('secondary') !default;
-  $rpl-pagination-nav-margin: 0 0 0 ($rpl-space * 6) !default;
+  $rpl-pagination-nav-margin: 0 0 0 ($rpl-space) !default;
+  $rpl-pagination-nav-padding: $rpl-space-2 !default;
 
   .rpl-pagination {
     display: flex;
@@ -189,13 +190,13 @@ export default {
 
     &__controls {
       margin-left: auto;
-      margin-right: 0;
+      margin-right: -$rpl-space;
     }
 
     &__nav {
       background: transparent;
       border: 0;
-      padding: 0;
+      padding: $rpl-pagination-nav-padding;
       margin: $rpl-pagination-nav-margin;
       cursor: pointer;
       span {

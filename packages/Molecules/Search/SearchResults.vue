@@ -144,9 +144,8 @@ export default {
 
     .rpl-pagination {
       // Allow space (72px) for the back-to-top button in BaseLayout.
-      padding-bottom: rem(72px);
       @include rpl_breakpoint('s') {
-        padding-bottom: 0;
+        width: calc(100% - #{$rpl-space * 18});
       }
 
       @include rpl_breakpoint(m) {

@@ -15,6 +15,7 @@
 
     <rpl-page-layout
       :sidebar="sidebar"
+      :withSearch="true"
       class="main"
     >
       <template slot="aboveContent">

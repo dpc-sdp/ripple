@@ -7,7 +7,7 @@ import {
 
 import RplMarkup from './Markup.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData.js'
+import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('Organisms/Markup', module)
   .addDecorator(VueInfoAddon)

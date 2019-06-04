@@ -1,6 +1,5 @@
 <template>
-  <main class="rpl-page">
-
+  <main class="rpl-page" :class="{'rpl-page--with-search': withSearch }">
     <section
       class="rpl-above-content-container"
       :class="{ 'rpl-above-content-container--with-bg': heroBackgroundImage }"
@@ -69,7 +68,8 @@ export default {
     'quickExit': { type: Boolean, default: null },
     'backgroundColor': String,
     'heroBackgroundImage': String,
-    'backgroundGraphic': String
+    'backgroundGraphic': String,
+    'withSearch': Boolean
   },
   data () {
     return {
@@ -109,9 +109,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
+$rpl-search-back-to-top-offset: 72px / 2;
 
 .rpl-above-content {
   background-repeat: no-repeat;
@@ -214,6 +215,20 @@ export default {
     width: 100%;
     margin: 0;
     left: 0;
+  }
+}
+
+.rpl-page--with-search {
+  .rpl-pagination {
+    // Allow half of back to top buttom (72px) in BaseLayout.
+    padding-bottom: $rpl-search-back-to-top-offset;
+    @include rpl_breakpoint('s') {
+      padding-bottom: 0;
+    }
+
+    @include rpl_breakpoint(m) {
+      width: 100%;
+    }
   }
 }
 

@@ -128,7 +128,7 @@ describe('FieldRplSelect', () => {
     wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
 
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
-    expect(wrapper.find('#single-select-drop-down__topic_a').classes()).toContain('rpl-select__listitem--selected')
+    expect(wrapper.find('#single-select-drop-down__topic__005fa').classes()).toContain('rpl-select__listitem--selected')
     expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic A')
     expect(wrapper.find('.rpl-select__listitem--selected').attributes('aria-selected')).toBeUndefined()
   })

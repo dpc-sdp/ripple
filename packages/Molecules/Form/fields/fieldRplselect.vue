@@ -144,16 +144,16 @@ export default {
     }
   },
   watch: {
-    value (newVal, oldVal) {
+    value: function (val) {
       // fixes issue with errors not clearing after selecting new val
-      if (newVal === null || newVal === undefined) {
+      if (val === null || val === undefined) {
         if (this.schema.multiselect) {
-          newVal = []
+          this.value = []
         } else {
-          newVal = ''
+          this.value = ''
         }
       }
-      if (this.schema.multiselect && newVal.length > 0) {
+      if (this.schema.multiselect && val.length > 0) {
         if (this.errors && this.errors.length > 0) {
           this.vfg.clearValidationErrors()
         }

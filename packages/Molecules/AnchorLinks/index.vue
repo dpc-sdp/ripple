@@ -53,6 +53,7 @@ export default {
     @include rpl_mobile_padding;
     padding-left: $rpl-anchor-links-left-padding-xs;
     border-left: $rpl-anchor-links-border;
+    border-right: 0;
     border-image: $rpl-anchor-links-border-image;
     position: relative;
     margin: $rpl-anchor-links-margin;

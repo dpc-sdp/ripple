@@ -23,7 +23,7 @@ let fs = require('fs')
 let path = require('path')
 let glob = require('glob-fs')({ gitignore: true })
 let wrap = require('wordwrap')(80)
-let getImports = require('./get-imports')
+let { getImportStatements, getImportStatementFromJS } = require('./get-imports')
 
 function generateTemplate (directory) {
   let data = {
@@ -31,11 +31,12 @@ function generateTemplate (directory) {
     packageDescription: '',
     packageDependencies: '',
     packageImports: '',
+    noSsrPackageImports: '',
     storybookParams: []
   }
 
   // Get imports.
-  let imports = getImports(directory + 'package.json')
+  let imports = getImportStatements(directory + 'package.json')
   imports.forEach((importStatement, idx) => {
     let print = importStatement
     if (print.length > 80) {
@@ -50,6 +51,19 @@ function generateTemplate (directory) {
 
   data.packageName = wrap(jsonFile.name)
   data.packageDescription = wrap(jsonFile.description)
+
+  // Get no-ssr imports.
+  if (fs.existsSync(directory + 'no-ssr/index.js')) {
+    let nossrImport = fs.readFileSync(directory + 'no-ssr/index.js', 'utf-8')
+    const nossrImports = getImportStatementFromJS(nossrImport, data.packageName + '/no-ssr')
+    nossrImports.forEach((importStatement, idx) => {
+      let print = importStatement
+      if (print.length > 80) {
+        print = print.replace(/,\s/gi, ',\n  ').replace(/{ /gi, '{\n  ').replace(/ }/gi, '\n}')
+      }
+      data.noSsrPackageImports += ((idx > 0) ? '\n' : '') + print
+    })
+  }
 
   // Get dependencies.
   let deps = []
@@ -70,7 +84,7 @@ function generateTemplate (directory) {
   let storiesOf = /(?:storiesOf\(')(.+)(?:',)/g
   let storiesOfMatch = storiesOf.exec(story)
 
-  let add = /(?:add\(')(.+)(?:',)/gim
+  let add = /(?:add\([\n\s]*)(?:')(.+)(?:',)/gim
   let addMatch = add.exec(story)
   while (addMatch !== null) {
     data.storybookParams.push({
@@ -79,6 +93,8 @@ function generateTemplate (directory) {
     })
     addMatch = add.exec(story)
   }
+
+  // Add check for no-ssr folder.
 
   // Render template.
   Twig.renderFile(path.join(__dirname, '/README_template.md'), data, (err, html) => {

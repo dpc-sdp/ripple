@@ -27,6 +27,14 @@ npm install {{ packageName }} --save
 {{ packageImports }}
 ```
 
+{% if noSsrPackageImports %}
+## Import for client-only components
+
+```js
+{{ noSsrPackageImports }}
+```
+
+{% endif %}
 --------------------------------------------------------------------------------
 
 ## Usage and Tests

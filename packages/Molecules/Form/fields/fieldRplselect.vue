@@ -145,7 +145,6 @@ export default {
   },
   watch: {
     value: function (val) {
-      // fixes issue with errors not clearing after selecting new val
       if (val === null || val === undefined) {
         if (this.schema.multiselect) {
           this.value = []
@@ -153,7 +152,8 @@ export default {
           this.value = ''
         }
       }
-      if (this.schema.multiselect && val.length > 0) {
+      // fixes issue with errors not clearing after selecting new val
+      if (val && this.schema.multiselect && val.length > 0) {
         if (this.errors && this.errors.length > 0) {
           this.vfg.clearValidationErrors()
         }

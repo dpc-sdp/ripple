@@ -16087,9 +16087,9 @@ exports[`RippleStoryshots Molecules/Form Form 1`] = `
                         Topic A
                       </option>
                       <option
-                        value="topic_b"
+                        value="topic_$#%&!@~^&*"
                       >
-                        Topic B
+                        Topic with $#%&!@~^&*
                       </option>
                       <option
                         value="topic_c"
@@ -63527,9 +63527,9 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                                     Topic A
                                   </option>
                                   <option
-                                    value="topic_b"
+                                    value="topic_$#%&!@~^&*"
                                   >
-                                    Topic B
+                                    Topic with $#%&!@~^&*
                                   </option>
                                   <option
                                     value="topic_c"

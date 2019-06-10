@@ -172,7 +172,15 @@ export default {
     },
     createUniqueId (opt) {
       if (opt) {
-        return `${this.fieldId}__${opt.id}`
+        // Convert any string to valid CSS selector string
+        // https://stackoverflow.com/a/7627603/1212791
+        const id = opt.id.replace(/[^a-z0-9]/g, (s) => {
+          const c = s.charCodeAt(0)
+          if (c === 32) return '-'
+          if (c >= 65 && c <= 90) return '_' + s.toLowerCase()
+          return '__' + ('000' + c.toString(16)).slice(-4)
+        })
+        return `${this.fieldId}__${id}`
       }
       return null
     },

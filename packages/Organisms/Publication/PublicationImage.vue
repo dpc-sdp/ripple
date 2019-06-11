@@ -4,16 +4,16 @@
     <rpl-figure v-if="image" :image="image" :caption="caption" :source="source" />
     <div class="rpl-publication-image__controls">
       <!-- Fullscreen modal button -->
-      <button class="rpl-publication-image__button" v-if="fullscreen" @click="showModal = true">
-        <rpl-text-icon symbol="view" color="primary" :text="fullscreen" placement="before" />
+      <button class="rpl-publication-image__button" v-if="fullscreenLabel && image" @click="showModal = true">
+        <rpl-text-icon symbol="view" color="primary" :text="fullscreenLabel" placement="before" />
       </button>
       <!-- Markup expander -->
-      <button class="rpl-publication-image__button" v-if="expand && !markupVisible" @click="markupVisible = true">
-        <rpl-text-icon symbol="table" color="primary" :text="expand" placement="before" />
+      <button class="rpl-publication-image__button" v-if="expandLabel && !markupVisible" @click="markupVisible = true">
+        <rpl-text-icon symbol="table" color="primary" :text="expandLabel" placement="before" />
       </button>
       <div class="rpl-publication-image__expander" v-if="markupVisible">
         <div class="rpl-publication-image__expander-header">
-          <rpl-text-icon class="rpl-publication-image__expander-title" symbol="table" color="primary" :text="expandTitle" placement="before" />
+          <rpl-text-icon class="rpl-publication-image__expander-title" symbol="table" color="primary" :text="expandTitleLabel" placement="before" />
           <button class="rpl-publication-image__expander-close-button" @click="markupVisible = false">
             <rpl-icon symbol="close" color="primary" size="s" />
             <span class="rpl-publication-image__expander-close-button-text">{{ expandcloseText }}</span>
@@ -24,8 +24,8 @@
         </div>
       </div>
       <!-- Download button -->
-      <a class="rpl-publication-image__button" v-if="download" :download="downloadFilename" :href="image.src">
-        <rpl-text-icon symbol="download" color="primary" :text="download" placement="before" />
+      <a class="rpl-publication-image__button" v-if="downloadLabel && downloadFilename" :download="downloadFilename" :href="image.src">
+        <rpl-text-icon symbol="download" color="primary" :text="downloadLabel" placement="before" />
       </a>
     </div>
     <!-- Fullscreen modal -->
@@ -72,6 +72,34 @@ export default {
     }
   },
   computed: {
+    fullscreenLabel () {
+      if (this.fullscreen) {
+        return this.fullscreen
+      } else if (this.title) {
+        return `View ${this.title} in full screen`
+      }
+    },
+    downloadLabel () {
+      if (this.download) {
+        return this.download
+      } else if (this.title) {
+        return `Download ${this.title}`
+      }
+    },
+    expandLabel () {
+      if (this.expand) {
+        return this.expand
+      } else if (this.title) {
+        return `View ${this.title} in table format`
+      }
+    },
+    expandTitleLabel () {
+      if (this.expandTitle) {
+        return this.expandTitle
+      } else if (this.title) {
+        return this.title
+      }
+    },
     downloadFilename () {
       const name = this.image.src
       return name.substr(name.lastIndexOf('/') + 1)

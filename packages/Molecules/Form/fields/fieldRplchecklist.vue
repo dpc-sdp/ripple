@@ -1,4 +1,5 @@
 <template>
+  <!-- This component is deprecated, use ripple-select instead. -->
   <div class="rpl-checklist wrapper">
     <!-- List Box -->
     <div v-if="schema.listBox" class="rpl-checklist__combobox form-control" :disabled="disabled">
@@ -55,9 +56,13 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCheckbox from '../Checkbox.vue'
 import { isObject } from 'lodash'
 import { abstractField, schema } from 'vue-form-generator'
+import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
 export default {
-  mixins: [abstractField],
+  mixins: [
+    abstractField,
+    deprecate
+  ],
   components: {
     RplIcon,
     RplCheckbox
@@ -78,6 +83,8 @@ export default {
       this.updateSize()
     }
     this.setCheckedValues()
+
+    this.deprecatedWarn('"rpl-checklist" is depricated, please use "rpl-select" instead.')
   },
   watch: {
     value (newVal, oldVal) {

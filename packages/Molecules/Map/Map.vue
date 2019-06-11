@@ -38,11 +38,13 @@ let map,
  */
 const methods = {
   createMap () {
+    const controls = [new ol.control.Zoom()];
+    if (this.customControls) {
+      controls.push(...this.customControls);
+    }
     map = new ol.Map({
       target: 'map',
-      controls: [
-        new ol.control.Zoom()
-      ],
+      controls,
       view: new ol.View({
         center: this.center,
         zoom: this.zoom,
@@ -245,6 +247,10 @@ export default {
       default: function () {
         return {}
       }
+    },
+    customControls: {
+      type: Array,
+      default: null
     }
   },
   data: function () {

@@ -11961,7 +11961,7 @@ exports[`RippleStoryshots Molecules/Card Card Navigation Featured 1`] = `
         />
          
         <div
-          class="rpl-card-navigation-featured__meta_and_title"
+          class="rpl-card-navigation-featured__meta_and_title rpl-card-navigation-featured__meta_and_title--image rpl-card-navigation-featured__meta_and_title--summary"
         >
           <div
             class="rpl-card-navigation-featured__meta"
@@ -11990,7 +11990,7 @@ exports[`RippleStoryshots Molecules/Card Card Navigation Featured 1`] = `
       </div>
        
       <p
-        class="rpl-card-navigation-featured__summary"
+        class="rpl-card-navigation-featured__summary rpl-card-navigation-featured__summary--image"
       >
         We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what's happening.
       </p>
@@ -36268,7 +36268,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
             />
              
             <div
-              class="rpl-card-navigation-featured__meta_and_title"
+              class="rpl-card-navigation-featured__meta_and_title rpl-card-navigation-featured__meta_and_title--image rpl-card-navigation-featured__meta_and_title--summary"
             >
               <div
                 class="rpl-card-navigation-featured__meta"
@@ -36297,7 +36297,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
           </div>
            
           <p
-            class="rpl-card-navigation-featured__summary"
+            class="rpl-card-navigation-featured__summary rpl-card-navigation-featured__summary--image"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
           </p>
@@ -48637,7 +48637,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                     />
                      
                     <div
-                      class="rpl-card-navigation-featured__meta_and_title"
+                      class="rpl-card-navigation-featured__meta_and_title rpl-card-navigation-featured__meta_and_title--image rpl-card-navigation-featured__meta_and_title--summary"
                     >
                       <div
                         class="rpl-card-navigation-featured__meta"
@@ -48666,7 +48666,7 @@ exports[`RippleStoryshots Templates Landing page demo 1`] = `
                   </div>
                    
                   <p
-                    class="rpl-card-navigation-featured__summary"
+                    class="rpl-card-navigation-featured__summary rpl-card-navigation-featured__summary--image"
                   >
                     We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what's happening.
                   </p>
@@ -60462,7 +60462,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                     />
                      
                     <div
-                      class="rpl-card-navigation-featured__meta_and_title"
+                      class="rpl-card-navigation-featured__meta_and_title rpl-card-navigation-featured__meta_and_title--image rpl-card-navigation-featured__meta_and_title--summary"
                     >
                       <div
                         class="rpl-card-navigation-featured__meta"
@@ -60491,7 +60491,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                   </div>
                    
                   <p
-                    class="rpl-card-navigation-featured__summary"
+                    class="rpl-card-navigation-featured__summary rpl-card-navigation-featured__summary--image"
                   >
                     We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what's happening.
                   </p>
@@ -61319,7 +61319,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                         />
                          
                         <div
-                          class="rpl-card-navigation-featured__meta_and_title"
+                          class="rpl-card-navigation-featured__meta_and_title rpl-card-navigation-featured__meta_and_title--image rpl-card-navigation-featured__meta_and_title--summary"
                         >
                           <div
                             class="rpl-card-navigation-featured__meta"
@@ -61348,7 +61348,7 @@ exports[`RippleStoryshots Templates Print Page 1`] = `
                       </div>
                        
                       <p
-                        class="rpl-card-navigation-featured__summary"
+                        class="rpl-card-navigation-featured__summary rpl-card-navigation-featured__summary--image"
                       >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
                       </p>

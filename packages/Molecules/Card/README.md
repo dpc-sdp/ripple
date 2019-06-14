@@ -43,6 +43,12 @@ import {
 } from '@dpc-sdp/ripple-card'
 ```
 
+## Import for client-only components
+
+```js
+import { RplCardCarousel } from '@dpc-sdp/ripple-card/no-ssr'
+```
+
 --------------------------------------------------------------------------------
 
 ## Usage and Tests

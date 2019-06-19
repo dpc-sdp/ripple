@@ -15,11 +15,11 @@ environments:
     routes:
       - storybook:
         - "www.ripple.sdp.vic.gov.au":
-            tls-acme: 'true'
+            tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
         - "ripple.sdp.vic.gov.au":
-            tls-acme: 'true'
+            tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
     monitoring_urls:

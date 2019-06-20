@@ -1,6 +1,0 @@
-.git
-.idea
-*.md
-docker-compose*
-node_modules/
-npm-debug.log

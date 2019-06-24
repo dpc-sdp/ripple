@@ -1,0 +1,33 @@
+@mixin rpl_breakpoint($break) {
+  $breakpoint-value: map-get($rpl-breakpoints, $break);
+  @if $breakpoint-value == null {
+    @error '"#{$break}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
+  }
+  @media screen and (min-width: $breakpoint-value) {
+    @content;
+  }
+}
+
+@mixin rpl_breakpoint_down($break) {
+  $breakpoint-value: map-get($rpl-breakpoints, $break);
+  @if $breakpoint-value == null {
+    @error '"#{$break}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
+  }
+  @media screen and (max-width: $breakpoint-value - 1) {
+    @content;
+  }
+}
+
+@mixin rpl_breakpoint_between($break-min, $break-max) {
+  $breakpoint-value-min: map-get($rpl-breakpoints, $break-min);
+  $breakpoint-value-max: map-get($rpl-breakpoints, $break-max);
+  @if $breakpoint-value-min == null {
+    @error '"#{$breakpoint-value-min}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
+  }
+  @if $breakpoint-value-max == null {
+    @error '"#{$breakpoint-value-max}" is not an available breakpoint. (#{map-keys($rpl-breakpoints)})';
+  }
+  @media screen and (min-width: $breakpoint-value-min) and (max-width: $breakpoint-value-max - 1) {
+    @content;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@dpc-sdp/ripple-global",
+  "version": "1.0.0-beta.1",
+  "description": "The core styles and utilities used by all ripple components. Includes sets of colours, fonts, breakpoints.",
+  "license": "Apache-2.0",
+  "main": "./index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/ripple-ui-components/components/Atoms/Global",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "masonry-layout": "^4.2.1",
+    "moment": "^2.22.1",
+    "object-fit-images": "^3.2.3",
+    "vue-focus": "^2.1.0"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.16"
+  }
+}

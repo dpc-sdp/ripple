@@ -3,6 +3,9 @@ services:
   storybook:
     environment:
       LAGOON_ENVIRONMENT_TYPE: 'ci'
+  app:
+    environment:
+      LAGOON_ENVIRONMENT_TYPE: 'ci'
   test:
     build:
       context: .

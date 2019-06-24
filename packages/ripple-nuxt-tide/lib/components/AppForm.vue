@@ -1,0 +1,92 @@
+<template>
+  <rpl-form v-if="formData" :formData="formData" :submitHandler="submitForm" :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess" :title="title" ></rpl-form>
+</template>
+
+<script>
+import RplForm from '@dpc-sdp/ripple-form'
+import conditionalLogic from '@dpc-sdp/ripple-nuxt-tide/modules/webform/conditional-logic'
+
+export default {
+  name: 'AppForm',
+  components: {
+    RplForm
+  },
+  props: {
+    'formData': Object,
+    'title': String
+  },
+  data () {
+    return {
+      messages: {
+        success: 'Thank you! Your response has been submitted.',
+        error: 'We are experiencing a server error. Please try again, otherwise contact us.'
+      }
+    }
+  },
+  computed: {
+    fields () {
+      const _fields = []
+      if (this.formData) {
+        if (this.formData.schema.groups) {
+          this.formData.schema.groups.forEach(group => {
+            _fields.push(...group.fields)
+          })
+        }
+        if (this.formData.schema.fields) {
+          _fields.push(...this.formData.schema.fields)
+        }
+      }
+
+      return _fields
+    },
+    hasState () {
+      const fieldLen = this.fields.length
+      for (let i = 0; i < fieldLen; i++) {
+        if (this.fields[i].states) {
+          return true
+        }
+      }
+      return false
+    }
+  },
+  methods: {
+    checkFieldStates () {
+      this.fields.forEach(field => {
+        if (field.states) {
+          conditionalLogic(field, field.states, this.formData)
+        }
+      })
+    },
+    async submitForm () {
+      const formData = this.formData.model
+      const formId = this.formData.tideId
+
+      const res = await this.$tide.postForm(formId, formData)
+
+      if (res) {
+        this.formData.formState = {
+          response: {
+            status: 'success',
+            message: this.formData.messages.success || this.messages.success
+          }
+        }
+      } else {
+        this.formData.formState = {
+          response: {
+            status: 'danger',
+            message: this.formData.messages.error || this.messages.error
+          }
+        }
+      }
+    }
+  },
+  mounted () {
+    if (this.hasState) {
+      this.checkFieldStates()
+      this.fields.forEach(field => {
+        field.onChanged = this.checkFieldStates
+      })
+    }
+  }
+}
+</script>

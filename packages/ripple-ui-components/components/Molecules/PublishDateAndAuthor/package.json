@@ -1,0 +1,15 @@
+{
+  "name": "@dpc-sdp/ripple-publish-date-and-author",
+  "version": "1.0.0-beta.1",
+  "description": "A component for displaying the date, location and author of an article.",
+  "license": "Apache-2.0",
+  "main": "index.vue",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/ripple-ui-components/components/Molecules/PublishDateAndAuthor",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-global": "1.0.0-beta.1"
+  }
+}

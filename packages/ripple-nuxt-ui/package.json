@@ -1,0 +1,22 @@
+{
+  "name": "@dpc-sdp/ripple-nuxt-ui",
+  "version": "1.0.0-beta.1",
+  "description": "The Nuxt module for adding Ripple pattern library.",
+  "contributors": [
+    {
+      "name": "Tim Yao <tim.yao@dpc.vic.gov.au>"
+    }
+  ],
+  "main": "lib/module.js",
+  "dependencies": {
+    "svg-sprite-loader": "^3.7.3",
+    "svgo": "^1.0.5",
+    "svgo-loader": "^2.1.0"
+  },
+  "peerDependencies": {
+    "nuxt": "^2.4.3",
+    "@dpc-sdp/ripple-global": "^1.0.0-beta.1",
+    "@dpc-sdp/ripple-icon": "^1.0.0-beta.1",
+    "webpack-node-externals": "^1.6.0"
+  }
+}

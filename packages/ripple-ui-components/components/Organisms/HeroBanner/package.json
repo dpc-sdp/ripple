@@ -1,0 +1,18 @@
+{
+  "name": "@dpc-sdp/ripple-hero-banner",
+  "version": "1.0.0-beta.1",
+  "description": "A component to display a page heading, subtext and useful links.",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/ripple-ui-components/components/Organisms/HeroBanner",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-button": "1.0.0-beta.1",
+    "@dpc-sdp/ripple-global": "1.0.0-beta.1",
+    "@dpc-sdp/ripple-grid": "1.0.0-beta.1",
+    "@dpc-sdp/ripple-link": "1.0.0-beta.1"
+  }
+}

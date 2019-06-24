@@ -5,6 +5,7 @@
   "main": "./src/index.js",
   "private": true,
   "scripts": {
+    "build": "if [ \"$NUXT_HOT_RELOADING\" != \"1\" ] ; then nuxt build; fi",
     "publish": "lerna publish",
     "lint": "eslint --ext .js,.vue src && sass-lint -qv --max-warnings 0 && markdownlint -i ./packages/**/node_modules/**/*.md ./packages/**/*.md",
     "test": "NODE_ENV=test jest",

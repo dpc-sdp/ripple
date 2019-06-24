@@ -1,0 +1,39 @@
+docker-compose-yaml: docker-compose.yml
+
+# tasks:
+#   post-rollout:
+#     - run:
+#         name: Post deployed URL to JIRA
+#         command: |
+#           if [[ "$LAGOON_PR_HEAD_BRANCH" != "production" ]]; then
+#             . scripts/jira-post-comment.sh $JIRA_ENDPOINT $JIRA_USERNAME $JIRA_PASSWORD $LAGOON_GIT_BRANCH $LAGOON_GIT_BRANCH "$LAGOON_PR_TITLE"
+#           fi
+#         service: app
+
+# environments:
+#   production:
+#     routes:
+#       - app:
+#         - "www.vic.gov.au":
+#             tls-acme: 'true'
+#             insecure: Allow
+#             hsts: max-age=31536000
+#         - "vic.gov.au":
+#             tls-acme: 'true'
+#             insecure: Allow
+#             hsts: max-age=31536000
+#     monitoring_urls:
+#       - "www.vic.gov.au"
+#   master:
+#     routes:
+#       - app:
+#         - "staging.www.vic.gov.au":
+#             tls-acme: 'true'
+#             insecure: Allow
+#             hsts: max-age=31536000
+#   develop:
+#       routes:
+#         - app:
+#           - "develop.www.vic.gov.au":
+#               tls-acme: 'true'
+#               insecure: Allow

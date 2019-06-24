@@ -4,7 +4,7 @@ FROM amazeeio/node:10-builder as builder
 COPY .npmrc .npmrc
 COPY package.json package-lock.json /app/
 COPY package.json /app/
-COPY modules /app/modules
+#COPY modules /app/modules
 RUN npm install
 
 FROM amazeeio/node:10

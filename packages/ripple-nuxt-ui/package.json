@@ -10,13 +10,13 @@
   ],
   "main": "lib/module.js",
   "dependencies": {
+    "@dpc-sdp/ripple-global": "1.0.0-beta.5",
+    "@dpc-sdp/ripple-icon": "1.0.0-beta.5",
     "svg-sprite-loader": "^3.7.3",
     "svgo": "^1.0.5",
     "svgo-loader": "^2.1.0"
   },
   "peerDependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-beta.4",
-    "@dpc-sdp/ripple-icon": "1.0.0-beta.4",
     "nuxt": "^2.4.3",
     "webpack-node-externals": "^1.6.0"
   }

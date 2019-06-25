@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/example-vic-gov-au",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Reference nuxt site using Ripple front end and connecting to Tide backend",
   "private": true,
   "scripts": {
@@ -11,8 +11,8 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "^1.0.0-beta.1",
-    "@dpc-sdp/ripple-nuxt-ui": "^1.0.0-beta.1",
+    "@dpc-sdp/ripple-nuxt-tide": "^1.0.0-beta.2",
+    "@dpc-sdp/ripple-nuxt-ui": "^1.0.0-beta.2",
     "@nuxtjs/axios": "^5.3.1",
     "@nuxtjs/proxy": "^1.2.4",
     "@nuxtjs/robots": "^2.0.0",

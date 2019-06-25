@@ -1,6 +1,5 @@
 {
   "name": "@dpc-sdp/ripple",
-  "version": "1.0.0-beta.3",
   "description": "Ripple Monorepo for DPC Single Digital Presence sites.",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "private": true,

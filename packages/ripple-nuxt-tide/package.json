@@ -2,6 +2,7 @@
   "name": "@dpc-sdp/ripple-nuxt-tide",
   "version": "1.0.0-beta.1",
   "description": "The Nuxt module for adding Tide integration.",
+  "license": "Apache-2.0",
   "main": "lib/module.js",
   "dependencies": {
     "@dpc-sdp/ripple-accordion": "^1.0.0-beta.1",

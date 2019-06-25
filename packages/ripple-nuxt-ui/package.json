@@ -2,6 +2,7 @@
   "name": "@dpc-sdp/ripple-nuxt-ui",
   "version": "1.0.0-beta.1",
   "description": "The Nuxt module for adding Ripple pattern library.",
+  "license": "Apache-2.0",
   "contributors": [
     {
       "name": "Tim Yao <tim.yao@dpc.vic.gov.au>"

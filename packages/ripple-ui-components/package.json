@@ -1,7 +1,7 @@
 {
-  "name": "@dpc-sdp/ripple",
+  "name": "@dpc-sdp/ripple-ui-components",
   "version": "1.0.0-beta.1",
-  "description": "Ripple Project",
+  "description": "Ripple UI components",
   "main": "./src/index.js",
   "private": true,
   "scripts": {

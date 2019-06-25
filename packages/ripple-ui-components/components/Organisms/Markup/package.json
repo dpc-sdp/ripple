@@ -10,11 +10,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "^1.0.0-beta.3",
-    "@dpc-sdp/ripple-document-link": "^1.0.0-beta.3",
-    "@dpc-sdp/ripple-embedded-video": "^1.0.0-beta.3",
-    "@dpc-sdp/ripple-global": "^1.0.0-beta.3",
-    "@dpc-sdp/ripple-link": "^1.0.0-beta.3",
+    "@dpc-sdp/ripple-button": "1.0.0-beta.3",
+    "@dpc-sdp/ripple-document-link": "1.0.0-beta.3",
+    "@dpc-sdp/ripple-embedded-video": "1.0.0-beta.3",
+    "@dpc-sdp/ripple-global": "1.0.0-beta.3",
+    "@dpc-sdp/ripple-link": "1.0.0-beta.3",
     "cheerio": "^1.0.0-rc.2"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-alert",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "A set of components to display alert notifications.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-beta.3",
-    "@dpc-sdp/ripple-icon": "1.0.0-beta.3",
-    "@dpc-sdp/ripple-link": "1.0.0-beta.3"
+    "@dpc-sdp/ripple-icon": "^1.0.0-beta.4",
+    "@dpc-sdp/ripple-link": "^1.0.0-beta.4"
   }
 }

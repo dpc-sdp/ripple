@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-accordion",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "An interactive component for showing and hiding markup.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-beta.3",
-    "@dpc-sdp/ripple-icon": "1.0.0-beta.3",
-    "@dpc-sdp/ripple-markup": "1.0.0-beta.3"
+    "@dpc-sdp/ripple-icon": "^1.0.0-beta.4",
+    "@dpc-sdp/ripple-markup": "^1.0.0-beta.4"
   }
 }

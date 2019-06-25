@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-contact",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "Contact information panel for displaying address, phone, social media. Recommended for use in sidebars.",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.0.0-beta.3",
-    "@dpc-sdp/ripple-list": "1.0.0-beta.3"
+    "@dpc-sdp/ripple-list": "^1.0.0-beta.4"
   }
 }

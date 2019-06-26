@@ -1,10 +1,3 @@
-node_modules
-.nuxt
-dist
-storybook-static
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*.DS_Store
 .env
 
 # Editor directories and files
@@ -14,9 +7,6 @@ yarn-error.log*.DS_Store
 *.ntvs*
 *.njsproj
 *.sln
-
-# Dependencies.
-node_modules
 
 # Temporary files.
 node_modules

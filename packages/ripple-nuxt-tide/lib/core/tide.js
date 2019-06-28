@@ -45,7 +45,6 @@ export const tide = (axios, site, config) => ({
     if (!_.isEmpty(headers)) {
       _.merge(config, {headers: headers})
     }
-
     return axios.$get(url, config)
   },
 

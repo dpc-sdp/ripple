@@ -89,7 +89,7 @@ export default {
           'funding_level'
         ]
       },
-      sort: {field: 'title.keyword', order: 'asc'},
+      sort: { field: 'title.keyword', order: 'asc' },
       docType: 'grant',
       type: 'grant'
     }

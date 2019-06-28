@@ -22,13 +22,13 @@ export default {
     informationListing () {
       const terms = []
       if (this.author) {
-        terms.push({term: 'Author', description: this.author})
+        terms.push({ term: 'Author', description: this.author })
       }
       if (this.date) {
-        terms.push({term: 'Date', description: this.formatDate(this.date, 'MMMM YYYY')})
+        terms.push({ term: 'Date', description: this.formatDate(this.date, 'MMMM YYYY') })
       }
       if (this.copyright) {
-        terms.push({term: 'Copyright', description: this.copyright})
+        terms.push({ term: 'Copyright', description: this.copyright })
       }
       return terms
     }

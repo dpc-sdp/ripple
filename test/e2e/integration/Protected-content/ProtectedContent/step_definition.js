@@ -83,7 +83,7 @@ Then(`the menu should have {int} top level items`, (number) => {
 
 Given(`I have navigated to the created test page`, () => {
   cy.get('@nodeId').then(nodeId => {
-    cy.visit(`/node/${nodeId}`, {failOnStatusCode: false})
+    cy.visit(`/node/${nodeId}`, { failOnStatusCode: false })
   })
 })
 

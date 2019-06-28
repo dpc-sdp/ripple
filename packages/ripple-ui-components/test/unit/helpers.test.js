@@ -9,7 +9,7 @@ describe('isRelativeUrl', () => {
     ${'ftp://test.com/test-path'}       | ${false}
     ${'tel: 03 12345678'}               | ${false}
     ${'mailto: test@t.com'}             | ${false}
-  `('returns $expected for $url', ({url, expected}) => {
+  `('returns $expected for $url', ({ url, expected }) => {
     expect(isRelativeUrl(url)).toBe(expected)
   })
   /* eslint-enable indent */
@@ -27,7 +27,7 @@ describe('isExternalUrl', () => {
     ${'/test-path'}                     | ${'test.com'}     | ${false}
     ${'tel: 03 12345678'}               | ${'test.com'}     | ${false}
     ${'mailto: test@t.com'}             | ${'test.com'}     | ${false}
-  `('returns $expected when give $url in site $hostname', ({url, hostname, expected}) => {
+  `('returns $expected when give $url in site $hostname', ({ url, hostname, expected }) => {
     expect(isExternalUrl(url, hostname)).toBe(expected)
   })
   /* eslint-enable indent */
@@ -45,7 +45,7 @@ describe('isAnchorLink', () => {
     ${'ftp://test.com/test-path'}       | ${false}
     ${'tel: 03 12345678'}               | ${false}
     ${'mailto: test@t.com'}             | ${false}
-  `('returns $expected for $url', ({url, expected}) => {
+  `('returns $expected for $url', ({ url, expected }) => {
     expect(isAnchorLink(url)).toBe(expected)
   })
   /* eslint-enable indent */

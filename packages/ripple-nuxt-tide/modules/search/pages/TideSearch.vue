@@ -111,7 +111,7 @@ export default {
       let date = source.changed ? source.changed[0] : source.created[0]
       return {
         title: source.title[0],
-        link: this.getLink(source.url, site, source.field_node_primary_site, this.$store.state.tideSite.sitesDomainMap, {text: 'linkText', url: 'linkUrl'}),
+        link: this.getLink(source.url, site, source.field_node_primary_site, this.$store.state.tideSite.sitesDomainMap, { text: 'linkText', url: 'linkUrl' }),
         date: this.validDate(date) ? date : '',
         description: this.getDescription(source),
         tags: []

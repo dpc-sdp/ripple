@@ -1,5 +1,5 @@
 // Filters for adding extra process on a mapping value
-import {getMimeType, getFormattedSize} from './tide-helper'
+import { getMimeType, getFormattedSize } from './tide-helper'
 // Create more filters if need.
 export default {
   paragraphKeyJourneyLinks: function (fieldParagraphLinks) {

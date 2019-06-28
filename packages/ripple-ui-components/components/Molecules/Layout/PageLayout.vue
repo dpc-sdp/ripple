@@ -57,10 +57,10 @@ export default {
       type: Object,
       default () {
         return {
-          main: {l: 7},
+          main: { l: 7 },
           sidebar: {
-            colsBp: {l: 4},
-            push: {l: 1}
+            colsBp: { l: 4 },
+            push: { l: 1 }
           }
         }
       }

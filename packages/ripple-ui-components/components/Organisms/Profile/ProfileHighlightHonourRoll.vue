@@ -25,10 +25,10 @@ export default {
     profileListing () {
       const terms = []
       if (this.inductedYear) {
-        terms.push({term: 'Inducted', description: this.inductedYear})
+        terms.push({ term: 'Inducted', description: this.inductedYear })
       }
       if (this.category) {
-        terms.push({term: 'Category', description: this.category})
+        terms.push({ term: 'Category', description: this.category })
       }
       return terms
     }

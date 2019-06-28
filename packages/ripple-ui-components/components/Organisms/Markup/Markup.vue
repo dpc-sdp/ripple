@@ -14,7 +14,7 @@ import Vue from 'vue'
 import RplButton from '@dpc-sdp/ripple-button'
 import RplDocumentLink from '@dpc-sdp/ripple-document-link'
 import RplEmbeddedVideo from '@dpc-sdp/ripple-embedded-video'
-import {RplTextLink} from '@dpc-sdp/ripple-link'
+import { RplTextLink } from '@dpc-sdp/ripple-link'
 
 Vue.component('rpl-button', RplButton)
 Vue.component('rpl-document-link', RplDocumentLink)

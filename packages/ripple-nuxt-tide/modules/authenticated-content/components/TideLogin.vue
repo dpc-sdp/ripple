@@ -152,11 +152,11 @@ export default {
     // If there's an existing token redirect to protected content
     if (this.isAuthed) {
       if (this.$route.query.destination !== undefined) {
-        this.$router.push({path: this.$route.query.destination})
+        this.$router.push({ path: this.$route.query.destination })
       } else if (this.$props.redirect !== undefined) {
-        this.$router.push({path: this.$props.redirect})
+        this.$router.push({ path: this.$props.redirect })
       } else {
-        this.$router.push({path: '/'})
+        this.$router.push({ path: '/' })
       }
     }
   },
@@ -180,16 +180,16 @@ export default {
         if (response.auth_token) {
           this.$store.dispatch('tideAuthenticatedContent/setToken', response.auth_token)
           if (this.$route.query.destination !== undefined) {
-            this.$router.push({path: this.$route.query.destination})
+            this.$router.push({ path: this.$route.query.destination })
           } else if (this.$props.redirect !== undefined) {
-            this.$router.push({path: this.$props.redirect})
+            this.$router.push({ path: this.$props.redirect })
           } else {
-            this.$router.push({path: '/'})
+            this.$router.push({ path: '/' })
           }
         }
-        this.forms[this.selectedForm].formState = {response: { status: 'success', message: this.currentForm.messages.success }}
+        this.forms[this.selectedForm].formState = { response: { status: 'success', message: this.currentForm.messages.success } }
       } catch (e) {
-        this.forms[this.selectedForm].formState = {response: { status: 'danger', message: this.currentForm.messages.error }}
+        this.forms[this.selectedForm].formState = { response: { status: 'danger', message: this.currentForm.messages.error } }
       }
     },
     switchForm (formKey) {

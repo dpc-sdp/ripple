@@ -139,7 +139,7 @@ export default {
           break
         case 'news':
           path = '/search'
-          filters = {'type': 'news'}
+          filters = { 'type': 'news' }
           break
         default:
           path = '/search'
@@ -162,7 +162,7 @@ export default {
                 break
               case 'rpl-accordion':
                 if (component.data.title) {
-                  anchors.push({text: component.data.title, url: `#${kebabCase(component.data.title)}`})
+                  anchors.push({ text: component.data.title, url: `#${kebabCase(component.data.title)}` })
                 }
                 break
             }

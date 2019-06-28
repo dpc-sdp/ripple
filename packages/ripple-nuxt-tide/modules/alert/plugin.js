@@ -1,6 +1,6 @@
 async function getSiteAlert (app) {
   try {
-    const response = await app.$tide.get(`node/alert`, {include: ['field_alert_type']})
+    const response = await app.$tide.get(`node/alert`, { include: ['field_alert_type'] })
     const fetched = Date.now()
 
     if (response.meta && response.meta.count > 0 && response.data.length > 0 && response.included) {

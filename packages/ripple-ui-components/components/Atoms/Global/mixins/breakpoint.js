@@ -62,7 +62,7 @@ const breakpoint = {
     this.$nextTick(() => {
       if (typeof window !== 'undefined') {
         this._updateDimensions()
-        window.addEventListener('resize', this._updateDimensions, {'passive': true})
+        window.addEventListener('resize', this._updateDimensions, { 'passive': true })
       }
     })
   },

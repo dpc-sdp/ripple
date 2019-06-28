@@ -9,5 +9,5 @@ export const additionalMiddleware = (modules) => {
       ...publicationMiddleWare
     }
   }
-  return {...moduleMiddleware}
+  return { ...moduleMiddleware }
 }

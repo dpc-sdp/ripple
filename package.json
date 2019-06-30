@@ -19,9 +19,10 @@
     "start:build": "nuxt build && nuxt start",
     "test:dev": "NODE_ENV=dev start-server-and-test start:example http://localhost:3000 cy:open",
     "test:storybook": "cd packages/ripple-ui-components/ && yarn run test",
-    "test:e2e": "NODE_ENV=test start-server-and-test start:build http://localhost:3000 cypress run -e TAGS='@smoke'",
+    "test:e2e": "NODE_ENV=test start-server-and-test start:build http://localhost:3000 cy:run-smoke",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "cy:run-smoke": "cypress run -e TAGS='@smoke'",
     "lint": "eslint --ext .js,.vue . && sass-lint -qv --max-warnings 0",
     "lint:fix": "eslint --ext .js,.vue . --fix"
   },

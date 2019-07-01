@@ -9,15 +9,28 @@
     "packages/ripple-nuxt-tide",
     "packages/ripple-nuxt-ui",
     "packages/ripple-create-app",
+    "packages/ripple-test-tools",
     "examples/**/*"
   ],
   "scripts": {
     "publish": "lerna publish",
     "start:storybook": "cd packages/ripple-ui-components/ && yarn run storybook",
-    "start:example": "cd examples/vic-gov-au/ && yarn run dev"
+    "start:example": "cd examples/vic-gov-au/ && yarn run dev",
+    "test:dev": "NODE_ENV=dev start-server-and-test start:example http://localhost:3000 cy:open",
+    "test:storybook": "cd packages/ripple-ui-components/ && yarn run test",
+    "cy:open": "cypress open"
+
   },
   "devDependencies": {
-    "lerna": "^3.0.0"
+    "lerna": "^3.0.0",
+    "cypress": "^3.1.5",
+    "cypress-axe": "^0.4.0",
+    "cypress-cucumber-preprocessor": "^1.11.0",
+    "axe-core": "^3.2.2",
+    "start-server-and-test": "^1.7.11"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   },
   "browserslist": [
     "> 1%",

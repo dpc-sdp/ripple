@@ -6,6 +6,7 @@ const tideFilters = require('./tide/tide.mapping-filters')
 
 // .env variables.
 require('dotenv').config()
+process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 
 export default {
   /*

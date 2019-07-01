@@ -1,0 +1,13 @@
+{
+  "title": "Submit a grant landing page",
+  "summary": "Testing a summary",
+  "topic": "\"Arts, culture and heritage (1)\"",
+  "siteNumber": 4,
+  "components": [
+    {
+      "type": "Embedded Webform",
+      "formTitle": "Submit a grant",
+      "formType": "tide_grant_submission"
+    }
+  ]
+}

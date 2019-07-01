@@ -23,7 +23,7 @@ export default {
     TideLogin
   },
   asyncData ({ route, store, redirect }) {
-    const isAuthed = Boolean(store.state.tideAuthenticatedContent.token)
+    const isAuthed = store.state.tideAuthenticatedContent.isAuthenticated
     if (isAuthed) {
       if (route.query.destination !== undefined) {
         redirect(route.query.destination)

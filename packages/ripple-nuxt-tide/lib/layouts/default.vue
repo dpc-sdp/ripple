@@ -49,7 +49,7 @@ import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import markupPlugins from '@dpc-sdp/ripple-nuxt-tide/lib/core/markup-plugins'
-import { isPreviewPath, isTokenExpired } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/preview'
+import { isPreviewPath, isTokenExpired, getToken, clearToken } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/preview'
 
 export default {
   components: {
@@ -84,18 +84,21 @@ export default {
       return false
     },
     showLogout () {
-      return Boolean(this.$store.state.tideAuthenticatedContent.token)
+      return this.$store.state.tideAuthenticatedContent.isAuthenticated
     },
     preview () {
-      const token = this.$store.state.tideAuthenticatedContent.token
-      return isPreviewPath(this.$route.path) && token && !isTokenExpired(token)
+      if (this.$store.state.tideAuthenticatedContent.isAuthenticated) {
+        const token = getToken()
+        return isPreviewPath(this.$route.path) && token && !isTokenExpired(token)
+      }
     }
   },
   methods: {
     async logoutFunc () {
       try {
         await this.$tide.post(`user/logout?_format=json`)
-        this.$store.dispatch('tideAuthenticatedContent/clearToken')
+        clearToken()
+        this.$store.dispatch('tideAuthenticatedContent/setAuthenticated', false)
         this.$router.push({ path: '/' })
       } catch (e) {
         console.log(`Tide logout failed`)
@@ -136,7 +139,7 @@ export default {
     }
     // If logged in and session has expired, logout the user
     if (this.showLogout) {
-      if (isTokenExpired(this.$store.state.tideAuthenticatedContent.token)) {
+      if (isTokenExpired(getToken())) {
         this.logoutFunc()
       }
     }

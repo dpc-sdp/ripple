@@ -11,7 +11,14 @@ import { isTokenExpired } from '../../modules/authenticated-content/lib/preview'
 const apiPrefix = '/api/v1/'
 
 export const tide = (axios, site, config) => ({
-  get: async function (resource, params = {}, id = '') {
+  /**
+   * GET request to tide for resources.
+   * @param {String} resource Resource type e.g. <entity type>/<bundle>
+   * @param {Object} params Object to convert to QueryString. Passed in URL.
+   * @param {String} id Resource UUID
+   * @param {String} authToken Authentication token
+   */
+  get: async function (resource, params = {}, id = '', authToken) {
     const siteParam = 'site=' + site
     const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
     let headers = {}
@@ -20,20 +27,10 @@ export const tide = (axios, site, config) => ({
       console.info(`Tide request url: ${url}`)
     }
 
-    // Set Session cookie if is available in parameters
-    if (typeof params.session_name !== 'undefined' && typeof params.session_value !== 'undefined') {
-      _.merge(headers, { Cookie: params.session_name + '=' + params.session_value })
-    }
-
-    // Set 'X-CSRF-Token if token parameters is defined
-    if (typeof params.token !== 'undefined') {
-      _.merge(headers, { 'X-CSRF-Token': params.token })
-    }
-
-    // Set 'X-Authorization' header if auth_token present
-    if (params.auth_token) {
-      if (!isTokenExpired(params.auth_token)) {
-        _.merge(headers, { 'X-Authorization': `Bearer ${params.auth_token}` })
+    // Set 'X-Authorization' header if authToken present
+    if (authToken) {
+      if (!isTokenExpired(authToken)) {
+        _.merge(headers, { 'X-Authorization': `Bearer ${authToken}` })
       } else {
         delete config.headers['X-Authorization']
       }
@@ -233,7 +230,7 @@ export const tide = (axios, site, config) => ({
     return pageTypes.getTemplate(type)
   },
 
-  getEntityByPathData: async function (pathData, query) {
+  getEntityByPathData: async function (pathData, query, authToken) {
     const endpoint = `${pathData.entity_type}/${pathData.bundle}/${pathData.uuid}`
 
     let include
@@ -289,7 +286,7 @@ export const tide = (axios, site, config) => ({
     if (!_.isEmpty(query)) {
       params = _.merge(query, params)
     }
-    const entity = await this.get(endpoint, params)
+    const entity = await this.get(endpoint, params, '', authToken)
     return entity
   },
 
@@ -312,7 +309,7 @@ export const tide = (axios, site, config) => ({
     return pageData
   },
 
-  getPreviewPage: async function (contentType, uuid, revisionId, section, params) {
+  getPreviewPage: async function (contentType, uuid, revisionId, section, params, authToken) {
     if (revisionId === 'latest') {
       params.resourceVersion = 'rel:working-copy'
     } else {
@@ -324,7 +321,7 @@ export const tide = (axios, site, config) => ({
       bundle: contentType,
       uuid: uuid
     }
-    const entity = await this.getEntityByPathData(pathData, params)
+    const entity = await this.getEntityByPathData(pathData, params, authToken)
     const pageData = jsonapiParse.parse(entity).data
 
     // Append the site section to page data

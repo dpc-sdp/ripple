@@ -9,8 +9,6 @@ module.exports = function () {
     options: options
   })
 
-  this.addPlugin(path.resolve(__dirname, 'localstorage.js'))
-
   this.extendRoutes((routes, resolve) => {
     routes.push({
       name: 'tideauthenticated_reset',

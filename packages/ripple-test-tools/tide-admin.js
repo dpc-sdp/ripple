@@ -24,7 +24,8 @@ module.exports = class TideAdmin {
     this.options = {
       wait: { waitUntil: 'networkidle2', timeout: 0 },
       start: {
-        headless: process.env.NODE_ENV !== 'dev'
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
       }
     }
     this.pageModels = require('./page-models').adminPageModels

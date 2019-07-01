@@ -9,14 +9,14 @@ import RplCardEmergencyContact from './CardEmergencyContact.vue'
 import RplCardBox from './CardBox.vue'
 import RplCardHonourRoll from './CardHonourRoll.vue'
 
-export {RplCardImageNavigation}
-export {RplCardNavigation}
-export {RplCardNavigationFeatured}
-export {RplCardPromotion}
-export {RplCardKeydates}
-export {RplCardEvent}
-export {RplCardCta}
-export {RplCardEmergencyContact}
-export {RplCardBox}
-export {RplCardHonourRoll}
+export { RplCardImageNavigation }
+export { RplCardNavigation }
+export { RplCardNavigationFeatured }
+export { RplCardPromotion }
+export { RplCardKeydates }
+export { RplCardEvent }
+export { RplCardCta }
+export { RplCardEmergencyContact }
+export { RplCardBox }
+export { RplCardHonourRoll }
 export default RplCardNavigation

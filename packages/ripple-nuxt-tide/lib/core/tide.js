@@ -13,7 +13,7 @@ const apiPrefix = '/api/v1/'
 export const tide = (axios, site, config) => ({
   get: async function (resource, params = {}, id = '') {
     const siteParam = 'site=' + site
-    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, {indices: false})}` : ''}`
+    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
     let headers = {}
 
     if (process.server || process.env.NODE_ENV === 'development') {
@@ -22,18 +22,18 @@ export const tide = (axios, site, config) => ({
 
     // Set Session cookie if is available in parameters
     if (typeof params.session_name !== 'undefined' && typeof params.session_value !== 'undefined') {
-      _.merge(headers, {Cookie: params.session_name + '=' + params.session_value})
+      _.merge(headers, { Cookie: params.session_name + '=' + params.session_value })
     }
 
     // Set 'X-CSRF-Token if token parameters is defined
     if (typeof params.token !== 'undefined') {
-      _.merge(headers, {'X-CSRF-Token': params.token})
+      _.merge(headers, { 'X-CSRF-Token': params.token })
     }
 
     // Set 'X-Authorization' header if auth_token present
     if (params.auth_token) {
       if (!isTokenExpired(params.auth_token)) {
-        _.merge(headers, {'X-Authorization': `Bearer ${params.auth_token}`})
+        _.merge(headers, { 'X-Authorization': `Bearer ${params.auth_token}` })
       } else {
         delete config.headers['X-Authorization']
       }
@@ -43,7 +43,7 @@ export const tide = (axios, site, config) => ({
 
     // If headers is not empty add to config request
     if (!_.isEmpty(headers)) {
-      _.merge(config, {headers: headers})
+      _.merge(config, { headers: headers })
     }
     return axios.$get(url, config)
   },
@@ -58,7 +58,7 @@ export const tide = (axios, site, config) => ({
     let headers = {
       'Content-Type': 'application/vnd.api+json;charset=UTF-8'
     }
-    _.merge(config, {headers: headers})
+    _.merge(config, { headers: headers })
 
     return axios.$post(url, data, config)
   },
@@ -110,7 +110,7 @@ export const tide = (axios, site, config) => ({
       include.push(menuFields[menu])
     }
 
-    const params = {include: include.toString()}
+    const params = { include: include.toString() }
 
     let sitesData = await this.getSitesData(params)
 
@@ -216,7 +216,7 @@ export const tide = (axios, site, config) => ({
   },
 
   getPathData: async function (path, params) {
-    let routeParams = {path: path}
+    let routeParams = { path: path }
     if (!_.isEmpty(params)) {
       _.merge(routeParams, params)
     }
@@ -284,7 +284,7 @@ export const tide = (axios, site, config) => ({
         }
     }
     // remove undefined includes
-    let params = {include: include.filter(i => i).join(',')}
+    let params = { include: include.filter(i => i).join(',') }
     // If query URL is not empty include in URL request
     if (!_.isEmpty(query)) {
       params = _.merge(query, params)

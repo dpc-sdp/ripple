@@ -15,7 +15,7 @@ module.exports = function nuxtRipple (moduleOptions) {
     options: options
   })
 
-  this.extendBuild((config, {isServer}) => {
+  this.extendBuild((config, { isServer }) => {
     // Exclude svg from url-loader - it conflicts with 'svg-sprite-loader'.
     const urlLoader = config.module.rules.find((rule) => rule.use && rule.use.find(r => r.loader === 'url-loader'))
     if (urlLoader) {

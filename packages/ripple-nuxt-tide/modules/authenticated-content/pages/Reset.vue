@@ -101,10 +101,10 @@ export default {
       data.pass = this.forms.reset.model.pass
       this.$tide.post('user/reset_password', data)
         .then(r => {
-          this.forms.reset.formState = {response: {status: 'success', message: this.messages.success}}
+          this.forms.reset.formState = { response: { status: 'success', message: this.messages.success } }
         })
         .catch(e => {
-          this.forms.reset.formState = {response: {status: 'failed', message: this.messages.error}}
+          this.forms.reset.formState = { response: { status: 'failed', message: this.messages.error } }
         })
     }
   }

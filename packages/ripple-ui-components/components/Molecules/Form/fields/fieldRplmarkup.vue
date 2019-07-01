@@ -7,7 +7,7 @@ import { abstractField } from 'vue-form-generator'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 export default {
   mixins: [abstractField],
-  components: {RplMarkup},
+  components: { RplMarkup },
   computed: {
     markup () {
       return this.schema.markup

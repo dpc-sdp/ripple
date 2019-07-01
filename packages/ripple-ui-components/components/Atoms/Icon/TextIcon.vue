@@ -18,11 +18,11 @@ import RplIcon from './Icon.vue'
 export default {
   name: 'RplTextIcon',
   props: {
-    symbol: {default: null, type: String},
-    color: {default: 'primary', type: String},
-    placement: {default: 'after', type: String},
-    size: {default: 'm', type: String},
-    text: {default: null, type: String}
+    symbol: { default: null, type: String },
+    color: { default: 'primary', type: String },
+    placement: { default: 'after', type: String },
+    size: { default: 'm', type: String },
+    text: { default: null, type: String }
   },
   components: {
     RplIcon

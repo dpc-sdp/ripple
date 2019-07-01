@@ -106,7 +106,7 @@ export default {
         category: source.field_profile_category_name ? source.field_profile_category_name[0] : '',
         lifespan: source.field_life_span ? this.truncateText(source.field_life_span[0], lifespanLimit) : '',
         summary: typeof source.summary_processed !== 'undefined' && source.summary_processed[0].length > 1 ? this.truncateText(source.summary_processed[0], summaryLimit) : this.truncateText(source.field_landing_page_summary[0], summaryLimit),
-        link: this.getLink(source.url, this.$store.state.tide.siteData.drupal_internal__tid, source.field_node_primary_site, this.$store.state.tideSite.sitesDomainMap, {text: 'text', url: 'url'}, 'Read profile'),
+        link: this.getLink(source.url, this.$store.state.tide.siteData.drupal_internal__tid, source.field_node_primary_site, this.$store.state.tideSite.sitesDomainMap, { text: 'text', url: 'url' }, 'Read profile'),
         image: source.field_media_image_absolute_path ? source.field_media_image_absolute_path[0] : ''
       }
     }

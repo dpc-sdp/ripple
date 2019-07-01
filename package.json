@@ -18,8 +18,9 @@
     "start:example": "cd examples/vic-gov-au/ && yarn run dev",
     "test:dev": "NODE_ENV=dev start-server-and-test start:example http://localhost:3000 cy:open",
     "test:storybook": "cd packages/ripple-ui-components/ && yarn run test",
-    "cy:open": "cypress open"
-
+    "cy:open": "cypress open",
+    "lint": "eslint --ext .js,.vue . && sass-lint -qv --max-warnings 0",
+    "lint:fix": "eslint --ext .js,.vue . --fix"
   },
   "devDependencies": {
     "lerna": "^3.0.0",
@@ -27,7 +28,19 @@
     "cypress-axe": "^0.4.0",
     "cypress-cucumber-preprocessor": "^1.11.0",
     "axe-core": "^3.2.2",
-    "start-server-and-test": "^1.7.11"
+    "start-server-and-test": "^1.7.11",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.11.1",
+    "@ljharb/eslint-config": "^13.1.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "sass-lint": "^1.12.1"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true

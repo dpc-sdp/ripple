@@ -50,7 +50,7 @@ Then(`I should see a 404 page`, () => {
 
 Given(`I have navigated to the created test page`, () => {
   cy.get('@nodeId').then(nodeId => {
-    cy.visit(`/node/${nodeId}`, {failOnStatusCode: false})
+    cy.visit(`/node/${nodeId}`, { failOnStatusCode: false })
   })
 })
 

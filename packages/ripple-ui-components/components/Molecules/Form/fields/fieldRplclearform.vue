@@ -6,12 +6,12 @@
 
 <script>
 import { abstractField } from 'vue-form-generator'
-import {RplTextIcon} from '@dpc-sdp/ripple-icon'
+import { RplTextIcon } from '@dpc-sdp/ripple-icon'
 import { RplFormEventBus } from '@dpc-sdp/ripple-form'
 
 export default {
   mixins: [abstractField],
-  components: {RplTextIcon},
+  components: { RplTextIcon },
   methods: {
     clearForm (e) {
       e.preventDefault()

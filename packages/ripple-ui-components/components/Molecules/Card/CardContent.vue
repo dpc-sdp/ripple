@@ -32,7 +32,7 @@
 <script>
 import objectFitImages from 'object-fit-images'
 import RplLink from '@dpc-sdp/ripple-link'
-import {RplTextIcon} from '@dpc-sdp/ripple-icon'
+import { RplTextIcon } from '@dpc-sdp/ripple-icon'
 import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {

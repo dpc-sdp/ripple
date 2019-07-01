@@ -5,6 +5,6 @@ import tideDefaultPageTypes from '../config/tide.page-types'
 export const getTemplate = (type) => {
   const defaultConfig = tideDefaultPageTypes.pageTemplates
   // const customConfig = customPageTypes.pageTemplates
-  const pageTypes = {...defaultConfig}
+  const pageTypes = { ...defaultConfig }
   return pageTypes[type]
 }

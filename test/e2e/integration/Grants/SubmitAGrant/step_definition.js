@@ -41,7 +41,7 @@ Given(`I have entered the form correctly`, () => {
     cy.get('#contact-telephone-number').type(sampleFormSubmission.contactPhone)
 
     if (sampleFormSubmission.acknowledge === 'TRUE') {
-      cy.get('[id^="agree-privacy-statement-"]').check({force: true})
+      cy.get('[id^="agree-privacy-statement-"]').check({ force: true })
     }
   })
 })
@@ -68,7 +68,7 @@ Then('I should see {int} validation errors', (errors) => {
 })
 
 Given(`I have navigated to the created test page`, function () {
-  cy.visit(`/node/${this.nodeId}`, {failOnStatusCode: false})
+  cy.visit(`/node/${this.nodeId}`, { failOnStatusCode: false })
 })
 
 Given(`I dont fill out any fields`, () => {

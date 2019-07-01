@@ -61,7 +61,7 @@ const cardtrimfield = {
       this.$nextTick(() => {
         if (typeof window !== 'undefined') {
           this.setTrimFieldMaxHeight()
-          window.addEventListener('resize', this.setTrimFieldMaxHeight, {'passive': true})
+          window.addEventListener('resize', this.setTrimFieldMaxHeight, { 'passive': true })
         }
       })
     }

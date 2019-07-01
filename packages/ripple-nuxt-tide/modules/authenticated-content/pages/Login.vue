@@ -22,7 +22,7 @@ export default {
     RplPageLayout,
     TideLogin
   },
-  asyncData ({route, store, redirect}) {
+  asyncData ({ route, store, redirect }) {
     const isAuthed = Boolean(store.state.tideAuthenticatedContent.token)
     if (isAuthed) {
       if (route.query.destination !== undefined) {

@@ -114,7 +114,7 @@ const methods = {
     })
     map.addOverlay(popupOverlay)
   },
-  zoomToArea (area, {duration}) {
+  zoomToArea (area, { duration }) {
     /*
     var featureRequest = new ol.format.WFS().writeGetFeature({
       srsName: 'EPSG:900913',

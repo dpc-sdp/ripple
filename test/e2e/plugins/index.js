@@ -3,7 +3,6 @@ const cucumber = require('cypress-cucumber-preprocessor').default
 const tideAdmin = require('@dpc-sdp/ripple-test-tools')
 
 module.exports = (on, config) => {
-
   on('file:preprocessor', cucumber())
 
   tideAdmin(on, config)

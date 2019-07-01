@@ -33,7 +33,10 @@ jobs:
             - ~/.cache
       - run:
           name: Lint code.
-          command: yarn lint             
+          command: yarn lint     
+      - run:
+          name: Unit tests
+          command: yarn test:unit
       - run: 
           name: run e2e smoke test
           command: yarn test:e2e

@@ -103,8 +103,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
             }
             // Load authenticated content store.
             if (config.modules.authenticatedContent === 1) {
-              const hasToken = serverSetToken(req.headers.cookie)
-              store.dispatch('tideAuthenticatedContent/setAuthenticated', hasToken)
+              serverSetToken(req.headers.cookie, store)
             }
           }
         },

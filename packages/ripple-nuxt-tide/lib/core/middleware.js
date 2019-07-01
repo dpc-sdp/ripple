@@ -19,8 +19,7 @@ export default async function (context, results) {
   if (authToken) {
     // If token expired clear the persisted state
     if (isTokenExpired(authToken)) {
-      clearToken()
-      context.store.dispatch('tideAuthenticatedContent/setAuthenticated', false)
+      clearToken(context.store)
     }
   }
 

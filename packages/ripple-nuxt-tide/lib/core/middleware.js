@@ -14,19 +14,23 @@ export default async function (context, results) {
   const mapping = context.app.$tideMapping
   let tideParams = {}
 
-  // Pass the protected content JWT from store so it can be added as a header
-  const authToken = getToken()
-  if (authToken) {
-    // If token expired clear the persisted state
-    if (isTokenExpired(authToken)) {
-      clearToken(context.store)
+  const authContentEnabled = context.app.$tide.isModuleEnabled('authenticatedContent')
+  let authToken = null
+  if (authContentEnabled) {
+    // Pass the protected content JWT from store so it can be added as a header
+    authToken = getToken()
+    if (authToken) {
+      // If token expired clear the persisted state
+      if (isTokenExpired(authToken)) {
+        clearToken(context.store)
+      }
     }
   }
 
   try {
     let response = null
 
-    if (isPreviewPath(context.route.path)) {
+    if (authContentEnabled && isPreviewPath(context.route.path)) {
       if (!authToken) {
         return context.redirect('/login?destination=' + context.req.url)
       }

@@ -85,23 +85,33 @@ export default {
       return false
     },
     showLogout () {
-      return isAuthenticated(this.$store)
+      if (this.$tide.isModuleEnabled('authenticatedContent')) {
+        return isAuthenticated(this.$store)
+      }
+      return false
     },
     preview () {
-      if (isAuthenticated(this.$store)) {
-        const token = getToken()
-        return isPreviewPath(this.$route.path) && token && !isTokenExpired(token)
+      if (this.$tide.isModuleEnabled('authenticatedContent')) {
+        if (isAuthenticated(this.$store)) {
+          const token = getToken()
+          return isPreviewPath(this.$route.path) && token && !isTokenExpired(token)
+        }
       }
+      return false
     }
   },
   methods: {
     async logoutFunc () {
-      try {
-        await this.$tide.post(`user/logout?_format=json`)
-        clearToken(this.$store)
-        this.$router.push({ path: '/' })
-      } catch (e) {
-        console.log(`Tide logout failed`)
+      if (this.$tide.isModuleEnabled('authenticatedContent')) {
+        try {
+          await this.$tide.post(`user/logout?_format=json`)
+          clearToken(this.$store)
+          this.$router.push({ path: '/' })
+        } catch (e) {
+          console.log(`Tide logout failed`)
+        }
+      } else {
+        console.warn(`Authentication module is disabled - unable to log out`)
       }
     },
     searchFunc (searchInput) {
@@ -137,10 +147,12 @@ export default {
     this.rplOptions.rplMarkup = {
       plugins: markupPlugins
     }
-    // If logged in and session has expired, logout the user
-    if (this.showLogout) {
-      if (isTokenExpired(getToken())) {
-        this.logoutFunc()
+    if (this.$tide.isModuleEnabled('authenticatedContent')) {
+      // If logged in and session has expired, logout the user
+      if (this.showLogout) {
+        if (isTokenExpired(getToken())) {
+          this.logoutFunc()
+        }
       }
     }
   }

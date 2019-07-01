@@ -27,15 +27,17 @@ export const tide = (axios, site, config) => ({
       console.info(`Tide request url: ${url}`)
     }
 
-    // Set 'X-Authorization' header if authToken present
-    if (authToken) {
-      if (!isTokenExpired(authToken)) {
-        _.merge(headers, { 'X-Authorization': `Bearer ${authToken}` })
-      } else {
+    if (this.isModuleEnabled('authenticatedContent')) {
+      // Set 'X-Authorization' header if authToken present
+      if (authToken) {
+        if (!isTokenExpired(authToken)) {
+          _.merge(headers, { 'X-Authorization': `Bearer ${authToken}` })
+        } else {
+          delete config.headers['X-Authorization']
+        }
+      } else if (config.headers && config.headers['X-Authorization']) {
         delete config.headers['X-Authorization']
       }
-    } else if (config.headers && config.headers['X-Authorization']) {
-      delete config.headers['X-Authorization']
     }
 
     // If headers is not empty add to config request

@@ -1,5 +1,5 @@
 <template>
-  <div class="tide-map-sidebar-home">
+  <div class="tide-map-sidebar-home" ref="scrollElement">
     <tideMapSidebarHeader
       :title="headerTitle"
       :description="headerDescription"
@@ -9,11 +9,11 @@
       v-on:home-clicked="clickHome"
       v-on:view-all-clicked="clickViewAll"
     />
-    <div class="tide-map-sidebar-home-content">
+    <div class="tide-map-sidebar-home__content">
       <div v-if="showProjects">
         <tideMapProjectCard
           v-for="(proj, index) in projectsToShow"
-          v-on:item-clicked="setProject"
+          @click="setProject"
           :key="index"
           :project="proj"
         />
@@ -32,7 +32,7 @@
       <div v-if="showSingleProject">
         <tideMapProjectDetails
           :project="selectedProject"
-          v-on:item-clicked="itemClicked"
+          @click="itemClicked"
         />
       </div>
     </div>
@@ -49,6 +49,13 @@ import { sortByTitle } from './helper'
 
 export default {
   name: 'TideMapSidebarHome',
+  components: {
+    TideMapCard,
+    TideMapProjectDetails,
+    TideMapSidebarHeader,
+    TideMapCategoriesPage,
+    TideMapProjectCard
+  },
   props: {
     categories: Array,
     areas: Array,
@@ -62,44 +69,6 @@ export default {
         showCategories: true,
         selectedCategory: null
       }
-    }
-  },
-  methods: {
-    clickHome () {
-      this.state.selectedCategory = null
-    },
-    clickBack () {
-      this.$emit('back-clicked')
-    },
-    clickViewAll () {
-      // Dummying category to show all projects
-      this.state.selectedCategory = {
-        title: 'All projects',
-        projects: this.projects,
-        isAll: true
-      }
-    },
-    itemClicked (item) {
-      this.setProject()
-      this.setCategory(item)
-    },
-    setCategory (cat) {
-      this.state.selectedCategory = cat
-    },
-    setProject (proj) {
-      this.$emit('set-selected-project', proj)
-    },
-    clickShowCategories () {
-      if (this.state.showCategories) {
-        return
-      }
-      this.state.showCategories = !this.state.showCategories
-    },
-    clickShowArea () {
-      if (!this.state.showCategories) {
-        return
-      }
-      this.state.showCategories = !this.state.showCategories
     }
   },
   computed: {
@@ -220,12 +189,50 @@ export default {
       return `${count} ${text} in this ${suffix}`
     }
   },
-  components: {
-    TideMapCard,
-    TideMapProjectDetails,
-    TideMapSidebarHeader,
-    TideMapCategoriesPage,
-    TideMapProjectCard
+  methods: {
+    clickHome () {
+      this.state.selectedCategory = null
+    },
+    clickBack () {
+      this.$emit('back-clicked')
+    },
+    clickViewAll () {
+      // Dummying category to show all projects
+      this.state.selectedCategory = {
+        title: 'All projects',
+        projects: this.projects,
+        isAll: true
+      }
+    },
+    itemClicked (item) {
+      this.setProject()
+      this.setCategory(item)
+    },
+    setCategory (cat) {
+      this.scrollToTop()
+      this.state.selectedCategory = cat
+    },
+    setProject (proj) {
+      this.scrollToTop()
+      this.$emit('set-selected-project', proj)
+    },
+    clickShowCategories () {
+      this.scrollToTop()
+      if (this.state.showCategories) {
+        return
+      }
+      this.state.showCategories = !this.state.showCategories
+    },
+    clickShowArea () {
+      this.scrollToTop()
+      if (!this.state.showCategories) {
+        return
+      }
+      this.state.showCategories = !this.state.showCategories
+    },
+    scrollToTop () {
+      this.$refs.scrollElement.scrollTo(0, 0)
+    }
   }
 }
 </script>
@@ -240,9 +247,9 @@ $tide-map-sidebar-home-background-color: rpl-color('mid_neutral_2') !default;
   height: 100%;
   overflow: auto;
   background-color: $tide-map-sidebar-home-background-color;
-  .tide-map-sidebar-home-content {
-    padding: 20px;
-    padding-top: 10px;
+  .tide-map-sidebar-home__content {
+    padding: $rpl-space-4;
+    padding-top: $rpl-space-2;
   }
 }
 </style>

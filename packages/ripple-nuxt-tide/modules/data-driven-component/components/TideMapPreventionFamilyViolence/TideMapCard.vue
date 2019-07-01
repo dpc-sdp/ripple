@@ -1,20 +1,22 @@
 <template>
-  <div class="tide-map-card" v-on:click="cardClicked">
-    <div class="tide-map-card-header">
-      <rpl-icon
-        v-if="isArea"
-        class="card-map-marker"
-        symbol="map_marker"
-        color="mid_neutral_1"
-        size="m"
-      />
-      <b>{{item.title}}</b>
-      <div class="card-arrow">
-        <rpl-icon symbol="arrow_right_secondary" color="dark_neutral" size="s"/>
+  <a @click="cardClicked">
+    <div class="tide-map-card">
+      <div class="tide-map-card__header">
+        <rpl-icon
+          v-if="isArea"
+          class="tide-map-card__marker"
+          symbol="map_marker"
+          color="mid_neutral_1"
+          size="m"
+        />
+        <span class="tide-map-card__title">{{item.title}}</span>
+        <div class="tide-map-card__arrow">
+          <rpl-icon symbol="arrow_right_secondary" color="dark_neutral" size="s"/>
+        </div>
       </div>
+      <slot></slot>
     </div>
-    <slot></slot>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -22,16 +24,16 @@ import { RplIcon } from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'TideMapCard',
+  components: {
+    RplIcon
+  },
   props: {
     item: Object,
     isArea: Boolean
   },
-  components: {
-    RplIcon
-  },
   methods: {
     cardClicked () {
-      this.$emit('item-clicked', this.item)
+      this.$emit('click', this.item)
     }
   }
 }
@@ -41,39 +43,35 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-$tide-map-card-background-color: rpl-color('white') !default;
-$tide-map-card-text-color: rpl-color('primary') !default;
-// Found the following on CardContent.vue
-$rpl-card-content-border-color: rpl_color('mid_neutral_1') !default;
-$rpl-card-content-border: 1px solid $rpl-card-content-border-color !default;
-$rpl-card-content-border-radius: rem(4px) !default;
-
 .tide-map-card {
   cursor: pointer;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 8px 10px 8px 10px;
-  background-color: $tide-map-card-background-color;
-  border: $rpl-card-content-border;
-  border-radius: $rpl-card-content-border-radius;
-  &:hover {
+  margin-top: $rpl-space;
+  margin-bottom: $rpl-space;
+  padding: $rpl-space-2;
+  background-color: rpl-color('white');
+  border: 1px solid rpl_color('mid_neutral_1');
+  border-radius: rem(4px);
+  &:hover, &:focus {
     @include rpl_dropshadow;
   }
-  .tide-map-card-header {
+  .tide-map-card__header {
     display: flex;
     align-items: top;
-    color: $tide-map-card-text-color;
+    color: rpl-color('primary');
   }
-  .card-map-marker {
-    margin-right: 5px;
-    margin-top: 4px;
+  .tide-map-card__marker {
+    margin-right: $rpl-space-2;
+    margin-top: $rpl-space-2;
   }
-  .card-arrow {
-    padding-left: 10px;
+  .tide-map-card__arrow {
+    padding-left: $rpl-space-2;
     // This makes the arrow float right
     margin-left: auto;
-    margin-right: 5px;
+    margin-right: $rpl-space;
     order: 2;
+  }
+  .tide-map-card__title {
+    font-weight: bold;
   }
 }
 </style>

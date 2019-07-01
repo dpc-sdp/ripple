@@ -21,7 +21,9 @@ export const emptyArray = items => {
   }
 }
 
-export const toggleFullScreen = divId => {
+export const toggleFullScreen = element => {
+  if (!element) return
+
   // if already full screen; exit
   // else go fullscreen
   if (
@@ -40,7 +42,6 @@ export const toggleFullScreen = divId => {
       document.msExitFullscreen()
     }
   } else {
-    var element = document.getElementById(divId)
     if (element.requestFullscreen) {
       element.requestFullscreen()
     } else if (element.mozRequestFullScreen) {

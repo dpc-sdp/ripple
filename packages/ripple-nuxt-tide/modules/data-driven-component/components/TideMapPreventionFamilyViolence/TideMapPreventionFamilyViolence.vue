@@ -6,7 +6,7 @@
       class="rpl-visually-hidden"
     >The following is an interactive map component, showing the location of programs being run in support of the Prevention of Family Violence initiative.</p>
     <div>
-      <div id="tide-map-container" class="tide-map-container">
+      <div ref="tideMapContainer" class="tide-map__container">
         <div :class="expandedMapClass">
           <rpl-button
             class="full-screen-btn"
@@ -21,12 +21,13 @@
               :text="buttonText"
             />
           </rpl-button>
+          <div class="tide-map__container__expand-btn-container" >
+            <tideMapExpandButton :expanded="expanded" @click="toggleExpand"/>
+          </div>
           <rpl-map :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
+
         </div>
-        <div class="expand-btn-container">
-          <tideMapExpandButton :expanded="expanded" v-on:expand-clicked="toggleExpand"/>
-        </div>
-        <div class="tide-map-sidebar-container">
+        <div class="tide-map__sidebar-container">
           <tideMapSidebarHome
             :categories="allCategories"
             :areas="allAreas"
@@ -292,10 +293,6 @@ const customMethods = {
 
 export default {
   name: 'TideMapPreventionFamilyViolence',
-  props: {
-    title: String,
-    description: String
-  },
   components: {
     RplMarkup,
     RplMap,
@@ -303,6 +300,10 @@ export default {
     TideMapSidebarHome,
     RplTextIcon,
     RplButton
+  },
+  props: {
+    title: String,
+    description: String
   },
   data: function () {
     return {
@@ -318,8 +319,20 @@ export default {
       refreshOn: false
     }
   },
+   computed: {
+    buttonText () {
+      return this.isFullScreen ? 'Exit full screen' : 'Enter full screen'
+    },
+    buttonIcon () {
+      return this.isFullScreen ? 'close' : 'fullscreen'
+    },
+    expandedMapClass () {
+      return this.expanded ? "tide-map__map-container map-expanded" : "tide-map__map-container";
+    }
+  },
   methods: {
     toggleExpand () {
+      console.log('expand')
       this.expanded = !this.expanded
       this.refreshMapSize()
     },
@@ -330,7 +343,7 @@ export default {
       setTimeout(() => this.refreshOn = true, 100)
     },
     toggleMapFullScreen () {
-      toggleFullScreen('tide-map-container')
+      toggleFullScreen(this.$refs.tideMapContainer)
       this.isFullScreen = !this.isFullScreen
       this.refreshMapSize()
     },
@@ -348,17 +361,6 @@ export default {
       setSelectedProject(proj)
       triggerMapRedraw()
     }
-  },
-  computed: {
-    buttonText () {
-      return this.isFullScreen ? 'Exit full screen' : 'Enter full screen'
-    },
-    buttonIcon () {
-      return this.isFullScreen ? 'close' : 'fullscreen'
-    },
-    expandedMapClass () {
-      return this.expanded ? "tide-map-map-container map-expanded" : "tide-map-map-container";
-    }
   }
 }
 </script>
@@ -368,7 +370,7 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
 .tide-map {
-  &__title {
+  &tide-map__title {
     @include rpl_mobile_padding;
 
     @include rpl_breakpoint(m) {
@@ -379,46 +381,44 @@ export default {
 }
 
 /* Do the following when large (wide) screen */
-.tide-map-container:fullscreen {
-  .tide-map-sidebar-container,
-  .tide-map-map-container {
+.tide-map__container:fullscreen {
+  .tide-map__sidebar-container,
+  .tide-map__map-container {
     height: 100vh;
   }
 }
-.tide-map-container {
+.tide-map__container {
   width: 100%;
   display: flex;
-  .tide-map-sidebar-container {
+  .tide-map__sidebar-container {
     width: 450px;
     min-width: 450px;
     margin-right: 0 !important;
     float: left !important;
     order: 1;
   }
-  .tide-map-map-container {
+  .tide-map__map-container {
     width: 100%;
     margin-left: 0 !important;
     order: 2;
+    position: relative;
   }
-  .tide-map-sidebar-container,
-  .tide-map-map-container {
+  .tide-map__sidebar-container,
+  .tide-map__map-container {
     height: 600px;
   }
   .full-screen-btn {
-    top: 0.5em;
-    right: 0.5em;
+    top: $rpl-space-2;
+    right: $rpl-space-2;
     z-index: 1000;
-    position: relative;
-    float: right;
     width: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    position: absolute;
     .rpl-icon--close {
-      height: 12px !important;
-      width: 12px !important;
+      height: $rpl-space-2 !important;
+      width: $rpl-space-2 !important;
     }
   }
-  .expand-btn {
+  .tide-map__container__expand-btn-container {
     display: none;
   }
   // Hack to make the map fullscreen
@@ -439,7 +439,7 @@ export default {
   h1 {
     font-size: 1em !important;
   }
-  .tide-map-container {
+  .tide-map__container {
     .rpl-text-label--emphasis.rpl-text-label--small {
       font-size: 0.75rem;
     }
@@ -447,35 +447,34 @@ export default {
     &:fullscreen .rpl-text-label--emphasis.rpl-text-label--small {
       font-size: 0.875rem;
     }
-    .expand-btn-container {
-      position: relative;
-    }
-    .expand-btn {
+    .tide-map__container__expand-btn-container {
+      position: absolute;
+      z-index: 1000;
+      bottom: $rpl-space-2;
+      right: $rpl-space-2;
       display: block;
-      bottom: .5em;
-      right: .5em;
     }
   }
-  .tide-map-container,
-  .tide-map-container:fullscreen {
+  .tide-map__container,
+  .tide-map__container:fullscreen {
     .full-screen-btn {
       font-size: 1rem;
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
+      padding-top: $rpl-space-2;
+      padding-bottom: $rpl-space-2;
     }
     display: block;
-    .tide-map-sidebar-container {
+    .tide-map__sidebar-container {
       height: 70vh;
       min-width: 0px;
     }
-    .tide-map-map-container {
+    .tide-map__map-container {
       height: 30vh;
       &.map-expanded {
         height: 60vh;
       }
     }
-    .tide-map-sidebar-container,
-    .tide-map-map-container {
+    .tide-map__sidebar-container,
+    .tide-map__map-container {
       width: 100% !important;
       float: none !important;
     }

@@ -3,7 +3,7 @@
     <tideMapCard :item="project">
       <ul>
         <li v-for="(category, index) in project.categories" :key="index">
-          <a>{{category.title}}</a>
+          <span>{{category.title}}</span>
         </li>
       </ul>
     </tideMapCard>
@@ -15,15 +15,15 @@ import TideMapCard from './TideMapCard'
 
 export default {
   name: 'TideMapProjectCard',
-  props: {
-    project: Object
-  },
   components: {
     TideMapCard
   },
+  props: {
+    project: Object
+  },
   methods: {
     cardClicked () {
-      this.$emit('item-clicked', this.project)
+      this.$emit('click', this.project)
     }
   }
 }
@@ -33,8 +33,6 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-$tide-map-label-background-color: rpl-color('mid_neutral_2') !default;
-$tide-map-label-ruleset: ('xs', 1.4em, 'regular') !default;
 .tide-map-project-card {
   ul {
     list-style-type: none;
@@ -44,16 +42,15 @@ $tide-map-label-ruleset: ('xs', 1.4em, 'regular') !default;
   }
   li {
     float: left;
-    a {
-      @include rpl_typography_ruleset($tide-map-label-ruleset);
+    span {
+      @include rpl_typography_ruleset(('xs', 1.4em, 'regular'));
       display: block;
       text-align: center;
-      margin-right: 5px;
-      margin-top: 5px;
-      padding-left: 5px;
-      padding-right: 5px;
-      text-decoration: none;
-      background-color: $tide-map-label-background-color;
+      margin-right: $rpl-space;
+      margin-top: $rpl-space;
+      padding-left: $rpl-space;
+      padding-right: $rpl-space;
+      background-color: rpl-color('mid_neutral_2');
     }
   }
 }

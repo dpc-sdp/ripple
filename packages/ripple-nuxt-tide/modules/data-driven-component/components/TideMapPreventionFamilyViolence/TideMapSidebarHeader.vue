@@ -1,46 +1,43 @@
 <template>
-  <div class="tide-map-header">
-    <div class="tide-map-header-ribbon"></div>
-    <div class="tide-map-header-content">
-      <div v-if="showBackButton || showHomeButton" class="btn-container" v-on:click="clickBack">
-        <rpl-text-link
+  <div class="tide-map-sidebar-header">
+    <div class="tide-map-sidebar-header__ribbon"></div>
+    <div class="tide-map-sidebar-header__content">
+      <a v-if="showBackButton || showHomeButton" class="tide-map-sidebar-header__btn" v-on:click="clickBack">
+        <rpl-text-label
           text="Back"
-          url
           iconColor="primary"
           theme="dark"
           :underline="true"
           size="small"
-        />
-      </div>
+        >Back</rpl-text-label>
+      </a>
       <h1>{{title}}</h1>
       <p>{{description}}</p>
-      <div v-if="showViewAllButton" class="btn-container" v-on:click="clickViewAll">
-        <rpl-text-link
-          text="View all projects"
-          url
+      <a v-if="showViewAllButton" class="tide-map-sidebar-header__btn" v-on:click="clickViewAll">
+        <rpl-text-label
           iconColor="primary"
           theme="dark"
           :underline="true"
           size="small"
-        />
-      </div>
+        >View all projects</rpl-text-label>
+      </a>
     </div>
   </div>
 </template>
 
 <script>
-import { RplTextLink } from '@dpc-sdp/ripple-link'
+import { RplTextLabel } from '@dpc-sdp/ripple-link'
 
 export default {
   name: 'TideMapSidebarHeader',
+  components: {
+    RplTextLabel
+  },
   props: {
     title: String,
     description: String,
     showBackButton: Boolean,
     showHomeButton: Boolean
-  },
-  components: {
-    RplTextLink
   },
   computed: {
     showViewAllButton () {
@@ -68,35 +65,25 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-$tide-map-header-ribbon-background-color: rpl-color('primary') !default;
-$tide-map-header-content-background-color: rpl-color(
-  'extra_dark_neutral'
-) !default;
-$tide-map-header-content-text-color: rpl-color('white') !default;
-
-$tide-map-header-title-ruleset: ('l', 1.2em, 'bold') !default;
-$tide-map-header-title-text-color: rpl_color('white') !default;
-
-$tide-map-header-padding: $rpl-space-2 !default;
-
-.tide-map-header {
-  background-color: $tide-map-header-content-background-color;
-  .tide-map-header-ribbon {
-    height: 6px;
-    background-color: $tide-map-header-ribbon-background-color;
+.tide-map-sidebar-header {
+  background-color: rpl-color('extra_dark_neutral');
+  .tide-map-sidebar-header__ribbon {
+    height: $rpl-space;
+    background-color: rpl-color('primary');
   }
-  .tide-map-header-content {
-    padding: $tide-map-header-padding;
-    padding-left: 20px;
-    padding-right: 20px;
-    color: $tide-map-header-content-text-color;
-    .btn-container {
+  .tide-map-sidebar-header__content {
+    padding: $rpl-space-2;
+    padding-left: $rpl-space-4;
+    padding-right: $rpl-space-4;
+    color: rpl-color('white');
+    .tide-map-sidebar-header__btn {
       // This is to make the button click hitbox to only be as big as the content
       display: inline-block;
+      cursor: pointer;
     }
     h1 {
-      @include rpl_typography_ruleset($tide-map-header-title-ruleset);
-      color: $tide-map-header-title-text-color;
+      @include rpl_typography_ruleset(('l', 1.2em, 'bold'));
+      color: rpl_color('white');
       margin-bottom: 0px;
     }
     p {

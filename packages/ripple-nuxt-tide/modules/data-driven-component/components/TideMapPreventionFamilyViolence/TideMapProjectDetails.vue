@@ -11,7 +11,7 @@
       v-for="(category, index) in project.categories"
       :key="'c' + index"
       :item="category"
-      v-on:item-clicked="itemClicked"
+      @click="itemClicked"
     />
     <h3>{{deliveredHeader}}</h3>
     <tideMapCard
@@ -19,9 +19,9 @@
       :key="'a' + index"
       :isArea="true"
       :item="area"
-      v-on:item-clicked="itemClicked"
+      @click="itemClicked"
     />
-    <rpl-button class="more-btn" theme="primary" :href="project.href">Find out more</rpl-button>
+    <rpl-button class="tide-map-project-details__more-btn" theme="primary" :href="project.href">Find out more</rpl-button>
   </div>
 </template>
 
@@ -31,16 +31,16 @@ import RplButton from '@dpc-sdp/ripple-button'
 
 export default {
   name: 'TideMapProjectDetails',
-  props: {
-    project: Object
-  },
   components: {
     RplButton,
     TideMapCard
   },
+  props: {
+    project: Object
+  },
   methods: {
     itemClicked (item) {
-      this.$emit('item-clicked', item)
+      this.$emit('click', item)
     }
   },
   computed: {
@@ -62,38 +62,20 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-$tide-map-label-background-color: rpl-color('mid_neutral_2') !default;
-$tide-map-project-details-title-ruleset: ('xs', 1.4em, 'bold') !default;
-$tide-map-project-details-title-text-color: rpl_color(
-  'extra_dark_neutral'
-) !default;
-$tide-map-project-details-title-margin: 0 0 $rpl-space-3 0 !default;
-$tide-map-project-details-description-ruleset: (
-  'xs',
-  1.4em,
-  'regular'
-) !default;
-$tide-map-project-details-description-text-color: rpl_color(
-  'extra_dark_neutral'
-) !default;
-$tide-map-project-details-description-margin: $rpl-space-2 0 !default;
-
 .tide-map-project-details {
-  .more-btn.rpl-button {
-    margin-top: 10px;
+  .tide-map-project-details__more-btn.rpl-button {
+    margin-top: $rpl-space-2;
     width: 100%;
   }
   h3 {
-    @include rpl_typography_ruleset($tide-map-project-details-title-ruleset);
-    color: $tide-map-project-details-title-text-color;
-    margin: $tide-map-project-details-title-margin;
+    @include rpl_typography_ruleset(('xs', 1.4em, 'bold'));
+    color: rpl_color('extra_dark_neutral');
+    margin:  0 0 $rpl-space-3 0;
   }
   p {
-    @include rpl_typography_ruleset(
-      $tide-map-project-details-description-ruleset
-    );
-    color: $tide-map-project-details-description-text-color;
-    margin: $tide-map-project-details-description-margin;
+    @include rpl_typography_ruleset(('xs', 1.4em, 'regular'));
+    color: rpl_color('extra_dark_neutral');
+    margin: $rpl-space-2 0;
   }
 }
 </style>

@@ -1,21 +1,23 @@
 <template>
   <div>
-    <div class="menu">
-      <rpl-text-link class="header-btn" :text="`Browse by ${isArea ? 'area' : 'category'}`" url size="small" emphasis/>
-      <div class="other-btn" v-on:click="clickShowOther">
-        <rpl-text-link
-          :text="`Browse by ${isArea ? 'category' : 'area'}`"
-          url
+    <div class="tide-map-categories-page__menu">
+      <rpl-text-label class="tide-map-categories-page__header-btn" size="small" emphasis >
+        Browse by {{isArea ? 'area' : 'category'}}
+      </rpl-text-label>
+      <a class="tide-map-categories-page__other-btn" @click="clickShowOther">
+        <rpl-text-label
           iconColor="primary"
           :underline="true"
           size="small"
           emphasis
-        />
-      </div>
+        >
+        Browse by {{isArea ? 'category' : 'area'}}
+        </rpl-text-label>
+      </a>
     </div>
     <tideMapCard
       v-for="(item, index) in items"
-      v-on:item-clicked="setCategory"
+      @click="setCategory"
       :key="index"
       :isArea="isArea"
       :item="item"
@@ -24,11 +26,15 @@
 </template>
 
 <script>
-import { RplTextLink } from '@dpc-sdp/ripple-link'
+import { RplTextLabel} from '@dpc-sdp/ripple-link'
 import TideMapCard from './TideMapCard'
 
 export default {
   name: 'TideMapCategoriesPage',
+  components: {
+    RplTextLabel,
+    TideMapCard
+  },
   props: {
     items: Array,
     isArea: Boolean
@@ -44,10 +50,6 @@ export default {
     setCategory (cat) {
       this.$emit('clickCategory', cat)
     }
-  },
-  components: {
-    RplTextLink,
-    TideMapCard
   }
 }
 </script>
@@ -56,26 +58,25 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-$tide-map-sidebar-other-btn-color: rpl-color('secondary') !default;
-$tide-map-sidebar-header-btn-color: rpl-color('extra_dark_neutral') !default;
-.menu {
+.tide-map-categories-page__menu {
   display: flex;
-  .header-btn {
+  .tide-map-categories-page__header-btn {
     &:hover, &:focus {
-      color: $tide-map-sidebar-header-btn-color;
+      color: rpl-color('extra_dark_neutral');
       text-decoration: none;
       outline: none;
       cursor: default;
     }
   }
-  .other-btn {
+  .tide-map-categories-page__other-btn {
     .rpl-text-label {
-      border-bottom-color: $tide-map-sidebar-other-btn-color !important;
+      border-bottom-color: rpl-color('secondary') !important;
     }
     // This makes the area button float right
     margin-left: auto;
-    margin-right: 5px;
+    margin-right: $rpl-space;
     order: 2;
+    cursor: pointer;
   }
 }
 

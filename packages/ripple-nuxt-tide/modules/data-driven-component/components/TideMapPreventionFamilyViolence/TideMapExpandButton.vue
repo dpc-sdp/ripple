@@ -1,25 +1,37 @@
 <template>
-  <div class="expand-btn ol-control" v-on:click="clickExpand">
-    <button>
-      <div :class="buttonIcon"></div>
-    </button>
-  </div>
+  <rpl-button
+    class="expand-btn"
+    theme="primary"
+    @click.native.prevent="clickExpand"
+  >
+    <rpl-icon
+      :symbol="buttonIcon"
+      color="white"
+      size="m"
+    />
+  </rpl-button>
 </template>
 
 <script>
+import { RplIcon } from '@dpc-sdp/ripple-icon'
+
 export default {
   name: 'TideMapExpandButton',
   props: {
     expanded: Boolean
   },
+  components: {
+    RplIcon
+  },
   computed: {
     buttonIcon() {
-      return this.expanded ? 'chevron top' : 'chevron bottom'
+      return this.expanded ? 'up' : 'down'
     }
   },
   methods: {
     clickExpand() {
-      this.$emit('expand-clicked')
+      console.log('click expand')
+      this.$emit('click')
     }
   }
 }
@@ -28,28 +40,15 @@ export default {
 <style lang="scss">
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
-.expand-btn {
+.tide-map-container__expand-btn-container {
   button {
+    // padding: 0 !important;
     font-size: 1.5em;
+    padding: $rpl-space-4;
+    display:block;
     &:focus {
       outline: none; // Hiding the orange outline cause by chevron when focussed.
     }
-  }
-}
-.chevron {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  position: relative;
-  border-right: 3px solid white;
-  border-bottom: 3px solid white;
-  &.top {
-    transform: rotate(-135deg);
-    top: 0.1em;
-  }
-  &.bottom {
-    transform: rotate(-315deg);
-    top: -0.1em;
   }
 }
 </style>

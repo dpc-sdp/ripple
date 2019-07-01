@@ -27,7 +27,7 @@
 <script>
 import RplButton from '@dpc-sdp/ripple-button'
 import RplForm from '@dpc-sdp/ripple-form'
-import { clientSetToken } from '../lib/preview'
+import { clientSetToken } from '../lib/authenticate'
 
 const FIELDS = {
   password: {

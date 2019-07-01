@@ -1,6 +1,6 @@
 import { tide, Mapping } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 import { search } from '@dpc-sdp/ripple-nuxt-tide/modules/search/index.js'
-import { serverSetToken } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/preview'
+import { serverSetToken } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
 export default ({ env, app, req, res, store , route}, inject) => {
   // We need to serialize functions, so use `serialize` instead of `JSON.stringify`.

@@ -6,7 +6,7 @@ import _ from 'lodash'
 import * as helper from './tide-helper'
 import * as pageTypes from './page-types'
 import * as middleware from './middleware-helper'
-import { isTokenExpired } from '../../modules/authenticated-content/lib/preview'
+import { isTokenExpired } from '../../modules/authenticated-content/lib/authenticate'
 
 const apiPrefix = '/api/v1/'
 

@@ -1,5 +1,6 @@
 import { metatagConverter, pathToClass } from './tide-helper'
-import { isPreviewPath, isTokenExpired, getToken, clearToken } from '../../modules/authenticated-content/lib/preview'
+import { isTokenExpired, getToken, clearToken } from '../../modules/authenticated-content/lib/authenticate'
+import { isPreviewPath } from '../../modules/authenticated-content/lib/preview'
 
 // Fetch page data from Tide API by current path
 export default async function (context, results) {

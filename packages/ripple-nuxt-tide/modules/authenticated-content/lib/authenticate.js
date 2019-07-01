@@ -1,6 +1,7 @@
 import cookieparser from 'cookieparser'
 import Cookie from 'js-cookie'
 
+const authCookieName = 'authenticatedContent'
 let serverToken = null
 
 /**
@@ -27,7 +28,7 @@ function isTokenExpired (token) {
  */
 function getToken () {
   if (process.client) {
-    return Cookie.get('auth')
+    return Cookie.get(authCookieName)
   } else {
     return serverToken
   }
@@ -40,7 +41,7 @@ function getToken () {
  */
 function clearToken (store) {
   if (process.client) {
-    Cookie.remove('auth')
+    Cookie.remove(authCookieName)
   } else {
     serverToken = null
   }
@@ -54,7 +55,7 @@ function clearToken (store) {
  * @param {Object} store vuex store object
  */
 function clientSetToken (token, store) {
-  Cookie.set('auth', token)
+  Cookie.set(authCookieName, token)
   store.dispatch('tideAuthenticatedContent/setAuthenticated', true)
 }
 
@@ -68,9 +69,9 @@ function serverSetToken (cookies, store) {
   let isAuth = false
   if (cookies) {
     const parsed = cookieparser.parse(cookies)
-    if (parsed.auth) {
-      if (!isTokenExpired(parsed.auth)) {
-        serverToken = parsed.auth
+    if (parsed[authCookieName]) {
+      if (!isTokenExpired(parsed[authCookieName])) {
+        serverToken = parsed[authCookieName]
         isAuth = true
       }
     }

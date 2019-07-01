@@ -9,12 +9,6 @@ if (process.env.NODE_ENV === 'dev' || (process.env.NODE_ENV === 'test' && proces
   require('dotenv').config()
 }
 
-console.log(process.env.CONTENT_API_SERVER)
-console.log(process.env.SITE_ID)
-console.log(process.env.AUTH_USER)
-console.log(process.env.AUTH_PASS)
-console.log(process.env.GTM_ID)
-
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 
 export default {

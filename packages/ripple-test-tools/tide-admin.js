@@ -229,8 +229,8 @@ module.exports = class TideAdmin {
 
     await addComponents()
 
-    // Set moderation state to published
-    await page.select(this.pageModels.common.moderationState, 'published')
+    // Set moderation state. Default to published.
+    await page.select(this.pageModels.common.moderationState, testData.moderationState || 'published')
 
     // Submit
     await this.submitPage()
@@ -243,11 +243,20 @@ module.exports = class TideAdmin {
         .pop()
     )
 
+    const previewLink = (testData.moderationState === 'draft') ? await page.$eval('.node-revision-preview-links a', el => {
+      const url = el.getAttribute('href')
+      return url.substr(url.indexOf('/preview/'))
+    }) : null
+
     // Cleanup
     await this.close()
 
-    // Return nodeId
-    return Promise.resolve(nodeId)
+    // Return node information.
+    if (previewLink) {
+      return Promise.resolve({ nodeId, previewLink })
+    } else {
+      return Promise.resolve(nodeId)
+    }
   }
 
   async createGrantPage (testData) {
@@ -497,22 +506,19 @@ module.exports = class TideAdmin {
     if (userId) {
       const page = await this.setup()
       const deleteUserPage = this.pageModels['deleteUser']
+
       await this.login()
-
       await page.goto(`${this.backendURL}/user/${userId}/cancel`)
-
-      await this.page.click(deleteUserPage.deleteAccountAndContent)
-
-      // Submit
       await page.waitForSelector(
-        utils.dataSel('edit-user-cancel-method-user-cancel-delete'),
+        deleteUserPage.deleteAccountAndContent,
         this.options.wait
       )
-
+      await page.click(deleteUserPage.deleteAccountAndContent)
+      await this.submitPage()
       await this.close()
-
       return Promise.resolve('ok')
     }
+    return Promise.reject(new Error('no id'))
   }
 
   async deleteNode (id) {

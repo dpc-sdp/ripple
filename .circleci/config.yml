@@ -2,6 +2,7 @@ version: 2.0
 
 jobs:
   test:
+    context: Ripple
     docker:
       - image: cypress/base:10
         environment:

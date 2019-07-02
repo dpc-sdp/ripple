@@ -13,8 +13,8 @@ module.exports = class TideAdmin {
     this.backendURL = process.env.CONTENT_API_SERVER
 
     this.httpAuth = {
-      username: process.env.AUTH_USER,
-      password: process.env.AUTH_PASS
+      username: process.env.CONTENT_API_AUTH_USER,
+      password: process.env.CONTENT_API_AUTH_PASS
     }
     this.adminCredentials = {
       username: process.env.CYPRESS_ADMIN_USERNAME,

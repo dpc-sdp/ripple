@@ -1,7 +1,7 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "modules": false,
         "targets": {
@@ -13,21 +13,19 @@
         }
       }
     ],
-    "stage-2",
     "vue"
   ],
   "plugins": [
-    "syntax-dynamic-import",
+    "@babel/plugin-syntax-dynamic-import",
     "transform-vue-jsx",
-    "transform-runtime"
+    "@babel/plugin-transform-runtime"
   ],
   "env": {
     "test": {
       "presets": [
         [
-          "env"
+          "@babel/preset-env"
         ],
-        "stage-2",
         "vue"
       ],
       "plugins": [

@@ -1,3 +1,6 @@
+# TODO: rework on this file when we upgrade to storybook v5.
+
+# Below are old file.
 FROM singledigital/bay-node-slim
 
 WORKDIR /app

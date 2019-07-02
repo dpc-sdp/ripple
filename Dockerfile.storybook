@@ -1,14 +1,14 @@
 FROM amazeeio/node:10-builder as builder
 
-COPY . /app
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
-RUN npm cache clean --force \
-    && npm ci \
-    && npm run build-storybook
+COPY packages/ripple-ui-components /app/packages/ripple-ui-components
+COPY package.json yarn.lock .eslintrc.js .bashrc /app/
+RUN yarn install
+WORKDIR /app/packages/ripple-ui-components
+RUN yarn run build-storybook
 
 FROM amazeeio/node:10
-COPY --from=builder /app/public /app
-COPY scripts/jira-post-comment.sh /app/scripts/jira-post-comment.sh
+COPY --from=builder /app/packages/ripple-ui-components/public /app
+COPY packages/ripple-ui-components/scripts/jira-post-comment.sh /app/scripts/jira-post-comment.sh
 
 ARG LAGOON_GIT_BRANCH
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}

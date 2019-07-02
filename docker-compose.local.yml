@@ -1,16 +1,13 @@
 version: '2'
 services:
-  # storybook:
-  #   build:
-  #     dockerfile: Dockerfile.local
-  #   networks:
-  #     - amazeeio-network
-  #     - default
-  #   volumes:
-  #     - .:/app:delegated
-  #     - /app/node_modules
-  #   environment:
-  #     LAGOON_ENVIRONMENT_TYPE: 'local'
+  storybook:
+    build:
+      dockerfile: Dockerfile.storybook
+    networks:
+      - amazeeio-network
+      - default
+    environment:
+      LAGOON_ENVIRONMENT_TYPE: 'local'
   # test:
   #   build:
   #     context: .

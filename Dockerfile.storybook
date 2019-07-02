@@ -1,7 +1,7 @@
 FROM amazeeio/node:10-builder as builder
 
 COPY packages/ripple-ui-components /app/packages/ripple-ui-components
-COPY package.json yarn.lock .eslintrc.js .bashrc /app/
+COPY package.json yarn.lock .eslintrc.js .babelrc /app/
 RUN yarn install
 WORKDIR /app/packages/ripple-ui-components
 RUN yarn run build-storybook

@@ -8,6 +8,7 @@ services:
       args:
         - LAGOON_GIT_BRANCH=
     networks:
+      - amazeeio-network
       - default
     labels:
       lagoon.type: node
@@ -26,6 +27,7 @@ services:
       args:
         - LAGOON_GIT_BRANCH=
     networks:
+      - amazeeio-network
       - default
     labels:
       lagoon.type: node

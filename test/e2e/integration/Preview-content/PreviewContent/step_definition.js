@@ -4,7 +4,7 @@ import { Then, When, Given } from 'cypress-cucumber-preprocessor/steps'
 
 Given(`I have navigated to the created preview page`, () => {
   cy.get('@previewLink').then(previewLink => {
-    cy.visit(previewLink, {failOnStatusCode: false})
+    cy.visit(previewLink, { failOnStatusCode: false })
   })
 })
 

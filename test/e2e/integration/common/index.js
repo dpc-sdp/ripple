@@ -24,7 +24,7 @@ Then(`the page title should match test data`, () => {
 Given(`I have created a landing page with the json fixture {string}`, (fixture) => {
   cy.fixture(fixture).as('pageData')
   cy.get('@pageData').then(data => {
-    cy.task('createLandingPage', data).then(({nodeId, previewLink}) => {
+    cy.task('createLandingPage', data).then(({ nodeId, previewLink }) => {
       cy.wrap(nodeId).as('nodeId')
       cy.wrap(previewLink).as('previewLink')
     })

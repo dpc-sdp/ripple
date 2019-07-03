@@ -4,10 +4,7 @@ const resolve = require('path').resolve
 const tideConfig = require('./tide/tide.config')
 const tideFilters = require('./tide/tide.mapping-filters')
 
-// import .env variables in dev (Make sure Env vars are defined in production environment separately).
-if (process.env.NODE_ENV === 'dev' || (process.env.NODE_ENV === 'test' && process.env.CI !== 'true')) {
-  require('dotenv').config()
-}
+require('dotenv').config()
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 

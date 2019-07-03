@@ -117,10 +117,14 @@ export const tide = (axios, site, config) => ({
     if (sitesData) {
       let siteData = null
       sitesData.map((item) => {
-        if (item.drupal_internal__tid.toString() === siteId) {
+        if (item.drupal_internal__tid.toString() === siteId.toString()) {
           siteData = item
         }
       })
+
+      if (siteData === null) {
+        throw new Error('Couldn\'t get site data. Please check your site id and Tide site setting.')
+      }
 
       try {
         siteData.menus = await this.getSiteMenus(siteData)
@@ -174,6 +178,10 @@ export const tide = (axios, site, config) => ({
   },
 
   getMenu: async function (menuName) {
+    if (!menuName) {
+      throw new Error('no menu id provided.')
+    }
+
     const params = {
       filter: {
         menu_link_content: {

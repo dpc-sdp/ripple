@@ -1,22 +1,34 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplRelatedLinks from './index.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData.js'
+
+import {
+  withKnobs,
+  text,
+  object
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Molecules/RelatedLinks', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Related Links', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Default', () => ({
     components: { RplRelatedLinks },
     template: `<rpl-related-links :title="title" :links="links" />`,
-    data () {
-      return demoData.relatedLinks()
+    props: {
+      title: {
+        default: text('Title', 'Related links')
+      },
+      links: {
+        default: object('Links', [
+          { text: 'Link to external content', url: 'http://www.google.com' },
+          { text: 'Second link it goes right here', url: '#' },
+          { text: 'Third link to extra content', url: '#' },
+          { text: 'This is a long link to extra content', url: '#' }
+        ])
+      }
     }
-  })))
+  }))

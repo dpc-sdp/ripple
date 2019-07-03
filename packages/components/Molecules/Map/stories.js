@@ -1,28 +1,25 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-import SVicFreeWifiMap from './../../../src/storybook-components/MapVicFreeWifi'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
+import SVicFreeWifiMap from './../../../../src/storybook-components/MapVicFreeWifi'
 import RplMap from './Map.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
 
 storiesOf('Molecules/Map', module)
-  .addDecorator(VueInfoAddon)
-  .addDecorator(withKnobs)
-  .add('Map with no data', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Map with no data', () => ({
     components: { RplMap },
     template: `<rpl-map
       :baseMapUrl="baseMapUrl" />`,
     data () {
-      return demoData.mapData()
+      return {
+        baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+      }
     }
-  })))
-  .add('Map with free wifi data', withReadme(readme, () => ({
+  }))
+  .add('Map with free wifi data', () => ({
     components: { SVicFreeWifiMap },
     template: `<s-vic-free-wifi-map />`
-  })))
+  }))

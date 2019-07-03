@@ -5,7 +5,7 @@
   "version": "1.0.0-beta.5",
   "private": true,
   "scripts": {
-    "start": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006 -s ./static",
     "test:unit": "cross-env NODE_ENV=test jest --colors"
   },
   "dependencies": {
@@ -56,9 +56,10 @@
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^5.1.9",
-    "@storybook/addon-storyshots": "^5.1.9",
     "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addon-storyshots": "^5.1.9",
     "@storybook/vue": "^5.1.9",
+    "storybook-addon-vue-info": "^1.2.1",
     "axe-core": "^3.2.2",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",

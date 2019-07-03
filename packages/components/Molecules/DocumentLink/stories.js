@@ -1,22 +1,38 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplDocumentLink from './DocumentLink.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
+
+import {
+  withKnobs,
+  text,
+  select
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Molecules/DocumentLink', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Document Link', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Default', () => ({
     components: { RplDocumentLink },
     template: `<rpl-document-link :name="name" :caption="caption" :url="url" :extension="extension" :filesize="filesize" />`,
-    data () {
-      return demoData.documentLink()
+    props: {
+      name: {
+        default: text('Name', 'This is the name of the document')
+      },
+      caption: {
+        default: text('caption', 'This is a longer description of the document above.')
+      },
+      url: {
+        default: text('Download url', 'https://www.google.com')
+      },
+      extension: {
+        default: text('Extension', 'pdf')
+      },
+      filesize: {
+        default: text('Filesize', '1.4 mb')
+      }
     }
-  })))
+  }))

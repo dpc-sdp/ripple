@@ -1,22 +1,29 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplDescriptionList from './DescriptionList.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
+
+import {
+  withKnobs,
+  object
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Molecules/DescriptionList', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Description List', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Default', () => ({
     components: { RplDescriptionList },
     template: `<rpl-description-list :list="list" />`,
-    data () {
-      return demoData.descriptionList()
+    props: {
+      list: {
+        default: object('List', [
+          { term: 'List Item 1', description: 'Description' },
+          { term: 'List Item 2', description: 'Description 2' },
+          { term: 'List Item 3', description: 'Description 3' }
+        ])
+      }
     }
-  })))
+  }))

@@ -1,22 +1,36 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplWhatsNext from './index.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData.js'
+
+import {
+  withKnobs,
+  text,
+  object
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Molecules/WhatsNext', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('What\'s Next', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Default', () => ({
     components: { RplWhatsNext },
     template: `<rpl-whats-next :title="title" :links="links" />`,
-    data () {
-      return demoData.whatsNext()
+    props: {
+      title: {
+        default: text('Title', 'What\'s next?')
+      },
+      links: {
+        default: object('Links', [
+          { text: 'Link to external content', url: 'http://www.google.com' },
+          { text: 'Second link to extra content', url: '#' },
+          { text: 'Third link goes here', url: '#' },
+          { text: 'Link to additional content', url: '#' },
+          { text: 'Second link to extra content', url: '#' },
+          { text: 'This is another link', url: '#' }
+        ])
+      }
     }
-  })))
+  }))

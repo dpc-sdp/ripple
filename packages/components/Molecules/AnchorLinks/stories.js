@@ -1,22 +1,36 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplAnchorLinks from './index.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData.js'
+
+import {
+  withKnobs,
+  text,
+  object
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Molecules/AnchorLinks', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Anchor Links', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Anchor Links', () => ({
     components: { RplAnchorLinks },
     template: `<rpl-anchor-links :title="title" :links="links" />`,
-    data () {
-      return demoData.anchorLinks()
+    props: {
+      title: {
+        default: text('Title', 'On this page:')
+      },
+      links: {
+        default: object('Links', [
+          { text: 'This is the first anchor link', url: '#' },
+          { text: 'Second link to extra content', url: '#' },
+          { text: 'Third link goes here', url: '#' },
+          { text: 'Link to additional content', url: '#' },
+          { text: 'Another link to extra content', url: '#' },
+          { text: 'This is another link', url: '#' }
+        ])
+      }
     }
-  })))
+  }))

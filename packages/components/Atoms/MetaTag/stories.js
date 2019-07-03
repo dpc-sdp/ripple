@@ -1,22 +1,32 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplMetaTag from './index.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
+
+import {
+  withKnobs,
+  text,
+  select
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Atoms/MetaTag', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Meta Tag', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Meta Tag', () => ({
     components: { RplMetaTag },
     template: '<rpl-meta-tag :linkText="linkText" :linkUrl="linkUrl" :theme="theme" />',
-    data () {
-      return demoData.metaTag()
+    props: {
+      linkText: {
+        default: text('Content', 'Metatag')
+      },
+      linkUrl: {
+        default: text('href', '#')
+      },
+      theme: {
+        default: select('Theme', { light: 'light', dark: 'dark' }, 'light')
+      }
     }
-  })))
+  }))

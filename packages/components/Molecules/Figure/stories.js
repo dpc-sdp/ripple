@@ -1,22 +1,32 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplFigure from './index.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData.js'
+
+import {
+  withKnobs,
+  text,
+  object
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Molecules/Figure', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Figure', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Default', () => ({
     components: { RplFigure },
     template: `<rpl-figure :image="image" :caption="caption" />`,
-    data () {
-      return demoData.figure()
+    props: {
+      image: {
+        default: object('Image', {
+          src: 'https://placehold.it/800x400',
+          alt: 'A generic square placeholder image.'
+        })
+      },
+      caption: {
+        default: text('Caption', '1.2 Caption to go here. This should be restricted in characters.')
+      }
     }
-  })))
+  }))

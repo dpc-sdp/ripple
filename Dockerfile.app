@@ -15,12 +15,14 @@ ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
 WORKDIR /app/examples/vic-gov-au/
 
-#RUN chmod -R 775 ~/.npm
-RUN chmod -R 775 ~/.config
+
 
 RUN yarn run build
 
 ENV HOST 0.0.0.0
 EXPOSE 3000
+
+#RUN chmod -R 775 ~/.npm
+RUN chmod -R 775 ~/.config
 
 CMD ["yarn", "run", "start"]

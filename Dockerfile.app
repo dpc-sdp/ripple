@@ -15,8 +15,8 @@ ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
 WORKDIR /app/examples/vic-gov-au/
 
-RUN chown -R $USER:$GROUP ~/.npm
-RUN chown -R $USER:$GROUP ~/.config
+RUN chown -R user:root ~/.npm
+RUN chown -R user:root ~/.config
 
 RUN yarn run build
 

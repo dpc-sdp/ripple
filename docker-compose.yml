@@ -1,24 +1,24 @@
 version: '2'
 services:
   # Storybook site
-  storybook:
-    build:
-      context: .
-      dockerfile: Dockerfile.storybook
-      args:
-        - LAGOON_GIT_BRANCH=
-    networks:
-      - amazeeio-network
-      - default
-    labels:
-      lagoon.type: node
-      lagoon.name: storybook
-    environment:
-      - AMAZEEIO_URL=ripple.docker.amazee.io
-      - AMAZEEIO=AMAZEEIO
-      - AMAZEEIO_HTTP_PORT=3000
-    ports:
-      - "9001:3000"
+  # storybook:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.storybook
+  #     args:
+  #       - LAGOON_GIT_BRANCH=
+  #   networks:
+  #     - amazeeio-network
+  #     - default
+  #   labels:
+  #     lagoon.type: node
+  #     lagoon.name: storybook
+  #   environment:
+  #     - AMAZEEIO_URL=ripple.docker.amazee.io
+  #     - AMAZEEIO=AMAZEEIO
+  #     - AMAZEEIO_HTTP_PORT=3000
+  #   ports:
+  #     - "9001:3000"
   # Reference site    
   app:
     build:

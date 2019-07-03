@@ -18,7 +18,7 @@ export default {
   debug: process.env.DISPLAY_ERROR === '1' || false,
 
   serverMiddleware: [
-    process.env.BASIC_AUTH === '1' && '~/middleware/basic-auth'
+    process.env.CONTENT_API_AUTH_USER === '1' && '~/middleware/basic-auth'
   ].filter(i => i),
 
   /*

@@ -15,17 +15,17 @@ Feature: Preview content
     And there should be a preview destination query string
     And the created page should be removed
 
-  # TODO: Test failing: page returned a 404. Look into cause.
   Scenario: Accessing a preview when authenticated shows page
     Given there is a user in the system with the following credentials:
-      | login     | password     | active | email                    |
-      | testuser1 | Password-111 | true   | testuser1@mailinator.com |
+      | login     | password     | active | email                    | role      |
+      | testuser1 | Password-111 | true   | testuser1@mailinator.com | Previewer |
     And I have created a landing page with the json fixture "Pages/LandingPage/draft"
     And I have navigated to the created preview page
     When I enter the the following login credentials:
       | login     | password     |
       | testuser1 | Password-111 |
     And I submit the login form
+    And I wait for 6 seconds
     Then I should be redirected to the preview page
     And there should be a draft banner
     And there should be a header logout button

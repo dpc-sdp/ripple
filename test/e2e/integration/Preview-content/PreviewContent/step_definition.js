@@ -42,6 +42,10 @@ When(`I submit the login form`, () => {
   cy.get('.field-wrap > input[value="Submit"]').click()
 })
 
+When(`I wait for {int} seconds`, seconds => {
+  cy.wait(seconds * 1000)
+})
+
 Then(`there should be a draft banner`, () => {
   cy.get('.rpl-alert-base.app-preview').should('exist')
 })

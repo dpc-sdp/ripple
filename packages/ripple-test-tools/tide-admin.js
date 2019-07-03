@@ -477,6 +477,9 @@ module.exports = class TideAdmin {
       case 'Member':
         await page.click(createUserPage.memberRole)
         break
+      case 'Previewer':
+        await page.click(createUserPage.previewRole)
+        break
     }
 
     await page.waitFor(3000)

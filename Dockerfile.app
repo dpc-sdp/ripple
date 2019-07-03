@@ -14,6 +14,10 @@ ARG NUXT_HOT_RELOADING
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
 WORKDIR /app/examples/vic-gov-au/
+
+RUN chown -R $USER:$GROUP ~/.npm
+RUN chown -R $USER:$GROUP ~/.config
+
 RUN yarn run build
 
 ENV HOST 0.0.0.0

@@ -14,7 +14,8 @@ ARG NUXT_HOT_RELOADING
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
 WORKDIR /app/examples/vic-gov-au/
-RUN yarn run build
+RUN yarn run build \
+    && chmod -R 755 ~/.config
 
 ENV HOST 0.0.0.0
 EXPOSE 3000

@@ -24,7 +24,11 @@ module.exports = {
       settings: {
         shouldHideFormAfterSuccess: null
       },
-      tag: 'rpl-fieldset'
+      tag: 'rpl-fieldset',
+      // TODO: Below category & redirect_url is used by VicPol only at this moment and the it's not in Tide.
+      // The implementation need to be reviewed.
+      category: drupalFormEntity.category,
+      redirect_url: drupalFormEntity.settings.confirmation_url
     }
 
     // If form confirmation type is inline, always hide the form after it has been successfully submitted.

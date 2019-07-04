@@ -26,7 +26,7 @@ module.exports = async ({ config, mode }) => {
       include: [
         resolve('node_modules'),
         resolve('../packages/components'),
-        resolve('storybook-components/scss')
+        resolve('storybook-components')
       ]
     },
     {
@@ -54,6 +54,7 @@ module.exports = async ({ config, mode }) => {
       enforce: 'pre',
       include: [
         resolve('../packages/components/'),
+        resolve('storybook-components'),
         resolve('test')],
       options: {
         formatter: require('eslint-friendly-formatter'),

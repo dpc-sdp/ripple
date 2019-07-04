@@ -1,22 +1,31 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplUpdatedDate from './index.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
+
+import {
+  withKnobs,
+  text
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Organisms/UpdatedDate', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Updated Date', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Updated Date', () => ({
     components: { RplUpdatedDate },
     template: `<rpl-updated-date :date="date" :prefix="prefix" :locale="locale" />`,
-    data () {
-      return demoData.updatedDate()
+    props: {
+      date: {
+        default: text('Date', '2018-07-10T09:00:00.000+10:00')
+      },
+      prefix: {
+        default: text('Prefix', 'Reviewed')
+      },
+      locale: {
+        default: text('Locale', 'en-au')
+      }
     }
-  })))
+  }))

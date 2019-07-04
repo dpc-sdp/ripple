@@ -17,30 +17,11 @@ Vue.use(RplGlobal, { rplMarkup: {plugins: RplMarkupExamplePlugins, options: { de
 addDecorator(withInfo)
 addDecorator(addReadme)
 
+const req = require.context('./../../packages/components', true, /.stories.js$/);
+
 function loadStories() {
-  require('./../../packages/components/Atoms/Button/stories.js'),
-  require('./../../packages/components/Atoms/Link/stories.js'),
-  require('./../../packages/components/Atoms/MetaTag/stories.js')
-  require('./../../packages/components/Molecules/Alert/stories.js')
-  require('./../../packages/components/Molecules/AnchorLinks/stories.js')
-  require('./../../packages/components/Molecules/Breadcrumbs/stories.js')
-  require('./../../packages/components/Molecules/Card/stories.js')
-  require('./../../packages/components/Molecules/Contact/stories.js')
-  require('./../../packages/components/Molecules/DescriptionList/stories.js')
-  require('./../../packages/components/Molecules/DocumentLink/stories.js')
-  require('./../../packages/components/Molecules/EmbeddedVideo/stories.js')
-  require('./../../packages/components/Molecules/Figure/stories.js')
-  require('./../../packages/components/Molecules/Form/stories.js')
-  require('./../../packages/components/Molecules/List/stories.js')
-  require('./../../packages/components/Molecules/Map/stories.js')
-  require('./../../packages/components/Molecules/Pagination/stories.js')
-  require('./../../packages/components/Molecules/PublishDateAndAuthor/stories.js')
-  require('./../../packages/components/Molecules/RelatedLinks/stories.js')
-  require('./../../packages/components/Molecules/ShareThis/stories.js')
-  require('./../../packages/components/Molecules/Sitemap/stories.js')
-  require('./../../packages/components/Molecules/Timeline/stories.js')
-  require('./../../packages/components/Molecules/WhatsNext/stories.js')
-  // TODO: require all components
+  req.keys().forEach((filename) => req(filename))
+  // require('../src/storybook-components/stories')
 }
 
 configure(loadStories, module)

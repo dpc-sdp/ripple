@@ -4,8 +4,7 @@ import readme from './README.md'
 
 import {
   withKnobs,
-  text,
-  select
+  text
 } from '@storybook/addon-knobs/vue'
 
 storiesOf('Molecules/DocumentLink', module)

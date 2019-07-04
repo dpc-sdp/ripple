@@ -1,22 +1,43 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplAccordion from './Accordion.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
+
+import {
+  withKnobs,
+  text,
+  select,
+  object,
+  boolean
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Organisms/Accordion', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Accordion', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Default', () => ({
     components: { RplAccordion },
     template: `<rpl-accordion :title="title" :type="type" :accordions="accordions" :single="single" />`,
-    data () {
-      return demoData.accordion()
+    props: {
+      title: {
+        default: text('Title', 'Accordion Set')
+      },
+      type: {
+        default: select('Type', ['numbered', 'default'], 'default')
+      },
+      accordions: {
+        default: object('Accordion', [{
+          title: 'Accordion Item',
+          content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
+        }, {
+          title: 'Accordion Item',
+          content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
+        }])
+      },
+      single: {
+        default: boolean('Single', false)
+      }
     }
-  })))
+  }))

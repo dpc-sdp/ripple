@@ -1,34 +1,50 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplProfileHighlight from './ProfileHighlight.vue'
 import RplProfileHighlightHonourRoll from './ProfileHighlightHonourRoll.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
+
+import {
+  withKnobs,
+  text
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Organisms/Profile', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Profile Highlight', withReadme(readme, () => ({
-    components: { RplProfileHighlight },
-    template: `<rpl-profile-highlight :image="image">
-  <template slot="details">
-    <div v-html="content"></div>
-  </template>
-</rpl-profile-highlight>`,
-    data () {
-      return demoData.profileHightlight()
+  .addParameters({
+    readme: {
+      sidebar: readme
     }
-  })))
-  .add('Profile Highlight Honour Roll', withReadme(readme, () => ({
+  })
+  .add('Profile Highlight', () => ({
+    components: { RplProfileHighlight },
+    template: `
+    <rpl-profile-highlight :image="image">
+      <template slot="details">
+        <div v-html="content"></div>
+      </template>
+    </rpl-profile-highlight>
+    `,
+    props: {
+      image: {
+        default: text('Image', 'http://placehold.it/156x156')
+      },
+      content: {
+        default: text('Content', '<p>HTML Content</p>')
+      }
+    }
+  }))
+  .add('Profile Highlight Honour Roll', () => ({
     components: { RplProfileHighlightHonourRoll },
     template: `<rpl-profile-highlight-honour-roll :image="image" :inductedYear="inductedYear" :category="category"/>`,
-    data () {
-      return demoData.profileHighlightHonourRoll()
+    props: {
+      image: {
+        default: text('Image', 'http://placehold.it/156x156')
+      },
+      inductedYear: {
+        default: text('Inducted Year', '2018')
+      },
+      category: {
+        default: text('Category', 'Local Champion')
+      }
     }
-  })))
+  }))

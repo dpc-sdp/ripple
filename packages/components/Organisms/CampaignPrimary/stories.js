@@ -1,22 +1,35 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplCampaignPrimary from './index.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
+
+import {
+  withKnobs,
+  text,
+  object
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Organisms/CampaignPrimary', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Campaign Primary', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Default', () => ({
     components: { RplCampaignPrimary },
     template: `<rpl-campaign-primary :title="title" :summary="summary" :link="link" :image="image" />`,
-    data () {
-      return demoData.campaignPrimary()
+    props: {
+      title: {
+        default: text('Title', 'Primary campaign headline')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.')
+      },
+      link: {
+        default: object('Call to action', { text: 'Call to action', url: '#' })
+      },
+      image: {
+        default: object('Image', { src: 'http://placehold.it/699x411', alt: '' })
+      }
     }
-  })))
+  }))

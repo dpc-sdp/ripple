@@ -1,23 +1,21 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import readme from './README.md'
 
 import {
   text,
   boolean,
-  selectV2,
+  select,
   withKnobs
 } from '@storybook/addon-knobs/vue'
 
-import SColors from './../../../src/storybook-components/Colors.vue'
-import SFonts from './../../../src/storybook-components/Fonts.vue'
-import STypography from './../../../src/storybook-components/Typography.vue'
-import SBreakpoints from './../../../src/storybook-components/Breakpoints.vue'
+import SColors from './../../../../src/storybook-components/Colors.vue'
+import SFonts from './../../../../src/storybook-components/Fonts.vue'
+import STypography from './../../../../src/storybook-components/Typography.vue'
+import SBreakpoints from './../../../../src/storybook-components/Breakpoints.vue'
 import RplDivider from './components/Divider.vue'
-import readme from './README.md'
 
 storiesOf('Atoms/Global', module)
-  .add('Colors', withReadme(readme, () => ({
+  .add('Colors', () => ({
     components: { SColors },
     template: '<s-colors :colors="colors" :gradients="gradients"/>',
     data () {
@@ -42,16 +40,16 @@ storiesOf('Atoms/Global', module)
         ]
       }
     }
-  })))
+  }))
 
 storiesOf('Atoms/Global', module)
   .addDecorator(withKnobs)
-  .add('Fonts', withReadme(readme, () => ({
+  .add('Fonts', () => ({
     components: { SFonts },
     template: '<s-fonts :size="size" :lineHeight="lineHeight" :weight="weight" :text="text" :background="background" />',
     data () {
       return {
-        size: selectV2('Size', [
+        size: select('Size', [
           'tera',
           'xgiga',
           'giga',
@@ -64,7 +62,7 @@ storiesOf('Atoms/Global', module)
           'xxs'
         ], 'tera'),
         lineHeight: text('Line Height', '1.1em'),
-        weight: selectV2('Weight', [
+        weight: select('Weight', [
           'regular',
           'medium',
           'semibold',
@@ -74,11 +72,16 @@ storiesOf('Atoms/Global', module)
         text: text('Titles', 'The quick brown fox jumps over the lazy dog')
       }
     }
-  })))
+  }))
 
 storiesOf('Atoms/Global', module)
   .addDecorator(withKnobs)
-  .add('Typography', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Typography', () => ({
     components: { STypography },
     template: '<s-typography :samples="samples" :text="text" :paragraph="paragraph"/>',
     data () {
@@ -103,10 +106,15 @@ storiesOf('Atoms/Global', module)
         paragraph: text('Paragraphs', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. A vitae quod nobis earum saepe inventore rerum dicta voluptatem ullam iste rem deleniti odit culpa tempora dolor animi, non, amet ducimus.')
       }
     }
-  })))
+  }))
 
 storiesOf('Atoms/Global', module)
-  .add('Breakpoints', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Breakpoints', () => ({
     components: { SBreakpoints },
     template: '<s-breakpoints :breakpoints="breakpoints"/>',
     data () {
@@ -122,11 +130,15 @@ storiesOf('Atoms/Global', module)
         ]
       }
     }
-  })))
+  }))
 
 storiesOf('Atoms/Global', module)
-  .addDecorator(VueInfoAddon)
-  .add('Divider', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Divider', ({
     components: { RplDivider },
     template: '<rpl-divider />'
-  })))
+  }))

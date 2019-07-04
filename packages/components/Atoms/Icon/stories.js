@@ -1,30 +1,121 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon, { withInfo } from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
-import SIcons from '../../../src/storybook-components/Icons.vue'
-import { RplIcon, RplTextIcon } from './index'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
+
+import { withKnobs, text, select } from '@storybook/addon-knobs/vue'
+
+import SIcons from './../../../../src/storybook-components/Icons.vue'
+import { RplIcon, RplTextIcon } from './index'
 
 storiesOf('Atoms/Icon', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add(
-    'Icon Library',
-    withReadme(readme, () => ({
-      components: { SIcons },
-      template: '<s-icons :icons="icons" :color="color" :size="size" />',
-      data () {
-        return demoData.iconLibrary()
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Icon Library', () => ({
+    components: { SIcons },
+    template: '<s-icons :icons="icons" :color="color" :size="size" />',
+    data () {
+      return {
+        color: text('Color', 'primary'),
+        size: text('Size', 'm'),
+        icons: [
+          'accessible',
+          'addition',
+          'ai',
+          'alert_fire',
+          'alert_flood',
+          'alert_high_temperature',
+          'alert_information',
+          'alert_lightning',
+          'alert_medical',
+          'alert_smoke',
+          'alert_transport',
+          'arrow_down_primary',
+          'arrow_down_tertiary',
+          'arrow_left_primary',
+          'arrow_left_secondary',
+          'arrow_right_primary',
+          'arrow_right_primary_s',
+          'arrow_right_secondary',
+          'arrow_up_primary',
+          'attach',
+          'blank_solid',
+          'browser',
+          'calendar',
+          'child_friendly',
+          'close',
+          'csv',
+          'cross_circle',
+          'doc',
+          'document',
+          'document_transparent',
+          'docx',
+          'dollar_negative',
+          'dot',
+          'dotm',
+          'dotx',
+          'down',
+          'download',
+          'email_solid',
+          'email_transparent',
+          'eps',
+          'external_link',
+          'facebook',
+          'free',
+          'fullscreen',
+          'hamburger',
+          'help',
+          'home',
+          'ics',
+          'indd',
+          'instagram',
+          'left',
+          'link',
+          'link_65',
+          'link_90',
+          'linkedin',
+          'loading_star',
+          'lock',
+          'map_marker',
+          'microphone',
+          'pause',
+          'pdf',
+          'phone_number',
+          'play',
+          'ppt',
+          'pptx',
+          'print',
+          'right',
+          'search',
+          'senior',
+          'share',
+          'share_alternative',
+          'star',
+          'stop',
+          'success',
+          'tick',
+          'tif',
+          'trash',
+          'twitter',
+          'txt',
+          'up',
+          'upload',
+          'user',
+          'view',
+          'webinar',
+          'xls',
+          'xlsm',
+          'xlsx',
+          'zip',
+          'zoom_in',
+          'zoom_out'
+        ]
       }
-    }))
-  )
-  .add('Icon', withReadme(readme, () => ({
+    }
+  }))
+  .add('Icon', () => ({
     components: { RplIcon },
     template: '<rpl-icon :symbol="icon" :color="color" :size="size" />',
     propsDescription: {
@@ -33,40 +124,63 @@ storiesOf('Atoms/Icon', module)
       color: 'Any named color in Global/Colors',
       size: 'One of [s, m, l, xl, xxl]'
     },
-    data () {
-      return demoData.icon()
+    props: {
+      icon: {
+        default: text('Symbol', 'search')
+      },
+      color: {
+        default: text('Color', 'primary')
+      },
+      size: {
+        default: text('Size', 'm')
+      }
     }
-  })))
-  .add('Text Icon', withReadme(readme, () => ({
+  }))
+  .add('Text Icon', () => ({
     components: { RplTextIcon },
-    template: '<rpl-text-icon :symbol="icon" :color="color" :size="size" :text="text" :placement="placement"/>',
-    data () {
-      return demoData.textIcon()
+    template:
+      '<rpl-text-icon :symbol="icon" :color="color" :size="size" :text="text" :placement="placement"/>',
+    props: {
+      text: {
+        default: text('Text', 'Text Link')
+      },
+      placement: {
+        default: select('Placement', { before: 'before', after: 'after' }, 'after')
+      },
+      icon: {
+        default: text('Symbol', 'search')
+      },
+      color: {
+        default: text('Color', 'primary')
+      },
+      size: {
+        default: text('Size', 'm')
+      }
     }
-  })))
+  }))
 
-storiesOf('Atoms/Icon', module)
-  .add(
-    'Icon Custom',
-    withInfo(`
-    ### Add custom icons
-    To use your own svg icon, you need to name your own custom icon in the same format as Ripple does.
-    A example: \`rpl_icon_arrow\`. Always use \`rpl_icon_\` prefix.
+// storiesOf('Atoms/Icon', module).add(
+//   'Icon Custom',
+//   withInfo(`
+//     ### Add custom icons
+//     To use your own svg icon, you need to name your own custom icon in the same format as Ripple does.
+//     A example: \`rpl_icon_arrow\`. Always use \`rpl_icon_\` prefix.
 
-    You can put your custom icons in any directory in your project, e.g. "/assets/ripple-icons/".
+//     You can put your custom icons in any directory in your project, e.g. "/assets/ripple-icons/".
 
-    To add icons, below code has to be added before you start your app by calling \`new Vue()\`:
-    ~~~javascript
-    import { addCustomIcons } from '@dpc-sdp/ripple-icon'
-    addCustomIcons(require.context('./assets/ripple-icons/', true, /\\.svg$/))
-    ~~~
-    Then you should able to use your own icon as others.
+//     To add icons, below code has to be added before you start your app by calling \`new Vue()\`:
+//     ~~~javascript
+//     import { addCustomIcons } from '@dpc-sdp/ripple-icon'
+//     addCustomIcons(require.context('./assets/ripple-icons/', true, /\\.svg$/))
+//     ~~~
+//     Then you should able to use your own icon as others.
 
-    To use your own svg icon to replace the default icon, you must use the exact same file name as default.
+//     To use your own svg icon to replace the default icon, you must use the exact same file name as default.
 
-    You can find the default icons in [Icon/assets/img](https://github.com/dpc-sdp/ripple/tree/master/packages/components/Atoms/Icon/assets/img).
+//     You can find the default icons in [Icon/assets/img](https://github.com/dpc-sdp/ripple/tree/master/packages/components/Atoms/Icon/assets/img).
 
-    `)(() => ({
-      components: { RplIcon },
-      template: '<rpl-icon symbol="custom_icon" color="primary" size="m" />'
-    })))
+//     `)(() => ({
+//     components: { RplIcon },
+//     template: '<rpl-icon symbol="custom_icon" color="primary" size="m" />'
+//   }))
+// )

@@ -1,22 +1,35 @@
 import { storiesOf } from '@storybook/vue'
-import { withReadme } from 'storybook-readme'
-import VueInfoAddon from 'storybook-addon-vue-info'
-
-import {
-  withKnobs
-} from '@storybook/addon-knobs/vue'
-
 import RplCallToAction from './index.vue'
 import readme from './README.md'
-import { demoData } from '../../../src/storybook-components/_data/demoData'
+
+import {
+  withKnobs,
+  text,
+  object
+} from '@storybook/addon-knobs/vue'
 
 storiesOf('Organisms/CallToAction', module)
-  .addDecorator(VueInfoAddon)
   .addDecorator(withKnobs)
-  .add('Call to Action', withReadme(readme, () => ({
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Call to Action', () => ({
     components: { RplCallToAction },
     template: `<rpl-call-to-action :title="title" :summary="summary" :link="link" :image="image" />`,
-    data () {
-      return demoData.callToAction()
+    props: {
+      title: {
+        default: text('Title', 'Card prompting an action')
+      },
+      summary: {
+        default: text('Summary', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.')
+      },
+      link: {
+        default: object('Call to action', { text: 'Call to action', url: '#' })
+      },
+      image: {
+        default: object('Image', { src: 'http://placehold.it/336x249', alt: '' })
+      }
     }
-  })))
+  }))

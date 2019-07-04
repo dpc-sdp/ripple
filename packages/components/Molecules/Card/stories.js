@@ -378,7 +378,7 @@ storiesOf('Molecules/Card/Card Content (base)', module)
         default: boolean('Border', true)
       },
       type: {
-        default: select('Type', { default: 'default', simple: 'simple', inline: 'inline' }, 'default'),
+        default: select('Type', { default: 'default', simple: 'simple', inline: 'inline' }, 'default')
       },
       center: {
         default: boolean('Center', false)

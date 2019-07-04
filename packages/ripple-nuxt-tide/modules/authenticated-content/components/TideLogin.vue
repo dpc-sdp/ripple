@@ -27,6 +27,7 @@
 <script>
 import RplButton from '@dpc-sdp/ripple-button'
 import RplForm from '@dpc-sdp/ripple-form'
+import { clientSetToken, isAuthenticated } from '../lib/authenticate'
 
 const FIELDS = {
   password: {
@@ -80,7 +81,7 @@ export default {
   },
   data () {
     return {
-      isAuthed: Boolean(this.$store.state.tideAuthenticatedContent.token),
+      isAuthed: isAuthenticated(this.$store),
       selectedForm: 'login',
       forms: {
         login: {
@@ -178,7 +179,7 @@ export default {
       try {
         const response = await this.$tide.post(endpoint, data)
         if (response.auth_token) {
-          this.$store.dispatch('tideAuthenticatedContent/setToken', response.auth_token)
+          clientSetToken(response.auth_token, this.$store)
           if (this.$route.query.destination !== undefined) {
             this.$router.push({ path: this.$route.query.destination })
           } else if (this.$props.redirect !== undefined) {

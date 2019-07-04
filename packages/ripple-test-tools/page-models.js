@@ -55,7 +55,8 @@ const adminPageModels = {
     statusBlocked: dataSel('edit-status-0'),
     statusConfirmed: dataSel('edit-status-1'),
     submitButton: dataSel('edit-submit'),
-    memberRole: dataSel('edit-roles-member')
+    memberRole: dataSel('edit-roles-member'),
+    previewRole: dataSel('edit-roles-previewer')
   },
   deleteUser: {
     deleteAccountAndContent: dataSel('edit-user-cancel-method-user-cancel-delete')

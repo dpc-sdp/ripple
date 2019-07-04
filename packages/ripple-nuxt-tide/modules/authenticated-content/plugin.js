@@ -4,19 +4,16 @@ export default ({ app, store }) => {
     const storeModule = {
       namespaced: true,
       state: () => ({
-        token: null
+        isAuthenticated: null
       }),
       mutations: {
-        setToken (state, token) {
-          state.token = token
+        setAuthenticated (state, isAuthenticated) {
+          state.isAuthenticated = isAuthenticated
         }
       },
       actions: {
-        clearToken ({ commit }) {
-          commit('setToken', null)
-        },
-        setToken ({ commit }, token) {
-          commit('setToken', token)
+        setAuthenticated ({ commit }, setAuthenticated) {
+          commit('setAuthenticated', setAuthenticated)
         }
       }
     }

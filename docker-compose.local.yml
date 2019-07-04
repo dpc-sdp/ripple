@@ -1,24 +1,11 @@
 version: '2'
 services:
   storybook:
-    build:
-      dockerfile: Dockerfile.storybook
     networks:
       - amazeeio-network
       - default
     environment:
       LAGOON_ENVIRONMENT_TYPE: 'local'
-  # test:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.test
-  #   networks:
-  #     - amazeeio-network
-  #     - default
-  #   environment:
-  #     LAGOON_ENVIRONMENT_TYPE: 'local'
-  #   ports:
-  #     - "9002:3000"
   app:
     networks:
       - amazeeio-network

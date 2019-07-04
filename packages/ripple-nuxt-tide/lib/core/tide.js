@@ -90,8 +90,13 @@ export const tide = (axios, site, config) => ({
     return sitesDomainMap
   },
 
+  /**
+   * Check if a module is enabled.
+   * @param {String} checkForModule name of module
+   * @returns {Boolean}
+   */
   isModuleEnabled: function (checkForModule) {
-    return config.modules[checkForModule] === 1
+    return config && config.modules && config.modules[checkForModule] === 1
   },
 
   getSiteData: async function (tid = null) {

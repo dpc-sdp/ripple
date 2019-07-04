@@ -1,0 +1,26 @@
+FROM amazeeio/node:10-builder as builder
+
+COPY packages/ripple-ui-components /app/packages/ripple-ui-components
+COPY package.json yarn.lock .eslintrc.js .babelrc /app/
+RUN yarn install
+WORKDIR /app/packages/ripple-ui-components
+RUN yarn run build-storybook
+
+FROM amazeeio/node:10
+COPY --from=builder /app/packages/ripple-ui-components/public /app
+COPY scripts/jira-post-comment-storybook.sh /app/scripts/jira-post-comment.sh
+
+ARG LAGOON_GIT_BRANCH
+ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
+
+RUN npm config set unsafe-perm true \
+    && npm install http-server -g \
+    # force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
+    && . /home/.bashrc \
+    # For JIRA commit script work.
+    && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
+
+ENV HOST 0.0.0.0
+EXPOSE 3000
+
+CMD ["http-server", "-p", "3000"]

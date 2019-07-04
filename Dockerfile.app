@@ -4,7 +4,7 @@ COPY . /app/
 
 # Remove storybook from reference site
 RUN rm /app/packages/ripple-ui-components/package.json \
-    && mv /app/scripts/jira-post-comment-app.sh /app/scripts/jira-post-comment.sh
+    && mv /app/scripts/jira-post-comment-app.sh /app/scripts/jira-post-comment.sh \
     && yarn install
 
 FROM amazeeio/node:10
@@ -15,7 +15,7 @@ ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
 WORKDIR /app/examples/vic-gov-au/
 RUN yarn run build \
-    && chmod -R 755 ~/.config
+    && chmod -R 755 ~/.config \
     # force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
     && . /home/.bashrc \
     # For JIRA commit script work.

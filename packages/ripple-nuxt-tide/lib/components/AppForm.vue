@@ -70,46 +70,12 @@ export default {
             message: this.formData.messages.success || this.messages.success
           }
         }
-        // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
-        this.vicPolRedirect()
       } else {
         this.formData.formState = {
           response: {
             status: 'danger',
             message: this.formData.messages.error || this.messages.error
           }
-        }
-      }
-    },
-    // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
-    vicPolRedirect: function () {
-      const getBrowserInfo = function () {
-        let isopera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0
-        let ischrome = !!window.chrome && !isopera
-        // let isexplorer = typeof document !== 'undefined' && !!document.documentMode && !isEdge
-        let isfirefox = typeof window.InstallTrigger !== 'undefined'
-        let issafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
-        let isiOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
-        return {
-          isopera: isopera,
-          ischrome: ischrome,
-          isfirefox: isfirefox,
-          issafari: issafari,
-          isiOS: isiOS
-        }
-      }
-      const openNewTab = function () {
-        let tab = window.open(this.formData.redirect_url, '_blank')
-        tab.focus()
-      }
-      if (this.formData.category === 'form-redirect') {
-        let browser = getBrowserInfo()
-        if (browser.isiOS || browser.issafari) {
-          if (confirm('A page will open in new tab, please allow this page to open a new tab on your browser settings!')) {
-            openNewTab()
-          }
-        } else {
-          openNewTab()
         }
       }
     }

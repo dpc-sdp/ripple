@@ -1,0 +1,15 @@
+{
+  "name": "@dpc-sdp/ripple-figure",
+  "version": "1.0.0-beta.5",
+  "description": "A component for displaying an image with a caption.",
+  "license": "Apache-2.0",
+  "main": "index.vue",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/ripple-ui-components/components/Molecules/Figure",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-global": "1.0.0-beta.5"
+  }
+}

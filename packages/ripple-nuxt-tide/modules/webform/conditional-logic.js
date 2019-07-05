@@ -162,6 +162,7 @@ function performTriggerCheck (rule) {
  * @param {Array} results results of all tests
  */
 function performOperatorCheck (operator, results) {
+  let isPass = false
   switch (operator) {
     case 'and':
       let andCount = 0
@@ -171,13 +172,14 @@ function performOperatorCheck (operator, results) {
           andCount++
         }
       }
-      return (andCount === results.length)
+      isPass = (andCount === results.length)
       break
     case 'or':
       // Any can be true
       for (let i = 0; i < results.length; i++) {
         if (results[i] === true) {
-          return true
+          isPass = true
+          break
         }
       }
       break
@@ -189,13 +191,13 @@ function performOperatorCheck (operator, results) {
           xorCount++
         }
       }
-      return (xorCount === 1)
+      isPass = (xorCount === 1)
       break
     default:
       console.warn(`Form: Opeator "${operator}" not supported.`)
       break
   }
-  return false
+  return isPass
 }
 
 /**

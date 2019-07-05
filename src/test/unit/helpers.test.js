@@ -1,4 +1,4 @@
-import { isRelativeUrl, isExternalUrl, isAnchorLink } from './../../components/Atoms/Global/utils/helpers'
+import { isRelativeUrl, isExternalUrl, isAnchorLink } from './../../../packages/components/Atoms/Global/utils/helpers'
 
 describe('isRelativeUrl', () => {
   /* eslint-disable indent */

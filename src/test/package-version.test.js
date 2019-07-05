@@ -28,7 +28,7 @@ function testPackageVersion () {
 }
 
 describe('Packages', () => {
-  test.skip('all package versions are up to date', async () => {
+  test('all package versions are up to date', async () => {
     expect(testPackageVersion()).toHaveLength(0)
   })
 })

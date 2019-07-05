@@ -2,7 +2,7 @@ const glob = require('glob-fs')({ gitignore: true })
 const fs = require('fs')
 
 function testPackageDefinition () {
-  const pack = fs.readFileSync('package.json', 'utf-8')
+  const pack = fs.readFileSync('./src/package.json', 'utf-8')
 
   // Get current packages
   const currDeps = JSON.parse(pack).dependencies
@@ -15,7 +15,7 @@ function testPackageDefinition () {
 
   // Get all existing packages.
   const neededDeps = []
-  let packages = glob.readdirSync('./components/**/package.json')
+  let packages = glob.readdirSync('./packages/components/**/package.json')
   packages.forEach(item => {
     const pk = fs.readFileSync(item, 'utf-8')
     neededDeps.push(JSON.parse(pk).name)
@@ -44,7 +44,7 @@ function testPackageDefinition () {
 }
 
 describe('Packages', () => {
-  test.skip('has all components been added to packages.json', async () => {
+  test('has all components been added to packages.json', async () => {
     expect(testPackageDefinition()).toHaveLength(0)
   })
 })

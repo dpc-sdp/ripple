@@ -14,10 +14,11 @@ ARG LAGOON_GIT_BRANCH
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
 WORKDIR /app/examples/vic-gov-au/
-RUN yarn run build \
+
+# force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
+RUN  . /home/.bashrc \
+    && yarn run build \
     && chmod -R 755 ~/.config \
-    # force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
-    && . /home/.bashrc \
     # For JIRA commit script work.
     && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
 

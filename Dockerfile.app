@@ -11,6 +11,8 @@ FROM amazeeio/node:10
 COPY --from=builder /app/. /app/
 
 ARG LAGOON_GIT_BRANCH
+ARG CONTENT_API_AUTH_PASS
+ARG CONTENT_API_AUTH_USER
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
 WORKDIR /app/examples/vic-gov-au/

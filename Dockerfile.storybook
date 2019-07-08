@@ -5,7 +5,7 @@ COPY src /app/src
 COPY package.json yarn.lock .eslintrc.js babel.config.js /app/
 RUN yarn install
 WORKDIR /app/src
-RUN yarn run build:storybook
+RUN yarn run build-storybook
 
 FROM amazeeio/node:10
 COPY --from=builder /app/src/public /app

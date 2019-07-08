@@ -2,7 +2,7 @@ FROM amazeeio/node:10-builder as builder
 
 COPY packages/components /app/packages/components
 COPY src /app/src
-COPY package.json yarn.lock .eslintrc.js .babelrc /app/
+COPY package.json yarn.lock .eslintrc.js babel.config.js /app/
 RUN yarn install
 WORKDIR /app/src
 RUN yarn run build:storybook

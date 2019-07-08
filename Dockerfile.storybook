@@ -14,10 +14,10 @@ COPY scripts/jira-post-comment-storybook.sh /app/scripts/jira-post-comment.sh
 ARG LAGOON_GIT_BRANCH
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
-RUN npm config set unsafe-perm true \
+# force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
+RUN . /home/.bashrc \
+    && npm config set unsafe-perm true \
     && npm install http-server -g \
-    # force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
-    && . /home/.bashrc \
     # For JIRA commit script work.
     && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
 

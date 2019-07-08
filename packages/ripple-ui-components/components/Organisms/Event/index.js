@@ -1,4 +1,4 @@
 import RplLatestEvents from './LatestEvents.vue'
 
-export {RplLatestEvents}
+export { RplLatestEvents }
 export default RplLatestEvents

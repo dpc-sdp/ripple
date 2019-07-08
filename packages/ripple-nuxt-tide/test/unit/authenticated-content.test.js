@@ -1,4 +1,5 @@
-import { isPreviewPath, isTokenExpired } from '../../modules/authenticated-content/lib/preview'
+import { isTokenExpired } from '../../modules/authenticated-content/lib/authenticate'
+import { isPreviewPath } from '../../modules/authenticated-content/lib/preview'
 
 describe('Authenticated content', () => {
   test('"/preview-page" route is not preview path', async () => {

@@ -14,7 +14,7 @@ module.exports = {
           location: mapping.filter(location, ['paragraphLocation']),
           title: item.title,
           summary: item.field_landing_page_summary,
-          link: {text: 'See event details', url: item.path.url}
+          link: { text: 'See event details', url: item.path.url }
         }
       })
     } catch (err) {

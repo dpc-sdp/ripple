@@ -48,7 +48,10 @@
     "@dpc-sdp/ripple-timeline": "1.0.0-beta.5",
     "@dpc-sdp/ripple-updated-date": "1.0.0-beta.5",
     "@dpc-sdp/ripple-whats-next": "1.0.0-beta.5",
+    "@nuxtjs/proxy": "^1.2.4",
+    "@nuxtjs/axios": "^5.3.1",
     "cheerio": "^1.0.0-rc.2",
+    "cookieparser": "^0.1.0",
     "cookies": "^0.7.3",
     "elastic-builder": "^2.0.2",
     "elasticsearch": "^15.4.1",
@@ -65,7 +68,6 @@
   },
   "peerDependencies": {
     "@nuxtjs/axios": "^5.3.1",
-    "@nuxtjs/proxy": "^1.2.4",
     "nuxt": "^2.4.3"
   }
 }

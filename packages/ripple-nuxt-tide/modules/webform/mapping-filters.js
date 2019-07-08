@@ -24,7 +24,11 @@ module.exports = {
       settings: {
         shouldHideFormAfterSuccess: null
       },
-      tag: 'rpl-fieldset'
+      tag: 'rpl-fieldset',
+      // TODO: Below category & redirect_url is used by VicPol only at this moment and the it's not in Tide.
+      // The implementation need to be reviewed.
+      category: drupalFormEntity.category,
+      redirect_url: drupalFormEntity.settings.confirmation_url
     }
 
     // If form confirmation type is inline, always hide the form after it has been successfully submitted.
@@ -118,7 +122,7 @@ module.exports = {
           field.values = []
           for (let key in fields) {
             if (fields.hasOwnProperty(key)) {
-              field.values.push({name: fields[key], value: key})
+              field.values.push({ name: fields[key], value: key })
             }
           }
           break
@@ -265,7 +269,7 @@ module.exports = {
                 searchable: false,
                 showLabels: false
               },
-              values: [{id: 'VIC', name: 'Victoria'}, {id: 'NSW', name: 'New South Wales'}, {id: 'WA', name: 'Western Australia'}, {id: 'QLD', name: 'Queensland'}, {id: 'ACT', name: 'Australian Capital Territory'}],
+              values: [{ id: 'VIC', name: 'Victoria' }, { id: 'NSW', name: 'New South Wales' }, { id: 'WA', name: 'Western Australia' }, { id: 'QLD', name: 'Queensland' }, { id: 'ACT', name: 'Australian Capital Territory' }],
               styleClasses: ['form-group--col-two']
             },
             {
@@ -328,7 +332,7 @@ module.exports = {
       if (group.hasOwnProperty('fields') && group.fields.length > 0) {
         data.schema.groups.push(group)
       } else if (!group.hasOwnProperty('fields') && field.type !== null) {
-        data.schema.groups.push({'fields': [field]})
+        data.schema.groups.push({ 'fields': [field] })
       } else {
         if (process.server) {
           console.error(new Error(`Webform element type "${element['#type']}" is not supported in nuxt-tide at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`))

@@ -88,7 +88,7 @@ export default {
           'url'
         ]
       },
-      sort: {field: 'field_event_date_end_value', order: 'asc'},
+      sort: { field: 'field_event_date_end_value', order: 'asc' },
       docType: 'event',
       type: 'events'
     }
@@ -106,7 +106,7 @@ export default {
         location: source.field_event_details_event_locality[0] || '',
         summary: typeof source.field_landing_page_summary !== 'undefined' ? this.truncateText(source.field_landing_page_summary[0]) : this.truncateText(source.body[0]),
         image: source.field_media_image_absolute_path ? source.field_media_image_absolute_path[0] : '',
-        link: source.url && this.getLink(source.url, this.$store.state.tide.siteData.drupal_internal__tid, pSite, this.$store.state.tideSite.sitesDomainMap, {text: 'text', url: 'url'}, 'See event details')
+        link: source.url && this.getLink(source.url, this.$store.state.tide.siteData.drupal_internal__tid, pSite, this.$store.state.tideSite.sitesDomainMap, { text: 'text', url: 'url' }, 'See event details')
       }
     }
   }

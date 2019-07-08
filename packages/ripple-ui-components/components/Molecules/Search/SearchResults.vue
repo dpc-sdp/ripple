@@ -69,7 +69,7 @@ export default {
     childColsBp: {
       type: Object,
       default: function () {
-        return {m: 6, l: 4, xxxl: 3}
+        return { m: 6, l: 4, xxxl: 3 }
       }
     },
     errorMsg: String,

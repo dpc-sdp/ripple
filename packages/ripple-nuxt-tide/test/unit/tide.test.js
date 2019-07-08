@@ -66,7 +66,7 @@ describe('tide helpers', () => {
     const result = helper.jsonApiLinkToResource(link, '/api/v1/')
     expect(resource).toBe(result)
 
-    const linkObj = {href: 'https://example.com/api/v1/route?site=4&path=%2Fpager-test'}
+    const linkObj = { href: 'https://example.com/api/v1/route?site=4&path=%2Fpager-test' }
     const resource2 = 'route?site=4&path=%2Fpager-test'
     const result2 = helper.jsonApiLinkToResource(linkObj, '/api/v1/')
     expect(resource2).toBe(result2)
@@ -109,7 +109,7 @@ describe('tide helpers', () => {
       ${'/test-path'}                     | ${'test_path'}
       ${'/first-home-buyers-checklist'}   | ${'first_home_buyers_checklist'}
       ${'/~!@#$%^&*()_+=?'}               | ${'_'}
-    `('returns $expected for $path', ({path, expected}) => {
+    `('returns $expected for $path', ({ path, expected }) => {
       expect(helper.pathToClass(path)).toBe(expected)
     })
     /* eslint-enable indent */
@@ -118,7 +118,7 @@ describe('tide helpers', () => {
 
 describe('tide', () => {
   test('should get data from API', async () => {
-    const resp = {data: [{id: 1}]}
+    const resp = { data: [{ id: 1 }] }
     mockAxios.$get.mockResolvedValue(resp)
 
     expect.assertions(1)

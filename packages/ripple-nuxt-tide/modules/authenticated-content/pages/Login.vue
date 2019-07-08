@@ -13,6 +13,7 @@ import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import RplForm from '@dpc-sdp/ripple-form'
 import TideLogin from '../components/TideLogin'
+import { isAuthenticated } from '../lib/authenticate'
 
 export default {
   components: {
@@ -22,8 +23,8 @@ export default {
     RplPageLayout,
     TideLogin
   },
-  asyncData ({route, store, redirect}) {
-    const isAuthed = Boolean(store.state.tideAuthenticatedContent.token)
+  asyncData ({ route, store, redirect }) {
+    const isAuthed = isAuthenticated(store)
     if (isAuthed) {
       if (route.query.destination !== undefined) {
         redirect(route.query.destination)

@@ -62,10 +62,10 @@ export default {
     formData: Object,
     submitHandler: Function,
     hideAfterSuccess: Boolean,
-    clearFormOnSuccess: {type: Boolean, default: false},
-    submitFormOnClear: {type: Boolean, default: false},
-    scrollToMessage: {type: Boolean, default: true},
-    validateOnSubmit: {type: Boolean, default: true}
+    clearFormOnSuccess: { type: Boolean, default: false },
+    submitFormOnClear: { type: Boolean, default: false },
+    scrollToMessage: { type: Boolean, default: true },
+    validateOnSubmit: { type: Boolean, default: true }
   },
   mounted () {
     RplFormEventBus.$on('clearform', this.clearForm)

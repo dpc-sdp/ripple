@@ -17,7 +17,7 @@ export default ({ store, isHMR, app }) => {
         paths: ['tideAlerts.dismissedAlerts'],
         storage: {
           getItem: key => Cookies.get(key),
-          setItem: (key, value) => Cookies.set(key, value, {expires: cookieExpiry ? inDaysFromNow(cookieExpiry) : null}),
+          setItem: (key, value) => Cookies.set(key, value, { expires: cookieExpiry ? inDaysFromNow(cookieExpiry) : null }),
           removeItem: key => Cookies.remove(key)
         }
       })(store)

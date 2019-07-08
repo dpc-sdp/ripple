@@ -6,46 +6,44 @@ import _ from 'lodash'
 import * as helper from './tide-helper'
 import * as pageTypes from './page-types'
 import * as middleware from './middleware-helper'
-import { isTokenExpired } from '../../modules/authenticated-content/lib/preview'
+import { isTokenExpired } from '../../modules/authenticated-content/lib/authenticate'
 
 const apiPrefix = '/api/v1/'
 
 export const tide = (axios, site, config) => ({
-  get: async function (resource, params = {}, id = '') {
+  /**
+   * GET request to tide for resources.
+   * @param {String} resource Resource type e.g. <entity type>/<bundle>
+   * @param {Object} params Object to convert to QueryString. Passed in URL.
+   * @param {String} id Resource UUID
+   * @param {String} authToken Authentication token
+   */
+  get: async function (resource, params = {}, id = '', authToken) {
     const siteParam = 'site=' + site
-    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, {indices: false})}` : ''}`
+    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
     let headers = {}
 
     if (process.server || process.env.NODE_ENV === 'development') {
       console.info(`Tide request url: ${url}`)
     }
 
-    // Set Session cookie if is available in parameters
-    if (typeof params.session_name !== 'undefined' && typeof params.session_value !== 'undefined') {
-      _.merge(headers, {Cookie: params.session_name + '=' + params.session_value})
-    }
-
-    // Set 'X-CSRF-Token if token parameters is defined
-    if (typeof params.token !== 'undefined') {
-      _.merge(headers, {'X-CSRF-Token': params.token})
-    }
-
-    // Set 'X-Authorization' header if auth_token present
-    if (params.auth_token) {
-      if (!isTokenExpired(params.auth_token)) {
-        _.merge(headers, {'X-Authorization': `Bearer ${params.auth_token}`})
-      } else {
+    if (this.isModuleEnabled('authenticatedContent')) {
+      // Set 'X-Authorization' header if authToken present
+      if (authToken) {
+        if (!isTokenExpired(authToken)) {
+          _.merge(headers, { 'X-Authorization': `Bearer ${authToken}` })
+        } else {
+          delete config.headers['X-Authorization']
+        }
+      } else if (config.headers && config.headers['X-Authorization']) {
         delete config.headers['X-Authorization']
       }
-    } else if (config.headers && config.headers['X-Authorization']) {
-      delete config.headers['X-Authorization']
     }
 
     // If headers is not empty add to config request
     if (!_.isEmpty(headers)) {
-      _.merge(config, {headers: headers})
+      _.merge(config, { headers: headers })
     }
-
     return axios.$get(url, config)
   },
 
@@ -59,7 +57,7 @@ export const tide = (axios, site, config) => ({
     let headers = {
       'Content-Type': 'application/vnd.api+json;charset=UTF-8'
     }
-    _.merge(config, {headers: headers})
+    _.merge(config, { headers: headers })
 
     return axios.$post(url, data, config)
   },
@@ -92,8 +90,13 @@ export const tide = (axios, site, config) => ({
     return sitesDomainMap
   },
 
+  /**
+   * Check if a module is enabled.
+   * @param {String} checkForModule name of module
+   * @returns {Boolean}
+   */
   isModuleEnabled: function (checkForModule) {
-    return config.modules[checkForModule] === 1
+    return config && config.modules && config.modules[checkForModule] === 1
   },
 
   getSiteData: async function (tid = null) {
@@ -111,17 +114,21 @@ export const tide = (axios, site, config) => ({
       include.push(menuFields[menu])
     }
 
-    const params = {include: include.toString()}
+    const params = { include: include.toString() }
 
     let sitesData = await this.getSitesData(params)
 
     if (sitesData) {
       let siteData = null
       sitesData.map((item) => {
-        if (item.drupal_internal__tid.toString() === siteId) {
+        if (item.drupal_internal__tid.toString() === siteId.toString()) {
           siteData = item
         }
       })
+
+      if (siteData === null) {
+        throw new Error('Couldn\'t get site data. Please check your site id and Tide site setting.')
+      }
 
       try {
         siteData.menus = await this.getSiteMenus(siteData)
@@ -175,6 +182,10 @@ export const tide = (axios, site, config) => ({
   },
 
   getMenu: async function (menuName) {
+    if (!menuName) {
+      throw new Error('no menu id provided.')
+    }
+
     const params = {
       filter: {
         menu_link_content: {
@@ -217,7 +228,7 @@ export const tide = (axios, site, config) => ({
   },
 
   getPathData: async function (path, params) {
-    let routeParams = {path: path}
+    let routeParams = { path: path }
     if (!_.isEmpty(params)) {
       _.merge(routeParams, params)
     }
@@ -234,7 +245,7 @@ export const tide = (axios, site, config) => ({
     return pageTypes.getTemplate(type)
   },
 
-  getEntityByPathData: async function (pathData, query) {
+  getEntityByPathData: async function (pathData, query, authToken) {
     const endpoint = `${pathData.entity_type}/${pathData.bundle}/${pathData.uuid}`
 
     let include
@@ -285,12 +296,12 @@ export const tide = (axios, site, config) => ({
         }
     }
     // remove undefined includes
-    let params = {include: include.filter(i => i).join(',')}
+    let params = { include: include.filter(i => i).join(',') }
     // If query URL is not empty include in URL request
     if (!_.isEmpty(query)) {
       params = _.merge(query, params)
     }
-    const entity = await this.get(endpoint, params)
+    const entity = await this.get(endpoint, params, '', authToken)
     return entity
   },
 
@@ -313,7 +324,7 @@ export const tide = (axios, site, config) => ({
     return pageData
   },
 
-  getPreviewPage: async function (contentType, uuid, revisionId, section, params) {
+  getPreviewPage: async function (contentType, uuid, revisionId, section, params, authToken) {
     if (revisionId === 'latest') {
       params.resourceVersion = 'rel:working-copy'
     } else {
@@ -325,7 +336,7 @@ export const tide = (axios, site, config) => ({
       bundle: contentType,
       uuid: uuid
     }
-    const entity = await this.getEntityByPathData(pathData, params)
+    const entity = await this.getEntityByPathData(pathData, params, authToken)
     const pageData = jsonapiParse.parse(entity).data
 
     // Append the site section to page data

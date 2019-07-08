@@ -69,19 +69,19 @@ describe('anchor link utilities', () => {
 
   test('should get list of links with text', async () => {
     expect(anchorUtils.getAnchorLinks(html)).toEqual([
-      {'text': 'Second Heading', 'url': '#second-heading'},
-      {'text': 'Special Character & < > Heading', 'url': '#special-character-heading'},
-      {'text': 'Heading 2 with inner SPAN', 'url': '#heading-2-with-inner-span'},
-      {'text': 'Heading 2 with inner LINK', 'url': '#heading-2-with-inner-link'}
+      { 'text': 'Second Heading', 'url': '#second-heading' },
+      { 'text': 'Special Character & < > Heading', 'url': '#special-character-heading' },
+      { 'text': 'Heading 2 with inner SPAN', 'url': '#heading-2-with-inner-span' },
+      { 'text': 'Heading 2 with inner LINK', 'url': '#heading-2-with-inner-link' }
     ])
   })
 
   test('should get list of headings with indexStart', async () => {
     expect(anchorUtils.getAnchorHeadings(html)).toEqual([
-      {'indexStart': 23, 'text': 'Second Heading'},
-      {'indexStart': 387, 'text': 'Special Character &amp; &lt; &gt; Heading'},
-      {'indexStart': 438, 'text': 'Heading 2 with inner SPAN'},
-      {'indexStart': 503, 'text': 'Heading 2 with inner LINK'}
+      { 'indexStart': 23, 'text': 'Second Heading' },
+      { 'indexStart': 387, 'text': 'Special Character &amp; &lt; &gt; Heading' },
+      { 'indexStart': 438, 'text': 'Heading 2 with inner SPAN' },
+      { 'indexStart': 503, 'text': 'Heading 2 with inner LINK' }
     ])
   })
 })

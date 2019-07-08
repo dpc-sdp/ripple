@@ -1,5 +1,6 @@
 import { metatagConverter, pathToClass } from './tide-helper'
-import { isPreviewPath, isTokenExpired } from '../../modules/authenticated-content/lib/preview'
+import { isTokenExpired, getToken, clearToken } from '../../modules/authenticated-content/lib/authenticate'
+import { isPreviewPath } from '../../modules/authenticated-content/lib/preview'
 
 // Fetch page data from Tide API by current path
 export default async function (context, results) {
@@ -13,27 +14,29 @@ export default async function (context, results) {
   const mapping = context.app.$tideMapping
   let tideParams = {}
 
-  // Pass the protected content JWT from store so it can be added as a header
-  const { token: authToken } = context.store.state.tideAuthenticatedContent
-  if (authToken) {
-    // If token expired clear the persisted state
-    if (isTokenExpired(authToken)) {
-      context.store.dispatch('tideAuthenticatedContent/clearToken')
-    } else {
-      tideParams.auth_token = authToken
+  const authContentEnabled = context.app.$tide.isModuleEnabled('authenticatedContent')
+  let authToken = null
+  if (authContentEnabled) {
+    // Pass the protected content JWT from store so it can be added as a header
+    authToken = getToken()
+    if (authToken) {
+      // If token expired clear the persisted state
+      if (isTokenExpired(authToken)) {
+        clearToken(context.store)
+      }
     }
   }
 
   try {
     let response = null
 
-    if (isPreviewPath(context.route.path)) {
+    if (authContentEnabled && isPreviewPath(context.route.path)) {
       if (!authToken) {
         return context.redirect('/login?destination=' + context.req.url)
       }
       const { 2: type, 3: id, 4: rev } = context.route.path.split('/')
       const section = context.route.query.section ? context.route.query.section : null
-      response = await context.app.$tide.getPreviewPage(type, id, rev, section, tideParams)
+      response = await context.app.$tide.getPreviewPage(type, id, rev, section, tideParams, authToken)
     } else {
       response = await context.app.$tide.getPageByPath(context.route.fullPath, tideParams)
     }

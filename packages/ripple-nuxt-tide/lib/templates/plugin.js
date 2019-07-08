@@ -1,6 +1,6 @@
 import { tide, Mapping } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 import { search } from '@dpc-sdp/ripple-nuxt-tide/modules/search/index.js'
-import Cookies from "js-cookie";
+import { serverSetToken } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
 export default ({ env, app, req, res, store , route}, inject) => {
   // We need to serialize functions, so use `serialize` instead of `JSON.stringify`.
@@ -100,6 +100,10 @@ export default ({ env, app, req, res, store , route}, inject) => {
             // Load alert module store.
             if (config.modules.alert === 1) {
               await store.dispatch('tideAlerts/init')
+            }
+            // Load authenticated content store.
+            if (config.modules.authenticatedContent === 1) {
+              serverSetToken(req.headers.cookie, store)
             }
           }
         },

@@ -163,7 +163,7 @@ const demoData = {
       { text: 'Fourth journey based link', url: '#' }
     ]),
     moreLink: object('More Link', { text: 'See more', url: '#' }),
-    theme: selectV2('Theme', {dark: 'dark', light: 'light'}, 'light'),
+    theme: selectV2('Theme', { dark: 'dark', light: 'light' }, 'light'),
     showLinks: boolean('Show Links', true),
     logo: text('Logo', '/herologo.png'),
     backgroundGraphic: text('Background Graphic', '/bggraphiclower.png')
@@ -172,7 +172,7 @@ const demoData = {
   heroBannerCta: () => ({
     title: text('Title', 'This is display copy that wraps 2 lines'),
     introText: text('Intro Text', 'This is supplementary intro text that can also wrap over a couple of lines.'),
-    theme: selectV2('Theme', {dark: 'dark', light: 'light'}, 'light'),
+    theme: selectV2('Theme', { dark: 'dark', light: 'light' }, 'light'),
     linkPrimary: object('linkPrimary', { text: 'Call to action', url: '#' }),
     linkSecondary: object('linkSecondary', { text: 'Subscribe for tips to prepare', url: '#' }),
     ctaText: text('ctaText', 'Not ready yet?')
@@ -203,7 +203,7 @@ const demoData = {
     link: object('Link', { text: 'Read more', url: '#' }),
     image: text('Image', 'https://placehold.it/580x340'),
     border: boolean('Border', true),
-    type: selectV2('Type', {default: 'default', simple: 'simple', inline: 'inline'}, 'default'),
+    type: selectV2('Type', { default: 'default', simple: 'simple', inline: 'inline' }, 'default'),
     center: boolean('Center', false),
     content: text('HTML content', '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>')
   }),
@@ -481,7 +481,7 @@ const demoData = {
     summary: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'),
     link: object('Call to action', { text: 'Call to action', url: '#' }),
     image: text('Image', ''),
-    video: object('Video', {src: 'https://www.youtube.com/embed/bSlnfyGTiss', mediaLink: { text: 'View transcript', url: '#' }})
+    video: object('Video', { src: 'https://www.youtube.com/embed/bSlnfyGTiss', mediaLink: { text: 'View transcript', url: '#' } })
   }),
 
   contact: () => ({
@@ -491,8 +491,8 @@ const demoData = {
     postal: text('Postal', 'PO Box 123, Suburb VIC 3421'),
     address: text('Address', '13 Street Name, Suburb VIC 3056'),
     phone: object('Phone', [
-      {number: '03 9876 6754'},
-      {number: '0400 000 000', title: 'Mob'}
+      { number: '03 9876 6754' },
+      { number: '0400 000 000', title: 'Mob' }
     ]),
     email: text('Email', 'emailaddress@vic.gov.au'),
     social: object('Social', [
@@ -850,8 +850,8 @@ const demoData = {
     src: text('field_media_video_embed_field', 'https://www.youtube.com/embed/bSlnfyGTiss'),
     lang: text('langcode', 'en'),
     transcript: text('field_media_transcript', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'),
-    variant: selectV2('Variant', {full: 'full', link: 'link'}, 'full'),
-    mediaLink: object('field_media_link', {text: 'View transcript', url: '#'})
+    variant: selectV2('Variant', { full: 'full', link: 'link' }, 'full'),
+    mediaLink: object('field_media_link', { text: 'View transcript', url: '#' })
   }),
 
   callToAction: () => ({
@@ -1016,8 +1016,8 @@ const demoData = {
       formState: {}
     }),
     filterText: text('Filter Text', 'Refine search'),
-    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light'),
-    type: selectV2('Type', {'two-cols': 'two-cols', default: 'default'}, 'default'),
+    theme: selectV2('Theme', { light: 'light', dark: 'dark' }, 'light'),
+    type: selectV2('Type', { 'two-cols': 'two-cols', default: 'default' }, 'default'),
     allowBlank: boolean('Allow Blank', false)
   }),
 
@@ -1101,7 +1101,7 @@ const demoData = {
       tag: 'rpl-fieldset',
       formState: {}
     }),
-    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
+    theme: selectV2('Theme', { light: 'light', dark: 'dark' }, 'light')
   }),
 
   grantSearchForm: () => ({
@@ -1175,7 +1175,7 @@ const demoData = {
       },
       formState: {}
     }),
-    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
+    theme: selectV2('Theme', { light: 'light', dark: 'dark' }, 'light')
   }),
 
   searchResult: () => ({
@@ -1203,28 +1203,28 @@ const demoData = {
         date: '2018-07-10T09:00:00.000+10:00',
         title: 'This is the headline of an event with a location that will stretch over over 3 lines',
         summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
-        link: {text: 'See event details', url: '#'}
+        link: { text: 'See event details', url: '#' }
       },
       {
         image: 'https://placehold.it/580x340',
         date: '2018-07-10T09:00:00.000+10:00',
         title: 'This is the headline of an event with a location that will stretch over over 3 lines',
         summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
-        link: {text: 'See event details', url: '#'}
+        link: { text: 'See event details', url: '#' }
       },
       {
         image: '',
         date: '2018-07-10T09:00:00.000+10:00',
         title: 'This event has no image.',
         summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
-        link: {text: 'See event details', url: '#'}
+        link: { text: 'See event details', url: '#' }
       },
       {
         image: 'https://placehold.it/580x340',
         date: '2018-07-10T09:00:00.000+10:00',
         title: 'This is the headline of an event with a location that will stretch over over 3 lines',
         summary: 'This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.',
-        link: {text: 'See event details', url: '#'}
+        link: { text: 'See event details', url: '#' }
       }
     ]
   ),
@@ -1398,7 +1398,7 @@ const demoData = {
 
   cardSearchResults: () => ({
     count: number('Count', 10),
-    type: selectV2('Type', {RplCardEvent: 'RplCardEvent', RplCardPromotion: 'RplCardPromotion', RplCardHonourRoll: 'RplCardHonourRoll'}, 'RplCardEvent'),
+    type: selectV2('Type', { RplCardEvent: 'RplCardEvent', RplCardPromotion: 'RplCardPromotion', RplCardHonourRoll: 'RplCardHonourRoll' }, 'RplCardEvent'),
     responseSize: number('Response size', 4),
     errorMsg: text('Error message', 'Search isn\'t working right now, please try again later.'),
     noResultsMsg: text('No results message', 'Sorry! We couldn\'t find any matches for bananas')
@@ -1597,7 +1597,7 @@ const demoData = {
             listBox: true,
             hint: 'Implemented using rplchecklist with listBox: true',
             placeholder: 'Select multiple topics',
-            values: [{value: 'topic_a', name: 'Topic A'}, {value: 'topic_b', name: 'Topic B'}, {value: 'topic_c', name: 'Topic C'}, {value: 'topic_d', name: 'Topic D'}]
+            values: [{ value: 'topic_a', name: 'Topic A' }, { value: 'topic_b', name: 'Topic B' }, { value: 'topic_c', name: 'Topic C' }, { value: 'topic_d', name: 'Topic D' }]
           },
 
           {
@@ -1608,7 +1608,7 @@ const demoData = {
             label: 'Single-select drop down',
             hint: 'Implemented using rplSelect',
             placeholder: 'Select a single topic',
-            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_b', name: 'Topic B'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}, {id: 'topic_e', name: 'Topic e'}, {id: 'topic_f', name: 'Topic f'}, {id: 'topic_g', name: 'Topic g'}, {id: 'topic_h', name: 'Topic h'}]
+            values: [{ id: 'topic_a', name: 'Topic A' }, { id: 'topic_b', name: 'Topic B' }, { id: 'topic_c', name: 'Topic C' }, { id: 'topic_d', name: 'Topic D' }, { id: 'topic_e', name: 'Topic e' }, { id: 'topic_f', name: 'Topic f' }, { id: 'topic_g', name: 'Topic g' }, { id: 'topic_h', name: 'Topic h' }]
           },
           {
             type: 'rplselect',
@@ -1625,7 +1625,7 @@ const demoData = {
             hint: 'Implemented using rplSelect',
             placeholder: 'Select several topics',
             multiselect: true,
-            values: [{id: 'topic_a', name: 'Topic A'}, {id: 'topic_$#%&!@~^&*', name: 'Topic with $#%&!@~^&*'}, {id: 'topic_c', name: 'Topic C'}, {id: 'topic_d', name: 'Topic D'}, {id: 'topic_e', name: 'Topic E'}, {id: 'topic_f', name: 'Topic F'}, {id: 'topic_g', name: 'Topic G'}, {id: 'topic_h', name: 'Topic H'}]
+            values: [{ id: 'topic_a', name: 'Topic A' }, { id: 'topic_$#%&!@~^&*', name: 'Topic with $#%&!@~^&*' }, { id: 'topic_c', name: 'Topic C' }, { id: 'topic_d', name: 'Topic D' }, { id: 'topic_e', name: 'Topic E' }, { id: 'topic_f', name: 'Topic F' }, { id: 'topic_g', name: 'Topic G' }, { id: 'topic_h', name: 'Topic H' }]
           }
         ],
         groups: [
@@ -1676,7 +1676,7 @@ const demoData = {
                   searchable: false,
                   showLabels: false
                 },
-                values: [{id: 'vic', name: 'Vic'}, {id: 'nsw', name: 'New South Wales'}, {id: 'wa', name: 'Western Australia'}, {id: 'ql', name: 'Queensland'}],
+                values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }],
                 styleClasses: ['form-group--col-two']
               },
               {
@@ -1720,7 +1720,7 @@ const demoData = {
   metaTag: () => ({
     linkText: text('Text', 'Meta Tag'),
     linkUrl: text('Link', '#'),
-    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light')
+    theme: selectV2('Theme', { light: 'light', dark: 'dark' }, 'light')
   }),
 
   link: () => ({
@@ -1732,14 +1732,14 @@ const demoData = {
   textLink: () => ({
     url: text('URL', '#'),
     text: text('Text', 'Text Link'),
-    theme: selectV2('Theme', {light: 'light', dark: 'dark'}, 'light'),
-    size: selectV2('Size', {small: 'small', large: 'large', none: 'none'}, 'small'),
+    theme: selectV2('Theme', { light: 'light', dark: 'dark' }, 'light'),
+    size: selectV2('Size', { small: 'small', large: 'large', none: 'none' }, 'small'),
     underline: boolean('Underline', false),
     emphasis: boolean('Emphasis', false),
     iconSymbol: text('Icon Symbol', 'arrow_right_primary'),
     iconColor: text('Icon Color', 'primary'),
     iconSize: text('Icon Size', 'm'),
-    iconPlacement: selectV2('Icon Placement', {before: 'before', after: 'after'}, 'after')
+    iconPlacement: selectV2('Icon Placement', { before: 'before', after: 'after' }, 'after')
   }),
 
   icon: () => ({
@@ -1750,7 +1750,7 @@ const demoData = {
 
   textIcon: () => ({
     text: text('Text', 'Text Link'),
-    placement: selectV2('Placement', {before: 'before', after: 'after'}, 'after'),
+    placement: selectV2('Placement', { before: 'before', after: 'after' }, 'after'),
     icon: text('Symbol', 'search'),
     color: text('Color', 'primary'),
     size: text('Size', 'm')
@@ -1856,7 +1856,7 @@ const demoData = {
   button: () => ({
     content: text('Content', 'Ripple Button'),
     href: text('href', '#'),
-    theme: selectV2('Theme', {primary: 'primary', secondary: 'secondary'}, 'primary'),
+    theme: selectV2('Theme', { primary: 'primary', secondary: 'secondary' }, 'primary'),
     disabled: boolean('Disabled', false)
   }),
 
@@ -1882,7 +1882,7 @@ const demoData = {
   list: () => ({
     title: text('Title', 'My List'),
     link: text('Link', ''),
-    size: selectV2('Size', {normal: 'normal', large: 'large'}, 'normal'),
+    size: selectV2('Size', { normal: 'normal', large: 'large' }, 'normal'),
     iconScale: number('Icon Scale', 1),
     iconColor: text('Icon Color', 'primary'),
     list: object('List', [{
@@ -2329,10 +2329,10 @@ const demoData = {
 
   pageLayout: () => ({
     columns: object('Columns', {
-      main: {l: 8},
+      main: { l: 8 },
       sidebar: {
-        colsBp: {l: 3},
-        push: {l: 1}
+        colsBp: { l: 3 },
+        push: { l: 1 }
       }
     })
   }),
@@ -2362,13 +2362,13 @@ let demoDataLocked = {}
 for (let key in demoData) {
   demoDataLocked[key] = demoData[key]()
 }
-export {demoDataLocked}
+export { demoDataLocked }
 
 /**
  * demoData - Returns an object with functions to create data. This will add the
  * properties to knobs.
  * This is for use on components.
  */
-export {demoData}
+export { demoData }
 
 export default demoData

@@ -107,7 +107,7 @@ const searchMixin = {
     truncateText: (text, stop = 150, clamp) => {
       return truncateText(text, stop, clamp)
     },
-    getLink: (urls, site, primarySite, domains, returnObj = {text: 'text', url: 'url'}, text) => {
+    getLink: (urls, site, primarySite, domains, returnObj = { text: 'text', url: 'url' }, text) => {
       let siteIds = {}
       let domain = ''
       let path = ''

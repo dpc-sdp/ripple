@@ -9,15 +9,54 @@
     "packages/ripple-nuxt-tide",
     "packages/ripple-nuxt-ui",
     "packages/ripple-create-app",
+    "packages/ripple-test-tools",
     "examples/**/*"
   ],
   "scripts": {
     "publish": "lerna publish",
     "start:storybook": "cd packages/ripple-ui-components/ && yarn run storybook",
-    "start:example": "cd examples/vic-gov-au/ && yarn run dev"
+    "start:example": "cd examples/vic-gov-au/ && yarn run dev",
+    "start:build-example": "cd examples/vic-gov-au/ && nuxt build && nuxt start",
+    "test:dev": "NODE_ENV=dev start-server-and-test start:example http://localhost:3000 cy:open",
+    "test:storybook": "cd packages/ripple-ui-components/ && yarn run test",
+    "test:e2e": "NODE_ENV=test start-server-and-test start:build-example http://localhost:3000 cy:run-smoke",
+    "test:unit": "NODE_ENV=test jest",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run-smoke": "cypress run -e TAGS='@smoke'",
+    "lint": "eslint --ext .js,.vue . && sass-lint -qv --max-warnings 0",
+    "lint:fix": "eslint --ext .js,.vue . --fix",
+    "bay:start": "docker-compose up -d",
+    "bay:rebuild-full": "docker-compose up -d --build --force-recreate",
+    "bay:restart": "docker-compose restart",
+    "bay:stop": "docker-compose stop",
+    "bay:destroy": "docker-compose down -v",
+    "bay:logs": "docker-compose logs",
+    "bay:cli": "docker exec -i $(docker-compose ps -q app)",
+    "bay:pull": "docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep amazeeio | grep -v none | xargs -n1 docker pull | cat"
   },
   "devDependencies": {
-    "lerna": "^3.0.0"
+    "lerna": "^3.0.0",
+    "cypress": "^3.1.5",
+    "cypress-axe": "^0.4.0",
+    "cypress-cucumber-preprocessor": "^1.11.0",
+    "axe-core": "^3.2.2",
+    "start-server-and-test": "^1.7.11",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.11.1",
+    "@ljharb/eslint-config": "^13.1.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "sass-lint": "^1.12.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   },
   "browserslist": [
     "> 1%",

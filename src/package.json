@@ -72,6 +72,7 @@
     "node-sass": "^4.12.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
+    "svg-sprite-loader": "^3.7.3",
     "storybook-addon-vue-info": "^1.2.1",
     "storybook-readme": "^5.0.5",
     "svgo": "^1.2.2",

@@ -5,6 +5,7 @@ module.exports = {
   testMatch: ['**/unit/**/*.test.js', '**/*.test.js'],
   moduleFileExtensions: ['js', 'json', 'vue'],
   setupFiles: ['<rootDir>/.jest/register-context.js', 'jest-canvas-mock'],
+  setupFilesAfterEnv: ['<rootDir>/.jest/moment.js'],
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
     '.*\\.(vue)$': '<rootDir>/node_modules/jest-vue-preprocessor',

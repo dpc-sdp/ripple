@@ -24,12 +24,12 @@ export default {
     RplIcon
   },
   computed: {
-    buttonIcon() {
+    buttonIcon () {
       return this.expanded ? 'up' : 'down'
     }
   },
   methods: {
-    clickExpand() {
+    clickExpand () {
       console.log('click expand')
       this.$emit('click')
     }

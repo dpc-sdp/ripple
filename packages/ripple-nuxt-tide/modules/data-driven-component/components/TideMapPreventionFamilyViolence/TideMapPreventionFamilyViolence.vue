@@ -319,7 +319,7 @@ export default {
       refreshOn: false
     }
   },
-   computed: {
+  computed: {
     buttonText () {
       return this.isFullScreen ? 'Exit full screen' : 'Enter full screen'
     },
@@ -327,7 +327,7 @@ export default {
       return this.isFullScreen ? 'close' : 'fullscreen'
     },
     expandedMapClass () {
-      return this.expanded ? "tide-map__map-container map-expanded" : "tide-map__map-container";
+      return this.expanded ? 'tide-map__map-container map-expanded' : 'tide-map__map-container'
     }
   },
   methods: {
@@ -337,10 +337,10 @@ export default {
       this.refreshMapSize()
     },
     refreshMapSize () {
-      // Not sure why, but the rpl map api has a watch on the refreshOn prop. This watch method triggers a map resize when the refreshOn prop is set to true. 
+      // Not sure why, but the rpl map api has a watch on the refreshOn prop. This watch method triggers a map resize when the refreshOn prop is set to true.
       // Toggling it off an on with a timeout seems to consistently trigger the method and resize the map - Yay.
       this.refreshOn = false
-      setTimeout(() => this.refreshOn = true, 100)
+      setTimeout(() => (this.refreshOn = true), 100)
     },
     toggleMapFullScreen () {
       toggleFullScreen(this.$refs.tideMapContainer)

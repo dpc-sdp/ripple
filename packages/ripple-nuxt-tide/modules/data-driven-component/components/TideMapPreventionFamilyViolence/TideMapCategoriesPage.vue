@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { RplTextLabel} from '@dpc-sdp/ripple-link'
+import { RplTextLabel } from '@dpc-sdp/ripple-link'
 import TideMapCard from './TideMapCard'
 
 export default {

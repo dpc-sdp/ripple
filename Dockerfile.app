@@ -3,7 +3,7 @@ FROM amazeeio/node:10-builder as builder
 COPY . /app/
 
 # Remove storybook from reference site
-RUN rm /app/packages/ripple-ui-components/package.json \
+RUN rm /app/src/package.json \
     && mv /app/scripts/jira-post-comment-app.sh /app/scripts/jira-post-comment.sh \
     && yarn install
 

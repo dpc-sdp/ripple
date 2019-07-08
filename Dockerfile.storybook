@@ -1,13 +1,14 @@
 FROM amazeeio/node:10-builder as builder
 
-COPY packages/ripple-ui-components /app/packages/ripple-ui-components
+COPY packages/components /app/packages/components
+COPY src /app/src
 COPY package.json yarn.lock .eslintrc.js .babelrc /app/
 RUN yarn install
-WORKDIR /app/packages/ripple-ui-components
-RUN yarn run build-storybook
+WORKDIR /app/src
+RUN yarn run build:storybook
 
 FROM amazeeio/node:10
-COPY --from=builder /app/packages/ripple-ui-components/public /app
+COPY --from=builder /app/src/public /app
 COPY scripts/jira-post-comment-storybook.sh /app/scripts/jira-post-comment.sh
 
 ARG LAGOON_GIT_BRANCH

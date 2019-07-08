@@ -48,7 +48,7 @@ storiesOf('Organisms/Publication', module)
     template: `<rpl-publication-download-print :links="links" :showPrint="showPrint" @publicationPrint="print" @publicationDownload="download" />`,
     props: {
       links: {
-        default: object('Links', [{
+        default: () => object('Links', [{
           name: 'Short title of a document',
           url: '#',
           extension: 'pdf',
@@ -104,7 +104,7 @@ storiesOf('Organisms/Publication', module)
         default: text('Title', 'Figure 1.2')
       },
       image: {
-        default: object('Image', {
+        default: () => object('Image', {
           src: 'https://placehold.it/800x400.jpg',
           alt: 'A generic square placeholder image.'
         })

@@ -21,7 +21,7 @@ storiesOf('Organisms/News', module)
     template: `<rpl-featured-news :list="list" />`,
     props: {
       list: {
-        default: object('List', [
+        default: () => object('List', [
           {
             image: 'https://placehold.it/818x497',
             date: '2018-03-23T09:00:00.000+10:00',
@@ -58,7 +58,7 @@ storiesOf('Organisms/News', module)
         default: text('Title', 'Latest News')
       },
       list: {
-        default: object('List', [
+        default: () => object('List', [
           {
             date: '2018-03-26T09:00:00.000+10:00',
             tag: 'Event',

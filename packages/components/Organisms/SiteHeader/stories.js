@@ -34,7 +34,7 @@ storiesOf('Organisms/SiteHeader', module)
     `,
     props: {
       logo: {
-        default: object('Logo', {
+        default: () => object('Logo', {
           alt: 'vic.gov.au',
           url: '#',
           image: '/cobrand-logo.png'
@@ -44,7 +44,7 @@ storiesOf('Organisms/SiteHeader', module)
         default: number('Menu Breakpoint', 992)
       },
       links: {
-        default: object('Menu Links', [
+        default: () => object('Menu Links', [
           {
             text: 'Your services',
             url: '#',
@@ -148,7 +148,7 @@ storiesOf('Organisms/SiteHeader', module)
         ])
       },
       searchTerms: {
-        default: object('Search Terms', [
+        default: () => object('Search Terms', [
           {
             linkText: 'Road works',
             linkUrl: '#'

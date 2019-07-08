@@ -19,7 +19,7 @@ storiesOf('Molecules/Breadcrumbs', module)
     template: `<rpl-breadcrumbs :crumbs="crumbs" />`,
     props: {
       crumbs: {
-        default: object('Crumbs', [
+        default: () => object('Crumbs', [
           { text: 'Home', url: '#' },
           { text: 'Level 1 page title', url: '#' },
           { text: 'Level 2 page title' }

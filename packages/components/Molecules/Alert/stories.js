@@ -37,7 +37,7 @@ storiesOf('Molecules/Alert', module)
         }, 'Emergency')
       },
       link: {
-        default: object('Link', { text: 'Find out more', url: '#' })
+        default: () => object('Link', { text: 'Find out more', url: '#' })
       },
       alertId: {
         default: text('Alert ID', 'test_id')

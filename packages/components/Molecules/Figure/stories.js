@@ -20,7 +20,7 @@ storiesOf('Molecules/Figure', module)
     template: `<rpl-figure :image="image" :caption="caption" />`,
     props: {
       image: {
-        default: object('Image', {
+        default: () => object('Image', {
           src: 'https://placehold.it/800x400',
           alt: 'A generic square placeholder image.'
         })

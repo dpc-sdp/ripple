@@ -28,7 +28,7 @@ storiesOf('Molecules/List', module)
         default: text('Link', '')
       },
       size: {
-        default: select('Size', { normal: 'normal', large: 'large' }, 'normal')
+        default: () => select('Size', { normal: 'normal', large: 'large' }, 'normal')
       },
       iconScale: {
         default: number('Icon Scale', 1)
@@ -37,7 +37,7 @@ storiesOf('Molecules/List', module)
         default: text('Icon Color', 'primary')
       },
       list: {
-        default: object('List', [{
+        default: () => object('List', [{
           symbol: 'calendar',
           size: '1',
           text: '26 January 2019 - 29 January 2019'

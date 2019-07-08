@@ -26,13 +26,13 @@ storiesOf('Organisms/CampaignSecondary', module)
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.')
       },
       link: {
-        default: object('Call to action', { text: 'Call to action', url: '#' })
+        default: () => object('Call to action', { text: 'Call to action', url: '#' })
       },
       image: {
         default: text('Image', 'http://placehold.it/699x411')
       },
       video: {
-        default: object('Video', null)
+        default: () => object('Video', null)
       }
     }
   }))
@@ -47,13 +47,13 @@ storiesOf('Organisms/CampaignSecondary', module)
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.')
       },
       link: {
-        default: object('Call to action', { text: 'Call to action', url: '#' })
+        default: () => object('Call to action', { text: 'Call to action', url: '#' })
       },
       image: {
         default: text('Image', '')
       },
       video: {
-        default: object('Video', { src: 'https://www.youtube.com/embed/bSlnfyGTiss', mediaLink: { text: 'View transcript', url: '#' } })
+        default: () => object('Video', { src: 'https://www.youtube.com/embed/bSlnfyGTiss', mediaLink: { text: 'View transcript', url: '#' } })
       }
     }
   }))

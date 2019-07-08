@@ -23,7 +23,7 @@ storiesOf('Organisms/SiteSectionNavigation', module)
         default: text('Title', 'Branch name goes here')
       },
       menu: {
-        default: object('Menu Links', [
+        default: () => object('Menu Links', [
           {
             text: 'Your services',
             url: '#',

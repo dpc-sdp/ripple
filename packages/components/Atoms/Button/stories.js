@@ -54,7 +54,7 @@ storiesOf('Atoms/Button', module)
     data () {
       return {
         content: 'Ripple Button',
-        href: false,
+        href: '',
         theme: 'primary',
         disabled: false
       }

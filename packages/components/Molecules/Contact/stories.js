@@ -46,7 +46,7 @@ storiesOf('Molecules/Contact', module)
         default: text('Address', '13 Street Name, Suburb VIC 3056')
       },
       phone: {
-        default: object('Phone', [
+        default: () => object('Phone', [
           { number: '03 9876 6754' },
           { number: '0400 000 000', title: 'Mob' }
         ])
@@ -55,7 +55,7 @@ storiesOf('Molecules/Contact', module)
         default: text('Email', 'emailaddress@vic.gov.au')
       },
       social: {
-        default: object('Social', [
+        default: () => object('Social', [
           {
             icon: 'facebook',
             title: 'Name of Facebook Page',

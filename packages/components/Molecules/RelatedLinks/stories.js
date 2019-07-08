@@ -23,7 +23,7 @@ storiesOf('Molecules/RelatedLinks', module)
         default: text('Title', 'Related links')
       },
       links: {
-        default: object('Links', [
+        default: () => object('Links', [
           { text: 'Link to external content', url: 'http://www.google.com' },
           { text: 'Second link it goes right here', url: '#' },
           { text: 'Third link to extra content', url: '#' },

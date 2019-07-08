@@ -40,7 +40,7 @@ storiesOf('Molecules/Card/Card Navigation', module)
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
       },
       link: {
-        default: object('Link', { text: 'Read more', url: '#' })
+        default: () => object('Link', { text: 'Read more', url: '#' })
       }
     }
   }))
@@ -104,7 +104,7 @@ storiesOf('Molecules/Card/Card Image Navigation', module)
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.')
       },
       link: {
-        default: object('Link', { text: 'Call to action', url: '#' })
+        default: () => object('Link', { text: 'Call to action', url: '#' })
       }
     }
   }))
@@ -136,7 +136,7 @@ storiesOf('Molecules/Card/Card Promotion', module)
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.')
       },
       link: {
-        default: object('Link', { text: 'Read more', url: '#' })
+        default: () => object('Link', { text: 'Read more', url: '#' })
       }
     }
   }))
@@ -156,13 +156,13 @@ storiesOf('Molecules/Card/Card Keydates', module)
         default: text('Title', 'Key calendar dates')
       },
       keydates: {
-        default: object('Keydates', [
+        default: () => object('Keydates', [
           { date: '3 April', title: 'Term two starts', description: 'Its back to the classroom as school start term two on the 16th April.' },
           { date: '23 April', title: 'ANZAC Day', description: 'National day of remembrance to commemorate the ANZACs.' }
         ])
       },
       link: {
-        default: object('Link', { text: 'Read more', url: '#' })
+        default: () => object('Link', { text: 'Read more', url: '#' })
       }
     }
   }))
@@ -197,7 +197,7 @@ storiesOf('Molecules/Card/Card Event', module)
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.')
       },
       link: {
-        default: object('Link', { text: 'See event details', url: '#' })
+        default: () => object('Link', { text: 'See event details', url: '#' })
       }
     }
   }))
@@ -223,7 +223,7 @@ storiesOf('Molecules/Card/Card Cta', module)
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.')
       },
       link: {
-        default: object('Link', { text: 'See event details', url: '#' })
+        default: () => object('Link', { text: 'See event details', url: '#' })
       }
     }
   }))
@@ -249,7 +249,7 @@ storiesOf('Molecules/Card/Card Emergency Contact', module)
         default: text('Summary', 'Dial 000 for police, fire & ambulance')
       },
       link: {
-        default: object('Link', { text: 'Call 000', url: 'tel:000' })
+        default: () => object('Link', { text: 'Call 000', url: 'tel:000' })
       }
     }
   }))
@@ -266,7 +266,7 @@ storiesOf('Molecules/Card/Card Box', module)
     template: `<rpl-card-box :cards="cards" />`,
     props: {
       cards: {
-        default: object('Cards', [
+        default: () => object('Cards', [
           {
             name: 'rpl-card-emergency-contact',
             data: {
@@ -339,13 +339,13 @@ storiesOf('Molecules/Card/Card Honour Roll', module)
         default: text('Category', 'Local Champion')
       },
       lifespan: {
-        default: object('Link', { text: 'Call 000', url: 'tel:000' })
+        default: text('Lifespan', '1982 - 2014')
       },
       summary: {
         default: text('Summary', 'Journalist, comedian, feminist and fierce disability activist.')
       },
       link: {
-        default: object('Link', { text: 'Read Stella\'s profile', url: '#' })
+        default: () => object('Link', { text: 'Read Stella\'s profile', url: '#' })
       },
       image: {
         default: text('Image', 'https://placehold.it/148x148')
@@ -369,7 +369,7 @@ storiesOf('Molecules/Card/Card Content (base)', module)
     `,
     props: {
       link: {
-        default: object('Link', { text: 'Read more', url: '#' })
+        default: () => object('Link', { text: 'Read more', url: '#' })
       },
       image: {
         default: text('Image', 'https://placehold.it/580x340')
@@ -378,7 +378,7 @@ storiesOf('Molecules/Card/Card Content (base)', module)
         default: boolean('Border', true)
       },
       type: {
-        default: select('Type', { default: 'default', simple: 'simple', inline: 'inline' }, 'default')
+        default: () => select('Type', { default: 'default', simple: 'simple', inline: 'inline' }, 'default')
       },
       center: {
         default: boolean('Center', false)
@@ -401,7 +401,7 @@ storiesOf('Molecules/Card/Card Carousel', module)
     template: `<rpl-card-carousel :title="title" :cards="cards" :childColsBp="childColsBp" :totalGridColumns="totalGridColumns" />`,
     props: {
       cards: {
-        default: object('Cards', [
+        default: () => object('Cards', [
           {
             name: 'rpl-card-event',
             data: {

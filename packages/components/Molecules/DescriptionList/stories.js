@@ -19,7 +19,7 @@ storiesOf('Molecules/DescriptionList', module)
     template: `<rpl-description-list :list="list" />`,
     props: {
       list: {
-        default: object('List', [
+        default: () => object('List', [
           { term: 'List Item 1', description: 'Description' },
           { term: 'List Item 2', description: 'Description 2' },
           { term: 'List Item 3', description: 'Description 3' }

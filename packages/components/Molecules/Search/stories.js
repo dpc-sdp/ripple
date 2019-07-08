@@ -59,6 +59,43 @@ const demoData = {
     stepsAround: number('Step count around current', 2)
   }),
 
+  newsSearchResultItems: () => (
+    [
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
+      },
+      {
+        image: 'https://placehold.it/580x340',
+        date: '2018-07-10T09:00:00.000+10:00',
+        topic: 'News',
+        title: 'This is display copy that wraps 2 lines',
+        summary: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.',
+        link: { text: 'Read more', url: '#' }
+      }
+    ]
+  ),
+
   eventSearchResultItems: () => [
     {
       image: 'https://placehold.it/580x340',
@@ -368,7 +405,7 @@ storiesOf('Molecules/Search', module)
         default: text('Title', 'Schools private policy')
       },
       link: {
-        default: object('Link', {
+        default: () => object('Link', {
           linkText: 'www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx',
           linkUrl: '//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx'
         })
@@ -380,17 +417,21 @@ storiesOf('Molecules/Search', module)
         'Description',
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem'
       ),
-      tags: object('Tags', [
-        {
-          linkText: 'This is a content tag',
-          linkUrl: '#'
-        },
-        {
-          linkText: 'This is a content tag',
-          linkUrl: '#'
-        }
-      ]),
-      locale: text('Locale', 'en-au')
+      tags: {
+        default: () => object('Tags', [
+          {
+            linkText: 'This is a content tag',
+            linkUrl: '#'
+          },
+          {
+            linkText: 'This is a content tag',
+            linkUrl: '#'
+          }
+        ])
+      },
+      locale: {
+        default: text('Locale', 'en-au')
+      }
     }
   }))
   .add('Search Results', () => ({
@@ -408,7 +449,7 @@ storiesOf('Molecules/Search', module)
       />`,
     props: {
       searchResult: {
-        default: {
+        default: () => ({
           title: text('Title', 'Schools private policy'),
           link: object('Link', {
             linkText:
@@ -432,13 +473,13 @@ storiesOf('Molecules/Search', module)
             }
           ]),
           locale: text('Locale', 'en-au')
-        }
+        })
       },
       pager: {
-        default: demoData.pagination()
+        default: () => demoData.pagination()
       },
       searchResults: {
-        default: {
+        default: () => ({
           count: number('Count', 70),
           type: 'default',
           responseSize: number('Response size', 10),
@@ -450,7 +491,7 @@ storiesOf('Molecules/Search', module)
             'No results message',
             "Sorry! We couldn't find any matches for bananas"
           )
-        }
+        })
       },
       hasError: {
         default: boolean('Has error', false)
@@ -488,36 +529,38 @@ storiesOf('Molecules/Search', module)
     :type="searchResults.type"
     @pager-change="pagerChange"
   />`,
-    data () {
-      return {
-        pager: {
-          default: demoData.pagination
-        },
-        searchResults: {
-          default: {
-            count: number('Count', 10),
-            type: select(
-              'Type',
-              {
-                RplCardEvent: 'RplCardEvent',
-                RplCardPromotion: 'RplCardPromotion',
-                RplCardHonourRoll: 'RplCardHonourRoll'
-              },
-              'RplCardEvent'
-            ),
-            responseSize: number('Response size', 4),
-            errorMsg: text(
-              'Error message',
-              "Search isn't working right now, please try again later."
-            ),
-            noResultsMsg: text(
-              'No results message',
-              "Sorry! We couldn't find any matches for bananas"
-            )
-          }
-        },
-        hasError: boolean('Has error', false),
-        noResults: boolean('No results', false)
+    props: {
+      pager: {
+        default: demoData.pagination
+      },
+      searchResults: {
+        default: () => ({
+          count: number('Count', 10),
+          type: select(
+            'Type',
+            {
+              RplCardEvent: 'RplCardEvent',
+              RplCardPromotion: 'RplCardPromotion',
+              RplCardHonourRoll: 'RplCardHonourRoll'
+            },
+            'RplCardEvent'
+          ),
+          responseSize: number('Response size', 4),
+          errorMsg: text(
+            'Error message',
+            "Search isn't working right now, please try again later."
+          ),
+          noResultsMsg: text(
+            'No results message',
+            "Sorry! We couldn't find any matches for bananas"
+          )
+        })
+      },
+      hasError: {
+        default: boolean('Has error', false)
+      },
+      noResults: {
+        default: boolean('No results', false)
       }
     },
     computed: {

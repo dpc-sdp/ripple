@@ -26,10 +26,10 @@ storiesOf('Organisms/CallToAction', module)
         default: text('Summary', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.')
       },
       link: {
-        default: object('Call to action', { text: 'Call to action', url: '#' })
+        default: () => object('Call to action', { text: 'Call to action', url: '#' })
       },
       image: {
-        default: object('Image', { src: 'http://placehold.it/336x249', alt: '' })
+        default: () => object('Image', { src: 'http://placehold.it/336x249', alt: '' })
       }
     }
   }))

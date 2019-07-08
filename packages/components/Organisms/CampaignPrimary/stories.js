@@ -26,10 +26,10 @@ storiesOf('Organisms/CampaignPrimary', module)
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.')
       },
       link: {
-        default: object('Call to action', { text: 'Call to action', url: '#' })
+        default: () => object('Call to action', { text: 'Call to action', url: '#' })
       },
       image: {
-        default: object('Image', { src: 'http://placehold.it/699x411', alt: '' })
+        default: () => object('Image', { src: 'http://placehold.it/699x411', alt: '' })
       }
     }
   }))

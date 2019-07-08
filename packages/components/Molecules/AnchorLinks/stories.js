@@ -23,7 +23,7 @@ storiesOf('Molecules/AnchorLinks', module)
         default: text('Title', 'On this page:')
       },
       links: {
-        default: object('Links', [
+        default: () => object('Links', [
           { text: 'This is the first anchor link', url: '#' },
           { text: 'Second link to extra content', url: '#' },
           { text: 'Third link goes here', url: '#' },

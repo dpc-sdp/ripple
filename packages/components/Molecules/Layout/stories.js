@@ -46,7 +46,18 @@ storiesOf('Molecules/Layout', module)
         <template slot="sidebar">sidebar content</template>
         <template slot="belowContent">Below content</template>
       </rpl-page-layout>
-  `
+    `,
+    data () {
+      return {
+        columns: object('Columns', {
+          main: { l: 8 },
+          sidebar: {
+            colsBp: { l: 3 },
+            push: { l: 1 }
+          }
+        })
+      }
+    }
   }))
   .add('Page Layout with custom columns', () => ({
     components: { RplPageLayout },
@@ -73,7 +84,13 @@ storiesOf('Molecules/Layout', module)
 
 // Demo for site layout.
 storiesOf('Molecules/Layout', module)
-  .add('Site Layout', ({
+  .addDecorator(withKnobs)
+  .addParameters({
+    readme: {
+      sidebar: readme
+    }
+  })
+  .add('Site Layout', () => ({
     components: { SSiteLayout },
     template: '<s-site-layout :cardCols="cardCols" :cardColsWithSidebar="cardColsWithSidebar"></s-site-layout>',
     data () {

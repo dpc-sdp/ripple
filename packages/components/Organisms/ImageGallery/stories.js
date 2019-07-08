@@ -20,7 +20,7 @@ storiesOf('Organisms/ImageGallery', module)
     template: `<rpl-image-gallery :galleryData="galleryData" :enlargeText="enlargeText" />`,
     props: {
       galleryData: {
-        default: object('Gallery Data', [{
+        default: () => object('Gallery Data', [{
           image: 'https://placehold.it/1024x768/900/fff',
           alt: 'A test image',
           title: 'Image title here',

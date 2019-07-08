@@ -19,7 +19,7 @@ storiesOf('Organisms/Event', module)
         default: text('Title', 'Optional heading')
       },
       events: {
-        default: object('Events', [
+        default: () => object('Events', [
           {
             image: 'https://placehold.it/580x340',
             dateStart: '2018-12-25T09:00:00.000+10:00',
@@ -83,7 +83,7 @@ storiesOf('Organisms/Event', module)
         ])
       },
       cta: {
-        default: object('Call to Action', {
+        default: () => object('Call to Action', {
           image: 'https://placehold.it/148x148',
           title: 'Want to submit an event?',
           summary:
@@ -92,7 +92,7 @@ storiesOf('Organisms/Event', module)
         })
       },
       link: {
-        default: object('Link', { text: 'See all events', url: '#' })
+        default: () => object('Link', { text: 'See all events', url: '#' })
       }
     }
   }))

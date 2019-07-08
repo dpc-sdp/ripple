@@ -44,7 +44,7 @@ storiesOf('Organisms/HeroBanner', module)
         default: text('Link Heading', 'Want to know more about...')
       },
       links: {
-        default: object('Links', [
+        default: () => object('Links', [
           { text: 'First journey based link', url: '#' },
           { text: 'Secondary journey based link', url: '#' },
           { text: 'Third link goes here', url: '#' },
@@ -52,7 +52,7 @@ storiesOf('Organisms/HeroBanner', module)
         ])
       },
       moreLink: {
-        default: object('More Link', { text: 'See more', url: '#' })
+        default: () => object('More Link', { text: 'See more', url: '#' })
       },
       theme: {
         default: select('Theme', { dark: 'dark', light: 'light' }, 'light')
@@ -91,10 +91,10 @@ storiesOf('Organisms/HeroBanner', module)
         default: select('Theme', { dark: 'dark', light: 'light' }, 'light')
       },
       linkPrimary: {
-        default: object('linkPrimary', { text: 'Call to action', url: '#' })
+        default: () => object('linkPrimary', { text: 'Call to action', url: '#' })
       },
       linkSecondary: {
-        default: object('linkSecondary', { text: 'Subscribe for tips to prepare', url: '#' })
+        default: () => object('linkSecondary', { text: 'Subscribe for tips to prepare', url: '#' })
       },
       ctaText: {
         default: text('ctaText', 'Not ready yet?')
@@ -122,7 +122,7 @@ storiesOf('Organisms/HeroBanner', module)
         default: text('Link Heading', '')
       },
       links: {
-        default: object('Links', [
+        default: () => object('Links', [
           { text: 'Plan your visit', url: '#' },
           { text: 'Collections', url: '#' },
           { text: 'School Programs', url: '#' },

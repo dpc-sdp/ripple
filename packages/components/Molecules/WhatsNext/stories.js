@@ -23,7 +23,7 @@ storiesOf('Molecules/WhatsNext', module)
         default: text('Title', 'What\'s next?')
       },
       links: {
-        default: object('Links', [
+        default: () => object('Links', [
           { text: 'Link to external content', url: 'http://www.google.com' },
           { text: 'Second link to extra content', url: '#' },
           { text: 'Third link goes here', url: '#' },

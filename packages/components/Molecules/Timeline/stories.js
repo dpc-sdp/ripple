@@ -23,7 +23,7 @@ storiesOf('Molecules/Timeline', module)
         default: text('Title', 'Timeline Heading')
       },
       list: {
-        default: object('List', [{
+        default: () => object('List', [{
           image: 'https://placehold.it/320x240',
           title: 'Timeline item with link',
           url: '#',

@@ -28,7 +28,7 @@ storiesOf('Organisms/Accordion', module)
         default: select('Type', ['numbered', 'default'], 'default')
       },
       accordions: {
-        default: object('Accordion', [{
+        default: () => object('Accordion', [{
           title: 'Accordion Item',
           content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
         }, {

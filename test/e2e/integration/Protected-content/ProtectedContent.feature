@@ -56,6 +56,7 @@ Feature: Protected content
     And the created user should be removed
     And the created page should be removed
 
+  @skip
   Scenario: Can still navigate after session is expired
     Given I have created a landing page with the json fixture "Pages/ProtectedContent/tc-pc1"
     And there is a user in the system with the following credentials:

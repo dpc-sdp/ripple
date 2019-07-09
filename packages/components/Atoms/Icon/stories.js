@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/vue'
-import readme from './README.md'
 
 import { withKnobs, text, select } from '@storybook/addon-knobs/vue'
 
@@ -8,11 +7,6 @@ import { RplIcon, RplTextIcon } from './index'
 
 storiesOf('Atoms/Icon', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Icon Library', () => ({
     components: { SIcons },
     template: '<s-icons :icons="icons" :color="color" :size="size" />',

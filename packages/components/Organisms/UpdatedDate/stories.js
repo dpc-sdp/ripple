@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplUpdatedDate from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -9,11 +8,6 @@ import {
 
 storiesOf('Organisms/UpdatedDate', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Updated Date', () => ({
     components: { RplUpdatedDate },
     template: `<rpl-updated-date :date="date" :prefix="prefix" :locale="locale" />`,

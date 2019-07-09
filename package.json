@@ -3,15 +3,18 @@
   "description": "Ripple Monorepo for DPC Single Digital Presence sites.",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "private": true,
-  "workspaces": [
-    "packages/components/**/*",
-    "packages/ripple-nuxt-tide",
-    "packages/ripple-nuxt-ui",
-    "packages/ripple-create-app",
-    "packages/ripple-test-tools",
-    "examples/**/*",
-    "src"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/components/**/*",
+      "packages/ripple-nuxt-tide",
+      "packages/ripple-nuxt-ui",
+      "packages/ripple-create-app",
+      "packages/ripple-test-tools",
+      "examples/**/*",
+      "src"
+    ],
+    "nohoist": ["src"]
+  },
   "scripts": {
     "publish": "lerna publish",
     "start:storybook": "cd src && yarn start",

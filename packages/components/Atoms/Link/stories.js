@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import RplLink from './Link.vue'
 import RplTextLink from './TextLink.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -12,11 +11,6 @@ import {
 
 storiesOf('Atoms/Link', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Link', () => ({
     components: { RplLink },
     template: '<rpl-link :href="href" :target="target">{{ content }}</rpl-link>',

@@ -1,8 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import RplBaseLayout from './BaseLayout.vue'
 import RplPageLayout from './PageLayout.vue'
-import readme from './README.md'
-
 import SSiteLayout from './../../../../src/storybook-components/SiteLayout.vue'
 
 import {
@@ -12,11 +10,6 @@ import {
 
 storiesOf('Molecules/Layout', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Base Layout', () => ({
     components: { RplBaseLayout },
     template: `
@@ -85,11 +78,7 @@ storiesOf('Molecules/Layout', module)
 // Demo for site layout.
 storiesOf('Molecules/Layout', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Site Layout', () => ({
     components: { SSiteLayout },
     template: '<s-site-layout :cardCols="cardCols" :cardColsWithSidebar="cardColsWithSidebar"></s-site-layout>',

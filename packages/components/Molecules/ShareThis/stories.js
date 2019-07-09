@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplShareThis from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -9,11 +8,6 @@ import {
 
 storiesOf('Molecules/ShareThis', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Share this', () => ({
     components: { RplShareThis },
     template: `

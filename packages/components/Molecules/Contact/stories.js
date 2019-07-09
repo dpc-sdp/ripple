@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplContact from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -10,11 +9,6 @@ import {
 
 storiesOf('Molecules/Contact', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplContact },
     template: `

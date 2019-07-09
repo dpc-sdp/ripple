@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplBreadcrumbs from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -9,11 +8,6 @@ import {
 
 storiesOf('Molecules/Breadcrumbs', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Breadcrumbs', () => ({
     components: { RplBreadcrumbs },
     template: `<rpl-breadcrumbs :crumbs="crumbs" />`,

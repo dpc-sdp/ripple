@@ -1,16 +1,10 @@
 import { storiesOf } from '@storybook/vue'
 import RplLatestEvents from './LatestEvents.vue'
-import readme from './README.md'
 
 import { withKnobs, text, object } from '@storybook/addon-knobs/vue'
 
 storiesOf('Organisms/Event', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Latest Events', () => ({
     components: { RplLatestEvents },
     template: `<rpl-latest-events :events="events" :cta="cta" :link="link" :title="title" />`,

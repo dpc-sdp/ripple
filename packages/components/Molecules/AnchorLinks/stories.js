@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplAnchorLinks from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -10,11 +9,6 @@ import {
 
 storiesOf('Molecules/AnchorLinks', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Anchor Links', () => ({
     components: { RplAnchorLinks },
     template: `<rpl-anchor-links :title="title" :links="links" />`,

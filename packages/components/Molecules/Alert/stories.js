@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import RplAlert from './Alert.vue'
 import RplAlertBase from './AlertBase.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -12,11 +11,6 @@ import {
 
 storiesOf('Molecules/Alert', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Alert', () => ({
     components: { RplAlert },
     template: `<rpl-alert :title="title" :type="type" :link="link" :alertId="alertId" @rplAlertClose="close" />`,

@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplSiteSectionNavigation from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -10,11 +9,6 @@ import {
 
 storiesOf('Organisms/SiteSectionNavigation', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Site Section Navigation', () => ({
     components: { RplSiteSectionNavigation },
     template: `<rpl-site-section-navigation :menu="menu" :title="title" :activeLink="activeLink" />`,

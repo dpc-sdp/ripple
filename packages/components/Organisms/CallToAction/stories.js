@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplCallToAction from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -10,11 +9,6 @@ import {
 
 storiesOf('Organisms/CallToAction', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Call to Action', () => ({
     components: { RplCallToAction },
     template: `<rpl-call-to-action :title="title" :summary="summary" :link="link" :image="image" />`,

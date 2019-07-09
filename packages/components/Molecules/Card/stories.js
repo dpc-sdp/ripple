@@ -11,8 +11,6 @@ import RplCardEmergencyContact from './CardEmergencyContact.vue'
 import RplCardBox from './CardBox.vue'
 import RplCardHonourRoll from './CardHonourRoll.vue'
 import { RplCardCarousel } from './no-ssr'
-import readme from './README.md'
-import readmeCardContent from './ReadmeCardContent.md'
 
 import {
   withKnobs,
@@ -24,11 +22,6 @@ import {
 
 storiesOf('Molecules/Card/Card Navigation', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplCardNavigation },
     template: `<rpl-card-navigation :title="title" :summary="summary" :link="link" />`,
@@ -47,11 +40,7 @@ storiesOf('Molecules/Card/Card Navigation', module)
 
 storiesOf('Molecules/Card/Card Navigation Featured', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardNavigationFeatured },
     template: `<rpl-card-navigation-featured :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :url="url" />`,
@@ -79,11 +68,7 @@ storiesOf('Molecules/Card/Card Navigation Featured', module)
 
 storiesOf('Molecules/Card/Card Image Navigation', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardImageNavigation },
     template: `<rpl-card-image-navigation :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
@@ -111,11 +96,7 @@ storiesOf('Molecules/Card/Card Image Navigation', module)
 
 storiesOf('Molecules/Card/Card Promotion', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardPromotion },
     template: `<rpl-card-promotion :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
@@ -143,11 +124,7 @@ storiesOf('Molecules/Card/Card Promotion', module)
 
 storiesOf('Molecules/Card/Card Keydates', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardKeydates },
     template: `<rpl-card-keydates :title="title" :keydates="keydates" :link="link" />`,
@@ -169,11 +146,7 @@ storiesOf('Molecules/Card/Card Keydates', module)
 
 storiesOf('Molecules/Card/Card Event', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardEvent },
     template: `<rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" />`,
@@ -204,11 +177,7 @@ storiesOf('Molecules/Card/Card Event', module)
 
 storiesOf('Molecules/Card/Card Cta', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardCta },
     template: `<rpl-card-cta :image="image" :title="title" :summary="summary" :link="link" />`,
@@ -230,11 +199,7 @@ storiesOf('Molecules/Card/Card Cta', module)
 
 storiesOf('Molecules/Card/Card Emergency Contact', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardEmergencyContact },
     template: `<rpl-card-emergency-contact :title="title" :subtitle="subtitle" :summary="summary" :link="link" />`,
@@ -256,11 +221,7 @@ storiesOf('Molecules/Card/Card Emergency Contact', module)
 
 storiesOf('Molecules/Card/Card Box', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardBox },
     template: `<rpl-card-box :cards="cards" />`,
@@ -310,11 +271,7 @@ storiesOf('Molecules/Card/Card Box', module)
 
 storiesOf('Molecules/Card/Card Honour Roll', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardHonourRoll },
     template: `
@@ -355,11 +312,6 @@ storiesOf('Molecules/Card/Card Honour Roll', module)
 
 storiesOf('Molecules/Card/Card Content (base)', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readmeCardContent
-    }
-  })
   .add('Default', () => ({
     components: { RplCardContent },
     template: `
@@ -391,11 +343,7 @@ storiesOf('Molecules/Card/Card Content (base)', module)
 
 storiesOf('Molecules/Card/Card Carousel', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
+
   .add('Default', () => ({
     components: { RplCardCarousel },
     template: `<rpl-card-carousel :title="title" :cards="cards" :childColsBp="childColsBp" :totalGridColumns="totalGridColumns" />`,

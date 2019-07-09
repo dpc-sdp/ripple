@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplSiteFooter from './index.vue'
-import readme from './README.md'
 
 import {
   text,
@@ -8,11 +7,6 @@ import {
 } from '@storybook/addon-knobs/vue'
 
 storiesOf('Organisms/SiteFooter', module)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Site footer', () => ({
     components: { RplSiteFooter },
     template: `

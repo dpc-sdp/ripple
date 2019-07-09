@@ -1,7 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplList from './index.vue'
-import readme from './README.md'
-
 import {
   withKnobs,
   text,
@@ -12,11 +10,6 @@ import {
 
 storiesOf('Molecules/List', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplList },
     template: `<rpl-list :title="title" :size="size" :iconScale="iconScale" :iconColor="iconColor" :list="list" :link="link" />`,

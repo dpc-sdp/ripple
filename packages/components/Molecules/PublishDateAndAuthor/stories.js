@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplPublishDateAndAuthor from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -9,11 +8,6 @@ import {
 
 storiesOf('Molecules/PublishDateAndAuthor', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplPublishDateAndAuthor },
     template: `

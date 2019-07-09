@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplCampaignSecondary from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -10,11 +9,6 @@ import {
 
 storiesOf('Organisms/CampaignSecondary', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('With image', () => ({
     components: { RplCampaignSecondary },
     template: `<rpl-campaign-secondary :title="title" :summary="summary" :link="link" :image="image" :video="video" />`,

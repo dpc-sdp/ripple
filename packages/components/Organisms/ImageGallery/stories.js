@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplImageGallery from './no-ssr/ImageGallery.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -10,11 +9,6 @@ import {
 
 storiesOf('Organisms/ImageGallery', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Image Gallery', () => ({
     components: { RplImageGallery },
     template: `<rpl-image-gallery :galleryData="galleryData" :enlargeText="enlargeText" />`,

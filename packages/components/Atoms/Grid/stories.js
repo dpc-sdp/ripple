@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/vue'
 import RplContainer from './Container.vue'
 import RplRow from './Row.vue'
 import RplCol from './Col.vue'
-import readme from './README.md'
 
 import SGrids from './../../../../src/storybook-components/Grids.vue'
 
@@ -15,11 +14,6 @@ import {
 
 storiesOf('Atoms/Layout', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Grid', () => ({
     components: { RplContainer, RplRow, RplCol },
     template: '<rpl-container><rpl-row><rpl-col :cols="cols" :colsBp="colsBp" :pull="pull" :push="push" style="border: 1px solid black">Column</rpl-col></rpl-row></rpl-container>',

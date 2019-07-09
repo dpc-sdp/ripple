@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplMarkup from './Markup.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -9,11 +8,6 @@ import {
 
 storiesOf('Organisms/Markup', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplMarkup },
     template: `<rpl-markup :html="html" />`,

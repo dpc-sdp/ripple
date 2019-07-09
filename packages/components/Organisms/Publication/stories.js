@@ -3,7 +3,6 @@ import RplPublicationPagination from './PublicationPagination.vue'
 import RplPublicationDownloadPrint from './PublicationDownloadPrint.vue'
 import RplPublicationAuthorInformation from './PublicationAuthorInformation.vue'
 import RplPublicationImage from './PublicationImage.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -14,11 +13,6 @@ import {
 
 storiesOf('Organisms/Publication', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Publication Pagination', () => ({
     components: { RplPublicationPagination },
     template: `<rpl-publication-pagination :previousLink="previousLink" :previousText="previousText" :previousDescription="previousDescription" :nextLink="nextLink" :nextText="nextText" :nextDescription="nextDescription" />`,

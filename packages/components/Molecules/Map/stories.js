@@ -1,14 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import SVicFreeWifiMap from './../../../../src/storybook-components/MapVicFreeWifi'
 import RplMap from './Map.vue'
-import readme from './README.md'
 
 storiesOf('Molecules/Map', module)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Map with no data', () => ({
     components: { RplMap },
     template: `<rpl-map

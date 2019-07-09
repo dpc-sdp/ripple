@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import RplFeaturedNews from './FeaturedNews.vue'
 import RplNewsListing from './NewsListing.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -11,11 +10,6 @@ import {
 
 storiesOf('Organisms/News', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Featured News', () => ({
     components: { RplFeaturedNews },
     template: `<rpl-featured-news :list="list" />`,

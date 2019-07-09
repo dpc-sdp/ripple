@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplEmbeddedVideo from './index.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -11,11 +10,6 @@ import {
 
 storiesOf('Molecules/EmbeddedVideo', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplEmbeddedVideo },
     template: `

@@ -1,13 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import RplForm from './index.vue'
-import readme from './README.md'
 
 storiesOf('Molecules/Form', module)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplForm },
     template: `<rpl-form :formData="formData" :submitHandler="submitHandler" :title="title"></rpl-form>`,

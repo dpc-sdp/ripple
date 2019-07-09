@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/vue'
-import readme from './README.md'
 
 import { text, boolean, select, withKnobs } from '@storybook/addon-knobs/vue'
 
@@ -60,11 +59,6 @@ storiesOf('Atoms/Global', module)
 
 storiesOf('Atoms/Global', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Typography', () => ({
     components: { STypography },
     template:
@@ -97,11 +91,6 @@ storiesOf('Atoms/Global', module)
   }))
 
 storiesOf('Atoms/Global', module)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Breakpoints', () => ({
     components: { SBreakpoints },
     template: '<s-breakpoints :breakpoints="breakpoints"/>',

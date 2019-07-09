@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplButton from '@dpc-sdp/ripple-button'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -13,11 +12,6 @@ const template = `<rpl-button :href="href" :theme="theme" :disabled="disabled">{
 
 storiesOf('Atoms/Button', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('default', () => ({
     components: { RplButton },
     template,

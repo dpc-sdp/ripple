@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/vue'
 import RplHeroBanner from './HeroBanner.vue'
 import RplHeroBannerCta from './HeroBannerCta.vue'
 import RplIntroBanner from './IntroBanner.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -14,11 +13,6 @@ import {
 
 storiesOf('Organisms/HeroBanner', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplHeroBanner },
     template: `

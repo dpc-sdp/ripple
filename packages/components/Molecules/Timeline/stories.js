@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplTimeline from './Timeline.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -10,11 +9,6 @@ import {
 
 storiesOf('Molecules/Timeline', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplTimeline },
     template: `<rpl-timeline :title="title" :list="list" />`,

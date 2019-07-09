@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 import RplAccordion from './Accordion.vue'
-import readme from './README.md'
 
 import {
   withKnobs,
@@ -12,11 +11,6 @@ import {
 
 storiesOf('Organisms/Accordion', module)
   .addDecorator(withKnobs)
-  .addParameters({
-    readme: {
-      sidebar: readme
-    }
-  })
   .add('Default', () => ({
     components: { RplAccordion },
     template: `<rpl-accordion :title="title" :type="type" :accordions="accordions" :single="single" />`,

@@ -1,4 +1,3 @@
-const path = require('path')
 const cucumber = require('cypress-cucumber-preprocessor').default
 const tideAdmin = require('@dpc-sdp/ripple-test-tools')
 

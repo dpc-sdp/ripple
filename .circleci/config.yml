@@ -39,6 +39,9 @@ jobs:
       - run: 
           name: run smoke test
           command: yarn test:smoke
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
       - store_artifacts:
           path: test/e2e/videos
       - store_artifacts:
@@ -53,19 +56,8 @@ jobs:
           SEARCH_BE: LOCAL-CI
     working_directory: ~/app
     steps:    
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
-      - run:
-          name: Lint code.
-          command: yarn lint     
-      - run:
-          name: Unit tests
-          command: yarn test:unit
-      - run: 
-          name: run smoke test
-          command: yarn test:smoke
+      - attach_workspace:
+          at: ~/app
       - run: 
           name: run full e2e test
           command: yarn test:e2e
@@ -79,15 +71,17 @@ workflows:
   commit:
     jobs:
       - test
-  # Run full regression test nightly on develop branch
+  # Run full regression test nightly on master and release branches
   nightly:
     triggers:
       - schedule:
-          # 12:30am midnight melbourne time
           cron: "30 14 * * *"
           filters:
             branches:
               only:
                 - develop
     jobs:
+      - test
       - regression
+          requires:
+            - test

@@ -43,8 +43,9 @@ jobs:
           path: test/e2e/videos
       - store_artifacts:
           path: test/e2e/screenshots
+
   regression:
-  # This runs the full suite of e2e tests 
+    # This runs the full suite of e2e tests 
     docker:
       - image: cypress/base:10
         environment:
@@ -78,15 +79,15 @@ workflows:
   commit:
     jobs:
       - test
-    # Run full regression test nightly on develop branch
-    nightly:
-      triggers:
-        - schedule:
-            # 12:30am midnight melbourne time
-            cron: "30 14 * * *"
-            filters:
-              branches:
-                only:
-                  - develop
-      jobs:
-        - regression
+  # Run full regression test nightly on develop branch
+  nightly:
+    triggers:
+      - schedule:
+          # 12:30am midnight melbourne time
+          cron: "30 14 * * *"
+          filters:
+            branches:
+              only:
+                - develop
+    jobs:
+      - regression

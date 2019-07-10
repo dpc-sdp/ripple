@@ -18,7 +18,7 @@
           <span v-if="toggleCaption">{{ hideCaption }}</span>
         </button>
       </div>
-      <div v-if="title || caption" class="rpl-fullscreen-image__details" :class="{ 'rpl-fullscreen-image__details--show': isCaptionShowing}">
+      <div v-if="title || caption" class="rpl-fullscreen-image__details" :class="{ 'rpl-fullscreen-image__details--show': isDetailsShowing}">
         <h2 v-if="title" class="rpl-fullscreen-image__title">{{ title }}</h2>
         <p v-if="caption" class="rpl-fullscreen-image__caption">{{ caption }}</p>
       </div>
@@ -43,8 +43,8 @@ export default {
     }
   },
   computed: {
-    isCaptionShowing () {
-      return (this.caption && this.toggleCaption) || !this.caption
+    isDetailsShowing () {
+      return (this.caption) ? this.toggleCaption : true
     }
   }
 }

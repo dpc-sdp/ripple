@@ -34,7 +34,8 @@ export default {
         model: {
           url: '',
           was_this_page_helpful: null,
-          comments: ''
+          comments: '',
+          honeypot: ''
         },
         schema: {
           groups: [
@@ -58,6 +59,14 @@ export default {
             },
             {
               fields: [
+                {
+                  type: 'input',
+                  inputType: 'text',
+                  label: 'Tell me your email',
+                  model: 'honeypot',
+                  styleClasses: 'tide-tell-me-your-email',
+                  autocomplete: 'off'
+                },
                 {
                   type: 'textArea',
                   label: 'Please add your comments:',
@@ -115,9 +124,8 @@ export default {
 
       const formData = this.formData.model
       const formId = this.formData.tideId
-      const res = await this.$tide.postForm(formId, formData)
 
-      if (res) {
+      if (formData.honeypot) {
         this.formData.formState = {
           response: {
             status: 'success',
@@ -125,10 +133,21 @@ export default {
           }
         }
       } else {
-        this.formData.formState = {
-          response: {
-            status: 'danger',
-            message: this.messages.error
+        const res = await this.$tide.postForm(formId, formData)
+
+        if (res) {
+          this.formData.formState = {
+            response: {
+              status: 'success',
+              message: this.messages.success
+            }
+          }
+        } else {
+          this.formData.formState = {
+            response: {
+              status: 'danger',
+              message: this.messages.error
+            }
           }
         }
       }
@@ -221,6 +240,9 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
     background-color: rpl-color('danger');
   }
 
+  .tide-tell-me-your-email {
+    display: none !important;
+  }
 }
 
 </style>

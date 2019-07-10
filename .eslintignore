@@ -9,7 +9,7 @@ packages/ripple-nuxt-tide/**/templates/*
 packages/ripple-nuxt-ui/**/templates/*
 
 # ignore storybook files
-packages/ripple-ui-components/scripts
+src/scripts
 
 # Nuxt folders
 /examples/**/dist

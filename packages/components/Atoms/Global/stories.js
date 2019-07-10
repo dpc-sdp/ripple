@@ -101,7 +101,7 @@ storiesOf('Atoms/Global', module)
     }
   }))
 
-// For some reason this throws an error when enabled
+// TODO: For some reason this throws an error when enabled, need to investigate why
 // storiesOf('Atoms/Global', module)
 //   .addParameters({
 //     readme: {

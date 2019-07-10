@@ -170,7 +170,10 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
   legend {
     @include rpl_typography_ruleset($app-content-rating-label-ruleset);
     color: rpl-color('extra_dark_neutral');
-    float: left;
+
+    @include rpl-breakpoint(s) {
+      float: left;
+    }
   }
 
   .field-input {
@@ -192,7 +195,7 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
     }
   }
   .field-radios {
-    @include rpl-breakpoint(m) {
+    @include rpl-breakpoint(s) {
       &.form-group {
         flex-direction: row;
       }

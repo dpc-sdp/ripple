@@ -8,7 +8,7 @@
     </rpl-col>
     <template v-if="dynamicComponents">
       <template v-for="dComponent in dynamicComponents">
-        <rpl-col cols="full" class="isComps" :colsBp="dComponent.cols" :key="dComponent.id">
+        <rpl-col cols="full" :colsBp="dComponent.cols" :key="dComponent.id">
           <no-ssr v-if="dComponent.ssr === false">
             <component :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
           </no-ssr>
@@ -17,7 +17,7 @@
       </template>
     </template>
     <template v-if="chapters">
-      <rpl-col cols="full" v-for="chapter in chapters"  :key="chapter.id">
+      <rpl-col cols="full" v-for="chapter in chapters" :key="chapter.id">
         <rpl-card-navigation v-bind="chapter"> </rpl-card-navigation>
       </rpl-col>
     </template>

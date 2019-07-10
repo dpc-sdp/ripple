@@ -94,9 +94,7 @@ import RplLink from '@dpc-sdp/ripple-link'
 import Trap from 'vue-focus-lock'
 import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.png'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
-import Vue from 'vue'
-
-export const RplSiteHeaderEventBus = new Vue()
+import RplSiteHeaderEventBus from './RplSiteHeaderEventBus'
 
 export default {
   name: 'RplSiteHeader',

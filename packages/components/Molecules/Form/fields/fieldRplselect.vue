@@ -154,7 +154,7 @@ export default {
       }
       // fixes issue with errors not clearing after selecting new val
       if (val && this.schema.multiselect && val.length > 0) {
-        if (this.errors && this.errors.length > 0) {
+        if (this.errors && this.errors.length > 0 && this.vfg) {
           this.vfg.clearValidationErrors()
         }
       }

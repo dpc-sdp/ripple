@@ -1,5 +1,5 @@
 <template functional>
-  <fieldset :class="data.class" class="rpl-fieldset">
+  <fieldset :class="data ? data.class : ''" class="rpl-fieldset">
     <div class="rpl-fieldset__inner">
       <slot></slot>
     </div>

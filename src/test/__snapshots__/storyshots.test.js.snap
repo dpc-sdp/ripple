@@ -1991,7 +1991,11 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
 <div
   class="rpl-card-carousel"
 >
-  <!---->
+  <h2
+    class="rpl-card-carousel__title"
+  >
+    Featured Content
+  </h2>
    
   <div
     class="rpl-card-carousel__slider"
@@ -3890,9 +3894,1308 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
   <div
     class="vue-form-generator"
   >
-    <!---->
-    <!---->
-    <!---->
+    <fieldset
+      class="rpl-fieldset"
+    >
+      <div
+        class="rpl-fieldset__inner"
+      >
+        <div
+          class="form-group valid field-input"
+        >
+          <!---->
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="hidden"
+                type="hidden"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid required field-input"
+        >
+          <label
+            for="text"
+          >
+            <span>
+              Text
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="text"
+                placeholder="Enter some text..."
+                required="required"
+                type="text"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <div
+            class="hint"
+          >
+            This is a hint text
+          </div>
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-input"
+        >
+          <label
+            for="email"
+          >
+            <span>
+              Email
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="email"
+                type="email"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <div
+            class="hint"
+          >
+            This is a hint text
+          </div>
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-input"
+        >
+          <label
+            for="tel"
+          >
+            <span>
+              Tel
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="tel"
+                type="tel"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-input"
+        >
+          <label
+            for="number"
+          >
+            <span>
+              Number
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="number"
+                max="100"
+                min="0"
+                placeholder="x10"
+                step="10"
+                type="number"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-radios"
+        >
+          <label
+            for="radio"
+          >
+            <span>
+              Radio
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="radio-list"
+            >
+              <label
+                class=""
+              >
+                <input
+                  id="radio-1"
+                  name="radio"
+                  type="radio"
+                  value="Yes"
+                />
+                Yes
+              </label>
+              <label
+                class=""
+              >
+                <input
+                  id="radio-2"
+                  name="radio"
+                  type="radio"
+                  value="No"
+                />
+                No
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <div
+            class="hint"
+          >
+            This is a hint text
+          </div>
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid required field-textArea"
+        >
+          <label
+            for="text-area"
+          >
+            <span>
+              text area
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <textarea
+              class="form-control"
+              id="text-area"
+              placeholder="Start typing..."
+              required="required"
+              rows="4"
+            />
+             
+            <!---->
+          </div>
+           
+          <div
+            class="hint"
+          >
+            This is a hint text
+          </div>
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-rpldatepicker"
+        >
+          <label
+            for="date-range"
+          >
+            <span>
+              Date Range
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-date-picker rpl-date-picker--range"
+            >
+              <div
+                class="rpl-form-pikaday rpl-date-picker__start"
+              >
+                <input
+                  aria-label="Enter start date"
+                  class="rpl-form-pikaday__input"
+                  placeholder="Enter start date"
+                  type="text"
+                />
+                 
+                <!---->
+                 
+                <div
+                  aria-hidden="true"
+                  class="rpl-form-pikaday__container"
+                />
+              </div>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-date-picker__separator"
+              >
+                -
+              </span>
+               
+              <div
+                class="rpl-form-pikaday rpl-date-picker__end"
+              >
+                <input
+                  aria-label="Enter end date"
+                  class="rpl-form-pikaday__input"
+                  placeholder="Enter end date"
+                  type="text"
+                />
+                 
+                <!---->
+                 
+                <div
+                  aria-hidden="true"
+                  class="rpl-form-pikaday__container"
+                />
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-rpldatepicker"
+        >
+          <label
+            for="date"
+          >
+            <span>
+              Date
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-date-picker rpl-date-picker--single"
+            >
+              <div
+                class="rpl-form-pikaday"
+              >
+                <input
+                  aria-label="Enter a date"
+                  class="rpl-form-pikaday__input"
+                  placeholder="Enter a date"
+                  type="text"
+                />
+                 
+                <!---->
+                 
+                <div
+                  aria-hidden="true"
+                  class="rpl-form-pikaday__container"
+                />
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-rplslider"
+        >
+          <label
+            for="set-a-funding-range"
+          >
+            <span>
+              Set a funding range
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-slider"
+            >
+              <div
+                aria-hidden="true"
+                class="rpl-slider__spacers"
+              >
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+                <span
+                  class="rpl-slider__spacer"
+                />
+              </div>
+               
+              <div
+                class="rpl-slider__wrapper"
+              >
+                <div
+                  class="rpl-slider__progress"
+                  style="left: 12.5%; right: 12.5%;"
+                />
+                 
+                <label
+                  class="rpl-slider__label rpl-slider__label--lower"
+                  style="left: 12.5%;"
+                >
+                  <span
+                    class="rpl-slider__handle"
+                  >
+                    Set a funding range - Lower value
+                  </span>
+                   
+                  <div
+                    aria-hidden="true"
+                    class="rpl-slider__display-label"
+                  >
+                    $10,000
+                  </div>
+                   
+                  <input
+                    class="rpl-slider__input"
+                    max="70000"
+                    min="0"
+                    step="5000"
+                    type="number"
+                  />
+                </label>
+                 
+                <label
+                  class="rpl-slider__label rpl-slider__label--upper"
+                  style="right: 12.5%;"
+                >
+                  <span
+                    class="rpl-slider__handle"
+                  >
+                    Set a funding range - Upper valueue
+                  </span>
+                   
+                  <div
+                    aria-hidden="true"
+                    class="rpl-slider__display-label"
+                  >
+                    $70,000
+                  </div>
+                   
+                  <input
+                    class="rpl-slider__input"
+                    max="80000"
+                    min="10000"
+                    step="5000"
+                    type="number"
+                  />
+                </label>
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <div
+            class="hint"
+          >
+            $0 - $80,000
+          </div>
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-rpldivider"
+        >
+          <!---->
+           
+          <div
+            class="field-wrap"
+          >
+            <hr
+              class="rpl-divider"
+            />
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-rplmarkup"
+        >
+          <!---->
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-markup tide-wysiwyg app-wysiwyg"
+            >
+              <div
+                class="rpl-markup__inner"
+              >
+                <h3>
+                  Markup field
+                </h3>
+                 
+                <figure
+                  class="rpl-document-link"
+                >
+                  <a
+                    aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+                    class="rpl-document-link__link"
+                    download=""
+                    href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
+                  >
+                    <!---->
+                     
+                    <div
+                      class="rpl-document-link__info"
+                    >
+                      <span
+                        class="rpl-document-link__title"
+                      >
+                         Detailed Guide on the mandatory IR management criteria 
+                      </span>
+                       
+                      <div
+                        class="rpl-document-link__meta"
+                      >
+                        <span
+                          class="rpl-document-link__type"
+                        >
+                          docx
+                        </span>
+                         
+                        <span
+                          class="rpl-document-link__size rpl-document-link__size--seperator"
+                        >
+                          75.22 KB
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                   
+                  <!---->
+                </figure>
+                 
+                <p>
+                  A paragraph of 
+                  <strong>
+                    text
+                  </strong>
+                   with a 
+                  <a
+                    class="rpl-link rpl-text-link"
+                    data-print-url="https://vic.gov.au"
+                    href="https://vic.gov.au"
+                    target="_blank"
+                  >
+                    <span
+                      class="rpl-link__inner"
+                    >
+                      <span
+                        class="rpl-text-label"
+                      >
+                        <span>
+                          <!---->
+                           
+                          <!---->
+                           
+                          <span
+                            class="rpl-text-icon__group"
+                          >
+                            link
+                            <!---->
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-rplcheckbox"
+        >
+          <!---->
+           
+          <div
+            class="field-wrap"
+          >
+            <label
+              class="rpl-checkbox"
+            >
+              <input
+                id="checkbox-3"
+                type="checkbox"
+              />
+               
+              <span
+                class="rpl-checkbox__box rpl-checkbox__box--checked"
+              >
+                <!---->
+              </span>
+               
+              <span
+                class="rpl-checkbox__inline-label"
+              >
+                Check box selected
+              </span>
+            </label>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-rplchecklist"
+        >
+          <label
+            for="multi-select-list-box"
+          >
+            <span>
+              Multi-select list box
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-checklist wrapper"
+            >
+              <div
+                class="rpl-checklist__combobox form-control"
+              >
+                <div
+                  class="rpl-checklist__list"
+                >
+                  <div
+                    class="rpl-checklist__list-row is-checked"
+                  >
+                    <label
+                      class="rpl-checkbox"
+                    >
+                      <input
+                        id="multi-select-list-box-4"
+                        name="topic_a"
+                        type="checkbox"
+                      />
+                       
+                      <span
+                        class="rpl-checkbox__box"
+                      >
+                        <!---->
+                      </span>
+                       
+                      <span
+                        class="rpl-checkbox__inline-label"
+                      >
+                        Topic A
+                      </span>
+                    </label>
+                  </div>
+                  <div
+                    class="rpl-checklist__list-row"
+                  >
+                    <label
+                      class="rpl-checkbox"
+                    >
+                      <input
+                        id="multi-select-list-box-5"
+                        name="topic_b"
+                        type="checkbox"
+                      />
+                       
+                      <span
+                        class="rpl-checkbox__box"
+                      >
+                        <!---->
+                      </span>
+                       
+                      <span
+                        class="rpl-checkbox__inline-label"
+                      >
+                        Topic B
+                      </span>
+                    </label>
+                  </div>
+                  <div
+                    class="rpl-checklist__list-row"
+                  >
+                    <label
+                      class="rpl-checkbox"
+                    >
+                      <input
+                        id="multi-select-list-box-6"
+                        name="topic_c"
+                        type="checkbox"
+                      />
+                       
+                      <span
+                        class="rpl-checkbox__box"
+                      >
+                        <!---->
+                      </span>
+                       
+                      <span
+                        class="rpl-checkbox__inline-label"
+                      >
+                        Topic C
+                      </span>
+                    </label>
+                  </div>
+                  <div
+                    class="rpl-checklist__list-row"
+                  >
+                    <label
+                      class="rpl-checkbox"
+                    >
+                      <input
+                        id="multi-select-list-box-7"
+                        name="topic_d"
+                        type="checkbox"
+                      />
+                       
+                      <span
+                        class="rpl-checkbox__box"
+                      >
+                        <!---->
+                      </span>
+                       
+                      <span
+                        class="rpl-checkbox__inline-label"
+                      >
+                        Topic D
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+               
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <div
+            class="hint"
+          >
+            Implemented using rplchecklist with listBox: true
+          </div>
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid required field-rplselect"
+        >
+          <label
+            for="single-select-drop-down"
+          >
+            <span>
+              Single-select drop down
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-select"
+            >
+              <div
+                class="rpl-select__native"
+              >
+                <select
+                  id="single-select-drop-down"
+                >
+                  <option
+                    disabled="disabled"
+                    value=""
+                  >
+                    Select a single topic
+                  </option>
+                   
+                  <option
+                    value="topic_a"
+                  >
+                    Topic A
+                  </option>
+                  <option
+                    value="topic_b"
+                  >
+                    Topic B
+                  </option>
+                  <option
+                    value="topic_c"
+                  >
+                    Topic C
+                  </option>
+                  <option
+                    value="topic_d"
+                  >
+                    Topic D
+                  </option>
+                  <option
+                    value="topic_e"
+                  >
+                    Topic e
+                  </option>
+                  <option
+                    value="topic_f"
+                  >
+                    Topic f
+                  </option>
+                  <option
+                    value="topic_g"
+                  >
+                    Topic g
+                  </option>
+                  <option
+                    value="topic_h"
+                  >
+                    Topic h
+                  </option>
+                </select>
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <div
+            class="hint"
+          >
+            Implemented using rplSelect
+          </div>
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid required field-rplselect"
+        >
+          <label
+            for="multi-select-drop-down"
+          >
+            <span>
+              Multi-select drop down
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-select"
+            >
+              <div
+                class="rpl-select__native"
+              >
+                <select
+                  id="multi-select-drop-down"
+                  multiple="multiple"
+                >
+                  <!---->
+                   
+                  <option
+                    value="topic_a"
+                  >
+                    Topic A
+                  </option>
+                  <option
+                    value="topic_$#%&!@~^&*"
+                  >
+                    Topic with $#%&!@~^&*
+                  </option>
+                  <option
+                    value="topic_c"
+                  >
+                    Topic C
+                  </option>
+                  <option
+                    value="topic_d"
+                  >
+                    Topic D
+                  </option>
+                  <option
+                    value="topic_e"
+                  >
+                    Topic E
+                  </option>
+                  <option
+                    value="topic_f"
+                  >
+                    Topic F
+                  </option>
+                  <option
+                    value="topic_g"
+                  >
+                    Topic G
+                  </option>
+                  <option
+                    value="topic_h"
+                  >
+                    Topic H
+                  </option>
+                </select>
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <div
+            class="hint"
+          >
+            Implemented using rplSelect
+          </div>
+           
+          <!---->
+        </div>
+      </div>
+    </fieldset>
+    <fieldset
+      class="rpl-fieldset valid rpl-fieldset--pad"
+    >
+      <div
+        class="rpl-fieldset__inner"
+      >
+        <legend>
+          Event location (grouped fields)
+        </legend>
+        <div
+          class="form-group valid required form-group--col-two field-input"
+        >
+          <label
+            for="building-name"
+          >
+            <span>
+              Building name
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="building-name"
+                placeholder="Enter some text..."
+                required="required"
+                type="text"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid required form-group--col-two field-input"
+        >
+          <label
+            for="street-address"
+          >
+            <span>
+              Street address
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="street-address"
+                placeholder="Enter some text..."
+                required="required"
+                type="text"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid required form-group--col-two field-input"
+        >
+          <label
+            for="suburb"
+          >
+            <span>
+              Suburb
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="suburb"
+                placeholder="Enter some text..."
+                required="required"
+                type="text"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid required form-group--col-two field-rplselect"
+        >
+          <label
+            for="state"
+          >
+            <span>
+              State
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-select"
+            >
+              <div
+                class="rpl-select__native"
+              >
+                <select
+                  id="state"
+                >
+                  <option
+                    disabled="disabled"
+                    value=""
+                  >
+                    Select
+                  </option>
+                   
+                  <option
+                    value="vic"
+                  >
+                    Vic
+                  </option>
+                  <option
+                    value="nsw"
+                  >
+                    New South Wales
+                  </option>
+                  <option
+                    value="wa"
+                  >
+                    Western Australia
+                  </option>
+                  <option
+                    value="ql"
+                  >
+                    Queensland
+                  </option>
+                </select>
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid form-group--col-two field-input"
+        >
+          <label
+            for="postcode"
+          >
+            <span>
+              Postcode
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="postcode"
+                placeholder="Enter some text..."
+                type="text"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+    </fieldset>
+    <fieldset
+      class="rpl-fieldset valid"
+    >
+      <div
+        class="rpl-fieldset__inner"
+      >
+        <!---->
+        <div
+          class="form-group valid form-group--inline field-rplsubmitloader"
+        >
+          <!---->
+           
+          <div
+            class="field-wrap"
+          >
+            <button
+              class="rpl-submit-loader form-control"
+              type="submit"
+            >
+              <span
+                class="rpl-submit-loader__text"
+              >
+                Submit (with animation)
+              </span>
+               
+              <!---->
+            </button>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid form-group--inline field-rplclearform"
+        >
+          <!---->
+           
+          <div
+            class="field-wrap"
+          >
+            <button
+              class="rpl-clearform"
+            >
+              <span>
+                <span
+                  class="rpl-text-icon__group"
+                >
+                  <!---->
+                  Clear
+                </span>
+                 
+                <span>
+                   search filters
+                </span>
+                 
+                <!---->
+              </span>
+            </button>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+    </fieldset>
   </div>
 </form>
 `;

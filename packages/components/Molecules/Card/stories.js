@@ -17,7 +17,8 @@ import {
   text,
   select,
   object,
-  boolean
+  boolean,
+  number
 } from '@storybook/addon-knobs/vue'
 
 storiesOf('Molecules/Card/Card Navigation', module)
@@ -348,6 +349,15 @@ storiesOf('Molecules/Card/Card Carousel', module)
     components: { RplCardCarousel },
     template: `<rpl-card-carousel :title="title" :cards="cards" :childColsBp="childColsBp" :totalGridColumns="totalGridColumns" />`,
     props: {
+      title: {
+        default: text('Title', 'Featured Content')
+      },
+      childColsBp: {
+        default: () => object('Column breakpoints', { l: 4, m: 6 })
+      },
+      totalGridColumns: {
+        default: number('Total grid columns', 12)
+      },
       cards: {
         default: () => object('Cards', [
           {

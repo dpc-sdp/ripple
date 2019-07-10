@@ -29,6 +29,7 @@ import fieldRplclearform from './fields/fieldRplclearform.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
 import VueScrollTo from 'vue-scrollto'
+import { RplFormEventBus } from './index.js'
 
 Vue.component('fieldRplselect', fieldRplselect)
 Vue.component('fieldRplslider', fieldRplslider)
@@ -40,9 +41,6 @@ Vue.component('fieldRplclearform', fieldRplclearform)
 Vue.component('fieldRpldivider', fieldRpldivider)
 Vue.component('fieldRplmarkup', fieldRplmarkup)
 Vue.component('RplFieldset', RplFieldset)
-
-export { VueFormGenerator }
-export const RplFormEventBus = new Vue()
 
 export default {
   name: 'RplForm',

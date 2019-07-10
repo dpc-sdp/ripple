@@ -25,7 +25,15 @@
     "cy:run": "cypress run",
     "cy:run-smoke": "cypress run -e TAGS='@smoke'",
     "lint": "eslint --ext .js,.vue . && sass-lint -qv --max-warnings 0",
-    "lint:fix": "eslint --ext .js,.vue . --fix"
+    "lint:fix": "eslint --ext .js,.vue . --fix",
+    "bay:start": "docker-compose up -d",
+    "bay:rebuild-full": "docker-compose up -d --build --force-recreate",
+    "bay:restart": "docker-compose restart",
+    "bay:stop": "docker-compose stop",
+    "bay:destroy": "docker-compose down -v",
+    "bay:logs": "docker-compose logs",
+    "bay:cli": "docker exec -i $(docker-compose ps -q app)",
+    "bay:pull": "docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep amazeeio | grep -v none | xargs -n1 docker pull | cat"
   },
   "devDependencies": {
     "lerna": "^3.0.0",

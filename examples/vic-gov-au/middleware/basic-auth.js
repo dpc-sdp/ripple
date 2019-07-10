@@ -3,7 +3,10 @@ const auth = require('basic-auth')
 
 export default function (req, res, next) {
   const credentials = auth(req)
-  if (!credentials || credentials.name !== process.env.AUTH_USER || credentials.pass !== process.env.AUTH_PASS) {
+  // We need to use same credentials as Content API, as we are using proxy to send API requests.
+  const authUser = process.env.CONTENT_API_AUTH_USER
+  const authPass = process.env.CONTENT_API_AUTH_PASS
+  if (!credentials || credentials.name !== authUser || credentials.pass !== authPass) {
     res.statusCode = 401
     res.setHeader('WWW-Authenticate', 'Basic realm="Access the site"')
     res.end('Access denied')

@@ -4,10 +4,7 @@ const resolve = require('path').resolve
 const tideConfig = require('./tide/tide.config')
 const tideFilters = require('./tide/tide.mapping-filters')
 
-// import .env variables in dev (Make sure Env vars are defined in production environment separately).
-if (process.env.NODE_ENV === 'dev' || (process.env.NODE_ENV === 'test' && process.env.CI !== 'true')) {
-  require('dotenv').config()
-}
+require('dotenv').config()
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 
@@ -101,7 +98,7 @@ export default {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     },
-    site: process.env.SITE_ID,
+    site: 4,
     customConfig: tideConfig,
     customFilters: tideFilters,
     // Tide submodules, 1 for enable, 0 for disable.

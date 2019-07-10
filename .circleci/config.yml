@@ -82,6 +82,6 @@ workflows:
                 - develop
     jobs:
       - test
-      - regression
+      - regression:
           requires:
             - test

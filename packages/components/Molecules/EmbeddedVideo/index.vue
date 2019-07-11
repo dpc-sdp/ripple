@@ -7,7 +7,7 @@
       <rpl-icon symbol="view" color="primary" />
       <rpl-text-link v-bind="mediaLink" />
     </div>
-    <div v-if="variant === 'full' || displayTranscript" class="rpl-embed-video__transcript" >{{ transcript }}</div>
+    <div v-if="variant === 'full' || displayTranscript" class="rpl-embed-video__transcript" v-html="transcript"></div>
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-import htmlUtilities from './html-utilities'
+import htmlUtilities from './../core/html-utilities'
 
 const pluginButton = function () {
   // Button

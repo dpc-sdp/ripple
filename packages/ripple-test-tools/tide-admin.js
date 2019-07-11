@@ -453,6 +453,72 @@ module.exports = class TideAdmin {
     return Promise.resolve(nodeId)
   }
 
+  async createEventPage (testData) {
+    if (!testData) return null
+    // create browser and page
+    const page = await this.setup()
+    const ePage = this.pageModels['eventPage']
+
+    // Login
+    await this.login()
+
+    // Create Event page
+    await page.goto(`${this.backendURL}/node/add/event`)
+    await page.waitForSelector('#drupal-live-announce', this.options.wait)
+    await page.type(this.pageModels.common.title, testData.title)
+    await page.type(this.pageModels.common.summary, testData.summary)
+    await page.type(this.pageModels.common.topic, testData.topic)
+    await page.click(this.pageModels.common.primarySite(testData.siteNumber))
+    await page.click(this.pageModels.common.siteCheckbox(testData.siteNumber))
+    await utils.setWysiwygText(ePage.description, testData.description, page)
+
+    // Body content tab
+    await page.click(ePage.tabs.bodyContent)
+    await utils.setWysiwygText(ePage.bodyContent.body, testData.bodyContent.body, page)
+    await utils.addWysiwygMediaEmbed(ePage.bodyContent.body, 'image', 1, page)
+    await page.type(ePage.bodyContent.startDate, testData.bodyContent.startDate)
+    await page.type(ePage.bodyContent.startTime, testData.bodyContent.startTime)
+    await page.type(ePage.bodyContent.endDate, testData.bodyContent.endDate)
+    await page.type(ePage.bodyContent.endTime, testData.bodyContent.endTime)
+    await page.type(ePage.bodyContent.streetAddress, testData.bodyContent.streetAddress)
+    await page.type(ePage.bodyContent.suburb, testData.bodyContent.suburb)
+    await page.type(ePage.bodyContent.state, testData.bodyContent.state)
+    await page.type(ePage.bodyContent.postalCode, testData.bodyContent.postalCode)
+    await page.type(ePage.bodyContent.price, testData.bodyContent.price)
+    await page.type(ePage.bodyContent.priceTo, testData.bodyContent.priceTo)
+    await page.type(ePage.bodyContent.eventRequirements, testData.bodyContent.eventRequirements)
+    await page.type(ePage.bodyContent.bookUrl, testData.bodyContent.bookUrl)
+    await page.type(ePage.bodyContent.linkText, testData.bodyContent.linkText)
+    await page.type(ePage.bodyContent.eventCategory, testData.bodyContent.eventCategory)
+    await page.type(ePage.bodyContent.audience, testData.bodyContent.audience)
+    await page.type(ePage.bodyContent.websiteUrl, testData.bodyContent.websiteUrl)
+
+    // Event content tab
+    await page.click(ePage.tabs.eventAuthor)
+    await page.type(ePage.eventAuthor.fullName, testData.eventAuthor.fullName)
+    await page.type(ePage.eventAuthor.emailAddress, testData.eventAuthor.emailAddress)
+    await page.type(ePage.eventAuthor.contactPhone, testData.eventAuthor.contactPhone)
+
+    // Set moderation state to published
+    await page.select(this.pageModels.common.moderationState, 'published')
+
+    // Submit
+    await this.submitPage()
+
+    // get nodeid
+    await page.waitForSelector('#drupal-live-announce', this.options.wait)
+    const nodeId = await page.$eval('.tabs__tab .is-active', el =>
+      el
+        .getAttribute('data-drupal-link-system-path')
+        .split('/')
+        .pop()
+    )
+    await this.close()
+
+    // Return nodeId
+    return Promise.resolve(nodeId)
+  }
+
   async createUser (user) {
     if (!user) return null
 

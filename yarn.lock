@@ -12404,15 +12404,24 @@ octokit-pagination-methods@^1.1.0:
   resolved "https://registry.yarnpkg.com/octokit-pagination-methods/-/octokit-pagination-methods-1.1.0.tgz#cf472edc9d551055f9ef73f6e42b4dbb4c80bea4"
   integrity sha512-fZ4qZdQ2nxJvtcasX7Ghl+WlWS/d9IgnBIwFZXVNNZUmzpno91SX5bc5vuxiuKoCtK78XxGGNuSCrDC7xYB3OQ==
 
-ol-ext@^3.1.2:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/ol-ext/-/ol-ext-3.1.4.tgz#3cf8b77b62c49bd884d546d9772baf50b55caee9"
-  integrity sha512-Hn7C/8aRX6aGXHOYDtt90bndPKoTeCzI4u++rxYc6c7FMN2uNSl8BSnzQXALFtn1bP2/twMXqJQrC1iMieRxIA==
+ol-ext@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/ol-ext/-/ol-ext-3.1.2.tgz#9aa736a01dd15e49ee2ef4da92b7e5f4fe270a37"
+  integrity sha512-0AbC8gWHsMFpFVOxgx3jYIw+qK4yFnDJq6l+cjgVOJkGpKSxkKyjbW85cFsxaEZ4eKELC2qRQpCFAdPezNUYwA==
   dependencies:
     ajax "0.0.4"
     ol "^5.3.0"
 
-ol@^5.3.0, ol@^5.3.1:
+ol@5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/ol/-/ol-5.3.1.tgz#cd5eaa5c7f7df8fb08e0935161e56b1d85d188f5"
+  integrity sha512-1eCZ/bqqFUqfU2gJl2AWCD6vEpOCohW/OjC4/7lILu7knOfvFAfN2x9I8g0BJfDGYF34XFt1WR62acTfaZ5rUA==
+  dependencies:
+    pbf "3.1.0"
+    pixelworks "1.1.0"
+    rbush "2.0.2"
+
+ol@^5.3.0:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/ol/-/ol-5.3.3.tgz#ad39b7b485fdbae4b3e1535a0a07cc5d88b0b9b5"
   integrity sha512-7eU4x8YMduNcED1D5wI+AMWDRe7/1HmGfsbV+kFFROI9RNABU/6n4osj6Q3trZbxxKnK2DSRIjIRGwRHT/Z+Ww==

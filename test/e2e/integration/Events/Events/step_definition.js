@@ -2,30 +2,46 @@
 
 import { Then } from 'cypress-cucumber-preprocessor/steps'
 
-Then(`the description should be {string}`, (description) => {
+Then(`the Description should be {string}`, (description) => {
   cy.get('.tide-event-content .rpl-col:nth-child(1) .rpl-markup .rpl-markup__inner').should('contain', description)
 })
 
-Then(`the list item {int} should be {string}`, (index, item) => {
-  cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(${index}) .rpl-list__text`).should('contain', item)
+Then(`the Dates should be {string}`, (dates) => {
+  cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(1) .rpl-list__text`).should('contain', dates)
 })
 
-Then(`the body should be {string}`, (body) => {
+Then(`the Address should be {string}`, (address) => {
+  cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(2) .rpl-list__text`).should('contain', address)
+})
+
+Then(`the Price should be {string}`, (price) => {
+  cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(3) .rpl-list__text`).should('contain', price)
+})
+
+Then(`the Web url should be {string}`, (webUrl) => {
+  cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(4) .rpl-list__text`).should('contain', webUrl)
+})
+
+Then(`the Requirements should be {string}`, (requirements) => {
+  cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(5) .rpl-list__text`).should('contain', requirements)
+})
+
+Then(`the Body should be {string}`, (body) => {
   cy.get('.tide-event-content .rpl-col:nth-child(3) .rpl-markup .rpl-markup__inner').should('contain', body)
 })
 
-Then(`the image is present`, () => {
+Then(`the Image is asserted to be present`, () => {
   cy.get('.tide-event-content .embedded-entity--media--image').should('exist')
 })
 
-Then(`the booking button text should be {string}`, (value) => {
+Then(`the Booking Url link should be {string}`, (value) => {
   cy.get('.tide-event-content .rpl-button').should('contain', value)
 })
 
-Then(`the booking button link should be {string}`, (value) => {
+Then(`the Booking Text should be {string}`, (value) => {
   cy.get('.tide-event-content .rpl-button').should('have.attr', 'href', value)
 })
 
-Then(`the booking button target should be {string}`, (value) => {
-  cy.get('.tide-event-content .rpl-button').should('have.attr', 'target', value)
+Then(`the Booking Button should open in a new window`, () => {
+  cy.get('.tide-event-content .rpl-button').should('have.attr', 'target', '_blank')
 })

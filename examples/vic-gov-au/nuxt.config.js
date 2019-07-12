@@ -128,7 +128,7 @@ export default {
     search: {
       service: process.env.SEARCH_SERVICE,
       index: process.env.SEARCH_INDEX,
-      url: process.env.SEARCH_URL,
+      url: 'https://' + process.env.SEARCH_HASH + '.' + process.env.SEARCH_URL,
       log: process.env.SEARCH_LOG,
       auth: {
         username: process.env.SEARCH_AUTH_USERNAME,

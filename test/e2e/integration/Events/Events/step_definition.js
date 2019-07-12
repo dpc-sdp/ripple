@@ -22,7 +22,7 @@ Then(`the Web url should be {string}`, (webUrl) => {
   cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(4) .rpl-list__text`).should('contain', webUrl)
 })
 
-Then(`the Requirements should be {string}`, (requirements) => {
+Then(`the Requirements the should be {string}`, (requirements) => {
   cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(5) .rpl-list__text`).should('contain', requirements)
 })
 
@@ -35,11 +35,11 @@ Then(`the Image is asserted to be present`, () => {
 })
 
 Then(`the Booking Url link should be {string}`, (value) => {
-  cy.get('.tide-event-content .rpl-button').should('contain', value)
+  cy.get('.tide-event-content .rpl-button').should('have.attr', 'href', value)
 })
 
 Then(`the Booking Text should be {string}`, (value) => {
-  cy.get('.tide-event-content .rpl-button').should('have.attr', 'href', value)
+  cy.get('.tide-event-content .rpl-button').should('contain', value)
 })
 
 Then(`the Booking Button should open in a new window`, () => {

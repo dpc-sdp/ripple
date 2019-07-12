@@ -165,8 +165,8 @@ const adminPageModels = {
     }
   },
   jwt: {
-    expiry: dataSel('#edit-jwt-exp'),
-    key: dataSel('#edit-jwt-key')
+    expiry: dataSel('edit-jwt-exp'),
+    key: dataSel('edit-jwt-key')
   },
   accounts: {
     adminApproval: dataSel('edit-user-register-visitors-admin-approval')

@@ -22,7 +22,7 @@ Then(`the Web url should be {string}`, (webUrl) => {
   cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(4) .rpl-list__text`).should('contain', webUrl)
 })
 
-Then(`the Requirements the should be {string}`, (requirements) => {
+Then(`the Requirements should be {string}`, (requirements) => {
   cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(5) .rpl-list__text`).should('contain', requirements)
 })
 

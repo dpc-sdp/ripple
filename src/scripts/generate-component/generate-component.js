@@ -66,7 +66,7 @@ const files = [
   { template: 'component_template.vue', output: data.componentSpacelessName + '.vue' },
   { template: 'index_template.js', output: 'index.js' },
   { template: 'LICENSE', output: 'LICENSE' },
-  { template: 'component_template.json', output: 'package.json' },
+  { template: 'package_template.json', output: 'package.json' },
   { template: 'stories_template.js', output: 'stories.js' }
 ]
 
@@ -87,5 +87,5 @@ files.forEach((item) => {
 
 console.log(`Created "${getTitleCase(componentName)}"`)
 console.log(`\nTo complete setup, run:`)
+console.log(`- ${packageManager} run package-dependencies:storybook`)
 console.log(`- ${packageManager} run docs:storybook`)
-console.log(`- ${packageManager} run package-dependencies:storybook\n`)

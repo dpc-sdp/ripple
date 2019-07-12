@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
-  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/{{packageAtomFolder}}/{{packageSpacelessName}}",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/{{componentAtomFolder}}/{{componentSpacelessName}}",
   "publishConfig": {
     "access": "public"
   },

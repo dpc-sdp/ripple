@@ -21,11 +21,13 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
+  $rpl-description-list-margin: 0 !default;
   $rpl-description-list-label-ruleset: ('s', 1.5em, 'bold') !default;
   $rpl-description-list-text-color: rpl-color('extra_dark_neutral') !default;
 
   .rpl-description-list {
     @include rpl_text_color($rpl-description-list-text-color);
+    margin: $rpl-description-list-margin;
     display: table;
 
     &__row {

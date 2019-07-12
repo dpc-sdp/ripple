@@ -9,7 +9,7 @@
     "build-storybook": "cross-env NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public",
     "test:unit": "cross-env NODE_ENV=test jest --colors",
     "docs": "node ./scripts/generate-readme/generate-readme.js",
-    "new-component": "node ./scripts/generate-package/generate-package.js",
+    "new-component": "node ./scripts/generate-component/generate-component.js",
     "package-dependencies": "node ./scripts/generate-dependencies/generate-dependencies.js"
   },
   "dependencies": {

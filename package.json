@@ -37,7 +37,10 @@
     "bay:destroy": "docker-compose down -v",
     "bay:logs": "docker-compose logs",
     "bay:cli": "docker exec -i $(docker-compose ps -q app)",
-    "bay:pull": "docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep amazeeio | grep -v none | xargs -n1 docker pull | cat"
+    "bay:pull": "docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep amazeeio | grep -v none | xargs -n1 docker pull | cat",
+    "docs:storybook": "cd src/ && yarn run docs",
+    "new-component:storybook": "cd src/ && yarn run new-component",
+    "package-dependencies:storybook": "cd src/ && yarn run package-dependencies"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",

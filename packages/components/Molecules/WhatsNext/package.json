@@ -1,0 +1,16 @@
+{
+  "name": "@dpc-sdp/ripple-whats-next",
+  "version": "1.0.0-beta.5",
+  "description": "A component to display a list of links relating to additional content for an article. Recommended for use in sidebars.",
+  "license": "Apache-2.0",
+  "main": "index.vue",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Molecules/WhatsNext",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-global": "1.0.0-beta.5",
+    "@dpc-sdp/ripple-link": "1.0.0-beta.5"
+  }
+}

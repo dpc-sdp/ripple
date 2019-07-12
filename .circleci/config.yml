@@ -24,7 +24,6 @@ jobs:
           key: v1-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
-            - packages/ripple-ui-components/node_modules
             - packages/ripple-nuxt-tide/node_modules
             - packages/ripple-nuxt-ui/node_modules
             - packages/ripple-create-app/node_modules

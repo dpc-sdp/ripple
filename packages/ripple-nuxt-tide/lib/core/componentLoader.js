@@ -8,7 +8,7 @@ try {
     }
   }
 } catch (error) {
-  // no custom components
+  console.warn('please add /tide/tide.load-components.js to your project directory')
 }
 
 export const loadComponent = (name) => {

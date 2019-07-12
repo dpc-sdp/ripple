@@ -286,7 +286,7 @@ export default (config, router, site) => ({
           if (businessFilters.currentSiteOnly) {
             additionalFilters.field_node_site = {
               type: 'term',
-              values: [site],
+              values: [site.toString()],
               fields: 'field_node_site'
             }
           }

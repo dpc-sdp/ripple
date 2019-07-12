@@ -133,6 +133,37 @@ const adminPageModels = {
       department: dataSel('edit-field-node-department')
     }
   },
+  eventPage: {
+    description: dataSel('edit-field-event-description-wrapper'),
+    tabs: {
+      bodyContent: hrefSel('#edit-group-body-content'),
+      eventAuthor: hrefSel('#edit-group-event-author')
+    },
+    bodyContent: {
+      body: dataSel('edit-body-wrapper'),
+      startDate: dataSel('edit-field-event-details-0-subform-field-paragraph-date-range-0-value-date'),
+      startTime: dataSel('edit-field-event-details-0-subform-field-paragraph-date-range-0-value-time'),
+      endDate: dataSel('edit-field-event-details-0-subform-field-paragraph-date-range-0-end-value-date'),
+      endTime: dataSel('edit-field-event-details-0-subform-field-paragraph-date-range-0-end-value-time'),
+      streetAddress: dataSel('edit-field-event-details-0-subform-field-paragraph-location-0-address-address-line1'),
+      suburb: dataSel('edit-field-event-details-0-subform-field-paragraph-location-0-address-locality'),
+      state: dataSel('edit-field-event-details-0-subform-field-paragraph-location-0-address-administrative-area'),
+      postalCode: dataSel('edit-field-event-details-0-subform-field-paragraph-location-0-address-postal-code'),
+      price: dataSel('edit-field-event-details-0-subform-field-paragraph-event-price-from-0-value'),
+      priceTo: dataSel('edit-field-event-details-0-subform-field-paragraph-event-price-to-0-value'),
+      eventRequirements: dataSel('edit-field-event-details-0-subform-field-event-requirements-0-target-id'),
+      bookUrl: dataSel('edit-field-event-details-0-subform-field-paragraph-link-0-uri'),
+      linkText: dataSel('edit-field-event-details-0-subform-field-paragraph-link-0-title'),
+      eventCategory: dataSel('edit-field-event-category-0-target-id'),
+      audience: dataSel('edit-field-audience-0-target-id'),
+      websiteUrl: dataSel('edit-field-node-link-0-uri')
+    },
+    eventAuthor: {
+      fullName: dataSel('edit-field-node-author-0-value'),
+      emailAddress: dataSel('edit-field-node-email-0-value'),
+      contactPhone: dataSel('edit-field-node-phone-0-value')
+    }
+  },
   jwt: {
     expiry: dataSel('edit-jwt-exp'),
     key: dataSel('edit-jwt-key')

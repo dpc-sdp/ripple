@@ -12,6 +12,9 @@ module.exports = (on, config) => {
     createGrantPage (data) {
       return new TideAdmin().createGrantPage(data)
     },
+    createEventPage (data) {
+      return new TideAdmin().createEventPage(data)
+    },
     createUser (user) {
       return new TideAdmin().createUser(user)
     },

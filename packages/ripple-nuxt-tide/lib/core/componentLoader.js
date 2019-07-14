@@ -1,5 +1,15 @@
 import coreComponents from './../config/tide.load-components'
-// import customComponentsLoadConfig from '~/tide.load-components.js'
+let customComponents = {}
+try {
+  const customComponentsLoadConfig = require('~/tide/tide.load-components.js').default
+  if (customComponentsLoadConfig) {
+    customComponents = {
+      ...customComponentsLoadConfig
+    }
+  }
+} catch (error) {
+  console.warn('please add /tide/tide.load-components.js to your project directory')
+}
 
 export const loadComponent = (name) => {
   // TODO: move all core components import from here to "/nuxt-tide/lib/conifg/tide.load-components.js" after we take nuxt-tide out of nuxt project.
@@ -85,6 +95,8 @@ export const loadComponent = (name) => {
     default:
       if (coreComponents[name]) {
         return coreComponents[name]
+      } else if (customComponents && customComponents[name]) {
+        return customComponents[name]
       } else {
         return null
       }

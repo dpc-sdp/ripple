@@ -1,54 +1,213 @@
-function testRule (rules, data) {
-  let operator = ''
-  let results = []
+/**
+ * Run tests for field.
+ * Will update the field object based on it's state.
+ * Supports the following states:
+ * - required
+ * @param {Object} field
+ * @param {Object} data uses data.model property
+ */
+function testField (field, data) {
+  for (const state in field.states) {
+    const test = prepareTest(field.states[state], data)
+    const isPass = performTest(test)
 
-  // Build up a results array.
-  rules.forEach(item => {
-    if (typeof item === 'object') {
-      // Get properties
-      const key = getFirstObjectKey(item)
-      const model = getNameFromRule(key)
-      const prop = getFirstObjectKey(item[key])
-      const value = item[key][prop]
-      // get model value
-      const modelValue = getModelValue(model, data)
-      let result = true
-      // Test for empty
-      if (prop === 'empty') {
-        if (value === true) {
-          // true if empty
-          result = (modelValue == null || modelValue === '')
-        } else {
-          // true if not empty
-          result = (modelValue != null || modelValue !== '')
+    // Apply state
+    switch (state) {
+      case 'required':
+        field.required = isPass
+        // Remove 'required' from validator array.
+        const idxRequired = field.validator.indexOf('required')
+        if (isPass && idxRequired < 0) {
+          field.validator.push('required')
+        } else if (!isPass && idxRequired >= 0) {
+          field.validator.splice(idxRequired, 1)
         }
-      }
-      results.push(result)
-    } else {
-      // Expect the operator.
-      operator = item
-    }
-  })
-
-  if (operator === 'or') {
-    // If any of these is true, return true
-    for (let i = 0; i < results.length; i++) {
-      if (results[i] === true) {
-        return true
-      }
+        break
+      default:
+        console.warn(`Form: State "${state}" is not supported.`)
+        break
     }
   }
-  return false
 }
 
+/**
+ * Normalize the rules for processing.
+ * Rules may be an {object} or [array (with operator)].
+ * This will output a test object.
+ * @param {Object} rulesObject webform rules object
+ * @param {Object} data form data
+ */
+function prepareTest (rulesObject, data) {
+  const rulesType = Array.isArray(rulesObject) ? 'array' : typeof rulesObject
+  let operator = 'and'
+  let rules = []
+
+  switch (rulesType) {
+    case 'array':
+      // Used on 'or' / 'xor' operators.
+      rulesObject.forEach(item => {
+        if (typeof item === 'object') {
+          const selector = getFirstObjectKey(item)
+          rules.push(convertSelectorToRule(item, selector, data))
+        } else {
+          operator = item
+        }
+      })
+      break
+    case 'object':
+      // Used on 'and' operator.
+      Object.getOwnPropertyNames(rulesObject).forEach(selector => {
+        if (selector !== '__ob__') {
+          rules.push(convertSelectorToRule(rulesObject, selector, data))
+        }
+      })
+      break
+    default:
+      console.warn(`Form: "${rulesType}" rules variable is not supported.`)
+      break
+  }
+
+  return { operator, rules }
+}
+
+/**
+ * Returns an object with the core testing variables.
+ * @param {Object} ruleObject the parent object that contains the selector
+ * @param {String} selector a field selector e.g. ':input[name=\"check_a\"]'
+ * @param {Object} data uses data.model property
+ */
+function convertSelectorToRule (ruleObject, selector, data) {
+  const modelName = getNameFromRule(selector)
+  const modelValue = data.model[modelName]
+  const triggerName = getFirstObjectKey(ruleObject[selector])
+  const triggerValue = ruleObject[selector][triggerName]
+  return { modelName, modelValue, triggerName, triggerValue }
+}
+
+/**
+ * Perform the test.
+ * Returns true if tests pass.
+ * @param {Object} test
+ */
+function performTest (test) {
+  const results = test.rules.map(rule => performTriggerCheck(rule))
+  return performOperatorCheck(test.operator, results)
+}
+
+/**
+ * Given a rule, check it's trigger against it's model value.
+ * Does not support following triggers:
+ * - expanded
+ * - collapsed
+ * @param {Object} rule
+ */
+function performTriggerCheck (rule) {
+  let result = true
+  switch (rule.triggerName) {
+    case 'empty':
+      result = (rule.modelValue == null || rule.modelValue === '')
+      break
+    case 'filled':
+      result = (rule.modelValue != null && rule.modelValue.length > 0)
+      break
+    case 'checked':
+      result = (rule.modelValue === true)
+      break
+    case 'unchecked':
+      result = (rule.modelValue == null || rule.modelValue === false)
+      break
+    case 'value':
+      if (typeof rule.triggerValue === 'string') {
+        // value
+        result = (rule.modelValue === rule.triggerValue)
+      } else if (rule.triggerValue['pattern']) {
+        // pattern
+        if (rule.modelValue) {
+          const matches = rule.modelValue.match(new RegExp(rule.triggerValue['pattern']))
+          result = (matches && matches.length > 0)
+        } else {
+          result = false
+        }
+      } else if (rule.triggerValue['!pattern']) {
+        // not pattern
+        if (rule.modelValue) {
+          const matches = rule.modelValue.match(new RegExp(rule.triggerValue['!pattern']))
+          result = (!matches || matches.length === 0)
+        }
+      } else if (rule.triggerValue['less']) {
+        // less
+        const intModelValue = parseFloat(rule.modelValue)
+        const intTriggerValue = parseFloat(rule.triggerValue['less'])
+        result = (intModelValue < intTriggerValue)
+      } else if (rule.triggerValue['greater']) {
+        // greater
+        const intModelValue = parseFloat(rule.modelValue)
+        const intTriggerValue = parseFloat(rule.triggerValue['greater'])
+        result = (intModelValue > intTriggerValue)
+      }
+      break
+    case '!value':
+      result = (rule.modelValue !== rule.triggerValue)
+      break
+    default:
+      console.warn(`Form: Trigger "${rule.triggerName}" is not supported.`)
+      break
+  }
+  return result
+}
+
+/**
+ * Given an operator and list of results, will determine if the test has passed.
+ * @param {String} operator and / or / xor
+ * @param {Array} results results of all tests
+ */
+function performOperatorCheck (operator, results) {
+  let isPass = false
+  switch (operator) {
+    case 'and':
+      let andCount = 0
+      // All must be true
+      for (let i = 0; i < results.length; i++) {
+        if (results[i] === true) {
+          andCount++
+        }
+      }
+      isPass = (andCount === results.length)
+      break
+    case 'or':
+      // Any can be true
+      for (let i = 0; i < results.length; i++) {
+        if (results[i] === true) {
+          isPass = true
+          break
+        }
+      }
+      break
+    case 'xor':
+      let xorCount = 0
+      // Only one must be true
+      for (let i = 0; i < results.length; i++) {
+        if (results[i] === true) {
+          xorCount++
+        }
+      }
+      isPass = (xorCount === 1)
+      break
+    default:
+      console.warn(`Form: Opeator "${operator}" not supported.`)
+      break
+  }
+  return isPass
+}
+
+/**
+ * Extract model name "check_a" from a rule ":input[name=\"check_a\"]"
+ * @param {String} rule :input[name=\"check_a\"]
+ */
 function getNameFromRule (rule) {
   const start = rule.indexOf('"') + 1
   const end = rule.indexOf('"', start + 1)
   return rule.substr(start, (end - start))
-}
-
-function getModelValue (model, data) {
-  return data.model[model]
 }
 
 /**
@@ -74,18 +233,4 @@ function getFirstObjectKey (obj) {
 // The only supported is "required" condition state.
 // We can add more support when we need here.
 // VFG has example for dynamic visibility(same to disabled) https://vue-generators.gitbook.io/vue-generators/fields/field_properties#dynamic-visibility
-export default function (field, rule, data) {
-  for (const state in rule) {
-    if (state === 'required') {
-      const testPassed = testRule(rule[state], data)
-      field.required = testPassed
-      // Remove 'required' from validator array.
-      const idxRequired = field.validator.indexOf('required')
-      if (testPassed && idxRequired < 0) {
-        field.validator.push('required')
-      } else if (!testPassed && idxRequired >= 0) {
-        field.validator.splice(idxRequired, 1)
-      }
-    }
-  }
-}
+export default testField

@@ -1,10 +1,10 @@
 <template>
   <rpl-row row-gutter class="app-content">
-    <rpl-col cols="full">
+    <rpl-col v-if="anchorLinks && anchorLinks.length > 0" cols="full">
       <rpl-anchor-links title="On this page:" :links="anchorLinks" />
     </rpl-col>
-    <rpl-col cols="full">
-      <rpl-publication-author-information v-if="publishingInfo" v-bind="publishingInfo" />
+    <rpl-col v-if="publishingInfo" cols="full">
+      <rpl-publication-author-information v-bind="publishingInfo" />
     </rpl-col>
     <template v-if="dynamicComponents">
       <template v-for="dComponent in dynamicComponents">
@@ -17,12 +17,12 @@
       </template>
     </template>
     <template v-if="chapters">
-      <rpl-col cols="full" v-for="chapter in chapters"  :key="chapter.id">
+      <rpl-col cols="full" v-for="chapter in chapters" :key="chapter.id">
         <rpl-card-navigation v-bind="chapter"> </rpl-card-navigation>
       </rpl-col>
     </template>
-    <rpl-col cols="full">
-      <rpl-publication-pagination v-if="publicationPagination" v-bind="publicationPagination"> </rpl-publication-pagination>
+    <rpl-col v-if="publicationPagination" cols="full">
+      <rpl-publication-pagination v-bind="publicationPagination"> </rpl-publication-pagination>
     </rpl-col>
   </rpl-row>
 </template>
@@ -57,11 +57,10 @@ export default {
   computed: {
     publishingInfo () {
       if (this.page.type === 'node--publication') {
-        return {
-          author: this.page.field_publication_authors && this.page.field_publication_authors.length > 0 ? this.page.field_publication_authors.join(', ') : '',
-          date: this.page.field_publication_date,
-          copyright: this.page.field_license_type ? this.page.field_license_type.description : ''
-        }
+        const author = this.page.field_publication_authors && this.page.field_publication_authors.length > 0 ? this.page.field_publication_authors.join(', ') : ''
+        const date = this.page.field_publication_date
+        const copyright = this.page.field_license_type ? this.page.field_license_type.description : ''
+        return (author || date || copyright) ? { author, date, copyright } : null
       }
     },
     chapters () {

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/example-vic-gov-au",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.5",
   "description": "Reference nuxt site using Ripple front end and connecting to Tide backend",
   "private": true,
   "scripts": {
@@ -15,8 +15,8 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.0.0-beta.6",
-    "@dpc-sdp/ripple-nuxt-ui": "1.0.0-beta.6",
+    "@dpc-sdp/ripple-nuxt-tide": "1.0.0-beta.5",
+    "@dpc-sdp/ripple-nuxt-ui": "1.0.0-beta.5",
     "@nuxtjs/robots": "^2.0.0",
     "@nuxtjs/style-resources": "^0.1.2",
     "basic-auth": "^2.0.0",
@@ -32,17 +32,17 @@
   "devDependencies": {
     "@babel/core": "^7.5.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/runtime": "^7.5.1",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.5.0",
-    "@babel/runtime": "^7.5.1",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "babel-plugin-dynamic-import-node": "^2.3.0",
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-preset-vue": "^2.0.2",
-    "core-js": "^2.6.5",
+    "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
+    "core-js": "^2.6.5",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",

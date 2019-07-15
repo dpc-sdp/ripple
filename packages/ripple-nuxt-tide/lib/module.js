@@ -130,8 +130,7 @@ const nuxtTide = function (moduleOptions) {
   this.options.proxy = {
     ...this.options.proxy,
     '/api/v1/': options.baseUrl,
-    '/sites/default/files/': options.baseUrl,
-    '/external-api-url-shorten': 'https://go.vic.gov.au/shorten/index.php'
+    '/sites/default/files/': options.baseUrl
   }
 
   // Register `plugin.js` template
@@ -159,11 +158,6 @@ const nuxtTide = function (moduleOptions) {
 
   // Extends routes to add tide page wildcard route, routes added under /pages will still take precedence
   this.extendRoutes((routes, resolve) => {
-    routes.push({
-      name: 'url-shorten',
-      path: '/sdp-apps/url-shorten',
-      component: resolve(__dirname, './pages/sdp-apps/UrlShorten.vue')
-    })
     routes.push({
       name: 'tide',
       path: '*',

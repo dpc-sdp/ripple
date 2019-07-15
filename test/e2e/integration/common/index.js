@@ -31,6 +31,15 @@ Given(`I have created a landing page with the json fixture {string}`, (fixture) 
   })
 })
 
+Given(`I have created an event page with the json fixture {string}`, (fixture) => {
+  cy.fixture(fixture).as('pageData')
+  cy.get('@pageData').then(data => {
+    cy.task('createEventPage', data).then((nodeId) => {
+      cy.wrap(nodeId).as('nodeId')
+    })
+  })
+})
+
 Given(`I have navigated to the created page`, () => {
   cy.get('@nodeId').then(nodeId => {
     cy.visit(`/node/${nodeId}`)

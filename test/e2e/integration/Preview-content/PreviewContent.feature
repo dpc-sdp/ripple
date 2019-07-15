@@ -15,6 +15,7 @@ Feature: Preview content
     And there should be a preview destination query string
     And the created page should be removed
 
+  @skip
   Scenario: Accessing a preview when authenticated shows page
     Given there is a user in the system with the following credentials:
       | login     | password     | active | email                    | role      |

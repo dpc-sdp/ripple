@@ -16,7 +16,7 @@ Feature: Landing Page Components
     Then the site header is visible
     Then the site footer is visible
   
-  @a11y
+  @a11y @skip
   Scenario: There are no accessibility errors
     Given I have created a landing page with the json fixture "Pages/LandingPage/simple"
     And I have navigated to the created test page

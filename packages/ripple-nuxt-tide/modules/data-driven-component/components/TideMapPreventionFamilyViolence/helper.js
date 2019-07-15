@@ -21,17 +21,26 @@ export const emptyArray = items => {
   }
 }
 
-export const toggleFullScreen = element => {
-  if (!element) return
-
-  // if already full screen; exit
-  // else go fullscreen
+// Check the document is in fullscreen or not
+export const isFullscreen = () => {
   if (
     document.fullscreenElement ||
     document.webkitFullscreenElement ||
     document.mozFullScreenElement ||
     document.msFullscreenElement
   ) {
+    return true
+  } else {
+    return false
+  }
+}
+
+export const toggleFullScreen = element => {
+  if (!element) return
+
+  // if already full screen; exit
+  // else go fullscreen
+  if (isFullscreen()) {
     if (document.exitFullscreen) {
       document.exitFullscreen()
     } else if (document.mozCancelFullScreen) {

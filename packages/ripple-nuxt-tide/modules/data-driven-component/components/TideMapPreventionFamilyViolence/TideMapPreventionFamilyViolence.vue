@@ -54,7 +54,7 @@ import { RplMap } from '@dpc-sdp/ripple-map'
 import ol from '@dpc-sdp/ripple-map/lib/ol'
 import TideMapSidebarHome from './TideMapSidebarHome'
 import TideMapExpandButton from './TideMapExpandButton'
-import { emptyArray, toggleFullScreen } from './helper'
+import { emptyArray, toggleFullScreen, isFullscreen } from './helper'
 const { createImageIconStyle } = ol
 
 const baseMapUrl = 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
@@ -316,21 +316,30 @@ export default {
       selectedProject: _selectedProject,
       isFullScreen: false,
       expanded: false,
-      refreshOn: false
+      refreshOn: false,
+      buttonText: 'Enter full screen',
+      buttonIcon: 'fullscreen'
     }
   },
   computed: {
-    buttonText () {
-      return this.isFullScreen ? 'Exit full screen' : 'Enter full screen'
-    },
-    buttonIcon () {
-      return this.isFullScreen ? 'close' : 'fullscreen'
-    },
     expandedMapClass () {
       return this.expanded ? 'tide-map__map-container map-expanded' : 'tide-map__map-container'
     }
   },
+  mounted () {
+    // We need to listen to the Document global fullscreen change event as user can use "Esc" to escape the fullscreen which will bypass our component toggle event.
+    document.addEventListener('fullscreenchange', this.toggleButtonText)
+  },
   methods: {
+    toggleButtonText () {
+      if (isFullscreen()) {
+        this.buttonText = 'Exit full screen'
+        this.buttonIcon = 'close'
+      } else {
+        this.buttonText = 'Enter full screen'
+        this.buttonIcon = 'fullscreen'
+      }
+    },
     toggleExpand () {
       console.log('expand')
       this.expanded = !this.expanded

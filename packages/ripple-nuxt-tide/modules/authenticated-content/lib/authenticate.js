@@ -69,7 +69,8 @@ function serverSetToken (cookies, store) {
   let isAuth = false
   if (cookies) {
     const parsed = cookieparser.parse(cookies)
-    if (parsed[authCookieName]) {
+    // Check if authenticated content cookie is set
+    if (parsed[authCookieName] && parsed[authCookieName] !== '{"tideAuthenticatedContent":{"token":null}}') {
       if (!isTokenExpired(parsed[authCookieName])) {
         serverToken = parsed[authCookieName]
         isAuth = true

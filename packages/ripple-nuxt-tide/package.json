@@ -5,7 +5,6 @@
   "license": "Apache-2.0",
   "main": "lib/module.js",
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-ui": "1.0.0-beta.5",
     "@dpc-sdp/ripple-accordion": "1.0.0-beta.5",
     "@dpc-sdp/ripple-alert": "1.0.0-beta.5",
     "@dpc-sdp/ripple-anchor-links": "1.0.0-beta.5",
@@ -34,6 +33,7 @@
     "@dpc-sdp/ripple-markup": "1.0.0-beta.5",
     "@dpc-sdp/ripple-meta-tag": "1.0.0-beta.5",
     "@dpc-sdp/ripple-news": "1.0.0-beta.5",
+    "@dpc-sdp/ripple-nuxt-ui": "1.0.0-beta.5",
     "@dpc-sdp/ripple-pagination": "1.0.0-beta.5",
     "@dpc-sdp/ripple-profile": "1.0.0-beta.5",
     "@dpc-sdp/ripple-publication": "1.0.0-beta.5",
@@ -48,8 +48,8 @@
     "@dpc-sdp/ripple-timeline": "1.0.0-beta.5",
     "@dpc-sdp/ripple-updated-date": "1.0.0-beta.5",
     "@dpc-sdp/ripple-whats-next": "1.0.0-beta.5",
-    "@nuxtjs/proxy": "^1.2.4",
     "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/proxy": "^1.2.4",
     "cheerio": "^1.0.0-rc.2",
     "cookieparser": "^0.1.0",
     "cookies": "^0.7.3",
@@ -69,5 +69,9 @@
   "peerDependencies": {
     "@nuxtjs/axios": "^5.3.1",
     "nuxt": "^2.4.3"
+  },
+  "devDependencies": {
+    "mockdate": "^2.0.3",
+    "vuex-mock-store": "^0.0.7"
   }
 }

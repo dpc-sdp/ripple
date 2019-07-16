@@ -53,7 +53,7 @@ export default {
     checkFieldStates () {
       this.fields.forEach(field => {
         if (field.states) {
-          conditionalLogic(field, field.states, this.formData)
+          conditionalLogic(field, this.formData)
         }
       })
     },

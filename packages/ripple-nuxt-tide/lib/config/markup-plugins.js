@@ -106,17 +106,7 @@ const pluginIframe = function () {
   const wrapperClasses = ['rpl-markup__iframe-container']
   this.find('iframe').map((i, el) => {
     const iframe = this.find(el)
-    const height = iframe.attr('height')
-    const width = iframe.attr('width')
-    let padding = null
-    if (height && width) {
-      const aspectRatio = ((Math.round(width) / Math.round(height)) * 100).toFixed(2)
-      if (aspectRatio > 0) {
-        padding = `padding-bottom: ${aspectRatio.replace('.00', '')}%`
-      }
-    }
-
-    const markup = `<div ${padding !== null ? 'style="' + padding + '"' : ''} class="${wrapperClasses.join(' ')}"></div>`
+    const markup = `<div class="${wrapperClasses.join(' ')}"></div>`
     return iframe.wrap(markup)
   })
 }

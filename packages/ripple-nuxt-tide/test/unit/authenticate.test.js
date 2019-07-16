@@ -1,4 +1,4 @@
-import { serverSetToken } from './../lib/authenticate'
+import { serverSetToken } from './../../modules/authenticated-content/lib/authenticate'
 import { Store } from 'vuex-mock-store'
 
 describe('setServerToken', () => {
@@ -38,7 +38,7 @@ describe('setServerToken', () => {
   })
 
   it('should isAuth to false when an expired JWT is passed in cookie', () => {
-    MockDate.set('2022-07-15T06:19:17+00:00')
+    MockDate.set('3022-07-15T06:19:17+00:00')
 
     const store = new Store({
       state: {

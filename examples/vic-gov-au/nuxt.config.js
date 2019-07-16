@@ -1,10 +1,7 @@
-// Custom tide config & filters.
-const tideConfig = require('./tide/tide.config')
-const tideFilters = require('./tide/tide.mapping-filters')
-
 require('dotenv').config()
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
+process.env.APP_ROOT_PATH = '.' // Set the example app root path, for this example app config only.
 
 export default {
 
@@ -80,15 +77,13 @@ export default {
       password: process.env.CONTENT_API_AUTH_PASS
     },
     site: 4,
-    customConfig: tideConfig,
-    customFilters: tideFilters,
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {
       site: 1,
       // Content types
       page: 1,
       landingPage: 1,
-      event: 1,
+      event: 0, // Disable for testing it in custom module.
       news: 1,
       grant: 1,
       profile: 1,
@@ -97,7 +92,6 @@ export default {
       media: 1,
       webform: 1,
       search: 1,
-      monsido: 0,
       authenticatedContent: 1,
       dataDrivenComponent: 1,
       alert: 1,

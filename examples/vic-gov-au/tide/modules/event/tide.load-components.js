@@ -10,5 +10,5 @@
 // }
 
 export default {
-  'example-message': () => import(/* webackChunkName: 'example-message' */ '~/components/examples/Message')
+  'rpl-card-event': () => import(/* webpackChunkName: 'rpl-card-event' */ '@dpc-sdp/ripple-card').then(m => m.RplCardEvent)
 }

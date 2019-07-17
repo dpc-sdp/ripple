@@ -25,10 +25,8 @@ jobs:
           paths:
             - ~/.cache  ## cache both yarn and Cypress!
       - persist_to_workspace:
-          root: /
-          paths: 
-            - root/.cache
-            - root/app
+          root: ~/app
+          paths: .
 
   # Runs lint, unit tests, and basic UI tests
   test:
@@ -38,9 +36,14 @@ jobs:
           TERM: xterm
           SEARCH_BE: LOCAL-CI
     working_directory: ~/app
-    steps:
+    steps:    
       - attach_workspace:
-          at: /root
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-deps-{{ .Branch }}
+            - v1-deps
       - run:
           name: Lint code.
           command: yarn lint     
@@ -66,6 +69,11 @@ jobs:
     steps:    
       - attach_workspace:
           at: ~/app
+      - restore_cache:
+          keys:
+            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-deps-{{ .Branch }}
+            - v1-deps
       - run: 
           name: run full e2e test
           command: yarn test:e2e

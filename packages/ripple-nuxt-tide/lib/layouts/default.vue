@@ -48,7 +48,7 @@ import { RplAlertBase } from '@dpc-sdp/ripple-alert'
 import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
-import markupPlugins from '@dpc-sdp/ripple-nuxt-tide/lib/core/markup-plugins'
+import markupPlugins from '@dpc-sdp/ripple-nuxt-tide/lib/core/markup-plugins-loader'
 import { isTokenExpired, getToken, clearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 import { isPreviewPath } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/preview'
 

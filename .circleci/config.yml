@@ -1,7 +1,7 @@
 version: 2.0
 
 jobs:
-  test:
+  build:
     context: Ripple
     docker:
       - image: cypress/base:10
@@ -29,7 +29,23 @@ jobs:
             - packages/ripple-create-app/node_modules
             - packages/ripple-test-tools/node_modules
             - examples/vic-gov-au/node_modules
+            - /root/.cache/Cypress
             - ~/.cache
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
+
+  # Runs lint, unit tests, and basic UI tests
+  test:
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          SEARCH_BE: LOCAL-CI
+    working_directory: ~/app
+    steps:    
+      - attach_workspace:
+          at: ~/app
       - run:
           name: Lint code.
           command: yarn lint     
@@ -39,16 +55,13 @@ jobs:
       - run: 
           name: run smoke test
           command: yarn test:smoke
-      - persist_to_workspace:
-          root: ~/app
-          paths: .
       - store_artifacts:
           path: test/e2e/videos
       - store_artifacts:
           path: test/e2e/screenshots
 
-  regression:
-    # This runs the full suite of e2e tests 
+  # This runs the full suite of e2e tests 
+  e2e:
     docker:
       - image: cypress/base:10
         environment:
@@ -70,8 +83,22 @@ workflows:
   version: 2
   commit:
     jobs:
-      - test
-  # Run full regression test nightly on master and release branches
+      - build
+      - test:
+          requires:
+            - build
+      # Run e2e tests on release branches
+      - e2e:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only:
+                - release/*
+                - feature/SDPA-2506-circle-setup
+
+  # Run full regression test nightly on develop
   nightly:
     triggers:
       - schedule:
@@ -81,7 +108,11 @@ workflows:
               only:
                 - develop
     jobs:
-      - test
-      - regression:
+      - build
+      - test:
           requires:
+            - build
+      - e2e:
+          requires:
+            - build
             - test

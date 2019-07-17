@@ -1,14 +1,17 @@
 version: 2.0
 
+defaults: &defaults
+  working_directory: ~/app
+  context: Ripple
+  docker:
+    - image: cypress/base:10
+      environment:
+        TERM: xterm
+        SEARCH_BE: LOCAL-CI
+
 jobs:
   build:
-    context: Ripple
-    docker:
-      - image: cypress/base:10
-        environment:
-          TERM: xterm
-          SEARCH_BE: LOCAL-CI
-    working_directory: ~/app
+    <<: *defaults
     steps:
       - checkout
       - run: yarn --version
@@ -30,12 +33,7 @@ jobs:
 
   # Runs lint, unit tests, and basic UI tests
   test:
-    docker:
-      - image: cypress/base:10
-        environment:
-          TERM: xterm
-          SEARCH_BE: LOCAL-CI
-    working_directory: ~/app
+    <<: *defaults
     steps:    
       - attach_workspace:
           at: ~/app
@@ -60,12 +58,7 @@ jobs:
 
   # This runs the full suite of e2e tests 
   e2e:
-    docker:
-      - image: cypress/base:10
-        environment:
-          TERM: xterm
-          SEARCH_BE: LOCAL-CI
-    working_directory: ~/app
+    <<: *defaults
     steps:    
       - attach_workspace:
           at: ~/app
@@ -81,6 +74,23 @@ jobs:
           path: test/e2e/videos
       - store_artifacts:
           path: test/e2e/screenshots
+  # deploy to npm step
+  predeploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-deps-{{ .Branch }}
+            - v1-deps
+      - run: 
+          name: Set NPM_TOKEN
+          command: - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Publish to NPM
+          command: yarn publish --dist-tag prerelease --yes
 
 workflows:
   version: 2
@@ -98,8 +108,21 @@ workflows:
           filters:
             branches:
               only:
+                - master
                 - release/*
-                - feature/SDPA-2506-circle-setup
+      - hold: # Manual approval step for deployment
+          type: approval
+          requires:
+           - e2e
+      - predeploy:
+          requires:
+            - build
+            - test
+            - e2e
+          filters:
+            branches:
+              only:
+                - release/*
 
   # Run full regression test nightly on develop
   nightly:

@@ -1,5 +1,5 @@
 const path = require('path')
-const appDir = path.dirname(require.main.filename)
+const appDir = require('app-root-path')
 
 const resolve = path.resolve
 
@@ -25,16 +25,19 @@ module.exports = function nuxtRipple (moduleOptions) {
       ]
     }
     // Add svg-sprite-loader to create svg sprite
-    config.module.rules.push({
-      test: /\.svg$/,
-      include: [
-        resolve(__dirname, rippleIconPath),
-        resolve(__dirname, `${appDir}/assets/ripple-icon/`)
-      ],
-      use: [
-        'svg-sprite-loader',
-        'svgo-loader'
-      ]
-    })
+    const svgLoader = config.module.rules.find((rule) => rule.use && rule.use.find(r => r === 'svgo-loader'))
+    if (!svgLoader) {
+      config.module.rules.push({
+        test: /\.svg$/,
+        include: [
+          resolve(__dirname, rippleIconPath),
+          resolve(__dirname, `${appDir}/assets/ripple-icon/`)
+        ],
+        use: [
+          'svg-sprite-loader',
+          'svgo-loader'
+        ]
+      })
+    }
   })
 }

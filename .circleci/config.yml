@@ -87,7 +87,7 @@ jobs:
             - v1-deps
       - run: 
           name: Set NPM_TOKEN
-          command: - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - run:
           name: Publish to NPM
           command: yarn publish --dist-tag prerelease --yes

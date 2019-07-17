@@ -9,19 +9,6 @@ describe('setServerToken', () => {
     MockDate.reset()
   })
 
-  it('should set isAuth to false when null JWT is passed in cookie', () => {
-    const store = new Store({
-      state: {
-        tideAuthenticatedContent: {
-          isAuthenticated: false
-        }
-      }
-    })
-
-    serverSetToken('authenticatedContent={%22tideAuthenticatedContent%22:{%22token%22:null}};', store)
-    expect(store.dispatch).toHaveBeenCalledWith('tideAuthenticatedContent/setAuthenticated', false)
-  })
-
   it('should set isAuth to true when valid JWT is passed in cookie', () => {
     MockDate.set('2019-07-15T06:19:17+00:00')
 

@@ -14,23 +14,16 @@ jobs:
       - run: yarn --version
       - restore_cache:
           keys:
-            - v1-deps-{{ checksum "yarn.lock" }}
+            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
             - v1-deps-{{ .Branch }}
             - v1-deps
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: v1-deps-{{ checksum "yarn.lock" }}
+          key: v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules
-            - packages/ripple-nuxt-tide/node_modules
-            - packages/ripple-nuxt-ui/node_modules
-            - packages/ripple-create-app/node_modules
-            - packages/ripple-test-tools/node_modules
-            - examples/vic-gov-au/node_modules
-            - /root/.cache/Cypress
-            - ~/.cache
+            - ~/.cache  ## cache both yarn and Cypress!
       - persist_to_workspace:
           root: ~/app
           paths: .

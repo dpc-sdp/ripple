@@ -7,7 +7,10 @@
   "scripts": {
     "start": "start-storybook -p 6006 -s ./static",
     "build-storybook": "cross-env NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public",
-    "test:unit": "cross-env NODE_ENV=test jest --colors"
+    "test:unit": "cross-env NODE_ENV=test jest --colors",
+    "docs": "node ./scripts/generate-readme/generate-readme.js",
+    "new-component": "node ./scripts/generate-component/generate-component.js",
+    "package-dependencies": "node ./scripts/generate-dependencies/generate-dependencies.js"
   },
   "dependencies": {
     "@dpc-sdp/ripple-accordion": "1.0.0-beta.8",
@@ -76,6 +79,7 @@
     "svg-sprite-loader": "^3.7.3",
     "svgo": "^1.2.2",
     "svgo-loader": "^2.2.1",
+    "twig": "^1.13.3",
     "url-loader": "^2.0.1",
     "vue-loader": "^15.7.0",
     "vue-style-loader": "^4.1.2",

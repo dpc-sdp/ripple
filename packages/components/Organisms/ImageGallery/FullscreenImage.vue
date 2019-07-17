@@ -9,6 +9,7 @@
       <div class="rpl-fullscreen-image__details-navigation">
         <div class="rpl-fullscreen-image__details-navigation-count" v-if="aboveCaption">{{ aboveCaption }}</div>
         <button
+          v-if="caption"
           class="rpl-fullscreen-image__details-navigation-toggle"
           :class="{ 'rpl-fullscreen-image__details-navigation-toggle--expanded': toggleCaption }"
           @click="toggleCaption = !toggleCaption"
@@ -17,9 +18,9 @@
           <span v-if="toggleCaption">{{ hideCaption }}</span>
         </button>
       </div>
-      <div class="rpl-fullscreen-image__details" :class="{ 'rpl-fullscreen-image__details--show': toggleCaption}">
-        <h2 class="rpl-fullscreen-image__title">{{ title }}</h2>
-        <p class="rpl-fullscreen-image__caption">{{ caption }}</p>
+      <div v-if="title || caption" class="rpl-fullscreen-image__details" :class="{ 'rpl-fullscreen-image__details--show': isDetailsShowing}">
+        <h2 v-if="title" class="rpl-fullscreen-image__title">{{ title }}</h2>
+        <p v-if="caption" class="rpl-fullscreen-image__caption">{{ caption }}</p>
       </div>
     </div>
   </div>
@@ -39,6 +40,11 @@ export default {
   data: function () {
     return {
       toggleCaption: false
+    }
+  },
+  computed: {
+    isDetailsShowing () {
+      return (this.caption) ? this.toggleCaption : true
     }
   }
 }

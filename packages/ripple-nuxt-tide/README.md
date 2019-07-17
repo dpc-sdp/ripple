@@ -249,7 +249,7 @@ your site.
 
 Customisations to the theme should be added to the following root directories:
 
-- `/assets` - Custom [theme](Theme-variable-overrides), [stylesheets](#Custom-stylesheets), [icons](#Custom-icons).
+- `/assets` - Custom [theme](#Theme-variable-overrides), [stylesheets](#Custom-stylesheets), [icons](#Custom-icons).
 - `/static` - Custom [images](#Custom-images) (favicons, file icons, header and error graphics).
 
 #### Theme variable overrides

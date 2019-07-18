@@ -1,6 +1,7 @@
 const path = require('path')
 const appDir = require('app-root-path')
 const resolve = path.resolve
+const fs = require('fs')
 
 module.exports = function nuxtRipple (moduleOptions) {
   const options = Object.assign({}, this.options.ripple, moduleOptions)
@@ -12,11 +13,13 @@ module.exports = function nuxtRipple (moduleOptions) {
     options: options
   })
 
-  if (!this.options.styleResources) {
+  const themePath = resolve(__dirname, `${appDir}/assets/_theme.scss`)
+
+  if (fs.existsSync(themePath) && !this.options.styleResources) {
     this.options.styleResources = {
       scss: [
         // Theme - Injects sass variables into components
-        resolve(__dirname, `${appDir}/assets/_theme.scss`)
+        themePath
       ]
     }
   }

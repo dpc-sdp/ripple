@@ -28,7 +28,11 @@ export default {
       { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5' }
     ]
   },
-
+  /*
+  ** Set the loading bar color
+  * https://nuxtjs.org/api/configuration-loading
+  */
+  loading: { color: '#0095EC' },
   /*
    * Router
    * https://nuxtjs.org/api/configuration-router

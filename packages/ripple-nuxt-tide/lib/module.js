@@ -155,14 +155,11 @@ const nuxtTide = function (moduleOptions) {
     proxy: true
   }])
 
-  // custom progress bar colour
-  this.options.loading = { color: '#0095EC' }
-
   // Display error details in Nuxt error page
   this.options.debug = process.env.DISPLAY_ERROR === '1' || false
 
   // transpile @dpc-sdp modules
-  this.options.build.transpile = [/@dpc-sdp\/ripple/]
+  this.options.build.transpile.push(/@dpc-sdp\/ripple/)
   this.options.build.maxChunkSize = 300000
 
   this.extendBuild((config, { isDev }) => {

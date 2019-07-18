@@ -39,7 +39,6 @@
   * [Example app](#running-example-application)
   * [Storybook](#running-storybook)
 * [Usage](#usage)
-* [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
 

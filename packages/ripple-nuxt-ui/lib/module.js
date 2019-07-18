@@ -1,6 +1,5 @@
 const path = require('path')
 const appDir = require('app-root-path')
-
 const resolve = path.resolve
 
 module.exports = function nuxtRipple (moduleOptions) {
@@ -12,6 +11,17 @@ module.exports = function nuxtRipple (moduleOptions) {
     fileName: 'ripple.js',
     options: options
   })
+
+  if (!this.options.styleResources) {
+    this.options.styleResources = {
+      scss: [
+        // Theme - Injects sass variables into components
+        resolve(__dirname, `${appDir}/assets/_theme.scss`)
+      ]
+    }
+  }
+
+  this.addModule('@nuxtjs/style-resources', true)
 
   this.extendBuild((config, { isServer }) => {
     // Exclude svg from url-loader - it conflicts with 'svg-sprite-loader'.

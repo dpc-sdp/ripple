@@ -1,5 +1,5 @@
 import markupTranspiler from '@dpc-sdp/ripple-markup/markup-transpiler.js'
-import markupPlugins from '../../lib/core/markup-plugins.js'
+import markupPlugins from '../../lib/core/markup-plugins-loader.js'
 
 describe('Markup transpiler', () => {
   test('should able transpile html into vue template', () => {

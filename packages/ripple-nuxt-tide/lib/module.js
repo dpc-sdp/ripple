@@ -140,7 +140,11 @@ const nuxtTide = function (moduleOptions) {
     options: options
   })
 
-  this.addModule('@dpc-sdp/ripple-nuxt-ui')
+  if (process.env.BASIC_AUTH === '1') {
+    this.addServerMiddleware('./core/basic-auth.js')
+  }
+
+  this.addModule('@dpc-sdp/ripple-nuxt-ui', true)
 
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }
 
@@ -150,6 +154,26 @@ const nuxtTide = function (moduleOptions) {
     debug: false,
     proxy: true
   }])
+
+  // Display error details in Nuxt error page
+  this.options.debug = process.env.DISPLAY_ERROR === '1' || false
+
+  // transpile @dpc-sdp modules
+  this.options.build.transpile.push(/@dpc-sdp\/ripple/)
+  this.options.build.maxChunkSize = 300000
+
+  this.extendBuild((config, { isDev }) => {
+    config.resolve.alias['vue$'] = 'vue/dist/vue.esm'
+    // Run ESLint on save
+    if (isDev && process.client) {
+      config.module.rules.push({
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /(node_modules)/
+      })
+    }
+  })
 
   // add default and error layouts
   this.addLayout(path.resolve(__dirname, './layouts/default.vue'), 'default')

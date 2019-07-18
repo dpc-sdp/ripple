@@ -1,5 +1,3 @@
-const resolve = require('path').resolve
-
 // Custom tide config & filters.
 const tideConfig = require('./tide/tide.config')
 const tideFilters = require('./tide/tide.mapping-filters')
@@ -9,14 +7,6 @@ require('dotenv').config()
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 
 export default {
-  /*
-  ** Display error details in Nuxt error page
-  */
-  debug: process.env.DISPLAY_ERROR === '1' || false,
-
-  serverMiddleware: [
-    process.env.BASIC_AUTH === '1' && '~/middleware/basic-auth'
-  ].filter(i => i),
 
   /*
   ** Headers of the page
@@ -39,31 +29,10 @@ export default {
     ]
   },
   /*
-  ** Customize the progress bar color
+  ** Set the loading bar color
+  * https://nuxtjs.org/api/configuration-loading
   */
   loading: { color: '#0095EC' },
-  /*
-  ** Build configuration
-  * TODO: move this to nuxt tide
-  */
-  build: {
-    maxChunkSize: 300000,
-    transpile: [/@dpc-sdp\/ripple/],
-    extend (config, { isDev }) {
-      config.resolve.alias['vue$'] = 'vue/dist/vue.esm'
-      // Run ESLint on save
-      if (isDev && process.client) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  },
-  plugins: [
-  ],
   /*
    * Router
    * https://nuxtjs.org/api/configuration-router
@@ -73,25 +42,37 @@ export default {
   },
   /*
   ** Modules
+  * https://nuxtjs.org/guide/modules
   */
   modules: [
+    // https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
     '@dpc-sdp/ripple-nuxt-tide',
-    '@nuxtjs/style-resources',
     // we want to always disallow bots on the example site
     ['@nuxtjs/robots', {
       UserAgent: '*',
       Disallow: '/'
     }]
   ],
-  styleResources: {
-    scss: [
-      // Theme - Injects sass variables into components
-      resolve(__dirname, './assets/_theme.scss')
-    ]
-  },
-  ripple: {
-    // Configure rplOptions here...
-  },
+  /*
+  ** styleResources
+  * Override the path to the theme customisation scss
+  * loads scss with @nuxtjs/style-resources
+  * Defaults to /assets/_theme.scss
+  */
+  // styleResources: {
+  //   scss: [
+  //     path.resolve(__dirname, './assets/_theme.scss')
+  //   ]
+  // }
+  /*
+  * Configuration for ripple-nuxt-ui
+  * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui
+  */
+  ripple: {},
+  /*
+  * Configuration for ripple-nuxt-tide
+  * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
+  */
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {
@@ -123,6 +104,7 @@ export default {
       gtm: 1
     },
     gtm: {
+      // Set Google Tag Manager ID here
       id: process.env.GTM_ID
     },
     search: {

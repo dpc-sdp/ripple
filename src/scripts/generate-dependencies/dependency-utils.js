@@ -4,6 +4,7 @@
  */
 
 let fs = require('fs')
+const componentDirectory = '../packages/components'
 
 function getImportStatmentsFromVueFiles (directoryArray) {
   const importSet = new Set()
@@ -57,9 +58,9 @@ function listMissingPackages (packageDirectories) {
 }
 
 function fixMissingPackages (packageDirectories) {
-  // Get lerna version.
-  let lerna = fs.readFileSync('./lerna.json', 'utf-8')
-  lerna = JSON.parse(lerna)
+  // Get version.
+  let rootPkg = fs.readFileSync('./package.json', 'utf-8')
+  let version = JSON.parse(rootPkg).version
 
   packageDirectories.forEach(pkg => {
     // Get each package.
@@ -83,7 +84,7 @@ function fixMissingPackages (packageDirectories) {
 
     // Add ripple packages.
     imports.forEach(neededPackage => {
-      pkgObj.dependencies[neededPackage] = lerna.version
+      pkgObj.dependencies[neededPackage] = version
     })
 
     orderDependencies(pkgObj)
@@ -105,7 +106,7 @@ function orderDependencies (obj) {
 
 function getPackageDirectories () {
   let pkgglob = require('glob-fs')({ gitignore: true })
-  return pkgglob.readdirSync('./packages/**/package.json')
+  return pkgglob.readdirSync(`${componentDirectory}/**/package.json`)
 }
 
 function addComponentsToRootPackage (packageDirectories) {
@@ -122,10 +123,9 @@ function addComponentsToRootPackage (packageDirectories) {
 
   // Add ripple packages to root dependencies.
   packageDirectories.forEach(pkg => {
-    let pkgPath = pkg.substr(0, (pkg.lastIndexOf('/')))
     let pkgJson = fs.readFileSync(pkg)
     pkgJson = JSON.parse(pkgJson)
-    packageJson.dependencies[pkgJson.name] = `file:${pkgPath}`
+    packageJson.dependencies[pkgJson.name] = pkgJson.version
   })
 
   orderDependencies(packageJson)

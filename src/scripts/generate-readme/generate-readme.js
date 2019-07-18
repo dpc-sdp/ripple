@@ -25,6 +25,41 @@ let glob = require('glob-fs')({ gitignore: true })
 let wrap = require('wordwrap')(80)
 let { getImportStatements, getImportStatementFromJS } = require('./get-imports')
 
+function getStoryOutline (story) {
+  let storiesOf = /(?:storiesOf\(')([A-Za-z\/\s()]+)(?:',)/g
+  let storyMatch = storiesOf.exec(story)
+  let stories = []
+
+  while (storyMatch !== null) {
+    stories.push({
+      storyName: storyMatch[1],
+      storyIndex: storyMatch.index,
+      add: []
+    })
+    storyMatch = storiesOf.exec(story)
+  }
+
+  for (let i = 0; i < stories.length; i++) {
+    const element = stories[i]
+    const strStart = element.storyIndex
+    const strEnd = (i < stories.length - 1) ? stories[i+1].storyIndex : story.length
+    // Check for adds
+    const subStory = story.substring(strStart, strEnd)
+    let add = /(?:add\([\n\s]*)(?:')(.+)(?:',)/gim
+    let addMatch = add.exec(subStory)
+    while (addMatch !== null) {
+      const storyMatching = element.storyName.toLowerCase().replace(/\(|\)/g, '').replace(/\s|\/|\\/g, '-')
+      const addMatching = addMatch[1].toLowerCase().replace(/\(|\)/g, '').replace(/\s|\/|\\/g, '-')
+      stories[i].add.push({
+        path: `Storybook/${element.storyName}/${addMatch[1].replace('\\', '')}`,
+        params: `?path=/story/${storyMatching}--${addMatching}`
+      })
+      addMatch = add.exec(subStory)
+    }
+  }
+  return stories
+}
+
 function generateTemplate (directory) {
   let data = {
     packageName: '',
@@ -80,19 +115,14 @@ function generateTemplate (directory) {
   }
 
   // Get story parameters.
-  let story = fs.readFileSync(directory + 'stories.js', 'utf8')
-  let storiesOf = /(?:storiesOf\(')(.+)(?:',)/g
-  let storiesOfMatch = storiesOf.exec(story)
+  let storyFile = fs.readFileSync(directory + 'stories.js', 'utf8')
+  let stories = getStoryOutline(storyFile)
 
-  let add = /(?:add\([\n\s]*)(?:')(.+)(?:',)/gim
-  let addMatch = add.exec(story)
-  while (addMatch !== null) {
-    data.storybookParams.push({
-      path: 'Storybook/' + addMatch[1].replace('\\', ''),
-      params: '?selectedKind=' + encodeURI(storiesOfMatch[1]) + '&selectedStory=' + encodeURI(addMatch[1])
+  stories.forEach(story => {
+    story.add.forEach(add => {
+      data.storybookParams.push(add)
     })
-    addMatch = add.exec(story)
-  }
+  })
 
   // Add check for no-ssr folder.
 
@@ -109,7 +139,7 @@ function generateTemplate (directory) {
 }
 
 // Get all packages and generate.
-let packages = glob.readdirSync('./packages/**/package.json')
+let packages = glob.readdirSync('../packages/components/**/package.json')
 packages.forEach(item => {
   let packagePath = item.substr(0, (item.lastIndexOf('/') + 1))
   generateTemplate('./' + packagePath)

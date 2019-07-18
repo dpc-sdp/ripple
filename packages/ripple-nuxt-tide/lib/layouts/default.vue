@@ -80,7 +80,7 @@ export default {
   computed: {
     alert () {
       if (this.$tide.isModuleEnabled('alert')) {
-        // return () => import('@dpc-sdp/ripple-nuxt-tide/modules/alert/components/TideAlert.vue')
+        return () => import('@dpc-sdp/ripple-nuxt-tide/modules/alert/components/TideAlert.vue')
       }
       return false
     },

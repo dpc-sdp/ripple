@@ -1,5 +1,7 @@
 <template>
-  <div class="{{packageClassName}}"></div>
+  <div class="{{componentClassName}}">
+    <span>{{ componentNaturalName }}</span>
+  </div>
 </template>
 
 <script>
@@ -7,7 +9,7 @@
 // import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
-  name: '{{packageRippleName}}',
+  name: '{{componentRippleName}}',
   props: {
     // ...
   },
@@ -29,7 +31,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  .{{packageClassName}} {
+  .{{componentClassName}} {
     // Add styles
   }
 </style>

@@ -3,6 +3,19 @@
 > The core styles and utilities used by all ripple components. Includes sets of
 colours, fonts, breakpoints.
 
+# rplOptions
+This is a globally available options object to allow passing options between ripple components. Don't abuse this, keep it light as the object gets passed between all components.
+
+```
+  nuxt: false, // enable if using in SSR environment eg: nuxt
+  hostname: 'localhost', // set hostname for rpl-link etc
+  origin: '', // URL with protocol://host(:port) e.g. http://localhost:3000
+  quickexit: false, // enable quick exit feature
+  quickexiturl: 'https://www.google.com', // URL to use for quickexit
+  plugins: [], // array of cheerio transformer function plugins to pass to RplMarkup
+  viclogo: true // whether to display primary vic.gov.au logo
+```
+
 --------------------------------------------------------------------------------
 
 ## Install

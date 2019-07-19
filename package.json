@@ -8,7 +8,7 @@
       "packages/components/**/*",
       "packages/ripple-nuxt-tide",
       "packages/ripple-nuxt-ui",
-      "packages/ripple-create-app",
+      "packages/create-ripple-app",
       "packages/ripple-test-tools",
       "examples/**/*",
       "src"

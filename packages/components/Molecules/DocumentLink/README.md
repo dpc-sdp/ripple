@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-document-link
 
 > A component for rendering a document download link.
@@ -32,10 +33,11 @@ import { RplDocumentLink } from '@dpc-sdp/ripple-document-link'
 
 ## Usage and Tests
 
-See [Storybook/Document Link](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/DocumentLink&selectedStory=Document%20Link).
+See [Storybook/Molecules/DocumentLink/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-documentlink--default).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

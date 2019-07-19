@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-link
 
 > Components for creating page links in plain text, and with accompanying icon.
@@ -33,12 +34,13 @@ import { RplLink, RplTextLink, RplTextLabel } from '@dpc-sdp/ripple-link'
 
 ## Usage and Tests
 
-See [Storybook/Link](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Link&selectedStory=Link).
+See [Storybook/Atoms/Link/Link](https://ripple.sdp.vic.gov.au/?path=/story/atoms-link--link).
 
-See [Storybook/Text Link](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Link&selectedStory=Text%20Link).
+See [Storybook/Atoms/Link/Text Link](https://ripple.sdp.vic.gov.au/?path=/story/atoms-link--text-link).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

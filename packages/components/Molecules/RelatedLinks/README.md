@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-related-links
 
 > A component for displaying internal / external links related to an article.
@@ -33,10 +34,11 @@ import RplRelatedLinks from '@dpc-sdp/ripple-related-links'
 
 ## Usage and Tests
 
-See [Storybook/Related Links](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/RelatedLinks&selectedStory=Related%20Links).
+See [Storybook/Molecules/RelatedLinks/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-relatedlinks--default).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

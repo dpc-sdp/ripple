@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-profile
 
 > Components for displaying Component information.
@@ -35,12 +36,13 @@ import {
 
 ## Usage and Tests
 
-See [Storybook/Profile Highlight](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Profile&selectedStory=Profile%20Highlight).
+See [Storybook/Organisms/Profile/Profile Highlight](https://ripple.sdp.vic.gov.au/?path=/story/organisms-profile--profile-highlight).
 
-See [Storybook/Profile Highlight Honour Roll](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Profile&selectedStory=Profile%20Highlight%20Honour%20Roll).
+See [Storybook/Organisms/Profile/Profile Highlight Honour Roll](https://ripple.sdp.vic.gov.au/?path=/story/organisms-profile--profile-highlight-honour-roll).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-call-to-action
 
 > A component for displaying key content with image and link.
@@ -32,10 +33,11 @@ import RplCallToAction from '@dpc-sdp/ripple-call-to-action'
 
 ## Usage and Tests
 
-See [Storybook/Call to Action](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CallToAction&selectedStory=Call%20to%20Action).
+See [Storybook/Organisms/CallToAction/Call to Action](https://ripple.sdp.vic.gov.au/?path=/story/organisms-calltoaction--call-to-action).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

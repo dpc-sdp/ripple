@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-news
 
 > Components for displaying news articles.
@@ -33,12 +34,13 @@ import { RplFeaturedNews, RplNewsListing } from '@dpc-sdp/ripple-news'
 
 ## Usage and Tests
 
-See [Storybook/Featured News](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/News&selectedStory=Featured%20News).
+See [Storybook/Organisms/News/Featured News](https://ripple.sdp.vic.gov.au/?path=/story/organisms-news--featured-news).
 
-See [Storybook/News Listing](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/News&selectedStory=News%20Listing).
+See [Storybook/Organisms/News/News Listing](https://ripple.sdp.vic.gov.au/?path=/story/organisms-news--news-listing).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

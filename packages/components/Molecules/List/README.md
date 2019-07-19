@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-list
 
 > List component for displaying an icon and text in a list.
@@ -33,10 +34,11 @@ import RplList from '@dpc-sdp/ripple-list'
 
 ## Usage and Tests
 
-See [Storybook/List](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/List&selectedStory=List).
+See [Storybook/Molecules/List/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-list--default).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

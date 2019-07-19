@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-timeline
 
 > A timeline component for displaying sequential items.
@@ -32,10 +33,11 @@ import { RplTimeline } from '@dpc-sdp/ripple-timeline'
 
 ## Usage and Tests
 
-See [Storybook/Timeline](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Timeline&selectedStory=Timeline).
+See [Storybook/Molecules/Timeline/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-timeline--default).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

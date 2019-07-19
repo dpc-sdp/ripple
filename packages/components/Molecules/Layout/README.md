@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-layout
 
 > Standard grid-based layouts for structuring pages. Includes skip to content
@@ -19,8 +20,7 @@ npm install @dpc-sdp/ripple-layout --save
 @dpc-sdp/ripple-layout
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-grid
-├── @dpc-sdp/ripple-icon
-└── @dpc-sdp/ripple-site-header
+└── @dpc-sdp/ripple-icon
 ```
 
 --------------------------------------------------------------------------------
@@ -39,20 +39,21 @@ import {
 
 ## Usage and Tests
 
-See [Storybook/Base Layout](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Base%20Layout).
+See [Storybook/Molecules/Layout/Base Layout](https://ripple.sdp.vic.gov.au/?path=/story/molecules-layout--base-layout).
 
-See [Storybook/Page Layout](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Page%20Layout).
+See [Storybook/Molecules/Layout/Page Layout](https://ripple.sdp.vic.gov.au/?path=/story/molecules-layout--page-layout).
 
-See [Storybook/Page Layout with Sidebar](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Page%20Layout%20with%20Sidebar).
+See [Storybook/Molecules/Layout/Page Layout with Sidebar](https://ripple.sdp.vic.gov.au/?path=/story/molecules-layout--page-layout-with-sidebar).
 
-See [Storybook/Page Layout with custom columns](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Page%20Layout%20with%20custom%20columns).
+See [Storybook/Molecules/Layout/Page Layout with custom columns](https://ripple.sdp.vic.gov.au/?path=/story/molecules-layout--page-layout-with-custom-columns).
 
-See [Storybook/Site Layout](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Site%20Layout).
+See [Storybook/Molecules/Layout/Site Layout](https://ripple.sdp.vic.gov.au/?path=/story/molecules-layout--site-layout).
 
-See [Storybook/Site Layout with Sidebar](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Layout&selectedStory=Site%20Layout%20with%20Sidebar).
+See [Storybook/Molecules/Layout/Site Layout with Sidebar](https://ripple.sdp.vic.gov.au/?path=/story/molecules-layout--site-layout-with-sidebar).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-embedded-video
 
 > A component for embedding video with transcript.
@@ -33,10 +34,11 @@ import RplEmbeddedVideo from '@dpc-sdp/ripple-embedded-video'
 
 ## Usage and Tests
 
-See [Storybook/Embedded Video](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/EmbeddedVideo&selectedStory=Embedded%20Video).
+See [Storybook/Molecules/EmbeddedVideo/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-embeddedvideo--default).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

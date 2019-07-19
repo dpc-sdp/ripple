@@ -53,7 +53,7 @@ function loadAndPopulateReadMe (packageJSON, directory) {
   } else {
     // Create a new readme
     let newHTML = tags.full.generate(packageJSON, directory)
-    newHTML = `${tags.full.start}\n${newHTML}\n${tags.full.end}`
+    newHTML = `${tags.full.start}\n${newHTML}${tags.full.end}\n`
     writeReadme(directory, newHTML)
   }
 }

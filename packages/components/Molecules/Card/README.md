@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-card
 
 > Card-themed containers for content such as events and dates, navigation,
@@ -53,32 +54,33 @@ import { RplCardCarousel } from '@dpc-sdp/ripple-card/no-ssr'
 
 ## Usage and Tests
 
-See [Storybook/Card Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Navigation).
+See [Storybook/Molecules/Card/Card Navigation/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-navigation--default).
 
-See [Storybook/Card Navigation Featured](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Navigation%20Featured).
+See [Storybook/Molecules/Card/Card Navigation Featured/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-navigation-featured--default).
 
-See [Storybook/Card Image Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Image%20Navigation).
+See [Storybook/Molecules/Card/Card Image Navigation/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-image-navigation--default).
 
-See [Storybook/Card Promotion](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Promotion).
+See [Storybook/Molecules/Card/Card Promotion/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-promotion--default).
 
-See [Storybook/Card Keydates](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Keydates).
+See [Storybook/Molecules/Card/Card Keydates/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-keydates--default).
 
-See [Storybook/Card Event](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Event).
+See [Storybook/Molecules/Card/Card Event/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-event--default).
 
-See [Storybook/Card Cta](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Cta).
+See [Storybook/Molecules/Card/Card Cta/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-cta--default).
 
-See [Storybook/Card Emergency Contact](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Emergency%20Contact).
+See [Storybook/Molecules/Card/Card Emergency Contact/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-emergency-contact--default).
 
-See [Storybook/Card Box](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Box).
+See [Storybook/Molecules/Card/Card Box/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-box--default).
 
-See [Storybook/Card Honour Roll](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Honour%20Roll).
+See [Storybook/Molecules/Card/Card Honour Roll/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-honour-roll--default).
 
-See [Storybook/Card Content (base)](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Content%20(base)).
+See [Storybook/Molecules/Card/Card Content (base)/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-content-base--default).
 
-See [Storybook/Card Carousel](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Carousel).
+See [Storybook/Molecules/Card/Card Carousel/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-carousel--default).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

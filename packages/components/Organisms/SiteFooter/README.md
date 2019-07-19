@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-site-footer
 
 > Site footer for displaying common and useful links on all pages.
@@ -33,10 +34,11 @@ import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 
 ## Usage and Tests
 
-See [Storybook/Site footer](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/SiteFooter&selectedStory=Site%20footer).
+See [Storybook/Organisms/SiteFooter/Site footer](https://ripple.sdp.vic.gov.au/?path=/story/organisms-sitefooter--site-footer).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

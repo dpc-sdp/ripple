@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-updated-date
 
 > A component for displaying the date an article was last changed.
@@ -31,10 +32,11 @@ import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 
 ## Usage and Tests
 
-See [Storybook/Updated Date](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/UpdatedDate&selectedStory=Updated%20Date).
+See [Storybook/Organisms/UpdatedDate/Updated Date](https://ripple.sdp.vic.gov.au/?path=/story/organisms-updateddate--updated-date).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

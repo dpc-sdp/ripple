@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-anchor-links
 
 > A table of contents for use on article pages.
@@ -32,10 +33,11 @@ import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 ## Usage and Tests
 
-See [Storybook/Anchor Links](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/AnchorLinks&selectedStory=Anchor%20Links).
+See [Storybook/Molecules/AnchorLinks/Anchor Links](https://ripple.sdp.vic.gov.au/?path=/story/molecules-anchorlinks--anchor-links).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

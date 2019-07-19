@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-figure
 
 > A component for displaying an image with a caption.
@@ -31,10 +32,11 @@ import RplFigure from '@dpc-sdp/ripple-figure'
 
 ## Usage and Tests
 
-See [Storybook/Figure](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Figure&selectedStory=Figure).
+See [Storybook/Molecules/Figure/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-figure--default).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

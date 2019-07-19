@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-search
 
 > Components for generating a search field with filters, and search results.
@@ -38,18 +39,19 @@ import { RplSearchForm } from '@dpc-sdp/ripple-search'
 
 ## Usage and Tests
 
-See [Storybook/Search Form](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Search%20Form).
+See [Storybook/Molecules/Search/Search Form](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--search-form).
 
-See [Storybook/Search Result](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Search%20Result).
+See [Storybook/Molecules/Search/Search Result](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--search-result).
 
-See [Storybook/Search Results](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Search%20Results).
+See [Storybook/Molecules/Search/Search Results](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--search-results).
 
-See [Storybook/Card Search Results](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Card%20Search%20Results).
+See [Storybook/Molecules/Search/Card Search Results](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--card-search-results).
 
-See [Storybook/Grant Search Results](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Search&selectedStory=Grant%20Search%20Results).
+See [Storybook/Molecules/Search/Grant Search Results](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--grant-search-results).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+<!-- /GENERATED_DOCS -->

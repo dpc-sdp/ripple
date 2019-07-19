@@ -1,0 +1,18 @@
+# Dependencies.
+node_modules
+
+# Temporary files.
+npm-debug.log
+.nuxt
+dist
+coverage
+
+# Dependencies lock files.
+package-lock.json
+
+# Do not ignore root and Ripple lock files.
+!/package-lock.json
+!/ripple/package-lock.json
+
+/test/e2e/videos
+/test/e2e/screenshots

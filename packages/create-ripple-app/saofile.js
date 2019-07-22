@@ -1,240 +1,187 @@
-// const { join } = require('path')
-
+const fs = require('fs')
+const path = require('path')
 const validate = require('validate-npm-package-name')
 const args = require('minimist')(process.argv.slice(2))
 
+const TIDE_MODULES = [
+  { value: 'site', name: 'Site', default: true },
+  { value: 'alert', name: 'Alert', default: true },
+  { value: 'page', name: 'Page', default: true },
+  { value: 'landingPage', name: 'Landing Page', default: true },
+  { value: 'event', name: 'Event', default: true },
+  { value: 'news', name: 'News', default: true },
+  { value: 'grant', name: 'Grant', default: true },
+  { value: 'gtm', name: 'Google Tag Manager', default: true },
+  { value: 'profile', name: 'Profile', default: true },
+  { value: 'media', name: 'Media', default: true },
+  { value: 'webform', name: 'Webform', default: true },
+  { value: 'search', name: 'Search', default: true },
+  { value: 'publication', name: 'Publication', default: false },
+  { value: 'monsido', name: 'Monsido', default: true },
+  { value: 'authenticatedContent', name: 'Authenticated Content', default: false },
+  { value: 'dataDrivenComponent', name: 'Data Driven Component', default: false }
+]
+
+// Set options from a config file path relative to CWD
+const configFile = args.config
+let configFileArgs = {}
+if (configFile && fs.existsSync(__dirname, configFile)) {
+  configFileArgs = require(path.resolve(process.cwd(), configFile))
+}
+
+// set options from params
+const paramArgs = {
+  ...args
+}
+
+const config = {
+  ...configFileArgs,
+  ...paramArgs
+}
+
+// set options via interactive prompt
 const prompts = []
 
-let {
-  name,
-  description,
-  modules,
-  author,
-  backendurlValue,
-  siteidValue,
-  authuserValue,
-  authpassValue,
-  gtmTokenValue } = args
-
-if (!name) {
-  prompts.push(
-    {
-      name: 'name',
-      message: 'Project name',
-      default: '{outFolder}'
-    }
-  )
+if (!config.name) {
+  prompts.push({
+    name: 'name',
+    message: 'Project name',
+    default: '{outFolder}'
+  })
 }
 
-if (!description) {
-  prompts.push(
-    {
-      name: 'description',
-      message: 'Project description',
-      default: `{name}.vic.gov.au`
-    },
-  )
+if (!config.description) {
+  prompts.push({
+    name: 'description',
+    message: 'Project description',
+    default: `{name}.vic.gov.au`
+  })
 }
 
-if (!backendurlValue) {
-  prompts.push(
-    {
-      name: 'backendurl',
-      message: 'Enter backend url',
-      default: `{name}.vic.gov.au`
-    }
-  )
+if (!config.backendurl) {
+  prompts.push({
+    name: 'backendurl',
+    message: 'Enter backend url',
+    default: `{name}.vic.gov.au`
+  })
 }
 
-if (!siteidValue) {
-  prompts.push(
-    {
-      name: 'siteid',
-      message: 'Site ID',
-      default: '4'
-    }
-  )
+if (!config.siteid) {
+  prompts.push({
+    name: 'siteid',
+    message: 'Site ID',
+    default: '4'
+  })
 }
 
-if (!authuserValue) {
-  prompts.push(
-    {
-      name: 'authuser',
-      message: 'Enter auth username',
-      default: 'dpc'
-    }
-  )
+if (!config.authuser) {
+  prompts.push({
+    name: 'authuser',
+    message: 'Enter auth username',
+    default: 'dpc'
+  })
 }
 
-if (!authpassValue) {
-  prompts.push(
-    {
-      name: 'authpass',
-      message: 'Enter auth password',
-      default: 'sdp'
-    }
-  )
+if (!config.authpass) {
+  prompts.push({
+    name: 'authpass',
+    message: 'Enter auth password',
+    default: 'sdp'
+  })
 }
 
-if (!gtmTokenValue) {
-  prompts.push(
-    {
-      name: 'gtmtoken',
-      message: 'Enter Google Tag Manager Token',
-      default: 'GA-123456-1'
-    }
-  )
+if (!config.gtmtoken) {
+  prompts.push({
+    name: 'gtmtoken',
+    message: 'Enter Google Tag Manager Token',
+    default: 'GA-123456-1'
+  })
 }
 
-if (!modules) {
-  prompts.push(
-    {
-      name: 'modules',
-      message: 'Choose tide modules to install',
-      type: 'checkbox',
-      choices: [
-        {
-          name: 'Site',
-          value: 'site'
-        },
-        {
-          name: 'Page',
-          value: 'page'
-        },
-        {
-          name: 'Landing Page',
-          value: 'landingPage'
-        },
-        {
-          name: 'Events',
-          value: 'event'
-        },
-        {
-          name: 'News',
-          value: 'news'
-        },
-        {
-          name: 'Grants',
-          value: 'grant'
-        },
-        {
-          name: 'Profiles',
-          value: 'profile'
-        },
-        {
-          name: 'Media',
-          value: 'media'
-        },
-        {
-          name: 'Webforms',
-          value: 'webform'
-        },
-        {
-          name: 'Search',
-          value: 'search'
-        },
-        {
-          name: 'Publications',
-          value: 'publication'
-        },
-        {
-          name: 'Monsido',
-          value: 'monsido'
-        },
-        {
-          name: 'Authenticated content',
-          value: 'authenticatedContent'
-        }
-      ],
-      default: ['site', 'page', 'landingPage', 'event', 'news', 'grant', 'profile', 'media', 'webform', 'search']
-    }
-  )
+if (!config.modules) {
+  prompts.push({
+    name: 'modules',
+    message: 'Choose tide modules to install',
+    type: 'checkbox',
+    choices: [
+      ...TIDE_MODULES
+    ],
+    default: TIDE_MODULES.filter(m => m.default === true).map(m => m.value)
+  })
 }
 
-if (!author) {
-  prompts.push(
-    {
-      name: 'author',
-      type: 'string',
-      message: 'Author name',
-      default: '{gitUser.name}',
-      store: true
-    }
-  )
+if (!config.author) {
+  prompts.push({
+    name: 'author',
+    type: 'string',
+    message: 'Author name',
+    default: '{gitUser.name}',
+    store: true
+  })
 }
 
-prompts.push(
-  {
+if (!config.pm) {
+  prompts.push({
     name: 'pm',
     message: 'Choose a package manager',
     choices: ['npm', 'yarn'],
     type: 'list',
     default: 'yarn'
-  }
-)
+  })
+}
 
 module.exports = {
   prompts,
   templateData () {
-    const gtmToken = gtmTokenValue ? gtmTokenValue : this.answers.gtmtoken
-    const tideModules = modules ? modules.split(',') : []
-    const siteModule = tideModules ? tideModules.includes('site') : this.answers.modules.includes('site')
-    const pageModule = tideModules ? tideModules.includes('page') : this.answers.modules.includes('page')
-    const eventModule = tideModules ? tideModules.includes('event') : this.answers.modules.includes('event')
-    const newsModule = tideModules ? tideModules.includes('news') : this.answers.modules.includes('news')
-    const grantModule = tideModules ? tideModules.includes('grant') : this.answers.modules.includes('grant')
-    const mediaModule = tideModules ? tideModules.includes('media') : this.answers.modules.includes('media')
-    const publicationModule = tideModules ? tideModules.includes('publication') : this.answers.modules.includes('publication')
-    const profileModule = tideModules ? tideModules.includes('profile') : this.answers.modules.includes('profile')
-    const landingPageModule = tideModules ? tideModules.includes('landingPage') : this.answers.modules.includes('landingPage')
-    const webformModule = tideModules ? tideModules.includes('webform') : this.answers.modules.includes('webform')
-    const searchModule = tideModules ? tideModules.includes('search') : this.answers.modules.includes('search')
-    const monsidoModule = tideModules ? tideModules.includes('monsido') : this.answers.modules.includes('monsido')
-    const authenticatedContentModule = tideModules ? tideModules.includes('authenticatedContent') : this.answers.modules.includes('authenticatedContent')
-    const dataDrivenComponentModule = tideModules ? tideModules.includes('dataDrivenComponent') : this.answers.modules.includes('dataDrivenComponent')
-    const alertModule = tideModules ? tideModules.includes('alert') : this.answers.modules.includes('alert')
-    const gtmModule = gtmToken ? 'yes' : 'no'
-    const backendurl = backendurlValue ? backendurlValue : this.answers.backendurl
-    const siteid = siteidValue ? siteidValue : this.answers.siteid
-    const authuser = authuserValue ? authuserValue : this.answers.authuser
-    const authpass = authpassValue ? authpassValue : this.answers.authpass
+    const results = {
+      ...this.answers,
+      ...config
+    }
+
+    const gtmtoken = results.gtmtoken
+    const paramModules = results.modules || []
+    const tideModules = {}
+
+    TIDE_MODULES.map(m => m.value).forEach(module => {
+      if (paramModules.includes(module) || results.modules.includes(module)) {
+        tideModules[module] = 'yes'
+      } else {
+        tideModules[module] = 'no'
+      }
+    })
+
+    const backendurl = results.backendurl
+    const siteid = results.siteid
+    const authuser = results.authuser
+    const authpass = results.authpass
 
     return {
-      author: author || this.answers.author,
-      name: name || this.answers.name,
-      description: description || this.answers.description,
-      siteModule: siteModule ? 'yes' : 'no',
-      pageModule: pageModule ? 'yes' : 'no',
-      eventModule: eventModule ? 'yes' : 'no',
-      newsModule: newsModule ? 'yes' : 'no',
-      grantModule: grantModule ? 'yes' : 'no',
-      mediaModule: mediaModule ? 'yes' : 'no',
-      webformModule: webformModule ? 'yes' : 'no',
-      searchModule: searchModule ? 'yes' : 'no',
-      publicationModule: publicationModule ? 'yes' : 'no',
-      profileModule: profileModule ? 'yes' : 'no',
-      landingPageModule: landingPageModule ? 'yes' : 'no',
-      monsidoModule: monsidoModule ? 'yes' : 'no',
-      authenticatedContentModule: authenticatedContentModule ? 'yes' : 'no',
-      dataDrivenComponentModule: dataDrivenComponentModule ? 'yes' : 'no',
-      alertModule: alertModule ? 'yes' : 'no',
-      gtmModule,
+      author: results.author,
+      name: results.name,
+      description: results.description,
+      ...tideModules,
       backendurl,
       siteid,
       authuser,
       authpass,
-      gtmToken
+      gtmtoken
     }
   },
   actions () {
-    console.log('name', name || this.answers.name)
-    const validation = validate(name || this.answers.name)
-    validation.warnings && validation.warnings.forEach((warn) => {
-      console.warn('Warning:', warn)
-    })
-    validation.errors && validation.errors.forEach((err) => {
-      console.error('Error:', err)
-    })
+    const results = {
+      ...this.answers,
+      ...config
+    }
+
+    const validation = validate(results.name)
+    validation.warnings &&
+      validation.warnings.forEach(warn => {
+        console.warn('Warning:', warn)
+      })
+    validation.errors &&
+      validation.errors.forEach(err => {
+        console.error('Error:', err)
+      })
     validation.errors && validation.errors.length && process.exit(1)
 
     const actions = [
@@ -245,9 +192,7 @@ module.exports = {
       },
       {
         type: 'add',
-        files: [
-          '_package.json'
-        ]
+        files: ['_package.json']
       }
     ]
 

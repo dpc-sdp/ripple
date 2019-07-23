@@ -4,7 +4,7 @@
 
 <details><summary>Preview</summary>
 
-![preview](https://ooo.0o0.ooo/2017/08/05/5984b16ed9749.gif)
+![preview](/docs/create-ripple-app.gif)
 </details>
 
 ## Usage

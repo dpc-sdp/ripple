@@ -4,7 +4,7 @@
 
 <details><summary>Preview</summary>
 
-![preview](/docs/create-ripple-app.gif)
+![preview](/packages/create-ripple-appfix path/docs/create-ripple-app.gif)
 </details>
 
 ## Usage
@@ -46,7 +46,7 @@ Example JSON file
 
 You can pass all options as parameters to create-ripple-app eg:
 
-`create-ripple-app --name projectname --author DPC --modules grant,site,alert,authenticatedContent --siteid 4 --gtmtoken GTM-123456-1`
+`create-ripple-app --name projectname --author DPC --modules grant,site,alert,authenticatedContent --siteid 4 --authuser userid --authpass userpass --gtmtoken GTM-123456-1`
 
 3. Interactively
 

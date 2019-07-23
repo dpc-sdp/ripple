@@ -4,7 +4,7 @@
 
 <details><summary>Preview</summary>
 
-![preview](/packages/create-ripple-appfix path/docs/create-ripple-app.gif)
+![preview](/packages/create-ripple-app/docs/create-ripple-app.gif)
 </details>
 
 ## Usage

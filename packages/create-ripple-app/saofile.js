@@ -61,8 +61,8 @@ if (!config.description) {
 if (!config.backendurl) {
   prompts.push({
     name: 'backendurl',
-    message: 'Enter backend url',
-    default: `{name}.vic.gov.au`
+    message: 'Enter backend content repository url',
+    default: `http://develop.content.vic.gov.au`
   })
 }
 

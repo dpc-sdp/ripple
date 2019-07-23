@@ -54,7 +54,9 @@ if (!config.description) {
   prompts.push({
     name: 'description',
     message: 'Project description',
-    default: `{name}.vic.gov.au`
+    default: ({name}) => {
+      return `${name}.vic.gov.au`
+    }
   })
 }
 
@@ -120,7 +122,7 @@ if (!config.author) {
   })
 }
 
-if (!config.pm) {
+if (!config.pm && prompts.length > 0) {
   prompts.push({
     name: 'pm',
     message: 'Choose a package manager',
@@ -128,17 +130,39 @@ if (!config.pm) {
     type: 'list',
     default: 'yarn'
   })
+} else {
+  // set package manager to yarn if its the only config missing
+  config.pm = 'yarn'
+}
+
+if (!config.e2e) {
+  prompts.push({
+    name: 'e2e',
+    message: 'Add E2E tests?',
+    type: 'confirm',
+    default: true
+  })
+}
+
+if (!config.examples) {
+  prompts.push({
+    name: 'examples',
+    message: 'Add code examples?',
+    type: 'confirm',
+    default: false
+  })
 }
 
 module.exports = {
-  prompts,
+  prompts () {
+    return prompts
+  },
   templateData () {
     const results = {
       ...this.answers,
       ...config
     }
 
-    const gtmtoken = results.gtmtoken
     const paramModules = results.modules || []
     const tideModules = {}
 
@@ -150,21 +174,9 @@ module.exports = {
       }
     })
 
-    const backendurl = results.backendurl
-    const siteid = results.siteid
-    const authuser = results.authuser
-    const authpass = results.authpass
-
     return {
-      author: results.author,
-      name: results.name,
-      description: results.description,
-      ...tideModules,
-      backendurl,
-      siteid,
-      authuser,
-      authpass,
-      gtmtoken
+      ...results,
+      ...tideModules
     }
   },
   actions () {
@@ -195,6 +207,22 @@ module.exports = {
         files: ['_package.json']
       }
     ]
+
+    if (results.e2e) {
+      actions.push({
+        type: 'add',
+        files: ['**'],
+        templateDir: 'template/_tests'
+      })
+    }
+
+    if (results.examples) {
+      actions.push({
+        type: 'add',
+        files: ['**'],
+        templateDir: 'template/_example'
+      })
+    }
 
     actions.push({
       type: 'move',

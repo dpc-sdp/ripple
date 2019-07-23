@@ -1,7 +1,3 @@
-// Custom tide config & filters.
-const tideConfig = require('./tide/tide.config')
-const tideFilters = require('./tide/tide.mapping-filters')
-
 require('dotenv').config()
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
@@ -53,6 +49,7 @@ export default {
       Disallow: '/'
     }]
   ],
+  <% if (examples === true) { %>
   /*
   ** styleResources
   * Override the path to the theme customisation scss
@@ -73,15 +70,14 @@ export default {
   * Configuration for ripple-nuxt-tide
   * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
   */
+  <%}%>
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     },
-    site: 4,
-    customConfig: tideConfig,
-    customFilters: tideFilters,
+    site: <%= siteid %>,
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {
       <% if (page === 'yes') { %>page: 1,

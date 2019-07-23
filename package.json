@@ -13,7 +13,9 @@
       "examples/**/*",
       "src"
     ],
-    "nohoist": ["src"]
+    "nohoist": [
+      "src"
+    ]
   },
   "scripts": {
     "publish": "lerna publish",
@@ -23,6 +25,7 @@
     "test:dev": "cross-env NODE_ENV=dev start-server-and-test start:example http://localhost:3000 cy:open",
     "test:smoke": "cross-env NODE_ENV=test start-server-and-test start:build-example http://localhost:3000 cy:run-smoke",
     "test:e2e": "cross-env NODE_ENV=test start-server-and-test start:build-example http://localhost:3000 cy:run",
+    "test:custom": "./test/custom/setup/start.sh",
     "test:unit": "jest --colors",
     "build:storybook": "cd src && yarn build-storybook",
     "build:example": "cd examples/vic-gov-au && yarn run build",
@@ -45,11 +48,11 @@
     "package-dependencies:storybook": "cd src/ && yarn run package-dependencies"
   },
   "devDependencies": {
-    "@dpc-sdp/create-ripple-app": "1.0.0-beta.9",
     "@babel/core": "^7.5.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.5.0",
+    "@dpc-sdp/create-ripple-app": "1.0.0-beta.9",
     "@ljharb/eslint-config": "^13.1.1",
     "@vue/test-utils": "^1.0.0-beta.29",
     "axe-core": "^3.2.2",
@@ -72,6 +75,7 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0",
+    "globby": "^10.0.1",
     "husky": "^3.0.0",
     "jest": "^24.8.0",
     "jest-canvas-mock": "^2.1.0",

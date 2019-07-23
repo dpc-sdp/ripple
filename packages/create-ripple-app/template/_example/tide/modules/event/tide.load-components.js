@@ -8,3 +8,7 @@
 // export default {
 //   'your-custom-component': () => import(/* webackChunkName: 'your-custom-component' */ '~/components/YourCustomComponent')
 // }
+
+export default {
+  'rpl-card-event': () => import(/* webpackChunkName: 'rpl-card-event' */ '@dpc-sdp/ripple-card').then(m => m.RplCardEvent)
+}

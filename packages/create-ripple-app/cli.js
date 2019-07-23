@@ -4,7 +4,7 @@ const sao = require('sao')
 
 const generator = path.resolve(__dirname, './')
 // In a custom directory or current directory
-const outDir = path.resolve(process.argv[2] || './examples/')
+const outDir = path.resolve(process.argv[2] || './examples/example')
 
 console.log(`> Generating a new ripple project in ${outDir}`)
 

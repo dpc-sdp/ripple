@@ -84,24 +84,22 @@ export default {
     customFilters: tideFilters,
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {
-      <% if (site === 'yes') { %> site: 1,<%}%>
-      // Content types
-      <% if (page === 'yes') { %> page: 1,<%}%>
-      <% if (landingPage === 'yes') { %> landingPage: 1,<%}%>
-      <% if (event === 'yes') { %> event: 1,<%}%>
-      <% if (news === 'yes') { %> news: 1,<%}%>
-      <% if (grant === 'yes') { %> grant: 1,<%}%>
-      <% if (profile === 'yes') { %> profile: 1,<%}%>
-      <% if (publication === 'yes') { %> publication: 1,<%}%>
-      // Feature flags
-      <% if (media === 'yes') { %> media: 1,<%}%>
-      <% if (webform === 'yes') { %> webform: 1,<%}%>
-      <% if (search === 'yes') { %> search: 1,<%}%>
-      <% if (monsido === 'yes') { %> monsido: 1,<%}%>
-      <% if (authenticatedContent === 'yes') { %> authenticatedContent: 1,<%}%>
-      <% if (dataDrivenComponent === 'yes') { %> dataDrivenComponent: 1,<%}%>
-      <% if (alert === 'yes') { %> alert: 1,<%}%>
-      <% if (gtm === 'yes') { %> gtm: 1,<%}%>
+      <% if (page === 'yes') { %>page: 1,
+      <%}%><% if (landingPage === 'yes') { %>landingPage: 1,
+      <%}%><% if (event === 'yes') { %>event: 1,
+      <%}%><% if (news === 'yes') { %>news: 1,
+      <%}%><% if (grant === 'yes') { %>grant: 1,
+      <%}%><% if (profile === 'yes') { %>profile: 1,
+      <%}%><% if (publication === 'yes') { %>publication: 1,
+      <%}%><% if (media === 'yes') { %>media: 1,
+      <%}%><% if (webform === 'yes') { %>webform: 1,
+      <%}%><% if (search === 'yes') { %>search: 1,
+      <%}%><% if (monsido === 'yes') { %>monsido: 1,
+      <%}%><% if (authenticatedContent === 'yes') { %>authenticatedContent: 1,
+      <%}%><% if (dataDrivenComponent === 'yes') { %>dataDrivenComponent: 1,
+      <%}%><% if (alert === 'yes') { %>alert: 1,
+      <%}%><% if (gtm === 'yes') { %>gtm: 1,
+      <%}%><% if (site === 'yes') { %>site: 1<%}%>
     },
     gtm: {
       // Set Google Tag Manager ID here

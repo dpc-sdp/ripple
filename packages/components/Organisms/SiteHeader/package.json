@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-site-header",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.10",
   "description": "Site header for providing site-wide navigation and search on all pages.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,12 +10,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-beta.9",
-    "@dpc-sdp/ripple-icon": "1.0.0-beta.9",
-    "@dpc-sdp/ripple-layout": "1.0.0-beta.9",
-    "@dpc-sdp/ripple-link": "1.0.0-beta.9",
-    "@dpc-sdp/ripple-meta-tag": "1.0.0-beta.9",
-    "@dpc-sdp/ripple-search": "1.0.0-beta.9",
+    "@dpc-sdp/ripple-global": "1.0.0-beta.10",
+    "@dpc-sdp/ripple-icon": "1.0.0-beta.10",
+    "@dpc-sdp/ripple-layout": "1.0.0-beta.10",
+    "@dpc-sdp/ripple-link": "1.0.0-beta.10",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-beta.10",
+    "@dpc-sdp/ripple-search": "1.0.0-beta.10",
     "body-scroll-lock": "^2.6.1"
   }
 }

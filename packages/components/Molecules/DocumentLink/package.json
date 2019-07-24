@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-document-link",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.10",
   "description": "A component for rendering a document download link.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-beta.9",
-    "@dpc-sdp/ripple-icon": "1.0.0-beta.9"
+    "@dpc-sdp/ripple-global": "1.0.0-beta.10",
+    "@dpc-sdp/ripple-icon": "1.0.0-beta.10"
   }
 }

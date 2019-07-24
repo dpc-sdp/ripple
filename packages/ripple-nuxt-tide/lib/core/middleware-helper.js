@@ -11,8 +11,8 @@ const getMiddleware = (middlewareConfig) => {
         // https://webpack.js.org/guides/dependency-management/#require-with-expression
         let pathMiddle = path.replace('tide.middleware', '')
         if (pathMiddle.includes('~/tide/')) {
-          pathMiddle = pathMiddle.replace('~/tide/', '')
-          additionalMiddleware = require(`~/tide/${pathMiddle}tide.middleware`).default
+          pathMiddle = pathMiddle.replace('~/', '')
+          additionalMiddleware = require(`~/${pathMiddle}tide.middleware`).default
         } else if (pathMiddle.includes('./../../modules/')) {
           pathMiddle = pathMiddle.replace('./../../modules/', '')
           additionalMiddleware = require(`./../../modules/${pathMiddle}tide.middleware`).default

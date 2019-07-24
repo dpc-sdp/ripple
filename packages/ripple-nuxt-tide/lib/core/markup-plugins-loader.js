@@ -12,8 +12,8 @@ const loader = (pluginConfig = []) => {
 
       try {
         if (pathMiddle.includes('~/tide/')) {
-          pathMiddle = pathMiddle.replace('~/tide/', '')
-          morePlugins = require(`~/tide/${pathMiddle}tide.markup-plugins`).default
+          pathMiddle = pathMiddle.replace('~/', '')
+          morePlugins = require(`~/${pathMiddle}tide.markup-plugins`).default
         } else if (pathMiddle.includes('./../../modules/')) {
           pathMiddle = pathMiddle.replace('./../../modules/', '')
           morePlugins = require(`./../../modules/${pathMiddle}tide.markup-plugins`).default

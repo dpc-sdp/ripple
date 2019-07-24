@@ -13,8 +13,8 @@ export const getTemplate = (type, pageTypes = []) => {
         let pathMiddle = path.replace('tide.page-types', '')
 
         if (pathMiddle.includes('~/tide/')) {
-          pathMiddle = pathMiddle.replace('~/tide/', '')
-          morePageTypes = require(`~/tide/${pathMiddle}tide.page-types`).default
+          pathMiddle = pathMiddle.replace('~/', '')
+          morePageTypes = require(`~/${pathMiddle}tide.page-types`).default
         } else if (pathMiddle.includes('./../../modules/')) {
           pathMiddle = pathMiddle.replace('./../../modules/', '')
           morePageTypes = require(`./../../modules/${pathMiddle}tide.page-types`).default

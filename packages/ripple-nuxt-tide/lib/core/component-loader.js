@@ -13,8 +13,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       // https://webpack.js.org/guides/dependency-management/#require-with-expression
       let pathMiddle = path.replace('tide.load-components', '')
       if (pathMiddle.includes('~/tide/')) {
-        pathMiddle = pathMiddle.replace('~/tide/', '')
-        cmpsConfig = require(`~/tide/${pathMiddle}tide.load-components`).default
+        pathMiddle = pathMiddle.replace('~/', '')
+        cmpsConfig = require(`~/${pathMiddle}tide.load-components`).default
       } else if (pathMiddle.includes('./../../modules/')) {
         pathMiddle = pathMiddle.replace('./../../modules/', '')
         cmpsConfig = require(`./../../modules/${pathMiddle}tide.load-components`).default

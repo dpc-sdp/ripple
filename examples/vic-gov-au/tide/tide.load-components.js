@@ -8,3 +8,7 @@
 // export default {
 //   'your-custom-component': () => import(/* webackChunkName: 'your-custom-component' */ '~/components/YourCustomComponent')
 // }
+
+export default {
+  'example-message': () => import(/* webackChunkName: 'example-message' */ '~/components/examples/Message')
+}

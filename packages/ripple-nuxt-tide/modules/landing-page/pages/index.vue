@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import { dComponentsLoader } from '@dpc-sdp/ripple-nuxt-tide/lib/core/componentLoader'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
@@ -40,7 +39,7 @@ export default {
     sidebar: Boolean
   },
   created () {
-    this.dynamicComponents = dComponentsLoader(this.page.appDComponents, this.sidebar)
+    this.dynamicComponents = this.$tide.getDynamicComponents(this.page.appDComponents, this.sidebar)
   }
 }
 </script>

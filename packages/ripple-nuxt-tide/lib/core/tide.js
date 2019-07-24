@@ -7,6 +7,8 @@ import * as helper from './tide-helper'
 import * as pageTypes from './page-types'
 import * as middleware from './middleware-helper'
 import { isTokenExpired } from '../../modules/authenticated-content/lib/authenticate'
+import componentLoader from './component-loader'
+import markupPluginsLoader from './markup-plugins-loader'
 
 const apiPrefix = '/api/v1/'
 
@@ -237,14 +239,6 @@ export const tide = (axios, site, config) => ({
     return response
   },
 
-  getCustomMiddleware: function () {
-    return middleware.additionalMiddleware(config.modules)
-  },
-
-  getPageTypeTemplate: function (type) {
-    return pageTypes.getTemplate(type)
-  },
-
   getEntityByPathData: async function (pathData, query, authToken) {
     const endpoint = `${pathData.entity_type}/${pathData.bundle}/${pathData.uuid}`
 
@@ -406,5 +400,25 @@ export const tide = (axios, site, config) => ({
     } catch (e) {
       return false
     }
+  },
+
+  callMiddleware: async function (context) {
+    return middleware.callMiddleware(config.middleware, context)
+  },
+
+  getPageTypeTemplate: function (type) {
+    return pageTypes.getTemplate(type, config.pageTypes)
+  },
+
+  getMarkupPlugins: function () {
+    return markupPluginsLoader(config.markupPlugins)
+  },
+
+  getDynamicComponents: function (components = [], sidebar) {
+    return componentLoader.dComponentsLoader(components, sidebar, config.dynamicComponents)
+  },
+
+  getDynamicComponent: function (component = [], sidebar) {
+    return componentLoader.dComponentLoader(component, sidebar, config.dynamicComponents)
   }
 })

@@ -32,7 +32,6 @@ import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplPublicationPagination, RplPublicationAuthorInformation } from '@dpc-sdp/ripple-publication'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import { dComponentsLoader } from '@dpc-sdp/ripple-nuxt-tide/lib/core/componentLoader'
 import { truncateText } from '@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper'
 import { RplCardNavigation } from '@dpc-sdp/ripple-card'
 
@@ -52,7 +51,7 @@ export default {
     sidebar: Boolean
   },
   created () {
-    this.dynamicComponents = dComponentsLoader(this.page.appDComponents, this.sidebar)
+    this.dynamicComponents = this.$tide.getDynamicComponents(this.page.appDComponents, this.sidebar)
   },
   computed: {
     publishingInfo () {

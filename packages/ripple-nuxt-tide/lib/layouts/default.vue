@@ -48,7 +48,6 @@ import { RplAlertBase } from '@dpc-sdp/ripple-alert'
 import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
-import markupPlugins from '@dpc-sdp/ripple-nuxt-tide/lib/core/markup-plugins-loader'
 import { isTokenExpired, getToken, clearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 import { isPreviewPath } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/preview'
 
@@ -145,7 +144,7 @@ export default {
     this.rplOptions.origin = this.$store.state.tide.protocol + '//' + this.$store.state.tide.host
     // Set RplMarkup plugins globally
     this.rplOptions.rplMarkup = {
-      plugins: markupPlugins
+      plugins: this.$tide.getMarkupPlugins()
     }
     if (this.$tide.isModuleEnabled('authenticatedContent')) {
       // If logged in and session has expired, logout the user

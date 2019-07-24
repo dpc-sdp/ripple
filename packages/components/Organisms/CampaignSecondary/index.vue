@@ -115,6 +115,12 @@ export default {
         @include rpl_grid_column(9);
       }
     }
+
+    &__content {
+      display: block;
+      width: 100%;
+    }
+
     &__image {
       border-radius: $rpl-campaign-secondary-border-radius;
       display: block;

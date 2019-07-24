@@ -314,7 +314,7 @@ storiesOf('Molecules/Form', module)
         formData: {
           model: {
             submissionType: 'Success',
-            otherMessage: 'Thank you! Your response has been submitted.'
+            message: 'Thank you! Your response has been submitted.'
           },
           schema: {
             fields: [
@@ -331,8 +331,8 @@ storiesOf('Molecules/Form', module)
               {
                 type: 'input',
                 inputType: 'text',
-                label: 'Other message',
-                model: 'otherMessage'
+                label: 'Message',
+                model: 'message'
               },
               {
                 type: 'rplsubmitloader',
@@ -351,7 +351,7 @@ storiesOf('Molecules/Form', module)
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             const status = this.formData.model.submissionType.toLowerCase()
-            const message = this.formData.model.otherMessage
+            const message = this.formData.model.message
             this.formData.formState = {
               response: { status, message }
             }

@@ -10,5 +10,5 @@
 // }
 
 export default {
-  'example-message': () => import(/* webackChunkName: 'example-message' */ '~/components/examples/Message')
+  'rpl-search-form': () => import(/* webpackChunkName: 'rpl-search-form' */ '@dpc-sdp/ripple-search').then(m => m.RplSearchForm)
 }

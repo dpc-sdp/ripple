@@ -63,7 +63,8 @@ const nuxtTide = function (moduleOptions) {
   })
 
   if (process.env.BASIC_AUTH === '1') {
-    this.addServerMiddleware('./core/basic-auth.js')
+    const basicAuth = require('./core/basic-auth.js')
+    this.addServerMiddleware(basicAuth)
   }
 
   this.addModule('@dpc-sdp/ripple-nuxt-ui', true)

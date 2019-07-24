@@ -1,7 +1,7 @@
 // Server middleware - only allow users who pass
 const auth = require('basic-auth')
 
-export default function (req, res, next) {
+module.exports = function (req, res, next) {
   const credentials = auth(req)
   // We need to use same credentials as Content API, as we are using proxy to send API requests.
   const authUser = process.env.CONTENT_API_AUTH_USER

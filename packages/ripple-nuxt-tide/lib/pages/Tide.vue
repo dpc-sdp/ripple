@@ -81,9 +81,6 @@ import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 // Banner.
 import { RplHeroBanner, RplIntroBanner } from '@dpc-sdp/ripple-hero-banner'
 
-import middleware from '@dpc-sdp/ripple-nuxt-tide/lib/core/middleware'
-import { loadComponent, dComponentsLoader, dComponentLoader } from '@dpc-sdp/ripple-nuxt-tide/lib/core/componentLoader'
-
 import { anchorUtils } from '@dpc-sdp/ripple-nuxt-tide/lib/core/anchorlinks.js'
 import kebabCase from 'lodash.kebabcase'
 
@@ -117,16 +114,16 @@ export default {
   },
   created () {
     if (this.page.appCampaignPrimary) {
-      this.campaignPrimary = dComponentLoader(this.page.appCampaignPrimary, this.page.sidebar)
+      this.campaignPrimary = this.$tide.getDynamicComponent(this.page.appCampaignPrimary, this.page.sidebar)
     }
     if (this.page.appCampaignSecondary) {
-      this.campaignSecondary = dComponentLoader(this.page.appCampaignSecondary, this.page.sidebar)
+      this.campaignSecondary = this.$tide.getDynamicComponent(this.page.appCampaignSecondary, this.page.sidebar)
     }
     if (this.page.appHeroBanner) {
-      this.heroBanner = dComponentLoader(this.page.appHeroBanner)
+      this.heroBanner = this.$tide.getDynamicComponent(this.page.appHeroBanner)
     }
     if (this.page.sidebarComponents && this.page.sidebarComponents.length > 0) {
-      this.sidebarComponents = dComponentsLoader(this.page.sidebarComponents, this.page.sidebar)
+      this.sidebarComponents = this.$tide.getDynamicComponents(this.page.sidebarComponents, this.page.sidebar)
     }
   },
   methods: {
@@ -181,7 +178,6 @@ export default {
     },
     updatedDate () {
       return {
-        component: () => loadComponent('rpl-updated-date'),
         data: {
           date: this.page.changed.toString() || this.page.created.toString()
         }
@@ -189,7 +185,7 @@ export default {
     },
     headerComponents () {
       if (this.page.appHeaderComponents && this.page.appHeaderComponents.length > 0) {
-        return dComponentsLoader(this.page.appHeaderComponents, this.page.sidebar)
+        return this.$tide.getDynamicComponents(this.page.appHeaderComponents, this.page.sidebar)
       }
       return []
     },
@@ -202,26 +198,12 @@ export default {
     }
   },
   async asyncData (context) {
-    // Do not modify context.
-    // Middleware should store any generated page data in results object.
-    const results = {}
-    await middleware(context, results)
-
-    try {
-      const customMiddlewares = context.app.$tide.getCustomMiddleware()
-      for (const mw in customMiddlewares) {
-        await customMiddlewares[mw](context, results)
-      }
-    } catch (error) {
-      if (process.server) {
-        console.log(error)
-      }
-    }
+    const pageData = await context.app.$tide.callMiddleware(context)
 
     return {
-      errorType: results.tideErrorType,
-      page: results.tidePage,
-      sidebar: results.tideLayout ? results.tideLayout.sidebar : false
+      errorType: pageData.tideErrorType,
+      page: pageData.tidePage,
+      sidebar: pageData.tideLayout ? pageData.tideLayout.sidebar : false
     }
   }
 }

@@ -5200,6 +5200,150 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
 </form>
 `;
 
+exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
+<form
+  class="rpl-form"
+>
+  <h3
+    class="rpl-form__title"
+  >
+    Submission Alerts
+  </h3>
+   
+  <!---->
+   
+  <div
+    class="vue-form-generator"
+  >
+    <fieldset>
+      <div
+        class="form-group field-radios"
+      >
+        <label
+          for="alert-type"
+        >
+          <span>
+            Alert type
+          </span>
+           
+          <!---->
+        </label>
+         
+        <div
+          class="field-wrap"
+        >
+          <div
+            class="radio-list"
+          >
+            <label
+              class="is-checked"
+            >
+              <input
+                id="alert-type-12"
+                name="submissionType"
+                type="radio"
+                value="Success"
+              />
+              Success
+            </label>
+            <label
+              class=""
+            >
+              <input
+                id="alert-type-13"
+                name="submissionType"
+                type="radio"
+                value="Error"
+              />
+              Error
+            </label>
+            <label
+              class=""
+            >
+              <input
+                id="alert-type-14"
+                name="submissionType"
+                type="radio"
+                value="Other"
+              />
+              Other
+            </label>
+          </div>
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+      <div
+        class="form-group field-input"
+      >
+        <label
+          for="other-message"
+        >
+          <span>
+            Other message
+          </span>
+           
+          <!---->
+        </label>
+         
+        <div
+          class="field-wrap"
+        >
+          <div
+            class="wrapper"
+          >
+            <input
+              class="form-control"
+              id="other-message"
+              type="text"
+            />
+            <!---->
+          </div>
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+      <div
+        class="form-group field-rplsubmitloader"
+      >
+        <!---->
+         
+        <div
+          class="field-wrap"
+        >
+          <button
+            class="rpl-submit-loader form-control"
+            type="submit"
+          >
+            <span
+              class="rpl-submit-loader__text"
+            >
+              Submit
+            </span>
+             
+            <!---->
+          </button>
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+    </fieldset>
+  </div>
+</form>
+`;
+
 exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `
 <div
   class="rpl-site-layout"

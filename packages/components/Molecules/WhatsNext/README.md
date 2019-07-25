@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-whats-next
 
 > A component to display a list of links relating to additional content for an
@@ -33,10 +34,12 @@ import RplWhatsNext from '@dpc-sdp/ripple-whats-next'
 
 ## Usage and Tests
 
-See [Storybook/What's Next](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/WhatsNext&selectedStory=What%5C's%20Next).
+See [Storybook/Molecules/WhatsNext/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-whatsnext--default).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
+<!-- /GENERATED_DOCS -->

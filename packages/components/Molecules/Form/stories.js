@@ -300,3 +300,64 @@ storiesOf('Molecules/Form', module)
       }
     }
   }))
+  .add('Submission Alerts', () => ({
+    components: { RplForm },
+    template: `<rpl-form :formData="formData" :submitHandler="submitHandler" :title="title"></rpl-form>`,
+    data () {
+      return {
+        title: 'Submission Alerts',
+        isNewModel: true,
+        options: {
+          validateAfterChanged: true,
+          validateAfterLoad: false
+        },
+        formData: {
+          model: {
+            submissionType: 'Success',
+            message: 'Thank you! Your response has been submitted.'
+          },
+          schema: {
+            fields: [
+              {
+                type: 'radios',
+                label: 'Alert type',
+                model: 'submissionType',
+                values: [
+                  'Success',
+                  'Error',
+                  'Other'
+                ]
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Message',
+                model: 'message'
+              },
+              {
+                type: 'rplsubmitloader',
+                buttonText: 'Submit',
+                loading: false,
+                autoUpdate: true
+              }
+            ]
+          },
+          formState: {}
+        }
+      }
+    },
+    methods: {
+      submitHandler () {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const status = this.formData.model.submissionType.toLowerCase()
+            const message = this.formData.model.message
+            this.formData.formState = {
+              response: { status, message }
+            }
+            resolve()
+          }, 250)
+        })
+      }
+    }
+  }))

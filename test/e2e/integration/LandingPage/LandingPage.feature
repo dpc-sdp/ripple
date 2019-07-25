@@ -20,4 +20,8 @@ Feature: Landing Page Components
   Scenario: There are no accessibility errors
     Given I have created a landing page with the json fixture "Pages/LandingPage/simple"
     And I have navigated to the created test page
-    Then it has no detectable a11y violations on load
+    Then it has no detectable a11y violations on 
+    
+  @focus
+  Scenario: Landing page complex example
+    Given I have created a node with the YAML fixture "Pages/LandingPage/complex.yml"

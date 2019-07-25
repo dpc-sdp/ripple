@@ -24,7 +24,7 @@ module.exports = class TideAdmin {
     this.options = {
       wait: { waitUntil: 'networkidle2', timeout: 0 },
       start: {
-        headless: true,
+        headless: false,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       }
     }
@@ -55,6 +55,37 @@ module.exports = class TideAdmin {
       this.page.waitForNavigation(this.options.wait),
       this.page.waitForSelector('#drupal-live-announce', this.options.wait)
     ])
+  }
+  async setSelectVal (sel, val) {
+    this.page.evaluate(
+      data => {
+        return (document.querySelector(data.sel).value = data.val)
+      },
+      { sel, val }
+    )
+  }
+  /**
+   * Creates a node from a YAML upload
+   * @param {*} testData
+   * @returns string (true or false)
+   */
+  async createNodeFromYAML (testData) {
+    if (!testData) return null
+    // create browser and page
+    const page = await this.setup()
+
+    // Login
+    await this.login()
+    await page.goto(`${this.backendURL}/admin/content/import_demo_content`)
+    await this.setSelectVal('#edit-import', testData)
+    // Submit
+    await this.submitPage()
+    await page.waitForSelector('[aria-label="Status message"]', this.options.wait)
+    const result = await page.$eval('[aria-label="Status message"]', el =>
+      el
+        .classList.contains('messages--status')
+    )
+    return result
   }
 
   /**
@@ -142,10 +173,7 @@ module.exports = class TideAdmin {
     // Card Event Automated
     const setCardEventAutomated = async (component, index) => {
       await setLandingPageComponentType('card_event_auto', index)
-      await page.type(
-        lPage.components.cardEventAuto.cta(index),
-        component.cta
-      )
+      await page.type(lPage.components.cardEventAuto.cta(index), component.cta)
       await page.type(
         lPage.components.cardEventAuto.event(index),
         component.event
@@ -178,7 +206,10 @@ module.exports = class TideAdmin {
           const item = items[accIdx]
           if (accIdx === 0) {
             // first item is already open
-            await page.type(lPage.components.accordion.item.name(index, accIdx), item.name)
+            await page.type(
+              lPage.components.accordion.item.name(index, accIdx),
+              item.name
+            )
             await utils.setWysiwygText(
               lPage.components.accordion.item.content(index, accIdx),
               item.content,
@@ -187,7 +218,10 @@ module.exports = class TideAdmin {
           } else {
             await page.click(lPage.components.accordion.item.addItemBtn(index))
             await page.waitFor(3000)
-            await page.type(lPage.components.accordion.item.name(index, accIdx), item.name)
+            await page.type(
+              lPage.components.accordion.item.name(index, accIdx),
+              item.name
+            )
             await utils.setWysiwygText(
               lPage.components.accordion.item.content(index, accIdx),
               item.content,
@@ -230,7 +264,10 @@ module.exports = class TideAdmin {
     await addComponents()
 
     // Set moderation state. Default to published.
-    await page.select(this.pageModels.common.moderationState, testData.moderationState || 'published')
+    await page.select(
+      this.pageModels.common.moderationState,
+      testData.moderationState || 'published'
+    )
 
     // Submit
     await this.submitPage()
@@ -243,10 +280,13 @@ module.exports = class TideAdmin {
         .pop()
     )
 
-    const previewLink = (testData.moderationState === 'draft') ? await page.$eval('.node-revision-preview-links a', el => {
-      const url = el.getAttribute('href')
-      return url.substr(url.indexOf('/preview/'))
-    }) : null
+    const previewLink =
+      testData.moderationState === 'draft'
+        ? await page.$eval('.node-revision-preview-links a', el => {
+          const url = el.getAttribute('href')
+          return url.substr(url.indexOf('/preview/'))
+        })
+        : null
 
     // Cleanup
     await this.close()
@@ -474,30 +514,55 @@ module.exports = class TideAdmin {
 
     // Body content tab
     await page.click(ePage.tabs.bodyContent)
-    await utils.setWysiwygText(ePage.bodyContent.body, testData.bodyContent.body, page)
+    await utils.setWysiwygText(
+      ePage.bodyContent.body,
+      testData.bodyContent.body,
+      page
+    )
     await utils.addWysiwygMediaEmbed(ePage.bodyContent.body, 'image', 1, page)
     await page.type(ePage.bodyContent.startDate, testData.bodyContent.startDate)
     await page.type(ePage.bodyContent.startTime, testData.bodyContent.startTime)
     await page.type(ePage.bodyContent.endDate, testData.bodyContent.endDate)
     await page.type(ePage.bodyContent.endTime, testData.bodyContent.endTime)
-    await page.type(ePage.bodyContent.streetAddress, testData.bodyContent.streetAddress)
+    await page.type(
+      ePage.bodyContent.streetAddress,
+      testData.bodyContent.streetAddress
+    )
     await page.type(ePage.bodyContent.suburb, testData.bodyContent.suburb)
     await page.type(ePage.bodyContent.state, testData.bodyContent.state)
-    await page.type(ePage.bodyContent.postalCode, testData.bodyContent.postalCode)
+    await page.type(
+      ePage.bodyContent.postalCode,
+      testData.bodyContent.postalCode
+    )
     await page.type(ePage.bodyContent.price, testData.bodyContent.price)
     await page.type(ePage.bodyContent.priceTo, testData.bodyContent.priceTo)
-    await page.type(ePage.bodyContent.eventRequirements, testData.bodyContent.eventRequirements)
+    await page.type(
+      ePage.bodyContent.eventRequirements,
+      testData.bodyContent.eventRequirements
+    )
     await page.type(ePage.bodyContent.bookUrl, testData.bodyContent.bookUrl)
     await page.type(ePage.bodyContent.linkText, testData.bodyContent.linkText)
-    await page.type(ePage.bodyContent.eventCategory, testData.bodyContent.eventCategory)
+    await page.type(
+      ePage.bodyContent.eventCategory,
+      testData.bodyContent.eventCategory
+    )
     await page.type(ePage.bodyContent.audience, testData.bodyContent.audience)
-    await page.type(ePage.bodyContent.websiteUrl, testData.bodyContent.websiteUrl)
+    await page.type(
+      ePage.bodyContent.websiteUrl,
+      testData.bodyContent.websiteUrl
+    )
 
     // Event content tab
     await page.click(ePage.tabs.eventAuthor)
     await page.type(ePage.eventAuthor.fullName, testData.eventAuthor.fullName)
-    await page.type(ePage.eventAuthor.emailAddress, testData.eventAuthor.emailAddress)
-    await page.type(ePage.eventAuthor.contactPhone, testData.eventAuthor.contactPhone)
+    await page.type(
+      ePage.eventAuthor.emailAddress,
+      testData.eventAuthor.emailAddress
+    )
+    await page.type(
+      ePage.eventAuthor.contactPhone,
+      testData.eventAuthor.contactPhone
+    )
 
     // Set moderation state to published
     await page.select(this.pageModels.common.moderationState, 'published')

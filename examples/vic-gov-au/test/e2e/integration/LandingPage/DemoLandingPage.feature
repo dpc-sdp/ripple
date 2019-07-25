@@ -24,7 +24,8 @@ Feature: Demo Page
     And the featured card navigation component should exist
     And the card event component should exist
     And the card CTA component should exist
-    And the card keydates component should exist
+    # TODO: add this back once it can be added via demo content
+    # And the card keydates component should exist 
     And the card promotion component should exist
     And the card carousel component should exist
     And the accordion component should exist

@@ -31,6 +31,10 @@ Given(`I have created a landing page with the json fixture {string}`, (fixture) 
   })
 })
 
+Given(`I have created a node with the YAML fixture {string}`, (fixture) => {
+  cy.TideCreateNode(fixture)
+})
+
 Given(`I have created an event page with the json fixture {string}`, (fixture) => {
   cy.fixture(fixture).as('pageData')
   cy.get('@pageData').then(data => {

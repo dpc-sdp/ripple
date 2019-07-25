@@ -8,6 +8,7 @@ const adminPageModels = {
   },
   common: {
     title: dataSel('edit-title-0-value'),
+    yamlpaste: dataSel('edit-import'),
     summary: dataSel('edit-field-landing-page-summary-0-value'),
     topic: dataSel('edit-field-topic-0-target-id'),
     siteCheckbox: (site) => dataSel(`edit-field-node-site-${site}`),

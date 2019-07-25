@@ -1,6 +1,6 @@
 # Create Ripple App
 
-> Create a [Ripple](https://github.com/dpc-sdp/ripple) website using  the [Nuxt.js](https://github.com/nuxt/nuxt.js) framework in seconds
+> Create a [Ripple](https://github.com/dpc-sdp/ripple) website using the [Nuxt.js](https://github.com/nuxt/nuxt.js) framework in seconds
 
 <details><summary>Preview</summary>
 

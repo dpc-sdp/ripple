@@ -45,7 +45,6 @@
     "package-dependencies:storybook": "cd src/ && yarn run package-dependencies"
   },
   "devDependencies": {
-    "@dpc-sdp/create-ripple-app": "1.0.0-beta.9",
     "@babel/core": "^7.5.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.4.4",

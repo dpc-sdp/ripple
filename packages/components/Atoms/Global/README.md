@@ -8,6 +8,8 @@ colours, fonts, breakpoints.
 
 <!-- /GENERATED_DESCRIPTION -->
 
+--------------------------------------------------------------------------------
+
 ## rplOptions
 
 This is a globally available options object to allow passing options between ripple components. Don't abuse this, keep it light as the object gets passed between all components.
@@ -32,6 +34,7 @@ npm install @dpc-sdp/ripple-global --save
 ```
 
 <!-- /GENERATED_INSTALL -->
+
 --------------------------------------------------------------------------------
 
 <!-- GENERATED_DEPENDENCY_GRAPH -->
@@ -46,6 +49,7 @@ npm install @dpc-sdp/ripple-global --save
 ```
 
 <!-- /GENERATED_DEPENDENCY_GRAPH -->
+
 --------------------------------------------------------------------------------
 
 <!-- GENERATED_IMPORT -->
@@ -57,6 +61,7 @@ import RplGlobal from '@dpc-sdp/ripple-global'
 ```
 
 <!-- /GENERATED_IMPORT -->
+
 --------------------------------------------------------------------------------
 
 <!-- GENERATED_USAGE_AND_TESTS -->
@@ -73,6 +78,7 @@ See [Storybook/Atoms/Global/Breakpoints](https://ripple.sdp.vic.gov.au/?path=/st
 See [Storybook/Atoms/Global/Divider](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--divider).
 
 <!-- /GENERATED_USAGE_AND_TESTS -->
+
 --------------------------------------------------------------------------------
 
 <!-- GENERATED_LICENSE -->

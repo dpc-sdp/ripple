@@ -26,21 +26,25 @@ export default {
       return this.getValues().color
     },
     classes () {
-      return [ 'rpl-form-alert--' + this.variant ]
+      const suffix = this.getValues().classSuffix
+      return suffix ? 'rpl-form-alert--' + this.getValues().classSuffix : null
     }
   },
   methods: {
     getValues () {
-      let icon, color
+      let icon, color, classSuffix
       switch (this.variant) {
         case 'success':
           icon = 'success'
           color = 'success'
+          classSuffix = 'success'
           break
 
+        case 'error':
         case 'danger':
           icon = 'alert_information'
           color = 'danger'
+          classSuffix = 'danger'
           break
 
         default:
@@ -49,7 +53,8 @@ export default {
       }
       return {
         icon,
-        color
+        color,
+        classSuffix
       }
     }
   }

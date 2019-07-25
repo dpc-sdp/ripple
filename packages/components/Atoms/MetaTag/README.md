@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-meta-tag
 
 > A link component to represent tags.
@@ -32,10 +33,12 @@ import RplMetaTag from '@dpc-sdp/ripple-meta-tag'
 
 ## Usage and Tests
 
-See [Storybook/Meta Tag](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/MetaTag&selectedStory=Meta%20Tag).
+See [Storybook/Atoms/MetaTag/Meta Tag](https://ripple.sdp.vic.gov.au/?path=/story/atoms-metatag--meta-tag).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
+<!-- /GENERATED_DOCS -->

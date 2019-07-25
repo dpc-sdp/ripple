@@ -1,13 +1,13 @@
 <template>
   <span v-if="text && symbol && placement === 'before'">
-    <span v-if="textWordCount > 1" class="rpl-text-icon__group"><rpl-icon :symbol="symbol" :color="color" :size="size" class="rpl-text-icon--before"/>{{ textFirstWord }}</span>
+    <span v-if="textWordCount > 1" class="rpl-text-icon__group"><rpl-icon v-bind="iconProps" />{{ textFirstWord }}</span>
     <span v-if="textWordCount > 1">{{ textWithoutFirstWord }}</span>
-    <span v-if="textWordCount <= 1" class="rpl-text-icon__group"><rpl-icon :symbol="symbol" :color="color" :size="size" class="rpl-text-icon--before"/>{{ text }}</span>
+    <span v-else class="rpl-text-icon__group"><rpl-icon v-bind="iconProps" />{{ text }}</span>
   </span>
   <span v-else-if="text && symbol && placement === 'after'">
     <span v-if="textWordCount > 1">{{ textWithoutLastWord }}</span>
-    <span v-if="textWordCount > 1" class="rpl-text-icon__group">{{ textLastWord }}<rpl-icon :symbol="symbol" :color="color" :size="size" class="rpl-text-icon--after" /></span>
-    <span v-if="textWordCount <= 1" class="rpl-text-icon__group">{{ text }}<rpl-icon :symbol="symbol" :color="color" :size="size" class="rpl-text-icon--after" /></span>
+    <span v-if="textWordCount > 1" class="rpl-text-icon__group">{{ textLastWord }}<rpl-icon v-bind="iconProps" /></span>
+    <span v-else class="rpl-text-icon__group">{{ text }}<rpl-icon v-bind="iconProps" /></span>
   </span>
   <span v-else-if="text">{{ text }}</span>
 </template>
@@ -42,6 +42,14 @@ export default {
     },
     textFirstWord: function () {
       return this.text.substr(0, this.text.indexOf(' '))
+    },
+    iconProps: function () {
+      return {
+        symbol: this.symbol,
+        color: this.color,
+        size: this.size,
+        class: `rpl-text-icon--${this.placement}`
+      }
     }
   }
 }

@@ -45,4 +45,5 @@ See [Storybook/Organisms/Profile/Profile Highlight Honour Roll](https://ripple.s
 ## License
 
 Licensed under the Apache-2.0 License.
+
 <!-- /GENERATED_DOCS -->

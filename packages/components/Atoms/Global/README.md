@@ -7,10 +7,12 @@
 colours, fonts, breakpoints.
 
 <!-- /GENERATED_DESCRIPTION -->
+
 ## rplOptions
+
 This is a globally available options object to allow passing options between ripple components. Don't abuse this, keep it light as the object gets passed between all components.
 
-```
+```js
   nuxt: false, // enable if using in SSR environment eg: nuxt
   hostname: 'localhost', // set hostname for rpl-link etc
   origin: '', // URL with protocol://host(:port) e.g. http://localhost:3000

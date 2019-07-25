@@ -43,4 +43,5 @@ See [Storybook/Atoms/Icon/Text Icon](https://ripple.sdp.vic.gov.au/?path=/story/
 ## License
 
 Licensed under the Apache-2.0 License.
+
 <!-- /GENERATED_DOCS -->

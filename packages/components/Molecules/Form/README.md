@@ -44,9 +44,12 @@ import RplForm from '@dpc-sdp/ripple-form'
 
 See [Storybook/Molecules/Form/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-form--default).
 
+See [Storybook/Molecules/Form/Submission Alerts](https://ripple.sdp.vic.gov.au/?path=/story/molecules-form--submission-alerts).
+
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
 <!-- /GENERATED_DOCS -->

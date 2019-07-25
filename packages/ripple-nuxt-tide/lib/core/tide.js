@@ -21,32 +21,27 @@ export const tide = (axios, site, config) => ({
    * @param {String} authToken Authentication token
    */
   get: async function (resource, params = {}, id = '', authToken) {
-    const siteParam = 'site=' + site
-    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
-    let headers = {}
-
-    if (process.server || process.env.NODE_ENV === 'development') {
-      console.info(`Tide request url: ${url}`)
+    // axios config
+    const axiosConfig = {
+      baseUrl: config.baseUrl,
+      auth: config.auth,
+      headers: {}
     }
 
     if (this.isModuleEnabled('authenticatedContent')) {
       // Set 'X-Authorization' header if authToken present
-      if (authToken) {
-        if (!isTokenExpired(authToken)) {
-          _.merge(headers, { 'X-Authorization': `Bearer ${authToken}` })
-        } else {
-          delete config.headers['X-Authorization']
-        }
-      } else if (config.headers && config.headers['X-Authorization']) {
-        delete config.headers['X-Authorization']
+      if (authToken && !isTokenExpired(authToken)) {
+        _.merge(axiosConfig.headers, { 'X-Authorization': `Bearer ${authToken}` })
       }
     }
 
-    // If headers is not empty add to config request
-    if (!_.isEmpty(headers)) {
-      _.merge(config, { headers: headers })
+    const siteParam = 'site=' + site
+    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
+
+    if (process.server || process.env.NODE_ENV === 'development') {
+      console.info(`Tide request url: ${url}`)
     }
-    return axios.$get(url, config)
+    return axios.$get(url, axiosConfig)
   },
 
   post: async function (resource, data = {}, id = '') {
@@ -299,7 +294,7 @@ export const tide = (axios, site, config) => ({
     return entity
   },
 
-  getPageByPath: async function (path, params) {
+  getPageByPath: async function (path, params, authToken) {
     let pageData = null
     const response = await this.getPathData(path, params)
 
@@ -310,7 +305,10 @@ export const tide = (axios, site, config) => ({
       return pathData
     }
 
-    const entity = await this.getEntityByPathData(pathData, params)
+    const entity = await this.getEntityByPathData(pathData, params, authToken)
+    if (!entity) {
+      throw new Error('Something wrong. Could not get any entity data from Tide based on API route response.')
+    }
     pageData = jsonapiParse.parse(entity).data
 
     // Append the site section to page data

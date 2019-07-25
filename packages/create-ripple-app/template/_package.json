@@ -25,7 +25,7 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.0.0-beta.8",
+    "@dpc-sdp/ripple-nuxt-tide": "1.0.0-beta.10",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.6.3",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     <%_ if (e2e === true) { _%>
-    "@dpc-sdp/ripple-test-tools": "1.0.0-beta.9",
+    "@dpc-sdp/ripple-test-tools": "1.0.0-beta.10",
     "cypress": "^3.1.5",
     "cypress-axe": "^0.4.0",
     "cypress-cucumber-preprocessor": "^1.11.0",

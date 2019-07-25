@@ -48,8 +48,7 @@ export default {
       UserAgent: '*',
       Disallow: '/'
     }]
-  ],
-  <% if (examples === true) { %>
+  ],<% if (examples === true) { %>
   /*
   ** styleResources
   * Override the path to the theme customisation scss
@@ -69,8 +68,7 @@ export default {
   /*
   * Configuration for ripple-nuxt-tide
   * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
-  */
-  <%}%>
+  */<%}%>
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {

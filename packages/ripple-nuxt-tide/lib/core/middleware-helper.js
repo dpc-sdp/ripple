@@ -42,9 +42,9 @@ export const callMiddleware = async (middlewareConfig, context) => {
     if (process.env.TIDE_DEBUG && process.server) {
       console.info('Tide middleware will be called:', middleware)
     }
-    middleware.forEach(async (item) => {
+    for (const item of middleware) {
       await item(context, pageData)
-    })
+    }
   } catch (error) {
     if (process.server) {
       console.error('Tide middleware got an error:', error)

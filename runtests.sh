@@ -10,5 +10,5 @@ for path in examples/*; do
     TESTSCRIPT=$2
     echo "TESTSCRIPT = $TESTSCRIPT"
   fi
-  yarn run cross-env NODE_ENV=test start-server-and-test "'cd $path && yarn $STARTSCRIPT'" 3000 "'$TESTSCRIPT --project ${path}/test/e2e'"
+  yarn run cross-env NODE_ENV=test DOTENV_CONFIG_PATH=$path start-server-and-test "'cd $path && yarn $STARTSCRIPT'" 3000 "'$TESTSCRIPT --project ${path}/test/e2e'"
 done

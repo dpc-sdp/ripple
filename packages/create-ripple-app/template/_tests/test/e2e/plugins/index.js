@@ -2,9 +2,7 @@ const cucumber = require('cypress-cucumber-preprocessor').default
 const tideAdmin = require('@dpc-sdp/ripple-test-tools')
 
 // Environment variables that need exposing to cypress go here - use the example site .env file
-if (!process.env.CI) {
-  require('dotenv').config({ path: 'examples/vic-gov-au/.env' })
-}
+require('dotenv').config()
 
 module.exports = (on, config) => {
   on('file:preprocessor', cucumber())

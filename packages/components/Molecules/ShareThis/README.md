@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-share-this
 
 > A component for displaying social media buttons to share articles. Recommended
@@ -34,10 +35,12 @@ import RplShareThis from '@dpc-sdp/ripple-share-this'
 
 ## Usage and Tests
 
-See [Storybook/Share this](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/ShareThis&selectedStory=Share%20this).
+See [Storybook/Molecules/ShareThis/Share this](https://ripple.sdp.vic.gov.au/?path=/story/molecules-sharethis--share-this).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
+<!-- /GENERATED_DOCS -->

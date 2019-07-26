@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-publication
 
 > A package for publication components.
@@ -43,16 +44,18 @@ import {
 
 ## Usage and Tests
 
-See [Storybook/Publication Pagination](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Publication&selectedStory=Publication%20Pagination).
+See [Storybook/Organisms/Publication/Publication Pagination](https://ripple.sdp.vic.gov.au/?path=/story/organisms-publication--publication-pagination).
 
-See [Storybook/Publication Download Print](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Publication&selectedStory=Publication%20Download%20Print).
+See [Storybook/Organisms/Publication/Publication Download Print](https://ripple.sdp.vic.gov.au/?path=/story/organisms-publication--publication-download-print).
 
-See [Storybook/Publication Author Information](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Publication&selectedStory=Publication%20Author%20Information).
+See [Storybook/Organisms/Publication/Publication Author Information](https://ripple.sdp.vic.gov.au/?path=/story/organisms-publication--publication-author-information).
 
-See [Storybook/Publication Image](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Publication&selectedStory=Publication%20Image).
+See [Storybook/Organisms/Publication/Publication Image](https://ripple.sdp.vic.gov.au/?path=/story/organisms-publication--publication-image).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
+<!-- /GENERATED_DOCS -->

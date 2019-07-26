@@ -1,22 +1,23 @@
 FROM amazeeio/node:10-builder as builder
 
-COPY packages/ripple-ui-components /app/packages/ripple-ui-components
-COPY package.json yarn.lock .eslintrc.js .babelrc /app/
+COPY packages/components /app/packages/components
+COPY src /app/src
+COPY package.json yarn.lock .eslintrc.js babel.config.js /app/
 RUN yarn install
-WORKDIR /app/packages/ripple-ui-components
+WORKDIR /app/src
 RUN yarn run build-storybook
 
 FROM amazeeio/node:10
-COPY --from=builder /app/packages/ripple-ui-components/public /app
+COPY --from=builder /app/src/public /app
 COPY scripts/jira-post-comment-storybook.sh /app/scripts/jira-post-comment.sh
 
 ARG LAGOON_GIT_BRANCH
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
-RUN npm config set unsafe-perm true \
+# force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
+RUN . /home/.bashrc \
+    && npm config set unsafe-perm true \
     && npm install http-server -g \
-    # force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
-    && . /home/.bashrc \
     # For JIRA commit script work.
     && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
 

@@ -1,0 +1,16 @@
+{
+  "name": "@dpc-sdp/ripple-call-to-action",
+  "version": "1.0.0-beta.5",
+  "description": "A component for displaying key content with image and link.",
+  "license": "Apache-2.0",
+  "main": "index.vue",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Organisms/CallToAction",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-button": "1.0.0-beta.5",
+    "@dpc-sdp/ripple-global": "1.0.0-beta.5"
+  }
+}

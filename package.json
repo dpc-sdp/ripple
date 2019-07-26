@@ -3,28 +3,32 @@
   "description": "Ripple Monorepo for DPC Single Digital Presence sites.",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "private": true,
-  "workspaces": [
-    "packages/ripple-ui-components",
-    "packages/ripple-ui-components/components/**/*",
-    "packages/ripple-nuxt-tide",
-    "packages/ripple-nuxt-ui",
-    "packages/ripple-create-app",
-    "packages/ripple-test-tools",
-    "examples/**/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/components/**/*",
+      "packages/ripple-nuxt-tide",
+      "packages/ripple-nuxt-ui",
+      "packages/ripple-create-app",
+      "packages/ripple-test-tools",
+      "examples/**/*",
+      "src"
+    ],
+    "nohoist": ["src"]
+  },
   "scripts": {
     "publish": "lerna publish",
-    "start:storybook": "cd packages/ripple-ui-components/ && yarn run storybook",
+    "start:storybook": "cd src && yarn start",
     "start:example": "cd examples/vic-gov-au/ && yarn run dev",
     "start:build-example": "cd examples/vic-gov-au/ && nuxt build && nuxt start",
-    "test:dev": "NODE_ENV=dev start-server-and-test start:example http://localhost:3000 cy:open",
-    "test:storybook": "cd packages/ripple-ui-components/ && yarn run test",
-    "test:e2e": "NODE_ENV=test start-server-and-test start:build-example http://localhost:3000 cy:run-smoke",
-    "test:unit": "NODE_ENV=test jest",
+    "test:dev": "cross-env NODE_ENV=dev start-server-and-test start:example http://localhost:3000 cy:open",
+    "test:e2e": "cross-env NODE_ENV=test start-server-and-test start:build-example http://localhost:3000 cy:run-smoke",
+    "test:unit": "jest --colors",
+    "build:storybook": "cd src && yarn build-storybook",
+    "build:example": "cd examples/vic-gov-au && yarn run build",
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run -e TAGS='not @skip'",
     "cy:run-smoke": "cypress run -e TAGS='@smoke'",
-    "lint": "eslint --ext .js,.vue . && sass-lint -qv --max-warnings 0",
+    "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
     "lint:fix": "eslint --ext .js,.vue . --fix",
     "bay:start": "docker-compose up -d",
     "bay:rebuild-full": "docker-compose up -d --build --force-recreate",
@@ -36,15 +40,24 @@
     "bay:pull": "docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep amazeeio | grep -v none | xargs -n1 docker pull | cat"
   },
   "devDependencies": {
-    "lerna": "^3.0.0",
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.5.0",
+    "@ljharb/eslint-config": "^13.1.1",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "axe-core": "^3.2.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "babel-preset-vue": "^2.0.2",
+    "cross-env": "^5.2.0",
     "cypress": "^3.1.5",
     "cypress-axe": "^0.4.0",
     "cypress-cucumber-preprocessor": "^1.11.0",
-    "axe-core": "^3.2.2",
-    "start-server-and-test": "^1.7.11",
-    "babel-eslint": "^10.0.1",
     "eslint": "^5.11.1",
-    "@ljharb/eslint-config": "^13.1.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-plugin-import": "^2.7.0",
@@ -53,7 +66,15 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0",
-    "sass-lint": "^1.12.1"
+    "husky": "^3.0.0",
+    "jest": "^24.8.0",
+    "jest-canvas-mock": "^2.1.0",
+    "jest-vue-preprocessor": "^1.5.0",
+    "lerna": "^3.0.0",
+    "markdown-loader-jest": "^0.1.1",
+    "sass-lint": "^1.12.1",
+    "start-server-and-test": "^1.7.11",
+    "vue-jest": "^3.0.4"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
@@ -63,5 +84,10 @@
     "IE 11",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run lint && yarn run test:unit"
+    }
+  }
 }

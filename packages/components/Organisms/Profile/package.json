@@ -1,0 +1,16 @@
+{
+  "name": "@dpc-sdp/ripple-profile",
+  "version": "1.0.0-beta.5",
+  "description": "Components for displaying Component information.",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Organisms/Profile",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-description-list": "1.0.0-beta.5",
+    "@dpc-sdp/ripple-global": "1.0.0-beta.5"
+  }
+}

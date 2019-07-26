@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-accordion
 
 > An interactive component for showing and hiding markup.
@@ -33,10 +34,12 @@ import { RplAccordion } from '@dpc-sdp/ripple-accordion'
 
 ## Usage and Tests
 
-See [Storybook/Accordion](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Accordion&selectedStory=Accordion).
+See [Storybook/Organisms/Accordion/Default](https://ripple.sdp.vic.gov.au/?path=/story/organisms-accordion--default).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
+<!-- /GENERATED_DOCS -->

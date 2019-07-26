@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/example-vic-gov-au",
-  "version": "1.0.0-beta.8",
+  "version": "1.0.0-beta.10",
   "description": "Reference nuxt site using Ripple front end and connecting to Tide backend",
   "private": true,
   "scripts": {
@@ -15,19 +15,11 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.0.0-beta.8",
-    "@dpc-sdp/ripple-nuxt-ui": "1.0.0-beta.8",
+    "@dpc-sdp/ripple-nuxt-tide": "1.0.0-beta.10",
     "@nuxtjs/robots": "^2.0.0",
-    "@nuxtjs/style-resources": "^0.1.2",
-    "basic-auth": "^2.0.0",
-    "cookieparser": "^0.1.0",
-    "csvtojson": "^2.0.8",
     "dotenv": "^5.0.1",
     "nuxt": "2.6.3",
-    "run-script-os": "^1.0.7",
-    "svg-sprite-loader": "^3.7.3",
-    "svgo": "^1.0.5",
-    "svgo-loader": "^2.1.0"
+    "run-script-os": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",

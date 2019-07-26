@@ -1,6 +1,12 @@
 // You can add site specific custom config for tide.
 
 const tideConfig = {
+  // middleware: true,
+  // mappingFilters: true,
+  // pageTypes: true,
+  // loadComponents: true,
+  // markupPlugins: true,
+
   // Include config is used for Tide API query relationship.
   include: {
     // Add custom content type config here.
@@ -11,7 +17,11 @@ const tideConfig = {
 
   mapping: {
     // landingPageComponents: {}
-  }
+  },
+
+  modules: [
+    'event'
+  ]
 }
 
 module.exports = tideConfig

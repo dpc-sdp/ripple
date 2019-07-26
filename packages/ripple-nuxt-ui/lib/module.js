@@ -1,7 +1,7 @@
 const path = require('path')
-const appDir = path.dirname(require.main.filename)
-
+const appDir = require('app-root-path')
 const resolve = path.resolve
+const fs = require('fs')
 
 module.exports = function nuxtRipple (moduleOptions) {
   const options = Object.assign({}, this.options.ripple, moduleOptions)
@@ -12,6 +12,19 @@ module.exports = function nuxtRipple (moduleOptions) {
     fileName: 'ripple.js',
     options: options
   })
+
+  const themePath = resolve(__dirname, `${appDir}/assets/_theme.scss`)
+
+  if (fs.existsSync(themePath) && !this.options.styleResources) {
+    this.options.styleResources = {
+      scss: [
+        // Theme - Injects sass variables into components
+        themePath
+      ]
+    }
+  }
+
+  this.addModule('@nuxtjs/style-resources', true)
 
   this.extendBuild((config, { isServer }) => {
     // Exclude svg from url-loader - it conflicts with 'svg-sprite-loader'.
@@ -25,16 +38,19 @@ module.exports = function nuxtRipple (moduleOptions) {
       ]
     }
     // Add svg-sprite-loader to create svg sprite
-    config.module.rules.push({
-      test: /\.svg$/,
-      include: [
-        resolve(__dirname, rippleIconPath),
-        resolve(__dirname, `${appDir}/assets/ripple-icon/`)
-      ],
-      use: [
-        'svg-sprite-loader',
-        'svgo-loader'
-      ]
-    })
+    const svgLoader = config.module.rules.find((rule) => rule.use && rule.use.find(r => r === 'svgo-loader'))
+    if (!svgLoader) {
+      config.module.rules.push({
+        test: /\.svg$/,
+        include: [
+          resolve(__dirname, rippleIconPath),
+          resolve(__dirname, `${appDir}/assets/ripple-icon/`)
+        ],
+        use: [
+          'svg-sprite-loader',
+          'svgo-loader'
+        ]
+      })
+    }
   })
 }

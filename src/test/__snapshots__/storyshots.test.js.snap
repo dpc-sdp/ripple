@@ -1302,8 +1302,6 @@ exports[`RippleStoryshots Atoms/Icon Text Icon 1`] = `
      Link
     <!---->
   </span>
-   
-  <!---->
 </span>
 `;
 
@@ -1440,8 +1438,6 @@ exports[`RippleStoryshots Atoms/Link Text Link 1`] = `
            Link
           <!---->
         </span>
-         
-        <!---->
       </span>
     </span>
   </span>
@@ -1508,8 +1504,6 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
                more
               <!---->
             </span>
-             
-            <!---->
           </span>
         </span>
       </span>
@@ -2088,8 +2082,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                        details
                       <!---->
                     </span>
-                     
-                    <!---->
                   </span>
                 </div>
               </a>
@@ -2188,8 +2180,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                        calendar
                       <!---->
                     </span>
-                     
-                    <!---->
                   </span>
                 </div>
               </a>
@@ -2272,8 +2262,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                        more
                       <!---->
                     </span>
-                     
-                    <!---->
                   </span>
                 </div>
               </a>
@@ -2357,8 +2345,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                        details
                       <!---->
                     </span>
-                     
-                    <!---->
                   </span>
                 </div>
               </a>
@@ -2442,8 +2428,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                        details
                       <!---->
                     </span>
-                     
-                    <!---->
                   </span>
                 </div>
               </a>
@@ -2542,8 +2526,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                        calendar
                       <!---->
                     </span>
-                     
-                    <!---->
                   </span>
                 </div>
               </a>
@@ -2626,8 +2608,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                        more
                       <!---->
                     </span>
-                     
-                    <!---->
                   </span>
                 </div>
               </a>
@@ -2726,8 +2706,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                        calendar
                       <!---->
                     </span>
-                     
-                    <!---->
                   </span>
                 </div>
               </a>
@@ -2826,8 +2804,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                        calendar
                       <!---->
                     </span>
-                     
-                    <!---->
                   </span>
                 </div>
               </a>
@@ -2905,8 +2881,6 @@ exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
          more
         <!---->
       </span>
-       
-      <!---->
     </span>
   </div>
 </a>
@@ -3078,8 +3052,6 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
          details
         <!---->
       </span>
-       
-      <!---->
     </span>
   </div>
 </a>
@@ -3159,8 +3131,6 @@ exports[`RippleStoryshots Molecules/Card/Card Honour Roll Default 1`] = `
          profile
         <!---->
       </span>
-       
-      <!---->
     </span>
   </div>
 </a>
@@ -3231,8 +3201,6 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
            action
           <!---->
         </span>
-         
-        <!---->
       </span>
     </div>
   </div>
@@ -3326,8 +3294,6 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
          more
         <!---->
       </span>
-       
-      <!---->
     </span>
   </div>
 </a>
@@ -3373,8 +3339,6 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Default 1`] = `
          more
         <!---->
       </span>
-       
-      <!---->
     </span>
   </div>
 </a>
@@ -3503,8 +3467,6 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
          more
         <!---->
       </span>
-       
-      <!---->
     </span>
   </div>
 </a>
@@ -4528,8 +4490,6 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         <span>
                           <!---->
                            
-                          <!---->
-                           
                           <span
                             class="rpl-text-icon__group"
                           >
@@ -5182,8 +5142,6 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <span>
                    search filters
                 </span>
-                 
-                <!---->
               </span>
             </button>
              
@@ -5194,6 +5152,150 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
            
           <!---->
         </div>
+      </div>
+    </fieldset>
+  </div>
+</form>
+`;
+
+exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
+<form
+  class="rpl-form"
+>
+  <h3
+    class="rpl-form__title"
+  >
+    Submission Alerts
+  </h3>
+   
+  <!---->
+   
+  <div
+    class="vue-form-generator"
+  >
+    <fieldset>
+      <div
+        class="form-group field-radios"
+      >
+        <label
+          for="alert-type"
+        >
+          <span>
+            Alert type
+          </span>
+           
+          <!---->
+        </label>
+         
+        <div
+          class="field-wrap"
+        >
+          <div
+            class="radio-list"
+          >
+            <label
+              class="is-checked"
+            >
+              <input
+                id="alert-type-12"
+                name="submissionType"
+                type="radio"
+                value="Success"
+              />
+              Success
+            </label>
+            <label
+              class=""
+            >
+              <input
+                id="alert-type-13"
+                name="submissionType"
+                type="radio"
+                value="Error"
+              />
+              Error
+            </label>
+            <label
+              class=""
+            >
+              <input
+                id="alert-type-14"
+                name="submissionType"
+                type="radio"
+                value="Other"
+              />
+              Other
+            </label>
+          </div>
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+      <div
+        class="form-group field-input"
+      >
+        <label
+          for="message"
+        >
+          <span>
+            Message
+          </span>
+           
+          <!---->
+        </label>
+         
+        <div
+          class="field-wrap"
+        >
+          <div
+            class="wrapper"
+          >
+            <input
+              class="form-control"
+              id="message"
+              type="text"
+            />
+            <!---->
+          </div>
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+      <div
+        class="form-group field-rplsubmitloader"
+      >
+        <!---->
+         
+        <div
+          class="field-wrap"
+        >
+          <button
+            class="rpl-submit-loader form-control"
+            type="submit"
+          >
+            <span
+              class="rpl-submit-loader__text"
+            >
+              Submit
+            </span>
+             
+            <!---->
+          </button>
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
       </div>
     </fieldset>
   </div>
@@ -6353,8 +6455,6 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
                    content
                   <!---->
                 </span>
-                 
-                <!---->
               </span>
             </span>
           </span>
@@ -8371,8 +8471,6 @@ exports[`RippleStoryshots Molecules/WhatsNext Default 1`] = `
                    content
                   <!---->
                 </span>
-                 
-                <!---->
               </span>
             </span>
           </span>
@@ -8958,8 +9056,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                details
               <!---->
             </span>
-             
-            <!---->
           </span>
         </div>
       </a>
@@ -9036,8 +9132,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                details
               <!---->
             </span>
-             
-            <!---->
           </span>
         </div>
       </a>
@@ -9114,8 +9208,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                details
               <!---->
             </span>
-             
-            <!---->
           </span>
         </div>
       </a>
@@ -9192,8 +9284,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                details
               <!---->
             </span>
-             
-            <!---->
           </span>
         </div>
       </a>
@@ -9270,8 +9360,6 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
                details
               <!---->
             </span>
-             
-            <!---->
           </span>
         </div>
       </a>
@@ -9565,8 +9653,6 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                      link
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -9597,8 +9683,6 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                      link
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -9629,8 +9713,6 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                      here
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -9661,8 +9743,6 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                      link
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -9694,8 +9774,6 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                      more
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -9765,8 +9843,6 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                      visit
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -9787,8 +9863,6 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                 class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
               >
                 <span>
-                  <!---->
-                   
                   <!---->
                    
                   <span
@@ -9827,8 +9901,6 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                      Programs
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -9859,8 +9931,6 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                      Bookings
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -9946,8 +10016,6 @@ exports[`RippleStoryshots Organisms/HeroBanner with CTA 1`] = `
                      prepare
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -10607,8 +10675,6 @@ exports[`RippleStoryshots Organisms/Markup Markup/Link 1`] = `
                  link
                 <!---->
               </span>
-               
-              <!---->
             </span>
           </span>
         </span>
@@ -10941,8 +11007,6 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
                action
               <!---->
             </span>
-             
-            <!---->
           </span>
         </div>
       </div>
@@ -11017,8 +11081,6 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
                action
               <!---->
             </span>
-             
-            <!---->
           </span>
         </div>
       </div>
@@ -11083,8 +11145,6 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                      Conference
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -11133,8 +11193,6 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                      Out
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -11183,8 +11241,6 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                      Triennial
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -11233,8 +11289,6 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                      Fund
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -11283,8 +11337,6 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                      Review
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -11333,8 +11385,6 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                      Violence
                     <!---->
                   </span>
-                   
-                  <!---->
                 </span>
               </span>
             </span>
@@ -11631,8 +11681,6 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
         <span>
            Figure 1.2 in full screen
         </span>
-         
-        <!---->
       </span>
     </button>
      
@@ -11650,8 +11698,6 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
         <span>
            Figure 1.2 in table format
         </span>
-         
-        <!---->
       </span>
     </button>
      
@@ -11673,8 +11719,6 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
         <span>
            Figure 1.2
         </span>
-         
-        <!---->
       </span>
     </a>
   </div>

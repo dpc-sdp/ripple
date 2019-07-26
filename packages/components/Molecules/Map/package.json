@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-map",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.10",
   "description": "An interactive map component",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,8 +10,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.0.0-beta.5",
-    "ol": "5.3.1",
+    "@dpc-sdp/ripple-global": "1.0.0-beta.10",
+    "ol": "^5.3.1",
     "ol-ext": "3.1.2"
   }
 }

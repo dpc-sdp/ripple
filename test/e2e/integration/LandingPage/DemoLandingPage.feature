@@ -2,7 +2,7 @@ Feature: Demo Page
 
    Demo landing page with all components
 
-  Background: 
+  Background:
     Given I visit the page "/demo-landing-page"
 
   @smoke
@@ -23,14 +23,13 @@ Feature: Demo Page
     And the featured news list component should exist
     And the featured card navigation component should exist
     And the card event component should exist
-    And the card event component should exist
     And the card CTA component should exist
-    And the card keydates component should exist
+    # And the card keydates component should exist
     And the card promotion component should exist
     And the card carousel component should exist
     And the accordion component should exist
     And the news listing component should exist
-    And the timeline component should exist
+    # And the timeline component should exist
     And the image gallery component should exist
     And the related links component should exist
     And the contact component should exist

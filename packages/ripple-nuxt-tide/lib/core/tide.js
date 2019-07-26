@@ -224,13 +224,13 @@ export const tide = (axios, site, config) => ({
     }
   },
 
-  getPathData: async function (path, params) {
+  getPathData: async function (path, params, authToken) {
     let routeParams = { path: path }
     if (!_.isEmpty(params)) {
       _.merge(routeParams, params)
     }
 
-    const response = await this.get('route', routeParams)
+    const response = await this.get('route', routeParams, '', authToken)
     return response
   },
 
@@ -296,7 +296,7 @@ export const tide = (axios, site, config) => ({
 
   getPageByPath: async function (path, params, authToken) {
     let pageData = null
-    const response = await this.getPathData(path, params)
+    const response = await this.getPathData(path, params, authToken)
 
     const pathData = jsonapiParse.parse(response).data
 

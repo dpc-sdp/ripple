@@ -1,0 +1,13 @@
+{
+  "title": "protected content page",
+  "summary": "Testing a summary",
+  "topic": "\"Arts, culture and heritage (1)\"",
+  "siteNumber": 4,
+  "authenticatedContentGroup": "Authenticated Content",
+  "components": [
+    {
+      "type": "Basic Text",
+      "content": "<p>test</p>"
+    }
+  ]
+}

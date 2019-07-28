@@ -17,7 +17,6 @@
     "test:smoke": "cross-env NODE_ENV=test start-server-and-test start:build http://localhost:3000 cy:run-smoke",
     "test:e2e": "cross-env NODE_ENV=test start-server-and-test start:build http://localhost:3000 cy:run",
     <%_ } _%>
-    "test:unit": "cross-env BASIC_AUTH=0 NODE_ENV=test jest",
     "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
     "start": "run-script-os",
     "start:default": "if [ \"$NUXT_HOT_RELOADING\" = \"1\" ] ; then nuxt; else nuxt start; fi",
@@ -25,7 +24,7 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.0.0-beta.10",
+    "@dpc-sdp/ripple-nuxt-tide": "^1.0.0",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.6.3",
@@ -33,7 +32,7 @@
   },
   "devDependencies": {
     <%_ if (e2e === true) { _%>
-    "@dpc-sdp/ripple-test-tools": "1.0.0-beta.10",
+    "@dpc-sdp/ripple-test-tools": "^1.0.0",
     "cypress": "^3.1.5",
     "cypress-axe": "^0.4.0",
     "cypress-cucumber-preprocessor": "^1.11.0",

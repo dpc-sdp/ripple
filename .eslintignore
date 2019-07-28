@@ -9,6 +9,9 @@ packages/ripple-nuxt-tide/**/templates/*
 packages/ripple-nuxt-ui/**/templates/*
 packages/create-ripple-app/template/nuxt/*
 
+# ignore create-ripple-app template
+packages/create-ripple-app/template/nuxt/*
+
 # ignore storybook files
 src/scripts
 

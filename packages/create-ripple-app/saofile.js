@@ -122,7 +122,7 @@ const OPTIONS = {
     message: 'Elasticsearch index',
     default: '',
     store: true
-  },  
+  },
   searchusername: {
     name: 'searchusername',
     type: 'string',

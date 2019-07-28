@@ -7,12 +7,5 @@ npm-debug.log
 dist
 coverage
 
-# Dependencies lock files.
-package-lock.json
-
-# Do not ignore root and Ripple lock files.
-!/package-lock.json
-!/ripple/package-lock.json
-
 /test/e2e/videos
 /test/e2e/screenshots

@@ -31,7 +31,6 @@
     "cy:run-smoke": "cypress run -e TAGS='@smoke'",
     "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
     "lint:fix": "eslint --ext .js,.vue . --fix",
-    "create-site": "create-ripple-app",
     "bay:start": "docker-compose up -d",
     "bay:rebuild-full": "docker-compose up -d --build --force-recreate",
     "bay:restart": "docker-compose restart",

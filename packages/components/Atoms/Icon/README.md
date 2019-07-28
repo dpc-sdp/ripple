@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-icon
 
 > A configurable SVG, sprite-based icon set for use with ripple components.
@@ -31,16 +32,16 @@ import { RplIcon, RplTextIcon, addCustomIcons } from '@dpc-sdp/ripple-icon'
 
 ## Usage and Tests
 
-See [Storybook/Icon Library](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Icon&selectedStory=Icon%20Library).
+See [Storybook/Atoms/Icon/Icon Library](https://ripple.sdp.vic.gov.au/?path=/story/atoms-icon--icon-library).
 
-See [Storybook/Icon](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Icon&selectedStory=Icon).
+See [Storybook/Atoms/Icon/Icon](https://ripple.sdp.vic.gov.au/?path=/story/atoms-icon--icon).
 
-See [Storybook/Text Icon](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Icon&selectedStory=Text%20Icon).
-
-See [Storybook/Icon Custom](https://ripple.sdp.vic.gov.au/?selectedKind=Atoms/Icon&selectedStory=Icon%20Custom).
+See [Storybook/Atoms/Icon/Text Icon](https://ripple.sdp.vic.gov.au/?path=/story/atoms-icon--text-icon).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
+<!-- /GENERATED_DOCS -->

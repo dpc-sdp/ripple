@@ -27,15 +27,15 @@ export default ({ env, app, req, res, store , route}, inject) => {
     const routeRequest = responseUrl.includes('/route?')
     const authPreviewRequest = responseUrl.includes('&current_version=') || responseUrl.includes('&resourceVersion=')
 
-    // Set http status code if a route or preview request failed.
-    if (routeRequest || authPreviewRequest) {
-      let code
-      if (error.code) {
-        code = error.code
-      } else if (error.response) {
-        code = error.response.status
-      }
+    let code
+    if (error.code) {
+      code = error.code
+    } else if (error.response) {
+      code = error.response.status
+    }
 
+    // Set http status code if a route or preview request failed.
+    if (routeRequest || authPreviewRequest || code === 404) {
       // We hide 403 and show it as 404
       code = code === 403 ? 404 : code
 

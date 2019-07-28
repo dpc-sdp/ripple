@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-markup
 
 > A component to wrap wysiwyg fields and process markup.
@@ -36,26 +37,28 @@ import { markupTranspiler, RplMarkup } from '@dpc-sdp/ripple-markup'
 
 ## Usage and Tests
 
-See [Storybook/Markup](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup).
+See [Storybook/Organisms/Markup/Default](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--default).
 
-See [Storybook/Markup/Button](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup/Button).
+See [Storybook/Organisms/Markup/Markup/Button](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-button).
 
-See [Storybook/Markup/Iframe](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup/Iframe).
+See [Storybook/Organisms/Markup/Markup/Iframe](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-iframe).
 
-See [Storybook/Markup/Embedded video](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup/Embedded%20video).
+See [Storybook/Organisms/Markup/Markup/Embedded video](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-embedded-video).
 
-See [Storybook/Markup/Image](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup/Image).
+See [Storybook/Organisms/Markup/Markup/Image](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-image).
 
-See [Storybook/Markup/Link](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup/Link).
+See [Storybook/Organisms/Markup/Markup/Link](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-link).
 
-See [Storybook/Markup/Quotation](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup/Quotation).
+See [Storybook/Organisms/Markup/Markup/Quotation](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-quotation).
 
-See [Storybook/Markup/Embedded document](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup/Embedded%20document).
+See [Storybook/Organisms/Markup/Markup/Embedded document](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-embedded-document).
 
-See [Storybook/Markup/Tables](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Markup&selectedStory=Markup/Tables).
+See [Storybook/Organisms/Markup/Markup/Tables](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-tables).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
+<!-- /GENERATED_DOCS -->

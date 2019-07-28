@@ -62,6 +62,7 @@
 
 <script>
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
+import RplIcon from '@dpc-sdp/ripple-icon'
 import RplFittedImg from './../FittedImg.vue'
 import RplImageGalleryModal from './../ImageGalleryModal.vue'
 import RplFullscreenImage from './../FullscreenImage.vue'
@@ -71,6 +72,7 @@ export default {
   name: 'RplImageGallery',
   mixins: [breakpoint],
   components: {
+    RplIcon,
     RplFittedImg,
     RplImageGalleryModal,
     RplFullscreenImage,

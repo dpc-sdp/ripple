@@ -1,0 +1,55 @@
+{
+  "title": "Grants ongoing basic test",
+  "summary": "Summary test",
+  "topic": "\"Arts, culture and heritage (1)\"",
+  "siteNumber": 4,
+  "grantDetails": {
+    "overview": {
+      "title": "grant title",
+      "funding": {
+        "from": "10,000",
+        "to": "20,000"
+      },
+      "audience": "",
+      "cta": {
+        "uri": "",
+        "title": ""
+      },
+      "description": "",
+      "websiteUrl": ""
+    },
+    "timeline": {
+      "title": "",
+      "items": [
+        {
+          "title": ""
+        }
+      ]
+    },
+    "guidelines": {
+      "eligibility": {
+        "title": "",
+        "text": ""
+      },
+      "criteria": {
+        "title": "",
+        "text": ""
+      },
+      "process": {
+        "title": "",
+        "text": ""
+      },
+      "howToApply": {
+        "title": "",
+        "text": ""
+      }
+    }
+  },
+  "grantAuthor": {
+    "fullName": "",
+    "email": "",
+    "phone": "",
+    "department": ""
+  }
+
+}

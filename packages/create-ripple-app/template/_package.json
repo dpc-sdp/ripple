@@ -13,7 +13,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
     "cy:run-smoke": "cypress run -e TAGS='@smoke'",
-    "test:dev": "cross-env NODE_ENV=dev start-server-and-test start http://localhost:3000 cy:open",
+    "test:dev": "cross-env NODE_ENV=dev start-server-and-test dev http://localhost:3000 cy:open",
     "test:smoke": "cross-env NODE_ENV=test start-server-and-test start:build http://localhost:3000 cy:run-smoke",
     "test:e2e": "cross-env NODE_ENV=test start-server-and-test start:build http://localhost:3000 cy:run",
     <%_ } _%>
@@ -24,7 +24,7 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "^1.0.0",
+    "@dpc-sdp/ripple-nuxt-tide": "^1.0.0-beta.10",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.6.3",
@@ -32,9 +32,10 @@
   },
   "devDependencies": {
     <%_ if (e2e === true) { _%>
-    "@dpc-sdp/ripple-test-tools": "^1.0.0",
+    "@dpc-sdp/ripple-test-tools": "^1.0.0-beta.10",
     "cypress": "^3.1.5",
     "cypress-axe": "^0.4.0",
+    "axe-core": "^3.3.1",
     "cypress-cucumber-preprocessor": "^1.11.0",
     "start-server-and-test": "^1.7.11",
     <%_ } _%>
@@ -67,6 +68,11 @@
     "sass-resources-loader": "^2.0.0",
     "vue-jest": "^3.0.4"
   },
+  <%_ if (e2e === true) { _%>
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  <%_ } _%>
   "browserslist": [
     "> 1%",
     "IE 11",

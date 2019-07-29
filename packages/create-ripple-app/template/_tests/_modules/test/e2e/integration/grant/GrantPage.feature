@@ -11,7 +11,7 @@ Feature: Grant page
   # - Deletes node id @nodeId
 
   Scenario: TC-9a Grant - Simple Test - Date Range
-    Given I have created a grant page with the fixture "Pages/Grant/tc9a"
+    Given I have created a grant page with the fixture "grant/tc9a"
     And I have navigated to the created page
     Then the page title should be "TC- 9a Grant- Simple Test - Date Range"
     And the grant overview title should match test data

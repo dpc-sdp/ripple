@@ -162,6 +162,4 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "~@dpc-sdp/ripple-nuxt-tide/lib/components/scss/wysiwyg/_embedded-entity-video.scss";
 @import "~@dpc-sdp/ripple-nuxt-tide/lib/components/scss/wysiwyg/_embedded-entity.scss";
-// @import "~assets/_custom.scss";
-// TODO : these ~ alias wont work, need a different way
 </style>

@@ -51,6 +51,13 @@ export default {
     }]
   ],
   /*
+  ** Css
+  * https://nuxtjs.org/api/configuration-css/
+  */
+  css: [
+    '@/assets/_custom.scss'
+  ],
+  /*
   ** styleResources
   * Override the path to the theme customisation scss
   * loads scss with @nuxtjs/style-resources

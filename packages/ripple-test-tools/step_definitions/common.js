@@ -21,14 +21,6 @@ Then(`the page title should match test data`, () => {
   })
 })
 
-Then(`the hero banner title should be {string}`, (title) => {
-  cy.get('.rpl-hero-banner__title').should('contain', title)
-})
-
-Then(`the hero banner desciption should be {string}`, (text) => {
-  cy.get('.rpl-hero-banner__description').should('contain', text)
-})
-
 Given(`I have created a landing page with the json fixture {string}`, (fixture) => {
   cy.fixture(fixture).as('pageData')
   cy.get('@pageData').then(data => {
@@ -37,10 +29,6 @@ Given(`I have created a landing page with the json fixture {string}`, (fixture) 
       cy.wrap(previewLink).as('previewLink')
     })
   })
-})
-
-Given(`I have created a node with the YAML fixture {string}`, (fixture) => {
-  cy.TideCreateNode(fixture)
 })
 
 Given(`I have created an event page with the json fixture {string}`, (fixture) => {
@@ -54,21 +42,7 @@ Given(`I have created an event page with the json fixture {string}`, (fixture) =
 
 Given(`I have navigated to the created page`, () => {
   cy.get('@nodeId').then(nodeId => {
-    cy.visit(`/node/${nodeId}`, {
-      auth: {
-        username: process.env.CONTENT_API_AUTH_USER,
-        password: process.env.CONTENT_API_AUTH_PASS
-      }
-    })
-  })
-})
-
-Given(`I have navigated to the page {string}`, (url) => {
-  cy.visit(url, {
-    auth: {
-      username: process.env.CONTENT_API_AUTH_USER,
-      password: process.env.CONTENT_API_AUTH_PASS
-    }
+    cy.visit(`/node/${nodeId}`)
   })
 })
 

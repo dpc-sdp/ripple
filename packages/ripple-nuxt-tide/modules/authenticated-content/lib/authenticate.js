@@ -28,8 +28,12 @@ function isTokenExpired (token) {
  */
 function getToken () {
   if (process.client) {
+    console.log('getting client cookie')
+    console.log(Cookie.get(authCookieName))
     return Cookie.get(authCookieName)
   } else {
+    console.log('getting server cookie')
+    console.log(serverToken)
     return serverToken
   }
 }

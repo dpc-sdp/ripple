@@ -69,6 +69,7 @@ function serverSetToken (cookies, store) {
   let isAuth = false
   if (cookies) {
     const parsed = cookieparser.parse(cookies)
+    // Check if authenticated content cookie is set
     if (parsed[authCookieName]) {
       if (!isTokenExpired(parsed[authCookieName])) {
         serverToken = parsed[authCookieName]

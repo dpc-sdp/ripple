@@ -70,5 +70,9 @@
   "peerDependencies": {
     "@nuxtjs/axios": "^5.3.1",
     "nuxt": "^2.4.3"
+  },
+  "devDependencies": {
+    "mockdate": "^2.0.3",
+    "vuex-mock-store": "^0.0.7"
   }
 }

@@ -34,8 +34,7 @@ function getToken () {
   } else {
     console.log('getting server cookie')
     console.log(serverToken)
-    return null
-    // return serverToken
+    return serverToken
   }
 }
 

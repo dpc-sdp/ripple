@@ -1,9 +1,10 @@
-import { serverSetToken } from './../../modules/authenticated-content/lib/authenticate'
+import { serverSetProperties } from './../../modules/authenticated-content/lib/authenticate'
 import { Store } from 'vuex-mock-store'
 
-describe('setServerToken', () => {
+describe('serverSetProperties', () => {
   const MockDate = require('mockdate')
   const validToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NjMxNzA5NTcsImV4cCI6MTU2MzE3MTU1NywiZHJ1cGFsIjp7InVpZCI6IjY0OTIifX0.vEJHPrci2KBBowyRvtZot5vHCE8xFcy77bWU814BLEmrk0Zs3bvGVAgJ_SlW57uwlCbyYeSMwe8-uKqHzsrrYBugW55qvua-UfdgkJfwxeH32PXZlStVgoHsPu_BHQMpqwOh9pcH-2Lueiz-BxbT1DrYduC4R6zHBTcO-VLiW0swDPVtZHgPFWruGYgyHN8T2YWsn0ujBkLNOxD6-7FAEeY5W0X-yEHLXESjA15YDcfRebSIsvtKrZrLu21PTW9E0ql0zkLFSCip46js-f2BOc8V7jnSQM5XNwKHwrU3gtIKDhKptBQmdDLQ8KCkFhKkoyepEMoBsK_y5TWhZNOPlw'
+  const path = '/'
 
   afterEach(() => {
     MockDate.reset()
@@ -20,7 +21,7 @@ describe('setServerToken', () => {
       }
     })
 
-    serverSetToken(`authenticatedContent=${validToken};`, store)
+    serverSetProperties(`authenticatedContent=${validToken};`, path, store)
     expect(store.dispatch).toHaveBeenCalledWith('tideAuthenticatedContent/setAuthenticated', true)
   })
 
@@ -35,7 +36,7 @@ describe('setServerToken', () => {
       }
     })
 
-    serverSetToken(`authenticatedContent=${validToken};`, store)
+    serverSetProperties(`authenticatedContent=${validToken};`, path, store)
     expect(store.dispatch).toHaveBeenCalledWith('tideAuthenticatedContent/setAuthenticated', false)
   })
 })

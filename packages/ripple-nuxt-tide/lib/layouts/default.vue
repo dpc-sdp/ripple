@@ -99,7 +99,19 @@ export default {
       return false
     }
   },
+  mounted () {
+    // https://github.com/nuxt/nuxt.js/issues/183#issuecomment-276528719
+    // Seems like nuxt doesn't pass url hash to vue router in SSR.
+    // That means anchor link url like "/ndis-quality-and-safeguards#ndis-worker-screening" won't work in SSR.
+    // Here is a workaround from https://forum.vuejs.org/t/how-to-handle-anchors-bookmarks-with-vue-router/14563/5
+    if (this.$route.hash) {
+      setTimeout(() => this.scrollFix(this.$route.hash), 1)
+    }
+  },
   methods: {
+    scrollFix (hashbang) {
+      location.href = hashbang
+    },
     async logoutFunc () {
       if (this.$tide.isModuleEnabled('authenticatedContent')) {
         try {

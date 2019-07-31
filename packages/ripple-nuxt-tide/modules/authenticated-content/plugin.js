@@ -5,8 +5,7 @@ export default ({ app, store }) => {
       namespaced: true,
       state: () => ({
         isAuthenticated: null,
-        isPreview: null,
-        isExpired: null
+        isPreview: null
       }),
       mutations: {
         setAuthenticated (state, isAuthenticated) {
@@ -14,9 +13,6 @@ export default ({ app, store }) => {
         },
         setPreview (state, isPreview) {
           state.isPreview = isPreview
-        },
-        setExpired (state, isExpired) {
-          state.isExpired = isExpired
         }
       },
       actions: {
@@ -25,9 +21,6 @@ export default ({ app, store }) => {
         },
         setPreview ({ commit }, setPreview) {
           commit('setPreview', setPreview)
-        },
-        setExpired ({ commit }, setExpired) {
-          commit('setExpired', setExpired)
         }
       }
     }

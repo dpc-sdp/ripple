@@ -48,7 +48,7 @@ import { RplAlertBase } from '@dpc-sdp/ripple-alert'
 import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
-import { clientClearToken, isAuthenticated, isPreview, isExpired } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
 export default {
   components: {
@@ -90,9 +90,7 @@ export default {
     },
     preview () {
       if (this.$tide.isModuleEnabled('authenticatedContent')) {
-        if (isAuthenticated(this.$store)) {
-          return isPreview(this.$store)
-        }
+        return isPreview(this.$store)
       }
       return false
     }
@@ -147,7 +145,7 @@ export default {
     if (this.$tide.isModuleEnabled('authenticatedContent')) {
       // If logged in and session has expired, logout the user
       if (this.showLogout) {
-        if (isExpired(this.$store)) {
+        if (!isAuthenticated(this.$store)) {
           this.logoutFunc()
         }
       }

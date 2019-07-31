@@ -98,12 +98,10 @@ function clientSetProperties (path, store) {
  * @param {Object} store vuex store object
  */
 function setAuthProperties (token, path, store) {
-  const isExpired = isTokenExpired(token)
-  const isAuthenticated = token && !isExpired
+  const isAuthenticated = token && !isTokenExpired(token)
   const isPreview = isPreviewPath(path) && isAuthenticated
   store.dispatch('tideAuthenticatedContent/setAuthenticated', isAuthenticated)
   store.dispatch('tideAuthenticatedContent/setPreview', isPreview)
-  store.dispatch('tideAuthenticatedContent/setExpired', isExpired)
 }
 
 /**
@@ -124,15 +122,6 @@ function isPreview (store) {
   return store.state.tideAuthenticatedContent.isPreview
 }
 
-/**
- * Check if current user token is expired.
- * @param {Object} store vuex store object
- * @return {Boolean} is user token expired
- */
-function isExpired (store) {
-  return store.state.tideAuthenticatedContent.isExpired
-}
-
 export { isTokenExpired }
 export { clientGetToken }
 export { clientSetToken }
@@ -142,4 +131,3 @@ export { serverGetToken }
 export { serverSetProperties }
 export { isAuthenticated }
 export { isPreview }
-export { isExpired }

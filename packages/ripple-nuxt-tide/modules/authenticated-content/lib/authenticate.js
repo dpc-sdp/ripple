@@ -1,8 +1,8 @@
 import cookieparser from 'cookieparser'
 import Cookie from 'js-cookie'
+import { isPreviewPath } from './preview'
 
 const authCookieName = 'authenticatedContent'
-let serverToken = null
 
 /**
  * Decode a JWT token and test exipration date.
@@ -22,30 +22,12 @@ function isTokenExpired (token) {
 }
 
 /**
- * Client / Server use.
+ * Client use only.
  * Get auth token.
  * @return {String} auth token
  */
-function getToken () {
-  if (process.client) {
-    return Cookie.get(authCookieName)
-  } else {
-    return serverToken
-  }
-}
-
-/**
- * Client / Server use.
- * Clear auth token.
- * @param {Object} store vuex store object
- */
-function clearToken (store) {
-  if (process.client) {
-    Cookie.remove(authCookieName)
-  } else {
-    serverToken = null
-  }
-  store.dispatch('tideAuthenticatedContent/setAuthenticated', false)
+function clientGetToken () {
+  return Cookie.get(authCookieName)
 }
 
 /**
@@ -60,23 +42,66 @@ function clientSetToken (token, store) {
 }
 
 /**
- * Server use only.
- * Store request header auth token to memory for page rendering.
- * @param {Object} cookies Request header cookies
+ * Client use only.
+ * Clear auth token.
  * @param {Object} store vuex store object
  */
-function serverSetToken (cookies, store) {
-  let isAuth = false
-  if (cookies) {
-    const parsed = cookieparser.parse(cookies)
-    if (parsed[authCookieName]) {
-      if (!isTokenExpired(parsed[authCookieName])) {
-        serverToken = parsed[authCookieName]
-        isAuth = true
-      }
-    }
+function clientClearToken (store) {
+  if (process.client) {
+    Cookie.remove(authCookieName)
   }
-  store.dispatch('tideAuthenticatedContent/setAuthenticated', isAuth)
+  store.dispatch('tideAuthenticatedContent/setAuthenticated', false)
+}
+
+/**
+ * Server use only.
+ * Get auth token from cookies.
+ * @param {String} serverCookie request header cookies
+ */
+function serverGetToken (serverCookie) {
+  if (serverCookie) {
+    const parsed = cookieparser.parse(serverCookie)
+    return parsed[authCookieName] ? parsed[authCookieName] : null
+  } else {
+    return null
+  }
+}
+
+/**
+ * Sever use only.
+ * Store authentication values in vuex.
+ * @param {String} serverCookies request header cookies
+ * @param {String} path route path
+ * @param {Object} store vuex store object
+ */
+function serverSetProperties (serverCookies, path, store) {
+  const token = serverGetToken(serverCookies)
+  setAuthProperties(token, path, store)
+}
+
+/**
+ * Client use only.
+ * Store authentication values in vuex.
+ * @param {String} serverCookies request header cookies
+ * @param {String} path route path
+ * @param {Object} store vuex store object
+ */
+function clientSetProperties (path, store) {
+  const token = clientGetToken()
+  setAuthProperties(token, path, store)
+}
+
+/**
+ * Store authentication values in vuex.
+ * @param {String} token request header cookies
+ * @param {String} path route path
+ * @param {Object} store vuex store object
+ */
+function setAuthProperties (token, path, store) {
+  const isAuthenticated = token && !isTokenExpired(token)
+  const isPreview = isPreviewPath(path) && isAuthenticated
+  store.dispatch('tideAuthenticatedContent/setAuthenticated', isAuthenticated)
+  store.dispatch('tideAuthenticatedContent/setPreview', isPreview)
 }
 
 /**
@@ -88,9 +113,21 @@ function isAuthenticated (store) {
   return store.state.tideAuthenticatedContent.isAuthenticated
 }
 
+/**
+ * Check if current path is a preview page.
+ * @param {Object} store vuex store object
+ * @return {Boolean} is preview page
+ */
+function isPreview (store) {
+  return store.state.tideAuthenticatedContent.isPreview
+}
+
 export { isTokenExpired }
-export { getToken }
-export { clearToken }
+export { clientGetToken }
 export { clientSetToken }
-export { serverSetToken }
+export { clientClearToken }
+export { clientSetProperties }
+export { serverGetToken }
+export { serverSetProperties }
 export { isAuthenticated }
+export { isPreview }

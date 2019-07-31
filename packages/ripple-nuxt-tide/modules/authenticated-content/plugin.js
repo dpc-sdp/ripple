@@ -4,16 +4,30 @@ export default ({ app, store }) => {
     const storeModule = {
       namespaced: true,
       state: () => ({
-        isAuthenticated: null
+        isAuthenticated: null,
+        isPreview: null,
+        isExpired: null
       }),
       mutations: {
         setAuthenticated (state, isAuthenticated) {
           state.isAuthenticated = isAuthenticated
+        },
+        setPreview (state, isPreview) {
+          state.isPreview = isPreview
+        },
+        setExpired (state, isExpired) {
+          state.isExpired = isExpired
         }
       },
       actions: {
         setAuthenticated ({ commit }, setAuthenticated) {
           commit('setAuthenticated', setAuthenticated)
+        },
+        setPreview ({ commit }, setPreview) {
+          commit('setPreview', setPreview)
+        },
+        setExpired ({ commit }, setExpired) {
+          commit('setExpired', setExpired)
         }
       }
     }

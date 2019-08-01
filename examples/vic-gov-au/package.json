@@ -62,6 +62,9 @@
     "sass-resources-loader": "^2.0.0",
     "vue-jest": "^3.0.4"
   },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
   "browserslist": [
     "> 1%",
     "IE 11",

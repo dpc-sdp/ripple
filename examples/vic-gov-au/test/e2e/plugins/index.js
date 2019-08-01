@@ -12,8 +12,8 @@ module.exports = (on, config) => {
   config.env = {
     ADMIN_USERNAME: process.env.CYPRESS_ADMIN_USERNAME,
     ADMIN_PASSWORD: process.env.CYPRESS_ADMIN_PASSWORD,
-    AUTH_USER: process.env.CONTENT_API_AUTH_USER,
-    AUTH_PASS: process.env.CONTENT_API_AUTH_PASS,
+    CONTENT_API_AUTH_USER: process.env.CONTENT_API_AUTH_USER,
+    CONTENT_API_AUTH_PASS: process.env.CONTENT_API_AUTH_PASS,
     CONTENT_API_SERVER: process.env.CONTENT_API_SERVER
   }
 

@@ -90,7 +90,7 @@ export default {
       // Content types
       page: 1,
       landingPage: 1,
-      event: 0, // Disable for testing it in custom module.
+      event: 1,
       news: 1,
       grant: 1,
       profile: 1,

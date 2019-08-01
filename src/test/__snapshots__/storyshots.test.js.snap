@@ -5,6 +5,7 @@ exports[`RippleStoryshots Atoms/Button default 1`] = `
   class="rpl-link rpl-button rpl-button--primary"
   data-print-url="#"
   href="#"
+  target=""
 >
   <span
     class="rpl-link__inner"
@@ -19,6 +20,7 @@ exports[`RippleStoryshots Atoms/Button disabled 1`] = `
   class="rpl-link rpl-button rpl-button--primary rpl-button--disabled"
   data-print-url="#"
   href="#"
+  target=""
 >
   <span
     class="rpl-link__inner"
@@ -33,6 +35,7 @@ exports[`RippleStoryshots Atoms/Button secondary theme 1`] = `
   class="rpl-link rpl-button rpl-button--secondary"
   data-print-url="#"
   href="#"
+  target=""
 >
   <span
     class="rpl-link__inner"
@@ -47,6 +50,7 @@ exports[`RippleStoryshots Atoms/Button with href 1`] = `
   class="rpl-link rpl-button rpl-button--primary"
   data-print-url="#"
   href="#"
+  target=""
 >
   <span
     class="rpl-link__inner"
@@ -1406,6 +1410,7 @@ exports[`RippleStoryshots Atoms/Link Link 1`] = `
   class="rpl-link"
   data-print-url="#"
   href="#"
+  target=""
 >
   <span
     class="rpl-link__inner"
@@ -1420,6 +1425,7 @@ exports[`RippleStoryshots Atoms/Link Text Link 1`] = `
   class="rpl-link rpl-text-link"
   data-print-url="#"
   href="#"
+  target=""
 >
   <span
     class="rpl-link__inner"
@@ -1452,6 +1458,7 @@ exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
     class="rpl-link rpl-meta-tag__link"
     data-print-url="#"
     href="#"
+    target=""
   >
     <span
       class="rpl-link__inner"
@@ -1486,6 +1493,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
       class="rpl-link rpl-text-link rpl-alert__link"
       data-print-url="#"
       href="#"
+      target=""
     >
       <span
         class="rpl-link__inner"
@@ -1573,6 +1581,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -1594,6 +1603,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -1615,6 +1625,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -1636,6 +1647,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -1657,6 +1669,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -1678,6 +1691,7 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -1717,6 +1731,7 @@ exports[`RippleStoryshots Molecules/Breadcrumbs Breadcrumbs 1`] = `
             class="rpl-link rpl-breadcrumbs__link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -1732,6 +1747,7 @@ exports[`RippleStoryshots Molecules/Breadcrumbs Breadcrumbs 1`] = `
             class="rpl-link rpl-breadcrumbs__link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -1803,6 +1819,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             class="rpl-link rpl-card-emergency__cta-link"
             data-print-url="tel:0000"
             href="tel:0000"
+            target=""
           >
             <!---->
              
@@ -1858,6 +1875,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             class="rpl-link rpl-card-emergency__cta-link"
             data-print-url="tel:000"
             href="tel:000"
+            target=""
           >
             <!---->
              
@@ -1913,6 +1931,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             class="rpl-link rpl-card-emergency__cta-link"
             data-print-url="/home"
             href="/home"
+            target=""
           >
             <!---->
              
@@ -1962,7 +1981,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             class="rpl-link rpl-card-emergency__cta-link"
             data-print-url="http://google.com"
             href="http://google.com"
-            target="_blank"
+            target=""
           >
             <!---->
              
@@ -2017,6 +2036,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <div
                   class="rpl-card-content__image-wrapper"
@@ -2100,6 +2120,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <!---->
                  
@@ -2198,6 +2219,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <div
                   class="rpl-card-content__image-wrapper"
@@ -2280,6 +2302,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <div
                   class="rpl-card-content__image-wrapper"
@@ -2363,6 +2386,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <div
                   class="rpl-card-content__image-wrapper"
@@ -2446,6 +2470,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <!---->
                  
@@ -2544,6 +2569,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <div
                   class="rpl-card-content__image-wrapper"
@@ -2626,6 +2652,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <!---->
                  
@@ -2724,6 +2751,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <!---->
                  
@@ -2846,6 +2874,7 @@ exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
   class="rpl-link rpl-card-content rpl-card-content--default rpl-card-content--has-link-text"
   data-print-url="#"
   href="#"
+  target=""
 >
   <div
     class="rpl-card-content__image-wrapper"
@@ -2891,6 +2920,7 @@ exports[`RippleStoryshots Molecules/Card/Card Cta Default 1`] = `
   class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
   data-print-url="#"
   href="#"
+  target=""
 >
   <!---->
    
@@ -2967,6 +2997,7 @@ exports[`RippleStoryshots Molecules/Card/Card Emergency Contact Default 1`] = `
       class="rpl-link rpl-card-emergency__cta-link"
       data-print-url="tel:000"
       href="tel:000"
+      target=""
     >
       <!---->
        
@@ -2987,6 +3018,7 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
   class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
   data-print-url="#"
   href="#"
+  target=""
 >
   <div
     class="rpl-card-content__image-wrapper"
@@ -3062,6 +3094,7 @@ exports[`RippleStoryshots Molecules/Card/Card Honour Roll Default 1`] = `
   class="rpl-link rpl-card-content rpl-card-honour-roll rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
   data-print-url="#"
   href="#"
+  target=""
 >
   <!---->
    
@@ -3141,6 +3174,7 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
   class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
   data-print-url="#"
   href="#"
+  target=""
 >
   <div
     class="rpl-card-content__image-wrapper"
@@ -3214,6 +3248,7 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
   class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
   data-print-url="#"
   href="#"
+  target=""
 >
   <!---->
    
@@ -3304,6 +3339,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Default 1`] = `
   class="rpl-link rpl-card-content rpl-card-navigation rpl-card-content--no-image rpl-card-content--simple rpl-card-content--has-link-text"
   data-print-url="#"
   href="#"
+  target=""
 >
   <!---->
    
@@ -3349,6 +3385,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
   class="rpl-link rpl-card-navigation-featured"
   data-print-url="#"
   href="#"
+  target=""
 >
   <div
     class="rpl-card-navigation-featured__inner"
@@ -3403,6 +3440,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
   class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
   data-print-url="#"
   href="#"
+  target=""
 >
   <div
     class="rpl-card-content__image-wrapper"
@@ -3527,7 +3565,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
           class="rpl-link rpl-list__text"
           data-print-url="https://www.google.com.au/maps?q=13%20Street%20Name,%20Suburb%20VIC%203056"
           href="https://www.google.com.au/maps?q=13%20Street%20Name,%20Suburb%20VIC%203056"
-          target="_blank"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -3549,6 +3587,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
           class="rpl-link rpl-list__text"
           data-print-url="tel:0398766754"
           href="tel:0398766754"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -3570,6 +3609,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
           class="rpl-link rpl-list__text"
           data-print-url="tel:0400000000"
           href="tel:0400000000"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -3591,6 +3631,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
           class="rpl-link rpl-list__text"
           data-print-url="mailto:emailaddress@vic.gov.au"
           href="mailto:emailaddress@vic.gov.au"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -3612,7 +3653,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
           class="rpl-link rpl-list__text"
           data-print-url="https://www.facebook.com"
           href="https://www.facebook.com"
-          target="_blank"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -3634,7 +3675,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
           class="rpl-link rpl-list__text"
           data-print-url="https://www.twitter.com"
           href="https://www.twitter.com"
-          target="_blank"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -3656,7 +3697,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
           class="rpl-link rpl-list__text"
           data-print-url="https://www.linkedin.com"
           href="https://www.linkedin.com"
-          target="_blank"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -3678,7 +3719,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
           class="rpl-link rpl-list__text"
           data-print-url="https://www.intagram.com"
           href="https://www.intagram.com"
-          target="_blank"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -4479,7 +4520,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                     class="rpl-link rpl-text-link"
                     data-print-url="https://vic.gov.au"
                     href="https://vic.gov.au"
-                    target="_blank"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -6162,7 +6203,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
         class="rpl-link rpl-list__text"
         data-print-url="https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/"
         href="https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/"
-        target="_blank"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -6436,7 +6477,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="http://www.google.com"
           href="http://www.google.com"
-          target="_blank"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -6467,6 +6508,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -6488,6 +6530,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -6509,6 +6552,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -6982,7 +7026,7 @@ exports[`RippleStoryshots Molecules/Search Search Result 1`] = `
     class="rpl-link"
     data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
     href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-    target="_blank"
+    target=""
   >
     <span
       class="rpl-link__inner"
@@ -6999,7 +7043,7 @@ exports[`RippleStoryshots Molecules/Search Search Result 1`] = `
     class="rpl-link rpl-search-result__link"
     data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
     href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-    target="_blank"
+    target=""
   >
     <span
       class="rpl-link__inner"
@@ -7035,6 +7079,7 @@ exports[`RippleStoryshots Molecules/Search Search Result 1`] = `
           class="rpl-link rpl-meta-tag__link"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -7058,6 +7103,7 @@ exports[`RippleStoryshots Molecules/Search Search Result 1`] = `
           class="rpl-link rpl-meta-tag__link"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -7367,6 +7413,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
         class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -7385,6 +7432,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -7402,6 +7450,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -7420,6 +7469,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7437,6 +7487,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7454,6 +7505,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7473,6 +7525,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -7491,6 +7544,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7508,6 +7562,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7526,6 +7581,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                     class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-3"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -7543,6 +7599,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                     class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-3"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -7560,6 +7617,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                     class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-3"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -7579,6 +7637,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7596,6 +7655,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7613,6 +7673,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7630,6 +7691,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7647,6 +7709,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7664,6 +7727,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7681,6 +7745,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7698,6 +7763,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7715,6 +7781,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7732,6 +7799,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7749,6 +7817,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7766,6 +7835,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7783,6 +7853,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7800,6 +7871,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7817,6 +7889,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7834,6 +7907,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7851,6 +7925,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7868,6 +7943,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7885,6 +7961,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7902,6 +7979,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7919,6 +7997,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7936,6 +8015,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7953,6 +8033,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7970,6 +8051,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -7987,6 +8069,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -8004,6 +8087,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -8021,6 +8105,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -8038,6 +8123,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -8059,6 +8145,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
         class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -8076,6 +8163,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
         class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -8094,6 +8182,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -8112,6 +8201,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -8129,6 +8219,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -8146,6 +8237,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -8167,6 +8259,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
         class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -8185,6 +8278,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -8202,6 +8296,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -8219,6 +8314,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -8238,6 +8334,7 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
         class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -8283,6 +8380,7 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
           class="rpl-link"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -8403,7 +8501,7 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
           class="rpl-link"
           data-print-url="https://www.google.com"
           href="https://www.google.com"
-          target="_blank"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -8452,7 +8550,7 @@ exports[`RippleStoryshots Molecules/WhatsNext Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="http://www.google.com"
           href="http://www.google.com"
-          target="_blank"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -8483,6 +8581,7 @@ exports[`RippleStoryshots Molecules/WhatsNext Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -8504,6 +8603,7 @@ exports[`RippleStoryshots Molecules/WhatsNext Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -8525,6 +8625,7 @@ exports[`RippleStoryshots Molecules/WhatsNext Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -8546,6 +8647,7 @@ exports[`RippleStoryshots Molecules/WhatsNext Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -8567,6 +8669,7 @@ exports[`RippleStoryshots Molecules/WhatsNext Default 1`] = `
           class="rpl-link rpl-text-link rpl-text-link--underline"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -8714,6 +8817,7 @@ exports[`RippleStoryshots Organisms/CallToAction Call to Action 1`] = `
         class="rpl-link rpl-button rpl-button--primary"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -8813,6 +8917,7 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Default 1`] = `
         class="rpl-link rpl-button rpl-campaign-primary__call-to-action rpl-button--primary"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -8869,6 +8974,7 @@ exports[`RippleStoryshots Organisms/CampaignSecondary With image 1`] = `
         class="rpl-link rpl-button rpl-button--primary"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -8916,6 +9022,7 @@ exports[`RippleStoryshots Organisms/CampaignSecondary With video 1`] = `
               class="rpl-link rpl-text-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -8959,6 +9066,7 @@ exports[`RippleStoryshots Organisms/CampaignSecondary With video 1`] = `
         class="rpl-link rpl-button rpl-button--primary"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -8991,6 +9099,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
         href="#"
+        target=""
       >
         <div
           class="rpl-card-content__image-wrapper"
@@ -9067,6 +9176,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
         href="#"
+        target=""
       >
         <div
           class="rpl-card-content__image-wrapper"
@@ -9143,6 +9253,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
         href="#"
+        target=""
       >
         <div
           class="rpl-card-content__image-wrapper"
@@ -9219,6 +9330,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
         href="#"
+        target=""
       >
         <div
           class="rpl-card-content__image-wrapper"
@@ -9295,6 +9407,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
         href="#"
+        target=""
       >
         <div
           class="rpl-card-content__image-wrapper"
@@ -9372,6 +9485,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
         data-print-url="#"
         href="#"
+        target=""
       >
         <!---->
          
@@ -9414,6 +9528,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
     class="rpl-link rpl-button rpl-latest-events__call-to-action rpl-button--primary"
     data-print-url="#"
     href="#"
+    target=""
   >
     <span
       class="rpl-link__inner"
@@ -9561,6 +9676,7 @@ exports[`RippleStoryshots Organisms/Grants Grants Overview 1`] = `
     class="rpl-link rpl-button rpl-grants-overview__cta rpl-button--primary"
     data-print-url="#"
     href="#"
+    target=""
   >
     <span
       class="rpl-link__inner"
@@ -9635,6 +9751,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
             class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -9665,6 +9782,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
             class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -9695,6 +9813,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
             class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -9725,6 +9844,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
             class="rpl-link rpl-text-link rpl-hero-banner__link rpl-text-link--underline"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -9756,6 +9876,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
             class="rpl-link rpl-text-link rpl-hero-banner__more-link rpl-text-link--underline"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -9825,6 +9946,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
             class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -9855,6 +9977,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
             class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -9883,6 +10006,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
             class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -9913,6 +10037,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
             class="rpl-link rpl-text-link rpl-intro-banner__link rpl-text-link--underline"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -9977,6 +10102,7 @@ exports[`RippleStoryshots Organisms/HeroBanner with CTA 1`] = `
           class="rpl-link rpl-button rpl-hero-banner--cta__primary rpl-button--primary"
           data-print-url="#"
           href="#"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -9998,6 +10124,7 @@ exports[`RippleStoryshots Organisms/HeroBanner with CTA 1`] = `
             class="rpl-link rpl-text-link rpl-hero-banner--cta__secondary-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -10437,7 +10564,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Button 1`] = `
       class="rpl-link rpl-button rpl-button--primary"
       data-print-url="http://www.google.com"
       href="http://www.google.com"
-      target="_blank"
+      target=""
     >
       <span
         class="rpl-link__inner"
@@ -10534,6 +10661,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Embedded video 1`] = `
           class="rpl-link rpl-text-link"
           data-print-url="/media/1665"
           href="/media/1665"
+          target=""
         >
           <span
             class="rpl-link__inner"
@@ -10637,6 +10765,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Link 1`] = `
         class="rpl-link rpl-text-link"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -10656,7 +10785,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Link 1`] = `
         class="rpl-link rpl-text-link"
         data-print-url="https://vic.gov.au"
         href="https://vic.gov.au"
-        target="_blank"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -10892,6 +11021,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       class="rpl-link rpl-card-navigation-featured"
       data-print-url="#"
       href="#"
+      target=""
     >
       <div
         class="rpl-card-navigation-featured__inner"
@@ -10947,6 +11077,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
       data-print-url="#"
       href="#"
+      target=""
     >
       <div
         class="rpl-card-content__image-wrapper"
@@ -11021,6 +11152,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
       data-print-url="#"
       href="#"
+      target=""
     >
       <div
         class="rpl-card-content__image-wrapper"
@@ -11127,6 +11259,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
             class="rpl-link rpl-text-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -11175,6 +11308,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
             class="rpl-link rpl-text-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -11223,6 +11357,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
             class="rpl-link rpl-text-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -11271,6 +11406,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
             class="rpl-link rpl-text-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -11319,6 +11455,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
             class="rpl-link rpl-text-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -11367,6 +11504,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
             class="rpl-link rpl-text-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -11739,6 +11877,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Pagination 1`] = `
       class="rpl-link rpl-publication-pagination__link"
       data-print-url="#"
       href="#"
+      target=""
     >
       <div
         class="rpl-publication-pagination__link-inner"
@@ -11779,6 +11918,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Pagination 1`] = `
       class="rpl-link rpl-publication-pagination__link"
       data-print-url="#"
       href="#"
+      target=""
     >
       <div
         class="rpl-publication-pagination__link-inner"
@@ -11826,6 +11966,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             class="rpl-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -11846,6 +11987,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11859,6 +12001,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11872,6 +12015,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11885,6 +12029,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11898,6 +12043,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11911,6 +12057,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11924,6 +12071,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11937,6 +12085,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11950,6 +12099,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11963,6 +12113,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11976,6 +12127,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -11996,6 +12148,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             class="rpl-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -12016,6 +12169,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12029,6 +12183,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12042,6 +12197,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12055,6 +12211,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12068,6 +12225,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12081,6 +12239,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12094,6 +12253,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12107,6 +12267,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12120,6 +12281,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12133,6 +12295,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12146,6 +12309,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12166,6 +12330,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             class="rpl-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -12189,6 +12354,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             class="rpl-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -12212,6 +12378,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             class="rpl-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -12232,6 +12399,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12245,6 +12413,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12258,6 +12427,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12294,6 +12464,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12307,6 +12478,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12320,6 +12492,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12333,6 +12506,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12346,6 +12520,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12359,6 +12534,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               class="rpl-link"
               data-print-url="#"
               href="#"
+              target=""
             >
               <span
                 class="rpl-link__inner"
@@ -12384,6 +12560,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         class="rpl-link rpl-site-footer__logo"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -12398,6 +12575,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         class="rpl-link rpl-site-footer__logo"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -12412,6 +12590,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         class="rpl-link rpl-site-footer__logo"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -12426,6 +12605,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         class="rpl-link rpl-site-footer__logo"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -12440,7 +12620,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         class="rpl-link rpl-site-footer__logo"
         data-print-url="https://vic.gov.au"
         href="https://vic.gov.au"
-        target="_blank"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -12502,6 +12682,7 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                   class="rpl-link"
                   data-print-url="/"
                   href="/"
+                  target=""
                 >
                   <span
                     class="rpl-link__inner"
@@ -12521,6 +12702,7 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                   class="rpl-link"
                   data-print-url="#"
                   href="#"
+                  target=""
                 >
                   <span
                     class="rpl-link__inner"
@@ -12598,6 +12780,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             class="rpl-link rpl-section-menu__item-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -12615,6 +12798,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             class="rpl-link rpl-section-menu__item-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -12653,6 +12837,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -12691,6 +12876,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                     class="rpl-link rpl-section-menu__item-link"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -12708,6 +12894,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                     class="rpl-link rpl-section-menu__item-link"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -12725,6 +12912,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                     class="rpl-link rpl-section-menu__item-link"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -12742,6 +12930,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                     class="rpl-link rpl-section-menu__item-link"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -12761,6 +12950,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -12778,6 +12968,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -12817,6 +13008,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -12834,6 +13026,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -12871,6 +13064,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                     class="rpl-link rpl-section-menu__item-link"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -12888,6 +13082,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                     class="rpl-link rpl-section-menu__item-link"
                     data-print-url="/active-link"
                     href="/active-link"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -12905,6 +13100,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                     class="rpl-link rpl-section-menu__item-link"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -12922,6 +13118,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                     class="rpl-link rpl-section-menu__item-link"
                     data-print-url="#"
                     href="#"
+                    target=""
                   >
                     <span
                       class="rpl-link__inner"
@@ -12941,6 +13138,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -12958,6 +13156,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -12975,6 +13174,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -12992,6 +13192,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13009,6 +13210,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13026,6 +13228,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13043,6 +13246,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13060,6 +13264,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13077,6 +13282,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13094,6 +13300,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13111,6 +13318,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13128,6 +13336,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13145,6 +13354,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13162,6 +13372,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13179,6 +13390,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13196,6 +13408,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13213,6 +13426,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13230,6 +13444,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13247,6 +13462,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13264,6 +13480,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13281,6 +13498,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13298,6 +13516,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13315,6 +13534,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13332,6 +13552,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13349,6 +13570,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13366,6 +13588,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13383,6 +13606,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13400,6 +13624,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13421,6 +13646,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
         class="rpl-link rpl-section-menu__item-link"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"
@@ -13459,6 +13685,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             class="rpl-link rpl-section-menu__item-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -13497,6 +13724,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13514,6 +13742,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13531,6 +13760,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13548,6 +13778,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 class="rpl-link rpl-section-menu__item-link"
                 data-print-url="#"
                 href="#"
+                target=""
               >
                 <span
                   class="rpl-link__inner"
@@ -13590,6 +13821,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             class="rpl-link rpl-section-menu__item-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -13607,6 +13839,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             class="rpl-link rpl-section-menu__item-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -13624,6 +13857,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             class="rpl-link rpl-section-menu__item-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -13641,6 +13875,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             class="rpl-link rpl-section-menu__item-link"
             data-print-url="#"
             href="#"
+            target=""
           >
             <span
               class="rpl-link__inner"
@@ -13660,6 +13895,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
         class="rpl-link rpl-section-menu__item-link"
         data-print-url="#"
         href="#"
+        target=""
       >
         <span
           class="rpl-link__inner"

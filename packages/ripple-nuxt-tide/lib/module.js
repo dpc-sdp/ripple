@@ -70,7 +70,7 @@ const nuxtTide = function (moduleOptions) {
   this.addModule('@dpc-sdp/ripple-nuxt-ui', true)
 
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }
-
+  console.log(this.options.proxy)
   this.addModule('@nuxtjs/proxy', true)
 
   this.addModule(['@nuxtjs/axios', {

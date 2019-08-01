@@ -13,6 +13,7 @@
       <rpl-button :href="cta.url" theme="primary">{{cta.text}}</rpl-button>
     </rpl-col>
     <!-- Tags here -->
+    <img v-if="atdwTackingBeacon" :src="atdwTackingBeacon" width="1" height="1" border="0" />
   </rpl-row>
 </template>
 
@@ -46,7 +47,7 @@ export default {
       // Hardcode here to use single event only, as disucssed with BA. Will support multiple events later.
       const eventDetails = this.page.field_event_details[0]
 
-      const dateTimeFormat = 'DD MMMM YYYY hh:mm a'
+      const dateTimeFormat = (eventDetails.field_show_time) ? 'DD MMMM YYYY hh:mm a' : 'DD MMMM YYYY'
       const date = this.formatDate(eventDetails.field_paragraph_date_range.value, dateTimeFormat)
       const endDate = eventDetails.field_paragraph_date_range.end_value ? this.formatDate(eventDetails.field_paragraph_date_range.end_value, dateTimeFormat) : ''
       const dateRange = date + (endDate ? ` - ${endDate}` : '')
@@ -108,6 +109,9 @@ export default {
       })
 
       return list
+    },
+    atdwTackingBeacon () {
+      return (!this.page.doNotTrack && this.page.field_tracking_beacon) || false
     }
   }
 }

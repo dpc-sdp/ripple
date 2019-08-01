@@ -5,7 +5,7 @@
  */
 function clientDoNotTrack () {
   const supportsDNT = (window.doNotTrack || navigator.doNotTrack || navigator.msDoNotTrack || 'msTrackingProtectionEnabled' in window.external)
-  return supportsDNT ? (window.doNotTrack == "1" || navigator.doNotTrack == "yes" || navigator.doNotTrack == "1" || navigator.msDoNotTrack == "1" || window.external.msTrackingProtectionEnabled()) : false
+  return supportsDNT ? (window.doNotTrack === '1' || navigator.doNotTrack === 'yes' || navigator.doNotTrack === '1' || navigator.msDoNotTrack === '1' || window.external.msTrackingProtectionEnabled()) : false
 }
 
 /**
@@ -14,7 +14,7 @@ function clientDoNotTrack () {
  * @returns {Boolean}
  */
 function serverDoNotTrack (headers) {
-  return (headers.dnt === "1")
+  return (headers.dnt === '1')
 }
 
 export { clientDoNotTrack }

@@ -20,7 +20,6 @@ export default ({ env, app, req, res, store , route}, inject) => {
 
   // If a request is failed, set a error status code
   app.$axios.onError(error => {
-    console.log(error)
     const responseUrl = error.request.path || error.request.responseURL
     const errMessage = 'Request to Tide "' + responseUrl + '" failed.'
 

@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-acknowledgement" v-if="text">
-    <img class="rpl-acknowledgement__flag" src="./assets/images/aboriginal-flag.png" :alt="aboriginalFlagAltText" width="53px" height="36px" />
-    <img class="rpl-acknowledgement__flag" src="./assets/images/torres-strait-islander-flag.png" :alt="torresStraitIslanderFlagAltText" width="53px" height="36px" />
+    <img class="rpl-acknowledgement__flag" src="./assets/images/aboriginal-flag.png" :alt="aboriginalFlagAltText" />
+    <img class="rpl-acknowledgement__flag" src="./assets/images/torres-strait-islander-flag.png" :alt="torresStraitIslanderFlagAltText" />
     <div class="rpl-acknowledgement__text">{{ text }}</div>
   </div>
 </template>
@@ -32,6 +32,8 @@ export default {
     }
 
     &__flag {
+      width: rem(53px);
+      height: rem(36px);
       border: $rpl-acknowledgement-flag-border;
       margin-right: $rpl-space-2;
 

@@ -12276,17 +12276,13 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
       <img
         alt="Aboriginal flag"
         class="rpl-acknowledgement__flag"
-        height="36px"
         src="./assets/images/aboriginal-flag.png"
-        width="53px"
       />
        
       <img
         alt="Torres Strait Islander flag"
         class="rpl-acknowledgement__flag"
-        height="36px"
         src="./assets/images/torres-strait-islander-flag.png"
-        width="53px"
       />
        
       <div

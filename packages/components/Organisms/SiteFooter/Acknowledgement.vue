@@ -1,12 +1,18 @@
 <template>
-  <div class="rpl-acknowledgement" v-if="text" >{{ text }}</div>
+  <div class="rpl-acknowledgement" v-if="text">
+    <img class="rpl-acknowledgement__flag" src="./assets/images/aboriginal-flag.png" :alt="aboriginalFlagAltText" width="53px" height="36px" />
+    <img class="rpl-acknowledgement__flag" src="./assets/images/torres-strait-islander-flag.png" :alt="torresStraitIslanderFlagAltText" width="53px" height="36px" />
+    <div class="rpl-acknowledgement__text">{{ text }}</div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'RplAcknowledgement',
   props: {
-    text: String
+    text: String,
+    aboriginalFlagAltText: { type: String, default: 'Aboriginal flag' },
+    torresStraitIslanderFlagAltText: { type: String, default: 'Torres Strait Islander flag' }
   }
 }
 </script>
@@ -15,34 +21,34 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-acknowledgement-ruleset: (
-    'xs': ('xs', 1em, 'bold'),
-    'l': ('l', 1.2em, 'bold')
-  ) !default;
-  $rpl-acknowledgement-border-image: rpl-gradient('primary_gradient_0') !default;
-  $rpl-acknowledgement-padding: 0 0 0 ($rpl-space * 5) !default;
-  $rpl-acknowledgement-margin: ($rpl-space * 7) 0 ($rpl-space * 7) !default;
-  $rpl-acknowledgement-margin-l: ($rpl-space * 11) 0 ($rpl-space * 7) !default;
+  $rpl-acknowledgement-ruleset: ('s', 1.25em, 'semibold') !default;
+  $rpl-acknowledgement-flag-border: 1px solid rpl-color('white') !default;
 
   .rpl-acknowledgement {
-    @include rpl_typography_ruleset($rpl-acknowledgement-ruleset);
-    position: relative;
-    padding: $rpl-acknowledgement-padding;
-    margin: $rpl-acknowledgement-margin;
-
     @include rpl_breakpoint('l') {
-      margin: $rpl-acknowledgement-margin-l;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
     }
 
-    &::before {
-      content: '';
-      width: $rpl-space;
-      display: inline-block;
-      background-image: $rpl-acknowledgement-border-image;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
+    &__flag {
+      border: $rpl-acknowledgement-flag-border;
+      margin-right: $rpl-space-2;
+
+      @include rpl_breakpoint('l') {
+        margin-right: $rpl-space-3;
+        flex-shrink: 0;
+      }
+    }
+
+    &__text {
+      @include rpl_typography_ruleset($rpl-acknowledgement-ruleset);
+      margin-top: $rpl-space-3;
+
+      @include rpl_breakpoint('l') {
+        margin-top: 0;
+        margin-left: $rpl-space-3;
+      }
     }
   }
 </style>

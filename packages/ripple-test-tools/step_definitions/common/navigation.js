@@ -11,7 +11,7 @@ Given(`I visit the page {string}`, url => {
   })
 })
 
-Then(`I should be redirected to the page {string}`, (path) => {
+Then(`I should be redirected to the page {string}`, path => {
   cy.wait(3000)
   cy.url().should('eq', `${Cypress.config().baseUrl}${path}`)
 })
@@ -20,15 +20,20 @@ Then(`I should see a 404 page`, () => {
   cy.get('.app-error').should('exist')
 })
 
-Given(`I have created a node with the YAML fixture {string}`, (fixture) => {
-  cy.log('fixture')
-  cy.log(fixture)
+Given(`I have created a node with the YAML fixture {string}`, fixture => {
   cy.TideCreateNode(fixture)
 })
 
 Given(`the {string} page exists with fixture {string} data`, (slug, fixture) => {
   const site = Cypress.env('SITE_ID') || '4'
-  cy.request(`/api/v1/route?site=${site}&path=${slug}`).then(routeResponse => {
+  cy.request({
+    url: `/api/v1/route?site=${site}&path=${slug}`,
+    auth: {
+      username: Cypress.env('CONTENT_API_AUTH_USER'),
+      password: Cypress.env('CONTENT_API_AUTH_PASS')
+    },
+    failOnStatusCode: false
+  }).then(routeResponse => {
     cy.log(routeResponse)
     if (routeResponse.status !== 200) {
       cy.TideCreateNode(fixture)

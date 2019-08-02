@@ -263,12 +263,12 @@ module.exports = {
 
       // only add tests for enabled modules
       results.modules.forEach(tideModule => {
-        const hasTests = fs.existsSync(path.resolve(__dirname, `./template/_tests/_modules/test/e2e/integration/${tideModule}`))
+        const hasTests = fs.existsSync(path.resolve(__dirname, `./template/_tests/_modules/test/e2e/integration/core-modules/${tideModule}`))
         if (hasTests) {
           actions.push(
             {
               type: 'add',
-              files: [`./test/e2e/integration/${tideModule}/**`, `./test/e2e/fixtures/${tideModule}/**`],
+              files: [`./test/e2e/integration/core-modules/${tideModule}/**`, `./test/e2e/fixtures/${tideModule}/**`],
               templateDir: 'template/_tests/_modules'
             }
           )

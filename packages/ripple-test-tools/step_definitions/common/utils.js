@@ -32,6 +32,6 @@ Given(`a request is made to {string}`, (url) => {
 
 Then(`the response code should be {int}`, (statusExp) => {
   cy.get('@request').should((response) => {
-    expect(response.status).to.eq(statusExp) // eslint-disable-line this is not jest!
+    expect(response.status).to.eq(statusExp) // eslint-disable-line jest/valid-expect
   })
 })

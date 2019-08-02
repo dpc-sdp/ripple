@@ -32,17 +32,6 @@ Given(`a request is made to {string}`, (url) => {
 
 Then(`the response code should be {int}`, (statusExp) => {
   cy.get('@request').should((response) => {
-    expect(response.status).to.eq(statusExp)
+    expect(response.status).to.eq(statusExp) // eslint-disable-line this is not jest!
   })
 })
-
-// Then(`the response body should contain `, (statusExp) => {
-//   cy.get('@request').should((response) => {
-//     expect(response.body).to.eq(statusExp)
-//   })
-// })
-// Then(`the response body should match the JSON schema "/"`, (statusExp) => {
-//   cy.get('@request').should((response) => {
-//     expect(response.status).to.eq(statusExp)
-//   })
-// })

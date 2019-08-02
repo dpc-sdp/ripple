@@ -1,6 +1,6 @@
-/* global cy, Cypress */
+/* global cy */
 
-const { Then, Given } = require('cypress-cucumber-preprocessor/steps')
+const { Then } = require('cypress-cucumber-preprocessor/steps')
 
 Then(`the page title should be {string}`, title => {
   cy.title().should('include', title)

@@ -1,6 +1,6 @@
 /* global cy */
 
-const { Then, Given } = require('cypress-cucumber-preprocessor/steps')
+const { Then } = require('cypress-cucumber-preprocessor/steps')
 
 /*
   Component exists tests

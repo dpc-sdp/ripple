@@ -1,0 +1,16 @@
+{
+  "name": "@dpc-sdp/ripple-meta-tag",
+  "version": "1.0.0",
+  "description": "A link component to represent tags.",
+  "license": "Apache-2.0",
+  "main": "index.vue",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Atoms/MetaTag",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-global": "1.0.0",
+    "@dpc-sdp/ripple-link": "1.0.0"
+  }
+}

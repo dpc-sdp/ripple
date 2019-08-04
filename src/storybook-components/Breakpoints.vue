@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import breakpoint from './../../packages/Atoms/Global/mixins/breakpoint'
+import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 
 export default {
   name: 'SBreakpoints',

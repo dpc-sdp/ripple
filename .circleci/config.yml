@@ -1,61 +1,87 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
-version: 2
+version: 2.0
+
 jobs:
-  build:
+  test:
+    context: Ripple
     docker:
-      - image: integratedexperts/circleci2-builder
+      - image: cypress/base:10
         environment:
-          COMPOSER_ALLOW_SUPERUSER: 1
-          COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
-
-    working_directory: ~/repo
-
+          TERM: xterm
+          SEARCH_BE: LOCAL-CI
+    working_directory: ~/app
     steps:
       - checkout
-
-      - setup_remote_docker:
-          docker_layer_caching: true
-
+      - run: yarn --version
+      - restore_cache:
+          keys:
+            - v1-deps-{{ checksum "yarn.lock" }}
+            - v1-deps-{{ .Branch }}
+            - v1-deps
       - run:
-          name: Pull newest Bay images.
-          command: npm run bay:pull
-
-      - run:
-          name: Start Bay stack.
-          command: |
-            npm run bay:rebuild-full
-            docker ps -a
-
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          key: v1-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+            - packages/ripple-nuxt-tide/node_modules
+            - packages/ripple-nuxt-ui/node_modules
+            - packages/ripple-create-app/node_modules
+            - packages/ripple-test-tools/node_modules
+            - examples/vic-gov-au/node_modules
+            - ~/.cache
       - run:
           name: Lint code.
-          command: docker exec $(docker-compose ps -q test) npm run lint
-
+          command: yarn lint     
       - run:
-          name: Run tests
-          command: docker exec $(docker-compose ps -q test) npm test
-
-      - run:
-          name: Install non-production packages into containers.
-          command: |
-            docker exec $(docker-compose ps -q storybook) /sbin/apk add --no-cache curl
-
-      - run:
-          name: prepare test directories.
-          command: |
-            docker exec $(docker-compose ps -q storybook) mkdir /app/screenshots
-
-      - run:
-          name: Test that Ripple storybook site can be sereved.
-          command: docker exec $(docker-compose ps -q storybook) curl -s -o /app/screenshots/storybook.html -w "%{http_code}" http://localhost:3000/ | grep -q 200
-
-      - run:
-          name: Collect artifacts.
-          command: |
-            mkdir -p /tmp/artifacts/storybook && docker cp $(docker-compose ps -q storybook):/app/screenshots /tmp/artifacts/storybook
-          when: always
-
+          name: Unit tests
+          command: yarn test:unit
+      - run: 
+          name: run smoke test
+          command: yarn test:smoke
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
       - store_artifacts:
-          path: /tmp/artifacts
+          path: test/e2e/videos
+      - store_artifacts:
+          path: test/e2e/screenshots
+
+  regression:
+    # This runs the full suite of e2e tests 
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          SEARCH_BE: LOCAL-CI
+    working_directory: ~/app
+    steps:    
+      - attach_workspace:
+          at: ~/app
+      - run: 
+          name: run full e2e test
+          command: yarn test:e2e
+      - store_artifacts:
+          path: test/e2e/videos
+      - store_artifacts:
+          path: test/e2e/screenshots
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - test
+  # Run full regression test nightly on master and release branches
+  nightly:
+    triggers:
+      - schedule:
+          cron: "30 14 * * *"
+          filters:
+            branches:
+              only:
+                - develop
+    jobs:
+      - test
+      # - regression:
+      #     requires:
+      #       - test

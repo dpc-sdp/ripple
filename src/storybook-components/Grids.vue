@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './../../packages/Atoms/Global/scss/settings';
+@import "~@dpc-sdp/ripple-global/scss/settings";
 
 .demo-col {
   background-color: rpl-color('mid_neutral_1');

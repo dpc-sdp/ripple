@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './../../packages/Atoms/Global/scss/settings';
+@import "~@dpc-sdp/ripple-global/scss/settings";
 
 .color {
   list-style: none;

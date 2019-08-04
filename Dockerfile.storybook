@@ -1,0 +1,27 @@
+FROM amazeeio/node:10-builder as builder
+
+COPY packages/components /app/packages/components
+COPY src /app/src
+COPY package.json yarn.lock .eslintrc.js babel.config.js /app/
+RUN yarn install
+WORKDIR /app/src
+RUN yarn run build-storybook
+
+FROM amazeeio/node:10
+COPY --from=builder /app/src/public /app
+COPY scripts/jira-post-comment-storybook.sh /app/scripts/jira-post-comment.sh
+
+ARG LAGOON_GIT_BRANCH
+ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
+
+# force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
+RUN . /home/.bashrc \
+    && npm config set unsafe-perm true \
+    && npm install http-server -g \
+    # For JIRA commit script work.
+    && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
+
+ENV HOST 0.0.0.0
+EXPOSE 3000
+
+CMD ["http-server", "-p", "3000"]

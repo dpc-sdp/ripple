@@ -112,7 +112,7 @@ export default {
       list.push({
         symbol: status === 'Closed' ? 'cross_circle' : 'success',
         color: status === 'Closed' ? 'danger' : 'success',
-        size: '0.8333',
+        size: status === 'Closed' ? '0.834' : '1',
         text: status
       })
 

@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-event
 
 > A set of components for displaying events.
@@ -33,10 +34,12 @@ import { RplLatestEvents } from '@dpc-sdp/ripple-event'
 
 ## Usage and Tests
 
-See [Storybook/Latest Events](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/Event&selectedStory=Latest%20Events).
+See [Storybook/Organisms/Event/Latest Events](https://ripple.sdp.vic.gov.au/?path=/story/organisms-event--latest-events).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
+<!-- /GENERATED_DOCS -->

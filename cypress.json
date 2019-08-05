@@ -6,5 +6,6 @@
   "screenshotsFolder": "test/e2e/screenshots",
   "supportFile": "test/e2e/support/index.js",
   "videosFolder": "test/e2e/videos",
-  "ignoreTestFiles": "*.js"
+  "ignoreTestFiles": "*.js",
+  "chromeWebSecurity": false
 }

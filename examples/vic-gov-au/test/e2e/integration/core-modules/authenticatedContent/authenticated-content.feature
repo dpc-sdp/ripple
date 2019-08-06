@@ -39,7 +39,7 @@ Feature: Protected content
     Then I should see a 404 page
 
   Scenario: Accessing a protected content page when authenticated
-    Given the "/1-fe-auth-content-4" page exists with fixture "authenticatedContent/1-FE-auth-content-4" data
+    Given the "/1-fe-auth-content-4" page exists with fixture "landingPage/1-FE-auth-content-4" data
     And there is a user in the system with the following credentials:
       | login     | password     | active | email                    | role   |
       | testuser2 | Password-222 | true   | testuser2@mailinator.com | Member |
@@ -54,9 +54,8 @@ Feature: Protected content
     And the h1 should be "1-FE-auth-content-4"
     And the created user should be removed
 
-  @skip
   Scenario: Can still navigate after session is expired
-    Given I have created a landing page with the json fixture "Pages/ProtectedContent/tc-pc1"
+    Given the "/1-fe-auth-content-4" page exists with fixture "landingPage/1-FE-auth-content-4" data
     And there is a user in the system with the following credentials:
       | login     | password     | active | email                    | role   |
       | testuser3 | Password-333 | true   | testuser3@mailinator.com | Member |
@@ -66,15 +65,14 @@ Feature: Protected content
       | testuser3 | Password-333 |
     And I submit the login form
     Then I should be redirected to the page "/"
-    Given I have navigated to the created test page
-    Then the page title should be "protected content page"
-    And the h1 should be "protected content page"
+    When I visit the page "/1-fe-auth-content-4"
+    Then the page title should be "1-FE-auth-content-4"
+    And the h1 should be "1-FE-auth-content-4"
     When I wait for 60 seconds
     Given I have navigated to the created test page
     Then the menu should have 2 top level items
     And the logout button should not be visible
     And the created user should be removed
-    And the created page should be removed
 
   # Scenario: Login on a landing page with a login component
   #   Given I have configured authenticated content in the backend

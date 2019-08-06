@@ -1,10 +1,7 @@
 /* global cy */
+/* eslint jest/valid-expect: "off" */
 
 const { Then } = require('cypress-cucumber-preprocessor/steps')
-
-/*
-  Component exists tests
-*/
 
 // Layout common elements
 
@@ -81,6 +78,14 @@ Then(`the campaign primary title should be {string}`, title => {
 Then(`the body markup component should exist`, () => {
   cy.get('.rpl-markup').should('exist')
 })
+Then(`the order number {int} wysiwyg content matches fixture {string}`, (order, fixture) => {
+  cy.fixture(fixture).then((bodyMarkup) => {
+    cy.get('.rpl-markup').eq(order - 1).then(rplMarkup => {
+      expect(rplMarkup).to.have.html(bodyMarkup) //eslint-disable-line
+    })
+  })
+})
+
 // featured news list
 Then(`the featured news list component should exist`, () => {
   cy.get('.rpl-featured-news-list').should('exist')
@@ -136,6 +141,29 @@ Then(`the image gallery component should exist`, () => {
 Then(`the related links component should exist`, () => {
   cy.get('.rpl-related-links').should('exist')
 })
+
+Then(`the related links title should be {string}`, (title) => {
+  cy.get('.rpl-related-links__title').should('contain', title)
+})
+
+Then(`the related links should contain the following links:`, (dataTable) => {
+  const links = dataTable.rawTable.slice(1)
+  links.forEach((link, index) => {
+    cy.get('.rpl-related-links__item a').eq(index).then(relatedLink => {
+      const title = link[0].trim()
+      const url = link[1]
+      const target = link[2]
+      expect(relatedLink).to.contain.text(title)
+      expect(relatedLink).to.contain.attr('href', url)
+      if (target === 'external') {
+        // this should change after SDPA-2983 is merged
+        expect(relatedLink).to.contain.attr('target', '_blank')
+        cy.wrap(relatedLink).get('.rpl-icon--external_link').should('exist')
+      }
+    })
+  })
+})
+
 // contact
 Then(`the contact component should exist`, () => {
   cy.get('.rpl-contact').should('exist')
@@ -144,7 +172,49 @@ Then(`the contact component should exist`, () => {
 Then(`the whats next component should exist`, () => {
   cy.get('.rpl-whats-next').should('exist')
 })
+Then(`the whats next title should be {string}`, (title) => {
+  cy.get('.rpl-whats-next .rpl-whats-next__title').should('contain', title)
+})
+
+Then(`the whats next links should be:`, (dataTable) => {
+  const links = dataTable.rawTable.slice(1)
+  links.forEach((link, index) => {
+    cy.get('.rpl-whats-next__item a').eq(index).then(relatedLink => {
+      const title = link[0].trim()
+      const url = link[1]
+      const target = link[2]
+      expect(relatedLink).to.contain.text(title)
+      expect(relatedLink).to.contain.attr('href', url)
+      if (target === 'external') {
+        // this should change after SDPA-2983 is merged
+        expect(relatedLink).to.contain.attr('target', '_blank')
+        cy.wrap(relatedLink).get('.rpl-icon--external_link').should('exist')
+      }
+    })
+  })
+})
+
 // share this
 Then(`the share this component should exist`, () => {
   cy.get('.rpl-share-this').should('exist')
+})
+Then(`the share this component should have the title "Share this"`, () => {
+  cy.get('.rpl-share-this__title').should('contain', 'Share this')
+})
+Then(`the share this component should have the following social links:`, (dataTable) => {
+  const networks = dataTable.rawTable.slice(1)
+  networks.forEach((network, index) => {
+    cy.get('.rpl-share-this__social').eq(index).then(shareLink => {
+      const title = network[0]
+      expect(shareLink).to.contain.text(title)
+      cy.wrap(shareLink).get('.rpl-icon').should('exist')
+      cy.wrap(shareLink).get('.rpl-icon').should('have.class', `rpl-icon--${title.replace(' ', '').toLowerCase()}`)
+    })
+  })
+})
+
+Then(`the share this links should read "open in a new window" to screen readers`, () => {
+  cy.get('.rpl-share-this__hint').each(link => {
+    expect(link).to.contain.text('opens a new window')
+  })
 })

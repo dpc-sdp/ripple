@@ -1,4 +1,5 @@
 /* global cy, Cypress */
+/* eslint jest/valid-expect: "off" */
 
 const { Then, Given } = require('cypress-cucumber-preprocessor/steps')
 
@@ -32,6 +33,6 @@ Given(`a request is made to {string}`, (url) => {
 
 Then(`the response code should be {int}`, (statusExp) => {
   cy.get('@request').should((response) => {
-    expect(response.status).to.eq(statusExp) // eslint-disable-line jest/valid-expect
+    expect(response.status).to.eq(statusExp)
   })
 })

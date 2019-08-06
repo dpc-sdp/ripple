@@ -7,7 +7,8 @@ Given(`I visit the page {string}`, url => {
     auth: {
       username: Cypress.env('CONTENT_API_AUTH_USER'),
       password: Cypress.env('CONTENT_API_AUTH_PASS')
-    }
+    },
+    failOnStatusCode: false
   })
 })
 

@@ -12,6 +12,7 @@ Feature: Grant page
   @skip
   Scenario: TC-9a Grant - Simple Test - Date Range
     Given I have created a grant page with the fixture "grant/tc9a"
+    Given the "/1-fe-grant-content-1" page exists with fixture "grant/1-fe-grant-content-1" data
     And I have navigated to the created page
     Then the page title should be "TC- 9a Grant- Simple Test - Date Range"
     And the grant overview title should match test data

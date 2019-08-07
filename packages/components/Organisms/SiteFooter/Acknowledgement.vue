@@ -25,7 +25,7 @@ export default {
   $rpl-acknowledgement-flag-border: 1px solid rpl-color('white') !default;
 
   .rpl-acknowledgement {
-    @include rpl_breakpoint('l') {
+    @include rpl_breakpoint('m') {
       display: flex;
       flex-wrap: nowrap;
       align-items: flex-start;
@@ -37,7 +37,7 @@ export default {
       border: $rpl-acknowledgement-flag-border;
       margin-right: $rpl-space-2;
 
-      @include rpl_breakpoint('l') {
+      @include rpl_breakpoint('m') {
         margin-right: $rpl-space-3;
         flex-shrink: 0;
       }
@@ -47,7 +47,7 @@ export default {
       @include rpl_typography_ruleset($rpl-acknowledgement-ruleset);
       margin-top: $rpl-space-3;
 
-      @include rpl_breakpoint('l') {
+      @include rpl_breakpoint('m') {
         margin-top: 0;
         margin-left: $rpl-space-3;
       }

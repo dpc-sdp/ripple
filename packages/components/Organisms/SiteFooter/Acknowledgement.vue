@@ -28,7 +28,7 @@ export default {
     @include rpl_breakpoint('l') {
       display: flex;
       flex-wrap: nowrap;
-      align-items: center;
+      align-items: flex-start;
     }
 
     &__flag {

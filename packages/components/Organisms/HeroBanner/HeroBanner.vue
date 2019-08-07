@@ -160,65 +160,66 @@ export default {
 
   $rpl-hero-banner-left-padding: rem(60px) - $rpl-component-gutter-l;
 
+  // Background graphic positioning - Set positioning for a breakpoint:
+  //  - pos: 'edge / right' - Edge starts graphic at right screen edge.
+  //  - size: The graphic size. This matches the top layout graphic.
+  //  - gutter: Edge only. Defines space between container & screen edge.
+  //  - v-offset: Edge & Right. Additional vertical offset to place on graphic.
+  //  - h-offset: Edge only. Additional horizontal offset to place on graphic.
+  $rpl-hero-banner-background-graphic-links-overlap: rem(100px) !default;
+  $rpl-hero-banner-background-graphic-gutter-xl: '((100vw - #{map-get(map-get($rpl-layout, 'site_max_width'), 'xl')})/2)';
+  $rpl-hero-banner-background-graphic-v-offset-xxl: rem(-68px);
+  $rpl-hero-banner-background-graphic: (
+    'xs': ('pos': 'right', 'size': 18rem, 'v-offset': ($rpl-space * -5)),
+    's': ('pos': 'edge', 'size': 20rem, 'gutter': $rpl-component-padding-xs, 'v-offset': rem(-16px)),
+    'm': ('pos': 'edge', 'gutter': map-get(map-get($rpl-layout, 'site_padding'), 'm')),
+    'l': ('pos': 'edge', 'gutter': map-get(map-get($rpl-layout, 'site_padding'), 'l')),
+    'xl': ('pos': 'edge', 'gutter': $rpl-hero-banner-background-graphic-gutter-xl),
+    '1490px': ('pos': 'right'),
+    'xxl': ('pos': 'edge', 'size': 40rem, 'gutter': $rpl-hero-banner-background-graphic-gutter-xl, 'h-offset': rem(33px), 'v-offset': $rpl-hero-banner-background-graphic-v-offset-xxl),
+    '2072px': ('pos': 'right', 'v-offset': $rpl-hero-banner-background-graphic-v-offset-xxl),
+    'xxxl': ('pos': 'right', 'v-offset': $rpl-hero-banner-background-graphic-v-offset-xxl),
+    '2660px': ('pos': 'right')
+  ) !default;
+
+  @mixin rpl_position_background_graphic($vars) {
+    $pos: map-get($vars, 'pos');
+    $size: map-get($vars, 'size');
+    $gutter: map-get($vars, 'gutter');
+    $h-offset: map-get($vars, 'h-offset');
+    $v-offset: map-get($vars, 'v-offset');
+    @if $size {
+      background-size: $size;
+    }
+    @if $pos == 'edge' {
+      $static-offset: $rpl-hero-banner-background-graphic-links-overlap;
+      @if $h-offset {
+        $static-offset: $static-offset + $h-offset;
+      }
+      $left-offset: calc(100vw - #{$gutter} - #{$static-offset});
+      background-position: left #{$left-offset} bottom #{$v-offset};
+    } @else {
+      background-position: right bottom #{$v-offset};
+    }
+  }
+
   .rpl-hero-banner {
     $root: &;
     @include rpl_mobile_padding;
     position: relative;
     background-repeat: no-repeat;
 
-    // ---------
-    $hero-banner-grid-container-gutter-s: 20px;
-    $hero-banner-grid-container-gutter-m: 32px;
-    $hero-banner-grid-container-gutter-l: 68px;
-    $hero-banner-grid-container-gutter-xl: '((100vw - 1056px)/2)';
-    $hero-banner-links-padding-xl: rpl_grid_get_gutter($rpl-grid) / 2;
-    $hero-banner-bg-links-overlap: 100px;
-    $hero-banner-bg-vert-offset-xs: ($rpl-space * -5);
-    $hero-banner-bg-vert-offset-s: -16px;
-    $hero-banner-bg-vert-offset-xxl: -68px;
-    $hero-banner-bg-horiz-offset-xxl: 33px;
-    // ---------
-
-    background-size: 18rem;
-    background-position: right bottom $hero-banner-bg-vert-offset-xs;
-
-    @include rpl_breakpoint('s') {
-      background-size: 20rem;
-      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-s} - #{$hero-banner-bg-links-overlap} ) bottom $hero-banner-bg-vert-offset-s;
-    }
-
-    @include rpl_breakpoint('m') {
-      border-bottom: $rpl-hero-banner-border;
-      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-m} - #{$hero-banner-bg-links-overlap} ) bottom;
-    }
-
-    @include rpl_breakpoint('l') {
-      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-l} - #{$hero-banner-bg-links-overlap} ) bottom;
-    }
-
-    @include rpl_breakpoint('xl') {
-      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-xl} - #{$hero-banner-bg-links-overlap} ) bottom;
-    }
-
-    @media (min-width: 1490px) {
-      background-position: right bottom;
-    }
-
-    @include rpl_breakpoint('xxl') {
-      background-size: 40rem;
-      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-xl} - #{$hero-banner-bg-links-overlap} - #{$hero-banner-bg-horiz-offset-xxl} ) bottom $hero-banner-bg-vert-offset-xxl;
-    }
-
-    @media (min-width: 2072px) {
-      background-position: right bottom $hero-banner-bg-vert-offset-xxl;
-    }
-
-    @include rpl_breakpoint('xxxl') {
-      background-position: right bottom $hero-banner-bg-vert-offset-xxl;
-    }
-
-    @media (min-width: 2660px) {
-      background-position: right bottom;
+    // Background graphic positions.
+    @each $bp, $vars in $rpl-hero-banner-background-graphic {
+      @if str-index($bp, 'px') {
+        @media screen and (min-width: $bp) {
+          @include rpl_position_background_graphic($vars);
+        }
+      } @else {
+        @include rpl_breakpoint($bp) {
+          @include rpl_position_background_graphic($vars);
+        }
+      }
     }
 
     @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
@@ -249,8 +250,6 @@ export default {
     }
 
     &__right {
-      position: relative;
-      background-color: rgba(orange, 0.5);
       @include rpl_grid_full;
       z-index: $rpl-zindex-content-top;
 
@@ -259,17 +258,6 @@ export default {
       }
 
       @include rpl_print_hidden;
-
-      &::after {
-        content: '';
-        background: red;
-        display: block;
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-      }
     }
 
     &__logo {

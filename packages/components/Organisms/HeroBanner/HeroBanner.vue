@@ -165,34 +165,60 @@ export default {
     @include rpl_mobile_padding;
     position: relative;
     background-repeat: no-repeat;
-    background-position: right -3.75rem bottom -1rem;
+
+    // ---------
+    $hero-banner-grid-container-gutter-s: 20px;
+    $hero-banner-grid-container-gutter-m: 32px;
+    $hero-banner-grid-container-gutter-l: 68px;
+    $hero-banner-grid-container-gutter-xl: '((100vw - 1056px)/2)';
+    $hero-banner-links-padding-xl: rpl_grid_get_gutter($rpl-grid) / 2;
+    $hero-banner-bg-links-overlap: 100px;
+    $hero-banner-bg-vert-offset-xs: ($rpl-space * -5);
+    $hero-banner-bg-vert-offset-s: -16px;
+    $hero-banner-bg-vert-offset-xxl: -68px;
+    $hero-banner-bg-horiz-offset-xxl: 33px;
+    // ---------
+
     background-size: 18rem;
+    background-position: right bottom $hero-banner-bg-vert-offset-xs;
 
     @include rpl_breakpoint('s') {
-      background-position: right -1rem bottom -1.5rem;
+      background-size: 20rem;
+      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-s} - #{$hero-banner-bg-links-overlap} ) bottom $hero-banner-bg-vert-offset-s;
     }
 
     @include rpl_breakpoint('m') {
-      background-position: right -20rem bottom -3rem;
-      background-size: 40rem;
       border-bottom: $rpl-hero-banner-border;
+      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-m} - #{$hero-banner-bg-links-overlap} ) bottom;
     }
 
     @include rpl_breakpoint('l') {
-      background-position: right -20rem bottom -5rem;
-      background-size: 50rem;
+      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-l} - #{$hero-banner-bg-links-overlap} ) bottom;
     }
 
     @include rpl_breakpoint('xl') {
-      background-position: right -30rem bottom -4rem;
+      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-xl} - #{$hero-banner-bg-links-overlap} ) bottom;
+    }
+
+    @media (min-width: 1490px) {
+      background-position: right bottom;
     }
 
     @include rpl_breakpoint('xxl') {
-      background-position: right -10rem bottom -5rem;
+      background-size: 40rem;
+      background-position: left calc(100vw - #{$hero-banner-grid-container-gutter-xl} - #{$hero-banner-bg-links-overlap} - #{$hero-banner-bg-horiz-offset-xxl} ) bottom $hero-banner-bg-vert-offset-xxl;
+    }
+
+    @media (min-width: 2072px) {
+      background-position: right bottom $hero-banner-bg-vert-offset-xxl;
     }
 
     @include rpl_breakpoint('xxxl') {
-      background-position: right bottom -2rem;
+      background-position: right bottom $hero-banner-bg-vert-offset-xxl;
+    }
+
+    @media (min-width: 2660px) {
+      background-position: right bottom;
     }
 
     @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
@@ -223,6 +249,8 @@ export default {
     }
 
     &__right {
+      position: relative;
+      background-color: rgba(orange, 0.5);
       @include rpl_grid_full;
       z-index: $rpl-zindex-content-top;
 
@@ -231,6 +259,17 @@ export default {
       }
 
       @include rpl_print_hidden;
+
+      &::after {
+        content: '';
+        background: red;
+        display: block;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
     }
 
     &__logo {

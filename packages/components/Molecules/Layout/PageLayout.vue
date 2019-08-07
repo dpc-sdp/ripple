@@ -143,11 +143,6 @@ $rpl-search-back-to-top-offset: 72px / 2;
 
   @media (min-width: 1900px) {
     background-position: left -13rem;
-    background-size: 40rem;
-  }
-
-  @include rpl_breakpoint(xxxl) {
-    background-position: left -13rem;
   }
 
   @include rpl_print {

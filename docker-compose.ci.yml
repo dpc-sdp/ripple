@@ -1,0 +1,9 @@
+version: '2'
+services:
+  storybook:
+    environment:
+      LAGOON_ENVIRONMENT_TYPE: 'ci'
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test

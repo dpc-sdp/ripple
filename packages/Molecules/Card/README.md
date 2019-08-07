@@ -1,0 +1,78 @@
+# @dpc-sdp/ripple-card
+
+> Card-themed containers for content such as events and dates, navigation,
+featured, promotional. Recommended implementation using the grid component.
+
+--------------------------------------------------------------------------------
+
+## Install
+
+```shell
+npm install @dpc-sdp/ripple-card --save
+```
+
+--------------------------------------------------------------------------------
+
+## Dependency graph
+
+```shell
+@dpc-sdp/ripple-card
+├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-icon
+├── @dpc-sdp/ripple-link
+├── fontfaceobserver
+└── vue-carousel
+```
+
+--------------------------------------------------------------------------------
+
+## Import
+
+```js
+import {
+  RplCardImageNavigation,
+  RplCardNavigation,
+  RplCardNavigationFeatured,
+  RplCardPromotion,
+  RplCardKeydates,
+  RplCardEvent,
+  RplCardCta,
+  RplCardEmergencyContact,
+  RplCardBox,
+  RplCardHonourRoll
+} from '@dpc-sdp/ripple-card'
+```
+
+--------------------------------------------------------------------------------
+
+## Usage and Tests
+
+See [Storybook/Card Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Navigation).
+
+See [Storybook/Card Navigation Featured](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Navigation%20Featured).
+
+See [Storybook/Card Image Navigation](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Image%20Navigation).
+
+See [Storybook/Card Promotion](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Promotion).
+
+See [Storybook/Card Keydates](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Keydates).
+
+See [Storybook/Card Event](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Event).
+
+See [Storybook/Card Cta](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Cta).
+
+See [Storybook/Card Emergency Contact](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Emergency%20Contact).
+
+See [Storybook/Card Box](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Box).
+
+See [Storybook/Card Honour Roll](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Honour%20Roll).
+
+See [Storybook/Card Content (base)](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Content%20(base)).
+
+See [Storybook/Card Carousel](https://ripple.sdp.vic.gov.au/?selectedKind=Molecules/Card&selectedStory=Card%20Carousel).
+
+--------------------------------------------------------------------------------
+
+## License
+
+Licensed under the Apache-2.0 License.

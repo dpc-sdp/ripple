@@ -1,22 +1,4 @@
-node_modules
-
-/packages/**/node_modules
-/examples/**/node_modules
-
-# ignore nuxt module templates
-packages/ripple-nuxt-tide/templates/*
-packages/ripple-nuxt-tide/**/templates/*
-packages/ripple-nuxt-ui/**/templates/*
-
-# ignore create-ripple-app template
-packages/create-ripple-app/template/nuxt/*
-
-# ignore storybook files
-src/scripts
-
-# Nuxt folders
-/examples/**/dist
-/examples/**/.nuxt
-
-# Jest
-coverage
+/build/
+/config/
+/dist/
+/*.js

@@ -5,11 +5,8 @@ options:
 files:
   include:
     - 'packages/**/*.scss'
-    - 'examples/**/*.scss'
   exclude:
     - 'node_modules/**/*.scss'
-    - 'packages/**/node_modules/**/*.scss'
-    - 'examples/**/node_modules/**/*.scss'
 # Rule Configuration
 rules:
   indentation:

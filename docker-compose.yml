@@ -1,10 +1,9 @@
 version: '2'
 services:
-  # Storybook site
   storybook:
     build:
       context: .
-      dockerfile: Dockerfile.storybook
+      dockerfile: Dockerfile
       args:
         - LAGOON_GIT_BRANCH=
     networks:
@@ -17,21 +16,3 @@ services:
       - AMAZEEIO_HTTP_PORT=3000
     ports:
       - "9001:3000"
-  # Reference site    
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile.app
-      args:
-        - LAGOON_GIT_BRANCH=
-    networks:
-      - default
-    labels:
-      lagoon.type: node
-    environment:
-      - AMAZEEIO_URL=reference.docker.amazee.io
-      - AMAZEEIO=AMAZEEIO
-      - AMAZEEIO_HTTP_PORT=3000
-      - BASIC_AUTH=0
-    ports:
-      - "3000:3000"

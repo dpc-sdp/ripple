@@ -1,0 +1,22 @@
+{
+  "name": "@dpc-sdp/ripple-publication",
+  "version": "1.0.0-alpha.84",
+  "description": "A package for publication components.",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/Publication",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-description-list": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-document-link": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-figure": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-icon": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-image-gallery": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-link": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-markup": "1.0.0-alpha.84"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@dpc-sdp/ripple-grants",
+  "version": "1.0.0-alpha.84",
+  "description": "Components for displaying Grants information.",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/Organisms/Grants",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-button": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-global": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-list": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-markup": "1.0.0-alpha.84",
+    "@dpc-sdp/ripple-meta-tag": "1.0.0-alpha.84",
+    "moment": "^2.22.1"
+  }
+}

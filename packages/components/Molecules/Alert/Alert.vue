@@ -15,7 +15,7 @@ export default {
     title: String,
     type: String,
     link: Object,
-    alertId: String
+    id: String
   },
   components: {
     RplTextLink,
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     close () {
-      this.$emit('rplAlertClose', this.alertId)
+      this.$emit('rplAlertClose', this.id)
     },
     typeProp (property) {
       return this.types[this.type] ? this.types[this.type][property] : null

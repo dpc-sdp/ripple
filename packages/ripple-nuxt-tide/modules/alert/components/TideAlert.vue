@@ -1,35 +1,67 @@
 <template>
-  <div class="tide-alert">
+  <div class="tide-alert" v-if="alerts && alerts.length > 0">
     <no-ssr>
-      <rpl-alert v-if="alert" ref="alert" v-bind="alert"/>
+      <rpl-alert v-for="alert in alerts" :key="alert.id" @rplAlertClose="dismissAlert" v-bind="alert"/>
     </no-ssr>
   </div>
 </template>
 
 <script>
 import { RplAlert } from '@dpc-sdp/ripple-alert'
+import { get, sortBy } from 'lodash'
+import Cookies from 'js-cookie'
 
 export default {
   name: 'TideAlert',
   components: {
     RplAlert
   },
+  data () {
+    return {
+      dismissed: []
+    }
+  },
   mounted () {
-    this.$nextTick(function () {
-      if (this.$store.state.tideAlerts.alert && this.$refs.alert) {
-        this.$refs.alert.$on('rplAlertClose', (alertId) => {
-          this.$store.commit('tideAlerts/dismissAlert', alertId)
-        })
+    if (typeof window !== 'undefined') {
+      const dismissed = Cookies.getJSON('dismissedAlerts')
+      if (Array.isArray(dismissed) && dismissed.length > 0) {
+        this.dismissed = dismissed
       }
-    })
+    }
+  },
+  methods: {
+    dismissAlert (id) {
+      this.dismissed = [...new Set([...this.dismissed, id])]
+      Cookies.set('dismissedAlerts', this.dismissed, { path: this.rplOptions.hostname, expires: 1 })
+    }
   },
   computed: {
-    alert () {
-      const alert = this.$store.state.tideAlerts.alert
-      if (alert && !this.$store.state.tideAlerts.dismissedAlerts.includes(alert.alertId)) {
-        return alert
+    alerts () {
+      const alerts = get(this, '$store.state.tide.siteData.site_alerts', [])
+        .filter(alert => {
+          if (this.dismissed && this.dismissed.length > 0 && this.dismissed.includes(alert.id)) {
+            return false
+          }
+          return alert
+        })
+        .map(alert => {
+          return {
+            id: alert.id,
+            changed: alert.changed,
+            title: get(alert, 'title', ''),
+            type: get(alert, 'field_alert_type.name', 'Notification'),
+            link: alert.field_call_to_action ? {
+              url: alert.field_call_to_action.url || alert.field_call_to_action.uri,
+              text: alert.field_call_to_action.title
+            } : false
+          }
+        })
+
+      if (alerts && alerts.length > 0) {
+        // Sort by non notifications first then most recently changed
+        return sortBy(alerts, [(a) => a.type !== 'Notification', 'changed']).reverse()
       }
-      return null
+      return []
     }
   }
 }

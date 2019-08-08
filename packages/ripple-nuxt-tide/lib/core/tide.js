@@ -106,6 +106,11 @@ export const tide = (axios, site, config) => ({
       'field_site_footer_logos.field_paragraph_media',
       'field_site_footer_logos.field_paragraph_media.field_media_image'
     ]
+
+    if (this.isModuleEnabled('alert')) {
+      include.push(['site_alerts', 'site_alerts.field_alert_type'])
+    }
+
     const menuFields = this.getMenuFields()
     for (let menu in menuFields) {
       include.push(menuFields[menu])

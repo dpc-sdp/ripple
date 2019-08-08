@@ -97,10 +97,6 @@ export default ({ env, app, req, res, store , route}, inject) => {
             if (config.modules.site === 1) {
               await store.dispatch('tideSite/init')
             }
-            // Load alert module store.
-            if (config.modules.alert === 1) {
-              await store.dispatch('tideAlerts/init')
-            }
             // Load authenticated content store.
             if (config.modules.authenticatedContent === 1) {
               serverSetProperties(req.headers.cookie, route.path, store)

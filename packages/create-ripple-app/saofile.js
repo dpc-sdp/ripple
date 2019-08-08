@@ -46,7 +46,7 @@ const OPTIONS = {
   backendurl: {
     name: 'backendurl',
     message: 'Enter backend content repository url',
-    default: `http://develop.content.vic.gov.au`
+    default: ``
   },
   siteid: {
     name: 'siteid',
@@ -56,17 +56,17 @@ const OPTIONS = {
   authuser: {
     name: 'authuser',
     message: 'Enter basic auth shield username',
-    default: 'dpc'
+    default: ''
   },
   authpass: {
     name: 'authpass',
     message: 'Enter auth password',
-    default: 'sdp'
+    default: ''
   },
   gtmtoken: {
     name: 'gtmtoken',
     message: 'Enter Google Tag Manager Token',
-    default: 'GA-123456-1'
+    default: ''
   },
   modules: {
     name: 'modules',

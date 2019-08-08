@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
+process.env.APP_ROOT_PATH = '.' // Set the example app root path, for this example app config only.
 
 export default {
 

@@ -1,4 +1,5 @@
 import coreMiddleware from './middleware'
+import logger from './logger'
 
 const getMiddleware = (middlewareConfig) => {
   let middleware = []
@@ -22,7 +23,7 @@ const getMiddleware = (middlewareConfig) => {
         }
       } catch {
         if (process.server) {
-          console.error(`Tide middleware couldn't be found in file "${path}".`)
+          logger.error(`Tide middleware couldn't be found in file "${path}".`)
         }
       }
     })
@@ -40,14 +41,14 @@ export const callMiddleware = async (middlewareConfig, context) => {
     // Call other middleware, the order is core modules > custom root > custom modules.
     const middleware = getMiddleware(middlewareConfig)
     if (process.env.TIDE_DEBUG && process.server) {
-      console.info('Tide middleware will be called:', middleware)
+      logger.log('debug', 'Tide middleware will be called:', middleware)
     }
     for (const item of middleware) {
       await item(context, pageData)
     }
   } catch (error) {
     if (process.server) {
-      console.error('Tide middleware got an error:', error)
+      logger.error('Tide middleware got an error:', error)
     }
   }
 

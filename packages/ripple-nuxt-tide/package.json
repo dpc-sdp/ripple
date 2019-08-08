@@ -65,7 +65,9 @@
     "mime-types": "^2.1.21",
     "moment-timezone": "0.5.21",
     "qs": "^6.5.1",
-    "vuex-persistedstate": "^2.5.4"
+    "vuex-persistedstate": "^2.5.4",
+    "winston": "^3.2.1",
+    "winston-logstash-transport": "^2.0.0"
   },
   "peerDependencies": {
     "@nuxtjs/axios": "^5.3.1",

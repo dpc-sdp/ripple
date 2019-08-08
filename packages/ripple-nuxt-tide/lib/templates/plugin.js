@@ -1,4 +1,4 @@
-import { tide, Mapping } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
+import { tide, Mapping, logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 import { search } from '@dpc-sdp/ripple-nuxt-tide/modules/search/index.js'
 import { serverSetProperties } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
@@ -46,13 +46,13 @@ export default ({ env, app, req, res, store , route}, inject) => {
       }
 
       if (code !== 404 && process.server) {
-        console.error(new Error(errMessage), error)
+        logger.error(errMessage, error)
       }
     } else {
       // All other requests failure should be invisible for end user.
       // We only log them in sever console.
       if (process.server) {
-        console.error(new Error(errMessage), error)
+        logger.error(errMessage, error)
       }
       return Promise.resolve({ error: true })
     }

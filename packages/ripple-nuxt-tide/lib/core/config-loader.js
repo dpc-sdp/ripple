@@ -1,3 +1,4 @@
+import logger from './logger'
 const path = require('path')
 const fs = require('fs')
 const appDir = require('app-root-path')
@@ -121,7 +122,8 @@ const getConfigPath = (group, item, moduleName = null) => {
 
   if (fs.existsSync(path.resolve(configFilePath, `${item.filename}.js`))) {
     if (process.env.TIDE_DEBUG) {
-      console.info('Tide config file is found: ', path.resolve(configFilePath, `${item.filename}.js`))
+      const configFile = path.resolve(configFilePath, `${item.filename}.js`)
+      logger.log('debug', 'Tide config file is found: %s', configFile)
     }
     return configPath + item.filename
   } else {
@@ -210,6 +212,6 @@ export const build = (tideConfig, _this) => {
   // Build custom modules
   buildCustomModules(tideConfig, _this)
   if (process.env.TIDE_DEBUG) {
-    console.info('Tide configuration:', tideConfig)
+    logger.log('debug', 'Tide configuration:', tideConfig)
   }
 }

@@ -9,6 +9,7 @@ import * as middleware from './middleware-helper'
 import { isTokenExpired } from '../../modules/authenticated-content/lib/authenticate'
 import componentLoader from './component-loader'
 import markupPluginsLoader from './markup-plugins-loader'
+import logger from './logger'
 
 const apiPrefix = '/api/v1/'
 
@@ -38,8 +39,8 @@ export const tide = (axios, site, config) => ({
     const siteParam = 'site=' + site
     const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
 
-    if (process.server || process.env.NODE_ENV === 'development') {
-      console.info(`Tide request url: ${url}`)
+    if (process.server) {
+      logger.log('debug', 'Tide request url %s', url)
     }
     return axios.$get(url, axiosConfig)
   },
@@ -47,8 +48,8 @@ export const tide = (axios, site, config) => ({
   post: async function (resource, data = {}, id = '') {
     const siteParam = resource === 'user/register' ? '?site=' + site : ''
     const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}${siteParam}`
-    if (process.server || process.env.NODE_ENV === 'development') {
-      console.info(`Tide post to url: ${url}`)
+    if (process.server) {
+      logger.log('debug', 'Tide post to url: %s', url)
     }
 
     let headers = {
@@ -131,7 +132,7 @@ export const tide = (axios, site, config) => ({
         siteData.menus = await this.getSiteMenus(siteData)
       } catch (error) {
         if (process.server) {
-          console.error(new Error(`Get menus from Tide failed: ${error}`))
+          logger.error('Get menus from Tide failed:', error)
         }
       }
 
@@ -139,7 +140,7 @@ export const tide = (axios, site, config) => ({
         siteData.hierarchicalMenus = menuHierarchy.getHierarchicalMenu(siteData.menus)
       } catch (error) {
         if (process.server) {
-          console.error(new Error(`Get hierarchical menu failed: ${error}`))
+          logger.error(new Error(`Get hierarchical menu failed: ${error}`))
         }
         siteData.hierarchicalMenus = this.getMenuFields()
         for (let menuField in siteData.hierarchicalMenus) {
@@ -164,7 +165,7 @@ export const tide = (axios, site, config) => ({
           siteMenus[menu] = await this.getMenu(siteData[menuFields[menu]].drupal_internal__id)
         } catch (error) {
           if (process.server) {
-            console.error(new Error(`Get site menus error: ${error}`))
+            logger.error(new Error(`Get site menus error: ${error}`))
           }
           throw error
         }
@@ -203,7 +204,7 @@ export const tide = (axios, site, config) => ({
     while (response.links && response.links.next) {
       const resource = helper.jsonApiLinkToResource(response.links.next, apiPrefix)
       if (process.server) {
-        console.info(`Tide get next page: ${resource}`)
+        logger.log('debug', `Tide get next page: ${resource}`)
       }
       // Use axios directly here because resource url contains all query params.
       response = await axios.$get(apiPrefix + resource, config)

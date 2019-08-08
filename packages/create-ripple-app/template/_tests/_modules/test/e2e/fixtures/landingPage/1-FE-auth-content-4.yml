@@ -99,6 +99,14 @@
           - taxonomy_term
           - vid: topic
             name: 'Demo Topic'
+  # Add authenticated content
+  field_authenticated_content:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: authenticated_content
+            name: 'Member'
   field_tags:
     - '#process':
         callback: reference

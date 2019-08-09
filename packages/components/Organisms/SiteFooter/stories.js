@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import RplSiteFooter from './index.vue'
+import RplSiteFooter from './SiteFooter.vue'
 
 import {
   text,

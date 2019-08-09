@@ -29,17 +29,12 @@ if (process.server) {
   // logger.add(new transports.File({
   //   filename: 'app-error.log'
   // }))
-  console.log('On PR 480.')
 
   logger.add(new LogstashTransport({
     host: 'application-logs.lagoon.svc',
     port: 5140
   }))
-}
 
-// If we're not in production then **ALSO** log to the `console`
-// with the colorized simple format.
-if (process.env.NODE_ENV === 'development') {
   logger.add(new transports.Console({
     format: format.combine(
       format.colorize(),
@@ -47,6 +42,17 @@ if (process.env.NODE_ENV === 'development') {
     )
   }))
 }
+
+// If we're not in production then **ALSO** log to the `console`
+// with the colorized simple format.
+// if (process.env.NODE_ENV === 'development') {
+//   logger.add(new transports.Console({
+//     format: format.combine(
+//       format.colorize(),
+//       format.simple()
+//     )
+//   }))
+// }
 
 if (process.env.NODE_ENV === 'production') {
   logger.configure({

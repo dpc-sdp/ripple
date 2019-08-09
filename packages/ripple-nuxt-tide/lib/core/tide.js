@@ -40,7 +40,7 @@ export const tide = (axios, site, config) => ({
     const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
 
     if (process.server) {
-      logger.log('debug', 'Tide request url %s', url)
+      logger.log('info', 'Tide request url %s', url)
     }
     return axios.$get(url, axiosConfig)
   },

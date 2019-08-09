@@ -25,7 +25,7 @@ let logger = createLogger({
   handleExceptions: true
 })
 
-if (process.server && process.env.NODE_ENV === 'production') {
+if (process.server) {
   // logger.add(new transports.File({
   //   filename: 'app-error.log'
   // }))

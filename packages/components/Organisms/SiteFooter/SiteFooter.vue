@@ -2,7 +2,7 @@
   <div class="rpl-site-footer">
     <div class="rpl-site-footer__main">
       <rpl-footer-navigation :nav="nav"></rpl-footer-navigation>
-      <rpl-acknowledgement :text="acknowledgement" />
+      <rpl-acknowledgement class="rpl-site-footer__acknowledgement" :text="acknowledgement" />
     </div>
     <div class="rpl-site-footer__bottom">
       <div class="rpl-site-footer__bottom-main">
@@ -68,6 +68,8 @@ $rpl-footer-border-color: rpl-color('primary') !default;
 $rpl-footer-border-color-light: rpl-color('white') !default;
 $rpl-footer-logo-max-width: rem(112px) !default;
 $rpl-footer-logo-max-height: rem(52px) !default;
+$rpl-footer-acknowledgement-margin: $rpl-space-3 0 ($rpl-space * 9) !default;
+$rpl-footer-acknowledgement-margin-l: ($rpl-space * 8) 0 $rpl-space-4 !default;
 $gutterless-grid: (
   columns: 12,
   gutter: 0
@@ -107,6 +109,14 @@ $gutterless-grid: (
   ul {
     padding: 0;
     list-style: none;
+  }
+
+  &__acknowledgement {
+    padding: $rpl-footer-acknowledgement-margin;
+
+    @include rpl_breakpoint('l') {
+      padding: $rpl-footer-acknowledgement-margin-l;
+    }
   }
 }
 
@@ -150,10 +160,6 @@ $gutterless-grid: (
 
   &__menu-item {
     border-bottom: $rpl-footer-border-width solid $rpl-footer-border-color;
-
-    &:last-child {
-      border-bottom: 0;
-    }
 
     @include rpl_breakpoint($rpl-footer-breakpoint) {
       border-bottom: 0;

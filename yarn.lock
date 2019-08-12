@@ -4855,6 +4855,12 @@ configstore@^3.0.0:
     write-file-atomic "^2.0.0"
     xdg-basedir "^3.0.0"
 
+connect-logger@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/connect-logger/-/connect-logger-0.0.1.tgz#4d999978a1d20bb4608e7cd434d741652255174b"
+  dependencies:
+    moment "*"
+
 connect@^3.6.6:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/connect/-/connect-3.7.0.tgz#5d49348910caa5e07a01800b030d0c35f20484f8"
@@ -10596,7 +10602,7 @@ moment-timezone@0.5.21:
   dependencies:
     moment ">= 2.9.0"
 
-moment@2.24.0, "moment@>= 2.9.0", moment@^2.22.1:
+moment@*, moment@2.24.0, "moment@>= 2.9.0", moment@^2.22.1:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
 

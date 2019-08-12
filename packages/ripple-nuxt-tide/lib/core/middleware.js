@@ -1,12 +1,12 @@
 import { metatagConverter, pathToClass } from './tide-helper'
 import { isTokenExpired, clientGetToken, serverGetToken, clientClearToken, clientSetProperties } from '../../modules/authenticated-content/lib/authenticate'
 import { isPreviewPath } from '../../modules/authenticated-content/lib/preview'
+import logger from './logger'
 
 // Fetch page data from Tide API by current path
 export default async function (context, results) {
   results.tidePage = null
   results.tideErrorType = null
-
   // TODO: refactor below page process logic.
   // Currently we just put logic here for a quick work,
   // review them and move them into tide modules if possible.
@@ -81,7 +81,7 @@ export default async function (context, results) {
       default:
         results.tideErrorType = 'other'
         if (process.server) {
-          console.error(error)
+          logger.error('Failed to get the page data.', { error })
         }
     }
   }
@@ -234,7 +234,7 @@ export default async function (context, results) {
     } catch (error) {
       // TODO: Take some action if above mapping error happens.
       if (process.server) {
-        console.log(error)
+        logger.error('Failed to get the mapped component.', { error })
       }
     }
 

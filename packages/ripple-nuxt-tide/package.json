@@ -52,6 +52,7 @@
     "@nuxtjs/proxy": "^1.2.4",
     "basic-auth": "^2.0.0",
     "cheerio": "^1.0.0-rc.2",
+    "connect-logger": "^0.0.1",
     "cookieparser": "^0.1.0",
     "cookies": "^0.7.3",
     "elastic-builder": "^2.0.2",

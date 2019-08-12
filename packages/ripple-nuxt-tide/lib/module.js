@@ -67,6 +67,8 @@ const nuxtTide = function (moduleOptions) {
     this.addServerMiddleware(basicAuth)
   }
 
+  this.addServerMiddleware(require('./server-middleware/logger'))
+
   this.addModule('@dpc-sdp/ripple-nuxt-ui', true)
 
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }

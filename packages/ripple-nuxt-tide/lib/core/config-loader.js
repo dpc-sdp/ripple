@@ -212,6 +212,6 @@ export const build = (tideConfig, _this) => {
   // Build custom modules
   buildCustomModules(tideConfig, _this)
   if (process.env.TIDE_DEBUG) {
-    logger.log('debug', 'Tide configuration:', tideConfig)
+    logger.log('debug', 'Tide configuration: %O', tideConfig)
   }
 }

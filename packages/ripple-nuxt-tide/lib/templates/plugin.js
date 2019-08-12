@@ -18,6 +18,14 @@ export default ({ env, app, req, res, store , route}, inject) => {
   inject('tideMapping', new Mapping(config, tideService))
   inject('tideSearch', search(options.search, app.router, options.site))
 
+  app.$axios.onRequest(config => {
+    // Log all axios' requests
+    if (process.server) {
+      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios'})
+      logger.debug('Headers %O', config.headers, {label: 'Axios'})
+    }
+  })
+
   // If a request is failed, set a error status code
   app.$axios.onError(error => {
     const responseUrl = error.request.path || error.request.responseURL
@@ -46,13 +54,13 @@ export default ({ env, app, req, res, store , route}, inject) => {
       }
 
       if (code !== 404 && process.server) {
-        logger.error(errMessage, error)
+        logger.error(errMessage, { error, label: 'Axios' })
       }
     } else {
       // All other requests failure should be invisible for end user.
       // We only log them in sever console.
       if (process.server) {
-        logger.error(errMessage, error)
+        logger.error(errMessage, { error, label: 'Axios' })
       }
       return Promise.resolve({ error: true })
     }
@@ -86,6 +94,9 @@ export default ({ env, app, req, res, store , route}, inject) => {
         async init ({ commit, dispatch }) {
           if (process.server) {
             const siteData = await app.$tide.getSiteData()
+            if (siteData instanceof Error) {
+              throw siteData
+            }
             commit('setSiteData', siteData)
             commit('setHost', req.headers.host)
 

@@ -54,6 +54,9 @@ let logger = createLogger({
 })
 
 if (!process.browser) {
+  // TODO: Remove them and replace by config map
+  process.env.LOGSTASH_HOST = 'application-logs.lagoon.svc'
+  process.env.LOGSTASH_PORT = 5140
   if (process.env.LOGSTASH_HOST && process.env.LOGSTASH_PORT) {
     logger.add(new LogstashTransport({
       host: process.env.LOGSTASH_HOST,

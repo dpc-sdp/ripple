@@ -111,7 +111,7 @@ describe('RplGrantsOverview', () => {
         enddate: '2019-04-12T07:19:17+00:00'
       }
     })
-    expect(wrapper.find('[data-tid="grants-status"]').text()).toEqual('Open, closing in 1 day')
+    expect(wrapper.find('[data-tid="grants-status"]').text()).toEqual('Open, closing today')
   })
 
   it('displays status as "Ongoing" if there is no end date and the current date is after the start date', () => {

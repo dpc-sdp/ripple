@@ -33,6 +33,17 @@ const errorPrint = format(info => {
   return info
 })
 
+// Add lagoon required meta.
+const lagoonFormat = format(info => {
+  const LAGOON_LOGS_DEFAULT_SAFE_BRANCH = 'safe_branch_unset'
+  const LAGOON_LOGS_DEFAULT_LAGOON_PROJECT = 'project_unset'
+  const openshiftProject = process.env.LAGOON_PROJECT || LAGOON_LOGS_DEFAULT_LAGOON_PROJECT
+  const gitBranch = process.env.LAGOON_GIT_SAFE_BRANCH || LAGOON_LOGS_DEFAULT_SAFE_BRANCH
+  const type = [openshiftProject, gitBranch]
+  info.type = type.join('-')
+  return info
+})
+
 let logger = createLogger({
   level: process.env.TIDE_DEBUG === '1' ? 'debug' : 'info',
   format: format.combine(
@@ -54,26 +65,27 @@ let logger = createLogger({
 })
 
 if (!process.browser) {
-  // TODO: Remove them and replace by config map
-  process.env.LOGSTASH_HOST = 'application-logs.lagoon.svc'
-  process.env.LOGSTASH_PORT = 5140
-  if (process.env.LOGSTASH_HOST && process.env.LOGSTASH_PORT) {
+  // TODO: We may not need to log to ES for pr branch.
+  if (process.env.LAGOON_GIT_SAFE_BRANCH) {
     logger.add(new LogstashTransport({
-      host: process.env.LOGSTASH_HOST,
-      port: process.env.LOGSTASH_PORT,
+      host: 'application-logs.lagoon.svc',
+      port: 5140,
       format: format.combine(
+        lagoonFormat(),
+        errorPrint(),
         format.json()
       )
     }))
   }
 
-  logger.add(new transports.File({
-    filename: 'app-error.log',
-    format: format.combine(
-      errorPrint(),
-      format.json()
-    )
-  }))
+  // File log is disabled for now.
+  // logger.add(new transports.File({
+  //   filename: 'app-error.log',
+  //   format: format.combine(
+  //     errorPrint(),
+  //     format.json()
+  //   )
+  // }))
 
   // TODO: this will disable all log, need more research.
   // // Catch and log uncaughtException events from our process.

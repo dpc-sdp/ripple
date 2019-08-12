@@ -1468,6 +1468,7 @@ exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
 
 exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
 <div
+  alertid="test_id"
   class="rpl-alert-base rpl-alert rpl-alert-base--color-danger"
   role="alert"
 >

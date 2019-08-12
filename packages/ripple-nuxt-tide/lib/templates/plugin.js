@@ -27,6 +27,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
   })
 
   // If a request is failed, set a error status code
+  // TODO: we may need to review this global error handling, feel we should handle in each call so we have better control.
   app.$axios.onError(error => {
     const responseUrl = error.request.path || error.request.responseURL
     const errMessage = 'Request to Tide "' + responseUrl + '" failed.'
@@ -43,7 +44,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
     }
 
     // Set http status code if a route or preview request failed.
-    if (routeRequest || authPreviewRequest || code === 404) {
+    if (routeRequest || authPreviewRequest) {
       // We hide 403 and show it as 404
       code = code === 403 ? 404 : code
 

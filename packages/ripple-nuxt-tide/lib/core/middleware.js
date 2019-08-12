@@ -294,7 +294,7 @@ export default async function (context, results) {
     // Load all components asynchronously, allow fail
     asyncTasks = asyncTasks.map(task => task.catch(error => {
       if (process.server) {
-        console.log('Tide async task is failed in resolve', error)
+        logger.error('Tide async task is failed in resolve', { error, label: 'Middleware' })
       }
     }))
 

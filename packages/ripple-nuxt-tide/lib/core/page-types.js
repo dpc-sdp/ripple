@@ -1,4 +1,5 @@
 import tideDefaultPageTypes from '../config/tide.page-types'
+import { logger } from './index'
 
 export const getTemplate = (type, pageTypes = []) => {
   let templates = tideDefaultPageTypes.pageTemplates
@@ -20,9 +21,9 @@ export const getTemplate = (type, pageTypes = []) => {
           morePageTypes = require(`./../../modules/${pathMiddle}tide.page-types`).default
         }
         templates = { ...templates, ...morePageTypes.pageTemplates }
-      } catch {
+      } catch (error) {
         if (process.server) {
-          console.error(`Page template couldn't be found in file "${path}".`)
+          logger.error(`Page template couldn't be found in file "${path}".`, { error, label: 'Page types' })
         }
       }
     })

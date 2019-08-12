@@ -1,5 +1,6 @@
 import service from './service'
 import { isEqual } from 'lodash'
+import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 // Calls to search.
 let i = 0
 
@@ -49,7 +50,7 @@ export default (config, router, site) => ({
 
     if (this.logging) {
       i++
-      console.info(`Search refresh - call number ${i}`)
+      logger.info(`Search refresh - call number ${i}`, { label: 'Search' })
     }
     this.mergeSystemFilters(filters, {
       docType: docType,
@@ -143,7 +144,7 @@ export default (config, router, site) => ({
       Object.assign(queries, updates)
       // TODO: Add a sort of `updates` so 'q' always comes first.
       if (this.logging) {
-        console.info(`New query parameters: ${JSON.stringify(queries)}`)
+        logger.info('New query parameters: %s', JSON.stringify(queries), { label: 'Search' })
       }
       router.push({
         query: queries

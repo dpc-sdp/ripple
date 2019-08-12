@@ -1,5 +1,5 @@
 const { LogstashTransport } = require('winston-logstash-transport')
-const { createLogger, format, transports } = require('winston')
+const { createLogger, format, transports, addColors } = require('winston')
 
 // The logging levels we are using is winston default.
 // https://github.com/winstonjs/winston#logging-levels
@@ -12,11 +12,25 @@ const { createLogger, format, transports } = require('winston')
 //   silly: 5
 // }
 
+if (!process.browser) {
+  // Add background color for server console.
+  // However the background color is not working in browser console.
+  const colors = {
+    error: 'black redBG',
+    warn: 'black yellowBG',
+    info: 'black greenBG',
+    verbose: 'black cyanBG',
+    debug: 'black blueBG',
+    silly: 'black magentaBG'
+  }
+  addColors(colors)
+}
+
 // Format for our console output.
 const printFormat = format.printf(info => {
-  const { timestamp, level, message, label, error } = info
+  const { timestamp, message, level, label, error } = info
   const printLabel = label ? `[${label}] ` : ' '
-  let log = `${timestamp} ${printLabel}${level}: ${message}`
+  let log = `${timestamp} ${printLabel}${level} ${message}`
   // Only if there is an error
   // Must pass error obj by using `error` meta.
   if (error) {
@@ -53,10 +67,13 @@ let logger = createLogger({
     format.splat()
   ),
   defaultMeta: { service: 'ripple-tide' },
-  handleExceptions: true,
   transports: [
     new transports.Console({
       format: format.combine(
+        format(info => {
+          info.level = ` ${info.level.toUpperCase()} `
+          return info
+        })(),
         format.colorize(),
         printFormat
       )
@@ -70,6 +87,7 @@ if (!process.browser) {
     logger.add(new LogstashTransport({
       host: 'application-logs.lagoon.svc',
       port: 5140,
+      handleExceptions: true,
       format: format.combine(
         lagoonFormat(),
         errorPrint(),
@@ -77,25 +95,6 @@ if (!process.browser) {
       )
     }))
   }
-
-  // File log is disabled for now.
-  // logger.add(new transports.File({
-  //   filename: 'app-error.log',
-  //   format: format.combine(
-  //     errorPrint(),
-  //     format.json()
-  //   )
-  // }))
-
-  // TODO: this will disable all log, need more research.
-  // // Catch and log uncaughtException events from our process.
-  // // By default, winston will exit after logging an uncaughtException. If this is not the behavior we want, set exitOnError = false.
-  // // https://github.com/winstonjs/winston#to-exit-or-not-to-exit
-  // logger.configure({
-  //   exceptionHandlers: [
-  //     new transports.Console()
-  //   ]
-  // })
 }
 
 // TODO: remove console log in production as we should use kibana to check log.
@@ -107,9 +106,9 @@ if (!process.browser) {
 // Handle logger errors
 // For example, transport to Logstash failed.
 //
-logger.on('error', (err) => {
+logger.on('error', (error) => {
   if (process.server) {
-    console.error('Logger has a error:', err)
+    logger.error('Logger has a error:', { error, label: 'Logger' })
   }
 })
 

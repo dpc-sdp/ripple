@@ -39,11 +39,14 @@ export default {
           closed: 'Closed',
           ongoing: 'Ongoing',
           openingSoon: (startdate) => `Opening on ${startdate}`,
-          closingSoon: (daysRemaining) => {
-            if (parseInt(daysRemaining) > 1) {
+          closingSoon: (end, now) => {
+            const daysRemaining = parseInt(end.diff(now, 'days'))
+            if (daysRemaining > 1) {
               return `Open, closing in ${daysRemaining} days`
+            } else if (daysRemaining === 1) {
+              return `Open, closing in ${daysRemaining} day`
             }
-            return `Open, closing in ${daysRemaining} day`
+            return `Open, closing today`
           }
         }
       }
@@ -76,7 +79,7 @@ export default {
             if (end) {
               if (now.isBefore(end)) {
                 // displays status as "Open, closing in x days" when current date is more start date and less than end date
-                return terms.closingSoon(end.diff(now, 'days'))
+                return terms.closingSoon(end, now)
               } else {
                 // displays status as "closed" when current date is after start date and after end date
                 return terms.closed
@@ -96,7 +99,7 @@ export default {
           if (end) {
             if (now.isBefore(end)) {
               // displays status as "Open, closing in x days" when current date is more start date and less than end date
-              return terms.closingSoon(end.diff(now, 'days'))
+              return terms.closingSoon(end, now)
             } else {
               return terms.closed
             }

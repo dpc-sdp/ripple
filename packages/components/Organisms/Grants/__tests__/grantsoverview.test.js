@@ -101,6 +101,19 @@ describe('RplGrantsOverview', () => {
     expect(wrapper.find('[data-tid="grants-status"]').text()).toEqual('Open, closing in 1 day')
   })
 
+  it('displays status as "Open, closes today" when current date is after start date and the same as end date', () => {
+    MockDate.set('2019-04-12T06:19:17+00:00')
+
+    const wrapper = mount(RplGrantsOverview, {
+      propsData: {
+        ...defaultProps,
+        startdate: '2019-04-10T06:19:17+00:00',
+        enddate: '2019-04-12T07:19:17+00:00'
+      }
+    })
+    expect(wrapper.find('[data-tid="grants-status"]').text()).toEqual('Open, closing in 1 day')
+  })
+
   it('displays status as "Ongoing" if there is no end date and the current date is after the start date', () => {
     MockDate.set('2019-04-12T06:19:17+00:00')
 

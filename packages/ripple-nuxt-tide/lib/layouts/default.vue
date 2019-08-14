@@ -48,8 +48,7 @@ import { RplAlertBase } from '@dpc-sdp/ripple-alert'
 import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
-import { isTokenExpired, getToken, clearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
-import { isPreviewPath } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/preview'
+import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
 export default {
   components: {
@@ -91,20 +90,30 @@ export default {
     },
     preview () {
       if (this.$tide.isModuleEnabled('authenticatedContent')) {
-        if (isAuthenticated(this.$store)) {
-          const token = getToken()
-          return isPreviewPath(this.$route.path) && token && !isTokenExpired(token)
-        }
+        return isPreview(this.$store)
       }
       return false
     }
   },
+  mounted () {
+    // https://github.com/nuxt/nuxt.js/issues/183#issuecomment-276528719
+    // Seems like nuxt doesn't pass url hash to vue router in SSR.
+    // That means anchor link url like "/ndis-quality-and-safeguards#ndis-worker-screening" won't work in SSR.
+    // Here is a workaround inspired by https://forum.vuejs.org/t/how-to-handle-anchors-bookmarks-with-vue-router/14563/5
+    if (this.$route.hash) {
+      this.anchorScrollFix(this.$route.hash)
+    }
+  },
   methods: {
+    anchorScrollFix (hashbang) {
+      const elmnt = document.querySelector(hashbang)
+      elmnt.scrollIntoView()
+    },
     async logoutFunc () {
       if (this.$tide.isModuleEnabled('authenticatedContent')) {
         try {
           await this.$tide.post(`user/logout?_format=json`)
-          clearToken(this.$store)
+          clientClearToken(this.$store)
           this.$router.push({ path: '/' })
         } catch (e) {
           console.log(`Tide logout failed`)
@@ -149,7 +158,7 @@ export default {
     if (this.$tide.isModuleEnabled('authenticatedContent')) {
       // If logged in and session has expired, logout the user
       if (this.showLogout) {
-        if (isTokenExpired(getToken())) {
+        if (!isAuthenticated(this.$store)) {
           this.logoutFunc()
         }
       }
@@ -162,6 +171,4 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "~@dpc-sdp/ripple-nuxt-tide/lib/components/scss/wysiwyg/_embedded-entity-video.scss";
 @import "~@dpc-sdp/ripple-nuxt-tide/lib/components/scss/wysiwyg/_embedded-entity.scss";
-// @import "~assets/_custom.scss";
-// TODO : these ~ alias wont work, need a different way
 </style>

@@ -16,6 +16,11 @@
       @pager-change="changed"
       :type="searchComponent"
     />
+
+    <template slot="belowContent">
+      <rpl-divider />
+      <app-content-rating class="rpl-site-constrain--on-all"/>
+    </template>
   </rpl-page-layout>
 </template>
 
@@ -23,6 +28,8 @@
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
+import { RplDivider } from '@dpc-sdp/ripple-global'
+import AppContentRating from '@dpc-sdp/ripple-nuxt-tide/lib/components/AppContentRating'
 
 // Layout.
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
@@ -32,6 +39,8 @@ import searchMixin from './../lib/searchmixin.js'
 export default {
   name: 'TideTopicTagSearch',
   components: {
+    AppContentRating,
+    RplDivider,
     RplHeroBanner,
     RplBreadcrumbs,
     RplSearchForm,

@@ -304,7 +304,7 @@ export default async function (context, results) {
   if (results.tidePage) {
     // Set details.
     const title = results.tidePage.appMetatag.title || results.tidePage.appPageTitle || 'Page not found'
-    const description = results.tidePage.appMetatag.description || results.tidePage.field_news_intro_text || results.tidePage.field_landing_page_intro_text || results.tidePage.field_page_intro_text || ''
+    const description = results.tidePage.appMetatag.description || results.tidePage.field_news_intro_text || results.tidePage.field_landing_page_intro_text || results.tidePage.field_page_intro_text || results.tidePage.field_landing_page_summary || ''
     const url = context.store.state.absoluteUrl || ''
     // Set image.
     const mediaImage = results.tidePage.field_featured_image ? results.tidePage.field_featured_image.field_media_image : null

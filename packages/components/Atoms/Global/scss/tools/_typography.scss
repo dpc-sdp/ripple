@@ -20,8 +20,8 @@
 
 @mixin rpl_display_background($font-size, $include-base: true) {
   @if $include-base == true {
-    background-color: rpl-color('secondary');
-    color: rpl-color('white');
+    background-color: $rpl-display-background-color;
+    color: $rpl-display-text-color;
     display: inline;
     // sass-lint:disable no-vendor-prefixes
     @supports (box-decoration-break: clone) or (-webkit-box-decoration-break: clone) {

@@ -12,7 +12,7 @@
     </h2>
     <slot name="above-list"></slot>
     <div v-if="list" class="rpl-list__list">
-      <div v-for="(item, index) in list" :key="`${index}-${id}`" :data-tid="testId(item)" class="rpl-list__list-item">
+      <div v-for="(item, index) in list" :key="`${index}-${item.id}`" :data-tid="testId(item)" class="rpl-list__list-item">
         <span class="rpl-list__icon">
           <rpl-icon v-if="item.symbol" :symbol="item.symbol" :color="item.color || iconColor" :size="iconSize(item)" /></span>
           <rpl-link v-if="item.link" :href="item.link" class="rpl-list__text">{{ item.text }}</rpl-link>

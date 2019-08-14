@@ -9679,6 +9679,7 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
     class="rpl-link rpl-button rpl-grants-overview__cta rpl-button--primary"
     data-print-url="#"
     href="#"
+    target=""
   >
     <span
       class="rpl-link__inner"

@@ -341,7 +341,6 @@ export default {
       }
     },
     toggleExpand () {
-      console.log('expand')
       this.expanded = !this.expanded
       this.refreshMapSize()
     },

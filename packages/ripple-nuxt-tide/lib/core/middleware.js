@@ -48,7 +48,7 @@ export default async function (context, results) {
       const section = context.route.query.section ? context.route.query.section : null
       response = await context.app.$tide.getPreviewPage(type, id, rev, section, tideParams, authToken)
     } else {
-      response = await context.app.$tide.getPageByPath(context.route.fullPath, tideParams, authToken)
+      response = await context.app.$tide.getPageByPath(context.route.path, tideParams, authToken)
     }
 
     // If redirect required.

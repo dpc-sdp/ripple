@@ -3,14 +3,14 @@ import Cookie from 'js-cookie'
 import { isPreviewPath } from './preview'
 
 const authCookieName = 'authenticatedContent'
-
+const nullValue = '{"tideAuthenticatedContent":{"token":null}}'
 /**
  * Decode a JWT token and test exipration date.
  * @param {String} token JWT token
  * @return {Boolean} is expired
  */
 function isTokenExpired (token) {
-  if (token) {
+  if (token && token !== nullValue) {
     const jwtDecode = require('jwt-decode')
     const { exp } = jwtDecode(token)
     // Token expiry timestamp is in a shorter format, match them for comparison
@@ -61,7 +61,11 @@ function clientClearToken (store) {
 function serverGetToken (serverCookie) {
   if (serverCookie) {
     const parsed = cookieparser.parse(serverCookie)
-    return parsed[authCookieName] ? parsed[authCookieName] : null
+    if (parsed && parsed.authenticatedContent !== nullValue) {
+      return parsed[authCookieName] ? parsed[authCookieName] : null
+    } else {
+      return null
+    }
   } else {
     return null
   }

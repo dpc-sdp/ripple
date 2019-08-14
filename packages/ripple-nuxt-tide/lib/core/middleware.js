@@ -1,12 +1,12 @@
 import { metatagConverter, pathToClass } from './tide-helper'
 import { isTokenExpired, clientGetToken, serverGetToken, clientClearToken, clientSetProperties } from '../../modules/authenticated-content/lib/authenticate'
 import { isPreviewPath } from '../../modules/authenticated-content/lib/preview'
+import logger from './logger'
 
 // Fetch page data from Tide API by current path
 export default async function (context, results) {
   results.tidePage = null
   results.tideErrorType = null
-
   // TODO: refactor below page process logic.
   // Currently we just put logic here for a quick work,
   // review them and move them into tide modules if possible.
@@ -81,7 +81,7 @@ export default async function (context, results) {
       default:
         results.tideErrorType = 'other'
         if (process.server) {
-          console.error(error)
+          logger.error('Failed to get the page data.', { error })
         }
     }
   }
@@ -234,7 +234,7 @@ export default async function (context, results) {
     } catch (error) {
       // TODO: Take some action if above mapping error happens.
       if (process.server) {
-        console.log(error)
+        logger.error('Failed to get the mapped component.', { error })
       }
     }
 
@@ -294,7 +294,7 @@ export default async function (context, results) {
     // Load all components asynchronously, allow fail
     asyncTasks = asyncTasks.map(task => task.catch(error => {
       if (process.server) {
-        console.log('Tide async task is failed in resolve', error)
+        logger.error('Tide async task is failed in resolve', { error, label: 'Middleware' })
       }
     }))
 
@@ -304,7 +304,7 @@ export default async function (context, results) {
   if (results.tidePage) {
     // Set details.
     const title = results.tidePage.appMetatag.title || results.tidePage.appPageTitle || 'Page not found'
-    const description = results.tidePage.appMetatag.description || results.tidePage.field_news_intro_text || results.tidePage.field_landing_page_intro_text || results.tidePage.field_page_intro_text || ''
+    const description = results.tidePage.appMetatag.description || results.tidePage.field_news_intro_text || results.tidePage.field_landing_page_intro_text || results.tidePage.field_page_intro_text || results.tidePage.field_landing_page_summary || ''
     const url = context.store.state.absoluteUrl || ''
     // Set image.
     const mediaImage = results.tidePage.field_featured_image ? results.tidePage.field_featured_image.field_media_image : null

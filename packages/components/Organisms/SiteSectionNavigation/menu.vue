@@ -2,7 +2,7 @@
   <transition name="section" @enter="start" @after-enter="end" @before-leave="start" @after-leave="end">
     <ul v-show="open" :data-depth="depth" class="rpl-section-menu">
       <li v-for="(link, index) in menu" :key="index" class="rpl-section-menu__item rpl-section-menu__item--parent" :class="{'rpl-section-menu__item--active': menuItemOpen[index]}">
-        <rpl-link v-if="!link.children" :href="link.url" class="rpl-section-menu__item-link">{{ link.text }}</rpl-link>
+        <rpl-link v-if="!link.children" :href="link.url" :target="link.target" class="rpl-section-menu__item-link">{{ link.text }}</rpl-link>
         <button
           v-else
           class="rpl-section-menu__item-link rpl-section-menu__item-link--parent"

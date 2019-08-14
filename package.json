@@ -10,19 +10,20 @@
       "packages/ripple-nuxt-ui",
       "packages/create-ripple-app",
       "packages/ripple-test-tools",
-      "examples/**/*",
+      "examples/*",
       "src"
     ],
-    "nohoist": ["src"]
+    "nohoist": [
+      "src"
+    ]
   },
   "scripts": {
     "publish": "lerna publish",
     "start:storybook": "cd src && yarn start",
     "start:example": "cd examples/vic-gov-au/ && yarn run dev",
     "start:build-example": "cd examples/vic-gov-au/ && nuxt build && nuxt start",
-    "test:dev": "cross-env NODE_ENV=dev start-server-and-test start:example http://localhost:3000 cy:open",
-    "test:smoke": "cross-env NODE_ENV=test start-server-and-test start:build-example http://localhost:3000 cy:run-smoke",
-    "test:e2e": "cross-env NODE_ENV=test start-server-and-test start:build-example http://localhost:3000 cy:run",
+    "test:e2e": "./runtests.sh test:e2e",
+    "test:smoke": "./runtests.sh test:smoke",
     "test:unit": "jest --colors",
     "build:storybook": "cd src && yarn build-storybook",
     "build:example": "cd examples/vic-gov-au && yarn run build",
@@ -58,9 +59,6 @@
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-preset-vue": "^2.0.2",
     "cross-env": "^5.2.0",
-    "cypress": "^3.1.5",
-    "cypress-axe": "^0.4.0",
-    "cypress-cucumber-preprocessor": "^1.11.0",
     "eslint": "^5.11.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^3.0.0",

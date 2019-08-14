@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import RplSiteFooter from './SiteFooter.vue'
+import RplAcknowledgement from './Acknowledgement.vue'
 
 import {
   text,
@@ -198,6 +199,15 @@ storiesOf('Organisms/SiteFooter', module)
             url: '#'
           }
         ])
+      }
+    }
+  }))
+  .add('Acknowledgement', () => ({
+    components: { RplAcknowledgement },
+    template: '<rpl-acknowledgement :text="text" />',
+    data () {
+      return {
+        text: text('Text', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.')
       }
     }
   }))

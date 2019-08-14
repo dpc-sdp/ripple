@@ -1,4 +1,5 @@
 // Filters for adding extra process on a mapping value
+import { logger } from './../../lib/core'
 
 // Create more filters if need.
 module.exports = {
@@ -17,9 +18,8 @@ module.exports = {
           link: { text: 'See event details', url: item.path.url }
         }
       })
-    } catch (err) {
-      // TODO: log error to log system when ops got it.
-      // console.log(err)
+    } catch (error) {
+      logger.error('Couldn\'t get latest events from Tide API.', { error, label: 'Event' })
       return []
     }
   },

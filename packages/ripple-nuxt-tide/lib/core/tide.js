@@ -9,6 +9,7 @@ import * as middleware from './middleware-helper'
 import { isTokenExpired } from '../../modules/authenticated-content/lib/authenticate'
 import componentLoader from './component-loader'
 import markupPluginsLoader from './markup-plugins-loader'
+import logger from './logger'
 
 const apiPrefix = '/api/v1/'
 
@@ -37,19 +38,12 @@ export const tide = (axios, site, config) => ({
 
     const siteParam = 'site=' + site
     const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
-
-    if (process.server || process.env.NODE_ENV === 'development') {
-      console.info(`Tide request url: ${url}`)
-    }
     return axios.$get(url, axiosConfig)
   },
 
   post: async function (resource, data = {}, id = '') {
     const siteParam = resource === 'user/register' ? '?site=' + site : ''
     const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}${siteParam}`
-    if (process.server || process.env.NODE_ENV === 'development') {
-      console.info(`Tide post to url: ${url}`)
-    }
 
     let headers = {
       'Content-Type': 'application/vnd.api+json;charset=UTF-8'
@@ -68,15 +62,23 @@ export const tide = (axios, site, config) => ({
 
   async getSitesData (params = {}) {
     const sites = await this.get('taxonomy_term/sites', params)
-    // jsonapiParse merges id & attributes.id (which should retain the menu name for referencing but uses UUID).
-    // This has been temporarily resolved by SDPA-442 and a permanent fix is being followed up on the D.o issue queue.
-    return sites.data ? this.getAllPaginatedData(sites) : null
+    if (typeof sites === 'undefined' || typeof sites.data === 'undefined') {
+      return new Error('Failed to get sites data. It can be a operation error or configuration error if it\'s the first time to setup this app.')
+    } else {
+      return this.getAllPaginatedData(sites)
+    }
   },
 
   async getSitesDomainMap () {
     const sites = await this.getSitesData()
     let sitesDomainMap = {}
     let domain = ''
+
+    if (sites instanceof Error) {
+      logger.error('Could not get site domain map as no sites data.', { error: sites })
+      return sitesDomainMap
+    }
+
     sites.map((item) => {
       if (item.field_site_domains) {
         domain = item.field_site_domains.valueOf().split('\r\n', 1)
@@ -115,6 +117,10 @@ export const tide = (axios, site, config) => ({
 
     let sitesData = await this.getSitesData(params)
 
+    if (sitesData instanceof Error) {
+      return sitesData
+    }
+
     if (sitesData) {
       let siteData = null
       sitesData.map((item) => {
@@ -124,14 +130,14 @@ export const tide = (axios, site, config) => ({
       })
 
       if (siteData === null) {
-        throw new Error('Couldn\'t get site data. Please check your site id and Tide site setting.')
+        return new Error('Could not get site data. Please check your site id and Tide site setting.')
       }
 
       try {
         siteData.menus = await this.getSiteMenus(siteData)
       } catch (error) {
         if (process.server) {
-          console.error(new Error(`Get menus from Tide failed: ${error}`))
+          logger.error('Get menus from Tide failed:', { error })
         }
       }
 
@@ -139,7 +145,7 @@ export const tide = (axios, site, config) => ({
         siteData.hierarchicalMenus = menuHierarchy.getHierarchicalMenu(siteData.menus)
       } catch (error) {
         if (process.server) {
-          console.error(new Error(`Get hierarchical menu failed: ${error}`))
+          logger.error('Get hierarchical menu failed.', { error })
         }
         siteData.hierarchicalMenus = this.getMenuFields()
         for (let menuField in siteData.hierarchicalMenus) {
@@ -164,7 +170,7 @@ export const tide = (axios, site, config) => ({
           siteMenus[menu] = await this.getMenu(siteData[menuFields[menu]].drupal_internal__id)
         } catch (error) {
           if (process.server) {
-            console.error(new Error(`Get site menus error: ${error}`))
+            logger.error('Get site menus error: ', { error })
           }
           throw error
         }
@@ -203,7 +209,7 @@ export const tide = (axios, site, config) => ({
     while (response.links && response.links.next) {
       const resource = helper.jsonApiLinkToResource(response.links.next, apiPrefix)
       if (process.server) {
-        console.info(`Tide get next page: ${resource}`)
+        logger.debug('Tide get next page: %s', resource)
       }
       // Use axios directly here because resource url contains all query params.
       response = await axios.$get(apiPrefix + resource, config)

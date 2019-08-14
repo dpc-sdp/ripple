@@ -76,7 +76,9 @@
     "markdown-loader-jest": "^0.1.1",
     "sass-lint": "^1.12.1",
     "start-server-and-test": "^1.7.11",
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^3.0.4",
+    "mockdate": "^2.0.3",
+    "vuex-mock-store": "^0.0.7"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true

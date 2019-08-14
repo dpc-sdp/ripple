@@ -67,6 +67,8 @@ const nuxtTide = function (moduleOptions) {
     this.addServerMiddleware(basicAuth)
   }
 
+  this.addServerMiddleware(require('./server-middleware/logger'))
+
   this.addModule('@dpc-sdp/ripple-nuxt-ui', true)
 
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }
@@ -96,6 +98,12 @@ const nuxtTide = function (moduleOptions) {
         exclude: /(node_modules)/
       })
     }
+
+    // To support Winston to work in Nuxt webpack.
+    // https://webpack.js.org/configuration/node/
+    config.node = config.node || {}
+    config.node.fs = 'empty'
+    config.node.dgram = 'empty'
   })
 
   // add default and error layouts

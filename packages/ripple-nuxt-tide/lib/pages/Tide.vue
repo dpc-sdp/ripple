@@ -98,6 +98,7 @@ export default {
     RplRow,
     RplCol
   },
+  name: 'TidePage',
   head () {
     return this.page.head
   },

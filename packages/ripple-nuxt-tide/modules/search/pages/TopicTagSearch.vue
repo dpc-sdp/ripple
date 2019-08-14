@@ -28,7 +28,6 @@ import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import searchMixin from './../lib/searchmixin.js'
-import { switchCase, switchStatement } from '@babel/types';
 
 export default {
   name: 'TideTopicTagSearch',

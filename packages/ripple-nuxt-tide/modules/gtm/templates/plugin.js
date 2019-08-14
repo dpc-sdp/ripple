@@ -1,3 +1,4 @@
+import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
 // Google Tag Manager Class to be injected
 class GTM {
@@ -38,8 +39,8 @@ class GTM {
         throw new Error('missing event property')
       }
       window[this.options.layer].push(obj)
-    } catch (err) {
-      console.error('[ERROR] [GTM]', err)
+    } catch (error) {
+      logger.error('Failed to push event.', { error, label: 'GTM' })
     }
   }
 

@@ -1,34 +1,36 @@
-async function getSiteAlert (app) {
-  try {
-    const response = await app.$tide.get(`node/alert`, { include: ['field_alert_type'] })
-    const fetched = Date.now()
+import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
-    if (response.meta && response.meta.count > 0 && response.data.length > 0 && response.included) {
-      const data = response.data[0] // only one alert should be displayed
-      const title = data.attributes.title
-      const alertId = data.id
-      const type = response.included[0].attributes.name
-      const revision = data.attributes.revision_timestamp
-      const link = {
-        text: data.attributes.field_call_to_action.title,
-        url: data.attributes.field_call_to_action.url || data.attributes.field_call_to_action.uri
-      }
-      if (alertId && title && type && link && revision) {
-        return {
-          alertId,
-          title,
-          type,
-          link,
-          revision,
-          fetched
-        }
-      }
+async function getSiteAlert (app) {
+  // TODO: It won't throw error as it was resolved in plugins axios.onError(). This should be reviewed.
+  const response = await app.$tide.get(`node/alert`, { include: ['field_alert_type'] })
+  const fetched = Date.now()
+
+  if (response && response.meta && response.meta.count > 0 && response.data.length > 0 && response.included) {
+    const data = response.data[0] // only one alert should be displayed
+    const title = data.attributes.title
+    const alertId = data.id
+    const type = response.included[0].attributes.name
+    const revision = data.attributes.revision_timestamp
+    const link = {
+      text: data.attributes.field_call_to_action.title,
+      url: data.attributes.field_call_to_action.url || data.attributes.field_call_to_action.uri
     }
-  } catch (error) {
-    if (process.server) {
-      console.error(new Error(`Get alert from Tide failed: ${error}`))
+    if (alertId && title && type && link && revision) {
+      return {
+        alertId,
+        title,
+        type,
+        link,
+        revision,
+        fetched
+      }
     }
   }
+
+  if (process.server) {
+    logger.error('Get alert from Tide failed.', { label: 'Alert' })
+  }
+
   return null
 }
 

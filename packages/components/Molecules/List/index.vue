@@ -65,7 +65,7 @@ export default {
   $rpl-list-text-padding: 0 0 $rpl-space-3 !default;
   $rpl-list-icon-normal-padding: 0 $rpl-space-2 $rpl-space-3 0 !default;
   $rpl-list-icon-large-padding: 0 $rpl-space-3 $rpl-space-3 0 !default;
-  $rpl-list-text-normal-ruleset: ('xs', 1em, 'medium') !default;
+  $rpl-list-text-normal-ruleset: ('xs', 1.14em, 'medium') !default;
   $rpl-list-text-large-ruleset: ('s', 1.5em, 'bold') !default;
 
   .rpl-list {

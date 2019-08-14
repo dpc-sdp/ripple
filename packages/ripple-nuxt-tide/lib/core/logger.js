@@ -12,7 +12,7 @@ const { createLogger, format, transports, addColors } = require('winston')
 //   silly: 5
 // }
 
-if (!process.browser) {
+if (!process.client) {
   // Add background color for server console.
   // However the background color is not working in browser console.
   const colors = {
@@ -81,7 +81,7 @@ let logger = createLogger({
   ]
 })
 
-if (!process.browser) {
+if (!process.client) {
   // TODO: We may not need to log to ES for pr branch.
   if (process.env.LAGOON_GIT_SAFE_BRANCH) {
     logger.add(new LogstashTransport({

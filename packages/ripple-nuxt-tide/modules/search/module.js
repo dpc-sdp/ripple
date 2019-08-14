@@ -15,10 +15,22 @@ module.exports = function () {
   }
 
   this.extendRoutes((routes, resolve) => {
-    routes.push({
-      name: 'tidesearch',
-      path: '/search',
-      component: '@dpc-sdp/ripple-nuxt-tide/modules/search/pages/TideSearch.vue'
-    })
+    routes.push(
+      {
+        name: 'tidesearch',
+        path: '/search',
+        component: '@dpc-sdp/ripple-nuxt-tide/modules/search/pages/TideSearch.vue'
+      },
+      {
+        name: 'tagsearch',
+        path: '/tags/:tag',
+        component: '@dpc-sdp/ripple-nuxt-tide/modules/search/pages/TopicTagSearch.vue'
+      },
+      {
+        name: 'topicsearch',
+        path: '/topic/:topic',
+        component: '@dpc-sdp/ripple-nuxt-tide/modules/search/pages/TopicTagSearch.vue'
+      }
+    )
   })
 }

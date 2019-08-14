@@ -116,9 +116,11 @@ export default {
           clientClearToken(this.$store)
           this.$router.push({ path: '/' })
         } catch (e) {
+          // TODO: we should display error to user instead of log here.
           console.log(`Tide logout failed`)
         }
       } else {
+        // TODO: we should display error to user instead of log here.
         console.warn(`Authentication module is disabled - unable to log out`)
       }
     },

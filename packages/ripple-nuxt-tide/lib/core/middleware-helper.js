@@ -23,7 +23,7 @@ const getMiddleware = (middlewareConfig) => {
         }
       } catch {
         if (process.server) {
-          logger.error(`Tide middleware couldn't be found in file "${path}".`)
+          logger.error('Tide middleware couldn\'t be found in file "%s".', path)
         }
       }
     })
@@ -41,7 +41,7 @@ export const callMiddleware = async (middlewareConfig, context) => {
     // Call other middleware, the order is core modules > custom root > custom modules.
     const middleware = getMiddleware(middlewareConfig)
     if (process.env.TIDE_DEBUG && process.server) {
-      logger.log('debug', 'Tide middleware will be called: %O', middleware)
+      logger.debug('Tide middleware will be called: %O', middleware)
     }
     for (const item of middleware) {
       await item(context, pageData)

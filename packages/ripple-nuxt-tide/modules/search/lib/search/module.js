@@ -50,7 +50,7 @@ export default (config, router, site) => ({
 
     if (this.logging) {
       i++
-      logger.info(`Search refresh - call number ${i}`, { label: 'Search' })
+      logger.info('Search refresh - call number %s', i, { label: 'Search' })
     }
     this.mergeSystemFilters(filters, {
       docType: docType,

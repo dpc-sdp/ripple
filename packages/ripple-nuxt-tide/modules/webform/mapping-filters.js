@@ -343,7 +343,7 @@ module.exports = {
         data.schema.groups.push({ 'fields': [field] })
       } else {
         if (process.server) {
-          logger.warn(`Webform element type "${element['#type']}" is not supported in nuxt-tide at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`, { label: 'Webform' })
+          logger.warn(`Webform element type "%s" is not supported in nuxt-tide at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`, element['#type'], { label: 'Webform' })
         }
       }
     }

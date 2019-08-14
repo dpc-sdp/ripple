@@ -123,7 +123,7 @@ const getConfigPath = (group, item, moduleName = null) => {
   if (fs.existsSync(path.resolve(configFilePath, `${item.filename}.js`))) {
     if (process.env.TIDE_DEBUG) {
       const configFile = path.resolve(configFilePath, `${item.filename}.js`)
-      logger.log('debug', 'Tide config file is found: %s', configFile)
+      logger.debug('Tide config file is found: %s', configFile)
     }
     return configPath + item.filename
   } else {
@@ -212,6 +212,6 @@ export const build = (tideConfig, _this) => {
   // Build custom modules
   buildCustomModules(tideConfig, _this)
   if (process.env.TIDE_DEBUG) {
-    logger.log('debug', 'Tide configuration: %O', tideConfig)
+    logger.debug('Tide configuration: %O', tideConfig)
   }
 }

@@ -44,9 +44,6 @@ export const tide = (axios, site, config) => ({
   post: async function (resource, data = {}, id = '') {
     const siteParam = resource === 'user/register' ? '?site=' + site : ''
     const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}${siteParam}`
-    if (process.server) {
-      logger.log('debug', 'Tide post to url: %s', url)
-    }
 
     let headers = {
       'Content-Type': 'application/vnd.api+json;charset=UTF-8'
@@ -173,7 +170,7 @@ export const tide = (axios, site, config) => ({
           siteMenus[menu] = await this.getMenu(siteData[menuFields[menu]].drupal_internal__id)
         } catch (error) {
           if (process.server) {
-            logger.error(new Error(`Get site menus error: ${error}`))
+            logger.error('Get site menus error: ', { error })
           }
           throw error
         }
@@ -212,7 +209,7 @@ export const tide = (axios, site, config) => ({
     while (response.links && response.links.next) {
       const resource = helper.jsonApiLinkToResource(response.links.next, apiPrefix)
       if (process.server) {
-        logger.log('debug', `Tide get next page: ${resource}`)
+        logger.debug('Tide get next page: %s', resource)
       }
       // Use axios directly here because resource url contains all query params.
       response = await axios.$get(apiPrefix + resource, config)

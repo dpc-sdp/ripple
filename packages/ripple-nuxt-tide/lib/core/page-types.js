@@ -23,7 +23,7 @@ export const getTemplate = (type, pageTypes = []) => {
         templates = { ...templates, ...morePageTypes.pageTemplates }
       } catch (error) {
         if (process.server) {
-          logger.error(`Page template couldn't be found in file "${path}".`, { error, label: 'Page types' })
+          logger.error(`Page template couldn't be found in file "%s".`, path, { error, label: 'Page types' })
         }
       }
     })

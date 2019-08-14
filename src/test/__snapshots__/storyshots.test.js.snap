@@ -11806,6 +11806,30 @@ exports[`RippleStoryshots Organisms/Publication Publication Pagination 1`] = `
 </nav>
 `;
 
+exports[`RippleStoryshots Organisms/SiteFooter Acknowledgement 1`] = `
+<div
+  class="rpl-acknowledgement"
+>
+  <img
+    alt="Aboriginal flag"
+    class="rpl-acknowledgement__flag"
+    src="./assets/images/aboriginal-flag.png"
+  />
+   
+  <img
+    alt="Torres Strait Islander flag"
+    class="rpl-acknowledgement__flag"
+    src="./assets/images/torres-strait-islander-flag.png"
+  />
+   
+  <div
+    class="rpl-acknowledgement__text"
+  >
+    The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
+  </div>
+</div>
+`;
+
 exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
 <div
   class="rpl-site-footer"

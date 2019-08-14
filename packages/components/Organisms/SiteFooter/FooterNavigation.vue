@@ -3,13 +3,13 @@
     <template v-for="(item, index) in nav">
       <li class="rpl-footer-nav__menu-item" :class="{'rpl-footer-nav__menu-item--parent': item.children}" :key="index" >
         <h2 class="rpl-footer-nav__heading" @click="toggle(item, index, $event)">
-          <rpl-link :href="item.url">{{ item.text }}</rpl-link>
+          <rpl-link :href="item.url" :target="item.target">{{ item.text }}</rpl-link>
           <rpl-icon :symbol="visibleItemIndex == index ? 'up' : 'down'" color="secondary" size="m" v-if="(minimize && item.children)" />
         </h2>
         <transition name="rpl-accordion">
           <ul class="rpl-footer-nav__submenu-item" v-if="item.children" v-show="(!minimize || visibleItemIndex == index)">
             <li v-for="(child, cIndex) in item.children" :key="cIndex">
-              <rpl-link :href="child.url">{{ child.text }}</rpl-link>
+              <rpl-link :href="child.url" :target="child.target">{{ child.text }}</rpl-link>
             </li>
           </ul>
         </transition>

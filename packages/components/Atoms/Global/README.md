@@ -22,6 +22,7 @@ This is a globally available options object to allow passing options between rip
   quickexiturl: 'https://www.google.com', // URL to use for quickexit
   plugins: [], // array of cheerio transformer function plugins to pass to RplMarkup
   viclogo: true // whether to display primary vic.gov.au logo
+  externalLinksInNewWindow: false // (Bool) Whether links open in new window by default
 ```
 
 --------------------------------------------------------------------------------

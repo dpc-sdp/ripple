@@ -1,5 +1,8 @@
 <template>
-  <h1>{{text}}</h1>
+  <div class="example-message">
+    <h2>This is a example of custom component</h2>
+    <p>{{text}}</p>
+  </div>
 </template>
 
 <script>

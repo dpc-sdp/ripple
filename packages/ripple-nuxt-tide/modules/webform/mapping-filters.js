@@ -118,8 +118,14 @@ module.exports = {
 
         case 'radios':
           field.type = 'radios'
+          const defaultValue = element['#default_value']
           const fields = element['#options']
           field.values = []
+
+          if (defaultValue && fields[defaultValue]) {
+            data.model[eName] = defaultValue
+          }
+
           for (let key in fields) {
             if (fields.hasOwnProperty(key)) {
               field.values.push({ name: fields[key], value: key })

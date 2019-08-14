@@ -1,3 +1,4 @@
+<!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-campaign-secondary
 
 > A component to showcase secondary content previews. Should be used along with
@@ -34,12 +35,14 @@ import RplCampaignSecondary from '@dpc-sdp/ripple-campaign-secondary'
 
 ## Usage and Tests
 
-See [Storybook/Campaign secondary - Image](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CampaignSecondary&selectedStory=Campaign%20secondary%20-%20Image).
+See [Storybook/Organisms/CampaignSecondary/With image](https://ripple.sdp.vic.gov.au/?path=/story/organisms-campaignsecondary--with-image).
 
-See [Storybook/Campaign secondary - Video](https://ripple.sdp.vic.gov.au/?selectedKind=Organisms/CampaignSecondary&selectedStory=Campaign%20secondary%20-%20Video).
+See [Storybook/Organisms/CampaignSecondary/With video](https://ripple.sdp.vic.gov.au/?path=/story/organisms-campaignsecondary--with-video).
 
 --------------------------------------------------------------------------------
 
 ## License
 
 Licensed under the Apache-2.0 License.
+
+<!-- /GENERATED_DOCS -->

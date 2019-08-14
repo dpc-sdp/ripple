@@ -1,0 +1,76 @@
+{
+  "name": "<%= name %>",
+  "version": "1.0.0",
+  "description": "<%= description %>",
+  "author": "<%= author %>",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env BASIC_AUTH=0 nuxt",
+    "build": "run-script-os",
+    "build:default": "if [ \"$NUXT_HOT_RELOADING\" != \"1\" ] ; then nuxt build; fi",
+    "build:win32": "IF \"%NUXT_HOT_RELOADING%\" NEQ \"1\" ( nuxt build )",
+    <%_ if (e2e === true) { _%>
+    "cy:open": "cypress open",
+    "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
+    "cy:run-smoke": "cypress run -e TAGS='@smoke'",
+    "test:dev": "cross-env NODE_ENV=dev start-server-and-test start http://localhost:3000 cy:open",
+    "test:smoke": "cross-env NODE_ENV=test start-server-and-test start:build http://localhost:3000 cy:run-smoke",
+    "test:e2e": "cross-env NODE_ENV=test start-server-and-test start:build http://localhost:3000 cy:run",
+    <%_ } _%>
+    "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
+    "start": "run-script-os",
+    "start:default": "if [ \"$NUXT_HOT_RELOADING\" = \"1\" ] ; then nuxt; else nuxt start; fi",
+    "start:win32": "IF \"%NUXT_HOT_RELOADING%\" EQU \"1\" ( nuxt ) ELSE ( nuxt start )",
+    "start:build": "nuxt build && nuxt start"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-nuxt-tide": "^1.0.0",
+    "@nuxtjs/robots": "^2.0.0",
+    "dotenv": "^5.0.1",
+    "nuxt": "2.6.3",
+    "run-script-os": "^1.0.7"
+  },
+  "devDependencies": {
+    <%_ if (e2e === true) { _%>
+    "@dpc-sdp/ripple-test-tools": "^1.0.0",
+    "cypress": "^3.1.5",
+    "cypress-axe": "^0.4.0",
+    "cypress-cucumber-preprocessor": "^1.11.0",
+    "start-server-and-test": "^1.7.11",
+    <%_ } _%>
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/runtime": "^7.5.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "babel-preset-vue": "^2.0.2",
+    "core-js": "^2.6.5",
+    "cross-env": "^5.2.0",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.11.0",
+    "sass-lint": "^1.12.1",
+    "sass-loader": "^6.0.7",
+    "sass-resources-loader": "^2.0.0",
+    "vue-jest": "^3.0.4"
+  },
+  "browserslist": [
+    "> 1%",
+    "IE 11",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

@@ -1,5 +1,5 @@
 import { metatagConverter, pathToClass } from './tide-helper'
-import { isTokenExpired, getToken, clearToken } from '../../modules/authenticated-content/lib/authenticate'
+import { isTokenExpired, clientGetToken, serverGetToken, clientClearToken, clientSetProperties } from '../../modules/authenticated-content/lib/authenticate'
 import { isPreviewPath } from '../../modules/authenticated-content/lib/preview'
 
 // Fetch page data from Tide API by current path
@@ -17,13 +17,23 @@ export default async function (context, results) {
   const authContentEnabled = context.app.$tide.isModuleEnabled('authenticatedContent')
   let authToken = null
   if (authContentEnabled) {
-    // Pass the protected content JWT from store so it can be added as a header
-    authToken = getToken()
+    // Get JWT token
+    if (process.client) {
+      authToken = clientGetToken()
+    } else {
+      authToken = serverGetToken(context.req.headers.cookie)
+    }
     if (authToken) {
       // If token expired clear the persisted state
       if (isTokenExpired(authToken)) {
-        clearToken(context.store)
+        if (process.client) {
+          clientClearToken(context.store)
+        }
+        authToken = null
       }
+    }
+    if (process.client) {
+      clientSetProperties(context.route.path, context.store)
     }
   }
 
@@ -38,7 +48,7 @@ export default async function (context, results) {
       const section = context.route.query.section ? context.route.query.section : null
       response = await context.app.$tide.getPreviewPage(type, id, rev, section, tideParams, authToken)
     } else {
-      response = await context.app.$tide.getPageByPath(context.route.fullPath, tideParams)
+      response = await context.app.$tide.getPageByPath(context.route.fullPath, tideParams, authToken)
     }
 
     // If redirect required.

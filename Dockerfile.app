@@ -29,4 +29,4 @@ RUN  . /home/.bashrc \
 ENV HOST 0.0.0.0
 EXPOSE 3000
 
-CMD ["yarn", "run", "start"]
+CMD ["./node_modules/.bin/nuxt", "start"]

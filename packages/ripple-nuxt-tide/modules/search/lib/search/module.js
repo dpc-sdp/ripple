@@ -167,6 +167,7 @@ export default (config, router, site) => ({
     return _fields
   },
   setFilterOptions: async function (fieldMap = {}, index = config.index) {
+    console.log('setFilterOptions check config:', config)
     const client = await service.getClient(config)
     return service.api.getUniqueVals(client, fieldMap, index)
   },

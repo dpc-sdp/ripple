@@ -16,6 +16,9 @@ export default ({ env, app, req, res, store , route}, inject) => {
   const tideService = tide(app.$axios, options.site, config)
   inject('tide', tideService)
   inject('tideMapping', new Mapping(config, tideService))
+
+
+  console.log('Plugin check search config:', options.search)
   inject('tideSearch', search(options.search, app.router, options.site))
 
   app.$axios.onRequest(config => {

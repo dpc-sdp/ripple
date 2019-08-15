@@ -52,6 +52,11 @@ export default {
     RplCol
   },
   mixins: [searchMixin],
+  head () {
+    return {
+      title: `${this.type.charAt(0).toUpperCase() + this.type.slice(1)} - ${this.title}`
+    }
+  },
   async asyncData ({ app, route }) {
     const topicTagData = await app.$tide.getPageByPath(route.path)
     return {
@@ -60,8 +65,6 @@ export default {
       title: topicTagData.name,
       type: topicTagData.type ? topicTagData.type.replace('taxonomy_term--', '') : '',
       searchForm: {
-        searchPlaceholder: 'Start typing...',
-        theme: 'light',
         filterForm: {
           tideId: 'tide_search_form',
           model: {},

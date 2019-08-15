@@ -1,4 +1,5 @@
 import qB from './querybuilder'
+import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
 export default ({
   info: async function (client) {
@@ -68,10 +69,12 @@ export default ({
     }
 
     const filterVals = await client.search(agg)
-    if (filterVals.aggregations[aggName].buckets.length > 0) {
+    if (filterVals && filterVals.aggregations[aggName].buckets.length > 0) {
       for (let value of filterVals.aggregations[aggName].buckets) {
         values.push(value.key)
       }
+    } else if (typeof filterVals === 'undefined') {
+      logger.error('ES search couldn\'t got response.')
     }
     return values
   }

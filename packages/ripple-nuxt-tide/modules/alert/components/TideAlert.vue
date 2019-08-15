@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     alerts () {
-      const alerts = get(this, '$store.state.tide.siteData.site_alerts', [])
+      const alerts = this.$store.getters['tideAlerts/getAlerts']
         .filter(alert => {
           if (this.dismissed && this.dismissed.length > 0 && this.dismissed.includes(alert.id)) {
             return false

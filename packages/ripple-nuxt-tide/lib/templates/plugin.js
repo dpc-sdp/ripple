@@ -1,7 +1,6 @@
 import { tide, Mapping, logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 import { search } from '@dpc-sdp/ripple-nuxt-tide/modules/search/index.js'
 import { serverSetProperties } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
-import { get } from 'lodash'
 
 export default ({ env, app, req, res, store , route}, inject) => {
   // We need to serialize functions, so use `serialize` instead of `JSON.stringify`.
@@ -119,6 +118,11 @@ export default ({ env, app, req, res, store , route}, inject) => {
           }
           siteData.lastFetched = Date.now()
           commit('setSiteData', siteData)
+          if (config.modules.alert === 1) {
+            if (siteData.site_alerts && siteData.site_alerts.length > 0) {
+              await store.dispatch('tideAlerts/setAlerts', siteData.site_alerts)
+            }
+          }
         },
         setCurrentUrl ({ commit }, fullPath) {
           const url = store.state.tide.protocol + '//' + store.state.tide.host + fullPath

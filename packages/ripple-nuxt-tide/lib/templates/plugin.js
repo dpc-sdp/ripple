@@ -1,6 +1,7 @@
 import { tide, Mapping, logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 import { search } from '@dpc-sdp/ripple-nuxt-tide/modules/search/index.js'
 import { serverSetProperties } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { get } from 'lodash'
 
 export default ({ env, app, req, res, store , route}, inject) => {
   // We need to serialize functions, so use `serialize` instead of `JSON.stringify`.
@@ -94,11 +95,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
       actions: {
         async init ({ commit, dispatch }) {
           if (process.server) {
-            const siteData = await app.$tide.getSiteData()
-            if (siteData instanceof Error) {
-              throw siteData
-            }
-            commit('setSiteData', siteData)
+            await dispatch('setSiteData')
             commit('setHost', req.headers.host)
 
             // Set protocol
@@ -114,6 +111,14 @@ export default ({ env, app, req, res, store , route}, inject) => {
               serverSetProperties(req.headers.cookie, route.path, store)
             }
           }
+        },
+        async setSiteData ({ commit }) {
+          const siteData = await app.$tide.getSiteData()
+          if (siteData instanceof Error) {
+            throw siteData
+          }
+          siteData.lastFetched = Date.now()
+          commit('setSiteData', siteData)
         },
         setCurrentUrl ({ commit }, fullPath) {
           const url = store.state.tide.protocol + '//' + store.state.tide.host + fullPath

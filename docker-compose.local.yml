@@ -1,11 +1,11 @@
 version: '2'
 services:
-  storybook:
-    networks:
-      - amazeeio-network
-      - default
-    environment:
-      LAGOON_ENVIRONMENT_TYPE: 'local'
+  # storybook:
+  #   networks:
+  #     - amazeeio-network
+  #     - default
+  #   environment:
+  #     LAGOON_ENVIRONMENT_TYPE: 'local'
   app:
     networks:
       - amazeeio-network

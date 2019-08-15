@@ -222,6 +222,10 @@ export default {
       }
     }
 
+    @include rpl_breakpoint('m') {
+      border-bottom: $rpl-hero-banner-border;
+    }
+
     @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
       @include rpl_breakpoint($bp) {
         padding-top: map-get($spacing, top);

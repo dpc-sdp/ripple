@@ -6,8 +6,7 @@ let i = 0
 
 const debug = function (searchLog) {
   let logging = false
-  if ((process.server || process.env.NODE_ENV === 'development') &&
-      searchLog === 'trace') {
+  if ((process.server) && searchLog === 'trace') {
     logging = true
   }
   return logging

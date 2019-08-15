@@ -57,8 +57,8 @@ export default {
     if (!isAnchorLink(this.href) && isRelativeUrl(this.href)) {
       this.isNuxtLink = this.rplOptions.nuxt
     }
-    // Set link target for non nuxt-links
-    if (this.target.length === 0) {
+    // Set link target for non nuxt-links, if global option is true
+    if (this.target.length === 0 && this.rplOptions.externalLinksInNewWindow) {
       if (isExternalUrl(this.href, this.rplOptions.hostname)) {
         this.linkTarget = '_blank'
       }

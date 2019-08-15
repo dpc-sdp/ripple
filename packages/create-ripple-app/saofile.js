@@ -10,14 +10,13 @@ const TIDE_MODULES = [
   { value: 'landingPage', name: 'Landing Page', default: true },
   { value: 'event', name: 'Event', default: true },
   { value: 'news', name: 'News', default: true },
-  { value: 'grant', name: 'Grant', default: true },
+  { value: 'grant', name: 'Grant', default: false },
   { value: 'gtm', name: 'Google Tag Manager', default: true },
   { value: 'profile', name: 'Profile', default: true },
   { value: 'media', name: 'Media', default: true },
   { value: 'webform', name: 'Webform', default: true },
   { value: 'search', name: 'Search', default: true },
   { value: 'publication', name: 'Publication', default: false },
-  { value: 'monsido', name: 'Monsido', default: true },
   {
     value: 'authenticatedContent',
     name: 'Authenticated Content',
@@ -47,7 +46,7 @@ const OPTIONS = {
   backendurl: {
     name: 'backendurl',
     message: 'Enter backend content repository url',
-    default: `http://develop.content.vic.gov.au`
+    default: ``
   },
   siteid: {
     name: 'siteid',
@@ -57,17 +56,17 @@ const OPTIONS = {
   authuser: {
     name: 'authuser',
     message: 'Enter basic auth shield username',
-    default: 'dpc'
+    default: ''
   },
   authpass: {
     name: 'authpass',
     message: 'Enter auth password',
-    default: 'sdp'
+    default: ''
   },
   gtmtoken: {
     name: 'gtmtoken',
     message: 'Enter Google Tag Manager Token',
-    default: 'GA-123456-1'
+    default: ''
   },
   modules: {
     name: 'modules',
@@ -238,14 +237,6 @@ module.exports = {
       }
     ]
 
-    if (results.e2e) {
-      actions.push({
-        type: 'add',
-        files: ['**'],
-        templateDir: 'template/_tests'
-      })
-    }
-
     if (results.examples) {
       actions.push({
         type: 'add',
@@ -262,6 +253,28 @@ module.exports = {
         '_.env': '.env'
       }
     })
+
+    if (results.e2e) {
+      actions.push({
+        type: 'add',
+        files: ['**'],
+        templateDir: 'template/_tests/_common'
+      })
+
+      // only add tests for enabled modules
+      results.modules.forEach(tideModule => {
+        const hasTests = fs.existsSync(path.resolve(__dirname, `./template/_tests/_modules/test/e2e/integration/core-modules/${tideModule}`))
+        if (hasTests) {
+          actions.push(
+            {
+              type: 'add',
+              files: [`./test/e2e/integration/core-modules/${tideModule}/**`, `./test/e2e/fixtures/${tideModule}/**`],
+              templateDir: 'template/_tests/_modules'
+            }
+          )
+        }
+      })
+    }
 
     return actions
   },

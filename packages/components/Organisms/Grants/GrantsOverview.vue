@@ -122,7 +122,7 @@ export default {
         if (fundingLevel) {
           list.push({
             symbol: 'dollar_negative',
-            size: '1.666',
+            size: (20 / 12),
             text: fundingLevel,
             id: 'grants-funding'
           })
@@ -131,7 +131,7 @@ export default {
       if (this.audience) {
         list.push({
           symbol: 'user',
-          size: '1.666',
+          size: (20 / 12),
           text: this.audience,
           id: 'grants-audience'
         })
@@ -142,7 +142,7 @@ export default {
       list.push({
         symbol: status === 'Closed' ? 'cross_circle' : 'success',
         color: status === 'Closed' ? 'danger' : 'success',
-        size: status === 'Closed' ? '0.834' : '1',
+        size: status === 'Closed' ? (20 / 24) : 1,
         text: status,
         id: 'grants-status'
       })

@@ -82,6 +82,12 @@ See [Storybook/Atoms/Global/Divider](https://ripple.sdp.vic.gov.au/?path=/story/
 
 --------------------------------------------------------------------------------
 
+## Known issues
+
+* Typography: Display headings (with background) have reduced padding on IE11 / Edge.
+
+--------------------------------------------------------------------------------
+
 <!-- GENERATED_LICENSE -->
 ## License
 

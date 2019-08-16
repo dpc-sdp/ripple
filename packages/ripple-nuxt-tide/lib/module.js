@@ -67,9 +67,17 @@ const nuxtTide = function (moduleOptions) {
     this.addServerMiddleware(basicAuth)
   }
 
-  this.addServerMiddleware(require('./server-middleware/logger'))
-
   this.addModule('@dpc-sdp/ripple-nuxt-ui', true)
+
+  // Add request id
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/request-id.js'),
+    fileName: './request-id.js'
+  })
+  this.options.router.middleware.push('request-id')
+  this.addServerMiddleware(require('./server-middleware/request-id'))
+  // Log all server side requests
+  this.addServerMiddleware(require('./server-middleware/request-log'))
 
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }
 

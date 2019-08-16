@@ -19,9 +19,9 @@ export const tide = (axios, site, config) => ({
    * @param {String} resource Resource type e.g. <entity type>/<bundle>
    * @param {Object} params Object to convert to QueryString. Passed in URL.
    * @param {String} id Resource UUID
-   * @param {String} authToken Authentication token
+   * @param {Object} headersConfig Object of headers config
    */
-  get: async function (resource, params = {}, id = '', authToken) {
+  get: async function (resource, params = {}, id = '', headersConfig = {}) {
     // axios config
     const axiosConfig = {
       baseUrl: config.baseUrl,
@@ -31,9 +31,13 @@ export const tide = (axios, site, config) => ({
 
     if (this.isModuleEnabled('authenticatedContent')) {
       // Set 'X-Authorization' header if authToken present
-      if (authToken && !isTokenExpired(authToken)) {
-        _.merge(axiosConfig.headers, { 'X-Authorization': `Bearer ${authToken}` })
+      if (headersConfig.authToken && !isTokenExpired(headersConfig.authToken)) {
+        _.merge(axiosConfig.headers, { 'X-Authorization': `Bearer ${headersConfig.authToken}` })
       }
+    }
+
+    if (headersConfig.requestId) {
+      axiosConfig.headers['X-Request-Id'] = headersConfig.requestId
     }
 
     const siteParam = 'site=' + site
@@ -42,15 +46,19 @@ export const tide = (axios, site, config) => ({
   },
 
   post: async function (resource, data = {}, id = '') {
+    // axios config
+    const axiosConfig = {
+      baseUrl: config.baseUrl,
+      auth: config.auth,
+      headers: {
+        'Content-Type': 'application/vnd.api+json;charset=UTF-8',
+        'X-Request-Id': helper.generateId()
+      }
+    }
     const siteParam = resource === 'user/register' ? '?site=' + site : ''
     const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}${siteParam}`
 
-    let headers = {
-      'Content-Type': 'application/vnd.api+json;charset=UTF-8'
-    }
-    _.merge(config, { headers: headers })
-
-    return axios.$post(url, data, config)
+    return axios.$post(url, data, axiosConfig)
   },
 
   getMenuFields: function () {
@@ -60,8 +68,8 @@ export const tide = (axios, site, config) => ({
     }
   },
 
-  async getSitesData (params = {}) {
-    const sites = await this.get('taxonomy_term/sites', params)
+  async getSitesData (params = {}, headersConfig = {}) {
+    const sites = await this.get('taxonomy_term/sites', params, '', headersConfig)
     if (typeof sites === 'undefined' || typeof sites.data === 'undefined') {
       return new Error('Failed to get sites data. It can be a operation error or configuration error if it\'s the first time to setup this app.')
     } else {
@@ -69,8 +77,8 @@ export const tide = (axios, site, config) => ({
     }
   },
 
-  async getSitesDomainMap () {
-    const sites = await this.getSitesData()
+  async getSitesDomainMap (headersConfig = {}) {
+    const sites = await this.getSitesData({}, headersConfig)
     let sitesDomainMap = {}
     let domain = ''
 
@@ -98,10 +106,10 @@ export const tide = (axios, site, config) => ({
     return config && config.modules && config.modules[checkForModule] === 1
   },
 
-  getSiteData: async function (tid = null) {
-    // TODO: this method need to be reviewed when we do SDPA-585.
-    // So it can support without tide_site enabled.
-    const siteId = tid || site
+  // TODO: this method need to be reviewed when we do SDPA-585.
+  // So it can support without tide_site enabled.
+  getSiteData: async function (headersConfig = {}, siteId = null) {
+    siteId = siteId || site
     const include = [
       'field_site_logo',
       'field_site_footer_logos',
@@ -129,7 +137,7 @@ export const tide = (axios, site, config) => ({
           value: siteId
         }
       }
-      const response = await this.get(`taxonomy_term/sites`, params)
+      const response = await this.get(`taxonomy_term/sites`, params, '', headersConfig)
       if (!response || response.error) {
         return new Error('Could not get site data. Please check your site id and Tide site setting.')
       }
@@ -137,7 +145,7 @@ export const tide = (axios, site, config) => ({
     }
 
     try {
-      siteData.menus = await this.getSiteMenus(siteData)
+      siteData.menus = await this.getSiteMenus(siteData, headersConfig)
     } catch (error) {
       if (process.server) {
         logger.error('Get menus from Tide failed:', { error })
@@ -163,13 +171,13 @@ export const tide = (axios, site, config) => ({
     return siteData
   },
 
-  getSiteMenus: async function (siteData) {
+  getSiteMenus: async function (siteData, headersConfig) {
     const siteMenus = {}
     const menuFields = this.getMenuFields()
     for (let menu in menuFields) {
       if (siteData[menuFields[menu]] !== undefined) {
         try {
-          siteMenus[menu] = await this.getMenu(siteData[menuFields[menu]].drupal_internal__id)
+          siteMenus[menu] = await this.getMenu(siteData[menuFields[menu]].drupal_internal__id, headersConfig)
         } catch (error) {
           if (process.server) {
             logger.error('Get site menus error: ', { error })
@@ -186,7 +194,7 @@ export const tide = (axios, site, config) => ({
     return siteMenus
   },
 
-  getMenu: async function (menuName) {
+  getMenu: async function (menuName, headersConfig = {}) {
     if (!menuName) {
       throw new Error('no menu id provided.')
     }
@@ -199,7 +207,7 @@ export const tide = (axios, site, config) => ({
         }
       }
     }
-    const menu = await this.get('menu_link_content/menu_link_content', params)
+    const menu = await this.get('menu_link_content/menu_link_content', params, '', headersConfig)
 
     return this.getAllPaginatedData(menu, false)
   },
@@ -232,17 +240,17 @@ export const tide = (axios, site, config) => ({
     }
   },
 
-  getPathData: async function (path, params, authToken) {
+  getPathData: async function (path, params, headersConfig) {
     let routeParams = { path: path }
     if (!_.isEmpty(params)) {
       _.merge(routeParams, params)
     }
 
-    const response = await this.get('route', routeParams, '', authToken)
+    const response = await this.get('route', routeParams, '', headersConfig)
     return response
   },
 
-  getEntityByPathData: async function (pathData, query, authToken) {
+  getEntityByPathData: async function (pathData, query, headersConfig) {
     const endpoint = `${pathData.entity_type}/${pathData.bundle}/${pathData.uuid}`
 
     let include
@@ -305,13 +313,13 @@ export const tide = (axios, site, config) => ({
     if (!_.isEmpty(query)) {
       params = _.merge(query, params)
     }
-    const entity = await this.get(endpoint, params, '', authToken)
+    const entity = await this.get(endpoint, params, '', headersConfig)
     return entity
   },
 
-  getPageByPath: async function (path, params, authToken) {
+  getPageByPath: async function (path, params, headersConfig) {
     let pageData = null
-    const response = await this.getPathData(path, params, authToken)
+    const response = await this.getPathData(path, params, headersConfig)
 
     const pathData = jsonapiParse.parse(response).data
 
@@ -320,7 +328,7 @@ export const tide = (axios, site, config) => ({
       return pathData
     }
 
-    const entity = await this.getEntityByPathData(pathData, params, authToken)
+    const entity = await this.getEntityByPathData(pathData, params, headersConfig)
     if (!entity) {
       throw new Error('Something wrong. Could not get any entity data from Tide based on API route response.')
     }
@@ -331,7 +339,7 @@ export const tide = (axios, site, config) => ({
     return pageData
   },
 
-  getPreviewPage: async function (contentType, uuid, revisionId, section, params, authToken) {
+  getPreviewPage: async function (contentType, uuid, revisionId, section, params, headersConfig) {
     if (revisionId === 'latest') {
       params.resourceVersion = 'rel:working-copy'
     } else {
@@ -343,7 +351,7 @@ export const tide = (axios, site, config) => ({
       bundle: contentType,
       uuid: uuid
     }
-    const entity = await this.getEntityByPathData(pathData, params, authToken)
+    const entity = await this.getEntityByPathData(pathData, params, headersConfig)
     const pageData = jsonapiParse.parse(entity).data
 
     // Append the site section to page data

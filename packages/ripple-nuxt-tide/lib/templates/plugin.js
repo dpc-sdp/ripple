@@ -21,7 +21,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
   app.$axios.onRequest(config => {
     // Log all axios' requests
     if (process.server) {
-      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios'})
+      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios', requestId: config.headers['X-Request-Id']})
       logger.debug('Headers %O', config.headers, {label: 'Axios'})
     }
   })
@@ -92,9 +92,9 @@ export default ({ env, app, req, res, store , route}, inject) => {
         }
       },
       actions: {
-        async init ({ commit, dispatch }) {
+        async init ({ commit, dispatch }, { requestId = null } = {}) {
           if (process.server) {
-            await dispatch('setSiteData')
+            await dispatch('setSiteData', { requestId })
             commit('setHost', req.headers.host)
 
             // Set protocol
@@ -103,7 +103,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
 
             // Load site module store.
             if (config.modules.site === 1) {
-              await store.dispatch('tideSite/init')
+              await store.dispatch('tideSite/init', { requestId })
             }
             // Load authenticated content store.
             if (config.modules.authenticatedContent === 1) {
@@ -111,8 +111,9 @@ export default ({ env, app, req, res, store , route}, inject) => {
             }
           }
         },
-        async setSiteData ({ commit }) {
-          const siteData = await app.$tide.getSiteData()
+        async setSiteData ({ commit }, { requestId = null } = {}) {
+          const headersConfig = { requestId }
+          const siteData = await app.$tide.getSiteData(headersConfig)
           if (siteData instanceof Error) {
             throw siteData
           }

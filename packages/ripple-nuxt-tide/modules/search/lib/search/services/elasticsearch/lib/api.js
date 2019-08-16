@@ -70,7 +70,7 @@ export default ({
 
     const filterVals = await client.search(agg)
     console.log('Index --->', index)
-    console.log('config --->', client.transport._config)
+    console.log('config --->', client)
     if (filterVals && filterVals.aggregations[aggName].buckets.length > 0) {
       for (let value of filterVals.aggregations[aggName].buckets) {
         values.push(value.key)

@@ -130,11 +130,11 @@ export const tide = (axios, site, config) => ({
         }
       }
       const response = await this.get(`taxonomy_term/sites`, params)
+      console.log(response)
+      if (response === undefined || response.error) {
+        return new Error('Could not get site data. Please check your site id and Tide site setting.')
+      }
       siteData = jsonapiParse.parse(response).data[0]
-    }
-
-    if (siteData === null) {
-      return new Error('Could not get site data. Please check your site id and Tide site setting.')
     }
 
     try {

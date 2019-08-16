@@ -114,21 +114,20 @@ export default {
 
   $rpl-hero-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
   $rpl-hero-banner-title-typography-ruleset: (
-    'xs': ('mega', 1.11em, 'bold'),
-    's': ('giga', 1.11em, 'bold'),
+    'xs': ('mega', 1.14em, 'bold'),
     'm': ('xgiga', 1.08em, 'bold'),
-    'l': ('tera', 1.07em, 'bold')
+    'xxl': ('tera', 1em, 'bold')
   ) !default;
   $rpl-hero-banner-title-typography-ruleset-dark: (
-    'xs': ('mega', 1.11em, 'bold', true),
-    's': ('giga', 1.11em, 'bold', true),
+    'xs': ('mega', 1.14em, 'bold', true),
     'm': ('xgiga', 1.08em, 'bold', true),
-    'l': ('tera', 1.07em, 'bold', true)
+    'xxl': ('tera', 1em, 'bold', true)
   ) !default;
   $rpl-hero-banner-title-color: rpl_color('primary') !default;
   $rpl-hero-banner-description-typography-ruleset: (
-    'xs': ('m', 1.22em, 'medium'),
-    'm': ('mega', 1.29em, 'medium')
+    'xs': ('l', 1.2em, 'medium'),
+    'm': ('xl', 1.17em, 'medium'),
+    'xxl': ('mega', 1.14em, 'medium')
   ) !default;
   $rpl-hero-banner-description-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-description-text-color-dark: rpl_color('white') !default;
@@ -139,7 +138,7 @@ export default {
   ) !default;
   $rpl-hero-banner-link-heading-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-link-heading-text-color-dark: rpl_color('white') !default;
-  $rpl-hero-banner-link-margin: auto auto rem(16px) !default;
+  $rpl-hero-banner-link-margin: auto auto $rpl-space-3 !default;
   $rpl-hero-banner-link-heading-margin: 0 auto rem(15px) auto !default;
   $rpl-hero-banner-vertical-spacing-logo-offset: (
     'xs': 0rem,
@@ -288,13 +287,9 @@ export default {
       @include rpl_typography_ruleset($rpl-hero-banner-description-typography-ruleset);
       @include rpl_text_color($rpl-hero-banner-description-text-color);
       letter-spacing: $rpl-hero-banner-description-letter-spacing;
-      margin-top: $rpl-space;
+      margin-top: $rpl-space-3;
 
       @include rpl_breakpoint(s) {
-        margin-top: $rpl-space-2;
-      }
-
-      @include rpl_breakpoint(l) {
         margin-top: $rpl-space-4;
       }
 

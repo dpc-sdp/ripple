@@ -114,21 +114,20 @@ export default {
 
   $rpl-hero-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
   $rpl-hero-banner-title-typography-ruleset: (
-    'xs': ('mega', 1.11em, 'bold'),
-    's': ('giga', 1.11em, 'bold'),
+    'xs': ('mega', 1.14em, 'bold'),
     'm': ('xgiga', 1.08em, 'bold'),
-    'l': ('tera', 1.07em, 'bold')
+    'xxl': ('tera', 1em, 'bold')
   ) !default;
   $rpl-hero-banner-title-typography-ruleset-dark: (
-    'xs': ('mega', 1.11em, 'bold', true),
-    's': ('giga', 1.11em, 'bold', true),
+    'xs': ('mega', 1.14em, 'bold', true),
     'm': ('xgiga', 1.08em, 'bold', true),
-    'l': ('tera', 1.07em, 'bold', true)
+    'xxl': ('tera', 1em, 'bold', true)
   ) !default;
   $rpl-hero-banner-title-color: rpl_color('primary') !default;
   $rpl-hero-banner-description-typography-ruleset: (
-    'xs': ('m', 1.22em, 'medium'),
-    'm': ('mega', 1.29em, 'medium')
+    'xs': ('l', 1.2em, 'medium'),
+    'm': ('xl', 1.17em, 'medium'),
+    'xxl': ('mega', 1.14em, 'medium')
   ) !default;
   $rpl-hero-banner-description-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-description-text-color-dark: rpl_color('white') !default;
@@ -139,7 +138,7 @@ export default {
   ) !default;
   $rpl-hero-banner-link-heading-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-link-heading-text-color-dark: rpl_color('white') !default;
-  $rpl-hero-banner-link-margin: auto auto rem(16px) !default;
+  $rpl-hero-banner-link-margin: auto auto $rpl-space-3 !default;
   $rpl-hero-banner-link-heading-margin: 0 auto rem(15px) auto !default;
   $rpl-hero-banner-vertical-spacing-logo-offset: (
     'xs': 0rem,
@@ -160,39 +159,70 @@ export default {
 
   $rpl-hero-banner-left-padding: rem(60px) - $rpl-component-gutter-l;
 
+  // Background graphic positioning - Set positioning for a breakpoint:
+  //  - pos: 'edge / right' - Edge starts graphic at right screen edge.
+  //  - size: The graphic size. This matches the top layout graphic.
+  //  - gutter: Edge only. Defines space between container & screen edge.
+  //  - v-offset: Edge & Right. Additional vertical offset to place on graphic.
+  //  - h-offset: Edge only. Additional horizontal offset to place on graphic.
+  $rpl-hero-banner-background-graphic-links-overlap: rem(100px) !default;
+  $rpl-hero-banner-background-graphic-gutter-xl: '((100vw - #{map-get(map-get($rpl-layout, 'site_max_width'), 'xl')})/2)';
+  $rpl-hero-banner-background-graphic-v-offset-xxl: rem(-68px);
+  $rpl-hero-banner-background-graphic: (
+    'xs': ('pos': 'right', 'size': 18rem, 'v-offset': ($rpl-space * -5)),
+    's': ('pos': 'edge', 'size': 20rem, 'gutter': $rpl-component-padding-xs, 'v-offset': rem(-16px)),
+    'm': ('pos': 'edge', 'gutter': map-get(map-get($rpl-layout, 'site_padding'), 'm')),
+    'l': ('pos': 'edge', 'gutter': map-get(map-get($rpl-layout, 'site_padding'), 'l')),
+    'xl': ('pos': 'edge', 'gutter': $rpl-hero-banner-background-graphic-gutter-xl),
+    '1490px': ('pos': 'right'),
+    'xxl': ('pos': 'edge', 'size': 40rem, 'gutter': $rpl-hero-banner-background-graphic-gutter-xl, 'h-offset': rem(33px), 'v-offset': $rpl-hero-banner-background-graphic-v-offset-xxl),
+    '2072px': ('pos': 'right', 'v-offset': $rpl-hero-banner-background-graphic-v-offset-xxl),
+    'xxxl': ('pos': 'right', 'v-offset': $rpl-hero-banner-background-graphic-v-offset-xxl),
+    '2660px': ('pos': 'right')
+  ) !default;
+
+  @mixin rpl_position_background_graphic($vars) {
+    $pos: map-get($vars, 'pos');
+    $size: map-get($vars, 'size');
+    $gutter: map-get($vars, 'gutter');
+    $h-offset: map-get($vars, 'h-offset');
+    $v-offset: map-get($vars, 'v-offset');
+    @if $size {
+      background-size: $size;
+    }
+    @if $pos == 'edge' {
+      $static-offset: $rpl-hero-banner-background-graphic-links-overlap;
+      @if $h-offset {
+        $static-offset: $static-offset + $h-offset;
+      }
+      $left-offset: calc(100vw - #{$gutter} - #{$static-offset});
+      background-position: left #{$left-offset} bottom #{$v-offset};
+    } @else {
+      background-position: right bottom #{$v-offset};
+    }
+  }
+
   .rpl-hero-banner {
     $root: &;
     @include rpl_mobile_padding;
     position: relative;
     background-repeat: no-repeat;
-    background-position: right -3.75rem bottom -1rem;
-    background-size: 18rem;
 
-    @include rpl_breakpoint('s') {
-      background-position: right -1rem bottom -1.5rem;
+    // Background graphic positions.
+    @each $bp, $vars in $rpl-hero-banner-background-graphic {
+      @if str-index($bp, 'px') {
+        @media screen and (min-width: $bp) {
+          @include rpl_position_background_graphic($vars);
+        }
+      } @else {
+        @include rpl_breakpoint($bp) {
+          @include rpl_position_background_graphic($vars);
+        }
+      }
     }
 
     @include rpl_breakpoint('m') {
-      background-position: right -20rem bottom -3rem;
-      background-size: 40rem;
       border-bottom: $rpl-hero-banner-border;
-    }
-
-    @include rpl_breakpoint('l') {
-      background-position: right -20rem bottom -5rem;
-      background-size: 50rem;
-    }
-
-    @include rpl_breakpoint('xl') {
-      background-position: right -30rem bottom -4rem;
-    }
-
-    @include rpl_breakpoint('xxl') {
-      background-position: right -10rem bottom -5rem;
-    }
-
-    @include rpl_breakpoint('xxxl') {
-      background-position: right bottom -2rem;
     }
 
     @each $bp, $spacing in $rpl-hero-banner-vertical-spacing {
@@ -257,13 +287,9 @@ export default {
       @include rpl_typography_ruleset($rpl-hero-banner-description-typography-ruleset);
       @include rpl_text_color($rpl-hero-banner-description-text-color);
       letter-spacing: $rpl-hero-banner-description-letter-spacing;
-      margin-top: $rpl-space;
+      margin-top: $rpl-space-3;
 
       @include rpl_breakpoint(s) {
-        margin-top: $rpl-space-2;
-      }
-
-      @include rpl_breakpoint(l) {
         margin-top: $rpl-space-4;
       }
 

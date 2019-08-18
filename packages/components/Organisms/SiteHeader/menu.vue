@@ -27,7 +27,7 @@
               <rpl-icon symbol="left" color="white" />
               <span class="rpl-visually-hidden">Close {{ title }} and return to </span><span>{{ backTitle }}</span>
             </button>
-            <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url">{{ parent.text }}</rpl-link>
+            <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url" :target="parent.target">{{ parent.text }}</rpl-link>
           </div>
           <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
             <li
@@ -44,6 +44,7 @@
                 v-if="!list.children"
                 class="rpl-menu__item-link"
                 :href="list.url"
+                :target="list.target"
                 @focus="onItemFocus"
               >
                 {{ list.text }}
@@ -533,7 +534,7 @@ export default {
 
   .rpl-menu--vertical,
   .rpl-menu--horizontal-floating-wrapper,
-  .rpl-menu--horizontal .rpl-menu--subs, {
+  .rpl-menu--horizontal .rpl-menu--subs {
     .rpl-menu__item {
       border-top: $rpl-menu-item-border;
 

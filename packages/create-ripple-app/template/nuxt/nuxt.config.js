@@ -88,7 +88,6 @@ export default {
       <%}%><% if (media === 'yes') { %>media: 1,
       <%}%><% if (webform === 'yes') { %>webform: 1,
       <%}%><% if (search === 'yes') { %>search: 1,
-      <%}%><% if (monsido === 'yes') { %>monsido: 1,
       <%}%><% if (authenticatedContent === 'yes') { %>authenticatedContent: 1,
       <%}%><% if (dataDrivenComponent === 'yes') { %>dataDrivenComponent: 1,
       <%}%><% if (alert === 'yes') { %>alert: 1,

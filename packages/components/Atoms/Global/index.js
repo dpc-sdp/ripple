@@ -9,7 +9,8 @@ const RplGlobal = {
       origin: '', // URL with protocol://host(:port) e.g. http://localhost:3000
       quickexit: false,
       quickexiturl: 'https://www.google.com',
-      viclogo: true
+      viclogo: true,
+      externalLinksInNewWindow: false // (Bool) Whether links open in new window by default
     }
 
     const mergedOptions = Object.assign({}, rplOptions, options)

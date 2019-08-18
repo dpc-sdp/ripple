@@ -83,7 +83,6 @@ export default {
     }
   },
   validate ({ params }) {
-    console.log(params)
     this.params = params
     // Must be a number
     return /^\d+$/.test(params.id) &&

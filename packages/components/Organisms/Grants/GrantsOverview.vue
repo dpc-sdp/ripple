@@ -12,6 +12,7 @@ import RplButton from '@dpc-sdp/ripple-button'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplList from '@dpc-sdp/ripple-list'
 import { formatMoney } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 
 export default {
   name: 'RplGrantsOverview',
@@ -20,6 +21,7 @@ export default {
     RplMarkup,
     RplList
   },
+  mixins: [formatdate],
   props: {
     title: { type: String, default: '' },
     funding: { type: Object },
@@ -36,84 +38,113 @@ export default {
           open: 'Open',
           closed: 'Closed',
           ongoing: 'Ongoing',
-          openingsoon: 'Opening soon'
+          openingSoon: (startdate) => `Opening on ${startdate}`,
+          closingSoon: (end, now) => {
+            const daysRemaining = parseInt(end.diff(now, 'days'))
+            if (daysRemaining > 1) {
+              return `Open, closing in ${daysRemaining} days`
+            } else if (daysRemaining === 1) {
+              return `Open, closing in ${daysRemaining} day`
+            }
+            return `Open, closing today`
+          }
         }
       }
+    }
+  },
+  methods: {
+    calcFunding (from, to) {
+      if (from > 0 && to > 0) {
+        if (from === to) {
+          return formatMoney(from)
+        } else {
+          return `${formatMoney(from)} - ${formatMoney(to)}`
+        }
+      } else if (from === 0 && to > 0) {
+        return `$0 - ${formatMoney(to)}`
+      } else if (from > 0 && to === 0) {
+        return formatMoney(from)
+      } else {
+        return null
+      }
+    },
+    calcStatus (startDate, endDate, terms = this.statusTerms) {
+      if (startDate || endDate) {
+        const now = moment()
+        const start = startDate ? moment(startDate) : null
+        const end = endDate ? moment(endDate) : null
+
+        if (start) {
+          if (now.isAfter(start)) {
+            if (end) {
+              if (now.isBefore(end)) {
+                // displays status as "Open, closing in x days" when current date is more start date and less than end date
+                return terms.closingSoon(end, now)
+              } else {
+                // displays status as "closed" when current date is after start date and after end date
+                return terms.closed
+              }
+            } else {
+              // displays status as "Ongoing" if there is no end date and the current date is after the start date
+              return terms.ongoing
+            }
+          }
+          // displays status as "Opening on startdate" when current date is within one month of startdate
+          if (now.isBetween(moment(start).subtract(1, 'months'), start)) {
+            return terms.openingSoon(this.formatDate(startDate))
+          }
+          // displays status as "Closed" when current date is more than one month of startdate
+          return terms.closed
+        } else {
+          if (end) {
+            if (now.isBefore(end)) {
+              // displays status as "Open, closing in x days" when current date is more start date and less than end date
+              return terms.closingSoon(end, now)
+            } else {
+              return terms.closed
+            }
+          } else {
+            // displays status as "Ongoing" if there is no start or end date
+            return terms.ongoing
+          }
+        }
+      }
+      // displays status as "Ongoing" if there is no start or end date
+      return terms.ongoing
     }
   },
   computed: {
     list () {
       let list = []
       if (this.funding) {
-        const calcFunding = (funding) => {
-          if (funding.from > 0 && funding.to > 0) {
-            if (funding.from === funding.to) {
-              return formatMoney(funding.from)
-            } else {
-              return `${formatMoney(funding.from)} - ${formatMoney(funding.to)}`
-            }
-          } else if (funding.from === 0 && funding.to > 0) {
-            return `$0 - ${formatMoney(funding.to)}`
-          } else if (funding.from > 0 && funding.to === 0) {
-            return formatMoney(funding.from)
-          } else {
-            return null
-          }
-        }
-        const fundingLevel = calcFunding(this.funding)
+        const fundingLevel = this.calcFunding(this.funding.from, this.funding.to)
 
         if (fundingLevel) {
           list.push({
             symbol: 'dollar_negative',
-            size: '1.666',
-            text: fundingLevel
+            size: (20 / 12),
+            text: fundingLevel,
+            id: 'grants-funding'
           })
         }
       }
       if (this.audience) {
         list.push({
           symbol: 'user',
-          size: '1.666',
-          text: this.audience
+          size: (20 / 12),
+          text: this.audience,
+          id: 'grants-audience'
         })
       }
 
-      let status = this.statusTerms.ongoing
-      if (this.startdate || this.enddate) {
-        const now = moment()
-        const start = this.startdate ? moment(this.startdate) : null
-        const end = this.enddate ? moment(this.enddate) : null
-        if (start) {
-          if (now.isAfter(start)) {
-            if (end) {
-              if (now.isBefore(end)) {
-                status = this.statusTerms.open
-              } else {
-                status = this.statusTerms.closed
-              }
-            } else {
-              status = this.statusTerms.ongoing
-            }
-          } else {
-            status = this.statusTerms.openingsoon
-          }
-        } else {
-          if (end) {
-            if (now.isBefore(end)) {
-              status = this.statusTerms.open
-            } else {
-              status = this.statusTerms.closed
-            }
-          } else {
-            status = this.statusTerms.ongoing
-          }
-        }
-      }
+      const status = this.calcStatus(this.startdate, this.enddate, this.statusTerms)
+
       list.push({
         symbol: status === 'Closed' ? 'cross_circle' : 'success',
         color: status === 'Closed' ? 'danger' : 'success',
-        size: '0.8333',
-        text: status
+        size: status === 'Closed' ? (20 / 24) : 1,
+        text: status,
+        id: 'grants-status'
       })
 
       return list.length > 0 ? list : null

@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     clickExpand () {
-      console.log('click expand')
       this.$emit('click')
     }
   }

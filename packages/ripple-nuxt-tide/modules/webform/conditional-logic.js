@@ -1,3 +1,5 @@
+import { logger } from './../../lib/core'
+
 /**
  * Run tests for field.
  * Will update the field object based on it's state.
@@ -24,7 +26,7 @@ function testField (field, data) {
         }
         break
       default:
-        console.warn(`Form: State "${state}" is not supported.`)
+        logger.warn('Form: State "%s" is not supported.', state, { label: 'Webform' })
         break
     }
   }
@@ -63,7 +65,7 @@ function prepareTest (rulesObject, data) {
       })
       break
     default:
-      console.warn(`Form: "${rulesType}" rules variable is not supported.`)
+      logger.warn('Form: %s rules variable is not supported.', rulesType, { label: 'Webform' })
       break
   }
 
@@ -150,7 +152,7 @@ function performTriggerCheck (rule) {
       result = (rule.modelValue !== rule.triggerValue)
       break
     default:
-      console.warn(`Form: Trigger "${rule.triggerName}" is not supported.`)
+      logger.warn('Form: Trigger %s is not supported.', rule.triggerName, { label: 'Webform' })
       break
   }
   return result
@@ -194,7 +196,7 @@ function performOperatorCheck (operator, results) {
       isPass = (xorCount === 1)
       break
     default:
-      console.warn(`Form: Opeator "${operator}" not supported.`)
+      logger.warn('Form: Operator %s not supported.', operator, { label: 'Webform' })
       break
   }
   return isPass

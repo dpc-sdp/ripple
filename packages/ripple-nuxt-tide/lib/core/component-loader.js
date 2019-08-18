@@ -1,4 +1,5 @@
 import coreComponents from './../config/tide.load-components'
+import logger from './logger'
 
 // The order of loading dynamic components config is custom module > custom root > core modules > core.
 const loadComponent = (name, dynamicComponentsConfig) => {
@@ -102,7 +103,7 @@ const loadComponent = (name, dynamicComponentsConfig) => {
         return coreComponents[name]
       } else {
         if (process.server) {
-          console.error(`Failed to load component: ${name}`)
+          logger.error(`Couldn't find component "%s" in mapping config.`, name)
         }
         return null
       }

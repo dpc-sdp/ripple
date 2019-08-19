@@ -19,9 +19,10 @@ ENV CONTENT_API_AUTH_USER ${CONTENT_API_AUTH_USER}
 
 WORKDIR /app/examples/vic-gov-au/
 
+RUN yarn run build
+
 # force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
 RUN  . /home/.bashrc \
-    && yarn run build \
     && chmod -R 755 ~/.config \
     # For JIRA commit script work.
     && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi

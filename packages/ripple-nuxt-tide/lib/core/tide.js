@@ -110,7 +110,7 @@ export const tide = (axios, site, config) => ({
     ]
 
     if (this.isModuleEnabled('alert')) {
-      include.push(['site_alerts', 'site_alerts.field_alert_type'])
+      include.push(['site_alerts', 'site_alerts.field_alert_type', 'site_alerts.field_node_site'])
     }
 
     const menuFields = this.getMenuFields()
@@ -130,8 +130,7 @@ export const tide = (axios, site, config) => ({
         }
       }
       const response = await this.get(`taxonomy_term/sites`, params)
-      console.log(response)
-      if (response === undefined || response.error) {
+      if (!response || response.error) {
         return new Error('Could not get site data. Please check your site id and Tide site setting.')
       }
       siteData = jsonapiParse.parse(response).data[0]

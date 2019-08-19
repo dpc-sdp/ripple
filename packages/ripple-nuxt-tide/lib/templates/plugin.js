@@ -120,7 +120,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
           commit('setSiteData', siteData)
           if (config.modules.alert === 1) {
             if (siteData.site_alerts && siteData.site_alerts.length > 0) {
-              await store.dispatch('tideAlerts/setAlerts', siteData.site_alerts)
+              await store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })
             }
           }
         },

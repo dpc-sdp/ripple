@@ -25,3 +25,18 @@ Then(`the site header is visible`, () => {
 Then(`the site footer is visible`, () => {
   cy.get('.rpl-site-footer').should('be.visible')
 })
+
+// Global Notifications (Alerts)
+
+Then(`I should see {int} global notification`, (alertCount) => {
+  cy.get('.tide-alert .rpl-alert').should('have.length', alertCount)
+})
+
+Then(`there should be the following global notifications:`, (dataTable) => {
+  const alerts = dataTable.rawTable.slice(1)
+  alerts.forEach((link, index) => {
+    cy.get('.rpl-alert').eq(index).then(alert => {
+
+    })
+  })
+})

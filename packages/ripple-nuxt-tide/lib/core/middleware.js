@@ -189,15 +189,15 @@ export default async function (context, results) {
           }
         }
         // site section nav
-        if (results.tidePage.section !== context.store.state.tide.siteData.drupal_internal__tid) {
+        if (results.tidePage.section) {
           const addSectionNavMenu = await context.app.$tide.getSiteData(results.tidePage.section).then(async siteData => {
-            // Section navigation component will only use the main menu.
-            // save alerts if sitesection has them
+            // save alerts if site section has them
             if (context.app.$tide.isModuleEnabled('alert')) {
               if (siteData.site_alerts && siteData.site_alerts.length > 0) {
-                await context.store.dispatch('tideAlerts/setAlerts', siteData.site_alerts)
+                await context.store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })
               }
             }
+            // Section navigation component will only use the main menu.
             return siteData.hierarchicalMenus.menuMain
           })
           if (results.tidePage.field_show_site_section_nav && addSectionNavMenu && results.tidePage.field_landing_page_nav_title) {

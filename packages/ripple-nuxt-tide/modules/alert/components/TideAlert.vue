@@ -39,22 +39,10 @@ export default {
     alerts () {
       const alerts = this.$store.getters['tideAlerts/getAlerts']
         .filter(alert => {
-          if (this.dismissed && this.dismissed.length > 0 && this.dismissed.includes(alert.id)) {
+          if (alert && this.dismissed && this.dismissed.length > 0 && this.dismissed.includes(alert.id)) {
             return false
           }
           return alert
-        })
-        .map(alert => {
-          return {
-            id: alert.id,
-            changed: alert.changed,
-            title: get(alert, 'title', ''),
-            type: get(alert, 'field_alert_type.name', 'Notification'),
-            link: alert.field_call_to_action ? {
-              url: alert.field_call_to_action.url || alert.field_call_to_action.uri,
-              text: alert.field_call_to_action.title
-            } : false
-          }
         })
 
       if (alerts && alerts.length > 0) {

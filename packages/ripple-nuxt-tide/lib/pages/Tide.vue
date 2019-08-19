@@ -128,6 +128,9 @@ export default {
     if (this.page.sidebarComponents && this.page.sidebarComponents.length > 0) {
       this.sidebarComponents = this.$tide.getDynamicComponents(this.page.sidebarComponents, this.page.sidebar)
     }
+    if (this.page.section) {
+      this.$store.commit('tideSite/setSiteSection', parseInt(this.page.section, 10))
+    }
   },
   methods: {
     searchFunc (searchInput, contentType) {

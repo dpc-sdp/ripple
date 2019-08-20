@@ -82,7 +82,7 @@ export default {
           title: this.page.field_node_guidelines.field_paragraph_title,
           accordions: this.page.field_node_guidelines.field_paragraph_accordion ? this.page.field_node_guidelines.field_paragraph_accordion.map(acc => ({
             title: acc.field_paragraph_accordion_name,
-            content: acc.field_paragraph_accordion_body.processed
+            content: acc.field_paragraph_accordion_body ? acc.field_paragraph_accordion_body.processed : ''
           })) : []
         }
       }

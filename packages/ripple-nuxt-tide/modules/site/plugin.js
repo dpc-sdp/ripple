@@ -1,6 +1,5 @@
 import { get } from 'lodash'
 import moment from 'moment'
-import { log } from 'util';
 
 export default ({ app, store }) => {
   // Register Tide Site Vuex module
@@ -44,7 +43,6 @@ export default ({ app, store }) => {
         const lastFetchedTime = moment(lastFetched)
         const now = moment()
         if (now.diff(lastFetchedTime, 'minutes') >= fetchInterval) {
-          console.log('1 MINUTE ELAPSED - FETCH NEW SITE DATA')
           store.dispatch('tide/setSiteData')
         }
       }

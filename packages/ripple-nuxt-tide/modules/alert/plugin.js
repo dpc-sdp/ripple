@@ -1,5 +1,3 @@
-import { log } from 'util';
-
 import { get } from 'lodash'
 
 export default function ({ app, store }) {

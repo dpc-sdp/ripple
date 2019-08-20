@@ -8,7 +8,7 @@
 
 <script>
 import { RplAlert } from '@dpc-sdp/ripple-alert'
-import { get, sortBy } from 'lodash'
+import { sortBy } from 'lodash'
 import Cookies from 'js-cookie'
 
 export default {

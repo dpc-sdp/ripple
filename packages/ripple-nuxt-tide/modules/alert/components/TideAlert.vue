@@ -44,6 +44,14 @@ export default {
           }
           return alert
         })
+        .map(alert => {
+          return {
+            title: alert.title,
+            type: alert.type,
+            link: alert.link,
+            id: alert.id
+          }
+        })
 
       if (alerts && alerts.length > 0) {
         // Sort by non notifications first then most recently changed

@@ -1,6 +1,6 @@
 - entity: node
   type: alert
-  title: 1-BE-Alert-1 Demo Alert
+  title: 1-BE-Alert-3 Demo Alert
   uid: 1
   status: 1
   moderation_state:
@@ -20,7 +20,7 @@
         args:
           - taxonomy_term
           - vid: alert_type
-            name: 'Demo Alert Type'
+            name: 'Flood'
   # Sites.
   field_node_site:
     - '#process':
@@ -28,19 +28,7 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
             name: 'Demo Section 1'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'vic.gov.au'
   field_node_primary_site:
     - '#process':
         callback: reference

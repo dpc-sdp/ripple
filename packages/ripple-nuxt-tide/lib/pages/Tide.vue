@@ -20,7 +20,7 @@
           v-bind="heroBanner.data"
           class="rpl-site-constrain--on-all"
         />
-        <rpl-acknowledgement v-if="page.field_show_ack_to_country" :text="acknowledgement" theme="standalone" />
+        <rpl-acknowledgement v-if="page.field_show_ack_of_country" :text="acknowledgement" theme="standalone" />
       </template>
 
       <template slot="aboveContentTwo">

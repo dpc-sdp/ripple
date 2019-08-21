@@ -108,57 +108,59 @@ export const tide = (axios, site, config) => ({
       'field_site_footer_logos.field_paragraph_media',
       'field_site_footer_logos.field_paragraph_media.field_media_image'
     ]
+
+    if (this.isModuleEnabled('alert')) {
+      include.push(['site_alerts', 'site_alerts.field_alert_type', 'site_alerts.field_node_site'])
+    }
+
     const menuFields = this.getMenuFields()
     for (let menu in menuFields) {
       include.push(menuFields[menu])
     }
-
     const params = { include: include.toString() }
 
-    let sitesData = await this.getSitesData(params)
+    // let sitesData = null
+    let siteData = null
 
-    if (sitesData instanceof Error) {
-      return sitesData
-    }
-
-    if (sitesData) {
-      let siteData = null
-      sitesData.map((item) => {
-        if (item.drupal_internal__tid.toString() === siteId.toString()) {
-          siteData = item
+    if (siteId !== null) {
+      params.filter = {
+        drupal_internal__tid: {
+          path: 'drupal_internal__tid',
+          value: siteId
         }
-      })
-
-      if (siteData === null) {
+      }
+      const response = await this.get(`taxonomy_term/sites`, params)
+      if (!response || response.error) {
         return new Error('Could not get site data. Please check your site id and Tide site setting.')
       }
-
-      try {
-        siteData.menus = await this.getSiteMenus(siteData)
-      } catch (error) {
-        if (process.server) {
-          logger.error('Get menus from Tide failed:', { error })
-        }
-      }
-
-      try {
-        siteData.hierarchicalMenus = menuHierarchy.getHierarchicalMenu(siteData.menus)
-      } catch (error) {
-        if (process.server) {
-          logger.error('Get hierarchical menu failed.', { error })
-        }
-        siteData.hierarchicalMenus = this.getMenuFields()
-        for (let menuField in siteData.hierarchicalMenus) {
-          siteData.hierarchicalMenus[menuField] = []
-        }
-      }
-
-      siteData.siteLogo = this.getSiteLogo(siteData)
-      siteData.errorPage = config.customConfig.errorPage
-
-      // TODO: We may only return the siteData element we need, instead of return all data from Drupal.
-      return siteData
+      siteData = jsonapiParse.parse(response).data[0]
     }
+
+    try {
+      siteData.menus = await this.getSiteMenus(siteData)
+    } catch (error) {
+      if (process.server) {
+        logger.error('Get menus from Tide failed:', { error })
+      }
+    }
+
+    try {
+      siteData.hierarchicalMenus = menuHierarchy.getHierarchicalMenu(siteData.menus)
+    } catch (error) {
+      if (process.server) {
+        logger.error('Get hierarchical menu failed.', { error })
+      }
+      siteData.hierarchicalMenus = this.getMenuFields()
+      for (let menuField in siteData.hierarchicalMenus) {
+        siteData.hierarchicalMenus[menuField] = []
+      }
+    }
+
+    siteData.siteLogo = this.getSiteLogo(siteData)
+    siteData.errorPage = config.customConfig.errorPage
+
+    // TODO: We may only return the siteData element we need, instead of return all data from Drupal.
+    return siteData
   },
 
   getSiteMenus: async function (siteData) {

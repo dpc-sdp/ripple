@@ -189,12 +189,18 @@ export default async function (context, results) {
           }
         }
         // site section nav
-        if (results.tidePage.field_show_site_section_nav) {
-          const addSectionNavMenu = await context.app.$tide.getSiteData(results.tidePage.section).then(appSectionData => {
+        if (results.tidePage.section) {
+          const addSectionNavMenu = await context.app.$tide.getSiteData(results.tidePage.section).then(async siteData => {
+            // save alerts if site section has them
+            if (context.app.$tide.isModuleEnabled('alert')) {
+              if (siteData.site_alerts && siteData.site_alerts.length > 0) {
+                await context.store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })
+              }
+            }
             // Section navigation component will only use the main menu.
-            return appSectionData.hierarchicalMenus.menuMain
+            return siteData.hierarchicalMenus.menuMain
           })
-          if (addSectionNavMenu && results.tidePage.field_landing_page_nav_title) {
+          if (results.tidePage.field_show_site_section_nav && addSectionNavMenu && results.tidePage.field_landing_page_nav_title) {
             results.tidePage.sidebarComponents.push({
               name: 'rpl-site-section-navigation',
               order: 100,

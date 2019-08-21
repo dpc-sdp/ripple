@@ -73,10 +73,6 @@ Then(`I should reset authenticated content in the backend to :`, (dataTable) => 
   cy.task('configureProtectedContent', options)
 })
 
-When(`I wait for {int} seconds`, seconds => {
-  cy.wait(seconds * 1000)
-})
-
 Then(`the menu should have {int} top level items`, (number) => {
   cy.get('.rpl-menu__items--root').children().should('have.length', number)
 })

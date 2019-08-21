@@ -94,11 +94,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
       actions: {
         async init ({ commit, dispatch }) {
           if (process.server) {
-            const siteData = await app.$tide.getSiteData()
-            if (siteData instanceof Error) {
-              throw siteData
-            }
-            commit('setSiteData', siteData)
+            await dispatch('setSiteData')
             commit('setHost', req.headers.host)
 
             // Set protocol
@@ -109,13 +105,22 @@ export default ({ env, app, req, res, store , route}, inject) => {
             if (config.modules.site === 1) {
               await store.dispatch('tideSite/init')
             }
-            // Load alert module store.
-            if (config.modules.alert === 1) {
-              await store.dispatch('tideAlerts/init')
-            }
             // Load authenticated content store.
             if (config.modules.authenticatedContent === 1) {
               serverSetProperties(req.headers.cookie, route.path, store)
+            }
+          }
+        },
+        async setSiteData ({ commit }) {
+          const siteData = await app.$tide.getSiteData()
+          if (siteData instanceof Error) {
+            throw siteData
+          }
+          siteData.lastFetched = Date.now()
+          commit('setSiteData', siteData)
+          if (config.modules.alert === 1) {
+            if (siteData.site_alerts && siteData.site_alerts.length > 0) {
+              await store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })
             }
           }
         },

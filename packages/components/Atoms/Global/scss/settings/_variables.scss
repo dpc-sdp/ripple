@@ -16,6 +16,10 @@ $rpl-typography: (
   'copy_extra_small': ('xxs', 1em, 'regular')
 ) !default;
 
+// Display heading colours
+$rpl-display-background-color: rpl-color('secondary') !default;
+$rpl-display-text-color: rpl-color('white') !default;
+
 // Spacing
 $rpl-space: .25rem !default;
 $rpl-space-2: .5rem !default;

@@ -127,6 +127,8 @@ export default (config, router, site) => ({
       for (const key in updates.filters) {
         if (filterFromURI.includes(key)) {
           delete updates.filters[key]
+        } else if (filterFromURI.includes('*')) {
+          updates.filters = {}
         }
       }
     }
@@ -227,7 +229,7 @@ export default (config, router, site) => ({
    * @param {Object}  searchForm
    * @param {Object}  query
    */
-  setFiltersOnCreate: function (searchForm, query = {}) {
+  setFiltersOnCreate: function (searchForm = {}, query = {}) {
     query = router.currentRoute.query
     searchForm.prefillSearchTerm = query.q || ''
     // Populate the filters.

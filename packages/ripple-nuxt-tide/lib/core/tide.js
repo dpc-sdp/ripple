@@ -258,7 +258,7 @@ export const tide = (axios, site, config) => ({
     tideIncludeConfig = helper.mergeIncludes(tideIncludeConfig, customConfig)
     // Custom content types are supported.
     // Just need to add it in Nuxt tide.config.js.
-    // However, custome entity type is not supported, must be added in here.
+    // However, custom entity type is not supported, must be added in here.
     switch (pathData.entity_type) {
       // media entity
       case 'media':
@@ -273,7 +273,14 @@ export const tide = (axios, site, config) => ({
             break
         }
         break
-
+      case 'taxonomy_term':
+        switch (pathData.bundle) {
+          case 'tags':
+          case 'topic':
+            include = []
+            break
+        }
+        break
       // node entity
       default:
         // Convert Tide bundle name to camelcase.

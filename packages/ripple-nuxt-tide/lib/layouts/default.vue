@@ -95,7 +95,20 @@ export default {
       return false
     }
   },
+  mounted () {
+    // https://github.com/nuxt/nuxt.js/issues/183#issuecomment-276528719
+    // Seems like nuxt doesn't pass url hash to vue router in SSR.
+    // That means anchor link url like "/ndis-quality-and-safeguards#ndis-worker-screening" won't work in SSR.
+    // Here is a workaround inspired by https://forum.vuejs.org/t/how-to-handle-anchors-bookmarks-with-vue-router/14563/5
+    if (this.$route.hash) {
+      this.anchorScrollFix(this.$route.hash)
+    }
+  },
   methods: {
+    anchorScrollFix (hashbang) {
+      const elmnt = document.querySelector(hashbang)
+      elmnt.scrollIntoView()
+    },
     async logoutFunc () {
       if (this.$tide.isModuleEnabled('authenticatedContent')) {
         try {
@@ -103,9 +116,11 @@ export default {
           clientClearToken(this.$store)
           this.$router.push({ path: '/' })
         } catch (e) {
+          // TODO: we should display error to user instead of log here.
           console.log(`Tide logout failed`)
         }
       } else {
+        // TODO: we should display error to user instead of log here.
         console.warn(`Authentication module is disabled - unable to log out`)
       }
     },

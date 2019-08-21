@@ -341,7 +341,6 @@ export default {
       }
     },
     toggleExpand () {
-      console.log('expand')
       this.expanded = !this.expanded
       this.refreshMapSize()
     },
@@ -379,8 +378,12 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
 .tide-map {
-  &tide-map__title {
+  &__title {
     @include rpl_mobile_padding;
+
+    @include rpl_breakpoint_down(m) {
+      font-size: 1em !important;
+    }
 
     @include rpl_breakpoint(m) {
       padding-left: 0;
@@ -445,9 +448,6 @@ export default {
 
 /* Do the following when small(narrow) screen */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 1em !important;
-  }
   .tide-map__container {
     .rpl-text-label--emphasis.rpl-text-label--small {
       font-size: 0.75rem;

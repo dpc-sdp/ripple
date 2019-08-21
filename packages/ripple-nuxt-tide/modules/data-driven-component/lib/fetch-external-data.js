@@ -1,3 +1,5 @@
+// TODO: This file seems to be redundant, need to be removed. https://digital-engagement.atlassian.net/browse/SDPA-3033
+
 /**
  * This module is used when Drupal delivers a
  * Data-Driven Component as a Paragraph on a
@@ -22,11 +24,9 @@ export default async function fetchDataFromExternalSource (newConfig) {
     requestName: 'wifimap',
     apiUrl: 'https://prod-gis.myvictoria.vic.gov.au'
   }
-  console.log(config)
 
   try {
     const res = await axios.get(config.apiUrl)
-    console.log('response from module', res)
     return res
   } catch (err) {
     throw new Error(`${err.toString()}`)

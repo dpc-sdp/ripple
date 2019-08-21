@@ -1,6 +1,7 @@
 <template>
   <div class="app-content-rating">
     <rpl-form
+    id="app-content-rating-form"
     :formData="formData"
     :submitHandler="submitForm"
     :hideAfterSuccess=true
@@ -133,6 +134,17 @@ export default {
           }
         }
       } else {
+        // push data to GTM
+        if (this.$gtm) {
+          this.$gtm.pushEvent({
+            event: 'contentRatingFormSubmission',
+            category: 'Was this page helpful',
+            action: this.formData.model.was_this_page_helpful,
+            label: 'Comment',
+            value: this.formData.model.comments
+          })
+        }
+
         const res = await this.$tide.postForm(formId, formData)
 
         if (res) {

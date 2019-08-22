@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 
 import { RplDivider } from '@dpc-sdp/ripple-global'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
@@ -94,6 +95,16 @@ export default {
     }
   },
   methods: {
+    getComputedFilters () {
+      // Filter 'date' to end of day.
+      const filterDate = this.searchForm.filterForm.model.field_event_date_end_value
+      if (filterDate) {
+        const filterDateEnd = moment(filterDate).endOf('day').toISOString()
+        this.searchForm.filterForm.model.field_event_date_end_value = filterDateEnd
+      }
+
+      return this.$tideSearch.getFiltersValues(this.searchForm.filterForm)
+    },
     mapSearchResults (source) {
       let pSite = ''
       if (source.field_node_primary_site) {

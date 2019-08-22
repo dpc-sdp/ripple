@@ -19,7 +19,7 @@ export const tide = (axios, site, config) => ({
    * @param {String} resource Resource type e.g. <entity type>/<bundle>
    * @param {Object} params Object to convert to QueryString. Passed in URL.
    * @param {String} id Resource UUID
-   * @param {Object} headersConfig Object of headers config
+   * @param {Object} headersConfig Tide API request headers config object:{ authToken: '', requestId: '' }
    */
   get: async function (resource, params = {}, id = '', headersConfig = {}) {
     // axios config

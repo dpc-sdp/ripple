@@ -28,7 +28,7 @@ if (!process.client) {
 
 // Format for our console output.
 const printFormat = format.printf(info => {
-  const { timestamp, message, level, label, error } = info
+  const { timestamp, message, level, label, error, ...rest } = info
   const printLabel = label ? `[${label}] ` : ' '
   let log = `${timestamp} ${printLabel}${level} ${message}`
   // Only if there is an error
@@ -36,6 +36,8 @@ const printFormat = format.printf(info => {
   if (error) {
     log = error.stack ? `${log}\n${error.stack}` : log
   }
+
+  log += ' ' + JSON.stringify(rest)
   return log
 })
 

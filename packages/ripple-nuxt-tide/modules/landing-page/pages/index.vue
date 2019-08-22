@@ -13,18 +13,23 @@
         <component v-else :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
       </rpl-col>
     </template>
+    <rpl-col v-if="page.field_show_topic_term_and_tags" cols="full">
+      <app-topic-tags :topic="this.page.field_topic" :tags="this.page.field_tags" />
+    </rpl-col>
   </rpl-row>
 </template>
 
 <script>
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
+import AppTopicTags from '../../../lib/components/AppTopicTags'
 
 export default {
   components: {
     RplAnchorLinks,
     RplRow,
-    RplCol
+    RplCol,
+    AppTopicTags
   },
   data () {
     return {

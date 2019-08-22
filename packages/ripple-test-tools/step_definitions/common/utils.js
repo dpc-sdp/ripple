@@ -1,7 +1,7 @@
 /* global cy, Cypress */
 /* eslint jest/valid-expect: "off" */
 
-const { Then, Given } = require('cypress-cucumber-preprocessor/steps')
+const { Then, Given, When } = require('cypress-cucumber-preprocessor/steps')
 
 Given(`that the current date is {string}`, (datestring) => {
   const now = new Date(datestring).getTime()
@@ -35,4 +35,8 @@ Then(`the response code should be {int}`, (statusExp) => {
   cy.get('@request').should((response) => {
     expect(response.status).to.eq(statusExp)
   })
+})
+
+When(`I wait for {int} seconds`, seconds => {
+  cy.wait(seconds * 1000)
 })

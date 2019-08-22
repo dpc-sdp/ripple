@@ -21,7 +21,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
   app.$axios.onRequest(config => {
     // Log all axios' requests
     if (process.server) {
-      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios'})
+      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios', requestId: config.headers['X-Request-Id']})
       logger.debug('Headers %O', config.headers, {label: 'Axios'})
     }
   })
@@ -92,13 +92,9 @@ export default ({ env, app, req, res, store , route}, inject) => {
         }
       },
       actions: {
-        async init ({ commit, dispatch }) {
+        async init ({ commit, dispatch }, { requestId = null } = {}) {
           if (process.server) {
-            const siteData = await app.$tide.getSiteData()
-            if (siteData instanceof Error) {
-              throw siteData
-            }
-            commit('setSiteData', siteData)
+            await dispatch('setSiteData', { requestId })
             commit('setHost', req.headers.host)
 
             // Set protocol
@@ -107,15 +103,25 @@ export default ({ env, app, req, res, store , route}, inject) => {
 
             // Load site module store.
             if (config.modules.site === 1) {
-              await store.dispatch('tideSite/init')
-            }
-            // Load alert module store.
-            if (config.modules.alert === 1) {
-              await store.dispatch('tideAlerts/init')
+              await store.dispatch('tideSite/init', { requestId })
             }
             // Load authenticated content store.
             if (config.modules.authenticatedContent === 1) {
               serverSetProperties(req.headers.cookie, route.path, store)
+            }
+          }
+        },
+        async setSiteData ({ commit }, { requestId = null } = {}) {
+          const headersConfig = { requestId }
+          const siteData = await app.$tide.getSiteData(headersConfig)
+          if (siteData instanceof Error) {
+            throw siteData
+          }
+          siteData.lastFetched = Date.now()
+          commit('setSiteData', siteData)
+          if (config.modules.alert === 1) {
+            if (siteData.site_alerts && siteData.site_alerts.length > 0) {
+              await store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })
             }
           }
         },

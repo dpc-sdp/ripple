@@ -218,3 +218,8 @@ Then(`the share this links should read "open in a new window" to screen readers`
     expect(link).to.contain.text('opens a new window')
   })
 })
+
+// Search results
+Then(`the search results component should exist`, () => {
+  cy.get('.rpl-search-results').should('exist')
+})

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/create-ripple-app",
-  "version": "1.0.0",
+  "version": "1.1.0-alpha.0",
   "description": "Create a ripple app in seconds!",
   "bin": {
     "create-ripple-app": "cli.js"

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-test-tools",
-  "version": "1.0.0",
+  "version": "1.1.0-alpha.0",
   "description": "Cypress.io helper library for testing a ripple nuxt site and tide backend",
   "license": "Apache-2.0",
   "contributors": [
@@ -18,9 +18,9 @@
     "access": "public"
   },
   "peerDependencies": {
+    "axe-core": "^3.3.1",
     "cypress": "^3.1.5",
     "cypress-axe": "^0.4.0",
-    "cypress-cucumber-preprocessor": "^1.11.0",
-    "axe-core": "^3.3.1"
+    "cypress-cucumber-preprocessor": "^1.11.0"
   }
 }

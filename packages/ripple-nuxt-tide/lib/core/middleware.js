@@ -1,6 +1,7 @@
 import { metatagConverter, pathToClass } from './tide-helper'
 import { isTokenExpired, clientGetToken, serverGetToken, clientClearToken, clientSetProperties } from '../../modules/authenticated-content/lib/authenticate'
 import { isPreviewPath } from '../../modules/authenticated-content/lib/preview'
+import { clientDoNotTrack, serverDoNotTrack } from './tracking'
 import logger from './logger'
 
 // Fetch page data from Tide API by current path
@@ -299,6 +300,9 @@ export default async function (context, pageData) {
       const path = pageData.tidePage.path ? pageData.tidePage.path.alias : context.route.path
       pageData.tidePage.breadcrumbs = breadcrumbs(path, pageData.tidePage.appPageTitle, context.store.state.tide.siteData.hierarchicalMenus.menuMain)
     }
+
+    // Do Not Track
+    pageData.tidePage.doNotTrack = process.server ? serverDoNotTrack(context.req.headers) : clientDoNotTrack()
 
     // Load all components asynchronously, allow fail
     asyncTasks = asyncTasks.map(task => task.catch(error => {

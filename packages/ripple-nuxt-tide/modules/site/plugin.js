@@ -19,9 +19,11 @@ export default ({ app, store }) => {
         }
       },
       actions: {
-        async init ({ commit }) {
+        async init ({ commit }, { requestId = null } = {}) {
           if (process.server) {
-            const sitesDomainMap = await app.$tide.getSitesDomainMap()
+            const headersConfig = { requestId }
+            // TODO: This request may unnecessary, as we should able to get from other request.
+            const sitesDomainMap = await app.$tide.getSitesDomainMap(headersConfig)
             commit('setSitesDomainMap', sitesDomainMap)
           }
         }

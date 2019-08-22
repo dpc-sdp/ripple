@@ -302,7 +302,7 @@ export default async function (context, pageData) {
     }
 
     // Do Not Track
-    results.tidePage.doNotTrack = process.server ? serverDoNotTrack(context.req.headers) : clientDoNotTrack()
+    pageData.tidePage.doNotTrack = process.server ? serverDoNotTrack(context.req.headers) : clientDoNotTrack()
 
     // Load all components asynchronously, allow fail
     asyncTasks = asyncTasks.map(task => task.catch(error => {

@@ -13,7 +13,7 @@
       <rpl-button :href="cta.url" theme="primary">{{cta.text}}</rpl-button>
     </rpl-col>
     <!-- Tags here -->
-    <img v-if="atdwTackingBeacon" :src="atdwTackingBeacon" width="1" height="1" border="0" />
+    <img v-if="atdwTrackingBeacon" :src="atdwTrackingBeacon" width="1" height="1" border="0" />
   </rpl-row>
 </template>
 

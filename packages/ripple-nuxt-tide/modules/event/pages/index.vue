@@ -110,7 +110,7 @@ export default {
 
       return list
     },
-    atdwTackingBeacon () {
+    atdwTrackingBeacon () {
       return (!this.page.doNotTrack && this.page.field_tracking_beacon) || false
     }
   }

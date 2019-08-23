@@ -1,4 +1,5 @@
 // Filters for adding extra process on a mapping value
+import { logger } from './../../lib/core'
 
 // Create more filters if need.
 module.exports = {
@@ -83,12 +84,12 @@ module.exports = {
         const items = carousel.field_paragraph_items
         items.map(async item => {
           try {
-            // Use await here won't block any process as card mapping is not requriring any Tide requests
+            // Use await here won't block any process as card mapping is not requiring any Tide requests
             const card = await mapping.get(item, 'landingPageComponents')
             cards.push(card)
-          } catch (e) {
+          } catch (error) {
             if (process.server) {
-              console.error(e)
+              logger.error('Failed to get card for carousel.', { error, label: 'Landing page' })
             }
           }
         })
@@ -101,9 +102,9 @@ module.exports = {
             const fetcher = require('@dpc-sdp/ripple-nuxt-tide/modules/news/mapping-fetchers').latestNewsCards
             const latestNewsCardList = await mapping.fetch(fetcher)
             cards = await mapping.filter(latestNewsCardList, ['latestNewsCards'])
-          } catch (e) {
+          } catch (error) {
             if (process.server) {
-              console.error(e)
+              logger.error('Failed to get news card for carousel.', { error, label: 'Landing page' })
             }
           }
         }
@@ -114,9 +115,9 @@ module.exports = {
           try {
             const { getCardCarouselEvents } = require('@dpc-sdp/ripple-nuxt-tide/modules/event/helpers')
             cards = await getCardCarouselEvents(mapping)
-          } catch (e) {
+          } catch (error) {
             if (process.server) {
-              console.error(e)
+              logger.error('Failed to get event card for carousel.', { error, label: 'Landing page' })
             }
           }
         }

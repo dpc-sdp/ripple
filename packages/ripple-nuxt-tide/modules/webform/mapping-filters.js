@@ -1,3 +1,5 @@
+import { logger } from './../../lib/core'
+
 module.exports = {
   // Convert Drupal webform data struture to Vue Form Generator structure
   webform: async (drupalFormEntity, { mapping }) => {
@@ -118,8 +120,14 @@ module.exports = {
 
         case 'radios':
           field.type = 'radios'
+          const defaultValue = element['#default_value']
           const fields = element['#options']
           field.values = []
+
+          if (defaultValue && fields[defaultValue]) {
+            data.model[eName] = defaultValue
+          }
+
           for (let key in fields) {
             if (fields.hasOwnProperty(key)) {
               field.values.push({ name: fields[key], value: key })
@@ -335,7 +343,7 @@ module.exports = {
         data.schema.groups.push({ 'fields': [field] })
       } else {
         if (process.server) {
-          console.error(new Error(`Webform element type "${element['#type']}" is not supported in nuxt-tide at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`))
+          logger.warn(`Webform element type "%s" is not supported in nuxt-tide at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`, element['#type'], { label: 'Webform' })
         }
       }
     }

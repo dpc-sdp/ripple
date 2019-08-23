@@ -33,13 +33,22 @@ export default {
   },
   data: function () {
     return {
-      isNuxtLink: false,
-      linkTarget: null
+      isNuxtLink: false
     }
   },
   computed: {
     printUrl () {
       return isRelativeUrl(this.href) ? `${this.rplOptions.origin}${this.href}` : this.href
+    },
+    linkTarget () {
+      // Set link target for non nuxt-links, if global option is true
+      if (this.target.length === 0 && this.rplOptions.externalLinksInNewWindow) {
+        if (isExternalUrl(this.href, this.rplOptions.hostname)) {
+          return '_blank'
+        }
+      } else {
+        return this.target
+      }
     }
   },
   methods: {
@@ -56,14 +65,6 @@ export default {
   created: function () {
     if (!isAnchorLink(this.href) && isRelativeUrl(this.href)) {
       this.isNuxtLink = this.rplOptions.nuxt
-    }
-    // Set link target for non nuxt-links
-    if (this.target.length === 0) {
-      if (isExternalUrl(this.href, this.rplOptions.hostname)) {
-        this.linkTarget = '_blank'
-      }
-    } else {
-      this.linkTarget = this.target
     }
   }
 }

@@ -1,12 +1,14 @@
 import { storiesOf } from '@storybook/vue'
-import RplSiteFooter from './index.vue'
+import { RplSiteFooter, RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 
 import {
+  withKnobs,
   text,
   object
 } from '@storybook/addon-knobs/vue'
 
 storiesOf('Organisms/SiteFooter', module)
+  .addDecorator(withKnobs)
   .add('Site footer', () => ({
     components: { RplSiteFooter },
     template: `
@@ -18,9 +20,9 @@ storiesOf('Organisms/SiteFooter', module)
         :logos="logos"
       />
     `,
-    data () {
-      return {
-        nav: object('Nav', [
+    props: {
+      nav: {
+        default: object('Nav', [
           {
             text: 'Your Services',
             url: '#',
@@ -147,8 +149,10 @@ storiesOf('Organisms/SiteFooter', module)
               }
             ]
           }
-        ]),
-        links: object('Links', [
+        ])
+      },
+      links: {
+        default: object('Links', [
           {
             text: 'Privacy',
             url: '#'
@@ -173,10 +177,16 @@ storiesOf('Organisms/SiteFooter', module)
             text: 'Help',
             url: '#'
           }
-        ]),
-        copyright: text('Copyright', '© Copyright State Government of Victoria'),
-        acknowledgement: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.'),
-        logos: object('Logos', [
+        ])
+      },
+      copyright: {
+        default: text('Copyright', '© Copyright State Government of Victoria')
+      },
+      acknowledgement: {
+        default: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.')
+      },
+      logos: {
+        default: object('Logos', [
           {
             src: 'https://placehold.it/112x52',
             alt: 'Max native size',
@@ -198,6 +208,15 @@ storiesOf('Organisms/SiteFooter', module)
             url: '#'
           }
         ])
+      }
+    }
+  }))
+  .add('Acknowledgement', () => ({
+    components: { RplAcknowledgement },
+    template: '<rpl-acknowledgement :text="text" />',
+    props: {
+      text: {
+        default: text('Text', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.')
       }
     }
   }))

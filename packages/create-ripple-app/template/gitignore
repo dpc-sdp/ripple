@@ -5,7 +5,8 @@ node_modules
 npm-debug.log
 .nuxt
 dist
-coverage
 
+# tests
+coverage
 /test/e2e/videos
 /test/e2e/screenshots

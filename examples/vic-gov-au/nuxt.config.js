@@ -51,6 +51,13 @@ export default {
     }]
   ],
   /*
+  ** Css
+  * https://nuxtjs.org/api/configuration-css/
+  */
+  css: [
+    '@/assets/_custom.scss'
+  ],
+  /*
   ** styleResources
   * Override the path to the theme customisation scss
   * loads scss with @nuxtjs/style-resources
@@ -83,7 +90,7 @@ export default {
       // Content types
       page: 1,
       landingPage: 1,
-      event: 0, // Disable for testing it in custom module.
+      event: 1,
       news: 1,
       grant: 1,
       profile: 1,

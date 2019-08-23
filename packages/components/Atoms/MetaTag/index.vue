@@ -26,6 +26,8 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
+  $rpl-meta-tag-ruleset: ('xxs', 1.2em, 'medium') !default;
+  $rpl-meta-tag-margin: 0 $rpl-space-2 $rpl-space-2 0 !default;
   $rpl-meta-tag-padding: $rpl-space-2 ($rpl-space * 5) !default;
   $rpl-meta-tag-border: 2px solid rpl-color('primary') !default;
   $rpl-meta-tag-border-radius: rem(40px) !default;
@@ -36,8 +38,10 @@ export default {
   .rpl-meta-tag {
     $root: &;
     display: inline-block;
+    margin: $rpl-meta-tag-margin;
 
     &__link {
+      @include rpl_text_color($rpl-meta-tag-text-color);
       display: inline-block;
       text-decoration: none;
       border: $rpl-meta-tag-border;
@@ -45,18 +49,19 @@ export default {
       padding: $rpl-meta-tag-padding;
 
       #{$root}--dark & {
+        @include rpl_text_color($rpl-meta-tag-text-color);
         border-color: $rpl-meta-tag-dark-border-color;
         @include rpl_focus_dark;
       }
     }
 
     &__text {
-      @include rpl_typography_font('xxs', 1.2em, 'medium');
+      @include rpl_typography_ruleset($rpl-meta-tag-ruleset);
       @include rpl_text_color($rpl-meta-tag-text-color);
       text-transform: uppercase;
 
       #{$root}--dark & {
-        color: $rpl-meta-tag-dark-text-color;
+        @include rpl_text_color($rpl-meta-tag-dark-text-color);
       }
     }
   }

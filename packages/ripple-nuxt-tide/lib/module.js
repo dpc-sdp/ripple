@@ -69,6 +69,16 @@ const nuxtTide = function (moduleOptions) {
 
   this.addModule('@dpc-sdp/ripple-nuxt-ui', true)
 
+  // Add request id
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/request-id.js'),
+    fileName: './request-id.js'
+  })
+  this.options.router.middleware.push('request-id')
+  this.addServerMiddleware(require('./server-middleware/request-id'))
+  // Log all server side requests
+  this.addServerMiddleware(require('./server-middleware/request-log'))
+
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }
 
   this.addModule('@nuxtjs/proxy', true)
@@ -85,7 +95,16 @@ const nuxtTide = function (moduleOptions) {
   this.options.build.transpile.push(/@dpc-sdp\/ripple/)
   this.options.build.maxChunkSize = 300000
 
-  this.extendBuild((config, { isDev }) => {
+  // transpile none node modules to support browsers like IE
+  this.options.build.transpile.push(/winston-transport/)
+  this.options.build.transpile.push(/winston-logstash-transport/)
+  this.options.build.transpile.push(/logform/)
+  // To support transpile unknown type of source code
+  // https://babeljs.io/docs/en/options#sourcetype
+  // https://github.com/webpack/webpack/issues/4039#issuecomment-498033015
+  this.options.build.babel.sourceType = 'unambiguous'
+
+  this.extendBuild((config, { isDev, isClient }) => {
     config.resolve.alias['vue$'] = 'vue/dist/vue.esm'
     // Run ESLint on save
     if (isDev && process.client) {
@@ -95,6 +114,14 @@ const nuxtTide = function (moduleOptions) {
         loader: 'eslint-loader',
         exclude: /(node_modules)/
       })
+    }
+
+    // To support Winston to work in Nuxt webpack.
+    // https://webpack.js.org/configuration/node/
+    if (isClient) {
+      config.node = config.node || {}
+      config.node.fs = 'empty'
+      config.node.dgram = 'empty'
     }
   })
 

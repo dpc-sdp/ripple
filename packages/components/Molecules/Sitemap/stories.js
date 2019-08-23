@@ -11,9 +11,9 @@ storiesOf('Molecules/Sitemap', module)
   .add('Default', () => ({
     components: { RplSitemap },
     template: `<rpl-sitemap :menu="menu" />`,
-    data () {
-      return {
-        menu: object('Menu Links', [
+    props: {
+      menu: {
+        default: () => object('Menu Links', [
           {
             text: 'Your services',
             url: '#',

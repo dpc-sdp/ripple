@@ -18,11 +18,14 @@ module.exports = (on, config) => {
     createUser (user) {
       return new TideAdmin().createUser(user)
     },
+    createNodeFromYAML (yamlFixture) {
+      return new TideAdmin().createNodeFromYAML(yamlFixture)
+    },
     configureProtectedContent (options) {
       return new TideAdmin().configureProtectedContent(options)
     },
-    deleteNode (userId) {
-      return new TideAdmin().deleteNode(userId)
+    deleteNode (nodeId) {
+      return new TideAdmin().deleteNode(nodeId)
     }
   })
 

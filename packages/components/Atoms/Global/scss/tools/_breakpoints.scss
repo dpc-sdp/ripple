@@ -31,3 +31,11 @@
     @content;
   }
 }
+
+@mixin rpl_set_rule_for_breakpoints($breakpoint-values, $rule) {
+  @each $bp, $val in $breakpoint-values {
+    @include rpl_breakpoint($bp) {
+      #{$rule}: $val;
+    }
+  }
+}

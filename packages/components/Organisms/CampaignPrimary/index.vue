@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-campaign-primary">
+  <div class="rpl-campaign-primary" :class="{ 'rpl-campaign-primary--with-caption' : !!caption }">
     <div v-if="image" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large">
       <span class="rpl-campaign-primary__image-inner">
         <svg :aria-hidden="!hasAlt ? 'true' : false" class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -23,6 +23,7 @@
           <div v-if="summary" class="rpl-campaign-primary__summary" v-html="summary"></div>
         </div>
         <rpl-button v-if="link" :href="link.url" theme="primary" class="rpl-campaign-primary__call-to-action">{{ link.text }}</rpl-button>
+        <div v-if="caption" class="rpl-campaign-primary__caption">{{ caption }}</div>
       </div>
     </div>
   </div>
@@ -38,7 +39,8 @@ export default {
     title: String,
     summary: String,
     link: Object,
-    image: Object
+    image: Object,
+    caption: String
   },
   components: {
     RplButton,
@@ -56,10 +58,20 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-campaign-primary-padding-s: 0 0 39px !default;
-  $rpl-campaign-primary-padding-m: 52px 0 66px !default;
-  $rpl-campaign-primary-padding-xl: ($rpl-space * 14) 0 ($rpl-space * 16) !default;
-  $rpl-campaign-primary-padding-xxl: ($rpl-space * 19) 0 !default;
+  $rpl-campaign-primary-padding: (
+    's': 0 0 rem(39px),
+    'm': rem(52px) 0 rem(66px),
+    'xl': ($rpl-space * 14) 0 ($rpl-space * 16),
+    'xxl': ($rpl-space * 19) 0
+  ) !default;
+
+  $rpl-campaign-primary-padding-with-caption: (
+    's': 0 0 $rpl-space-3,
+    'm': rem(52px) 0 $rpl-space-3,
+    'xl': ($rpl-space * 14) 0 $rpl-space-3,
+    'xxl': ($rpl-space * 19) 0 $rpl-space-3
+  ) !default;
+
   $rpl-campaign-primary-border: 1px solid rpl_color('mid_neutral_1') !default;
   $rpl-campaign-primary-title-ruleset: (
     'xs': ('l', 1.2em, 'bold'),
@@ -80,31 +92,29 @@ export default {
   $rpl-campaign-primary-content-padding-xs: 0 $rpl-component-padding-xs !default;
   $rpl-campaign-primary-content-padding-s: 0 $rpl-component-padding-s !default;
   $rpl-campaign-primary-button-margin-s: 0 $rpl-component-padding-s !default;
+  $rpl-campaign-primary-caption-ruleset: ('xxs', 1.17em, 'medium') !default;
 
   .rpl-campaign-primary {
     @include rpl_site_constrain;
     position: relative;
-    @include rpl_breakpoint('s') {
-      padding: $rpl-campaign-primary-padding-s;
-    }
+    @include rpl_set_rule_for_breakpoints($rpl-campaign-primary-padding, 'padding');
+
     @include rpl_breakpoint('m') {
       border-bottom: $rpl-campaign-primary-border;
-      padding: $rpl-campaign-primary-padding-m;
-    }
-    @include rpl_breakpoint('xl') {
-      padding: $rpl-campaign-primary-padding-xl;
-    }
-    @include rpl_breakpoint('xxl') {
-      padding: $rpl-campaign-primary-padding-xxl;
     }
 
     @include rpl_print {
       border-bottom: 0;
     }
 
+    &--with-caption {
+      @include rpl_set_rule_for_breakpoints($rpl-campaign-primary-padding-with-caption, 'padding');
+    }
+
     &__row {
       @include rpl_grid_row;
       @include rpl_grid_row_gutter;
+      position: relative;
     }
 
     &__left {
@@ -203,6 +213,12 @@ export default {
 
     &__call-to-action {
       @include rpl_print_hidden;
+    }
+
+    &__caption {
+      @include rpl_typography_ruleset($rpl-campaign-primary-caption-ruleset);
+      color: rpl-color('dark_neutral');
+      margin-top: rem(50px);
     }
   }
 </style>

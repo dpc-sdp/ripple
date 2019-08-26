@@ -36,9 +36,9 @@ const OPTIONS = {
     type: 'string',
     default: '{outFolder}'
   },
-  description: {
-    name: 'description',
-    message: 'Project description',
+  domain: {
+    name: 'domain',
+    message: 'Domain',
     default: ({ name }) => {
       return `${name || config.name}.vic.gov.au`
     }
@@ -92,6 +92,18 @@ const OPTIONS = {
   e2e: {
     name: 'e2e',
     message: 'Add E2E tests?',
+    type: 'confirm',
+    default: true
+  },
+  smoke: {
+    name: 'smoke',
+    message: 'Add Integration tests?',
+    type: 'confirm',
+    default: true
+  },
+  unit: {
+    name: 'unit',
+    message: 'Add unit tests?',
     type: 'confirm',
     default: true
   },
@@ -172,7 +184,7 @@ const config = {
 // set options via interactive prompt if not defined by config
 const prompts = []
 Object.values(OPTIONS).forEach(option => {
-  if (!config[option.name]) {
+  if (config[option.name] === undefined) {
     prompts.push(option)
   }
 })
@@ -210,6 +222,7 @@ module.exports = {
     }
 
     const validation = validate(results.name)
+
     validation.warnings &&
       validation.warnings.forEach(warn => {
         console.warn('Warning:', warn)
@@ -237,6 +250,18 @@ module.exports = {
       }
     ]
 
+    const removePath = (path, actions) => {
+      if (fs.existsSync(`${this.outDir}${path}`)) {
+        return actions.push({
+          type: 'remove',
+          files: 'pages/Sitemap.vue'
+        })
+      }
+    }
+
+    removePath('/pages/Sitemap.vue', actions)
+    removePath('/tide.config.js', actions)
+
     if (results.examples) {
       actions.push({
         type: 'add',
@@ -248,19 +273,37 @@ module.exports = {
     actions.push({
       type: 'move',
       patterns: {
-        gitignore: '.gitignore',
         '_package.json': 'package.json',
         '_.env': '.env'
       }
     })
 
-    if (results.e2e) {
+    if (results.unit) {
+      actions.push({
+        type: 'move',
+        patterns: {
+          '_jest.config.js': 'jest.config.js'
+        }
+      })
+    }
+
+    if (results.e2e || results.smoke) {
       actions.push({
         type: 'add',
         files: ['**'],
         templateDir: 'template/_tests/_common'
       })
+    }
 
+    if (results.smoke) {
+      actions.push({
+        type: 'add',
+        files: ['**'],
+        templateDir: 'template/_tests/_smoke'
+      })
+    }
+
+    if (results.e2e) {
       // only add tests for enabled modules
       results.modules.forEach(tideModule => {
         const hasTests = fs.existsSync(path.resolve(__dirname, `./template/_tests/_modules/test/e2e/integration/core-modules/${tideModule}`))
@@ -280,8 +323,12 @@ module.exports = {
   },
   async completed () {
     // this.gitInit()
+    const results = {
+      ...this.answers,
+      ...config
+    }
 
-    await this.npmInstall({ npmClient: this.answers.pm })
+    await this.npmInstall({ npmClient: results.pm })
 
     const isNewFolder = this.outDir !== process.cwd()
     const cd = () => {
@@ -293,11 +340,11 @@ module.exports = {
     console.log()
     console.log(this.chalk.bold(`  To get started:\n`))
     cd()
-    console.log(`\t${this.answers.pm} run dev\n`)
+    console.log(`\t${results.pm} run dev\n`)
     console.log(this.chalk.bold(`  To build & start for production:\n`))
     cd()
-    console.log(`\t${this.answers.pm} run build`)
-    console.log(`\t${this.answers.pm} start`)
+    console.log(`\t${results.pm} run build`)
+    console.log(`\t${results.pm} start`)
     console.log()
   }
 }

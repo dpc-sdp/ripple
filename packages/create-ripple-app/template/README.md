@@ -62,7 +62,7 @@ We will build a guide of variables in future. But for now, you can check [Ripple
 
 ### Custom scss
 
-You can orveride styles in [assets/_custom.scss](assets/_custom.scss) by adding any site specific styles.
+You can overide styles in [assets/_custom.scss](assets/_custom.scss) by adding any site specific styles.
 
 ### Custom static files
 

@@ -6,7 +6,7 @@ module.exports = {
   },
   testURL: 'http://localhost',
   collectCoverage: true,
-  testMatch: ['**/unit/**/*.test.js'],
+  testMatch: ['**/*.test.js'],
   moduleFileExtensions: ['js', 'vue', 'json'],
   transform: {
     '^.+\\.js$': 'babel-jest',

@@ -22,6 +22,7 @@ This is a globally available options object to allow passing options between rip
   quickexiturl: 'https://www.google.com', // URL to use for quickexit
   plugins: [], // array of cheerio transformer function plugins to pass to RplMarkup
   viclogo: true // whether to display primary vic.gov.au logo
+  externalLinksInNewWindow: false // (Bool) Whether links open in new window by default
 ```
 
 --------------------------------------------------------------------------------
@@ -78,6 +79,12 @@ See [Storybook/Atoms/Global/Breakpoints](https://ripple.sdp.vic.gov.au/?path=/st
 See [Storybook/Atoms/Global/Divider](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--divider).
 
 <!-- /GENERATED_USAGE_AND_TESTS -->
+
+--------------------------------------------------------------------------------
+
+## Known issues
+
+* Typography: Display headings (with background) have reduced padding on IE11 / Edge.
 
 --------------------------------------------------------------------------------
 

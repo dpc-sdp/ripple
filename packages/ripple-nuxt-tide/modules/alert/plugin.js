@@ -1,70 +1,70 @@
-async function getSiteAlert (app) {
-  try {
-    const response = await app.$tide.get(`node/alert`, { include: ['field_alert_type'] })
-    const fetched = Date.now()
+import { get } from 'lodash'
 
-    if (response.meta && response.meta.count > 0 && response.data.length > 0 && response.included) {
-      const data = response.data[0] // only one alert should be displayed
-      const title = data.attributes.title
-      const alertId = data.id
-      const type = response.included[0].attributes.name
-      const revision = data.attributes.revision_timestamp
-      const link = {
-        text: data.attributes.field_call_to_action.title,
-        url: data.attributes.field_call_to_action.url || data.attributes.field_call_to_action.uri
-      }
-      if (alertId && title && type && link && revision) {
-        return {
-          alertId,
-          title,
-          type,
-          link,
-          revision,
-          fetched
-        }
-      }
-    }
-  } catch (error) {
-    if (process.server) {
-      console.error(new Error(`Get alert from Tide failed: ${error}`))
-    }
-  }
-  return null
-}
-
-export default ({ app, store, route }) => {
-  // Register Tide Alerts Vuex module
+export default function ({ app, store }) {
   if (store) {
     const storeModule = {
       namespaced: true,
       state: () => ({
-        alert: null,
-        dismissedAlerts: []
+        alerts: {},
+        ids: []
       }),
       mutations: {
-        setAlerts (state, alert) {
-          state.alert = alert
-        },
-        dismissAlert (state, alertId) {
-          if (!state.dismissedAlerts.includes(id => id !== alertId)) {
-            state.dismissedAlerts.push(alertId)
+        setAlert (state, payload) {
+          if (!state.ids.includes(payload.id)) {
+            state.alerts = {
+              ...state.alerts,
+              [`${payload.id}`]: {
+                ...payload
+              }
+            }
+            state.ids.push(payload.id)
           }
         }
       },
+      getters: {
+        getAlerts: state => {
+          return state.ids.map(id => {
+            const siteId = get(store, 'state.tide.siteData.drupal_internal__tid')
+            const siteSectionId = get(store, 'state.tideSite.siteSection', siteId)
+            if (state.alerts[id].sites.includes(siteSectionId) || state.alerts[id].sites.includes(siteId)) {
+              return state.alerts[id]
+            }
+          }).filter(id => id)
+        }
+      },
       actions: {
-        async init ({ commit, dispatch }) {
-          if (process.server) {
-            const siteAlerts = await getSiteAlert(app)
-            commit('setAlerts', siteAlerts)
+        async setAlerts ({ commit, state }, { alerts, siteSection }) {
+          if (alerts && alerts.length > 0) {
+            alerts.forEach(alert => {
+              // if it doesn't exist or if it has been updated
+              if (!state.ids.includes(alert.id) || (state.alerts[alert.id].changed !== alert.changed)) {
+                const link = get(alert, 'field_call_to_action', {})
+                const sites = get(alert, 'field_node_site', []).map(site => {
+                  if (site.drupal_internal__tid) {
+                    return site.drupal_internal__tid
+                  }
+                }).filter(s => s)
+                if (siteSection) {
+                  sites.push(siteSection)
+                }
+                const payload = {
+                  id: alert.id,
+                  changed: alert.changed,
+                  title: get(alert, 'title', ''),
+                  type: get(alert, 'field_alert_type.name', ''),
+                  link: {
+                    text: link.title,
+                    url: link.url || link.uri
+                  },
+                  sites
+                }
+                commit('setAlert', payload)
+              }
+            })
           }
         }
       }
     }
-
-    // In SSR, Vuex regiseter store module on both server side and client side.
-    // That causes the moudle store states will be reset in client side.
-    // We only need to mutate the state in server side.
-    // So after state created, we don't register again in client side.
     store.registerModule('tideAlerts', storeModule, { preserveState: !!store.state.tideAlerts })
   }
 }

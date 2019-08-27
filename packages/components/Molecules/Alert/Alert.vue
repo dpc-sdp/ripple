@@ -1,5 +1,5 @@
 <template>
-  <rpl-alert-base role="alert" class="rpl-alert" closeText="Dismiss alert" :backgroundColor="typeProp('backgroundColor')" :iconSymbol="typeProp('iconSymbol')" @rplAlertClose="close()">
+  <rpl-alert-base role="alert" class="rpl-alert" closeText="Dismiss alert" :data-alert-type="type" :backgroundColor="typeProp('backgroundColor')" :iconSymbol="typeProp('iconSymbol')" @rplAlertClose="close()">
     <span v-if="title" class="rpl-alert__title">{{ title }}</span>
     <rpl-text-link v-if="link" class="rpl-alert__link" :text="link.text" :url="link.url" iconSymbol="right" iconColor="white" theme="dark" />
   </rpl-alert-base>
@@ -15,7 +15,7 @@ export default {
     title: String,
     type: String,
     link: Object,
-    alertId: String
+    id: String
   },
   components: {
     RplTextLink,
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     close () {
-      this.$emit('rplAlertClose', this.alertId)
+      this.$emit('rplAlertClose', this.id)
     },
     typeProp (property) {
       return this.types[this.type] ? this.types[this.type][property] : null

@@ -33,6 +33,19 @@ function rippleCommands () {
       return fixtureData
     })
   })
+
+  Cypress.Commands.add('TideCreateNode', fixturePath => {
+    cy.log('test/e2e/fixtures/' + fixturePath + '.yml')
+    cy.readFile('test/e2e/fixtures/' + fixturePath + '.yml').as('yaml')
+    cy.get('@yaml').then(data => {
+      cy.task('createNodeFromYAML', data).as('nodeCreated')
+      cy.log('@nodeCreated')
+    })
+  })
+
+  Cypress.Commands.add('TideDeleteNode', nodeId => {
+    cy.task('deleteNode', nodeId)
+  })
 }
 
 module.exports = rippleCommands

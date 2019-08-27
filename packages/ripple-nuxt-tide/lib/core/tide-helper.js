@@ -1,5 +1,10 @@
-
+import cuid from 'cuid'
 import mime from 'mime-types'
+
+// Generate a unique id
+export const generateId = () => {
+  return cuid()
+}
 
 // Private helpers
 export const mergeIncludes = (includes, includesMergedIn) => {

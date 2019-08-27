@@ -2,7 +2,7 @@
   <div class="rpl-links-and-copyright">
     <ul class="rpl-links-and-copyright__links">
       <li v-for="(link, index) in links" :key="index">
-        <rpl-link :href="link.url">{{ link.text }}</rpl-link>
+        <rpl-link :href="link.url" :target="link.target">{{ link.text }}</rpl-link>
       </li>
     </ul>
     <div class="rpl-links-and-copyright__copyright" v-html="copyright">

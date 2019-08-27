@@ -3,7 +3,7 @@
     <template slot="header">
       <rpl-alert-base class="app-preview" v-if="preview">Draft only and not yet published</rpl-alert-base>
       <no-ssr>
-        <component v-if="alert" :is="alert" />
+        <component v-if="alerts" :is="alerts" />
         <rpl-site-header
           :logo="header.logo"
           :links="nav"
@@ -76,7 +76,7 @@ export default {
     }
   },
   computed: {
-    alert () {
+    alerts () {
       if (this.$tide.isModuleEnabled('alert')) {
         return () => import('@dpc-sdp/ripple-nuxt-tide/modules/alert/components/TideAlert.vue')
       }
@@ -116,9 +116,11 @@ export default {
           clientClearToken(this.$store)
           this.$router.push({ path: '/' })
         } catch (e) {
+          // TODO: we should display error to user instead of log here.
           console.log(`Tide logout failed`)
         }
       } else {
+        // TODO: we should display error to user instead of log here.
         console.warn(`Authentication module is disabled - unable to log out`)
       }
     },

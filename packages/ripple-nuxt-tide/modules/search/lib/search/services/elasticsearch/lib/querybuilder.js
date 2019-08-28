@@ -96,9 +96,8 @@ export default ({
         esb.multiMatchQuery(fields, queryString),
         esb.boolQuery().mustNot(esb.boolQuery().must(excludes))
       ])
-    }
-    else {
-      esbResult = esb.boolQuery().must(esb.multiMatchQuery(fields, queryString));
+    } else {
+      esbResult = esb.boolQuery().must(esb.multiMatchQuery(fields, queryString))
     }
 
     if (Object.keys(filters).length > 0) {

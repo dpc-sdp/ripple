@@ -2,15 +2,15 @@
   <div class="rpl-campaign-primary" :class="{ 'rpl-campaign-primary--with-caption' : !!caption }">
     <div v-if="image" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large">
       <span class="rpl-campaign-primary__image-inner">
-        <svg :aria-hidden="!hasAlt ? 'true' : false" class="rpl-campaign-primary__image" width="699" height="411" viewBox="0 0 699 411" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <title v-if="hasAlt">{{image.alt}}</title>
-          <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="699" height="411">
-            <path d="M699 0L114.075 170.226L0 411H699V0Z" fill="white" />
-          </mask>
-          <g mask="url(#mask0)">
-            <image width="699" height="411" :xlink:href="image.src" :href="image.src" />
-          </g>
-        </svg>
+        <template v-if="caption">
+          <figure class="rpl-campaign-primary__figure">
+            <rpl-campaign-primary-image :hasAlt="hasAlt" :image="image" />
+            <figcaption class="rpl-campaign-primary__figure-caption">{{ caption }}</figcaption>
+          </figure>
+        </template>
+        <template v-else>
+          <rpl-campaign-primary-image :hasAlt="hasAlt" :image="image" />
+        </template>
       </span>
     </div>
     <div v-if="image" class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--small">
@@ -23,7 +23,7 @@
           <div v-if="summary" class="rpl-campaign-primary__summary" v-html="summary"></div>
         </div>
         <rpl-button v-if="link" :href="link.url" theme="primary" class="rpl-campaign-primary__call-to-action">{{ link.text }}</rpl-button>
-        <div v-if="caption" class="rpl-campaign-primary__caption">{{ caption }}</div>
+        <div v-if="caption" aria-hidden="true" class="rpl-campaign-primary__caption">{{ caption }}</div>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
 
 <script>
 import RplButton from '@dpc-sdp/ripple-button'
-import RplIcon from '@dpc-sdp/ripple-icon'
+import RplCampaignPrimaryImage from './CampaignPrimaryImage'
 
 export default {
   name: 'RplCampaignPrimary',
@@ -44,11 +44,12 @@ export default {
   },
   components: {
     RplButton,
-    RplIcon
+    RplCampaignPrimaryImage
   },
   computed: {
     hasAlt () {
-      return this.image && this.image.alt && this.image.alt.length > 2
+      // Must explicitly return a boolean, otherwise it returns a string.
+      return (this.image && this.image.alt) ? true : false // eslint-disable-line
     }
   }
 }
@@ -219,6 +220,14 @@ export default {
       @include rpl_typography_ruleset($rpl-campaign-primary-caption-ruleset);
       color: rpl-color('dark_neutral');
       margin-top: rem(50px);
+    }
+
+    &__figure {
+      margin: 0;
+    }
+
+    &__figure-caption {
+      @include rpl_visually_hidden;
     }
   }
 </style>

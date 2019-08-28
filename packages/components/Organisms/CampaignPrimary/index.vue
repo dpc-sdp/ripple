@@ -60,19 +60,17 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-campaign-primary-padding: (
-    's': 0 0 rem(39px),
-    'm': rem(52px) 0 rem(66px),
+    's': 0 0 ($rpl-space * 10),
+    'm': ($rpl-space * 13) 0 ($rpl-space * 16),
     'xl': ($rpl-space * 14) 0 ($rpl-space * 16),
     'xxl': ($rpl-space * 19) 0
   ) !default;
-
   $rpl-campaign-primary-padding-with-caption: (
     's': 0 0 $rpl-space-3,
-    'm': rem(52px) 0 $rpl-space-3,
+    'm': ($rpl-space * 13) 0 $rpl-space-3,
     'xl': ($rpl-space * 14) 0 $rpl-space-3,
     'xxl': ($rpl-space * 19) 0 $rpl-space-3
   ) !default;
-
   $rpl-campaign-primary-border: 1px solid rpl_color('mid_neutral_1') !default;
   $rpl-campaign-primary-title-ruleset: (
     'xs': ('l', 1.2em, 'bold'),
@@ -80,20 +78,25 @@ export default {
     'm': ('mega', 1.3em, 'bold')
   ) !default;
   $rpl-campaign-primary-title-text-color: rpl_color('extra_dark_neutral') !default;
-  $rpl-campaign-primary-title-margin-xs: $rpl-space-3 0 !default;
-  $rpl-campaign-primary-title-margin-s: 0 !default;
+  $rpl-campaign-primary-title-margin: (
+    'xs': $rpl-space-3 0,
+    's': 0
+  ) !default;
   $rpl-campaign-primary-summary-ruleset: (
     'xs': ('xs', 1.4em, 'regular'),
     'm': ('s', 1.5em, 'regular'),
     'xxxl': ('m', 1.5em, 'regular')
   ) !default;
   $rpl-campaign-primary-summary-text-color: mix(rpl_color('extra_dark_neutral'), rpl_color('white'), 93%) !default;
-  $rpl-campaign-primary-summary-margin-xs: ($rpl-space * 5) 0 ($rpl-space * 7) !default;
-  $rpl-campaign-primary-summary-margin-s: ($rpl-space * 6) 0 !default;
-  $rpl-campaign-primary-content-padding-xs: 0 $rpl-component-padding-xs !default;
-  $rpl-campaign-primary-content-padding-s: 0 $rpl-component-padding-s !default;
-  $rpl-campaign-primary-button-margin-s: 0 $rpl-component-padding-s !default;
+  $rpl-campaign-primary-summary-margin: (
+    'xs': ($rpl-space * 5) 0 ($rpl-space * 7),
+    's': ($rpl-space * 6) 0
+  ) !default;
   $rpl-campaign-primary-caption-ruleset: ('xxs', 1.17em, 'medium') !default;
+  $rpl-campaign-primary-caption-margin: (
+    'xs': ($rpl-space * 5) 0 0,
+    's': ($rpl-space * 12) 0 0
+  ) !default;
 
   .rpl-campaign-primary {
     @include rpl_site_constrain;
@@ -139,23 +142,17 @@ export default {
     &__title {
       @include rpl_typography_ruleset($rpl-campaign-primary-title-ruleset);
       @include rpl_text_color($rpl-campaign-primary-title-text-color);
+      @include rpl_set_rule_for_breakpoints($rpl-campaign-primary-title-margin, 'margin');
       box-sizing: border-box;
-      margin: $rpl-campaign-primary-title-margin-xs;
       width: 100%;
-      @include rpl_breakpoint('l') {
-        margin: $rpl-campaign-primary-title-margin-s;
-      }
     }
 
     &__summary {
       @include rpl_typography_ruleset($rpl-campaign-primary-summary-ruleset);
       @include rpl_text_color($rpl-campaign-primary-summary-text-color);
+      @include rpl_set_rule_for_breakpoints($rpl-campaign-primary-summary-margin, 'margin');
       box-sizing: border-box;
-      margin: $rpl-campaign-primary-summary-margin-xs;
       width: 100%;
-      @include rpl_breakpoint('s') {
-        margin: $rpl-campaign-primary-summary-margin-s;
-      }
     }
 
     &__image-outer {
@@ -218,8 +215,8 @@ export default {
 
     &__caption {
       @include rpl_typography_ruleset($rpl-campaign-primary-caption-ruleset);
+      @include rpl_set_rule_for_breakpoints($rpl-campaign-primary-caption-margin, 'margin');
       color: rpl-color('dark_neutral');
-      margin-top: rem(50px);
     }
 
     &__figure {

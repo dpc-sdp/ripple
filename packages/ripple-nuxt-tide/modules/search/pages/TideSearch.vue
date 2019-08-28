@@ -83,7 +83,11 @@ export default {
           'title',
           'type',
           'url'
-        ]
+        ],
+        exclude: {
+          'type': 'grant',
+          'field': 'field_node_link'
+        }
       }
     }
   },

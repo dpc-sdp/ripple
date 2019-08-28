@@ -30,6 +30,9 @@ export default (config, router, site) => ({
    * @param {Array}     options.qFields         Array of query fields
    * @param {Array}     options.sFields         Array of source fields
    * @param {Array}     options.filterFromURI   Array of fields to remove from URI
+   * @param {Object}    options.exclude         (optional) Properties to exclude from hits.
+   * @param {String}    options.exclude.type    The API entity type to exclude.
+   * @param {String}    options.exclude.field   (optional) The API field_name. The API field_name. If set and a value exists, hits are excluded.
    * @param {String}    queryString
    * @param {Int}       page                    Used to calculate the start point for returned hits.
    * @param {Object}    filters                 filterForm arguments to refine search hits using a filter context.
@@ -59,7 +62,7 @@ export default (config, router, site) => ({
 
     let from = this.getFromHit(page, options.responseSize)
 
-    const hits = await service.api.search(client, index, queryString, filters, filterFields, options.qFields, options.sFields, from, options.responseSize, sort)
+    const hits = await service.api.search(client, index, queryString, filters, filterFields, options.qFields, options.sFields, from, options.responseSize, sort, options.exclude)
 
     this.updateLocParams({
       q: queryString,

@@ -17,11 +17,7 @@ const tideConfig = {
 
   mapping: {
     // landingPageComponents: {}
-  },
-
-  modules: [
-    'event'
-  ]
+  }
 }
 
 module.exports = tideConfig

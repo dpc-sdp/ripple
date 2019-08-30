@@ -9,7 +9,7 @@ import RplCardEvent from './CardEvent.vue'
 import RplCardCta from './CardCta.vue'
 import RplCardEmergencyContact from './CardEmergencyContact.vue'
 import RplCardBox from './CardBox.vue'
-import RplCardHonourRoll from './CardHonourRoll.vue'
+import RplCardProfile from './CardProfile.vue'
 import { RplCardCarousel } from './no-ssr'
 
 import {
@@ -270,16 +270,15 @@ storiesOf('Molecules/Card/Card Box', module)
     }
   }))
 
-storiesOf('Molecules/Card/Card Honour Roll', module)
+storiesOf('Molecules/Card/Card Profile', module)
   .addDecorator(withKnobs)
 
   .add('Default', () => ({
-    components: { RplCardHonourRoll },
+    components: { RplCardProfile },
     template: `
-      <rpl-card-honour-roll
+      <rpl-card-profile
         :name="name"
         :inductionYear="inductionYear"
-        :category="category"
         :lifespan="lifespan"
         :summary="summary"
         :link="link"
@@ -292,9 +291,6 @@ storiesOf('Molecules/Card/Card Honour Roll', module)
       },
       inductionYear: {
         default: text('Induction Year', '2017')
-      },
-      category: {
-        default: text('Category', 'Local Champion')
       },
       lifespan: {
         default: text('Lifespan', '1982 - 2014')

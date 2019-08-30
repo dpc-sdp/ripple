@@ -165,7 +165,7 @@ export const tide = (axios, site, config) => ({
     }
 
     siteData.siteLogo = this.getSiteLogo(siteData)
-    siteData.errorPage = config.customConfig.errorPage
+    siteData.errorPage = config._errorPage
 
     // TODO: We may only return the siteData element we need, instead of return all data from Drupal.
     return siteData

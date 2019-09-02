@@ -17,9 +17,11 @@
 <script>
 import objectFitImages from 'object-fit-images'
 import RplCardContent from './CardContent.vue'
+import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
 export default {
   name: 'RplCardHonourRoll',
+  mixins: [deprecate],
   props: {
     name: String,
     inductionYear: String,
@@ -36,6 +38,7 @@ export default {
     if (this.image) {
       objectFitImages(this.$refs['image'])
     }
+    this.deprecatedWarn('"rpl-card-honour-roll" is depricated, please use "rpl-card-profile" instead.')
   }
 }
 </script>

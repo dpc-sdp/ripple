@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/example-vic-gov-au",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Reference nuxt site using Ripple front end and connecting to Tide backend",
   "private": true,
   "scripts": {
@@ -21,7 +21,7 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.0.0",
+    "@dpc-sdp/ripple-nuxt-tide": "1.1.0",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.6.3",
@@ -33,11 +33,7 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.5.0",
     "@babel/runtime": "^7.5.1",
-    "@dpc-sdp/ripple-test-tools": "1.0.0",
-    "cypress": "^3.1.5",
-    "cypress-axe": "^0.4.0",
-    "cypress-cucumber-preprocessor": "^1.11.0",
-    "start-server-and-test": "^1.7.11",
+    "@dpc-sdp/ripple-test-tools": "1.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
@@ -46,6 +42,9 @@
     "babel-preset-vue": "^2.0.2",
     "core-js": "^2.6.5",
     "cross-env": "^5.2.0",
+    "cypress": "^3.1.5",
+    "cypress-axe": "^0.4.0",
+    "cypress-cucumber-preprocessor": "^1.11.0",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -60,6 +59,7 @@
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
     "sass-resources-loader": "^2.0.0",
+    "start-server-and-test": "^1.7.11",
     "vue-jest": "^3.0.4"
   },
   "cypress-cucumber-preprocessor": {

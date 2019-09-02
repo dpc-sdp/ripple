@@ -1,6 +1,6 @@
 # @dpc-sdp/nuxt-ripple
 
-> The Nuxt modudle for adding Ripple pattern library.
+> The Nuxt module for adding the Ripple pattern library.
 
 ## Setup
 

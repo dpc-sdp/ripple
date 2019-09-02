@@ -16,24 +16,24 @@ yarn add @dpc-sdp/ripple-nuxt-tide # or npm install @dpc-sdp/ripple-nuxt-tide
 {
   modules: [
     '@dpc-sdp/ripple-nuxt-tide'
-  ],
+  ]
+}
+```
 
+3. Add custom options to `tide` section of `nuxt.config.js`
+
+You Can move some setting value into your env variables.
+
+```js
+{
   tide: {
-    // nuxt-tide options
-    baseUrl: 'https://your-tide-api-server/',
+    baseUrl: 'https://your-tide-api-server/', // Mandatory, your Tide API base URL, with a slash in the end.
     auth: {
-      username: 'yourUser',
-      password: 'yourPass'
+      username: 'yourUser', // Basic auth credential for Tide API.
+      password: 'yourPass' // Basic auth credential for Tide API.
     },
-    site: false, // Should be your own site ID in Tide, use false if site module is not enabled.
-    // Custom tide filters
-    customConfig: {
-      include: {},
-      mapping: {}
-    },
-    // Custom mapping filters
-    customFilters: {},
-    // Tide submodules, 1 for enable, 0 for disable.
+    site: 4, // Mandatory, should be your own site ID in Tide.
+    // Tide core modules, 1 for enable, 0 for disable.
     // Should match the Tide backend modules.
     modules: {
       site: 1,
@@ -50,21 +50,23 @@ yarn add @dpc-sdp/ripple-nuxt-tide # or npm install @dpc-sdp/ripple-nuxt-tide
       webform: 1,
       search: 1,
       monsido: 1,
-      authenticatedContent: 0,
+      authenticatedContent: 1,
       dataDrivenComponent: 0,
-      alert: 0,
+      alert: 1,
       gtm: 1
     },
-    gtm: {},
+    gtm: {
+      id: 'Your-GTM-id' // Optional if you enabled gtm module above
+    },
     search: {}
-  }
 }
 ```
 
-## Custom development
+## Usage
 
-We are still working on this part to make a stable API for developers to allow customization.
-Docs here will be update to date soon.
+This module is designed for using out of box, so 
+
+### Basic 
 
 You will need below config file in your Nuxt root to make @dpc-sdp/ripple-nuxt-tide work at this stage.
 
@@ -86,7 +88,8 @@ Customisations to the theme should be added to the following root directories:
 
 #### Theme variable overrides
 
-The `/assets/_theme.scss` file should contain any variable overrides.
+The `/assets/_theme.scss` file should contain any variable overrides. You can find
+examples in [custom theming examples](#Custom-theming-examples).
 
 Each componnet in ripple includes variables which can be overridden.
 These can be identified by the `!default` suffix:
@@ -120,23 +123,25 @@ $rpl-colors: (
 $rpl-button-border-radius: 0;
 ```
 
-See [styleResources](#styleResources) for including `_theme.scss` in configuration.
-
 #### Custom stylesheets
 
-For defining css, including selectors, a `_custom.scss` file can be
-added to `/assets/` and contain any site specific custom styles.
+For defining css, including selectors, a `_custom.scss` file can be added to
+`/assets/` and contain any site specific custom styles.
+We should avoid to add any changes for Ripple component colours, spacing here.
+They are supposed to be managed by sass variables in `_theme.scss`.
+This custom file is designed for any style changes can not be handled by Ripple variables.
 
-This can include:
+You can find examples in [custom theming examples](#Custom-theming-examples).
 
-- Overriding selectors and rules
-- Additional library stylesheets
+To make it work, you must load the custom scss file in your Nuxt project `css` section of `nuxt.config.js`.
 
-This file should only be included _once_ in the project, usually in
-`@dpc-sdp/ripple-nuxt-tide/lib/layouts/default.vue`.
-
-<!-- TODO: Update when default.vue is fixed to work with _custom.scss -->
-**Note:** `default.vue` currently does not include `_custom.scss`.
+```Javascript
+{
+  css: [
+    '@/assets/_custom.scss'
+  ]
+}
+```
 
 #### Custom icons
 
@@ -204,47 +209,13 @@ E.g. The following properties should match:
 
 **Note:** Error banners can also be defined in [Custom error page text](#Custom-error-page-text).
 
-### Custom error page text
+## Examples
 
-In nuxt `tide.config.js`, use below config to add your own error page text, HTML is supported.
+### Custom theming examples
 
-```Javascript
-const tideConfig = {
-  errorPage: {
-    '404': {
-      img: '/img/oops-banner.svg',
-      intro: `This is the 404 error message.<br>Sorry, we couldn't find the page you were looking for.`,
-      main: `Have a look at the web address to make sure it was typed correctly. We may also have deleted this page.
-  If none of our suggestions help you find the information you were looking for,
-  please <a class="rpl-link" href="/connect-with-us">contact us</a>.`,
-      cta: {
-        url: `/`,
-        text: `Go to home`
-      }
-    },
-    other: {
-      img: '/img/sorry-banner.svg',
-      intro: `We have a glitch in our system.`,
-      main: `We are aware of the issue. We appreciate your patience while we're looking into it.`,
-      cta: {
-        url: `/`,
-        text: `Go to home`
-      }
-    }
-  }
-}
-```
+- Example for [/assets/_theme.scss](/examples/basic-examples/assets/_theme.scss)
+- Example for [/assets/_custom.scss](/examples/basic-examples/assets/_custom.scss)
 
-If you just want to change one item, you can only add one item.
+### Custom error page text examples
 
-```Javascript
-const tideConfig = {
-  errorPage: {
-    '404': {
-      intro: `I just want to change 404 page intro text.`
-    }
-  }
-}
-```
-
-You may want to update your nuxt project `/app/views/error.html` which is a static HTML page for nuxt server error. It's actually not recommended as you have to do it manually.
+[example-error-page](/examples/basic-examples/tide/modules/example-error-page/)

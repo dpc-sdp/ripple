@@ -21,6 +21,13 @@ export default {
   modules: [
     '@dpc-sdp/ripple-nuxt-tide'
   ],
+  /*
+  ** Css
+  * https://nuxtjs.org/api/configuration-css/
+  */
+  css: [
+    '@/assets/_custom.scss'
+  ],
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {

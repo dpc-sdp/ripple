@@ -130,13 +130,20 @@ const nuxtTide = function (moduleOptions) {
   this.addLayout(path.resolve(__dirname, './layouts/minimal.vue'), 'minimal')
   this.options.ErrorPage = path.resolve(__dirname, './layouts/error.vue')
 
-  // Extends routes to add tide page wildcard route, routes added under /pages will still take precedence
   this.extendRoutes((routes, resolve) => {
-    routes.push({
-      name: 'tide',
-      path: '*',
-      component: resolve(__dirname, './pages/Tide.vue')
-    })
+    routes.push(
+      {
+        name: 'sitemap',
+        path: '/sitemap',
+        component: resolve(__dirname, './pages/Sitemap.vue')
+      },
+      {
+        // Extends routes to add tide page wildcard route, routes added under /pages will still take precedence
+        name: 'tide',
+        path: '*',
+        component: resolve(__dirname, './pages/Tide.vue')
+      }
+    )
   })
 }
 

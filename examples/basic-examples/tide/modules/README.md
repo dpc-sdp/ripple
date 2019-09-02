@@ -32,3 +32,5 @@ Always use name to tell what this module is doing. For example, the module is go
 to add a custom content type called `location`, then your module name should be `mc-location`.
 
 ### Module files
+
+Please have a look at the docs for developing Tide modules https://github.com/dpc-sdp/ripple/blob/develop/packages/ripple-nuxt-tide/modules/README.md

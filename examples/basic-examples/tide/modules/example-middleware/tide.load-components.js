@@ -10,5 +10,5 @@
 // }
 
 export default {
-  'example-message': () => import(/* webackChunkName: 'example-message' */ '~/components/examples/Message')
+  'example-message': () => import(/* webackChunkName: 'example-message' */ './components/Message')
 }

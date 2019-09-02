@@ -5,15 +5,16 @@
 ## Setup
 
 If you are using `@dpc-sdp/ripple-nuxt-tide`, you don't need any setup as `@dpc-sdp/ripple-nuxt-tide`
-has built in setup already. For setup `@dpc-sdp/ripple-nuxt-tide`, go to [packages/ripple-nuxt-tide](/packages/ripple-nuxt-tide/README.md)
+has built in setup already. For setup `@dpc-sdp/ripple-nuxt-tide`,
+go to [packages/ripple-nuxt-tide doc](/packages/ripple-nuxt-tide/README.md).
 
-### Using `create-nuxt-app` (Working in progress)
+### Option 1. Using `create-nuxt-app` (Working in progress)
 
 To get started quickly, we has created scaffolding tool [create-ripple-app](/packages/create-ripple-app).
 But this setup option is working in progress at this stage and will be available
 soon.
 
-### Add to existing Nuxt project
+### Option 2. Adding to existing Nuxt project
 
 Without using `create-nuxt-app`, you can setup it in your existing Nuxt site with
 following steps.
@@ -58,4 +59,4 @@ You can pass options using `ripple` section in `nuxt.config.js`
 }
 ```
 
-Docs for Ripple options can be found in Ripple global component [/packages/components/Atoms/Global/README.md#rploptions](/packages/components/Atoms/Global/README.md#rploptions)
+Docs for Ripple options can be found in Ripple global component [/packages/components/Atoms/Global/README.md#rploptions](/packages/components/Atoms/Global/README.md#rploptions).

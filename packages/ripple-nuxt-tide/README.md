@@ -64,17 +64,20 @@ You Can move some setting value into your env variables.
 
 ## Usage
 
-This module is designed for using out of box, so 
+This module is designed for using out of box, so you should able to running the
+site without extra work. But you are able to extend the module for
+customization requirement.
 
-### Basic 
+### Examples
 
-You will need below config file in your Nuxt root to make @dpc-sdp/ripple-nuxt-tide work at this stage.
+We have code examples for how to customize your Ripple project. We strongly recommend developers have a look at https://github.com/dpc-sdp/ripple/tree/develop/examples/basic-example first.
 
-- tide.config.js
-- tide.mapping-filters.js
-- tide.middleware.js
-- tide.load-components.js
-- tide.page-types.js
+### Tide Configs
+
+To apply custom work, you need to have `tide` dir in your Nuxt project root.
+We recommend you to create modules to modularize your custom work.
+
+Please check the docs for creating custom Tide module https://github.com/dpc-sdp/ripple/tree/develop/examples/basic-examples/tide/modules/README.md.
 
 ### Custom theming
 
@@ -206,16 +209,3 @@ E.g. The following properties should match:
 - File name (header-pattern-shape.png)
 - File type (.png)
 - Image dimensions (1790x1548)
-
-**Note:** Error banners can also be defined in [Custom error page text](#Custom-error-page-text).
-
-## Examples
-
-### Custom theming examples
-
-- Example for [/assets/_theme.scss](/examples/basic-examples/assets/_theme.scss)
-- Example for [/assets/_custom.scss](/examples/basic-examples/assets/_custom.scss)
-
-### Custom error page text examples
-
-[example-error-page](/examples/basic-examples/tide/modules/example-error-page/)

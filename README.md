@@ -1,8 +1,6 @@
 # Ripple
 
-[![CircleCI](https://circleci.com/gh/dpc-sdp/ripple/tree/master.svg?style=svg&circle-token=242dc8445ab25fb88fe506609fd7065cd1f78f7c)](https://circleci.com/gh/dpc-sdp/ripple/tree/master)
-[![Vue.js 2.x](https://img.shields.io/badge/vue.js-2.x-green.svg?style=flat-square)](https://vuejs.org)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+
 
 
 
@@ -10,9 +8,14 @@
 <br />
 <p align="center">
   <a href="https://github.com/dpc-sdp/ripple">
-    <img src="/docs/logo.png" alt="Logo" height="150">
+    <img src="docs/sdp-ripple.jpg" alt="Logo" height="150">
   </a>
 
+  <p align="center">
+    [![CircleCI](https://circleci.com/gh/dpc-sdp/ripple/tree/master.svg?style=svg&circle-token=242dc8445ab25fb88fe506609fd7065cd1f78f7c)](https://circleci.com/gh/dpc-sdp/ripple/tree/master)
+    [![Vue.js 2.x](https://img.shields.io/badge/vue.js-2.x-green.svg?style=flat-square)](https://vuejs.org)
+    [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+  </p>
   <h3 align="center">Ripple</h3>
 
   <p align="center">
@@ -171,3 +174,11 @@ Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name) -->
+
+<!-- FOOTER LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/dpc-sdp/ripple">
+    <img src="docs/sdp-vicgov.jpg" alt="Logo" height="150">
+  </a>
+</p>

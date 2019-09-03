@@ -1,50 +1,8 @@
+import defaults from './config/defaults'
 import * as configLoader from './core/config-loader'
 const path = require('path')
 
 const nuxtTide = function (moduleOptions) {
-  const defaults = {
-    baseUrl: '',
-    auth: {
-      username: null,
-      password: null
-    },
-    site: false, // Set a site id if nuxt-tide-site installed.
-    extendConfigs: [],
-    extendFilters: [],
-    customConfig: {},
-    customFilters: {},
-    pageTypes: [], // Dynamic Tide page type components importing.
-    dynamicComponents: [], // Dynamic components importing for Tide mapping.
-    middleware: [],
-    markupPlugins: [],
-    modules: {
-      site: 0,
-      page: 0,
-      landingPage: 0,
-      event: 0,
-      grant: 0,
-      news: 0,
-      media: 0,
-      webform: 0,
-      search: 0,
-      publication: 0,
-      authenticatedContent: 0,
-      dataDrivenComponent: 0,
-      alert: 0,
-      gtm: 0
-    },
-    search: {
-      service: '',
-      index: '',
-      url: '',
-      log: '',
-      auth: {
-        username: '',
-        password: ''
-      }
-    }
-  }
-
   const options = Object.assign(defaults, this.options.tide, moduleOptions)
 
   configLoader.build(options, this)
@@ -130,13 +88,20 @@ const nuxtTide = function (moduleOptions) {
   this.addLayout(path.resolve(__dirname, './layouts/minimal.vue'), 'minimal')
   this.options.ErrorPage = path.resolve(__dirname, './layouts/error.vue')
 
-  // Extends routes to add tide page wildcard route, routes added under /pages will still take precedence
   this.extendRoutes((routes, resolve) => {
-    routes.push({
-      name: 'tide',
-      path: '*',
-      component: resolve(__dirname, './pages/Tide.vue')
-    })
+    routes.push(
+      {
+        name: 'sitemap',
+        path: '/sitemap',
+        component: resolve(__dirname, './pages/Sitemap.vue')
+      },
+      {
+        // Extends routes to add tide page wildcard route, routes added under /pages will still take precedence
+        name: 'tide',
+        path: '*',
+        component: resolve(__dirname, './pages/Tide.vue')
+      }
+    )
   })
 }
 

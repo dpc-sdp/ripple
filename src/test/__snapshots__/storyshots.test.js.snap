@@ -3091,86 +3091,6 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Honour Roll Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-honour-roll rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-  data-print-url="#"
-  href="#"
-  target=""
->
-  <!---->
-   
-  <div
-    class="rpl-card-content__details"
-  >
-    <div
-      class="rpl-card-honour-roll__inner"
-    >
-      <img
-        alt=""
-        class="rpl-card-honour-roll__image"
-        src="https://placehold.it/148x148"
-      />
-       
-      <h2
-        class="rpl-card-honour-roll__name rpl-card-honour-roll__name--no-margin"
-      >
-        Stella Young
-      </h2>
-       
-      <p
-        class="rpl-card-honour-roll__lifespan"
-      >
-        (1982 - 2014)
-      </p>
-       
-      <p
-        class="rpl-card-honour-roll__induction"
-      >
-        <span>
-          2017
-        </span>
-         
-        <span
-          class="rpl-card-honour-roll__separator"
-        >
-          |
-        </span>
-         
-        <span>
-          Local Champion
-        </span>
-      </p>
-       
-      <p
-        class="rpl-card-honour-roll__summary"
-      >
-        Journalist, comedian, feminist and fierce disability activist.
-      </p>
-    </div>
-     
-    <!---->
-  </div>
-   
-  <div
-    class="rpl-card-content__link"
-  >
-    <span>
-      <span>
-        Read Stella&#39;s
-      </span>
-       
-      <span
-        class="rpl-text-icon__group"
-      >
-         profile
-        <!---->
-      </span>
-    </span>
-  </div>
-</a>
-`;
-
 exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
 <a
   class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
@@ -3434,6 +3354,80 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
   </p>
    
   <!---->
+</a>
+`;
+
+exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
+<a
+  class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
+  data-print-url="#"
+  href="#"
+  target=""
+>
+  <!---->
+   
+  <div
+    class="rpl-card-content__details"
+  >
+    <div
+      class="rpl-card-profile__inner"
+    >
+      <img
+        alt=""
+        class="rpl-card-profile__image"
+        src="https://placehold.it/148x148"
+      />
+       
+      <h2
+        class="rpl-card-profile__name rpl-card-profile__name--no-margin"
+      >
+        Stella Young
+      </h2>
+       
+      <p
+        class="rpl-card-profile__lifespan"
+      >
+        (1982 - 2014)
+      </p>
+       
+      <p
+        class="rpl-card-profile__induction"
+      >
+        <span>
+          Inducted
+        </span>
+         
+        <span>
+          2017
+        </span>
+      </p>
+       
+      <p
+        class="rpl-card-profile__summary"
+      >
+        Journalist, comedian, feminist and fierce disability activist.
+      </p>
+    </div>
+     
+    <!---->
+  </div>
+   
+  <div
+    class="rpl-card-content__link"
+  >
+    <span>
+      <span>
+        Read Stella&#39;s
+      </span>
+       
+      <span
+        class="rpl-text-icon__group"
+      >
+         profile
+        <!---->
+      </span>
+    </span>
+  </div>
 </a>
 `;
 

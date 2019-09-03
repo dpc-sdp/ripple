@@ -94,11 +94,11 @@ export default {
             class: ['rpl-search-results__item--promotion']
           }
           break
-        case 'RplCardHonourRoll':
+        case 'RplCardProfile':
           this.searchResultContent = {
-            component: () => import(/* webpackChunkName: 'rpl-card-honour-roll' */ '@dpc-sdp/ripple-card').then(m => m.RplCardHonourRoll),
+            component: () => import(/* webpackChunkName: 'rpl-card-profile' */ '@dpc-sdp/ripple-card').then(m => m.RplCardProfile),
             colsBp: this.childColsBp,
-            class: ['rpl-search-results__item--honour-roll']
+            class: ['rpl-search-results__item--profile']
           }
           break
         case 'RplGrantsListItem':

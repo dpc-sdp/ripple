@@ -7,9 +7,10 @@ export default ({
     })
     return response
   },
-  search: async function (client, index, queryString, filters, filterFields, qFields, sFields, from, size, sort) {
+  search: async function (client, index, queryString, filters, filterFields, qFields, sFields, from, size, sort, exclude) {
     // TODO: Add a check for node_grants and published
-    const computedQuery = qB.getEsQueryBody(queryString, filters, qFields)
+    const computedQuery = qB.getEsQueryBody(queryString, filters, qFields, exclude)
+
     const dsl = {
       from: from,
       size: size,

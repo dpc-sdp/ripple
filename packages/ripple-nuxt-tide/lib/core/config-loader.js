@@ -1,4 +1,5 @@
 import logger from './logger'
+import { mergeIncludes } from './tide-helper'
 const path = require('path')
 const fs = require('fs')
 const appDir = require('app-root-path')
@@ -211,6 +212,17 @@ export const build = (tideConfig, _this) => {
   buildCustomRootConfig(tideConfig, _this)
   // Build custom modules
   buildCustomModules(tideConfig, _this)
+
+  // Merge configs for errorPage
+  mergeIncludes()
+
+  // Merge extend configs from each enabled sub module.
+  let errorPageConfig = {}
+  tideConfig.extendConfigs.forEach((extendConfig) => {
+    errorPageConfig = mergeIncludes(errorPageConfig, extendConfig.errorPage)
+  })
+  tideConfig._errorPage = mergeIncludes(errorPageConfig, tideConfig.customConfig.errorPage)
+
   if (process.env.TIDE_DEBUG) {
     logger.debug('Tide configuration: %O', tideConfig)
   }

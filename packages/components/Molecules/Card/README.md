@@ -72,7 +72,7 @@ See [Storybook/Molecules/Card/Card Emergency Contact/Default](https://ripple.sdp
 
 See [Storybook/Molecules/Card/Card Box/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-box--default).
 
-See [Storybook/Molecules/Card/Card Honour Roll/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-honour-roll--default).
+See [Storybook/Molecules/Card/Card Profile/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-profile--default).
 
 See [Storybook/Molecules/Card/Card Content (base)/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-card-card-content-base--default).
 

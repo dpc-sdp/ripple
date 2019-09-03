@@ -69,9 +69,9 @@ It includes :
 
 Ripple is a monorepo which contains several packages published to NPM
 
-[@dpc-sdp/ripple-nuxt-tide](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide) - Package for integrating a Tide backend into a Ripple site
+[@dpc-sdp/ripple-nuxt-tide](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide) - Package for integrating a Tide backend into a Ripple site. Docs: [packages/ripple-nuxt-tide/README.md](https://github.com/dpc-sdp/ripple/blob/develop/packages/ripple-nuxt-tide/README.md)
 
-[@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) - Adds ripple component library to a Nuxt site, can be used independently of @dpc-sdp/ripple-nuxt-tide
+[@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) - Adds ripple component library to a Nuxt site, can be used independently of @dpc-sdp/ripple-nuxt-tide. Docs: [packages/ripple-nuxt-ui/README.md](https://github.com/dpc-sdp/ripple/blob/develop/packages/ripple-nuxt-ui/README.md)
 
 Ripple Vue component library 
 [@dpc-sdp/ripple-global](https://www.npmjs.com/package/@dpc-sdp/ripple-global) - Each ripple Vue component is published individually to NPM, See ripple global for usage.
@@ -161,13 +161,3 @@ Run `yarn run start:storybook`
 ## License
 
 Distributed under the Apache 2.0 License. See `LICENSE` for more information.
-
-
-
-<!-- CONTACT -->
-<!-- TODO - Find appropriate contact for issues -->
-<!-- ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name) -->

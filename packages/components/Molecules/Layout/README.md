@@ -20,7 +20,8 @@ npm install @dpc-sdp/ripple-layout --save
 @dpc-sdp/ripple-layout
 ├── @dpc-sdp/ripple-global
 ├── @dpc-sdp/ripple-grid
-└── @dpc-sdp/ripple-icon
+├── @dpc-sdp/ripple-icon
+└── @dpc-sdp/ripple-site-header
 ```
 
 --------------------------------------------------------------------------------

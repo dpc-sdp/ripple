@@ -77,11 +77,25 @@ export default ({
    * @param {Array}   filters.values  Values to pass to filter context.
    * @param {Array}   filters.fields  Fields to filter values against.
    * @param {Array}   fields          Fields to query the queryString against.
+   * @param {Object}  exclude         (optional) Properties to exclude from hits.
+   * @param {String}  exclude.type    The API entity type to exclude.
+   * @param {String}  exclude.field   (optional) The API field_name. The API field_name. If set and a value exists, hits are excluded.
    */
-  getEsQueryBody: function (queryString, filters, fields) {
+  getEsQueryBody: function (queryString, filters, fields, exclude) {
     let esbResult = {}
     if (queryString === false) {
       esbResult = esb.boolQuery().must(esb.matchAllQuery())
+    } else if (exclude) {
+      let excludes = [
+        esb.termQuery('type', exclude.type)
+      ]
+      if (exclude.field) {
+        excludes.push(esb.existsQuery(exclude.field))
+      }
+      esbResult = esb.boolQuery().must([
+        esb.multiMatchQuery(fields, queryString),
+        esb.boolQuery().mustNot(esb.boolQuery().must(excludes))
+      ])
     } else {
       esbResult = esb.boolQuery().must(esb.multiMatchQuery(fields, queryString))
     }

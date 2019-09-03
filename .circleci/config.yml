@@ -39,11 +39,6 @@ jobs:
       - run: 
           name: run smoke test
           command: yarn test:smoke
-      - run: 
-          name: run example smoke test
-          command: |
-            cd ../..
-            yarn test:example-smoke
       - persist_to_workspace:
           root: ~/app
           paths: .

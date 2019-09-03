@@ -1,5 +1,7 @@
 # Contributing to this project
 
+> ## This page is outdated! Will be updated soon. Please ignore them for now.
+
 - [Introduction](#introduction)
 - [How it works](#how-it-works)
 - [Important things before start](#important-things-before-start)
@@ -122,7 +124,7 @@ After all of the above are done, you can then use the new component in this Nuxt
 - Other component
 
   1. If it's not a landing page component, you may or may not add them in mapping. Please check with SDP team to address the right solution.
-  2. There is a `tide.config.js` and `tide.mapping-filters.js` in the Nuxt project root, you can add custom config and filters without modify the core.
+  2. There is a `tide.config.js` and `mapping-filters.js` in the Nuxt project root, you can add custom config and filters without modify the core.
 
 - Place new component into page
 

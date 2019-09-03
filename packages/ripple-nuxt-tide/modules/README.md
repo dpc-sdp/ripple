@@ -30,7 +30,7 @@ const tideConfig = {
 module.exports = tideConfig
 ```
 
-#### `tide.mapping-filters.js`
+#### `mapping-filters.js`
 
   If you need to preprocess the API field value during the mapping(in above `mapping` section of `tide.config.js`), you can use existing mapping filters or create new filter in this config file.
   Check an example in https://github.com/dpc-sdp/ripple/blob/develop/packages/ripple-nuxt-tide/modules/landing-page/mapping-filters.js

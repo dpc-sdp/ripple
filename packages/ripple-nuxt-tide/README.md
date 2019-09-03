@@ -70,7 +70,7 @@ customization requirement.
 
 ### Examples
 
-We have code examples for how to customize your Ripple project. We strongly recommend developers have a look at https://github.com/dpc-sdp/ripple/tree/develop/examples/basic-example first.
+We have code examples for how to customize your Ripple project. We strongly recommend developers have a look at https://github.com/dpc-sdp/ripple/tree/develop/examples/basic-examples first.
 
 ### Tide Configs
 

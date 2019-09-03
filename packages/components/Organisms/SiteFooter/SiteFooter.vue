@@ -171,7 +171,7 @@ $gutterless-grid: (
 
     .rpl-icon {
       float: right;
-      height: 1rem !important;
+      height: ($rpl-space * 6) !important;
     }
 
     #{$root}__menu-item--parent & {

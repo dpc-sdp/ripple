@@ -21,7 +21,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
   app.$axios.onRequest(config => {
     // Log all axios' requests
     if (process.server) {
-      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios', requestId: config.headers['X-Request-Id']})
+      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios2', requestId: config.headers['X-Request-Id']})
       logger.debug('Headers %O', config.headers, {label: 'Axios'})
     }
   })

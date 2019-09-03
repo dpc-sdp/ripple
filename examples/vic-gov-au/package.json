@@ -28,16 +28,9 @@
     "run-script-os": "^1.0.7"
   },
   "devDependencies": {
-    "@dpc-sdp/ripple-test-tools": "1.0.0",
-    "cypress": "^3.1.5",
-    "cypress-axe": "^0.4.0",
-    "cypress-cucumber-preprocessor": "^1.11.0",
-    "start-server-and-test": "^1.7.11",
+    "@dpc-sdp/ripple-test-tools": "1.1.0",
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
-    "cypress": "^3.1.5",
-    "cypress-axe": "^0.4.0",
-    "cypress-cucumber-preprocessor": "^1.11.0",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",

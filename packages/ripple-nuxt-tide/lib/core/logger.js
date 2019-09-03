@@ -60,8 +60,16 @@ const lagoonFormat = format(info => {
   return info
 })
 
+// Set up level based on env settings.
+let logLevel = 'info'
+if (process.env.TIDE_DEBUG === '1') {
+  logLevel = 'debug'
+} else if (process.env.NODE_ENV === 'test' || process.env.TEST) {
+  logLevel = 'warn'
+}
+
 let logger = createLogger({
-  level: process.env.TIDE_DEBUG === '1' ? 'debug' : 'info',
+  level: logLevel,
   format: format.combine(
     format.timestamp({
       format: 'YYYY-MM-DD HH:mm:ss'

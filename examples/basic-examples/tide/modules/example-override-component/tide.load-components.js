@@ -1,3 +1,3 @@
 export default {
-  'rpl-card-promotion': () => import(/* webackChunkName: 'rpl-card-promotion' */ './components/ExampleCardPromotion')
+  'rpl-card-promotion': () => import(/* webackChunkName: 'example-card-promotion' */ './components/ExampleCardPromotion')
 }

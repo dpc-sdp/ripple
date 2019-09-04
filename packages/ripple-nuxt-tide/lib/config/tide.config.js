@@ -80,7 +80,9 @@ const tideConfig = {
             field: ['field_block_image', 'field_media_image'],
             filters: ['fieldMediaImage']
           },
-          caption: ['field_block_image', 'field_media_caption']
+          caption: {
+            filters: ['campaignCaption']
+          }
         }
       },
 

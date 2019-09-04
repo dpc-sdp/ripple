@@ -74,6 +74,7 @@ export default {
                   placeholder: 'Start typing...',
                   rows: 4,
                   required: true,
+                  max: 5000,
                   visible (model) {
                     return model && model.was_this_page_helpful !== null
                   }

@@ -12635,6 +12635,12 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
       </div>
     </div>
+     
+    <div
+      class="rpl-site-footer__caption"
+    >
+      Image credit: This caption is used to describe the image in the hero banner above.
+    </div>
   </div>
    
   <div

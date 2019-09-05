@@ -3,6 +3,7 @@
     <div class="rpl-site-footer__main">
       <rpl-footer-navigation :nav="nav"></rpl-footer-navigation>
       <rpl-acknowledgement class="rpl-site-footer__acknowledgement" :text="acknowledgement" />
+      <div v-if="caption" class="rpl-site-footer__caption">{{ caption }}</div>
     </div>
     <div class="rpl-site-footer__bottom">
       <div class="rpl-site-footer__bottom-main">
@@ -44,6 +45,7 @@ export default {
     links: Array,
     copyright: String,
     acknowledgement: String,
+    caption: String,
     logos: Array
   },
   computed: {
@@ -70,6 +72,9 @@ $rpl-footer-logo-max-width: rem(112px) !default;
 $rpl-footer-logo-max-height: rem(52px) !default;
 $rpl-footer-acknowledgement-margin: $rpl-space-3 0 ($rpl-space * 9) !default;
 $rpl-footer-acknowledgement-margin-l: ($rpl-space * 8) 0 $rpl-space-4 !default;
+$rpl-footer-caption-ruleset: ('xxs', 1.17em, 'medium') !default;
+$rpl-footer-caption-margin-xs: 0 0 ($rpl-space * 5) !default;
+$rpl-footer-caption-margin-l: $rpl-space-4 0 (-$rpl-space-4) !default;
 $gutterless-grid: (
   columns: 12,
   gutter: 0
@@ -116,6 +121,15 @@ $gutterless-grid: (
 
     @include rpl_breakpoint('l') {
       padding: $rpl-footer-acknowledgement-margin-l;
+    }
+  }
+
+  &__caption {
+    @include rpl_typography_ruleset($rpl-footer-caption-ruleset);
+    margin: $rpl-footer-caption-margin-xs;
+
+    @include rpl_breakpoint('l') {
+      margin: $rpl-footer-caption-margin-l;
     }
   }
 }

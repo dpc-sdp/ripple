@@ -40,7 +40,8 @@ import {
   RplCardCta,
   RplCardEmergencyContact,
   RplCardBox,
-  RplCardHonourRoll
+  RplCardHonourRoll,
+  RplCardProfile
 } from '@dpc-sdp/ripple-card'
 ```
 

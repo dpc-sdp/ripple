@@ -68,7 +68,7 @@ export default {
                   placeholder: 'DD/MM/YYYY',
                   filter: {
                     type: 'date',
-                    operator: 'lte'
+                    operator: 'gte'
                   }
                 },
                 {

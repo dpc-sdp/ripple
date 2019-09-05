@@ -96,14 +96,18 @@ export default {
   },
   methods: {
     getComputedFilters () {
-      // Filter 'date' to end of day.
-      const filterDate = this.searchForm.filterForm.model.field_event_date_end_value
-      if (filterDate) {
-        const filterDateEnd = moment(filterDate).endOf('day').toISOString()
-        this.searchForm.filterForm.model.field_event_date_end_value = filterDateEnd
+      let filterValues = this.$tideSearch.getFiltersValues(this.searchForm.filterForm)
+      // Test date filter based on start / end fields.
+      if (filterValues.field_event_date_end_value) {
+        const setFilterDate = moment(filterValues.field_event_date_end_value.values)
+        filterValues.field_event_date_end_value.values = setFilterDate.startOf('day').toISOString()
+        filterValues['field_event_date_start_value'] = {
+          operator: 'lte',
+          type: 'date',
+          values: setFilterDate.endOf('day').toISOString()
+        }
       }
-
-      return this.$tideSearch.getFiltersValues(this.searchForm.filterForm)
+      return filterValues
     },
     mapSearchResults (source) {
       let pSite = ''

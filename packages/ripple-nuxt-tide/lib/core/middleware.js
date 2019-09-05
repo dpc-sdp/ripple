@@ -283,6 +283,13 @@ export default async function (context, pageData) {
 
     addComponentFromPromise(mapping.get(heroBanner), 'appHeroBanner')
 
+    // Store Page Data.
+    let imageCaption = null
+    if (pageData.tidePage.field_show_hero_image_caption) {
+      imageCaption = pageData.tidePage.field_landing_page_hero_image && pageData.tidePage.field_landing_page_hero_image.field_media_caption
+    }
+    context.store.dispatch('tide/setPageData', { imageCaption })
+
     // Landing pages
     if (pageData.tidePage.field_landing_page_c_primary) {
       pageData.tidePage.field_landing_page_c_primary.field_show_c_primary_caption = pageData.tidePage.field_show_c_primary_caption

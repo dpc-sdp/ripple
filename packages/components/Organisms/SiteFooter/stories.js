@@ -17,6 +17,7 @@ storiesOf('Organisms/SiteFooter', module)
         :links="links"
         :copyright="copyright"
         :acknowledgement="acknowledgement"
+        :caption="caption"
         :logos="logos"
       />
     `,
@@ -184,6 +185,9 @@ storiesOf('Organisms/SiteFooter', module)
       },
       acknowledgement: {
         default: text('Acknowledgement', 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.')
+      },
+      caption: {
+        default: text('Caption', 'Image credit: This caption is used to describe the image in the hero banner above.')
       },
       logos: {
         default: object('Logos', [

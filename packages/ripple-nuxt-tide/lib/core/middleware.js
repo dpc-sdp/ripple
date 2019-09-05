@@ -285,6 +285,7 @@ export default async function (context, pageData) {
 
     // Landing pages
     if (pageData.tidePage.field_landing_page_c_primary) {
+      pageData.tidePage.field_landing_page_c_primary.field_show_c_primary_caption = pageData.tidePage.field_show_c_primary_caption
       addComponentFromPromise(mapping.get(pageData.tidePage.field_landing_page_c_primary), 'appCampaignPrimary')
     }
 

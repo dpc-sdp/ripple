@@ -318,7 +318,7 @@ export default async function (context, pageData) {
     // Set details.
     const title = pageData.tidePage.appMetatag.title || pageData.tidePage.appPageTitle || 'Page not found'
     const description = pageData.tidePage.appMetatag.description || pageData.tidePage.field_news_intro_text || pageData.tidePage.field_landing_page_intro_text || pageData.tidePage.field_page_intro_text || pageData.tidePage.field_landing_page_summary || ''
-    const url = context.store.state.absoluteUrl || ''
+    const url = context.store.state.tide.currentUrl || ''
     const siteSection = pageData.tidePage.section && pageData.tidePage.field_node_site && pageData.tidePage.field_node_site.find(site => site.drupal_internal__tid === parseInt(pageData.tidePage.section, 10))
 
     // Set image.
@@ -326,7 +326,7 @@ export default async function (context, pageData) {
     const sectionImage = siteSection.field_site_og_image ? siteSection.field_site_og_image.field_media_image : null
     const primaryImage = pageData.tidePage.field_node_primary_site.field_site_og_image ? pageData.tidePage.field_node_primary_site.field_site_og_image.field_media_image : null
     const mediaImage = (featuredImage || sectionImage || primaryImage || null)
-    const image = mediaImage ? mediaImage.url : ''
+    const image = mediaImage ? mediaImage.url : `${context.store.state.tide.protocol + '//' + context.store.state.tide.host}/img/social-media-image.jpg`
     const imageAlt = mediaImage ? mediaImage.meta.alt : ''
 
     pageData.tidePage.head = {

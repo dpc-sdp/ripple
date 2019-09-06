@@ -4,6 +4,8 @@ const tideConfig = {
     sdpPageBase: [
       'field_node_site',
       'field_node_site.field_site_main_menu',
+      'field_node_site.field_site_og_image',
+      'field_node_site.field_site_og_image.field_media_image',
       'field_featured_image',
       'field_featured_image.field_media_image',
       'field_tags',

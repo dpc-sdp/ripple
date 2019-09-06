@@ -36,6 +36,7 @@
         :links="footer.links"
         :copyright="footer.copyright"
         :acknowledgement="footer.acknowledgement"
+        :caption="footerCaption"
         :logos="footer.logos"
         />
     </template>
@@ -93,6 +94,9 @@ export default {
         return isPreview(this.$store)
       }
       return false
+    },
+    footerCaption () {
+      return this.$store.state.tide.pageData ? this.$store.state.tide.pageData.imageCaption : null
     }
   },
   mounted () {

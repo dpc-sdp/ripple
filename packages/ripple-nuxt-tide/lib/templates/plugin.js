@@ -21,7 +21,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
   app.$axios.onRequest(config => {
     // Log all axios' requests
     if (process.server) {
-      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios', requestId: config.headers['X-Request-Id']})
+      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios2', requestId: config.headers['X-Request-Id']})
       logger.debug('Headers %O', config.headers, {label: 'Axios'})
     }
   })
@@ -75,7 +75,8 @@ export default ({ env, app, req, res, store , route}, inject) => {
         host: null,
         protocol: null,
         currentUrl: null,
-        siteData: null
+        siteData: null,
+        pageData: null
       }),
       mutations: {
         setHost (state, host) {
@@ -89,6 +90,9 @@ export default ({ env, app, req, res, store , route}, inject) => {
         },
         setSiteData (state, siteData) {
           state.siteData = siteData
+        },
+        setPageData (state, pageData) {
+          state.pageData = pageData
         }
       },
       actions: {
@@ -128,7 +132,10 @@ export default ({ env, app, req, res, store , route}, inject) => {
         setCurrentUrl ({ commit }, fullPath) {
           const url = store.state.tide.protocol + '//' + store.state.tide.host + fullPath
           commit('setCurrentUrl', url)
-        }
+        },
+        setPageData ({ commit }, pageData) {
+          commit('setPageData', pageData)
+        },
       }
     }
 

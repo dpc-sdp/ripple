@@ -12,6 +12,7 @@
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.1.0",
     "@dpc-sdp/ripple-grid": "1.1.0",
-    "@dpc-sdp/ripple-icon": "1.1.0"
+    "@dpc-sdp/ripple-icon": "1.1.0",
+    "@dpc-sdp/ripple-site-header": "1.1.0"
   }
 }

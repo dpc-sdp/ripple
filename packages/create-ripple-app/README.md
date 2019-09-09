@@ -12,7 +12,7 @@
 Make sure you have [npx](https://www.npmjs.com/package/npx) installed (`npx` is shipped by default since [npm](https://www.npmjs.com/get-npm) `5.2.0`)
 
 ```bash
-npx create-ripple-app <my-project>
+npx @dpc-sdp/create-ripple-app <my-project>
 ```
 
 ## Options config 

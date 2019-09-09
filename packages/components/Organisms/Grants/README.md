@@ -37,7 +37,9 @@ import { RplGrantsOverview, RplGrantsListItem } from '@dpc-sdp/ripple-grants'
 
 ## Usage and Tests
 
-See [Storybook/Organisms/Grants/Grants Overview](https://ripple.sdp.vic.gov.au/?path=/story/organisms-grants--grants-overview).
+See [Storybook/Organisms/Grants/Default](https://ripple.sdp.vic.gov.au/?path=/story/organisms-grants--default).
+
+See [Storybook/Organisms/Grants/Open - Countdown displayed](https://ripple.sdp.vic.gov.au/?path=/story/organisms-grants--open---countdown-displayed).
 
 --------------------------------------------------------------------------------
 

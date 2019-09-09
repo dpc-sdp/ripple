@@ -11,7 +11,7 @@ storiesOf('Organisms/CampaignPrimary', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
     components: { RplCampaignPrimary },
-    template: `<rpl-campaign-primary :title="title" :summary="summary" :link="link" :image="image" />`,
+    template: `<rpl-campaign-primary :title="title" :summary="summary" :link="link" :image="image" :caption="caption" />`,
     props: {
       title: {
         default: text('Title', 'Primary campaign headline')
@@ -24,6 +24,9 @@ storiesOf('Organisms/CampaignPrimary', module)
       },
       image: {
         default: () => object('Image', { src: 'http://placehold.it/699x411', alt: '' })
+      },
+      caption: {
+        default: () => text('Caption', 'Image credit: This credit is used to describe the image to the right of the banner.')
       }
     }
   }))

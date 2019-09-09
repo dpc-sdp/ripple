@@ -84,7 +84,7 @@ A `demoData.js` entry will need to be manually included.
 
 ### Work in Docker
 
-We recomend you work in our Docker enviorment.
+We recommend you work in our Docker environment.
 
 1. Install Docker
    - Install [Homebrew](https://brew.sh/)

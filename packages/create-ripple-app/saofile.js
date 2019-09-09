@@ -318,7 +318,7 @@ module.exports = {
         templateDir: 'template/_tests/_smoke'
       })
     }
-    console.log(results.modules)
+
     if (results.e2e) {
       // only add tests for enabled modules
       results.modules.forEach(tideModule => {

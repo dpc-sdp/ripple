@@ -1,9 +1,14 @@
+PROJECTROOT=../../examples/vic-gov-au
+if [ "$1" != "" ]; then
+  PROJECTROOT=$1
+fi
+echo "PROJECTROOT = $PROJECTROOT"
 # Clean test folders
 rm -Rf template/_tests/_common/test/e2e/*
 rm -Rf template/_tests/_modules/test/e2e/integration/core-modules
 rm -Rf template/_tests/_modules/test/e2e/fixtures
 # Copy in folders from example app
-cp -R ../../examples/vic-gov-au/test/e2e/ template/_tests/_common/test/e2e/
+cp -R $PROJECTROOT/test/e2e/ template/_tests/_common/test/e2e/
 mv template/_tests/_common/test/e2e/integration/core-modules template/_tests/_modules/test/e2e/integration/core-modules
 mv template/_tests/_common/test/e2e/fixtures template/_tests/_modules/test/e2e/fixtures
 # Move snippets back
@@ -15,7 +20,7 @@ rm -Rf template/_example
 mkdir -p template/_example
 mkdir -p template/_example/pages
 
-cp -R ../../examples/vic-gov-au/tide template/_example
-cp -R ../../examples/vic-gov-au/plugins template/_example/plugins
-cp -R ../../examples/vic-gov-au/components template/_example/components
-cp -R ../../examples/vic-gov-au/pages/examples template/_example/pages/examples
+cp -R $PROJECTROOT/tide template/_example
+cp -R $PROJECTROOT/plugins template/_example/plugins
+cp -R $PROJECTROOT/components template/_example/components
+cp -R $PROJECTROOT/pages/examples template/_example/pages/examples

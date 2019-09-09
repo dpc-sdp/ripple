@@ -1,16 +1,22 @@
 module.exports = {
   verbose: true,
-  moduleNameMapper: {
-    '~(.*)$': '<rootDir>/$1', // Add nuxt root alias in jest
-    '^vue$': 'vue/dist/vue.esm.js'
-  },
   testURL: 'http://localhost',
   collectCoverage: true,
-  testMatch: ['**/unit/**/*.test.js'],
-  moduleFileExtensions: ['js', 'vue', 'json'],
+  testMatch: ['**/unit/**/*.test.js', '**/*.test.js'],
+  moduleFileExtensions: ['js', 'json', 'vue'],
+  setupFiles: ['<rootDir>/.jest/register-context.js', 'jest-canvas-mock'],
+  setupFilesAfterEnv: ['<rootDir>/.jest/moment.js'],
   transform: {
-    '^.+\\.js$': 'babel-jest',
-    '.*\\.(vue)$': 'vue-jest'
+    '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
+    '.*\\.(vue)$': '<rootDir>/node_modules/jest-vue-preprocessor',
+    '^.+\\.md?$': 'markdown-loader-jest'
   },
-  transformIgnorePatterns: ['node_modules/(?!(@dpc-sdp*)/)']
+  transformIgnorePatterns: [
+    'node_modules/(?!(@dpc-sdp*|storybook-addon-vue-info|@storybook*)/)'
+  ],
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$':
+      '<rootDir>/__mocks__/fileMock.js',
+    '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js'
+  }
 }

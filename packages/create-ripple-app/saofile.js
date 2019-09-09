@@ -194,16 +194,18 @@ module.exports = {
     return prompts
   },
   templateData () {
+    if (config.modules && !Array.isArray(config.modules)) {
+      config.modules = config.modules.split(',')
+    }
     const results = {
       ...this.answers,
       ...config
     }
 
-    const paramModules = results.modules || []
     const tideModules = {}
 
     TIDE_MODULES.map(m => m.value).forEach(module => {
-      if (paramModules.includes(module) || results.modules.includes(module)) {
+      if (results.modules.includes(module)) {
         tideModules[module] = 'yes'
       } else {
         tideModules[module] = 'no'
@@ -216,6 +218,10 @@ module.exports = {
     }
   },
   actions () {
+    if (config.modules && !Array.isArray(config.modules)) {
+      config.modules = config.modules.split(',')
+    }
+
     const results = {
       ...this.answers,
       ...config
@@ -254,13 +260,23 @@ module.exports = {
       if (fs.existsSync(`${this.outDir}${path}`)) {
         return actions.push({
           type: 'remove',
-          files: 'pages/Sitemap.vue'
+          files: path
+        })
+      }
+    }
+    const movePath = (from, to, actions) => {
+      if (fs.existsSync(`${this.outDir}${from}`)) {
+        return actions.push({
+          type: 'move',
+          patterns: {
+            from: to
+          }
         })
       }
     }
 
     removePath('/pages/Sitemap.vue', actions)
-    removePath('/tide.config.js', actions)
+    movePath('/tide.config.js', '/tide/tide.config.js', actions)
 
     if (results.examples) {
       actions.push({
@@ -302,7 +318,7 @@ module.exports = {
         templateDir: 'template/_tests/_smoke'
       })
     }
-
+    console.log(results.modules)
     if (results.e2e) {
       // only add tests for enabled modules
       results.modules.forEach(tideModule => {

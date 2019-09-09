@@ -12,7 +12,7 @@ module.exports = {
     '^.+\\.md?$': 'markdown-loader-jest'
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(@dpc-sdp*|storybook-addon-vue-info|@storybook*)/)'
+    'node_modules/(?!(@dpc-sdp*|ol|ol-ext|storybook-addon-vue-info|@storybook*)/)'
   ],
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$':

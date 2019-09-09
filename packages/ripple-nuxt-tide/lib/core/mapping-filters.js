@@ -125,5 +125,10 @@ export default {
         id: doc.id
       }
     })
+  },
+  campaignCaption: (fieldCampaign) => {
+    const hasImage = fieldCampaign.field_block_image
+    const hasCaption = fieldCampaign.field_show_c_primary_caption
+    return (hasCaption && hasImage) ? fieldCampaign.field_block_image.field_media_caption : null
   }
 }

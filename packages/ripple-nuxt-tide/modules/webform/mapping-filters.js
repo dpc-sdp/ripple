@@ -82,6 +82,14 @@ module.exports = {
         field.states = element['#states']
       }
 
+      if (element['#maxlength']) {
+        field.maxlength = element['#maxlength']
+      }
+
+      if (element['#minlength']) {
+        field.minlength = element['#minlength']
+      }
+
       switch (element['#type']) {
         case 'hidden':
           field.type = 'input'
@@ -137,6 +145,9 @@ module.exports = {
 
         case 'textarea':
           field.type = 'textArea'
+          // textArea uses min / max.
+          field.max = field.maxlength
+          field.min = field.minlength
           break
 
         case 'checkbox':

@@ -48,6 +48,10 @@ export default {
       border-radius: $rpl-meta-tag-border-radius;
       padding: $rpl-meta-tag-padding;
 
+      @media print {
+        border-color: rpl-color('black');
+      }
+
       #{$root}--dark & {
         @include rpl_text_color($rpl-meta-tag-text-color);
         border-color: $rpl-meta-tag-dark-border-color;

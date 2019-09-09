@@ -3091,86 +3091,6 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Honour Roll Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-honour-roll rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-  data-print-url="#"
-  href="#"
-  target=""
->
-  <!---->
-   
-  <div
-    class="rpl-card-content__details"
-  >
-    <div
-      class="rpl-card-honour-roll__inner"
-    >
-      <img
-        alt=""
-        class="rpl-card-honour-roll__image"
-        src="https://placehold.it/148x148"
-      />
-       
-      <h2
-        class="rpl-card-honour-roll__name rpl-card-honour-roll__name--no-margin"
-      >
-        Stella Young
-      </h2>
-       
-      <p
-        class="rpl-card-honour-roll__lifespan"
-      >
-        (1982 - 2014)
-      </p>
-       
-      <p
-        class="rpl-card-honour-roll__induction"
-      >
-        <span>
-          2017
-        </span>
-         
-        <span
-          class="rpl-card-honour-roll__separator"
-        >
-          |
-        </span>
-         
-        <span>
-          Local Champion
-        </span>
-      </p>
-       
-      <p
-        class="rpl-card-honour-roll__summary"
-      >
-        Journalist, comedian, feminist and fierce disability activist.
-      </p>
-    </div>
-     
-    <!---->
-  </div>
-   
-  <div
-    class="rpl-card-content__link"
-  >
-    <span>
-      <span>
-        Read Stella&#39;s
-      </span>
-       
-      <span
-        class="rpl-text-icon__group"
-      >
-         profile
-        <!---->
-      </span>
-    </span>
-  </div>
-</a>
-`;
-
 exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
 <a
   class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
@@ -3434,6 +3354,80 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
   </p>
    
   <!---->
+</a>
+`;
+
+exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
+<a
+  class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
+  data-print-url="#"
+  href="#"
+  target=""
+>
+  <!---->
+   
+  <div
+    class="rpl-card-content__details"
+  >
+    <div
+      class="rpl-card-profile__inner"
+    >
+      <img
+        alt=""
+        class="rpl-card-profile__image"
+        src="https://placehold.it/148x148"
+      />
+       
+      <h2
+        class="rpl-card-profile__name rpl-card-profile__name--no-margin"
+      >
+        Stella Young
+      </h2>
+       
+      <p
+        class="rpl-card-profile__lifespan"
+      >
+        (1982 - 2014)
+      </p>
+       
+      <p
+        class="rpl-card-profile__induction"
+      >
+        <span>
+          Inducted
+        </span>
+         
+        <span>
+          2017
+        </span>
+      </p>
+       
+      <p
+        class="rpl-card-profile__summary"
+      >
+        Journalist, comedian, feminist and fierce disability activist.
+      </p>
+    </div>
+     
+    <!---->
+  </div>
+   
+  <div
+    class="rpl-card-content__link"
+  >
+    <span>
+      <span>
+        Read Stella&#39;s
+      </span>
+       
+      <span
+        class="rpl-text-icon__group"
+      >
+         profile
+        <!---->
+      </span>
+    </span>
+  </div>
 </a>
 `;
 
@@ -8834,7 +8828,7 @@ exports[`RippleStoryshots Organisms/CallToAction Call to Action 1`] = `
 
 exports[`RippleStoryshots Organisms/CampaignPrimary Default 1`] = `
 <div
-  class="rpl-campaign-primary"
+  class="rpl-campaign-primary rpl-campaign-primary--with-caption"
 >
   <div
     class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large"
@@ -8842,43 +8836,53 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Default 1`] = `
     <span
       class="rpl-campaign-primary__image-inner"
     >
-      <svg
-        aria-hidden="true"
-        class="rpl-campaign-primary__image"
-        height="411"
-        viewBox="0 0 699 411"
-        width="699"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+      <figure
+        class="rpl-campaign-primary__figure"
       >
-        <!---->
-         
-        <mask
+        <svg
+          aria-hidden="true"
+          class="rpl-campaign-primary__image"
           height="411"
-          id="mask0"
-          mask-type="alpha"
-          maskUnits="userSpaceOnUse"
+          viewBox="0 0 699 411"
           width="699"
-          x="0"
-          y="0"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <path
-            d="M699 0L114.075 170.226L0 411H699V0Z"
-            fill="white"
-          />
-        </mask>
-         
-        <g
-          mask="url(#mask0)"
-        >
-          <image
+          <!---->
+           
+          <mask
             height="411"
-            href="http://placehold.it/699x411"
+            id="mask0"
+            mask-type="alpha"
+            maskUnits="userSpaceOnUse"
             width="699"
-            xlink:href="http://placehold.it/699x411"
-          />
-        </g>
-      </svg>
+            x="0"
+            y="0"
+          >
+            <path
+              d="M699 0L114.075 170.226L0 411H699V0Z"
+              fill="white"
+            />
+          </mask>
+           
+          <g
+            mask="url(#mask0)"
+          >
+            <image
+              height="411"
+              href="http://placehold.it/699x411"
+              width="699"
+              xlink:href="http://placehold.it/699x411"
+            />
+          </g>
+        </svg>
+         
+        <figcaption
+          class="rpl-campaign-primary__figure-caption"
+        >
+          Image credit: This credit is used to describe the image to the right of the banner.
+        </figcaption>
+      </figure>
     </span>
   </div>
    
@@ -8927,6 +8931,13 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Default 1`] = `
           Call to action
         </span>
       </a>
+       
+      <div
+        aria-hidden="true"
+        class="rpl-campaign-primary__caption"
+      >
+        Image credit: This credit is used to describe the image to the right of the banner.
+      </div>
     </div>
   </div>
 </div>
@@ -12640,6 +12651,12 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
       >
         The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
       </div>
+    </div>
+     
+    <div
+      class="rpl-site-footer__caption"
+    >
+      Image credit: This caption is used to describe the image in the hero banner above.
     </div>
   </div>
    

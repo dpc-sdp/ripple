@@ -38,12 +38,12 @@ export default {
       const titleMaxLength = 80
       const titleMinLength = 40
       const descriptionLength = 120
-      if (typeof window !== undefined) {
+      if (typeof window !== 'undefined') {
         if (this.keydates.length > 1) {
           trimedKeyDates = this.keydates.map(dates => ({
             date: dates.date,
             title: (dates.description.length > titleMaxLength && dates.title.length > titleMinLength) ? truncateText(dates.title, titleMinLength) : truncateText(dates.title, titleMaxLength),
-            description: dates.description.length > descriptionLength ? truncateText(dates.description, descriptionLength) : dates.description,
+            description: dates.description.length > descriptionLength ? truncateText(dates.description, descriptionLength) : dates.description
           }))
         }
       }

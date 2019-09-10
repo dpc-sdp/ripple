@@ -1,7 +1,7 @@
 <template>
   <rpl-card-content :link="link" class="rpl-card-keydates">
     <h2 class="rpl-card-keydates__title" v-if="title">{{ title }}</h2>
-    <div class="rpl-card-keydates__keydate" v-for="(keydate, index) in keydates" :key="index">
+    <div class="rpl-card-keydates__keydate" v-for="(keydate, index) in keydatesTrimed" :key="index">
       <div class="rpl-card-keydates__keydate-date">
         <rpl-icon symbol="calendar" color="white" />
         <span>{{ keydate.date }}</span>
@@ -16,6 +16,7 @@
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import RplCardContent from './CardContent.vue'
 import RplIcon from '@dpc-sdp/ripple-icon'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplCardKeydates',
@@ -30,6 +31,24 @@ export default {
   components: {
     RplCardContent,
     RplIcon
+  },
+  computed: {
+    keydatesTrimed: function () {
+      let trimedKeyDates = this.keydates
+      const titleMaxLength = 80
+      const titleMinLength = 40
+      const descriptionLength = 120
+      if (typeof window !== undefined) {
+        if (this.keydates.length > 1) {
+          trimedKeyDates = this.keydates.map(dates => ({
+            date: dates.date,
+            title: (dates.description.length > titleMaxLength && dates.title.length > titleMinLength) ? truncateText(dates.title, titleMinLength) : truncateText(dates.title, titleMaxLength),
+            description: dates.description.length > descriptionLength ? truncateText(dates.description, descriptionLength) : dates.description,
+          }))
+        }
+      }
+      return trimedKeyDates
+    }
   }
 }
 </script>

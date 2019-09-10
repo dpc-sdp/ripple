@@ -38,6 +38,9 @@
     <%_ if ((e2e === true) || (smoke === true)) { _%>
     "@dpc-sdp/ripple-test-tools": "^1.2.0",
     "start-server-and-test": "^1.7.11",
+    "cypress": "^3.1.5",	
+    "cypress-axe": "^0.4.0",	
+    "cypress-cucumber-preprocessor": "^1.11.0",
     <%_ } _%>
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
@@ -74,7 +77,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-push": "<%= pm %> run lint<%_ if (unit === true) { _%> && <%= pm %>run test:unit<%_ } _%>"
+      "pre-push": "<%= pm %> run lint <%_ if (unit === true) { _%> && <%= pm %> run test:unit<%_ } _%>"
     }
   }
 }

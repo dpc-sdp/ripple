@@ -162,25 +162,18 @@ Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 # Attribution
 Single Digital Presence offers government agencies an open and flexible toolkit to build websites quickly and cost-effectively.
 
+<!-- SDP LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/dpc-sdp/ripple">
+    <img src="docs/sdp-vicgov.jpg" alt="Logo" height="150">
+  </a>
+</p>
+
 The Department of Premier and Cabinet partnered with Salsa Digital to deliver Single Digital Presence. As long-term supporters of open government approaches, they were integral to the establishment of SDP as an open source platform.
 
 <p align="center">
   <a href="https://salsadigital.com.au">
     <img src="docs/salsa-logo.png" alt="Logo" height="150">
-  </a>
-</p>
-<!-- CONTACT -->
-<!-- TODO - Find appropriate contact for issues -->
-<!-- ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name) -->
-
-<!-- FOOTER LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/dpc-sdp/ripple">
-    <img src="docs/sdp-vicgov.jpg" alt="Logo" height="150">
   </a>
 </p>

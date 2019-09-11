@@ -1,4 +1,4 @@
-import { isRelativeUrl, isExternalUrl, isAnchorLink } from './../../../packages/components/Atoms/Global/utils/helpers'
+import { isRelativeUrl, isExternalUrl, isAnchorLink, getAnchorLinkName } from './../../../packages/components/Atoms/Global/utils/helpers'
 
 describe('isRelativeUrl', () => {
   /* eslint-disable indent */
@@ -47,6 +47,19 @@ describe('isAnchorLink', () => {
     ${'mailto: test@t.com'}             | ${false}
   `('returns $expected for $url', ({ url, expected }) => {
     expect(isAnchorLink(url)).toBe(expected)
+  })
+  /* eslint-enable indent */
+})
+
+describe('getAnchorLinkName', () => {
+  /* eslint-disable indent */
+  test.each`
+    text                                                | expected
+    ${'Anchor&nbsp;&amp;&nbsp;&copy;&nbsp;Link'}        | ${'anchor-link'}
+    ${'Anchor`~!@#$%^&*()-_=+{}[]\\|;:\'"<>,.?/\nLink'} | ${'anchor-link'}
+    ${'   ANCHOR   LINK   '}                            | ${'anchor-link'}
+  `('returns $expected for $text', ({ text, expected }) => {
+    expect(getAnchorLinkName(text)).toBe(expected)
   })
   /* eslint-enable indent */
 })

@@ -1,7 +1,7 @@
 <template>
   <rpl-card-content :link="link" class="rpl-card-keydates">
     <h2 class="rpl-card-keydates__title" v-if="title">{{ title }}</h2>
-    <div class="rpl-card-keydates__keydate" v-for="(keydate, index) in keydatesTrimed" :key="index">
+    <div class="rpl-card-keydates__keydate" v-for="(keydate, index) in keydatesTrimmed" :key="index">
       <div class="rpl-card-keydates__keydate-date">
         <rpl-icon symbol="calendar" color="white" />
         <span>{{ keydate.date }}</span>
@@ -33,21 +33,23 @@ export default {
     RplIcon
   },
   computed: {
-    keydatesTrimed: function () {
-      let trimedKeyDates = this.keydates
+    keydatesTrimmed: function () {
+      let trimmedKeyDates = this.keydates
       const titleMaxLength = 80
       const titleMinLength = 40
-      const descriptionLength = 120
-      if (typeof window !== 'undefined') {
-        if (this.keydates.length > 1) {
-          trimedKeyDates = this.keydates.map(dates => ({
-            date: dates.date,
-            title: (dates.description.length > titleMaxLength && dates.title.length > titleMinLength) ? truncateText(dates.title, titleMinLength) : truncateText(dates.title, titleMaxLength),
-            description: dates.description.length > descriptionLength ? truncateText(dates.description, descriptionLength) : dates.description
-          }))
-        }
+      const descriptionMaxLength = 120
+      const descriptionMinLength = 80
+      const keydatesTitle = (description, title) => {
+        return (description.length > descriptionMinLength && title.length > titleMinLength) ? truncateText(title, titleMinLength) : truncateText(title, titleMaxLength)
       }
-      return trimedKeyDates
+      if (this.keydates.length > 1) {
+        trimmedKeyDates = this.keydates.map(dates => ({
+          date: dates.date,
+          title: keydatesTitle(dates.description, dates.title),
+          description: truncateText(dates.description, descriptionMaxLength)
+        }))
+      }
+      return trimmedKeyDates
     }
   }
 }

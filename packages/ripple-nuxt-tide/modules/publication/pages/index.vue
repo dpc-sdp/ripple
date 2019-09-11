@@ -32,7 +32,7 @@ import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplPublicationPagination, RplPublicationAuthorInformation } from '@dpc-sdp/ripple-publication'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import { truncateText } from '@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import { RplCardNavigation } from '@dpc-sdp/ripple-card'
 
 export default {

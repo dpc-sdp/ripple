@@ -1,5 +1,5 @@
 import { cardColsSetting } from '../../../lib/config/layout.config.js'
-import { truncateText } from './../../../lib/core/tide-helper'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 const searchMixin = {
   data () {

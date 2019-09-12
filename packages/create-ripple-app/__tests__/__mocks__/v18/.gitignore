@@ -1,0 +1,12 @@
+# Dependencies.
+node_modules
+
+# Temporary files.
+npm-debug.log
+.nuxt
+dist
+
+# tests
+coverage
+/test/e2e/videos
+/test/e2e/screenshots

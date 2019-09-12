@@ -43,27 +43,10 @@ export default {
   modules: [
     // https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
     '@dpc-sdp/ripple-nuxt-tide'
-  ],<% if (examples === true) { %>
-  /*
-  ** styleResources
-  * Override the path to the theme customisation scss
-  * loads scss with @nuxtjs/style-resources
-  * Defaults to /assets/_theme.scss
-  */
-  // styleResources: {
-  //   scss: [
-  //     path.resolve(__dirname, './assets/_theme.scss')
-  //   ]
-  // }
-  /*
-  * Configuration for ripple-nuxt-ui
-  * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui
-  */
-  ripple: {},
-  /*
-  * Configuration for ripple-nuxt-tide
-  * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
-  */<%}%>
+  ],<% if (customcss === true) { %>
+  css: [
+    '@/assets/_custom.scss'
+  ],<%}%>
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {

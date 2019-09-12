@@ -63,7 +63,8 @@
     "node-sass": "^4.11.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
-    "sass-resources-loader": "^2.0.0",<%_ if ((e2e === true) || (smoke === true)) { _%>
+    "sass-resources-loader": "^2.0.0",
+    <%_ if ((e2e === true) || (smoke === true)) { _%>
     "start-server-and-test": "^1.7.11",
     <%_ } _%>
     <%_ if (unit === true) { _%>

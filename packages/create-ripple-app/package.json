@@ -18,6 +18,7 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "jscodeshift": "^0.6.4",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
     "sao": "^1.6.1",

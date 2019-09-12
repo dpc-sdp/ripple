@@ -43,10 +43,10 @@ export default {
   modules: [
     // https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
     '@dpc-sdp/ripple-nuxt-tide'
-  ],<% if (customcss === true) { %>
+  ],
   css: [
     '@/assets/_custom.scss'
-  ],<%}%>
+  ],
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {

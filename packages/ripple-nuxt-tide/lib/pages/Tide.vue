@@ -86,7 +86,6 @@ import { RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 import { anchorUtils } from '@dpc-sdp/ripple-nuxt-tide/lib/core/anchorlinks.js'
 import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
-
 export default {
   components: {
     AppError,

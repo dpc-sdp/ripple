@@ -22,6 +22,7 @@ yarn-error.log*
 coverage
 examples/**/test/e2e/videos
 examples/**/test/e2e/screenshots
+packages/create-ripple-app/__tests__/__mocks__/v18
 
 # temp test fixtures
 /examples/test*

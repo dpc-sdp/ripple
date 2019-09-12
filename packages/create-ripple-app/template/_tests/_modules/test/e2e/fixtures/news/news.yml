@@ -110,11 +110,11 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Another Demo Site'
+            name: '<%= domain %>'
   field_node_primary_site:
     - '#process':
         callback: reference
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
+            name: '<%= domain %>'

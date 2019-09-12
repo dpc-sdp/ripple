@@ -2,167 +2,8 @@ const fs = require('fs')
 const path = require('path')
 const validate = require('validate-npm-package-name')
 const args = require('minimist')(process.argv.slice(2))
-
-const TIDE_MODULES = [
-  { value: 'site', name: 'Site', default: true },
-  { value: 'alert', name: 'Alert', default: true },
-  { value: 'page', name: 'Page', default: true },
-  { value: 'landingPage', name: 'Landing Page', default: true },
-  { value: 'event', name: 'Event', default: true },
-  { value: 'news', name: 'News', default: true },
-  { value: 'grant', name: 'Grant', default: false },
-  { value: 'gtm', name: 'Google Tag Manager', default: true },
-  { value: 'profile', name: 'Profile', default: true },
-  { value: 'media', name: 'Media', default: true },
-  { value: 'webform', name: 'Webform', default: true },
-  { value: 'search', name: 'Search', default: true },
-  { value: 'publication', name: 'Publication', default: false },
-  {
-    value: 'authenticatedContent',
-    name: 'Authenticated Content',
-    default: false
-  },
-  {
-    value: 'dataDrivenComponent',
-    name: 'Data Driven Component',
-    default: false
-  }
-]
-
-const OPTIONS = {
-  name: {
-    name: 'name',
-    message: 'Project name',
-    type: 'string',
-    default: '{outFolder}'
-  },
-  domain: {
-    name: 'domain',
-    message: 'Domain',
-    default: ({ name }) => {
-      return `${name || config.name}.vic.gov.au`
-    }
-  },
-  backendurl: {
-    name: 'backendurl',
-    message: 'Enter backend content repository url',
-    default: ``
-  },
-  siteid: {
-    name: 'siteid',
-    message: 'Site ID',
-    default: '4'
-  },
-  authuser: {
-    name: 'authuser',
-    message: 'Enter basic auth shield username',
-    default: ''
-  },
-  authpass: {
-    name: 'authpass',
-    message: 'Enter auth password',
-    default: ''
-  },
-  gtmtoken: {
-    name: 'gtmtoken',
-    message: 'Enter Google Tag Manager Token',
-    default: ''
-  },
-  modules: {
-    name: 'modules',
-    message: 'Choose tide modules to install',
-    type: 'checkbox',
-    choices: [...TIDE_MODULES],
-    default: TIDE_MODULES.filter(m => m.default === true).map(m => m.value)
-  },
-  author: {
-    name: 'author',
-    type: 'string',
-    message: 'Author name',
-    default: '{gitUser.name}',
-    store: true
-  },
-  pm: {
-    name: 'pm',
-    message: 'Choose a package manager',
-    choices: ['npm', 'yarn'],
-    type: 'list',
-    default: 'yarn'
-  },
-  e2e: {
-    name: 'e2e',
-    message: 'Add E2E tests?',
-    type: 'confirm',
-    default: true
-  },
-  smoke: {
-    name: 'smoke',
-    message: 'Add Integration tests?',
-    type: 'confirm',
-    default: true
-  },
-  unit: {
-    name: 'unit',
-    message: 'Add unit tests?',
-    type: 'confirm',
-    default: true
-  },
-  examples: {
-    name: 'examples',
-    message: 'Add code examples?',
-    type: 'confirm',
-    default: false
-  },
-  searchhash: {
-    name: 'searchhash',
-    type: 'string',
-    message: 'Elasticsearch search hash',
-    default: '',
-    store: true
-  },
-  searchurl: {
-    name: 'searchurl',
-    type: 'string',
-    message: 'Elasticsearch URL',
-    default: 'elasticdev.sdp.vic.gov.au',
-    store: true
-  },
-  searchindex: {
-    name: 'searchindex',
-    type: 'string',
-    message: 'Elasticsearch index',
-    default: '',
-    store: true
-  },
-  searchusername: {
-    name: 'searchusername',
-    type: 'string',
-    message: 'Elasticsearch username',
-    default: '',
-    store: true
-  },
-  searchpassword: {
-    name: 'searchpassword',
-    type: 'string',
-    message: 'Elasticsearch password',
-    default: '',
-    store: true
-  },
-  adminuser: {
-    name: 'adminuser',
-    type: 'string',
-    message: 'Admin username (For E2E tests)',
-    default: '',
-    store: true
-  },
-  adminpass: {
-    name: 'adminpass',
-    type: 'string',
-    message: 'Admin password (For E2E tests)',
-    default: '',
-    store: true
-  }
-}
+const TIDE_MODULES = require('./tidemodules')
+const OPTIONS = require('./options')
 
 // Set options from a config file path relative to CWD
 const configFile = args.config
@@ -212,9 +53,12 @@ module.exports = {
       }
     })
 
+    const customcss = fs.existsSync(`${this.outDir}/assets/_custom.scss`)
+
     return {
       ...results,
-      ...tideModules
+      ...tideModules,
+      customcss
     }
   },
   actions () {
@@ -278,6 +122,35 @@ module.exports = {
     removePath('/pages/Sitemap.vue', actions)
     movePath('/tide.config.js', '/tide/tide.config.js', actions)
 
+    if (!fs.existsSync(`${this.outDir}/assets/_theme.scss`)) {
+      actions.push({
+        type: 'add',
+        files: ['_theme.scss']
+      })
+      actions.push({
+        type: 'move',
+        patterns: {
+          '_theme.scss': 'assets/_theme.scss'
+        }
+      })
+    }
+
+    if (!fs.existsSync(`${this.outDir}/static`)) {
+      actions.push({
+        type: 'add',
+        files: ['**'],
+        templateDir: 'template/_static'
+      })
+    }
+
+    if (!fs.existsSync(`${this.outDir}/tide`)) {
+      actions.push({
+        type: 'add',
+        files: ['**'],
+        templateDir: 'template/_tide'
+      })
+    }
+
     if (results.examples) {
       actions.push({
         type: 'add',
@@ -338,7 +211,7 @@ module.exports = {
     return actions
   },
   async completed () {
-    // this.gitInit()
+
     const results = {
       ...this.answers,
       ...config

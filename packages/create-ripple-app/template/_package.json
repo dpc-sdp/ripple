@@ -1,6 +1,6 @@
 {
   "name": "<%= name %>",
-  "version": "1.0.0",
+  "version": "<%= release %>",
   "description": "<%= domain %>",
   "author": "<%= author %>",
   "private": true,
@@ -11,7 +11,7 @@
     "build:win32": "IF \"%NUXT_HOT_RELOADING%\" NEQ \"1\" ( nuxt build )",
     <%_ if ((e2e === true) || (smoke === true)) { _%>
     "cy:open": "cypress open",
-    "cy:run-smoke": "cypress run -e TAGS='@smoke'",
+    "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
     <%_ if (e2e === true) { _%>
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
     "test:e2e": "cross-env NODE_ENV=test BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run",
@@ -29,21 +29,23 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "^1.2.0",
+    "@dpc-sdp/ripple-nuxt-tide": "^<%= version %>",
     "dotenv": "^5.0.1",
     "nuxt": "2.6.3",
     "run-script-os": "^1.0.7"
   },
   "devDependencies": {
     <%_ if ((e2e === true) || (smoke === true)) { _%>
-    "@dpc-sdp/ripple-test-tools": "^1.2.0",
-    "start-server-and-test": "^1.7.11",
-    "cypress": "^3.1.5",	
-    "cypress-axe": "^0.4.0",	
-    "cypress-cucumber-preprocessor": "^1.11.0",
+    "@dpc-sdp/ripple-test-tools": "^<%= version %>",
+    "axe-core": "^3.3.2",
     <%_ } _%>
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
+    <%_ if ((e2e === true) || (smoke === true)) { _%>
+    "cypress": "^3.4.1",	
+    "cypress-axe": "^0.4.0",	
+    "cypress-cucumber-preprocessor": "^1.16.0",
+    <%_ } _%>
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -56,13 +58,17 @@
     "eslint-plugin-vue": "^4.0.0",
     <%_ if (unit === true) { _%>
     "jest": "^24.9.0",
-    "vue-jest": "^3.0.4",
     <%_ } _%>
     "husky": "^3.0.0",
     "node-sass": "^4.11.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
-    "sass-resources-loader": "^2.0.0"
+    "sass-resources-loader": "^2.0.0",<%_ if ((e2e === true) || (smoke === true)) { _%>
+    "start-server-and-test": "^1.7.11",
+    <%_ } _%>
+    <%_ if (unit === true) { _%>
+    "vue-jest": "^3.0.4"
+    <%_ } _%>
   },
   <%_ if ((e2e === true) || (smoke === true)) { _%>
   "cypress-cucumber-preprocessor": {
@@ -77,7 +83,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-push": "<%= pm %> run lint <%_ if (unit === true) { _%> && <%= pm %> run test:unit<%_ } _%>"
+      "pre-push": "<%= pm %> run lint && <%= pm %> run test:unit"
     }
   }
 }

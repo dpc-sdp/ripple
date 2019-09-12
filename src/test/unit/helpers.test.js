@@ -58,6 +58,7 @@ describe('getAnchorLinkName', () => {
     ${'Anchor&nbsp;&amp;&nbsp;&copy;&nbsp;Link'}        | ${'anchor-link'}
     ${'Anchor`~!@#$%^&*()-_=+{}[]\\|;:\'"<>,.?/\nLink'} | ${'anchor-link'}
     ${'   ANCHOR   LINK   '}                            | ${'anchor-link'}
+    ${'1234567890'}                                     | ${'1234567890'}
   `('returns $expected for $text', ({ text, expected }) => {
     expect(getAnchorLinkName(text)).toBe(expected)
   })

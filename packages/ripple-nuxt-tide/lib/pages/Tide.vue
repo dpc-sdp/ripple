@@ -184,7 +184,7 @@ export default {
       }
     },
     acknowledgement () {
-      return this.$store.state.tide.siteData.field_acknowledgement_to_country ? this.$store.state.tide.siteData.field_acknowledgement_to_country : null
+      return this.$store.state.tide.siteData.field_prominence_ack_to_country ? this.$store.state.tide.siteData.field_prominence_ack_to_country : null
     },
     updatedDate () {
       return {

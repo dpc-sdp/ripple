@@ -38,9 +38,6 @@ module.exports = {
       'field_landing_page_component.field_paragraph_media',
       'field_landing_page_component.field_paragraph_media.field_media_image',
       'field_landing_page_component.field_paragraph_topic',
-      'field_landing_page_component.field_timeline',
-      'field_landing_page_component.field_timeline.field_paragraph_media',
-      'field_landing_page_component.field_timeline.field_paragraph_media.field_media_image',
       'field_landing_page_component.field_paragraph_accordion',
       'field_landing_page_component.field_paragraph_keydates',
       'field_landing_page_component.field_paragraph_reference',
@@ -333,18 +330,6 @@ module.exports = {
           }
         },
         childCols: cardColsSetting
-      },
-
-      'paragraph--timelines': {
-        component: 'rpl-timeline',
-        ssr: false,
-        props: {
-          'title': 'field_paragraph_title',
-          'list': {
-            field: ['field_timeline'],
-            filters: ['timelineList']
-          }
-        }
       },
 
       'paragraph--user_authentication_block': {

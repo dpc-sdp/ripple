@@ -55,7 +55,7 @@
     "nonGlobalStepDefinitions": true,
     "cucumberJson": {
       "generate": true,
-      "outputFolder": "test/e2e/cucumber-json",
+      "outputFolder": "test/e2e/cucumber",
       "filePrefix": "",
       "fileSuffix": ".cucumber"
     }

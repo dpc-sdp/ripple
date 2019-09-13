@@ -22,7 +22,7 @@ yarn-error.log*
 coverage
 examples/**/test/e2e/videos
 examples/**/test/e2e/screenshots
-examples/**/test/e2e/cucumber-json
+examples/**/test/e2e/cucumber
 
 # temp test fixtures
 /examples/test*

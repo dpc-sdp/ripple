@@ -46,6 +46,10 @@ jobs:
           path: test/e2e/videos
       - store_artifacts:
           path: test/e2e/screenshots
+      - store_test_results:
+          path: test/e2e/cucumber
+      - store_artifacts:
+          path: test/e2e/cucumber
 
   regression:
     # This runs the full suite of e2e tests 
@@ -65,13 +69,25 @@ jobs:
           path: test/e2e/videos
       - store_artifacts:
           path: test/e2e/screenshots
+      - store_test_results:
+          path: test/e2e/cucumber
+      - store_artifacts:
+          path: test/e2e/cucumber
 
 workflows:
   version: 2
   commit:
     jobs:
       - test
-  # Run full regression test nightly on master and release branches
+      # Run regression tests on release branches
+      - regression:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - release/*          
+  # Run full regression test at midnight UTC on develop branch
   nightly:
     triggers:
       - schedule:
@@ -82,6 +98,6 @@ workflows:
                 - develop
     jobs:
       - test
-      # - regression:
-      #     requires:
-      #       - test
+      - regression:
+          requires:
+            - test

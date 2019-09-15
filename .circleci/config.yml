@@ -14,9 +14,9 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-deps-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}
-            - v1-deps
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
@@ -39,7 +39,7 @@ jobs:
              ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
       - run:
           name: Unit tests
-          command: yarn test:unit -- --ci --runInBand --reporters=default --reporters=jest-junit
+          command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: test-results/unit/
       - run:

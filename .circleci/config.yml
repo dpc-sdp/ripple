@@ -21,7 +21,7 @@ jobs:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: v1-deps-{{ checksum "yarn.lock" }}
+          key: v2-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - packages/ripple-nuxt-tide/node_modules

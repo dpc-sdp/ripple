@@ -35,7 +35,7 @@ jobs:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js 
           environment:
-             ESLINT_JUNIT_OUTPUT: ./test-results/eslint.xml
+             ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
       - run:
           name: Unit tests
           command: yarn test:unit -- --ci --runInBand --reporters=default --reporters=jest-junit
@@ -43,7 +43,7 @@ jobs:
             JEST_JUNIT_OUTPUT_DIR: test-results/unit/
       - run:
           name: run smoke test
-          command: yarn test:smoke
+          command: yarn test:smoke && node ./scripts/cucumberconvertor.js
       - persist_to_workspace:
           root: ~/app
           paths: .
@@ -69,7 +69,7 @@ jobs:
           at: ~/app
       - run: 
           name: run full e2e test
-          command: yarn test:e2e
+          command: yarn test:e2e && node ./scripts/cucumberconvertor.js
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -92,7 +92,7 @@ workflows:
             branches:
               only:
                 - release/*          
-                - feature/e2e-circleci          
+                - feature/e2e-circleci         
   # Run full regression test at midnight UTC on develop branch
   nightly:
     triggers:

@@ -5467,6 +5467,14 @@ cucumber-expressions@^6.0.1:
   dependencies:
     becke-ch--regex--s0-0-v1--base--pl--lib "^1.2.0"
 
+cucumber-junit-convert@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cucumber-junit-convert/-/cucumber-junit-convert-1.1.0.tgz#c48336f06eab0a5bd178906875d346f5f40bc051"
+  integrity sha512-3H2Tn9gQZLK88n1gFq1QBkOAtZYsV43HEkLDG3k/zxTPefbaKGozOPeTCA/o4iXh//xIvpssrRliuCK+jYj2WA==
+  dependencies:
+    jsonfile "5.0.0"
+    junit-report-builder "1.3.3"
+
 cucumber-tag-expressions@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/cucumber-tag-expressions/-/cucumber-tag-expressions-1.1.1.tgz#7f5c7b70009bc2b666591bfe64854578bedee85a"
@@ -5611,6 +5619,11 @@ data-urls@^1.0.0:
 date-fns@^1.27.2:
   version "1.30.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
+
+date-format@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/date-format/-/date-format-0.0.2.tgz#fafd448f72115ef1e2b739155ae92f2be6c28dd1"
+  integrity sha1-+v1Ej3IRXvHitzkVWukvK+bCjdE=
 
 date-now@^0.1.4:
   version "0.1.4"
@@ -9611,6 +9624,15 @@ jsonapi-parse@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/jsonapi-parse/-/jsonapi-parse-2.0.0.tgz#c880481e08025c351580361ffaf8aee81a15ee80"
 
+jsonfile@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-5.0.0.tgz#e6b718f73da420d612823996fdf14a03f6ff6922"
+  integrity sha512-NQRZ5CRo74MhMMC3/3r5g2k4fjodJ/wh8MxjFbCViWKFjxrnudWSY5vomh+23ZaXzAS7J3fBZIR2dV6WbmfM0w==
+  dependencies:
+    universalify "^0.1.2"
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
 jsonfile@^2.1.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-2.4.0.tgz#3736a2b428b87bbda0cc83b53fa3d633a35c2ae8"
@@ -9662,6 +9684,16 @@ jstransformer@^1.0.0:
   dependencies:
     is-promise "^2.0.0"
     promise "^7.0.1"
+
+junit-report-builder@1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/junit-report-builder/-/junit-report-builder-1.3.3.tgz#a848e9ef1b1664b855d1abf8766c39f0a9c5ff33"
+  integrity sha512-75bwaXjP/3ogyzOSkkcshXGG7z74edkJjgTZlJGAyzxlOHaguexM3VLG6JyD9ZBF8mlpgsUPB1sIWU4LISgeJw==
+  dependencies:
+    date-format "0.0.2"
+    lodash "^4.17.15"
+    mkdirp "^0.5.0"
+    xmlbuilder "^10.0.0"
 
 jwt-decode@^2.2.0:
   version "2.2.0"
@@ -15275,7 +15307,7 @@ universal-user-agent@^3.0.0:
   dependencies:
     os-name "^3.0.0"
 
-universalify@^0.1.0:
+universalify@^0.1.0, universalify@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
 
@@ -16044,6 +16076,11 @@ xml@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
   integrity sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
+
+xmlbuilder@^10.0.0:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-10.1.1.tgz#8cae6688cc9b38d850b7c8d3c0a4161dcaf475b0"
+  integrity sha512-OyzrcFLL/nb6fMGHbiRDuPup9ljBycsdCypwuyg5AAHvyWzGfChJpCXMG88AGTIMFhGZ9RccFN1e6lhg3hkwKg==
 
 xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.2"

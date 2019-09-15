@@ -55,8 +55,8 @@
     "nonGlobalStepDefinitions": true,
     "cucumberJson": {
       "generate": true,
-      "outputFolder": "test/e2e/cucumber",
-      "filePrefix": "",
+      "outputFolder": "./../../reports/cucumber",
+      "filePrefix": "vic-gov-",
       "fileSuffix": ".cucumber"
     }
   },

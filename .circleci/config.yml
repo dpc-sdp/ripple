@@ -11,7 +11,6 @@ jobs:
     working_directory: ~/app
     steps:
       - checkout
-      - run: yarn --version
       - restore_cache:
           keys:
             - v1-deps-{{ checksum "yarn.lock" }}
@@ -47,18 +46,14 @@ jobs:
       - persist_to_workspace:
           root: ~/app
           paths: .
+      - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: reports
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/videos
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/screenshots
-      - store_test_results:
-          path: examples/vic-gov-au/test/e2e/cucumber
-      - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/cucumber
-      - store_test_results:
-          path: reports
-      - store_artifacts:
-          path: reports
 
   regression:
     # This runs the full suite of e2e tests 

@@ -23,6 +23,7 @@ coverage
 examples/**/test/e2e/videos
 examples/**/test/e2e/screenshots
 examples/**/test/e2e/cucumber
+reports
 
 # temp test fixtures
 /examples/test*

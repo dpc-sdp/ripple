@@ -29,27 +29,36 @@ jobs:
             - packages/ripple-create-app/node_modules
             - packages/ripple-test-tools/node_modules
             - examples/vic-gov-au/node_modules
+            - examples/basic-examples/node_modules
             - ~/.cache
       - run:
           name: Lint code.
-          command: yarn lint     
+          command: yarn lint --format ./node_modules/eslint-junit/index.js 
+          environment:
+             ESLINT_JUNIT_OUTPUT: ./reports/eslint.xml
       - run:
           name: Unit tests
-          command: yarn test:unit
-      - run: 
+          command: yarn test:unit -- --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: reports/unit/
+      - run:
           name: run smoke test
           command: yarn test:smoke
       - persist_to_workspace:
           root: ~/app
           paths: .
       - store_artifacts:
-          path: test/e2e/videos
+          path: examples/vic-gov-au/test/e2e/videos
       - store_artifacts:
-          path: test/e2e/screenshots
+          path: examples/vic-gov-au/test/e2e/screenshots
       - store_test_results:
-          path: test/e2e/cucumber
+          path: examples/vic-gov-au/test/e2e/cucumber
       - store_artifacts:
-          path: test/e2e/cucumber
+          path: examples/vic-gov-au/test/e2e/cucumber
+      - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: reports
 
   regression:
     # This runs the full suite of e2e tests 

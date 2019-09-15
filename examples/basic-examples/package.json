@@ -62,7 +62,13 @@
     "vue-jest": "^3.0.4"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "test/e2e/cucumber",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   },
   "browserslist": [
     "> 1%",

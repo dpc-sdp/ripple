@@ -30,6 +30,7 @@ jobs:
             - packages/ripple-test-tools/node_modules
             - examples/vic-gov-au/node_modules
             - examples/basic-examples/node_modules
+            - /root/.cache/Cypress
             - ~/.cache
       - run:
           name: Lint code.

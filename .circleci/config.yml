@@ -30,7 +30,6 @@ jobs:
             - packages/ripple-test-tools/node_modules
             - examples/vic-gov-au/node_modules
             - examples/basic-examples/node_modules
-            - /root/.cache/Cypress
             - ~/.cache
       - run:
           name: Lint code.
@@ -68,6 +67,11 @@ jobs:
     steps:    
       - attach_workspace:
           at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
       - run: 
           name: run full e2e test
           command: yarn test:e2e && node ./scripts/cucumberconvertor.js

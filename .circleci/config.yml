@@ -1,7 +1,7 @@
 version: 2.0
 
 jobs:
-  test:
+  build:
     context: Ripple
     docker:
       - image: cypress/base:10
@@ -41,6 +41,29 @@ jobs:
           command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: test-results/unit/
+      - run:
+          name: build nuxt app
+          command: yarn build
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
+  test:
+    context: Ripple
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          SEARCH_BE: LOCAL-CI
+          CIRCLE_TEST_REPORTS: test-results
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
       - run:
           name: run smoke test
           command: yarn test:smoke && node ./scripts/cucumberconvertor.js
@@ -88,10 +111,14 @@ workflows:
   version: 2
   commit:
     jobs:
-      - test
+      - build      
+      - test:
+          requires:
+            - test      
       # Run regression tests on release branches
       - regression:
           requires:
+            - build
             - test
           filters:
             branches:
@@ -108,7 +135,11 @@ workflows:
               only:
                 - develop
     jobs:
-      - test
+      - build      
+      - test:
+          requires:
+            - test
       - regression:
           requires:
+            - build
             - test

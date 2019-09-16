@@ -42,7 +42,7 @@ jobs:
           environment:
             JEST_JUNIT_OUTPUT_DIR: test-results/unit/
       - run:
-          name: build nuxt app
+          name: build vic-gov-au nuxt app
           command: cd examples/vic-gov-au && yarn build:default
       - persist_to_workspace:
           root: ~/app
@@ -79,7 +79,7 @@ jobs:
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/screenshots
 
-  regression:
+  e2e-vic-gov:
     # This runs the full suite of e2e tests 
     docker:
       - image: cypress/base:10
@@ -97,7 +97,44 @@ jobs:
             - v2-deps
       - run: 
           name: run full e2e test
-          command: yarn test:e2e && node ./scripts/cucumberconvertor.js
+          command: yarn test:e2e-vic 
+      - run:
+          name: convert cucumber test output
+          command: node ./scripts/cucumberconvertor.js
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/videos
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/screenshots
+
+  e2e-example:
+    # This runs the full suite of e2e tests 
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          SEARCH_BE: LOCAL-CI
+    working_directory: ~/app
+    steps:    
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run:
+          name: build example nuxt app
+          command: cd examples/basic-examples && yarn build:default
+      - run: 
+          name: run full e2e test
+          command: yarn test:e2e-example
+      - run:
+          name: convert cucumber test output
+          command: node ./scripts/cucumberconvertor.js      
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -116,15 +153,22 @@ workflows:
           requires:
             - build      
       # Run regression tests on release branches
-      - regression:
+      - e2e-vic-gov:
           requires:
             - build
             - test
           filters:
             branches:
               only:
-                - release/*          
-                - feature/e2e-circleci         
+                - release/*    
+      - e2e-example:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only:
+                - release/*
   # Run full regression test at midnight UTC on develop branch
   nightly:
     triggers:
@@ -136,10 +180,19 @@ workflows:
                 - develop
     jobs:
       - build
-      - test:
-          requires:
-            - build
-      - regression:
+      - e2e-vic-gov:
           requires:
             - build
             - test
+          filters:
+            branches:
+              only:
+                - release/*    
+      - e2e-example:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only:
+                - release/*

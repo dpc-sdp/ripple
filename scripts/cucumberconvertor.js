@@ -9,3 +9,4 @@ files.forEach(f => {
     outputXmlFile: `./${filename}.xml`
   })
 })
+console.log(`Converted ${files.length} cucumber files`)

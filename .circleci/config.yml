@@ -66,7 +66,10 @@ jobs:
             JEST_JUNIT_OUTPUT_DIR: test-results/unit/
       - run:
           name: run smoke test
-          command: yarn test:smoke && node ./scripts/cucumberconvertor.js
+          command: yarn test:smoke
+      - run:
+          name: convert cucumber test output
+          command: node ./scripts/cucumberconvertor.js          
       - persist_to_workspace:
           root: ~/app
           paths: .
@@ -97,10 +100,13 @@ jobs:
             - v2-deps
       - run: 
           name: run full e2e test
-          command: yarn test:e2e-vic && node ./scripts/cucumberconvertor.js
-      - store_test_results:
-          path: test-results
+          command: yarn test:e2e-vic
+      - run:
+          name: convert cucumber test output
+          command: node ./scripts/cucumberconvertor.js          
       - store_artifacts:
+          path: test-results
+      - store_test_results:
           path: test-results
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/videos
@@ -128,7 +134,10 @@ jobs:
           command: cd examples/basic-examples && yarn build:default
       - run: 
           name: run full e2e test
-          command: yarn test:e2e-example && node ./scripts/cucumberconvertor.js
+          command: yarn test:e2e-example
+      - run:
+          name: convert cucumber test output
+          command: node ./scripts/cucumberconvertor.js
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -192,7 +201,7 @@ workflows:
             - build
             - test
             - e2e-example
-            - e2e-vic-gov
+            # - e2e-vic-gov
           filters:
             branches:
               only:

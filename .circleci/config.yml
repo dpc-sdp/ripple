@@ -32,16 +32,6 @@ jobs:
             - examples/basic-examples/node_modules
             - ~/.cache
       - run:
-          name: Lint code.
-          command: yarn lint --format ./node_modules/eslint-junit/index.js 
-          environment:
-             ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
-      - run:
-          name: Unit tests
-          command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
-          environment:
-            JEST_JUNIT_OUTPUT_DIR: test-results/unit/
-      - run:
           name: build vic-gov-au nuxt app
           command: cd examples/vic-gov-au && yarn build:default
       - persist_to_workspace:
@@ -64,6 +54,16 @@ jobs:
             - v2-deps-{{ checksum "yarn.lock" }}
             - v2-deps-{{ .Branch }}
             - v2-deps
+      - run:
+          name: Lint code.
+          command: yarn lint --format ./node_modules/eslint-junit/index.js 
+          environment:
+             ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
+      - run:
+          name: Unit tests
+          command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: test-results/unit/
       - run:
           name: run smoke test
           command: yarn test:smoke && node ./scripts/cucumberconvertor.js
@@ -144,6 +144,29 @@ jobs:
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/screenshots
 
+  prerelease:
+    # This runs the full suite of e2e tests 
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          SEARCH_BE: LOCAL-CI
+    working_directory: ~/app
+    steps:    
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run: 
+          name: Set NPM_TOKEN
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Lerna publish
+          command: yarn publish --dist-tag dev --yes
+
 workflows:
   version: 2
   commit:
@@ -151,24 +174,36 @@ workflows:
       - build      
       - test:
           requires:
-            - build      
+            - build  
       # Run regression tests on release branches
       - e2e-vic-gov:
           requires:
             - build
-            - test
-          filters:
-            branches:
-              only:
-                - release/*    
-      - e2e-example:
-          requires:
-            - build
-            - test
           filters:
             branches:
               only:
                 - release/*
+                - feature/e2e-circleci
+      - e2e-example:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - release/*
+                - feature/e2e-circleci
+      #  Release prerelease DEV tag to NPM on successful tests passing
+      - prerelease:
+          requires:
+            - build
+            - test
+            - e2e-example
+            - e2e-vic-gov
+          filters:
+            branches:
+              only:
+                - release/*
+                - feature/e2e-circleci
   # Run full regression test at midnight UTC on develop branch
   nightly:
     triggers:
@@ -180,10 +215,12 @@ workflows:
                 - develop
     jobs:
       - build
+      - test:
+          requires:
+            - build  
       - e2e-vic-gov:
           requires:
             - build
-            - test
           filters:
             branches:
               only:
@@ -191,7 +228,6 @@ workflows:
       - e2e-example:
           requires:
             - build
-            - test
           filters:
             branches:
               only:

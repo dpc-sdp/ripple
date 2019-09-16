@@ -114,7 +114,7 @@ workflows:
       - build      
       - test:
           requires:
-            - test      
+            - build      
       # Run regression tests on release branches
       - regression:
           requires:
@@ -135,10 +135,10 @@ workflows:
               only:
                 - develop
     jobs:
-      - build      
+      - build
       - test:
           requires:
-            - test
+            - build
       - regression:
           requires:
             - build

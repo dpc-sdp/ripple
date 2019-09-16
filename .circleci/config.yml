@@ -97,10 +97,7 @@ jobs:
             - v2-deps
       - run: 
           name: run full e2e test
-          command: yarn test:e2e-vic 
-      - run:
-          name: convert cucumber test output
-          command: node ./scripts/cucumberconvertor.js
+          command: yarn test:e2e-vic && node ./scripts/cucumberconvertor.js
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -131,10 +128,7 @@ jobs:
           command: cd examples/basic-examples && yarn build:default
       - run: 
           name: run full e2e test
-          command: yarn test:e2e-example
-      - run:
-          name: convert cucumber test output
-          command: node ./scripts/cucumberconvertor.js      
+          command: yarn test:e2e-example && node ./scripts/cucumberconvertor.js
       - store_test_results:
           path: test-results
       - store_artifacts:

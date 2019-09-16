@@ -30,7 +30,7 @@
     "test:smoke-example": "cd examples/vic-gov-au/ && yarn test:smoke",
     "test:unit": "jest --colors",
     "build:storybook": "cd src && yarn build-storybook",
-    "build:example": "cd examples/vic-gov-au && yarn run build",
+    "build:vic-gov-au": "cd examples/vic-gov-au && yarn run build",
     "lint": "sass-lint && yarn lint:es",
     "lint:es": "eslint --ext .js,.vue . --max-warnings 0",
     "lint:fix": "eslint --ext .js,.vue . --fix",

@@ -43,7 +43,7 @@ jobs:
             JEST_JUNIT_OUTPUT_DIR: test-results/unit/
       - run:
           name: build nuxt app
-          command: yarn build
+          command: yarn build:vic-gov-au
       - persist_to_workspace:
           root: ~/app
           paths: .

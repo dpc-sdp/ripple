@@ -25,7 +25,7 @@
     "start:build-example": "cd examples/vic-gov-au/ && nuxt build && nuxt start",
     "test:e2e": "yarn test:e2e-example && yarn test:e2e-vic",
     "test:e2e-vic": "cd examples/vic-gov-au/ && yarn test:e2e",
-    "test:e2e-example": "cd examples/vic-gov-au/ && yarn test:e2e",
+    "test:e2e-example": "cd examples/basic-examples && yarn test:e2e",
     "test:smoke": "yarn test:smoke-vic",
     "test:smoke-vic": "cd examples/vic-gov-au/ && yarn test:smoke",
     "test:smoke-example": "cd examples/vic-gov-au/ && yarn test:smoke",

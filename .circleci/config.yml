@@ -148,7 +148,7 @@ jobs:
           path: examples/vic-gov-au/test/e2e/screenshots
 
   prerelease:
-    # This runs the full suite of e2e tests 
+    # NOT ENABLED YET - needs further testing
     docker:
       - image: cypress/base:10
         environment:
@@ -186,7 +186,6 @@ workflows:
             branches:
               only:
                 - release/*
-                - feature/e2e-circleci
       - e2e-example:
           requires:
             - build
@@ -194,19 +193,18 @@ workflows:
             branches:
               only:
                 - release/*
-                - feature/e2e-circleci
       #  Release prerelease DEV tag to NPM on successful tests passing
-      - prerelease:
-          requires:
-            - build
-            - test
-            - e2e-example
-            # - e2e-vic-gov
-          filters:
-            branches:
-              only:
-                - release/*
-                - feature/e2e-circleci
+      # - prerelease:
+      #     requires:
+      #       - build
+      #       - test
+      #       - e2e-example
+      #       - e2e-vic-gov
+      #     filters:
+      #       branches:
+      #         only:
+      #           - release/*
+
   # Run full regression test at midnight UTC on develop branch
   nightly:
     triggers:

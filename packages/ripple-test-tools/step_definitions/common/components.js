@@ -74,6 +74,47 @@ Then(`the campaign primary title should be {string}`, title => {
   cy.get('.rpl-campaign-primary__title').should('contain', title)
 })
 
+Then(`the campaign primary banner should contain:`, (dataTable) => {
+  const primaryCampaign = dataTable.rawTable.slice(1)
+  primaryCampaign.forEach((link, index) => {
+    cy.get('.rpl-campaign-primary').eq(index).then(campaign => {
+      const title = link[0].trim()
+      const body = link[1]
+      const ctatext = link[2]
+      const ctalink = link[3]
+      expect(campaign).to.contain.text(title)
+      expect(campaign).to.contain.text(body)
+      cy.wrap(campaign).get('.rpl-campaign-primary__call-to-action').then(ctalinkobj => {
+        expect(ctalinkobj).to.contain.text(ctatext)
+        expect(ctalinkobj).to.contain.attr('href', ctalink)
+      })
+    })
+  })
+})
+
+// Campaign secondary
+Then(`the campaign secondary component should exist`, () => {
+  cy.get('.rpl-campaign-secondary').should('exist')
+})
+
+Then(`the campaign secondary component should contain:`, (dataTable) => {
+  const primarySecondary = dataTable.rawTable.slice(1)
+  primarySecondary.forEach((link, index) => {
+    cy.get('.rpl-campaign-secondary').eq(index).then(campaign => {
+      const title = link[0].trim()
+      const body = link[1]
+      const ctatext = link[2]
+      const ctalink = link[3]
+      expect(campaign).to.contain.text(title)
+      expect(campaign).to.contain.text(body)
+      cy.wrap(campaign).get('.rpl-campaign-secondary a').then(ctalinkobj => {
+        expect(ctalinkobj).to.contain.text(ctatext)
+        expect(ctalinkobj).to.contain.attr('href', ctalink)
+      })
+    })
+  })
+})
+
 // Body markup
 Then(`the body markup component should exist`, () => {
   cy.get('.rpl-markup').should('exist')
@@ -118,9 +159,44 @@ Then(`the card promotion component should exist`, () => {
 Then(`the card carousel component should exist`, () => {
   cy.get('.rpl-card-carousel').should('exist')
 })
+Then(`there should be a card carousel titled {string}`, (title) => {
+  cy.get('.rpl-card-carousel .rpl-card-carousel__title').should('contain', title)
+})
+Then(`the card carousel titled {string} should have {int} items`, (title, length) => {
+  cy.get('.rpl-card-carousel').then(carousels => {
+    carousels.each((index, carousel) => {
+      cy.wrap(carousel).find('.rpl-card-carousel__title').then(carouselTitle => {
+        if (carouselTitle[0].innerHTML === title) {
+          cy.wrap(carousel).find('.rpl-card-carousel__slide').should('have.length', length)
+        }
+      })
+    })
+  })
+})
 // accordion
 Then(`the accordion component should exist`, () => {
   cy.get('.rpl-accordion').should('exist')
+})
+Then(`there should be {int} accordion components`, length => {
+  cy.get('.rpl-accordion').should('have.length', length)
+})
+Then(`the number {int} accordion title should be {string}`, (index, title) => {
+  cy.get('.rpl-accordion').eq(index - 1).find('.rpl-accordion__title-top').should('contain', title)
+})
+Then(`the accordion titled {string} should contain the following items:`, (title, dataTable) => {
+  const fields = dataTable.rawTable[1]
+  cy.get('.rpl-accordion').then(accordions => {
+    accordions.each((index, accordion) => {
+      cy.wrap(accordion).find('.rpl-accordion__title-top').then(accordionTitle => {
+        if (accordionTitle[0].innerHTML === title) {
+          const title = fields[0]
+          const body = fields[1]
+          cy.wrap(accordion).find('.rpl-accordion__button').should('contain', title)
+          cy.wrap(accordion).find('.rpl-accordion__content').should('contain', body)
+        }
+      })
+    })
+  })
 })
 // news listing'
 Then(`the news listing component should exist`, () => {

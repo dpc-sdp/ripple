@@ -11,13 +11,13 @@ describe('Test v18 update generator', () => {
       release: '18.0.0'
     }
     const config = {
-      name: 'vic-gov-au',
-      domain: 'vic.gov.au',
-      backendurl: 'https://www.develop.content.vic.gov.au/',
-      siteid: '4',
-      authuser: 'dpc',
-      authpass: 'sdp',
-      gtmtoken: 'GTM-12345-1',
+      name: 'mock-update-website',
+      domain: 'mock.vic.gov.au',
+      backendurl: 'https://mock.backend.vic.gov.au/',
+      siteid: '',
+      authuser: '',
+      authpass: '',
+      gtmtoken: '',
       modules: [
         'site',
         'page',
@@ -42,7 +42,7 @@ describe('Test v18 update generator', () => {
       unit: false,
       examples: false,
       searchhash: '',
-      searchurl: 'elasticdev.sdp.vic.gov.au',
+      searchurl: '',
       searchindex: '',
       searchusername: '',
       searchpassword: ''

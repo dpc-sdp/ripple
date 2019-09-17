@@ -1,7 +1,7 @@
 {
   "name": "mock-update-website",
   "version": "18.0.0",
-  "description": "vic.gov.au",
+  "description": "mock.vic.gov.au",
   "author": "DPC",
   "private": true,
   "scripts": {

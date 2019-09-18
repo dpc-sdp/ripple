@@ -6,7 +6,8 @@ const tideConfig = {
     'example-middleware',
     'example-content-type',
     'example-override-component',
-    'example-search'
+    'example-search',
+    'example-subtheme'
   ]
 }
 

@@ -18,7 +18,6 @@
           :is="heroBanner.component"
           v-if="heroBanner"
           v-bind="heroBanner.data"
-          class="rpl-site-constrain--on-all"
         />
         <rpl-acknowledgement v-if="page.field_show_ack_of_country" :text="acknowledgement" theme="standalone" />
       </template>

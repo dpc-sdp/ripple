@@ -1,0 +1,32 @@
+$rpl-colors: (
+  'primary': #4ec08d,
+  'dark_primary': #40b883,
+  'secondary': #35495e,
+  'extra_dark_neutral': #475050,
+  'dark_neutral': #f6f6f6,
+  'mid_neutral_1': #d7dbe0,
+  'mid_neutral_2': #e8ebee,
+  'light_neutral': #f6f6f9,
+  'danger': #a50034,
+  'warning': #e35205,
+  'success': #009ca6,
+  'white': #fff,
+  'black': #000
+);
+
+$rpl-fonts: (
+  'regular': ('VIC-Regular', 'Arial', 'Helvetica', 'sans-serif'),
+  'medium': ('Oswald', 'Arial', 'Helvetica', 'sans-serif'),
+  'semibold': ('Oswald', 'Arial', 'Helvetica', 'sans-serif'),
+  'bold': ('Oswald', 'Arial', 'Helvetica', 'sans-serif')
+);
+
+$rpl-fonts-default: false;
+
+$rpl-site-header-text-color: rpl-color('primary');
+$rpl-menu-text-color: rpl-color('primary');
+$rpl-menu-horizontal-items-root-link-color: rpl-color('primary');
+$rpl-menu-item-link-color: rpl-color('white');
+$rpl-menu-item-link-color-active: rpl-color('white');
+
+$rpl-alert-base-background-color: rpl-color('warning')

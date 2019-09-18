@@ -5,6 +5,11 @@ const path = require('path')
 const nuxtTide = function (moduleOptions) {
   const options = Object.assign(defaults, this.options.tide, moduleOptions)
 
+  // add default and error layouts
+  this.addLayout(path.resolve(__dirname, './layouts/default.vue'), 'default')
+  this.addLayout(path.resolve(__dirname, './layouts/minimal.vue'), 'minimal')
+  this.options.ErrorPage = path.resolve(__dirname, './layouts/error.vue')
+
   configLoader.build(options, this)
 
   this.options.proxy = {
@@ -82,11 +87,6 @@ const nuxtTide = function (moduleOptions) {
       config.node.dgram = 'empty'
     }
   })
-
-  // add default and error layouts
-  this.addLayout(path.resolve(__dirname, './layouts/default.vue'), 'default')
-  this.addLayout(path.resolve(__dirname, './layouts/minimal.vue'), 'minimal')
-  this.options.ErrorPage = path.resolve(__dirname, './layouts/error.vue')
 
   this.extendRoutes((routes, resolve) => {
     routes.push(

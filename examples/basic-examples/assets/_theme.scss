@@ -1,6 +1,7 @@
 // Vic.gov.au site theming variables
 // Overwrites values in Ripple
 @import '~@dpc-sdp/ripple-global/scss/settings/functions';
+@import './../tide/modules/example-subtheme/theme.scss';
 
 // Example for theming
 // Let's use Vue.js branding color in our example.
@@ -19,3 +20,4 @@ $rpl-colors: (
   'white': #fff,
   'black': #000
 );
+

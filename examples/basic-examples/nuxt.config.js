@@ -16,6 +16,9 @@ export default {
       { name: 'msapplication-TileColor', content: '#da532c' },
       { name: 'theme-color', content: '#ffffff' },
       { hid: 'description', name: 'description', content: 'Example site for showing how to add custom work' }
+    ],
+    link: [
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald&display=swap' }
     ]
   },
   modules: [

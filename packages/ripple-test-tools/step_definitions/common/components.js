@@ -173,6 +173,37 @@ Then(`the card carousel titled {string} should have {int} items`, (title, length
     })
   })
 })
+Then(`the card carousel titled {string} should have the following items:`, (title, dataTable) => {
+  const cardCarousel = dataTable.rawTable.slice(1)
+  // Find the correct carousel.
+  cy.get('.rpl-card-carousel').then(carousels => {
+    carousels.each((index, carousel) => {
+      cy.wrap(carousel).find('.rpl-card-carousel__title').then(carouselTitle => {
+        if (carouselTitle[0].innerHTML === title) {
+          // For each data-row, check against carousel slide.
+          cardCarousel.forEach((carouselRow, index) => {
+            const date = carouselRow[0].trim()
+            const title = carouselRow[1]
+            const summary = carouselRow[2]
+            const address = carouselRow[3]
+            const link = carouselRow[4]
+            const linktext = carouselRow[5]
+            cy.wrap(carousel).find('.rpl-card-carousel__slide').eq(index).then(slide => {
+              expect(slide).to.contain.text(date)
+              expect(slide).to.contain.text(title)
+              expect(slide).to.contain.text(summary)
+              expect(slide).to.contain.text(address)
+              expect(slide).to.contain.text(linktext)
+              cy.wrap(slide).find('.rpl-link').then(cardLink => {
+                expect(cardLink).to.contain.attr('href', link)
+              })
+            })
+          })
+        }
+      })
+    })
+  })
+})
 // accordion
 Then(`the accordion component should exist`, () => {
   cy.get('.rpl-accordion').should('exist')

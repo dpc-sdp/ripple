@@ -21,7 +21,7 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.2.0",
+    "@dpc-sdp/ripple-nuxt-tide": "^1.2.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.6.3",
     "run-script-os": "^1.0.7"
@@ -32,7 +32,7 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.5.0",
     "@babel/runtime": "^7.5.1",
-    "@dpc-sdp/ripple-test-tools": "1.2.0",
+    "@dpc-sdp/ripple-test-tools": "^1.2.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
@@ -62,7 +62,12 @@
     "vue-jest": "^3.0.4"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "./../../test-results/cucumber",
+      "filePrefix": "basic-examples-"
+    }
   },
   "browserslist": [
     "> 1%",

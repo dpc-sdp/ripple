@@ -1,27 +1,27 @@
 version: 2.0
 
 jobs:
-  test:
+  build:
     context: Ripple
     docker:
       - image: cypress/base:10
         environment:
           TERM: xterm
           SEARCH_BE: LOCAL-CI
+          CIRCLE_TEST_REPORTS: test-results
     working_directory: ~/app
     steps:
       - checkout
-      - run: yarn --version
       - restore_cache:
           keys:
-            - v1-deps-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}
-            - v1-deps
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: v1-deps-{{ checksum "yarn.lock" }}
+          key: v2-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - packages/ripple-nuxt-tide/node_modules
@@ -29,25 +29,60 @@ jobs:
             - packages/ripple-create-app/node_modules
             - packages/ripple-test-tools/node_modules
             - examples/vic-gov-au/node_modules
+            - examples/basic-examples/node_modules
             - ~/.cache
       - run:
-          name: Lint code.
-          command: yarn lint     
-      - run:
-          name: Unit tests
-          command: yarn test:unit
-      - run: 
-          name: run smoke test
-          command: yarn test:smoke
+          name: build vic-gov-au nuxt app
+          command: cd examples/vic-gov-au && yarn build:default
       - persist_to_workspace:
           root: ~/app
           paths: .
+  test:
+    context: Ripple
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          SEARCH_BE: LOCAL-CI
+          CIRCLE_TEST_REPORTS: test-results
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run:
+          name: Lint code.
+          command: yarn lint --format ./node_modules/eslint-junit/index.js 
+          environment:
+             ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
+      - run:
+          name: Unit tests
+          command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: test-results/unit/
+      - run:
+          name: run smoke test
+          command: yarn test:smoke
+      - run:
+          name: convert cucumber test output
+          command: node ./scripts/cucumberconvertor.js          
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
+      - store_test_results:
+          path: test-results
       - store_artifacts:
-          path: test/e2e/videos
+          path: test-results
       - store_artifacts:
-          path: test/e2e/screenshots
+          path: examples/vic-gov-au/test/e2e/videos
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/screenshots
 
-  regression:
+  e2e-vic-gov:
     # This runs the full suite of e2e tests 
     docker:
       - image: cypress/base:10
@@ -58,20 +93,119 @@ jobs:
     steps:    
       - attach_workspace:
           at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
       - run: 
           name: run full e2e test
-          command: yarn test:e2e
+          command: yarn test:e2e-vic
+      - run:
+          name: convert cucumber test output
+          command: node ./scripts/cucumberconvertor.js          
       - store_artifacts:
-          path: test/e2e/videos
+          path: test-results
+      - store_test_results:
+          path: test-results
       - store_artifacts:
-          path: test/e2e/screenshots
+          path: examples/vic-gov-au/test/e2e/videos
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/screenshots
+
+  e2e-example:
+    # This runs the full suite of e2e tests 
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          SEARCH_BE: LOCAL-CI
+    working_directory: ~/app
+    steps:    
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run:
+          name: build example nuxt app
+          command: cd examples/basic-examples && yarn build:default
+      - run: 
+          name: run full e2e test
+          command: yarn test:e2e-example
+      - run:
+          name: convert cucumber test output
+          command: node ./scripts/cucumberconvertor.js
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/videos
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/screenshots
+
+  prerelease:
+    # NOT ENABLED YET - needs further testing
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          SEARCH_BE: LOCAL-CI
+    working_directory: ~/app
+    steps:    
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run: 
+          name: Set NPM_TOKEN
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Lerna publish
+          command: yarn publish --dist-tag dev --yes
 
 workflows:
   version: 2
   commit:
     jobs:
-      - test
-  # Run full regression test nightly on master and release branches
+      - build      
+      - test:
+          requires:
+            - build  
+      # Run regression tests on release branches
+      - e2e-vic-gov:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - release/*
+      - e2e-example:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - release/*
+      #  Release prerelease DEV tag to NPM on successful tests passing
+      # - prerelease:
+      #     requires:
+      #       - build
+      #       - test
+      #       - e2e-example
+      #       - e2e-vic-gov
+      #     filters:
+      #       branches:
+      #         only:
+      #           - release/*
+
+  # Run full regression test at midnight UTC on develop branch
   nightly:
     triggers:
       - schedule:
@@ -81,7 +215,21 @@ workflows:
               only:
                 - develop
     jobs:
-      - test
-      # - regression:
-      #     requires:
-      #       - test
+      - build
+      - test:
+          requires:
+            - build  
+      - e2e-vic-gov:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - release/*    
+      - e2e-example:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - release/*

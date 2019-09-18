@@ -5,7 +5,6 @@ Feature: Custom middleware
   Background:
     Given I visit the page "/"
 
-  @smoke
   Scenario: Example for adding component
     And the example component is added
   

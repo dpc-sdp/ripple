@@ -5,7 +5,6 @@ Feature: Custom theme should work
   Background:
     Given I visit the page "/"
 
-  @smoke
   Scenario: Custom colour is applied
     And the site header has custom background color
   

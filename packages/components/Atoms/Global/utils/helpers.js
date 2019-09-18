@@ -81,4 +81,14 @@ function _isTelOrEmailUrl (url) {
   return false
 }
 
+export const truncateText = (text, stop = 150, clamp) => {
+  if (text && typeof text === 'string') {
+    if (text.length > stop) {
+      return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
+    }
+    return text
+  }
+  return ''
+}
+
 export { isRelativeUrl, isExternalUrl, isAnchorLink, formatMoney, isClient }

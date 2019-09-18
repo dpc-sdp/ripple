@@ -79,13 +79,3 @@ export const getFormattedSize = (fileSize) => {
   const i = Math.floor(Math.log(fileSize) / Math.log(k))
   return parseFloat((fileSize / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
 }
-
-export const truncateText = (text, stop = 150, clamp) => {
-  if (text && typeof text === 'string') {
-    if (text.length > stop) {
-      return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
-    }
-    return text
-  }
-  return ''
-}

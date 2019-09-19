@@ -1,0 +1,38 @@
+- entity: node
+  type: alert
+  title: 1-BE-Alert-2 Demo Alert
+  uid: 1
+  status: 1
+  moderation_state:
+    - '#process':
+        callback: reference
+        args:
+          - content_moderation_state
+          - workflow: editorial
+            moderation_state: published
+  field_call_to_action:
+    - uri: https://vic.gov.au
+      title: More details
+  # Alert type.
+  field_alert_type:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: alert_type
+            name: 'Heat Wave'
+  # Sites.
+  field_node_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'Housing'
+  field_node_primary_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: '<%= domain %>'

@@ -1,27 +1,20 @@
 {
-  "name": "<%= name %>",
-  "version": "<%= release %>",
-  "description": "<%= domain %>",
-  "author": "<%= author %>",
+  "name": "mock-update-website",
+  "version": "18.0.0",
+  "description": "mock.vic.gov.au",
+  "author": "DPC",
   "private": true,
   "scripts": {
     "dev": "cross-env BASIC_AUTH=0 nuxt",
     "build": "run-script-os",
     "build:default": "if [ \"$NUXT_HOT_RELOADING\" != \"1\" ] ; then nuxt build; fi",
     "build:win32": "IF \"%NUXT_HOT_RELOADING%\" NEQ \"1\" ( nuxt build )",
-    <%_ if ((e2e === true) || (smoke === true)) { _%>
     "cy:open": "cypress open",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
-    <%_ if (e2e === true) { _%>
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
     "test:e2e": "cross-env NODE_ENV=test BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run",
-    <%_ } _%>
     "test:dev": "cross-env NODE_ENV=dev start-server-and-test dev http://localhost:3000 cy:open",
     "test:smoke": "cross-env NODE_ENV=test BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke",
-    <%_ } _%>
-    <%_ if (unit === true) { _%>
-    "test:unit": "BASIC_AUTH=0 NODE_ENV=test jest --passWithNoTests",
-    <%_ } _%>
     "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
     "start": "run-script-os",
     "start:default": "if [ \"$NUXT_HOT_RELOADING\" = \"1\" ] ; then nuxt; else nuxt start; fi",
@@ -29,23 +22,19 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "^<%= version %>",
+    "@dpc-sdp/ripple-nuxt-tide": "^1.2.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.6.3",
     "run-script-os": "^1.0.7"
   },
   "devDependencies": {
-    <%_ if ((e2e === true) || (smoke === true)) { _%>
-    "@dpc-sdp/ripple-test-tools": "^<%= version %>",
+    "@dpc-sdp/ripple-test-tools": "^1.2.0",
     "axe-core": "^3.3.2",
-    <%_ } _%>
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
-    <%_ if ((e2e === true) || (smoke === true)) { _%>
-    "cypress": "^3.4.1",	
-    "cypress-axe": "^0.4.0",	
+    "cypress": "^3.4.1",
+    "cypress-axe": "^0.4.0",
     "cypress-cucumber-preprocessor": "^1.16.0",
-    <%_ } _%>
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -56,26 +45,16 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0",
-    <%_ if (unit === true) { _%>
-    "jest": "^24.9.0",
-    <%_ } _%>
     "husky": "^3.0.0",
     "node-sass": "^4.11.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
     "sass-resources-loader": "^2.0.0",
-    <%_ if ((e2e === true) || (smoke === true)) { _%>
-    "start-server-and-test": "^1.7.11",
-    <%_ } _%>
-    <%_ if (unit === true) { _%>
-    "vue-jest": "^3.0.4"
-    <%_ } _%>
+    "start-server-and-test": "^1.7.11"
   },
-  <%_ if ((e2e === true) || (smoke === true)) { _%>
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
   },
-  <%_ } _%>
   "browserslist": [
     "> 1%",
     "IE 11",
@@ -84,7 +63,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-push": "<%= pm %> run lint && <%= pm %> run test:unit"
+      "pre-push": "npm run lint && npm run test:unit"
     }
   }
 }

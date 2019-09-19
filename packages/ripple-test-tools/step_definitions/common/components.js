@@ -135,6 +135,56 @@ Then(`the featured news list component should exist`, () => {
 Then(`the featured card navigation component should exist`, () => {
   cy.get('.rpl-card-navigation-featured').should('exist')
 })
+Then(`there should be a navigation featured card with the title {string}`, (title) => {
+  cy.get('.rpl-card-navigation-featured .rpl-card-navigation-featured__title').should('contain', title)
+})
+Then(`the navigation card featured titled {string} should contain the following:`, (title, dataTable) => {
+  const navigationFeaturedCard = dataTable.rawTable.slice(1)
+  // Find the navigation card featured.
+  cy.get('.rpl-card-navigation-featured').then(cards => {
+    cards.each((index, card) => {
+      cy.wrap(card).find('.rpl-card-navigation-featured__title').then(cardTitle => {
+        if (cardTitle[0].textContent === title) {
+          // For each data-row, check against navigation card featured.
+          navigationFeaturedCard.forEach((navigationRow, index) => {
+            const title = navigationRow[0]
+            const image = navigationRow[1]
+            const summary = navigationRow[2]
+            const link = navigationRow[3]
+            expect(card).to.contain.text(title)
+            expect(card).to.contain.text(summary)
+            expect(card).to.contain.attr('href', link)
+            cy.wrap(card).find('.rpl-card-navigation-featured__image').should('have.attr', 'src', image)
+          })
+        }
+      })
+    })
+  })
+})
+Then(`there should be a navigation featured automated card with the title {string}`, (title) => {
+  cy.get('.rpl-card-navigation-featured .rpl-card-navigation-featured__title').should('contain', title)
+})
+Then(`the navigation featured automated card titled {string} should contain the following:`, (title, dataTable) => {
+  const navigationFeaturedCard = dataTable.rawTable.slice(1)
+  // Find the navigation card featured.
+  cy.get('.rpl-card-navigation-featured').then(cards => {
+    cards.each((index, card) => {
+      cy.wrap(card).find('.rpl-card-navigation-featured__title').then(cardTitle => {
+        if (cardTitle[0].textContent === title) {
+          // For each data-row, check against navigation card featured.
+          navigationFeaturedCard.forEach((navigationRow, index) => {
+            const title = navigationRow[0]
+            const image = navigationRow[1]
+            const link = navigationRow[2]
+            expect(card).to.contain.text(title)
+            expect(card).to.contain.attr('href', link)
+            cy.wrap(card).find('.rpl-card-navigation-featured__image').should('have.attr', 'src', image)
+          })
+        }
+      })
+    })
+  })
+})
 // card event
 Then(`the card event component should exist`, () => {
   cy.get('.rpl-card-event').should('exist')
@@ -154,6 +204,61 @@ Then(`the card keydates component should exist`, () => {
 // card promotion
 Then(`the card promotion component should exist`, () => {
   cy.get('.rpl-card-promotion').should('exist')
+})
+Then(`there should be a promotion card with the title {string}`, (title) => {
+  cy.get('.rpl-card-promotion .rpl-card-promotion__title').should('contain', title)
+})
+Then(`the promotion card titled {string} should contain the following:`, (title, dataTable) => {
+  const promotionCard = dataTable.rawTable.slice(1)
+  // Find the promo card.
+  cy.get('.rpl-card-promotion').then(cards => {
+    cards.each((index, card) => {
+      cy.wrap(card).find('.rpl-card-promotion__title').then(cardTitle => {
+        if (cardTitle[0].innerHTML === title) {
+          // For each data-row, check against promo card.
+          promotionCard.forEach((promotionRow, index) => {
+            const date = promotionRow[0]
+            const title = promotionRow[1]
+            const summary = promotionRow[2]
+            const ctalink = promotionRow[3]
+            const ctatext = promotionRow[4]
+            expect(card).to.contain.text(date)
+            expect(card).to.contain.text(title)
+            expect(card).to.contain.text(summary)
+            expect(card).to.contain.text(ctatext)
+            expect(card).to.contain.attr('href', ctalink)
+          })
+        }
+      })
+    })
+  })
+})
+// card navigation
+Then(`there should be a navigation card with the title {string}`, (title) => {
+  cy.get('.rpl-card-navigation .rpl-card-navigation__title').should('contain', title)
+})
+Then(`the navigation card titled {string} should contain the following:`, (title, dataTable) => {
+  const navigationCard = dataTable.rawTable.slice(1)
+  // Find the promo card.
+  cy.get('.rpl-card-navigation').then(cards => {
+    cards.each((index, card) => {
+      cy.wrap(card).find('.rpl-card-navigation__title').then(cardTitle => {
+        if (cardTitle[0].innerHTML === title) {
+          // For each data-row, check against promo card.
+          navigationCard.forEach((navigationRow, index) => {
+            const title = navigationRow[0]
+            const summary = navigationRow[1]
+            const ctalink = navigationRow[2]
+            const ctatext = navigationRow[3]
+            expect(card).to.contain.text(title)
+            expect(card).to.contain.text(summary)
+            expect(card).to.contain.text(ctatext)
+            expect(card).to.contain.attr('href', ctalink)
+          })
+        }
+      })
+    })
+  })
 })
 // card carousel
 Then(`the card carousel component should exist`, () => {

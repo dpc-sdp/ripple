@@ -1,5 +1,6 @@
 <template>
   <div class="rpl-site-header-search">
+    <rpl-quick-exit class="rpl-menu__quickexit"  v-if="rplOptions.quickexit" />
     <rpl-search-form
       class="rpl-site-header-search__form"
       searchPlaceholder="Start typing..."
@@ -22,6 +23,7 @@
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplMetaTag from '@dpc-sdp/ripple-meta-tag'
 import { RplSearchForm } from '@dpc-sdp/ripple-search'
+import RplQuickExit from '@dpc-sdp/ripple-layout/QuickExit.vue'
 
 export default {
   name: 'RplSearch',
@@ -31,7 +33,8 @@ export default {
   components: {
     RplIcon,
     RplMetaTag,
-    RplSearchForm
+    RplSearchForm,
+    RplQuickExit
   },
   methods: {
     searchTerm: function (searchInput) {
@@ -62,6 +65,22 @@ export default {
     margin: $rpl-site-header-search-margin;
     padding: $rpl-site-header-search-padding;
     box-sizing: content-box;
+
+    .rpl-menu__quickexit {
+      > a {
+        width: 100%;
+      }
+      @include rpl_breakpoint('s') {
+        top: $rpl-space;
+        right: $rpl-space;
+        float: right;
+        position: absolute;
+        > a {
+          width: auto;
+        }
+      }
+      margin-bottom: 1.5rem;
+    }
 
     @include rpl_breakpoint('s') {
       margin: $rpl-site-header-search-margin-s;

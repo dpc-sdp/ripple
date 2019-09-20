@@ -206,7 +206,7 @@ Then(`there should be a keydates card with the title {string}`, (title) => {
 })
 Then(`the keydates card titled {string} should contain the following:`, (title, dataTable) => {
   const column = {}
-  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
   const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-card-keydates').then(cards => {
     cards.each((index, card) => {
@@ -230,7 +230,7 @@ Then(`the keydates card titled {string} should contain the following:`, (title, 
 })
 Then(`the keydates card titled {string} should have the following items:`, (title, dataTable) => {
   const column = {}
-  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
   const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-card-keydates').then(cards => {
     cards.each((index, card) => {
@@ -261,7 +261,7 @@ Then(`there should be a promotion card with the title {string}`, (title) => {
 })
 Then(`the promotion card titled {string} should contain the following:`, (title, dataTable) => {
   const column = {}
-  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
   const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-card-promotion').then(cards => {
     cards.each((index, card) => {
@@ -295,7 +295,7 @@ Then(`there should be a navigation card with the title {string}`, (title) => {
 })
 Then(`the navigation card titled {string} should contain the following:`, (title, dataTable) => {
   const column = {}
-  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
   const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-card-navigation').then(cards => {
     cards.each((index, card) => {
@@ -402,7 +402,7 @@ Then(`the news listing component should exist`, () => {
 })
 Then(`the news listing component should have the following items:`, (dataTable) => {
   const column = {}
-  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
   const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-news-listing .rpl-news-listing__item').then(newsItems => {
     table.forEach((row, index) => {
@@ -424,7 +424,7 @@ Then(`the news listing component should have the following items:`, (dataTable) 
 // featured news listing
 Then(`the featured news listing component should have the following items:`, (dataTable) => {
   const column = {}
-  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
   const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-featured-news-list .rpl-featured-news-list__item').then(newsItems => {
     table.forEach((row, index) => {
@@ -453,7 +453,7 @@ Then(`the image gallery component should exist`, () => {
 })
 Then(`the image gallery component should have the following items:`, (dataTable) => {
   const column = {}
-  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
   const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-image-gallery .rpl-image-gallery__thumbnail').then(galleryItem => {
     table.forEach((row, index) => {

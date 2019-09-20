@@ -229,17 +229,40 @@
               - media
               - bundle: image
                 name: 'Demo: Melbourne tram'
+    # Card keydates.
+    - entity: paragraph
+      type: card_keydates
+      field_paragraph_keydates:
+        - entity: paragraph
+          type: keydates
+          field_paragraph_keydate: '1 June'
+          field_paragraph_title: 'Demo Key Date'
+          field_paragraph_summary: 'First key date summary.'
+          field_paragraph_link:
+            - uri: https://www.vic.gov.au
+              title: First key date link
+        - entity: paragraph
+          type: keydates
+          field_paragraph_keydate: '2 June'
+          field_paragraph_title: 'Demo Key Date 2'
+          field_paragraph_summary: 'Second key date summary.'
+          field_paragraph_link:
+            - uri: https://www.vic.gov.au
+              title: Second key date link
+      field_paragraph_cta:
+        - uri: https://www.vic.gov.au
+          title: Read more
     # Card promotion auto.
     - entity: paragraph
       type: card_promotion_auto
-      field_paragraph_cta_text: Card Event auto
+      field_paragraph_cta_text: Read more
       field_paragraph_reference:
         - '#process':
             callback: reference
             args:
               - node
               - type: page
-                title: 'What Single Digital Presence offers'
+                title: 'Demo Page'
     # Card navigation auto.
     - entity: paragraph
       type: card_navigation_auto

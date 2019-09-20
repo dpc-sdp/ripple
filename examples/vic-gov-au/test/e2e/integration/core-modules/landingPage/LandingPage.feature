@@ -55,46 +55,48 @@ Feature: Landing page
       | 02 July | Card Promotion | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au | Vestibulum  rhoncus |
 
     # Card Promotion Automated
-    And there should be a navigation card with the title "Card Promotion"
-    And the navigation card titled "Card Promotion" should contain the following:
-      | title          | summary                                                                                     | ctalink                | ctatext             |
-      | Card Promotion | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au | Vestibulum  rhoncus |
+    And there should be a promotion card with the title "Demo Page"
+    And the promotion card titled "Demo Page" should contain the following:
+       | title       | ctalink      | ctatext     |
+       | Demo Page   | /demo-page   | Read  more  |
 
     # Navigation Featured
     And there should be a navigation featured card with the title "Card Promotion"
     And the navigation card featured titled "Card Promotion" should contain the following:
-      | title | image | summary | link |
-      | Card Promotion | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au |
+      | title           | image                                                                                                           | summary                                                                                      | link                    |
+      | Card Promotion  | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.  | https://www.vic.gov.au  |
 
     # Navigation Featured Automated
     And there should be a navigation featured automated card with the title "Demo News"
     And the navigation featured automated card titled "Demo News" should contain the following:
-      | title | image | link |
-      | Demo News | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | /demo-news |
+      | title      | image                                                                                                           | link        |
+      | Demo News  | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | /demo-news  |
 
     # SAMI - Please copy the examples above to rewrite the next ones in the same format
 
     # Navigation
-    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
-    Then Title should match test data
-    And Summary should match test data
-    And Link text should match test data
-    And Link  should match test data
+    And there should be a navigation card with the title "Card Promotion"
+    And the navigation card titled "Card Promotion" should contain the following:
+      | title           | summary                                                                                      | link                    | linktext            |
+      | Card Promotion  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.  | https://www.vic.gov.au  | Vestibulum rhoncus  |
 
     # Navigation Automated
-    Then Title should match test data
-    And Summary should match test data
-    And Link text should match test data
-    And Link  should match test data
+    And there should be a navigation card with the title "Demo Page"
+    And the navigation card titled "Demo Page" should contain the following:
+      | title     | link       |
+      | Demo Page | /demo-page |
 
     # Key Dates
-    Then Heading should match test data
-    And Key Dates should match test data
-    And Title should match test data
-    And Summary should match test data
-    And Link text should match test data
-    And Link  should match test data
+    And there should be a keydates card with the title "Key calendar dates"
+    And the keydates card titled "Key calendar dates" should contain the following:
+      | title                | ctalink                  | ctatext     |
+      | Key calendar dates   | https://www.vic.gov.au   | Read  more  |
+    And the keydates card titled "Key calendar dates" should have the following items:
+      | date    | title            | description              |
+      | 1 June  | Demo Key Date    | First key date summary.  |
+      | 2 June  | Demo Key Date 2  | Second key date summary. |
 
+    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Featured News
     Then Title should match test data
     And Copy should match test data

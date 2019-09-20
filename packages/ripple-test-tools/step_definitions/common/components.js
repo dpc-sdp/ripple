@@ -201,6 +201,57 @@ Then(`the card CTA component should exist`, () => {
 Then(`the card keydates component should exist`, () => {
   cy.get('.rpl-card-keydates').should('exist')
 })
+Then(`there should be a keydates card with the title {string}`, (title) => {
+  cy.get('.rpl-card-keydates .rpl-card-keydates__title').should('contain', title)
+})
+Then(`the keydates card titled {string} should contain the following:`, (title, dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-card-keydates').then(cards => {
+    cards.each((index, card) => {
+      cy.wrap(card).find('.rpl-card-keydates__title').then(cardTitle => {
+        if (cardTitle[0].innerHTML === title) {
+          table.forEach(row => {
+            if (column.title !== undefined) {
+              expect(card).to.contain.text(row[column.title])
+            }
+            if (column.ctalink !== undefined) {
+              expect(card).to.contain.attr('href', row[column.ctalink])
+            }
+            if (column.ctatext !== undefined) {
+              expect(card).to.contain.text(row[column.ctatext])
+            }
+          })
+        }
+      })
+    })
+  })
+})
+Then(`the keydates card titled {string} should have the following items:`, (title, dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-card-keydates').then(cards => {
+    cards.each((index, card) => {
+      cy.wrap(card).find('.rpl-card-keydates__title').then(cardTitle => {
+        if (cardTitle[0].innerHTML === title) {
+          table.forEach(row => {
+            if (column.date !== undefined) {
+              expect(card).to.contain.text(row[column.date])
+            }
+            if (column.title !== undefined) {
+              expect(card).to.contain.text(row[column.title])
+            }
+            if (column.description !== undefined) {
+              expect(card).to.contain.text(row[column.description])
+            }
+          })
+        }
+      })
+    })
+  })
+})
 // card promotion
 Then(`the card promotion component should exist`, () => {
   cy.get('.rpl-card-promotion').should('exist')
@@ -209,24 +260,29 @@ Then(`there should be a promotion card with the title {string}`, (title) => {
   cy.get('.rpl-card-promotion .rpl-card-promotion__title').should('contain', title)
 })
 Then(`the promotion card titled {string} should contain the following:`, (title, dataTable) => {
-  const promotionCard = dataTable.rawTable.slice(1)
-  // Find the promo card.
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-card-promotion').then(cards => {
     cards.each((index, card) => {
       cy.wrap(card).find('.rpl-card-promotion__title').then(cardTitle => {
         if (cardTitle[0].innerHTML === title) {
-          // For each data-row, check against promo card.
-          promotionCard.forEach((promotionRow, index) => {
-            const date = promotionRow[0]
-            const title = promotionRow[1]
-            const summary = promotionRow[2]
-            const ctalink = promotionRow[3]
-            const ctatext = promotionRow[4]
-            expect(card).to.contain.text(date)
-            expect(card).to.contain.text(title)
-            expect(card).to.contain.text(summary)
-            expect(card).to.contain.text(ctatext)
-            expect(card).to.contain.attr('href', ctalink)
+          table.forEach(row => {
+            if (column.date !== undefined) {
+              expect(card).to.contain.text(row[column.date])
+            }
+            if (column.title !== undefined) {
+              expect(card).to.contain.text(row[column.title])
+            }
+            if (column.summary !== undefined) {
+              expect(card).to.contain.text(row[column.summary])
+            }
+            if (column.ctalink !== undefined) {
+              expect(card).to.contain.attr('href', row[column.ctalink])
+            }
+            if (column.ctatext !== undefined) {
+              expect(card).to.contain.text(row[column.ctatext])
+            }
           })
         }
       })
@@ -238,22 +294,26 @@ Then(`there should be a navigation card with the title {string}`, (title) => {
   cy.get('.rpl-card-navigation .rpl-card-navigation__title').should('contain', title)
 })
 Then(`the navigation card titled {string} should contain the following:`, (title, dataTable) => {
-  const navigationCard = dataTable.rawTable.slice(1)
-  // Find the promo card.
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-card-navigation').then(cards => {
     cards.each((index, card) => {
       cy.wrap(card).find('.rpl-card-navigation__title').then(cardTitle => {
         if (cardTitle[0].innerHTML === title) {
-          // For each data-row, check against promo card.
-          navigationCard.forEach((navigationRow, index) => {
-            const title = navigationRow[0]
-            const summary = navigationRow[1]
-            const ctalink = navigationRow[2]
-            const ctatext = navigationRow[3]
-            expect(card).to.contain.text(title)
-            expect(card).to.contain.text(summary)
-            expect(card).to.contain.text(ctatext)
-            expect(card).to.contain.attr('href', ctalink)
+          table.forEach(row => {
+            if (column.title !== undefined) {
+              expect(card).to.contain.text(row[column.title])
+            }
+            if (column.summary !== undefined) {
+              expect(card).to.contain.text(row[column.summary])
+            }
+            if (column.ctatext !== undefined) {
+              expect(card).to.contain.text(row[column.ctatext])
+            }
+            if (column.ctalink !== undefined) {
+              expect(card).to.contain.attr('href', row[column.ctalink])
+            }
           })
         }
       })
@@ -320,21 +380,23 @@ Then(`the number {int} accordion title should be {string}`, (index, title) => {
   cy.get('.rpl-accordion').eq(index - 1).find('.rpl-accordion__title-top').should('contain', title)
 })
 Then(`the accordion titled {string} should contain the following items:`, (title, dataTable) => {
-  const fields = dataTable.rawTable[1]
+  const table = dataTable.rawTable.slice(1)
   cy.get('.rpl-accordion').then(accordions => {
     accordions.each((index, accordion) => {
       cy.wrap(accordion).find('.rpl-accordion__title-top').then(accordionTitle => {
         if (accordionTitle[0].innerHTML === title) {
-          const title = fields[0]
-          const body = fields[1]
-          cy.wrap(accordion).find('.rpl-accordion__button').should('contain', title)
-          cy.wrap(accordion).find('.rpl-accordion__content').should('contain', body)
+          table.forEach(row => {
+            const title = row[0]
+            const body = row[1]
+            cy.wrap(accordion).find('.rpl-accordion__button').should('contain', title)
+            cy.wrap(accordion).find('.rpl-accordion__content').should('contain', body)
+          })
         }
       })
     })
   })
 })
-// news listing'
+// news listing
 Then(`the news listing component should exist`, () => {
   cy.get('.rpl-news-listing').should('exist')
 })

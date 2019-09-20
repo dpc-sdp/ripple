@@ -60,6 +60,11 @@ export default {
   props: {
     sidebar: Boolean
   },
+  head () {
+    return {
+      title: this.publication.title
+    }
+  },
   methods: {
     formatAnchor (title) {
       return kebabCase(title)

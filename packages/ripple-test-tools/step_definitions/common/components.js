@@ -31,6 +31,16 @@ Then(`there should be {int} anchor links`, length => {
   cy.log('test')
 })
 
+Then(`there should be the following anchor links:`, dataTable => {
+  const expectedLinks = dataTable.hashes()
+  const expectedHrefs = expectedLinks.map(l => l.link)
+  const expectedText = expectedLinks.map(l => l.link)
+  cy.log(expectedHrefs)
+  cy.get('.rpl-anchor-links__item > a').forEach(i => {
+    expect(expectedText.includes(i.text)).toEqual(true)
+  })
+})
+
 // Content rating
 Then(`the content rating component should exist`, () => {
   cy.get('.app-content-rating').should('exist')
@@ -222,4 +232,21 @@ Then(`the share this links should read "open in a new window" to screen readers`
 // Search results
 Then(`the search results component should exist`, () => {
   cy.get('.rpl-search-results').should('exist')
+})
+
+// Description List
+
+Then(`there should be a description list with the following items:`, (dataTable) => {
+  const dl = dataTable.hashes()
+  const labels = dl.map(label => `${label.term}: ${label.value}`)
+  cy.get('.rpl-description-list__row').each(($el, index) => {
+    const label = $el.text().trim()
+    expect(labels).to.contain(label) //eslint-disable-line
+  })
+})
+
+//  Publication author information
+
+Then(`the author information component should exist`, () => {
+  cy.get('.rpl-author-information').should('exist')
 })

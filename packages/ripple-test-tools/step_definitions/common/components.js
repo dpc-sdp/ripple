@@ -400,6 +400,49 @@ Then(`the accordion titled {string} should contain the following items:`, (title
 Then(`the news listing component should exist`, () => {
   cy.get('.rpl-news-listing').should('exist')
 })
+Then(`the news listing component should have the following items:`, (dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-news-listing .rpl-news-listing__item').then(newsItems => {
+    table.forEach((row, index) => {
+      if (column.date !== undefined) {
+        expect(newsItems[index]).to.contain.text(row[column.date])
+      }
+      if (column.tag !== undefined) {
+        expect(newsItems[index]).to.contain.text(row[column.tag])
+      }
+      if (column.title !== undefined) {
+        expect(newsItems[index]).to.contain.text(row[column.title])
+      }
+      if (column.link !== undefined) {
+        cy.wrap(newsItems[index]).find('a').should('have.attr', 'href', row[column.link])
+      }
+    })
+  })
+})
+// featured news listing
+Then(`the featured news listing component should have the following items:`, (dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-featured-news-list .rpl-featured-news-list__item').then(newsItems => {
+    table.forEach((row, index) => {
+      if (column.date !== undefined) {
+        expect(newsItems[index]).to.contain.text(row[column.date])
+      }
+      if (column.tag !== undefined) {
+        expect(newsItems[index]).to.contain.text(row[column.tag])
+      }
+      if (column.title !== undefined) {
+        expect(newsItems[index]).to.contain.text(row[column.title])
+      }
+      if (column.link !== undefined) {
+        cy.wrap(newsItems[index]).find('a').should('have.attr', 'href', row[column.link])
+      }
+    })
+  })
+})
 // timeline
 Then(`the timeline component should exist`, () => {
   cy.get('.rpl-timeline').should('exist')
@@ -408,7 +451,24 @@ Then(`the timeline component should exist`, () => {
 Then(`the image gallery component should exist`, () => {
   cy.get('.rpl-image-gallery').should('exist')
 })
-
+Then(`the image gallery component should have the following items:`, (dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => column[col] = index)
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-image-gallery .rpl-image-gallery__thumbnail').then(galleryItem => {
+    table.forEach((row, index) => {
+      if (column.image !== undefined) {
+        cy.wrap(galleryItem[index]).find('.rpl-image-gallery__thumbnail-image').should('have.attr', 'src', row[column.image])
+      }
+      if (column.title !== undefined) {
+        expect(galleryItem[index]).to.contain.text(row[column.title])
+      }
+      if (column.caption !== undefined) {
+        expect(galleryItem[index]).to.contain.text(row[column.caption])
+      }
+    })
+  })
+})
 // Sidebar components
 
 // Related links

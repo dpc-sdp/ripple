@@ -96,26 +96,25 @@ Feature: Landing page
       | 1 June  | Demo Key Date    | First key date summary.  |
       | 2 June  | Demo Key Date 2  | Second key date summary. |
 
-    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Featured News
-    Then Title should match test data
-    And Copy should match test data
-    And Link should match test data
-    And Title should match test data
-    And Link should match test data
+    And the featured news listing component should have the following items:
+      | date    | tag        | title     | link        |
+      | 02 July | Demo Topic | Demo News | /demo-news  |
 
     # News Listing
-    Then Title should match test data
-    And Tag should match test data
-    And Link Text should match test data
-    And Link should match test data
+    And the news listing component should have the following items:
+      | date         | tag        | title      | link       |
+      | 02 July 2019 | Demo Topic | Demo  News | /demo-news |
 
-    #Image Gallery
-    Then Image should match test data
-    And Image  should match test data
-    And Image should match test data
-    And Image should match test data
+    # Image Gallery
+    And the image gallery component should have the following items:
+      | image                                                                                                                                           | title                                                 |
+      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/2018-19%20State%20Budget.jpg                          | 1 / 4 - Demo: 2018-19 State Budget                    |
+      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Aerial%20shot%20of%20new%20housing%20development.jpg  | 2 / 4 - Demo: Aerial shot of new housing development  |
+      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Bendigo%20Hospital.jpg                                | 3 / 4 - Demo: Bendigo Hospital                        |
+      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg                                  | 4 / 4 - Demo: Melbourne tram                          |
 
+    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Card Event Automated
     Then Date should match test data
     And Title should match test data

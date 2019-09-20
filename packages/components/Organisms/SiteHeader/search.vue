@@ -106,18 +106,21 @@ export default {
     }
 
     .rpl-search__quickexit {
-      > a {
-        width: 100%;
-      }
+      margin-bottom: $rpl-site-header-search-quickexit-margin-bottom;
+
       @include rpl_breakpoint('s') {
         top: $rpl-space;
         right: $rpl-space;
         position: absolute;
-        > a {
+      }
+
+       > a {
+        width: 100%;
+
+        @include rpl_breakpoint('s') {
           width: auto;
         }
       }
-      margin-bottom: $rpl-site-header-search-quickexit-margin-bottom;
     }
 
     .rpl-search-form__field {

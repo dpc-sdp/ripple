@@ -208,7 +208,7 @@ module.exports = {
             component: 'rpl-call-to-action',
             props: {
               'title': 'field_paragraph_title',
-              'summary':  {
+              'summary': {
                 field: 'field_paragraph_body',
                 filters: ['formattedTextDecode']
               },
@@ -232,7 +232,7 @@ module.exports = {
             component: 'rpl-card-cta',
             props: {
               'title': 'field_paragraph_title',
-              'summary':  {
+              'summary': {
                 field: 'field_paragraph_body',
                 filters: ['formattedTextDecode']
               },

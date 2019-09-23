@@ -1,0 +1,69 @@
+{
+  "name": "mock-update-website",
+  "version": "18.0.0",
+  "description": "mock.vic.gov.au",
+  "author": "DPC",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env BASIC_AUTH=0 nuxt",
+    "build": "run-script-os",
+    "build:default": "if [ \"$NUXT_HOT_RELOADING\" != \"1\" ] ; then nuxt build; fi",
+    "build:win32": "IF \"%NUXT_HOT_RELOADING%\" NEQ \"1\" ( nuxt build )",
+    "cy:open": "cypress open",
+    "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
+    "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
+    "test:e2e": "cross-env NODE_ENV=test BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run",
+    "test:dev": "cross-env NODE_ENV=dev start-server-and-test dev http://localhost:3000 cy:open",
+    "test:smoke": "cross-env NODE_ENV=test BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke",
+    "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
+    "start": "run-script-os",
+    "start:default": "if [ \"$NUXT_HOT_RELOADING\" = \"1\" ] ; then nuxt; else nuxt start; fi",
+    "start:win32": "IF \"%NUXT_HOT_RELOADING%\" EQU \"1\" ( nuxt ) ELSE ( nuxt start )",
+    "start:build": "nuxt build && nuxt start"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-nuxt-tide": "^1.2.0",
+    "dotenv": "^5.0.1",
+    "nuxt": "2.6.3",
+    "run-script-os": "^1.0.7"
+  },
+  "devDependencies": {
+    "@dpc-sdp/ripple-test-tools": "^1.2.0",
+    "axe-core": "^3.3.2",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^5.2.0",
+    "cypress": "^3.4.1",
+    "cypress-axe": "^0.4.0",
+    "cypress-cucumber-preprocessor": "^1.16.0",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "husky": "^3.0.0",
+    "node-sass": "^4.11.0",
+    "sass-lint": "^1.12.1",
+    "sass-loader": "^6.0.7",
+    "sass-resources-loader": "^2.0.0",
+    "start-server-and-test": "^1.7.11"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "browserslist": [
+    "> 1%",
+    "IE 11",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run test:unit"
+    }
+  }
+}

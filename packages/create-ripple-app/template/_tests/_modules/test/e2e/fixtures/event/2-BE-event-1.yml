@@ -166,4 +166,4 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
+            name: '<%= domain %>'

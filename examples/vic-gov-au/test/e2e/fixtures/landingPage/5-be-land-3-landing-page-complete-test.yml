@@ -156,6 +156,71 @@
       type: card_carousel
       field_paragraph_title: 'Latest items (News)'
       field_paragraph_latest_items: news
+    - entity: paragraph
+      type: card_carousel
+      field_paragraph_title: 'Card Carousel for Card Event'
+      field_paragraph_latest_items: _none
+      field_paragraph_items:
+        - entity: paragraph
+          type: card_event
+          field_paragraph_title: 'Carousel Card Event'
+          field_paragraph_date_range:
+            - value: '2020-01-01T08:00:00'
+              end_value: '2020-12-12T10:00:00'
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_topic:
+            - '#process':
+                callback: reference
+                args:
+                  - taxonomy_term
+                  - vid: topic
+                    name: 'Education'
+          field_paragraph_location:
+            - country_code: AU
+              administrative_area: VIC
+              locality: Melbourne
+              postal_code: 3000
+              address_line1: 35 Collins St
+          field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+          field_paragraph_cta:
+            - uri: https://www.vic.gov.au
+              title: Read more
+        - entity: paragraph
+          type: card_event
+          field_paragraph_title: 'Carousel Card Event 2'
+          field_paragraph_date_range:
+            - value: '2021-01-01T08:22:00'
+              end_value: '2021-01-01T11:11:00'
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_topic:
+            - '#process':
+                callback: reference
+                args:
+                  - taxonomy_term
+                  - vid: topic
+                    name: 'Education'
+          field_paragraph_location:
+            - country_code: AU
+              administrative_area: VIC
+              locality: Melbourne
+              postal_code: 3000
+              address_line1: 35 Collins St
+          field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+          field_paragraph_cta:
+            - uri: https://www.vic.gov.au
+              title: Read more
     # Card Event.
     - entity: paragraph
       type: card_event

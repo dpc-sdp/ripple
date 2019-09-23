@@ -189,9 +189,41 @@ Then(`the navigation featured automated card titled {string} should contain the 
 Then(`the card event component should exist`, () => {
   cy.get('.rpl-card-event').should('exist')
 })
-// card event
-Then(`the card event component should exist`, () => {
-  cy.get('.rpl-card-event').should('exist')
+Then(`there should be an event card with the title {string}`, (title) => {
+  cy.get('.rpl-card-event .rpl-card-event__title').should('contain', title)
+})
+Then(`the event card titled {string} should contain the following:`, (title, dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-card-event:not([data-tid="carousel-card"])').then(cards => {
+    cards.each((index, card) => {
+      cy.wrap(card).find('.rpl-card-event__title').then(cardTitle => {
+        if (cardTitle[0].innerHTML === title) {
+          table.forEach(row => {
+            if (column.date !== undefined) {
+              expect(card).to.contain.text(row[column.date])
+            }
+            if (column.title !== undefined) {
+              expect(card).to.contain.text(row[column.title])
+            }
+            if (column.summary !== undefined) {
+              expect(card).to.contain.text(row[column.summary])
+            }
+            if (column.location !== undefined) {
+              expect(card).to.contain.text(row[column.location])
+            }
+            if (column.link !== undefined) {
+              expect(card).to.contain.attr('href', row[column.link])
+            }
+            if (column.linktext !== undefined) {
+              expect(card).to.contain.text(row[column.linktext])
+            }
+          })
+        }
+      })
+    })
+  })
 })
 // card CTA
 Then(`the card CTA component should exist`, () => {
@@ -339,29 +371,38 @@ Then(`the card carousel titled {string} should have {int} items`, (title, length
   })
 })
 Then(`the card carousel titled {string} should have the following items:`, (title, dataTable) => {
-  const cardCarousel = dataTable.rawTable.slice(1)
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
+  const table = dataTable.rawTable.slice(1)
   // Find the correct carousel.
   cy.get('.rpl-card-carousel').then(carousels => {
     carousels.each((index, carousel) => {
       cy.wrap(carousel).find('.rpl-card-carousel__title').then(carouselTitle => {
         if (carouselTitle[0].innerHTML === title) {
           // For each data-row, check against carousel slide.
-          cardCarousel.forEach((carouselRow, index) => {
-            const date = carouselRow[0].trim()
-            const title = carouselRow[1]
-            const summary = carouselRow[2]
-            const address = carouselRow[3]
-            const link = carouselRow[4]
-            const linktext = carouselRow[5]
+          table.forEach((row, index) => {
             cy.wrap(carousel).find('.rpl-card-carousel__slide').eq(index).then(slide => {
-              expect(slide).to.contain.text(date)
-              expect(slide).to.contain.text(title)
-              expect(slide).to.contain.text(summary)
-              expect(slide).to.contain.text(address)
-              expect(slide).to.contain.text(linktext)
-              cy.wrap(slide).find('.rpl-link').then(cardLink => {
-                expect(cardLink).to.contain.attr('href', link)
-              })
+              if (column.date !== undefined) {
+                expect(slide).to.contain.text(row[column.date])
+              }
+              if (column.title !== undefined) {
+                expect(slide).to.contain.text(row[column.title])
+              }
+              if (column.summary !== undefined) {
+                expect(slide).to.contain.text(row[column.summary])
+              }
+              if (column.address !== undefined) {
+                expect(slide).to.contain.text(row[column.address])
+              }
+              if (column.linktext !== undefined) {
+                expect(slide).to.contain.text(row[column.linktext])
+              }
+              if (column.image !== undefined) {
+                cy.wrap(slide).find('.rpl-card-content__image').should('have.attr', 'src', row[column.image])
+              }
+              if (column.link !== undefined) {
+                cy.wrap(slide).find('.rpl-link').should('have.attr', 'href', row[column.link])
+              }
             })
           })
         }

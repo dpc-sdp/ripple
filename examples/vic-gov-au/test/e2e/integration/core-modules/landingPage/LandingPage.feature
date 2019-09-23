@@ -114,25 +114,21 @@ Feature: Landing page
       | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Bendigo%20Hospital.jpg                                | 3 / 4 - Demo: Bendigo Hospital                        |
       | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg                                  | 4 / 4 - Demo: Melbourne tram                          |
 
-    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Card Event Automated
-    Then Date should match test data
-    And Title should match test data
-    And Copy should match test data
-    And Location should match test data
-    And CTA Text should match test data
-    And CTA Link should match test data
+    And there should be an event card with the title "Demo Event"
+    And the event card titled "Demo Event" should contain the following:
+      | date           | title            | summary                                                                                                                                             | address    | link        | linktext   |
+      | 02 to 07 July  | Demo Event       | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.  | Melbourne  | /demo-event | View  more |
 
     # Card Carousel - add card event
-    Then Title should match test data
-    And Dates should match test data
-    And Image should match test data
-    And Card Event - Title  should match test data
-    And Summary should match test data
-    And Location should match test data
-    And CTA Text should match test data
-    And CTA Link should match test data
+    And there should be a card carousel titled "Card Carousel for Card Event"
+    And the card carousel titled "Card Carousel for Card Event" should have 2 items
+    And the card carousel titled "Card Carousel for Card Event" should have the following items:
+      | date                              | title                    | image                                                                                                             | summary                                                                                        | address    | link                      | linktext      |
+      | 01 January to 12 December 2020    | Carousel Card Event      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg    | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.    | Melbourne  | https://www.vic.gov.au    | Read  more    |
+      | 01 January                        | Carousel Card Event 2    | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg    | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.    | Melbourne  | https://www.vic.gov.au    | Read  more    |
 
+    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     #  Latest Events
     Then Heading should match test data
     And Tag should match test data

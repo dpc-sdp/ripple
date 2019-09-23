@@ -1309,24 +1309,75 @@ exports[`RippleStoryshots Atoms/Icon Text Icon 1`] = `
 </span>
 `;
 
-exports[`RippleStoryshots Atoms/Layout Grid 1`] = `
-<div
-  class="rpl-container"
+exports[`RippleStoryshots Atoms/Link Link 1`] = `
+<a
+  class="rpl-link"
+  data-print-url="#"
+  href="#"
+  target=""
 >
-  <div
-    class="rpl-row"
+  <span
+    class="rpl-link__inner"
   >
-    <div
-      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl rpl-col--push-6-m"
-      style="border: 1px solid black;"
+    Ripple Link
+  </span>
+</a>
+`;
+
+exports[`RippleStoryshots Atoms/Link Text Link 1`] = `
+<a
+  class="rpl-link rpl-text-link"
+  data-print-url="#"
+  href="#"
+  target=""
+>
+  <span
+    class="rpl-link__inner"
+  >
+    <span
+      class="rpl-text-label rpl-text-label--small"
     >
-      Column
-    </div>
-  </div>
+      <span>
+        <span>
+          Text
+        </span>
+
+        <span
+          class="rpl-text-icon__group"
+        >
+           Link
+          <!---->
+        </span>
+      </span>
+    </span>
+  </span>
+</a>
+`;
+
+exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
+<div
+  class="rpl-meta-tag"
+>
+  <a
+    class="rpl-link rpl-meta-tag__link"
+    data-print-url="#"
+    href="#"
+    target=""
+  >
+    <span
+      class="rpl-link__inner"
+    >
+      <span
+        class="rpl-meta-tag__text"
+      >
+        Metatag
+      </span>
+    </span>
+  </a>
 </div>
 `;
 
-exports[`RippleStoryshots Atoms/Layout Grid system 1`] = `
+exports[`RippleStoryshots Atoms|Layout Grids 1`] = `
 <div
   class="demo-content"
 >
@@ -1402,74 +1453,6 @@ exports[`RippleStoryshots Atoms/Layout Grid system 1`] = `
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`RippleStoryshots Atoms/Link Link 1`] = `
-<a
-  class="rpl-link"
-  data-print-url="#"
-  href="#"
-  target=""
->
-  <span
-    class="rpl-link__inner"
-  >
-    Ripple Link
-  </span>
-</a>
-`;
-
-exports[`RippleStoryshots Atoms/Link Text Link 1`] = `
-<a
-  class="rpl-link rpl-text-link"
-  data-print-url="#"
-  href="#"
-  target=""
->
-  <span
-    class="rpl-link__inner"
-  >
-    <span
-      class="rpl-text-label rpl-text-label--small"
-    >
-      <span>
-        <span>
-          Text
-        </span>
-         
-        <span
-          class="rpl-text-icon__group"
-        >
-           Link
-          <!---->
-        </span>
-      </span>
-    </span>
-  </span>
-</a>
-`;
-
-exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
-<div
-  class="rpl-meta-tag"
->
-  <a
-    class="rpl-link rpl-meta-tag__link"
-    data-print-url="#"
-    href="#"
-    target=""
-  >
-    <span
-      class="rpl-link__inner"
-    >
-      <span
-        class="rpl-meta-tag__text"
-      >
-        Metatag
-      </span>
-    </span>
-  </a>
 </div>
 `;
 

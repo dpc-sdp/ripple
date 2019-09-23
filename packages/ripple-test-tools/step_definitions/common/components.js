@@ -34,10 +34,14 @@ Then(`there should be {int} anchor links`, length => {
 Then(`there should be the following anchor links:`, dataTable => {
   const expectedLinks = dataTable.hashes()
   const expectedHrefs = expectedLinks.map(l => l.link)
-  const expectedText = expectedLinks.map(l => l.link)
+  const expectedText = expectedLinks.map(l => l.text)
   cy.log(expectedHrefs)
-  cy.get('.rpl-anchor-links__item > a').forEach(i => {
-    expect(expectedText.includes(i.text)).toEqual(true)
+  cy.get('.rpl-anchor-links__item > a').each(($el, index) => {
+    const text = $el.text()
+    const href = $el.attr('href').split('#')[1]
+    cy.log(href)
+    cy.wrap(expectedText).should('contain', text)
+    cy.wrap(expectedHrefs).should('contain', href)
   })
 })
 

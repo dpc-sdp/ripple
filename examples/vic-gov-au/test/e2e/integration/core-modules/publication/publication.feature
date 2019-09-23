@@ -24,8 +24,9 @@ Feature: Publication
     And there should be the following anchor links:
       | text                                  | link                              |
       | Demo Publication - Chapter 1          | demo-publication-chapter-1        |
-      | Demo Publication - Chapter 1 - Page 2 | demo-publication-chapter-1-page-1 |
-      | Demo Publication - Chapter 2          | demo-publication-chapter-1-page-2 |
+      | Demo Publication - Chapter 1 - Page 1 | demo-publication-chapter-1-page-1 |
+      | Demo Publication - Chapter 1 - Page 2 | demo-publication-chapter-1-page-2 |
+      | Demo Publication - Chapter 2          | demo-publication-chapter-2        |
       | Demo Publication - Chapter 2 - Page 1 | demo-publication-chapter-2-page-1 |
       | Demo Publication - Chapter 2 - Page 2 | demo-publication-chapter-2-page-2 |
       | Demo Publication - Chapter 2 - Page 3 | demo-publication-chapter-2-page-3 |

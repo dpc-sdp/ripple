@@ -128,27 +128,18 @@ Feature: Landing page
       | 01 January to 12 December 2020    | Carousel Card Event      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg    | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.    | Melbourne  | https://www.vic.gov.au    | Read  more    |
       | 01 January                        | Carousel Card Event 2    | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg    | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.    | Melbourne  | https://www.vic.gov.au    | Read  more    |
 
-    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     #  Latest Events
-    Then Heading should match test data
-    And Tag should match test data
-    And Date should match test data
-    And Title should match test data
-    And CTA Text should match test data
-    And CTA Link should match test data
-    And Tag should match test data
-    And Date should match test data
-    And Title should match test data
-    And Summary should match test data
-    And CTA Text should match test data
+    And there should be a latest events titled "Demo latest events"
+    And the latest events titled "Demo latest events" should have 6 items
+    # Disabled as Latest Events data is not stable.
+    # And the latest events titled "Demo latest events" should have the following items:
+    #   | date           | title       | summary                                                                                                                                             | address                                                               | link         | linktext            |
+    #   | 02 to 07 July  | Demo Event  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.  | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001  | /demo-event  | See event  details  |
+    And the latest events titled "Demo latest events" should have a call to action card with the following:
+      | title          | body                                         | image                                                                                                          | linktext | link                   |
+      | Latest Event 1 | Mauris tincidunt tincidunt felis vel tempus. | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | See more | https://www.vic.gov.au |
 
-    #  Latest Events 2
-    Then Heading should match test data
-    And Description should match test data
-    And CTA Link Text should match test data
-    And CTA Link should match test data
-    And Image should match test data
-
+    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     #  Timelines
     Then Timelines Title should match test data
     And Title should match test data

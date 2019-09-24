@@ -196,7 +196,7 @@ Then(`the event card titled {string} should contain the following:`, (title, dat
   const column = {}
   dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
   const table = dataTable.rawTable.slice(1)
-  cy.get('.rpl-card-event:not([data-tid="carousel-card"])').then(cards => {
+  cy.get('.rpl-card-event:not([data-tid])').then(cards => {
     cards.each((index, card) => {
       cy.wrap(card).find('.rpl-card-event__title').then(cardTitle => {
         if (cardTitle[0].innerHTML === title) {
@@ -507,6 +507,95 @@ Then(`the image gallery component should have the following items:`, (dataTable)
       if (column.caption !== undefined) {
         expect(galleryItem[index]).to.contain.text(row[column.caption])
       }
+    })
+  })
+})
+// latest events
+Then(`there should be a latest events titled {string}`, (title) => {
+  cy.get('.rpl-latest-events .rpl-latest-events__title').should('contain', title)
+})
+Then(`the latest events titled {string} should have {int} items`, (title, length) => {
+  cy.get('.rpl-latest-events').then(carousels => {
+    carousels.each((index, carousel) => {
+      cy.wrap(carousel).find('.rpl-latest-events__title').then(carouselTitle => {
+        if (carouselTitle[0].innerHTML === title) {
+          cy.wrap(carousel).find('.rpl-latest-events__card').should('have.length', length)
+        }
+      })
+    })
+  })
+})
+Then(`the latest events titled {string} should have the following items:`, (title, dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
+  const table = dataTable.rawTable.slice(1)
+  // Find the correct carousel.
+  cy.get('.rpl-latest-events').then(carousels => {
+    carousels.each((index, carousel) => {
+      cy.wrap(carousel).find('.rpl-latest-events__title').then(carouselTitle => {
+        if (carouselTitle[0].innerHTML === title) {
+          // For each data-row, check against featured events cards.
+          table.forEach((row, index) => {
+            cy.wrap(carousel).find('.rpl-latest-events__card').eq(index).then(card => {
+              if (column.date !== undefined) {
+                expect(card).to.contain.text(row[column.date])
+              }
+              if (column.title !== undefined) {
+                expect(card).to.contain.text(row[column.title])
+              }
+              if (column.summary !== undefined) {
+                expect(card).to.contain.text(row[column.summary])
+              }
+              if (column.address !== undefined) {
+                expect(card).to.contain.text(row[column.address])
+              }
+              if (column.linktext !== undefined) {
+                expect(card).to.contain.text(row[column.linktext])
+              }
+              if (column.image !== undefined) {
+                cy.wrap(card).find('.rpl-card-content__image').should('have.attr', 'src', row[column.image])
+              }
+              if (column.link !== undefined) {
+                cy.wrap(card).find('.rpl-link').should('have.attr', 'href', row[column.link])
+              }
+            })
+          })
+        }
+      })
+    })
+  })
+})
+Then(`the latest events titled {string} should have a call to action card with the following:`, (title, dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
+  const table = dataTable.rawTable.slice(1)
+  // Find the correct carousel.
+  cy.get('.rpl-latest-events').then(carousels => {
+    carousels.each((index, carousel) => {
+      cy.wrap(carousel).find('.rpl-latest-events__title').then(carouselTitle => {
+        if (carouselTitle[0].innerHTML === title) {
+          // For each data-row, check against latest event cta card.
+          table.forEach((row, index) => {
+            cy.wrap(carousel).find('.rpl-card-cta').eq(index).then(card => {
+              if (column.title !== undefined) {
+                expect(card).to.contain.text(row[column.title])
+              }
+              if (column.body !== undefined) {
+                expect(card).to.contain.text(row[column.body])
+              }
+              if (column.linktext !== undefined) {
+                expect(card).to.contain.text(row[column.linktext])
+              }
+              if (column.image !== undefined) {
+                cy.wrap(card).find('.rpl-card-cta__image').should('have.attr', 'src', row[column.image])
+              }
+              if (column.link !== undefined) {
+                cy.wrap(card).should('have.attr', 'href', row[column.link])
+              }
+            })
+          })
+        }
+      })
     })
   })
 })

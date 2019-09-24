@@ -390,6 +390,26 @@
               - node
               - type: event
                 title: 'Demo Event'
+    # latest events
+    - entity: paragraph
+      type: latest_events
+      field_paragraph_title: Demo latest events
+      field_paragraph_cta_card_event:
+        - entity: paragraph
+          type: call_to_action
+          field_paragraph_title: Latest Event 1
+          field_paragraph_body: 'Mauris tincidunt tincidunt felis vel tempus.'
+          field_paragraph_cta_style: banner
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_cta:
+            - uri: https://www.vic.gov.au
+              title: See more
   # What's Next.
   field_show_whats_next: 1
   field_whats_next:

@@ -7,6 +7,7 @@ export default {
 
       let downloadLinks = null
       let publicationTitle = null
+
       if (pageData.tidePage.type === 'node--publication') {
         downloadLinks = context.app.$tideMapping.mappingFilters.fieldNodeDocuments(pageData.tidePage.field_node_documents)
         publicationTitle = pageData.tidePage.title
@@ -34,14 +35,16 @@ export default {
           name: 'publication-title', content: publicationTitle
         })
       }
-
       // add download and print to sidebar
       if (downloadLinks) {
         pageData.tidePage.sidebarComponents.push({
           name: 'rpl-publication-download-print',
           order: 1,
           data: {
-            showPrint: true,
+            printLink: {
+              href: `/${context.route.path.split('/')[1]}/print-all`,
+              text: 'Print full document'
+            },
             links: downloadLinks
           }
         })

@@ -1,5 +1,11 @@
 <template>
-  <rpl-page-layout class="app-main" :sidebar="false">
+  <rpl-page-layout class="app-main" :sidebar="true">
+    <template slot="breadcrumbs">
+      <rpl-breadcrumbs :crumbs="breadcrumbs" />
+    </template>
+    <template slot="sidebar">
+      <rpl-publication-download-print :printPage="true" />
+    </template>
     <template slot="aboveContent">
       <rpl-hero-banner
         :title="publication.title"
@@ -43,13 +49,16 @@ import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 import { RplHeroBanner } from '@dpc-sdp/ripple-hero-banner'
 import { RplDivider } from '@dpc-sdp/ripple-global'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import { RplPublicationAuthorInformation } from '@dpc-sdp/ripple-publication'
+import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
+import { RplPublicationAuthorInformation, RplPublicationDownloadPrint } from '@dpc-sdp/ripple-publication'
 import kebabCase from 'lodash.kebabcase'
 
 export default {
   name: 'TidePrintPublication',
   components: {
     RplPublicationAuthorInformation,
+    RplPublicationDownloadPrint,
+    RplBreadcrumbs,
     RplHeroBanner,
     RplPageLayout,
     RplAnchorLinks,
@@ -70,7 +79,20 @@ export default {
       return kebabCase(title)
     }
   },
+  mounted () {
+    const printWindow = () => {
+      window.print()
+    }
+    this.$nextTick(function () {
+      if (process.client && typeof window !== 'undefined') {
+        setTimeout(printWindow(), 3000)
+      }
+    })
+  },
   computed: {
+    breadcrumbs () {
+      return [{ text: 'Home', url: '/' }, { text: this.publication.title, url: `/${this.$route.params.publicationname}` }, { text: 'Print', url: this.$route.path }]
+    },
     anchorLinks () {
       return this.pages.map(page => ({
         url: `#${this.formatAnchor(page.title)}`,

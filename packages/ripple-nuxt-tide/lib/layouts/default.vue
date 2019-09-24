@@ -111,7 +111,9 @@ export default {
   methods: {
     anchorScrollFix (hashbang) {
       const elmnt = document.querySelector(hashbang)
-      elmnt.scrollIntoView()
+      if (elmnt) {
+        elmnt.scrollIntoView()
+      }
     },
     async logoutFunc () {
       if (this.$tide.isModuleEnabled('authenticatedContent')) {

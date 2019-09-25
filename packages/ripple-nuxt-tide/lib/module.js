@@ -9,7 +9,7 @@ const nuxtTide = function (moduleOptions) {
 
   this.options.proxy = {
     ...this.options.proxy,
-    '/api/v1/': options.baseUrl,
+    '/api/v1/': { target: options.baseUrl, proxyTimeout: 4500 },
     '/sites/default/files/': options.baseUrl
   }
 

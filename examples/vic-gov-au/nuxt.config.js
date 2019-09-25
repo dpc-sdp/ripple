@@ -71,7 +71,7 @@ export default {
   * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
   */
   tide: {
-    baseUrl: process.env.CONTENT_API_SERVER,
+    baseUrl: 'https://no.this.server',
     auth: {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS

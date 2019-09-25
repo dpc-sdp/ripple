@@ -652,6 +652,41 @@ Then(`the latest events titled {string} should have a call to action card with t
     })
   })
 })
+// Call to action
+Then(`there should be a call to action component with the title {string}`, (title) => {
+  cy.get('.rpl-call-to-action .rpl-call-to-action__title').should('contain', title)
+})
+Then(`the call to action component titled {string} should contain the following:`, (title, dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-call-to-action').then(callToActions => {
+    callToActions.each((index, cta) => {
+      cy.wrap(cta).find('.rpl-call-to-action__title').then(ctaTitle => {
+        if (ctaTitle[0].innerHTML === title) {
+          table.forEach(row => {
+            if (column.title !== undefined) {
+              expect(cta).to.contain.text(row[column.title])
+            }
+            if (column.summary !== undefined) {
+              expect(cta).to.contain.text(row[column.summary])
+            }
+            if (column.linktext !== undefined) {
+              expect(cta).to.contain.text(row[column.linktext])
+            }
+            if (column.link !== undefined) {
+              cy.wrap(cta).find('.rpl-link').should('have.attr', 'href', row[column.link])
+            }
+            if (column.image !== undefined) {
+              cy.wrap(cta).find('.rpl-call-to-action__image').should('have.attr', 'src', row[column.image])
+            }
+          })
+        }
+      })
+    })
+  })
+})
+
 // Sidebar components
 
 // Related links

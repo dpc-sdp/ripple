@@ -164,27 +164,27 @@ Feature: Landing page
       | mailto:no-reply@vic.gov.au                                                                                                | no-reply@vic.gov.au                                                  |
       | https://twitter.com/VicGovAu                                                                                              | Twitter                                                              |
 
-    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Call to action
-    And there should be a navigation featured card with the title "INSERT DATA"
-    And the navigation card featured titled "INSERT DATA" should contain the following:
-      | title | image | summary | link |
+    And there should be a call to action component with the title "Phasellus in varius leo"
+    And the call to action component titled "Phasellus in varius leo" should contain the following:
+      | title                    | image                                                                                                           | summary                                                                                                                                                               | link                | linktext              |
+      | Phasellus in varius leo  | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.  | https://vic.gov.au  | Victorian Government  |
 
     # Related Links
     And the related links component should exist
     And the related links title should be "Related links"
     And the related links should contain the following links:
-      | title                             | url                                                   |
-      | Related Link external  text       | https://emergency.vic.gov.au/respond/#                |
+      | title                              | url                                                   |
+      | State Government of  Victoria      | https://www.vic.gov.au                                |
       | Department of Premier and  Cabinet | https://www.vic.gov.au/department-premier-and-cabinet |
 
-    #What's Next
+    # What's Next
     And the whats next component should exist
     And the whats next title should be "What's next?"
     And the whats next links should be:
-      | title                                  | url                                                    |
-      | State Government of  Victoria           | https://www.vic.gov.au                                |
-      | Department of Premier and  Cabinet      | https://www.vic.gov.au/department-premier-and-cabinet |
+      | title                              | url                                                   |
+      | State Government of  Victoria      | https://www.vic.gov.au                                |
+      | Department of Premier and  Cabinet | https://www.vic.gov.au/department-premier-and-cabinet |
 
     # Social Sharing
     And the share this component should exist
@@ -196,6 +196,7 @@ Feature: Landing page
       | LinkedIn |
     And the share this links should read "open in a new window" to screen readers
 
+    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Content Rating
     And the content rating form should exist
     And the content rating form legend should be "Was this page helpful?"

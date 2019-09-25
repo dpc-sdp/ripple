@@ -21,27 +21,10 @@ const html = `<h1>First Heading</h1>
 <h2>Special Character &amp; &lt; &gt; Heading</h2>
 <h2><span>Heading 2 with inner SPAN</span></h2>
 <!-- comment -->
-<h2><a href="/">Heading 2 with inner LINK</a></h2>`
-
-const testName = '   ANCHOR &amp;   `~!@#$%^&*()-_=+{}[]\\|;:\'"<>,.?/\n   link&nbsp;NAme   &copy; '
+<h2><a href="/">Heading 2 with inner LINK</a></h2>
+<h2>camelCaseHeading</h2>`
 
 describe('anchor link utilities', () => {
-  test(`returns "anchor-link-name" for "${testName}"`, async () => {
-    expect(anchorUtils.getAnchorLinkName(testName, {})).toBe('anchor-link-name')
-  })
-
-  test('should get heading name occurrence count', async () => {
-    let existing = {}
-    anchorUtils.getAnchorLinkName('duplicate heading', existing)
-    anchorUtils.getAnchorLinkName('original heading', existing)
-    anchorUtils.getAnchorLinkName('duplicate heading', existing)
-    anchorUtils.getAnchorLinkName('duplicate heading', existing)
-    expect(existing).toEqual({
-      'duplicate-heading': 3,
-      'original-heading': 1
-    })
-  })
-
   test('should add id to h2 elements', async () => {
     expect(anchorUtils.getAnchorLinkHTML(html)).toEqual(`<h1>First Heading</h1>
 <h2 id="second-heading">Second Heading</h2>
@@ -64,7 +47,8 @@ describe('anchor link utilities', () => {
 <h2 id="special-character-heading">Special Character &amp; &lt; &gt; Heading</h2>
 <h2 id="heading-2-with-inner-span"><span>Heading 2 with inner SPAN</span></h2>
 <!-- comment -->
-<h2 id="heading-2-with-inner-link"><a href="/">Heading 2 with inner LINK</a></h2>`)
+<h2 id="heading-2-with-inner-link"><a href="/">Heading 2 with inner LINK</a></h2>
+<h2 id="camelcaseheading">camelCaseHeading</h2>`)
   })
 
   test('should get list of links with text', async () => {
@@ -72,7 +56,8 @@ describe('anchor link utilities', () => {
       { 'text': 'Second Heading', 'url': '#second-heading' },
       { 'text': 'Special Character & < > Heading', 'url': '#special-character-heading' },
       { 'text': 'Heading 2 with inner SPAN', 'url': '#heading-2-with-inner-span' },
-      { 'text': 'Heading 2 with inner LINK', 'url': '#heading-2-with-inner-link' }
+      { 'text': 'Heading 2 with inner LINK', 'url': '#heading-2-with-inner-link' },
+      { 'text': 'camelCaseHeading', 'url': '#camelcaseheading' }
     ])
   })
 
@@ -81,7 +66,8 @@ describe('anchor link utilities', () => {
       { 'indexStart': 23, 'text': 'Second Heading' },
       { 'indexStart': 387, 'text': 'Special Character &amp; &lt; &gt; Heading' },
       { 'indexStart': 438, 'text': 'Heading 2 with inner SPAN' },
-      { 'indexStart': 503, 'text': 'Heading 2 with inner LINK' }
+      { 'indexStart': 503, 'text': 'Heading 2 with inner LINK' },
+      { 'indexStart': 554, 'text': 'camelCaseHeading' }
     ])
   })
 })

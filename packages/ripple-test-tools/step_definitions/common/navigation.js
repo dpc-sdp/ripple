@@ -41,3 +41,7 @@ Given(`the {string} page exists with fixture {string} data`, (slug, fixture) => 
     }
   })
 })
+
+Given(`I click the link {string}`, (href) => {
+  cy.get(`a[href="${href}"]`).click()
+})

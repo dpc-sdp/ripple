@@ -1,11 +1,13 @@
 // Filters for adding extra process on a mapping value
-import { logger } from './../../lib/core'
 
 // Create more filters if need.
 module.exports = {
   eventLatestEvents: async (list, { mapping }) => {
     try {
       const latestEvents = await list
+      if (latestEvents instanceof Error) {
+        throw latestEvents
+      }
       return latestEvents.map(item => {
         const location = mapping.parseField(['field_event_details', 0, 'field_paragraph_location'], item)
         return {
@@ -19,7 +21,8 @@ module.exports = {
         }
       })
     } catch (error) {
-      logger.error('Couldn\'t get latest events from Tide API.', { error, label: 'Event' })
+      const logger = require('@dpc-sdp/ripple-nuxt-tide/lib/core/logger').default
+      logger.error('Failed in getting latest events.', { error, label: 'Events' })
       return []
     }
   },

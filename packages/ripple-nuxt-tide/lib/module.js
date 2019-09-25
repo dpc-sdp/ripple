@@ -20,6 +20,11 @@ const nuxtTide = function (moduleOptions) {
     options: options
   })
 
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/axios.js'),
+    fileName: 'tide-axios.js'
+  })
+
   if (process.env.BASIC_AUTH === '1') {
     const basicAuth = require('./core/basic-auth.js')
     this.addServerMiddleware(basicAuth)
@@ -66,10 +71,10 @@ const nuxtTide = function (moduleOptions) {
 
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }
 
-  this.addModule('@nuxtjs/proxy', true)
-
+  // Register `@nuxtjs/axios` module
   this.addModule(['@nuxtjs/axios', {
     debug: false,
+    // Using proxy for Tide request https://axios.nuxtjs.org/options#proxy
     proxy: true
   }])
 

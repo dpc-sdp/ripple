@@ -1,7 +1,7 @@
 /* global cy */
 /* eslint jest/valid-expect: "off" */
 
-const { Then } = require('cypress-cucumber-preprocessor/steps')
+const { When, Then } = require('cypress-cucumber-preprocessor/steps')
 
 // Layout common elements
 

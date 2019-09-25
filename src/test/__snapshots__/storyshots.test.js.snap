@@ -9120,6 +9120,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9197,6 +9198,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9274,6 +9276,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9351,6 +9354,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9428,6 +9432,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9506,6 +9511,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >

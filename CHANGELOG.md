@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.2.1 (24/09/2019)
+- [[SDPA-3250] Fix broken head if sitesection doesnt exist (#537)](https://github.com/dpc-sdp/ripple/commit/b3274bd52839980b4010ad49170158d95f4be984) - @dylankelly
+- [Update Create Ripple App to split new and update generators (#530)](https://github.com/dpc-sdp/ripple/commit/5d6cbaa3645adc50e8af798f0aa74e54e92190d4) - @dylankelly
+- [[SDPA-2705] Turn on regression tests on for release branches and nightly (#534)](https://github.com/dpc-sdp/ripple/commit/e84c1a0a858e14f194d373c8e7053dd442ec1adf) - @dylankelly
+- [[SDPA-3187] Use the field_prominence_ack_to_country for top acknowledgment. (#531)](https://github.com/dpc-sdp/ripple/commit/2175c01b380527e8a0c020fd44b0655670a29fac) - @alan-cole
+- [[SDPA-3163] Added Unit test & code review changes.](https://github.com/dpc-sdp/ripple/commit/6737ba2f7ece0c872e2dd3883d7403b3d4667df7) - @MdNadimHossain
+- [[SDPA-3163] Added lint fix.](https://github.com/dpc-sdp/ripple/commit/36a6cb959d266bd69b351c782b83e3c4d02a7636) - @MdNadimHossain
+- [[SDPA-3163] Added truncate text on keydates card.](https://github.com/dpc-sdp/ripple/commit/1692850e0ba626fdad92b3ab5a2281ea4761594c) - @MdNadimHossain
+
+---
+
 ## v1.2.1-rc.0 (23/09/2019)
 
 ---

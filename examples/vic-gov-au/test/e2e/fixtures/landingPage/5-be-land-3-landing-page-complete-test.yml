@@ -159,7 +159,7 @@
     - entity: paragraph
       type: card_carousel
       field_paragraph_title: 'Card Carousel for Card Event'
-      field_paragraph_latest_items: _none
+      field_paragraph_latest_items: null
       field_paragraph_items:
         - entity: paragraph
           type: card_event

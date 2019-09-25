@@ -522,6 +522,25 @@ Then(`the timeline component titled {string} should have the following items:`, 
     })
   })
 })
+// Key Journeys
+Then(`the key journey component should exist`, () => {
+  cy.get('.rpl-intro-banner__link-list').should('exist')
+})
+Then(`the key journey component should have the following items:`, (dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-intro-banner__link-list .rpl-intro-banner__link-list-item').then(listItem => {
+    table.forEach(row => {
+      if (column.linktext !== undefined) {
+        expect(listItem).to.contain.text(row[column.linktext])
+      }
+      if (column.link !== undefined) {
+        cy.wrap(listItem).find('.rpl-link').should('have.attr', 'href', row[column.link])
+      }
+    })
+  })
+})
 // image gallery
 Then(`the image gallery component should exist`, () => {
   cy.get('.rpl-image-gallery').should('exist')
@@ -665,6 +684,29 @@ Then(`the related links should contain the following links:`, (dataTable) => {
 // contact
 Then(`the contact component should exist`, () => {
   cy.get('.rpl-contact').should('exist')
+})
+Then(`the contact component title should be {string}`, (title) => {
+  cy.get('.rpl-contact .rpl-list__title').should('contain', title)
+})
+Then(`the contact component details should be {string}`, (details) => {
+  cy.get('.rpl-contact .rpl-contact__contact-details').should('contain', details)
+})
+Then(`the contact component should have the following items:`, (dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-contact .rpl-list__list-item').then(listItem => {
+    table.forEach((row, index) => {
+      cy.wrap(listItem).eq(index).then(item => {
+        if (column.linktext !== undefined) {
+          expect(item).to.contain.text(row[column.linktext])
+        }
+        if (column.link !== undefined) {
+          cy.wrap(item).find('.rpl-link').should('have.attr', 'href', row[column.link])
+        }
+      })
+    })
+  })
 })
 // whats next
 Then(`the whats next component should exist`, () => {

@@ -146,26 +146,25 @@ Feature: Landing page
     | Demo Timeline Item    | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.  | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | https://www.vic.gov.au  |
     | Demo Timeline Item 2  | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                               | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | https://www.vic.gov.au  |
 
-    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Key Journeys
-    Then Title should match test data
-    And Link Text should match test data
-    And Link   should match test data
+    And the key journey component should exist
+    And the key journey component should have the following items:
+      | linktext        | link               |
+      | Nullam  laoreet | https://vic.gov.au |
+      | Nullam  laoreet | https://vic.gov.au |
 
     # Contact Us
-    Then Title should match test data
-    And Name should match test data
-    And Department Name should match test data
-    And Postal Address should match test data
-    And Address should match test data
-    And Phone should match test data
-    And Phone should match test data
-    And Email should match test data
-    And Link Text should match test data
-    And Link should match test data
-    And Link Text should match test data
-    And Link should match test data
+    And the contact component title should be "Victorian Government"
+    And the contact component details should be "Victorian Government Department of Premier and Cabinet Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001"
+    And the contact component should have the following items:
+      | link                                                                                                                      | linktext                                                             |
+      | https://www.google.com.au/maps?q=Department%20of%20Premier%20and%20Cabinet,%20GPO%20Box%204509,%20Melbourne,%20VIC%203001 | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001 |
+      | tel:1300366356                                                                                                            | Calls in Australia 1300 366 356                                      |
+      | tel:+61396038804                                                                                                          | Calls from overseas +61 3 9603 8804                                  |
+      | mailto:no-reply@vic.gov.au                                                                                                | no-reply@vic.gov.au                                                  |
+      | https://twitter.com/VicGovAu                                                                                              | Twitter                                                              |
 
+    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Call to action
     And there should be a navigation featured card with the title "INSERT DATA"
     And the navigation card featured titled "INSERT DATA" should contain the following:

@@ -37,16 +37,16 @@ Feature: Landing page
     And the card carousel titled "Latest items (Event)" should have 9 items
     # Disabled as Event Carousel data is not stable.
     # And the card carousel titled "Latest items (Event)" should have the following items:
-    #   | date                              | title                                                          | summary                                                                                                                                                                                                                                                    | address                                                              | link                                                         | linktext           |
-    #   | 02 to 07 July                     | Demo Event                                                     | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.                                                                                                         | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001 | /demo-event                                                  | See event  details |
-    #   | 05 February to 13 September 2019  | Little Seeds - Early Years Nature Play and Gardening Program   | Calling all Little Seeds. Come and get your hands dirty and let your imagination run free as you tend to your very own garden patch.                                                                                                                       | Birdwood Avenue,  South Yarra, VIC 3141                              | /little-seeds-early-years-nature-play-and-gardening-program  | See event  details |
-    #   | 02 to 13 September                | La Vuelta Winemakers Lunch at Mitchelton                       | This Grand Final Eve, Mitchelton is celebrating Australia’s love of ball sports, days off and rotating beef on the spit. Enjoy mixed cuts of succulent                                                                                                     | 470 Mitchellstown Road,  Nagambie, VIC 3608                          | /la-vuelta-winemakers-lunch-mitchelton                       | See event  details |
-    #   | 13 September                      | My Little - exhibition opening                                 | Lord Coconut presents the fifth annual Melbourne Cufflink Exhibition and Student Acquisitive Prize.\\n\\nThe exhibition features handcrafted cufflinks by some of the best jewellery students                                                              | 358 Lonsdale Street, Level 5 Mitchell House, Melbourne, VIC 3000     | /my-little-exhibition-opening                                | See event  details |
-    #   | 13 September                      | Convent Kids: Sapling School                                   | Join an outdoor expedition for curious kids and their adults led by play specialist Catherine Sewell and gardener Matthew Henry. Through singing, storytelling and hands-on                                                                                | 1 St Heliers Street,  Abbotsford, VIC 3067                           | /convent-kids-sapling-school                                 | See event  details |
-    #   | 13 September                      | 2019 Toyota AFL Finals, SF1: Geelong Cats v West Coast Eagles  | 13 September 2019 Toyota AFL Finals, SF1: Geelong Cats v West Coast Eagles September. It's the miracle month. Four weeks of unscripted drama that compels, captivates and astounds. The thrill of possibility.\\n\\nWitness history made, legends born and | Jolimont Road,  East Melbourne, VIC 3002                             | /2019-toyota-afl-finals-sf1-geelong-cats-v-west-coast-eagles | See event  details |
-    #   | 13 September                      | Albert Park College - Vaudeville: HERO                         | Albert Park College proudly presents Vaudeville 2019: HERO. A highlight of our school calendar, Vaudeville is a celebration of our school through the performing arts                                                                                      | 20 Carlisle Street,  St Kilda, VIC 3182                              | /albert-park-college-vaudeville-hero                         | See event  details |
-    #   | 13 September                      | Tiny Acts Of Kindness Really Do Change The World               | Join us for a delicious vegan lunch from the Edgar’s Mission cook book “Cooking with Kindness” matched with wines from Baillieu and Elgee Park.\\nPam                                                                                                      | 3460 Frankston - Flinders Road,  Merricks, VIC 3916                  | /tiny-acts-kindness-really-do-change-world                   | See event  details |
-    #   | 13 September                      | Hey Hey It's Friday Presents: Poppa & Jonesy                   | Hey Hey It's Friday Presents: Poppa & Jonesy\\n\\nAfter performing sold out shows in the Melbourne International Comedy Festival Poppa Rozaia and Cody Jones have                                                                                          | 60 Lydiard Street North,  Ballarat Central, VIC 3350                 | /hey-hey-its-friday-presents-poppa-jonesy                    | See event  details |
+    #   | date                             | title                                                         | summary                                                                                                                                                                                                                                                    | address                                                              | link                                                         | linktext           |
+    #   | 02 to 07 July                    | Demo Event                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.                                                                                                         | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001 | /demo-event                                                  | See event  details |
+    #   | 05 February to 13 September 2019 | Little Seeds - Early Years Nature Play and Gardening Program  | Calling all Little Seeds. Come and get your hands dirty and let your imagination run free as you tend to your very own garden patch.                                                                                                                       | Birdwood Avenue,  South Yarra, VIC 3141                              | /little-seeds-early-years-nature-play-and-gardening-program  | See event  details |
+    #   | 02 to 13 September               | La Vuelta Winemakers Lunch at Mitchelton                      | This Grand Final Eve, Mitchelton is celebrating Australia’s love of ball sports, days off and rotating beef on the spit. Enjoy mixed cuts of succulent                                                                                                     | 470 Mitchellstown Road,  Nagambie, VIC 3608                          | /la-vuelta-winemakers-lunch-mitchelton                       | See event  details |
+    #   | 13 September                     | My Little - exhibition opening                                | Lord Coconut presents the fifth annual Melbourne Cufflink Exhibition and Student Acquisitive Prize.\\n\\nThe exhibition features handcrafted cufflinks by some of the best jewellery students                                                              | 358 Lonsdale Street, Level 5 Mitchell House, Melbourne, VIC 3000     | /my-little-exhibition-opening                                | See event  details |
+    #   | 13 September                     | Convent Kids: Sapling School                                  | Join an outdoor expedition for curious kids and their adults led by play specialist Catherine Sewell and gardener Matthew Henry. Through singing, storytelling and hands-on                                                                                | 1 St Heliers Street,  Abbotsford, VIC 3067                           | /convent-kids-sapling-school                                 | See event  details |
+    #   | 13 September                     | 2019 Toyota AFL Finals, SF1: Geelong Cats v West Coast Eagles | 13 September 2019 Toyota AFL Finals, SF1: Geelong Cats v West Coast Eagles September. It's the miracle month. Four weeks of unscripted drama that compels, captivates and astounds. The thrill of possibility.\\n\\nWitness history made, legends born and | Jolimont Road,  East Melbourne, VIC 3002                             | /2019-toyota-afl-finals-sf1-geelong-cats-v-west-coast-eagles | See event  details |
+    #   | 13 September                     | Albert Park College - Vaudeville: HERO                        | Albert Park College proudly presents Vaudeville 2019: HERO. A highlight of our school calendar, Vaudeville is a celebration of our school through the performing arts                                                                                      | 20 Carlisle Street,  St Kilda, VIC 3182                              | /albert-park-college-vaudeville-hero                         | See event  details |
+    #   | 13 September                     | Tiny Acts Of Kindness Really Do Change The World              | Join us for a delicious vegan lunch from the Edgar’s Mission cook book “Cooking with Kindness” matched with wines from Baillieu and Elgee Park.\\nPam                                                                                                      | 3460 Frankston - Flinders Road,  Merricks, VIC 3916                  | /tiny-acts-kindness-really-do-change-world                   | See event  details |
+    #   | 13 September                     | Hey Hey It's Friday Presents: Poppa & Jonesy                  | Hey Hey It's Friday Presents: Poppa & Jonesy\\n\\nAfter performing sold out shows in the Melbourne International Comedy Festival Poppa Rozaia and Cody Jones have                                                                                          | 60 Lydiard Street North,  Ballarat Central, VIC 3350                 | /hey-hey-its-friday-presents-poppa-jonesy                    | See event  details |
 
     # Promotion
     And there should be a promotion card with the title "Card Promotion"
@@ -57,28 +57,26 @@ Feature: Landing page
     # Card Promotion Automated
     And there should be a promotion card with the title "Demo Page"
     And the promotion card titled "Demo Page" should contain the following:
-       | title       | ctalink      | ctatext     |
-       | Demo Page   | /demo-page   | Read  more  |
+       | title     | ctalink    | ctatext    |
+       | Demo Page | /demo-page | Read  more |
 
     # Navigation Featured
     And there should be a navigation featured card with the title "Card Promotion"
     And the navigation card featured titled "Card Promotion" should contain the following:
-      | title           | image                                                                                                           | summary                                                                                      | link                    |
-      | Card Promotion  | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.  | https://www.vic.gov.au  |
+      | title          | image                                                                                                          | summary                                                                                     | link                   |
+      | Card Promotion | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au |
 
     # Navigation Featured Automated
     And there should be a navigation featured automated card with the title "Demo News"
     And the navigation featured automated card titled "Demo News" should contain the following:
-      | title      | image                                                                                                           | link        |
-      | Demo News  | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | /demo-news  |
-
-    # SAMI - Please copy the examples above to rewrite the next ones in the same format
+      | title     | image                                                                                                          | link       |
+      | Demo News | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | /demo-news |
 
     # Navigation
     And there should be a navigation card with the title "Card Promotion"
     And the navigation card titled "Card Promotion" should contain the following:
-      | title           | summary                                                                                      | link                    | linktext            |
-      | Card Promotion  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.  | https://www.vic.gov.au  | Vestibulum rhoncus  |
+      | title          | summary                                                                                     | link                   | linktext           |
+      | Card Promotion | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au | Vestibulum rhoncus |
 
     # Navigation Automated
     And there should be a navigation card with the title "Demo Page"
@@ -89,17 +87,17 @@ Feature: Landing page
     # Key Dates
     And there should be a keydates card with the title "Key calendar dates"
     And the keydates card titled "Key calendar dates" should contain the following:
-      | title                | ctalink                  | ctatext     |
-      | Key calendar dates   | https://www.vic.gov.au   | Read  more  |
+      | title              | ctalink                | ctatext    |
+      | Key calendar dates | https://www.vic.gov.au | Read  more |
     And the keydates card titled "Key calendar dates" should have the following items:
-      | date    | title            | description              |
-      | 1 June  | Demo Key Date    | First key date summary.  |
-      | 2 June  | Demo Key Date 2  | Second key date summary. |
+      | date   | title           | description              |
+      | 1 June | Demo Key Date   | First key date summary.  |
+      | 2 June | Demo Key Date 2 | Second key date summary. |
 
     # Featured News
     And the featured news listing component should have the following items:
-      | date    | tag        | title     | link        |
-      | 02 July | Demo Topic | Demo News | /demo-news  |
+      | date    | tag        | title     | link       |
+      | 02 July | Demo Topic | Demo News | /demo-news |
 
     # News Listing
     And the news listing component should have the following items:
@@ -108,33 +106,33 @@ Feature: Landing page
 
     # Image Gallery
     And the image gallery component should have the following items:
-      | image                                                                                                                                           | title                                                 |
-      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/2018-19%20State%20Budget.jpg                          | 1 / 4 - Demo: 2018-19 State Budget                    |
-      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Aerial%20shot%20of%20new%20housing%20development.jpg  | 2 / 4 - Demo: Aerial shot of new housing development  |
-      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Bendigo%20Hospital.jpg                                | 3 / 4 - Demo: Bendigo Hospital                        |
-      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg                                  | 4 / 4 - Demo: Melbourne tram                          |
+      | image                                                                                                                                          | title                                                |
+      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/2018-19%20State%20Budget.jpg                         | 1 / 4 - Demo: 2018-19 State Budget                   |
+      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Aerial%20shot%20of%20new%20housing%20development.jpg | 2 / 4 - Demo: Aerial shot of new housing development |
+      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Bendigo%20Hospital.jpg                               | 3 / 4 - Demo: Bendigo Hospital                       |
+      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg                                 | 4 / 4 - Demo: Melbourne tram                         |
 
     # Card Event Automated
     And there should be an event card with the title "Demo Event"
     And the event card titled "Demo Event" should contain the following:
-      | date           | title            | summary                                                                                                                                             | address    | link        | linktext   |
-      | 02 to 07 July  | Demo Event       | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.  | Melbourne  | /demo-event | View  more |
+      | date          | title      | summary                                                                                                                                            | address   | link        | linktext   |
+      | 02 to 07 July | Demo Event | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Melbourne | /demo-event | View  more |
 
     # Card Carousel - add card event
     And there should be a card carousel titled "Card Carousel for Card Event"
     And the card carousel titled "Card Carousel for Card Event" should have 2 items
     And the card carousel titled "Card Carousel for Card Event" should have the following items:
-      | date                              | title                    | image                                                                                                             | summary                                                                                        | address    | link                      | linktext      |
-      | 01 January to 12 December 2020    | Carousel Card Event      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg    | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.    | Melbourne  | https://www.vic.gov.au    | Read  more    |
-      | 01 January                        | Carousel Card Event 2    | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg    | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.    | Melbourne  | https://www.vic.gov.au    | Read  more    |
+      | date                           | title                 | image                                                                                                          | summary                                                                                     | address   | link                   | linktext   |
+      | 01 January to 12 December 2020 | Carousel Card Event   | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | Melbourne | https://www.vic.gov.au | Read  more |
+      | 01 January                     | Carousel Card Event 2 | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | Melbourne | https://www.vic.gov.au | Read  more |
 
     #  Latest Events
     And there should be a latest events titled "Demo latest events"
     And the latest events titled "Demo latest events" should have 6 items
     # Disabled as Latest Events data is not stable.
     # And the latest events titled "Demo latest events" should have the following items:
-    #   | date           | title       | summary                                                                                                                                             | address                                                               | link         | linktext            |
-    #   | 02 to 07 July  | Demo Event  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.  | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001  | /demo-event  | See event  details  |
+    #   | date          | title      | summary                                                                                                                                            | address                                                              | link        | linktext           |
+    #   | 02 to 07 July | Demo Event | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001 | /demo-event | See event  details |
     And the latest events titled "Demo latest events" should have a call to action card with the following:
       | title          | body                                         | image                                                                                                          | linktext | link                   |
       | Latest Event 1 | Mauris tincidunt tincidunt felis vel tempus. | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | See more | https://www.vic.gov.au |
@@ -142,9 +140,9 @@ Feature: Landing page
     #  Timelines
     And the timeline component titled "Demo Timeline" should exist
     And the timeline component titled "Demo Timeline" should have the following items:
-    | title                 | date        | summary                                                                                      | image                                                                                                           | link                    |
-    | Demo Timeline Item    | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.  | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | https://www.vic.gov.au  |
-    | Demo Timeline Item 2  | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                               | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | https://www.vic.gov.au  |
+    | title                | date        | summary                                                                                     | image                                                                                                          | link                   |
+    | Demo Timeline Item   | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | https://www.vic.gov.au |
+    | Demo Timeline Item 2 | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                              | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | https://www.vic.gov.au |
 
     # Key Journeys
     And the key journey component should exist
@@ -167,8 +165,8 @@ Feature: Landing page
     # Call to action
     And there should be a call to action component with the title "Phasellus in varius leo"
     And the call to action component titled "Phasellus in varius leo" should contain the following:
-      | title                    | image                                                                                                           | summary                                                                                                                                                               | link                | linktext              |
-      | Phasellus in varius leo  | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.  | https://vic.gov.au  | Victorian Government  |
+      | title                   | image                                                                                                          | summary                                                                                                                                                              | link               | linktext             |
+      | Phasellus in varius leo | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam. | https://vic.gov.au | Victorian Government |
 
     # Related Links
     And the related links component should exist
@@ -196,11 +194,10 @@ Feature: Landing page
       | LinkedIn |
     And the share this links should read "open in a new window" to screen readers
 
-    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Content Rating
-    And the content rating form should exist
-    And the content rating form legend should be "Was this page helpful?"
-    When I click the "yes" radio button in the content rating form
-    Then the content rating form summary textfield should display
-    And the the content rating form "Cancel" button should be visible
-    And the the content rating form "Submit" button should be visible
+    And the content rating component should exist
+    And the content rating component legend should be "Was this page helpful?"
+    When I click the "Yes" radio button in the content rating component
+    Then the content rating component summary textfield should display
+    And the the content rating component "Cancel" button should be visible
+    And the the content rating component "Submit" button should be visible

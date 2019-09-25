@@ -35,6 +35,21 @@ Then(`there should be {int} anchor links`, length => {
 Then(`the content rating component should exist`, () => {
   cy.get('.app-content-rating').should('exist')
 })
+Then(`the content rating component legend should be {string}`, (legend) => {
+  cy.get('.app-content-rating legend').should('contain', legend)
+})
+When(`I click the {string} radio button in the content rating component`, (input) => {
+  cy.get(`.app-content-rating input[value="${input}"]`).click()
+})
+Then(`the content rating component summary textfield should display`, () => {
+  cy.get(`.app-content-rating .form-group.field-textArea`).should('be.visible')
+})
+Then(`the the content rating component "Cancel" button should be visible`, () => {
+  cy.get(`.app-content-rating .app-button--cancel`).should('be.visible')
+})
+Then(`the the content rating component "Submit" button should be visible`, () => {
+  cy.get(`.app-content-rating input[type="submit"]`).should('be.visible')
+})
 // Header
 Then(`the page header should exist`, () => {
   cy.get('.rpl-site-header').should('exist')

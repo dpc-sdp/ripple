@@ -19,7 +19,6 @@
   },
   "scripts": {
     "publish": "lerna publish",
-    "version": "lerna version",
     "start:storybook": "cd src && yarn start",
     "start:example": "cd examples/vic-gov-au/ && yarn run dev",
     "start:build-example": "cd examples/vic-gov-au/ && nuxt build && nuxt start",

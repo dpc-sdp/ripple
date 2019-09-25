@@ -84,7 +84,7 @@ import { RplHeroBanner, RplIntroBanner } from '@dpc-sdp/ripple-hero-banner'
 import { RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 
 import { anchorUtils } from '@dpc-sdp/ripple-nuxt-tide/lib/core/anchorlinks.js'
-import kebabCase from 'lodash.kebabcase'
+import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   components: {
@@ -166,7 +166,7 @@ export default {
                 break
               case 'rpl-accordion':
                 if (component.data.title) {
-                  anchors.push({ text: component.data.title, url: `#${kebabCase(component.data.title)}` })
+                  anchors.push({ text: component.data.title, url: `#${getAnchorLinkName(component.data.title)}` })
                 }
                 break
             }

@@ -33,6 +33,33 @@ const nuxtTide = function (moduleOptions) {
     fileName: './request-id.js'
   })
   this.options.router.middleware.push('request-id')
+
+  // https://toor.co/blog/nuxtjs-smooth-scrolling-with-hash-links/
+  this.options.router.scrollBehavior = async (to, from, savedPosition) => {
+    if (savedPosition) {
+      return savedPosition
+    }
+
+    const findEl = async (hash, x) => {
+      return document.querySelector(hash) ||
+        new Promise((resolve, reject) => {
+          if (x > 50) {
+            return resolve()
+          }
+          setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
+        })
+    }
+
+    if (to.hash) {
+      let elmnt = await findEl(to.hash)
+      if (elmnt) {
+        return window.scrollTo(0, elmnt.offsetTop)
+      }
+    }
+
+    return { x: 0, y: 0 }
+  }
+
   this.addServerMiddleware(require('./server-middleware/request-id'))
   // Log all server side requests
   this.addServerMiddleware(require('./server-middleware/request-log'))

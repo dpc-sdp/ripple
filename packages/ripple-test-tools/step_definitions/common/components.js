@@ -488,6 +488,40 @@ Then(`the featured news listing component should have the following items:`, (da
 Then(`the timeline component should exist`, () => {
   cy.get('.rpl-timeline').should('exist')
 })
+Then(`the timeline component titled {string} should exist`, (title) => {
+  cy.get('.rpl-timeline .rpl-timeline__title').should('contain', title)
+})
+Then(`the timeline component titled {string} should have the following items:`, (title, dataTable) => {
+  const column = {}
+  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
+  const table = dataTable.rawTable.slice(1)
+  cy.get('.rpl-timeline').then(timeline => {
+    cy.wrap(timeline).find('.rpl-timeline__title').then(timelineTitle => {
+      if (timelineTitle[0].innerHTML === title) {
+        // For each data-row, check against timeline slide.
+        table.forEach((row, index) => {
+          cy.wrap(timeline).find('.rpl-timeline__list-item').eq(index).then(timelineItem => {
+            if (column.date !== undefined) {
+              expect(timelineItem).to.contain.text(row[column.date])
+            }
+            if (column.title !== undefined) {
+              expect(timelineItem).to.contain.text(row[column.title])
+            }
+            if (column.summary !== undefined) {
+              expect(timelineItem).to.contain.text(row[column.summary])
+            }
+            if (column.image !== undefined) {
+              cy.wrap(timelineItem).find('.rpl-timeline__item-image').should('have.attr', 'src', row[column.image])
+            }
+            if (column.link !== undefined) {
+              cy.wrap(timelineItem).find('.rpl-link').should('have.attr', 'href', row[column.link])
+            }
+          })
+        })
+      }
+    })
+  })
+})
 // image gallery
 Then(`the image gallery component should exist`, () => {
   cy.get('.rpl-image-gallery').should('exist')

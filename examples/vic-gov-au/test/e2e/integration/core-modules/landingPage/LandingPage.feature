@@ -139,16 +139,14 @@ Feature: Landing page
       | title          | body                                         | image                                                                                                          | linktext | link                   |
       | Latest Event 1 | Mauris tincidunt tincidunt felis vel tempus. | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | See more | https://www.vic.gov.au |
 
-    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     #  Timelines
-    Then Timelines Title should match test data
-    And Title should match test data
-    And Dates should match test data
-    And Summary should match test data
-    And Image should match test data
-    And Link text should match test data
-    And Link should match test data
+    And the timeline component titled "Demo Timeline" should exist
+    And the timeline component titled "Demo Timeline" should have the following items:
+    | title                 | date        | summary                                                                                      | image                                                                                                           | link                    |
+    | Demo Timeline Item    | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.  | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | https://www.vic.gov.au  |
+    | Demo Timeline Item 2  | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                               | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg  | https://www.vic.gov.au  |
 
+    # <----------------------------------------------- TESTS IMPLEMENTED TO HERE
     # Key Journeys
     Then Title should match test data
     And Link Text should match test data

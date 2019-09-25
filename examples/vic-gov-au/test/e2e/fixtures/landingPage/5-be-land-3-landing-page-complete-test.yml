@@ -410,6 +410,39 @@
           field_paragraph_cta:
             - uri: https://www.vic.gov.au
               title: See more
+    # Timelines
+    - entity: paragraph
+      type: timelines
+      field_paragraph_title: Demo Timeline
+      field_timeline:
+        - entity: paragraph
+          type: timeline
+          field_paragraph_title: Demo Timeline Item
+          field_paragraph_date_range:
+            - value: '2020-01-01T08:00:00'
+              end_value: '2020-01-01T10:00:00'
+          field_paragraph_link: https://www.vic.gov.au
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+        - entity: paragraph
+          type: timeline
+          field_paragraph_title: Demo Timeline Item 2
+          field_paragraph_cta_text: Alternative
+          field_paragraph_link: https://www.vic.gov.au
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_summary: Anim excepteur magna eu aliqua quis velit voluptate sit culpa.
   # What's Next.
   field_show_whats_next: 1
   field_whats_next:

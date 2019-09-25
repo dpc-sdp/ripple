@@ -33,6 +33,10 @@ const isAnchorLink = (url) => {
   return (typeof url === 'string' && url.length > 0 && url[0] === '#')
 }
 
+const getAnchorLinkName = (str) => {
+  return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[^a-zA-Z0-9\s]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
+}
+
 const formatMoney = (value) => {
   if (value && !isNaN(value)) {
     // Thousands seperator - https://stackoverflow.com/a/2901298
@@ -91,4 +95,4 @@ export const truncateText = (text, stop = 150, clamp) => {
   return ''
 }
 
-export { isRelativeUrl, isExternalUrl, isAnchorLink, formatMoney, isClient }
+export { isRelativeUrl, isExternalUrl, isAnchorLink, getAnchorLinkName, formatMoney, isClient }

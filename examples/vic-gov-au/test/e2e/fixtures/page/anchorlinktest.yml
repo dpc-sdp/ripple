@@ -1,0 +1,48 @@
+- entity: node
+  type: page
+  title: Anchorlink test
+  status: 1
+  moderation_state:
+    - '#process':
+        callback: reference
+        args:
+          - content_moderation_state
+          - workflow: editorial
+            moderation_state: published
+  field_page_intro_text: test
+  # Body content.
+  body:
+    - format: rich_text
+      value: |
+        <h2>heading</h2>
+        <a href="/demo-landing-page#accordion-header-basic">Test link</a>
+  # Topic and Tags.
+  field_topic:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: topic
+            name: 'Demo Topic'
+  field_tags:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: tags
+            name: 'Demo Tag'
+  # Sites.
+  field_node_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'
+  field_node_primary_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'

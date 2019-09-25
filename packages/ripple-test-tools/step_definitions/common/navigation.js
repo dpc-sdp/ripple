@@ -42,7 +42,6 @@ Given(`the {string} page exists with fixture {string} data`, (slug, fixture) => 
   })
 })
 
-
 Given(`the {string} route exists`, (slug) => {
   const site = Cypress.env('SITE_ID') || '4'
   cy.request({
@@ -53,7 +52,8 @@ Given(`the {string} route exists`, (slug) => {
     },
     failOnStatusCode: true
   })
+})
 
-Given(`I click the link {string}`, (href) => {
+Given(`I click the link {string}`, href => {
   cy.get(`a[href="${href}"]`).click()
 })

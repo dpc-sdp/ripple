@@ -44,6 +44,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
+  $rpl-campaign-secondary-padding-xs: $rpl-component-padding-xs !default;
   $rpl-campaign-secondary-padding-s: $rpl-component-padding-s !default;
   $rpl-campaign-secondary-padding-l: ($rpl-component-padding-l) 0 !default ;
   $rpl-campaign-secondary-padding-xl: ($rpl-component-padding-xl) 0 !default;
@@ -71,6 +72,9 @@ export default {
 
   .rpl-campaign-secondary {
     position: relative;
+    @include rpl_breakpoint('xs') {
+      padding-bottom: $rpl-campaign-secondary-padding-xs;
+    }
     @include rpl_breakpoint('s') {
       padding: $rpl-campaign-secondary-padding-s;
     }

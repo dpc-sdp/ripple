@@ -5,7 +5,9 @@ export default {
       '&gt;': '>',
       '&lt;': '<',
       '&apos;': "'",
-      '&nbsp;': ' '
+      '&nbsp;': ' ',
+      '&quot;': '"',
+      '&#039;': "'"
     }
     let replaceableCodes = '('
     let first = true

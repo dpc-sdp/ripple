@@ -9,7 +9,9 @@ const nuxtTide = function (moduleOptions) {
 
   this.options.proxy = {
     ...this.options.proxy,
-    '/api/v1/': { target: options.baseUrl, proxyTimeout: 4500 },
+    // Set the proxy timeout for requesting to Tide API as 9 seconds.
+    // POST request to Tide normally need more than 5 seconds to get response.
+    '/api/v1/': { target: options.baseUrl, proxyTimeout: 9000 },
     '/sites/default/files/': options.baseUrl
   }
 

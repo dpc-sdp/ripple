@@ -63,6 +63,7 @@ export const tide = (axios, site, config) => ({
     const axiosConfig = {
       baseUrl: config.baseUrl,
       auth: config.auth,
+      timeout: 9000,
       headers: {
         'Content-Type': 'application/vnd.api+json;charset=UTF-8',
         'X-Request-Id': helper.generateId()

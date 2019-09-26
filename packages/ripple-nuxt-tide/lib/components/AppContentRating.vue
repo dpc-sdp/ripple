@@ -73,7 +73,7 @@ export default {
                   model: 'comments',
                   placeholder: 'Start typing...',
                   rows: 4,
-                  required: true,
+                  required: false,
                   max: 5000,
                   visible (model) {
                     return model && model.was_this_page_helpful !== null

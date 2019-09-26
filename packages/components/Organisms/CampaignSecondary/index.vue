@@ -72,9 +72,7 @@ export default {
 
   .rpl-campaign-secondary {
     position: relative;
-    @include rpl_breakpoint('xs') {
-      padding-bottom: $rpl-campaign-secondary-padding-xs;
-    }
+    padding-bottom: $rpl-campaign-secondary-padding-xs;
     @include rpl_breakpoint('s') {
       padding: $rpl-campaign-secondary-padding-s;
     }

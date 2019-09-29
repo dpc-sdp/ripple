@@ -3,9 +3,6 @@
     <template slot="breadcrumbs">
       <rpl-breadcrumbs :crumbs="breadcrumbs" />
     </template>
-    <template slot="sidebar">
-      <rpl-publication-download-print :printPage="true" />
-    </template>
     <template slot="aboveContent">
       <rpl-hero-banner
         :title="publication.title"
@@ -80,12 +77,9 @@ export default {
     }
   },
   mounted () {
-    const printWindow = () => {
-      window.print()
-    }
     this.$nextTick(function () {
       if (process.client && typeof window !== 'undefined') {
-        setTimeout(printWindow(), 3000)
+        setTimeout(window.print(), 4000)
       }
     })
   },
@@ -155,7 +149,7 @@ export default {
     async function addComponents () {
       for (let i = 0; i < publicationPagesData.length; i++) {
         const page = publicationPagesData[i]
-        const componentMapping = await context.app.$tideMapping.getMapping(page.field_landing_page_component, 'landingPageComponents')
+        const componentMapping = await context.app.$tideMapping.get(page.field_landing_page_component, 'landingPageComponents')
         publicationPages.push({
           title: page.title,
           componentMapping
@@ -173,7 +167,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/style";
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   $app-pub-print-divider-margin: $rpl-space * 12 0;
   .app-pub-print {
     &__page-divider {

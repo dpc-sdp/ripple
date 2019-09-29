@@ -3,10 +3,15 @@
 
 // Style for stories using vue info
 .sb-show-main {
-  // To override storybook-readme plugin inline css.
-  text-align: left;
-  background-color: #f6f6f9;
   padding: 1em;
+}
 
-  // Add background color so we can see the spacing of a component, this can help dev to address the spacing issue
+// Demo components styles
+.demo-grid {
+  background-color: #ddd;
+
+  .rpl-col {
+    background-color: #ccc;
+    border: 1px solid #aaa;
+  }
 }

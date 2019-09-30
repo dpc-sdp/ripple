@@ -4,6 +4,7 @@
   "description": "Example Vue.js app(Not Nuxt.js) for showing how to use Ripple",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "serve": "vue-cli-service serve --port 3000",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -11,6 +12,11 @@
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
     "test:smoke": "cross-env TEST=1 start-server-and-test serve http://localhost:3000 cy:run-smoke"
+=======
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+>>>>>>> b4f3d788bd94859ff219d2d4d3a12d7cc2995f5e
   },
   "dependencies": {
     "@dpc-sdp/ripple-button": "^1.2.0",
@@ -23,16 +29,22 @@
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
     "babel-eslint": "^10.0.1",
+<<<<<<< HEAD
     "cross-env": "^5.2.0",
     "cypress": "^3.1.5",
     "cypress-axe": "^0.4.0",
     "cypress-cucumber-preprocessor": "^1.11.0",
+=======
+>>>>>>> b4f3d788bd94859ff219d2d4d3a12d7cc2995f5e
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^2.0.1",
+<<<<<<< HEAD
     "start-server-and-test": "^1.7.11",
+=======
+>>>>>>> b4f3d788bd94859ff219d2d4d3a12d7cc2995f5e
     "svg-sprite-loader": "^4.1.6",
     "svgo": "^1.2.2",
     "svgo-loader": "^2.2.0",
@@ -52,12 +64,18 @@
       "parser": "babel-eslint"
     }
   },
+<<<<<<< HEAD
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "cucumberJson": {
       "generate": true,
       "outputFolder": "./../../test-results/cucumber",
       "filePrefix": "vue-example-app-"
+=======
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+>>>>>>> b4f3d788bd94859ff219d2d4d3a12d7cc2995f5e
     }
   },
   "browserslist": [

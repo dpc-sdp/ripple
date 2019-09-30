@@ -180,7 +180,6 @@ export default {
     'xxxl': ('pos': 'right', 'v-offset': $rpl-hero-banner-background-graphic-v-offset-xxl),
     '2660px': ('pos': 'right')
   ) !default;
-  $rpl-hero-banner-title-word-wrap: break-word !default;
 
   @mixin rpl_position_background_graphic($vars) {
     $pos: map-get($vars, 'pos');
@@ -277,7 +276,7 @@ export default {
     &__title {
       @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset);
       @include rpl_text_color($rpl-hero-banner-title-color);
-      @include rpl_word_wrap($rpl-hero-banner-title-word-wrap);
+      word-wrap: break-word;
       margin: 0;
 
       &--dark {

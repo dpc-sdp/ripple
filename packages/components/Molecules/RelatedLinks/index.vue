@@ -86,8 +86,9 @@ export default {
       padding: 0;
       margin: $rpl-related-links-items-margin;
 
-      @include rpl_breakpoint('s') {
-        column-count: 2;
+      @include rpl_breakpoint_between('s', 'l') {
+        display: flex;
+        flex-wrap: wrap;
       }
 
       @include rpl_breakpoint('l') {
@@ -97,6 +98,15 @@ export default {
 
     &__item {
       margin: $rpl-related-links-item-margin;
+      @include rpl_breakpoint_between('s', 'l') {
+        flex: 40%;
+      }
+
+      &:nth-child(even) {
+        @include rpl_breakpoint_between('s', 'l') {
+          margin-left: $rpl-space-3;
+        }
+      }
     }
   }
 </style>

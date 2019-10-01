@@ -97,14 +97,14 @@
     $_container-margin: rpl_grid_get_gutter($grid) / 2;
 
     @if unit(rpl_grid_get_gutter($grid)) == '%' {
-      $_container-margin: ((rpl_grid_get_gutter($grid) + 99.99%) * (rpl_grid_get_gutter($grid) / 100%)) / 2;
+      $_container-margin: ((rpl_grid_get_gutter($grid) + 100%) * (rpl_grid_get_gutter($grid) / 100%)) / 2;
     }
 
     margin-left: $_container-margin * -1;
     margin-right: $_container-margin * -1;
-    width: calc(99.99% + #{$_container-margin} * 2);
+    width: calc(100% + #{$_container-margin} * 2);
   } @else {
-    width: 99.99%;
+    width: 100%;
   }
 }
 

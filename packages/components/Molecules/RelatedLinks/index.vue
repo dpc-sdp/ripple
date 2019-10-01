@@ -44,7 +44,7 @@ export default {
   $rpl-related-links-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-related-links-title-color: rpl_color('white');
   $rpl-related-links-items-margin: $rpl-space-2 auto;
-  $rpl-related-links-item-margin: auto auto $rpl-space-3;
+  $rpl-related-links-item-margin: auto $rpl-space-3 $rpl-space-3 auto;
 
   .rpl-related-links {
     padding: $rpl-related-links-padding;
@@ -85,28 +85,14 @@ export default {
       list-style: none;
       padding: 0;
       margin: $rpl-related-links-items-margin;
-
-      @include rpl_breakpoint_between('s', 'l') {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      @include rpl_breakpoint('l') {
-        column-count: 1;
-      }
+      display: flex;
+      flex-wrap: wrap;
     }
 
     &__item {
       margin: $rpl-related-links-item-margin;
-      @include rpl_breakpoint_between('s', 'l') {
-        flex: 40%;
-      }
-
-      &:nth-child(even) {
-        @include rpl_breakpoint_between('s', 'l') {
-          margin-left: $rpl-space-3;
-        }
-      }
+      flex: 40%;
+      min-width: rem(200px);
     }
   }
 </style>

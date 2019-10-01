@@ -22,7 +22,6 @@ export class Mapping {
     // Each type should have their own mapping config in mapping.config.js
     this.mappingConfig = this[_mergeConfigs](tideDefaultConfig, config.extendConfigs, config.customConfig, 'mapping')
     this.mappingFilters = this[_mergeConfigs](defaultFilters, config.extendFilters, config.customFilters)
-    this.get = this.get
     this.tide = tideService
   }
 

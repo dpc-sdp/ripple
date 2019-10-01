@@ -32,14 +32,19 @@ module.exports = {
 
     try {
       const lists = await mapping.fetch(getNewsListFetcher)
+
+      if (lists instanceof Error) {
+        throw lists
+      }
       return lists.map(news => ({
         date: news.field_news_date,
         tag: news.field_topic.name,
         title: news.title,
         url: news.path.alias
       }))
-    } catch (e) {
-      // TODO: log error to log system when ops got it.
+    } catch (error) {
+      const logger = require('@dpc-sdp/ripple-nuxt-tide/lib/core/logger').default
+      logger.error('Failed in getting news listing.', { error, label: 'News' })
       return []
     }
   },

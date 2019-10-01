@@ -192,28 +192,33 @@ export default async function (context, pageData) {
             })
           }
         }
-        // site section nav
+        // site section
         if (pageData.tidePage.section) {
-          const addSectionNavMenu = await context.app.$tide.getSiteData(headersConfig, pageData.tidePage.section).then(async siteData => {
+          const siteSectionData = await context.app.$tide.getSiteData(headersConfig, pageData.tidePage.section)
+
+          if (siteSectionData instanceof Error) {
+            logger.error('Could not get site section data from Tide API.', { error: siteSectionData, label: 'Middleware' })
+          } else {
+            // Section navigation component will only use the main menu.
+            const addSectionNavMenu = siteSectionData.hierarchicalMenus.menuMain
             // save alerts if site section has them
             if (context.app.$tide.isModuleEnabled('alert')) {
-              if (siteData.site_alerts && siteData.site_alerts.length > 0) {
-                await context.store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })
+              if (siteSectionData.site_alerts && siteSectionData.site_alerts.length > 0) {
+                await context.store.dispatch('tideAlerts/setAlerts', { alerts: siteSectionData.site_alerts, siteSection: siteSectionData.drupal_internal__tid })
               }
             }
-            // Section navigation component will only use the main menu.
-            return siteData.hierarchicalMenus.menuMain
-          })
-          if (pageData.tidePage.field_show_site_section_nav && addSectionNavMenu && pageData.tidePage.field_landing_page_nav_title) {
-            pageData.tidePage.sidebarComponents.push({
-              name: 'rpl-site-section-navigation',
-              order: 100,
-              data: {
-                menu: addSectionNavMenu,
-                title: pageData.tidePage.field_landing_page_nav_title,
-                activeLink: context.route.path
-              }
-            })
+
+            if (pageData.tidePage.field_show_site_section_nav && addSectionNavMenu && pageData.tidePage.field_landing_page_nav_title) {
+              pageData.tidePage.sidebarComponents.push({
+                name: 'rpl-site-section-navigation',
+                order: 100,
+                data: {
+                  menu: addSectionNavMenu,
+                  title: pageData.tidePage.field_landing_page_nav_title,
+                  activeLink: context.route.path
+                }
+              })
+            }
           }
         }
 

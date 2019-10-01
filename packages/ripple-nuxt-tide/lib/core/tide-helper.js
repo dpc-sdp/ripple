@@ -36,7 +36,11 @@ export const jsonApiLinkToResource = (jsonApiLink, apiPrefix) => {
 
 // Get client side user ip address
 export const getClientIp = async (axios) => {
-  return axios.$get('https://api.ipify.org')
+  try {
+    return axios.$get('https://api.ipify.org')
+  } catch (error) {
+    return new Error('Could not get ip address.')
+  }
 }
 
 // Convert Json API metatag_normalized array to a key value object, so we can access the specific metatag value.

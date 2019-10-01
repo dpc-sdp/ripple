@@ -73,7 +73,7 @@ export default {
                   model: 'comments',
                   placeholder: 'Start typing...',
                   rows: 4,
-                  required: true,
+                  required: false,
                   max: 5000,
                   visible (model) {
                     return model && model.was_this_page_helpful !== null
@@ -218,22 +218,27 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
       display: flex;
       justify-content: space-between;
 
+      @include rpl-breakpoint(s) {
+        justify-content: flex-start;
+      }
+
       input[type="submit"] {
         order: 2;
-        max-width: rem(180px);
+        max-width: rem(145px);
         border-radius: rem(4px);
+
+        @include rpl-breakpoint(s) {
+          max-width: rem(180px);
+        }
       }
 
       button {
         order: 1;
-        max-width: rem(180px);
+        max-width: rem(145px);
         border-radius: rem(4px);
-      }
 
-      @include rpl-breakpoint(s) {
-        justify-content: flex-start;
-
-        button {
+        @include rpl-breakpoint(s) {
+          max-width: rem(180px);
           margin-right: $rpl-space-2;
         }
       }

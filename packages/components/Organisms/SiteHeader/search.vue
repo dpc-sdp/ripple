@@ -1,5 +1,6 @@
 <template>
   <div class="rpl-site-header-search">
+    <rpl-quick-exit class="rpl-search__quickexit" v-if="rplOptions.quickexit" />
     <rpl-search-form
       class="rpl-site-header-search__form"
       searchPlaceholder="Start typing..."
@@ -22,6 +23,7 @@
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplMetaTag from '@dpc-sdp/ripple-meta-tag'
 import { RplSearchForm } from '@dpc-sdp/ripple-search'
+import RplQuickExit from '@dpc-sdp/ripple-layout/QuickExit'
 
 export default {
   name: 'RplSearch',
@@ -31,7 +33,8 @@ export default {
   components: {
     RplIcon,
     RplMetaTag,
-    RplSearchForm
+    RplSearchForm,
+    RplQuickExit
   },
   methods: {
     searchTerm: function (searchInput) {
@@ -55,6 +58,7 @@ export default {
   $rpl-site-header-search-term-margin: auto $rpl-space-2 $rpl-space-3 auto !default;
   $rpl-site-header-search-terms-header-text-color: rpl-color('white') !default;
   $rpl-site-header-search-field-underline-background-image: rpl-gradient('primary_gradient') !default;
+  $rpl-site-header-search-quickexit-margin-bottom: ($rpl-space * 6) !default;
 
   .rpl-site-header-search {
     $root: &;
@@ -99,6 +103,24 @@ export default {
     &__terms-header {
       @include rpl_typography_font('s', 1.4em, 'bold');
       color: $rpl-site-header-search-terms-header-text-color;
+    }
+
+    .rpl-search__quickexit {
+      margin-bottom: $rpl-site-header-search-quickexit-margin-bottom;
+
+      @include rpl_breakpoint('s') {
+        top: $rpl-space;
+        right: $rpl-space;
+        position: absolute;
+      }
+
+       > a {
+        width: 100%;
+
+        @include rpl_breakpoint('s') {
+          width: auto;
+        }
+      }
     }
 
     .rpl-search-form__field {

@@ -7,7 +7,6 @@ jobs:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
           CIRCLE_TEST_REPORTS: test-results
     working_directory: ~/app
     steps:
@@ -30,6 +29,7 @@ jobs:
             - packages/ripple-test-tools/node_modules
             - examples/vic-gov-au/node_modules
             - examples/basic-examples/node_modules
+            - examples/vue-example-app/node_modules
             - ~/.cache
       - run:
           name: build vic-gov-au nuxt app
@@ -43,7 +43,6 @@ jobs:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
           CIRCLE_TEST_REPORTS: test-results
     working_directory: ~/app
     steps:
@@ -88,9 +87,8 @@ jobs:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
     working_directory: ~/app
-    steps:    
+    steps:
       - attach_workspace:
           at: ~/app
       - restore_cache:
@@ -119,7 +117,6 @@ jobs:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
     working_directory: ~/app
     steps:    
       - attach_workspace:
@@ -147,13 +144,41 @@ jobs:
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/screenshots
 
+  e2e-vue-example-app:
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+    working_directory: ~/app
+    steps:    
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run: 
+          name: run smoke test
+          command: cd examples/vue-example-app && yarn test:smoke
+      - run:
+          name: convert cucumber test output
+          command: node ./scripts/cucumberconvertor.js
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+      - store_artifacts:
+          path: examples/vue-example-app/test/e2e/videos
+      - store_artifacts:
+          path: examples/vue-example-app/test/e2e/screenshots
+
   prerelease:
     # NOT ENABLED YET - needs further testing
     docker:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
     working_directory: ~/app
     steps:    
       - attach_workspace:
@@ -193,6 +218,13 @@ workflows:
             branches:
               only:
                 - release/*
+      - e2e-vue-example-app:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - release/*
       #  Release prerelease DEV tag to NPM on successful tests passing
       # - prerelease:
       #     requires:
@@ -223,5 +255,8 @@ workflows:
           requires:
             - build
       - e2e-example:
+          requires:
+            - build
+      - e2e-vue-example-app:
           requires:
             - build

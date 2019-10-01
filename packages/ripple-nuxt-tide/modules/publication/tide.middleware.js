@@ -1,3 +1,5 @@
+import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
+
 export default {
   publication: async (context, pageData) => {
     if (pageData.tidePage && ['node--publication', 'node--publication_page'].includes(pageData.tidePage.type)) {
@@ -93,21 +95,25 @@ export default {
 
         if (publicationRootId) {
           // Get root publication data.
-          const hierarchyJson = await context.app.$tide.get('node/publication', {}, `${publicationRootId}/hierarchy`)
-          const hierarchyData = hierarchyJson.data.meta.hierarchy
-          const menu = getMenuFromPublicationHierarchy(hierarchyData.children)
+          try {
+            const hierarchyJson = await context.app.$tide.get('node/publication', {}, `${publicationRootId}/hierarchy`)
+            const hierarchyData = hierarchyJson.data.meta.hierarchy
+            const menu = getMenuFromPublicationHierarchy(hierarchyData.children)
 
-          // Add site section navigation to sidebar.
-          if (menu) {
-            pageData.tidePage.sidebarComponents.push({
-              name: 'rpl-site-section-navigation',
-              order: 2,
-              data: {
-                title: publicationRootTitle,
-                menu,
-                activeLink: context.route.path
-              }
-            })
+            // Add site section navigation to sidebar.
+            if (menu) {
+              pageData.tidePage.sidebarComponents.push({
+                name: 'rpl-site-section-navigation',
+                order: 2,
+                data: {
+                  title: publicationRootTitle,
+                  menu,
+                  activeLink: context.route.path
+                }
+              })
+            }
+          } catch (error) {
+            logger.error('Failed to get publication menu.', { error, label: 'Publication' })
           }
         }
       }

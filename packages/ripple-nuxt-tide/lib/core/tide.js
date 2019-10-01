@@ -15,17 +15,33 @@ const apiPrefix = '/api/v1/'
 
 export const tide = (axios, site, config) => ({
   /**
-   * GET request to tide for resources.
+   * GET request to tide for resources, it returns a promise.
    * @param {String} resource Resource type e.g. <entity type>/<bundle>
    * @param {Object} params Object to convert to QueryString. Passed in URL.
    * @param {String} id Resource UUID
    * @param {Object} headersConfig Tide API request headers config object:{ authToken: '', requestId: '' }
    */
   get: async function (resource, params = {}, id = '', headersConfig = {}) {
+    const siteParam = 'site=' + site
+    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
+    return axios.$get(url, this._axiosConfig(headersConfig))
+  },
+
+  /**
+   * GET request to tide for url, it returns a promise.
+   * @param {String} url whole url for request, include params and id
+   * @param {Object} headersConfig Tide API request headers config object:{ authToken: '', requestId: '' }
+   */
+  getByURL: async function (url, headersConfig = {}) {
+    return axios.$get(`${apiPrefix}${url}`, this._axiosConfig(headersConfig))
+  },
+
+  // Build the axios config for Tide GET request
+  _axiosConfig: function (headersConfig) {
     // axios config
     const axiosConfig = {
-      baseUrl: config.baseUrl,
       auth: config.auth,
+      timeout: 4000,
       headers: {}
     }
 
@@ -39,10 +55,7 @@ export const tide = (axios, site, config) => ({
     if (headersConfig.requestId) {
       axiosConfig.headers['X-Request-Id'] = headersConfig.requestId
     }
-
-    const siteParam = 'site=' + site
-    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
-    return axios.$get(url, axiosConfig)
+    return axiosConfig
   },
 
   post: async function (resource, data = {}, id = '') {
@@ -50,6 +63,7 @@ export const tide = (axios, site, config) => ({
     const axiosConfig = {
       baseUrl: config.baseUrl,
       auth: config.auth,
+      timeout: 9000,
       headers: {
         'Content-Type': 'application/vnd.api+json;charset=UTF-8',
         'X-Request-Id': helper.generateId()
@@ -69,11 +83,15 @@ export const tide = (axios, site, config) => ({
   },
 
   async getSitesData (params = {}, headersConfig = {}) {
-    const sites = await this.get('taxonomy_term/sites', params, '', headersConfig)
-    if (typeof sites === 'undefined' || typeof sites.data === 'undefined') {
-      return new Error('Failed to get sites data. It can be a operation error or configuration error if it\'s the first time to setup this app.')
-    } else {
+    try {
+      const sites = await this.get('taxonomy_term/sites', params, '', headersConfig)
       return this.getAllPaginatedData(sites)
+    } catch (error) {
+      const errMsg = 'Failed to get sites data from Tide API.  It can be a operation error or configuration error if it\'s the first time to setup this app.'
+      if (process.server) {
+        logger.error(errMsg, { error, label: 'Tide' })
+      }
+      return new Error(errMsg)
     }
   },
 
@@ -81,9 +99,11 @@ export const tide = (axios, site, config) => ({
     const sites = await this.getSitesData({}, headersConfig)
     let sitesDomainMap = {}
     let domain = ''
-
     if (sites instanceof Error) {
-      logger.error('Could not get site domain map as no sites data.', { error: sites })
+      const errMsg = 'Could not get site domain map as no sites data.'
+      if (process.server) {
+        logger.error(errMsg, { label: 'Tide' })
+      }
       return sitesDomainMap
     }
 
@@ -127,36 +147,45 @@ export const tide = (axios, site, config) => ({
     }
     const params = { include: include.toString() }
 
-    // let sitesData = null
     let siteData = null
 
-    if (siteId !== null) {
+    if (siteId === null) {
+      // TODO: Get site without site id in SDPA-585.
+      return new Error('Could not get site data. No site id provided.', { label: 'Tide' })
+    } else {
       params.filter = {
         drupal_internal__tid: {
           path: 'drupal_internal__tid',
           value: siteId
         }
       }
-      const response = await this.get(`taxonomy_term/sites`, params, '', headersConfig)
-      if (!response || response.error) {
+      try {
+        const response = await this.get(`taxonomy_term/sites`, params, '', headersConfig)
+        if (response.error) {
+          throw new Error(response.error)
+        }
+
+        siteData = jsonapiParse.parse(response).data[0]
+        // Tide API will return empty data array if no site data found.
+        if (typeof siteData === 'undefined') {
+          throw new Error('Empty data returns from Tide API.')
+        }
+      } catch (error) {
+        if (process.server) {
+          logger.error('Failed to get site data for site id "%s".', siteId, { error, label: 'Tide' })
+        }
         return new Error('Could not get site data. Please check your site id and Tide site setting.')
       }
-      siteData = jsonapiParse.parse(response).data[0]
     }
 
-    try {
-      siteData.menus = await this.getSiteMenus(siteData, headersConfig)
-    } catch (error) {
-      if (process.server) {
-        logger.error('Get menus from Tide failed:', { error })
-      }
-    }
+    // Menus
+    siteData.menus = await this.getSiteMenus(siteData, headersConfig)
 
     try {
       siteData.hierarchicalMenus = menuHierarchy.getHierarchicalMenu(siteData.menus)
     } catch (error) {
       if (process.server) {
-        logger.error('Get hierarchical menu failed.', { error })
+        logger.error('Get hierarchical menu failed.', { error, label: 'Tide' })
       }
       siteData.hierarchicalMenus = this.getMenuFields()
       for (let menuField in siteData.hierarchicalMenus) {
@@ -176,19 +205,15 @@ export const tide = (axios, site, config) => ({
     const menuFields = this.getMenuFields()
     for (let menu in menuFields) {
       if (siteData[menuFields[menu]] !== undefined) {
-        try {
-          siteMenus[menu] = await this.getMenu(siteData[menuFields[menu]].drupal_internal__id, headersConfig)
-        } catch (error) {
+        const menuResult = await this.getMenu(siteData[menuFields[menu]].drupal_internal__id, headersConfig)
+        if (menuResult instanceof Error) {
           if (process.server) {
-            logger.error('Get site menus error: ', { error })
+            logger.error('Failed to get menu "%s"', menu, { menuResult, label: 'Tide' })
           }
-          throw error
+        } else {
+          siteMenus[menu] = menuResult
         }
       }
-    }
-
-    if (Object.keys(siteMenus).length === 0) {
-      throw Error('Tide API server error: No site menus found, at least one is required.')
     }
 
     return siteMenus
@@ -196,7 +221,7 @@ export const tide = (axios, site, config) => ({
 
   getMenu: async function (menuName, headersConfig = {}) {
     if (!menuName) {
-      throw new Error('no menu id provided.')
+      return new Error('no menu id provided.')
     }
 
     const params = {
@@ -207,25 +232,36 @@ export const tide = (axios, site, config) => ({
         }
       }
     }
-    const menu = await this.get('menu_link_content/menu_link_content', params, '', headersConfig)
 
-    return this.getAllPaginatedData(menu, false)
+    try {
+      const menu = await this.get('menu_link_content/menu_link_content', params, '', headersConfig)
+      return this.getAllPaginatedData(menu, false, headersConfig)
+    } catch (error) {
+      const errMsg = 'Failed to get menu from Tide API.'
+      if (process.server) {
+        logger.error(errMsg, { error, label: 'Tide' })
+      }
+      return new Error(errMsg)
+    }
   },
 
   // Used for get paginated response data
-  getAllPaginatedData: async function (response, parse = true) {
+  getAllPaginatedData: async function (response, parse = true, headersConfig = {}) {
     let data = parse ? jsonapiParse.parse(response).data : response.data
 
     while (response.links && response.links.next) {
       const resource = helper.jsonApiLinkToResource(response.links.next, apiPrefix)
       if (process.server) {
-        logger.debug('Tide get next page: %s', resource)
+        logger.debug('Tide get next page: %s', resource, { label: 'Tide' })
       }
-      // Use axios directly here because resource url contains all query params.
-      response = await axios.$get(apiPrefix + resource, config)
-
-      const nextData = parse ? jsonapiParse.parse(response).data : response.data
-      data = data.concat(nextData)
+      // Use getByURL directly here because resource url contains all query params.
+      try {
+        response = await this.getByURL(resource, headersConfig)
+        const nextData = parse ? jsonapiParse.parse(response).data : response.data
+        data = data.concat(nextData)
+      } catch (error) {
+        logger.error('Failed to get next page data', { error, label: 'Tide' })
+      }
     }
     return data
   },
@@ -246,8 +282,13 @@ export const tide = (axios, site, config) => ({
       _.merge(routeParams, params)
     }
 
-    const response = await this.get('route', routeParams, '', headersConfig)
-    return response
+    try {
+      const response = await this.get('route', routeParams, '', headersConfig)
+      return response
+    } catch (error) {
+      // TODO: use return error instead of throw.
+      throw new Error(`Failed to get data for path "${path}" with error "${error}"`)
+    }
   },
 
   getEntityByPathData: async function (pathData, query, headersConfig) {
@@ -313,8 +354,13 @@ export const tide = (axios, site, config) => ({
     if (!_.isEmpty(query)) {
       params = _.merge(query, params)
     }
-    const entity = await this.get(endpoint, params, '', headersConfig)
-    return entity
+    try {
+      const entity = await this.get(endpoint, params, '', headersConfig)
+      return entity
+    } catch (error) {
+      // TODO: use return error instead of throw.
+      throw new Error(`Failed to get entity "${pathData.entity_type}/${pathData.bundle}/${pathData.uuid}" data, with error "${error}"`)
+    }
   },
 
   getPageByPath: async function (path, params, headersConfig) {
@@ -388,8 +434,10 @@ export const tide = (axios, site, config) => ({
       } else {
         return jsonapiParse.parse(response).data
       }
-    } catch (err) {
-      throw new Error('Unable to get a entity list.')
+    } catch (error) {
+      const errMsg = `Failed to get a entity list from Tide API for "${entityType}:${bundle}".`
+      logger.error(errMsg, { error, label: 'Tide' })
+      return new Error(errMsg)
     }
   },
 
@@ -397,7 +445,14 @@ export const tide = (axios, site, config) => ({
   postForm: async function (formId, formData = {}) {
     const formResource = 'webform_submission'
     // TODO: get IP here will slowdown the submit process, we may need to find another place to do this.
-    const ip = await helper.getClientIp(axios)
+    let ip = await helper.getClientIp(axios)
+
+    if (ip instanceof Error) {
+      if (process.server) {
+        logger.error('Get IP failed. Probably the service is down.', { error: ip, label: 'Tide' })
+      }
+      ip = ''
+    }
 
     const data = {
       data: {

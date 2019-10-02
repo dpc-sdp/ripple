@@ -38,7 +38,7 @@ export default {
   $rpl-whats-next-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-whats-next-title-color: rpl_color('extra_dark_neutral');
   $rpl-whats-next-items-margin: $rpl-space-2 auto;
-  $rpl-whats-next-item-margin: auto auto $rpl-space-3;
+  $rpl-whats-next-item-margin: 0 $rpl-space-3 $rpl-space-3 auto;
 
   .rpl-whats-next {
     padding-top: $rpl-space-4;
@@ -51,17 +51,6 @@ export default {
 
     @include rpl_print_hidden;
 
-    &__row {
-      @include rpl_breakpoint('s') {
-        max-width: $rpl-whats-next-max-width-s;
-        margin: 0 auto;
-      }
-
-      @include rpl_breakpoint('l') {
-        max-width: none;
-      }
-    }
-
     &__title {
       @include rpl_typography_ruleset($rpl-whats-next-title-ruleset);
       @include rpl_text_color($rpl-whats-next-title-color);
@@ -73,18 +62,14 @@ export default {
       list-style: none;
       padding: 0;
       margin: $rpl-whats-next-items-margin;
-
-      @include rpl_breakpoint('s') {
-        column-count: 2;
-      }
-
-      @include rpl_breakpoint('l') {
-        column-count: 1;
-      }
+      display: flex;
+      flex-wrap: wrap;
     }
 
     &__item {
       margin: $rpl-whats-next-item-margin;
+      flex: 40%;
+      min-width: rem(220px);
     }
   }
 </style>

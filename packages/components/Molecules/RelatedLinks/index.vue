@@ -44,7 +44,7 @@ export default {
   $rpl-related-links-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-related-links-title-color: rpl_color('white');
   $rpl-related-links-items-margin: $rpl-space-2 auto;
-  $rpl-related-links-item-margin: auto $rpl-space-3 $rpl-space-3 auto;
+  $rpl-related-links-item-margin: 0 $rpl-space-3 $rpl-space-3 auto;
 
   .rpl-related-links {
     padding: $rpl-related-links-padding;
@@ -55,17 +55,6 @@ export default {
     border-radius: $rpl-related-links-border-radius;
 
     @include rpl_print_hidden;
-
-    &__row {
-      @include rpl_breakpoint('s') {
-        max-width: $rpl-related-links-max-width-s;
-        margin: 0 auto;
-      }
-
-      @include rpl_breakpoint('l') {
-        max-width: none;
-      }
-    }
 
     &__icon {
       position: absolute;
@@ -92,7 +81,7 @@ export default {
     &__item {
       margin: $rpl-related-links-item-margin;
       flex: 40%;
-      min-width: rem(200px);
+      min-width: rem(220px);
     }
   }
 </style>

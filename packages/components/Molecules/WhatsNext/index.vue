@@ -32,12 +32,12 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-whats-next-max-width-s: rem(583px);
   $rpl-whats-next-background: transparent;
   $rpl-whats-next-border-radius: rem(4px);
   $rpl-whats-next-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-whats-next-title-color: rpl_color('extra_dark_neutral');
   $rpl-whats-next-items-margin: $rpl-space-2 auto;
+  $rpl-whats-next-item-min-width: rem(220px);
   $rpl-whats-next-item-margin: 0 $rpl-space-3 $rpl-space-3 auto;
 
   .rpl-whats-next {
@@ -69,7 +69,7 @@ export default {
     &__item {
       margin: $rpl-whats-next-item-margin;
       flex: 40%;
-      min-width: rem(220px);
+      min-width: $rpl-whats-next-item-min-width;
     }
   }
 </style>

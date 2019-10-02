@@ -32,7 +32,6 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-related-links-max-width-s: rem(583px);
   $rpl-related-links-background-color: rpl_color('primary') !default;
   $rpl-related-links-background-position: top right !default;
   $rpl-related-links-background-repeat: no-repeat !default;
@@ -44,6 +43,7 @@ export default {
   $rpl-related-links-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-related-links-title-color: rpl_color('white');
   $rpl-related-links-items-margin: $rpl-space-2 auto;
+  $rpl-related-links-item-min-width: rem(220px);
   $rpl-related-links-item-margin: 0 $rpl-space-3 $rpl-space-3 auto;
 
   .rpl-related-links {
@@ -81,7 +81,7 @@ export default {
     &__item {
       margin: $rpl-related-links-item-margin;
       flex: 40%;
-      min-width: rem(220px);
+      min-width: $rpl-related-links-item-min-width;
     }
   }
 </style>

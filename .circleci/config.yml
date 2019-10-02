@@ -37,6 +37,10 @@ jobs:
       - persist_to_workspace:
           root: ~/app
           paths: .
+      - run:
+          name: Warm up backend
+          command: curl https://www.develop.content.vic.gov.au/ --max-time 1000
+
   test:
     context: Ripple
     docker:

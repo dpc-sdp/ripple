@@ -37,6 +37,16 @@ jobs:
       - persist_to_workspace:
           root: ~/app
           paths: .
+
+  warm-up:
+    context: Ripple
+    docker:
+      - image: cypress/base:10
+    steps:
+      - run:
+          name: Awake dev backend
+          command: curl https://www.develop.content.vic.gov.au/ --max-time 1000
+
   test:
     context: Ripple
     docker:
@@ -247,6 +257,7 @@ workflows:
               only:
                 - develop
     jobs:
+      - warm-up
       - build
       - test:
           requires:

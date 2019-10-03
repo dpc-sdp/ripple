@@ -34,7 +34,8 @@ Feature: Protected content
     And the login status message should be "Login Failed. Please try again"
 
   Scenario: 1-FE-auth-content-4 - Accessing a protected content page when unauthenticated
-    Given the "/1-fe-auth-content-4" page exists with fixture "authenticatedContent/1-FE-auth-content-4" data
+    Given I have created a node with the YAML fixture "authenticatedContent/taxonomy"
+    Given the "/1-fe-auth-content-4" page exists with fixture "landingPage/1-FE-auth-content-4" data
     When I visit the page "/1-fe-auth-content-4"
     Then I should see a 404 page
 
@@ -42,7 +43,7 @@ Feature: Protected content
     Given the "/1-fe-auth-content-4" page exists with fixture "landingPage/1-FE-auth-content-4" data
     And there is a user in the system with the following credentials:
       | login     | password     | active | email                    | role   |
-      | testuser2 | Password-222 | true   | testuser2@mailinator.com | Member |
+      | testuser2 | Password-222 | true   | testuser2@mailinator.com | test |
     And I visit the page "/login"
     When I enter the the following login credentials:
       | login     | password     |

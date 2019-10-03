@@ -64,13 +64,13 @@ Feature: Landing page
     And there should be a navigation featured card with the title "Card Promotion"
     And the navigation card featured titled "Card Promotion" should contain the following:
       | title          | image                                                                                                          | summary                                                                                     | link                   |
-      | Card Promotion | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au |
+      | Card Promotion | Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au |
 
     # Navigation Featured Automated
     And there should be a navigation featured automated card with the title "Demo News"
     And the navigation featured automated card titled "Demo News" should contain the following:
       | title     | image                                                                                                          | link       |
-      | Demo News | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | /demo-news |
+      | Demo News | Melbourne%20tram.jpg | /demo-news |
 
     # Navigation
     And there should be a navigation card with the title "Card Promotion"
@@ -107,10 +107,10 @@ Feature: Landing page
     # Image Gallery
     And the image gallery component should have the following items:
       | image                                                                                                                                          | title                                                |
-      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/2018-19%20State%20Budget.jpg                         | 1 / 4 - Demo: 2018-19 State Budget                   |
-      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Aerial%20shot%20of%20new%20housing%20development.jpg | 2 / 4 - Demo: Aerial shot of new housing development |
-      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Bendigo%20Hospital.jpg                               | 3 / 4 - Demo: Bendigo Hospital                       |
-      | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg                                 | 4 / 4 - Demo: Melbourne tram                         |
+      | 2018-19%20State%20Budget.jpg                         | 1 / 4 - Demo: 2018-19 State Budget                   |
+      | Aerial%20shot%20of%20new%20housing%20development.jpg | 2 / 4 - Demo: Aerial shot of new housing development |
+      | Bendigo%20Hospital.jpg                               | 3 / 4 - Demo: Bendigo Hospital                       |
+      | Melbourne%20tram.jpg                                 | 4 / 4 - Demo: Melbourne tram                         |
 
     # Card Event Automated
     And there should be an event card with the title "Demo Event"
@@ -123,8 +123,8 @@ Feature: Landing page
     And the card carousel titled "Card Carousel for Card Event" should have 2 items
     And the card carousel titled "Card Carousel for Card Event" should have the following items:
       | date                           | title                 | image                                                                                                          | summary                                                                                     | address   | link                   | linktext   |
-      | 01 January to 12 December 2020 | Carousel Card Event   | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | Melbourne | https://www.vic.gov.au | Read  more |
-      | 01 January                     | Carousel Card Event 2 | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | Melbourne | https://www.vic.gov.au | Read  more |
+      | 01 January to 12 December 2020 | Carousel Card Event   | Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | Melbourne | https://www.vic.gov.au | Read  more |
+      | 01 January                     | Carousel Card Event 2 | Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | Melbourne | https://www.vic.gov.au | Read  more |
 
     #  Latest Events
     And there should be a latest events titled "Demo latest events"
@@ -135,14 +135,14 @@ Feature: Landing page
     #   | 02 to 07 July | Demo Event | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001 | /demo-event | See event  details |
     And the latest events titled "Demo latest events" should have a call to action card with the following:
       | title          | body                                         | image                                                                                                          | linktext | link                   |
-      | Latest Event 1 | Mauris tincidunt tincidunt felis vel tempus. | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | See more | https://www.vic.gov.au |
+      | Latest Event 1 | Mauris tincidunt tincidunt felis vel tempus. | Melbourne%20tram.jpg | See more | https://www.vic.gov.au |
 
     #  Timelines
     And the timeline component titled "Demo Timeline" should exist
     And the timeline component titled "Demo Timeline" should have the following items:
     | title                | date        | summary                                                                                     | image                                                                                                          | link                   |
-    | Demo Timeline Item   | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | https://www.vic.gov.au |
-    | Demo Timeline Item 2 | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                              | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | https://www.vic.gov.au |
+    | Demo Timeline Item   | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | Melbourne%20tram.jpg | https://www.vic.gov.au |
+    | Demo Timeline Item 2 | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                              | Melbourne%20tram.jpg | https://www.vic.gov.au |
 
     # Key Journeys
     And the key journey component should exist
@@ -166,7 +166,7 @@ Feature: Landing page
     And there should be a call to action component with the title "Phasellus in varius leo"
     And the call to action component titled "Phasellus in varius leo" should contain the following:
       | title                   | image                                                                                                          | summary                                                                                                                                                              | link               | linktext             |
-      | Phasellus in varius leo | https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-09/Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam. | https://vic.gov.au | Victorian Government |
+      | Phasellus in varius leo | Melbourne%20tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam. | https://vic.gov.au | Victorian Government |
 
     # Related Links
     And the related links component should exist

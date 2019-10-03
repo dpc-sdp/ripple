@@ -5,7 +5,7 @@ module.exports = function () {
     routes.push({
       name: 'publication-print-all',
       path: '/:publicationname/print-all',
-      component: '@dpc-sdp/ripple-nuxt-tide/modules/publication/pages/PrintAll.vue',
+      component: '@dpc-sdp/ripple-nuxt-tide/modules/publication/pages/PrintAll.vue'
     })
   })
 

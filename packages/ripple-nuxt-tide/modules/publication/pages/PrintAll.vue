@@ -76,13 +76,6 @@ export default {
       return kebabCase(title)
     }
   },
-  mounted () {
-    this.$nextTick(function () {
-      if (process.client && typeof window !== 'undefined') {
-        setTimeout(window.print(), 4000)
-      }
-    })
-  },
   computed: {
     breadcrumbs () {
       return [{ text: 'Home', url: '/' }, { text: this.publication.title, url: `/${this.$route.params.publicationname}` }, { text: 'Print', url: this.$route.path }]

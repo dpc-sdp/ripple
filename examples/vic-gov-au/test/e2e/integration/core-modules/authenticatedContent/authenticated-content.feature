@@ -10,7 +10,7 @@ Feature: Protected content
     And there should be a submit button with the text "Submit"
     And there should be a login form button with the text "Register"
     And there should be a login form button with the text "Forgot password"
-  @focus
+  
   Scenario: 1-FE-auth-content-2 - Login success
     Given there is a user in the system with the following credentials:
       | login     | password     | active | email                    |
@@ -32,7 +32,7 @@ Feature: Protected content
     And I submit the login form
     Then the login status colour should should be "red"
     And the login status message should be "Login Failed. Please try again"
-
+  @skip
   Scenario: 1-FE-auth-content-4 - Should not be able to access a protected content page when unauthenticated
     Given I have created a node with the YAML fixture "authenticatedContent/taxonomy"
     Given the "/1-fe-auth-content-4" page exists with fixture "landingPage/1-FE-auth-content-4" data
@@ -54,7 +54,7 @@ Feature: Protected content
     Then the page title should be "1-FE-auth-content-4"
     And the h1 should be "1-FE-auth-content-4"
     And the created user should be removed
-
+  @skip
   Scenario: Can still navigate after session is expired
     Given the "/1-fe-auth-content-4" page exists with fixture "landingPage/1-FE-auth-content-4" data
     And there is a user in the system with the following credentials:

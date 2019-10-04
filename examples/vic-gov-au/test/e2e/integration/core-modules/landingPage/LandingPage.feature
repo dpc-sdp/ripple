@@ -23,7 +23,7 @@ Feature: Landing page
       | Another Demo Campaign | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vobis voluptatum perceptarum recordatio vitam beatam facit | Find out more | https://www.vic.gov.au |
 
     # Body Content
-    And the order number 1 wysiwyg content matches fixture "landingPage/5-be-land-3-landing-page-complete-test"
+    And the order number 1 wysiwyg content contains fixture "landingPage/5-be-land-3-landing-page-complete-test"
 
     # Accordion
     And there should be 2 accordion components

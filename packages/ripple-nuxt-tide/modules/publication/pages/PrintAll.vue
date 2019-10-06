@@ -138,10 +138,14 @@ export default {
     const includes = includeConfig.include.publicationPage
 
     const publicationPagesData = await context.app.$tide.getContentList('publication_page', filters, includes)
+    const sortedPages = ids.map(id => {
+      return publicationPagesData.find(page => page.id === id)
+    }).filter(s => s)
+
     const publicationPages = []
     async function addComponents () {
-      for (let i = 0; i < publicationPagesData.length; i++) {
-        const page = publicationPagesData[i]
+      for (let i = 0; i < sortedPages.length; i++) {
+        const page = sortedPages[i]
         const componentMapping = await context.app.$tideMapping.get(page.field_landing_page_component, 'landingPageComponents')
         publicationPages.push({
           title: page.title,

@@ -77,8 +77,8 @@ jobs:
           name: run smoke test
           command: yarn test:smoke
       - run:
-          name: convert cucumber test output
-          command: node ./scripts/cucumberconvertor.js          
+          name: prepare cucumber test report
+          command: yarn test:report        
       - persist_to_workspace:
           root: ~/app
           paths: .
@@ -110,8 +110,8 @@ jobs:
           name: run full e2e test
           command: yarn test:e2e-vic
       - run:
-          name: convert cucumber test output
-          command: node ./scripts/cucumberconvertor.js          
+          name: prepare cucumber test report
+          command: yarn test:report
       - store_artifacts:
           path: test-results
       - store_test_results:
@@ -143,8 +143,8 @@ jobs:
           name: run full e2e test
           command: yarn test:e2e-example
       - run:
-          name: convert cucumber test output
-          command: node ./scripts/cucumberconvertor.js
+          name: prepare cucumber test report
+          command: yarn test:report
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -172,8 +172,8 @@ jobs:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
       - run:
-          name: convert cucumber test output
-          command: node ./scripts/cucumberconvertor.js
+          name: prepare cucumber test report
+          command: yarn test:report
       - store_test_results:
           path: test-results
       - store_artifacts:

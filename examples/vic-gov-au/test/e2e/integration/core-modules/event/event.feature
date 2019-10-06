@@ -16,4 +16,3 @@ Feature: Event page
     # And the event page Image should be present
     And the event page Booking Url link should be "http://examplebook.com"
     And the event page Booking Text should be "Booking URL"
-    And the event page Booking Button should open in a new window

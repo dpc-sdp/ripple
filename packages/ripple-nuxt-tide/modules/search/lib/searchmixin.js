@@ -165,7 +165,7 @@ const searchMixin = {
       if (this.searchForm.textSearch === undefined) {
         this.searchForm.prefillSearchTerm = this.$route.query.q
       }
-      this.pager.initialStep = Number(this.$route.query.page)
+      this.pager.initialStep = this.$route.query.page ? Number(this.$route.query.page) : 1
     }
   }
 }

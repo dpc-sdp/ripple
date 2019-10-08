@@ -115,12 +115,16 @@ export default {
   $rpl-hero-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
   $rpl-hero-banner-title-typography-ruleset: (
     'xs': ('mega', 1.14em, 'bold'),
+    's': ('giga', 1.11em, 'bold'),
     'm': ('xgiga', 1.08em, 'bold'),
+    'l': ('tera', 1.07em, 'bold'),
     'xxl': ('tera', 1em, 'bold')
   ) !default;
   $rpl-hero-banner-title-typography-ruleset-dark: (
     'xs': ('mega', 1.14em, 'bold', true),
+    's': ('giga', 1.11em, 'bold', true),
     'm': ('xgiga', 1.08em, 'bold', true),
+    'l': ('tera', 1.07em, 'bold', true),
     'xxl': ('tera', 1em, 'bold', true)
   ) !default;
   $rpl-hero-banner-title-color: rpl_color('primary') !default;

@@ -604,13 +604,8 @@ module.exports = class TideAdmin {
     if (user.active) {
       await page.click(createUserPage.statusConfirmed)
     }
-    switch (user.role) {
-      case 'Member':
-        await page.click(createUserPage.memberRole)
-        break
-      case 'Previewer':
-        await page.click(createUserPage.previewRole)
-        break
+    if (user.role) {
+      await page.click(createUserPage.editRole(user.role.toLowerCase()))
     }
 
     await page.waitFor(3000)

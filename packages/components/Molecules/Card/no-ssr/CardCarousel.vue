@@ -10,7 +10,7 @@
       >
         <slide v-for="(item, index) in cards" :key="index" class="rpl-card-carousel__slide">
           <div class="rpl-card-carousel__slide-wrap">
-            <component :is="item.name" v-bind="item.data" :trimFieldEventBus="isTrimmed(item.name) ? eventBus : null" :trimFieldUpdateOnResize="false"></component>
+            <component :is="item.name" v-bind="item.data" :trimFieldEventBus="isTrimmed(item.name) ? eventBus : null" :trimFieldUpdateOnResize="false" data-tid="carousel-card"></component>
           </div>
         </slide>
       </carousel>

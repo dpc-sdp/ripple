@@ -42,7 +42,7 @@
         args:
           - taxonomy_term
           - vid: authenticated_content
-            name: 'Member'
+            name: 'test'
   # Hero banner.
   field_landing_page_hero_banner:
     - entity: paragraph
@@ -106,7 +106,7 @@
         args:
           - taxonomy_term
           - vid: authenticated_content
-            name: 'Member'
+            name: 'test'
   field_tags:
     - '#process':
         callback: reference

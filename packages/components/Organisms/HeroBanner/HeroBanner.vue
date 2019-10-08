@@ -276,6 +276,7 @@ export default {
     &__title {
       @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset);
       @include rpl_text_color($rpl-hero-banner-title-color);
+      word-wrap: break-word;
       margin: 0;
 
       &--dark {

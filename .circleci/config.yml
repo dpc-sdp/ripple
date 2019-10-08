@@ -7,7 +7,6 @@ jobs:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
           CIRCLE_TEST_REPORTS: test-results
     working_directory: ~/app
     steps:
@@ -30,6 +29,7 @@ jobs:
             - packages/ripple-test-tools/node_modules
             - examples/vic-gov-au/node_modules
             - examples/basic-examples/node_modules
+            - examples/vue-example-app/node_modules
             - ~/.cache
       - run:
           name: build vic-gov-au nuxt app
@@ -37,13 +37,22 @@ jobs:
       - persist_to_workspace:
           root: ~/app
           paths: .
+
+  warm-up:
+    context: Ripple
+    docker:
+      - image: cypress/base:10
+    steps:
+      - run:
+          name: Awake dev backend
+          command: curl https://www.develop.content.vic.gov.au/ --max-time 1000
+
   test:
     context: Ripple
     docker:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
           CIRCLE_TEST_REPORTS: test-results
     working_directory: ~/app
     steps:
@@ -68,8 +77,8 @@ jobs:
           name: run smoke test
           command: yarn test:smoke
       - run:
-          name: convert cucumber test output
-          command: node ./scripts/cucumberconvertor.js          
+          name: prepare cucumber test report
+          command: yarn test:report        
       - persist_to_workspace:
           root: ~/app
           paths: .
@@ -88,9 +97,8 @@ jobs:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
     working_directory: ~/app
-    steps:    
+    steps:
       - attach_workspace:
           at: ~/app
       - restore_cache:
@@ -102,8 +110,8 @@ jobs:
           name: run full e2e test
           command: yarn test:e2e-vic
       - run:
-          name: convert cucumber test output
-          command: node ./scripts/cucumberconvertor.js          
+          name: prepare cucumber test report
+          command: yarn test:report
       - store_artifacts:
           path: test-results
       - store_test_results:
@@ -119,7 +127,6 @@ jobs:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
     working_directory: ~/app
     steps:    
       - attach_workspace:
@@ -136,8 +143,8 @@ jobs:
           name: run full e2e test
           command: yarn test:e2e-example
       - run:
-          name: convert cucumber test output
-          command: node ./scripts/cucumberconvertor.js
+          name: prepare cucumber test report
+          command: yarn test:report
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -147,13 +154,41 @@ jobs:
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/screenshots
 
+  e2e-vue-example-app:
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+    working_directory: ~/app
+    steps:    
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run: 
+          name: run smoke test
+          command: cd examples/vue-example-app && yarn test:smoke
+      - run:
+          name: prepare cucumber test report
+          command: yarn test:report
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+      - store_artifacts:
+          path: examples/vue-example-app/test/e2e/videos
+      - store_artifacts:
+          path: examples/vue-example-app/test/e2e/screenshots
+
   prerelease:
     # NOT ENABLED YET - needs further testing
     docker:
       - image: cypress/base:10
         environment:
           TERM: xterm
-          SEARCH_BE: LOCAL-CI
     working_directory: ~/app
     steps:    
       - attach_workspace:
@@ -193,6 +228,13 @@ workflows:
             branches:
               only:
                 - release/*
+      - e2e-vue-example-app:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - release/*
       #  Release prerelease DEV tag to NPM on successful tests passing
       # - prerelease:
       #     requires:
@@ -215,6 +257,7 @@ workflows:
               only:
                 - develop
     jobs:
+      - warm-up
       - build
       - test:
           requires:
@@ -223,5 +266,8 @@ workflows:
           requires:
             - build
       - e2e-example:
+          requires:
+            - build
+      - e2e-vue-example-app:
           requires:
             - build

@@ -110,22 +110,11 @@ Add `@dpc-sdp/ripple-nuxt-ui` to modules key in `nuxt.config.js` eg:
 
 You can optionally pass options to `@dpc-sdp/ripple-nuxt-ui` by adding the `ripple` key to `nuxt-config.js` - See [@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) for details.
 
+### In a Vue.js project(Not Nuxt.js)
 
-### In a Vue project
+Ripple components are published individually as npm modules and can be imported in any Vue project.
 
-Ripple components are published individually as npm modules and can be imported in any Vue project. 
-
-*Installation*
-You need to ensure that `@dpc-sdp/ripple-global` is imported and has been configured globally in addition to the individual components you wish to use.
-
-`npm install @dpc-sdp/ripple-global @dpc-sdp/ripple-component-to-install` OR `yarn add @dpc-sdp/ripple-global @dpc-sdp/ripple-component-to-install`
-
-```
-import Vue from 'vue'
-import RplGlobal from '@dpc-sdp/ripple-global'
-Vue.use(RplGlobal, { hostname: 'www.yourdomain.com' }}
-```
-
+Check out our [Vue app example](https://github.com/dpc-sdp/ripple/tree/develop/examples/basic-examples).
 
 ## Contributing
 

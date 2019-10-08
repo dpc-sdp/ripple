@@ -25,6 +25,15 @@ This is a globally available options object to allow passing options between rip
   externalLinksInNewWindow: false // (Bool) Whether links open in new window by default
 ```
 
+For add your options, you need to use the Ripple global plugin in your Vue.js porject.
+
+```JS
+import RplGlobal from '@dpc-sdp/ripple-global'
+Vue.use(RplGlobal, { // You options ... })
+```
+
+For how Vue plugin works, please check https://vuejs.org/v2/guide/plugins.html#Using-a-Plugin.
+
 --------------------------------------------------------------------------------
 
 <!-- GENERATED_INSTALL -->

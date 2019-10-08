@@ -1,4 +1,4 @@
-import { tide, Mapping, logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
+import { tide, Mapping } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 import { search } from '@dpc-sdp/ripple-nuxt-tide/modules/search/index.js'
 import { serverSetProperties } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
@@ -9,6 +9,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
   const options = <%= serialize(options) %>
 
   const config = options
+
   // Inject `tide` key
   // -> app.$tide
   // -> this.$tide in vue components
@@ -17,55 +18,6 @@ export default ({ env, app, req, res, store , route}, inject) => {
   inject('tide', tideService)
   inject('tideMapping', new Mapping(config, tideService))
   inject('tideSearch', search(options.search, app.router, options.site))
-
-  app.$axios.onRequest(config => {
-    // Log all axios' requests
-    if (process.server) {
-      logger.info('Making %s request to %s', config.method.toUpperCase(), config.url, {label: 'Axios2', requestId: config.headers['X-Request-Id']})
-      logger.debug('Headers %O', config.headers, {label: 'Axios'})
-    }
-  })
-
-  // If a request is failed, set a error status code
-  // TODO: we may need to review this global error handling, feel we should handle in each call so we have better control.
-  app.$axios.onError(error => {
-    const responseUrl = error.request.path || error.request.responseURL
-    const errMessage = 'Request to Tide "' + responseUrl + '" failed.'
-
-    // Check what kind of request it is.
-    const routeRequest = responseUrl.includes('/route?')
-    const authPreviewRequest = responseUrl.includes('&current_version=') || responseUrl.includes('&resourceVersion=')
-
-    let code
-    if (error.code) {
-      code = error.code
-    } else if (error.response) {
-      code = error.response.status
-    }
-
-    // Set http status code if a route or preview request failed.
-    if (routeRequest || authPreviewRequest) {
-      // We hide 403 and show it as 404
-      code = code === 403 ? 404 : code
-
-      app.tideResErrCode = code
-
-      if (typeof res !== 'undefined') {
-        res.statusCode = code
-      }
-
-      if (code !== 404 && process.server) {
-        logger.error(errMessage, { error, label: 'Axios' })
-      }
-    } else {
-      // All other requests failure should be invisible for end user.
-      // We only log them in sever console.
-      if (process.server) {
-        logger.error(errMessage, { error, label: 'Axios' })
-      }
-      return Promise.resolve({ error: true })
-    }
-  })
 
   // Register Tide Vuex module
   if (store) {

@@ -29,6 +29,7 @@
     "test:smoke-vic": "cd examples/vic-gov-au/ && yarn test:smoke",
     "test:smoke-example": "cd examples/vic-gov-au/ && yarn test:smoke",
     "test:unit": "jest --colors",
+    "test:report": "node ./scripts/cucumberconvertor.js",
     "build:storybook": "cd src && yarn build-storybook",
     "build:vic-gov-au": "cd examples/vic-gov-au && yarn run build",
     "lint": "sass-lint && yarn lint:es",

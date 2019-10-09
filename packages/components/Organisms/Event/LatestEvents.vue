@@ -3,10 +3,10 @@
     <h2 v-if="title" class="rpl-latest-events__title">{{ title }}</h2>
     <div class="rpl-latest-events__list">
       <div v-if="processedEvents" class="rpl-latest-events__card" v-for="(event, index) in processedEvents" :key="index">
-        <rpl-card-event v-bind="event" />
+        <rpl-card-event v-bind="event" data-tid="latest-events-card" />
       </div>
       <div v-if="cta" class="rpl-latest-events__card">
-        <rpl-card-cta v-bind="cta" />
+        <rpl-card-cta v-bind="cta" data-tid="latest-events-card" />
       </div>
     </div>
     <rpl-button v-if="link" :href="link.url" theme="primary" class="rpl-latest-events__call-to-action">{{ link.text }}</rpl-button>

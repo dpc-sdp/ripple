@@ -95,9 +95,6 @@ export default {
   watch: {
     initialStep (newVal, oldVal) {
       this.currentStep = newVal
-    },
-    totalSteps (newVal, oldVal) {
-      this.currentStep = 1
     }
   }
 }

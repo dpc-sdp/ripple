@@ -2,7 +2,7 @@
   <rpl-base-layout>
     <template slot="header">
       <rpl-alert-base class="app-preview" v-if="preview">Draft only and not yet published</rpl-alert-base>
-      <no-ssr>
+      <client-only>
         <component v-if="alerts" :is="alerts" />
         <rpl-site-header
           :logo="header.logo"
@@ -25,7 +25,7 @@
             :showLogout="false"
           />
         </template>
-      </no-ssr>
+      </client-only>
     </template>
 
     <nuxt/>

@@ -1,8 +1,8 @@
 <template>
   <div class="tide-alert" v-if="alerts && alerts.length > 0">
-    <no-ssr>
+    <client-only>
       <rpl-alert v-for="alert in alerts" :key="alert.id" @rplAlertClose="dismissAlert" v-bind="alert"/>
-    </no-ssr>
+    </client-only>
   </div>
 </template>
 

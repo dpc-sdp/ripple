@@ -1,14 +1,14 @@
 import htmlUtilities from './html-utilities'
+import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 const anchorUtils = {
   getAnchorLinkHTML (html) {
     // Return HTML with an anchor above each anchored heading.
     let newHTML = html
     let offset = 0
-    let existingNames = {}
     const headingTagOffset = '<h2'.length
     this.getAnchorHeadings(html).forEach(item => {
-      const newAnchor = this.textExists(item.text) ? ` id="${this.getAnchorLinkName(item.text, existingNames)}"` : ''
+      const newAnchor = this.textExists(item.text) ? ` id="${getAnchorLinkName(item.text)}"` : ''
       const headingIndex = item.indexStart + offset + headingTagOffset
       newHTML = newHTML.slice(0, headingIndex) + newAnchor + newHTML.slice(headingIndex)
       offset += newAnchor.length
@@ -18,13 +18,12 @@ const anchorUtils = {
 
   getAnchorLinks (html) {
     // Return an array of links to anchored headings.
-    let existingNames = {}
     return this.getAnchorHeadings(html).reduce((result, item) => {
       // Ignore empty headings.
       if (this.textExists(item.text)) {
         result.push({
           text: htmlUtilities.decodeSpecialCharacters(item.text),
-          url: '#' + this.getAnchorLinkName(item.text, existingNames)
+          url: '#' + getAnchorLinkName(item.text)
         })
       }
       return result
@@ -48,18 +47,6 @@ const anchorUtils = {
       match = reg.exec(html)
     }
     return headings
-  },
-
-  getAnchorLinkName (str, existingNames) {
-    // Lowercase. Replace &tags; with spaces. Strip special characters. Strip trailing space. Replace space with hypen.
-    let candidate = str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[^a-zA-Z0-9\s]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
-    // Avoid duplicates by checking against existingNames.
-    if (existingNames[candidate] === undefined) {
-      existingNames[candidate] = 1
-    } else {
-      candidate = `${candidate}-${++existingNames[candidate]}`
-    }
-    return candidate
   },
 
   textExists (text) {

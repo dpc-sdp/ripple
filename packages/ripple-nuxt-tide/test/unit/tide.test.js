@@ -145,11 +145,14 @@ describe('tide', () => {
     }
     mockAxios.$get.mockRejectedValue(error)
 
-    expect.assertions(1)
     const pathNotExist = '/no-such-page'
-    await tideApi.getPathData(pathNotExist).catch(e => {
-      expect(e.response.status).toBe(404)
-    })
+    let hasError = false
+    try {
+      await tideApi.getPathData(pathNotExist)
+    } catch (e) {
+      hasError = true
+    }
+    expect(hasError).toBeTruthy()
   })
 
   test('should get page data by path', async () => {

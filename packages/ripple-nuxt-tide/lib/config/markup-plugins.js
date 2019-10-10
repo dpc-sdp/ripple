@@ -1,4 +1,5 @@
 import htmlUtilities from './../core/html-utilities'
+import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 const pluginButton = function () {
   // Button
@@ -92,12 +93,10 @@ const pluginEmbeddedDocument = function () {
 
 const parseForLinks = function () {
   // Give h2 headings an id so they can be linked to
-  const kebabCase = require('lodash.kebabcase')
-
   this.find('h2').map((i, element) => {
     const el = this.find(element)
     const idName = el.text()
-    return el.attr('id', kebabCase(idName))
+    return el.attr('id', getAnchorLinkName(idName))
   })
 }
 

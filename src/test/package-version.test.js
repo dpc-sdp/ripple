@@ -8,7 +8,7 @@ function testPackageVersion () {
   const errors = []
 
   // Get all existing packages.
-  let packages = glob.readdirSync('./packages/**/package.json')
+  let packages = glob.readdirSync('./packages/components/**/package.json')
   packages.forEach(item => {
     let pack = fs.readFileSync(item, 'utf-8')
     pack = JSON.parse(pack)

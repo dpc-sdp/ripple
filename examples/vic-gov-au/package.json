@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/example-vic-gov-au",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Reference nuxt site using Ripple front end and connecting to Tide backend",
   "private": true,
   "scripts": {
@@ -12,8 +12,8 @@
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
     "test:dev": "cross-env NODE_ENV=test start-server-and-test dev http://localhost:3000 cy:open",
-    "test:smoke": "cross-env NODE_ENV=test start-server-and-test start:build http://localhost:3000 cy:run-smoke",
-    "test:e2e": "cross-env NODE_ENV=test start-server-and-test start:build http://localhost:3000 cy:run",
+    "test:smoke": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-smoke",
+    "test:e2e": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run",
     "test:unit": "cross-env BASIC_AUTH=0 NODE_ENV=test jest",
     "start": "run-script-os",
     "start:default": "if [ \"$NUXT_HOT_RELOADING\" = \"1\" ] ; then nuxt; else nuxt start; fi",
@@ -21,14 +21,14 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.2.0",
+    "@dpc-sdp/ripple-nuxt-tide": "1.2.1",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.6.3",
     "run-script-os": "^1.0.7"
   },
   "devDependencies": {
-    "@dpc-sdp/ripple-test-tools": "1.2.0",
+    "@dpc-sdp/ripple-test-tools": "1.2.1",
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
     "cypress": "^3.1.5",
@@ -52,7 +52,12 @@
     "vue-jest": "^3.0.4"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "./../../test-results/cucumber",
+      "filePrefix": "vic-gov-"
+    }
   },
   "browserslist": [
     "> 1%",

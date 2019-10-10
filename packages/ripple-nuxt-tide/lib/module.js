@@ -9,7 +9,9 @@ const nuxtTide = function (moduleOptions) {
 
   this.options.proxy = {
     ...this.options.proxy,
-    '/api/v1/': options.baseUrl,
+    // Set the proxy timeout for requesting to Tide API as 9 seconds.
+    // POST request to Tide normally need more than 5 seconds to get response.
+    '/api/v1/': { target: options.baseUrl, proxyTimeout: 9000 },
     '/sites/default/files/': options.baseUrl
   }
 
@@ -18,6 +20,11 @@ const nuxtTide = function (moduleOptions) {
     src: path.resolve(__dirname, 'templates/plugin.js'),
     fileName: 'tide.js',
     options: options
+  })
+
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/axios.js'),
+    fileName: 'tide-axios.js'
   })
 
   if (process.env.BASIC_AUTH === '1') {
@@ -33,16 +40,43 @@ const nuxtTide = function (moduleOptions) {
     fileName: './request-id.js'
   })
   this.options.router.middleware.push('request-id')
+
+  // https://toor.co/blog/nuxtjs-smooth-scrolling-with-hash-links/
+  this.options.router.scrollBehavior = async (to, from, savedPosition) => {
+    if (savedPosition) {
+      return savedPosition
+    }
+
+    const findEl = async (hash, x) => {
+      return document.querySelector(hash) ||
+        new Promise((resolve, reject) => {
+          if (x > 50) {
+            return resolve()
+          }
+          setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
+        })
+    }
+
+    if (to.hash) {
+      let elmnt = await findEl(to.hash)
+      if (elmnt) {
+        return window.scrollTo(0, elmnt.offsetTop)
+      }
+    }
+
+    return { x: 0, y: 0 }
+  }
+
   this.addServerMiddleware(require('./server-middleware/request-id'))
   // Log all server side requests
   this.addServerMiddleware(require('./server-middleware/request-log'))
 
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }
 
-  this.addModule('@nuxtjs/proxy', true)
-
+  // Register `@nuxtjs/axios` module
   this.addModule(['@nuxtjs/axios', {
     debug: false,
+    // Using proxy for Tide request https://axios.nuxtjs.org/options#proxy
     proxy: true
   }])
 

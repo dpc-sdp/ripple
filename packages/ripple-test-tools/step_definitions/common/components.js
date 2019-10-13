@@ -134,11 +134,9 @@ Then(`the campaign secondary component should contain:`, (dataTable) => {
 Then(`the body markup component should exist`, () => {
   cy.get('.rpl-markup').should('exist')
 })
-Then(`the order number {int} wysiwyg content matches fixture {string}`, (order, fixture) => {
+Then(`the order number {int} wysiwyg content contains fixture {string}`, (order, fixture) => {
   cy.fixture(fixture).then((bodyMarkup) => {
-    cy.get('.rpl-markup').eq(order - 1).then(rplMarkup => {
-      expect(rplMarkup).to.have.html(bodyMarkup) //eslint-disable-line
-    })
+    cy.get(`.rpl-markup:nth-child(${order})`).invoke('html').should('include', bodyMarkup)
   })
 })
 
@@ -169,7 +167,7 @@ Then(`the navigation card featured titled {string} should contain the following:
             expect(card).to.contain.text(title)
             expect(card).to.contain.text(summary)
             expect(card).to.contain.attr('href', link)
-            cy.wrap(card).find('.rpl-card-navigation-featured__image').should('have.attr', 'src', image)
+            cy.wrap(card).find('.rpl-card-navigation-featured__image').invoke('attr', 'src').should('contain', image)
           })
         }
       })
@@ -193,7 +191,7 @@ Then(`the navigation featured automated card titled {string} should contain the 
             const link = navigationRow[2]
             expect(card).to.contain.text(title)
             expect(card).to.contain.attr('href', link)
-            cy.wrap(card).find('.rpl-card-navigation-featured__image').should('have.attr', 'src', image)
+            cy.wrap(card).find('.rpl-card-navigation-featured__image').invoke('attr', 'src').should('contain', image)
           })
         }
       })
@@ -413,7 +411,7 @@ Then(`the card carousel titled {string} should have the following items:`, (titl
                 expect(slide).to.contain.text(row[column.linktext])
               }
               if (column.image !== undefined) {
-                cy.wrap(slide).find('.rpl-card-content__image').should('have.attr', 'src', row[column.image])
+                cy.wrap(slide).find('.rpl-card-content__image').invoke('attr', 'src').should('contain', row[column.image])
               }
               if (column.link !== undefined) {
                 cy.wrap(slide).find('.rpl-link').should('have.attr', 'href', row[column.link])
@@ -526,7 +524,7 @@ Then(`the timeline component titled {string} should have the following items:`, 
               expect(timelineItem).to.contain.text(row[column.summary])
             }
             if (column.image !== undefined) {
-              cy.wrap(timelineItem).find('.rpl-timeline__item-image').should('have.attr', 'src', row[column.image])
+              cy.wrap(timelineItem).find('.rpl-timeline__item-image').invoke('attr', 'src').should('contain', row[column.image])
             }
             if (column.link !== undefined) {
               cy.wrap(timelineItem).find('.rpl-link').should('have.attr', 'href', row[column.link])
@@ -567,7 +565,7 @@ Then(`the image gallery component should have the following items:`, (dataTable)
   cy.get('.rpl-image-gallery .rpl-image-gallery__thumbnail').then(galleryItem => {
     table.forEach((row, index) => {
       if (column.image !== undefined) {
-        cy.wrap(galleryItem[index]).find('.rpl-image-gallery__thumbnail-image').should('have.attr', 'src', row[column.image])
+        cy.wrap(galleryItem[index]).find('.rpl-image-gallery__thumbnail-image').invoke('attr', 'src').should('contain', row[column.image])
       }
       if (column.title !== undefined) {
         expect(galleryItem[index]).to.contain.text(row[column.title])
@@ -621,7 +619,7 @@ Then(`the latest events titled {string} should have the following items:`, (titl
                 expect(card).to.contain.text(row[column.linktext])
               }
               if (column.image !== undefined) {
-                cy.wrap(card).find('.rpl-card-content__image').should('have.attr', 'src', row[column.image])
+                cy.wrap(card).find('.rpl-card-content__image').invoke('attr', 'src').should('contain', row[column.image])
               }
               if (column.link !== undefined) {
                 cy.wrap(card).find('.rpl-link').should('have.attr', 'href', row[column.link])
@@ -655,7 +653,7 @@ Then(`the latest events titled {string} should have a call to action card with t
                 expect(card).to.contain.text(row[column.linktext])
               }
               if (column.image !== undefined) {
-                cy.wrap(card).find('.rpl-card-cta__image').should('have.attr', 'src', row[column.image])
+                cy.wrap(card).find('.rpl-card-cta__image').invoke('attr', 'src').should('contain', row[column.image])
               }
               if (column.link !== undefined) {
                 cy.wrap(card).should('have.attr', 'href', row[column.link])
@@ -693,7 +691,7 @@ Then(`the call to action component titled {string} should contain the following:
               cy.wrap(cta).find('.rpl-link').should('have.attr', 'href', row[column.link])
             }
             if (column.image !== undefined) {
-              cy.wrap(cta).find('.rpl-call-to-action__image').should('have.attr', 'src', row[column.image])
+              cy.wrap(cta).find('.rpl-call-to-action__image').invoke('attr', 'src').should('contain', row[column.image])
             }
           })
         }

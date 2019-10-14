@@ -38,6 +38,7 @@
     "@dpc-sdp/ripple-layout": "1.2.1",
     "@dpc-sdp/ripple-link": "1.2.1",
     "@dpc-sdp/ripple-list": "1.2.1",
+    "@dpc-sdp/ripple-list-group": "1.2.1",
     "@dpc-sdp/ripple-map": "1.2.1",
     "@dpc-sdp/ripple-markup": "1.2.1",
     "@dpc-sdp/ripple-meta-tag": "1.2.1",

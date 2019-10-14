@@ -1,6 +1,6 @@
-Feature: Custom theme should work
+Feature: Ripple components
 
-  Custom theme is getting loaded
+  Ripple components in Vue.js app
 
   Background:
     Given I visit the Vue router path "/"

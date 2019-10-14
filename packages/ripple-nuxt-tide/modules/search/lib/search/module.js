@@ -237,23 +237,50 @@ export default (config, router, site) => ({
     searchForm.prefillSearchTerm = query.q || ''
     // Populate the filters.
     if (query.filters) {
-      for (let filter in query.filters) {
-        if (typeof searchForm.filterForm.model[filter] !== 'undefined') {
-          if (typeof query.filters[filter] === 'string') {
-            if (!searchForm.filterForm.model[filter].includes(query.filters[filter])) {
-              if (Array.isArray(searchForm.filterForm.model[filter])) {
-                searchForm.filterForm.model[filter].push(query.filters[filter])
+      for (const filterName in query.filters) {
+        const formFilter = searchForm.filterForm.model[filterName]
+
+        if (typeof formFilter !== 'undefined') {
+          const queryFilter = query.filters[filterName]
+          const queryFilterType = Array.isArray(queryFilter) ? 'array' : typeof queryFilter
+
+          switch (queryFilterType) {
+            case 'string':
+              if (!formFilter.includes(queryFilter)) {
+                if (Array.isArray(formFilter)) {
+                  formFilter.push(queryFilter)
+                } else {
+                  searchForm.filterForm.model[filterName] = queryFilter
+                }
+              }
+              break
+            case 'array':
+              for (const queryFilterItem of queryFilter) {
+                if (!formFilter.includes(queryFilterItem)) {
+                  formFilter.push(queryFilterItem)
+                }
+              }
+              break
+            case 'object':
+              if (Array.isArray(formFilter)) {
+                if (Array.isArray(queryFilter.values)) {
+                  queryFilter.values.forEach(item => {
+                    if (!formFilter.includes(item)) {
+                      formFilter.push(item)
+                    }
+                  })
+                } else {
+                  if (!formFilter.includes(queryFilter.values)) {
+                    formFilter.push(queryFilter.values)
+                  }
+                }
               } else {
-                searchForm.filterForm.model[filter] = query.filters[filter]
+                searchForm.filterForm.model[filterName] = queryFilter.values
               }
-            }
-          }
-          if (Array.isArray(query.filters[filter])) {
-            for (let index in query.filters[filter]) {
-              if (!searchForm.filterForm.model[filter].includes(query.filters[filter][index])) {
-                searchForm.filterForm.model[filter].push(query.filters[filter][index])
-              }
-            }
+              break
+            default:
+              console.warn('An unknown query filter was encountered.')
+              break
           }
         }
       }

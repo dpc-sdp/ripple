@@ -20,7 +20,7 @@
         @keyup.space.prevent="toggleOpen"
         @keyup.enter.prevent="toggleOpen"
       >
-        <template v-if="value && value.length > 0">
+        <template v-if="value">
           <span :id="`${config.fieldId}-rpl-select-value`">{{selectedTitles}}</span>
           <span class="rpl-select__label-count" v-if="selectedItems.length > config.showitems">+ {{selectedItems.length - 1}} more</span>
           <span class="rpl-select__label-visually-hidden"> Selected</span>
@@ -124,16 +124,12 @@ export default {
       const options = JSON.parse(JSON.stringify(this.values))
 
       return options.map(opt => {
-        opt.selected = this.isSelected(opt)
         if (this.focussed) {
           opt.focussed = opt.id === this.focussed.id
         }
         opt.uuid = this.createUniqueId(opt)
-        if (!opt.selected) {
-          delete opt.selected
-        }
-        if (!opt.focussed) {
-          delete opt.focussed
+        if (this.isSelected(opt)) {
+          opt.selected = true
         }
         return opt
       })
@@ -178,7 +174,7 @@ export default {
       if (opt) {
         // Convert any string to valid CSS selector string
         // https://stackoverflow.com/a/7627603/1212791
-        const id = opt.id.replace(/[^a-z0-9]/g, (s) => {
+        const id = opt.id && `${opt.id}`.replace(/[^a-z0-9]/g, (s) => {
           const c = s.charCodeAt(0)
           if (c === 32) return '-'
           if (c >= 65 && c <= 90) return '_' + s.toLowerCase()
@@ -227,7 +223,7 @@ export default {
       }
     },
     isSelected (item) {
-      if (item && this.value) {
+      if (typeof item !== 'undefined' && typeof this.value !== 'undefined') {
         if (this.config.multiselect && this.value.find(val => val === item.id)) {
           return true
         } else if (this.value === item.id) {

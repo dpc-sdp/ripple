@@ -19,6 +19,23 @@ storiesOf('Molecules/Form/Select', module)
       }
     }
   }))
+  .add('Set initial state', () => ({
+    components: { RplSelect },
+    template: `<rpl-select :values="values" :config="config" :state="state"></rpl-select>`,
+    data () {
+      return {
+        config: {
+          multiselect: false,
+          placeholder: 'Select',
+          showitems: 4,
+          fieldId: 'select',
+          label: ''
+        },
+        state: 'nsw',
+        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+      }
+    }
+  }))
   .add('Multiselect', () => ({
     components: { RplSelect },
     template: `<rpl-select :values="values" :config="config"></rpl-select>`,

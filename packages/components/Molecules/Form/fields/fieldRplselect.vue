@@ -1,11 +1,9 @@
 <template>
   <rpl-select
-    :multiselect="schema.multiselect"
-    :values="values"
-    :value="value"
-    :model="model"
-    :selectOptions="this.schema.values"
-    :fieldId="getFieldID(schema)"
+    :config="config"
+    :values="schema.values"
+    :state="value"
+    @rpl-select-update="onUpdate"
   />
 </template>
 <script>
@@ -40,6 +38,22 @@ export default {
         this.value = []
       } else {
         this.value = ''
+      }
+    }
+  },
+  methods: {
+    onUpdate (val) {
+      this.value = val
+    }
+  },
+  computed: {
+    config () {
+      return {
+        multiselect: this.schema.multiselect,
+        placeholder: 'Select',
+        showitems: 4,
+        fieldId: this.getFieldID(this.schema),
+        label: ''
       }
     }
   }

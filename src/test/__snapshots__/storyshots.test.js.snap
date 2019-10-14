@@ -4748,7 +4748,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                     disabled="disabled"
                     value=""
                   >
-                    Select a single topic
+                    Select
                   </option>
                    
                   <option
@@ -5329,6 +5329,134 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
     </fieldset>
   </div>
 </form>
+`;
+
+exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
+<div
+  class="rpl-select"
+>
+  <div
+    class="rpl-select__native"
+  >
+    <select
+      id="select"
+      multiple="multiple"
+    >
+      <!---->
+       
+      <option
+        value="vic"
+      >
+        Vic
+      </option>
+      <option
+        value="nsw"
+      >
+        New South Wales
+      </option>
+      <option
+        value="wa"
+      >
+        Western Australia
+      </option>
+      <option
+        value="ql"
+      >
+        Queensland
+      </option>
+    </select>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Form/Select Set initial state 1`] = `
+<div
+  class="rpl-select"
+>
+  <div
+    class="rpl-select__native"
+  >
+    <select
+      id="select"
+    >
+      <option
+        disabled="disabled"
+        value=""
+      >
+        Select
+      </option>
+       
+      <option
+        value="vic"
+      >
+        Vic
+      </option>
+      <option
+        value="nsw"
+      >
+        New South Wales
+      </option>
+      <option
+        value="wa"
+      >
+        Western Australia
+      </option>
+      <option
+        value="ql"
+      >
+        Queensland
+      </option>
+    </select>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Form/Select Single 1`] = `
+<div
+  class="rpl-select"
+>
+  <div
+    class="rpl-select__native"
+  >
+    <select
+      id="select"
+    >
+      <option
+        disabled="disabled"
+        value=""
+      >
+        Select
+      </option>
+       
+      <option
+        value="vic"
+      >
+        Vic
+      </option>
+      <option
+        value="nsw"
+      >
+        New South Wales
+      </option>
+      <option
+        value="wa"
+      >
+        Western Australia
+      </option>
+      <option
+        value="ql"
+      >
+        Queensland
+      </option>
+    </select>
+     
+    <!---->
+  </div>
+</div>
 `;
 
 exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `

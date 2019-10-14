@@ -80,7 +80,7 @@ export default {
     return {
       isOpen: false,
       focussed: null,
-      value: ''
+      localState: ''
     }
   },
   props: {
@@ -101,11 +101,24 @@ export default {
       default: () => {
         return []
       }
+    },
+    state: {
+      type: [String, Array, Object]
     }
   },
   computed: {
+    value: {
+      get () {
+        return this.state || this.localState
+      },
+      set (val) {
+        this.localState = val
+        this.$emit('rpl-select-update', val)
+      }
+    },
     options () {
       const options = JSON.parse(JSON.stringify(this.values))
+
       return options.map(opt => {
         opt.selected = this.isSelected(opt)
         if (this.focussed) {
@@ -244,11 +257,16 @@ export default {
       let selectedIdx
       let selected = null
       if (!this.config.multiselect) {
-        selectedIdx = this.options.findIndex(opt => opt.id === this.selectedItems[0].id)
+        selectedIdx = this.options.findIndex(opt => {
+          if (this.selectedItems && Array.isArray(this.selectedItems) && this.selectedItems.length > 0) {
+            return opt.id === this.selectedItems[0].id
+          } else {
+            return 0
+          }
+        })
       } else {
         selectedIdx = this.options.findIndex(opt => opt.focussed === true)
       }
-
       switch (e.keyCode) {
         case 38: // Up key
           selected = this.options[selectedIdx - 1]

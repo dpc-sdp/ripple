@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
     <div v-if="!$breakpoint.s" class="rpl-select__native">
-      <select :id="config.fieldId" :disabled="disabled" :name="inputName" :multiple="config.multiselect" v-model="value">
+      <select :id="config.fieldId" :disabled="disabled" :name="config.inputName" :multiple="config.multiselect" v-model="value">
         <option v-if="!config.multiselect" disabled value="">{{config.placeholder}}</option>
         <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
       </select>
@@ -92,6 +92,7 @@ export default {
           placeholder: 'Select',
           showitems: 4,
           fieldId: 'select',
+          inputName: null,
           label: ''
         }
       }
@@ -104,6 +105,9 @@ export default {
     },
     state: {
       type: [String, Array, Object]
+    },
+    disabled: {
+      type: Boolean
     }
   },
   computed: {

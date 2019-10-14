@@ -73,7 +73,7 @@ storiesOf('Atoms/Global', module)
       '<s-typography :samples="samples" :text="text" :paragraph="paragraph"/>',
     props: {
       samples: {
-        default: [
+        default: () => ([
           'display_l',
           'display_m',
           'display_s',
@@ -88,7 +88,7 @@ storiesOf('Atoms/Global', module)
           'body_default',
           'body_small',
           'copy_extra_small'
-        ]
+        ])
       },
       text: {
         default: text('Titles', 'The quick brown fox jumps over the lazy dog')

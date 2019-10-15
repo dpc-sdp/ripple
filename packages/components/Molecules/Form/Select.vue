@@ -113,9 +113,7 @@ export default {
   computed: {
     options () {
       const options = JSON.parse(JSON.stringify(this.values))
-
       return options.map(opt => {
-
         if (this.focussed) {
           opt.focussed = opt.id === this.focussed.id
         }

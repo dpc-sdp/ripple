@@ -52,6 +52,40 @@ storiesOf('Molecules/Form/Select', module)
       }
     }
   }))
+  .add('Multiselect initial state', () => ({
+    components: { RplSelect },
+    template: `<rpl-select :values="values" :config="config" :state="state"></rpl-select>`,
+    data () {
+      return {
+        config: {
+          multiselect: true,
+          placeholder: 'Select',
+          showitems: 4,
+          fieldId: 'select',
+          label: ''
+        },
+        state: ['vic', 'nsw'],
+        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+      }
+    }
+  }))
+  .add('Multiselect initial state with object', () => ({
+    components: { RplSelect },
+    template: `<rpl-select :values="values" :config="config" :state="state"></rpl-select>`,
+    data () {
+      return {
+        config: {
+          multiselect: true,
+          placeholder: 'Select',
+          showitems: 4,
+          fieldId: 'select',
+          label: ''
+        },
+        state: ['vic', 'nsw', 'wa'],
+        values: [{ id: 'vic', name: 'Vic', value: { postcode: 3000 } }, { id: 'nsw', name: 'New South Wales', value: { postcode: 2000 } }, { id: 'wa', name: 'Western Australia', value: { postcode: 6000 } }, { id: 'ql', name: 'Queensland', value: { postcode: 4000 } }]
+      }
+    }
+  }))
 
 storiesOf('Molecules/Form', module)
   .add('Default', () => ({

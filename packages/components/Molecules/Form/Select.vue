@@ -2,7 +2,7 @@
   <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
     <div v-if="!$breakpoint.s" class="rpl-select__native">
       <select :id="config.fieldId" :disabled="disabled" :name="config.inputName" :multiple="config.multiselect" v-model="value">
-        <option v-if="!config.multiselect" disabled value="">{{config.placeholder}}</option>
+        <option v-if="!config.multiselect" disabled value="">{{config.placeholder || 'Select'}}</option>
         <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
       </select>
       <rpl-icon v-if="!config.multiselect" class="rpl-select__trigger-icon" symbol="down" color="primary" />
@@ -20,12 +20,12 @@
         @keyup.space.prevent="toggleOpen"
         @keyup.enter.prevent="toggleOpen"
       >
-        <template v-if="value">
+        <template v-if="selectedTitles">
           <span :id="`${config.fieldId}-rpl-select-value`">{{selectedTitles}}</span>
           <span class="rpl-select__label-count" v-if="selectedItems.length > config.showitems">+ {{selectedItems.length - 1}} more</span>
           <span class="rpl-select__label-visually-hidden"> Selected</span>
         </template>
-        <span v-else :id="`${config.fieldId}-rpl-select-trigger`">{{config.placeholder}}</span>
+        <span v-else :id="`${config.fieldId}-rpl-select-trigger`">{{config.placeholder || 'Select'}}</span>
         <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
       </div>
       <div class="rpl-select__dropdown" v-show="isOpen">
@@ -80,7 +80,7 @@ export default {
     return {
       isOpen: false,
       focussed: null,
-      localState: ''
+      value: ''
     }
   },
   props: {
@@ -111,26 +111,20 @@ export default {
     }
   },
   computed: {
-    value: {
-      get () {
-        return this.state || this.localState
-      },
-      set (val) {
-        this.localState = val
-        this.$emit('rpl-select-update', val)
-      }
-    },
     options () {
       const options = JSON.parse(JSON.stringify(this.values))
 
       return options.map(opt => {
+
         if (this.focussed) {
           opt.focussed = opt.id === this.focussed.id
         }
         opt.uuid = this.createUniqueId(opt)
+
         if (this.isSelected(opt)) {
           opt.selected = true
         }
+
         return opt
       })
     },
@@ -221,6 +215,7 @@ export default {
       } else {
         this.value = item.id
       }
+      this.$emit('rpl-select-update', this.value, item)
     },
     isSelected (item) {
       if (typeof item !== 'undefined' && typeof this.value !== 'undefined') {
@@ -300,17 +295,13 @@ export default {
     }
   },
   created () {
-    if (!this.value) {
-      if (this.config.multiselect) {
-        this.value = []
-      } else {
-        this.value = ''
-      }
+    if (this.state) {
+      this.value = this.state
     }
   },
   watch: {
-    value (newVal, oldVal) {
-      this.$emit('rpl-select-change', newVal)
+    state (newVal, oldVal) {
+      this.value = newVal
     }
   },
   mounted () {

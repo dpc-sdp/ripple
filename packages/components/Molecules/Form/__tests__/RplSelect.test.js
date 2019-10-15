@@ -143,7 +143,7 @@ describe('RplSelect', () => {
     wrapper.find('.rpl-select__listbox').trigger('keydown.down')
     wrapper.find('.rpl-select__listbox').trigger('keydown.down')
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
-    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic B')
+    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic D')
   })
 
   it('navigates to previous item when press up arrow', () => {

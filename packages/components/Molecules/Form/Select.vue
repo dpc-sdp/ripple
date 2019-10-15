@@ -80,7 +80,7 @@ export default {
     return {
       isOpen: false,
       focussed: null,
-      value: ''
+      value: null
     }
   },
   props: {
@@ -217,7 +217,7 @@ export default {
     },
     isSelected (item) {
       if (typeof item !== 'undefined' && typeof this.value !== 'undefined') {
-        if (this.config.multiselect && this.value.find(val => val === item.id)) {
+        if (this.config.multiselect && Array.isArray(this.value) && this.value.find(val => val === item.id)) {
           return true
         } else if (this.value === item.id) {
           return true
@@ -295,6 +295,12 @@ export default {
   created () {
     if (this.state) {
       this.value = this.state
+    } else {
+      if (this.config.multiselect) {
+        this.value = []
+      } else {
+        this.value = ''
+      }
     }
   },
   watch: {

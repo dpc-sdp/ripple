@@ -110,7 +110,7 @@ export default {
               fields: [
                 {
                   type: 'rplsubmitloader',
-                  buttonText: 'Apply change',
+                  buttonText: 'Apply search filters',
                   loading: false,
                   autoUpdate: true,
                   styleClasses: ['form-group--inline']

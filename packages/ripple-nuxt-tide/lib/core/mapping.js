@@ -1,5 +1,6 @@
 import tideDefaultConfig from '../config/tide.config'
 import defaultFilters from './mapping-filters'
+import logger from './logger'
 
 const _getValFromFieldArray = Symbol('getValFromFieldArray')
 const _getValFromFieldOptions = Symbol('getValFromFieldOptions')
@@ -90,9 +91,11 @@ export class Mapping {
       if (configForMergeIn) {
         for (const type in configForMergeIn) {
           if (config[type] && typeof configForMergeIn[type] !== 'function') {
-            // We don't allow function in core to be overriden in extend or custom config.
             config[type] = Object.assign(config[type], configForMergeIn[type])
-          } else if (config[type] === undefined && typeof configForMergeIn[type] === 'function') {
+          } else if (typeof configForMergeIn[type] === 'function') {
+            if (config[type] && process.server) {
+              logger.info('Mapping filter "%s" has been overridden by custom module', type, { label: 'Mapping' })
+            }
             config[type] = configForMergeIn[type]
           } else {
             config[type] = Object.assign({}, configForMergeIn[type])

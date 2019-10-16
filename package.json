@@ -78,7 +78,6 @@
     "jest": "^24.8.0",
     "jest-canvas-mock": "^2.1.0",
     "jest-junit": "^8.0.0",
-    "jest-vue-preprocessor": "^1.5.0",
     "lerna": "^3.0.0",
     "markdown-loader-jest": "^0.1.1",
     "mockdate": "^2.0.3",

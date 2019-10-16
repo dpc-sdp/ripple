@@ -1356,7 +1356,7 @@ exports[`RippleStoryshots Atoms/Link Text Link 1`] = `
 
 exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
 <div
-  class="rpl-meta-tag"
+  class="rpl-meta-tag rpl-meta-tag--light"
 >
   <a
     class="rpl-link rpl-meta-tag__link"
@@ -7061,7 +7061,7 @@ exports[`RippleStoryshots Molecules/Search Search Result 1`] = `
       class="rpl-search-result__term"
     >
       <div
-        class="rpl-meta-tag"
+        class="rpl-meta-tag rpl-meta-tag--light"
       >
         <a
           class="rpl-link rpl-meta-tag__link"
@@ -7085,7 +7085,7 @@ exports[`RippleStoryshots Molecules/Search Search Result 1`] = `
       class="rpl-search-result__term"
     >
       <div
-        class="rpl-meta-tag"
+        class="rpl-meta-tag rpl-meta-tag--light"
       >
         <a
           class="rpl-link rpl-meta-tag__link"

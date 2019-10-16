@@ -35,4 +35,4 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: '<%= domain %>'
+            name: 'vic.gov.au'

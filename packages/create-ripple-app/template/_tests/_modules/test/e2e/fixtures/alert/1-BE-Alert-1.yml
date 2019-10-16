@@ -40,11 +40,11 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: '<%= domain %>'
+            name: 'vic.gov.au'
   field_node_primary_site:
     - '#process':
         callback: reference
         args:
           - taxonomy_term
           - vid: sites
-            name: '<%= domain %>'
+            name: 'vic.gov.au'

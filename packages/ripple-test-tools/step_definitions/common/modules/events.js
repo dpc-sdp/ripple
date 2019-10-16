@@ -1,6 +1,6 @@
 /* global cy */
 
-import { Then } from 'cypress-cucumber-preprocessor/steps'
+const { Then } = require('cypress-cucumber-preprocessor/steps')
 
 Then(`the event page Description should be {string}`, (description) => {
   cy.get('.tide-event-content .rpl-col:nth-child(1) .rpl-markup .rpl-markup__inner').should('contain', description)

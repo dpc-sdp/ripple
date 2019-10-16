@@ -36,7 +36,6 @@
         <h3>Donec scelerisque cursus ex varius efficitur</h3>
         <h4>Morbi cursus placerat mi</h4>
         <h5>Nullam laoreet ante placerat</h5>
-        <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid='11dede11-10c0-111e1-1100-000000000124'></drupal-entity>
         <p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>
         <blockquote class='quotation'>
           <p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>
@@ -109,11 +108,11 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: '<%= domain %>'
+            name: 'vic.gov.au'
   field_node_primary_site:
     - '#process':
         callback: reference
         args:
           - taxonomy_term
           - vid: sites
-            name: '<%= domain %>'
+            name: 'vic.gov.au'

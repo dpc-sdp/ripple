@@ -1,8 +1,11 @@
 <template>
-  <div class="rpl-meta-tag" :class="themeClass">
-    <rpl-link class="rpl-meta-tag__link" :href="linkUrl">
+  <div v-if="linkText" class="rpl-meta-tag" :class="themeClass">
+    <rpl-link v-if="linkUrl" class="rpl-meta-tag__link" :href="linkUrl">
       <span class="rpl-meta-tag__text">{{ linkText }}</span>
     </rpl-link>
+    <div v-else class="rpl-meta-tag__link">
+      <span class="rpl-meta-tag__text">{{ linkText }}</span>
+    </div>
   </div>
 </template>
 

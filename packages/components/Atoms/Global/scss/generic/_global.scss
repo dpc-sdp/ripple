@@ -7,7 +7,10 @@ $rpl-global-css: true !default;
   }
 
   h2 {
-    @include rpl_typography(heading_l)
+    @include rpl_typography(heading_s);
+    @include rpl_breakpoint('s') {
+      @include rpl_typography(heading_l)
+    }
   }
 
   h3 {

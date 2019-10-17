@@ -130,7 +130,7 @@ const customMethods = {
 
     const themeSource = new ol.source.Vector({
       format: new ol.format.GeoJSON(),
-      url: extent => `https://prod-gis.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=myvic:public_wifi&outputFormat=application/json&srsname=EPSG:3857&bbox=${extent.join()},EPSG:3857`,
+      url: extent => `https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=myvic:public_wifi&outputFormat=application/json&srsname=EPSG:3857&bbox=${extent.join()},EPSG:3857`,
       strategy: ol.loadingstrategy.bbox
     })
 

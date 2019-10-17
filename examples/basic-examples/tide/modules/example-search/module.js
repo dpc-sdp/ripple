@@ -6,5 +6,10 @@ module.exports = function () {
       path: '/example-search',
       component: '~/tide/modules/example-search/components/Search.vue'
     })
+    routes.push({
+      name: 'example-search-simple',
+      path: '/example-search-simple',
+      component: '~/tide/modules/example-search/components/SearchSimple.vue'
+    })
   })
 }

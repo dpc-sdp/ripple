@@ -9,9 +9,9 @@
     <template v-if="dynamicComponents">
       <template v-for="dComponent in dynamicComponents">
         <rpl-col cols="full" :colsBp="dComponent.cols" :key="dComponent.id">
-          <no-ssr v-if="dComponent.ssr === false">
+          <client-only v-if="dComponent.ssr === false">
             <component :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
-          </no-ssr>
+          </client-only>
           <component v-else :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
         </rpl-col>
       </template>

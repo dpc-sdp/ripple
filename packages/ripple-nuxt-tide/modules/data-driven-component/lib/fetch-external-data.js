@@ -22,7 +22,7 @@ export default async function fetchDataFromExternalSource (newConfig) {
   const config = {
     requestSource: 'gis',
     requestName: 'wifimap',
-    apiUrl: 'https://prod-gis.myvictoria.vic.gov.au'
+    apiUrl: 'https://gis-app-cdn.prod.myvictoria.vic.gov.au'
   }
 
   try {

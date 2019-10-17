@@ -1,5 +1,8 @@
+/* eslint-disable no-irregular-whitespace */
 const html = `
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<a href="http://google.com">&lt;&gt;&amp;'"©. ½ € 中文</a>
+<h4>Sort out your'><&'"s finances</h4>\n\n<p><a href="https://www.test.dev/test">Here is a irregular white space</a> Another irregular white space.</p>
 
 <blockquote class="quotation">
   <p>Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net.</p>
@@ -21,7 +24,7 @@ const html = `
         class="field field--name-field-media-image field--type-image field--label-hidden field__item"
       >
         <img
-        src="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-06/call-to-action.jpg"
+        src="https://test.dev/sites/default/files/2018-06/call-to-action.jpg"
         width="275" height="183" alt="" title="A dummy call to action image (title)">
       </div>
     </article>
@@ -35,7 +38,7 @@ const html = `
       >
         <span class="file file--mime-application-zip file--package-x-generic"
           ><a
-            href="https://www.develop.content.vic.gov.au/sites/default/files/2018-12/Screen%20Shot%202018-12-05%20at%2010.17.01%20am.zip"
+            href="https://www.test.dev/sites/default/files/2018-12/Screen%20Shot%202018-12-05%20at%2010.17.01%20am.zip"
             aria-label="test zip File type: Other. Size: 787.53 KB."
             class="package-x-generic tide-external-link"
             target="_blank"
@@ -57,7 +60,7 @@ const html = `
         <span
           class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"
           ><a
-            href="https://www.develop.content.vic.gov.au/sites/default/files/2018-12/180629SSP%20User%20Research%20%26%20Testing%20Playbook%20Final.docx"
+            href="https://www.test.dev/sites/default/files/2018-12/180629SSP%20User%20Research%20%26%20Testing%20Playbook%20Final.docx"
             aria-label="docx File type: Word. Size: 60.17 KB."
             class="x-office-document tide-external-link"
             target="_blank"
@@ -79,7 +82,7 @@ const html = `
         <span
           class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"
           ><a
-            href="https://www.develop.content.vic.gov.au/sites/default/files/2018-12/list_one.xls"
+            href="https://www.test.dev/sites/default/files/2018-12/list_one.xls"
             aria-label="xls File type: Excel. Size: 93 KB."
             class="x-office-spreadsheet tide-external-link"
             target="_blank"
@@ -101,7 +104,7 @@ const html = `
         <span
           class="file file--mime-application-vnd-openxmlformats-officedocument-presentationml-presentation file--x-office-presentation"
           ><a
-            href="https://www.develop.content.vic.gov.au/sites/default/files/2018-12/samplepptx.pptx"
+            href="https://www.test.dev/sites/default/files/2018-12/samplepptx.pptx"
             aria-label="pptx File type: PPT. Size: 404.19 KB."
             class="x-office-presentation tide-external-link"
             target="_blank"
@@ -122,7 +125,7 @@ const html = `
       >
         <span class="file file--mime-text-csv file--text"
           ><a
-            href="https://www.develop.content.vic.gov.au/sites/default/files/2018-12/C2ImportCalEventSample.csv"
+            href="https://www.test.dev/sites/default/files/2018-12/C2ImportCalEventSample.csv"
             aria-label="csv File type: Text. Size: 545 bytes."
             class="text tide-external-link"
             target="_blank"
@@ -143,7 +146,7 @@ const html = `
       >
         <span class="file file--mime-application-msword file--x-office-document"
           ><a
-            href="https://www.develop.content.vic.gov.au/sites/default/files/2018-12/TestWordDoc.doc"
+            href="https://www.test.dev/sites/default/files/2018-12/TestWordDoc.doc"
             aria-label="doc File type: Word. Size: 19 KB."
             class="x-office-document tide-external-link"
             target="_blank"
@@ -165,7 +168,7 @@ const html = `
         <span
           class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"
           ><a
-            href="https://www.develop.content.vic.gov.au/sites/default/files/2018-12/tests-example.xls"
+            href="https://www.test.dev/sites/default/files/2018-12/tests-example.xls"
             aria-label="xls File type: Excel. Size: 16 KB."
             class="x-office-spreadsheet tide-external-link"
             target="_blank"
@@ -186,7 +189,7 @@ const html = `
       >
         <span class="file file--mime-text-plain file--text"
           ><a
-            href="https://www.develop.content.vic.gov.au/sites/default/files/2018-12/Copy.txt"
+            href="https://www.test.dev/sites/default/files/2018-12/Copy.txt"
             aria-label="Text doc File type: Text. Size: 374 bytes."
             class="text tide-external-link"
             target="_blank"
@@ -203,7 +206,7 @@ const html = `
       <article class="media media--type-document media--view-mode-embedded">
         <div class="field field--name-field-media-file field--type-file field--label-hidden field__item">
           <span class="file file--mime-text-calendar file--text">
-            <a aria-label="ICS as Doc File type: Text. Size: 24.28 KB." class="text" href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2019-02/AAA10am%20to%201015am%20on%20weekdays%20%28AEDT%29%20_0.ics"><span class="file--title">ICS as Doc</span><span class="file--type">Text</span><span class="file--size">24.28 KB</span></a></span>
+            <a aria-label="ICS as Doc File type: Text. Size: 24.28 KB." class="text" href="https://test.dev/sites/default/files/2019-02/AAA10am%20to%201015am%20on%20weekdays%20%28AEDT%29%20_0.ics"><span class="file--title">ICS as Doc</span><span class="file--type">Text</span><span class="file--size">24.28 KB</span></a></span>
         </div>  
       </article>
     </article>

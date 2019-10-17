@@ -54,7 +54,7 @@ describe('anchor link utilities', () => {
   test('should get list of links with text', async () => {
     expect(anchorUtils.getAnchorLinks(html)).toEqual([
       { 'text': 'Second Heading', 'url': '#second-heading' },
-      { 'text': 'Special Character & < > Heading', 'url': '#special-character-heading' },
+      { 'text': 'Special Character &amp; &lt; &gt; Heading', 'url': '#special-character-heading' },
       { 'text': 'Heading 2 with inner SPAN', 'url': '#heading-2-with-inner-span' },
       { 'text': 'Heading 2 with inner LINK', 'url': '#heading-2-with-inner-link' },
       { 'text': 'camelCaseHeading', 'url': '#camelcaseheading' }

@@ -85,7 +85,27 @@ function _isTelOrEmailUrl (url) {
   return false
 }
 
-export const truncateText = (text, stop = 150, clamp) => {
+const decodeSpecialCharacters = (html) => {
+  const map = {
+    '&amp;': '&',
+    '&gt;': '>',
+    '&lt;': '<',
+    '&apos;': "'",
+    '&#039;': "'",
+    '&quot;': '"',
+    '&nbsp;': ' '
+  }
+  let replaceableCodes = '('
+  let first = true
+  for (const code in map) {
+    replaceableCodes += first ? code : `|${code}`
+    first = false
+  }
+  replaceableCodes += ')'
+  return html.replace(new RegExp(replaceableCodes, 'gi'), (code) => { return map[code.toLowerCase()] })
+}
+
+const truncateText = (text, stop = 150, clamp) => {
   if (text && typeof text === 'string') {
     if (text.length > stop) {
       return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
@@ -95,4 +115,4 @@ export const truncateText = (text, stop = 150, clamp) => {
   return ''
 }
 
-export { isRelativeUrl, isExternalUrl, isAnchorLink, getAnchorLinkName, formatMoney, isClient }
+export { isRelativeUrl, isExternalUrl, isAnchorLink, getAnchorLinkName, formatMoney, isClient, truncateText, decodeSpecialCharacters }

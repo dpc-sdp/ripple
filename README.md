@@ -35,7 +35,7 @@
   * [Built With](#built-with)
 * [Usage](#usage) 
   * [In a Nuxt application](#in-a-Nuxt-application)
-  * [In a Vue project](#in-a-vue-project)
+  * [In a Vue project](#in-a-vuejs-projectnot-nuxtjs)
 * [Contributing](#contributing)
   * [Getting Started](#getting-started)
   * [Requirements](#requirements)
@@ -114,7 +114,7 @@ You can optionally pass options to `@dpc-sdp/ripple-nuxt-ui` by adding the `ripp
 
 Ripple components are published individually as npm modules and can be imported in any Vue project.
 
-Check out our [Vue app example](https://github.com/dpc-sdp/ripple/tree/develop/examples/basic-examples).
+Check out our [Vue app example](https://github.com/dpc-sdp/ripple/tree/develop/examples/vue-example-app).
 
 ## Contributing
 

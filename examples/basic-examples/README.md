@@ -28,6 +28,10 @@
   Provide a example for overriding the Ripple components in Tide landing page which
   is dynamically loaded.
 
+- [Override component mapping](tide/modules/example-override-mapping/)
+
+  Provide a example for overriding the components mapping.
+
 - [Custom search page](tide/modules/example-search/)
 
   Provide a example for adding a custom search page.

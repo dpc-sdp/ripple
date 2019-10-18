@@ -34,6 +34,5 @@ Feature: Basic Page
       | Twitter |
       | Facebook |
       | LinkedIn |
-    And the share this links should read "open in a new window" to screen readers
 
 

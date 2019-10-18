@@ -43,7 +43,9 @@ describe('Test new project generator', () => {
       searchurl: 'elasticdev.sdp.vic.gov.au',
       searchindex: '',
       searchusername: '',
-      searchpassword: ''
+      searchpassword: '',
+      adminuser: 'dummyuser',
+      adminpass: 'dummypass'
     }
 
     const stream = await sao({ generator, logLevel: 2, config }, mockPromptAnswers)

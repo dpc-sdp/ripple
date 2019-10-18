@@ -528,20 +528,14 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: 'vic.gov.au'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'demo.vic.gov.au'
+            name: '<%= domain %>'
   field_node_primary_site:
     - '#process':
         callback: reference
         args:
           - taxonomy_term
           - vid: sites
-            name: 'vic.gov.au'
+            name: '<%= domain %>'
 # Create menu links.
 - entity: menu_link_content
   title: Demo Landing Page

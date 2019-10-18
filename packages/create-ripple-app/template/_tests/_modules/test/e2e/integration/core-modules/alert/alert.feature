@@ -10,4 +10,4 @@ Feature: Global Notifications (Alert)
     When I visit the page "/"
     Then there should be the following global notifications:
       | title                   | type            | link                   | linkText     |
-      | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://vic.gov.au     | More  details |
+      | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://<%= domain %>    | More  details |

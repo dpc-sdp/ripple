@@ -21,6 +21,10 @@ Then(`I should see a 404 page`, () => {
   cy.get('.app-error').should('exist')
 })
 
+Then(`the current page should not be an error page`, () => {
+  cy.get('.app-error').should('not.exist')
+})
+
 Given(`I have created a node with the YAML fixture {string}`, fixture => {
   cy.TideCreateNode(fixture)
 })

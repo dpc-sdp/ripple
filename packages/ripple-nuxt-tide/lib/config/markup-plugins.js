@@ -1,5 +1,11 @@
-import htmlUtilities from './../core/html-utilities'
 import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
+// import cheerio from 'cheerio'
+
+// Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
+const _escapeQuotes = (text) => {
+  text = text || ''
+  return text.replace('"', '&quot;')
+}
 
 const pluginButton = function () {
   // Button
@@ -84,7 +90,7 @@ const pluginEmbeddedDocument = function () {
     }
 
     if (url && fileName && fileSize && fileType) {
-      const documentlink = `<rpl-document-link name="${fileName}" extension="${fileType}" filesize="${fileSize}" url="${url}" caption="${caption}"></rpl-document-link>`
+      const documentlink = `<rpl-document-link name="${_escapeQuotes(fileName)}" extension="${fileType}" filesize="${fileSize}" url="${url}" caption="${_escapeQuotes(caption)}"></rpl-document-link>`
       return el.replaceWith(documentlink)
     }
     return el
@@ -144,15 +150,15 @@ const pluginLinks = function () {
   this.find('a').map((i, el) => {
     const $a = this.find(el)
     const href = $a.attr('href')
-    const text = htmlUtilities.decodeSpecialCharacters($a.text())
+    const text = $a.text()
 
     const target = $a.attr('target')
     let theme = 'primary'
     let a
     if (target) {
-      a = `<rpl-text-link url="${href}" theme="${theme}" target="${target}" text="${text}"></rpl-text-link>`
+      a = `<rpl-text-link url="${href}" theme="${theme}" target="${target}" text="${_escapeQuotes(text)}"></rpl-text-link>`
     } else {
-      a = `<rpl-text-link url="${href}" theme="${theme}" text="${text}"></rpl-text-link>`
+      a = `<rpl-text-link url="${href}" theme="${theme}" text="${_escapeQuotes(text)}"></rpl-text-link>`
     }
 
     return $a.replaceWith(a)

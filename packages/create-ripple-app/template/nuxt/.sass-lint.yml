@@ -1,0 +1,42 @@
+options:
+  merge-default-rules: true
+  formatter: stylish
+# File Options
+files:
+  include:
+    - 'packages/**/*.scss'
+    - 'examples/**/*.scss'
+  exclude:
+    - 'node_modules/**/*.scss'
+    - 'packages/**/node_modules/**/*.scss'
+    - 'examples/**/node_modules/**/*.scss'
+# Rule Configuration
+rules:
+  indentation:
+    - 1
+    -
+      size: 2
+  mixin-name-format:
+    - 1
+    - allow-leading-underscore: true
+      convention: snakecase
+  mixins-before-declarations:
+    - 1
+    -
+      exclude:
+        - rpl_breakpoint
+        - rpl_breakpoint_down
+        - rpl_breakpoint_between
+        - rpl_print
+  variable-name-format:
+    - 1
+    -
+      allow-leading-underscore: true
+  class-name-format:
+    - 1
+    -
+      convention: hyphenatedbem
+  nesting-depth: 0
+  placeholder-in-extend: 0
+  property-sort-order: 0
+  function-name-format: 0

@@ -24,7 +24,7 @@ module.exports = class TideAdmin {
     this.options = {
       wait: { waitUntil: 'networkidle2', timeout: 0 },
       start: {
-        headless: false,
+        headless: process.env.CYPRESS_HEADLESS_PUPPETEER,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       }
     }

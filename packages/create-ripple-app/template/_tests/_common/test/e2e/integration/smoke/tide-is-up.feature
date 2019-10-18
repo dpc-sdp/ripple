@@ -9,10 +9,5 @@ Feature: Test Tide backend is up
 
   @smoke
   Scenario: Sites endpoint returns a correct response
-    Given a request is made to "/api/v1/taxonomy_term/sites?site=4"
-    Then the response code should be 200
-
-  @smoke
-  Scenario: Alert endpoint returns a correct response
-    Given a request is made to "/api/v1/node/alert?site=4&include=field_alert_type"
+    Given a request is made to "/api/v1/taxonomy_term/sites?site=<%= siteid %>"
     Then the response code should be 200

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import RplSelect from './../fields/fieldRplselect'
+import RplSelect from './../Select'
 
 let wrapper
 
@@ -8,33 +8,29 @@ afterEach(() => {
   wrapper = null
 })
 
-describe('FieldRplSelect', () => {
+describe('RplSelect', () => {
   const basePropsData = {
-    model: {
-      select: ''
+    config: {
+      multiselect: false,
+      placeholder: 'Select',
+      showitems: 4,
+      fieldId: 'single-select-drop-down',
+      label: ''
     },
-    schema: {
-      type: 'rplselect',
-      model: 'select',
-      required: true,
-      validator: ['required'],
-      label: 'Single-select drop down',
-      hint: 'Implemented using rplSelect',
-      placeholder: 'Select a single topic',
-      values: [
-        { id: 'topic_a', name: 'Topic A' },
-        { id: 'topic_b', name: 'Topic B' },
-        { id: 'topic_c', name: 'Topic C' },
-        { id: 'topic_d', name: 'Topic D' },
-        { id: 'topic_e', name: 'Topic e' },
-        { id: 'topic_f', name: 'Topic f' },
-        { id: 'topic_g', name: 'Topic g' },
-        { id: 'topic_h', name: 'Topic h' }
-      ]
-    }
+    values: [
+      { id: 'topic_a', name: 'Topic A' },
+      { id: 'topic_b', name: 'Topic B' },
+      { id: 'topic_c', name: 'Topic C' },
+      { id: 'topic_d', name: 'Topic D' },
+      { id: 'topic_e', name: 'Topic e' },
+      { id: 'topic_f', name: 'Topic f' },
+      { id: 'topic_g', name: 'Topic g' },
+      { id: 'topic_h', name: 'Topic h' }
+    ]
   }
 
   const baseConfig = {
+    attachToDocument: true,
     propsData: {
       ...basePropsData
     },
@@ -121,44 +117,40 @@ describe('FieldRplSelect', () => {
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeFalsy()
   })
 
-  it('Selects first item when opened', () => {
+  test('Selects first item when opened', () => {
     wrapper = mount(RplSelect, {
       ...baseConfig
     })
     wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
-
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
-    expect(wrapper.find('#single-select-drop-down__topic__005fa').classes()).toContain('rpl-select__listitem--selected')
-    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic A')
-    expect(wrapper.find('.rpl-select__listitem--selected').attributes('aria-selected')).toBeUndefined()
+
+    wrapper.vm.$nextTick(() => {
+      expect(wrapper.find('#single-select-drop-down__topic__005fa').classes()).toContain('rpl-select__listitem--selected')
+      expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic A')
+      expect(wrapper.find('.rpl-select__listitem--selected').attributes('aria-selected')).toBeUndefined()
+    })
   })
 
-  it('navigates to next item when press down arrow', () => {
+  test('navigates to next item when press down arrow', () => {
     wrapper = mount(RplSelect, {
       ...baseConfig,
       propsData: {
         ...baseConfig.propsData,
-        model: {
-          select: 'topic_a'
-        }
-      },
-      attachToDocument: true
+        state: 'topic_b'
+      }
     })
-
     wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
     wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+    wrapper.find('.rpl-select__listbox').trigger('keydown.down')
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
-    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic B')
+    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic D')
   })
 
   it('navigates to previous item when press up arrow', () => {
     wrapper = mount(RplSelect, {
       ...baseConfig,
       propsData: {
-        ...baseConfig.propsData,
-        model: {
-          select: 'topic_a'
-        }
+        ...baseConfig.propsData
       },
       attachToDocument: true
     })
@@ -166,9 +158,23 @@ describe('FieldRplSelect', () => {
     wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
     wrapper.find('.rpl-select__listbox').trigger('keydown.down')
     wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+    wrapper.find('.rpl-select__listbox').trigger('keydown.down')
     wrapper.find('.rpl-select__listbox').trigger('keydown.up')
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
     expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic B')
+  })
+
+  it('initialises value from state prop', () => {
+    wrapper = mount(RplSelect, {
+      ...baseConfig,
+      propsData: {
+        ...baseConfig.propsData,
+        state: 'topic_c'
+      },
+      attachToDocument: true
+    })
+
+    expect(wrapper.find('.rpl-select__trigger').text()).toContain('Topic C')
   })
 
   describe('multiselect', () => {
@@ -177,13 +183,12 @@ describe('FieldRplSelect', () => {
         ...baseConfig,
         propsData: {
           ...baseConfig.propsData,
-          schema: {
-            ...baseConfig.propsData.schema,
+          config: {
+            ...baseConfig.propsData.config,
+            fieldId: 'multi-select-drop-down',
             multiselect: true
           },
-          model: {
-            select: ['topic_a', 'topic_b']
-          }
+          state: ['topic_a', 'topic_b']
         },
         attachToDocument: true
       })
@@ -198,18 +203,17 @@ describe('FieldRplSelect', () => {
         ...baseConfig,
         propsData: {
           ...baseConfig.propsData,
-          schema: {
-            ...baseConfig.propsData.schema,
+          config: {
+            ...baseConfig.propsData.config,
+            fieldId: 'multi-select-drop-down',
             multiselect: true
           },
-          model: {
-            select: ['topic_a', 'topic_b']
-          }
+          state: ['topic_a', 'topic_b']
         },
         attachToDocument: true
       })
 
-      expect(wrapper.find('#select-rpl-select-value').text()).toContain('Topic A, Topic B')
+      expect(wrapper.find('#multi-select-drop-down-rpl-select-value').text()).toContain('Topic A, Topic B')
       wrapper.destroy()
     })
 
@@ -218,15 +222,13 @@ describe('FieldRplSelect', () => {
         ...baseConfig,
         propsData: {
           ...baseConfig.propsData,
-          schema: {
-            ...baseConfig.propsData.schema,
+          config: {
+            ...baseConfig.propsData.config,
+            fieldId: 'multi-select-drop-down',
             multiselect: true
           },
-          model: {
-            select: ['topic_a', 'topic_b', 'topic_c', 'topic_d', 'topic_e', 'topic_f', 'topic_g']
-          }
-        },
-        attachToDocument: true
+          state: ['topic_a', 'topic_b', 'topic_c', 'topic_d', 'topic_e', 'topic_f', 'topic_g']
+        }
       })
       expect(wrapper.find('.rpl-select__trigger').text()).toContain('Topic A + 6 more')
       wrapper.destroy()
@@ -237,20 +239,18 @@ describe('FieldRplSelect', () => {
         ...baseConfig,
         propsData: {
           ...baseConfig.propsData,
-          schema: {
-            ...baseConfig.propsData.schema,
-            multiselect: true,
-            placeholder: 'Select multiple topics'
-          },
-          model: {
-            select: []
+          config: {
+            ...baseConfig.propsData.config,
+            fieldId: 'multi-select-drop-down',
+            multiselect: true
           }
-        },
-        attachToDocument: true
+        }
       })
 
       wrapper.find('.rpl-select__trigger').trigger('click')
       expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
+      wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+      wrapper.find('.rpl-select__listbox').trigger('keydown.down')
       expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic B')
       wrapper.find('.rpl-select__listbox').trigger('keydown.down')
       expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic C')

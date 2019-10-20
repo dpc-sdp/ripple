@@ -22,7 +22,7 @@ const log = (msg, lvl = 'info') => {
 const configFile = args.config
 let configFileArgs = {}
 if (configFile && fs.existsSync(__dirname, configFile)) {
-  configFileArgs = require(path.resolve(process.cwd(), configFile))
+  configFileArgs = require(path.resolve(__dirname, configFile))
 }
 // param args take precedence
 const config = {

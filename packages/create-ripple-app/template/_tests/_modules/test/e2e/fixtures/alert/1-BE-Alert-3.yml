@@ -11,7 +11,7 @@
           - workflow: editorial
             moderation_state: published
   field_call_to_action:
-    - uri: https://vic.gov.au
+    - uri: https://<%= domain %>
       title: More details
   # Alert type.
   field_alert_type:
@@ -28,7 +28,7 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Section 1'
+            name: '<%= domain %>'
   field_node_primary_site:
     - '#process':
         callback: reference

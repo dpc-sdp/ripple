@@ -9,9 +9,9 @@
     <template v-if="dynamicComponents">
       <template v-for="dComponent in dynamicComponents">
         <rpl-col cols="full" :colsBp="dComponent.cols" :key="dComponent.id">
-          <no-ssr v-if="dComponent.ssr === false">
+          <client-only v-if="dComponent.ssr === false">
             <component :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
-          </no-ssr>
+          </client-only>
           <component v-else :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
         </rpl-col>
       </template>
@@ -32,7 +32,7 @@ import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplPublicationPagination, RplPublicationAuthorInformation } from '@dpc-sdp/ripple-publication'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import { truncateText } from '@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import { RplCardNavigation } from '@dpc-sdp/ripple-card'
 
 export default {

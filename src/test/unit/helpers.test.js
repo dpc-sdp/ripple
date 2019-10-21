@@ -1,4 +1,4 @@
-import { isRelativeUrl, isExternalUrl, isAnchorLink } from './../../../packages/components/Atoms/Global/utils/helpers'
+import { isRelativeUrl, isExternalUrl, isAnchorLink, getAnchorLinkName, decodeSpecialCharacters } from './../../../packages/components/Atoms/Global/utils/helpers'
 
 describe('isRelativeUrl', () => {
   /* eslint-disable indent */
@@ -49,4 +49,24 @@ describe('isAnchorLink', () => {
     expect(isAnchorLink(url)).toBe(expected)
   })
   /* eslint-enable indent */
+})
+
+describe('getAnchorLinkName', () => {
+  /* eslint-disable indent */
+  test.each`
+    text                                                | expected
+    ${'Anchor&nbsp;&amp;&nbsp;&copy;&nbsp;Link'}        | ${'anchor-link'}
+    ${'Anchor`~!@#$%^&*()-_=+{}[]\\|;:\'"<>,.?/\nLink'} | ${'anchor-link'}
+    ${'   ANCHOR   LINK   '}                            | ${'anchor-link'}
+    ${'1234567890'}                                     | ${'1234567890'}
+  `('returns $expected for $text', ({ text, expected }) => {
+    expect(getAnchorLinkName(text)).toBe(expected)
+  })
+  /* eslint-enable indent */
+})
+
+describe('decodeSpecialCharacters', () => {
+  test(`should decode special characters`, async () => {
+    expect(decodeSpecialCharacters('&amp;&lt;&gt;&nbsp;&apos;&quot;&#039;')).toBe(`&<> '"'`)
+  })
 })

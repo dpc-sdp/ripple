@@ -2,7 +2,7 @@
   <rpl-base-layout>
     <template slot="header">
       <rpl-alert-base class="app-preview" v-if="preview">Draft only and not yet published</rpl-alert-base>
-      <no-ssr>
+      <client-only>
         <component v-if="alerts" :is="alerts" />
         <rpl-site-header
           :logo="header.logo"
@@ -25,7 +25,7 @@
             :showLogout="false"
           />
         </template>
-      </no-ssr>
+      </client-only>
     </template>
 
     <nuxt/>
@@ -36,6 +36,7 @@
         :links="footer.links"
         :copyright="footer.copyright"
         :acknowledgement="footer.acknowledgement"
+        :caption="footerCaption"
         :logos="footer.logos"
         />
     </template>
@@ -93,6 +94,9 @@ export default {
         return isPreview(this.$store)
       }
       return false
+    },
+    footerCaption () {
+      return this.$store.state.tide.pageData ? this.$store.state.tide.pageData.imageCaption : null
     }
   },
   mounted () {
@@ -107,7 +111,9 @@ export default {
   methods: {
     anchorScrollFix (hashbang) {
       const elmnt = document.querySelector(hashbang)
-      elmnt.scrollIntoView()
+      if (elmnt) {
+        elmnt.scrollIntoView()
+      }
     },
     async logoutFunc () {
       if (this.$tide.isModuleEnabled('authenticatedContent')) {

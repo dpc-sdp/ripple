@@ -29,7 +29,7 @@
   * [Built With](#built-with)
 * [Usage](#usage) 
   * [In a Nuxt application](#in-a-Nuxt-application)
-  * [In a Vue project](#in-a-vue-project)
+  * [In a Vue project](#in-a-vuejs-projectnot-nuxtjs)
 * [Contributing](#contributing)
   * [Getting Started](#getting-started)
   * [Requirements](#requirements)
@@ -64,9 +64,9 @@ It includes :
 
 Ripple is a monorepo which contains several packages published to NPM
 
-[@dpc-sdp/ripple-nuxt-tide](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide) - Package for integrating a Tide backend into a Ripple site
+[@dpc-sdp/ripple-nuxt-tide](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide) - Package for integrating a Tide backend into a Ripple site. Docs: [packages/ripple-nuxt-tide/README.md](https://github.com/dpc-sdp/ripple/blob/develop/packages/ripple-nuxt-tide/README.md)
 
-[@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) - Adds Ripple component library to a Nuxt site, can be used independently of @dpc-sdp/ripple-nuxt-tide
+[@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) - Adds Ripple component library to a Nuxt site, can be used independently of @dpc-sdp/ripple-nuxt-tide. Docs: [packages/ripple-nuxt-ui/README.md](https://github.com/dpc-sdp/ripple/blob/develop/packages/ripple-nuxt-ui/README.md)
 
 Ripple Vue component library 
 [@dpc-sdp/ripple-global](https://www.npmjs.com/package/@dpc-sdp/ripple-global) - Each Ripple Vue component is published individually to NPM, See Ripple global for usage.
@@ -105,22 +105,11 @@ Add `@dpc-sdp/ripple-nuxt-ui` to modules key in `nuxt.config.js` eg:
 
 You can optionally pass options to `@dpc-sdp/ripple-nuxt-ui` by adding the `ripple` key to `nuxt-config.js` - See [@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) for details.
 
+### In a Vue.js project(Not Nuxt.js)
 
-## In a Vue project
+Ripple components are published individually as npm modules and can be imported in any Vue project.
 
-Ripple components are published individually as npm modules and can be imported in any Vue project. 
-
-*Installation*
-You need to ensure that `@dpc-sdp/ripple-global` is imported and has been configured globally in addition to the individual components you wish to use.
-
-`npm install @dpc-sdp/ripple-global @dpc-sdp/ripple-component-to-install` OR `yarn add @dpc-sdp/ripple-global @dpc-sdp/ripple-component-to-install`
-
-```
-import Vue from 'vue'
-import RplGlobal from '@dpc-sdp/ripple-global'
-Vue.use(RplGlobal, { hostname: 'www.yourdomain.com' }}
-```
-
+Check out our [Vue app example](https://github.com/dpc-sdp/ripple/tree/develop/examples/vue-example-app).
 
 # Contributing
 

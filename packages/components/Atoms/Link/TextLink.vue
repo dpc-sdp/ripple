@@ -1,7 +1,7 @@
 <template>
   <rpl-link class="rpl-text-link" :class="{ 'rpl-text-link--underline': underline }" :href="url" :innerWrap="innerWrap">
     <rpl-text-label :theme="theme" :size="size" :underline="underline" :emphasis="emphasis">
-      <rpl-text-icon :text="text" :symbol="iconSymbolFinal" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
+      <rpl-text-icon :text="textDecoded" :symbol="iconSymbolFinal" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
     </rpl-text-label>
   </rpl-link>
 </template>
@@ -10,7 +10,7 @@
 import { RplTextIcon } from '@dpc-sdp/ripple-icon'
 import RplLink from './Link.vue'
 import RplTextLabel from './TextLabel.vue'
-import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { isExternalUrl, decodeSpecialCharacters } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplTextLink',
@@ -33,6 +33,12 @@ export default {
     RplTextLabel
   },
   computed: {
+    textDecoded: function () {
+      // TODO: This is a temporary fix.
+      // In Markup component, We can't avoid taking HTML encoded link text(especially for `"`) from CMS and feeding them into the text icon.
+      // We may just change all link text to HTML to solve this issue eventally.
+      return decodeSpecialCharacters(this.text)
+    },
     iconSymbolFinal () {
       if (isExternalUrl(this.url, this.rplOptions.hostname)) {
         return 'external_link'

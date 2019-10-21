@@ -52,7 +52,7 @@ import uniqueid from '@dpc-sdp/ripple-global/mixins/uniqueid'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import Vue from 'vue'
-import kebabCase from 'lodash.kebabcase'
+import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplAccordion',
@@ -75,7 +75,7 @@ export default {
   computed: {
     titleId () {
       if (this.title) {
-        return kebabCase(this.title)
+        return getAnchorLinkName(this.title)
       }
     }
   },

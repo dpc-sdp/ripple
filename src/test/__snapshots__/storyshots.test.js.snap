@@ -1309,24 +1309,75 @@ exports[`RippleStoryshots Atoms/Icon Text Icon 1`] = `
 </span>
 `;
 
-exports[`RippleStoryshots Atoms/Layout Grid 1`] = `
-<div
-  class="rpl-container"
+exports[`RippleStoryshots Atoms/Link Link 1`] = `
+<a
+  class="rpl-link"
+  data-print-url="#"
+  href="#"
+  target=""
 >
-  <div
-    class="rpl-row"
+  <span
+    class="rpl-link__inner"
   >
-    <div
-      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl rpl-col--push-6-m"
-      style="border: 1px solid black;"
+    Ripple Link
+  </span>
+</a>
+`;
+
+exports[`RippleStoryshots Atoms/Link Text Link 1`] = `
+<a
+  class="rpl-link rpl-text-link"
+  data-print-url="#"
+  href="#"
+  target=""
+>
+  <span
+    class="rpl-link__inner"
+  >
+    <span
+      class="rpl-text-label rpl-text-label--small"
     >
-      Column
-    </div>
-  </div>
+      <span>
+        <span>
+          Text
+        </span>
+         
+        <span
+          class="rpl-text-icon__group"
+        >
+           Link
+          <!---->
+        </span>
+      </span>
+    </span>
+  </span>
+</a>
+`;
+
+exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
+<div
+  class="rpl-meta-tag"
+>
+  <a
+    class="rpl-link rpl-meta-tag__link"
+    data-print-url="#"
+    href="#"
+    target=""
+  >
+    <span
+      class="rpl-link__inner"
+    >
+      <span
+        class="rpl-meta-tag__text"
+      >
+        Metatag
+      </span>
+    </span>
+  </a>
 </div>
 `;
 
-exports[`RippleStoryshots Atoms/Layout Grid system 1`] = `
+exports[`RippleStoryshots Atoms|Layout Grids 1`] = `
 <div
   class="demo-content"
 >
@@ -1402,74 +1453,6 @@ exports[`RippleStoryshots Atoms/Layout Grid system 1`] = `
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`RippleStoryshots Atoms/Link Link 1`] = `
-<a
-  class="rpl-link"
-  data-print-url="#"
-  href="#"
-  target=""
->
-  <span
-    class="rpl-link__inner"
-  >
-    Ripple Link
-  </span>
-</a>
-`;
-
-exports[`RippleStoryshots Atoms/Link Text Link 1`] = `
-<a
-  class="rpl-link rpl-text-link"
-  data-print-url="#"
-  href="#"
-  target=""
->
-  <span
-    class="rpl-link__inner"
-  >
-    <span
-      class="rpl-text-label rpl-text-label--small"
-    >
-      <span>
-        <span>
-          Text
-        </span>
-         
-        <span
-          class="rpl-text-icon__group"
-        >
-           Link
-          <!---->
-        </span>
-      </span>
-    </span>
-  </span>
-</a>
-`;
-
-exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
-<div
-  class="rpl-meta-tag"
->
-  <a
-    class="rpl-link rpl-meta-tag__link"
-    data-print-url="#"
-    href="#"
-    target=""
-  >
-    <span
-      class="rpl-link__inner"
-    >
-      <span
-        class="rpl-meta-tag__text"
-      >
-        Metatag
-      </span>
-    </span>
-  </a>
 </div>
 `;
 
@@ -2037,6 +2020,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
               <a
                 class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
+                data-tid="carousel-card"
                 href="#"
                 target=""
               >
@@ -2121,6 +2105,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
               <a
                 class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
+                data-tid="carousel-card"
                 href="#"
                 target=""
               >
@@ -2220,6 +2205,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
               <a
                 class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
+                data-tid="carousel-card"
                 href="#"
                 target=""
               >
@@ -2303,6 +2289,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
               <a
                 class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
+                data-tid="carousel-card"
                 href="#"
                 target=""
               >
@@ -2387,6 +2374,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
               <a
                 class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
+                data-tid="carousel-card"
                 href="#"
                 target=""
               >
@@ -2471,6 +2459,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
               <a
                 class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
+                data-tid="carousel-card"
                 href="#"
                 target=""
               >
@@ -2570,6 +2559,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
               <a
                 class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
+                data-tid="carousel-card"
                 href="#"
                 target=""
               >
@@ -2653,6 +2643,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
               <a
                 class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
+                data-tid="carousel-card"
                 href="#"
                 target=""
               >
@@ -2752,6 +2743,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
               <a
                 class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-print-url="#"
+                data-tid="carousel-card"
                 href="#"
                 target=""
               >
@@ -4756,7 +4748,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                     disabled="disabled"
                     value=""
                   >
-                    Select a single topic
+                    Select
                   </option>
                    
                   <option
@@ -5337,6 +5329,214 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
     </fieldset>
   </div>
 </form>
+`;
+
+exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
+<div
+  class="rpl-select"
+>
+  <div
+    class="rpl-select__native"
+  >
+    <select
+      id="select"
+      multiple="multiple"
+    >
+      <!---->
+       
+      <option
+        value="vic"
+      >
+        Vic
+      </option>
+      <option
+        value="nsw"
+      >
+        New South Wales
+      </option>
+      <option
+        value="wa"
+      >
+        Western Australia
+      </option>
+      <option
+        value="ql"
+      >
+        Queensland
+      </option>
+    </select>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = `
+<div
+  class="rpl-select"
+>
+  <div
+    class="rpl-select__native"
+  >
+    <select
+      id="select"
+      multiple="multiple"
+    >
+      <!---->
+       
+      <option
+        value="vic"
+      >
+        Vic
+      </option>
+      <option
+        value="nsw"
+      >
+        New South Wales
+      </option>
+      <option
+        value="wa"
+      >
+        Western Australia
+      </option>
+      <option
+        value="ql"
+      >
+        Queensland
+      </option>
+    </select>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with object 1`] = `
+<div
+  class="rpl-select"
+>
+  <div
+    class="rpl-select__native"
+  >
+    <select
+      id="select"
+      multiple="multiple"
+    >
+      <!---->
+       
+      <option
+        value="vic"
+      >
+        Vic
+      </option>
+      <option
+        value="nsw"
+      >
+        New South Wales
+      </option>
+      <option
+        value="wa"
+      >
+        Western Australia
+      </option>
+      <option
+        value="ql"
+      >
+        Queensland
+      </option>
+    </select>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Form/Select Set initial state 1`] = `
+<div
+  class="rpl-select"
+>
+  <div
+    class="rpl-select__native"
+  >
+    <select
+      id="select"
+    >
+      <option
+        disabled="disabled"
+        value=""
+      >
+        Select
+      </option>
+       
+      <option
+        value="vic"
+      >
+        Vic
+      </option>
+      <option
+        value="nsw"
+      >
+        New South Wales
+      </option>
+      <option
+        value="wa"
+      >
+        Western Australia
+      </option>
+      <option
+        value="ql"
+      >
+        Queensland
+      </option>
+    </select>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Form/Select Single 1`] = `
+<div
+  class="rpl-select"
+>
+  <div
+    class="rpl-select__native"
+  >
+    <select
+      id="select"
+    >
+      <option
+        disabled="disabled"
+        value=""
+      >
+        Select
+      </option>
+       
+      <option
+        value="vic"
+      >
+        Vic
+      </option>
+      <option
+        value="nsw"
+      >
+        New South Wales
+      </option>
+      <option
+        value="wa"
+      >
+        Western Australia
+      </option>
+      <option
+        value="ql"
+      >
+        Queensland
+      </option>
+    </select>
+     
+    <!---->
+  </div>
+</div>
 `;
 
 exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `
@@ -8828,7 +9028,7 @@ exports[`RippleStoryshots Organisms/CallToAction Call to Action 1`] = `
 
 exports[`RippleStoryshots Organisms/CampaignPrimary Default 1`] = `
 <div
-  class="rpl-campaign-primary"
+  class="rpl-campaign-primary rpl-campaign-primary--with-caption"
 >
   <div
     class="rpl-campaign-primary__image-outer rpl-campaign-primary__image-outer--large"
@@ -8836,43 +9036,53 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Default 1`] = `
     <span
       class="rpl-campaign-primary__image-inner"
     >
-      <svg
-        aria-hidden="true"
-        class="rpl-campaign-primary__image"
-        height="411"
-        viewBox="0 0 699 411"
-        width="699"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+      <figure
+        class="rpl-campaign-primary__figure"
       >
-        <!---->
-         
-        <mask
+        <svg
+          aria-hidden="true"
+          class="rpl-campaign-primary__image"
           height="411"
-          id="mask0"
-          mask-type="alpha"
-          maskUnits="userSpaceOnUse"
+          viewBox="0 0 699 411"
           width="699"
-          x="0"
-          y="0"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <path
-            d="M699 0L114.075 170.226L0 411H699V0Z"
-            fill="white"
-          />
-        </mask>
-         
-        <g
-          mask="url(#mask0)"
-        >
-          <image
+          <!---->
+           
+          <mask
             height="411"
-            href="http://placehold.it/699x411"
+            id="mask0"
+            mask-type="alpha"
+            maskUnits="userSpaceOnUse"
             width="699"
-            xlink:href="http://placehold.it/699x411"
-          />
-        </g>
-      </svg>
+            x="0"
+            y="0"
+          >
+            <path
+              d="M699 0L114.075 170.226L0 411H699V0Z"
+              fill="white"
+            />
+          </mask>
+           
+          <g
+            mask="url(#mask0)"
+          >
+            <image
+              height="411"
+              href="http://placehold.it/699x411"
+              width="699"
+              xlink:href="http://placehold.it/699x411"
+            />
+          </g>
+        </svg>
+         
+        <figcaption
+          class="rpl-campaign-primary__figure-caption"
+        >
+          Image credit: This credit is used to describe the image to the right of the banner.
+        </figcaption>
+      </figure>
     </span>
   </div>
    
@@ -8921,6 +9131,13 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Default 1`] = `
           Call to action
         </span>
       </a>
+       
+      <div
+        aria-hidden="true"
+        class="rpl-campaign-primary__caption"
+      >
+        Image credit: This credit is used to describe the image to the right of the banner.
+      </div>
     </div>
   </div>
 </div>
@@ -9094,6 +9311,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9171,6 +9389,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9248,6 +9467,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9325,6 +9545,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9402,6 +9623,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -9480,6 +9702,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
       <a
         class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
         data-print-url="#"
+        data-tid="latest-events-card"
         href="#"
         target=""
       >
@@ -12634,6 +12857,12 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
       >
         The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
       </div>
+    </div>
+     
+    <div
+      class="rpl-site-footer__caption"
+    >
+      Image credit: This caption is used to describe the image in the hero banner above.
     </div>
   </div>
    

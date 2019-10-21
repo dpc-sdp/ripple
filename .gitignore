@@ -22,6 +22,7 @@ yarn-error.log*
 coverage
 examples/**/test/e2e/videos
 examples/**/test/e2e/screenshots
+test-results
 
 # temp test fixtures
 /examples/test*

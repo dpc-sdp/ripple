@@ -1,5 +1,5 @@
 import { cardColsSetting } from '../../../lib/config/layout.config.js'
-import { truncateText } from './../../../lib/core/tide-helper'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 const searchMixin = {
   data () {
@@ -165,7 +165,7 @@ const searchMixin = {
       if (this.searchForm.textSearch === undefined) {
         this.searchForm.prefillSearchTerm = this.$route.query.q
       }
-      this.pager.initialStep = Number(this.$route.query.page)
+      this.pager.initialStep = this.$route.query.page ? Number(this.$route.query.page) : 1
     }
   }
 }

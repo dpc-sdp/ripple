@@ -4,7 +4,7 @@
       <li class="rpl-footer-nav__menu-item" :class="{'rpl-footer-nav__menu-item--parent': item.children}" :key="index" >
         <h2 class="rpl-footer-nav__heading" @click="toggle(item, index, $event)">
           <rpl-link :href="item.url" :target="item.target">{{ item.text }}</rpl-link>
-          <rpl-icon :symbol="visibleItemIndex == index ? 'up' : 'down'" color="secondary" size="m" v-if="(minimize && item.children)" />
+          <rpl-icon :symbol="visibleItemIndex == index ? 'up' : 'down'" color="white" size="m" v-if="(minimize && item.children)" />
         </h2>
         <transition name="rpl-accordion">
           <ul class="rpl-footer-nav__submenu-item" v-if="item.children" v-show="(!minimize || visibleItemIndex == index)">

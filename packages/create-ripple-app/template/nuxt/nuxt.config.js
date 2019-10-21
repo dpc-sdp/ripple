@@ -8,13 +8,13 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: '<%= name %>',
+    title: '<%= domain %>',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'msapplication-TileColor', content: '#da532c' },
       { name: 'theme-color', content: '#ffffff' },
-      { hid: 'description', name: 'description', content: '<%= description %>' }
+      { hid: 'description', name: 'description', content: '<%= domain %>' }
     ],
     link: [
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon.ico' },
@@ -42,33 +42,11 @@ export default {
   */
   modules: [
     // https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
-    '@dpc-sdp/ripple-nuxt-tide',
-    // we want to always disallow bots on the example site
-    ['@nuxtjs/robots', {
-      UserAgent: '*',
-      Disallow: '/'
-    }]
-  ],<% if (examples === true) { %>
-  /*
-  ** styleResources
-  * Override the path to the theme customisation scss
-  * loads scss with @nuxtjs/style-resources
-  * Defaults to /assets/_theme.scss
-  */
-  // styleResources: {
-  //   scss: [
-  //     path.resolve(__dirname, './assets/_theme.scss')
-  //   ]
-  // }
-  /*
-  * Configuration for ripple-nuxt-ui
-  * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui
-  */
-  ripple: {},
-  /*
-  * Configuration for ripple-nuxt-tide
-  * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
-  */<%}%>
+    '@dpc-sdp/ripple-nuxt-tide'
+  ],
+  css: [
+    '@/assets/_custom.scss'
+  ],
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {
@@ -76,7 +54,7 @@ export default {
       password: process.env.CONTENT_API_AUTH_PASS
     },
     site: <%= siteid %>,
-    // Tide submodules, 1 for enable, 0 for disable.
+    // Tide submodules, 1 for enable, 0 for disable. See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide for available options
     modules: {
       <% if (page === 'yes') { %>page: 1,
       <%}%><% if (landingPage === 'yes') { %>landingPage: 1,

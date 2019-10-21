@@ -8,14 +8,16 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/.jest/moment.js'],
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-    '.*\\.(vue)$': '<rootDir>/node_modules/jest-vue-preprocessor',
+    '.*\\.(vue)$': 'vue-jest',
     '^.+\\.md?$': 'markdown-loader-jest'
   },
   transformIgnorePatterns: [
     'node_modules/(?!(@dpc-sdp*|ol|ol-ext|storybook-addon-vue-info|@storybook*)/)'
   ],
   moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$':
+    // @TODO storybook storyshots fails with MDX.
+    // Add it to filemock until they fix it. https://github.com/storybookjs/storybook/issues/7223#issuecomment-506912633
+    '\\.(mdx|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$':
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js'
   }

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-global",
-  "version": "1.2.1",
+  "version": "1.3.1",
   "description": "The core styles and utilities used by all ripple components. Includes sets of colours, fonts, breakpoints.",
   "license": "Apache-2.0",
   "main": "./index.js",

@@ -36,6 +36,7 @@
   * [Installation](#install)
   * [Example app](#running-example-application)
   * [Storybook](#running-storybook)
+* [Usage](#usage)  
 * [Support](#support)
 * [License](#license)
 * [Attribution](#attribution)

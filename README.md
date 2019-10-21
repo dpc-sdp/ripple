@@ -1,22 +1,18 @@
-# Ripple
-<p align="left"><a href="https://ripple.sdp.vic.gov.au" target="_blank"><img src="docs/SDP_Ripple_product_logo_JPG.JPG" alt="SDP logo" width="10%"></a></p>
-
-[![CircleCI](https://circleci.com/gh/dpc-sdp/ripple/tree/master.svg?style=svg&circle-token=242dc8445ab25fb88fe506609fd7065cd1f78f7c)](https://circleci.com/gh/dpc-sdp/ripple/tree/master)
-[![Vue.js 2.x](https://img.shields.io/badge/vue.js-2.x-green.svg?style=flat-square)](https://vuejs.org)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
-
-
-
 <!-- PROJECT LOGO -->
-<br />
 <p align="center">
-  <a href="https://www.vic.gov.au/what-single-digital-presence-offers">
-    <img src="docs/SDP_Logo_VicGov_RGB.jpg" alt="Logo" height="140">
+  <a href="https://github.com/dpc-sdp/ripple">
+    <img src="docs/sdp-ripple.jpg" alt="Logo" height="150">
   </a>
-
-  <h3 align="center">Ripple</h3>
-
-  <p align="center">
+</p>
+<p align="center">
+  <i>Ripple is the frontend framework for Single Digital Presence, delivered using Nuxt and Vue.js.</i>
+</p>
+<p align="center">
+  <a href="https://circleci.com/gh/dpc-sdp/ripple/tree/master"><img src="https://circleci.com/gh/dpc-sdp/ripple/tree/master.svg?style=svg&circle-token=242dc8445ab25fb88fe506609fd7065cd1f78f7c"></a>
+  <a href="https://vuejs.org"><img src="https://img.shields.io/badge/vue.js-2.x-green.svg?style=flat-square"></a>
+  <a href="https://lernajs.io/"><img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg"></a>
+</p>
+<p align="center">
     <br />
     <a href="https://dpc-sdp.github.io/sdp-docs/ripple/"><strong>Documentation Site »</strong></a>
     <br />
@@ -24,10 +20,7 @@
     <a href="https://ripple.sdp.vic.gov.au/">Storybook</a>
     ·
     <a href="http://app-ripple-develop.lagoon.vicsdp.amazee.io">Reference Ripple site</a>
-  </p>
 </p>
-
-
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -43,19 +36,20 @@
   * [Installation](#install)
   * [Example app](#running-example-application)
   * [Storybook](#running-storybook)
-* [Usage](#usage)
+* [Usage](#usage)  
+* [Support](#support)
 * [License](#license)
-* [Thanks to our technical partner](#thanks-to-our-technical-partner)
+* [Attribution](#attribution)
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Ripple is the presentational layer for building websites on the DPC Single Digital Presence platform. 
+Ripple is the presentation layer for building websites on the DPC Single Digital Presence platform. 
 It includes :
 
 - A reusable component library based upon an atomic design system.
-- Modules for the universal rendering framework [_Nuxt_](https://nuxtjs.org) to create websites using a [_Tide_](https://github.com/dpc-sdp/tide) Drupal backend.
+- Modules for the universal rendering framework [_Nuxt_](https://nuxtjs.org) to create websites using the [_Tide_](https://github.com/dpc-sdp/tide) Drupal backend.
 - Helper utilities to run UI tests on Ripple sites.
 - A tool to scaffold new Nuxt projects using ripple and tide
 
@@ -112,7 +106,7 @@ Add `@dpc-sdp/ripple-nuxt-ui` to modules key in `nuxt.config.js` eg:
 
 You can optionally pass options to `@dpc-sdp/ripple-nuxt-ui` by adding the `ripple` key to `nuxt-config.js` - See [@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) for details.
 
-### In a Vue.js project(Not Nuxt.js)
+#### In a Vue.js project(Not Nuxt.js)
 
 Ripple components are published individually as npm modules and can be imported in any Vue project.
 
@@ -123,7 +117,6 @@ Check out our [Vue app example](https://github.com/dpc-sdp/ripple/tree/develop/e
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) first.
 
 Ripple includes both a component explorer using Storybook and an example reference application. 
-
 
 ### Requirements
 
@@ -148,15 +141,29 @@ Run `yarn run start:example`
 Run `yarn run start:storybook`
 
 
+## Support
+[Digital Engagement, Department of Premier and Cabinet, Victoria, Australia](https://github.com/dpc-sdp) is a maintainer of this package.
+
 <!-- LICENSE -->
 ## License
 
 Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 
-## Thanks to our technical partner
+## Attribution
 Single Digital Presence offers government agencies an open and flexible toolkit to build websites quickly and cost-effectively.
 
+<!-- SDP LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/dpc-sdp/ripple">
+    <img src="docs/sdp-vicgov.jpg" alt="Logo" height="150">
+  </a>
+</p>
+
 The Department of Premier and Cabinet partnered with Salsa Digital to deliver Single Digital Presence. As long-term supporters of open government approaches, they were integral to the establishment of SDP as an open source platform.
-<p align="left"><a href="https://salsadigital.com.au/" target="_blank"><img src="docs/Salsa.png" alt="Salsa logo" width="20%"></a></p>
 
-
+<p align="center">
+  <a href="https://salsadigital.com.au">
+    <img src="docs/salsa-logo.png" alt="Logo" height="150">
+  </a>
+</p>

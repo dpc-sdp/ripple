@@ -1,4 +1,5 @@
 # Ripple
+<p align="left"><a href="https://ripple.sdp.vic.gov.au" target="_blank"><img src="docs/SDP_Ripple_product_logo_JPG.JPG" alt="SDP logo" width="10%"></a></p>
 
 [![CircleCI](https://circleci.com/gh/dpc-sdp/ripple/tree/master.svg?style=svg&circle-token=242dc8445ab25fb88fe506609fd7065cd1f78f7c)](https://circleci.com/gh/dpc-sdp/ripple/tree/master)
 [![Vue.js 2.x](https://img.shields.io/badge/vue.js-2.x-green.svg?style=flat-square)](https://vuejs.org)
@@ -9,8 +10,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/dpc-sdp/ripple">
-    <img src="/docs/logo.png" alt="Logo" height="150">
+  <a href="https://www.vic.gov.au/what-single-digital-presence-offers">
+    <img src="docs/SDP_Logo_VicGov_RGB.jpg" alt="Logo" height="140">
   </a>
 
   <h3 align="center">Ripple</h3>
@@ -44,6 +45,7 @@
   * [Storybook](#running-storybook)
 * [Usage](#usage)
 * [License](#license)
+* [Thanks to our technical partner](#thanks-to-our-technical-partner)
 
 
 <!-- ABOUT THE PROJECT -->
@@ -71,16 +73,16 @@ Ripple is a monorepo which contains several packages published to NPM
 
 [@dpc-sdp/ripple-nuxt-tide](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide) - Package for integrating a Tide backend into a Ripple site. Docs: [packages/ripple-nuxt-tide/README.md](https://github.com/dpc-sdp/ripple/blob/develop/packages/ripple-nuxt-tide/README.md)
 
-[@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) - Adds ripple component library to a Nuxt site, can be used independently of @dpc-sdp/ripple-nuxt-tide. Docs: [packages/ripple-nuxt-ui/README.md](https://github.com/dpc-sdp/ripple/blob/develop/packages/ripple-nuxt-ui/README.md)
+[@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) - Adds Ripple component library to a Nuxt site, can be used independently of @dpc-sdp/ripple-nuxt-tide. Docs: [packages/ripple-nuxt-ui/README.md](https://github.com/dpc-sdp/ripple/blob/develop/packages/ripple-nuxt-ui/README.md)
 
 Ripple Vue component library 
-[@dpc-sdp/ripple-global](https://www.npmjs.com/package/@dpc-sdp/ripple-global) - Each ripple Vue component is published individually to NPM, See ripple global for usage.
+[@dpc-sdp/ripple-global](https://www.npmjs.com/package/@dpc-sdp/ripple-global) - Each Ripple Vue component is published individually to NPM, See Ripple global for usage.
 
 ### In a Nuxt application
 
 Ripple is primarily used to build websites using the [Nuxt](https://nuxtjs.org) framework.
 
-_For examples on how to use ripple in a nuxt application, please refer also to the [Documentation](https://dpc-sdp.github.io/sdp-docs/ripple/)_
+_For examples on how to use Ripple in a Nuxt application, please refer also to the [Documentation](https://dpc-sdp.github.io/sdp-docs/ripple/)_
 
 #### With Tide
 
@@ -150,3 +152,11 @@ Run `yarn run start:storybook`
 ## License
 
 Distributed under the Apache 2.0 License. See `LICENSE` for more information.
+
+## Thanks to our technical partner
+Single Digital Presence offers government agencies an open and flexible toolkit to build websites quickly and cost-effectively.
+
+The Department of Premier and Cabinet partnered with Salsa Digital to deliver Single Digital Presence. As long-term supporters of open government approaches, they were integral to the establishment of SDP as an open source platform.
+<p align="left"><a href="https://salsadigital.com.au/" target="_blank"><img src="docs/Salsa.png" alt="Salsa logo" width="20%"></a></p>
+
+

@@ -5,13 +5,6 @@
   "bin": {
     "create-ripple-app": "cli.js"
   },
-  "files": [
-    "cli.js",
-    "saofile.js",
-    "template/",
-    "generators/",
-    "docs/"
-  ],
   "repository": {
     "type": "git"
   },

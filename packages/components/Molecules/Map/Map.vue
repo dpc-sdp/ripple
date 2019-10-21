@@ -124,7 +124,7 @@ const methods = {
       outputFormat: 'application/json'// ,
       // filter: ol.format.filter.equalTo('ssc_name', area, false)
     })
-    fetch('https://myvic-app-dev-gis.beta.vic.gov.au/geoserver/myvic/wfs', {
+    fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs', {
       method: 'POST',
       body: new XMLSerializer().serializeToString(featureRequest)
     }).then((response) => {

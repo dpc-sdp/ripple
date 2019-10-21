@@ -12,7 +12,6 @@ Feature: Home Page
     And the breadcrumbs should not exist
     And the site header is visible
     And the site footer is visible
-    And the campaign primary banner component should exist
 
 # Need to fix existing errors or work out ruleset to skip
   @a11y @skip

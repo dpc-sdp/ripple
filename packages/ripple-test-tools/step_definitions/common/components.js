@@ -811,3 +811,18 @@ Then(`the share this links should read "open in a new window" to screen readers`
 Then(`the search results component should exist`, () => {
   cy.get('.rpl-search-results').should('exist')
 })
+
+// Description list
+Then(`there should be a description list with the following items:`, (dataTable) => {
+  const dl = dataTable.hashes()
+  const labels = dl.map(label => `${label.term}: ${label.value}`)
+  cy.get('.rpl-description-list__row').each(($el, index) => {
+    const label = $el.text().trim()
+    expect(labels).to.contain(label) //eslint-disable-line
+  })
+})
+
+// Sitemap
+Then(`the sitemap component should exist`, () => {
+  cy.get('.rpl-sitemap-menu').should('exist')
+})

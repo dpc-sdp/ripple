@@ -8,7 +8,9 @@
   "files": [
     "cli.js",
     "saofile.js",
-    "template/"
+    "template/",
+    "generators/",
+    "docs/"
   ],
   "repository": {
     "type": "git"

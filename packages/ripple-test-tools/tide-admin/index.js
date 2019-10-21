@@ -16,6 +16,7 @@ module.exports = class TideAdmin {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     }
+
     this.adminCredentials = {
       username: process.env.CYPRESS_ADMIN_USERNAME,
       password: process.env.CYPRESS_ADMIN_PASSWORD
@@ -41,7 +42,7 @@ module.exports = class TideAdmin {
 
   async login () {
     await this.page.goto(this.backendURL)
-    await this.page.waitForSelector('#edit-actions', this.options.wait)
+    await this.page.waitForSelector(this.pageModels.login.name, this.options.wait)
     await this.page.type(
       this.pageModels.login.name,
       this.adminCredentials.username

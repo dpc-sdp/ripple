@@ -1400,73 +1400,73 @@ exports[`RippleStoryshots Atoms|Layout Grids 1`] = `
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        1
+        1 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        2
+        2 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        3
+        3 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        4
+        4 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        5
+        5 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        6
+        6 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        7
+        7 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        8
+        8 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        9
+        9 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        10
+        10 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        11
+        11 
         <!---->
       </div>
       <div
         class="demo-col rpl-col rpl-col--1"
       >
-        12
+        12 
         <!---->
       </div>
     </div>
@@ -1779,7 +1779,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
   class="rpl-card-box"
 >
   <!---->
-
+   
   <div
     class="rpl-card-box__items"
   >
@@ -2010,7 +2010,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
   class="rpl-card-carousel"
 >
   <!---->
-
+   
   <h2
     class="rpl-card-carousel__title"
   >
@@ -5644,7 +5644,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
           <p>
             This is page content
           </p>
-
+            
           <!---->
         </div>
          
@@ -5706,14 +5706,14 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
           <p>
             This is page content
           </p>
-
+             
           <!---->
         </div>
          
         <div
           class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
         >
-          sidebar content
+          sidebar content 
           <!---->
         </div>
       </div>
@@ -5773,14 +5773,14 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with custom columns 1`] =
           <p>
             This is page content
           </p>
-
+             
           <!---->
         </div>
          
         <div
           class="rpl-sidebar rpl-col rpl-col--full rpl-col--3-l rpl-col--push-1-l"
         >
-          sidebar content
+          sidebar content 
           <!---->
         </div>
       </div>
@@ -5903,7 +5903,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
           card
         
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -5915,7 +5915,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -5927,7 +5927,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -5939,7 +5939,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -5951,7 +5951,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -5963,7 +5963,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -5975,7 +5975,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
           other component
         
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -5994,7 +5994,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
                     <div>
                       1/4 col
                     </div>
-
+                     
                     <!---->
                   </div>
                    
@@ -6004,7 +6004,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
                     <div>
                       1/4 col
                     </div>
-
+                     
                     <!---->
                   </div>
                    
@@ -6014,7 +6014,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
                     <div>
                       1/4 col
                     </div>
-
+                     
                     <!---->
                   </div>
                    
@@ -6024,11 +6024,11 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
                     <div>
                       1/4 col
                     </div>
-
+                     
                     <!---->
                   </div>
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -6046,11 +6046,11 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
           
                   </div>
                 </div>
-
+                 
                 <!---->
               </div>
             </div>
-
+               
             <!---->
           </div>
            
@@ -6198,7 +6198,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
           card
         
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -6210,7 +6210,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -6222,7 +6222,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -6234,7 +6234,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -6246,7 +6246,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -6258,7 +6258,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
                 >
                   card
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -6270,7 +6270,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
           other component
         
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -6289,7 +6289,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
                     <div>
                       1/4 col
                     </div>
-
+                     
                     <!---->
                   </div>
                    
@@ -6299,7 +6299,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
                     <div>
                       1/4 col
                     </div>
-
+                     
                     <!---->
                   </div>
                    
@@ -6309,7 +6309,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
                     <div>
                       1/4 col
                     </div>
-
+                     
                     <!---->
                   </div>
                    
@@ -6319,11 +6319,11 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
                     <div>
                       1/4 col
                     </div>
-
+                     
                     <!---->
                   </div>
                 </div>
-
+                 
                 <!---->
               </div>
                
@@ -6341,11 +6341,11 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
           
                   </div>
                 </div>
-
+                 
                 <!---->
               </div>
             </div>
-
+               
             <!---->
           </div>
            
@@ -6369,7 +6369,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
             >
               Sidebar content
             </div>
-
+             
             <!---->
           </div>
         </div>
@@ -6871,28 +6871,28 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
       <!---->
-
+       
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
       <!---->
-
+       
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
       <!---->
-
+       
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
       <!---->
-
+       
       <!---->
     </div>
      
@@ -7050,7 +7050,7 @@ exports[`RippleStoryshots Molecules/Search Card Search Results 1`] = `
           </button>
         </div>
       </nav>
-
+       
       <!---->
     </div>
   </div>
@@ -7077,28 +7077,28 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
       class="rpl-col rpl-col--full"
     >
       <!---->
-
+       
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full"
     >
       <!---->
-
+       
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full"
     >
       <!---->
-
+       
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full"
     >
       <!---->
-
+       
       <!---->
     </div>
      
@@ -7256,7 +7256,7 @@ exports[`RippleStoryshots Molecules/Search Grant Search Results 1`] = `
           </button>
         </div>
       </nav>
-
+       
       <!---->
     </div>
   </div>
@@ -7439,14 +7439,14 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
       class="rpl-col rpl-col--full"
     >
       <!---->
-
+       
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full"
     >
       <!---->
-
+       
       <!---->
     </div>
      
@@ -7604,7 +7604,7 @@ exports[`RippleStoryshots Molecules/Search Search Results 1`] = `
           </button>
         </div>
       </nav>
-
+       
       <!---->
     </div>
   </div>

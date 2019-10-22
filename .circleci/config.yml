@@ -42,7 +42,7 @@ jobs:
       - image: cypress/base:10
     steps:
       - run:
-          name: Awake dev backend
+          name: wake up dev backend
           command: curl https://www.develop.content.vic.gov.au/ --max-time 1000
 
   test:

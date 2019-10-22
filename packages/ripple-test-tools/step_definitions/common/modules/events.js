@@ -7,7 +7,7 @@ Then(`the event page Description should be {string}`, (description) => {
 })
 
 Then(`the event page Dates should be {string}`, (dates) => {
-  cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(1) .rpl-list__text`).should('contain', dates)
+  cy.get(`.tide-event-content .rpl-list .rpl-list__list-item:nth-child(1) .rpl-list__text`, { timeout: 10000 }).should('contain', dates)
 })
 
 Then(`the event page Address should be {string}`, (address) => {

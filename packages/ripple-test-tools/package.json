@@ -9,7 +9,7 @@
     }
   ],
   "bin": {
-    "@dpc-sdp/ripple-test-tools/process-report": "/scripts/cucumberconvertor.js"
+    "process-cucumber-report": "./scripts/cucumberconvertor.js"
   },
   "main": "index.js",
   "dependencies": {

@@ -2,7 +2,6 @@ version: 2.0
 
 jobs:
   build:
-    context: Ripple
     docker:
       - image: cypress/base:10
         environment:
@@ -39,7 +38,6 @@ jobs:
           paths: .
 
   warm-up:
-    context: Ripple
     docker:
       - image: cypress/base:10
     steps:
@@ -48,7 +46,6 @@ jobs:
           command: curl https://www.develop.content.vic.gov.au/ --max-time 1000
 
   test:
-    context: Ripple
     docker:
       - image: cypress/base:10
         environment:
@@ -92,7 +89,6 @@ jobs:
           path: examples/vic-gov-au/test/e2e/screenshots
 
   e2e-vic-gov:
-    context: Ripple
     # This runs the full suite of e2e tests 
     docker:
       - image: cypress/base:10
@@ -210,12 +206,15 @@ workflows:
   version: 2
   commit:
     jobs:
-      - build      
+      - build:
+          context: Ripple      
       - test:
+          context: Ripple
           requires:
             - build  
       # Run regression tests on release branches
       - e2e-vic-gov:
+          context: Ripple
           requires:
             - build
           filters:
@@ -260,11 +259,14 @@ workflows:
                 - develop
     jobs:
       - warm-up
-      - build
+      - build:
+          context: Ripple
       - test:
+          context: Ripple
           requires:
             - build  
       - e2e-vic-gov:
+          context: Ripple
           requires:
             - build
       - e2e-example:

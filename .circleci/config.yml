@@ -110,7 +110,11 @@ jobs:
             - v2-deps
       - run: 
           name: run full e2e test
-          command: yarn test:e2e-vic && cd ~/app && yarn test:report
+          command: yarn test:e2e-vic
+      - run:
+          name: prepare cucumber test report
+          command: yarn test:report
+          when: always
       - store_artifacts:
           path: test-results
       - store_test_results:

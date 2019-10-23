@@ -7,6 +7,7 @@ jobs:
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
+          TZ: "Australia/Melbourne"
     working_directory: ~/app
     steps:
       - checkout
@@ -51,6 +52,8 @@ jobs:
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
+          TZ: "Australia/Melbourne"
+
     working_directory: ~/app
     steps:
       - attach_workspace:
@@ -94,6 +97,8 @@ jobs:
       - image: cypress/base:10
         environment:
           TERM: xterm
+          TZ: "Australia/Melbourne"
+
     working_directory: ~/app
     steps:
       - attach_workspace:

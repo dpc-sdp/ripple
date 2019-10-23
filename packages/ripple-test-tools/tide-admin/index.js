@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer'); //eslint-disable-line
 const utils = require('./util')
 
 /**

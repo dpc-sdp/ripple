@@ -132,7 +132,7 @@ export default {
     return (hasCaption && hasImage) ? fieldCampaign.field_block_image.field_media_caption : null
   },
   formattedTextDecode: (formattedText) => {
-    const htmlUtilities = require('@dpc-sdp/ripple-nuxt-tide/lib/core/html-utilities').default
-    return htmlUtilities.decodeSpecialCharacters(formattedText.processed)
+    const decodeSpecialCharacters = require('@dpc-sdp/ripple-global/utils/helpers.js').decodeSpecialCharacters
+    return decodeSpecialCharacters(formattedText.processed)
   }
 }

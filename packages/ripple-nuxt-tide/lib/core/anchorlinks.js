@@ -1,4 +1,3 @@
-import htmlUtilities from './html-utilities'
 import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 const anchorUtils = {
@@ -22,7 +21,7 @@ const anchorUtils = {
       // Ignore empty headings.
       if (this.textExists(item.text)) {
         result.push({
-          text: htmlUtilities.decodeSpecialCharacters(item.text),
+          text: item.text,
           url: '#' + getAnchorLinkName(item.text)
         })
       }

@@ -1,12 +1,12 @@
 Feature: Preview content
 
   As an authorized user I want to be able to view previews which are not visible to the general public.
-
+  @skip
   Scenario: No access to a draft page when unauthenticated
     Given the "/1-fe-content-preview-1" page exists with fixture "core/content-preview/1-fe-content-preview-1" data
     When I visit the page "/1-fe-content-preview-1"
     Then I should see a 404 page
-
+  @skip
   Scenario: Accessing a preview when unauthorized redirects to login
     Given I have created a landing page with the json fixture "Pages/LandingPage/draft"
     And I have navigated to the created preview page

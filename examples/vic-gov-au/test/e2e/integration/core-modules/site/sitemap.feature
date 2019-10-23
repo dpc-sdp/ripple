@@ -10,6 +10,7 @@ Feature: Sitemap
     And there should be 2 breadcrumb items
     And the sitemap component should exist
 
+  @skip
   Scenario: Sitemap xml
     Given a request is made to "/sitemap.xml"
     Then the response code should be 200

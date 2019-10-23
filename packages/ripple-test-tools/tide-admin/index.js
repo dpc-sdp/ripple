@@ -25,7 +25,7 @@ module.exports = class TideAdmin {
     this.options = {
       wait: { waitUntil: 'networkidle2', timeout: 0 },
       start: {
-        headless: process.env.CYPRESS_HEADLESS_PUPPETEER,
+        headless: false,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       }
     }
@@ -72,21 +72,27 @@ module.exports = class TideAdmin {
    */
   async createNodeFromYAML (testData) {
     if (!testData) return null
-    // create browser and page
-    const page = await this.setup()
+    try {
+      // create browser and page
+      const page = await this.setup()
 
-    // Login
-    await this.login()
-    await page.goto(`${this.backendURL}/admin/content/import_demo_content`)
-    await this.setSelectVal('#edit-import', testData)
-    // Submit
-    await this.submitPage()
-    await page.waitForSelector('[aria-label="Status message"]', this.options.wait)
-    const result = await page.$eval('[aria-label="Status message"]', el =>
-      el
-        .classList.contains('messages--status')
-    )
-    return result
+      // Login
+      await this.login()
+      await page.goto(`${this.backendURL}/admin/content/import_demo_content`)
+      await this.setSelectVal('#edit-import', testData)
+      // Submit
+      await this.submitPage()
+      await page.waitForSelector('[aria-label="Status message"]', this.options.wait)
+      const result = await page.$eval('[aria-label="Status message"]', el =>
+        el
+          .classList.contains('messages--status')
+      )
+      await this.close()
+      return result
+    } catch (error) {
+      // Cleanup
+      await this.close()
+    }
   }
 
   /**

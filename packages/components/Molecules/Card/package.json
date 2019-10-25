@@ -15,5 +15,6 @@
     "@dpc-sdp/ripple-link": "1.5.0-beta.0",
     "fontfaceobserver": "^2.0.13",
     "vue-carousel": "^0.18.0"
-  }
+  },
+  "gitHead": "c4a8644f9ef86fd26083b80f26c31dd83bf813bf"
 }

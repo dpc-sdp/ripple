@@ -8,5 +8,6 @@
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Atoms/Grid",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "c4a8644f9ef86fd26083b80f26c31dd83bf813bf"
 }

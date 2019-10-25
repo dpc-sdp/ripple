@@ -27,5 +27,6 @@
     "cypress": "^3.1.5",
     "cypress-axe": "^0.4.0",
     "cypress-cucumber-preprocessor": "^1.11.0"
-  }
+  },
+  "gitHead": "c4a8644f9ef86fd26083b80f26c31dd83bf813bf"
 }

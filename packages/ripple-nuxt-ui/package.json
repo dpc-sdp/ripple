@@ -21,5 +21,6 @@
   "peerDependencies": {
     "nuxt": "^2.9.2",
     "webpack-node-externals": "^1.6.0"
-  }
+  },
+  "gitHead": "c4a8644f9ef86fd26083b80f26c31dd83bf813bf"
 }

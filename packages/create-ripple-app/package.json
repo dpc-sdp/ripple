@@ -24,5 +24,6 @@
     "sao": "^1.6.1",
     "validate-npm-package-name": "^3.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "c4a8644f9ef86fd26083b80f26c31dd83bf813bf"
 }

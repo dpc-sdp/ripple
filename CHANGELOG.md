@@ -1,5 +1,26 @@
 # Changelog
 
+## v1.3.1 (18/10/2019)
+- [v1.3.1](https://github.com/dpc-sdp/ripple/commit/3358427e782379eae15f500b0a8aaa34a30169f1) - @tim-yao
+- [Fixed markup encode issue (#572)](https://github.com/dpc-sdp/ripple/commit/0af1e83e17bcc804f9f9714af4bc024abbee8c06) - @tim-yao
+- [v1.3.0](https://github.com/dpc-sdp/ripple/commit/07dda4b0d1b95bddba6ab6dc0b5b2056f9741c02) - @tim-yao
+- [[SDPA-3338] Fixed markup decode issue (#562)](https://github.com/dpc-sdp/ripple/commit/b05b37b481fad0a35d304a6c22c4e63af6e132cf) - @tim-yao
+- [v1.3.0-alpha.0](https://github.com/dpc-sdp/ripple/commit/0dad6630f08ba6cb07bd6ced7fd0bd578a1eca91) - @tim-yao
+- [Added different timeout for CI test (#554)](https://github.com/dpc-sdp/ripple/commit/367bd2e0ee3f006885b46ad36e3d2622d5c35c4e) - @tim-yao
+- [[SDPA-2900] Landing page e2e test (#548)](https://github.com/dpc-sdp/ripple/commit/01b3f0bfc0fc6ad6d15d7479c152d664226c6f91) - @alan-cole
+- [[SDPSUP-669] Added example for using Ripple in Vue.js(Not Nuxt) (#535)](https://github.com/dpc-sdp/ripple/commit/2aee25a19436bad2d75b945556c0dcc98e17d4b6) - @tim-yao
+- [[SDPA-3184] Setup timeout for Tide request (#545)](https://github.com/dpc-sdp/ripple/commit/8ac4a955a11058b5903d29257d972826555b4889) - @tim-yao
+- [[SDPA-936] Updated width for buttons in small screen. (#544)](https://github.com/dpc-sdp/ripple/commit/9e80301c296d6ce129f72d11695b59de784f4d31) - @MdNadimHossain
+- [[SDPA-3269] Updated content rating form comment field to be not required field. (#540)](https://github.com/dpc-sdp/ripple/commit/14309e27b565ac424447bc0082f9e40ecaa7b19d) - @MdNadimHossain
+- [[SDPA-3216] CTA description fix for special characters (#539)](https://github.com/dpc-sdp/ripple/commit/c6121ea4ef35a784bb0e64991acb4f09a3ad16c3) - @MdNadimHossain
+- [[SDPA-2346] Added quick-exit button for search component. (#538)](https://github.com/dpc-sdp/ripple/commit/a4175b75ce77e92d334ee9ad3434b57dcf45fa6b) - @MdNadimHossain
+- [[SDPA-3101] Update width to 100% to correctly fit 25% + 75% split. (#533)](https://github.com/dpc-sdp/ripple/commit/0651eed28ac51d60b001771e8821b7f0186693ff) - @alan-cole
+- [Delete update test which modifies mock instead of copying it](https://github.com/dpc-sdp/ripple/commit/142d188be0224b235a7fbce4a2c2d55ae229e9fe) - @dylankelly
+- [Disable test for update which modifies file.](https://github.com/dpc-sdp/ripple/commit/4e60f3f37462c72948822bb00d430a7c83d2c55c) - @dylankelly
+- [Update changelog](https://github.com/dpc-sdp/ripple/commit/8b27401e6ea72aaba2b2b33bf94b9839386e9803) - @dylankelly
+
+---
+
 ## v1.2.1 (24/09/2019)
 - [[SDPA-3250] Fix broken head if sitesection doesnt exist (#537)](https://github.com/dpc-sdp/ripple/commit/b3274bd52839980b4010ad49170158d95f4be984) - @dylankelly
 - [Update Create Ripple App to split new and update generators (#530)](https://github.com/dpc-sdp/ripple/commit/5d6cbaa3645adc50e8af798f0aa74e54e92190d4) - @dylankelly
@@ -38,6 +59,10 @@
 - [[SDPA-3140] Moves Sitemap to ripple nuxt-tide (#505)](https://github.com/dpc-sdp/ripple/commit/dc60347df529a08193153ebab8444a5fed378cd5) - @dylankelly
 - [[SDPA-2965] Accordion print styling. (#503)](https://github.com/dpc-sdp/ripple/commit/f2b906b9e3f121b28beff7b96add5ce10a82310d) - @alan-cole
 
+
+## Upgrade notes
+
+- `/Sitemap` has been moved into `@dpc-sdp/ripple-nuxt-tide`. When upgrading sites, please delete `/pages/sitemap.vue`.
 ---
 
 ## v1.1.0-alpha.0 (28/08/2019)
@@ -178,6 +203,31 @@
 - [Add link target="" support to components that display menus. (#384)](https://github.com/dpc-sdp/ripple/commit/93e7d02487028987ac12d21b6be4bd99d0b23b86) - @alan-cole
 - [[SDPA-2985] Prominent acknowledgment message. (#485)](https://github.com/dpc-sdp/ripple/commit/f6e7a5e0baf5d68b877a69ec4b518a6ed7ae0a54) - @alan-cole
 - [[SDPA-2937] Acknowledgement flags (#468)](https://github.com/dpc-sdp/ripple/commit/a913fb4141b813373100026b5d065aac67900d51) - @alan-cole
+
+## Upgrade notes
+
+This update need a small update on custom site "/store/index.js" to add request id, but without this changes, site should still working, not a breaking change.
+
+```
+   import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
+
+   export const actions = {
+-    async nuxtServerInit ({ dispatch }) {
++    async nuxtServerInit ({ dispatch }, { req }) {
+       try {
+-        await dispatch('tide/init')
++        await dispatch('tide/init', { requestId: req.requestId })
+       } catch (error) {
+         if (process.server) {
+           logger.error('Tide API server has an error.', { error, label: 'App' })
+         }
+         throw error
+       }
+     }
+   }
+```
+
+
 
 ---
 

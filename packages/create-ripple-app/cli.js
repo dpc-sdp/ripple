@@ -3,6 +3,7 @@ const path = require('path')
 const fs = require('fs')
 const sao = require('sao')
 const args = require('minimist')(process.argv.slice(2))
+const compareVersions = require('compare-versions')
 
 const log = (msg, lvl = 'info') => {
   switch (lvl) {
@@ -49,9 +50,15 @@ if (args.forcenew || existing) {
   const pkg = require(`${outDir}/package.json`)
   const version = pkg.version
 
-  if (path.resolve(__dirname, `./generators/updates/${version}`)) {
-    generator = path.resolve(__dirname, `./generators/updates/${version}`)
-    log(`Updating ${outDir} from ${version} to latest`)
+  // Do auto updates for 18 release and above.
+  // TODO: It may will have issues when complex refactoring happened in several versions with one script.
+  // Can be reviewed later.
+  const minUpdateVersion = '18.0.0'
+  if (compareVersions(version, minUpdateVersion) !== -1) {
+    if (path.resolve(__dirname, `./generators/updates/${minUpdateVersion}`)) {
+      generator = path.resolve(__dirname, `./generators/updates/${minUpdateVersion}`)
+      log(`Updating ${outDir} from ${version} to latest`)
+    }
   } else {
     log('cannot upgrade this version. Please use --forcenew flag to force new install.', 'error')
     process.exit(0)

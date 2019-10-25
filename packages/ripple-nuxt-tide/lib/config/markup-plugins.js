@@ -1,5 +1,6 @@
+// Note: for add obj type prop in template, please use ` instead of ' otherwise it won't work.
+// e.g <component-obj-prop :author="{name: `Veronica`, company: `Veridian Dynamics`}"></component-obj-prop>
 import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
-// import cheerio from 'cheerio'
 
 // Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
 const _escapeQuotes = (text) => {
@@ -124,24 +125,20 @@ const pluginEmbeddedMediaVideo = function () {
     const height = iframe.attr('height')
     const width = iframe.attr('width')
     const src = iframe.attr('src')
-    const lang = iframe.attr('lang')
     const figcaption = element.find('figcaption')
     const transcript = figcaption ? figcaption.text() : null
     const link = element.find('.field--name-field-media-link a')
-    const mediaLink = link && link.is('a') ? `{ text: '${link.text()}', url: '${link.attr('href')}' }` : null
-    const RplEmbeddedVideo = `
-      <rpl-embedded-video
-        width="${width}"
-        height="${height}"
-        src="${src}"
-        class="rpl-markup__embedded-video"
-        lang="${lang}"
-        variant="${mediaLink ? 'link' : 'full'}"
-        :display-transcript="true"
-        ${mediaLink ? ':media-link="' + mediaLink + '"' : ''}
-        ${transcript ? 'transcript="' + transcript + '"' : ''}
-      />
-    `
+    const mediaLink = link && link.is('a') ? `{ text: \`${_escapeQuotes(link.text())}\`, url: \`${link.attr('href')}\` }` : null
+    const RplEmbeddedVideo = `<rpl-embedded-video
+width="${width}"
+height="${height}"
+src="${src}"
+class="rpl-markup__embedded-video"
+variant="${mediaLink ? 'link' : 'full'}"
+:display-transcript="true"
+${mediaLink ? ':media-link="' + mediaLink + '"' : ''}
+${transcript ? 'transcript="' + _escapeQuotes(transcript) + '"' : ''}
+/>`
     return element.replaceWith(RplEmbeddedVideo)
   })
 }

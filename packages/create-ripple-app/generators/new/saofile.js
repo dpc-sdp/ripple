@@ -21,13 +21,14 @@ module.exports = {
       },
       {
         type: 'add',
-        files: '_package.json',
+        files: ['_package.json', '_.env'],
         transform: true
       },
       {
         type: 'move',
         patterns: {
-          '_package.json': 'package.json'
+          '_package.json': 'package.json',
+          '_.env': '.env'
         }
       }
     ]

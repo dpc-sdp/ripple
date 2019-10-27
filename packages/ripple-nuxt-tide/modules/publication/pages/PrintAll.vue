@@ -1,5 +1,5 @@
 <template>
-  <rpl-page-layout class="app-main" :sidebar="true">
+  <rpl-page-layout class="app-main tide-pub-print" :sidebar="true">
     <template slot="breadcrumbs">
       <rpl-breadcrumbs :crumbs="breadcrumbs" />
     </template>
@@ -19,9 +19,10 @@
         <rpl-anchor-links title="On this page:" :links="anchorLinks" />
       </rpl-col>
     </rpl-row>
-    <rpl-row row-gutter >
+    <rpl-row row-gutter class="tide-content">
       <rpl-col cols="full">
-        <section :id="formatAnchor(page.title)" v-for="(page, index) in pages" :key="`${index}-page`">
+        <section v-for="(page, index) in pages" :key="`${index}-page`">
+          <h2 :id="formatAnchor(page.title)" class="tide-pub-print__page-title">{{ page.title }}</h2>
           <template v-if="page.components">
             <template  v-for="component in page.components">
               <div v-if="component" :key="component.id" :data-tid="component.id">
@@ -32,10 +33,11 @@
               </div>
             </template>
           </template>
-          <rpl-divider :key="`${index}-page-divider`" class="app-pub-print__page-divider" />
+          <rpl-divider :key="`${index}-page-divider`" class="tide-pub-print__page-divider" />
         </section>
       </rpl-col>
     </rpl-row>
+    <rpl-updated-date v-bind="updatedDate.data"></rpl-updated-date>
   </rpl-page-layout>
 
 </template>
@@ -48,6 +50,7 @@ import { RplDivider } from '@dpc-sdp/ripple-global'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import { RplPublicationAuthorInformation, RplPublicationDownloadPrint } from '@dpc-sdp/ripple-publication'
+import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 import kebabCase from 'lodash.kebabcase'
 
 export default {
@@ -61,7 +64,8 @@ export default {
     RplAnchorLinks,
     RplDivider,
     RplRow,
-    RplCol
+    RplCol,
+    RplUpdatedDate
   },
   props: {
     sidebar: Boolean
@@ -92,6 +96,13 @@ export default {
         const date = this.publication.field_publication_date
         const copyright = this.publication.field_license_type ? this.publication.field_license_type.description : ''
         return (author || date || copyright) ? { author, date, copyright } : null
+      }
+    },
+    updatedDate () {
+      return {
+        data: {
+          date: this.publication.changed.toString() || this.publication.created.toString()
+        }
       }
     },
     pages () {
@@ -166,12 +177,26 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
-  $app-pub-print-divider-margin: $rpl-space * 12 0;
-  .app-pub-print {
+  $tide-pub-print-divider-margin: $rpl-space * 12 0;
+  .tide-pub-print {
     &__page-divider {
-      margin: $app-pub-print-divider-margin;
+      margin: $tide-pub-print-divider-margin;
       @media print {
         page-break-after: always;
+      }
+    }
+
+    .tide-wysiwyg {
+      h2 {
+        @include rpl_typography(heading_m)
+      }
+
+      h3 {
+        @include rpl_typography(heading_s)
+      }
+
+      h4 {
+        @include rpl_typography(heading_xs)
       }
     }
   }

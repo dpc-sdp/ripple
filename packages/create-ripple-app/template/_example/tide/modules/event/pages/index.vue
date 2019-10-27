@@ -1,5 +1,5 @@
 <template>
-  <rpl-row row-gutter class="app-content tide-event-content">
+  <rpl-row row-gutter class="app-content tide-content--event">
     <rpl-col cols="full">
       <rpl-markup v-if="page.field_event_description" :html="page.field_event_description.processed"></rpl-markup>
     </rpl-col>

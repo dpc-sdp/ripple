@@ -107,6 +107,14 @@ export default {
           values: setFilterDate.endOf('day').toISOString()
         }
       }
+      else {
+        const today = moment().endOf('day').toISOString()
+         filterValues['field_event_date_end_value'] = {
+          operator: 'gte',
+          type: 'date',
+          values: today
+        }
+      }
       return filterValues
     },
     mapSearchResults (source) {

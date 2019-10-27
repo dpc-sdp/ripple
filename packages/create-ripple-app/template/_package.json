@@ -20,7 +20,7 @@
     "test:smoke": "cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke",
     <%_ } _%>
     <%_ if (unit === true) { _%>
-    "test:unit": "BASIC_AUTH=0 NODE_ENV=test jest --passWithNoTests",
+    "test:unit": "cross-env BASIC_AUTH=0 NODE_ENV=test jest --passWithNoTests",
     <%_ } _%>
     "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
     "start": "run-script-os",
@@ -68,7 +68,8 @@
     "start-server-and-test": "^1.7.11",
     <%_ } _%>
     <%_ if (unit === true) { _%>
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^3.0.4",
+    "babel-core": "^7.0.0-bridge.0"
     <%_ } _%>
   },
   <%_ if ((e2e === true) || (smoke === true)) { _%>

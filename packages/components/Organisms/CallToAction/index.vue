@@ -41,7 +41,7 @@ export default {
   $rpl-call-to-action-border: 1px solid $rpl-call-to-action-border-color !default;
   $rpl-call-to-action-border-radius: rem(4px) !default;
   $rpl-call-to-action-bg-color: rpl-color('white') !default;
-  $rpl-call-to-action-padding-xs: ($rpl-space * 8) 0 !default;
+  $rpl-call-to-action-padding-xs: ($rpl-space * 8) ($rpl-space * 5) !default;
   $rpl-call-to-action-padding-s: ($rpl-space * 18) $rpl-component-padding-s !default;
   $rpl-call-to-action-padding-l: ($rpl-space * 18) $rpl-component-padding-l !default;
   $rpl-call-to-action-max-width: rem(1418px) !default;
@@ -53,7 +53,6 @@ export default {
   $rpl-call-to-action-title-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-call-to-action-title-margin-xs: $rpl-space-3 0 !default;
   $rpl-call-to-action-title-margin-s: 0 !default;
-  $rpl-call-to-action-title-padding-xs: 0 $rpl-component-padding-xs !default;
   $rpl-call-to-action-summary-ruleset: (
     'xs': ('xs', 1.4em, 'regular'),
     's': ('s', 1.5em, 'regular')
@@ -61,18 +60,13 @@ export default {
   $rpl-call-to-action-summary-text-color: mix(rpl_color('extra_dark_neutral'), rpl_color('white'), 93%) !default;
   $rpl-call-to-action-summary-margin-xs: $rpl-space-3 0 !default;
   $rpl-call-to-action-summary-margin-s: ($rpl-space * 6) 0 !default;
-  $rpl-call-to-action-summary-padding-xs: 0 $rpl-component-padding-xs !default;
 
 .rpl-content {
   .rpl-call-to-action {
     padding: $rpl-call-to-action-padding-xs;
     background-color: $rpl-call-to-action-bg-color;
-    border-bottom: $rpl-call-to-action-border;
-
-    @include rpl_breakpoint('m') {
-      border-radius: $rpl-call-to-action-border-radius;
-      border: $rpl-call-to-action-border;
-    }
+    border-radius: $rpl-call-to-action-border-radius;
+    border: $rpl-call-to-action-border;
 
     @include rpl_print_hidden;
 
@@ -102,10 +96,7 @@ export default {
       box-sizing: border-box;
       color: $rpl-call-to-action-title-text-color;
       margin: $rpl-call-to-action-title-margin-xs;
-      padding: $rpl-call-to-action-title-padding-xs;
-      @include rpl_breakpoint('s') {
-        padding: 0;
-      }
+      padding: 0;
       @include rpl_breakpoint('l') {
         margin: $rpl-call-to-action-title-margin-s;
       }
@@ -116,10 +107,9 @@ export default {
       box-sizing: border-box;
       color: $rpl-call-to-action-summary-text-color;
       margin: $rpl-call-to-action-summary-margin-xs;
-      padding: $rpl-call-to-action-summary-padding-xs;
+      padding: 0;
       @include rpl_breakpoint('s') {
         margin: $rpl-call-to-action-summary-margin-s;
-        padding: 0;
       }
     }
     &--with-sidebar {

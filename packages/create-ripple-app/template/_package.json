@@ -14,13 +14,13 @@
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
     <%_ if (e2e === true) { _%>
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
-    "test:e2e": "cross-env NODE_ENV=test BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run",
+    "test:e2e": "cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run",
     <%_ } _%>
     "test:dev": "cross-env NODE_ENV=dev start-server-and-test dev http://localhost:3000 cy:open",
-    "test:smoke": "cross-env NODE_ENV=test BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke",
+    "test:smoke": "cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke",
     <%_ } _%>
     <%_ if (unit === true) { _%>
-    "test:unit": "BASIC_AUTH=0 NODE_ENV=test jest --passWithNoTests",
+    "test:unit": "cross-env BASIC_AUTH=0 NODE_ENV=test jest --passWithNoTests",
     <%_ } _%>
     "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
     "start": "run-script-os",
@@ -31,7 +31,7 @@
   "dependencies": {
     "@dpc-sdp/ripple-nuxt-tide": "^<%= version %>",
     "dotenv": "^5.0.1",
-    "nuxt": "2.6.3",
+    "nuxt": "2.9.2",
     "run-script-os": "^1.0.7"
   },
   "devDependencies": {
@@ -68,7 +68,8 @@
     "start-server-and-test": "^1.7.11",
     <%_ } _%>
     <%_ if (unit === true) { _%>
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^3.0.4",
+    "babel-core": "^7.0.0-bridge.0"
     <%_ } _%>
   },
   <%_ if ((e2e === true) || (smoke === true)) { _%>

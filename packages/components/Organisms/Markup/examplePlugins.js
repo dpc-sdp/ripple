@@ -1,7 +1,12 @@
-/*
-* These are examples of plugins and how they are implemented.
-* These are meant for example only. Plugins should be passed to RplMArkup component as plugins prop or in rplOptions.markupPlugins
-*/
+// Note: for add obj type prop in template, please use ` instead of ' otherwise it won't work.
+// e.g <component-obj-prop :author="{name: `Veronica`, company: `Veridian Dynamics`}"></component-obj-prop>
+import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
+
+// Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
+const _escapeQuotes = (text) => {
+  text = text || ''
+  return text.replace('"', '&quot;')
+}
 
 const pluginButton = function () {
   // Button
@@ -20,7 +25,7 @@ const pluginButton = function () {
 
 const pluginTables = function () {
   // Wrap tables with a div.
-  const wrapperClass = 'table-container'
+  const wrapperClass = 'rpl-markup__table'
   this.find('table').map((i, el) => {
     const table = this.find(el)
     const markup = `<div class="${wrapperClass}"></div>`
@@ -86,7 +91,7 @@ const pluginEmbeddedDocument = function () {
     }
 
     if (url && fileName && fileSize && fileType) {
-      const documentlink = `<rpl-document-link name="${fileName}" extension="${fileType}" filesize="${fileSize}" url="${url}" caption="${caption}"></rpl-document-link>`
+      const documentlink = `<rpl-document-link name="${_escapeQuotes(fileName)}" extension="${fileType}" filesize="${fileSize}" url="${url}" caption="${_escapeQuotes(caption)}"></rpl-document-link>`
       return el.replaceWith(documentlink)
     }
     return el
@@ -95,18 +100,16 @@ const pluginEmbeddedDocument = function () {
 
 const parseForLinks = function () {
   // Give h2 headings an id so they can be linked to
-  const kebabCase = require('lodash.kebabcase')
-
   this.find('h2').map((i, element) => {
     const el = this.find(element)
     const idName = el.text()
-    return el.attr('id', kebabCase(idName))
+    return el.attr('id', getAnchorLinkName(idName))
   })
 }
 
 const pluginIframe = function () {
   // wrap iFrames
-  const wrapperClasses = ['rpl-markup__iframe-container', 'rpl-markup__iframe-container--16x9']
+  const wrapperClasses = ['rpl-markup__iframe-container']
   this.find('iframe').map((i, el) => {
     const iframe = this.find(el)
     const markup = `<div class="${wrapperClasses.join(' ')}"></div>`
@@ -118,28 +121,24 @@ const pluginEmbeddedMediaVideo = function () {
   // wrap iFrames
   this.find('.embedded-entity--media--embedded-video').map((i, el) => {
     const element = this.find(el)
-    const iframe = this.find('iframe')
+    const iframe = element.find('iframe')
     const height = iframe.attr('height')
     const width = iframe.attr('width')
     const src = iframe.attr('src')
-    const lang = iframe.attr('lang')
     const figcaption = element.find('figcaption')
     const transcript = figcaption ? figcaption.text() : null
-    const link = this.find('.field--name-field-media-link a')
-    const mediaLink = link ? `{ text: '${link.text()}', url: '${link.attr('href')}' }` : null
-    const RplEmbeddedVideo = `
-      <rpl-embedded-video
-        width="${width}"
-        height="${height}"
-        src="${src}"
-        class="rpl-markup__embedded-video"
-        lang="${lang}"
-        variant="link"
-        :display-transcript="true"
-        ${link && ':media-link="' + mediaLink + '"'}
-        ${transcript && 'transcript="' + transcript + '"'}
-      />
-    `
+    const link = element.find('.field--name-field-media-link a')
+    const mediaLink = link && link.is('a') ? `{ text: \`${_escapeQuotes(link.text())}\`, url: \`${link.attr('href')}\` }` : null
+    const RplEmbeddedVideo = `<rpl-embedded-video
+width="${width}"
+height="${height}"
+src="${src}"
+class="rpl-markup__embedded-video"
+variant="${mediaLink ? 'link' : 'full'}"
+:display-transcript="true"
+${mediaLink ? ':media-link="' + mediaLink + '"' : ''}
+${transcript ? 'transcript="' + _escapeQuotes(transcript) + '"' : ''}
+/>`
     return element.replaceWith(RplEmbeddedVideo)
   })
 }
@@ -154,9 +153,9 @@ const pluginLinks = function () {
     let theme = 'primary'
     let a
     if (target) {
-      a = `<rpl-text-link url="${href}" theme="${theme}" target="${target}" text="${text}"></rpl-text-link>`
+      a = `<rpl-text-link url="${href}" theme="${theme}" target="${target}" text="${_escapeQuotes(text)}"></rpl-text-link>`
     } else {
-      a = `<rpl-text-link url="${href}" theme="${theme}" text="${text}"></rpl-text-link>`
+      a = `<rpl-text-link url="${href}" theme="${theme}" text="${_escapeQuotes(text)}"></rpl-text-link>`
     }
 
     return $a.replaceWith(a)

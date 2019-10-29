@@ -24,14 +24,16 @@
         <section v-for="(page, index) in pages" :key="`${index}-page`">
           <h2 :id="formatAnchor(page.title)" class="tide-pub-print__page-title">{{ page.title }}</h2>
           <template v-if="page.components">
-            <template  v-for="component in page.components">
-              <div v-if="component" :key="component.id" :data-tid="component.id">
-                <no-ssr v-if="component.ssr === false">
-                  <component :is="component.component" v-bind="component.data" :class="component.class"></component>
-                </no-ssr>
-                <component v-else :is="component.component" v-bind="component.data" :class="component.class"></component>
-              </div>
-            </template>
+            <rpl-row row-gutter>
+              <template v-for="component in page.components">
+                <rpl-col v-if="component" cols="full" :colsBp="component.cols" :key="component.id" :data-tid="component.id">
+                  <no-ssr v-if="component.ssr === false">
+                    <component :is="component.component" v-bind="component.data" :class="component.class"></component>
+                  </no-ssr>
+                  <component v-else :is="component.component" v-bind="component.data" :class="component.class"></component>
+                </rpl-col>
+              </template>
+            </rpl-row>
           </template>
           <rpl-divider :key="`${index}-page-divider`" class="tide-pub-print__page-divider" />
         </section>
@@ -116,9 +118,9 @@ export default {
       })
     }
   },
-  async asyncData (context) {
-    const publication = await context.app.$tide.getPageByPath('/' + context.route.params.publicationname)
-    const hierarchyJson = await context.app.$tide.get('node/publication', {}, `${publication.id}/hierarchy`)
+  async asyncData ({ app, route }) {
+    const publication = await app.$tide.getPageByPath('/' + route.params.publicationname)
+    const hierarchyJson = await app.$tide.get('node/publication', {}, `${publication.id}/hierarchy`)
     const ids = []
     const addId = (o, arr) => {
       if (o.id) {
@@ -148,7 +150,7 @@ export default {
     const includeConfig = require('./../tide.config')
     const includes = includeConfig.include.publicationPage
 
-    const publicationPagesData = await context.app.$tide.getContentList('publication_page', filters, includes)
+    const publicationPagesData = await app.$tide.getContentList('publication_page', filters, includes)
     const sortedPages = ids.map(id => {
       return publicationPagesData.find(page => page.id === id)
     }).filter(s => s)
@@ -157,7 +159,19 @@ export default {
     async function addComponents () {
       for (let i = 0; i < sortedPages.length; i++) {
         const page = sortedPages[i]
-        const componentMapping = await context.app.$tideMapping.get(page.field_landing_page_component, 'landingPageComponents')
+        const componentMapping = await app.$tideMapping.get(page.field_landing_page_component, 'landingPageComponents')
+
+        // Add child page's contact us into section
+        if (page.field_landing_page_show_contact && page.field_landing_page_contact) {
+          const contact = await app.$tideMapping.get(page.field_landing_page_contact)
+          if (contact) {
+            componentMapping.push({
+              name: 'rpl-contact',
+              data: contact.data
+            })
+          }
+        }
+
         publicationPages.push({
           title: page.title,
           componentMapping
@@ -186,7 +200,9 @@ export default {
       }
     }
 
-    .tide-wysiwyg {
+    // Downsize the heading of child page one level as they are nested inside one page.
+    .tide-wysiwyg,
+    .rpl-accordion {
       h2 {
         @include rpl_typography(heading_m)
       }

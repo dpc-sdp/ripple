@@ -107,8 +107,7 @@ export default {
           type: 'date',
           values: setFilterDate.endOf('day').toISOString()
         }
-      }
-      else {
+      } else {
         const vic = moment.tz.setDefault('Australia/Melbourne')
         const today = vic().startOf('day').toISOString()
         filterValues['field_event_date_end_value'] = {

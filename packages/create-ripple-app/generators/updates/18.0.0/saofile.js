@@ -25,7 +25,7 @@ module.exports = {
             data.scripts['test:unit'] = 'cross-env BASIC_AUTH=0 NODE_ENV=test jest --passWithNoTests'
           }
           if (results.e2e === true) {
-            data.scripts['cy:run'] = `cypress run -e TAGS='not @skip or @smoke`
+            data.scripts['cy:run'] = `cypress run -e TAGS='not @skip or @smoke'`
             data.scripts['test:e2e'] = 'cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run'
             data.scripts['test:smoke'] = 'cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke'
           }

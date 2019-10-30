@@ -53,8 +53,8 @@ export default function ({ app, store }) {
                   title: get(alert, 'title', ''),
                   type: get(alert, 'field_alert_type.name', ''),
                   link: {
-                    text: link.title,
-                    url: link.url || link.uri
+                    text: get(link, 'title', ''),
+                    url: get(link, 'url', '') || get(link, 'uri', '')
                   },
                   sites
                 }

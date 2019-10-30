@@ -49,7 +49,10 @@ export const tide = (axios, site, config) => ({
     const axiosConfig = {
       auth: config.auth,
       timeout: axiosTimeout,
-      headers: {}
+      headers: {
+        'Content-Type': 'application/vnd.api+json; charset=UTF-8',
+        'Accept': 'application/vnd.api+json'
+      }
     }
 
     if (this.isModuleEnabled('authenticatedContent')) {

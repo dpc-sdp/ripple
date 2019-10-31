@@ -2,6 +2,11 @@ Feature: Search (Site search)
 
   As a citizen I want to be able to search the site for information I want by keyword
 
+  Scenario: Test search page loads
+    Given I am using a "macbook-15" device
+    When I visit the page "/search"
+    Then the current page should not be an error page
+
   Scenario: Global site search from header desktop
     Given I have mocked the search request with fixture "search/sitesearch" and params "from=0&size=10&filter_path=hits.hits,hits.total,aggregations&_source=changed,created,field_landing_page_summary,field_node_primary_site,field_page_intro_text,field_tags_name,field_topic_name,summary_processed,title,type,url"
     Given I have mocked the search request with fixture "search/sitesearch-filters" and params "size=0"

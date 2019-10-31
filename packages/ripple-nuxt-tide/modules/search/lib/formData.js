@@ -1,8 +1,10 @@
 export default {
   getFormData: async (setFilterOptions) => {
+    console.log('getting filter values')
     const searchTopicValues = await setFilterOptions({
       fieldName: 'field_topic_name'
     })
+    console.log('FILTER  VALUES', searchTopicValues)
     return {
       title: 'Search results',
       searchPlaceholder: 'Start typing...',

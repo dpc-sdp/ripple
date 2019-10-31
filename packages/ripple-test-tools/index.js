@@ -26,6 +26,10 @@ module.exports = (on, config) => {
     },
     deleteNode (nodeId) {
       return new TideAdmin().deleteNode(nodeId)
+    },
+    log (message) {
+      console.log(message)
+      return null
     }
   })
 

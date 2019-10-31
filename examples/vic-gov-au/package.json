@@ -10,7 +10,7 @@
     "build:win32": "IF \"%NUXT_HOT_RELOADING%\" NEQ \"1\" ( nuxt build )",
     "cy:open": "cypress open",
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
-    "cy:run-record": "cypress run -e TAGS='not @skip or @smoke' --spec 'test/e2e/integration/core-modules/search/*'",
+    "cy:run-record": "SEARCH_LOG=trace cypress run -e TAGS='not @skip or @smoke' --spec 'test/e2e/integration/core-modules/search/*'",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
     "test:dev": "cross-env NODE_ENV=test start-server-and-test dev http://localhost:3000 cy:open",
     "test:smoke": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-smoke",

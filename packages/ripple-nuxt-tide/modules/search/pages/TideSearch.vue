@@ -49,6 +49,7 @@ export default {
     RplRow,
     RplCol
   },
+  layout: 'minimal',
   mixins: [searchMixin],
   async asyncData ({ app, route }) {
     const searchForm = await formData.getFormData(app.$tideSearch.setFilterOptions, 'search')

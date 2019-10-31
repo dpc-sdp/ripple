@@ -12,6 +12,16 @@ Given(`I visit the page {string}`, url => {
   })
 })
 
+Given(`I attempt to visit the page {string}`, url => {
+  cy.visit(url, {
+    auth: {
+      username: Cypress.env('CONTENT_API_AUTH_USER'),
+      password: Cypress.env('CONTENT_API_AUTH_PASS')
+    },
+    failOnStatusCode: false
+  })
+})
+
 Then(`I should be redirected to the page {string}`, path => {
   cy.wait(3000)
   cy.url().should('eq', `${Cypress.config().baseUrl}${path}`)

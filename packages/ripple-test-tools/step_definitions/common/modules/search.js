@@ -3,6 +3,10 @@
 
 const { Then, Given, When } = require('cypress-cucumber-preprocessor/steps')
 
+Cypress.on('window:before:load', (win) => {
+  cy.spy(win.console, 'log')
+})
+
 Then(`the search button in the site header should exist`, () => {
   cy.get('.rpl-site-header__btn--search').should('exist')
 })

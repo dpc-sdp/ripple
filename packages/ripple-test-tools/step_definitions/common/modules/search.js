@@ -68,7 +68,6 @@ Then(`the site search box should have the placeholder {string}`, (placeholder) =
 
 Given(`I have mocked the search request with fixture {string} and params {string}`, (fixture, params) => {
   const searchURL = Cypress.env('SEARCH_ENDPOINT')
-  cy.task('log', `SEARCHURL - ${searchURL}?${params}`)
   cy.server()
   cy.route('POST', `${searchURL}?${params}`, `fixture:${fixture}`).as('siteSearch')
 })

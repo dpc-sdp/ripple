@@ -123,6 +123,8 @@ jobs:
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/videos
       - store_artifacts:
+          path: examples/vic-gov-au/cypress
+      - store_artifacts:
           path: examples/vic-gov-au/test/e2e/screenshots
 
   e2e-example:

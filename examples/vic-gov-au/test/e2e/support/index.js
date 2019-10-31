@@ -14,4 +14,5 @@
 // ***********************************************************
 
 import 'cypress-axe'
+import 'cypress-failed-log'
 import './commands'

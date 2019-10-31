@@ -2,7 +2,7 @@ Feature: Search (Site search)
 
   As a citizen I want to be able to search the site for information I want by keyword
 
-  Scenario: Test search page loads
+  Scenario: Test search page loads SSR
     Given I am using a "macbook-15" device
     When I visit the page "/search"
     Then the current page should not be an error page

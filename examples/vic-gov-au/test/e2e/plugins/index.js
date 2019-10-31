@@ -6,9 +6,6 @@ require('dotenv').config()
 
 module.exports = (on, config) => {
   on('file:preprocessor', cucumber())
-  on('task', {
-    failed: require('cypress-failed-log/src/failed')()
-  })
 
   tideAdmin(on, config)
 

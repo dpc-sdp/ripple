@@ -3,10 +3,6 @@
 
 const { Then, Given, When } = require('cypress-cucumber-preprocessor/steps')
 
-Cypress.on('window:before:load', (win) => {
-  cy.spy(win.console, 'log')
-})
-
 Then(`the search button in the site header should exist`, () => {
   cy.get('.rpl-site-header__btn--search').should('exist')
 })
@@ -71,9 +67,8 @@ Then(`the site search box should have the placeholder {string}`, (placeholder) =
 })
 
 Given(`I have mocked the search request with fixture {string} and params {string}`, (fixture, params) => {
-  const searchURL = Cypress.env('SEARCH_ENDPOINT')
   cy.server()
-  cy.route('POST', `${searchURL}?${params}`, `fixture:${fixture}`).as('siteSearch')
+  cy.route('POST', `${Cypress.env('SEARCH_ENDPOINT')}?${params}`, `fixture:${fixture}`).as('siteSearch')
 })
 
 Then(`the pagination component should exist`, () => {

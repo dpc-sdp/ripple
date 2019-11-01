@@ -20,7 +20,7 @@ storiesOf('Atoms/MetaTag', module)
         default: text('href', '#')
       },
       theme: {
-        default: select('Theme', { light: 'light', dark: 'dark' }, 'light')
+        default: select('Theme', { light: 'light', dark: 'dark', solid: 'solid' }, 'light')
       }
     }
   }))

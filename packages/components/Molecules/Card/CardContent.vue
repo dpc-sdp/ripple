@@ -38,7 +38,10 @@ import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 export default {
   name: 'RplCardContent',
   props: {
-    link: Object,
+    link: {
+      type: Object,
+      required: true
+    },
     image: String,
     border: { type: Boolean, default: true },
     center: { type: Boolean, default: false },
@@ -51,6 +54,13 @@ export default {
   computed: {
     iconSymbol () {
       return isExternalUrl(this.link.url, this.rplOptions.hostname) ? 'external_link' : 'arrow_right_primary'
+    }
+  },
+  created () {
+    // We will throw a error to let parent component(card or card container) to handle.
+    // The reason we are not handle it here is we want the card container to handle it in UI, so user can see it.
+    if (!this.link || typeof this.link.url === 'undefined') {
+      throw new Error('Invalid link is provided to card component.')
     }
   },
   mounted () {

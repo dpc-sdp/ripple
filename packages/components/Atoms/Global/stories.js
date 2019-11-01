@@ -6,7 +6,6 @@ import SColors from './../../../../src/storybook-components/Colors.vue'
 import SFonts from './../../../../src/storybook-components/Fonts.vue'
 import STypography from './../../../../src/storybook-components/Typography.vue'
 import SBreakpoints from './../../../../src/storybook-components/Breakpoints.vue'
-// import RplDivider from './components/Divider.vue'
 
 storiesOf('Atoms/Global', module).add('Colors', () => ({
   components: { SColors },
@@ -112,15 +111,3 @@ storiesOf('Atoms/Global', module)
       }
     }
   }))
-
-// TODO: For some reason this throws an error when enabled, need to investigate why
-// storiesOf('Atoms/Global', module)
-//   .addParameters({
-//     readme: {
-//       sidebar: readme
-//     }
-//   })
-// .add('Divider', ({
-//   components: { RplDivider },
-//   template: '<rpl-divider />'
-// }))

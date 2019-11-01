@@ -246,7 +246,7 @@ const customMethods = {
     const themeSource = new ol.source.Vector({
       format: new ol.format.GeoJSON(),
       url: extent =>
-        `https://myvic-app-dev-gis.beta.vic.gov.au/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=myvic:family_violence&outputFormat=application/json&srsname=EPSG:3857&bbox=${extent.join()},EPSG:3857`,
+        `https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=myvic:family_violence&outputFormat=application/json&srsname=EPSG:3857&bbox=${extent.join()},EPSG:3857`,
       strategy: ol.loadingstrategy.bbox
     })
 

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-test-tools",
-  "version": "1.2.1",
+  "version": "1.4.0",
   "description": "Cypress.io helper library for testing a ripple nuxt site and tide backend",
   "license": "Apache-2.0",
   "contributors": [
@@ -8,10 +8,15 @@
       "name": "Dylan Kelly <dylan.kelly@dpc.vic.gov.au>"
     }
   ],
+  "bin": {
+    "process-cucumber-report": "./scripts/cucumberconvertor.js"
+  },
   "main": "index.js",
   "dependencies": {
     "csvtojson": "^2.0.8",
+    "cucumber-junit-convert": "^1.1.0",
     "faker": "^4.1.0",
+    "glob-fs": "^0.1.7",
     "puppeteer": "^1.20.0"
   },
   "publishConfig": {

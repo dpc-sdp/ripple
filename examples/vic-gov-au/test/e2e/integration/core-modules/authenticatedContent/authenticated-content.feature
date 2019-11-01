@@ -38,7 +38,7 @@ Feature: Protected content
     Given the "/1-fe-auth-content-4" page exists with fixture "landingPage/1-FE-auth-content-4" data
     When I visit the page "/1-fe-auth-content-4"
     Then I should see a 404 page
-
+  @skip
   Scenario: Accessing a protected content page when authenticated
     Given the "/1-fe-auth-content-4" page exists with fixture "landingPage/1-FE-auth-content-4" data
     And there is a user in the system with the following credentials:

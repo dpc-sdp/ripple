@@ -21,13 +21,15 @@ module.exports = {
       },
       {
         type: 'add',
-        files: '_package.json',
+        files: ['_package.json', '_.env', 'gitignore'],
         transform: true
       },
       {
         type: 'move',
         patterns: {
-          '_package.json': 'package.json'
+          gitignore: '.gitignore',
+          '_package.json': 'package.json',
+          '_.env': '.env'
         }
       }
     ]
@@ -53,12 +55,14 @@ module.exports = {
       })
     }
 
-    if (results.e2e || results.smoke) {
-      actions.push({
-        type: 'add',
-        files: ['**'],
-        templateDir: '/_tests/_common'
-      })
+    if (results.smoke || results.e2e) {
+      actions.push(
+        {
+          type: 'add',
+          files: ['**'],
+          templateDir: `${templateDir}/_tests/_common`
+        }
+      )
     }
 
     if (results.smoke) {
@@ -71,7 +75,7 @@ module.exports = {
     if (results.e2e) {
       // only add tests for enabled modules
       results.modules.forEach(tideModule => {
-        const hasTests = fs.existsSync(path.resolve(__dirname, `./template/_tests/_modules/test/e2e/integration/core-modules/${tideModule}`))
+        const hasTests = fs.existsSync(path.resolve(__dirname, `${templateDir}/_tests/_modules/test/e2e/integration/core-modules/${tideModule}`))
         if (hasTests) {
           actions.push(
             {

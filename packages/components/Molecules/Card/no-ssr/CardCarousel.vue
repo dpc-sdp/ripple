@@ -1,5 +1,6 @@
 <template>
-  <div class="rpl-card-carousel">
+  <div class="rpl-card-carousel" :class="childErrorClass">
+    <rpl-dev-error v-if="gotChildError" :errors="childErrors" />
     <h2 v-if="title" class="rpl-card-carousel__title">{{ title }}</h2>
     <div class="rpl-card-carousel__slider">
       <carousel
@@ -31,6 +32,8 @@ import Vue from 'vue'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import { Carousel, Slide } from 'vue-carousel'
+import catchChildError from '@dpc-sdp/ripple-global/mixins/catch-child-error'
+import { RplDevError } from '@dpc-sdp/ripple-global'
 
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCardPromotion from './../CardPromotion.vue'
@@ -40,14 +43,18 @@ import RplCardKeydates from './../CardKeydates.vue'
 
 export default {
   name: 'RplCardCarousel',
-  mixins: [breakpoint, provideChildCols],
+  mixins: [breakpoint, provideChildCols, catchChildError],
   props: {
     title: String,
     cards: Array,
     previousLabel: { type: String, default: 'Go to previous slide' },
     nextLabel: { type: String, default: 'Go to next slide' },
     childColsBp: { type: Object, default: () => ({ l: 4, m: 6 }) },
-    totalGridColumns: { type: Number, default: 12 }
+    totalGridColumns: { type: Number, default: 12 },
+    catchChildError: {
+      type: Boolean,
+      default: true
+    }
   },
   components: {
     RplIcon,
@@ -55,7 +62,8 @@ export default {
     Slide,
     RplCardPromotion,
     RplCardEvent,
-    RplCardKeydates
+    RplCardKeydates,
+    RplDevError
   },
   data () {
     return {
@@ -228,6 +236,14 @@ export default {
           right: 0;
           transform: translateY(-50%) translateX(100%);
         }
+      }
+    }
+  }
+
+  .ripple-dev-mode {
+    .rpl-card-carousel {
+      &.rpl-child-component-error {
+        background-color: $rpl-child-component-error-bg-color;
       }
     }
   }

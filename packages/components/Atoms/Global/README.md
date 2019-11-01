@@ -16,6 +16,7 @@ This is a globally available options object to allow passing options between rip
 
 ```js
   nuxt: false, // enable if using in SSR environment eg: nuxt
+  isDev: false, // set to true to enable dev mode, used to show Ripple component errors if have.
   hostname: 'localhost', // set hostname for rpl-link etc
   origin: '', // URL with protocol://host(:port) e.g. http://localhost:3000
   quickexit: false, // enable quick exit feature

@@ -14,9 +14,14 @@ $rpl-colors: (
   'black': #000
 ) !default;
 
-$rpl-success-bg-color: rgba(rpl-color('success'), .07);
-$rpl-warning-bg-color: rgba(rpl-color('warning'), .07);
-$rpl-danger-bg-color: rgba(rpl-color('danger'), .07);
+$rpl-success-bg-color: rgba(rpl-color('success'), .07) !default;
+$rpl-warning-bg-color: rgba(rpl-color('warning'), .07) !default;
+$rpl-danger-bg-color: rgba(rpl-color('danger'), .07) !default;
+$rpl-success-color: rpl-color('success') !default;
+$rpl-warning-color: rpl-color('warning') !default;
+$rpl-danger-color: rpl-color('danger') !default;
+
+$rpl-child-component-error-bg-color: $rpl-warning-bg-color !default;
 
 $rpl-gradients: (
   'primary_gradient': linear-gradient(90deg, rpl-color('primary') 0%, rpl-color('secondary') 100%),

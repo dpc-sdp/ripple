@@ -4143,6 +4143,640 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
           <!---->
         </div>
         <div
+          class="form-group valid field-rploptionbutton"
+        >
+          <label
+            for="option-button-default"
+          >
+            <span>
+              Option button default
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-option-button"
+            >
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-3"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="A"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  A
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-4"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="B"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  B
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-5"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="C"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  C
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-6"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="D"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  D
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-7"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="E"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  E
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-8"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="F"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  F
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-9"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="G"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  G
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-10"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="H"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  H
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-11"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="I"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  I
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-12"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="J"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  J
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-13"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="K"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  K
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-14"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="L"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  L
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-15"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="M"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  M
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-16"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="N"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  N
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-17"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="O"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  O
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-18"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="P"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  P
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-19"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="Q"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Q
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-20"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="R"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  R
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-21"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="S"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  S
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-22"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="T"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  T
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-23"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="U"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  U
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-24"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="V"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  V
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-25"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="W"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  W
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-26"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="X"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  X
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-27"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="Y"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Y
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-default-28"
+                  name="optionButtonDefault"
+                  type="radio"
+                  value="Z"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Z
+                </span>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-rploptionbutton"
+        >
+          <label
+            for="option-button-custom"
+          >
+            <span>
+              Option button custom
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="rpl-option-button"
+            >
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-custom-29"
+                  name="optionButtonCustom"
+                  type="radio"
+                  value="Option one"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Option one
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-custom-30"
+                  name="optionButtonCustom"
+                  type="radio"
+                  value="Option two"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Option two
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-custom-31"
+                  name="optionButtonCustom"
+                  type="radio"
+                  value="Option three"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Option three
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-custom-32"
+                  name="optionButtonCustom"
+                  type="radio"
+                  value="Option four"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Option four
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-custom-33"
+                  name="optionButtonCustom"
+                  type="radio"
+                  value="Option five"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Option five
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-custom-34"
+                  name="optionButtonCustom"
+                  type="radio"
+                  value="Option six"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Option six
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-custom-35"
+                  name="optionButtonCustom"
+                  type="radio"
+                  value="Option seven"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Option seven
+                </span>
+              </label>
+              <label
+                class="rpl-option-button__label"
+              >
+                <input
+                  class="rpl-option-button__radio"
+                  id="option-button-custom-36"
+                  name="optionButtonCustom"
+                  type="radio"
+                  value="Option eight"
+                />
+                 
+                <span
+                  class="rpl-option-button__text"
+                >
+                  Option eight
+                </span>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
           class="form-group valid required field-textArea"
         >
           <label
@@ -4574,7 +5208,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               class="rpl-checkbox"
             >
               <input
-                id="checkbox-3"
+                id="checkbox-37"
                 type="checkbox"
               />
                
@@ -4630,7 +5264,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       class="rpl-checkbox"
                     >
                       <input
-                        id="multi-select-list-box-4"
+                        id="multi-select-list-box-38"
                         name="topic_a"
                         type="checkbox"
                       />
@@ -4655,7 +5289,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       class="rpl-checkbox"
                     >
                       <input
-                        id="multi-select-list-box-5"
+                        id="multi-select-list-box-39"
                         name="topic_b"
                         type="checkbox"
                       />
@@ -4680,7 +5314,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       class="rpl-checkbox"
                     >
                       <input
-                        id="multi-select-list-box-6"
+                        id="multi-select-list-box-40"
                         name="topic_c"
                         type="checkbox"
                       />
@@ -4705,7 +5339,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       class="rpl-checkbox"
                     >
                       <input
-                        id="multi-select-list-box-7"
+                        id="multi-select-list-box-41"
                         name="topic_d"
                         type="checkbox"
                       />
@@ -5247,7 +5881,7 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
               class="is-checked"
             >
               <input
-                id="alert-type-12"
+                id="alert-type-46"
                 name="submissionType"
                 type="radio"
                 value="Success"
@@ -5258,7 +5892,7 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
               class=""
             >
               <input
-                id="alert-type-13"
+                id="alert-type-47"
                 name="submissionType"
                 type="radio"
                 value="Error"
@@ -5269,7 +5903,7 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
               class=""
             >
               <input
-                id="alert-type-14"
+                id="alert-type-48"
                 name="submissionType"
                 type="radio"
                 value="Other"

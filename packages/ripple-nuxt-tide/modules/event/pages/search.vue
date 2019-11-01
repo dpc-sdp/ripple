@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import moment from 'moment'
-
 import { RplDivider } from '@dpc-sdp/ripple-global'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
@@ -41,6 +39,9 @@ import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { breadcrumbs as getBreadcrumbs } from '@dpc-sdp/ripple-nuxt-tide/lib/core/breadcrumbs'
 import formData from './../formdata.js'
 import { searchMixin } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
+
+// Setting Australia/Melbourne timezone
+import moment from 'moment-timezone'
 
 export default {
   name: 'EventSearch',
@@ -105,6 +106,14 @@ export default {
           operator: 'lte',
           type: 'date',
           values: setFilterDate.endOf('day').toISOString()
+        }
+      } else {
+        const vic = moment.tz.setDefault('Australia/Melbourne')
+        const today = vic().startOf('day').toISOString()
+        filterValues['field_event_date_end_value'] = {
+          operator: 'gte',
+          type: 'date',
+          values: today
         }
       }
       return filterValues

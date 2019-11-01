@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-embedded-video">
     <div class="rpl-embedded-video-iframe-container">
-      <iframe class="rpl-embedded-video-frame" :width="width" :height="height" :src="src" :lang="lang" allowfullscreen></iframe>
+      <iframe class="rpl-embedded-video-frame" :width="width" :height="height" :src="src" allowfullscreen></iframe>
     </div>
     <div v-if="variant === 'link'" class="rpl-embed-video__link" >
       <rpl-icon symbol="view" color="primary" />
@@ -21,7 +21,6 @@ export default {
     width: String,
     height: String,
     src: String,
-    lang: String,
     variant: String,
     url: String,
     transcript: String,

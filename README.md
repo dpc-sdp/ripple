@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/dpc-sdp/ripple">
-    <img src="docs/sdp-ripple.jpg" alt="Logo" height="150">
+    <img src="docs/sdp-ripple.png" alt="Logo" height="150">
   </a>
 </p>
 <p align="center">

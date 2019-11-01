@@ -1,17 +1,28 @@
 <template>
-  <div :class="colClass">
+  <div :class="[colClass, childErrorClass]" >
     <slot></slot>
+    <rpl-dev-error v-if="gotChildError" :errors="childErrors" />
   </div>
 </template>
 
 <script>
+import catchChildError from '@dpc-sdp/ripple-global/mixins/catch-child-error'
+import { RplDevError } from '@dpc-sdp/ripple-global'
+
 export default {
   props: {
-    'cols': String,
+    'cols': {
+      type: String,
+      default: 'full'
+    },
     'colsBp': Object,
     'pull': Object,
     'push': Object
   },
+  components: {
+    RplDevError
+  },
+  mixins: [catchChildError],
   computed: {
     colClass: function () {
       let colClass = 'rpl-col'
@@ -30,3 +41,21 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  // Make the col invisibale if the child component throw a error.
+  .rpl-col {
+    &.rpl-child-component-error {
+      display: none;
+    }
+  }
+
+  // Show col has error child in Ripple dev mode
+  .ripple-dev-mode {
+    .rpl-col {
+      &.rpl-child-component-error {
+        display: block;
+      }
+    }
+  }
+</style>

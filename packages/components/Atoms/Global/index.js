@@ -1,10 +1,12 @@
 import RplDivider from './components/Divider.vue'
+import RplDevError from './components/DevError.vue'
 
 const RplGlobal = {
   // Provide plugin for Vue to inject options.
   install (Vue, options) {
     const rplOptions = {
       nuxt: false,
+      isDev: false, // Set to true to display error when error captured.
       hostname: 'localhost',
       origin: '', // URL with protocol://host(:port) e.g. http://localhost:3000
       quickexit: false,
@@ -27,4 +29,4 @@ const RplGlobal = {
 
 export default RplGlobal
 
-export { RplDivider }
+export { RplDivider, RplDevError }

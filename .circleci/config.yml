@@ -228,7 +228,6 @@ workflows:
             branches:
               only:
                 - release/*
-                - feature/update-e2e
       - e2e-example:
           requires:
             - build

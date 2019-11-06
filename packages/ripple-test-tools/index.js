@@ -27,6 +27,12 @@ module.exports = (on, config) => {
     deleteNode (nodeId) {
       return new TideAdmin().deleteNode(nodeId)
     },
+    createUserRole (role) {
+      return new TideAdmin().createUserRole(role)
+    },
+    configureAuthContent (options) {
+      return new TideAdmin().configureAuthContent(options)
+    },
     log (message) {
       console.log(message)
       return null

@@ -1,5 +1,5 @@
 <template>
-  <rpl-base-layout>
+  <rpl-base-layout :class="{ 'tide-preview-mode': preview }">
     <template slot="header">
       <rpl-alert-base class="app-preview" v-if="preview">Draft only and not yet published</rpl-alert-base>
       <client-only>
@@ -179,4 +179,18 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "~@dpc-sdp/ripple-nuxt-tide/lib/components/scss/wysiwyg/_embedded-entity-video.scss";
 @import "~@dpc-sdp/ripple-nuxt-tide/lib/components/scss/wysiwyg/_embedded-entity.scss";
+
+// In preview mode, make the error components visible.
+.tide-preview-mode {
+  .rpl-child-component-error {
+    display: block;
+    background-color: $rpl-child-component-error-bg-color;
+
+    &:before {
+      content: "[Ripple Warn] Something wrong to render this component. This message won't show on production.";
+      color: $rpl-danger-color;
+      padding: $rpl-space-4;
+    }
+  }
+}
 </style>

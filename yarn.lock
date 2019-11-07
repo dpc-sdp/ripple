@@ -952,6 +952,393 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+"@dpc-sdp/ripple-accordion@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-accordion/-/ripple-accordion-1.2.1.tgz#f8865d1463a7750c275771e50fbcafdd73929a4d"
+  integrity sha512-o44O5lggFG+asAVx2GE/0tlMT4zV9aAOfTDrPxxbibkvmRqu7oNIza8gul0zq37W8gqAnIVZLbOToJ/suceXgw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-markup" "1.2.1"
+
+"@dpc-sdp/ripple-alert@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-alert/-/ripple-alert-1.2.1.tgz#6f0635ada4503c16136f5e140e2255ce03b03323"
+  integrity sha512-MfO9SekzUxuhkjwQLrJ8DMofAVe0OT7Cqf/FlLaABHxWFuJ2YGF0K29pmLKUzAhGnp37oBuTh1uJ25mMS/lNUg==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-anchor-links@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-anchor-links/-/ripple-anchor-links-1.2.1.tgz#0c785db1f764c62d721a34e585dd58934a9b3ec6"
+  integrity sha512-JHZ+fxbblPECg9BT7yaYfCKBgKAQEOLE6rVIjN+obg9QIo799NQPFF4F7so76s1EWM/M7AI55aE6mqNa7Ociww==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-breadcrumbs@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-breadcrumbs/-/ripple-breadcrumbs-1.2.1.tgz#4dd602ef811d8becff9cb15f25324142cce9657c"
+  integrity sha512-Fuhkd1KiIs+wcKd8QfrfEkA4WHFvwnuHll/eBLh0T7ljZTVXa4BnNu1+Pako//cTlkjNrVm76dgUrM0u/DH2jA==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-button@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-button/-/ripple-button-1.2.1.tgz#1eea4c908934719dfb7f9c8aa74d6e9c215ebf9f"
+  integrity sha512-mQXxOtMqa/bOEYppANgF5LJAs50AyrJxHm+UX1YbY8OEvNlrCAlG7LwwCU62nrxGboOhU8psD7HpauW1k+yoAw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-call-to-action@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-call-to-action/-/ripple-call-to-action-1.2.1.tgz#9401650acc936c57bcdf782a69ada94515cad020"
+  integrity sha512-CPoFrm7i4Gim3j9n6UilMynhYZchoXb2D7YA7fEyUREL9FToSuy+5L41izHj1tBpJ4VUSGCRZkYIllwyiKMWZQ==
+  dependencies:
+    "@dpc-sdp/ripple-button" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-campaign-primary@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-campaign-primary/-/ripple-campaign-primary-1.2.1.tgz#e33d28943da966a7e2c90effae1e1e8ee3d7b802"
+  integrity sha512-4a9Y07IrwVC8Ync0dSHUVG2f8IU4mVeMa9JBobURmxtmTZqCw94BPfWwQO1VRAX66SqfVwWpvHWuwTE2EzYgIg==
+  dependencies:
+    "@dpc-sdp/ripple-button" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-campaign-secondary@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-campaign-secondary/-/ripple-campaign-secondary-1.2.1.tgz#7bf68e5d1e131b848aa7a94ea32023d31049eaf1"
+  integrity sha512-lKadPT+6/Le5kjup6fFYthMzg8DaOSKMUZd4As4O0u7PSHpIK6EE7hqubAo9Jn95F2L6UNaN3QjnwNfEGoaI+Q==
+  dependencies:
+    "@dpc-sdp/ripple-button" "1.2.1"
+    "@dpc-sdp/ripple-embedded-video" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-card@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-card/-/ripple-card-1.2.1.tgz#65a82af53ace52b1b80092208a534121ae82d451"
+  integrity sha512-kXVErIrav/XhjTR75axMb8UkfIR20T8vLFT1pOHCgY1Js21CBwNwzL4qweWIFUL2iJxsiHfrW5mHjjGBBx8w2A==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+    fontfaceobserver "^2.0.13"
+    vue-carousel "^0.18.0"
+
+"@dpc-sdp/ripple-contact@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-contact/-/ripple-contact-1.2.1.tgz#7169c004b990d4e22f6264b18943b2f4f491f17e"
+  integrity sha512-+U8BWhD7FTGD3eQa5Ae3DrmOc6XzJsRt/pipf6HxYFe8N4+HpSnQGSV/wgQbiYGZvfcWasZgL6CXP2ytnHnG2A==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-list" "1.2.1"
+
+"@dpc-sdp/ripple-description-list@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-description-list/-/ripple-description-list-1.2.1.tgz#dbf80b2a2fe631a21e4ec1f5c4f9a1b0c99af53a"
+  integrity sha512-3ujQOuaLywdSuyp70yKizx/lzPKtHY6LjbmIJDgHs1dZei9hHz+qrZhUfKsag03drM5DjApmteS/QP8ECI5ADw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-document-link@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-document-link/-/ripple-document-link-1.2.1.tgz#a95ae9be88df7d5a3f5053d45a003a9542947067"
+  integrity sha512-Ohk6e3JxZYILCyLpTRx+2gSb+G9XAj4fwDajTXb86xSe8OPaJb6K+0wDvbryfYL7khcW5hPAvOM98u8DFTvirQ==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+
+"@dpc-sdp/ripple-embedded-video@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-embedded-video/-/ripple-embedded-video-1.2.1.tgz#c0cb53abae0ad3a8b695ecf69776fb36cf91c18f"
+  integrity sha512-Djr2eNMI8FsQpR25XKNAnl7ykfP+wxL/958zLsJCBXF3Lyu6fbn1PcLJhMCI8detIUUY+0xU0LS/o/N+JfW1MQ==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-event@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-event/-/ripple-event-1.2.1.tgz#71fbf5bea0e5c779a252f3f92d246c6f5748f698"
+  integrity sha512-h6/PFLB1hfzH8o9myPJnJbCz43/0vCiysHed4DywJFI4efTNmTfLmo3VHbAQdrMjmuVD4Ecsq6gkuAlkTZ4FcQ==
+  dependencies:
+    "@dpc-sdp/ripple-button" "1.2.1"
+    "@dpc-sdp/ripple-card" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-figure@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-figure/-/ripple-figure-1.2.1.tgz#d3c85a5c3985ffc0be6d8a8e7fec8ef2c5325bff"
+  integrity sha512-bgvrHKBuxNr64UT8Oy/cf52RSYA/Yca1sXhbzds7xzeMvx3Y/Cz9NfvjXTt7ZmJOL+ds3Wucwqpj147stS6Ukg==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-form@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-form/-/ripple-form-1.2.1.tgz#8077d47fffe35c15538a0500f307cd6fb6f766aa"
+  integrity sha512-WccLaNqAS0qIbfqNcE2eQAeU+tfJxd2gcrBiCOecQYpRSyhFdfYtt90a629tly95wFhq3OTs5MRKdoozP96mIw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    moment "^2.22.1"
+    pikaday "^1.7.0"
+    vue-form-generator "^2.2.2"
+    vue-multiselect "^2.1.3"
+    vue-scrollto "^2.13.0"
+
+"@dpc-sdp/ripple-global@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.2.1.tgz#176452fbecb525f92b246ff89d82bd28eb05ed33"
+  integrity sha512-Az6rxEOleyNk9YjFH4wIqtWW5DY0vvjlNgHZfOw3zFUPwZ9vGZEFHz/bMpdz7P762o56uewJpFx3T42HN2I0rw==
+  dependencies:
+    masonry-layout "^4.2.1"
+    moment "^2.22.1"
+    object-fit-images "^3.2.3"
+    vue-focus "^2.1.0"
+
+"@dpc-sdp/ripple-grants@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grants/-/ripple-grants-1.2.1.tgz#a7629116cd7cffea910f5d3b0f0cb4d284cfeeba"
+  integrity sha512-s2VHuGhF0pS93vlxLM3/YTWaQzUbAP8GkKbIFIsJmMWyxWXiqGnAq0q8Vk1rfveMRFa6AcYuYUHQ7eK8+jlkmA==
+  dependencies:
+    "@dpc-sdp/ripple-button" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-list" "1.2.1"
+    "@dpc-sdp/ripple-markup" "1.2.1"
+    "@dpc-sdp/ripple-meta-tag" "1.2.1"
+    moment "^2.22.1"
+
+"@dpc-sdp/ripple-grid@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grid/-/ripple-grid-1.2.1.tgz#949b8575e1ad173d12d0802a7861a84caf72eb80"
+  integrity sha512-NvcDMaWX2w5Ov77AxlvLSu4soqn9Kv9D4v2fpzsUFU9EC5uGEldFbQ5i9gnDdW+aUT71G5Tp3ZvWt5prNmqCMQ==
+
+"@dpc-sdp/ripple-hero-banner@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-hero-banner/-/ripple-hero-banner-1.2.1.tgz#1b423c823edb8a0b094f1af690106cf6c25ba08c"
+  integrity sha512-TYrwoyl+sCpCxXrF+z7rlPrL7aVnABzsMTdRvOJdZF5PxAS4ZSAm0WY6sv/RGLHomfE7guvHwf0tadvlfe9NNQ==
+  dependencies:
+    "@dpc-sdp/ripple-button" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-grid" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-icon@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-icon/-/ripple-icon-1.2.1.tgz#f3f30437fd857967900d1957149941c34c59b8db"
+  integrity sha512-dJ9qd/8WXGEWjhz76QQNu9bf53Aqof/BgSuAncyOpU6me78B+rh1kWgKVDCO31S8HR8WlnZG/3/raFLeFBOMHQ==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-image-gallery@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-image-gallery/-/ripple-image-gallery-1.2.1.tgz#d896e26cb837af7f1c28ddefa478c6a431651326"
+  integrity sha512-IfhKGGUtRV++VFTMMxsrbwQ16o0g3mR3OwrjjMGId9qw8403prUUX3VpzRvI7NTT+H1v5R40QOwm8Bkk6k/y3Q==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    vue-carousel "^0.18.0"
+
+"@dpc-sdp/ripple-layout@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-layout/-/ripple-layout-1.2.1.tgz#3cde6f78ffeb2cc26b2ed7d9d7d9a6272adf359c"
+  integrity sha512-ZwjM0d482f8XIjVKpD/Jf4YIgXkgQkKgMAH6qAgCciWbTmiFbacDZx1w1bYZ26jC1RMDYpYvw8ZjHkrfCCgxIg==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-grid" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-site-header" "1.2.1"
+
+"@dpc-sdp/ripple-link@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-link/-/ripple-link-1.2.1.tgz#3360365fed97cb6112fc18e2addc2c68d04c2862"
+  integrity sha512-jmfnPGXVEHShswrtC5PtZ59otzwdE5UeOwJrir/562fJNn2mlhzPwHg1wLWEfMFDGCRC5JAuSVv40hTLhOcV8Q==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+
+"@dpc-sdp/ripple-list@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-list/-/ripple-list-1.2.1.tgz#b0917d35934fbe9d0d7056638936fc7d0a6f2d91"
+  integrity sha512-o5cBEn+tB9H2THRRV1e4yvZbrQPDlFlgU7k+PGCytxO2xHWJBG2TrR6OQOlGWmKfitBL9Xv6iYqBVpHxkPmqDQ==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-map@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-map/-/ripple-map-1.2.1.tgz#10ec0e8b08fd4d25175fc7393547535fa83b6a9c"
+  integrity sha512-ky/arkrl1P1g9LrdbxDeCbj3lI+uBmKjYbJrzohHTIveGKLgRhL91abk54GLuWU1sNoZP66k/K1KjaMWjVfPaw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    ol "^5.3.1"
+    ol-ext "3.1.2"
+
+"@dpc-sdp/ripple-markup@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-markup/-/ripple-markup-1.2.1.tgz#c5d3cdb13954f77119248a210688d0b60ab892be"
+  integrity sha512-eB6Ag5gP/wL63sc35T3ChRO6uLzga5CkVmb5HfTj9tvUAOfwCE16PdHXOb71O1/2Pn0l/rha45pZSpsctkMoIw==
+  dependencies:
+    "@dpc-sdp/ripple-button" "1.2.1"
+    "@dpc-sdp/ripple-document-link" "1.2.1"
+    "@dpc-sdp/ripple-embedded-video" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+    cheerio "^1.0.0-rc.2"
+
+"@dpc-sdp/ripple-meta-tag@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-meta-tag/-/ripple-meta-tag-1.2.1.tgz#c2ef84325be825f9bcdb5566a984961d0632bedd"
+  integrity sha512-uY6ThH8vAIWFpn1LEmBYy40fGB2po7DU0wD0Dod98Z7tWccozPxz1OGTysAoJS9SjWJWTktbu8MMbW+Z36UJDQ==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-news@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-news/-/ripple-news-1.2.1.tgz#bae8c332265c9602fe9173700b60ef74682ca849"
+  integrity sha512-PLBV0xC7IfRKbF6jocLC/gZcFDP1464NSu9RB7566TLLbd2XQkhWYFiPRr9xnRmAIfa92wQP+Yms6s+sgQw/OQ==
+  dependencies:
+    "@dpc-sdp/ripple-card" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-pagination@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-pagination/-/ripple-pagination-1.2.1.tgz#b286b39f03b4c99016cae581bdb03847d1304b8f"
+  integrity sha512-vOlKrIrEtKIuqHFBokOD3q0UWRQ02/+vKHPYftoKHJn2XuJhjb8jtwQ0dLFOL6jtIZ9N+xipaBtmsJWSzVIkRw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+
+"@dpc-sdp/ripple-profile@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-profile/-/ripple-profile-1.2.1.tgz#234906f9304f64b9fcc721ea146c0705621dcf75"
+  integrity sha512-lOEZaEe5J6rhMnacNBwsCOS66CSPdJv8kMaB23zbQUDNTo4lhfB+fwvWCi6T0hhhZEcauIcd9IktfPfTqS+Xfg==
+  dependencies:
+    "@dpc-sdp/ripple-description-list" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-publication@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-publication/-/ripple-publication-1.2.1.tgz#29964102377b2462649d4965e7c6a4a7a589538d"
+  integrity sha512-FGO2ZoUfv8E5NIWMzhTZoAg8/erScYakPxODLA9tw3AVfKT1YcbKURdPCkNxxyhNfr+2o6uztZwwKV6oyAaYRA==
+  dependencies:
+    "@dpc-sdp/ripple-description-list" "1.2.1"
+    "@dpc-sdp/ripple-document-link" "1.2.1"
+    "@dpc-sdp/ripple-figure" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-image-gallery" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+    "@dpc-sdp/ripple-markup" "1.2.1"
+
+"@dpc-sdp/ripple-publish-date-and-author@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-publish-date-and-author/-/ripple-publish-date-and-author-1.2.1.tgz#389b0f9f0763363e220d14ffac8a16eba04f08ba"
+  integrity sha512-vyREWOWpQg2LlRneIwIhrsbJT+3xeD1FS3Rp6ZTsLyLUFPAPsHMVILcQFxKOZGA8GDma2yDGea1WYo6PR/FOkw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-related-links@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-related-links/-/ripple-related-links-1.2.1.tgz#6a8bd14b6039627bbf4f3bba923b388aee195855"
+  integrity sha512-2ZBpAfg/dnROPXxXhaqOO8o94/lowak2LupGI1GCkETsxzLFHoPMsLH161hOQvGZrQm7YHpYi/D5ESe9Um9zRw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-search@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-search/-/ripple-search-1.2.1.tgz#2c2028f5bec6ee407ffc21d24172c24026bbb218"
+  integrity sha512-BOnvTkWrZy6s8a5yYmky/A+BtQ8x14EiatEY3hBOhncv6XZnIFaVV69p+ntQYFTnG3fX5ax2pYZnBNqQ7PsBaA==
+  dependencies:
+    "@dpc-sdp/ripple-form" "1.2.1"
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-grid" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+    "@dpc-sdp/ripple-meta-tag" "1.2.1"
+    "@dpc-sdp/ripple-pagination" "1.2.1"
+    vue-focus-lock "1.3.0"
+
+"@dpc-sdp/ripple-share-this@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-share-this/-/ripple-share-this-1.2.1.tgz#fe9b17e5114608ba6fc485b6daee7a5dbbb0f3ec"
+  integrity sha512-CuMxEy4PfSMfLHa6RtJUSWN1R3NbjOMLYxQ2NNI+OUcaRzIsdtSm09HCRf8qXnII6/VkT2MSqGZw0x5ar8bA9w==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    vue-social-sharing "^2.4.3"
+
+"@dpc-sdp/ripple-site-footer@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-site-footer/-/ripple-site-footer-1.2.1.tgz#f830687cfcbf7e2463f576203a847aa3ed6034a7"
+  integrity sha512-O3FlA069q3pL+r3HZK+7fKHKau8J0v7gbnSKGlF/uDAdzmGpB3YT2XthKWLNeWLrhKRdXUhOLMwrSt7rv9umcA==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-site-header@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-site-header/-/ripple-site-header-1.2.1.tgz#2c9d84d53f2c3b73d3a5a89d777a961c665a9381"
+  integrity sha512-HyERnChON6Ya9VsLIFzN4V1AxagYpRKv2qQFbwafKoGy75TnqRugtaT9rM1MGMLyFckS9cjeBj93TmsZGLj9Aw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-layout" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+    "@dpc-sdp/ripple-meta-tag" "1.2.1"
+    "@dpc-sdp/ripple-search" "1.2.1"
+    body-scroll-lock "^2.6.1"
+
+"@dpc-sdp/ripple-site-section-navigation@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-site-section-navigation/-/ripple-site-section-navigation-1.2.1.tgz#c965b656061f2f212a53b1d02ebe00d95b301280"
+  integrity sha512-1nt5zy7vOQ2sXoyZjeLf/tcjN+Nq1l0ZvMlSsDvXcVnowmZ3jKxu5/1OX3FriY3+iFUBz27poeRE8iucYZ0Fnw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-icon" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-sitemap@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-sitemap/-/ripple-sitemap-1.2.1.tgz#4f21061a899eace42c3ff5015cb79394c865bd26"
+  integrity sha512-BSpDQuSRRDd1DDArdcxO0XnaF7JpD5zIjBPMZHGIwL+GDla6lxJ9RD+LZZn/12dwJKQa1KYE+iC2+2fdoHUILQ==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-timeline@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-timeline/-/ripple-timeline-1.2.1.tgz#fd20dad5c30dd339cbae5f14a07355cc5251eccf"
+  integrity sha512-F0Nc8PLd2wPRKBGv/oOa+Nk6LvRk+UCIf/WyugULJ8p9FJbDW6szdr9y5ap582WXj5HwfV37MzGRpxv/jX0utg==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
+"@dpc-sdp/ripple-updated-date@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-updated-date/-/ripple-updated-date-1.2.1.tgz#e714c2c8bd2542bb9d6e4a246bcb7ba9b8fae25b"
+  integrity sha512-dUPvQcqOvWYcLRGqno/CAgJEsvN6pbc+O1EMj55rnazBkjXFbkCsI+M8AUYlNKTD9QvN3xQ+SKEMyqJM6tdWdw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+
+"@dpc-sdp/ripple-whats-next@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-whats-next/-/ripple-whats-next-1.2.1.tgz#57881c6ae39c38d7279cabe67170cd5611b816ca"
+  integrity sha512-nzNEg71+s0LTSXD7CsV/ovBlQYYi4g8tG2BJ1B3uwY1hvFvZmUKXd7ybpUg2d+I93lyZZfEv4wVmQh7h2tbJCw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.2.1"
+    "@dpc-sdp/ripple-link" "1.2.1"
+
 "@emotion/cache@^10.0.17", "@emotion/cache@^10.0.9":
   version "10.0.19"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.19.tgz#d258d94d9c707dcadaf1558def968b86bb87ad71"

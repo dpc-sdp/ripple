@@ -6,9 +6,22 @@
     <template slot="aboveContent">
       <rpl-hero-banner
         :title="publication.title"
+        :introText="publication.field_landing_page_intro_text"
         class="rpl-site-constrain--on-all"
       />
     </template>
+    <rpl-row row-gutter v-if="publication.components">
+      <template v-for="component in publication.components">
+        <rpl-col cols="full" :colsBp="component.cols" :key="component.id">
+          <client-only v-if="component.ssr === false">
+            <component :is="component.component" v-bind="component.data" :class="component.class"></component>
+          </client-only>
+          <component v-else :is="component.component" v-bind="component.data" :class="component.class"></component>
+        </rpl-col>
+      </template>
+      <rpl-divider class="tide-pub-print__page-divider" />
+    </rpl-row>
+
     <rpl-row v-if="publishingInfo" row-gutter>
       <rpl-col cols="full">
         <rpl-publication-author-information v-bind="publishingInfo" />
@@ -27,9 +40,9 @@
             <rpl-row row-gutter>
               <template v-for="component in page.components">
                 <rpl-col v-if="component" cols="full" :colsBp="component.cols" :key="component.id" :data-tid="component.id">
-                  <no-ssr v-if="component.ssr === false">
+                  <client-only v-if="component.ssr === false">
                     <component :is="component.component" v-bind="component.data" :class="component.class"></component>
-                  </no-ssr>
+                  </client-only>
                   <component v-else :is="component.component" v-bind="component.data" :class="component.class"></component>
                 </rpl-col>
               </template>
@@ -120,6 +133,11 @@ export default {
   },
   async asyncData ({ app, route }) {
     const publication = await app.$tide.getPageByPath('/' + route.params.publicationname)
+    if (publication) {
+      const pubCompMapping = await app.$tideMapping.get(publication.field_landing_page_component, 'landingPageComponents')
+      publication.components = app.$tide.getDynamicComponents(pubCompMapping, true)
+    }
+
     const hierarchyJson = await app.$tide.get('node/publication', {}, `${publication.id}/hierarchy`)
     const ids = []
     const addId = (o, arr) => {

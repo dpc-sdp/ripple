@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-campaign-secondary",
-  "version": "1.5.0-beta.3",
+  "version": "1.5.0-beta.4",
   "description": "A component to showcase secondary content previews. Should be used along with Campaign Primary.",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -10,9 +10,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.5.0-beta.3",
-    "@dpc-sdp/ripple-embedded-video": "1.5.0-beta.3",
-    "@dpc-sdp/ripple-global": "1.5.0-beta.3"
+    "@dpc-sdp/ripple-button": "1.5.0-beta.4",
+    "@dpc-sdp/ripple-embedded-video": "1.5.0-beta.4",
+    "@dpc-sdp/ripple-global": "1.5.0-beta.4"
   },
   "gitHead": "166ee687cadacb9c24ffbf78391f7fde45b33a13"
 }

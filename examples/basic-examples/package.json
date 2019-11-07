@@ -1,6 +1,6 @@
 {
   "name": "basic-examples",
-  "version": "1.5.0-beta.3",
+  "version": "1.5.0-beta.4",
   "description": "Example site for showing how to add custom work",
   "private": true,
   "scripts": {
@@ -21,7 +21,7 @@
     "start:build": "nuxt build && nuxt start"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.5.0-beta.3",
+    "@dpc-sdp/ripple-nuxt-tide": "1.5.0-beta.4",
     "dotenv": "^5.0.1",
     "nuxt": "2.9.2",
     "run-script-os": "^1.0.7"
@@ -32,7 +32,7 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.5.0",
     "@babel/runtime": "^7.5.1",
-    "@dpc-sdp/ripple-test-tools": "1.5.0-beta.3",
+    "@dpc-sdp/ripple-test-tools": "1.5.0-beta.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",

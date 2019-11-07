@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-list-group",
-  "version": "1.5.0-beta.3",
+  "version": "1.5.0-beta.4",
   "description": "A container for displaying lists of components.",
   "license": "Apache-2.0",
   "main": "index.js",

@@ -2,7 +2,7 @@
   "name": "@dpc-sdp/storybook",
   "description": "Storybook instance for ripple component testing",
   "homepage": "https://ripple.sdp.vic.gov.au",
-  "version": "1.5.0-beta.3",
+  "version": "1.5.0-beta.4",
   "private": true,
   "scripts": {
     "start": "start-storybook -p 6006 -s ./static",
@@ -38,7 +38,7 @@
     "@dpc-sdp/ripple-layout": "1.2.1",
     "@dpc-sdp/ripple-link": "1.2.1",
     "@dpc-sdp/ripple-list": "1.2.1",
-    "@dpc-sdp/ripple-list-group": "1.5.0-beta.3",
+    "@dpc-sdp/ripple-list-group": "1.5.0-beta.4",
     "@dpc-sdp/ripple-map": "1.2.1",
     "@dpc-sdp/ripple-markup": "1.2.1",
     "@dpc-sdp/ripple-meta-tag": "1.2.1",

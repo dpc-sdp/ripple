@@ -247,6 +247,7 @@ export default {
   $rpl-menu-item-link-padding: $rpl-space-4 $rpl-menu-item-link-indent $rpl-space-4 0 !default;
   $rpl-menu-item-link-padding-active: $rpl-space-4 $rpl-menu-item-link-indent !default;
   $rpl-menu-item-link-color: $rpl-menu-text-color !default;
+  $rpl-menu-item-link-color-hover: $rpl-menu-text-color !default;
   $rpl-menu-item-link-background-color-hover: rpl-color('primary') !default;
   $rpl-menu-item-link-background-image-active: rpl-gradient('primary_gradient') !default;
   $rpl-menu-item-link-color-active: $rpl-menu-text-color !default;
@@ -581,7 +582,7 @@ export default {
         border-radius: $rpl-menu-item-link-border-radius;
         align-items: center;
         padding: $rpl-menu-item-link-padding-active;
-        color: $rpl-menu-item-link-color;
+        color: $rpl-menu-item-link-color-hover;
 
         span {
           margin-right: 0;

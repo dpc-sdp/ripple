@@ -1,6 +1,6 @@
 import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
-export default function ({ $axios, app }) {
+export default function ({ $axios, app, res }) {
 
   $axios.onRequest(config => {
     // Log all axios' requests
@@ -19,7 +19,6 @@ export default function ({ $axios, app }) {
     }
 
     const responseUrl = error.request.path || error.request.responseURL || error.config.url
-
 
     // Check what kind of request it is.
     const routeRequest = responseUrl.includes('/route?')

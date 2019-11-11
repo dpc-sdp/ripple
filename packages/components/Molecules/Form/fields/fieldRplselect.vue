@@ -49,11 +49,8 @@ export default {
   computed: {
     config () {
       return {
-        multiselect: this.schema.multiselect,
-        placeholder: 'Select',
-        showitems: 4,
-        fieldId: this.getFieldID(this.schema),
-        label: ''
+        ...this.schema,
+        fieldId: this.getFieldID(this.schema)
       }
     }
   }

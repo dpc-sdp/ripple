@@ -62,8 +62,6 @@ export default {
       padding-top: $rpl-space-4 * 2;
     }
 
-    @include rpl_print_hidden;
-
     &__heading {
       @include rpl_typography_ruleset($rpl-news-listing-heading-ruleset);
       @include rpl_text_color($rpl-news-listing-heading-text-color);

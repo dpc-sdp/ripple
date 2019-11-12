@@ -163,6 +163,7 @@ $rpl-search-back-to-top-offset: 72px / 2;
 
     @include rpl_print {
       padding-top: 0;
+      background-image: none !important;
     }
   }
 

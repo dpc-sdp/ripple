@@ -167,6 +167,7 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
 
 .app-content-rating {
   margin: $rpl-space-4 * 2 0 0 0;
+  @include rpl_print_hidden;
 
   legend {
     @include rpl_typography_ruleset($app-content-rating-label-ruleset);

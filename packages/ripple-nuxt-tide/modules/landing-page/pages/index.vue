@@ -1,5 +1,5 @@
 <template>
-  <rpl-row row-gutter class="app-content">
+  <rpl-row row-gutter class="app-content tide-content tide-content--landing-page">
     <template v-if="anchorLinks && anchorLinks.length > 0">
       <rpl-col cols="full">
         <rpl-anchor-links title="On this page:" :links="anchorLinks" />

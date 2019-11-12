@@ -49,8 +49,6 @@ $rpl-card-box-item-margin:  0 $rpl-space-3 $rpl-space * 6 !default;
     padding: $rpl-card-box-padding;
   }
 
-  @include rpl_print_hidden;
-
   &__items {
     display: flex;
     flex-wrap: wrap;

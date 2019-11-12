@@ -12219,7 +12219,160 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
       </span>
     </button>
      
-    <!---->
+    <div
+      class="rpl-publication-image__expander"
+    >
+      <div
+        class="rpl-publication-image__expander-header"
+      >
+        <span
+          class="rpl-publication-image__expander-title"
+        >
+          <span
+            class="rpl-text-icon__group"
+          >
+            <!---->
+            Figure
+          </span>
+           
+          <span>
+             1.2
+          </span>
+        </span>
+         
+        <button
+          class="rpl-publication-image__expander-close-button"
+        >
+          <!---->
+           
+          <span
+            class="rpl-publication-image__expander-close-button-text"
+          >
+            Close
+          </span>
+        </button>
+      </div>
+       
+      <div
+        class="rpl-publication-image__expander-markup"
+      >
+        <div
+          class="rpl-markup tide-wysiwyg app-wysiwyg"
+        >
+          <div
+            class="rpl-markup__inner"
+          >
+            <div
+              class="rpl-markup__table"
+            >
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      Column header one
+                    </th>
+                     
+                    <th>
+                      Header number two
+                    </th>
+                     
+                    <th>
+                      Third column header
+                    </th>
+                  </tr>
+                </thead>
+                 
+                <tbody>
+                  <tr>
+                    <td>
+                      Data point one
+                    </td>
+                     
+                    <td>
+                      This is a piece of data
+                    </td>
+                     
+                    <td>
+                      Third column information
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Data pt two
+                    </td>
+                     
+                    <td>
+                      This is data
+                    </td>
+                     
+                    <td>
+                      Fourth col info here
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Data point three
+                    </td>
+                     
+                    <td>
+                      This is a piece of data
+                    </td>
+                     
+                    <td>
+                      Third column info here
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Point four
+                    </td>
+                     
+                    <td>
+                      This is some data
+                    </td>
+                     
+                    <td>
+                      Information goes here
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Five
+                    </td>
+                     
+                    <td>
+                      This is a piece of data
+                    </td>
+                     
+                    <td>
+                      Third column info here
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Data point six
+                    </td>
+                     
+                    <td>
+                      This is some data
+                    </td>
+                     
+                    <td>
+                      Information
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
      
     <a
       class="rpl-publication-image__button"

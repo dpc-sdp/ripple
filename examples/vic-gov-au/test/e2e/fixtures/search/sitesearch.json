@@ -1,0 +1,202 @@
+{
+  "hits": {
+    "total": 577,
+    "hits": [
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/168:en",
+        "_score": 110.55268,
+        "_source": {
+          "field_tags_name": ["Women", "Victims of crime & victim survivors"],
+          "created": ["2018-05-21T15:53:16+10:00"],
+          "field_landing_page_summary": [
+            "Women Victoria aims to change attitudes and promote gender equality, prevent family violence and increase the number women in leadership."
+          ],
+          "field_topic_name": ["Equality"],
+          "title": ["About Women Victoria"],
+          "type": ["landing_page"],
+          "url": ["/site-4/about-women-victoria"],
+          "changed": ["2019-09-19T13:59:17+10:00"]
+        }
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/4477:en",
+        "_score": 108.4313,
+        "_source": {
+          "field_tags_name": ["Business", "Government"],
+          "created": ["2019-09-16T16:33:57+10:00"],
+          "field_landing_page_summary": [
+            "Industrial Relations Victoria works towards achieving a positive working environment for all Victorians."
+          ],
+          "field_topic_name": ["Jobs"],
+          "title": ["Industrial Relations Victoria"],
+          "type": ["landing_page"],
+          "url": ["/site-4/industrial-relations-victoria"],
+          "changed": ["2019-09-17T14:18:23+10:00"]
+        }
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/1735:en",
+        "_score": 100.798195,
+        "_source": {
+          "field_tags_name": ["People with disability"],
+          "created": ["2019-06-07T16:53:43+10:00"],
+          "field_landing_page_summary": [
+            "Information and resources for disability service providers, including how to register and your obligations around quality and safeguards."
+          ],
+          "field_topic_name": ["Health"],
+          "title": ["NDIS providers in Victoria"],
+          "type": ["landing_page"],
+          "url": ["/site-4/ndis-providers-victoria"],
+          "changed": ["2019-07-22T10:36:51+10:00"]
+        }
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/1318:en",
+        "_score": 100.798195,
+        "_source": {
+          "created": ["2019-03-27T15:35:40+11:00"],
+          "field_landing_page_summary": [
+            "In Victoria, we celebrate Australia Day with a large program of events and activities."
+          ],
+          "field_topic_name": ["Arts, culture and heritage"],
+          "title": ["About Australia Day Victoria"],
+          "type": ["landing_page"],
+          "url": ["/site-4/about-australia-day-victoria"],
+          "changed": ["2019-04-29T13:22:11+10:00"]
+        }
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/2502:en",
+        "_score": 98.95356,
+        "_source": {
+          "created": ["2019-09-04T12:20:08+10:00"],
+          "field_topic_name": ["Health"],
+          "summary_processed": [""],
+          "title": ["Family Safety Victoria established"],
+          "type": ["news"],
+          "url": ["/site-4/family-safety-victoria-launched"],
+          "changed": ["2019-09-04T16:34:32+10:00"]
+        }
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/2149:en",
+        "_score": 97.203735,
+        "_source": {
+          "created": ["2019-07-31T16:43:42+10:00"],
+          "field_landing_page_summary": [
+            "Support and advice for renters, information for property managers and changes to renting laws."
+          ],
+          "field_topic_name": ["Housing"],
+          "title": ["Renting in Victoria"],
+          "type": ["landing_page"],
+          "url": ["/site-4/renting-victoria"],
+          "changed": ["2019-07-31T16:45:07+10:00"]
+        }
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/3862:en",
+        "_score": 95.27418,
+        "_source": {
+          "created": ["2019-09-13T10:02:04+10:00"],
+          "field_landing_page_summary": [
+            "Sale Polocrosse will host their annual state tournament, with players and teams from across Victoria coming to Sale to compete across the weekend. Come along"
+          ],
+          "field_topic_name": ["Event"],
+          "summary_processed": [""],
+          "title": ["Polocrosse Victoria Tournament"],
+          "type": ["event"],
+          "url": ["/site-4/polocrosse-victoria-tournament"],
+          "changed": ["2019-09-13T10:02:04+10:00"]
+        }
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/749:en",
+        "_score": 95.27418,
+        "_source": {
+          "created": ["2018-09-20T16:38:17+10:00"],
+          "field_landing_page_summary": [
+            "The Brand Victoria Guidelines must be used for all Victorian Government communications and advertising. Covers logos, fonts, colour and other elements."
+          ],
+          "field_topic_name": ["Governance"],
+          "title": ["Brand Victoria Guidelines"],
+          "type": ["landing_page"],
+          "url": ["/site-4/brand-victoria-guidelines"],
+          "changed": ["2019-05-15T09:53:04+10:00"]
+        }
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/1030:en",
+        "_score": 93.723595,
+        "_source": {
+          "created": ["2019-01-17T14:39:52+11:00"],
+          "field_landing_page_summary": [
+            "Family Safety Victoria was established in July 2017 to drive key elements of Victoria’s family violence strategy and coordinate support for families to help them care for children and young people."
+          ],
+          "field_topic_name": ["Health"],
+          "title": ["Family Safety Victoria"],
+          "type": ["landing_page"],
+          "url": ["/site-4/family-safety-victoria"],
+          "changed": ["2019-10-17T11:24:24+11:00"]
+        }
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_nonprod_node",
+        "_type": "node",
+        "_id": "entity:node/1490:en",
+        "_score": 93.723595,
+        "_source": {
+          "field_tags_name": ["Business", "Under 18s", "Parents & carers"],
+          "created": ["2019-04-30T14:37:44+10:00"],
+          "field_landing_page_summary": [
+            "The Victorian Wage Inspectorate provides practical advice, information and support to Victorian employees and employers about state-specific laws, their work rights and responsibilities."
+          ],
+          "field_topic_name": ["Governance"],
+          "title": ["Wage Inspectorate Victoria"],
+          "type": ["landing_page"],
+          "url": ["/site-4/wage-inspectorate-victoria"],
+          "changed": ["2019-09-19T10:34:40+10:00"]
+        }
+      }
+    ]
+  },
+  "aggregations": {
+    "field_topic_name": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        { "key": "Arts, culture and heritage", "doc_count": 15 },
+        { "key": "Business", "doc_count": 4 },
+        { "key": "Communities", "doc_count": 99 },
+        { "key": "Education", "doc_count": 5 },
+        { "key": "Environment", "doc_count": 5 },
+        { "key": "Equality", "doc_count": 59 },
+        { "key": "Event", "doc_count": 78 },
+        { "key": "Governance", "doc_count": 167 },
+        { "key": "Health", "doc_count": 78 },
+        { "key": "Housing", "doc_count": 10 },
+        { "key": "Jobs", "doc_count": 14 },
+        { "key": "Justice", "doc_count": 9 },
+        { "key": "Science and technology", "doc_count": 8 },
+        { "key": "Transport", "doc_count": 1 }
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer'); //eslint-disable-line
 const utils = require('./util')
 
 /**
@@ -16,6 +16,7 @@ module.exports = class TideAdmin {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     }
+
     this.adminCredentials = {
       username: process.env.CYPRESS_ADMIN_USERNAME,
       password: process.env.CYPRESS_ADMIN_PASSWORD
@@ -24,7 +25,7 @@ module.exports = class TideAdmin {
     this.options = {
       wait: { waitUntil: 'networkidle2', timeout: 0 },
       start: {
-        headless: process.env.CYPRESS_HEADLESS_PUPPETEER,
+        headless: !process.env.CYPRESS_SHOW_PUPPETEER,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       }
     }
@@ -40,21 +41,26 @@ module.exports = class TideAdmin {
   }
 
   async login () {
-    await this.page.goto(this.backendURL)
-    await this.page.waitForSelector('#edit-actions', this.options.wait)
-    await this.page.type(
-      this.pageModels.login.name,
-      this.adminCredentials.username
-    )
-    await this.page.type(
-      this.pageModels.login.pass,
-      this.adminCredentials.password
-    )
-    return Promise.all([
-      this.page.$eval(this.pageModels.login.form, form => form.submit()),
-      this.page.waitForNavigation(this.options.wait),
-      this.page.waitForSelector('#drupal-live-announce', this.options.wait)
-    ])
+    try {
+      await this.page.goto(this.backendURL)
+      await this.page.waitForSelector(this.pageModels.login.name, this.options.wait)
+      await this.page.type(
+        this.pageModels.login.name,
+        this.adminCredentials.username
+      )
+      await this.page.type(
+        this.pageModels.login.pass,
+        this.adminCredentials.password
+      )
+      return Promise.all([
+        this.page.$eval(this.pageModels.login.form, form => form.submit()),
+        this.page.waitForNavigation(this.options.wait),
+        this.page.waitForSelector('#drupal-live-announce', this.options.wait)
+      ])
+    } catch (error) {
+      console.error(error)
+      await this.close()
+    }
   }
   async setSelectVal (sel, val) {
     this.page.evaluate(
@@ -71,21 +77,27 @@ module.exports = class TideAdmin {
    */
   async createNodeFromYAML (testData) {
     if (!testData) return null
-    // create browser and page
-    const page = await this.setup()
+    try {
+      // create browser and page
+      const page = await this.setup()
 
-    // Login
-    await this.login()
-    await page.goto(`${this.backendURL}/admin/content/import_demo_content`)
-    await this.setSelectVal('#edit-import', testData)
-    // Submit
-    await this.submitPage()
-    await page.waitForSelector('[aria-label="Status message"]', this.options.wait)
-    const result = await page.$eval('[aria-label="Status message"]', el =>
-      el
-        .classList.contains('messages--status')
-    )
-    return result
+      // Login
+      await this.login()
+      await page.goto(`${this.backendURL}/admin/content/import_demo_content`)
+      await this.setSelectVal('#edit-import', testData)
+      // Submit
+      await this.submitPage()
+      await page.waitForSelector('[aria-label="Status message"]', this.options.wait)
+      const result = await page.$eval('[aria-label="Status message"]', el =>
+        el
+          .classList.contains('messages--status')
+      )
+      await this.close()
+      return result
+    } catch (error) {
+      // Cleanup
+      await this.close()
+    }
   }
 
   /**
@@ -584,6 +596,48 @@ module.exports = class TideAdmin {
     return Promise.resolve(nodeId)
   }
 
+  async createUserRole (role) {
+    if (!role) return Promise.reject(new Error('no role defined'))
+    try {
+      const page = await this.setup()
+      const createRolePage = this.pageModels['createRolePage']
+      await this.login()
+      await page.goto(`${this.backendURL}/admin/people/roles/add`)
+      await page.type(createRolePage.role, role)
+      await page.type(createRolePage.id, role)
+
+      // Submit
+      await this.submitPage()
+      const createdRole = await page.$eval('.messages em', el => el.textContent)
+      await this.close()
+
+      // Return createdRole
+      return Promise.resolve(createdRole)
+    } catch (error) {
+      return Promise.reject(new Error('could not create role', error))
+    }
+  }
+
+  async configureAuthContent (options) {
+    if (!options) return Promise.reject(new Error('could not configure auth content: role or term not defined'))
+    try {
+      const page = await this.setup()
+      const configureAuthContentPage = this.pageModels['configureAuthContent']
+      await this.login()
+      await page.goto(`${this.backendURL}/admin/structure/taxonomy/manage/authenticated_content/add`)
+      await page.type(configureAuthContentPage.termName, options.term)
+      await page.click(configureAuthContentPage.access)
+      await page.waitFor(2000)
+      await page.click(configureAuthContentPage.role(options.role))
+      // Submit
+      await this.submitPage()
+      await this.close()
+    } catch (error) {
+      console.log(error)
+      return Promise.reject(new Error('could not configure auth content', error))
+    }
+  }
+
   async createUser (user) {
     if (!user) return null
 
@@ -633,19 +687,23 @@ module.exports = class TideAdmin {
 
   async deleteUser (userId) {
     if (userId) {
-      const page = await this.setup()
-      const deleteUserPage = this.pageModels['deleteUser']
+      try {
+        const page = await this.setup()
+        const deleteUserPage = this.pageModels['deleteUser']
 
-      await this.login()
-      await page.goto(`${this.backendURL}/user/${userId}/cancel`)
-      await page.waitForSelector(
-        deleteUserPage.deleteAccountAndContent,
-        this.options.wait
-      )
-      await page.click(deleteUserPage.deleteAccountAndContent)
-      await this.submitPage()
-      await this.close()
-      return Promise.resolve('ok')
+        await this.login()
+        await page.goto(`${this.backendURL}/user/${userId}/cancel`)
+        await page.waitForSelector(
+          deleteUserPage.deleteAccountAndContent,
+          this.options.wait
+        )
+        await page.click(deleteUserPage.deleteAccountAndContent)
+        await this.submitPage()
+        await this.close()
+        return Promise.resolve('ok')
+      } catch (error) {
+        return Promise.reject(new Error('could not create user'))
+      }
     }
     return Promise.reject(new Error('no id'))
   }

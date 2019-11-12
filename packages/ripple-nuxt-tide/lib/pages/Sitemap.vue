@@ -34,13 +34,13 @@ export default {
   },
   data () {
     return {
-      pageTitle: 'Sitemap',
+      pageTitle: 'Site map',
       menu: this.$store.state.tide.siteData.hierarchicalMenus.menuMain
     }
   },
   head (tidePage) {
     return {
-      title: this.pageTitle
+      title: 'Site map'
     }
   },
   computed: {

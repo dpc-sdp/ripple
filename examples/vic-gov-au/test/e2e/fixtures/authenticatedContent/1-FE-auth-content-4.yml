@@ -114,13 +114,6 @@
           - taxonomy_term
           - vid: tags
             name: 'Demo Tag'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: tags
-            name: 'Another Demo Tag'
-  # Sites.
   field_node_site:
     - '#process':
         callback: reference

@@ -44,7 +44,10 @@ export default {
   props: {
     title: String,
     summary: String,
-    url: String,
+    url: {
+      type: String,
+      required: true
+    },
     image: String,
     date: String,
     topic: String
@@ -52,6 +55,13 @@ export default {
   components: {
     RplLink,
     RplIcon
+  },
+  created () {
+    // We will throw a error to let parent component(card or card container) to handle.
+    // The reason we are not handle it here is we want the card container to know the error so it can apply different style.
+    if (!this.url) {
+      throw new Error('Invalid url is provided to card navigation featured component.')
+    }
   }
 }
 </script>

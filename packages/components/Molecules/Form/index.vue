@@ -26,6 +26,7 @@ import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
 import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
+import fieldRploptionbutton from './fields/fieldRploptionbutton.vue'
 import fieldRplclearform from './fields/fieldRplclearform.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
@@ -38,6 +39,7 @@ Vue.component('fieldRplcheckbox', fieldRplcheckbox)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
 Vue.component('fieldRpldatepicker', fieldRpldatepicker)
 Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
+Vue.component('fieldRploptionbutton', fieldRploptionbutton)
 Vue.component('fieldRplclearform', fieldRplclearform)
 Vue.component('fieldRpldivider', fieldRpldivider)
 Vue.component('fieldRplmarkup', fieldRplmarkup)
@@ -52,6 +54,7 @@ export default {
     fieldRplchecklist,
     fieldRpldatepicker,
     fieldRplsubmitloader,
+    fieldRploptionbutton,
     fieldRplclearform,
     RplFormAlert,
     RplFieldset
@@ -139,7 +142,7 @@ export default {
     margin-top: 0;
   }
 
-  label {
+  label:not(.rpl-option-button__label) {
     @include rpl_typography_ruleset(('s', 1em, 'bold'));
     color: rpl-color('extra_dark_neutral');
     display: block;
@@ -165,7 +168,7 @@ export default {
       @include rpl_form_text_element;
     }
 
-    &[type='radio'],
+    &[type='radio']:not(.rpl-option-button__radio),
     &[type='checkbox'] {
       &+ label {
         display: inline-block;
@@ -191,12 +194,12 @@ export default {
       margin-right: $rpl-space-4;
     }
 
-    input[type="radio"] {
+    input[type="radio"]:not(.rpl-option-button__radio) {
       margin-right: $rpl-space-2;
     }
   }
 
-  input[type="radio"] {
+  input[type="radio"]:not(.rpl-option-button__radio) {
     @include rpl_radio_button;
   }
 

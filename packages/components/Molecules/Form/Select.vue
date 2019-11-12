@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
     <div v-if="!$breakpoint.s" class="rpl-select__native">
-      <select :id="config.fieldId" :disabled="disabled" :name="config.inputName" :multiple="config.multiselect" v-model="value">
+      <select :id="config.fieldId" :disabled="disabled" :name="config.inputName" :multiple="config.multiselect" v-model="value" @change="onChange($event)">
         <option v-if="!config.multiselect" disabled value="">{{config.placeholder || 'Select'}}</option>
         <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
       </select>
@@ -210,10 +210,11 @@ export default {
         } else {
           this.value.push(item.id)
         }
+        this.$emit('rpl-select-update', this.value)
       } else {
         this.value = item.id
+        this.$emit('rpl-select-update', this.value, item)
       }
-      this.$emit('rpl-select-update', this.value, item)
     },
     isSelected (item) {
       if (typeof item !== 'undefined' && typeof this.value !== 'undefined') {
@@ -290,6 +291,9 @@ export default {
         // prevent space from scrolling window if the trigger button has focus
         e.preventDefault()
       }
+    },
+    onChange (e) {
+      this.$emit('rpl-select-update', this.value)
     }
   },
   created () {

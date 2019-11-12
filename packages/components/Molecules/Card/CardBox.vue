@@ -1,5 +1,6 @@
 <template>
-  <div class="rpl-card-box">
+  <div class="rpl-card-box" :class="childErrorClass">
+    <rpl-dev-error v-if="gotChildError" :errors="childErrors" />
     <div class="rpl-card-box__items">
       <div class="rpl-card-box__item" v-for="(item, index) in cards" :key="index">
         <component :is="item.name" v-bind="item.data"></component>
@@ -9,16 +10,24 @@
 </template>
 
 <script>
+import catchChildError from '@dpc-sdp/ripple-global/mixins/catch-child-error'
+import { RplDevError } from '@dpc-sdp/ripple-global'
 import RplCardEmergencyContact from './CardEmergencyContact.vue'
 
 export default {
   name: 'RplCardBox',
-  props: {
-    cards: Array
-  },
   components: {
-    RplCardEmergencyContact
-  }
+    RplCardEmergencyContact,
+    RplDevError
+  },
+  props: {
+    cards: Array,
+    catchChildError: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mixins: [catchChildError]
 }
 </script>
 

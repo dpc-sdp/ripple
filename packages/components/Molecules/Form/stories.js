@@ -120,6 +120,8 @@ storiesOf('Molecules/Form', module)
             tel: '',
             number: '',
             radio: null,
+            optionButtonDefault: null,
+            optionButtonCustom: null,
             textArea: null,
             dateRange: ['', ''],
             date: '',
@@ -192,6 +194,19 @@ storiesOf('Molecules/Form', module)
                   'Yes',
                   'No'
                 ]
+              },
+
+              {
+                type: 'rploptionbutton',
+                label: 'Option button default',
+                model: 'optionButtonDefault'
+              },
+
+              {
+                type: 'rploptionbutton',
+                label: 'Option button custom',
+                model: 'optionButtonCustom',
+                optionValues: [ 'Option one', 'Option two', 'Option three', 'Option four', 'Option five', 'Option six', 'Option seven', 'Option eight' ]
               },
 
               {

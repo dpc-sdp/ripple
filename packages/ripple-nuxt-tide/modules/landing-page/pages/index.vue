@@ -6,7 +6,7 @@
       </rpl-col>
     </template>
     <template v-for="dComponent in dynamicComponents" v-if="dynamicComponents">
-      <rpl-col cols="full" :colsBp="dComponent.cols" :key="dComponent.id">
+      <rpl-col cols="full" :colsBp="dComponent.cols" :key="dComponent.id" catchChildError>
         <client-only v-if="dComponent.ssr === false">
           <component :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
         </client-only>

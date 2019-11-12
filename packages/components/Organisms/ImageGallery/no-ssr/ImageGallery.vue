@@ -145,8 +145,6 @@ export default {
   .rpl-image-gallery {
     position: relative;
 
-    @include rpl_print_hidden;
-
     &__enlarge {
       background-color: $rpl-image-gallery-enlarge-background-color;
       border: 0;

@@ -310,6 +310,12 @@ export default {
       left: 0;
       box-sizing: border-box;
       cursor: grab;
+
+      @include rpl_print {
+        // Change to auto otherwise it won't got printable.
+        width: auto;
+        height: auto;
+      }
     }
 
     &__container {

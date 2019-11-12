@@ -39,7 +39,7 @@ storiesOf('Organisms/Publication', module)
   }))
   .add('Publication Download Print', () => ({
     components: { RplPublicationDownloadPrint },
-    template: `<rpl-publication-download-print :links="links" :showPrint="showPrint" @publicationPrint="print" @publicationDownload="download" />`,
+    template: `<rpl-publication-download-print :links="links" :printPage="printPage" :printLink="printLink" @publicationPrint="print" @publicationDownload="download" />`,
     props: {
       links: {
         default: () => object('Links', [{
@@ -54,8 +54,14 @@ storiesOf('Organisms/Publication', module)
           filesize: '1.2 mb'
         }])
       },
-      showPrint: {
-        default: boolean('Show print', true)
+      printPage: {
+        default: boolean('Show print', false)
+      },
+      printLink: {
+        default: () => object('link', {
+          href: '/printall',
+          text: 'Print full document'
+        })
       }
     },
     methods: {

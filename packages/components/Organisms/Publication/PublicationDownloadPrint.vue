@@ -3,11 +3,17 @@
     <li v-for="(link, index) in links" :key="index">
       <rpl-document-link class="rpl-publication-download-print__print-item" v-bind="link" @click.native="downloadClick(link.name)" />
     </li>
-    <li v-if="showPrint" class="rpl-publication-download-print__print-list-item">
-      <button class="rpl-publication-download-print__print-item rpl-publication-download-print__print-button" @click="printClick()">
-        <rpl-icon class="rpl-publication-download-print__print-button-icon" symbol="print" color="primary" size="l" />
-        <div class="rpl-publication-download-print__print-button-info">
-          <span class="rpl-publication-download-print__print-button-title">{{ printText }}</span>
+    <li v-if="printLink || printPage" class="rpl-publication-download-print__print-list-item">
+      <rpl-link v-if="printLink" class="rpl-publication-download-print__print-item rpl-publication-download-print__print-link" :href="printLink.href">
+        <rpl-icon class="rpl-publication-download-print__print-link-icon" symbol="print" color="primary" size="l" />
+        <div class="rpl-publication-download-print__print-link-info">
+          <span class="rpl-publication-download-print__print-link-title">{{ printLink.text }}</span>
+        </div>
+      </rpl-link>
+      <button v-if="printPage" class="rpl-publication-download-print__print-item rpl-publication-download-print__print-link" @click="printClick()">
+        <rpl-icon class="rpl-publication-download-print__print-link-icon" symbol="print" color="primary" size="l" />
+        <div class="rpl-publication-download-print__print-link-info">
+          <span class="rpl-publication-download-print__print-link-title">Print this page</span>
         </div>
       </button>
     </li>
@@ -17,18 +23,23 @@
 <script>
 import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import RplIcon from '@dpc-sdp/ripple-icon'
+import RplLink from '@dpc-sdp/ripple-link'
 import DocumentLink from '@dpc-sdp/ripple-document-link'
 
 export default {
   name: 'RplPublicationDownloadPrint',
   components: {
     RplIcon,
+    RplLink,
     DocumentLink
   },
   props: {
     links: Array,
-    showPrint: { type: Boolean, default: true },
-    printText: { type: String, default: 'Print this page' }
+    printPage: { type: Boolean, default: false },
+    printLink: {
+      type: [Object, Boolean],
+      default: false
+    }
   },
   methods: {
     printClick () {
@@ -87,7 +98,7 @@ export default {
       margin: $rpl-publication-download-print-link-margin;
     }
 
-    &__print-button {
+    &__print-link {
       background-color: transparent;
       border: 0;
       padding: 0;
@@ -103,17 +114,22 @@ export default {
           @include rpl_text_color($rpl-document-link-title-color-hover);
         }
       }
+
+      .rpl-link__inner {
+          display: flex;
+          align-items: center;
+      }
     }
 
-    &__print-button-icon {
+    &__print-link-icon {
       flex: $rpl-document-link-icon-flex;
     }
 
-    &__print-button-info {
+    &__print-link-info {
       margin-left: $rpl-publication-download-print-link-info-margin;
     }
 
-    &__print-button-title {
+    &__print-link-title {
       @include rpl_typography_ruleset($rpl-document-link-title-ruleset);
       @include rpl_text_color($rpl-document-link-title-color);
     }

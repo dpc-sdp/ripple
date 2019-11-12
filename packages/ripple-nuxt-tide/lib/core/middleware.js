@@ -80,11 +80,17 @@ export default async function (context, pageData) {
     switch (context.app.tideResErrCode) {
       case 404:
         pageData.tideErrorType = '404'
+        if (typeof context.res !== 'undefined') {
+          context.res.statusCode = 404
+        }
         break
 
       default:
         pageData.tideErrorType = 'other'
         if (process.server) {
+          if (typeof context.res !== 'undefined') {
+            context.res.statusCode = 500
+          }
           logger.error('Failed to get the page data.', { error })
         }
     }

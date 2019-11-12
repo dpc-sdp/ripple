@@ -58,6 +58,10 @@ export default {
     position: relative;
     margin: $rpl-anchor-links-margin;
 
+    @include rpl_print {
+      border-left: 0;
+    }
+
     @include rpl_breakpoint('s') {
       padding-left: $rpl-anchor-links-left-padding-s;
     }
@@ -69,8 +73,6 @@ export default {
     @include rpl_breakpoint('xl') {
       padding-left: $rpl-anchor-links-left-padding-xl;
     }
-
-    @include rpl_print_hidden;
 
     &__row {
       @include rpl_breakpoint('s') {
@@ -93,6 +95,10 @@ export default {
       color: $rpl-anchor-links-title-color;
       @include rpl_breakpoint('s') {
         padding-bottom: $rpl-anchor-links-title-padding;
+      }
+
+      @media print {
+        @include rpl_typography(heading_s);
       }
     }
 

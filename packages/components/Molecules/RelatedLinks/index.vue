@@ -41,7 +41,7 @@ export default {
   $rpl-related-links-margin: $rpl-space-2;
   $rpl-related-links-border-radius: rem(4px);
   $rpl-related-links-title-ruleset: ('l', 1.2em, 'bold');
-  $rpl-related-links-title-color: rpl_color('white');
+  $rpl-related-links-title-color: rpl_color('white') !default;
   $rpl-related-links-items-margin: $rpl-space-2 auto;
   $rpl-related-links-item-min-width: rem(220px);
   $rpl-related-links-item-margin: 0 $rpl-space-3 $rpl-space-3 auto;

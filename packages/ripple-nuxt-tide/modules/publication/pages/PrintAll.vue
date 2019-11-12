@@ -10,8 +10,8 @@
         class="rpl-site-constrain--on-all"
       />
     </template>
-    <rpl-row row-gutter v-if="publication.components">
-      <template v-for="component in publication.components">
+    <rpl-row row-gutter v-if="parentComps">
+      <template v-for="component in parentComps">
         <rpl-col cols="full" :colsBp="component.cols" :key="component.id">
           <client-only v-if="component.ssr === false">
             <component :is="component.component" v-bind="component.data" :class="component.class"></component>
@@ -36,6 +36,7 @@
       <rpl-col cols="full">
         <section v-for="(page, index) in pages" :key="`${index}-page`">
           <h2 :id="formatAnchor(page.title)" class="tide-pub-print__page-title">{{ page.title }}</h2>
+          <p class="tide-pub-print__page-intro-text">{{ page.introText }}</p>
           <template v-if="page.components">
             <rpl-row row-gutter>
               <template v-for="component in page.components">
@@ -67,6 +68,7 @@ import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import { RplPublicationAuthorInformation, RplPublicationDownloadPrint } from '@dpc-sdp/ripple-publication'
 import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 import kebabCase from 'lodash.kebabcase'
+import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
 export default {
   name: 'TidePrintPublication',
@@ -120,10 +122,14 @@ export default {
         }
       }
     },
+    parentComps () {
+      return this.$tide.getDynamicComponents(this.publication.componentMapping, true)
+    },
     pages () {
       return this.publicationPages.map(page => {
         return {
           title: page.title,
+          introText: page.introText,
           components: page.componentMapping.map(cmp => {
             return this.$tide.getDynamicComponent(cmp, true)
           }).filter(c => c)
@@ -133,9 +139,12 @@ export default {
   },
   async asyncData ({ app, route }) {
     const publication = await app.$tide.getPageByPath('/' + route.params.publicationname)
-    if (publication) {
-      const pubCompMapping = await app.$tideMapping.get(publication.field_landing_page_component, 'landingPageComponents')
-      publication.components = app.$tide.getDynamicComponents(pubCompMapping, true)
+    try {
+      publication.componentMapping = await app.$tideMapping.get(publication.field_landing_page_component, 'landingPageComponents')
+    } catch (error) {
+      if (process.server) {
+        logger.error('Failed to map publication components', { error, label: 'Publication' })
+      }
     }
 
     const hierarchyJson = await app.$tide.get('node/publication', {}, `${publication.id}/hierarchy`)
@@ -192,6 +201,7 @@ export default {
 
         publicationPages.push({
           title: page.title,
+          introText: page.field_landing_page_intro_text,
           componentMapping
         })
       }

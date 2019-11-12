@@ -68,8 +68,6 @@ export default {
     border-radius: $rpl-call-to-action-border-radius;
     border: $rpl-call-to-action-border;
 
-    @include rpl_print_hidden;
-
     &__image {
       width: 100%;
     }

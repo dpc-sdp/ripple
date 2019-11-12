@@ -163,8 +163,6 @@ export default {
   $rpl-card-carousel-navigation-bottom-margin: $rpl-space-3 !default;
 
   .rpl-card-carousel {
-    @include rpl_print_hidden;
-
     &__title {
       @include rpl_typography_ruleset($rpl-card-carousel-title-ruleset);
       color: $rpl-card-carousel-title-text-color;
@@ -195,6 +193,15 @@ export default {
 
     .VueCarousel-inner {
       padding-bottom: $rpl-card-carousel-inner-padding;
+
+      @include rpl_print {
+        display: block;
+        transform: none;
+
+        .VueCarousel-slide {
+          margin-bottom: $rpl-space-4;
+        }
+      }
     }
 
     &__navigation {

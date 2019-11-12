@@ -1,5 +1,5 @@
 <template>
-  <rpl-row row-gutter class="app-content">
+  <rpl-row row-gutter class="app-content tide-content tide-content--page">
     <rpl-col cols="full">
       <rpl-anchor-links v-if="anchorLinks" title="On this page:" :links="anchorLinks" />
       <rpl-markup v-if="page.body" :html="page.body.processed"></rpl-markup>

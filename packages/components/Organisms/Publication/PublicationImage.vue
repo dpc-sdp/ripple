@@ -11,7 +11,7 @@
       <button class="rpl-publication-image__button" v-if="expandLabel && !markupVisible" @click="markupVisible = true">
         <rpl-text-icon symbol="table" color="primary" :text="expandLabel" placement="before" />
       </button>
-      <div class="rpl-publication-image__expander" v-if="markupVisible">
+      <div class="rpl-publication-image__expander" :class="{ 'rpl-publication-image__expander--open': markupVisible }">
         <div class="rpl-publication-image__expander-header">
           <rpl-text-icon class="rpl-publication-image__expander-title" symbol="table" color="primary" :text="expandTitleLabel" placement="before" />
           <button class="rpl-publication-image__expander-close-button" @click="markupVisible = false">
@@ -168,6 +168,15 @@ export default {
     &__expander {
       width: 100%;
       background: $rpl-publication-image-markup-background;
+      display: none;
+
+      &--open {
+        display: block;
+      }
+
+      @include rpl_print {
+        display: block;
+      }
 
       &-header {
         border: $rpl-publication-image-markup-border;

@@ -839,7 +839,7 @@ Then(`there should be a description list with the following items:`, (dataTable)
 // Sitemap
 Then(`the sitemap component should exist`, () => {
   cy.get('.rpl-sitemap-menu').should('exist')
-})  
+})
 
 //  Publication author information
 Then(`the author information component should exist`, () => {

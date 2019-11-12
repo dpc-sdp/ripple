@@ -116,8 +116,6 @@ export default {
     border-radius: $rpl-card-navigation-featured-border-radius;
     background: $rpl-card-navigation-featured-summary-background;
 
-    @include rpl_print_hidden;
-
     &:hover,
     &:focus {
       @include rpl_dropshadow;

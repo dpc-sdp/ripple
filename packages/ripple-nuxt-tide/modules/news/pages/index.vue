@@ -1,5 +1,5 @@
 <template v-if="page.type === 'node--news'">
-  <rpl-row row-gutter class="app-content">
+  <rpl-row row-gutter class="app-content tide-content tide-content--news">
     <rpl-col cols="full" v-if="publishDateAndAuthor">
       <rpl-publish-date-and-author v-bind="publishDateAndAuthor" />
     </rpl-col>

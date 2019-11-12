@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class=" tide-content tide-content--profile">
     <rpl-row row-gutter v-if="profileHightlightHonourRoll">
       <rpl-col cols="full">
         <rpl-profile-highlight-honour-roll v-bind="profileHightlightHonourRoll"/>

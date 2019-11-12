@@ -25,6 +25,18 @@ function testField (field, data) {
           field.validator.splice(idxRequired, 1)
         }
         break
+      case 'disabled':
+        field.disabled = isPass
+        break
+      case 'visible':
+        field.visible = isPass
+        break
+      case 'enabled':
+        field.disabled = !isPass
+        break
+      case 'invisible':
+        field.visible = !isPass
+        break
       default:
         logger.warn('Form: State "%s" is not supported.', state, { label: 'Webform' })
         break

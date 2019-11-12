@@ -44,6 +44,15 @@ Then(`the login status message should be {string}`, (status) => {
   cy.get('.rpl-form-alert').should('contain', status)
 })
 
+Given(`the role {string} exists in the backend`, (role) => {
+  cy.task('createUserRole', role).as('authContentRole')
+})
+
+Given(`the authenticated content module is configured with:`, (dataTable) => {
+  const expected = dataTable.hashes()[0]
+  cy.task('configureAuthContent', expected).as('authContentTerm')
+})
+
 Given(`there is a user in the system with the following credentials:`, (dataTable) => {
   const user = dataTable.hashes()[0]
   const active = Boolean(dataTable.hashes()[0].active === 'true')

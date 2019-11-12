@@ -8,6 +8,16 @@ Given(`I visit the page {string}`, url => {
       username: Cypress.env('CONTENT_API_AUTH_USER'),
       password: Cypress.env('CONTENT_API_AUTH_PASS')
     },
+    failOnStatusCode: true
+  })
+})
+
+Given(`I attempt to visit the page {string}`, url => {
+  cy.visit(url, {
+    auth: {
+      username: Cypress.env('CONTENT_API_AUTH_USER'),
+      password: Cypress.env('CONTENT_API_AUTH_PASS')
+    },
     failOnStatusCode: false
   })
 })
@@ -19,6 +29,10 @@ Then(`I should be redirected to the page {string}`, path => {
 
 Then(`I should see a 404 page`, () => {
   cy.get('.app-error').should('exist')
+})
+
+Then(`the current page should not be an error page`, () => {
+  cy.get('.app-error').should('not.exist')
 })
 
 Given(`I have created a node with the YAML fixture {string}`, fixture => {

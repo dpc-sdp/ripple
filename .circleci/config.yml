@@ -2,12 +2,12 @@ version: 2.0
 
 jobs:
   build:
-    context: Ripple
     docker:
       - image: cypress/base:10
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
+          TZ: "Australia/Melbourne"
     working_directory: ~/app
     steps:
       - checkout
@@ -39,21 +39,21 @@ jobs:
           paths: .
 
   warm-up:
-    context: Ripple
     docker:
       - image: cypress/base:10
     steps:
       - run:
-          name: Awake dev backend
+          name: wake up dev backend
           command: curl https://www.develop.content.vic.gov.au/ --max-time 1000
 
   test:
-    context: Ripple
     docker:
       - image: cypress/base:10
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
+          TZ: "Australia/Melbourne"
+
     working_directory: ~/app
     steps:
       - attach_workspace:
@@ -78,7 +78,7 @@ jobs:
           command: yarn test:smoke
       - run:
           name: prepare cucumber test report
-          command: yarn test:report        
+          command: yarn test:report   
       - persist_to_workspace:
           root: ~/app
           paths: .
@@ -97,7 +97,10 @@ jobs:
       - image: cypress/base:10
         environment:
           TERM: xterm
+          TZ: "Australia/Melbourne"
+
     working_directory: ~/app
+    parallelism: 2
     steps:
       - attach_workspace:
           at: ~/app
@@ -112,6 +115,7 @@ jobs:
       - run:
           name: prepare cucumber test report
           command: yarn test:report
+          when: always
       - store_artifacts:
           path: test-results
       - store_test_results:
@@ -209,12 +213,15 @@ workflows:
   version: 2
   commit:
     jobs:
-      - build      
+      - build:
+          context: Ripple      
       - test:
+          context: Ripple
           requires:
             - build  
       # Run regression tests on release branches
       - e2e-vic-gov:
+          context: Ripple
           requires:
             - build
           filters:
@@ -258,11 +265,14 @@ workflows:
                 - develop
     jobs:
       - warm-up
-      - build
+      - build:
+          context: Ripple
       - test:
+          context: Ripple
           requires:
             - build  
       - e2e-vic-gov:
+          context: Ripple
           requires:
             - build
       - e2e-example:

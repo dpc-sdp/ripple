@@ -1,4 +1,4 @@
-Feature: Search
+Feature: News page
 
   This test is not ready yet
   

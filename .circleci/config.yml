@@ -65,7 +65,7 @@ jobs:
             - v2-deps
       - run:
           name: Lint code.
-          command: yarn lint --format ./node_modules/eslint-junit/index.js 
+          command: yarn lint --format ./node_modules/eslint-junit/index.js
           environment:
              ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
       - run:
@@ -78,7 +78,7 @@ jobs:
           command: yarn test:smoke
       - run:
           name: prepare cucumber test report
-          command: yarn test:report   
+          command: yarn test:report
       - persist_to_workspace:
           root: ~/app
           paths: .
@@ -92,12 +92,13 @@ jobs:
           path: examples/vic-gov-au/test/e2e/screenshots
 
   e2e-vic-gov:
-    # This runs the full suite of e2e tests 
+    # This runs the full suite of e2e tests
     docker:
       - image: cypress/base:10
         environment:
           TERM: xterm
           TZ: "Australia/Melbourne"
+          CONTENT_API_SERVER: "https://nginx-php-content-vic-pr-738.lagoon.vicsdp.amazee.io/"
 
     working_directory: ~/app
     parallelism: 2
@@ -109,7 +110,7 @@ jobs:
             - v2-deps-{{ checksum "yarn.lock" }}
             - v2-deps-{{ .Branch }}
             - v2-deps
-      - run: 
+      - run:
           name: run full e2e test
           command: yarn test:e2e-vic
       - run:
@@ -126,13 +127,13 @@ jobs:
           path: examples/vic-gov-au/test/e2e/screenshots
 
   e2e-example:
-    # This runs the full suite of e2e tests 
+    # This runs the full suite of e2e tests
     docker:
       - image: cypress/base:10
         environment:
           TERM: xterm
     working_directory: ~/app
-    steps:    
+    steps:
       - attach_workspace:
           at: ~/app
       - restore_cache:
@@ -143,7 +144,7 @@ jobs:
       - run:
           name: build example nuxt app
           command: cd examples/basic-examples && yarn build:default
-      - run: 
+      - run:
           name: run full e2e test
           command: yarn test:e2e-example
       - run:
@@ -164,7 +165,7 @@ jobs:
         environment:
           TERM: xterm
     working_directory: ~/app
-    steps:    
+    steps:
       - attach_workspace:
           at: ~/app
       - restore_cache:
@@ -172,7 +173,7 @@ jobs:
             - v2-deps-{{ checksum "yarn.lock" }}
             - v2-deps-{{ .Branch }}
             - v2-deps
-      - run: 
+      - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
       - run:
@@ -194,7 +195,7 @@ jobs:
         environment:
           TERM: xterm
     working_directory: ~/app
-    steps:    
+    steps:
       - attach_workspace:
           at: ~/app
       - restore_cache:
@@ -202,7 +203,7 @@ jobs:
             - v2-deps-{{ checksum "yarn.lock" }}
             - v2-deps-{{ .Branch }}
             - v2-deps
-      - run: 
+      - run:
           name: Set NPM_TOKEN
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - run:
@@ -214,11 +215,11 @@ workflows:
   commit:
     jobs:
       - build:
-          context: Ripple      
+          context: Ripple
       - test:
           context: Ripple
           requires:
-            - build  
+            - build
       # Run regression tests on release branches
       - e2e-vic-gov:
           context: Ripple
@@ -270,7 +271,7 @@ workflows:
       - test:
           context: Ripple
           requires:
-            - build  
+            - build
       - e2e-vic-gov:
           context: Ripple
           requires:

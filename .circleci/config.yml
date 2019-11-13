@@ -235,7 +235,7 @@ workflows:
           filters:
             branches:
               only:
-                - release/*
+                - /^release\/.*/
       - e2e-vue-example-app:
           requires:
             - build

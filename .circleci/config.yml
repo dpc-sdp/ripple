@@ -228,7 +228,7 @@ workflows:
           filters:
             branches:
               only:
-                - release/*
+                - /^release\/.*/
       - e2e-example:
           requires:
             - build
@@ -242,7 +242,7 @@ workflows:
           filters:
             branches:
               only:
-                - release/*
+                - /^release\/.*/
       #  Release prerelease DEV tag to NPM on successful tests passing
       # - prerelease:
       #     requires:

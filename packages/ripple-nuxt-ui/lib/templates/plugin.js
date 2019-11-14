@@ -28,6 +28,10 @@ let rplOptions = {
   rplOptions.viclogo = options.viclogo
 <% } %>
 
+<% if (typeof options.viclogoFooter !== 'undefined') { %>
+  rplOptions.viclogoFooter = options.viclogoFooter
+<% } %>
+
 <% if (options.customIcon) { %>
   // Add custom icons to library.
   addCustomIcons(require.context('../assets/ripple-icon/', true, /\.svg$/))

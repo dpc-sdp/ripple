@@ -7,6 +7,7 @@ Feature: Demo Page
 
   @smoke
   Scenario: Demo landing page loads correctly
+    Then the current page should not be an error page
     And the page title should be "Demo Landing Page"
     And the h1 should be "Demo Landing Page"
     And the breadcrumbs should exist

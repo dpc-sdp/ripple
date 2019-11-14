@@ -7,5 +7,6 @@
   "supportFile": "test/e2e/support/index.js",
   "videosFolder": "test/e2e/videos",
   "ignoreTestFiles": "*.js",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "projectId": "wtymar"
 }

@@ -8,11 +8,11 @@ Feature: Basic Page
     # Page Header	
     Then the page title should be "8-BE-page-1 Create Basic page"
     And the hero banner desciption should be "Intro So now all who escaped death in battle or by shipwreck had got safely home except Ulysses, and he, though he was longing to return to his wife and country, was detained by the goddess Calypso, who had got him into a large cave and wanted to marry him. But as years went by, there came a time when the gods settled that he should go back to Ithaca; even then, however, when he was among his own people, his troubles were not yet over; nevertheless all the gods had now begun to pity him except Neptune, who still persecuted him without ceasing and would not let him get END."
-    # #Body	
+    # wysiwyg	
     And the order number 1 wysiwyg content contains fixture "snippets/callout"
     And the order number 1 wysiwyg content contains fixture "snippets/blockquote"
-    And the order number 1 wysiwyg content contains fixture "snippets/document"
-    # # Related Links
+    # And the order number 1 wysiwyg content contains fixture "snippets/document"
+    # Related Links
     And the related links component should exist
     And the related links title should be "Related links"
     And the related links should contain the following links:

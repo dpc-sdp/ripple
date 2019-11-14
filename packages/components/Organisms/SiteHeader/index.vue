@@ -374,6 +374,7 @@ export default {
       img {
         width: $rpl-site-header-logo-width;
         margin-left: $rpl-site-header-menu-toggle-border-spacing;
+        vertical-align: middle;
       }
 
       &--vic-logo-primary {

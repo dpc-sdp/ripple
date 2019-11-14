@@ -47,9 +47,7 @@
           </footer>
         </blockquote>
         <h6>Mauris tincidunt tincidunt felis vel tempus</h6>
-        <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid='11dede11-10c0-111e1-1100-000000000111'></drupal-entity>
         <p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>
-        <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid='11dede11-10c0-111e1-1100-000000000007'></drupal-entity>
   # What's Next.
   field_show_whats_next: 1
   field_whats_next:

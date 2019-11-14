@@ -74,6 +74,7 @@ export default {
   $rpl-card-navigation-featured-margin-xs: $rpl-space-3 auto !default;
   $rpl-card-navigation-featured-margin-s: ($rpl-space * 5) auto !default;
   $rpl-card-navigation-featured-background: rpl_color('primary') !default;
+  $rpl-card-navigation-featured-background-alter: rpl_color('secondary') !default;
   $rpl-card-navigation-featured-max-width: rem(818px) !default;
   $rpl-card-navigation-featured-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-navigation-featured-border-radius: rem(4px) !default;
@@ -87,7 +88,7 @@ export default {
   ) !default;
   $rpl-card-navigation-featured-summary-color: rpl_color('white') !default;
   $rpl-card-navigation-featured-summary-background: $rpl-card-navigation-featured-background url(rpl_graphic_right_angled_triangle('secondary')) no-repeat bottom right !default;
-  $rpl-card-navigation-featured-summary-background-hover: rpl_color('secondary') url(rpl_graphic_right_angled_triangle('primary')) no-repeat bottom right !default;
+  $rpl-card-navigation-featured-summary-background-hover: $rpl-card-navigation-featured-background-alter url(rpl_graphic_right_angled_triangle('primary')) no-repeat bottom right !default;
   $rpl-card-navigation-featured-summary-xs: ($rpl-space * 11) $rpl-component-padding-xs ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-s: ($rpl-space * 6) $rpl-component-padding-s ($rpl-space * 7) !default;
   $rpl-card-navigation-featured-summary-m: ($rpl-space * 6) $rpl-component-padding-m ($rpl-space * 7) !default;
@@ -98,7 +99,7 @@ export default {
   $rpl-card-navigation-featured-title-m: ($rpl-space * 9) $rpl-component-padding-m !default;
   $rpl-card-navigation-featured-title-l: ($rpl-space * 9) $rpl-component-padding-l !default;
   $rpl-card-navigation-featured-title-xl: ($rpl-space * 9) $rpl-component-padding-xl !default;
-  $rpl-card-navigation-featured-meta-background: rpl_color('secondary') !default;
+  $rpl-card-navigation-featured-meta-background: $rpl-card-navigation-featured-background-alter !default;
   $rpl-card-navigation-featured-meta-text-color: rpl_color('white') !default;
   $rpl-card-navigation-featured-meta-padding: 0 $rpl-space-2 !default;
   $rpl-card-navigation-featured-date-ruleset: ('xs', 1em, 'semibold') !default;

@@ -6,8 +6,11 @@ before(function () {
   })
 })
 
-afterEach(() => {
-
+afterEach(function () {
+  if (this.userId) {
+    cy.task('deleteUser', this.userId)
+    this.userId = null
+  }
 })
 
 after(function () {

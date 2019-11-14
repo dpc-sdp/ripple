@@ -233,6 +233,7 @@ export default {
   $rpl-menu-vertical-heading-margin: ($rpl-space * 6) auto $rpl-space-3 auto !default;
   $rpl-menu-vertical-items-padding: 0 ($rpl-space * 6) !default;
   $rpl-menu-vertical-header-padding: $rpl-menu-vertical-items-padding !default;
+  $rpl-menu-vertical-back-color: rpl-color('white') !default;
   $rpl-menu-vertical-back-icon-margin: auto $rpl-space auto 0 !default;
   $rpl-menu-horizontal-items-root-link-color: rpl-color('white') !default;
   $rpl-menu-horizontal-items-root-margin: auto ($rpl-space * 7) auto auto !default;
@@ -247,6 +248,7 @@ export default {
   $rpl-menu-item-link-padding: $rpl-space-4 $rpl-menu-item-link-indent $rpl-space-4 0 !default;
   $rpl-menu-item-link-padding-active: $rpl-space-4 $rpl-menu-item-link-indent !default;
   $rpl-menu-item-link-color: $rpl-menu-text-color !default;
+  $rpl-menu-item-link-color-hover: $rpl-menu-text-color !default;
   $rpl-menu-item-link-background-color-hover: rpl-color('primary') !default;
   $rpl-menu-item-link-background-image-active: rpl-gradient('primary_gradient') !default;
   $rpl-menu-item-link-color-active: $rpl-menu-text-color !default;
@@ -353,7 +355,7 @@ export default {
 
     .rpl-menu__back {
       @include rpl_typography_font('xs', 1em, 'bold');
-      color: rpl-color('white');
+      color: $rpl-menu-vertical-back-color;
       background-color: transparent;
       border: 0;
       padding: 0;
@@ -581,7 +583,7 @@ export default {
         border-radius: $rpl-menu-item-link-border-radius;
         align-items: center;
         padding: $rpl-menu-item-link-padding-active;
-        color: $rpl-menu-item-link-color;
+        color: $rpl-menu-item-link-color-hover;
 
         span {
           margin-right: 0;

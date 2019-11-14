@@ -827,7 +827,6 @@ Then(`the search results component should exist`, () => {
 })
 
 // Description List
-
 Then(`there should be a description list with the following items:`, (dataTable) => {
   const dl = dataTable.hashes()
   const labels = dl.map(label => `${label.term}: ${label.value}`)
@@ -837,8 +836,12 @@ Then(`there should be a description list with the following items:`, (dataTable)
   })
 })
 
-//  Publication author information
+// Sitemap
+Then(`the sitemap component should exist`, () => {
+  cy.get('.rpl-sitemap-menu').should('exist')
+})
 
+//  Publication author information
 Then(`the author information component should exist`, () => {
   cy.get('.rpl-author-information').should('exist')
 })

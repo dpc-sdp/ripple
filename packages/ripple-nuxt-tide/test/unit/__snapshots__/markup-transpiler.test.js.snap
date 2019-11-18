@@ -32,7 +32,7 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 </tbody></table></div>
 
 <!-- pluginEmbeddedMediaVideo -->
-<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/Xb4ElZqit8k?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"link\\" :display-transcript=\\"true\\" :media-link=\\"{ text: \`View transcript\`, url: \`/media/1\` }\\" transcript=\\"Some video caption text &lt;&amp;&apos;&quot;\\"></rpl-embedded-video>
+<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/Xb4ElZqit8k?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"link\\" :display-transcript=\\"true\\" :media-link=\\"embeddedMediaVideoData.mediaLink\\" transcript=\\"Some video caption text &lt;&amp;&apos;&quot;\\"></rpl-embedded-video>
 
 <!-- blockquote -->
 <blockquote class=\\"quotation\\">

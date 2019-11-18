@@ -1,5 +1,9 @@
-// Note: for add obj type prop in template, please use ` instead of ' otherwise it won't work.
-// e.g <component-obj-prop :author="{name: `Veronica`, company: `Veridian Dynamics`}"></component-obj-prop>
+// Note: for add obj type prop in template, please return data instead of set them in template otherwise it won't work.
+// e.g You have something like in your plugin: `<component-obj-prop :author="{name: 'Veronica', company: 'Veridian Dynamics'}"></component-obj-prop>`
+// You should make template: `<component-obj-prop :author="myPluginData.author"></component-obj-prop>`
+// Then set myPluginData.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData} in your plugin.
+// See a example in `pluginEmbeddedMediaVideo` plugin below.
+
 import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 // Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
@@ -118,6 +122,8 @@ const pluginIframe = function () {
 }
 
 const pluginEmbeddedMediaVideo = function () {
+  // Component data
+  const embeddedMediaVideoData = {}
   // wrap iFrames
   this.find('.embedded-entity--media--embedded-video').map((i, el) => {
     const element = this.find(el)
@@ -128,19 +134,26 @@ const pluginEmbeddedMediaVideo = function () {
     const figcaption = element.find('figcaption')
     const transcript = figcaption ? figcaption.text() : null
     const link = element.find('.field--name-field-media-link a')
-    const mediaLink = link && link.is('a') ? `{ text: \`${_escapeQuotes(link.text())}\`, url: \`${link.attr('href')}\` }` : null
+    // For Obj type props, using data to pass value to avoid HTML syntax and encoding issue.
+    embeddedMediaVideoData.mediaLink = link && link.is('a') ? { text: link.text(), url: link.attr('href') } : null
+
     const RplEmbeddedVideo = `<rpl-embedded-video
 width="${width}"
 height="${height}"
 src="${src}"
 class="rpl-markup__embedded-video"
-variant="${mediaLink ? 'link' : 'full'}"
+variant="${embeddedMediaVideoData.mediaLink ? 'link' : 'full'}"
 :display-transcript="true"
-${mediaLink ? ':media-link="' + mediaLink + '"' : ''}
+${embeddedMediaVideoData.mediaLink ? ':media-link="embeddedMediaVideoData.mediaLink"' : ''}
 ${transcript ? 'transcript="' + _escapeQuotes(transcript) + '"' : ''}
 />`
     return element.replaceWith(RplEmbeddedVideo)
   })
+
+  // Return data
+  return {
+    embeddedMediaVideoData
+  }
 }
 
 const pluginLinks = function () {

@@ -5,6 +5,10 @@ import { logger } from './../../lib/core'
  * Will update the field object based on it's state.
  * Supports the following states:
  * - required
+ * - disabled
+ * - enabled
+ * - visible
+ * - invisible
  * @param {Object} field
  * @param {Object} data uses data.model property
  */
@@ -25,18 +29,25 @@ function testField (field, data) {
           field.validator.splice(idxRequired, 1)
         }
         break
+
       case 'disabled':
         field.disabled = isPass
         break
+
+      case 'enabled':
+        const enable = isPass
+        field.disabled = !enable
+        break
+
       case 'visible':
         field.visible = isPass
         break
-      case 'enabled':
-        field.disabled = !isPass
-        break
+
       case 'invisible':
-        field.visible = !isPass
+        const invisible = isPass
+        field.visible = !invisible
         break
+
       default:
         logger.warn('Form: State "%s" is not supported.', state, { label: 'Webform' })
         break
@@ -125,9 +136,11 @@ function performTriggerCheck (rule) {
       result = (rule.modelValue != null && rule.modelValue.length > 0)
       break
     case 'checked':
+      // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
       result = (rule.modelValue === true)
       break
     case 'unchecked':
+      // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
       result = (rule.modelValue == null || rule.modelValue === false)
       break
     case 'value':

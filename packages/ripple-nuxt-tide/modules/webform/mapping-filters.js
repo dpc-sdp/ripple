@@ -1,5 +1,3 @@
-import { logger } from './../../lib/core'
-
 module.exports = {
   // Convert Drupal webform data struture to Vue Form Generator structure
   webform: async (drupalFormEntity, { mapping }) => {
@@ -353,8 +351,9 @@ module.exports = {
       } else if (!group.hasOwnProperty('fields') && field.type !== null) {
         data.schema.groups.push({ 'fields': [field] })
       } else {
+        const logger = require('@dpc-sdp/ripple-nuxt-tide/lib/core').logger
         if (process.server) {
-          logger.warn(`Webform element type "%s" is not supported in nuxt-tide at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`, element['#type'], { label: 'Webform' })
+          logger.warn(`Webform element type "%s" is not supported in "ripple-nuxt-tide" at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`, element['#type'], { label: 'Webform' })
         }
       }
     }

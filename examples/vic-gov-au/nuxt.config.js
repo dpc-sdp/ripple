@@ -50,6 +50,15 @@ export default {
       Disallow: '/'
     }]
   ],
+  build: {
+    // For debugging in dev mode
+    // https://github.com/nuxt/nuxt.js/issues/2734#issuecomment-410135071
+    extend (config, { isDev, isClient }) {
+      if (isDev) {
+        config.devtool = isClient ? 'source-map' : 'inline-source-map'
+      }
+    }
+  },
   /*
   ** styleResources
   * Override the path to the theme customisation scss

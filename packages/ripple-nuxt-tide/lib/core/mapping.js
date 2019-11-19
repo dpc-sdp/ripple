@@ -253,7 +253,9 @@ export class Mapping {
       const getProp = this[_getFieldVal](propMapping, item).then(res => {
         props[prop] = res
       }).catch(error => {
-        logger.error('Failed to get prop "%s" value.', prop, { error, label: 'Mapping' })
+        if (process.server) {
+          logger.error('Failed to get prop "%s" value.', prop, { error, label: 'Mapping' })
+        }
       })
       getProps.push(getProp)
     }

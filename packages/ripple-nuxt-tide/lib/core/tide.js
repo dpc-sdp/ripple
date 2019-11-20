@@ -49,7 +49,10 @@ export const tide = (axios, site, config) => ({
     const axiosConfig = {
       auth: config.auth,
       timeout: axiosTimeout,
-      headers: {}
+      headers: {
+        'Content-Type': 'application/vnd.api+json; charset=UTF-8',
+        'Accept': 'application/vnd.api+json'
+      }
     }
 
     if (this.isModuleEnabled('authenticatedContent')) {
@@ -365,8 +368,7 @@ export const tide = (axios, site, config) => ({
       const entity = await this.get(endpoint, params, '', headersConfig)
       return entity
     } catch (error) {
-      // TODO: use return error instead of throw.
-      throw new Error(`Failed to get entity "${pathData.entity_type}/${pathData.bundle}/${pathData.uuid}" data, with error "${error}"`)
+      return new Error(`Failed to get entity "${pathData.entity_type}/${pathData.bundle}/${pathData.uuid}" data, with error "${error}"`)
     }
   },
 
@@ -382,8 +384,8 @@ export const tide = (axios, site, config) => ({
     }
 
     const entity = await this.getEntityByPathData(pathData, params, headersConfig)
-    if (!entity) {
-      throw new Error('Something wrong. Could not get any entity data from Tide based on API route response.')
+    if (entity instanceof Error) {
+      throw entity
     }
     pageData = jsonapiParse.parse(entity).data
 
@@ -405,6 +407,9 @@ export const tide = (axios, site, config) => ({
       uuid: uuid
     }
     const entity = await this.getEntityByPathData(pathData, params, headersConfig)
+    if (entity instanceof Error) {
+      throw entity
+    }
     const pageData = jsonapiParse.parse(entity).data
 
     // Append the site section to page data

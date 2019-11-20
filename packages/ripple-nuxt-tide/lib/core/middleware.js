@@ -80,12 +80,20 @@ export default async function (context, pageData) {
     switch (context.app.tideResErrCode) {
       case 404:
         pageData.tideErrorType = '404'
+        if (typeof context.res !== 'undefined') {
+          context.res.statusCode = 404
+        }
         break
 
       default:
         pageData.tideErrorType = 'other'
         if (process.server) {
-          logger.error('Failed to get the page data.', { error })
+          if (typeof context.res !== 'undefined') {
+            context.res.statusCode = 500
+          }
+          if (process.server) {
+            logger.error('Failed to get the page data.', { error, label: 'Middleware' })
+          }
         }
     }
   }
@@ -109,6 +117,10 @@ export default async function (context, pageData) {
     const addComponentFromPromise = (promise, name) => {
       const addMapping = promise.then(res => {
         pageData.tidePage[name] = res
+      }).catch(error => {
+        if (process.server) {
+          logger.error('Failed to add component for "%s"', name, { error, label: 'Middleware' })
+        }
       })
       asyncTasks.push(addMapping)
     }
@@ -197,7 +209,9 @@ export default async function (context, pageData) {
           const siteSectionData = await context.app.$tide.getSiteData(headersConfig, pageData.tidePage.section)
 
           if (siteSectionData instanceof Error) {
-            logger.error('Could not get site section data from Tide API.', { error: siteSectionData, label: 'Middleware' })
+            if (process.server) {
+              logger.error('Could not get site section data from Tide API.', { error: siteSectionData, label: 'Middleware' })
+            }
           } else {
             // Section navigation component will only use the main menu.
             const addSectionNavMenu = siteSectionData.hierarchicalMenus.menuMain
@@ -247,9 +261,8 @@ export default async function (context, pageData) {
         }
       }
     } catch (error) {
-      // TODO: Take some action if above mapping error happens.
       if (process.server) {
-        logger.error('Failed to get the mapped component.', { error })
+        logger.error('Failed to get the mapped component.', { error, label: 'Middleware' })
       }
     }
 

@@ -120,6 +120,7 @@ export default {
     'l': ('tera', 1.07em, 'bold'),
     'xxl': ('tera', 1em, 'bold')
   ) !default;
+  $rpl-hero-banner-title-print-line-height: 1.2em;
   $rpl-hero-banner-title-typography-ruleset-dark: (
     'xs': ('mega', 1.14em, 'bold', true),
     's': ('giga', 1.11em, 'bold', true),
@@ -240,6 +241,7 @@ export default {
       padding: 0;
       border: 0;
       background-image: none !important; // Needs to override inline definition.
+      margin-bottom: $rpl-space-4 * 3;
     }
 
     &__left {
@@ -282,6 +284,10 @@ export default {
       @include rpl_text_color($rpl-hero-banner-title-color);
       word-wrap: break-word;
       margin: 0;
+
+      @include rpl_print {
+        line-height: $rpl-hero-banner-title-print-line-height;
+      }
 
       &--dark {
         @include rpl_typography_ruleset($rpl-hero-banner-title-typography-ruleset-dark);

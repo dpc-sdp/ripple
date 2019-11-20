@@ -59,6 +59,15 @@ const adminPageModels = {
     editRole: (role) => dataSel(`edit-roles-${role}`),
     previewRole: dataSel('edit-roles-previewer')
   },
+  createRolePage: {
+    role: dataSel('edit-label'),
+    id: dataSel('edit-id')
+  },
+  configureAuthContent: {
+    termName: dataSel('edit-name-0-value'),
+    role: (role) => dataSel(`edit-access-role-${role}`),
+    access: dataSel('edit-access')
+  },
   deleteUser: {
     deleteAccountAndContent: dataSel('edit-user-cancel-method-user-cancel-delete')
   },

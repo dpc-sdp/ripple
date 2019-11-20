@@ -1,12 +1,12 @@
 <template>
-  <rpl-row row-gutter class="app-content">
+  <rpl-row row-gutter class="app-content tide-content tide-content--landing-page">
     <template v-if="anchorLinks && anchorLinks.length > 0">
       <rpl-col cols="full">
         <rpl-anchor-links title="On this page:" :links="anchorLinks" />
       </rpl-col>
     </template>
     <template v-for="dComponent in dynamicComponents" v-if="dynamicComponents">
-      <rpl-col cols="full" :colsBp="dComponent.cols" :key="dComponent.id">
+      <rpl-col cols="full" :colsBp="dComponent.cols" :key="dComponent.id" catchChildError>
         <client-only v-if="dComponent.ssr === false">
           <component :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
         </client-only>

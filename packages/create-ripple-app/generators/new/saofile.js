@@ -21,13 +21,15 @@ module.exports = {
       },
       {
         type: 'add',
-        files: '_package.json',
+        files: ['_package.json', '_.env', 'gitignore'],
         transform: true
       },
       {
         type: 'move',
         patterns: {
-          '_package.json': 'package.json'
+          gitignore: '.gitignore',
+          '_package.json': 'package.json',
+          '_.env': '.env'
         }
       }
     ]

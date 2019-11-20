@@ -6,6 +6,22 @@ const fs = require('fs')
 module.exports = function nuxtRipple (moduleOptions) {
   const options = Object.assign({}, this.options.ripple, moduleOptions)
 
+  // If deployed on Lagoon, get the branch env
+  const lagoonEnv = process.env.LAGOON_GIT_BRANCH || ''
+  // If Nuxt running in dev mode, or Lagoon env is PR or develop, add a body class to tell it's dev mode.
+  if (this.options.dev || lagoonEnv.startsWith('pr-') || lagoonEnv === 'develop') {
+    const rplDevModeClass = 'ripple-dev-mode'
+    // Set Ripple to dev mode
+    options.isDev = true
+    // Add a class to Nuxt HTML body element
+    this.options.head.bodyAttrs = this.options.head.bodyAttrs || {}
+    if (this.options.head.bodyAttrs.class) {
+      this.options.head.bodyAttrs.class += ` ${rplDevModeClass}`
+    } else {
+      this.options.head.bodyAttrs.class = rplDevModeClass
+    }
+  }
+
   // Register `plugin.js` template
   this.addPlugin({
     src: path.resolve(__dirname, 'templates/plugin.js'),

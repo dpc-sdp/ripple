@@ -43,6 +43,17 @@ describe('mapping', () => {
             class: ['test-class-a', 'test-class-b']
           },
 
+          testUndefinedFilter: {
+            component: 'rpl-test-component',
+            props: {
+              a: {
+                field: 'a',
+                filters: ['undefinedFilter']
+              },
+              b: 'b'
+            }
+          },
+
           testFetchItem: {
             component: 'rpl-test-fetch-component',
             props: {
@@ -193,16 +204,46 @@ describe('mapping', () => {
 
   test('should get error by given a item not in mapping config', async () => {
     const mapping = new Mapping(config)
-    expect.assertions(1)
+    expect.assertions(2)
 
     const item = {
       type: 'testItemNotMapped'
     }
 
     try {
+      // Test single mode
       await mapping.get(item, 'testField')
     } catch (e) {
-      expect(e).toEqual(new Error('"testItemNotMapped" is not a supported component in map.'))
+      expect(e).toEqual(new Error('Mapping failed to get result.'))
+    }
+
+    // Test array mode
+    const result = await mapping.get([item], 'testField')
+    expect(result).toEqual([])
+  })
+
+  test('should get error by given an undefined filter in mapping config', async () => {
+    const mapping = new Mapping(config)
+    expect.assertions(2)
+
+    const item = {
+      type: 'testUndefinedFilter',
+      a: 'value a',
+      b: 'value b'
+    }
+
+    try {
+      // Test single mode
+      await mapping.get(item, 'testField')
+    } catch (e) {
+      expect(e).toEqual(new Error('Mapping filter "undefinedFilter" is not a function or not defined.'))
+    }
+
+    try {
+      // Test array mode
+      await mapping.get([item], 'testField')
+    } catch (e) {
+      expect(e).toEqual(new Error('Mapping filter "undefinedFilter" is not a function or not defined.'))
     }
   })
 
@@ -244,7 +285,7 @@ describe('mapping', () => {
     expect(result).toEqual(components)
   })
 
-  test('should still get resovled if fetcher failed', async () => {
+  test('should still get resolved if fetcher failed', async () => {
     const mapping = new Mapping(config, tideApi)
     expect.assertions(1)
 

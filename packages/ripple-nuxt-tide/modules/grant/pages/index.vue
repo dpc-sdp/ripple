@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tide-content tide-content--grant">
     <rpl-row row-gutter v-if="overview">
       <rpl-col cols="full">
         <rpl-grants-overview v-bind="overview" />

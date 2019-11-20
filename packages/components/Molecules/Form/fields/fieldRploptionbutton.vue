@@ -42,6 +42,7 @@ export default {
   $rpl-option-button-label-color: rpl-color('extra_dark_neutral') !default;
   $rpl-option-button-label-border-width: 1px !default;
   $rpl-option-button-label-border: $rpl-option-button-label-border-width solid rpl-color('mid_neutral_1') !default;
+  $rpl-option-button-label-border-radius: 4px;
   $rpl-option-button-label-checked-border: $rpl-option-button-label-border-width solid rpl-color('primary') !default;
   $rpl-option-button-text-focused-color: rpl-color('primary') !default;
   $rpl-option-button-text-focused-border: $rpl-option-button-label-border-width solid rpl-color('primary') !default;
@@ -80,6 +81,15 @@ export default {
 
         #{$root}__text {
           text-decoration: none;
+        }
+      }
+
+      @include rpl-breakpoint('l') {
+        &:first-child {
+          border-radius: $rpl-option-button-label-border-radius 0 0 $rpl-option-button-label-border-radius;
+        }
+        &:last-child {
+          border-radius: 0 $rpl-option-button-label-border-radius $rpl-option-button-label-border-radius 0;
         }
       }
     }

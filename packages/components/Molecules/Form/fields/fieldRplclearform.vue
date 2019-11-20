@@ -28,11 +28,12 @@ export default {
 
 $rpl-clearform-typography-emphasis: ('s', 1.6em, 'bold') !default;
 $rpl-clearform-padding: $rpl-space-2;
-
+$rpl-clearform-text-color: rpl-color('extra_dark_neutral') !default;
 .rpl-clearform {
   padding: $rpl-clearform-padding 0;
   border: 0;
   background: none;
+  color: $rpl-clearform-text-color;
   cursor: pointer;
 
   &:active {

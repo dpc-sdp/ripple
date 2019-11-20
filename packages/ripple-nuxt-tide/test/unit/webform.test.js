@@ -1,169 +1,206 @@
 import testField from '../../modules/webform/conditional-logic'
 
-const baseField = {
-  validator: [],
-  required: false,
-  states: {}
-}
-
-const baseFormData = {
-  model: {
-    field_a: null,
-    field_b: null,
-    field_c: null,
-    actions: null
+function performTriggerTest (state, trigger, modelValue = '') {
+  let model = modelValue
+  if (typeof modelValue.model === 'undefined') {
+    model = {
+      model: { 'field_a': modelValue }
+    }
   }
+  return performTest(state, trigger, model)
 }
 
-function performTriggerTest (state, trigger, modelValue, resultStateProperty) {
-  performTest(state, { ':input[name="field_a"]': trigger }, { model: { 'field_a': modelValue } }, resultStateProperty)
-}
+function performTest (state, conditions, model) {
+  const field = {
+    validator: [],
+    required: false,
+    disabled: false,
+    visible: true,
+    states: {}
+  }
 
-function performTest (state, conditions, model, resultStateProperty) {
-  const field = { ...baseField }
+  const baseFormData = {
+    model: {
+      field_a: null,
+      field_b: null,
+      field_c: null,
+      actions: null
+    }
+  }
+
   const data = { ...baseFormData, ...model }
   field.states[state] = conditions
   testField(field, data)
-  expect(field).toHaveProperty(state, resultStateProperty)
+  return field
+}
+
+function testAllStates (trigger, valMatchTrigger, valNotMatchTrigger) {
+  expect(performTriggerTest('required', trigger, valMatchTrigger)).toHaveProperty('required', true)
+  expect(performTriggerTest('required', trigger, valNotMatchTrigger)).toHaveProperty('required', false)
+  expect(performTriggerTest('disabled', trigger, valMatchTrigger)).toHaveProperty('disabled', true)
+  expect(performTriggerTest('disabled', trigger, valNotMatchTrigger)).toHaveProperty('disabled', false)
+  expect(performTriggerTest('enabled', trigger, valMatchTrigger)).toHaveProperty('disabled', false)
+  expect(performTriggerTest('enabled', trigger, valNotMatchTrigger)).toHaveProperty('disabled', true)
+  expect(performTriggerTest('visible', trigger, valMatchTrigger)).toHaveProperty('visible', true)
+  expect(performTriggerTest('visible', trigger, valNotMatchTrigger)).toHaveProperty('visible', false)
+  expect(performTriggerTest('invisible', trigger, valMatchTrigger)).toHaveProperty('visible', false)
+  expect(performTriggerTest('invisible', trigger, valNotMatchTrigger)).toHaveProperty('visible', true)
 }
 
 describe('Webform: conditional logic', () => {
-  test('Field is required if input is empty', async () => {
-    performTriggerTest('required', { empty: true }, '', true) // Pass
-    performTriggerTest('required', { empty: true }, 'failtest', false) // Fail
+  test('Condition is applied if input is empty', async () => {
+    const trigger = { ':input[name="field_a"]': { empty: true } }
+    const valMatchTrigger = ''
+    const valNotMatchTrigger = 'This input is filled.'
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if input is filled', async () => {
-    performTriggerTest('required', { filled: true }, 'test', true) // Pass
-    performTriggerTest('required', { filled: true }, '', false) // Fail
+  test('Condition is applied if input is filled', async () => {
+    const trigger = { ':input[name="field_a"]': { filled: true } }
+    const valMatchTrigger = 'This input is filled.'
+    const valNotMatchTrigger = ''
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if input is checked', async () => {
-    performTriggerTest('required', { checked: true }, true, true) // Pass
-    performTriggerTest('required', { checked: true }, false, false) // Fail
+  test('Condition is applied if input is checked', async () => {
+    const trigger = { ':input[name="field_a"]': { checked: true } }
+    const valMatchTrigger = true
+    const valNotMatchTrigger = false
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if input is unchecked', async () => {
-    performTriggerTest('required', { unchecked: true }, false, true) // Pass
-    performTriggerTest('required', { unchecked: true }, true, false) // Fail
+  test('Condition is applied if input is unchecked', async () => {
+    const trigger = { ':input[name="field_a"]': { unchecked: true } }
+    const valMatchTrigger = false
+    const valNotMatchTrigger = true
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if input is value', async () => {
-    performTriggerTest('required', { value: 'test' }, 'test', true) // Pass
-    performTriggerTest('required', { value: 'test' }, 'failtest', false) // Fail
+  test('Condition is applied if input is value', async () => {
+    const trigger = { ':input[name="field_a"]': { value: 'test' } }
+    const valMatchTrigger = 'test'
+    const valNotMatchTrigger = 'failtest'
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if input is pattern', async () => {
-    performTriggerTest('required', { value: { pattern: '^vic' } }, 'victoria', true) // Pass
-    performTriggerTest('required', { value: { pattern: '^vic' } }, 'melbourne', false) // Fail
+  test('Condition is applied if input is pattern', async () => {
+    const trigger = { ':input[name="field_a"]': { value: { pattern: '^vic' } } }
+    const valMatchTrigger = 'victoria'
+    const valNotMatchTrigger = 'melbourne'
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if input is not pattern', async () => {
-    performTriggerTest('required', { value: { '!pattern': '^mel' } }, 'victoria', true) // Pass
-    performTriggerTest('required', { value: { '!pattern': '^mel' } }, 'melbourne', false) // Fail
+  test('Condition is applied if input is not pattern', async () => {
+    const trigger = { ':input[name="field_a"]': { value: { '!pattern': '^mel' } } }
+    const valMatchTrigger = 'victoria'
+    const valNotMatchTrigger = 'melbourne'
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if input is less than', async () => {
-    performTriggerTest('required', { value: { less: '10' } }, '9', true) // Pass
-    performTriggerTest('required', { value: { less: '10' } }, '10', false) // Fail
+  test('Condition is applied if input is less than', async () => {
+    const trigger = { ':input[name="field_a"]': { value: { less: '10' } } }
+    const valMatchTrigger = '9'
+    const valNotMatchTrigger = '10'
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if input is greater than', async () => {
-    performTriggerTest('required', { value: { greater: '10' } }, '11', true) // Pass
-    performTriggerTest('required', { value: { greater: '10' } }, '9', false) // Fail
+  test('Condition is applied if input is greater than', async () => {
+    const trigger = { ':input[name="field_a"]': { value: { greater: '10' } } }
+    const valMatchTrigger = '11'
+    const valNotMatchTrigger = '9'
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if input is not value', async () => {
-    performTriggerTest('required', { '!value': 'melbourne' }, 'victoria', true) // Pass
-    performTriggerTest('required', { '!value': 'melbourne' }, 'melbourne', false) // Fail
+  test('Condition is applied if input is not value', async () => {
+    const trigger = { ':input[name="field_a"]': { '!value': 'melbourne' } }
+    const valMatchTrigger = 'victoria'
+    const valNotMatchTrigger = 'melbourne'
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if all inputs are checked (AND)', async () => {
-    // Pass
-    performTest('required', {
+  test('Condition is applied if all inputs are checked (AND)', async () => {
+    const trigger = {
       ':input[name="field_a"]': { checked: true },
       ':input[name="field_b"]': { checked: true },
       ':input[name="field_c"]': { checked: true }
-    }, {
+    }
+    const valMatchTrigger = {
       model: {
         field_a: true,
         field_b: true,
         field_c: true
       }
-    }, true)
-    // Fail
-    performTest('required', {
-      ':input[name="field_a"]': { checked: true },
-      ':input[name="field_b"]': { checked: true },
-      ':input[name="field_c"]': { checked: true }
-    }, {
+    }
+    const valNotMatchTrigger = {
       model: {
         field_a: true,
         field_b: false,
         field_c: true
       }
-    }, false)
+    }
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if any inputs are checked (OR)', async () => {
-    // Pass
-    performTest('required', [
+  test('Condition is applied if any inputs are checked (OR)', async () => {
+    const trigger = [
       { ':input[name="field_a"]': { checked: true } },
       'or',
       { ':input[name="field_b"]': { checked: true } },
       'or',
       { ':input[name="field_c"]': { checked: true } }
-    ], {
+    ]
+    const valMatchTrigger = {
       model: {
         field_a: false,
         field_b: true,
         field_c: true
       }
-    }, true)
-    // Fail
-    performTest('required', [
-      { ':input[name="field_a"]': { checked: true } },
-      'or',
-      { ':input[name="field_b"]': { checked: true } },
-      'or',
-      { ':input[name="field_c"]': { checked: true } }
-    ], {
+    }
+    const valNotMatchTrigger = {
       model: {
         field_a: false,
         field_b: false,
         field_c: false
       }
-    }, false)
+    }
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
-  test('Field is required if 1 input is checked (XOR)', async () => {
-    // Pass
-    performTest('required', [
+  test('Condition is applied if 1 input is checked (XOR)', async () => {
+    const trigger = [
       { ':input[name="field_a"]': { checked: true } },
       'xor',
       { ':input[name="field_b"]': { checked: true } },
       'xor',
       { ':input[name="field_c"]': { checked: true } }
-    ], {
+    ]
+    const valMatchTrigger = {
       model: {
         field_a: false,
         field_b: false,
         field_c: true
       }
-    }, true)
-    // Fail
-    performTest('required', [
-      { ':input[name="field_a"]': { checked: true } },
-      'xor',
-      { ':input[name="field_b"]': { checked: true } },
-      'xor',
-      { ':input[name="field_c"]': { checked: true } }
-    ], {
+    }
+    const valNotMatchTrigger = {
       model: {
         field_a: false,
         field_b: true,
         field_c: true
       }
-    }, false)
+    }
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 })

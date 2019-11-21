@@ -1,7 +1,7 @@
 <template>
-  <div class="rpl-option-button" :disabled="disabled" v-attributes="'wrapper'">
-    <label v-for="(item, index) in optionValues" :key="index" class="rpl-option-button__label" :class="{ 'rpl-option-button__label--checked': isItemChecked(item) }">
-      <input :id="getFieldID(schema, true)" type="radio" :name="id" class="rpl-option-button__radio" @click="onSelection(item)" :value="item" :class="schema.fieldClasses" :required="schema.required" />
+  <div :id="getFieldID(schema)" class="rpl-option-button" :disabled="disabled" v-attributes="'wrapper'">
+    <label v-for="(item, index) in optionValues" :key="index" :for="getId(index)" class="rpl-option-button__label" :class="{ 'rpl-option-button__label--checked': isItemChecked(item) }">
+      <input :id="getId(index)" type="radio" :name="getId(index)" class="rpl-option-button__radio" @click="onSelection(item)" :value="item" :class="schema.fieldClasses" :required="schema.required" />
       <span class="rpl-option-button__text">{{ item }}</span>
     </label>
   </div>
@@ -24,6 +24,9 @@ export default {
     }
   },
   methods: {
+    getId (idx) {
+      return `${this.getFieldID(this.schema)}-opt-${idx + 1}`
+    },
     onSelection (item) {
       this.value = item
     },
@@ -37,12 +40,11 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
+  @import "../scss/form";
 
   $rpl-option-button-label-background-color: rpl-color('white') !default;
-  $rpl-option-button-label-color: rpl-color('extra_dark_neutral') !default;
   $rpl-option-button-label-border-width: 1px !default;
-  $rpl-option-button-label-border: $rpl-option-button-label-border-width solid rpl-color('mid_neutral_1') !default;
-  $rpl-option-button-label-border-radius: 4px;
+  $rpl-option-button-label-border: $rpl-option-button-label-border-width solid $rpl-form-element-border-color !default;
   $rpl-option-button-label-checked-border: $rpl-option-button-label-border-width solid rpl-color('primary') !default;
   $rpl-option-button-text-focused-color: rpl-color('primary') !default;
   $rpl-option-button-text-focused-border: $rpl-option-button-label-border-width solid rpl-color('primary') !default;
@@ -56,7 +58,7 @@ export default {
       position: relative;
       display: inline-block;
       background-color: $rpl-option-button-label-background-color;
-      color: $rpl-option-button-label-color;
+      color: $rpl-form-element-text-color;
       border: $rpl-option-button-label-border;
       padding: $rpl-space-2;
       min-width: rem(40px);
@@ -86,10 +88,10 @@ export default {
 
       @include rpl-breakpoint('l') {
         &:first-child {
-          border-radius: $rpl-option-button-label-border-radius 0 0 $rpl-option-button-label-border-radius;
+          border-radius: $rpl-form-element-border-radius 0 0 $rpl-form-element-border-radius;
         }
         &:last-child {
-          border-radius: 0 $rpl-option-button-label-border-radius $rpl-option-button-label-border-radius 0;
+          border-radius: 0 $rpl-form-element-border-radius $rpl-form-element-border-radius 0;
         }
       }
     }

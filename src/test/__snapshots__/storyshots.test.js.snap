@@ -4169,7 +4169,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-1"
-                  name="option-button-default-opt-1"
+                  name="option-button-default"
                   type="radio"
                   value="A"
                 />
@@ -4187,7 +4187,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-2"
-                  name="option-button-default-opt-2"
+                  name="option-button-default"
                   type="radio"
                   value="B"
                 />
@@ -4205,7 +4205,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-3"
-                  name="option-button-default-opt-3"
+                  name="option-button-default"
                   type="radio"
                   value="C"
                 />
@@ -4223,7 +4223,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-4"
-                  name="option-button-default-opt-4"
+                  name="option-button-default"
                   type="radio"
                   value="D"
                 />
@@ -4241,7 +4241,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-5"
-                  name="option-button-default-opt-5"
+                  name="option-button-default"
                   type="radio"
                   value="E"
                 />
@@ -4259,7 +4259,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-6"
-                  name="option-button-default-opt-6"
+                  name="option-button-default"
                   type="radio"
                   value="F"
                 />
@@ -4277,7 +4277,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-7"
-                  name="option-button-default-opt-7"
+                  name="option-button-default"
                   type="radio"
                   value="G"
                 />
@@ -4295,7 +4295,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-8"
-                  name="option-button-default-opt-8"
+                  name="option-button-default"
                   type="radio"
                   value="H"
                 />
@@ -4313,7 +4313,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-9"
-                  name="option-button-default-opt-9"
+                  name="option-button-default"
                   type="radio"
                   value="I"
                 />
@@ -4331,7 +4331,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-10"
-                  name="option-button-default-opt-10"
+                  name="option-button-default"
                   type="radio"
                   value="J"
                 />
@@ -4349,7 +4349,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-11"
-                  name="option-button-default-opt-11"
+                  name="option-button-default"
                   type="radio"
                   value="K"
                 />
@@ -4367,7 +4367,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-12"
-                  name="option-button-default-opt-12"
+                  name="option-button-default"
                   type="radio"
                   value="L"
                 />
@@ -4385,7 +4385,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-13"
-                  name="option-button-default-opt-13"
+                  name="option-button-default"
                   type="radio"
                   value="M"
                 />
@@ -4403,7 +4403,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-14"
-                  name="option-button-default-opt-14"
+                  name="option-button-default"
                   type="radio"
                   value="N"
                 />
@@ -4421,7 +4421,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-15"
-                  name="option-button-default-opt-15"
+                  name="option-button-default"
                   type="radio"
                   value="O"
                 />
@@ -4439,7 +4439,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-16"
-                  name="option-button-default-opt-16"
+                  name="option-button-default"
                   type="radio"
                   value="P"
                 />
@@ -4457,7 +4457,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-17"
-                  name="option-button-default-opt-17"
+                  name="option-button-default"
                   type="radio"
                   value="Q"
                 />
@@ -4475,7 +4475,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-18"
-                  name="option-button-default-opt-18"
+                  name="option-button-default"
                   type="radio"
                   value="R"
                 />
@@ -4493,7 +4493,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-19"
-                  name="option-button-default-opt-19"
+                  name="option-button-default"
                   type="radio"
                   value="S"
                 />
@@ -4511,7 +4511,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-20"
-                  name="option-button-default-opt-20"
+                  name="option-button-default"
                   type="radio"
                   value="T"
                 />
@@ -4529,7 +4529,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-21"
-                  name="option-button-default-opt-21"
+                  name="option-button-default"
                   type="radio"
                   value="U"
                 />
@@ -4547,7 +4547,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-22"
-                  name="option-button-default-opt-22"
+                  name="option-button-default"
                   type="radio"
                   value="V"
                 />
@@ -4565,7 +4565,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-23"
-                  name="option-button-default-opt-23"
+                  name="option-button-default"
                   type="radio"
                   value="W"
                 />
@@ -4583,7 +4583,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-24"
-                  name="option-button-default-opt-24"
+                  name="option-button-default"
                   type="radio"
                   value="X"
                 />
@@ -4601,7 +4601,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-25"
-                  name="option-button-default-opt-25"
+                  name="option-button-default"
                   type="radio"
                   value="Y"
                 />
@@ -4619,7 +4619,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-default-opt-26"
-                  name="option-button-default-opt-26"
+                  name="option-button-default"
                   type="radio"
                   value="Z"
                 />
@@ -4666,7 +4666,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-custom-opt-1"
-                  name="option-button-custom-opt-1"
+                  name="option-button-custom"
                   type="radio"
                   value="Option one"
                 />
@@ -4684,7 +4684,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-custom-opt-2"
-                  name="option-button-custom-opt-2"
+                  name="option-button-custom"
                   type="radio"
                   value="Option two"
                 />
@@ -4702,7 +4702,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-custom-opt-3"
-                  name="option-button-custom-opt-3"
+                  name="option-button-custom"
                   type="radio"
                   value="Option three"
                 />
@@ -4720,7 +4720,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-custom-opt-4"
-                  name="option-button-custom-opt-4"
+                  name="option-button-custom"
                   type="radio"
                   value="Option four"
                 />
@@ -4738,7 +4738,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-custom-opt-5"
-                  name="option-button-custom-opt-5"
+                  name="option-button-custom"
                   type="radio"
                   value="Option five"
                 />
@@ -4756,7 +4756,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-custom-opt-6"
-                  name="option-button-custom-opt-6"
+                  name="option-button-custom"
                   type="radio"
                   value="Option six"
                 />
@@ -4774,7 +4774,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-custom-opt-7"
-                  name="option-button-custom-opt-7"
+                  name="option-button-custom"
                   type="radio"
                   value="Option seven"
                 />
@@ -4792,7 +4792,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <input
                   class="rpl-option-button__radio"
                   id="option-button-custom-opt-8"
-                  name="option-button-custom-opt-8"
+                  name="option-button-custom"
                   type="radio"
                   value="Option eight"
                 />

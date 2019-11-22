@@ -15,7 +15,7 @@ export default {
   mixins: [abstractField],
   data () {
     return {
-      optionValues: this.schema.optionValues || [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ]
+      optionValues: this.schema.optionValues || 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     }
   },
   computed: {

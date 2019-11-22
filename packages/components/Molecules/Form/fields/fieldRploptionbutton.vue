@@ -1,7 +1,7 @@
 <template>
   <div :id="getFieldID(schema)" class="rpl-option-button" :disabled="disabled" v-attributes="'wrapper'">
     <label v-for="(item, index) in optionValues" :key="index" :for="getId(index)" class="rpl-option-button__label" :class="{ 'rpl-option-button__label--checked': isItemChecked(item) }">
-      <input :id="getId(index)" type="radio" :name="getId(index)" class="rpl-option-button__radio" @click="onSelection(item)" :value="item" :class="schema.fieldClasses" :required="schema.required" />
+      <input :id="getId(index)" type="radio" :name="getFieldID(schema)" class="rpl-option-button__radio" @click="onSelection(item)" :value="item" :class="schema.fieldClasses" :required="schema.required" />
       <span class="rpl-option-button__text">{{ item }}</span>
     </label>
   </div>

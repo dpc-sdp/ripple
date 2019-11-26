@@ -4089,6 +4089,41 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
           <!---->
         </div>
         <div
+          class="form-group valid rpl-form__prepend-icon rpl-form__prepend-icon--search field-input"
+        >
+          <label
+            for="text-with-search-icon"
+          >
+            <span>
+              Text - With search icon
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="text-with-search-icon"
+                placeholder="Enter search term..."
+                type="text"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
           class="form-group valid field-radios"
         >
           <label
@@ -5439,7 +5474,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                     disabled="disabled"
                     value=""
                   >
-                    Select
+                    Select a single topic
                   </option>
                    
                   <option

@@ -8,10 +8,10 @@ module.exports = {
       'field_landing_page_contact.field_paragraph_social_media',
       'field_license_type',
       'field_landing_page_component',
-      'field_publication_authors',
       'field_landing_page_component.field_paragraph_accordion',
       'field_landing_page_component.field_complex_image_media',
-      'field_landing_page_component.field_complex_image_media.field_media_image'
+      'field_landing_page_component.field_complex_image_media.field_media_image',
+      'field_publication_authors'
     ],
     publicationPage: [
       'field_node_primary_site',

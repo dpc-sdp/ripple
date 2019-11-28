@@ -83,7 +83,7 @@ storiesOf('Organisms/Publication', module)
     />`,
     props: {
       author: {
-        default: ['Department of Premier and Cabinet', 'Business Victoria']
+        default: ['Department of Premier and Cabinet']
       },
       date: {
         default: text('Date', '2018-03-23T09:00:00.000+10:00')

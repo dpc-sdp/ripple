@@ -7,6 +7,7 @@ module.exports = {
       'field_landing_page_contact.field_paragraph_phones',
       'field_landing_page_contact.field_paragraph_social_media',
       'field_license_type',
+      'field_landing_page_component',
       'field_publication_authors',
       'field_landing_page_component.field_paragraph_accordion',
       'field_landing_page_component.field_complex_image_media',

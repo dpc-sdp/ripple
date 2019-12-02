@@ -2,7 +2,6 @@ require('dotenv').config()
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 process.env.APP_ROOT_PATH = '.' // Set the example app root path, for this example app config only.
-process.env.CONTENT_API_SERVER = 'http://nginx-php-content-vic-pr-752.lagoon.vicsdp.amazee.io/'
 
 export default {
 

@@ -13,8 +13,6 @@ describe('Test new project generator', () => {
       domain: 'vic.gov.au',
       backendurl: 'https://develop.content.vic.gov.au/',
       siteid: '4',
-      authuser: 'dpc',
-      authpass: 'sdp',
       gtmtoken: 'GTM-12345-1',
       modules: [
         'site',

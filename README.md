@@ -1,4 +1,5 @@
 <!-- PROJECT LOGO -->
+Test
 <p align="center">
   <a href="https://github.com/dpc-sdp/ripple">
     <img src="docs/sdp-ripple.jpg" alt="Logo" height="150">

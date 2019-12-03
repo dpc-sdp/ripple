@@ -116,6 +116,7 @@ export default {
       @include rpl_text_color($rpl-list-link-color);
       display: table-cell;
       padding: $rpl-list-text-padding;
+      word-break: break-word;
 
       #{$root}--normal & {
         @include rpl_typography_ruleset($rpl-list-text-normal-ruleset);

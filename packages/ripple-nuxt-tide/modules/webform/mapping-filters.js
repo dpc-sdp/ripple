@@ -93,11 +93,11 @@ module.exports = {
 
         // If counter type is set we get the counter values
         if (element['#counter_maximum']) {
-          field.counter_maximum = element['#counter_maximum']
+          field.max = element['#counter_maximum']
         }
 
         if (element['#counter_minimum']) {
-          field.counter_minimum = element['#counter_minimum']
+          field.min = element['#counter_minimum']
         }
       }
 

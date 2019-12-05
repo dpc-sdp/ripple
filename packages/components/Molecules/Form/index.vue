@@ -71,6 +71,8 @@ export default {
   },
   mounted () {
     RplFormEventBus.$on('clearform', this.clearForm)
+
+    // TODO: We should abstract all future custom validators to a separate file and import them here.
     VueFormGenerator.validators.rplWordCount = function (value, field) {
       let wordCount = value.trim().split(/\s+/).length
 

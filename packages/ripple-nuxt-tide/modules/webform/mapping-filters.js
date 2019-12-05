@@ -81,11 +81,25 @@ module.exports = {
       }
 
       if (element['#maxlength']) {
-        field.maxlength = element['#maxlength']
+        field.max = element['#maxlength']
       }
 
       if (element['#minlength']) {
-        field.minlength = element['#minlength']
+        field.min = element['#minlength']
+      }
+
+      if (element['#counter_type']) {
+        field.counter_type = element['#counter_type']
+
+        // If counter type is set we get the counter values
+        if (element['#counter_maximum']) {
+          field.counter_maximum = element['#counter_maximum']
+        }
+  
+        if (element['#counter_minimum']) {
+          field.counter_minimum = element['#counter_minimum']
+        }
+
       }
 
       switch (element['#type']) {
@@ -97,6 +111,12 @@ module.exports = {
         case 'textfield':
           field.type = 'input'
           field.inputType = 'text'
+
+          if (field.counter_type == "word") {
+            field.validator.push('rplWordCount')
+          } else {
+            field.validator.push('string')
+          }
           break
 
         case 'number':
@@ -116,12 +136,13 @@ module.exports = {
         case 'email':
           field.type = 'input'
           field.inputType = 'email'
-          field.validator.push('email')
+          field.validator.push('email', 'string')
           break
 
         case 'tel':
           field.type = 'input'
           field.inputType = 'tel'
+          field.validator.push('string')
           break
 
         case 'radios':
@@ -143,9 +164,12 @@ module.exports = {
 
         case 'textarea':
           field.type = 'textArea'
-          // textArea uses min / max.
-          field.max = field.maxlength
-          field.min = field.minlength
+          if (field.counter_type == "word") {
+            field.validator.push('rplWordCount')
+          } else {
+            field.validator.push('string')
+          }
+         
           break
 
         case 'checkbox':
@@ -217,6 +241,7 @@ module.exports = {
         case 'url':
           field.type = 'input'
           field.inputType = 'url'
+          field.validator.push('string')
           break
 
         case 'webform_horizontal_rule':

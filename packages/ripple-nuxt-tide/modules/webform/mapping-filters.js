@@ -95,11 +95,10 @@ module.exports = {
         if (element['#counter_maximum']) {
           field.counter_maximum = element['#counter_maximum']
         }
-  
+
         if (element['#counter_minimum']) {
           field.counter_minimum = element['#counter_minimum']
         }
-
       }
 
       switch (element['#type']) {
@@ -112,7 +111,7 @@ module.exports = {
           field.type = 'input'
           field.inputType = 'text'
 
-          if (field.counter_type == "word") {
+          if (field.counter_type === 'word') {
             field.validator.push('rplWordCount')
           } else {
             field.validator.push('string')
@@ -164,12 +163,12 @@ module.exports = {
 
         case 'textarea':
           field.type = 'textArea'
-          if (field.counter_type == "word") {
+          if (field.counter_type === 'word') {
             field.validator.push('rplWordCount')
           } else {
             field.validator.push('string')
           }
-         
+
           break
 
         case 'checkbox':

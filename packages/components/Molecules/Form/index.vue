@@ -72,18 +72,15 @@ export default {
   mounted () {
     RplFormEventBus.$on('clearform', this.clearForm)
     VueFormGenerator.validators.rplWordCount = function (value, field) {
-      
-      let wordCount = value.trim().split(/\s+/).length;
+      let wordCount = value.trim().split(/\s+/).length
 
       if (wordCount > field.counter_maximum) {
         return ['You have too many words. Maximum is ' + field.counter_maximum + ', you have ' + wordCount + ' words.']
-      } 
-      
+      }
       if (wordCount < field.counter_minimum) {
         return ['You have too few words. Minimum is ' + field.counter_minimum + ', you have ' + wordCount + ' words.']
       }
-
-      return [];
+      return []
     }
   },
   methods: {

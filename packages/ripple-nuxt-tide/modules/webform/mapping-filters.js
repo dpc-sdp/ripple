@@ -91,12 +91,12 @@ module.exports = {
       if (element['#counter_type']) {
         field.counter_type = element['#counter_type']
 
-        // If counter type is set we get the counter values
-        if (element['#counter_maximum']) {
+        // We use our own property for word count validation to avoid browser validation
+        if (element['#counter_type'] === 'word') {
+          field.rplWordCountMax = element['#counter_maximum']
+          field.rplWordCountMin = element['#counter_minimum']
+        } else {
           field.max = element['#counter_maximum']
-        }
-
-        if (element['#counter_minimum']) {
           field.min = element['#counter_minimum']
         }
       }
@@ -163,6 +163,22 @@ module.exports = {
 
         case 'textarea':
           field.type = 'textArea'
+
+          // If we're using string validation, VFG sets maxlength in the browser, and
+          // cuts off over limit text instead of displaying an error.
+          // We add a hint to let the user know of the character limit.
+          if (field.max) {
+            if (field.counter_type !== 'word') {
+              let fieldMaxMessage = 'Character limit is ' + field.max
+
+              if (field.hint) {
+                field.hint += fieldMaxMessage
+              } else {
+                field.hint = fieldMaxMessage
+              }
+            }
+          }
+
           if (field.counter_type === 'word') {
             field.validator.push('rplWordCount')
           } else {

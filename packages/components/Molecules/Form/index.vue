@@ -71,6 +71,19 @@ export default {
   },
   mounted () {
     RplFormEventBus.$on('clearform', this.clearForm)
+
+    // TODO: We should abstract all future custom validators to a separate file and import them here.
+    VueFormGenerator.validators.rplWordCount = function (value, field) {
+      let wordCount = value.trim().split(/\s+/).length
+
+      if (wordCount > field.rplWordCountMax) {
+        return ['You have too many words. Maximum is ' + field.rplWordCountMax + ', you have ' + wordCount + ' words.']
+      }
+      if (wordCount < field.rplWordCountMin) {
+        return ['You have too few words. Minimum is ' + field.rplWordCountMin + ', you have ' + wordCount + ' words.']
+      }
+      return []
+    }
   },
   methods: {
 

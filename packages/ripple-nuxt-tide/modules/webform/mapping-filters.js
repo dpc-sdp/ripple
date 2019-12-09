@@ -169,13 +169,9 @@ module.exports = {
           // We add a hint to let the user know of the character limit.
           if (field.max) {
             if (field.counter_type !== 'word') {
-              let fieldMaxMessage = 'Character limit is ' + field.max
+              let fieldMaxMessage = 'Character limit is ' + field.max + '.'
 
-              if (field.hint) {
-                field.hint += fieldMaxMessage
-              } else {
-                field.hint = fieldMaxMessage
-              }
+              field.hint = field.hint ? `${field.hint} ${fieldMaxMessage}` : fieldMaxMessage
             }
           }
 

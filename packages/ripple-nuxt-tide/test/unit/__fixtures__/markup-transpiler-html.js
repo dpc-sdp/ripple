@@ -46,6 +46,34 @@ const html = `
   <figcaption>Some video caption text <&'"</figcaption>
 </figure>
 
+<figure role="group" class="caption caption-div embedded-entity embedded-entity--media embedded-entity--media--embedded-video">
+  <div data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded_with_transcript" data-entity-type="media" data-entity-uuid="12345" data-langcode="en">
+    <article class="media media--type-embedded-video media--view-mode-embedded-with-transcript">
+      <div class="field field--name-field-media-video-embed-field field--type-video-embed-field field--label-hidden field__item">
+        <div class="video-embed-field-provider-youtube video-embed-field-responsive-video">
+          <iframe allowfullscreen="allowfullscreen" frameborder="0" height="480" src="https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0" width="854"></iframe>
+        </div>
+      </div>
+      <div class="field field--name-field-media-link field--type-string field--label-hidden field__item">
+        <a href="/media/2" hreflang="en">View transcript</a>
+      </div>
+    </article>
+  </div>
+  <figcaption>Some video caption text <&'"</figcaption>
+</figure>
+
+<figure role="group" class="caption caption-div embedded-entity embedded-entity--media embedded-entity--media--embedded-video">
+  <div data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded_with_transcript" data-entity-type="media" data-entity-uuid="12345" data-langcode="en">
+    <article class="media media--type-embedded-video media--view-mode-embedded-with-transcript">
+      <div class="field field--name-field-media-video-embed-field field--type-video-embed-field field--label-hidden field__item">
+        <div class="video-embed-field-provider-youtube video-embed-field-responsive-video">
+          <iframe allowfullscreen="allowfullscreen" frameborder="0" height="480" src="https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0" width="854"></iframe>
+        </div>
+      </div>
+    </article>
+  </div>
+</figure>
+
 <!-- blockquote -->
 <blockquote class="quotation">
   <p>Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net.</p>

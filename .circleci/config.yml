@@ -98,7 +98,6 @@ jobs:
         environment:
           TERM: xterm
           TZ: "Australia/Melbourne"
-          CONTENT_API_SERVER: "https://nginx-php-content-vic-pr-738.lagoon.vicsdp.amazee.io/"
 
     working_directory: ~/app
     parallelism: 2

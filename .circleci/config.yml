@@ -44,7 +44,7 @@ jobs:
     steps:
       - run:
           name: wake up dev backend
-          command: curl https://www.develop.content.vic.gov.au/ --max-time 1000
+          command: curl https://develop.content.vic.gov.au/ --max-time 1000
 
   test:
     docker:

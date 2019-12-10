@@ -23,7 +23,7 @@ storiesOf('Organisms/SiteFooter', module)
     `,
     props: {
       nav: {
-        default: object('Nav', [
+        default: () => object('Nav', [
           {
             text: 'Your Services',
             url: '#',
@@ -153,7 +153,7 @@ storiesOf('Organisms/SiteFooter', module)
         ])
       },
       links: {
-        default: object('Links', [
+        default: () => object('Links', [
           {
             text: 'Privacy',
             url: '#'
@@ -190,7 +190,7 @@ storiesOf('Organisms/SiteFooter', module)
         default: text('Caption', 'Image credit: This caption is used to describe the image in the hero banner above.')
       },
       logos: {
-        default: object('Logos', [
+        default: () => object('Logos', [
           {
             src: 'https://placehold.it/112x52',
             alt: 'Max native size',

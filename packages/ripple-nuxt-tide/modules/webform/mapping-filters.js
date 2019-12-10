@@ -1,5 +1,3 @@
-import { logger } from './../../lib/core'
-
 module.exports = {
   // Convert Drupal webform data struture to Vue Form Generator structure
   webform: async (drupalFormEntity, { mapping }) => {
@@ -83,11 +81,24 @@ module.exports = {
       }
 
       if (element['#maxlength']) {
-        field.maxlength = element['#maxlength']
+        field.max = element['#maxlength']
       }
 
       if (element['#minlength']) {
-        field.minlength = element['#minlength']
+        field.min = element['#minlength']
+      }
+
+      if (element['#counter_type']) {
+        field.counter_type = element['#counter_type']
+
+        // We use our own property for word count validation to avoid browser validation
+        if (element['#counter_type'] === 'word') {
+          field.rplWordCountMax = element['#counter_maximum']
+          field.rplWordCountMin = element['#counter_minimum']
+        } else {
+          field.max = element['#counter_maximum']
+          field.min = element['#counter_minimum']
+        }
       }
 
       switch (element['#type']) {
@@ -99,6 +110,12 @@ module.exports = {
         case 'textfield':
           field.type = 'input'
           field.inputType = 'text'
+
+          if (field.counter_type === 'word') {
+            field.validator.push('rplWordCount')
+          } else {
+            field.validator.push('string')
+          }
           break
 
         case 'number':
@@ -118,12 +135,13 @@ module.exports = {
         case 'email':
           field.type = 'input'
           field.inputType = 'email'
-          field.validator.push('email')
+          field.validator.push('email', 'string')
           break
 
         case 'tel':
           field.type = 'input'
           field.inputType = 'tel'
+          field.validator.push('string')
           break
 
         case 'radios':
@@ -145,9 +163,24 @@ module.exports = {
 
         case 'textarea':
           field.type = 'textArea'
-          // textArea uses min / max.
-          field.max = field.maxlength
-          field.min = field.minlength
+
+          // If we're using string validation, VFG sets maxlength in the browser, and
+          // cuts off over limit text instead of displaying an error.
+          // We add a hint to let the user know of the character limit.
+          if (field.max) {
+            if (field.counter_type !== 'word') {
+              let fieldMaxMessage = 'Character limit is ' + field.max + '.'
+
+              field.hint = field.hint ? `${field.hint} ${fieldMaxMessage}` : fieldMaxMessage
+            }
+          }
+
+          if (field.counter_type === 'word') {
+            field.validator.push('rplWordCount')
+          } else {
+            field.validator.push('string')
+          }
+
           break
 
         case 'checkbox':
@@ -219,6 +252,7 @@ module.exports = {
         case 'url':
           field.type = 'input'
           field.inputType = 'url'
+          field.validator.push('string')
           break
 
         case 'webform_horizontal_rule':
@@ -353,8 +387,9 @@ module.exports = {
       } else if (!group.hasOwnProperty('fields') && field.type !== null) {
         data.schema.groups.push({ 'fields': [field] })
       } else {
+        const logger = require('@dpc-sdp/ripple-nuxt-tide/lib/core').logger
         if (process.server) {
-          logger.warn(`Webform element type "%s" is not supported in nuxt-tide at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`, element['#type'], { label: 'Webform' })
+          logger.warn(`Webform element type "%s" is not supported in "ripple-nuxt-tide" at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`, element['#type'], { label: 'Webform' })
         }
       }
     }

@@ -50,6 +50,9 @@ export default {
   },
   computed: {
     footerLogos () {
+      if (!this.rplOptions.viclogoFooter) {
+        return this.logos ? this.logos : ''
+      }
       return this.logos ? this.logos.concat([vicLogo]) : [vicLogo]
     }
   }

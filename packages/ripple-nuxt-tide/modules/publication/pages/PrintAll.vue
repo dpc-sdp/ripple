@@ -109,7 +109,8 @@ export default {
     },
     publishingInfo () {
       if (this.publication.type === 'node--publication') {
-        const author = this.publication.field_publication_authors && this.publication.field_publication_authors.length > 0 ? this.publication.field_publication_authors.join(', ') : ''
+        const authorsName = this.publication.field_publication_authors ? this.publication.field_publication_authors : ''
+        const author = authorsName && authorsName.length > 0 ? authorsName.map((authors) => authors.name) : []
         const date = this.publication.field_publication_date
         const copyright = this.publication.field_license_type ? this.publication.field_license_type.description : ''
         return (author || date || copyright) ? { author, date, copyright } : null

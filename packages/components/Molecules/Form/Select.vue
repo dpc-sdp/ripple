@@ -228,23 +228,25 @@ export default {
       return false
     },
     focusItem (selected) {
-      this.focussed = selected
-      const item = this.$el.querySelector(`#${selected.uuid}`)
-      const listbox = this.$refs.listbox
+      if (selected) {
+        this.focussed = selected
+        const item = this.$el.querySelector(`#${selected.uuid}`)
+        const listbox = this.$refs.listbox
 
-      if (listbox.scrollHeight > listbox.clientHeight) {
-        let scrollBottom = listbox.clientHeight + listbox.scrollTop
-        let elementBottom = item.offsetTop + item.offsetHeight
-        if (elementBottom > scrollBottom) {
-          listbox.scrollTop = elementBottom - listbox.clientHeight
-        } else if (item.offsetTop < listbox.scrollTop) {
-          listbox.scrollTop = item.offsetTop
+        if (listbox.scrollHeight > listbox.clientHeight) {
+          let scrollBottom = listbox.clientHeight + listbox.scrollTop
+          let elementBottom = item.offsetTop + item.offsetHeight
+          if (elementBottom > scrollBottom) {
+            listbox.scrollTop = elementBottom - listbox.clientHeight
+          } else if (item.offsetTop < listbox.scrollTop) {
+            listbox.scrollTop = item.offsetTop
+          }
         }
-      }
-      if (item) {
-        this.$nextTick(function () {
-          item.focus()
-        })
+        if (item) {
+          this.$nextTick(function () {
+            item.focus()
+          })
+        }
       }
     },
     handleKeys (e) {

@@ -12,6 +12,7 @@ const RplGlobal = {
       quickexit: false,
       quickexiturl: 'https://www.google.com',
       viclogo: true,
+      viclogoFooter: true,
       externalLinksInNewWindow: false // (Bool) Whether links open in new window by default
     }
 

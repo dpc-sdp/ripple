@@ -186,6 +186,15 @@ storiesOf('Molecules/Form', module)
               },
 
               {
+                type: 'input',
+                inputType: 'text',
+                label: 'Text - With search icon',
+                styleClasses: ['rpl-form__prepend-icon', 'rpl-form__prepend-icon--search'],
+                placeholder: 'Enter search term...',
+                model: 'text'
+              },
+
+              {
                 type: 'radios',
                 label: 'Radio',
                 model: 'radio',

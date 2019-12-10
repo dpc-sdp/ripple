@@ -28,6 +28,15 @@ export default {
   css: [
     '@/assets/_custom.scss'
   ],
+  build: {
+    // For debugging in dev mode
+    // https://github.com/nuxt/nuxt.js/issues/2734#issuecomment-410135071
+    extend (config, { isDev, isClient }) {
+      if (isDev) {
+        config.devtool = isClient ? 'source-map' : 'inline-source-map'
+      }
+    }
+  },
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {

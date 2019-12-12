@@ -74,7 +74,7 @@
   },
   "peerDependencies": {
     "@nuxtjs/axios": "^5.3.1",
-    "nuxt": "^2.9.2"
+    "nuxt": "^2.10.2"
   },
   "devDependencies": {
     "mockdate": "^2.0.3",

@@ -7,7 +7,7 @@ Then(`there should be {int} embedded videos`, (number) => {
 })
 
 Then(`there should be a embedded video transcript link`, (number) => {
-  const link = cy.get('.rpl-embed-video__link').find('a')
-  link.its('href').should('eq', '/media/7008')
+  const link = cy.get('.rpl-embed-video__link a')
+  link.should('have.attr', 'href', '/media/7008')
   link.contains('View transcript')
 })

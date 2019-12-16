@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-related-links",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "A component for displaying internal / external links related to an article. Recommended for use in sidebars.",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.5.1",
-    "@dpc-sdp/ripple-link": "1.5.1"
+    "@dpc-sdp/ripple-global": "1.5.2",
+    "@dpc-sdp/ripple-link": "1.5.2"
   }
 }

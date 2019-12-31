@@ -98,18 +98,18 @@ export default {
           isiOS: isiOS
         }
       }
-      const openNewTab = function () {
-        let tab = window.open(this.formData.redirect_url, '_blank')
+      const openNewTab = function (redirect_url) {
+        let tab = window.open(redirect_url, '_blank')
         tab.focus()
       }
       if (this.formData.category === 'form-redirect') {
         let browser = getBrowserInfo()
         if (browser.isiOS || browser.issafari) {
           if (confirm('A page will open in new tab, please allow this page to open a new tab on your browser settings!')) {
-            openNewTab()
+            openNewTab(redirect_url)
           }
         } else {
-          openNewTab()
+          openNewTab(redirect_url)
         }
       }
     }

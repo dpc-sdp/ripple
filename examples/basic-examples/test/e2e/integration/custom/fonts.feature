@@ -1,9 +1,7 @@
-Feature: Custom fonts should work
+Feature: Custom font support
 
-  Custom fonts is getting loaded
-
-  Background:
+  As a developer I can use custom fonts other than the default Vic font
+      
+  Scenario: Custom fonts are used in theme
     Given I visit the page "/"
-
-  Scenario: Try using different custom font in theme
-    Then Custom fonts is applied
+    Then the h1 heading should have the fonts "Oswald, Arial, Helvetica, sans-serif"

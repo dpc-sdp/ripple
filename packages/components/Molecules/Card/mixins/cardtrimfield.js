@@ -11,7 +11,7 @@ const cardtrimfield = {
     return {
       trimFieldMaxHeight: 'none',
       trimFieldSelector: '',
-      trimFieldRefreshOnFonts: null
+      trimFieldRefreshOnFonts: false
     }
   },
   methods: {
@@ -47,7 +47,11 @@ const cardtrimfield = {
   },
   mounted () {
     if (this.trimFieldRefreshOnFonts) {
-      this.trimFieldRefreshOnFonts.forEach(font => {
+      let fonts = ['VIC-Bold'] // default vic fonts for card title
+      if (this.rplOptions.card && this.rplOptions.card.trimFieldfonts) {
+        fonts = this.rplOptions.card.trimFieldfonts
+      }
+      fonts.forEach(font => {
         const fontObserver = new FontFaceObserver(font)
         fontObserver.load().then(this.setTrimFieldMaxHeight)
       })

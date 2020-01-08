@@ -2,7 +2,9 @@
 // Overwrites values in Ripple
 @import '~@dpc-sdp/ripple-global/scss/settings/functions';
 
+//
 // Example for theming
+//
 // Let's use Vue.js branding color in our example.
 $rpl-colors: (
   'primary': #4ec08d,
@@ -19,3 +21,23 @@ $rpl-colors: (
   'white': #fff,
   'black': #000
 );
+
+//
+// Example of using custom fonts
+//
+$rpl-fonts: (
+  'regular': ('Vic-Regular', 'Arial', 'Helvetica', 'sans-serif'),
+  'medium': ('Oswald', 'Arial', 'Helvetica', 'sans-serif'),
+  'semibold': ('Oswald', 'Arial', 'Helvetica', 'sans-serif'),
+  'bold': ('Oswald', 'Arial', 'Helvetica', 'sans-serif')
+);
+
+// Disable font loader as we are using google fonts which is loaded as script in nuxt.config.js
+$rpl-fonts-default-loader: false;
+// We still need to load fonts if they are not from script.
+$rpl-font-directory: '~@dpc-sdp/ripple-global/assets/fonts/';
+@font-face {
+  font-family: 'VIC-Regular';
+  src: url('#{$rpl-font-directory}VIC-Regular.woff') format('woff'),
+  url('#{$rpl-font-directory}VIC-Regular.woff2') format('woff2');
+}

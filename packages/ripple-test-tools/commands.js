@@ -38,8 +38,7 @@ function rippleCommands () {
     cy.log('test/e2e/fixtures/' + fixturePath + '.yml')
     cy.readFile('test/e2e/fixtures/' + fixturePath + '.yml').as('yaml')
     cy.get('@yaml').then(data => {
-      cy.task('createNodeFromYAML', data).as('nodeCreated')
-      cy.log('@nodeCreated')
+      cy.task('createNodeFromYAML', data).as('createdNodes')
     })
   })
 

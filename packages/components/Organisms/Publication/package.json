@@ -17,6 +17,7 @@
     "@dpc-sdp/ripple-icon": "1.5.4",
     "@dpc-sdp/ripple-image-gallery": "1.5.4",
     "@dpc-sdp/ripple-link": "1.5.4",
-    "@dpc-sdp/ripple-markup": "1.5.4"
+    "@dpc-sdp/ripple-markup": "1.5.4",
+    "pluralize": "^8.0.0"
   }
 }

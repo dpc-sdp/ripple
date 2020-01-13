@@ -88,12 +88,15 @@ module.exports = class TideAdmin {
       // Submit
       await this.submitPage()
       await page.waitForSelector('[aria-label="Status message"]', this.options.wait)
-      const result = await page.$eval('[aria-label="Status message"]', el =>
-        el
-          .classList.contains('messages--status')
-      )
+      const result = await page.$eval('[aria-label="Status message"]', el => {
+        const messageNodes = el.querySelectorAll('.messages__item')
+        const messages = Array.from(messageNodes).slice(1, messageNodes.length).map(node => node.textContent)
+        if (messages && messages.length > 0) {
+          return messages
+        }
+      })
       await this.close()
-      return result
+      return Promise.resolve(result)
     } catch (error) {
       // Cleanup
       await this.close()

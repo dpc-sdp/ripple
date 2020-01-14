@@ -1,0 +1,64 @@
+- entity: node
+  type: landing_page
+  title: Embedded video test
+  status: 1
+  moderation_state:
+    - '#process':
+        callback: reference
+        args:
+          - content_moderation_state
+          - workflow: editorial
+            moderation_state: published
+  # Page header.
+
+  field_landing_page_summary: Embedded video test.
+  field_landing_page_hero_theme: light
+  field_landing_page_bg_colour: white
+
+  # Content Components.
+  field_landing_page_component:
+    # Basic Text.
+    - entity: paragraph
+      type: basic_text
+      field_paragraph_body:
+      - format: rich_text
+        value: |
+          <h2>Victorian women say thank you</h2>
+          <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded_with_transcript" data-entity-type="media" data-entity-uuid="7be769bb-9e9f-4c63-9a79-6fbd6d3bf48d" data-langcode="en"></drupal-entity>
+          <p>In September 2019, recipients of the 2019 Queen’s Birthday Honours were presented with their Order of Australia medals, by the Governor at official ceremonies at Government House, Melbourne.</p>
+          <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid="36edb597-6253-40a0-845f-2de0c47f19e5" data-langcode="en"></drupal-entity>
+          <p>In April 2019, recipients of the 2019 Australian Day Honours were presented with their Order of Australia medals, by the Governor at official ceremonies at Government House, Melbourne.</p>
+
+  # Other.
+  field_show_social_sharing: 0
+  field_show_content_rating: 0
+  field_show_site_section_nav: 0
+  # Topic and Tags.
+  field_topic:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: topic
+            name: 'Equality'
+  # Sites.
+  field_node_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'demo.vic.gov.au'
+  field_node_primary_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'

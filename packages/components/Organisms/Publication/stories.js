@@ -83,7 +83,7 @@ storiesOf('Organisms/Publication', module)
     />`,
     props: {
       author: {
-        default: text('Author', 'Department of Premier and Cabinet')
+        default: ['Department of Premier and Cabinet']
       },
       date: {
         default: text('Date', '2018-03-23T09:00:00.000+10:00')

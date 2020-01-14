@@ -10,7 +10,8 @@ module.exports = {
       'field_landing_page_component',
       'field_landing_page_component.field_paragraph_accordion',
       'field_landing_page_component.field_complex_image_media',
-      'field_landing_page_component.field_complex_image_media.field_media_image'
+      'field_landing_page_component.field_complex_image_media.field_media_image',
+      'field_publication_authors'
     ],
     publicationPage: [
       'field_node_primary_site',

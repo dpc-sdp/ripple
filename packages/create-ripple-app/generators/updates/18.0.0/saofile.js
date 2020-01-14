@@ -30,7 +30,7 @@ module.exports = {
             data.scripts['test:smoke'] = 'cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke'
           }
           // Upgrade nuxt
-          data.dependencies['nuxt'] = `2.9.2`
+          data.dependencies['nuxt'] = `2.10.2`
           return data
         }
       },

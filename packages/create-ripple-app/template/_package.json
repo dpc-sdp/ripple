@@ -30,8 +30,9 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-nuxt-tide": "^<%= version %>",
+    "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
-    "nuxt": "2.9.2",
+    "nuxt": "2.10.2",
     "run-script-os": "^1.0.7"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 /* global cy, Cypress */
 
-const { Then, Given } = require('cypress-cucumber-preprocessor/steps')
+const { Then, Given, When } = require('cypress-cucumber-preprocessor/steps')
 
 Given(`I visit the page {string}`, url => {
   cy.visit(url, {
@@ -37,6 +37,12 @@ Then(`the current page should not be an error page`, () => {
 
 Given(`I have created a node with the YAML fixture {string}`, fixture => {
   cy.TideCreateNode(fixture)
+})
+
+When('I navigate to the first created node', () => {
+  cy.get('@createdNodes').then(nodes => {
+    cy.visit(nodes[0])
+  })
 })
 
 Given(`the {string} page exists with fixture {string} data`, (slug, fixture) => {

@@ -32,7 +32,11 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 </tbody></table></div>
 
 <!-- pluginEmbeddedMediaVideo -->
-<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/Xb4ElZqit8k?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"link\\" :display-transcript=\\"true\\" :media-link=\\"embeddedMediaVideoData.mediaLink\\" transcript=\\"Some video caption text &lt;&amp;&apos;&quot;\\"></rpl-embedded-video>
+<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/Xb4ElZqit8k?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"link\\" :display-transcript=\\"true\\" :media-link=\\"embeddedMediaVideoData0.mediaLink\\" transcript=\\"Some video caption text &lt;&amp;&apos;&quot;\\"></rpl-embedded-video>
+
+<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"link\\" :display-transcript=\\"true\\" :media-link=\\"embeddedMediaVideoData1.mediaLink\\" transcript=\\"Some video caption text &lt;&amp;&apos;&quot;\\"></rpl-embedded-video>
+
+<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"full\\" :display-transcript=\\"true\\"></rpl-embedded-video>
 
 <!-- blockquote -->
 <blockquote class=\\"quotation\\">
@@ -119,6 +123,34 @@ exports[`Markup transpiler should get same HTML with no plugins 1`] = `
     </article>
   </div>
   <figcaption>Some video caption text &lt;&amp;&apos;&quot;</figcaption>
+</figure>
+
+<figure role=\\"group\\" class=\\"caption caption-div embedded-entity embedded-entity--media embedded-entity--media--embedded-video\\">
+  <div data-embed-button=\\"tide_media\\" data-entity-embed-display=\\"view_mode:media.embedded_with_transcript\\" data-entity-type=\\"media\\" data-entity-uuid=\\"12345\\" data-langcode=\\"en\\">
+    <article class=\\"media media--type-embedded-video media--view-mode-embedded-with-transcript\\">
+      <div class=\\"field field--name-field-media-video-embed-field field--type-video-embed-field field--label-hidden field__item\\">
+        <div class=\\"video-embed-field-provider-youtube video-embed-field-responsive-video\\">
+          <iframe allowfullscreen=\\"allowfullscreen\\" frameborder=\\"0\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" width=\\"854\\"></iframe>
+        </div>
+      </div>
+      <div class=\\"field field--name-field-media-link field--type-string field--label-hidden field__item\\">
+        <a href=\\"/media/2\\" hreflang=\\"en\\">View transcript</a>
+      </div>
+    </article>
+  </div>
+  <figcaption>Some video caption text &lt;&amp;&apos;&quot;</figcaption>
+</figure>
+
+<figure role=\\"group\\" class=\\"caption caption-div embedded-entity embedded-entity--media embedded-entity--media--embedded-video\\">
+  <div data-embed-button=\\"tide_media\\" data-entity-embed-display=\\"view_mode:media.embedded_with_transcript\\" data-entity-type=\\"media\\" data-entity-uuid=\\"12345\\" data-langcode=\\"en\\">
+    <article class=\\"media media--type-embedded-video media--view-mode-embedded-with-transcript\\">
+      <div class=\\"field field--name-field-media-video-embed-field field--type-video-embed-field field--label-hidden field__item\\">
+        <div class=\\"video-embed-field-provider-youtube video-embed-field-responsive-video\\">
+          <iframe allowfullscreen=\\"allowfullscreen\\" frameborder=\\"0\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" width=\\"854\\"></iframe>
+        </div>
+      </div>
+    </article>
+  </div>
 </figure>
 
 <!-- blockquote -->

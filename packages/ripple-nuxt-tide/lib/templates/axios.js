@@ -12,6 +12,30 @@ export default function ({ $axios, app, res }) {
     }
   })
 
+  $axios.onResponse(response => {
+    // Pass Drupal content page response section cache tag to Nuxt page response.
+    // Below content endpoints are hard coded as not need to be extensible for now.
+    const contentReqPatterns = [
+      '/api/v.*/node.*', 
+      '/api/v.*/media/embedded_video.*',
+      '/api/v.*/taxonomy_term/topic.*',
+      '/api/v.*/taxonomy_term/tag.*'
+    ]
+    const reqRegexStr = '^(?:' +
+      contentReqPatterns.join('|') +
+      ')$'
+    const contentReqRegex = new RegExp(reqRegexStr)
+    const reqPath = response.request.path
+
+    if (reqPath !== undefined && res) {
+      if (reqPath.match(contentReqRegex)) {
+        if (response.headers['section-cache-tags'] !== undefined) {
+          res.setHeader('Section-Cache-Tags', response.headers['section-cache-tags'])
+        }
+      }
+    }
+  })
+
   $axios.onError(error => {
     let code
     if (error.code) {

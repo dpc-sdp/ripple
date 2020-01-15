@@ -13,12 +13,18 @@ const nuxtTide = function (moduleOptions) {
     // POST request to Tide normally need more than 5 seconds to get response.
     '/api/v1/': {
       target: options.baseUrl,
-      proxyTimeout: 9000
+      proxyTimeout: 9000,
+      onProxyRes (proxyRes, req, res) {
+        proxyRes.headers['X-SDP-APP-TYPE'] = 'tide'
+      }
     },
     '/sites/default/files/': {
       target: options.baseUrl,
       onProxyReq (proxyReq, req, res) {
         proxyReq.setHeader('X-SDP-REQUEST-LOCATION', 'tide')
+      },
+      onProxyRes (proxyRes, req, res) {
+        proxyRes.headers['X-SDP-APP-TYPE'] = 'tide'
       }
     }
   }

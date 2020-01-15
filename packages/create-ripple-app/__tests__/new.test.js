@@ -27,7 +27,6 @@ describe('Test new project generator', () => {
         'webform',
         'search',
         'authenticatedContent',
-        'dataDrivenComponent',
         'alert',
         'gtm'
       ],

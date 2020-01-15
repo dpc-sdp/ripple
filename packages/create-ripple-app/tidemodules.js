@@ -16,10 +16,5 @@ module.exports = [
     value: 'authenticatedContent',
     name: 'Authenticated Content',
     default: false
-  },
-  {
-    value: 'dataDrivenComponent',
-    name: 'Data Driven Component',
-    default: false
   }
 ]

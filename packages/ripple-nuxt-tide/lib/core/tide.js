@@ -51,7 +51,8 @@ export const tide = (axios, site, config) => ({
       timeout: axiosTimeout,
       headers: {
         'Content-Type': 'application/vnd.api+json; charset=UTF-8',
-        'Accept': 'application/vnd.api+json'
+        'Accept': 'application/vnd.api+json',
+        'X-SDP-REQUEST-LOCATION': 'tide'
       }
     }
 

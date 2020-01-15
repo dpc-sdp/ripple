@@ -11,8 +11,16 @@ const nuxtTide = function (moduleOptions) {
     ...this.options.proxy,
     // Set the proxy timeout for requesting to Tide API as 9 seconds.
     // POST request to Tide normally need more than 5 seconds to get response.
-    '/api/v1/': { target: options.baseUrl, proxyTimeout: 9000 },
-    '/sites/default/files/': options.baseUrl
+    '/api/v1/': {
+      target: options.baseUrl,
+      proxyTimeout: 9000
+    },
+    '/sites/default/files/': {
+      target: options.baseUrl,
+      onProxyReq (proxyReq, req, res) {
+        proxyReq.setHeader('X-SDP-REQUEST-LOCATION', 'tide')
+      }
+    }
   }
 
   // Register `plugin.js` template
@@ -70,6 +78,7 @@ const nuxtTide = function (moduleOptions) {
   this.addServerMiddleware(require('./server-middleware/request-id'))
   // Log all server side requests
   this.addServerMiddleware(require('./server-middleware/request-log'))
+  this.addServerMiddleware(require('./server-middleware/headers'))
 
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }
 

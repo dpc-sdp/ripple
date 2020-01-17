@@ -58,7 +58,11 @@ You Can move some setting value into your env variables.
     gtm: {
       id: 'Your-GTM-id' // Optional if you enabled gtm module above
     },
-    search: {}
+    search: {},
+    // For devOps to set custom cache purge regex patterns if needs
+    cachePurgePattern: [
+      'your-custom-api-url-regex-pattern'
+    ]
 }
 ```
 

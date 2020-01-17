@@ -39,7 +39,8 @@ const defaults = {
       username: '',
       password: ''
     }
-  }
+  },
+  cachePurgePattern: []
 }
 
 export default defaults

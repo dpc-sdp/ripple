@@ -1,5 +1,6 @@
 import defaults from './config/defaults'
 import * as configLoader from './core/config-loader'
+import { RPL_HEADER } from './config/constants'
 const path = require('path')
 
 const nuxtTide = function (moduleOptions) {
@@ -9,27 +10,30 @@ const nuxtTide = function (moduleOptions) {
 
   this.options.proxy = {
     ...this.options.proxy,
-    // Set the proxy timeout for requesting to Tide API as 9 seconds.
-    // POST request to Tide normally need more than 5 seconds to get response.
     '/api/v1/': {
       target: options.baseUrl,
+      // Set the proxy timeout for requesting to Tide API as 9 seconds.
+      // POST request to Tide normally need more than 5 seconds to get response.
       proxyTimeout: 9000,
       onProxyRes (proxyRes, req, res) {
-        proxyRes.headers['X-SDP-APP-TYPE'] = 'tide'
+        // Set headers as devOps required
+        proxyRes.headers[RPL_HEADER.APP_TYPE] = 'tide'
       }
     },
     '/sites/default/files/': {
       target: options.baseUrl,
       onProxyReq (proxyReq, req, res) {
-        proxyReq.setHeader('X-SDP-REQUEST-LOCATION', 'tide')
+        // Set headers as devOps required
+        proxyReq.setHeader(RPL_HEADER.REQ_LOCATION, 'tide')
       },
       onProxyRes (proxyRes, req, res) {
-        proxyRes.headers['X-SDP-APP-TYPE'] = 'tide'
+        // Set headers as devOps required
+        proxyRes.headers[RPL_HEADER.APP_TYPE] = 'tide'
       }
     }
   }
 
-  // Register `plugin.js` template
+  // Register Nuxt plugins
   this.addPlugin({
     src: path.resolve(__dirname, 'templates/plugin.js'),
     fileName: 'tide.js',
@@ -39,6 +43,12 @@ const nuxtTide = function (moduleOptions) {
   this.addPlugin({
     src: path.resolve(__dirname, 'templates/axios.js'),
     fileName: 'tide-axios.js'
+  })
+
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/cache-purge.js'),
+    fileName: 'tide-cache-purge.js',
+    options: { cachePurgePattern: options.cachePurgePattern }
   })
 
   if (process.env.BASIC_AUTH === '1') {

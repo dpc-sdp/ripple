@@ -69,7 +69,6 @@ export default {
       <%}%><% if (webform === 'yes') { %>webform: 1,
       <%}%><% if (search === 'yes') { %>search: 1,
       <%}%><% if (authenticatedContent === 'yes') { %>authenticatedContent: 1,
-      <%}%><% if (dataDrivenComponent === 'yes') { %>dataDrivenComponent: 1,
       <%}%><% if (alert === 'yes') { %>alert: 1,
       <%}%><% if (gtm === 'yes') { %>gtm: 1,
       <%}%><% if (site === 'yes') { %>site: 1<%}%>

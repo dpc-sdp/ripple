@@ -1,6 +1,14 @@
 Feature: Publication
+
+  As a citizen I can view information for all available content on an publication page
   
-  @focus
+  Scenario: Publication page
+    Given I visit the page "/demo-publication"
+    Then there should be a description list with the following items:
+      | term    | value           |
+      | Author  | Demo Department |
+      | Date    | July 2019       |
+
   Scenario: Print all publication pages
     Given the "/demo-publication" route exists
     Given the "/demo-publication/demo-publication-chapter-1" route exists
@@ -18,7 +26,7 @@ Feature: Publication
     And there should be a description list with the following items:
       | term    | value                                                                         |
       | Author  | Lorem ipsum dolor sit amet, Nulla ultricies dignissim, Integer interdum nisl  |
-      | Date    | July 2019                                                                     |          
+      | Date    | July 2019                                                                     |
     And the anchor links component should exist
     And the anchor link title should be "On this page:"
     And there should be the following anchor links:
@@ -30,5 +38,5 @@ Feature: Publication
       | Demo Publication - Chapter 2 - Page 1 | demo-publication-chapter-2-page-1 |
       | Demo Publication - Chapter 2 - Page 2 | demo-publication-chapter-2-page-2 |
       | Demo Publication - Chapter 2 - Page 3 | demo-publication-chapter-2-page-3 |
-      | Demo Publication - Chapter 3          | demo-publication-chapter-3        |                                                                     |          
+      | Demo Publication - Chapter 3          | demo-publication-chapter-3        |        
     And the contact component should exist

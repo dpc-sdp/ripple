@@ -88,12 +88,6 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return 'rpl-image-gallery'
     case 'rpl-accordion':
       return () => import(/* webpackChunkName: 'rpl-accordion' */ '@dpc-sdp/ripple-accordion')
-    case 'tide-vic-free-wifi-map':
-      // this is already mounted in no-ssr
-      return 'tide-vic-free-wifi-map'
-    case 'tide-map-prevention-family-violence':
-      // this is already mounted in no-ssr
-      return 'tide-map-prevention-family-violence'
     case 'app-form':
       return () => import(/* webpackChunkName: 'app-form' */ '@dpc-sdp/ripple-nuxt-tide/lib/components/AppForm')
     case 'tide-login':

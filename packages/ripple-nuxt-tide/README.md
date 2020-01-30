@@ -51,7 +51,6 @@ You Can move some setting value into your env variables.
       search: 1,
       monsido: 1,
       authenticatedContent: 1,
-      dataDrivenComponent: 0,
       alert: 1,
       gtm: 1
     },

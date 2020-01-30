@@ -102,7 +102,6 @@ export default {
       webform: 1,
       search: 1,
       authenticatedContent: 1,
-      dataDrivenComponent: 1,
       alert: 1,
       gtm: 1
     },

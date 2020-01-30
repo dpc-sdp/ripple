@@ -1,5 +1,5 @@
 <template>
-  <rpl-link class="rpl-text-link" :class="{ 'rpl-text-link--underline': underline }" :href="url" :innerWrap="innerWrap">
+  <rpl-link v-if="url !== null" class="rpl-text-link" :class="{ 'rpl-text-link--underline': underline }" :href="url" :innerWrap="innerWrap">
     <rpl-text-label :theme="theme" :size="size" :underline="underline" :emphasis="emphasis">
       <rpl-text-icon :text="textDecoded" :symbol="iconSymbolFinal" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
     </rpl-text-label>
@@ -37,7 +37,7 @@ export default {
       // TODO: This is a temporary fix.
       // In Markup component, We can't avoid taking HTML encoded link text(especially for `"`) from CMS and feeding them into the text icon.
       // We may just change all link text to HTML to solve this issue eventally.
-      return decodeSpecialCharacters(this.text)
+      return this.text ? decodeSpecialCharacters(this.text) : null
     },
     iconSymbolFinal () {
       if (isExternalUrl(this.url, this.rplOptions.hostname)) {

@@ -32,6 +32,11 @@ let rplOptions = {
   rplOptions.viclogoFooter = options.viclogoFooter
 <% } %>
 
+<% if (options.card && options.card.trimFieldfonts) { %>
+  rplOptions.card = rplOptions.card || {}
+  rplOptions.card.trimFieldfonts = options.card.trimFieldfonts
+<% } %>
+
 <% if (options.customIcon) { %>
   // Add custom icons to library.
   addCustomIcons(require.context('../assets/ripple-icon/', true, /\.svg$/))

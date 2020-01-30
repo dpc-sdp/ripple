@@ -16,6 +16,10 @@ export default {
       { name: 'msapplication-TileColor', content: '#da532c' },
       { name: 'theme-color', content: '#ffffff' },
       { hid: 'description', name: 'description', content: 'Example site for showing how to add custom work' }
+    ],
+    link: [
+      // Load custom fonts from Google fonts
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald&display=swap' }
     ]
   },
   modules: [
@@ -37,13 +41,18 @@ export default {
       }
     }
   },
+  ripple: {
+    card: {
+      trimFieldfonts: ['Oswald']
+    }
+  },
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     },
-    site: 4,
+    site: '4',
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {
       page: 1,

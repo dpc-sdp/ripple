@@ -26,7 +26,6 @@ const defaults = {
     search: 0,
     publication: 0,
     authenticatedContent: 0,
-    dataDrivenComponent: 0,
     alert: 0,
     gtm: 0
   },

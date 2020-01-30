@@ -7437,42 +7437,6 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
 </ul>
 `;
 
-exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
-<div
-  class="free-wifi-map demo-content"
->
-  <div
-    class="rpl-map"
-  >
-     
-    <div
-      class="rpl-map__container"
-    >
-      <div
-        class="rpl-map__map"
-        id="map"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
-<div
-  class="rpl-map"
->
-   
-  <div
-    class="rpl-map__container"
-  >
-    <div
-      class="rpl-map__map"
-      id="map"
-    />
-  </div>
-</div>
-`;
-
 exports[`RippleStoryshots Molecules/Pagination Default 1`] = `
 <nav
   aria-label="Search"

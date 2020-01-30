@@ -118,6 +118,7 @@ export default {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD
       }
-    }
+    },
+    cachePurgePattern: []
   }
 }

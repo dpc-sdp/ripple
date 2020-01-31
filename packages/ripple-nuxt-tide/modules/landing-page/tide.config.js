@@ -272,7 +272,8 @@ module.exports = {
             field: 'field_paragraph_webform',
             filters: ['webform']
           }
-        }
+        },
+        class: ['tide-webform']
       },
 
       'paragraph--card_promotion': {

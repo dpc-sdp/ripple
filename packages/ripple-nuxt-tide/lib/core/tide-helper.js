@@ -83,3 +83,7 @@ export const getFormattedSize = (fileSize) => {
   const i = Math.floor(Math.log(fileSize) / Math.log(k))
   return parseFloat((fileSize / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
 }
+
+export const stringToClass = (str) => {
+  return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[^a-zA-Z0-9\s]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
+}

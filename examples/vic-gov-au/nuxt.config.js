@@ -102,7 +102,6 @@ export default {
       webform: 1,
       search: 1,
       authenticatedContent: 1,
-      dataDrivenComponent: 1,
       alert: 1,
       gtm: 1
     },
@@ -119,6 +118,7 @@ export default {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD
       }
-    }
+    },
+    cachePurgePattern: []
   }
 }

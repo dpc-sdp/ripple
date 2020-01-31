@@ -10,6 +10,7 @@ import { isTokenExpired } from '../../modules/authenticated-content/lib/authenti
 import componentLoader from './component-loader'
 import markupPluginsLoader from './markup-plugins-loader'
 import logger from './logger'
+import { RPL_HEADER } from './../config/constants'
 
 const apiPrefix = '/api/v1/'
 
@@ -51,9 +52,13 @@ export const tide = (axios, site, config) => ({
       timeout: axiosTimeout,
       headers: {
         'Content-Type': 'application/vnd.api+json; charset=UTF-8',
-        'Accept': 'application/vnd.api+json'
+        'Accept': 'application/vnd.api+json',
+        [RPL_HEADER.REQ_LOCATION]: 'tide'
       }
     }
+
+    // // Set request location to tide
+    // axiosConfig.headers[RPL_HEADER.REQ_LOCATION] = 'tide'
 
     if (this.isModuleEnabled('authenticatedContent')) {
       // Set 'X-Authorization' header if authToken present
@@ -76,6 +81,7 @@ export const tide = (axios, site, config) => ({
       timeout: 9000,
       headers: {
         'Content-Type': 'application/vnd.api+json;charset=UTF-8',
+        [RPL_HEADER.REQ_LOCATION]: 'tide',
         'X-Request-Id': helper.generateId()
       }
     }

@@ -38,7 +38,7 @@ export default {
   data: function () {
     return {
       trimFieldSelector: '.rpl-card-event__summary',
-      trimFieldRefreshOnFonts: ['VIC-Bold']
+      trimFieldRefreshOnFonts: true
     }
   },
   methods: {

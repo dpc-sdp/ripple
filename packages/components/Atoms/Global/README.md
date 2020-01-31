@@ -24,6 +24,9 @@ This is a globally available options object to allow passing options between rip
   plugins: [], // array of cheerio transformer function plugins to pass to RplMarkup
   viclogo: true // whether to display primary vic.gov.au logo
   externalLinksInNewWindow: false // (Bool) Whether links open in new window by default
+  card: {
+    trimFieldfonts: ['Your-font-name'] // If custom fonts are used in card trimmed field, set them here.
+  }
 ```
 
 For add your options, you need to use the Ripple global plugin in your Vue.js porject.

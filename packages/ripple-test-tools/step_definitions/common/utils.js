@@ -46,6 +46,19 @@ Then(`the response code should be {int}`, (statusExp) => {
     expect(response.status).to.eq(statusExp)
   })
 })
+
+Then(`the response header {string} should has value {string}`, (header, value) => {
+  cy.get('@request').should((response) => {
+    expect(response.headers[header]).to.eq(value)
+  })
+})
+
+Then(`the response has header {string}`, (header) => {
+  cy.get('@request').should((response) => {
+    expect(response.headers).to.have.property(header)
+  })
+})
+
 Then(`I should be on the page {string}`, (url) => {
   cy.url().should('contain', url)
 })

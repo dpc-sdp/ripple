@@ -142,6 +142,17 @@ export default {
     const publication = await app.$tide.getPageByPath('/' + route.params.publicationname)
     try {
       publication.componentMapping = await app.$tideMapping.get(publication.field_landing_page_component, 'landingPageComponents')
+
+      // Add parent page's contact us
+      if (publication.field_landing_page_show_contact && publication.field_landing_page_contact) {
+        const contact = await app.$tideMapping.get(publication.field_landing_page_contact)
+        if (contact) {
+          publication.componentMapping.push({
+            name: 'rpl-contact',
+            data: contact.data
+          })
+        }
+      }
     } catch (error) {
       if (process.server) {
         logger.error('Failed to map publication components', { error, label: 'Publication' })

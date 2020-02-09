@@ -46,6 +46,27 @@ export default {
     '@dpc-sdp/ripple-nuxt-tide',
     ['@nuxtjs/robots', robots]
   ],
+  /*
+  ** Build
+  * https://nuxtjs.org/api/configuration-build/
+  */
+  build: {
+    // Currently lodash is mainly brought by Elastic search JS lib.
+    // Below lodash optimization can be reviewed after we migrated to new ES JS client.
+    babel: {
+      plugins: [
+        'lodash'
+      ]
+    },
+    plugins: [
+      new LodashModuleReplacementPlugin({
+        'caching': true,
+        'collections': true,
+        'paths': true,
+        'shorthands': true
+      })
+    ]
+  },
   css: [
     '@/assets/_custom.scss'
   ],
@@ -85,7 +106,8 @@ export default {
       auth: {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD
-      }
+      },
+      loadOnDemand: 1
     }
   }
 }

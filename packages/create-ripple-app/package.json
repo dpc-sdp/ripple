@@ -15,7 +15,6 @@
   "dependencies": {
     "compare-versions": "^3.5.1",
     "jscodeshift": "^0.6.4",
-    "lodash": "^4.17.11",
     "minimist": "^1.2.0",
     "sao": "^1.6.1",
     "validate-npm-package-name": "^3.0.0"

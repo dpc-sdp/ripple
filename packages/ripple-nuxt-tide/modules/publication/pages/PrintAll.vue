@@ -67,7 +67,7 @@ import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import { RplPublicationAuthorInformation, RplPublicationDownloadPrint } from '@dpc-sdp/ripple-publication'
 import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
-import kebabCase from 'lodash.kebabcase'
+import kebabCase from 'lodash/kebabCase'
 import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
 export default {

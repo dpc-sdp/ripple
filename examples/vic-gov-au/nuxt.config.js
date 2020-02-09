@@ -1,4 +1,5 @@
 require('dotenv').config()
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 process.env.APP_ROOT_PATH = '.' // Set the example app root path, for this example app config only.
@@ -50,6 +51,10 @@ export default {
       Disallow: '/'
     }]
   ],
+  /*
+  ** Build
+  * https://nuxtjs.org/api/configuration-build/
+  */
   build: {
     // For debugging in dev mode
     // https://github.com/nuxt/nuxt.js/issues/2734#issuecomment-410135071
@@ -57,7 +62,39 @@ export default {
       if (isDev) {
         config.devtool = isClient ? 'source-map' : 'inline-source-map'
       }
-    }
+    },
+
+    // Currently lodash is mainly brought by Elastic search JS lib.
+    // Below lodash optimization can be reviewed after we migrated to new ES JS client.
+    babel: {
+      plugins: [
+        'lodash'
+      ]
+    },
+    plugins: [
+      // Using this plugin without enabling the proper feature sets may cause lodash functions
+      // to behave in unexpected ways. Methods may appear to work, however they might return
+      // incorrect results.
+      // https://github.com/lodash/lodash-webpack-plugin
+      new LodashModuleReplacementPlugin({
+        'caching': true,
+        'collections': true,
+        'paths': true,
+        'shorthands': true
+        // 'cloning': true,
+        // 'currying': true,
+        // 'exotics': true,
+        // 'guards': true,
+        // 'metadata': true,
+        // 'deburring': true,
+        // 'unicode': true,
+        // 'chaining': true,
+        // 'memoizing': true,
+        // 'coercions': true,
+        // 'flattening': true,
+        // 'placeholders': true
+      })
+    ]
   },
   /*
   ** styleResources

@@ -1,4 +1,5 @@
 require('dotenv').config()
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 process.env.APP_ROOT_PATH = '.' // Set the example app root path, for this example app config only.
@@ -39,7 +40,22 @@ export default {
       if (isDev) {
         config.devtool = isClient ? 'source-map' : 'inline-source-map'
       }
-    }
+    },
+
+    // Currently lodash is mainly brought by Elastic search JS lib.
+    // Below lodash optimization can be reviewed after we migrated to new ES JS client.
+    babel: {
+      plugins: [
+        'lodash'
+      ]
+    },
+    plugins: [
+      new LodashModuleReplacementPlugin({
+        'caching': true,
+        'collections': true,
+        'paths': true
+      })
+    ]
   },
   ripple: {
     card: {

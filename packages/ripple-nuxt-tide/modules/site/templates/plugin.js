@@ -3,6 +3,7 @@ import moment from 'moment'
 
 export default ({ app, store }) => {
   const options = <%= JSON.stringify(options) %>
+
   // Register Tide Site Vuex module
   if (store) {
     const storeModule = {

@@ -1,16 +1,21 @@
-import { get } from 'lodash'
+import get from 'lodash/get'
 import moment from 'moment'
 
 export default ({ app, store }) => {
+  const options = <%= JSON.stringify(options) %>
   // Register Tide Site Vuex module
   if (store) {
     const storeModule = {
       namespaced: true,
       state: () => ({
+        siteId: null,
         sitesDomainMap: null,
         siteSection: null
       }),
       mutations: {
+        setSiteId (state, id) {
+          state.siteId = id
+        },
         setSitesDomainMap (state, sitesDomainMap) {
           state.sitesDomainMap = sitesDomainMap
         },
@@ -26,6 +31,7 @@ export default ({ app, store }) => {
             const sitesDomainMap = await app.$tide.getSitesDomainMap(headersConfig)
             commit('setSitesDomainMap', sitesDomainMap)
           }
+          commit('setSiteId', options.site)
         }
       }
     }

@@ -117,7 +117,8 @@ export default {
       auth: {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD
-      }
+      },
+      loadOnDemand: process.env.SEARCH_LOAD_ON_DEMAND
     },
     cachePurgePattern: []
   }

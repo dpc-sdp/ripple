@@ -1,4 +1,3 @@
-Baseline
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/dpc-sdp/ripple">

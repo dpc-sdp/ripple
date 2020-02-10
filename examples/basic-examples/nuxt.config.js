@@ -75,7 +75,8 @@ export default {
       auth: {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD
-      }
+      },
+      loadOnDemand: 1
     }
   }
 }

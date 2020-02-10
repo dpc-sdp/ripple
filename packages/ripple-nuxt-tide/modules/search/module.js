@@ -5,7 +5,7 @@ module.exports = function () {
   // Turn on "Load on demand" for reducing initial JS load size.
   // Tide search will be loaded only in search page.
   // If this flag is not set, we keep previous way to inject tide search as a global service.
-  options.loadOnDemand = options.loadOnDemand === '1' || options.loadOnDemand === true
+  options.loadOnDemand = options.loadOnDemand === '1' || options.loadOnDemand === 1 || options.loadOnDemand === true
   if (options.loadOnDemand) {
     this.addPlugin({
       src: path.resolve(__dirname, 'templates/plugin-on-demand.js'),

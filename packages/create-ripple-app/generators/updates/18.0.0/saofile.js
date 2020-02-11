@@ -35,10 +35,10 @@ module.exports = {
       }
     ]
 
-    if (fs.existsSync(`${this.outDir}/pages/Sitemap.vue`)) {
+    if (fs.existsSync(`${this.outDir}/pages/sitemap.vue`)) {
       actions.push({
         type: 'remove',
-        files: `${this.outDir}/pages/Sitemap.vue`
+        files: `${this.outDir}/pages/sitemap.vue`
       })
     }
 

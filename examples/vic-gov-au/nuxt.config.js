@@ -1,5 +1,4 @@
 require('dotenv').config()
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 process.env.APP_ROOT_PATH = '.' // Set the example app root path, for this example app config only.
@@ -56,27 +55,16 @@ export default {
   * https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    // For debugging in dev mode
-    // https://github.com/nuxt/nuxt.js/issues/2734#issuecomment-410135071
     extend (config, { isDev, isClient }) {
       if (isDev) {
+        // For debugging in dev mode
+        // https://github.com/nuxt/nuxt.js/issues/2734#issuecomment-410135071
         config.devtool = isClient ? 'source-map' : 'inline-source-map'
       }
-    },
 
-    // Currently lodash is mainly brought by Elastic search JS lib.
-    // Below lodash optimization can be reviewed after we migrated to new ES JS client.
-    babel: {
-      plugins: [
-        'lodash'
-      ]
-    },
-    plugins: [
-      // Using this plugin without enabling the proper feature sets may cause lodash functions
-      // to behave in unexpected ways. Methods may appear to work, however they might return
-      // incorrect results.
-      // https://github.com/lodash/lodash-webpack-plugin
-      new LodashModuleReplacementPlugin({
+      const webpack = require('webpack')
+      const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+      config.plugins.push(new LodashModuleReplacementPlugin({
         'caching': true,
         'collections': true,
         'paths': true,
@@ -93,8 +81,20 @@ export default {
         // 'coercions': true,
         // 'flattening': true,
         // 'placeholders': true
-      })
-    ]
+      }))
+      // Load moment 'en-au' locale only for performance.
+      // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+      // You need to change it if your site is not in Australia.
+      config.plugins.push(new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-au/))
+    },
+
+    // Currently lodash is mainly brought by Elastic search JS lib.
+    // Below lodash optimization can be reviewed after we migrate to new ES JS client.
+    babel: {
+      plugins: [
+        'lodash'
+      ]
+    }
   },
   /*
   ** styleResources

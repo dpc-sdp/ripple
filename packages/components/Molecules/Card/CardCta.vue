@@ -2,7 +2,9 @@
   <rpl-card-content class="rpl-card-cta" :border="false" :link="linkOnly">
     <img class="rpl-card-cta__image" v-if="image" ref="image" :src="image" alt="" />
     <h2 class="rpl-card-cta__title" v-if="title">{{ title }}</h2>
-    <p class="rpl-card-cta__summary" v-if="summary">{{ summary }}</p>
+    <div class="rpl-card-cta__trim-wrapper" v-if="summary" :style="{ maxHeight: trimFieldMaxHeight }">
+      <p class="rpl-card-cta__summary" v-if="summary">{{ summary }}</p>
+    </div>
     <span class="rpl-card-cta__button" v-if="link.text">{{ link.text }}</span>
   </rpl-card-content>
 </template>
@@ -10,9 +12,11 @@
 <script>
 import objectFitImages from 'object-fit-images'
 import RplCardContent from './CardContent.vue'
+import cardtrimfield from './mixins/cardtrimfield'
 
 export default {
   name: 'RplCardCta',
+  mixins: [cardtrimfield],
   props: {
     image: String,
     title: String,
@@ -22,9 +26,18 @@ export default {
   components: {
     RplCardContent
   },
-  data () {
+  data: function () {
     return {
-      linkOnly: { text: null, url: this.link.url }
+      linkOnly: { text: null, url: this.link.url },
+      trimFieldSelector: '.rpl-card-cta__summary',
+      trimFieldRefreshOnFonts: true
+    }
+  },
+  methods: {
+    getTrimFieldMaxHeightOffset: function (card) {
+      const linkButton = this.$el.querySelector('.rpl-card-cta__button')
+      const rtnMaxHeight = linkButton ? (card.clientHeight - linkButton.clientHeight) : card.clientHeight
+      return linkButton ? (rtnMaxHeight - linkButton.clientHeight) : rtnMaxHeight
     }
   },
   mounted () {
@@ -67,6 +80,12 @@ export default {
       @include rpl_typography_ruleset($rpl-card-cta-title-ruleset);
       color: $rpl-card-cta-title-text-color;
       margin: $rpl-card-cta-title-margin;
+    }
+
+    &__trim-wrapper {
+      @include rpl_breakpoint('m') {
+        overflow: hidden;
+      }
     }
 
     &__summary {

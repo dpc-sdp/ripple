@@ -54,7 +54,7 @@
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCheckbox from '../Checkbox.vue'
-import { isObject } from 'lodash'
+import isObject from 'lodash/isObject'
 import { abstractField, schema } from 'vue-form-generator'
 import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 

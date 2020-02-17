@@ -50,6 +50,7 @@ import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 
 export default {
   components: {
@@ -134,7 +135,7 @@ export default {
       // Go to search result page.
       // If already on search result page, rebuild the page from server so we can run async data.
       if (this.$route.path !== '/search') {
-        this.$tideSearch.searchPageRedirect('/search', searchInput)
+        searchPageRedirect(this.$router, '/search', searchInput)
       } else {
         window.location.href = `/search?q=${searchInput}`
       }

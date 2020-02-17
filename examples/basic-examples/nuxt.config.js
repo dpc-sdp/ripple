@@ -33,12 +33,33 @@ export default {
     '@/assets/_custom.scss'
   ],
   build: {
-    // For debugging in dev mode
-    // https://github.com/nuxt/nuxt.js/issues/2734#issuecomment-410135071
     extend (config, { isDev, isClient }) {
       if (isDev) {
+        // For debugging in dev mode
+        // https://github.com/nuxt/nuxt.js/issues/2734#issuecomment-410135071
         config.devtool = isClient ? 'source-map' : 'inline-source-map'
       }
+
+      const webpack = require('webpack')
+      const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+      config.plugins.push(new LodashModuleReplacementPlugin({
+        'caching': true,
+        'collections': true,
+        'paths': true,
+        'shorthands': true
+      }))
+      // Load moment 'en-au' locale only for performance.
+      // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+      // You need to change it if your site is not in Australia.
+      config.plugins.push(new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-au/))
+    },
+
+    // Currently lodash is mainly brought by Elastic search JS lib.
+    // Below lodash optimization can be reviewed after we migrate to new ES JS client.
+    babel: {
+      plugins: [
+        'lodash'
+      ]
     }
   },
   ripple: {
@@ -75,7 +96,8 @@ export default {
       auth: {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD
-      }
+      },
+      loadOnDemand: 1
     }
   }
 }

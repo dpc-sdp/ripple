@@ -33,7 +33,7 @@ import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import formData from './formdata-simple.js'
-import { searchMixin } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
+import { searchMixin, getSearch } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
 
 export default {
   name: 'ExampleSearchSimple',
@@ -49,7 +49,8 @@ export default {
   },
   mixins: [searchMixin],
   async asyncData ({ app, route }) {
-    const searchForm = await formData.getFormData(app.$tideSearch.setFilterOptions)
+    const tideSearch = getSearch(app)
+    const searchForm = await formData.getFormData(tideSearch.setFilterOptions)
     return {
       sidebar: false,
       searchComponent: 'default',

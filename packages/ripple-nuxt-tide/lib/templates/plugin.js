@@ -1,7 +1,7 @@
 import { tide, Mapping } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 import { serverSetProperties } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
-export default async ({ app, req, store , route }, inject) => {
+export default ({ app, req, store , route }, inject) => {
   // We need to serialize functions, so use `serialize` instead of `JSON.stringify`.
   // https://github.com/nuxt-community/modules/issues/170
   // https://www.npmjs.com/package/serialize-javascript

@@ -17,6 +17,7 @@ import View from 'ol/View'
 import Feature from 'ol/Feature'
 import Overlay from 'ol/Overlay'
 import Zoom from 'ol/control/Zoom'
+import Attribution from 'ol/control/Attribution'
 import Icon from 'ol/style/Icon'
 import GeoJSON from 'ol/format/GeoJSON'
 import { bbox } from 'ol/loadingstrategy'
@@ -49,7 +50,8 @@ const ol = {
   View: View,
   Overlay: Overlay,
   control: {
-    Zoom
+    Zoom,
+    Attribution
   },
   layer: {
     Tile: TileLayer,

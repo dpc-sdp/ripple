@@ -41,7 +41,10 @@ const methods = {
     map = new ol.Map({
       target: 'map',
       controls: [
-        new ol.control.Zoom()
+        new ol.control.Zoom(),
+        new ol.control.Attribution({
+          collapsible: false
+        })
       ],
       view: new ol.View({
         center: this.center,
@@ -60,7 +63,8 @@ const methods = {
   createBaseLayer () {
     baseSource = new ol.source.XYZ({
       url: this.baseMapUrl,
-      transition: 1000
+      transition: 1000,
+      attributions: ['© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>']
     })
     baseLayer = new ol.layer.Tile({
       source: baseSource

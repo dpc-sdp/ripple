@@ -114,6 +114,20 @@ describe('tide helpers', () => {
     })
     /* eslint-enable indent */
   })
+
+  describe('stringToClass', () => {
+    /* eslint-disable indent */
+    test.each`
+      text                                                | expected
+      ${'Anchor&nbsp;&amp;&nbsp;&copy;&nbsp;Link'}        | ${'anchor-link'}
+      ${'Anchor`~!@#$%^&*()-_=+{}[]\\|;:\'"<>,.?/\nLink'} | ${'anchor-link'}
+      ${'   ANCHOR   LINK   '}                            | ${'anchor-link'}
+      ${'1234567890'}                                     | ${'1234567890'}
+    `('returns $expected for $text', ({ text, expected }) => {
+      expect(helper.stringToClass(text)).toBe(expected)
+    })
+    /* eslint-enable indent */
+  })
 })
 
 describe('tide', () => {

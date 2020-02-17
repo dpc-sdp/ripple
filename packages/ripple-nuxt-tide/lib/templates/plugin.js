@@ -1,8 +1,7 @@
 import { tide, Mapping } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
-import { search } from '@dpc-sdp/ripple-nuxt-tide/modules/search/index.js'
 import { serverSetProperties } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
-export default ({ env, app, req, res, store , route}, inject) => {
+export default ({ app, req, store , route }, inject) => {
   // We need to serialize functions, so use `serialize` instead of `JSON.stringify`.
   // https://github.com/nuxt-community/modules/issues/170
   // https://www.npmjs.com/package/serialize-javascript
@@ -17,7 +16,6 @@ export default ({ env, app, req, res, store , route}, inject) => {
   const tideService = tide(app.$axios, options.site, config)
   inject('tide', tideService)
   inject('tideMapping', new Mapping(config, tideService))
-  inject('tideSearch', search(options.search, app.router, options.site))
 
   // Register Tide Vuex module
   if (store) {

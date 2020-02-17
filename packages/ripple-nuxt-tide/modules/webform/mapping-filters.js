@@ -1,6 +1,7 @@
 module.exports = {
   // Convert Drupal webform data struture to Vue Form Generator structure
   webform: async (drupalFormEntity, { mapping }) => {
+    const stringToClass = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper').stringToClass
     const elements = drupalFormEntity.elements
     // Below data structure is following VFG 2.2.3.
     // `tideId`, `formState` and `messages` are our own custom properties.
@@ -50,7 +51,8 @@ module.exports = {
       const field = {
         type: null,
         model: eName,
-        validator: []
+        validator: [],
+        styleClasses: ['tide-webform-field']
       }
 
       const group = {}
@@ -59,6 +61,8 @@ module.exports = {
       // TODO: If elementName is `reset`, add a custom reset(cancel) button.
       if (element['#title']) {
         field.label = element['#title']
+        const fieldClass = 'tide-webform-field--' + stringToClass(element['#title'])
+        field.styleClasses.push(fieldClass)
       }
 
       if (element['#placeholder']) {

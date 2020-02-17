@@ -2955,11 +2955,16 @@ exports[`RippleStoryshots Molecules/Card/Card Cta Default 1`] = `
       Want to submit an event?
     </h2>
      
-    <p
-      class="rpl-card-cta__summary"
+    <div
+      class="rpl-card-cta__trim-wrapper"
+      style="max-height: none;"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
+      <p
+        class="rpl-card-cta__summary"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
      
     <span
       class="rpl-card-cta__button"
@@ -10707,11 +10712,16 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
             Want to submit an event?
           </h2>
            
-          <p
-            class="rpl-card-cta__summary"
+          <div
+            class="rpl-card-cta__trim-wrapper"
+            style="max-height: none;"
           >
-            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
-          </p>
+            <p
+              class="rpl-card-cta__summary"
+            >
+              Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+            </p>
+          </div>
            
           <span
             class="rpl-card-cta__button"

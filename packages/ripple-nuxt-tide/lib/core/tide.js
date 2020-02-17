@@ -2,7 +2,8 @@ import qs from 'qs'
 import jsonapiParse from 'jsonapi-parse'
 import tideDefaultConfig from '../config/tide.config'
 import menuHierarchy from './menu-hierarchy'
-import _ from 'lodash'
+import merge from 'lodash/merge'
+import isEmpty from 'lodash/isEmpty'
 import * as helper from './tide-helper'
 import * as pageTypes from './page-types'
 import * as middleware from './middleware-helper'
@@ -63,7 +64,7 @@ export const tide = (axios, site, config) => ({
     if (this.isModuleEnabled('authenticatedContent')) {
       // Set 'X-Authorization' header if authToken present
       if (headersConfig.authToken && !isTokenExpired(headersConfig.authToken)) {
-        _.merge(axiosConfig.headers, { 'X-Authorization': `Bearer ${headersConfig.authToken}` })
+        merge(axiosConfig.headers, { 'X-Authorization': `Bearer ${headersConfig.authToken}` })
       }
     }
 
@@ -294,8 +295,8 @@ export const tide = (axios, site, config) => ({
 
   getPathData: async function (path, params, headersConfig) {
     let routeParams = { path: path }
-    if (!_.isEmpty(params)) {
-      _.merge(routeParams, params)
+    if (!isEmpty(params)) {
+      merge(routeParams, params)
     }
 
     try {
@@ -367,8 +368,8 @@ export const tide = (axios, site, config) => ({
     // remove undefined includes
     let params = { include: include.filter(i => i).join(',') }
     // If query URL is not empty include in URL request
-    if (!_.isEmpty(query)) {
-      params = _.merge(query, params)
+    if (!isEmpty(query)) {
+      params = merge(query, params)
     }
     try {
       const entity = await this.get(endpoint, params, '', headersConfig)

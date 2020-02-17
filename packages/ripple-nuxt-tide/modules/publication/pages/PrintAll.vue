@@ -67,7 +67,7 @@ import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import { RplPublicationAuthorInformation, RplPublicationDownloadPrint } from '@dpc-sdp/ripple-publication'
 import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
-import kebabCase from 'lodash.kebabcase'
+import kebabCase from 'lodash/kebabCase'
 import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
 export default {
@@ -142,6 +142,17 @@ export default {
     const publication = await app.$tide.getPageByPath('/' + route.params.publicationname)
     try {
       publication.componentMapping = await app.$tideMapping.get(publication.field_landing_page_component, 'landingPageComponents')
+
+      // Add parent page's contact us
+      if (publication.field_landing_page_show_contact && publication.field_landing_page_contact) {
+        const contact = await app.$tideMapping.get(publication.field_landing_page_contact)
+        if (contact) {
+          publication.componentMapping.push({
+            name: 'rpl-contact',
+            data: contact.data
+          })
+        }
+      }
     } catch (error) {
       if (process.server) {
         logger.error('Failed to map publication components', { error, label: 'Publication' })

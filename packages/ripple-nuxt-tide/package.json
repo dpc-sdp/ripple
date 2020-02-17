@@ -61,9 +61,6 @@
     "js-cookie": "^2.2.0",
     "jsonapi-parse": "^2.0.0",
     "jwt-decode": "^2.2.0",
-    "lodash.isempty": "^4.4.0",
-    "lodash.kebabcase": "^4.1.1",
-    "lodash.merge": "^4.6.1",
     "mime-types": "^2.1.21",
     "moment-timezone": "0.5.21",
     "qs": "^6.5.1",
@@ -73,7 +70,6 @@
     "winston-logstash-transport": "^2.0.0"
   },
   "peerDependencies": {
-    "@nuxtjs/axios": "^5.3.1",
     "nuxt": "^2.10.2"
   },
   "devDependencies": {

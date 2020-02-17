@@ -4,7 +4,7 @@ module.exports = function () {
   const options = this.options.tide
 
   this.addPlugin({
-    src: path.resolve(__dirname, 'plugin.js'),
+    src: path.resolve(__dirname, 'templates/plugin.js'),
     fileName: 'tide-site.js',
     options: options
   })

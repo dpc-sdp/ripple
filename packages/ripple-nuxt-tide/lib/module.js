@@ -110,7 +110,9 @@ const nuxtTide = function (moduleOptions) {
 
   // transpile @dpc-sdp modules
   this.options.build.transpile.push(/@dpc-sdp\/ripple/)
-  this.options.build.maxChunkSize = 300000
+
+  // TODO: Below is not working due to Webpack changes. https://digital-engagement.atlassian.net/browse/SDPA-3807
+  // this.options.build.optimization.splitChunks.maxSize = 300000
 
   // transpile none node modules to support browsers like IE
   this.options.build.transpile.push(/winston-transport/)

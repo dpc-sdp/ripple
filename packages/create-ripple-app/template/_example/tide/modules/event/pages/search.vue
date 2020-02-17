@@ -39,7 +39,7 @@ import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { breadcrumbs as getBreadcrumbs } from '@dpc-sdp/ripple-nuxt-tide/lib/core/breadcrumbs'
 import formData from './../formdata.js'
-import { searchMixin } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
+import { searchMixin, getSearch } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
 
 export default {
   name: 'EventSearch',
@@ -56,7 +56,8 @@ export default {
   },
   mixins: [searchMixin],
   async asyncData ({ app, route }) {
-    const searchForm = await formData.getFormData(app.$tideSearch.setFilterOptions)
+    const tideSearch = getSearch(app)
+    const searchForm = await formData.getFormData(tideSearch.setFilterOptions)
     return {
       sidebar: false,
       breadcrumbs: getBreadcrumbs(route.path, searchForm.title, null),

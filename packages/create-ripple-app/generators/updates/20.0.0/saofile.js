@@ -35,32 +35,33 @@ module.exports = {
           const j = jscodeshift
           const rootData = j(data)
 
-          // Add Lodash webpack plugins
-          const lodashPlugin = rootData.find(j.Identifier, { name: 'LodashModuleReplacementPlugin' })
-          if (lodashPlugin.length === 0) {
-            const requireLodashPlugin = `const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')`
-            rootData.get().node.program.body.unshift(requireLodashPlugin)
-          }
-
           const defaultNode = rootData.find(j.ExportDefaultDeclaration)
           const build = defaultNode.find(j.Property, { key: { name: 'build' } })
           if (build.length) {
             console.warn('We found existing build configs. You need to manually merge new build configs in nuxt.config.js.')
           }
           const buildConfigs = `build: {
+  // Currently 'lodash' is mainly brought by Elastic search JS lib.
+  // Below lodash optimization can be reviewed after we migrate to new ES JS client.
   babel: {
     plugins: [
       'lodash'
     ]
   },
-  plugins: [
-    new LodashModuleReplacementPlugin({
-      'shorthands': true,
+  extend (config, { isServer, loaders: { vue } }) {
+    const webpack = require('webpack')
+    const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+    config.plugins.push(new LodashModuleReplacementPlugin({
       'caching': true,
       'collections': true,
-      'paths': true
-    })
-  ]
+      'paths': true,
+      'shorthands': true
+    }))
+    // Load moment 'en-au' locale only for performance.
+    // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+    // You need to change it if your site is not in Australia.
+    config.plugins.push(new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-au/))
+  }
 }`
           defaultNode.find(j.Property, { key: { name: 'modules' } })
             .insertAfter(buildConfigs)

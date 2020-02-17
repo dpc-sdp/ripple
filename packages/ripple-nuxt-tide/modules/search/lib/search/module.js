@@ -1,5 +1,5 @@
 import service from './service'
-import { isEqual } from 'lodash'
+import isEqual from 'lodash/isEqual'
 import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 // Calls to search.
 let i = 0
@@ -75,18 +75,6 @@ export default (config, router, site) => ({
       hits.totalSteps = Math.floor(Number(hits.hits.total) / options.responseSize)
     }
     return hits
-  },
-  searchPageRedirect: function (searchPagePath, searchInput, filters = null) {
-    let query = {
-      q: searchInput
-    }
-    if (filters) {
-      query.filters = filters
-    }
-    router.push({
-      path: searchPagePath,
-      query: query
-    })
   },
   /**
    * Helper to update the route query parameters to reflect queryString, filter

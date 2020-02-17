@@ -1,9 +1,9 @@
 import logger from './logger'
 import { mergeIncludes } from './tide-helper'
+import kebabCase from 'lodash/kebabCase'
 const path = require('path')
 const fs = require('fs')
 const appDir = require('app-root-path')
-const kebabCase = require('lodash.kebabcase')
 
 // Groups of our configs
 const configGroups = {

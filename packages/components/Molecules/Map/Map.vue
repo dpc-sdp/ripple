@@ -64,7 +64,7 @@ const methods = {
     baseSource = new ol.source.XYZ({
       url: this.baseMapUrl,
       transition: 1000,
-      attributions: ['© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>']
+      attributions: ['© Mapbox © OpenStreetMap']
     })
     baseLayer = new ol.layer.Tile({
       source: baseSource

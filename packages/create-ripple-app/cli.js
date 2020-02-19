@@ -19,6 +19,21 @@ const log = (msg, lvl = 'info') => {
   }
 }
 
+// Test project current version for each update.
+// If current is 20.0.0, target is 21.0.0,
+// then this should return false for 20.0.0 update as it's already in 20.0.0.
+// But return true for 21.0.0 update.
+// Other case is if target version is 20.0.0, then update 21.0.0 won't run.
+const needUpdate = (currentVersion, thisUpdateVersion, targetVersion) => {
+  if (compareVersions.compare(currentVersion, thisUpdateVersion, '>=')) {
+    return false
+  }
+  if (targetVersion === 'latest' || compareVersions.compare(targetVersion, thisUpdateVersion, '>=')) {
+    return true
+  }
+  return false
+}
+
 const cli = async () => {
   // Set options from a config file path relative to CWD
   const configFile = args.config
@@ -50,24 +65,28 @@ const cli = async () => {
   if (args.forcenew || existing) {
     const pkg = require(`${outDir}/package.json`)
     const version = pkg.version
-    const targetVersion = config.release
+    let targetVersion = config.release
+
+    if (!targetVersion) {
+      targetVersion = 'latest'
+    }
 
     // Do auto updates for 18 release and above.
     // TODO: It may will have issues when complex refactoring happened in several versions with one script.
     // Can be reviewed later.
     const minUpdateVersion = '18.0.0'
     // Less than v18
-    if (compareVersions(version, minUpdateVersion) === -1) {
+    if (compareVersions.compare(version, minUpdateVersion, '<=')) {
       log('Cannot upgrade this version. Please use --forcenew flag to force new install.', 'error')
       process.exit(0)
     }
 
     log(`Your site ${outDir} current version is ${version}`)
 
-    // Less than v20
-    if (compareVersions(version, '20.0.0', '<=')) {
-      if (path.resolve(__dirname, `./generators/updates/${minUpdateVersion}`)) {
-        generator = path.resolve(__dirname, `./generators/updates/${minUpdateVersion}`)
+    // Upgrade to SDP 20.0.0
+    if (needUpdate(version, '20.0.0', targetVersion)) {
+      if (path.resolve(__dirname, `./generators/updates/20.0.0`)) {
+        generator = path.resolve(__dirname, `./generators/updates/20.0.0`)
         log(`Updating ${outDir} to 20.0.0`)
 
         await sao({ generator, outDir, logLevel: 2, config })
@@ -79,10 +98,10 @@ const cli = async () => {
       }
     }
 
-    // Less than v21
-    if (compareVersions(version, '21.0.0', '<=') && compareVersions(targetVersion, '20.0.0', '>')) {
-      if (path.resolve(__dirname, `./generators/updates/20.0.0`)) {
-        generator = path.resolve(__dirname, `./generators/updates/20.0.0`)
+    // Upgrade to SDP 21.0.0
+    if (needUpdate(version, '21.0.0', targetVersion)) {
+      if (path.resolve(__dirname, `./generators/updates/21.0.0`)) {
+        generator = path.resolve(__dirname, `./generators/updates/21.0.0`)
         log(`Updating ${outDir} to 21.0.0`)
         await sao({ generator, outDir, logLevel: 2, config })
           .run()

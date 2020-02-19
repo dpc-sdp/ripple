@@ -56,6 +56,9 @@ const addFilter = function (esbResult, filter, filterName) {
     case 'multiMatch':
       esbResult = esbResult.must(esb.multiMatchQuery(filter.fields, filter.values))
       break
+    case 'prefix':
+      esbResult = esbResult.filter(esb.prefixQuery(filterName, filter.values.toLowerCase()))
+      break
     case 'ids':
       esbResult = esbResult.filter(esb.idsQuery(filter.fields, filter.values))
       break

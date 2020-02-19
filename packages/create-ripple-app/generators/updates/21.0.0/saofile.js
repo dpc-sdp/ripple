@@ -16,6 +16,7 @@ module.exports = {
           data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.6.0`
           data.devDependencies['babel-plugin-lodash'] = `^3.3.2` // Add lodash build optimization
           data.devDependencies['lodash-webpack-plugin'] = `^0.11.5` // Add lodash build optimization
+          data.scripts['lint:fix'] = 'eslint --ext .js,.vue . --fix'
           return data
         }
       },

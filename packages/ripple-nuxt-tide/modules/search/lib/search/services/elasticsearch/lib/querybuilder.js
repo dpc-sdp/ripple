@@ -39,7 +39,7 @@ const addFilter = function (esbResult, filter, filterName) {
       if (Array.isArray(filter.values)) {
         const filterVals = filter.values.map((item) => {
           // Check that filter fields aren't empty.
-          if (item.length > 0) {
+          if (item.length > 0 || typeof item === 'boolean') {
             return item
           }
         })

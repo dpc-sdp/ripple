@@ -198,6 +198,14 @@ export default (config, router, site) => ({
       if (typeof value === 'string' && value === '') {
         continue
       }
+      // Checkbox has boolean value.
+      if (typeof value === 'boolean') {
+        if (value === false) {
+          // For checkbox, we want false(uncheck) to be ignored in filter.
+          continue
+        }
+        value = [value]
+      }
       // if its an array, check it has a value
       if (Array.isArray(value) && value.length === 0) {
         continue

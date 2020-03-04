@@ -1,5 +1,105 @@
 # Changelog
 
+## v1.6.0 (04/03/2020)
+- [Update improvement (#636)](https://github.com/dpc-sdp/ripple/commit/604ac4071f69fc4065815148dc881fe49490be39) - @tim-yao
+- [[SDPSUP-1371] trim function for crad cta (#633)](https://github.com/dpc-sdp/ripple/commit/3f09bf79d53120a75ec451ce5a30adb8ae618110) - @MdNadimHossain
+- [CI fix (#597)](https://github.com/dpc-sdp/ripple/commit/63232f800aa3ba9d9fdc616b21d27ebee688bf5b) - @anthony-malkoun
+- [Added classes for webform and events search form (#629)](https://github.com/dpc-sdp/ripple/commit/1bde1792d8abb268078c774bdfdd18d5224d948f) - @tim-yao
+- [[SDPA-3712] reduce js bundle size (#630)](https://github.com/dpc-sdp/ripple/commit/8db306c789751a043324e2ea1cd2c80df4fc3562) - @tim-yao
+- [[SDPA-3341] Added publication print contact us component for parent. (#627)](https://github.com/dpc-sdp/ripple/commit/99a0d914000d02da5a4e65c1f7d2f2d0c3d219f8) - @MdNadimHossain
+- [[SDPA-3649] ripple header (#628)](https://github.com/dpc-sdp/ripple/commit/ebe4650126702902cbef5bdb590f9e79efefba4b) - @tim-yao
+- [[SDPA-3619] custom font support (#621)](https://github.com/dpc-sdp/ripple/commit/d0006942bf3d580a5a2cc15a809fc88c8710feac) - @tim-yao
+- [Feature/vicpol patch changes (#618)](https://github.com/dpc-sdp/ripple/commit/8cd8b9b0af99c1caf425caadc4241ea1b0a0a4d7) - @MdNadimHossain
+- [Feature/myvic 53 map separation from ripple repository (#608)](https://github.com/dpc-sdp/ripple/commit/446fe6500332cf411a9b200e74d9297eb7a08f21) - @vincentdigital
+- [Fix failing alert test (#620)](https://github.com/dpc-sdp/ripple/commit/8ccf0d21a78a3ad761be4971a85b34a2fcc802f1) - @dylankelly
+
+---
+
+## v1.5.7 (04/03/2020)
+- [[SDPA-3421] Fix embedded video issues with no transcript and add tests (#622)](https://github.com/dpc-sdp/ripple/commit/d31ccf444d2b7766829942e7eb3ced7137a5e654) - @dylankelly
+- [[SDPA-3652] Fixed issue by adding missing dependency (#623)](https://github.com/dpc-sdp/ripple/commit/cf780347f503677c6fd0cd86fbbf33302fa6a912) - @tim-yao
+- [Fix list-group dependency issue in nuxt-tide (#619)](https://github.com/dpc-sdp/ripple/commit/4fa7e769b6093016834ff122a0e6513547264868) - @dylankelly
+- [Release/1.5.4 (#617)](https://github.com/dpc-sdp/ripple/commit/5809dc89b182ae1260d8bd25854a7c9035977e55) - @tim-yao
+- [fix(test): correct the e2e test for media link (#615)](https://github.com/dpc-sdp/ripple/commit/2d22bc0d9fa2f68ce618bb038b9eb0f601256257) - @tim-yao
+- [[SDPA-3563] Updated deps (#614)](https://github.com/dpc-sdp/ripple/commit/bdd5acd739d8f9eee6ec767f07994ce39ed25cb6) - @tim-yao
+- [chore(deps): update dependency serialize-javascript to ^2.1.1 (#613)](https://github.com/dpc-sdp/ripple/commit/d138f281f83404a44c82432c6b899de4d56abe89) - @tim-yao
+- [[SDPA-3545] Fixed video links (#612)](https://github.com/dpc-sdp/ripple/commit/9f49262ca287564dfd83c295e0b042c26c1438f4) - @tim-yao
+- [[SDPSUP-1212] : Add word count form validation (#611)](https://github.com/dpc-sdp/ripple/commit/4bde2d68078ec0b33fc127d962704e6262182f8d) - @FleetAdmiralButter
+- [[SDPA-3533] Added break word for rpl-list__text. (#610)](https://github.com/dpc-sdp/ripple/commit/ebe1882db51da2e89a656a05f475f875d25ca18d) - @MdNadimHossain
+- [[remove-test-link] Updated nuxt config in vic gov example. (#609)](https://github.com/dpc-sdp/ripple/commit/17e40999ea36b79d0fe5bfb5a4ec26e5e9939fb1) - @MdNadimHossain
+- [[SDPA-3491] publication author field bug fix. (#605)](https://github.com/dpc-sdp/ripple/commit/468f2c8f849fbe22d74fc9b3fe51f3e9edc30b12) - @MdNadimHossain
+- [[SDPSUP-1208] Updated the BE link to remove www from develop. (#606)](https://github.com/dpc-sdp/ripple/commit/1330112c1ff29ed7943b387faab9e7dff4912dd7) - @MdNadimHossain
+- [[SDPL-169] Adds border radius to option group (#603)](https://github.com/dpc-sdp/ripple/commit/fa14eafd37744d2d3db6b1ec142dd78e3b75759d) - @dylankelly
+- [[SDPL-169] Adds Search input icon (#602)](https://github.com/dpc-sdp/ripple/commit/77ba426d01bcd6144e811d0428c8fb7b868ea6bc) - @dylankelly
+- [Fix placeholder not configurable for fieldRplSelect (#601)](https://github.com/dpc-sdp/ripple/commit/57f7cae063a207c86322463534b6b14af17e32c5) - @dylankelly
+- [[SDPA-3518] Added nuxt robots to new project (#604)](https://github.com/dpc-sdp/ripple/commit/aa77038c61b8112a89beb5bb27797cf0d2db6ac5) - @tim-yao
+- [[SDPL-90] List Group component. (#564)](https://github.com/dpc-sdp/ripple/commit/f9f551f9e025e98ef05639afb205e08a48ef5c47) - @alan-cole
+- [[SDPSUP-1118] [SDPA-3400]Update the webform conditional logic (#594) (#600)](https://github.com/dpc-sdp/ripple/commit/7129da2f74a65798d64173867ba8f04b5f82d616) - @tim-yao
+- [[SDPA-3469] Added footer logo optional setting in nuxt config applied in ripple. (#599)](https://github.com/dpc-sdp/ripple/commit/f59b5a00bc059babfafe4f3b9c18ae9ad1c8871a) - @MdNadimHossain
+- [Fixed ie11 issue by using vue data to replace string in template (#598)](https://github.com/dpc-sdp/ripple/commit/955a090dcd0dccd06cf14dbb09f3887972340df7) - @tim-yao
+- [Added debugging support for ripple nuxt examples dev env (#596)](https://github.com/dpc-sdp/ripple/commit/d31a1c6abda2ee6c6b4160c3cdeb84502f040716) - @tim-yao
+- [Fix/ripple sass settings (#593)](https://github.com/dpc-sdp/ripple/commit/f0d63408560340a6c1c35f0267d227b501512e44) - @tim-yao
+- [Make all e2e test pass. Add search e2e tests (#577)](https://github.com/dpc-sdp/ripple/commit/3c4e3837671f0ceb36a9dd1bdc4e199caf968afd) - @dylankelly
+- [[SDPA-3114] Add print publication feature. (#543)](https://github.com/dpc-sdp/ripple/commit/7a6859e0002a9da506c2e401812d3039be94c1b5) - @dylankelly
+- [[SDPSUP] Fixed homepage error code (#592)](https://github.com/dpc-sdp/ripple/commit/d4b5990bfede379e9f349eb7f36d5f9296331fe2) - @tim-yao
+- [[SDPA-3351] jsonapi cache (#587)](https://github.com/dpc-sdp/ripple/commit/d82a50224c029e0aed2a2867faf61e75e59e9bf0) - @tim-yao
+- [SDPA-3169 Updates ripple logo (#590)](https://github.com/dpc-sdp/ripple/commit/a26bf46653df97ff6ff8fd96c9875b3bf2574880) - @vincent-gao
+- [Fix rpl-select not emitting events on mobile (#578)](https://github.com/dpc-sdp/ripple/commit/9ab1992491b43676e88e510fa7fd9ac30b747cd9) - @dylankelly
+- [[SDPL-89] Meta tag solid (#569)](https://github.com/dpc-sdp/ripple/commit/41ae32acecfaa72c24a553ad929caab459668ec1) - @alan-cole
+- [[SDPL-88] Field select letter (#565)](https://github.com/dpc-sdp/ripple/commit/7bb06baaaaee1ebaddbc7058598da167eb33249e) - @alan-cole
+- [[SDPA-3209] Added error capture and UI handling (#560)](https://github.com/dpc-sdp/ripple/commit/039b44633c781649310aa247d5f1cf58a121d9d2) - @tim-yao
+
+---
+
+## v1.4.0 (12/11/2019)
+- [[SDPSUP-1056] Fixed missing gitignore in create app (#586)](https://github.com/dpc-sdp/ripple/commit/e1833f8a06ad66bbc0cb1937af46d0d14b222c9d) - @tim-yao
+- [[SDPA-3310] Whatson event listing filtering by end date (#582)](https://github.com/dpc-sdp/ripple/commit/4420cdc8828e1afed3b4709db0b4be1e92048d84) - @MdNadimHossain
+- [Fixed a missing close quote (#585)](https://github.com/dpc-sdp/ripple/commit/fac59316ec9883d68a57ed2f493e410c8b02dc0a) - @tim-yao
+- [[SDPA-3390] Added To check null value for link and link title for alerts with no link. (#584)](https://github.com/dpc-sdp/ripple/commit/44b2df192761c6f4aeb4ab13782cdd7a9299690d) - @MdNadimHossain
+- [Add dotenv to new projects (#581)](https://github.com/dpc-sdp/ripple/commit/456618d5e54358a7d181fc4c3dac29ebe6836767) - @dylankelly
+- [[SDPA-3389] Fixed embedded video issue (#580)](https://github.com/dpc-sdp/ripple/commit/9fbe40c0b513cd7f911f6007ab9ce5cf57002626) - @tim-yao
+- [Remove explicit file paths and fix bin command path (#579)](https://github.com/dpc-sdp/ripple/commit/507816f040268189b6344e6e3ae6c913cc88c402) - @dylankelly
+- [Update readme branding w/ new SDP logos (#571)](https://github.com/dpc-sdp/ripple/commit/29295513b53e97902b74b85ca51726cb6afbc633) - @anthony-malkoun
+- [Update create ripple app (#570)](https://github.com/dpc-sdp/ripple/commit/d004ac7de8db0e3da8082a2e5e4a0767a7114d44)  - @dylankelly
+- [[SDPL-96] Split fieldRplSelect into its own component (#566)](https://github.com/dpc-sdp/ripple/commit/9730a43432c98f512dd74f1faf0c8ba0037fdf64) - @dylankelly
+- [[SDPA-3207] Added style change for CallToAction to match xs screen design (#557)](https://github.com/dpc-sdp/ripple/commit/03da4e35018ae6fa198c5c61258a11ec81f8eaff) - @MdNadimHossain
+- [Updated the domain for the MyVIC endpoints in the MyVIC Maps. (#573)](https://github.com/dpc-sdp/ripple/commit/8d6581dda6126c8101b75a850f9be689e29874bd) - @kurtfoster 
+- [[SDPA-3270] Upgraded Nuxt to v2.9.2 (#561) ](https://github.com/dpc-sdp/ripple/commit/72504bec28e93d3648c29ef7d8a0b408c77fa72d) - @tim-yao 
+- [[SDPA-3306] add mapping example (#555)](https://github.com/dpc-sdp/ripple/commit/9cf6ef4f45b435e9eb298a2b8b421d263912da96) - @tim-yao 
+- [[SDPA-2949] Fix: Search results query to support filter object. (#528)](https://github.com/dpc-sdp/ripple/commit/edeb5ec3de4aef624c9cd84162e8de68588909a7) - @alan-cole 
+- [[SDPA-2470] Added bottom padding for cta component in xs screen. (#549) ](https://github.com/dpc-sdp/ripple/commit/332b80e6089cfdb7627887e5b30c0a9b30e6a21a) - @MdNadimHossain
+- [[SDPA-1967] Updated Honour role apply button text to match the design.(#550)](https://github.com/dpc-sdp/ripple/commit/458c744845f1e7bfcf296b25bb7c3f747a2fa504) - @MdNadimHossain
+- [[SDPA-3192] Added Wordwrap mixin and used in rpl_banner_title. (#551)](https://github.com/dpc-sdp/ripple/commit/29d40c354882d929960c1cbec3454f0497a13b2f) - @MdNadimHossain
+- [[SDPA-3174] Added hero banner title size for smal & large screen. (#553)](https://github.com/dpc-sdp/ripple/commit/321c8f90d7b1d1d1d84d25b51c0d8a6de5675b90) - @MdNadimHossain 
+- [[SDPA-3125] Added Flex for the small screen to make it two columns. (#552) ](https://github.com/dpc-sdp/ripple/commit/b79d373baa5392d8e29d6ac3824a08f906ede4c8) - @MdNadimHossain 
+- [[SDPA-3203] Added pagination correct number highlighting fix. (#559)](https://github.com/dpc-sdp/ripple/pull/559) - @MdNadimHossain
+
+
+
+
+---
+
+## v1.3.1 (18/10/2019)
+- [v1.3.1](https://github.com/dpc-sdp/ripple/commit/3358427e782379eae15f500b0a8aaa34a30169f1) - @tim-yao
+- [Fixed markup encode issue (#572)](https://github.com/dpc-sdp/ripple/commit/0af1e83e17bcc804f9f9714af4bc024abbee8c06) - @tim-yao
+- [v1.3.0](https://github.com/dpc-sdp/ripple/commit/07dda4b0d1b95bddba6ab6dc0b5b2056f9741c02) - @tim-yao
+- [[SDPA-3338] Fixed markup decode issue (#562)](https://github.com/dpc-sdp/ripple/commit/b05b37b481fad0a35d304a6c22c4e63af6e132cf) - @tim-yao
+- [v1.3.0-alpha.0](https://github.com/dpc-sdp/ripple/commit/0dad6630f08ba6cb07bd6ced7fd0bd578a1eca91) - @tim-yao
+- [Added different timeout for CI test (#554)](https://github.com/dpc-sdp/ripple/commit/367bd2e0ee3f006885b46ad36e3d2622d5c35c4e) - @tim-yao
+- [[SDPA-2900] Landing page e2e test (#548)](https://github.com/dpc-sdp/ripple/commit/01b3f0bfc0fc6ad6d15d7479c152d664226c6f91) - @alan-cole
+- [[SDPSUP-669] Added example for using Ripple in Vue.js(Not Nuxt) (#535)](https://github.com/dpc-sdp/ripple/commit/2aee25a19436bad2d75b945556c0dcc98e17d4b6) - @tim-yao
+- [[SDPA-3184] Setup timeout for Tide request (#545)](https://github.com/dpc-sdp/ripple/commit/8ac4a955a11058b5903d29257d972826555b4889) - @tim-yao
+- [[SDPA-936] Updated width for buttons in small screen. (#544)](https://github.com/dpc-sdp/ripple/commit/9e80301c296d6ce129f72d11695b59de784f4d31) - @MdNadimHossain
+- [[SDPA-3269] Updated content rating form comment field to be not required field. (#540)](https://github.com/dpc-sdp/ripple/commit/14309e27b565ac424447bc0082f9e40ecaa7b19d) - @MdNadimHossain
+- [[SDPA-3216] CTA description fix for special characters (#539)](https://github.com/dpc-sdp/ripple/commit/c6121ea4ef35a784bb0e64991acb4f09a3ad16c3) - @MdNadimHossain
+- [[SDPA-2346] Added quick-exit button for search component. (#538)](https://github.com/dpc-sdp/ripple/commit/a4175b75ce77e92d334ee9ad3434b57dcf45fa6b) - @MdNadimHossain
+- [[SDPA-3101] Update width to 100% to correctly fit 25% + 75% split. (#533)](https://github.com/dpc-sdp/ripple/commit/0651eed28ac51d60b001771e8821b7f0186693ff) - @alan-cole
+- [Delete update test which modifies mock instead of copying it](https://github.com/dpc-sdp/ripple/commit/142d188be0224b235a7fbce4a2c2d55ae229e9fe) - @dylankelly
+- [Disable test for update which modifies file.](https://github.com/dpc-sdp/ripple/commit/4e60f3f37462c72948822bb00d430a7c83d2c55c) - @dylankelly
+- [Update changelog](https://github.com/dpc-sdp/ripple/commit/8b27401e6ea72aaba2b2b33bf94b9839386e9803) - @dylankelly
+
+---
+
 ## v1.2.1 (24/09/2019)
 - [[SDPA-3250] Fix broken head if sitesection doesnt exist (#537)](https://github.com/dpc-sdp/ripple/commit/b3274bd52839980b4010ad49170158d95f4be984) - @dylankelly
 - [Update Create Ripple App to split new and update generators (#530)](https://github.com/dpc-sdp/ripple/commit/5d6cbaa3645adc50e8af798f0aa74e54e92190d4) - @dylankelly
@@ -38,6 +138,10 @@
 - [[SDPA-3140] Moves Sitemap to ripple nuxt-tide (#505)](https://github.com/dpc-sdp/ripple/commit/dc60347df529a08193153ebab8444a5fed378cd5) - @dylankelly
 - [[SDPA-2965] Accordion print styling. (#503)](https://github.com/dpc-sdp/ripple/commit/f2b906b9e3f121b28beff7b96add5ce10a82310d) - @alan-cole
 
+
+## Upgrade notes
+
+- `/Sitemap` has been moved into `@dpc-sdp/ripple-nuxt-tide`. When upgrading sites, please delete `/pages/sitemap.vue`.
 ---
 
 ## v1.1.0-alpha.0 (28/08/2019)
@@ -178,6 +282,31 @@
 - [Add link target="" support to components that display menus. (#384)](https://github.com/dpc-sdp/ripple/commit/93e7d02487028987ac12d21b6be4bd99d0b23b86) - @alan-cole
 - [[SDPA-2985] Prominent acknowledgment message. (#485)](https://github.com/dpc-sdp/ripple/commit/f6e7a5e0baf5d68b877a69ec4b518a6ed7ae0a54) - @alan-cole
 - [[SDPA-2937] Acknowledgement flags (#468)](https://github.com/dpc-sdp/ripple/commit/a913fb4141b813373100026b5d065aac67900d51) - @alan-cole
+
+## Upgrade notes
+
+This update need a small update on custom site "/store/index.js" to add request id, but without this changes, site should still working, not a breaking change.
+
+```
+   import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
+
+   export const actions = {
+-    async nuxtServerInit ({ dispatch }) {
++    async nuxtServerInit ({ dispatch }, { req }) {
+       try {
+-        await dispatch('tide/init')
++        await dispatch('tide/init', { requestId: req.requestId })
+       } catch (error) {
+         if (process.server) {
+           logger.error('Tide API server has an error.', { error, label: 'App' })
+         }
+         throw error
+       }
+     }
+   }
+```
+
+
 
 ---
 

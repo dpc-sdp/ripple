@@ -5,7 +5,7 @@ Feature: Webform
   Scenario: BE - Create a custom webform
     Given I have logged into the backend
     Given in the backend there there is a form named "test-form" with the fixture "webforms/test_form"
-    And in the backend there is a page at "/test-form" with "webforms/test-form-page" data
+    And in the backend there is a node at "/test-form" with "webforms/test-form-page" data
   
   Scenario: FE - test form submission
     When I visit the page "/test-form"

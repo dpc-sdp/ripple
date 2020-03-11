@@ -8,7 +8,7 @@ Feature: Global Notifications (Alert)
   
   Scenario: BE - Create a global alert in backend
     Given I have logged into the backend
-    And in the backend there is a page at "/1-BE-Alert-1" with "alert/1-BE-Alert-1" data
+    And in the backend there is a node at "/1-BE-Alert-1" with "alert/1-BE-Alert-1" data
 
   Scenario: FE - 1-FE-Alert-1 Displays global alert
     When I visit the page "/"
@@ -19,7 +19,7 @@ Feature: Global Notifications (Alert)
   Scenario: BE - Create a site section specific alert
     Given I have logged into the backend
     And in the backend there are no "alert" nodes
-    And in the backend there is a page at "/1-BE-Alert-2" with "alert/1-BE-Alert-2" data
+    And in the backend there is a node at "/1-BE-Alert-2" with "alert/1-BE-Alert-2" data
 
   Scenario: FE- 1-FE-Alert-2 Displays alert for site section
     When I visit the page "/housing-and-property"

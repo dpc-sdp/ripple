@@ -4,8 +4,8 @@ Feature: News page
   
   Scenario: BE - Creating a news page
     Given I have logged into the backend
-    And in the backend there is a page at "/test-news-page" with "news/news-1" data
-    And in the backend there is a page at "/test-news-page-2" with "news/news-2" data
+    And in the backend there is a node at "/test-news-page" with "news/news-1" data
+    And in the backend there is a node at "/test-news-page-2" with "news/news-2" data
   
   Scenario: FE - News page
     Given I visit the page "/test-news-page"

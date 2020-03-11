@@ -1,7 +1,6 @@
 - entity: node
   type: news
-  uuid: 11dede11-10c0-111e1-1100-000000000320
-  title: Demo News
+  title: Test news page 1
   uid: 1
   status: 1
   moderation_state:
@@ -85,36 +84,18 @@
           - taxonomy_term
           - vid: tags
             name: 'Demo Tag'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: tags
-            name: 'Another Demo Tag'
-  # Sites.
+   # Sites.
   field_node_site:
     - '#process':
         callback: reference
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Demo Section 1'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Another Demo Site'
+            name: 'vic.gov.au'
   field_node_primary_site:
     - '#process':
         callback: reference
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
+            name: 'vic.gov.au'

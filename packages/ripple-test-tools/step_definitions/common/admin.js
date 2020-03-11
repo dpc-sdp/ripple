@@ -18,7 +18,7 @@ Given(`I have logged into the backend`, () => {
   cy.get('[data-drupal-selector="edit-submit"]').click()
 })
 
-Given(`in the backend there is a page at {string} with {string} data`, (url, fixture) => {
+Given(`in the backend there is a node at {string} with {string} data`, (url, fixture) => {
   cy.request({
     url: `/api/v1/route?site=${Cypress.env('SITE_ID')}&path=${url}`,
     auth: {
@@ -85,4 +85,57 @@ When(`in the BE I check the {string} checkbox`, (label) => {
 
 When(`in the BE I click the {string} button`, (label) => {
   cy.get(`input[type="submit"][value="${label}"]`).click()
+})
+
+Given(`in the backend there is a user {string}`, (fixture) => {
+  const { safeLoad, safeDump } = require('js-yaml')
+  cy.fixture(fixture + '.yml').then(yaml => {
+    const yamlObj = safeLoad(yaml)
+    yamlObj[0].pass = Cypress.env('ADMIN_PASSWORD')
+    cy.visit(Cypress.env('CONTENT_API_SERVER') + 'admin/content/import_demo_content', {
+      auth: {
+        username: Cypress.env('CONTENT_API_AUTH_USER'),
+        password: Cypress.env('CONTENT_API_AUTH_PASS')
+      }
+    })
+    cy.get('[data-drupal-selector="edit-import"]').invoke('val', safeDump(yamlObj))
+    cy.get('[data-drupal-selector="edit-submit"]').click()
+  })
+})
+
+Given(`in the backend there is a role {string}`, (role) => {
+  cy.request({
+    url: `${Cypress.env('CONTENT_API_SERVER')}/admin/people/roles/manage/${Cypress._.snakeCase(role)}`,
+    auth: {
+      username: Cypress.env('CONTENT_API_AUTH_USER'),
+      password: Cypress.env('CONTENT_API_AUTH_PASS')
+    },
+    failOnStatusCode: false
+  }).then(res => {
+    cy.log(res)
+    if (res.status !== 200) {
+      cy.visit(Cypress.env('CONTENT_API_SERVER') + 'admin/people/roles/add', {
+        auth: {
+          username: Cypress.env('CONTENT_API_AUTH_USER'),
+          password: Cypress.env('CONTENT_API_AUTH_PASS')
+        }
+      })
+      cy.get('#edit-label').type(role)
+      cy.wait(2000)
+      cy.get('#edit-submit').click()
+    }
+  })
+})
+
+Given(`the authenticated content term {string} has the role {string}`, (term, role) => {
+  cy.visit(`${Cypress.env('CONTENT_API_SERVER')}authenticatedcontent/${term}`, {
+    auth: {
+      username: Cypress.env('CONTENT_API_AUTH_USER'),
+      password: Cypress.env('CONTENT_API_AUTH_PASS')
+    }
+  })
+  cy.get('.tabs__tab').contains('Edit').click()
+  cy.get('[aria-controls="fieldset_term_access"]').click()
+  cy.get(`#edit-access-role input`).check(role)
+  cy.get('#edit-submit').click()
 })

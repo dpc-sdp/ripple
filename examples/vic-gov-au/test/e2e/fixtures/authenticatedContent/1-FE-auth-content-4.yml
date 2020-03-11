@@ -106,7 +106,7 @@
         args:
           - taxonomy_term
           - vid: authenticated_content
-            name: 'test'
+            name: 'test1'
   field_tags:
     - '#process':
         callback: reference

@@ -2,12 +2,13 @@ Feature: Protected content
 
    As authorized I want to be able to login to the site so I can view pages which are not for the general public
   
-  @skip
-  # Scenario: Setup role
-  #   Given the role "testrole" exists in the backend
-  #   And the authenticated content module is configured with:
-  #     | role     | term      |
-  #     | testrole | testterm  |    
+  Scenario: BE - Setup environment
+    Given I have logged into the backend
+    And in the backend there is a role "test-role"
+    And in the backend there is a user "users/user-1"
+    And in the backend there is a node at "/authenticatedcontent/test-auth-term" with "authenticatedContent/taxonomy" data
+    And the authenticated content term "test-auth-term" has the role "test_role"
+    And in the backend there is a node at "/1-fe-auth-content-4" with "authenticatedContent/1-FE-auth-content-4" data
 
   Scenario: 1-FE-auth-content-1 - Login form renders correctly
     Given I visit the page "/login"
@@ -18,18 +19,6 @@ Feature: Protected content
     And there should be a login form button with the text "Register"
     And there should be a login form button with the text "Forgot password"
   
-  Scenario: 1-FE-auth-content-2 - Login success
-    Given there is a user in the system with the following credentials:
-      | login     | password     | active | email                    |
-      | testuser1 | Password-111 | true   | testuser1@mailinator.com |
-    And I visit the page "/login"
-    When I enter the the following login credentials:
-      | login     | password     |
-      | testuser1 | Password-111 |
-    And I submit the login form
-    Then the login status colour should should be "green"
-    And the login status message should be "Login Successful."
-
   Scenario: 1-FE-auth-content-3 - Login failure
     Given I visit the page "/login"
     When I enter the the following login credentials:
@@ -39,47 +28,26 @@ Feature: Protected content
     Then the login status colour should should be "red"
     And the login status message should be "Login Failed. Please try again"
   
-  @skip
   Scenario: 1-FE-auth-content-4 - Should not be able to access a protected content page when unauthenticated
-    Given the "/1-fe-auth-content-4" page exists with fixture "authenticatedContent/1-FE-auth-content-4" data
     When I attempt to visit the page "/1-fe-auth-content-4"
     Then I should see a 404 page
   
-  @skip
+  Scenario: 1-FE-auth-content-2 - Login success
+    And I visit the page "/login"
+    When I enter the the following login credentials:
+      | login                  | password  |
+      | e2e-test-1@example.com | ********* |
+    And I submit the login form
+    Then the login status colour should should be "green"
+    And the login status message should be "Login Successful."
+
+  @skip 
+  # Authenticated seems to be broken - Unskip when working
   Scenario: Accessing a protected content page when authenticated
-    Given the "/1-fe-auth-content-4" page exists with fixture "authenticatedContent/1-FE-auth-content-4" data
-    And there is a user in the system with the following credentials:
-      | login     | password     | active | email                    | role     |
-      | testuser2 | Password-222 | true   | testuser2@mailinator.com | testrole |
-    And I visit the page "/login"
+    When I visit the page "/login"
     When I enter the the following login credentials:
-      | login     | password     |
-      | testuser2 | Password-222 |
+      | login                  | password  |
+      | e2e-test-1@example.com | ********* |
     And I submit the login form
-    Then I should be redirected to the page "/"
-    Given I visit the page "/1-fe-auth-content-4"
     Then the page title should be "1-FE-auth-content-4"
     And the h1 should be "1-FE-auth-content-4"
-
-  @skip
-  Scenario: Can still navigate after session is expired
-    Given the "/1-fe-auth-content-4" page exists with fixture "authenticatedContent/1-FE-auth-content-4" data
-    And there is a user in the system with the following credentials:
-      | login     | password     | active | email                    | role     |
-      | testuser3 | Password-333 | true   | testuser3@mailinator.com | testrole |
-    And I visit the page "/login"
-    When I enter the the following login credentials:
-      | login     | password     |
-      | testuser3 | Password-333 |
-    And I submit the login form
-    Then I should be redirected to the page "/"
-    When I visit the page "/1-fe-auth-content-4"
-    Then the page title should be "1-FE-auth-content-4"
-    And the h1 should be "1-FE-auth-content-4"
-    When I wait for 60 seconds
-    And I attempt to visit the page "/1-fe-auth-content-4"
-    Then I should see a 404 page
-    When I visit the page "/"
-    Then the menu should have 2 top level items
-    And the logout button should not be visible
-

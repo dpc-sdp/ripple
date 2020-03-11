@@ -77,3 +77,7 @@ Given(`the {string} route exists`, (slug) => {
 Given(`I click the link {string}`, href => {
   cy.get(`a[href="${href}"]`).click()
 })
+
+Then(`the current page url should be {string}`, (url) => {
+  cy.url().should('contain', url)
+})

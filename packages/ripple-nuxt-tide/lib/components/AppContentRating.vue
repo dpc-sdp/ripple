@@ -1,6 +1,7 @@
 <template>
   <div class="app-content-rating">
     <rpl-form
+    name="content-rating-form"
     :formData="formData"
     :submitHandler="submitForm"
     :hideAfterSuccess=true

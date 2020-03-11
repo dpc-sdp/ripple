@@ -46,26 +46,15 @@ Given(`I have entered the form correctly`, () => {
   })
 })
 
-When('I submit the form', () => {
-  cy.fixture('/Forms/Grant/tc9c_submission.json').as('formSubmissionResponse')
-  cy.server() // enable response stubbing
-  cy.route('POST', '/api/v1/webform_submission/tide_grant_submission', '@formSubmissionResponse').as('formSubmissionRequest')
-  cy.get('form.rpl-form').first().submit()
-  cy.get('@formSubmissionRequest').then(submissionData => {
-    cy.log(submissionData)
-  })
-})
-
-Then('I should see the form success message', () => {
-  cy.get('.rpl-form-alert', { timeout: 10000 }).should('have.class', 'rpl-form-alert--success')
-})
-Then('I should see the failure message', () => {
-  cy.get('.rpl-form-alert', { timeout: 10000 }).should('have.class', 'rpl-form-alert--error')
-})
-
-Then('I should see {int} validation errors', (errors) => {
-  cy.get('.form-group.error').should('have.length', errors)
-})
+// When('I make a form submission', () => {
+//   cy.fixture('/Forms/Grant/tc9c_submission.json').as('formSubmissionResponse')
+//   cy.server() // enable response stubbing
+//   cy.route('POST', '/api/v1/webform_submission/tide_grant_submission', '@formSubmissionResponse').as('formSubmissionRequest')
+//   cy.get('form.rpl-form').first().submit()
+//   cy.get('@formSubmissionRequest').then(submissionData => {
+//     cy.log(submissionData)
+//   })
+// })
 
 Given(`I have navigated to the created test page`, function () {
   cy.visit(`/node/${this.nodeId}`, { failOnStatusCode: false })

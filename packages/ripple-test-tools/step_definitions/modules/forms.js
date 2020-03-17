@@ -1,4 +1,5 @@
 /* global cy, Cypress */
+/* eslint jest/valid-expect: "off" */
 
 const { Then, When, Given } = require('cypress-cucumber-preprocessor/steps')
 
@@ -16,18 +17,26 @@ When('I submit the form named {string}', (formName) => {
   cy.get(`form[name="${formName}"]`).submit()
 })
 
+When('I click the form submit button {string}', (label) => {
+  cy.get(`.rpl-form [type='submit']`).contains(label).click({ force: true })
+})
+
 Then('I should see the form success message', () => {
-  cy.get('.rpl-form-alert', { timeout: 10000 }).should('have.class', 'rpl-form-alert--success')
+  cy.get('.rpl-form-alert', { timeout: 10000 }).then($el => {
+    expect($el).to.have.class('rpl-form-alert--success')
+  })
 })
 Then('I should see the form failure message', () => {
-  cy.get('.rpl-form-alert', { timeout: 10000 }).should('have.class', 'rpl-form-alert--danger')
+  cy.get('.rpl-form-alert', { timeout: 10000 }).then($el => {
+    expect($el).to.have.class('rpl-form-alert--danger')
+  })
 })
 
 Then('I should see {int} form validation errors', (errors) => {
   cy.get('.form-group.error').should('have.length', errors)
 })
 
-Given(`I stubbed the form {string} response with {string} fixture`, (form, fixture) =>  {
+Given(`I stubbed the form {string} response with {string} fixture`, (form, fixture) => {
   cy.fixture(fixture).as('formSubmissionResponse')
   cy.server() // enable response stubbing
   cy.route('POST', `/api/v1/webform_submission/${form}`, '@formSubmissionResponse').as('formSubmissionRequest')
@@ -66,13 +75,6 @@ Then(`i enter the following information into the form {string}:`, (formName, dat
         break
     }
   })
-})
-
-When('I click the {string} submit button', label => {
-  cy.get('button[type="submit"]')
-    .contains(label)
-    .parent()
-    .click()
 })
 
 Given(`in the backend there there is a form named {string} with the fixture {string}`, (url, fixture) => {

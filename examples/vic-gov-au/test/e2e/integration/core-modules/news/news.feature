@@ -8,7 +8,7 @@ Feature: News page
     And in the backend there is a node at "/test-news-page-2" with "news/news-2" data
   
   Scenario: FE - News page
-    Given I visit the page "/test-news-page"
+    Given I visit the page "/test-news-page-1"
     Then the page title should be "Test news page"
     And the h1 should be "Test news page"
     And there should be 2 breadcrumb items
@@ -19,5 +19,4 @@ Feature: News page
     And the publish author should be "Published by Demo Department"
     And the content rating component should exist
     And the related links component should exist
-    And the contact component should exist
     And the content rating component should exist

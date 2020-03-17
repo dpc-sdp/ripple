@@ -1,7 +1,7 @@
 Feature: Webform
   
   As a site admin I can create a webform and receive submissions
-
+  
   Scenario: BE - Create a custom webform
     Given I have logged into the backend
     Given in the backend there there is a form named "test-form" with the fixture "webforms/test_form"
@@ -23,7 +23,8 @@ Feature: Webform
       | Checkboxes                                                                           | true                  | checkbox   |
       | I have read and understand how Department of Premier and Cabinet stores information. | true                  | checkbox   |
       
-    And I submit the form named "form-test_form_1"
+    And I click the form submit button "Submit"
+    When I wait for 5 seconds
     Then I should see the form success message
   
   Scenario: FE - test form submission failure
@@ -42,11 +43,12 @@ Feature: Webform
       | Checkboxes                                                                           | true                  | checkbox   |
       | I have read and understand how Department of Premier and Cabinet stores information. | true                  | checkbox   |
       
-    And I submit the form named "form-test_form_1"
+    And I click the form submit button "Submit"
+    When I wait for 5 seconds
     Then I should see the form failure message
   
-  Scenario: Submit a contact form - validation
+  Scenario: FE - test form validation
     When I visit the page "/test-form"
-    When I click the "Submit" submit button
+    When I click the form submit button "Submit"
     And I should see 4 form validation errors
 

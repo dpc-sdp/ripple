@@ -14,7 +14,8 @@ Feature: Contact form
       | Contact number                      | 03 9999 9999              | tel        |
       | I have read and understand how Department of Premier and Cabinet stores information. | true              | checkbox |
 
-    And I submit the form named "form-connect_with_us"
+    And I click the form submit button "Submit"
+    When I wait for 5 seconds
     Then I should see the form success message
   
   Scenario: Submit a contact form - submission failure
@@ -29,12 +30,13 @@ Feature: Contact form
       | Contact number                      | 03 9999 9999              | tel        |
       | I have read and understand how Department of Premier and Cabinet stores information. | true              | checkbox |
 
-    And I submit the form named "form-connect_with_us"
+    And I click the form submit button "Submit"
+    When I wait for 5 seconds
     Then I should see the form failure message
   
   Scenario: Submit a contact form - validation
     Given I stubbed the form "tide_webform_contact_us" response with "webforms/contact-us-form-failure" fixture
     And I visit the page "/contact-us"
-    When I click the "Submit" submit button
+    When I click the form submit button "Submit"
     And I should see 4 form validation errors
 

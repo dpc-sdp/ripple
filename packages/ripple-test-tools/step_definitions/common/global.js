@@ -1,6 +1,6 @@
-/* global cy */
+/* global cy, Cypress */
 
-const { Then } = require('cypress-cucumber-preprocessor/steps')
+const { Then, When } = require('cypress-cucumber-preprocessor/steps')
 
 Then(`the page title should be {string}`, title => {
   cy.title().should('include', title)
@@ -53,4 +53,17 @@ Then(`the following section title ids should exist:`, (dataTable) => {
   sections.forEach((section) => {
     cy.get(`h2#${section}`).should('exist')
   })
+})
+
+// Login
+
+When(`I enter the the following login credentials:`, (dataTable) => {
+  const login = dataTable.hashes()[0].login
+  const password = dataTable.hashes()[0].password
+  cy.get('#username').type(login)
+  cy.get('#password').type(password.replace('********', Cypress.env('ADMIN_PASSWORD')))
+})
+
+When(`I submit the login form`, () => {
+  cy.get('.field-wrap > input[value="Submit"]').click()
 })

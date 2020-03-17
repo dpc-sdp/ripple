@@ -8,7 +8,8 @@ Feature: Content rating form
     And I enter the following into the content rating form:
       | helpful | comment                |
       | Yes     | this is a test comment |
-    And I submit the form named "content-rating-form"
+    And I click the form submit button "Submit"
+    When I wait for 5 seconds
     Then I should see the form success message
 
   Scenario: Submit a content rating form - failure
@@ -17,6 +18,7 @@ Feature: Content rating form
     And I enter the following into the content rating form:
       | helpful | comment                |
       | Yes     | this is a test comment |
-    And I submit the form named "content-rating-form"
+    And I click the form submit button "Submit"
+    When I wait for 5 seconds
     Then I should see the form failure message
 

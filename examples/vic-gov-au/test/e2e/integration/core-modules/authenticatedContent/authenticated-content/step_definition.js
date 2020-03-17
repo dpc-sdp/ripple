@@ -1,6 +1,6 @@
-/* global cy, Cypress */
+/* global cy */
 
-import { Then, When, Given } from 'cypress-cucumber-preprocessor/steps'
+import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
 
 Then(`there should be a login form with the title {string}`, (title) => {
   cy.get('.tide-login__form .tide-login__wrapper h2').should('contain', title)
@@ -16,17 +16,6 @@ Then(`there should be a submit button with the text {string}`, (label) => {
 
 Then(`there should be a login form button with the text {string}`, (label) => {
   cy.get('.tide-login__switch-list .rpl-button').contains(label).should('exist')
-})
-
-When(`I enter the the following login credentials:`, (dataTable) => {
-  const login = dataTable.hashes()[0].login
-  const password = dataTable.hashes()[0].password
-  cy.get('#username').type(login)
-  cy.get('#password').type(password.replace('*********', Cypress.env('ADMIN_PASSWORD')))
-})
-
-When(`I submit the login form`, () => {
-  cy.get('.field-wrap > input[value="Submit"]').click()
 })
 
 Then(`the login status colour should should be {string}`, (status) => {

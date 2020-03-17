@@ -13,19 +13,18 @@
   },
   "main": "index.js",
   "dependencies": {
-    "csvtojson": "^2.0.8",
+    "axe-core": "^3.5.2",
     "cucumber-junit-convert": "^1.1.0",
-    "faker": "^4.1.0",
-    "glob-fs": "^0.1.7",
-    "puppeteer": "^1.20.0"
+    "cypress": "^4.1.0",
+    "cypress-axe": "^0.5.3",
+    "cypress-cucumber-preprocessor": "^2.0.1",
+    "glob": "^7.1.6",
+    "js-yaml": "^3.13.1"
   },
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
-    "axe-core": "^3.3.1",
-    "cypress": "^3.1.5",
-    "cypress-axe": "^0.4.0",
-    "cypress-cucumber-preprocessor": "^1.11.0"
+    "puppeteer": "^1.20.0"
   }
 }

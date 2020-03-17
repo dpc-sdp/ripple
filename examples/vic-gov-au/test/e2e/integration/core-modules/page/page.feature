@@ -2,8 +2,11 @@
 Feature: Basic Page
   As a citizen I want to view a Basic page within the site
 
+  Scenario: BE - create basic page
+    Given I have logged into the backend
+    And in the backend there is a node at "/8-be-page-1-create-basic-page" with "page/8-BE-page-1-basic-page" data
+
   Scenario: 8-FE-page-2 View Basic Page 
-    Given the "/8-be-page-1-create-basic-page" page exists with fixture "page/8-BE-page-1-basic-page" data
     When I visit the page "/8-be-page-1-create-basic-page"
     # Page Header	
     Then the page title should be "8-BE-page-1 Create Basic page"

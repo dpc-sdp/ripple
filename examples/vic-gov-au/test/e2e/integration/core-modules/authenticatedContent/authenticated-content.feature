@@ -7,7 +7,7 @@ Feature: Protected content
     And in the backend there is a role "test-role"
     And in the backend there is a user "users/user-1"
     And in the backend there is a node at "/authenticatedcontent/test-auth-term" with "authenticatedContent/taxonomy" data
-    And the authenticated content term "test-auth-term" has the role "test_role"
+    And the authenticated content term "test" has the role "test_role"
     And in the backend there is a node at "/1-fe-auth-content-4" with "authenticatedContent/1-FE-auth-content-4" data
 
   Scenario: 1-FE-auth-content-1 - Login form renders correctly
@@ -36,18 +36,19 @@ Feature: Protected content
     And I visit the page "/login"
     When I enter the the following login credentials:
       | login                  | password  |
-      | e2e-test-1@example.com | ********* |
+      | e2e-test-1@example.com | ********  |
     And I submit the login form
     Then the login status colour should should be "green"
     And the login status message should be "Login Successful."
 
-  @skip 
-  # Authenticated seems to be broken - Unskip when working
   Scenario: Accessing a protected content page when authenticated
     When I visit the page "/login"
     When I enter the the following login credentials:
       | login                  | password  |
-      | e2e-test-1@example.com | ********* |
+      | e2e-test-1@example.com | ********  |
     And I submit the login form
+    Then the current page url should be "/"
+    When I wait for 3 seconds
+    Given I visit the page "/1-fe-auth-content-4"
     Then the page title should be "1-FE-auth-content-4"
     And the h1 should be "1-FE-auth-content-4"

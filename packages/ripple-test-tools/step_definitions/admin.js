@@ -38,9 +38,36 @@ Given(`in the backend there is a node at {string} with {string} data`, (url, fix
       cy.fixture(fixture + '.yml').then(yaml => {
         cy.get('[data-drupal-selector="edit-import"]').invoke('val', yaml)
         cy.get('[data-drupal-selector="edit-submit"]').click()
+        cy.url('')
       })
     }
   })
+})
+
+Given(`in the backend there is a node with {string} data as {string}`, (fixture, alias) => {
+  cy.visit(Cypress.env('CONTENT_API_SERVER') + 'admin/content/import_demo_content', {
+    auth: {
+      username: Cypress.env('CONTENT_API_AUTH_USER'),
+      password: Cypress.env('CONTENT_API_AUTH_PASS')
+    }
+  })
+  cy.fixture(fixture + '.yml').then(yaml => {
+    cy.get('[data-drupal-selector="edit-import"]').invoke('val', yaml)
+    cy.get('[data-drupal-selector="edit-submit"]').click()
+    cy.get('.messages__list .messages__item:nth-child(2').invoke('text').as(alias)
+  })
+})
+
+Given(`I add a path alias {string} for {string}`, function (path, alias) {
+  cy.visit(Cypress.env('CONTENT_API_SERVER') + 'admin/config/search/path/add', {
+    auth: {
+      username: Cypress.env('CONTENT_API_AUTH_USER'),
+      password: Cypress.env('CONTENT_API_AUTH_PASS')
+    }
+  })
+  cy.get('#edit-source').type('/' + this[`${alias}`])
+  cy.get('#edit-alias').type(path)
+  cy.get('#edit-submit').click()
 })
 
 Given(`in the backend there are no {string} nodes`, (contentType) => {
@@ -80,7 +107,11 @@ When(`in the BE I go to the current site taxonomy page`, () => {
 })
 
 When(`in the BE I check the {string} checkbox`, (label) => {
-  cy.contains(label).click({ force: true })
+  cy.contains(label).siblings('input').check({ force: true })
+})
+
+When(`in the BE I uncheck the {string} checkbox`, (label) => {
+  cy.contains(label).siblings('input').uncheck({ force: true })
 })
 
 When(`in the BE I click the {string} button`, (label) => {
@@ -134,8 +165,8 @@ Given(`the authenticated content term {string} has the role {string}`, (term, ro
       password: Cypress.env('CONTENT_API_AUTH_PASS')
     }
   })
-  cy.get('.tabs__tab').contains('Edit').click()
-  cy.get('[aria-controls="fieldset_term_access"]').click()
+  cy.get('.tabs__tab').contains('Edit').click({ force: true })
+  cy.get('[aria-controls="fieldset_term_access"]').click({ force: true })
   cy.get(`#edit-access-role input`).check(role)
   cy.get('#edit-submit').click()
 })

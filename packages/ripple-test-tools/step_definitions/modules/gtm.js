@@ -1,4 +1,4 @@
-/* global cy, Cypress */
+/* global cy */
 
 const { Then } = require('cypress-cucumber-preprocessor/steps')
 

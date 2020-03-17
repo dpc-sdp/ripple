@@ -85,6 +85,10 @@
         <p>If you do not provide all or part of the information requested, the Department may not be able to contact you regarding your enquiry. Please contact the Department of Premier and Cabinet if you wish to use an alternative mechanism to the online form.</p>
         
       '#title': 'I have read and understand how Department of Premier and Cabinet stores information.'
+    actions:
+      '#type': webform_actions
+      '#title': Submit
+      '#submit__label': Submit
   css: ''
   javascript: ''
   settings:

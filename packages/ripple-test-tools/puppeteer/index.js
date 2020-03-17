@@ -3,7 +3,7 @@ const utils = require('./util')
 
 /**
  * Library for controlling Tide Drupal backend via puppeteer
- *
+ * @deprecated This is no longer used in Cypress tests - however it may prove useful for someone implementing automation with puppeteer
  * @class TideAdmin
  */
 module.exports = class TideAdmin {

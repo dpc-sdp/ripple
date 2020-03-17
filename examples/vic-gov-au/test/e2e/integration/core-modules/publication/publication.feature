@@ -32,9 +32,9 @@ Feature: Publication
       | demo-publication-chapter-2-page-1 |
     And the author information component should exist
     And there should be a description list with the following items:
-      | term    | value                                                                         |
-      | Author  | Lorem ipsum dolor sit amet, Nulla ultricies dignissim, Integer interdum nisl  |
-      | Date    | July 2019                                                                     |
+      | term    | value           |
+      | Author  | Demo Department |
+      | Date    | July 2019       |
     And the anchor links component should exist
     And the anchor link title should be "On this page:"
     And there should be the following anchor links:

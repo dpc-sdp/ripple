@@ -2,8 +2,11 @@ Feature: Landing page
 
   As a citizen I can view information for all available content on any given landing page
 
-  Scenario: 5-FE-land-6 Landing Page - Complete Test
-    Given the "/5-be-land-3-landing-page-complete-test" page exists with fixture "landingPage/5-be-land-3-landing-page-complete-test" data
+  # Scenario: BE - Create landing page
+  #   Given I have logged into the backend
+  #   And in the backend there is a node at "/5-be-land-3-landing-page-complete-test" with "landingPage/5-be-land-3-landing-page-complete-test" data
+
+  Scenario: FE - 5-FE-land-6 Landing Page - Complete Test
     When I visit the page "/5-be-land-3-landing-page-complete-test"
 
     # Page Header
@@ -100,9 +103,11 @@ Feature: Landing page
       | 02 July | Demo Topic | Demo News | /demo-news |
 
     # News Listing
-    And the news listing component should have the following items:
-      | date         | tag        | title      | link       |
-      | 02 July 2019 | Demo Topic | Demo  News | /demo-news |
+    And the news listing component should exist
+    # And there should be the following news listing components:
+    #   | date         | tag        | title             | link                |
+    #   | 02 July 2019 | Demo Topic | Test news page  1 | /test-news-page-1-5 |      
+    #   | 02 July 2019 | Demo Topic | Demo  News        | /demo-news          |      
 
     # Image Gallery
     And the image gallery component should have the following items:

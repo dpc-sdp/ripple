@@ -466,27 +466,38 @@ Then(`the accordion titled {string} should contain the following items:`, (title
 Then(`the news listing component should exist`, () => {
   cy.get('.rpl-news-listing').should('exist')
 })
-Then(`the news listing component should have the following items:`, (dataTable) => {
-  const column = {}
-  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
-  const table = dataTable.rawTable.slice(1)
-  cy.get('.rpl-news-listing .rpl-news-listing__item').then(newsItems => {
-    table.forEach((row, index) => {
-      if (column.date !== undefined) {
-        expect(newsItems[index]).to.contain.text(row[column.date])
-      }
-      if (column.tag !== undefined) {
-        expect(newsItems[index]).to.contain.text(row[column.tag])
-      }
-      if (column.title !== undefined) {
-        expect(newsItems[index]).to.contain.text(row[column.title])
-      }
-      if (column.link !== undefined) {
-        cy.wrap(newsItems[index]).find('a').should('have.attr', 'href', row[column.link])
-      }
-    })
+
+Then('there should be the following news listing components:', (dataTable) => {
+  dataTable.hashes().forEach((expected, idx) => {
+    cy.get('.rpl-news-listing .rpl-news-listing__item').eq(idx).as('item')
+    cy.get('@item').should('be.visible')
+    if (expected.date) {
+      cy.get('@item')
+        .find('.rpl-news-listing__item-date')
+        .invoke('text')
+        .should('equal', expected.date)
+    }
+    if (expected.tag) {
+      cy.get('@item')
+        .find('.rpl-news-listing__item-tag')
+        .invoke('text')
+        .should('equal', expected.tag)
+    }
+    if (expected.title) {
+      cy.get('@item')
+        .find('.rpl-news-listing__item-heading')
+        .invoke('text')
+        .should('equal', expected.title)
+    }
+    if (expected.link) {
+      cy.get('@item')
+        .find('.rpl-news-listing__item-heading a')
+        .invoke('attr', 'href')
+        .should('contain', expected.link)
+    }
   })
 })
+
 // featured news listing
 Then(`the featured news listing component should have the following items:`, (dataTable) => {
   const column = {}

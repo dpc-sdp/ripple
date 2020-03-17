@@ -5,6 +5,12 @@ Feature: Landing page
   # Scenario: BE - Create landing page
   #   Given I have logged into the backend
   #   And in the backend there is a node at "/5-be-land-3-landing-page-complete-test" with "landingPage/5-be-land-3-landing-page-complete-test" data
+  Scenario: FE - Landing page non functional test
+    When I visit the page "/5-be-land-3-landing-page-complete-test"
+    And I wait for 5 seconds
+    Then the page design should match the snapshot
+    # And it has no detectable a11y violations on load
+
 
   Scenario: FE - 5-FE-land-6 Landing Page - Complete Test
     When I visit the page "/5-be-land-3-landing-page-complete-test"

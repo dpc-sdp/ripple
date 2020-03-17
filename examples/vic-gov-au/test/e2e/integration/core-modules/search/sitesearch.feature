@@ -5,6 +5,7 @@ Feature: Search (Site search)
   Scenario: Test search page loads SSR
     Given I am using a "macbook-15" device
     When I visit the page "/search"
+    Then the page design should match the snapshot
     Then the current page should not be an error page
 
   Scenario: Global site search from header desktop

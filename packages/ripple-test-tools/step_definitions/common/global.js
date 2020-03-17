@@ -67,3 +67,7 @@ When(`I enter the the following login credentials:`, (dataTable) => {
 When(`I submit the login form`, () => {
   cy.get('.field-wrap > input[value="Submit"]').click()
 })
+
+Then(`the page design should match the snapshot`, () => {
+  cy.percySnapshot()
+})

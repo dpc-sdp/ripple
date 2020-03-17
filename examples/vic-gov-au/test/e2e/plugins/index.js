@@ -1,4 +1,5 @@
 const cucumber = require('cypress-cucumber-preprocessor').default
+const percyHealthCheck = require('@percy/cypress/task')
 
 // Environment variables that need exposing to cypress go here - use the example site .env file
 require('dotenv').config()
@@ -19,7 +20,7 @@ module.exports = (on, config) => {
     SEARCH_AUTH_PASSWORD: process.env.SEARCH_AUTH_PASSWORD,
     SEARCH_ENDPOINT: `https://${process.env.SEARCH_HASH}.${process.env.SEARCH_URL}/${process.env.SEARCH_INDEX}/_search`
   }
-
+  on('task', percyHealthCheck)
   on('task', {
     stubDate (datetime = 'April 10, 2019 00:00:00') {
       const moment = require('moment')

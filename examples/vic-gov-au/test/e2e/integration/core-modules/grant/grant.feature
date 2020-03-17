@@ -14,6 +14,7 @@ Feature: Grant page
   Scenario: FE - TC-9a Grant - Simple Test - Date Range
     Given that the current date is "April 10, 2019 00:00:00"
     And I visit the page "/tc-9a-grant"
+    Then the page design should match the snapshot
     Then the page title should be "TC-9a Grant Simple Test - Date Range"
     And the grant overview price should be "$11,326 - $26,494"
     And the grant overview audience should be "Businesses"

@@ -62,3 +62,7 @@ Then(`the menu should have {int} top level items`, (number) => {
 Then(`the page should scroll to {string}`, (selector) => {
   cy.get(selector).then($el => $el[0].getBoundingClientRect()).its('y').should('lessThan', 1)
 })
+
+Then(`the page design should match the snapshot`, () => {
+  cy.percySnapshot()
+})

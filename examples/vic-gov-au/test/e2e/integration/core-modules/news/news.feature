@@ -9,6 +9,7 @@ Feature: News page
   
   Scenario: FE - News page
     Given I visit the page "/test-news-page-1"
+    Then the page design should match the snapshot
     Then the page title should be "Test news page"
     And the h1 should be "Test news page"
     And there should be 2 breadcrumb items

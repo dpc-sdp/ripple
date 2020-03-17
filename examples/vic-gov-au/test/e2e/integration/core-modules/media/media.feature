@@ -12,6 +12,7 @@ Feature: Embedded Media
 
   Scenario: Landing page with Embedded media video
     When I visit the page "/embedded-video-test"
+    Then the page design should match the snapshot
     Then there should be 2 embedded videos
     And there should be a embedded video transcript link "/media/7008"
 

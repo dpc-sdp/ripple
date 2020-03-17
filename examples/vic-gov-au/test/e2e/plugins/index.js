@@ -1,5 +1,5 @@
 const cucumber = require('cypress-cucumber-preprocessor').default
-const rippleTasks = require('@dpc-sdp/ripple-test-tools/tasks')
+
 // Environment variables that need exposing to cypress go here - use the example site .env file
 require('dotenv').config()
 
@@ -19,6 +19,7 @@ module.exports = (on, config) => {
   }
 
   on('task', rippleTasks)
+  on('task', percyHealthCheck)
 
   return config
 }

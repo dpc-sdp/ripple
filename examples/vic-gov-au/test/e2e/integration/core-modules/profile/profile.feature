@@ -8,6 +8,7 @@ Feature: Profile page
 
   Scenario: FE - Profile page
     When I visit the page "/profile-4-be-profile-1"
+    Then the page design should match the snapshot
     Then the page title should be "Profile-4-BE-profile-1"
     And the h1 should be "Profile-4-BE-profile-1"
     And there should be a honour roll profile image containing url "tram.jpg"

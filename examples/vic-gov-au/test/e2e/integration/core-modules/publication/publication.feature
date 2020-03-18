@@ -17,7 +17,8 @@ Feature: Publication
     And there should be a navigation card with the title "Demo Publication - Chapter 2"
     And there should be a navigation card with the title "Demo Publication - Chapter 3"
     And the content rating component should exist
-
+  
+  @skip
   Scenario: Print all publication pages
     Given the "/demo-publication" route exists
     Given the "/demo-publication/demo-publication-chapter-1" route exists

@@ -22,7 +22,7 @@ Feature: Preview content
       | e2e-test-2@example.com | ******** |
     And I submit the login form
     And I wait for 8 seconds
-    Then the current page url should be "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7a27/latest "
+    Then the current page url should be "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7a27/latest"
     Then the current page should not be an error page
     And there should be a draft banner 
     And there should be a header logout button

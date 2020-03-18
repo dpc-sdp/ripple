@@ -1,5 +1,8 @@
 version: 2.0
 
+orbs:
+  percy: percy/agent@0.1.2
+
 jobs:
   build:
     docker:
@@ -98,10 +101,11 @@ jobs:
         environment:
           TERM: xterm
           TZ: "Australia/Melbourne"
+          PERCY_PARALLEL_TOTAL: -1
         resource_class: medium+
 
     working_directory: ~/app
-    parallelism: 1
+    parallelism: 2
     steps:
       - attach_workspace:
           at: ~/app
@@ -264,6 +268,9 @@ workflows:
               only:
                 - /^release\/.*/
                 - feature/visual-testing-poc
+     - percy/finalize_all:
+         requires:
+           - e2e-vic-gov
       - e2e-example:
           requires:
             - build

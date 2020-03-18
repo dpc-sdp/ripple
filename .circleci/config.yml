@@ -268,9 +268,9 @@ workflows:
               only:
                 - /^release\/.*/
                 - feature/visual-testing-poc
-     - percy/finalize_all:
-         requires:
-           - e2e-vic-gov
+      - percy/finalize_all:
+          requires:
+            - e2e-vic-gov
       - e2e-example:
           requires:
             - build

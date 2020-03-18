@@ -2,7 +2,7 @@ Feature: Global Notifications (Alert)
 
   As a citizen I need to be alerted to important site wide notifications.
 
-  Scenario: BE - Cleanup alerts in backend
+  Scenario: BE - Add alerts
     Given I have logged into the backend
     And in the backend there are no "alert" nodes
     And in the backend there is a node at "/1-BE-Alert-1" with "alert/1-BE-Alert-1" data

@@ -81,7 +81,7 @@ Given(`in the backend there are no {string} nodes`, (contentType) => {
   }).then(routeResponse => {
     cy.log(`Found ${routeResponse.body.meta.count} ${contentType} nodes`)
     if (routeResponse.status !== 200 || routeResponse.body.meta.count !== '0') {
-      cy.log('Deleting alerts')
+      cy.log(`Deleting ${contentType}s`)
       cy.visit(Cypress.env('CONTENT_API_SERVER') + `/admin/content?title=&field_node_primary_site_target_id=${Cypress.env('SITE_ID')}&field_node_site_target_id=All&type=${contentType}&moderation_state=All&status=1`, {
         auth: {
           username: Cypress.env('CONTENT_API_AUTH_USER'),

@@ -263,7 +263,7 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-                - feature/update-e2e-tests
+                - feature/visual-testing-poc
       - e2e-example:
           requires:
             - build

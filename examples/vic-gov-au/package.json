@@ -50,6 +50,7 @@
     "sass-loader": "^6.0.7",
     "sass-resources-loader": "^2.0.0",
     "start-server-and-test": "^1.7.11",
+    "storybook-chromatic": "^3.5.2",
     "vue-jest": "^3.0.4"
   },
   "cypress-cucumber-preprocessor": {

@@ -1,17 +1,20 @@
 version: 2.1
 
+defaults: &defaults
+  docker:
+    - image: cypress/browsers:node12.0.0-chrome73
+      environment:
+        TERM: xterm
+        CIRCLE_TEST_REPORTS: test-results
+        TZ: "Australia/Melbourne"
+  working_directory: ~/app
+
 orbs:
   percy: percy/agent@0.1.3
 
 jobs:
   build:
-    docker:
-      - image: cypress/base:12.0.0
-        environment:
-          TERM: xterm
-          CIRCLE_TEST_REPORTS: test-results
-          TZ: "Australia/Melbourne"
-    working_directory: ~/app
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
@@ -50,14 +53,7 @@ jobs:
           command: curl https://develop.content.vic.gov.au/ --max-time 1000
 
   test:
-    docker:
-      - image: cypress/base:12.0.0
-        environment:
-          TERM: xterm
-          CIRCLE_TEST_REPORTS: test-results
-          TZ: "Australia/Melbourne"
-
-    working_directory: ~/app
+    <<: *defaults
     steps:
       - attach_workspace:
           at: ~/app
@@ -96,14 +92,7 @@ jobs:
 
   e2e-vic-gov:
     # This runs the full suite of e2e tests
-    docker:
-      - image: cypress/browsers:node12.0.0-chrome73
-        environment:
-          TERM: xterm
-          TZ: "Australia/Melbourne"
-          PERCY_PARALLEL_TOTAL: -1
-
-    working_directory: ~/app
+    <<: *defaults
     parallelism: 2
     steps:
       - attach_workspace:
@@ -165,11 +154,7 @@ jobs:
 
   e2e-example:
     # This runs the full suite of e2e tests
-    docker:
-      - image: cypress/browsers:node12.0.0-chrome73
-        environment:
-          TERM: xterm
-    working_directory: ~/app
+    <<: *defaults
     steps:
       - attach_workspace:
           at: ~/app
@@ -197,11 +182,7 @@ jobs:
           path: examples/vic-gov-au/test/e2e/screenshots
 
   e2e-vue-example-app:
-    docker:
-      - image: cypress/browsers:node12.0.0-chrome73
-        environment:
-          TERM: xterm
-    working_directory: ~/app
+    <<: *defaults
     steps:
       - attach_workspace:
           at: ~/app
@@ -225,13 +206,23 @@ jobs:
       - store_artifacts:
           path: examples/vue-example-app/test/e2e/screenshots
 
+  chromatic-snapshot:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
+      - run:
+          name: upload storybook snapshot to chromatic
+          command: yarn test:chromatic
+
   prerelease:
     # NOT ENABLED YET - needs further testing
-    docker:
-      - image: cypress/base:10
-        environment:
-          TERM: xterm
-    working_directory: ~/app
+    <<: *defaults
     steps:
       - attach_workspace:
           at: ~/app
@@ -267,6 +258,15 @@ workflows:
               only:
                 - /^release\/.*/
                 - feature/visual-testing-poc
+      - chromatic-snapshot:
+          context: Ripple
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+                - feature/visual-testing-poc      
       # Finalize percy job
       - percy/finalize_all:
           requires:

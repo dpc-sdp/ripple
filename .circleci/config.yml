@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  percy: percy/agent@0.1.2
+  percy: percy/agent@0.1.3
 
 jobs:
   build:
@@ -271,6 +271,7 @@ workflows:
       - percy/finalize_all:
           requires:
             - e2e-vic-gov
+
       - e2e-example:
           requires:
             - build

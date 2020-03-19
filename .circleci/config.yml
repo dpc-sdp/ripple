@@ -102,7 +102,6 @@ jobs:
           TERM: xterm
           TZ: "Australia/Melbourne"
           PERCY_PARALLEL_TOTAL: -1
-        resource_class: medium+
 
     working_directory: ~/app
     parallelism: 2

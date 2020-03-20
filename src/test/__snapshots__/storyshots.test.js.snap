@@ -1213,12 +1213,6 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
       twitter
     </code>
   </li>
-  <!---->
-     
-    <code>
-      youtube
-    </code>
-  </li>
   <li>
     <!---->
      
@@ -1280,6 +1274,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
      
     <code>
       xlsx
+    </code>
+  </li>
+  <li>
+    <!---->
+     
+    <code>
+      youtube
     </code>
   </li>
   <li>

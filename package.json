@@ -30,7 +30,7 @@
     "test:smoke-example": "cd examples/vic-gov-au/ && yarn test:smoke",
     "test:unit": "jest --colors",
     "test:report": "node ./packages/ripple-test-tools/scripts/cucumberconvertor.js ./test-results/cucumber",
-    "test:chromatic": "chromatic build:storybook",
+    "test:chromatic": "chromatic -b build:storybook",
     "build:storybook": "cd src && yarn build-storybook",
     "build:vic-gov-au": "cd examples/vic-gov-au && yarn run build",
     "lint": "sass-lint && yarn lint:es",

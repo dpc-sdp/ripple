@@ -153,8 +153,8 @@ Feature: Landing page
     And the key journey component should exist
     And the key journey component should have the following items:
       | linktext        | link               |
-      | Nullam  laoreet | https://vic.gov.au |
-      | Nullam  laoreet | https://vic.gov.au |
+      | Nullam  laoreet | https://www.google.com|
+      | Nullam  laoreet | https://www.google.com|
 
     # Contact Us
     And the contact component title should be "Victorian Government"
@@ -171,7 +171,7 @@ Feature: Landing page
     And there should be a call to action component with the title "Phasellus in varius leo"
     And the call to action component titled "Phasellus in varius leo" should contain the following:
       | title                   | image                                                                                                          | summary                                                                                                                                                              | link               | linktext             |
-      | Phasellus in varius leo | Melbourne-tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam. | https://vic.gov.au | Victorian Government |
+      | Phasellus in varius leo | Melbourne-tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam. | https://www.google.com| Victorian Government |
 
     # Related Links
     And the related links component should exist

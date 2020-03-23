@@ -1,7 +1,6 @@
 - entity: node
   type: news
-  uuid: 11dede11-10c0-111e1-1100-000000000320
-  title: Demo News
+  title: Test news page 1
   uid: 1
   status: 1
   moderation_state:
@@ -59,12 +58,12 @@
     - entity: paragraph
       type: related_links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: State Government of Victoria
     - entity: paragraph
       type: related_links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au/department-premier-and-cabinet
+        - uri: https://www.google.com
           title: Department of Premier and Cabinet
   # Other.
   field_show_social_sharing: 1
@@ -85,26 +84,8 @@
           - taxonomy_term
           - vid: tags
             name: 'Demo Tag'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: tags
-            name: 'Another Demo Tag'
-  # Sites.
+   # Sites.
   field_node_site:
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Demo Site'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Demo Section 1'
     - '#process':
         callback: reference
         args:

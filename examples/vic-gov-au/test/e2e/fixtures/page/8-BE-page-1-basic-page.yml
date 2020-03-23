@@ -54,12 +54,12 @@
     - entity: paragraph
       type: links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: State Government of Victoria
     - entity: paragraph
       type: links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au/department-premier-and-cabinet
+        - uri: https://www.google.com
           title: Department of Premier and Cabinet
   # Related links
   field_show_related_content: 1
@@ -67,12 +67,12 @@
     - entity: paragraph
       type: related_links
       field_paragraph_link:
-        - uri: https://emergency.vic.gov.au/respond/#
+        - uri: https://www.google.com
           title: Related Link external text
     - entity: paragraph
       type: related_links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au/department-premier-and-cabinet
+        - uri: https://www.google.com
           title: Department of Premier and Cabinet
   # Other.
   field_show_social_sharing: 1

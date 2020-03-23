@@ -1,0 +1,10 @@
+- entity: user
+  status: 1
+  name: 'e2e-test-1@example.com'
+  mail: 'e2e-test-1@example.com'
+  roles:
+    - '#process':
+        callback: 'reference'
+        args:
+          - 'user_role'
+          - id: 'test_role'

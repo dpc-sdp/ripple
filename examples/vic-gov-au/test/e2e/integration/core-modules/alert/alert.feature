@@ -13,15 +13,15 @@ Feature: Global Notifications (Alert)
     And I wait for 5 seconds
     Then there should be the following global notifications:
       | title                   | type            | link                   | linkText      |
-      | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://vic.gov.au     | More  details |
+      | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://www.google.com | More  details |
   
   Scenario: FE- 1-FE-Alert-2 Displays alert for site section
     When I visit the page "/housing-and-property"
     Then there should be the following global notifications:
       | title                   | type            | link                   | linkText      |
-      | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://vic.gov.au     | More  details |
-      | 1-BE-Alert-2 Demo Alert | Heat wave       | https://vic.gov.au     | More  details |
+      | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://www.google.com | More  details |
+      | 1-BE-Alert-2 Demo Alert | Heat wave       | https://www.google.com | More  details |
     When I visit the page "/housing-and-property"
     Then there should be the following global notifications:
       | title                   | type            | link                   | linkText      |
-      | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://vic.gov.au     | More  details |
+      | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://www.google.com | More  details |

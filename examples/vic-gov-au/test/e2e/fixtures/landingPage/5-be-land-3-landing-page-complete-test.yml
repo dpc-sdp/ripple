@@ -40,11 +40,11 @@
     - entity: paragraph
       type: hero_banner_with_cta
       field_paragraph_cta:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: Phasellus congue
       field_paragraph_freetext: Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae
       field_paragraph_link_text:
-        - uri: https://vic.gov.au
+        - uri: https://www.google.com
           title: Nullam laoreet
       field_paragraph_background_image:
         - '#process':
@@ -60,12 +60,12 @@
       type: key_journeys
       field_paragraph_title: 'Want to know more about...'
       field_paragraph_links:
-        - uri: 'https://vic.gov.au'
+        - uri: 'https://www.google.com'
           title: Nullam laoreet
-        - uri: 'https://vic.gov.au'
+        - uri: 'https://www.google.com'
           title: Morbi cursus placerat mi
       field_paragraph_cta:
-        - uri: https://vic.gov.au
+        - uri: https://www.google.com
           title: Nullam laoreet
   # Header components.
   field_landing_page_header:
@@ -74,9 +74,9 @@
       field_paragraph_title: Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae
       field_paragraph_summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.
       field_paragraph_links:
-        - uri: 'https://vic.gov.au'
+        - uri: 'https://www.google.com'
           title: Nullam laoreet
-        - uri: 'https://vic.gov.au'
+        - uri: 'https://www.google.com'
           title: Morbi cursus placerat mi
   # Campaigns.
   field_landing_page_c_primary:
@@ -144,7 +144,7 @@
                 name: 'Demo: Melbourne tram'
       field_paragraph_body: 'Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.'
       field_paragraph_cta:
-        - uri: https://vic.gov.au
+        - uri: https://www.google.com
           title: Victorian Government
       field_paragraph_cta_style: banner
     # Card carousel.
@@ -189,7 +189,7 @@
               address_line1: 35 Collins St
           field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
           field_paragraph_cta:
-            - uri: https://www.vic.gov.au
+            - uri: https://www.google.com
               title: Read more
         - entity: paragraph
           type: card_event
@@ -219,7 +219,7 @@
               address_line1: 35 Collins St
           field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
           field_paragraph_cta:
-            - uri: https://www.vic.gov.au
+            - uri: https://www.google.com
               title: Read more
     # Card Event.
     - entity: paragraph
@@ -262,7 +262,7 @@
                 name: 'Demo: Melbourne tram'
       field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
       field_paragraph_link:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: Vestibulum rhoncus
       field_paragraph_topic:
         - '#process':
@@ -277,7 +277,7 @@
       field_paragraph_title: 'Card Promotion'
       field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
       field_paragraph_link:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: Vestibulum rhoncus
     # Card navigation featured.
     - entity: paragraph
@@ -285,7 +285,7 @@
       field_paragraph_title: 'Card Promotion'
       field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
       field_paragraph_link:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: Vestibulum rhoncus
       field_paragraph_media:
         - '#process':
@@ -304,7 +304,7 @@
           field_paragraph_title: 'Demo Key Date'
           field_paragraph_summary: 'First key date summary.'
           field_paragraph_link:
-            - uri: https://www.vic.gov.au
+            - uri: https://www.google.com
               title: First key date link
         - entity: paragraph
           type: keydates
@@ -312,10 +312,10 @@
           field_paragraph_title: 'Demo Key Date 2'
           field_paragraph_summary: 'Second key date summary.'
           field_paragraph_link:
-            - uri: https://www.vic.gov.au
+            - uri: https://www.google.com
               title: Second key date link
       field_paragraph_cta:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: Read more
     # Card promotion auto.
     - entity: paragraph
@@ -408,7 +408,7 @@
                   - bundle: image
                     name: 'Demo: Melbourne tram'
           field_paragraph_cta:
-            - uri: https://www.vic.gov.au
+            - uri: https://www.google.com
               title: See more
     # Timelines
     - entity: paragraph
@@ -421,7 +421,7 @@
           field_paragraph_date_range:
             - value: '2020-01-01T08:00:00'
               end_value: '2020-01-01T10:00:00'
-          field_paragraph_link: https://www.vic.gov.au
+          field_paragraph_link: https://www.google.com
           field_paragraph_media:
             - '#process':
                 callback: reference
@@ -434,7 +434,7 @@
           type: timeline
           field_paragraph_title: Demo Timeline Item 2
           field_paragraph_cta_text: Alternative
-          field_paragraph_link: https://www.vic.gov.au
+          field_paragraph_link: https://www.google.com
           field_paragraph_media:
             - '#process':
                 callback: reference
@@ -449,12 +449,12 @@
     - entity: paragraph
       type: links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: State Government of Victoria
     - entity: paragraph
       type: links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au/department-premier-and-cabinet
+        - uri: https://www.google.com
           title: Department of Premier and Cabinet
   # Related links
   field_show_related_content: 1
@@ -462,12 +462,12 @@
     - entity: paragraph
       type: related_links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: State Government of Victoria
     - entity: paragraph
       type: related_links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au/department-premier-and-cabinet
+        - uri: https://www.google.com
           title: Department of Premier and Cabinet
   # Contact.
   field_landing_page_show_contact: 1

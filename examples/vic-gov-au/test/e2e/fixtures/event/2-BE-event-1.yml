@@ -61,7 +61,7 @@
     - uri: http://www.weatherzone.com.au/vic/central/healesville
   # Event author.
   field_node_author: Full Name
-  field_node_email: jeremy.mcmillan@dpc.vic.gov.au
+  field_node_email: test.user@dpc.vic.gov.au
   field_node_phone: '12345678'
   # Related links
   field_show_related_content: 1
@@ -69,12 +69,12 @@
     - entity: paragraph
       type: related_links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: State Government of Victoria
     - entity: paragraph
       type: related_links
       field_paragraph_link:
-        - uri: https://www.vic.gov.au/department-premier-and-cabinet
+        - uri: https://www.google.com
           title: Department of Premier and Cabinet
   # Contact.
   field_landing_page_show_contact: 1

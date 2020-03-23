@@ -33,7 +33,7 @@
           - vid: audience
             name: 'Business'
   field_call_to_action:
-    - uri: https://vic.gov.au
+    - uri: https://www.google.com
       title: More details
   field_node_phone: '12345678'
   field_node_department: 
@@ -94,7 +94,7 @@
           field_paragraph_date_range:
             - value: '2020-01-01T08:00:00'
               end_value: '2020-01-01T10:00:00'
-          field_paragraph_link: https://www.vic.gov.au
+          field_paragraph_link: https://www.google.com
           field_paragraph_media:
             - '#process':
                 callback: reference
@@ -107,7 +107,7 @@
           type: timeline
           field_paragraph_title: Demo Timeline Item 2
           field_paragraph_cta_text: Alternative
-          field_paragraph_link: https://www.vic.gov.au
+          field_paragraph_link: https://www.google.com
           field_paragraph_media:
             - '#process':
                 callback: reference

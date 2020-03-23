@@ -1,9 +1,7 @@
 const cucumber = require('cypress-cucumber-preprocessor').default
-
+const rippleTasks = require('@dpc-sdp/ripple-test-tools/tasks')
 // Environment variables that need exposing to cypress go here - use the example site .env file
 require('dotenv').config()
-
-let momentNow
 
 module.exports = (on, config) => {
   on('file:preprocessor', cucumber())
@@ -20,21 +18,7 @@ module.exports = (on, config) => {
     SEARCH_ENDPOINT: `https://${process.env.SEARCH_HASH}.${process.env.SEARCH_URL}/${process.env.SEARCH_INDEX}/_search`
   }
 
-  on('task', {
-    stubDate (datetime = 'April 10, 2019 00:00:00') {
-      const moment = require('moment')
-      momentNow = moment.now
-      moment.now = function () {
-        return +new Date(datetime)
-      }
-      return null
-    },
-    resetDate () {
-      const moment = require('moment')
-      moment.now = momentNow
-      return null
-    }
-  })
+  on('task', rippleTasks)
 
   return config
 }

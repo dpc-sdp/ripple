@@ -16,7 +16,7 @@
           - workflow: editorial
             moderation_state: published
   field_call_to_action:
-    - uri: https://vic.gov.au
+    - uri: https://www.google.com
       title: More details
   # Alert type.
   field_alert_type:

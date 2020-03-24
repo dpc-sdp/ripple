@@ -2,7 +2,7 @@ import RplSearchResultsTable from './SearchResultsTable'
 import { withKnobs, object } from '@storybook/addon-knobs/vue'
 
 export default {
-  title: 'Molecules/Search/RplSearchResultsTable',
+  title: 'Molecules/Search/SearchResultsTable',
   decorators: [withKnobs],
   includeStories: ['defaultStory', 'noColumnConfig', 'customComponent', 'legislationExample']
 }

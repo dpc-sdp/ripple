@@ -382,6 +382,9 @@ storiesOf('Molecules/Search', module)
       }
     }
   }))
+
+storiesOf('Molecules/Search/Legacy search results', module)
+  .addDecorator(withKnobs)
   .add('Search Result', () => ({
     components: { RplSearchResult },
     template: `

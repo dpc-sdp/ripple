@@ -1,16 +1,16 @@
 <template>
-  <div class="rpl-search-results-layout">
-    <div v-if="error" class="rpl-search-results-layout__error-msg">
+  <div class="rpl-search-results">
+    <div v-if="error" class="rpl-search-results__error-msg">
       <slot name="error">{{ error.message || errorMsg }}</slot>
     </div>
     <template v-else>
-      <div class="rpl-search-results-layout__header">
-        <div class="rpl-search-results-layout__info" v-if="range && count">
+      <div class="rpl-search-results__header">
+        <div class="rpl-search-results__info" v-if="range && count">
           <slot name="count">
             Displaying {{ range }} of {{ count }} results
           </slot>
         </div>
-        <div v-if="!!$slots.sort" class="rpl-search-results-layout__sort">
+        <div v-if="!!$slots.sort" class="rpl-search-results__sort">
           <slot name="sort"></slot>
         </div>
       </div>
@@ -19,14 +19,14 @@
           ...loading
         </slot>
       </template>
-      <rpl-row row-gutter class="rpl-search-results-layout__main" :class="{'rpl-search-results-layout__main--loading': loading}" v-if="searchResults && searchResults.length > 0 && !loading">
+      <rpl-row row-gutter class="rpl-search-results__main" :class="{'rpl-search-results__main--loading': loading}" v-if="searchResults && searchResults.length > 0 && !loading">
         <slot name="results" :searchResults="searchResults">
           <rpl-col cols="full">
             {{searchResults}}
           </rpl-col>
         </slot>
       </rpl-row>
-      <div v-if="searchResults.length === 0 && !loading" class="rpl-search-results-layout__no-results-msg">
+      <div v-if="searchResults.length === 0 && !loading" class="rpl-search-results__no-results-msg">
         <slot name="noresults"><p>Sorry! We couldn't find any matches</p></slot>
       </div>
       <rpl-row row-gutter v-if="pager">
@@ -51,7 +51,7 @@ import RplPagination from '@dpc-sdp/ripple-pagination'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
-  name: 'rplSearchResultsLayout',
+  name: 'rplSearchResults',
   mixins: [provideChildCols],
   components: {
     RplPagination,
@@ -112,7 +112,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  .rpl-search-results-layout {
+  .rpl-search-results {
     color: rpl-color('extra_dark_neutral');
     padding: $rpl-space * 5 0;
     &__no-results-msg,

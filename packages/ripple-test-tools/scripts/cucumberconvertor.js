@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const cucumberJunitConvert = require('cucumber-junit-convert')
-const glob = require('glob-fs')({ gitignore: false })
+const glob = require('glob')
 const folder = process.argv.slice(2)[0]
 if (!folder) {
   console.error('Exiting: no folder defined')
@@ -8,7 +8,7 @@ if (!folder) {
 }
 
 try {
-  const files = glob.readdirSync(`${folder}/*.json`)
+  const files = glob.sync(`${folder}/*.json`)
   if (!files || files.length === 0) {
     console.error('Exiting: no files to process')
     process.exit(1)
@@ -16,8 +16,8 @@ try {
   files.forEach(f => {
     const filename = f.replace(/\.[^/.]+$/, '')
     cucumberJunitConvert.convert({
-      inputJsonFile: `./${filename}.json`,
-      outputXmlFile: `./${filename}.xml`
+      inputJsonFile: `${filename}.json`,
+      outputXmlFile: `${filename}.xml`
     })
   })
   console.log(`Converted ${files.length} cucumber files`)

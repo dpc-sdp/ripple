@@ -130,6 +130,6 @@ module.exports = {
     return actions
   },
   async completed () {
-    console.log('Update to 21.0.0 complete!')
+    console.log('Update to 22.0.0 complete!')
   }
 }

@@ -1,4 +1,4 @@
-import RplSearchResults from './SearchResultsV2'
+import RplSearchResultsLayout from './SearchResultsLayout'
 import RplSearchResultsTable from './SearchResultsTable'
 import RplSearchResult from './SearchResult.vue'
 
@@ -7,7 +7,7 @@ import { RplCardProfile } from '@dpc-sdp/ripple-card'
 import { withKnobs, object, number } from '@storybook/addon-knobs/vue'
 
 export default {
-  title: 'Molecules/Search/SearchResults',
+  title: 'Molecules/Search/SearchResultsLayout',
   decorators: [withKnobs],
   includeStories: ['withCards', 'withTable', 'withSearchResult']
 }
@@ -21,10 +21,10 @@ const getItems = (item, count) => {
 }
 
 export const withSearchResult = () => ({
-  components: { RplSearchResults, RplCol, RplSearchResult },
+  components: { RplSearchResultsLayout, RplCol, RplSearchResult },
   template:
     `
-    <rpl-search-results
+    <rpl-search-results-layout
     :searchResults="searchResults"
     :pager="pagination"
     :count="20"
@@ -42,7 +42,7 @@ export const withSearchResult = () => ({
       />
       </rpl-col>
     </template>
-    </rpl-search-results>
+    </rpl-search-results-layout>
     `,
   props: {
     pagination: {
@@ -80,10 +80,10 @@ export const withSearchResult = () => ({
 })
 
 export const withCards = () => ({
-  components: { RplSearchResults, RplCol, RplCardProfile },
+  components: { RplSearchResultsLayout, RplCol, RplCardProfile },
   template:
     `
-    <rpl-search-results
+    <rpl-search-results-layout
     :searchResults="searchResults"
     :pager="pagination"
     :count="18"
@@ -101,7 +101,7 @@ export const withCards = () => ({
         />
       </rpl-col>
     </template>
-    </rpl-search-results>
+    </rpl-search-results-layout>
     `,
   props: {
     pagination: {
@@ -128,10 +128,10 @@ export const withCards = () => ({
 })
 
 export const withTable = () => ({
-  components: { RplSearchResults, RplCol, RplSearchResultsTable },
+  components: { RplSearchResultsLayout, RplCol, RplSearchResultsTable },
   template:
     `
-    <rpl-search-results
+    <rpl-search-results-layout
     :searchResults="searchResults"
     :pager="pagination"
     :responseSize="3"
@@ -143,7 +143,7 @@ export const withTable = () => ({
         <rpl-search-results-table :columnConfig="columnConfig" :items="scoped.searchResults"></rpl-search-results-table>
       </rpl-col>
     </template>
-    </rpl-search-results>
+    </rpl-search-results-layout>
     `,
   props: {
     pagination: {

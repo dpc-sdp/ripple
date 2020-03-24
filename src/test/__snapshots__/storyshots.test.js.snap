@@ -8498,15 +8498,15 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/Search/SearchResults With Cards 1`] = `
+exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = `
 <div
-  class="rpl-search-results"
+  class="rpl-search-results-layout"
 >
   <div
-    class="rpl-search-results__header"
+    class="rpl-search-results-layout__header"
   >
     <div
-      class="rpl-search-results__info"
+      class="rpl-search-results-layout__info"
     >
       
           Displaying 1-9 of 18 results
@@ -8519,7 +8519,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResults With Cards 1`] = `
   <!---->
    
   <div
-    class="rpl-row rpl-search-results__main rpl-row--gutter"
+    class="rpl-row rpl-search-results-layout__main rpl-row--gutter"
   >
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
@@ -9998,15 +9998,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResults With Cards 1`] = `
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/Search/SearchResults With Search Result 1`] = `
+exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Result 1`] = `
 <div
-  class="rpl-search-results"
+  class="rpl-search-results-layout"
 >
   <div
-    class="rpl-search-results__header"
+    class="rpl-search-results-layout__header"
   >
     <div
-      class="rpl-search-results__info"
+      class="rpl-search-results-layout__info"
     >
       
           Displaying 1-10 of 20 results
@@ -10019,7 +10019,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResults With Search Result 1`] 
   <!---->
    
   <div
-    class="rpl-row rpl-search-results__main rpl-row--gutter"
+    class="rpl-row rpl-search-results-layout__main rpl-row--gutter"
   >
     <div
       class="rpl-col rpl-col--full"
@@ -12232,16 +12232,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResults With Search Result 1`] 
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/Search/SearchResults With Table 1`] = `
+exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Table 1`] = `
 <div
-  class="rpl-search-results"
+  class="rpl-search-results-layout"
   responsesize="3"
 >
   <div
-    class="rpl-search-results__header"
+    class="rpl-search-results-layout__header"
   >
     <div
-      class="rpl-search-results__info"
+      class="rpl-search-results-layout__info"
     >
       
           Displaying 1-3 of 3 results
@@ -12254,7 +12254,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResults With Table 1`] = `
   <!---->
    
   <div
-    class="rpl-row rpl-search-results__main rpl-row--gutter"
+    class="rpl-row rpl-search-results-layout__main rpl-row--gutter"
   >
     <div
       class="rpl-col rpl-col--full"

@@ -38,7 +38,8 @@ export default {
         'facebook': '1',
         'instagram': '0.81',
         'linkedin': '0.81',
-        'twitter': '0.81'
+        'twitter': '0.81',
+        'youtube': '0.81'
       }
     }
   },

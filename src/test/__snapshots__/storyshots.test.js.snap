@@ -12071,6 +12071,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Iframe 1`] = `
       class="rpl-markup__iframe-container"
     >
       <iframe
+        class="chromatic-ignore"
         frameborder="0"
         height="200"
         scrolling="no"

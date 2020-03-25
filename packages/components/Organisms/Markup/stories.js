@@ -103,7 +103,7 @@ storiesOf('Organisms/Markup', module)
     data () {
       return {
         html: `
-          <iframe frameborder="0" height="200" scrolling="no" src="https://mazzanet.net.au/cfa/?magickey=cfamonitor&amp;reg=13" width="80"></iframe>
+          <iframe frameborder="0" class="chromatic-ignore" height="200" scrolling="no" src="https://mazzanet.net.au/cfa/?magickey=cfamonitor&amp;reg=13" width="80"></iframe>
         `
       }
     }

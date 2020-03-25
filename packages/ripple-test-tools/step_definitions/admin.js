@@ -3,7 +3,7 @@
 const { Given, When } = require('cypress-cucumber-preprocessor/steps')
 
 Given(`I have logged into the backend`, () => {
-  cy.visit(Cypress.env('CONTENT_API_SERVER'), {
+  cy.visit(`${Cypress.env('CONTENT_API_SERVER')}/user/login`, {
     auth: {
       username: Cypress.env('CONTENT_API_AUTH_USER'),
       password: Cypress.env('CONTENT_API_AUTH_PASS')

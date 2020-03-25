@@ -22,7 +22,7 @@ Feature: Grant page
     And the timeline title should be "Demo Timeline"
     And there should be the following timeline items:
       | title              | link                   | image              | subtitle   | description                                                                                 |
-      | Demo Timeline Item | https://www.vic.gov.au | Melbourne-tram.jpg | 01 January | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. |
+      | Demo Timeline Item | https://www.google.com | Melbourne-tram.jpg | 01 January | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. |
     And the grant guideline section title should be "Guidelines"
     And the grant guideline should have the following accordions
       | "Eligibility"         |

@@ -10,6 +10,12 @@ Feature: Quick exit
     And in the BE I click the "Save" button
 
   Scenario: FE - Check quick exit exists on page
-    Given I visit the page "/"
+    When I attempt to visit the page "/"
     Then the quick exit button should be present
     And the quick exit url should be "www.google.com"
+  
+  Scenario: BE - Disable quick exit
+    Given I have logged into the backend
+    And in the BE I go to the current site taxonomy page
+    And in the BE I uncheck the "Show Exit Site?" checkbox
+    And in the BE I click the "Save" button

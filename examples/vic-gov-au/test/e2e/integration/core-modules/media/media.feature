@@ -5,15 +5,13 @@ Feature: Embedded Media
   Scenario: BE - Create media
     Given I have logged into the backend
     And in the backend there is a node at "/embedded-video-test" with "media/embedded-video-test" data
-    And in the backend there is a node with "media/embedded-video" data as "embeddedVideoId"
-    And in the backend there is a node with "media/embedded-video-no-transcript" data as "embeddedVideoNoTranscriptId"
-    And I add a path alias "/test-embedded-video" for "embeddedVideoId"
-    And I add a path alias "/test-embedded-video-no-transcript" for "embeddedVideoNoTranscriptId"
+    And in the backend there is a node at "/test-embedded-video" with "media/embedded-video" data
+    And in the backend there is a node at "/test-embedded-video-no-transcript" with "media/embedded-video-no-transcript" data
 
   Scenario: Landing page with Embedded media video
     When I visit the page "/embedded-video-test"
     Then there should be 2 embedded videos
-    And there should be a embedded video transcript link "/media/7008"
+    And there should be a embedded video transcript link "/test-embedded-video"
 
   Scenario: Media page for video with transcript
     When I attempt to visit the page "/test-embedded-video"

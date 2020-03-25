@@ -9,7 +9,7 @@ Feature: Protected content
     And in the backend there is a node at "/authenticatedcontent/test-auth-term" with "authenticatedContent/taxonomy" data
     And the authenticated content term "test" has the role "test_role"
     And in the backend there is a node at "/1-fe-auth-content-4" with "authenticatedContent/1-FE-auth-content-4" data
-
+  
   Scenario: 1-FE-auth-content-1 - Login form renders correctly
     Given I visit the page "/login"
     Then there should be a login form with the title "Login"

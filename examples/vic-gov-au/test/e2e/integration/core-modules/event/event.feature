@@ -2,11 +2,13 @@ Feature: Event page
   As a citizen I can view information for all available content on an event page
 
   Scenario: BE - add event
-    Given in the backend there is a node at "/2-be-event-1" with "event/2-BE-event-1" data
+    Given I have logged into the backend
+    And in the backend there is a node at "/2-be-event-1" with "event/2-BE-event-1" data
 
   Scenario: Event Page loads correctly
     When I visit the page "/2-be-event-1"
     Then the page design should match the snapshot
+    And it has no detectable a11y violations on load
     Then the page title should be "2-BE-event-1"
     And the event page Description should be "So now all who escaped death in battle or by shipwreck had got safely home except Ulysses, and he, though he was longing to return to his wife and country, was detained by the goddess Calypso, who had got him into a large cave and wanted to marry him. But as years went by, there came a time when the gods settled that he should go back to Ithaca; even then, however, when he was among his own people, his troubles were not yet over; nevertheless all the gods had now begun to pity him except Neptune, who still persecuted him without ceasing and would not let him get home."
     And the event page Dates should be "20 May 2019 09:02 pm - 20 May 2019 09:11 pm"
@@ -21,9 +23,9 @@ Feature: Event page
     And the related links component should exist
     And the related links title should be "Related links"
     And the related links should contain the following links:
-      | title                              | url                                                   |
-      | State Government of  Victoria      | https://www.vic.gov.au                                |
-      | Department of Premier and  Cabinet | https://www.vic.gov.au/department-premier-and-cabinet |
+      | title                              | url                    |
+      | State Government of  Victoria      | https://www.google.com |
+      | Department of Premier and  Cabinet | https://www.google.com |
 
     # Social Sharing
     And the share this component should exist

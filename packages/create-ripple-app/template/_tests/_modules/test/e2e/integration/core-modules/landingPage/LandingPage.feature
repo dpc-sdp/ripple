@@ -2,13 +2,14 @@ Feature: Landing page
 
   As a citizen I can view information for all available content on any given landing page
 
-  # Scenario: BE - Create landing page
-  #   Given I have logged into the backend
-  #   And in the backend there is a node at "/5-be-land-3-landing-page-complete-test" with "landingPage/5-be-land-3-landing-page-complete-test" data
+  Scenario: BE - Create landing page
+    Given I have logged into the backend
+    And in the backend there is a node at "/5-be-land-3-landing-page-complete-test" with "landingPage/5-be-land-3-landing-page-complete-test" data
 
   Scenario: FE - 5-FE-land-6 Landing Page - Complete Test
     When I visit the page "/5-be-land-3-landing-page-complete-test"
-
+    Then the page design should match the snapshot
+    # And it has no detectable a11y violations on load
     # Page Header
     Then the page title should be "5-BE-land-3 Landing Page - Complete Test"
     And the hero banner desciption should be "5-BE-land-3  Landing Page - Complete Test Intro"
@@ -55,43 +56,43 @@ Feature: Landing page
     And there should be a promotion card with the title "Card Promotion"
     And the promotion card titled "Card Promotion" should contain the following:
       | date    | title          | summary                                                                                     | ctalink                | ctatext             |
-      | 02 July | Card Promotion | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au | Vestibulum  rhoncus |
+      | 02 July | Card Promotion | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.google.com  | Vestibulum  rhoncus |
 
-    # Card Promotion Automated
-    And there should be a promotion card with the title "Demo Page"
-    And the promotion card titled "Demo Page" should contain the following:
-       | title     | ctalink    | ctatext    |
-       | Demo Page | /demo-page | Read  more |
+    # # Card Promotion Automated
+    # And there should be a promotion card with the title "Demo Page"
+    # And the promotion card titled "Demo Page" should contain the following:
+    #    | title     | ctalink    | ctatext    |
+    #    | Demo Page | /demo-page | Read  more |
 
     # Navigation Featured
     And there should be a navigation featured card with the title "Card Promotion"
     And the navigation card featured titled "Card Promotion" should contain the following:
       | title          | image                                                                                                          | summary                                                                                     | link                   |
-      | Card Promotion | Melbourne-tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au |
+      | Card Promotion | Melbourne-tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.google.com  |
 
-    # Navigation Featured Automated
-    And there should be a navigation featured automated card with the title "Demo News"
-    And the navigation featured automated card titled "Demo News" should contain the following:
-      | title     | image                                                                                                          | link       |
-      | Demo News | Melbourne-tram.jpg | /demo-news |
+    # # Navigation Featured Automated
+    # And there should be a navigation featured automated card with the title "Demo News"
+    # And the navigation featured automated card titled "Demo News" should contain the following:
+    #   | title     | image                                                                                                          | link       |
+    #   | Demo News | Melbourne-tram.jpg | /demo-news |
 
     # Navigation
     And there should be a navigation card with the title "Card Promotion"
     And the navigation card titled "Card Promotion" should contain the following:
       | title          | summary                                                                                     | link                   | linktext           |
-      | Card Promotion | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.vic.gov.au | Vestibulum rhoncus |
+      | Card Promotion | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.google.com  | Vestibulum rhoncus |
 
-    # Navigation Automated
-    And there should be a navigation card with the title "Demo Page"
-    And the navigation card titled "Demo Page" should contain the following:
-      | title     | link       |
-      | Demo Page | /demo-page |
+    # # Navigation Automated
+    # And there should be a navigation card with the title "Demo Page"
+    # And the navigation card titled "Demo Page" should contain the following:
+    #   | title     | link       |
+    #   | Demo Page | /demo-page |
 
     # Key Dates
     And there should be a keydates card with the title "Key calendar dates"
     And the keydates card titled "Key calendar dates" should contain the following:
       | title              | ctalink                | ctatext    |
-      | Key calendar dates | https://www.vic.gov.au | Read  more |
+      | Key calendar dates | https://www.google.com  | Read  more |
     And the keydates card titled "Key calendar dates" should have the following items:
       | date   | title           | description              |
       | 1 June | Demo Key Date   | First key date summary.  |
@@ -117,11 +118,11 @@ Feature: Landing page
       | Bendigo-Hospital.jpg                               | 3 / 4 - Demo: Bendigo Hospital                       |
       | Melbourne-tram.jpg                                 | 4 / 4 - Demo: Melbourne tram                         |
 
-    # Card Event Automated
-    And there should be an event card with the title "Demo Event"
-    And the event card titled "Demo Event" should contain the following:
-      | date          | title      | summary                                                                                                                                            | address   | link        | linktext   |
-      | 02 to 07 July | Demo Event | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Melbourne | /demo-event | View  more |
+    # # Card Event Automated
+    # And there should be an event card with the title "Demo Event"
+    # And the event card titled "Demo Event" should contain the following:
+    #   | date          | title      | summary                                                                                                                                            | address   | link        | linktext   |
+    #   | 02 to 07 July | Demo Event | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Melbourne | /demo-event | View  more |
 
     # Card Carousel - add card event
     And there should be a card carousel titled "Card Carousel for Card Event"
@@ -140,22 +141,22 @@ Feature: Landing page
     #   | 02 to 07 July | Demo Event | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001 | /demo-event | See event  details |
     And the latest events titled "Demo latest events" should have a call to action card with the following:
       | title          | body                                         | image                                                                                                          | linktext | link                   |
-      | Latest Event 1 | Mauris tincidunt tincidunt felis vel tempus. | Melbourne-tram.jpg | See more | https://www.vic.gov.au |
+      | Latest Event 1 | Mauris tincidunt tincidunt felis vel tempus. | Melbourne-tram.jpg | See more | https://www.google.com  |
 
     #  Timelines
     And the timeline component titled "Demo Timeline" should exist
     And the timeline component titled "Demo Timeline" should have the following items:
     | title                | date        | summary                                                                                     | image                                                                                                          | link                   |
-    | Demo Timeline Item   | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | Melbourne-tram.jpg | https://www.vic.gov.au |
-    | Demo Timeline Item 2 | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                              | Melbourne-tram.jpg | https://www.vic.gov.au |
+    | Demo Timeline Item   | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | Melbourne-tram.jpg | https://www.google.com  |
+    | Demo Timeline Item 2 | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                              | Melbourne-tram.jpg | https://www.google.com  |
 
     # Key Journeys
     And the key journey component should exist
     And the key journey component should have the following items:
-      | linktext        | link               |
-      | Nullam  laoreet | https://www.google.com|
-      | Nullam  laoreet | https://www.google.com|
-
+      | linktext        | link                   |
+      | Nullam  laoreet | https://www.google.com |
+      | Nullam  laoreet | https://www.google.com |
+      
     # Contact Us
     And the contact component title should be "Victorian Government"
     And the contact component details should be "Victorian Government Department of Premier and Cabinet Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001"
@@ -177,17 +178,17 @@ Feature: Landing page
     And the related links component should exist
     And the related links title should be "Related links"
     And the related links should contain the following links:
-      | title                              | url                                                   |
-      | State Government of  Victoria      | https://www.vic.gov.au                                |
-      | Department of Premier and  Cabinet | https://www.vic.gov.au/department-premier-and-cabinet |
+      | title                              | url                    |
+      | State Government of  Victoria      | https://www.google.com |
+      | Department of Premier and  Cabinet | https://www.google.com |
 
     # What's Next
     And the whats next component should exist
     And the whats next title should be "What's next?"
     And the whats next links should be:
-      | title                              | url                                                   |
-      | State Government of  Victoria      | https://www.vic.gov.au                                |
-      | Department of Premier and  Cabinet | https://www.vic.gov.au/department-premier-and-cabinet |
+      | title                              | url                    |
+      | State Government of  Victoria      | https://www.google.com |
+      | Department of Premier and  Cabinet | https://www.google.com |
 
     # Social Sharing
     And the share this component should exist

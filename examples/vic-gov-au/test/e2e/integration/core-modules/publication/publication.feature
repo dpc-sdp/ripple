@@ -5,6 +5,7 @@ Feature: Publication
   Scenario: Publication page
     Given I visit the page "/demo-publication"
     Then the page design should match the snapshot
+    And it has no detectable a11y violations on load
     And the author information component should exist
     Then there should be a description list with the following items:
       | term    | value           |

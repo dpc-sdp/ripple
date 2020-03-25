@@ -14,3 +14,4 @@
 // ***********************************************************
 
 require('@dpc-sdp/ripple-test-tools/commands')
+require('@percy/cypress')

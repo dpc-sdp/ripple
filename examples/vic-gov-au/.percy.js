@@ -14,6 +14,11 @@ module.exports = {
       'network-idle-timeout': 5000, // ms
       'page-pool-size-min': 5, // pages
       'page-pool-size-max': 30 // pages
-    }
+    },
+    'percyCSS': `
+      .rpl-markup__iframe-container, .rpl-card-carousel__slider {
+        display: none;
+      }
+    `
   }
 };

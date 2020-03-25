@@ -4,6 +4,8 @@ Feature: Publication
   
   Scenario: Publication page
     Given I visit the page "/demo-publication"
+    Then the page design should match the snapshot
+    And it has no detectable a11y violations on load
     And the author information component should exist
     Then there should be a description list with the following items:
       | term    | value           |
@@ -16,13 +18,15 @@ Feature: Publication
     And there should be a navigation card with the title "Demo Publication - Chapter 2"
     And there should be a navigation card with the title "Demo Publication - Chapter 3"
     And the content rating component should exist
-
+  
+  @skip
   Scenario: Print all publication pages
     Given the "/demo-publication" route exists
     Given the "/demo-publication/demo-publication-chapter-1" route exists
     Given the "/demo-publication/demo-publication-chapter-2" route exists
     Given the "/demo-publication/demo-publication-chapter-1/demo-publication-chapter-1-page-1" route exists
     When I visit the page "/demo-publication/print-all"
+    Then the page design should match the snapshot
     Then the page title should be "Demo Publication"
     And the following section title ids should exist:
       | section |

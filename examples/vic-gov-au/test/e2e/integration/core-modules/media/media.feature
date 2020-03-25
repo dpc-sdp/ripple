@@ -13,11 +13,13 @@ Feature: Embedded Media
   Scenario: Landing page with Embedded media video
     When I visit the page "/embedded-video-test"
     Then the page design should match the snapshot
+    And it has no detectable a11y violations on load
     Then there should be 2 embedded videos
     And there should be a embedded video transcript link "/media/7008"
 
   Scenario: Media page for video with transcript
     When I attempt to visit the page "/test-embedded-video"
+    Then the page design should match the snapshot
     Then the current page should not be an error page
     And the page title should be "Demo: Wodonga Local Aboriginal Network - Bringing People Together"
     And the hero banner title should be "Demo: Wodonga Local Aboriginal Network - Bringing People Together"

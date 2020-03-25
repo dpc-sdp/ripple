@@ -9,6 +9,7 @@ Feature: Webform
   
   Scenario: FE - test form submission
     When I visit the page "/test-form"
+    Then the page design should match the snapshot
     Given I stubbed the form "test_form_1" response with "webforms/contact-us-form-success" fixture
     And i enter the following information into the form "form-test_form_1":
       | label                                                                                | value                 | type       |

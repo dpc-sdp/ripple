@@ -18,3 +18,4 @@ mv template/_tests/_modules/test/e2e/fixtures/snippets/* template/_tests/_common
 # Replace vic.gov.au with domain var
 
 find template/_tests/_modules/test/e2e/fixtures -name '*.yml' -exec sed -i '' -e 's/vic.gov.au/<%= domain %>/g' {} \;
+find template/_tests/_common/test/e2e/integration -name '*.feature' -exec sed -i '' -e 's/site=4/site=<%= siteid %>/g' {} \;

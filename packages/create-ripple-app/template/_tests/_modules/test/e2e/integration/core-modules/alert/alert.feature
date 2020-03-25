@@ -10,7 +10,6 @@ Feature: Global Notifications (Alert)
 
   Scenario: FE - 1-FE-Alert-1 Displays global alert
     When I visit the page "/"
-    And I wait for 5 seconds
     Then there should be the following global notifications:
       | title                   | type            | link                   | linkText      |
       | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://www.google.com | More  details |

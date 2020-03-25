@@ -77,25 +77,8 @@ export default async function (context, pageData) {
     pageData.tidePage = response
   } catch (error) {
     pageData.tidePage = false
-    switch (context.app.tideResErrCode) {
-      case 404:
-        pageData.tideErrorType = '404'
-        if (typeof context.res !== 'undefined') {
-          context.res.statusCode = 404
-        }
-        break
-
-      default:
-        pageData.tideErrorType = 'other'
-        if (process.server) {
-          if (typeof context.res !== 'undefined') {
-            context.res.statusCode = 500
-          }
-          if (process.server) {
-            logger.error('Failed to get the page data.', { error, label: 'Middleware' })
-          }
-        }
-    }
+    logger.error('Failed to get the page data.', { error: error.statusText, label: 'Middleware' })
+    context.error({ statusCode: error.status || 500, message: error.statusText })
   }
 
   context.store.dispatch('tide/setCurrentUrl', context.route.fullPath)

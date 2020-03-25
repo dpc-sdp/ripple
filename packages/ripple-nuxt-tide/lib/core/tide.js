@@ -40,14 +40,10 @@ export const tide = (axios, site, config) => ({
 
   // Build the axios config for Tide GET request
   _axiosConfig: function (headersConfig) {
+    // Set TIDE_TIMEOUT env var to override timeout default
+    const axiosTimeout = process.env.TIDE_TIMEOUT ? parseInt(process.env.TIDE_TIMEOUT, 10) : 4000
+
     // axios config
-    let axiosTimeout = 4000
-
-    // Give more time in Circle CI test
-    if (process.env.NODE_ENV === 'test' || process.env.TEST) {
-      axiosTimeout = 9000
-    }
-
     const axiosConfig = {
       auth: config.auth,
       timeout: axiosTimeout,
@@ -303,8 +299,7 @@ export const tide = (axios, site, config) => ({
       const response = await this.get('route', routeParams, '', headersConfig)
       return response
     } catch (error) {
-      // TODO: use return error instead of throw.
-      throw new Error(`Failed to get data for path "${path}" with error "${error}"`)
+      return error
     }
   },
 
@@ -381,23 +376,29 @@ export const tide = (axios, site, config) => ({
 
   getPageByPath: async function (path, params, headersConfig) {
     let pageData = null
-    const response = await this.getPathData(path, params, headersConfig)
+    try {
+      const response = await this.getPathData(path, params, headersConfig)
+      if (response.hasOwnProperty('status') && response.status > 400) {
+        return Promise.reject(response)
+      }
+      const pathData = jsonapiParse.parse(response).data
 
-    const pathData = jsonapiParse.parse(response).data
+      // path got redirected
+      if (pathData.redirect_url) {
+        return pathData
+      }
 
-    // path got redirected
-    if (pathData.redirect_url) {
-      return pathData
+      const entity = await this.getEntityByPathData(pathData, params, headersConfig)
+      if (entity instanceof Error || entity.status > 400) {
+        return Promise.reject(entity)
+      }
+      pageData = jsonapiParse.parse(entity).data
+
+      // Append the site section to page data
+      pageData.section = pathData.section === site ? null : pathData.section
+    } catch (error) {
+      return Promise.reject(error)
     }
-
-    const entity = await this.getEntityByPathData(pathData, params, headersConfig)
-    if (entity instanceof Error) {
-      throw entity
-    }
-    pageData = jsonapiParse.parse(entity).data
-
-    // Append the site section to page data
-    pageData.section = pathData.section === site ? null : pathData.section
     return pageData
   },
 

@@ -14,7 +14,7 @@ const nuxtTide = function (moduleOptions) {
       target: options.baseUrl,
       // Set the proxy timeout for requesting to Tide API as 9 seconds.
       // POST request to Tide normally need more than 5 seconds to get response.
-      proxyTimeout: 9000,
+      proxyTimeout: process.env.TIDE_TIMEOUT ? parseInt(process.env.TIDE_TIMEOUT, 10) : 4000,
       onProxyRes (proxyRes, req, res) {
         // Set headers as devOps required
         proxyRes.headers[RPL_HEADER.APP_TYPE] = 'tide'
@@ -102,7 +102,22 @@ const nuxtTide = function (moduleOptions) {
   this.addModule(['@nuxtjs/axios', {
     debug: false,
     // Using proxy for Tide request https://axios.nuxtjs.org/options#proxy
-    proxy: true
+    proxy: true,
+    retry: {
+      retries: process.env.TIDE_RETRIES ? parseInt(process.env.TIDE_RETRIES, 10) : 3,
+      retryCondition: (error) => {
+        if (error.code === 'ECONNABORTED' || error.code === 'ECONNRESET') {
+          let retry = ''
+          if (error.config['axios-retry'] && error.config['axios-retry'].retryCount > 0) {
+            retry = ` - Retry attempt ${error.config['axios-retry'].retryCount}`
+          }
+          console.log(`Request ${error.config.url} timed out after ${error.config.timeout}ms${retry}`)
+          return true
+        }
+      },
+      shouldResetTimeout: true,
+      retryDelay: () => 500
+    }
   }])
 
   // Display error details in Nuxt error page

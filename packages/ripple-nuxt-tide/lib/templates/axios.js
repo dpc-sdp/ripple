@@ -1,7 +1,21 @@
 import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
+const MockAdapter = require('axios-mock-adapter')
 
 export default function ({ $axios, app, res }) {
+  const mock = new MockAdapter($axios)
+  // const routeUrl = new RegExp(`/api/v1/route/*`)
+  // const withDelay = (delay, response) => config => {
+  //   return new Promise(function(resolve, reject) {
+  //     setTimeout(function() {
+  //         resolve(response);
+  //     }, delay);
+  //   })
+  // }
 
+  mock.onAny()
+      .timeoutOnce()
+      .passThrough()
+  
   $axios.onRequest(config => {
     // Log all axios' requests
     if (process.server) {
@@ -12,7 +26,7 @@ export default function ({ $axios, app, res }) {
     }
   })
 
-  $axios.onError(error => {
+  $axios.onResponseError(error => {
     let code
     if (error.code) {
       code = error.code
@@ -30,12 +44,8 @@ export default function ({ $axios, app, res }) {
     if (routeRequest || authPreviewRequest) {
       // We hide 403 and show it as 404
       code = code === 403 ? 404 : code
-
-      app.tideResErrCode = code
-
-      if (typeof res !== 'undefined') {
-        res.statusCode = code
-      }
+      error.response.status = code
     }
+    return Promise.reject(error.response)
   })
 }

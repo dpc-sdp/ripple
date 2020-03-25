@@ -23,6 +23,7 @@
     "test:unit": "cross-env BASIC_AUTH=0 NODE_ENV=test jest --passWithNoTests",
     <%_ } _%>
     "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
+    "lint:fix": "eslint --ext .js,.vue . --fix",
     "start": "run-script-os",
     "start:default": "if [ \"$NUXT_HOT_RELOADING\" = \"1\" ] ; then nuxt; else nuxt start; fi",
     "start:win32": "IF \"%NUXT_HOT_RELOADING%\" EQU \"1\" ( nuxt ) ELSE ( nuxt start )",

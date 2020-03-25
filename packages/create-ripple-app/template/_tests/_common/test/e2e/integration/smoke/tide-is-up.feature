@@ -4,7 +4,7 @@ Feature: Test Tide backend is up
 
   @smoke
   Scenario: Route endpoint returns a correct response
-    Given a request is made to "/api/v1/route?site=4&path=/"
+    Given a request is made to "/api/v1/route?site=<%= siteid %>&path=/"
     Then the response code should be 200
 
   @smoke

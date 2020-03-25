@@ -102,6 +102,7 @@ storiesOf('Atoms/Icon', module)
           'xls',
           'xlsm',
           'xlsx',
+          'youtube',
           'zip',
           'zoom_in',
           'zoom_out'

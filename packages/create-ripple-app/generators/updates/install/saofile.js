@@ -14,9 +14,11 @@ module.exports = {
         type: 'modify',
         files: 'package.json',
         handler (data, filepath) {
-          data.version = results.release
-          data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `${results.version}`
-          data.devDependencies['@dpc-sdp/ripple-test-tools'] = `${results.version}`
+          // This is only for user want to install specific version of ripple
+          if (results.version) {
+            data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `${results.version}`
+            data.devDependencies['@dpc-sdp/ripple-test-tools'] = `${results.version}`
+          }
           return data
         }
       }

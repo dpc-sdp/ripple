@@ -66,3 +66,7 @@ Then(`the page should scroll to {string}`, (selector) => {
 Then(`the page design should match the snapshot`, () => {
   cy.percySnapshot()
 })
+
+Then(`the page design should match the snapshot`, () => {
+  cy.percySnapshot()
+})

@@ -1,4 +1,4 @@
-version: 2.0
+version: 2.1
 
 jobs:
   build:
@@ -98,10 +98,9 @@ jobs:
         environment:
           TERM: xterm
           TZ: "Australia/Melbourne"
-        resource_class: medium+
 
     working_directory: ~/app
-    parallelism: 1
+    parallelism: 2
     steps:
       - attach_workspace:
           at: ~/app

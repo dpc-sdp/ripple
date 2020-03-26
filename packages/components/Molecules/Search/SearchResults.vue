@@ -39,10 +39,11 @@
 import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
 export default {
   name: 'RplSearchResults',
-  mixins: [provideChildCols],
+  mixins: [provideChildCols, deprecate],
   components: {
     RplPagination,
     RplRow,
@@ -76,6 +77,9 @@ export default {
     noResultsMsg: String,
     responseSize: Number,
     count: Number
+  },
+  mounted () {
+    this.deprecatedWarn('"rpl-search-results" is deprecated, please import "rpl-search-results-v2" as "rpl-search-results", the legacy component will be replaced by v2 next major release.')
   },
   created () {
     if (this.type) {

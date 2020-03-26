@@ -89,7 +89,7 @@ Given(`in the backend there are no {string} nodes`, (contentType) => {
         }
       })
       cy.get('.view-content .select-all [title="Select all rows in this table"]').click()
-      cy.get('[data-drupal-selector="edit-node-bulk-form"] [data-drupal-selector="edit-action"]').select('node_delete_action')
+      cy.get('[data-drupal-selector="edit-node-bulk-form"] [data-drupal-selector="edit-action"]').select('node_delete_action', { force: true })
       cy.get('#edit-submit--2').click()
       cy.url().should('include', '/admin/content/node/delete')
       cy.get('#edit-submit').click()

@@ -15,6 +15,6 @@ Feature: Anchor link
 
   Scenario: FE - Visit a url with anchor link
     Given I visit the page "/demo-landing-page#accordion-header-basic"
-    When I wait for 4 seconds
+    When I wait for 8 seconds
     And the page should scroll to "#accordion-header-basic"
   

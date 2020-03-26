@@ -44,8 +44,8 @@ Feature: Protected content
   Scenario: Accessing a protected content page when authenticated
     When I visit the page "/login"
     When I enter the the following login credentials:
-      | login                  | password  |
-      | e2e-test-1@example.com | ********  |
+      | login                           | password  |
+      | administrator1.test@example.com | ********  |
     And I submit the login form
     Then the current page url should be "/"
     When I wait for 3 seconds

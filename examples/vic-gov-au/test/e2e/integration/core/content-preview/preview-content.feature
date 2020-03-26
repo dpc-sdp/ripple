@@ -15,7 +15,6 @@ Feature: Preview content
     When I attempt to visit the page "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7a27/latest?section=4"	
     Then the current page url should be "/login"
   
-  @skip
   Scenario: Accessing a preview when authenticated shows page
     When I visit the page "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7a27/latest?section=4"
     And I enter the the following login credentials:

@@ -84,7 +84,7 @@ export default {
     }
     this.setCheckedValues()
 
-    this.deprecatedWarn('"rpl-checklist" is depricated, please use "rpl-select" instead.')
+    this.deprecatedWarn('"rpl-checklist" is deprecated, please use "rpl-select" instead.')
   },
   watch: {
     value (newVal, oldVal) {

@@ -1,21 +1,7 @@
 import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
-const MockAdapter = require('axios-mock-adapter')
 
-export default function ({ $axios, app, res }) {
-  const mock = new MockAdapter($axios)
-  // const routeUrl = new RegExp(`/api/v1/route/*`)
-  // const withDelay = (delay, response) => config => {
-  //   return new Promise(function(resolve, reject) {
-  //     setTimeout(function() {
-  //         resolve(response);
-  //     }, delay);
-  //   })
-  // }
+export default function ({ $axios, app, res, error }) {
 
-  mock.onAny()
-      .timeoutOnce()
-      .passThrough()
-  
   $axios.onRequest(config => {
     // Log all axios' requests
     if (process.server) {
@@ -26,15 +12,16 @@ export default function ({ $axios, app, res }) {
     }
   })
 
-  $axios.onResponseError(error => {
-    let code
-    if (error.code) {
-      code = error.code
-    } else if (error.response) {
-      code = error.response.status
+  $axios.onResponseError(err => {
+    let statusCode
+    let message = 'Error'
+    if (err.code) {
+      statusCode = err.code
+    } else if (err.response) {
+      statusCode = err.response.status
     }
 
-    const responseUrl = error.request.path || error.request.responseURL || error.config.url
+    const responseUrl = err.request.path || err.request.responseURL || err.config.url
 
     // Check what kind of request it is.
     const routeRequest = responseUrl.includes('/route?')
@@ -43,9 +30,15 @@ export default function ({ $axios, app, res }) {
     // Set http status code if a route or preview request failed.
     if (routeRequest || authPreviewRequest) {
       // We hide 403 and show it as 404
-      code = code === 403 ? 404 : code
-      error.response.status = code
+      if (statusCode > 400 && statusCode < 500) {
+        message = 'Page not found'
+      } else if (statusCode > 499) {
+        message = 'Error fetching page'
+      }
+      logger.info(`${message} - ${err.config.url}`, {label: 'Axios', requestId: err.config.headers['X-Request-Id']})
+    } else {
+      logger.info('Error fetching request', err.config.url, {label: 'Axios', requestId: err.config.headers['X-Request-Id']})
     }
-    return Promise.reject(error.response)
+    return Promise.reject({ statusCode, message })
   })
 }

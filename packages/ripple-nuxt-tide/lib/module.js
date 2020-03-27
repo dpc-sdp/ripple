@@ -105,7 +105,7 @@ const nuxtTide = function (moduleOptions) {
     proxy: true,
     retry: {
       retries: process.env.TIDE_RETRIES ? parseInt(process.env.TIDE_RETRIES, 10) : 3,
-      retryCondition: (error) => {
+      retryCondition: function (error) {
         if (error.code === 'ECONNABORTED' || error.code === 'ECONNRESET') {
           let retry = ''
           if (error.config['axios-retry'] && error.config['axios-retry'].retryCount > 0) {
@@ -115,8 +115,7 @@ const nuxtTide = function (moduleOptions) {
           return true
         }
       },
-      shouldResetTimeout: true,
-      retryDelay: () => 500
+      shouldResetTimeout: true
     }
   }])
 

@@ -299,7 +299,7 @@ export const tide = (axios, site, config) => ({
       const response = await this.get('route', routeParams, '', headersConfig)
       return response
     } catch (error) {
-      return error
+      return Promise.reject(error)
     }
   },
 
@@ -384,7 +384,7 @@ export const tide = (axios, site, config) => ({
       const pathData = jsonapiParse.parse(response).data
 
       // path got redirected
-      if (pathData.redirect_url) {
+      if (pathData && pathData.redirect_url) {
         return pathData
       }
 

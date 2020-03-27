@@ -56,7 +56,7 @@ export default async function (context, pageData) {
     }
 
     // If redirect required.
-    if (response.redirect_url) {
+    if (response && response.redirect_url) {
       return context.redirect(response.status_code, response.redirect_url)
     }
 
@@ -77,8 +77,12 @@ export default async function (context, pageData) {
     pageData.tidePage = response
   } catch (error) {
     pageData.tidePage = false
-    logger.error('Failed to get the page data.', { error: error.statusText, label: 'Middleware' })
-    context.error({ statusCode: error.status || 500, message: error.statusText })
+    if (error.statusCode) {
+      context.error(error)
+    } else {
+      logger.error('Application error', { error, label: 'Middleware' })
+      context.error({ statusCode: 500, message: 'Application error' })
+    }
   }
 
   context.store.dispatch('tide/setCurrentUrl', context.route.fullPath)

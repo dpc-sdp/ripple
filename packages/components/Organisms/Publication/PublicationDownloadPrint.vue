@@ -44,7 +44,7 @@ export default {
   methods: {
     printClick () {
       this.$emit('publicationPrint')
-      if (isClient()) {
+      if (isClient() && !process.env.TEST) {
         window.print()
       }
     },

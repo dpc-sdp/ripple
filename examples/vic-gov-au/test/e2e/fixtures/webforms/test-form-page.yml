@@ -1,0 +1,50 @@
+- entity: node
+  type: landing_page
+  title: Test form
+  status: 1
+  moderation_state:
+    - '#process':
+        callback: reference
+        args:
+          - content_moderation_state
+          - workflow: editorial
+            moderation_state: published
+
+  # Content Components.
+  field_landing_page_component:
+    - entity: paragraph
+      type: embedded_webform
+      field_paragraph_title: test form
+      field_paragraph_webform: 
+        - target_id: test_form_1
+  
+  # Topic and Tags.
+  field_topic:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: topic
+            name: 'Equality'
+  # Sites.
+  field_node_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'demo.vic.gov.au'
+  field_node_primary_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'
+

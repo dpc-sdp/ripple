@@ -38,8 +38,9 @@ const addFilter = function (esbResult, filter, filterName) {
     case 'term':
       if (Array.isArray(filter.values)) {
         const filterVals = filter.values.map((item) => {
-          // Check that filter fields aren't empty.
-          if (item.length > 0) {
+          // Check that filter fields aren't empty string.
+          // If it's a boolean value, should be ignored in the check.
+          if (item.length > 0 || typeof item === 'boolean') {
             return item
           }
         })

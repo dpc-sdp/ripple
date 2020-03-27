@@ -1,0 +1,67 @@
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta": {
+      "links": { "self": { "href": "http://jsonapi.org/format/1.0/" } }
+    }
+  },
+  "data": {
+    "type": "webform_submission--connect_with_us",
+    "id": "a8499930-69e4-4058-b202-9e2846c4b4c4",
+    "attributes": {
+      "serial": 1853,
+      "drupal_internal__sid": 12699,
+      "token": "qiV7LMDxGbY7lzHyWWhXoeKIoKVamzZe5JxRGc0gabY",
+      "uri": "/api/v1/webform_submission/connect_with_us",
+      "created": "2020-03-10T01:24:27+00:00",
+      "completed": "2020-03-10T01:24:27+00:00",
+      "changed": "2020-03-10T01:24:27+00:00",
+      "in_draft": false,
+      "current_page": null,
+      "remote_addr": "203.219.192.17",
+      "langcode": "en",
+      "entity_type": null,
+      "entity_id": null,
+      "locked": false,
+      "sticky": false,
+      "notes": null,
+      "metatag": null,
+      "metatag_normalized": [],
+      "data": null
+    },
+    "relationships": {
+      "uid": {
+        "data": null,
+        "links": {
+          "self": {
+            "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/connect_with_us/a8499930-69e4-4058-b202-9e2846c4b4c4/relationships/uid"
+          }
+        }
+      },
+      "webform_id": {
+        "data": {
+          "type": "webform--webform",
+          "id": "fa8cae13-d8b0-4157-b3a6-fe53397e4ef1"
+        },
+        "links": {
+          "self": {
+            "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/connect_with_us/a8499930-69e4-4058-b202-9e2846c4b4c4/relationships/webform_id"
+          },
+          "related": {
+            "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/connect_with_us/a8499930-69e4-4058-b202-9e2846c4b4c4/webform_id"
+          }
+        }
+      }
+    },
+    "links": {
+      "self": {
+        "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/connect_with_us/a8499930-69e4-4058-b202-9e2846c4b4c4"
+      }
+    }
+  },
+  "links": {
+    "self": {
+      "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/connect_with_us"
+    }
+  }
+}

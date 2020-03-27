@@ -11,9 +11,9 @@
     "build:win32": "IF \"%NUXT_HOT_RELOADING%\" NEQ \"1\" ( nuxt build )",
     <%_ if ((e2e === true) || (smoke === true)) { _%>
     "cy:open": "cypress open",
-    "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
+    "cy:run-smoke": "cypress run -b chrome -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*' --record  --parallel --group $CIRCLE_JOB",
     <%_ if (e2e === true) { _%>
-    "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
+    "cy:run": "cypress run -b chrome -e TAGS='not @skip or @smoke'",
     "test:e2e": "cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run",
     <%_ } _%>
     "test:dev": "cross-env NODE_ENV=dev start-server-and-test dev http://localhost:3000 cy:open",
@@ -39,7 +39,6 @@
   "devDependencies": {
     <%_ if ((e2e === true) || (smoke === true)) { _%>
     "@dpc-sdp/ripple-test-tools": "^<%= version %>",
-    "axe-core": "^3.3.2",
     <%_ } _%>
     "babel-eslint": "^10.0.1",
     "babel-plugin-lodash": "^3.3.2",
@@ -78,7 +77,13 @@
   },
   <%_ if ((e2e === true) || (smoke === true)) { _%>
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
+    "nonGlobalStepDefinitions": true,
+    "step_definitions": "test/e2e/integration/",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "./../../test-results/cucumber",
+      "filePrefix": "<%= domain %>"
+    }
   },
   <%_ } _%>
   "browserslist": [

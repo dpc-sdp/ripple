@@ -1,0 +1,67 @@
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta": {
+      "links": { "self": { "href": "http://jsonapi.org/format/1.0/" } }
+    }
+  },
+  "data": {
+    "type": "webform_submission--tide_webform_content_rating",
+    "id": "4ea029d1-d8a7-40ac-b178-4b266e327c08",
+    "attributes": {
+      "serial": 6695,
+      "drupal_internal__sid": 12690,
+      "token": "EXdZni3tkM236vdxa5MDRymMvKpziusPr2oSAXn-C34",
+      "uri": "/api/v1/webform_submission/tide_webform_content_rating",
+      "created": "2020-03-09T23:31:33+00:00",
+      "completed": "2020-03-09T23:31:33+00:00",
+      "changed": "2020-03-09T23:31:33+00:00",
+      "in_draft": false,
+      "current_page": null,
+      "remote_addr": "203.219.192.17",
+      "langcode": "en",
+      "entity_type": null,
+      "entity_id": null,
+      "locked": false,
+      "sticky": false,
+      "notes": null,
+      "metatag": null,
+      "metatag_normalized": [],
+      "data": null
+    },
+    "relationships": {
+      "uid": {
+        "data": null,
+        "links": {
+          "self": {
+            "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/tide_webform_content_rating/4ea029d1-d8a7-40ac-b178-4b266e327c08/relationships/uid"
+          }
+        }
+      },
+      "webform_id": {
+        "data": {
+          "type": "webform--webform",
+          "id": "d39d6519-6c87-4725-8ac3-65125391bd8a"
+        },
+        "links": {
+          "self": {
+            "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/tide_webform_content_rating/4ea029d1-d8a7-40ac-b178-4b266e327c08/relationships/webform_id"
+          },
+          "related": {
+            "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/tide_webform_content_rating/4ea029d1-d8a7-40ac-b178-4b266e327c08/webform_id"
+          }
+        }
+      }
+    },
+    "links": {
+      "self": {
+        "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/tide_webform_content_rating/4ea029d1-d8a7-40ac-b178-4b266e327c08"
+      }
+    }
+  },
+  "links": {
+    "self": {
+      "href": "https://develop.content.vic.gov.au/api/v1/webform_submission/tide_webform_content_rating"
+    }
+  }
+}

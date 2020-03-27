@@ -4,10 +4,15 @@
 const { Then, Given, When } = require('cypress-cucumber-preprocessor/steps')
 
 Given(`that the current date is {string}`, (datestring) => {
+  cy.task('stubDate', datestring)
   const now = new Date(datestring).getTime()
   if (datestring) {
     cy.clock(now)
   }
+})
+
+Given(`the current date is today`, () => {
+  cy.task('resetDate')
 })
 
 Then('it has no detectable a11y violations on load', () => {

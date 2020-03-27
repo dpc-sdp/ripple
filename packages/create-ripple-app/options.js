@@ -133,5 +133,19 @@ module.exports = {
     message: 'Elasticsearch password',
     default: '',
     store: true
+  },
+  adminuser: {
+    name: 'adminuser',
+    type: 'string',
+    message: 'Drupal user name for E2E automation',
+    default: '',
+    store: true
+  },
+  adminpass: {
+    name: 'adminpass',
+    type: 'string',
+    message: 'Drupal user pass for E2E automation',
+    default: '',
+    store: true
   }
 }

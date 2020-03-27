@@ -1,0 +1,24 @@
+{
+  "took": 0,
+  "timed_out": false,
+  "_shards": { "total": 5, "successful": 5, "skipped": 0, "failed": 0 },
+  "hits": { "total": 3777, "max_score": 0.0, "hits": [] },
+  "aggregations": {
+    "field_topic_name_options": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 84,
+      "buckets": [
+        { "key": "Arts, culture and heritage", "doc_count": 174 },
+        { "key": "Business", "doc_count": 270 },
+        { "key": "Communities", "doc_count": 451 },
+        { "key": "Demo Topic", "doc_count": 5 },
+        { "key": "Education", "doc_count": 15 },
+        { "key": "Environment", "doc_count": 17 },
+        { "key": "Equality", "doc_count": 100 },
+        { "key": "Event", "doc_count": 1988 },
+        { "key": "Governance", "doc_count": 430 },
+        { "key": "Health", "doc_count": 145 }
+      ]
+    }
+  }
+}

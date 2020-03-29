@@ -48,9 +48,17 @@ Then(`there should be the following global notifications:`, (dataTable) => {
   })
 })
 
-Then(`the following section ids should exist:`, (dataTable) => {
+Then(`the following section title ids should exist:`, (dataTable) => {
   const sections = dataTable.rawTable.slice(1)
   sections.forEach((section) => {
-    cy.get(`section#${section}`).should('exist')
+    cy.get(`h2#${section}`).should('exist')
   })
+})
+
+Then(`the menu should have {int} top level items`, (number) => {
+  cy.get('.rpl-menu__items--root').children().should('have.length', number)
+})
+
+Then(`the page should scroll to {string}`, (selector) => {
+  cy.get(selector).then($el => $el[0].getBoundingClientRect()).its('y').should('lessThan', 1)
 })

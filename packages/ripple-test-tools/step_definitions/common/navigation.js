@@ -12,13 +12,23 @@ Given(`I visit the page {string}`, url => {
   })
 })
 
-Given(`I attempt to visit the page {string}`, url => {
+When(`I attempt to visit the page {string}`, url => {
   cy.visit(url, {
     auth: {
       username: Cypress.env('CONTENT_API_AUTH_USER'),
       password: Cypress.env('CONTENT_API_AUTH_PASS')
     },
     failOnStatusCode: false
+  })
+})
+
+Given(`I visit the page at alias {string}`, function (alias) {
+  cy.visit('/' + this[`${alias}`], {
+    auth: {
+      username: Cypress.env('CONTENT_API_AUTH_USER'),
+      password: Cypress.env('CONTENT_API_AUTH_PASS')
+    },
+    failOnStatusCode: true
   })
 })
 
@@ -74,6 +84,25 @@ Given(`the {string} route exists`, (slug) => {
   })
 })
 
+Given(`I visit the draft page {string}`, (slug) => {
+  const site = Cypress.env('SITE_ID') || '4'
+  cy.request({
+    url: `/api/v1/route?site=${site}&path=${slug}`,
+    auth: {
+      username: Cypress.env('CONTENT_API_AUTH_USER'),
+      password: Cypress.env('CONTENT_API_AUTH_PASS')
+    }
+  }).then(res => {
+    if (res.status === 200) {
+      cy.visit(`/preview/${res.body.data.attributes.bundle}/${res.body.data.attributes.uuid}/latest?section=${site}`)
+    }
+  })
+})
+
 Given(`I click the link {string}`, href => {
   cy.get(`a[href="${href}"]`).click()
+})
+
+Then(`the current page url should be {string}`, (url) => {
+  cy.url().should('contain', url)
 })

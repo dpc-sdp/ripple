@@ -85,9 +85,6 @@
     "vue-jest": "^3.0.4",
     "vuex-mock-store": "^0.0.7"
   },
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
-  },
   "browserslist": [
     "> 1%",
     "IE 11",

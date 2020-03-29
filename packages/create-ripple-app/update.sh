@@ -14,3 +14,7 @@ mv template/_tests/_common/test/e2e/fixtures template/_tests/_modules/test/e2e/f
 # Move snippets back
 mkdir -p template/_tests/_common/test/e2e/fixtures/snippets
 mv template/_tests/_modules/test/e2e/fixtures/snippets/* template/_tests/_common/test/e2e/fixtures/snippets/
+
+# Replace vic.gov.au with domain var
+
+find template/_tests/_modules/test/e2e/fixtures -name '*.yml' -exec sed -i '' -e 's/vic.gov.au/<%= domain %>/g' {} \;

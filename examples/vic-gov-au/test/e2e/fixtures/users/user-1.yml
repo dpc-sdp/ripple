@@ -1,5 +1,6 @@
 - entity: user
   status: 1
+  uid: 11221
   name: 'e2e-test-1@example.com'
   mail: 'e2e-test-1@example.com'
   roles:
@@ -8,3 +9,10 @@
         args:
           - 'user_role'
           - id: 'test_role'
+  field_user_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'

@@ -10,6 +10,6 @@ Feature: Quick exit
     And in the BE I click the "Save" button
 
   Scenario: FE - Check quick exit exists on page
-    Given I visit the page "/"
+    When I attempt to visit the page "/"
     Then the quick exit button should be present
     And the quick exit url should be "www.google.com"

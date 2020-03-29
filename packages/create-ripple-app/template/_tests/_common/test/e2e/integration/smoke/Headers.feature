@@ -7,7 +7,8 @@ Feature: App headers
     Given a request is made to "/"
     And the response header "x-sdp-app-type" should has value "ripple"
     And the response has header "section-cache-tags"
-
+  
+  @smoke
   Scenario: There are expected Tide API response headers
     Given a request is made to "/api/v1/route?site=4&path=/"
     And the response header "x-sdp-app-type" should has value "tide"

@@ -2,7 +2,8 @@ Feature: Event page
   As a citizen I can view information for all available content on an event page
 
   Scenario: BE - add event
-    Given in the backend there is a node at "/2-be-event-1" with "event/2-BE-event-1" data
+    Given I have logged into the backend
+    And in the backend there is a node at "/2-be-event-1" with "event/2-BE-event-1" data
 
   Scenario: Event Page loads correctly
     When I visit the page "/2-be-event-1"
@@ -20,9 +21,9 @@ Feature: Event page
     And the related links component should exist
     And the related links title should be "Related links"
     And the related links should contain the following links:
-      | title                              | url                                                   |
-      | State Government of  Victoria      | https://www.vic.gov.au                                |
-      | Department of Premier and  Cabinet | https://www.vic.gov.au/department-premier-and-cabinet |
+      | title                              | url                    |
+      | State Government of  Victoria      | https://www.google.com |
+      | Department of Premier and  Cabinet | https://www.google.com |
 
     # Social Sharing
     And the share this component should exist

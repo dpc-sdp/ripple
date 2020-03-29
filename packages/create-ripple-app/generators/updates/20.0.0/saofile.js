@@ -2,6 +2,7 @@ const fs = require('fs')
 const common = require('./../../common')
 const templateDir = './../../../template'
 
+// Update from release 18.0.0 to 20.0.0
 module.exports = {
   ...common,
   templateDir,
@@ -30,6 +31,8 @@ module.exports = {
           }
           // Upgrade nuxt
           data.dependencies['nuxt'] = `2.10.2`
+          // Make sure it has cross-env
+          data.devDependencies['cross-env'] = `^5.2.0`
           return data
         }
       }

@@ -30,7 +30,7 @@ export default function ({ $axios, app, res, error }) {
     // Set http status code if a route or preview request failed.
     if (routeRequest || authPreviewRequest) {
       // We hide 403 and show it as 404
-      if (statusCode > 400 && statusCode < 500) {
+      if (statusCode === 404 || statusCode === 403) {
         message = 'Page not found'
       } else if (statusCode > 499) {
         message = 'Error fetching page'

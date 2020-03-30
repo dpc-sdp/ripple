@@ -1,8 +1,13 @@
 - entity: node
   type: alert
   title: 1-BE-Alert-1 Demo Alert
-  uid: 1
   status: 1
+  path:
+    - pathauto: 0
+      alias: '/1-BE-Alert-1'
+  uid: 1
+  uuid: 0566c8c7-1deb-41a7-a6e3-86ac81341a93
+  nid: 81019
   moderation_state:
     - '#process':
         callback: reference
@@ -11,7 +16,7 @@
           - workflow: editorial
             moderation_state: published
   field_call_to_action:
-    - uri: https://<%= domain %>
+    - uri: https://www.google.com
       title: More details
   # Alert type.
   field_alert_type:
@@ -23,18 +28,6 @@
             name: 'Demo Alert Type'
   # Sites.
   field_node_site:
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Demo Site'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Demo Section 1'
     - '#process':
         callback: reference
         args:

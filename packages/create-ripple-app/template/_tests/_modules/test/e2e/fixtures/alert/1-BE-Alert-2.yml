@@ -1,8 +1,13 @@
 - entity: node
   type: alert
   title: 1-BE-Alert-2 Demo Alert
-  uid: 1
   status: 1
+  path:
+    - pathauto: 0
+      alias: '/1-BE-Alert-2'
+  uid: 1
+  uuid: 56f0477e-a819-4b2c-83b3-0afd7057d5fb
+  nid: 81020
   moderation_state:
     - '#process':
         callback: reference
@@ -11,7 +16,7 @@
           - workflow: editorial
             moderation_state: published
   field_call_to_action:
-    - uri: https://<%= domain %>
+    - uri: https://www.google.com
       title: More details
   # Alert type.
   field_alert_type:

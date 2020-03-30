@@ -3,6 +3,12 @@
   title: 1-FE-auth-content-4
   uid: 1
   status: 1
+  path:
+    - pathauto: 0
+      alias: '/1-FE-auth-content-4'
+  uid: 1
+  uuid: b66ab2d5-256f-44e0-a5af-b7fc4a38ef77
+  nid: 90774
   moderation_state:
     - '#process':
         callback: reference
@@ -48,11 +54,11 @@
     - entity: paragraph
       type: hero_banner_with_cta
       field_paragraph_cta:
-        - uri: https://www.vic.gov.au
+        - uri: https://www.google.com
           title: Phasellus congue
       field_paragraph_freetext: Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae
       field_paragraph_link_text:
-        - uri: https://vic.gov.au
+        - uri: https://www.google.com
           title: Nullam laoreet
       field_paragraph_background_image:
         - '#process':
@@ -106,7 +112,7 @@
         args:
           - taxonomy_term
           - vid: authenticated_content
-            name: 'test'
+            name: test
   field_tags:
     - '#process':
         callback: reference

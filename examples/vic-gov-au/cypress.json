@@ -6,7 +6,12 @@
   "screenshotsFolder": "test/e2e/screenshots",
   "supportFile": "test/e2e/support/index.js",
   "videosFolder": "test/e2e/videos",
-  "ignoreTestFiles": "*.js",
+  "ignoreTestFiles": [
+    "*.js",
+    "*.md"
+  ],
+  "snapshotFileName": "test/e2e/snapshots.js",
+  "projectId": "wtymar",
   "chromeWebSecurity": false,
-  "projectId": "wtymar"
+  "$schema": "https://on.cypress.io/cypress.schema.json"
 }

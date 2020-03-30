@@ -2,8 +2,11 @@
 Feature: Basic Page
   As a citizen I want to view a Basic page within the site
 
+  Scenario: BE - create basic page
+    Given I have logged into the backend
+    And in the backend there is a node at "/8-be-page-1-create-basic-page" with "page/8-BE-page-1-basic-page" data
+
   Scenario: 8-FE-page-2 View Basic Page 
-    Given the "/8-be-page-1-create-basic-page" page exists with fixture "page/8-BE-page-1-basic-page" data
     When I visit the page "/8-be-page-1-create-basic-page"
     # Page Header	
     Then the page title should be "8-BE-page-1 Create Basic page"
@@ -16,16 +19,16 @@ Feature: Basic Page
     And the related links component should exist
     And the related links title should be "Related links"
     And the related links should contain the following links:
-      | title                             | url                                                   | 
-      | Related Link external  text       | https://emergency.vic.gov.au/respond/#                |
-      | Department of Premier and  Cabinet | https://www.vic.gov.au/department-premier-and-cabinet |
+      | title                             | url                     | 
+      | Related Link external  text       | https://www.google.com  |
+      | Department of Premier and  Cabinet | https://www.google.com |
     # Whats Next
     And the whats next component should exist
     And the whats next title should be "What's next?"
     And the whats next links should be:
-      | title                                  | url                                                    |
-      | State Government of  Victoria           | https://www.vic.gov.au                                |             
-      | Department of Premier and  Cabinet      | https://www.vic.gov.au/department-premier-and-cabinet |
+      | title                                  | url                     |
+      | State Government of  Victoria           | https://www.google.com |             
+      | Department of Premier and  Cabinet      | https://www.google.com |
     # Share this
     And the share this component should exist
     And the share this component should have the title "Share this"

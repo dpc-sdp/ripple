@@ -1,9 +1,9 @@
-version: 2.0
+version: 2.1
 
 jobs:
   build:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:12.0.0
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -13,14 +13,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: v2-deps-{{ checksum "yarn.lock" }}
+          key: v3-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - packages/ripple-nuxt-tide/node_modules
@@ -40,7 +40,7 @@ jobs:
 
   warm-up:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:12.0.0
     steps:
       - run:
           name: wake up dev backend
@@ -48,7 +48,7 @@ jobs:
 
   test:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:12.0.0
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -60,9 +60,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js
@@ -94,7 +94,7 @@ jobs:
   e2e-vic-gov:
     # This runs the full suite of e2e tests
     docker:
-      - image: cypress/base:10
+      - image: cypress/browsers:node12.0.0-chrome73
         environment:
           TERM: xterm
           TZ: "Australia/Melbourne"
@@ -106,9 +106,43 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
+      - run:
+          name: run full e2e test
+          command: yarn test:e2e-vic
+      - run:
+          name: prepare cucumber test report
+          command: yarn test:report
+          when: always
+      - store_artifacts:
+          path: test-results
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/videos
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/screenshots
+
+  e2e-vic-gov-develop:
+    # Tests against the actual website using FQDN
+    docker:
+      - image: cypress/browsers:node12.0.0-chrome73
+        environment:
+          TERM: xterm
+          TZ: "Australia/Melbourne"
+          CYPRESS_BASE_URL: "https://www.develop.www.vic.gov.au"
+    working_directory: ~/app
+    parallelism: 1
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
       - run:
           name: run full e2e test
           command: yarn test:e2e-vic
@@ -128,7 +162,7 @@ jobs:
   e2e-example:
     # This runs the full suite of e2e tests
     docker:
-      - image: cypress/base:10
+      - image: cypress/browsers:node12.0.0-chrome73
         environment:
           TERM: xterm
     working_directory: ~/app
@@ -137,9 +171,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
       - run:
           name: build example nuxt app
           command: cd examples/basic-examples && yarn build:default
@@ -160,7 +194,7 @@ jobs:
 
   e2e-vue-example-app:
     docker:
-      - image: cypress/base:10
+      - image: cypress/browsers:node12.0.0-chrome73
         environment:
           TERM: xterm
     working_directory: ~/app
@@ -169,9 +203,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
@@ -199,9 +233,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
       - run:
           name: Set NPM_TOKEN
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
@@ -228,6 +262,7 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
+                - feature/update-e2e-tests
       - e2e-example:
           requires:
             - build
@@ -271,7 +306,7 @@ workflows:
           context: Ripple
           requires:
             - build
-      - e2e-vic-gov:
+      - e2e-vic-gov-develop:
           context: Ripple
           requires:
             - build

@@ -1,0 +1,19 @@
+- entity: media
+  bundle: embedded_video
+  name: 'Embedded video test - no transcript'
+  uid: 1
+  uuid: 90db91cb-eb81-41ee-b87f-6cee6ef67b86
+  mid: 17009
+  path:
+    - pathauto: 0
+      alias: '/test-embedded-video-no-transcript'
+  status: 1
+  field_media_video_embed_field: 'https://www.youtube.com/watch?v=pZRrtGYx7EM'
+  field_media_link: 'View transcript'
+  field_license_type:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: license_type
+            name: 'Demo License'

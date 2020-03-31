@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "cross-env BASIC_AUTH=0 nuxt",
     "build": "run-script-os",
-    "build:default": "if [ \"$NUXT_HOT_RELOADING\" != \"1\" ] ; then nuxt build; fi",
-    "build:win32": "IF \"%NUXT_HOT_RELOADING%\" NEQ \"1\" ( nuxt build )",
+    "build:default": "nuxt build --modern=client",
+    "build:win32": "nuxt build --modern=client",
     "cy:open": "cypress open",
     "cy:run": "cypress run -b chrome -e TAGS='not @skip or @smoke'",
     "cy:run-record": "cypress run -b chrome -e TAGS='not @skip or @smoke' --record  --parallel --group $CIRCLE_JOB",
@@ -18,9 +18,9 @@
     "test:e2e-local": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run",
     "test:unit": "cross-env BASIC_AUTH=0 NODE_ENV=test jest",
     "start": "run-script-os",
-    "start:default": "if [ \"$NUXT_HOT_RELOADING\" = \"1\" ] ; then nuxt; else nuxt start; fi",
-    "start:win32": "IF \"%NUXT_HOT_RELOADING%\" EQU \"1\" ( nuxt ) ELSE ( nuxt start )",
-    "start:build": "nuxt build && nuxt start"
+    "start:default": "nuxt start --modern=client",
+    "start:win32": "nuxt start --modern=client",
+    "start:build": "nuxt build --modern=client && nuxt start --modern=client"
   },
   "dependencies": {
     "@dpc-sdp/ripple-nuxt-tide": "1.6.0",

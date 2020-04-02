@@ -355,7 +355,7 @@ export default async function (context, pageData) {
     const image = mediaImage ? mediaImage.url : `${context.store.state.tide.protocol + '//' + context.store.state.tide.host}/img/social-media-image.jpg`
     const imageAlt = mediaImage ? mediaImage.meta.alt : ''
 
-    pageData.tidePage.head = {
+    context.store.dispatch('tide/setPageHead', {
       htmlAttrs: {
         lang: pageData.tidePage.langcode || 'en'
       },
@@ -379,7 +379,7 @@ export default async function (context, pageData) {
         { name: 'sitesection', content: siteSection ? siteSection.name : '' },
         { name: 'content-type', content: pageData.tidePage.type && pageData.tidePage.type.replace('node--', '') }
       ]
-    }
+    })
   }
 
   pageData.tideLayout = {

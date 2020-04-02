@@ -36,6 +36,11 @@ const searchMixin = {
         queryString = false
       }
 
+      // Set page title.
+      this.$store.dispatch('tide/setPageHead', {
+        title: queryString ? `Search results for "${queryString}"` : this.searchForm.title
+      })
+
       this.searchOptions.isMatchAll = Boolean(queryString)
 
       if (!Array.isArray(this.searchOptions.filterFromURI)) {

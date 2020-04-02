@@ -26,7 +26,8 @@ export default ({ app, req, store , route }, inject) => {
         protocol: null,
         currentUrl: null,
         siteData: null,
-        pageData: null
+        pageData: null,
+        pageHead: null
       }),
       mutations: {
         setHost (state, host) {
@@ -43,6 +44,9 @@ export default ({ app, req, store , route }, inject) => {
         },
         setPageData (state, pageData) {
           state.pageData = pageData
+        },
+        setPageHead (state, pageHead) {
+          state.pageHead = pageHead
         }
       },
       actions: {
@@ -86,6 +90,9 @@ export default ({ app, req, store , route }, inject) => {
         setPageData ({ commit }, pageData) {
           commit('setPageData', pageData)
         },
+        setPageHead ({ commit }, head) {
+          commit('setPageHead', head)
+        }
       }
     }
 

@@ -1,5 +1,6 @@
 const cucumber = require('cypress-cucumber-preprocessor').default
 const rippleTasks = require('@dpc-sdp/ripple-test-tools/tasks')
+const { audit, prepareAudit } = require('cypress-audit')
 // Environment variables that need exposing to cypress go here - use the example site .env file
 require('dotenv').config()
 
@@ -19,6 +20,13 @@ module.exports = (on, config) => {
   }
 
   on('task', rippleTasks)
+
+  // Cypress audit
+  on('before:browser:launch', (browser = {}, launchOptions) => {
+    prepareAudit(launchOptions)
+  })
+
+  on('task', {audit})
 
   return config
 }

@@ -2,6 +2,15 @@
 
 const { Then } = require('cypress-cucumber-preprocessor/steps')
 
+Then('should verify the lighthouse scores', () => {
+  cy.audit({
+    performance: 80,
+    accessibility: 90,
+    'best-practices': 79,
+    seo: 90
+  })
+})
+
 Then(`the page title should be {string}`, title => {
   cy.title().should('include', title)
 })

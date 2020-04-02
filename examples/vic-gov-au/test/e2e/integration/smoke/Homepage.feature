@@ -13,6 +13,10 @@ Feature: Home Page
     And the site header is visible
     And the site footer is visible
 
+  @audit
+  Scenario: There are no audit issue
+    And should verify the lighthouse scores
+
 # Need to fix existing errors or work out ruleset to skip
   @a11y @skip
   Scenario: There are no accessibility errors

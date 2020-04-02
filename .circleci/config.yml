@@ -77,6 +77,9 @@ jobs:
           name: run smoke test
           command: yarn test:smoke
       - run:
+          name: run lighthouse audit
+          command: yarn test:audit
+      - run:
           name: prepare cucumber test report
           command: yarn test:report
       - persist_to_workspace:

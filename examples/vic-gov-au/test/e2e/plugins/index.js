@@ -26,7 +26,7 @@ module.exports = (on, config) => {
     prepareAudit(launchOptions)
   })
 
-  on('task', {audit})
+  on('task', { audit })
 
   return config
 }

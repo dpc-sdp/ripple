@@ -29,6 +29,7 @@
     "test:smoke-vic": "cd examples/vic-gov-au/ && yarn test:smoke",
     "test:smoke-example": "cd examples/vic-gov-au/ && yarn test:smoke",
     "test:unit": "jest --colors",
+    "test:audit": "cd examples/vic-gov-au/ && yarn test:audit",
     "test:report": "node ./packages/ripple-test-tools/scripts/cucumberconvertor.js ./test-results/cucumber",
     "build:storybook": "cd src && yarn build-storybook",
     "build:vic-gov-au": "cd examples/vic-gov-au && yarn run build --modern=client",

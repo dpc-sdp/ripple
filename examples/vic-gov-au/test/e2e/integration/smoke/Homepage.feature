@@ -16,6 +16,11 @@ Feature: Home Page
   @audit
   Scenario: There are no audit issue
     And should verify the lighthouse scores
+      | metric            | threshold |
+      | performance       | 80        |
+      | accessibility     | 91        |
+      | best-practices    | 79        |
+      | seo               | 90        |
 
 # Need to fix existing errors or work out ruleset to skip
   @a11y @skip

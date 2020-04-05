@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const common = require('./../../common')
 const templateDir = './../../../template'
+const log = require('./../../../logger')
 
 module.exports = {
   ...common,
@@ -19,10 +20,19 @@ module.exports = {
           data.version = '22.0.0'
           data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `1.7.0`
           data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.7.0`
-          data.scripts['cy:run'] = `cypress run -b chrome -e TAGS='not @skip or @smoke'`
-          data.scripts['cy:record'] = `cypress run -b chrome -e TAGS='not @skip or @smoke' --record  --parallel --group $CIRCLE_JOB`
+          data.devDependencies['axe-core'] = `^3.5.2`
+          data.devDependencies['cypress'] = `^4.1.0`
+          data.devDependencies['cypress-axe'] = `^0.5.3`
+          data.devDependencies['cypress-cucumber-preprocessor'] = `^2.0.1`
+
+          data.scripts['cy:run'] = `cypress run -b chrome -e TAGS='not @skip or @smoke' --record  --parallel --group $CIRCLE_JOB`
           if (data['cypress-cucumber-preprocessor']) {
             data['cypress-cucumber-preprocessor'].step_definitions = 'test/e2e/integration/'
+            data['cypress-cucumber-preprocessor'].cucumberJson = {
+              generate: true,
+              outputFolder: 'test/e2e/results/cucumber',
+              filePrefix: results.name + '-'
+            }
           }
           return data
         }
@@ -62,12 +72,12 @@ module.exports = {
     if (results.e2e) {
       // only add tests for enabled modules
       results.modules.forEach(tideModule => {
-        const hasTests = fs.existsSync(path.resolve(__dirname, `${templateDir}/_tests/_modules/test/e2e/integration/core-modules/${tideModule}`))
+        const hasTests = fs.existsSync(path.resolve(__dirname, `${templateDir}/_tests/_modules/test/e2e/integration/modules/${tideModule}`))
         if (hasTests) {
           actions.push(
             {
               type: 'add',
-              files: [`./test/e2e/integration/core-modules/${tideModule}/**`, `./test/e2e/fixtures/${tideModule}/**`],
+              files: [`./test/e2e/integration/modules/${tideModule}/**`, `./test/e2e/fixtures/modules/${tideModule}/**`],
               transform: true,
               templateDir: `${templateDir}/_tests/_modules`
             }
@@ -79,6 +89,6 @@ module.exports = {
     return actions
   },
   async completed () {
-    console.log('Update to 22.0.0 complete!')
+    log('Update to 22.0.0 complete!')
   }
 }

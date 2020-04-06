@@ -1,7 +1,7 @@
 Feature: Protected content
 
-   As authorized I want to be able to login to the site so I can view pages which are not for the general public
-  
+   As authorized user I want to be able to login to the site so I can view pages which are not for the general public
+
   Scenario: BE - Setup environment
     Given I have logged into the backend
     And in the backend there is a role "test-role"

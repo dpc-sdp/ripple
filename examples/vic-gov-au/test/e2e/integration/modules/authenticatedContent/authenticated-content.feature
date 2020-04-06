@@ -5,7 +5,7 @@ Feature: Protected content
   Scenario: BE - Setup environment
     Given I have logged into the backend
     And in the backend there is a role "test-role"
-    And in the backend there is a user "users/user-1"
+    And in the backend there is a user "modules/authenticatedContent/user-1"
     And in the backend there is a node at "/authenticatedcontent/test-auth-term" with "modules/authenticatedContent/taxonomy" data
     # And the authenticated content term "test" has the role "test_role"
     And in the backend there is a node at "/1-fe-auth-content-4" with "modules/authenticatedContent/1-FE-auth-content-4" data

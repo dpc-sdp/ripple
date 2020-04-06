@@ -262,7 +262,7 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-                - feature/update-e2e-tests
+                - feature/fixturepaths
       - e2e-example:
           requires:
             - build

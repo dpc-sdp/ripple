@@ -15,4 +15,4 @@ Feature: Profile page
       | term                   | value                |
       | Inducted               | 2017                 | 
       | Category               | Trailblazer          |
-    And the order number 1 wysiwyg content contains fixture "profile/4-BE-Profile-1.html"
+    And the order number 1 wysiwyg content contains fixture "modules/profile/4-BE-Profile-1.html"

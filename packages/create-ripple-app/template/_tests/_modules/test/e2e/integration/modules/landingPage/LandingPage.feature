@@ -133,7 +133,7 @@ Feature: Landing page
       
     #  Latest Events
     And there should be a latest events titled "Demo latest events"
-    And the latest events titled "Demo latest events" should have 6 items
+    # And the latest events titled "Demo latest events" should have 6 items
     # Disabled as Latest Events data is not stable.
     # And the latest events titled "Demo latest events" should have the following items:
     #   | date          | title      | summary                                                                                                                                            | address                                                              | link        | linktext           |

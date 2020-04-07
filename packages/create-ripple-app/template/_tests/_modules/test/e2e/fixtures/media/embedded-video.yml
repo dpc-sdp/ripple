@@ -1,0 +1,20 @@
+- entity: media
+  bundle: embedded_video
+  name: 'Demo: Wodonga Local Aboriginal Network - Bringing People Together'
+  uid: 1
+  status: 1
+  uuid: fa4aba0b-a58a-40c2-9a8d-2234ed555577
+  mid: 17008
+  path:
+    - pathauto: 0
+      alias: '/test-embedded-video'
+  field_media_video_embed_field: 'https://www.youtube.com/watch?v=pZRrtGYx7EM'
+  field_media_link: 'View transcript'
+  field_media_transcript: 'this is the transcript'
+  field_license_type:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: license_type
+            name: 'Demo License'

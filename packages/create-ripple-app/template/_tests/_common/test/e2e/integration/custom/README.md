@@ -1,1 +1,0 @@
-**Please put any tests for custom functionality here. This folder will not be overridden by automated updates, whereas the other folders may be modified or deleted.**

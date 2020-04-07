@@ -71,54 +71,50 @@ const cli = async () => {
       targetVersion = 'latest'
     }
 
-    // Do auto updates for 18 release and above.
-    // TODO: It may will have issues when complex refactoring happened in several versions with one script.
-    // Can be reviewed later.
-    const minUpdateVersion = '18.0.0'
-    // Less than v18
-    if (compareVersions.compare(version, minUpdateVersion, '<=')) {
+    // Do auto updates for 16.0.1 release and above.
+    const minUpdateVersion = '16.0.1'
+    // Quit if project under minimum version requirement
+    if (compareVersions.compare(version, minUpdateVersion, '<')) {
       log('Cannot upgrade this version. Please use --forcenew flag to force new install.', 'error')
       process.exit(0)
     }
 
     log(`Your site ${outDir} current version is ${version}`)
 
-    // Upgrade to SDP 20.0.0
-    if (needUpdate(version, '20.0.0', targetVersion)) {
-      if (path.resolve(__dirname, `./generators/updates/20.0.0`)) {
-        generator = path.resolve(__dirname, `./generators/updates/20.0.0`)
-        log(`Updating ${outDir} to 20.0.0`)
+    // Load all update scripts
+    const dirs = p => fs.readdirSync(p).filter(f => fs.statSync(path.join(p, f)).isDirectory())
+    const updatesDir = path.join(__dirname, 'generators/updates')
+    let updates = dirs(updatesDir)
+    updates.splice(updates.indexOf('install'), 1)
+    updates = updates.sort(compareVersions)
 
-        await sao({ generator, outDir, logLevel: 2, config })
-          .run()
-          .catch((err) => {
-            console.trace(err)
-            process.exit(1)
-          })
+    // Run update saofile by given update name
+    const runUpdateScript = async (name) => {
+      generator = path.resolve(__dirname, `./generators/updates/${name}`)
+      if (name === 'install') {
+        log('Installing...')
+      } else {
+        log(`Updating ${outDir} to ${name}`)
+      }
+
+      await sao({ generator, outDir, logLevel: 2, config })
+        .run()
+        .catch((err) => {
+          console.trace(err)
+          process.exit(1)
+        })
+    }
+
+    // Run all updates in version orders
+    for (let i = 0; i < updates.length; i++) {
+      const toVersion = updates[i]
+      if (needUpdate(version, toVersion, targetVersion)) {
+        await runUpdateScript(toVersion)
       }
     }
 
-    // Upgrade to SDP 21.0.0
-    if (needUpdate(version, '21.0.0', targetVersion)) {
-      if (path.resolve(__dirname, `./generators/updates/21.0.0`)) {
-        generator = path.resolve(__dirname, `./generators/updates/21.0.0`)
-        log(`Updating ${outDir} to 21.0.0`)
-        await sao({ generator, outDir, logLevel: 2, config })
-          .run()
-          .catch((err) => {
-            console.trace(err)
-            process.exit(1)
-          })
-      }
-    }
-
-    generator = path.resolve(__dirname, `./generators/updates/install`)
-    await sao({ generator, outDir, logLevel: 2, config })
-      .run()
-      .catch((err) => {
-        console.trace(err)
-        process.exit(1)
-      })
+    // Install dependencies
+    await runUpdateScript('install')
   } else {
     generator = path.resolve(__dirname, './generators/new')
     log(`Generating a new ripple project in ${outDir}`)

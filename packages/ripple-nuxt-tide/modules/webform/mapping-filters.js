@@ -266,7 +266,7 @@ module.exports = {
         case 'address':
           data.model[eName] = {}
           group.fields = []
-          group.legend = 'Event location'
+          group.legend = element['#title'] ? element['#title'] : null
           let requiredAddress = false
           if (element['#required']) {
             requiredAddress = true

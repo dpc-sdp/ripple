@@ -24,9 +24,9 @@
       - format: rich_text
         value: |
           <h2>Victorian women say thank you</h2>
-          <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded_with_transcript" data-entity-type="media" data-entity-uuid="7be769bb-9e9f-4c63-9a79-6fbd6d3bf48d" data-langcode="en"></drupal-entity>
+          <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded_with_transcript" data-entity-type="media" data-entity-uuid="fa4aba0b-a58a-40c2-9a8d-2234ed555577" data-langcode="en"></drupal-entity>
           <p>In September 2019, recipients of the 2019 Queen’s Birthday Honours were presented with their Order of Australia medals, by the Governor at official ceremonies at Government House, Melbourne.</p>
-          <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid="36edb597-6253-40a0-845f-2de0c47f19e5" data-langcode="en"></drupal-entity>
+          <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid="90db91cb-eb81-41ee-b87f-6cee6ef67b86" data-langcode="en"></drupal-entity>
           <p>In April 2019, recipients of the 2019 Australian Day Honours were presented with their Order of Australia medals, by the Governor at official ceremonies at Government House, Melbourne.</p>
 
   # Other.

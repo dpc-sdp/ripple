@@ -38,7 +38,6 @@ Given(`in the backend there is a node at {string} with {string} data`, (url, fix
       cy.fixture(fixture + '.yml').then(yaml => {
         cy.get('[data-drupal-selector="edit-import"]').invoke('val', yaml)
         cy.get('[data-drupal-selector="edit-submit"]').click()
-        cy.url('')
       })
     }
   })

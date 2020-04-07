@@ -1,5 +1,6 @@
 const common = require('./../../common')
 const templateDir = './../../../template'
+const log = require('./../../../logger')
 
 module.exports = {
   ...common,
@@ -32,6 +33,6 @@ module.exports = {
       ...this.sao.opts.config
     }
     await this.npmInstall({ npmClient: results.pm })
-    console.log(`Update complete!`)
+    log(`Update complete!`)
   }
 }

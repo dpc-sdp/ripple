@@ -9,7 +9,7 @@ Feature: Anchor link
   Scenario: FE - Visit a url with anchor link via link
     When I visit the page "/anchorlink-test"
     And I click the link "/demo-landing-page#accordion-header-basic"
-    When I wait for 4 seconds
+    When I wait for 8 seconds
     Then the current page url should be "/demo-landing-page#accordion-header-basic"
     Then the page should scroll to "#accordion-header-basic"
 

@@ -136,7 +136,7 @@ const getCols = (cols, sidebar = false) => {
     return cols
   }
 
-  return {}
+  return null
 }
 
 const getClass = (component, sidebar = false) => {

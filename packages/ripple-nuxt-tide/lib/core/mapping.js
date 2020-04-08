@@ -300,7 +300,7 @@ export class Mapping {
     //   wide: { l: 4 },
     //   narrow: { l: 6 }
     // }
-    return itemConfig.childCols || {}
+    return itemConfig.childCols || null
   }
 
   [_getName] (itemConfig) {

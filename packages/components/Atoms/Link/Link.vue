@@ -47,7 +47,7 @@ export default {
           return '_blank'
         }
       } else {
-        return this.target
+        return this.target.length > 0 ? this.target : false
       }
     }
   },

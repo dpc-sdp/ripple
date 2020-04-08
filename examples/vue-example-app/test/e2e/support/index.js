@@ -13,5 +13,4 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import 'cypress-axe'
-import './commands'
+require('@dpc-sdp/ripple-test-tools/commands')

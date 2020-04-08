@@ -62,6 +62,7 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
+    "step_definitions": "test/e2e/integration/",
     "cucumberJson": {
       "generate": true,
       "outputFolder": "./../../test-results/cucumber",

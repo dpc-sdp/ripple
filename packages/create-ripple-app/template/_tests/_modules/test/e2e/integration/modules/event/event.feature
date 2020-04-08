@@ -43,4 +43,4 @@ Feature: Event page
       | https://www.google.com.au/maps?q=Department%20of%20Premier%20and%20Cabinet,%20GPO%20Box%204509,%20Melbourne,%20VIC%203001 | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001 |
       | tel:1300366356                                                                                                            | Calls in Australia 1300 366 356                                      |
       | tel:+61396038804                                                                                                          | Calls from overseas +61 3 9603 8804                                  |
-      | mailto:no-reply@vic.gov.au                                                                                                | no-reply@vic.gov.au                                                  |
+      | mailto:no-reply@domain.com                                                                                                | no-reply@domain.com                                                  |

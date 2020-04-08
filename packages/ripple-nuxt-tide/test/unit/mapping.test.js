@@ -157,7 +157,7 @@ describe('mapping', () => {
         g: null
       },
       class: ['test-class-a', 'test-class-b'],
-      childCols: {},
+      childCols: null,
       cols: {
         wide: { l: 6 },
         narrow: {}
@@ -190,7 +190,7 @@ describe('mapping', () => {
         g: null
       },
       class: ['test-class-a', 'test-class-b'],
-      childCols: {},
+      childCols: null,
       cols: {
         wide: { l: 6 },
         narrow: {}
@@ -276,7 +276,7 @@ describe('mapping', () => {
         a: [2, 4, 6, 8]
       },
       class: [],
-      childCols: {},
+      childCols: null,
       cols: {},
       ssr: true
     }]
@@ -299,7 +299,7 @@ describe('mapping', () => {
         a: []
       },
       class: [],
-      childCols: {},
+      childCols: null,
       cols: {},
       ssr: true
     }]
@@ -324,7 +324,7 @@ describe('mapping', () => {
         a: 'value a'
       },
       class: [],
-      childCols: {},
+      childCols: null,
       cols: {},
       ssr: true
     }

@@ -53,7 +53,7 @@
 
       <template slot="belowContent">
         <component class="rpl-site-constrain--on-all" v-if="campaignSecondary" :is="campaignSecondary.component" v-bind="campaignSecondary.data"></component>
-        <app-content-rating v-if="page.field_show_content_rating" class="rpl-site-constrain--on-all"/>
+        <component :is="contentRating" class="rpl-site-constrain--on-all"></component>
       </template>
 
     </rpl-page-layout>
@@ -70,7 +70,6 @@ import RplAccordion from '@dpc-sdp/ripple-accordion'
 
 // App.
 import AppError from '../components/AppError'
-import AppContentRating from '../components/AppContentRating'
 import AppSidebar from '../components/AppSidebar'
 import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 
@@ -91,7 +90,6 @@ import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib
 export default {
   components: {
     AppError,
-    AppContentRating,
     AppSidebar,
     RplAccordion,
     RplHeroBanner,
@@ -207,6 +205,12 @@ export default {
       } else {
         return false
       }
+    },
+    contentRating () {
+      if (this.page.field_show_content_rating && this.$tide.isModuleEnabled('webform')) {
+        return () => import('@dpc-sdp/ripple-nuxt-tide/modules/webform/components/TideContentRating')
+      }
+      return false
     }
   },
   async asyncData (context) {

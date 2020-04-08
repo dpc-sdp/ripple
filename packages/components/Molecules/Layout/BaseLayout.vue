@@ -1,5 +1,6 @@
 <template>
   <div class="rpl-site-layout">
+    <slot name="alert"></slot>
     <rpl-skip-link />
     <header class="rpl-site-header-container">
       <slot name="header"></slot>

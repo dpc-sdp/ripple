@@ -6233,6 +6233,7 @@ exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `
 <div
   class="rpl-site-layout"
 >
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -6465,6 +6466,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"
@@ -6758,6 +6760,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
 <div
   class="rpl-site-layout demo"
 >
+   
   <div
     class="rpl-skip-link"
     id="rpl-skip-link"

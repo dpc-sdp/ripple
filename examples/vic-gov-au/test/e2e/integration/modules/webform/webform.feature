@@ -24,7 +24,7 @@ Feature: Webform
       | I have read and understand how Department of Premier and Cabinet stores information. | true                  | checkbox   |
       
     And I click the form submit button "Submit"
-    When I wait for 5 seconds
+    When I wait for 10 seconds
     Then I should see the form success message
   
   Scenario: FE - test form submission failure
@@ -44,7 +44,7 @@ Feature: Webform
       | I have read and understand how Department of Premier and Cabinet stores information. | true                  | checkbox   |
       
     And I click the form submit button "Submit"
-    When I wait for 5 seconds
+    When I wait for 10 seconds
     Then I should see the form failure message
   
   Scenario: FE - test form validation

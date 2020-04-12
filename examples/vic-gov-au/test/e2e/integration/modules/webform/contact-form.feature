@@ -31,7 +31,6 @@ Feature: Contact form
       | I have read and understand how Department of Premier and Cabinet stores information. | true              | checkbox |
 
     And I click the form submit button "Submit"
-    When I wait for 5 seconds
     Then I should see the form failure message
   
   Scenario: Submit a contact form - validation

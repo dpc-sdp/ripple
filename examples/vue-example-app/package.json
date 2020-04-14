@@ -21,6 +21,7 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@dpc-sdp/ripple-test-tools": "1.6.0",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-service": "^3.8.0",

@@ -97,23 +97,32 @@
     $_container-margin: rpl_grid_get_gutter($grid) / 2;
 
     @if unit(rpl_grid_get_gutter($grid)) == '%' {
-      $_container-margin: ((rpl_grid_get_gutter($grid) + 99.99%) * (rpl_grid_get_gutter($grid) / 100%)) / 2;
+      $_container-margin: ((rpl_grid_get_gutter($grid) + 100%) * (rpl_grid_get_gutter($grid) / 100%)) / 2;
     }
 
     margin-left: $_container-margin * -1;
     margin-right: $_container-margin * -1;
-    width: calc(99.99% + #{$_container-margin} * 2);
+    width: calc(100% + #{$_container-margin} * 2);
   } @else {
-    width: 99.99%;
+    width: 100%;
   }
 }
 
 @mixin rpl_grid_row_gutter($row-gutter: rpl-grid-get-row-gutter($rpl-grid)) {
   > div {
     @if type-of($row-gutter) == map {
+      $_rpl_grid_row_gutter_print: false;
       @each $bp, $gutter in $row-gutter {
         @include rpl_breakpoint($bp) {
           margin-bottom: $gutter;
+        }
+
+        @if $_rpl_grid_row_gutter_print == false {
+          $_rpl_grid_row_gutter_print: true;
+          // Add margin to print as well
+          @media print {
+            margin-bottom: $gutter;
+          }
         }
       }
     } @else {

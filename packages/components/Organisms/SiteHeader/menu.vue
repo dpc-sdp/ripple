@@ -27,7 +27,7 @@
               <rpl-icon symbol="left" color="white" />
               <span class="rpl-visually-hidden">Close {{ title }} and return to </span><span>{{ backTitle }}</span>
             </button>
-            <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url">{{ parent.text }}</rpl-link>
+            <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url" :target="parent.target">{{ parent.text }}</rpl-link>
           </div>
           <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
             <li
@@ -44,6 +44,7 @@
                 v-if="!list.children"
                 class="rpl-menu__item-link"
                 :href="list.url"
+                :target="list.target"
                 @focus="onItemFocus"
               >
                 {{ list.text }}
@@ -232,6 +233,7 @@ export default {
   $rpl-menu-vertical-heading-margin: ($rpl-space * 6) auto $rpl-space-3 auto !default;
   $rpl-menu-vertical-items-padding: 0 ($rpl-space * 6) !default;
   $rpl-menu-vertical-header-padding: $rpl-menu-vertical-items-padding !default;
+  $rpl-menu-vertical-back-color: rpl-color('white') !default;
   $rpl-menu-vertical-back-icon-margin: auto $rpl-space auto 0 !default;
   $rpl-menu-horizontal-items-root-link-color: rpl-color('white') !default;
   $rpl-menu-horizontal-items-root-margin: auto ($rpl-space * 7) auto auto !default;
@@ -246,6 +248,7 @@ export default {
   $rpl-menu-item-link-padding: $rpl-space-4 $rpl-menu-item-link-indent $rpl-space-4 0 !default;
   $rpl-menu-item-link-padding-active: $rpl-space-4 $rpl-menu-item-link-indent !default;
   $rpl-menu-item-link-color: $rpl-menu-text-color !default;
+  $rpl-menu-item-link-color-hover: $rpl-menu-text-color !default;
   $rpl-menu-item-link-background-color-hover: rpl-color('primary') !default;
   $rpl-menu-item-link-background-image-active: rpl-gradient('primary_gradient') !default;
   $rpl-menu-item-link-color-active: $rpl-menu-text-color !default;
@@ -352,7 +355,7 @@ export default {
 
     .rpl-menu__back {
       @include rpl_typography_font('xs', 1em, 'bold');
-      color: rpl-color('white');
+      color: $rpl-menu-vertical-back-color;
       background-color: transparent;
       border: 0;
       padding: 0;
@@ -533,7 +536,7 @@ export default {
 
   .rpl-menu--vertical,
   .rpl-menu--horizontal-floating-wrapper,
-  .rpl-menu--horizontal .rpl-menu--subs, {
+  .rpl-menu--horizontal .rpl-menu--subs {
     .rpl-menu__item {
       border-top: $rpl-menu-item-border;
 
@@ -580,7 +583,7 @@ export default {
         border-radius: $rpl-menu-item-link-border-radius;
         align-items: center;
         padding: $rpl-menu-item-link-padding-active;
-        color: $rpl-menu-item-link-color;
+        color: $rpl-menu-item-link-color-hover;
 
         span {
           margin-right: 0;

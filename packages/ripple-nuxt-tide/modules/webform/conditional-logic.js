@@ -1,8 +1,14 @@
+import { logger } from './../../lib/core'
+
 /**
  * Run tests for field.
  * Will update the field object based on it's state.
  * Supports the following states:
  * - required
+ * - disabled
+ * - enabled
+ * - visible
+ * - invisible
  * @param {Object} field
  * @param {Object} data uses data.model property
  */
@@ -23,8 +29,27 @@ function testField (field, data) {
           field.validator.splice(idxRequired, 1)
         }
         break
+
+      case 'disabled':
+        field.disabled = isPass
+        break
+
+      case 'enabled':
+        const enable = isPass
+        field.disabled = !enable
+        break
+
+      case 'visible':
+        field.visible = isPass
+        break
+
+      case 'invisible':
+        const invisible = isPass
+        field.visible = !invisible
+        break
+
       default:
-        console.warn(`Form: State "${state}" is not supported.`)
+        logger.warn('Form: State "%s" is not supported.', state, { label: 'Webform' })
         break
     }
   }
@@ -63,7 +88,7 @@ function prepareTest (rulesObject, data) {
       })
       break
     default:
-      console.warn(`Form: "${rulesType}" rules variable is not supported.`)
+      logger.warn('Form: %s rules variable is not supported.', rulesType, { label: 'Webform' })
       break
   }
 
@@ -111,9 +136,11 @@ function performTriggerCheck (rule) {
       result = (rule.modelValue != null && rule.modelValue.length > 0)
       break
     case 'checked':
+      // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
       result = (rule.modelValue === true)
       break
     case 'unchecked':
+      // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
       result = (rule.modelValue == null || rule.modelValue === false)
       break
     case 'value':
@@ -150,7 +177,7 @@ function performTriggerCheck (rule) {
       result = (rule.modelValue !== rule.triggerValue)
       break
     default:
-      console.warn(`Form: Trigger "${rule.triggerName}" is not supported.`)
+      logger.warn('Form: Trigger %s is not supported.', rule.triggerName, { label: 'Webform' })
       break
   }
   return result
@@ -194,7 +221,7 @@ function performOperatorCheck (operator, results) {
       isPass = (xorCount === 1)
       break
     default:
-      console.warn(`Form: Opeator "${operator}" not supported.`)
+      logger.warn('Form: Operator %s not supported.', operator, { label: 'Webform' })
       break
   }
   return isPass

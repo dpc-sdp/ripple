@@ -30,6 +30,19 @@ $rpl-font-display-background-line-height: (
   'xxs': rem(17px + 2px)
 ) !default;
 
+$rpl-font-display-background-padding: (
+  'tera': rem(16px),
+  'xgiga': rem(10px),
+  'giga': rem(10px),
+  'mega': rem(8px),
+  'xl': rem(8px),
+  'l': rem(8px),
+  'm': rem(8px),
+  's': rem(8px),
+  'xs': rem(8px),
+  'xxs': rem(8px)
+) !default;
+
 $rpl-fonts: (
   'regular': ('VIC-Regular', 'Arial', 'Helvetica', 'sans-serif'),
   'medium': ('VIC-Medium', 'Arial', 'Helvetica', 'sans-serif'),

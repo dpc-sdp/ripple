@@ -1,7 +1,9 @@
+import logger from './logger'
+import { mergeIncludes } from './tide-helper'
+import kebabCase from 'lodash/kebabCase'
 const path = require('path')
 const fs = require('fs')
 const appDir = require('app-root-path')
-const kebabCase = require('lodash.kebabcase')
 
 // Groups of our configs
 const configGroups = {
@@ -121,7 +123,8 @@ const getConfigPath = (group, item, moduleName = null) => {
 
   if (fs.existsSync(path.resolve(configFilePath, `${item.filename}.js`))) {
     if (process.env.TIDE_DEBUG) {
-      console.info('Tide config file is found: ', path.resolve(configFilePath, `${item.filename}.js`))
+      const configFile = path.resolve(configFilePath, `${item.filename}.js`)
+      logger.debug('Tide config file is found: %s', configFile)
     }
     return configPath + item.filename
   } else {
@@ -209,7 +212,18 @@ export const build = (tideConfig, _this) => {
   buildCustomRootConfig(tideConfig, _this)
   // Build custom modules
   buildCustomModules(tideConfig, _this)
+
+  // Merge configs for errorPage
+  mergeIncludes()
+
+  // Merge extend configs from each enabled sub module.
+  let errorPageConfig = {}
+  tideConfig.extendConfigs.forEach((extendConfig) => {
+    errorPageConfig = mergeIncludes(errorPageConfig, extendConfig.errorPage)
+  })
+  tideConfig._errorPage = mergeIncludes(errorPageConfig, tideConfig.customConfig.errorPage)
+
   if (process.env.TIDE_DEBUG) {
-    console.info('Tide configuration:', tideConfig)
+    logger.debug('Tide configuration: %O', tideConfig)
   }
 }

@@ -1,9 +1,9 @@
 <template>
-  <rpl-base-layout>
+  <rpl-base-layout :class="{ 'tide-preview-mode': preview }">
     <template slot="header">
       <rpl-alert-base class="app-preview" v-if="preview">Draft only and not yet published</rpl-alert-base>
-      <no-ssr>
-        <component v-if="alert" :is="alert" />
+      <client-only>
+        <component v-if="alerts" :is="alerts" />
         <rpl-site-header
           :logo="header.logo"
           :links="nav"
@@ -25,7 +25,7 @@
             :showLogout="false"
           />
         </template>
-      </no-ssr>
+      </client-only>
     </template>
 
     <nuxt/>
@@ -36,6 +36,7 @@
         :links="footer.links"
         :copyright="footer.copyright"
         :acknowledgement="footer.acknowledgement"
+        :caption="footerCaption"
         :logos="footer.logos"
         />
     </template>
@@ -49,6 +50,7 @@ import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 
 export default {
   components: {
@@ -76,7 +78,7 @@ export default {
     }
   },
   computed: {
-    alert () {
+    alerts () {
       if (this.$tide.isModuleEnabled('alert')) {
         return () => import('@dpc-sdp/ripple-nuxt-tide/modules/alert/components/TideAlert.vue')
       }
@@ -93,9 +95,27 @@ export default {
         return isPreview(this.$store)
       }
       return false
+    },
+    footerCaption () {
+      return this.$store.state.tide.pageData ? this.$store.state.tide.pageData.imageCaption : null
+    }
+  },
+  mounted () {
+    // https://github.com/nuxt/nuxt.js/issues/183#issuecomment-276528719
+    // Seems like nuxt doesn't pass url hash to vue router in SSR.
+    // That means anchor link url like "/ndis-quality-and-safeguards#ndis-worker-screening" won't work in SSR.
+    // Here is a workaround inspired by https://forum.vuejs.org/t/how-to-handle-anchors-bookmarks-with-vue-router/14563/5
+    if (this.$route.hash) {
+      this.anchorScrollFix(this.$route.hash)
     }
   },
   methods: {
+    anchorScrollFix (hashbang) {
+      const elmnt = document.querySelector(hashbang)
+      if (elmnt) {
+        elmnt.scrollIntoView()
+      }
+    },
     async logoutFunc () {
       if (this.$tide.isModuleEnabled('authenticatedContent')) {
         try {
@@ -103,9 +123,11 @@ export default {
           clientClearToken(this.$store)
           this.$router.push({ path: '/' })
         } catch (e) {
+          // TODO: we should display error to user instead of log here.
           console.log(`Tide logout failed`)
         }
       } else {
+        // TODO: we should display error to user instead of log here.
         console.warn(`Authentication module is disabled - unable to log out`)
       }
     },
@@ -113,7 +135,7 @@ export default {
       // Go to search result page.
       // If already on search result page, rebuild the page from server so we can run async data.
       if (this.$route.path !== '/search') {
-        this.$tideSearch.searchPageRedirect('/search', searchInput)
+        searchPageRedirect(this.$router, '/search', searchInput)
       } else {
         window.location.href = `/search?q=${searchInput}`
       }
@@ -158,4 +180,18 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 @import "~@dpc-sdp/ripple-nuxt-tide/lib/components/scss/wysiwyg/_embedded-entity-video.scss";
 @import "~@dpc-sdp/ripple-nuxt-tide/lib/components/scss/wysiwyg/_embedded-entity.scss";
+
+// In preview mode, make the error components visible.
+.tide-preview-mode {
+  .rpl-child-component-error {
+    display: block;
+    background-color: $rpl-child-component-error-bg-color;
+
+    &:before {
+      content: "[Ripple Warn] Something wrong to render this component. This message won't show on production.";
+      color: $rpl-danger-color;
+      padding: $rpl-space-4;
+    }
+  }
+}
 </style>

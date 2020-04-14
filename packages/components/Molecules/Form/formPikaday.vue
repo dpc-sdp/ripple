@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { defaults } from 'lodash'
+import defaults from 'lodash/defaults'
 import moment from 'moment'
 import RplIcon from '@dpc-sdp/ripple-icon'
 

@@ -37,13 +37,13 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-section-menu-background-color: rpl_color('dark_primary');
-  $rpl-section-menu-padding: ($rpl-space * 6) 0;
-  $rpl-section-menu-border-radius: rem(4px);
-  $rpl-section-menu-title-ruleset: ('l', 1.2em, 'bold');
-  $rpl-section-menu-title-color: rpl_color('white');
-  $rpl-section-menu-title-padding: 0 ($rpl-space * 8);
-  $rpl-section-menu-title-margin: 0 0 $rpl-space-2;
+  $rpl-section-menu-background-color: rpl_color('dark_primary') !default;
+  $rpl-section-menu-padding: ($rpl-space * 6) 0 !default;
+  $rpl-section-menu-border-radius: rem(4px) !default;
+  $rpl-section-menu-title-ruleset: ('l', 1.2em, 'bold') !default;
+  $rpl-section-menu-title-color: rpl_color('white') !default;
+  $rpl-section-menu-title-padding: 0 ($rpl-space * 8) !default;
+  $rpl-section-menu-title-margin: 0 0 $rpl-space-2 !default;
 
   .rpl-site-section-navigation {
     background-color: $rpl-section-menu-background-color;

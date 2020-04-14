@@ -1,4 +1,5 @@
 import coreComponents from './../config/tide.load-components'
+import logger from './logger'
 
 // The order of loading dynamic components config is custom module > custom root > core modules > core.
 const loadComponent = (name, dynamicComponentsConfig) => {
@@ -87,12 +88,6 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return 'rpl-image-gallery'
     case 'rpl-accordion':
       return () => import(/* webpackChunkName: 'rpl-accordion' */ '@dpc-sdp/ripple-accordion')
-    case 'tide-vic-free-wifi-map':
-      // this is already mounted in no-ssr
-      return 'tide-vic-free-wifi-map'
-    case 'tide-map-prevention-family-violence':
-      // this is already mounted in no-ssr
-      return 'tide-map-prevention-family-violence'
     case 'app-form':
       return () => import(/* webpackChunkName: 'app-form' */ '@dpc-sdp/ripple-nuxt-tide/lib/components/AppForm')
     case 'tide-login':
@@ -102,7 +97,7 @@ const loadComponent = (name, dynamicComponentsConfig) => {
         return coreComponents[name]
       } else {
         if (process.server) {
-          console.error(`Failed to load component: ${name}`)
+          logger.error(`Couldn't find component "%s" in mapping config.`, name)
         }
         return null
       }

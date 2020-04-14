@@ -66,13 +66,15 @@ const parentlinks = {
         return branch.map(item => {
           let newitem = {
             text: item.text,
-            url: item.url
+            url: item.url,
+            target: item.target
           }
           if (item.children) {
             newitem.children = this.generateParentLinks(item.children)
             newitem.children.unshift({
               text: item.text,
-              url: item.url
+              url: item.url,
+              target: item.target
             })
           }
           return newitem

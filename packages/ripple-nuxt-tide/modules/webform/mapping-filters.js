@@ -1,6 +1,7 @@
 module.exports = {
   // Convert Drupal webform data struture to Vue Form Generator structure
   webform: async (drupalFormEntity, { mapping }) => {
+    const stringToClass = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper').stringToClass
     const elements = drupalFormEntity.elements
     // Below data structure is following VFG 2.2.3.
     // `tideId`, `formState` and `messages` are our own custom properties.
@@ -50,7 +51,8 @@ module.exports = {
       const field = {
         type: null,
         model: eName,
-        validator: []
+        validator: [],
+        styleClasses: ['tide-webform-field']
       }
 
       const group = {}
@@ -59,6 +61,8 @@ module.exports = {
       // TODO: If elementName is `reset`, add a custom reset(cancel) button.
       if (element['#title']) {
         field.label = element['#title']
+        const fieldClass = 'tide-webform-field--' + stringToClass(element['#title'])
+        field.styleClasses.push(fieldClass)
       }
 
       if (element['#placeholder']) {
@@ -80,6 +84,27 @@ module.exports = {
         field.states = element['#states']
       }
 
+      if (element['#maxlength']) {
+        field.max = element['#maxlength']
+      }
+
+      if (element['#minlength']) {
+        field.min = element['#minlength']
+      }
+
+      if (element['#counter_type']) {
+        field.counter_type = element['#counter_type']
+
+        // We use our own property for word count validation to avoid browser validation
+        if (element['#counter_type'] === 'word') {
+          field.rplWordCountMax = element['#counter_maximum']
+          field.rplWordCountMin = element['#counter_minimum']
+        } else {
+          field.max = element['#counter_maximum']
+          field.min = element['#counter_minimum']
+        }
+      }
+
       switch (element['#type']) {
         case 'hidden':
           field.type = 'input'
@@ -89,6 +114,12 @@ module.exports = {
         case 'textfield':
           field.type = 'input'
           field.inputType = 'text'
+
+          if (field.counter_type === 'word') {
+            field.validator.push('rplWordCount')
+          } else {
+            field.validator.push('string')
+          }
           break
 
         case 'number':
@@ -108,18 +139,25 @@ module.exports = {
         case 'email':
           field.type = 'input'
           field.inputType = 'email'
-          field.validator.push('email')
+          field.validator.push('email', 'string')
           break
 
         case 'tel':
           field.type = 'input'
           field.inputType = 'tel'
+          field.validator.push('string')
           break
 
         case 'radios':
           field.type = 'radios'
+          const defaultValue = element['#default_value']
           const fields = element['#options']
           field.values = []
+
+          if (defaultValue && fields[defaultValue]) {
+            data.model[eName] = defaultValue
+          }
+
           for (let key in fields) {
             if (fields.hasOwnProperty(key)) {
               field.values.push({ name: fields[key], value: key })
@@ -129,6 +167,24 @@ module.exports = {
 
         case 'textarea':
           field.type = 'textArea'
+
+          // If we're using string validation, VFG sets maxlength in the browser, and
+          // cuts off over limit text instead of displaying an error.
+          // We add a hint to let the user know of the character limit.
+          if (field.max) {
+            if (field.counter_type !== 'word') {
+              let fieldMaxMessage = 'Character limit is ' + field.max + '.'
+
+              field.hint = field.hint ? `${field.hint} ${fieldMaxMessage}` : fieldMaxMessage
+            }
+          }
+
+          if (field.counter_type === 'word') {
+            field.validator.push('rplWordCount')
+          } else {
+            field.validator.push('string')
+          }
+
           break
 
         case 'checkbox':
@@ -200,6 +256,7 @@ module.exports = {
         case 'url':
           field.type = 'input'
           field.inputType = 'url'
+          field.validator.push('string')
           break
 
         case 'webform_horizontal_rule':
@@ -209,7 +266,7 @@ module.exports = {
         case 'address':
           data.model[eName] = {}
           group.fields = []
-          group.legend = 'Event location'
+          group.legend = element['#title'] ? element['#title'] : null
           let requiredAddress = false
           if (element['#required']) {
             requiredAddress = true
@@ -334,8 +391,9 @@ module.exports = {
       } else if (!group.hasOwnProperty('fields') && field.type !== null) {
         data.schema.groups.push({ 'fields': [field] })
       } else {
+        const logger = require('@dpc-sdp/ripple-nuxt-tide/lib/core').logger
         if (process.server) {
-          console.error(new Error(`Webform element type "${element['#type']}" is not supported in nuxt-tide at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`))
+          logger.warn(`Webform element type "%s" is not supported in "ripple-nuxt-tide" at this stage, please ask site admin to remove it from relative Tide webform or addd support for it.`, element['#type'], { label: 'Webform' })
         }
       }
     }

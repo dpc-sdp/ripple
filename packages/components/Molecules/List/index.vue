@@ -12,7 +12,7 @@
     </h2>
     <slot name="above-list"></slot>
     <div v-if="list" class="rpl-list__list">
-      <div v-for="(item, index) in list" :key="index" class="rpl-list__list-item">
+      <div v-for="(item, index) in list" :key="`${index}-${item.id}`" :data-tid="testId(item)" class="rpl-list__list-item">
         <span class="rpl-list__icon">
           <rpl-icon v-if="item.symbol" :symbol="item.symbol" :color="item.color || iconColor" :size="iconSize(item)" /></span>
           <rpl-link v-if="item.link" :href="item.link" class="rpl-list__text">{{ item.text }}</rpl-link>
@@ -46,6 +46,9 @@ export default {
     iconSize (item) {
       const size = (item.size ? item.size : 1) * this.iconScale
       return size.toString()
+    },
+    testId (item) {
+      return item.id ? item.id : null
     }
   }
 }
@@ -65,7 +68,7 @@ export default {
   $rpl-list-text-padding: 0 0 $rpl-space-3 !default;
   $rpl-list-icon-normal-padding: 0 $rpl-space-2 $rpl-space-3 0 !default;
   $rpl-list-icon-large-padding: 0 $rpl-space-3 $rpl-space-3 0 !default;
-  $rpl-list-text-normal-ruleset: ('xs', 1em, 'medium') !default;
+  $rpl-list-text-normal-ruleset: ('xs', 1.14em, 'medium') !default;
   $rpl-list-text-large-ruleset: ('s', 1.5em, 'bold') !default;
 
   .rpl-list {
@@ -113,6 +116,7 @@ export default {
       @include rpl_text_color($rpl-list-link-color);
       display: table-cell;
       padding: $rpl-list-text-padding;
+      word-break: break-word;
 
       #{$root}--normal & {
         @include rpl_typography_ruleset($rpl-list-text-normal-ruleset);

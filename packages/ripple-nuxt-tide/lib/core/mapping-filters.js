@@ -125,5 +125,14 @@ export default {
         id: doc.id
       }
     })
+  },
+  campaignCaption: (fieldCampaign) => {
+    const hasImage = fieldCampaign.field_block_image
+    const hasCaption = fieldCampaign.field_show_c_primary_caption
+    return (hasCaption && hasImage) ? fieldCampaign.field_block_image.field_media_caption : null
+  },
+  formattedTextDecode: (formattedText) => {
+    const decodeSpecialCharacters = require('@dpc-sdp/ripple-global/utils/helpers.js').decodeSpecialCharacters
+    return decodeSpecialCharacters(formattedText.processed)
   }
 }

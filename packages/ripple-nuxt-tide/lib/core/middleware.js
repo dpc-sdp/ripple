@@ -1,11 +1,13 @@
 import { metatagConverter, pathToClass } from './tide-helper'
 import { isTokenExpired, clientGetToken, serverGetToken, clientClearToken, clientSetProperties } from '../../modules/authenticated-content/lib/authenticate'
 import { isPreviewPath } from '../../modules/authenticated-content/lib/preview'
+import { clientDoNotTrack, serverDoNotTrack } from './tracking'
+import logger from './logger'
 
 // Fetch page data from Tide API by current path
-export default async function (context, results) {
-  results.tidePage = null
-  results.tideErrorType = null
+export default async function (context, pageData) {
+  pageData.tidePage = null
+  pageData.tideErrorType = null
 
   // TODO: refactor below page process logic.
   // Currently we just put logic here for a quick work,
@@ -37,6 +39,8 @@ export default async function (context, results) {
     }
   }
 
+  const headersConfig = { authToken, requestId: context.route.requestId }
+
   try {
     let response = null
 
@@ -46,9 +50,9 @@ export default async function (context, results) {
       }
       const { 2: type, 3: id, 4: rev } = context.route.path.split('/')
       const section = context.route.query.section ? context.route.query.section : null
-      response = await context.app.$tide.getPreviewPage(type, id, rev, section, tideParams, authToken)
+      response = await context.app.$tide.getPreviewPage(type, id, rev, section, tideParams, headersConfig)
     } else {
-      response = await context.app.$tide.getPageByPath(context.route.fullPath, tideParams, authToken)
+      response = await context.app.$tide.getPageByPath(context.route.path, tideParams, headersConfig)
     }
 
     // If redirect required.
@@ -70,27 +74,35 @@ export default async function (context, results) {
       default:
         response.appPageTitle = response.title
     }
-    results.tidePage = response
+    pageData.tidePage = response
   } catch (error) {
-    results.tidePage = false
+    pageData.tidePage = false
     switch (context.app.tideResErrCode) {
       case 404:
-        results.tideErrorType = '404'
+        pageData.tideErrorType = '404'
+        if (typeof context.res !== 'undefined') {
+          context.res.statusCode = 404
+        }
         break
 
       default:
-        results.tideErrorType = 'other'
+        pageData.tideErrorType = 'other'
         if (process.server) {
-          console.error(error)
+          if (typeof context.res !== 'undefined') {
+            context.res.statusCode = 500
+          }
+          if (process.server) {
+            logger.error('Failed to get the page data.', { error, label: 'Middleware' })
+          }
         }
     }
   }
 
   context.store.dispatch('tide/setCurrentUrl', context.route.fullPath)
 
-  if (results.tidePage) {
+  if (pageData.tidePage) {
     // Allow custom class on page, custom middleware can extend this class for custom styling.
-    results.tidePage.class = []
+    pageData.tidePage.class = []
     // Add page classes based on tide page path
     let pageClass
     if (context.route.path === '/') {
@@ -98,53 +110,57 @@ export default async function (context, results) {
     } else {
       pageClass = pathToClass(context.route.path)
     }
-    results.tidePage.class.push(`tide-page--${pageClass}`)
+    pageData.tidePage.class.push(`tide-page--${pageClass}`)
 
     // Preprocess data
     let asyncTasks = []
     const addComponentFromPromise = (promise, name) => {
       const addMapping = promise.then(res => {
-        results.tidePage[name] = res
+        pageData.tidePage[name] = res
+      }).catch(error => {
+        if (process.server) {
+          logger.error('Failed to add component for "%s"', name, { error, label: 'Middleware' })
+        }
       })
       asyncTasks.push(addMapping)
     }
 
     // Sidebar logic
     // TODO: Update below check list for more sidebar items
-    if (results.tidePage.field_show_related_content ||
-        results.tidePage.field_show_social_sharing ||
-        results.tidePage.field_show_whats_next ||
-        results.tidePage.field_show_site_section_nav ||
-        results.tidePage.field_show_publication_nav ||
-        results.tidePage.field_landing_page_show_contact) {
+    if (pageData.tidePage.field_show_related_content ||
+        pageData.tidePage.field_show_social_sharing ||
+        pageData.tidePage.field_show_whats_next ||
+        pageData.tidePage.field_show_site_section_nav ||
+        pageData.tidePage.field_show_publication_nav ||
+        pageData.tidePage.field_landing_page_show_contact) {
       sidebar = true
     }
 
     // Head logic
-    results.tidePage.appMetatag = metatagConverter(results.tidePage.metatag_normalized)
+    pageData.tidePage.appMetatag = metatagConverter(pageData.tidePage.metatag_normalized)
 
     try {
       // Get dynamic components for landing page Header
-      if (results.tidePage.field_landing_page_header) {
-        const getMapping = mapping.get(results.tidePage.field_landing_page_header, 'landingPageHeader')
+      if (pageData.tidePage.field_landing_page_header) {
+        const getMapping = mapping.get(pageData.tidePage.field_landing_page_header, 'landingPageHeader')
         addComponentFromPromise(getMapping, 'appHeaderComponents')
       }
 
       // Get dynamic components for landing page
-      if (results.tidePage.field_landing_page_component) {
-        const getMapping = mapping.get(results.tidePage.field_landing_page_component, 'landingPageComponents')
+      if (pageData.tidePage.field_landing_page_component) {
+        const getMapping = mapping.get(pageData.tidePage.field_landing_page_component, 'landingPageComponents')
         addComponentFromPromise(getMapping, 'appDComponents')
       }
 
-      if (!results.tidePage.sidebarComponents || !Array.isArray(results.tidePage.sidebarComponents)) {
-        results.tidePage.sidebarComponents = []
+      if (!pageData.tidePage.sidebarComponents || !Array.isArray(pageData.tidePage.sidebarComponents)) {
+        pageData.tidePage.sidebarComponents = []
       }
 
       // TODO : Move this to a separate middleware
       if (sidebar) {
         // Related content
-        if (results.tidePage.field_show_related_content) {
-          const links = results.tidePage.field_related_links
+        if (pageData.tidePage.field_show_related_content) {
+          const links = pageData.tidePage.field_related_links
             .filter(link => link.field_paragraph_link && link.field_paragraph_link.title)
             .map(link => {
               return {
@@ -154,7 +170,7 @@ export default async function (context, results) {
             })
 
           if (links && links.length > 0) {
-            results.tidePage.sidebarComponents.push({
+            pageData.tidePage.sidebarComponents.push({
               name: 'rpl-related-links',
               order: 101,
               data: {
@@ -165,8 +181,8 @@ export default async function (context, results) {
           }
         }
         //  Whats next
-        if (results.tidePage.field_show_whats_next) {
-          const links = results.tidePage.field_whats_next
+        if (pageData.tidePage.field_show_whats_next) {
+          const links = pageData.tidePage.field_whats_next
             .filter(link => link.field_paragraph_link && link.field_paragraph_link.title)
             .map(link => {
               return {
@@ -178,7 +194,7 @@ export default async function (context, results) {
             })
 
           if (links) {
-            results.tidePage.sidebarComponents.push({
+            pageData.tidePage.sidebarComponents.push({
               name: 'rpl-whats-next',
               order: 103,
               data: {
@@ -188,40 +204,53 @@ export default async function (context, results) {
             })
           }
         }
-        // site section nav
-        if (results.tidePage.field_show_site_section_nav) {
-          const addSectionNavMenu = await context.app.$tide.getSiteData(results.tidePage.section).then(appSectionData => {
+        // site section
+        if (pageData.tidePage.section) {
+          const siteSectionData = await context.app.$tide.getSiteData(headersConfig, pageData.tidePage.section)
+
+          if (siteSectionData instanceof Error) {
+            if (process.server) {
+              logger.error('Could not get site section data from Tide API.', { error: siteSectionData, label: 'Middleware' })
+            }
+          } else {
             // Section navigation component will only use the main menu.
-            return appSectionData.hierarchicalMenus.menuMain
-          })
-          if (addSectionNavMenu && results.tidePage.field_landing_page_nav_title) {
-            results.tidePage.sidebarComponents.push({
-              name: 'rpl-site-section-navigation',
-              order: 100,
-              data: {
-                menu: addSectionNavMenu,
-                title: results.tidePage.field_landing_page_nav_title,
-                activeLink: context.route.path
+            const addSectionNavMenu = siteSectionData.hierarchicalMenus.menuMain
+            // save alerts if site section has them
+            if (context.app.$tide.isModuleEnabled('alert')) {
+              if (siteSectionData.site_alerts && siteSectionData.site_alerts.length > 0) {
+                await context.store.dispatch('tideAlerts/setAlerts', { alerts: siteSectionData.site_alerts, siteSection: siteSectionData.drupal_internal__tid })
               }
-            })
+            }
+
+            if (pageData.tidePage.field_show_site_section_nav && addSectionNavMenu && pageData.tidePage.field_landing_page_nav_title) {
+              pageData.tidePage.sidebarComponents.push({
+                name: 'rpl-site-section-navigation',
+                order: 100,
+                data: {
+                  menu: addSectionNavMenu,
+                  title: pageData.tidePage.field_landing_page_nav_title,
+                  activeLink: context.route.path
+                }
+              })
+            }
           }
         }
 
         // contact us
-        if (results.tidePage.field_landing_page_show_contact && results.tidePage.field_landing_page_contact) {
-          results.tidePage.appContact = await mapping.get(results.tidePage.field_landing_page_contact)
-          if (results.tidePage.appContact) {
-            results.tidePage.sidebarComponents.push({
+        if (pageData.tidePage.field_landing_page_show_contact && pageData.tidePage.field_landing_page_contact) {
+          pageData.tidePage.appContact = await mapping.get(pageData.tidePage.field_landing_page_contact)
+          if (pageData.tidePage.appContact) {
+            pageData.tidePage.sidebarComponents.push({
               name: 'rpl-contact',
               order: 104,
-              data: results.tidePage.appContact.data
+              data: pageData.tidePage.appContact.data
             })
           }
         }
 
         // social sharing
-        if (results.tidePage.field_show_social_sharing) {
-          results.tidePage.sidebarComponents.push({
+        if (pageData.tidePage.field_show_social_sharing) {
+          pageData.tidePage.sidebarComponents.push({
             name: 'rpl-share-this',
             order: 105,
             data: {
@@ -232,89 +261,103 @@ export default async function (context, results) {
         }
       }
     } catch (error) {
-      // TODO: Take some action if above mapping error happens.
       if (process.server) {
-        console.log(error)
+        logger.error('Failed to get the mapped component.', { error, label: 'Middleware' })
       }
     }
 
     // Hero banner
     // Hero banner background image
     let heroBgImage = ''
-    if (results.tidePage.field_landing_page_hero_image && results.tidePage.field_landing_page_hero_image.field_media_image) {
-      heroBgImage = results.tidePage.field_landing_page_hero_image.field_media_image.url
+    if (pageData.tidePage.field_landing_page_hero_image && pageData.tidePage.field_landing_page_hero_image.field_media_image) {
+      heroBgImage = pageData.tidePage.field_landing_page_hero_image.field_media_image.url
     }
 
-    results.tidePage.appHeroBgImage = heroBgImage
+    pageData.tidePage.appHeroBgImage = heroBgImage
 
     // Hero banner Core fields
     let heroBanner = {
       type: 'heroBanner',
-      pageTitle: results.tidePage.appPageTitle,
-      introText: results.tidePage.field_news_intro_text || results.tidePage.field_landing_page_intro_text || results.tidePage.field_page_intro_text || results.tidePage.field_profile_intro_text || ''
+      pageTitle: pageData.tidePage.appPageTitle,
+      introText: pageData.tidePage.field_news_intro_text || pageData.tidePage.field_landing_page_intro_text || pageData.tidePage.field_page_intro_text || pageData.tidePage.field_profile_intro_text || ''
     }
 
     // Add hero banner modifier(paragraphs)
-    if (results.tidePage.field_landing_page_hero_banner) {
-      heroBanner = Object.assign(heroBanner, results.tidePage.field_landing_page_hero_banner)
+    if (pageData.tidePage.field_landing_page_hero_banner) {
+      heroBanner = Object.assign(heroBanner, pageData.tidePage.field_landing_page_hero_banner)
     }
 
     // Additional fields may will be moved into core or modifier
-    heroBanner.keyJourneys = results.tidePage.field_landing_page_key_journeys || {}
-    heroBanner.theme = results.tidePage.field_landing_page_hero_theme
+    heroBanner.keyJourneys = pageData.tidePage.field_landing_page_key_journeys || {}
+    heroBanner.theme = pageData.tidePage.field_landing_page_hero_theme
     heroBanner.showLinks = !heroBgImage
-    heroBanner.logo = results.tidePage.field_landing_page_hero_logo ? results.tidePage.field_landing_page_hero_logo.field_media_image.url : null
+    heroBanner.logo = pageData.tidePage.field_landing_page_hero_logo ? pageData.tidePage.field_landing_page_hero_logo.field_media_image.url : null
 
     // Add bottom graphic.
-    if (!heroBgImage && !results.tidePage.field_landing_page_c_primary) {
-      const hasBottomImage = (results.tidePage.field_bottom_graphical_image && results.tidePage.field_bottom_graphical_image.field_media_image)
-      heroBanner.backgroundGraphic = (hasBottomImage) ? results.tidePage.field_bottom_graphical_image.field_media_image.url : '/img/header-pattern-bottom.png'
+    if (!heroBgImage && !pageData.tidePage.field_landing_page_c_primary) {
+      const hasBottomImage = (pageData.tidePage.field_bottom_graphical_image && pageData.tidePage.field_bottom_graphical_image.field_media_image)
+      heroBanner.backgroundGraphic = (hasBottomImage) ? pageData.tidePage.field_bottom_graphical_image.field_media_image.url : '/img/header-pattern-bottom.png'
     }
 
     addComponentFromPromise(mapping.get(heroBanner), 'appHeroBanner')
 
+    // Store Page Data.
+    let imageCaption = null
+    if (pageData.tidePage.field_show_hero_image_caption) {
+      imageCaption = pageData.tidePage.field_landing_page_hero_image && pageData.tidePage.field_landing_page_hero_image.field_media_caption
+    }
+    context.store.dispatch('tide/setPageData', { imageCaption })
+
     // Landing pages
-    if (results.tidePage.field_landing_page_c_primary) {
-      addComponentFromPromise(mapping.get(results.tidePage.field_landing_page_c_primary), 'appCampaignPrimary')
+    if (pageData.tidePage.field_landing_page_c_primary) {
+      pageData.tidePage.field_landing_page_c_primary.field_show_c_primary_caption = pageData.tidePage.field_show_c_primary_caption
+      addComponentFromPromise(mapping.get(pageData.tidePage.field_landing_page_c_primary), 'appCampaignPrimary')
     }
 
-    if (results.tidePage.field_landing_page_c_secondary) {
-      const cSecondary = results.tidePage.field_landing_page_c_secondary
+    if (pageData.tidePage.field_landing_page_c_secondary) {
+      const cSecondary = pageData.tidePage.field_landing_page_c_secondary
       cSecondary.type = cSecondary.type + '--field_landing_page_c_secondary'
       addComponentFromPromise(mapping.get(cSecondary), 'appCampaignSecondary')
     }
 
     // breadcrumbs
-    if (results.tidePage.path) {
+    if (pageData.tidePage.path) {
       const { breadcrumbs } = require('@dpc-sdp/ripple-nuxt-tide/lib/core/breadcrumbs')
-      const path = results.tidePage.path ? results.tidePage.path.alias : context.route.path
-      results.tidePage.breadcrumbs = breadcrumbs(path, results.tidePage.appPageTitle, context.store.state.tide.siteData.hierarchicalMenus.menuMain)
+      const path = pageData.tidePage.path ? pageData.tidePage.path.alias : context.route.path
+      pageData.tidePage.breadcrumbs = breadcrumbs(path, pageData.tidePage.appPageTitle, context.store.state.tide.siteData.hierarchicalMenus.menuMain)
     }
+
+    // Do Not Track
+    pageData.tidePage.doNotTrack = process.server ? serverDoNotTrack(context.req.headers) : clientDoNotTrack()
 
     // Load all components asynchronously, allow fail
     asyncTasks = asyncTasks.map(task => task.catch(error => {
       if (process.server) {
-        console.log('Tide async task is failed in resolve', error)
+        logger.error('Tide async task is failed in resolve', { error, label: 'Middleware' })
       }
     }))
 
     await Promise.all(asyncTasks)
   }
   // Add Page meta tags
-  if (results.tidePage) {
+  if (pageData.tidePage) {
     // Set details.
-    const title = results.tidePage.appMetatag.title || results.tidePage.appPageTitle || 'Page not found'
-    const description = results.tidePage.appMetatag.description || results.tidePage.field_news_intro_text || results.tidePage.field_landing_page_intro_text || results.tidePage.field_page_intro_text || ''
-    const url = context.store.state.absoluteUrl || ''
-    // Set image.
-    const mediaImage = results.tidePage.field_featured_image ? results.tidePage.field_featured_image.field_media_image : null
-    const image = mediaImage ? mediaImage.url : ''
-    const imageAlt = mediaImage ? mediaImage.meta.alt : ''
-    const siteSection = results.tidePage.field_node_site && results.tidePage.field_node_site.find(site => site.drupal_internal__tid === parseInt(results.tidePage.section, 10))
+    const title = pageData.tidePage.appMetatag.title || pageData.tidePage.appPageTitle || 'Page not found'
+    const description = pageData.tidePage.appMetatag.description || pageData.tidePage.field_news_intro_text || pageData.tidePage.field_landing_page_intro_text || pageData.tidePage.field_page_intro_text || pageData.tidePage.field_landing_page_summary || ''
+    const url = context.store.state.tide.currentUrl || ''
+    const siteSection = pageData.tidePage.section && pageData.tidePage.field_node_site && pageData.tidePage.field_node_site.find(site => site.drupal_internal__tid === parseInt(pageData.tidePage.section, 10))
 
-    results.tidePage.head = {
+    // Set image.
+    const featuredImage = pageData.tidePage.field_featured_image ? pageData.tidePage.field_featured_image.field_media_image : null
+    const sectionImage = siteSection && siteSection.field_site_og_image ? siteSection.field_site_og_image.field_media_image : null
+    const primaryImage = pageData.tidePage.field_node_primary_site && pageData.tidePage.field_node_primary_site.field_site_og_image ? pageData.tidePage.field_node_primary_site.field_site_og_image.field_media_image : null
+    const mediaImage = (featuredImage || sectionImage || primaryImage || null)
+    const image = mediaImage ? mediaImage.url : `${context.store.state.tide.protocol + '//' + context.store.state.tide.host}/img/social-media-image.jpg`
+    const imageAlt = mediaImage ? mediaImage.meta.alt : ''
+
+    pageData.tidePage.head = {
       htmlAttrs: {
-        lang: results.tidePage.langcode || 'en'
+        lang: pageData.tidePage.langcode || 'en'
       },
       title: title,
       meta: [
@@ -334,14 +377,14 @@ export default async function (context, results) {
         { name: 'twitter:image:alt', hid: 'hid:image:alt', content: imageAlt },
         // Custom page meta
         { name: 'sitesection', content: siteSection ? siteSection.name : '' },
-        { name: 'content-type', content: results.tidePage.type && results.tidePage.type.replace('node--', '') }
+        { name: 'content-type', content: pageData.tidePage.type && pageData.tidePage.type.replace('node--', '') }
       ]
     }
   }
 
-  results.tideLayout = {
+  pageData.tideLayout = {
     sidebar: sidebar
   }
 
-  return results
+  return pageData
 }

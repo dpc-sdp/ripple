@@ -5,6 +5,9 @@ module.exports = {
   eventLatestEvents: async (list, { mapping }) => {
     try {
       const latestEvents = await list
+      if (latestEvents instanceof Error) {
+        throw latestEvents
+      }
       return latestEvents.map(item => {
         const location = mapping.parseField(['field_event_details', 0, 'field_paragraph_location'], item)
         return {
@@ -17,9 +20,9 @@ module.exports = {
           link: { text: 'See event details', url: item.path.url }
         }
       })
-    } catch (err) {
-      // TODO: log error to log system when ops got it.
-      // console.log(err)
+    } catch (error) {
+      const logger = require('@dpc-sdp/ripple-nuxt-tide/lib/core/logger').default
+      logger.error('Failed in getting latest events.', { error, label: 'Events' })
       return []
     }
   },

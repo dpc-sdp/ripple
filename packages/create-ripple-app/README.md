@@ -12,7 +12,14 @@
 Make sure you have [npx](https://www.npmjs.com/package/npx) installed (`npx` is shipped by default since [npm](https://www.npmjs.com/get-npm) `5.2.0`)
 
 ```bash
-npx create-ripple-app <my-project>
+npx @dpc-sdp/create-ripple-app <my-project>
+```
+
+For updating Ripple to latest in your project:
+
+```
+npx @dpc-sdp/create-ripple-app /home/user1/my-project --config /home/user1/example.json --release latest
+
 ```
 
 ## Options config 
@@ -21,9 +28,9 @@ There are several methods of providing config options
 
 1. JSON file
 
-You can provide a JSON file with the key/values to populate by  passing the --config parameter, eg:
+You can provide a JSON file with the key/values to populate by  passing the --config parameter(absolute path), eg:
 
-`create-ripple-app --config example.json`
+`npx @dpc-sdp/create-ripple-app --config /home/user1/example.json`
 
 The JSON file should include the keys to populate, if there are missing keys you will then be asked to interactively add them. 
 
@@ -46,7 +53,7 @@ Example JSON file
 
 You can pass all options as parameters to create-ripple-app eg:
 
-`create-ripple-app --name projectname --author DPC --modules grant,site,alert,authenticatedContent --siteid 4 --authuser userid --authpass userpass --gtmtoken GTM-123456-1`
+`npx @dpc-sdp/create-ripple-app --name projectname --author DPC --modules grant,site,alert,authenticatedContent --siteid 4 --authuser userid --authpass userpass --gtmtoken GTM-123456-1`
 
 3. Interactively
 

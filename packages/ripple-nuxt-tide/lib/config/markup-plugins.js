@@ -1,4 +1,16 @@
-import htmlUtilities from './../core/html-utilities'
+// Note: for add obj type prop in template, please return data instead of set them in template otherwise it won't work properly.
+// e.g You have something like in your plugin: `<component-obj-prop :author="{name: 'Veronica', company: 'Veridian Dynamics'}"></component-obj-prop>`
+// You should make template: `<component-obj-prop :author="myPluginData1.author"></component-obj-prop>`
+// Then set myPluginData1.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData1, myPluginData2 ... } in your plugin.
+// See a example in `pluginEmbeddedMediaVideo` plugin below.
+
+import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
+
+// Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
+const _escapeQuotes = (text) => {
+  text = text || ''
+  return text.replace('"', '&quot;')
+}
 
 const pluginButton = function () {
   // Button
@@ -83,7 +95,7 @@ const pluginEmbeddedDocument = function () {
     }
 
     if (url && fileName && fileSize && fileType) {
-      const documentlink = `<rpl-document-link name="${fileName}" extension="${fileType}" filesize="${fileSize}" url="${url}" caption="${caption}"></rpl-document-link>`
+      const documentlink = `<rpl-document-link name="${_escapeQuotes(fileName)}" extension="${fileType}" filesize="${fileSize}" url="${url}" caption="${_escapeQuotes(caption)}"></rpl-document-link>`
       return el.replaceWith(documentlink)
     }
     return el
@@ -92,12 +104,10 @@ const pluginEmbeddedDocument = function () {
 
 const parseForLinks = function () {
   // Give h2 headings an id so they can be linked to
-  const kebabCase = require('lodash.kebabcase')
-
   this.find('h2').map((i, element) => {
     const el = this.find(element)
     const idName = el.text()
-    return el.attr('id', kebabCase(idName))
+    return el.attr('id', getAnchorLinkName(idName))
   })
 }
 
@@ -112,48 +122,57 @@ const pluginIframe = function () {
 }
 
 const pluginEmbeddedMediaVideo = function () {
+  const embeddedMediaVideoData = {}
   // wrap iFrames
   this.find('.embedded-entity--media--embedded-video').map((i, el) => {
+    // Component data
+    const data = {}
+    const dataName = `embeddedMediaVideoData${i}`
+
     const element = this.find(el)
     const iframe = element.find('iframe')
     const height = iframe.attr('height')
     const width = iframe.attr('width')
     const src = iframe.attr('src')
-    const lang = iframe.attr('lang')
     const figcaption = element.find('figcaption')
     const transcript = figcaption ? figcaption.text() : null
     const link = element.find('.field--name-field-media-link a')
-    const mediaLink = link && link.is('a') ? `{ text: '${link.text()}', url: '${link.attr('href')}' }` : null
-    const RplEmbeddedVideo = `
-      <rpl-embedded-video
-        width="${width}"
-        height="${height}"
-        src="${src}"
-        class="rpl-markup__embedded-video"
-        lang="${lang}"
-        variant="${mediaLink ? 'link' : 'full'}"
-        :display-transcript="true"
-        ${mediaLink ? ':media-link="' + mediaLink + '"' : ''}
-        ${transcript ? 'transcript="' + transcript + '"' : ''}
-      />
-    `
+    // For Obj type props, using data to pass value to avoid HTML syntax and encoding issue.
+    data.mediaLink = link && link.is('a') ? { text: link.text(), url: link.attr('href') } : null
+
+    // Add each video component data into return result.
+    embeddedMediaVideoData[dataName] = data
+
+    const RplEmbeddedVideo = `<rpl-embedded-video
+width="${width}"
+height="${height}"
+src="${src}"
+class="rpl-markup__embedded-video"
+variant="${data.mediaLink ? 'link' : 'full'}"
+:display-transcript="true"
+${data.mediaLink ? ':media-link="' + dataName + '.mediaLink"' : ''}
+${transcript ? 'transcript="' + _escapeQuotes(transcript) + '"' : ''}
+/>`
     return element.replaceWith(RplEmbeddedVideo)
   })
+
+  // Return data
+  return embeddedMediaVideoData
 }
 
 const pluginLinks = function () {
   this.find('a').map((i, el) => {
     const $a = this.find(el)
     const href = $a.attr('href')
-    const text = htmlUtilities.decodeSpecialCharacters($a.text())
+    const text = $a.text()
 
     const target = $a.attr('target')
     let theme = 'primary'
     let a
     if (target) {
-      a = `<rpl-text-link url="${href}" theme="${theme}" target="${target}" text="${text}"></rpl-text-link>`
+      a = `<rpl-text-link url="${href}" theme="${theme}" target="${target}" text="${_escapeQuotes(text)}"></rpl-text-link>`
     } else {
-      a = `<rpl-text-link url="${href}" theme="${theme}" text="${text}"></rpl-text-link>`
+      a = `<rpl-text-link url="${href}" theme="${theme}" text="${_escapeQuotes(text)}"></rpl-text-link>`
     }
 
     return $a.replaceWith(a)

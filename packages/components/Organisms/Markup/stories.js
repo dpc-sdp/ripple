@@ -73,7 +73,7 @@ storiesOf('Organisms/Markup', module)
                 <img
                   alt=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
                   height="150"
-                  src="https://www.develop.content.vic.gov.au/sites/default/files/2019-03/womens-honour-roll-2019-Judy-Tegart-Dalton.png"
+                  src="https://develop.content.vic.gov.au/sites/default/files/2019-03/womens-honour-roll-2019-Judy-Tegart-Dalton.png"
                   title=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
                   width="150"
                 />
@@ -174,7 +174,7 @@ storiesOf('Organisms/Markup', module)
                 <img
                   alt=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
                   height="150"
-                  src="https://www.develop.content.vic.gov.au/sites/default/files/2019-03/womens-honour-roll-2019-Judy-Tegart-Dalton.png"
+                  src="https://develop.content.vic.gov.au/sites/default/files/2019-03/womens-honour-roll-2019-Judy-Tegart-Dalton.png"
                   title=" Judy Tegart-Dalton AM - 2019 Victorian Honour Roll of Women inductee"
                   width="150"
                 />

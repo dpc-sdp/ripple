@@ -26,6 +26,7 @@ import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
 import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
+import fieldRploptionbutton from './fields/fieldRploptionbutton.vue'
 import fieldRplclearform from './fields/fieldRplclearform.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
@@ -38,6 +39,7 @@ Vue.component('fieldRplcheckbox', fieldRplcheckbox)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
 Vue.component('fieldRpldatepicker', fieldRpldatepicker)
 Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
+Vue.component('fieldRploptionbutton', fieldRploptionbutton)
 Vue.component('fieldRplclearform', fieldRplclearform)
 Vue.component('fieldRpldivider', fieldRpldivider)
 Vue.component('fieldRplmarkup', fieldRplmarkup)
@@ -52,6 +54,7 @@ export default {
     fieldRplchecklist,
     fieldRpldatepicker,
     fieldRplsubmitloader,
+    fieldRploptionbutton,
     fieldRplclearform,
     RplFormAlert,
     RplFieldset
@@ -68,6 +71,19 @@ export default {
   },
   mounted () {
     RplFormEventBus.$on('clearform', this.clearForm)
+
+    // TODO: We should abstract all future custom validators to a separate file and import them here.
+    VueFormGenerator.validators.rplWordCount = function (value, field) {
+      let wordCount = value.trim().split(/\s+/).length
+
+      if (wordCount > field.rplWordCountMax) {
+        return ['You have too many words. Maximum is ' + field.rplWordCountMax + ', you have ' + wordCount + ' words.']
+      }
+      if (wordCount < field.rplWordCountMin) {
+        return ['You have too few words. Minimum is ' + field.rplWordCountMin + ', you have ' + wordCount + ' words.']
+      }
+      return []
+    }
   },
   methods: {
 
@@ -132,15 +148,17 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/components/button";
 @import "scss/form";
 
+$rpl-form-input-prepend-icon-color: rpl-color('dark_neutral') !default;
+$rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.99 9.243c1.597-2.45 1.224-5.82-1.133-7.833C7.59-.526 4.137-.46 1.94 1.557a6 6 0 00-.19 8.653c2.043 2.045 5.205 2.293 7.527.757.031-.02.102-.083.198-.173l4.343 4.195a.941.941 0 101.308-1.354l-4.324-4.176c.098-.106.166-.184.188-.216zm-8.023-.25a4.274 4.274 0 010-6.035 4.266 4.266 0 016.03 0 4.274 4.274 0 010 6.034 4.266 4.266 0 01-6.03 0z' fill='%23#{str-slice(quote($rpl-form-input-prepend-icon-color), 2)}'/%3E%3C/svg%3E");
+
 .rpl-form {
   @include rpl_typography_ruleset($rpl-form-text-ruleset);
-  @include rpl_print_hidden;
 
   &__title {
     margin-top: 0;
   }
 
-  label {
+  label:not(.rpl-option-button__label) {
     @include rpl_typography_ruleset(('s', 1em, 'bold'));
     color: rpl-color('extra_dark_neutral');
     display: block;
@@ -166,11 +184,36 @@ export default {
       @include rpl_form_text_element;
     }
 
-    &[type='radio'],
+    &[type='radio']:not(.rpl-option-button__radio),
     &[type='checkbox'] {
       &+ label {
         display: inline-block;
         margin: 0;
+      }
+    }
+  }
+
+  &__prepend-icon {
+    .wrapper {
+      position: relative;
+      &:before {
+        position: absolute;
+        top: $rpl-space-4;
+        left: $rpl-space-4;
+        width: $rpl-space-4;
+        height: $rpl-space-4;
+        background-repeat: no-repeat;
+        content: "";
+      }
+      input {
+        padding-left: $rpl-space * 10;
+      }
+    }
+    &--search {
+      .wrapper {
+        &:before {
+          background-image: $rpl-form-input-search-icon;
+        }
       }
     }
   }
@@ -192,12 +235,12 @@ export default {
       margin-right: $rpl-space-4;
     }
 
-    input[type="radio"] {
+    input[type="radio"]:not(.rpl-option-button__radio) {
       margin-right: $rpl-space-2;
     }
   }
 
-  input[type="radio"] {
+  input[type="radio"]:not(.rpl-option-button__radio) {
     @include rpl_radio_button;
   }
 

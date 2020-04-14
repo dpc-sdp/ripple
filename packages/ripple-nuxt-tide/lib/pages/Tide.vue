@@ -20,6 +20,7 @@
           v-bind="heroBanner.data"
           class="rpl-site-constrain--on-all"
         />
+        <rpl-acknowledgement v-if="page.field_show_ack_of_country" :text="acknowledgement" theme="standalone" />
       </template>
 
       <template slot="aboveContentTwo">
@@ -80,9 +81,12 @@ import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 
 // Banner.
 import { RplHeroBanner, RplIntroBanner } from '@dpc-sdp/ripple-hero-banner'
+import { RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 
 import { anchorUtils } from '@dpc-sdp/ripple-nuxt-tide/lib/core/anchorlinks.js'
-import kebabCase from 'lodash.kebabcase'
+import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
+
+import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 
 export default {
   components: {
@@ -91,6 +95,7 @@ export default {
     AppSidebar,
     RplAccordion,
     RplHeroBanner,
+    RplAcknowledgement,
     RplIntroBanner,
     RplUpdatedDate,
     RplBreadcrumbs,
@@ -98,6 +103,7 @@ export default {
     RplRow,
     RplCol
   },
+  name: 'TidePage',
   head () {
     return this.page.head
   },
@@ -125,6 +131,9 @@ export default {
     if (this.page.sidebarComponents && this.page.sidebarComponents.length > 0) {
       this.sidebarComponents = this.$tide.getDynamicComponents(this.page.sidebarComponents, this.page.sidebar)
     }
+    if (this.page.section) {
+      this.$store.commit('tideSite/setSiteSection', parseInt(this.page.section, 10))
+    }
   },
   methods: {
     searchFunc (searchInput, contentType) {
@@ -142,7 +151,7 @@ export default {
           path = '/search'
           break
       }
-      this.$tideSearch.searchPageRedirect(path, searchInput, filters)
+      searchPageRedirect(this.$router, path, searchInput, filters)
     }
   },
   computed: {
@@ -159,7 +168,7 @@ export default {
                 break
               case 'rpl-accordion':
                 if (component.data.title) {
-                  anchors.push({ text: component.data.title, url: `#${kebabCase(component.data.title)}` })
+                  anchors.push({ text: component.data.title, url: `#${getAnchorLinkName(component.data.title)}` })
                 }
                 break
             }
@@ -175,6 +184,9 @@ export default {
       } else {
         return '/img/header-pattern-shape.png'
       }
+    },
+    acknowledgement () {
+      return this.$store.state.tide.siteData.field_prominence_ack_to_country ? this.$store.state.tide.siteData.field_prominence_ack_to_country : null
     },
     updatedDate () {
       return {

@@ -2,7 +2,7 @@
   <!-- Keep app-wysiwyg class here for backward compatibility, as some project may use that class for custom style -->
   <div class="rpl-markup tide-wysiwyg app-wysiwyg">
     <!-- Use dynamic component to render string template in runtime -->
-    <component :is="{template:getTemplate}"/>
+    <component :is="{ template: getTemplate.html, data: () => getTemplate.data }" />
   </div>
 </template>
 
@@ -37,9 +37,16 @@ export default {
 
       if (plugins && plugins.length > 0) {
         const template = markupTranspiler(html, plugins, options)
-        return template
+        return {
+          html: template.html,
+          data: template.data
+        }
       }
-      return html
+
+      return {
+        html: html,
+        data: {}
+      }
     }
   }
 }

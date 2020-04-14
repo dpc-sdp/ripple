@@ -1,5 +1,10 @@
-
+import cuid from 'cuid'
 import mime from 'mime-types'
+
+// Generate a unique id
+export const generateId = () => {
+  return cuid()
+}
 
 // Private helpers
 export const mergeIncludes = (includes, includesMergedIn) => {
@@ -31,7 +36,11 @@ export const jsonApiLinkToResource = (jsonApiLink, apiPrefix) => {
 
 // Get client side user ip address
 export const getClientIp = async (axios) => {
-  return axios.$get('https://api.ipify.org')
+  try {
+    return axios.$get('https://api.ipify.org')
+  } catch (error) {
+    return new Error('Could not get ip address.')
+  }
 }
 
 // Convert Json API metatag_normalized array to a key value object, so we can access the specific metatag value.
@@ -75,12 +84,6 @@ export const getFormattedSize = (fileSize) => {
   return parseFloat((fileSize / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
 }
 
-export const truncateText = (text, stop = 150, clamp) => {
-  if (text && typeof text === 'string') {
-    if (text.length > stop) {
-      return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
-    }
-    return text
-  }
-  return ''
+export const stringToClass = (str) => {
+  return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[^a-zA-Z0-9\s]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
 }

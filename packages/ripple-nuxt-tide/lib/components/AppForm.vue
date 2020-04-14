@@ -1,5 +1,5 @@
 <template>
-  <rpl-form v-if="formData" :formData="formData" :submitHandler="submitForm" :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess" :title="title" ></rpl-form>
+  <rpl-form v-if="formData" novalidate :name="`form-${formData.tideId}`" :formData="formData" :submitHandler="submitForm" :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess" :title="title" ></rpl-form>
 </template>
 
 <script>
@@ -98,18 +98,19 @@ export default {
           isiOS: isiOS
         }
       }
-      const openNewTab = function () {
-        let tab = window.open(this.formData.redirect_url, '_blank')
+      const openNewTab = function (redirectUrl) {
+        let tab = window.open(redirectUrl, '_blank')
         tab.focus()
       }
       if (this.formData.category === 'form-redirect') {
+        let redirectUrl = this.formData.redirect_url
         let browser = getBrowserInfo()
         if (browser.isiOS || browser.issafari) {
           if (confirm('A page will open in new tab, please allow this page to open a new tab on your browser settings!')) {
-            openNewTab()
+            openNewTab(redirectUrl)
           }
         } else {
-          openNewTab()
+          openNewTab(redirectUrl)
         }
       }
     }

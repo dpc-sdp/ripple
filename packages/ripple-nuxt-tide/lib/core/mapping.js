@@ -1,5 +1,6 @@
 import tideDefaultConfig from '../config/tide.config'
 import defaultFilters from './mapping-filters'
+import logger from './logger'
 
 const _getValFromFieldArray = Symbol('getValFromFieldArray')
 const _getValFromFieldOptions = Symbol('getValFromFieldOptions')
@@ -26,36 +27,51 @@ export class Mapping {
   }
 
   get (data, type = 'tideField') {
-    let result
-    let dataMode = 'single'
+    let result = []
+    let dataMode
 
     if (Array.isArray(data)) {
       dataMode = 'array'
-      // If the data is array, return an array.
-      result = []
-      for (const item of data) {
-        // Mapping items only for those in mapping configs.
-        if (this.mappingConfig[type][item.type]) {
-          const component = this[_getComponent](item, type)
-          if (component) {
-            result.push(component)
-          }
+    } else {
+      dataMode = 'single'
+      data = [data]
+    }
+
+    for (const item of data) {
+      // Mapping items only for those in mapping configs.
+      if (this.mappingConfig[type][item.type]) {
+        const component = this[_getComponent](item, type)
+        result.push(component)
+      } else {
+        if (process.server) {
+          logger.warn(`"${item.type}" is not a supported component in map.`, { label: 'Mapping' })
         }
       }
-    } else {
-      // If the data is just one item object, return a single item.
-      result = this[_getComponent](data, type) || {}
     }
 
     // Return a promise as some props' value need to be fetched from Tide.
     return new Promise(function (resolve, reject) {
       if (dataMode === 'single') {
-        resolve(result)
+        if (result[0]) {
+          result[0].catch(error => {
+            if (process.server) {
+              logger.error('Mapping failed to get result due to a error.', { error, label: 'Mapping' })
+            }
+            reject(error)
+          })
+          resolve(result[0])
+        } else {
+          reject(new Error('Mapping failed to get result.'))
+        }
       } else {
-        let allFetched = Promise.all(result).catch(error => {
-          reject(new Error(`Mapping failed by resolve the fetching. Error: ${error}`))
+        Promise.all(result).catch(error => {
+          if (process.server) {
+            logger.error('Mapping failed to get result due to a error.', { error, label: 'Mapping' })
+          }
+          reject(error)
+        }).then(res => {
+          resolve(res)
         })
-        resolve(allFetched)
       }
     })
   }
@@ -69,6 +85,9 @@ export class Mapping {
     for (const filter of filters) {
       const mapping = this
       // Pass mapping instance into filters, so we can use filters inside filter.
+      if (typeof this.mappingFilters[filter] !== 'function') {
+        return new Error(`Mapping filter "${filter}" is not a function or not defined.`)
+      }
       fieldValue = this.mappingFilters[filter](fieldValue, { mapping })
     }
     return fieldValue
@@ -90,9 +109,11 @@ export class Mapping {
       if (configForMergeIn) {
         for (const type in configForMergeIn) {
           if (config[type] && typeof configForMergeIn[type] !== 'function') {
-            // We don't allow function in core to be overriden in extend or custom config.
             config[type] = Object.assign(config[type], configForMergeIn[type])
-          } else if (config[type] === undefined && typeof configForMergeIn[type] === 'function') {
+          } else if (typeof configForMergeIn[type] === 'function') {
+            if (config[type] && process.server) {
+              logger.info('Mapping filter "%s" has been overridden by custom module', type, { label: 'Mapping' })
+            }
             config[type] = configForMergeIn[type]
           } else {
             config[type] = Object.assign({}, configForMergeIn[type])
@@ -126,10 +147,6 @@ export class Mapping {
       default:
         let itemConfig = this.mappingConfig[type][item.type]
 
-        if (typeof itemConfig === 'undefined') {
-          throw new Error(`"${item.type}" is not a supported component in map.`)
-        }
-
         // If it's one to multiple mode, we switch to the right one based on expression.
         if (this.mappingConfig[type][item.type].components) {
           const components = this.mappingConfig[type][item.type].components
@@ -140,9 +157,14 @@ export class Mapping {
           itemConfig = component[0]
         }
 
+        const data = await this[_getProps](item, itemConfig)
+        if (data instanceof Error) {
+          throw data
+        }
+
         return {
           name: this[_getName](itemConfig),
-          data: await this[_getProps](item, itemConfig),
+          data: data,
           cols: this[_getCols](itemConfig),
           childCols: this[_getChildCols](itemConfig),
           class: this[_getClass](itemConfig),
@@ -230,12 +252,28 @@ export class Mapping {
       const propMapping = itemConfig.props[prop]
       const getProp = this[_getFieldVal](propMapping, item).then(res => {
         props[prop] = res
+      }).catch(error => {
+        if (process.server) {
+          logger.error('Failed to get prop "%s" value.', prop, { error, label: 'Mapping' })
+        }
       })
       getProps.push(getProp)
     }
     return new Promise(function (resolve, reject) {
       const allFetched = Promise.all(getProps).then(() => {
-        return props
+        // If we got any coding error(e.g. custom mapping configuration error), stop doing further and fail the mapping.
+        // So developer can notice it and fix it.
+        let getPropsError = null
+        const propsValues = Object.values(props)
+        const noError = propsValues.every(value => {
+          if (value instanceof Error) {
+            getPropsError = value
+            return false
+          }
+          return true
+        })
+
+        return noError ? props : getPropsError
       }).catch(error => {
         reject(new Error(`Get props failed by resolve the fetching. Error: ${error}`))
       })

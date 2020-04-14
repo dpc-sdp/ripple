@@ -1,5 +1,91 @@
 import { storiesOf } from '@storybook/vue'
 import RplForm from './index.vue'
+import RplSelect from './Select.vue'
+
+storiesOf('Molecules/Form/Select', module)
+  .add('Single', () => ({
+    components: { RplSelect },
+    template: `<rpl-select :values="values" :config="config"></rpl-select>`,
+    data () {
+      return {
+        config: {
+          multiselect: false,
+          placeholder: 'Select',
+          showitems: 4,
+          fieldId: 'select',
+          label: ''
+        },
+        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+      }
+    }
+  }))
+  .add('Set initial state', () => ({
+    components: { RplSelect },
+    template: `<rpl-select :values="values" :config="config" :state="state"></rpl-select>`,
+    data () {
+      return {
+        config: {
+          multiselect: false,
+          placeholder: 'Select',
+          showitems: 4,
+          fieldId: 'select',
+          label: ''
+        },
+        state: 'nsw',
+        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+      }
+    }
+  }))
+  .add('Multiselect', () => ({
+    components: { RplSelect },
+    template: `<rpl-select :values="values" :config="config"></rpl-select>`,
+    data () {
+      return {
+        config: {
+          multiselect: true,
+          placeholder: 'Select',
+          showitems: 4,
+          fieldId: 'select',
+          label: ''
+        },
+        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+      }
+    }
+  }))
+  .add('Multiselect initial state', () => ({
+    components: { RplSelect },
+    template: `<rpl-select :values="values" :config="config" :state="state"></rpl-select>`,
+    data () {
+      return {
+        config: {
+          multiselect: true,
+          placeholder: 'Select',
+          showitems: 4,
+          fieldId: 'select',
+          label: ''
+        },
+        state: ['vic', 'nsw'],
+        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+      }
+    }
+  }))
+  .add('Multiselect initial state with object', () => ({
+    components: { RplSelect },
+    template: `<rpl-select :values="values" :config="config" :state="state"></rpl-select>`,
+    data () {
+      return {
+        config: {
+          multiselect: true,
+          placeholder: 'Select',
+          showitems: 4,
+          fieldId: 'select',
+          label: ''
+        },
+        state: ['vic', 'nsw', 'wa'],
+        values: [{ id: 'vic', name: 'Vic', value: { postcode: 3000 } }, { id: 'nsw', name: 'New South Wales', value: { postcode: 2000 } }, { id: 'wa', name: 'Western Australia', value: { postcode: 6000 } }, { id: 'ql', name: 'Queensland', value: { postcode: 4000 } }]
+      }
+    }
+  }))
 
 storiesOf('Molecules/Form', module)
   .add('Default', () => ({
@@ -34,6 +120,8 @@ storiesOf('Molecules/Form', module)
             tel: '',
             number: '',
             radio: null,
+            optionButtonDefault: null,
+            optionButtonCustom: null,
             textArea: null,
             dateRange: ['', ''],
             date: '',
@@ -98,6 +186,15 @@ storiesOf('Molecules/Form', module)
               },
 
               {
+                type: 'input',
+                inputType: 'text',
+                label: 'Text - With search icon',
+                styleClasses: ['rpl-form__prepend-icon', 'rpl-form__prepend-icon--search'],
+                placeholder: 'Enter search term...',
+                model: 'text'
+              },
+
+              {
                 type: 'radios',
                 label: 'Radio',
                 model: 'radio',
@@ -106,6 +203,19 @@ storiesOf('Molecules/Form', module)
                   'Yes',
                   'No'
                 ]
+              },
+
+              {
+                type: 'rploptionbutton',
+                label: 'Option button default',
+                model: 'optionButtonDefault'
+              },
+
+              {
+                type: 'rploptionbutton',
+                label: 'Option button custom',
+                model: 'optionButtonCustom',
+                optionValues: [ 'Option one', 'Option two', 'Option three', 'Option four', 'Option five', 'Option six', 'Option seven', 'Option eight' ]
               },
 
               {

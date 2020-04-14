@@ -3,20 +3,20 @@
     <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="isExternalLink ? false : ''" :target="isExternalLink ? '_blank' : false">
       <rpl-icon class="rpl-document-link__icon" :symbol="icon" color="primary" size="l" />
       <div class="rpl-document-link__info">
-        <span class="rpl-document-link__title">{{name}}</span>
+        <span class="rpl-document-link__title">{{nameDecoded}}</span>
         <div class="rpl-document-link__meta">
           <span v-if="extension" class="rpl-document-link__type">{{extension}}</span>
           <span v-if="filesize" class="rpl-document-link__size" :class="{'rpl-document-link__size--seperator': extension && filesize}">{{filesize}}</span>
         </div>
       </div>
     </a>
-    <figcaption class="rpl-document-link__caption" v-if="caption">{{caption}}</figcaption>
+    <figcaption class="rpl-document-link__caption" v-if="caption" v-html="caption"></figcaption>
   </figure>
 </template>
 
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
-import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { isExternalUrl, decodeSpecialCharacters } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplDocumentLink',
@@ -29,6 +29,12 @@ export default {
     filesize: String
   },
   computed: {
+    nameDecoded: function () {
+      // TODO: This is a temporary fix.
+      // In Markup component, We can't avoid taking HTML encoded link text from CMS and feeding them into the text icon.
+      // We may just change all link text to HTML to solve this issue eventally.
+      return decodeSpecialCharacters(this.name)
+    },
     icon () {
       switch (this.extension) {
         case 'ai':

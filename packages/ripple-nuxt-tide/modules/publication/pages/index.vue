@@ -1,5 +1,5 @@
 <template>
-  <rpl-row row-gutter class="app-content">
+  <rpl-row row-gutter class="app-content tide-content tide-content--publication">
     <rpl-col v-if="anchorLinks && anchorLinks.length > 0" cols="full">
       <rpl-anchor-links title="On this page:" :links="anchorLinks" />
     </rpl-col>
@@ -8,10 +8,10 @@
     </rpl-col>
     <template v-if="dynamicComponents">
       <template v-for="dComponent in dynamicComponents">
-        <rpl-col cols="full" :colsBp="dComponent.cols" :key="dComponent.id">
-          <no-ssr v-if="dComponent.ssr === false">
+        <rpl-col cols="full" :colsBp="dComponent.cols" :key="dComponent.id" catchChildError>
+          <client-only v-if="dComponent.ssr === false">
             <component :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
-          </no-ssr>
+          </client-only>
           <component v-else :is="dComponent.component" v-bind="dComponent.data" :class="dComponent.class"></component>
         </rpl-col>
       </template>
@@ -32,7 +32,7 @@ import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplPublicationPagination, RplPublicationAuthorInformation } from '@dpc-sdp/ripple-publication'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import { truncateText } from '@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import { RplCardNavigation } from '@dpc-sdp/ripple-card'
 
 export default {
@@ -56,7 +56,8 @@ export default {
   computed: {
     publishingInfo () {
       if (this.page.type === 'node--publication') {
-        const author = this.page.field_publication_authors && this.page.field_publication_authors.length > 0 ? this.page.field_publication_authors.join(', ') : ''
+        const authorsName = this.page.field_publication_authors ? this.page.field_publication_authors : ''
+        const author = authorsName && authorsName.length > 0 ? authorsName.map((authors) => authors.name) : []
         const date = this.page.field_publication_date
         const copyright = this.page.field_license_type ? this.page.field_license_type.description : ''
         return (author || date || copyright) ? { author, date, copyright } : null

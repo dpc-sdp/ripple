@@ -39,10 +39,11 @@
 import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
 export default {
   name: 'RplSearchResults',
-  mixins: [provideChildCols],
+  mixins: [provideChildCols, deprecate],
   components: {
     RplPagination,
     RplRow,
@@ -77,6 +78,9 @@ export default {
     responseSize: Number,
     count: Number
   },
+  mounted () {
+    this.deprecatedWarn('"rpl-search-results" is deprecated, please import "rpl-search-results-v2" as "rpl-search-results", the legacy component will be replaced by v2 next major release.')
+  },
   created () {
     if (this.type) {
       switch (this.type) {
@@ -94,11 +98,11 @@ export default {
             class: ['rpl-search-results__item--promotion']
           }
           break
-        case 'RplCardHonourRoll':
+        case 'RplCardProfile':
           this.searchResultContent = {
-            component: () => import(/* webpackChunkName: 'rpl-card-honour-roll' */ '@dpc-sdp/ripple-card').then(m => m.RplCardHonourRoll),
+            component: () => import(/* webpackChunkName: 'rpl-card-profile' */ '@dpc-sdp/ripple-card').then(m => m.RplCardProfile),
             colsBp: this.childColsBp,
-            class: ['rpl-search-results__item--honour-roll']
+            class: ['rpl-search-results__item--profile']
           }
           break
         case 'RplGrantsListItem':

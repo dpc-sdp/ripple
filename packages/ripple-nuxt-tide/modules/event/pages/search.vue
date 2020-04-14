@@ -29,7 +29,6 @@
 </template>
 
 <script>
-
 import { RplDivider } from '@dpc-sdp/ripple-global'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
@@ -39,7 +38,10 @@ import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { breadcrumbs as getBreadcrumbs } from '@dpc-sdp/ripple-nuxt-tide/lib/core/breadcrumbs'
 import formData from './../formdata.js'
-import { searchMixin } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
+import { searchMixin, getSearch } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
+
+// Setting Australia/Melbourne timezone
+import moment from 'moment-timezone'
 
 export default {
   name: 'EventSearch',
@@ -56,7 +58,8 @@ export default {
   },
   mixins: [searchMixin],
   async asyncData ({ app, route }) {
-    const searchForm = await formData.getFormData(app.$tideSearch.setFilterOptions)
+    const tideSearch = getSearch(app)
+    const searchForm = await formData.getFormData(tideSearch.setFilterOptions)
     return {
       sidebar: false,
       breadcrumbs: getBreadcrumbs(route.path, searchForm.title, null),
@@ -94,6 +97,28 @@ export default {
     }
   },
   methods: {
+    getComputedFilters () {
+      let filterValues = this.tideSearch.getFiltersValues(this.searchForm.filterForm)
+      // Test date filter based on start / end fields.
+      if (filterValues.field_event_date_end_value) {
+        const setFilterDate = moment(filterValues.field_event_date_end_value.values)
+        filterValues.field_event_date_end_value.values = setFilterDate.startOf('day').toISOString()
+        filterValues['field_event_date_start_value'] = {
+          operator: 'lte',
+          type: 'date',
+          values: setFilterDate.endOf('day').toISOString()
+        }
+      } else {
+        const vic = moment.tz.setDefault('Australia/Melbourne')
+        const today = vic().startOf('day').toISOString()
+        filterValues['field_event_date_end_value'] = {
+          operator: 'gte',
+          type: 'date',
+          values: today
+        }
+      }
+      return filterValues
+    },
     mapSearchResults (source) {
       let pSite = ''
       if (source.field_node_primary_site) {

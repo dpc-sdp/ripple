@@ -1,15 +1,10 @@
 {
   "name": "@dpc-sdp/create-ripple-app",
-  "version": "1.0.0",
+  "version": "1.7.0",
   "description": "Create a ripple app in seconds!",
   "bin": {
     "create-ripple-app": "cli.js"
   },
-  "files": [
-    "cli.js",
-    "saofile.js",
-    "template/"
-  ],
   "repository": {
     "type": "git"
   },
@@ -18,7 +13,8 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "lodash": "^4.17.11",
+    "compare-versions": "^3.5.1",
+    "jscodeshift": "^0.6.4",
     "minimist": "^1.2.0",
     "sao": "^1.6.1",
     "validate-npm-package-name": "^3.0.0"

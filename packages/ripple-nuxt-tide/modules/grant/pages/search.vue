@@ -41,7 +41,7 @@ import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { breadcrumbs as getBreadcrumbs } from '@dpc-sdp/ripple-nuxt-tide/lib/core/breadcrumbs'
 import formData from './../lib/formdata.js'
 import utils from './../lib/utils.js'
-import { searchMixin } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
+import { searchMixin, getSearch } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
 
 export default {
   name: 'GrantSearch',
@@ -58,7 +58,8 @@ export default {
   },
   mixins: [searchMixin],
   async asyncData ({ app, route }) {
-    const searchForm = await formData.getFormData(app.$tideSearch.setFilterOptions)
+    const tideSearch = getSearch(app)
+    const searchForm = await formData.getFormData(tideSearch.setFilterOptions)
     return {
       sidebar: false,
       breadcrumbs: getBreadcrumbs(route.path, searchForm.title, null),
@@ -96,7 +97,7 @@ export default {
   },
   methods: {
     getComputedFilters () {
-      const _filters = this.$tideSearch.getFiltersValues(this.searchForm.filterForm)
+      const _filters = this.tideSearch.getFiltersValues(this.searchForm.filterForm)
       return utils.getGrantsFilters(_filters)
     },
     mapSearchResults (source) {

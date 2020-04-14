@@ -1,4 +1,5 @@
 import corePlugins from '../config/markup-plugins'
+import logger from './logger'
 
 const loader = (pluginConfig = []) => {
   let plugins = corePlugins
@@ -22,9 +23,9 @@ const loader = (pluginConfig = []) => {
         if (Array.isArray(morePlugins) && morePlugins.length > 0) {
           plugins = [ ...plugins, ...morePlugins ]
         }
-      } catch ($error) {
+      } catch (error) {
         if (process.server) {
-          console.error(`Markup plugins couldn't be found in file "${path}".`, $error)
+          logger.error(`Markup plugins couldn't be found in file "%s".`, path, error)
         }
       }
     })

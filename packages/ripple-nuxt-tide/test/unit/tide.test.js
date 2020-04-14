@@ -114,6 +114,20 @@ describe('tide helpers', () => {
     })
     /* eslint-enable indent */
   })
+
+  describe('stringToClass', () => {
+    /* eslint-disable indent */
+    test.each`
+      text                                                | expected
+      ${'Anchor&nbsp;&amp;&nbsp;&copy;&nbsp;Link'}        | ${'anchor-link'}
+      ${'Anchor`~!@#$%^&*()-_=+{}[]\\|;:\'"<>,.?/\nLink'} | ${'anchor-link'}
+      ${'   ANCHOR   LINK   '}                            | ${'anchor-link'}
+      ${'1234567890'}                                     | ${'1234567890'}
+    `('returns $expected for $text', ({ text, expected }) => {
+      expect(helper.stringToClass(text)).toBe(expected)
+    })
+    /* eslint-enable indent */
+  })
 })
 
 describe('tide', () => {
@@ -145,11 +159,14 @@ describe('tide', () => {
     }
     mockAxios.$get.mockRejectedValue(error)
 
-    expect.assertions(1)
     const pathNotExist = '/no-such-page'
-    await tideApi.getPathData(pathNotExist).catch(e => {
-      expect(e.response.status).toBe(404)
-    })
+    let hasError = false
+    try {
+      await tideApi.getPathData(pathNotExist)
+    } catch (e) {
+      hasError = true
+    }
+    expect(hasError).toBeTruthy()
   })
 
   test('should get page data by path', async () => {

@@ -7,7 +7,9 @@ const options = <%= serialize(options) %>
 let rplOptions = {
   // Tell Ripple this is a Nuxt app.
   // Ripple then will use <nuxt-link> to render internal link.
-  nuxt: true
+  nuxt: true,
+  // Set dev mode
+  isDev: options.isDev || false
 }
 
 <% if (options.hostname) { %>
@@ -24,6 +26,15 @@ let rplOptions = {
 
 <% if (typeof options.viclogo !== 'undefined') { %>
   rplOptions.viclogo = options.viclogo
+<% } %>
+
+<% if (typeof options.viclogoFooter !== 'undefined') { %>
+  rplOptions.viclogoFooter = options.viclogoFooter
+<% } %>
+
+<% if (options.card && options.card.trimFieldfonts) { %>
+  rplOptions.card = rplOptions.card || {}
+  rplOptions.card.trimFieldfonts = options.card.trimFieldfonts
 <% } %>
 
 <% if (options.customIcon) { %>

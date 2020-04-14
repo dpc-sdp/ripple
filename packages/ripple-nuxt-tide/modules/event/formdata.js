@@ -27,7 +27,7 @@ export default {
               fields: [
                 {
                   type: 'rplchecklist',
-                  styleClasses: ['form-group--col-two'],
+                  styleClasses: ['form-group--col-two', 'rpl-event-filter--category'],
                   label: 'Select an event category',
                   model: 'field_event_category_name',
                   values: eventCategoryValues,
@@ -42,7 +42,7 @@ export default {
                   type: 'input',
                   inputType: 'text',
                   maxlength: 50,
-                  styleClasses: ['form-group--col-two'],
+                  styleClasses: ['form-group--col-two', 'rpl-event-filter--location'],
                   label: 'Location',
                   model: 'location',
                   placeholder: 'Start typing suburb or postcode...',
@@ -62,19 +62,19 @@ export default {
                 {
                   type: 'rpldatepicker',
                   ranged: false,
-                  styleClasses: ['form-group--col-two'],
+                  styleClasses: ['form-group--col-two', 'rpl-event-filter--date'],
                   label: 'Select an event date',
                   model: 'field_event_date_end_value',
                   placeholder: 'DD/MM/YYYY',
                   filter: {
                     type: 'date',
-                    operator: 'lte'
+                    operator: 'gte'
                   }
                 },
                 {
                   type: 'rplchecklist',
                   label: 'Event requirements',
-                  styleClasses: ['form-group--col-two'],
+                  styleClasses: ['form-group--col-two', 'rpl-event-filter--requirements'],
                   model: 'field_event_details_event_requirements_name',
                   // TODO: There are no values for this field how can we programmactically hide a field in this instance.
                   values: eventNameValues,

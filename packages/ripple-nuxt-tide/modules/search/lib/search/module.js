@@ -1,5 +1,6 @@
 import service from './service'
-import { isEqual } from 'lodash'
+import isEqual from 'lodash/isEqual'
+import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 // Calls to search.
 let i = 0
 
@@ -29,6 +30,9 @@ export default (config, router, site) => ({
    * @param {Array}     options.qFields         Array of query fields
    * @param {Array}     options.sFields         Array of source fields
    * @param {Array}     options.filterFromURI   Array of fields to remove from URI
+   * @param {Object}    options.exclude         (optional) Properties to exclude from hits.
+   * @param {String}    options.exclude.type    The API entity type to exclude.
+   * @param {String}    options.exclude.field   (optional) The API field_name. The API field_name. If set and a value exists, hits are excluded.
    * @param {String}    queryString
    * @param {Int}       page                    Used to calculate the start point for returned hits.
    * @param {Object}    filters                 filterForm arguments to refine search hits using a filter context.
@@ -49,7 +53,7 @@ export default (config, router, site) => ({
 
     if (this.logging) {
       i++
-      console.info(`Search refresh - call number ${i}`)
+      logger.info('Search refresh - call number %s', i, { label: 'Search' })
     }
     this.mergeSystemFilters(filters, {
       docType: docType,
@@ -58,7 +62,7 @@ export default (config, router, site) => ({
 
     let from = this.getFromHit(page, options.responseSize)
 
-    const hits = await service.api.search(client, index, queryString, filters, filterFields, options.qFields, options.sFields, from, options.responseSize, sort)
+    const hits = await service.api.search(client, index, queryString, filters, filterFields, options.qFields, options.sFields, from, options.responseSize, sort, options.exclude)
 
     this.updateLocParams({
       q: queryString,
@@ -71,18 +75,6 @@ export default (config, router, site) => ({
       hits.totalSteps = Math.floor(Number(hits.hits.total) / options.responseSize)
     }
     return hits
-  },
-  searchPageRedirect: function (searchPagePath, searchInput, filters = null) {
-    let query = {
-      q: searchInput
-    }
-    if (filters) {
-      query.filters = filters
-    }
-    router.push({
-      path: searchPagePath,
-      query: query
-    })
   },
   /**
    * Helper to update the route query parameters to reflect queryString, filter
@@ -126,6 +118,8 @@ export default (config, router, site) => ({
       for (const key in updates.filters) {
         if (filterFromURI.includes(key)) {
           delete updates.filters[key]
+        } else if (filterFromURI.includes('*')) {
+          updates.filters = {}
         }
       }
     }
@@ -143,7 +137,7 @@ export default (config, router, site) => ({
       Object.assign(queries, updates)
       // TODO: Add a sort of `updates` so 'q' always comes first.
       if (this.logging) {
-        console.info(`New query parameters: ${JSON.stringify(queries)}`)
+        logger.info('New query parameters: %s', JSON.stringify(queries), { label: 'Search' })
       }
       router.push({
         query: queries
@@ -226,28 +220,55 @@ export default (config, router, site) => ({
    * @param {Object}  searchForm
    * @param {Object}  query
    */
-  setFiltersOnCreate: function (searchForm, query = {}) {
+  setFiltersOnCreate: function (searchForm = {}, query = {}) {
     query = router.currentRoute.query
     searchForm.prefillSearchTerm = query.q || ''
     // Populate the filters.
     if (query.filters) {
-      for (let filter in query.filters) {
-        if (typeof searchForm.filterForm.model[filter] !== 'undefined') {
-          if (typeof query.filters[filter] === 'string') {
-            if (!searchForm.filterForm.model[filter].includes(query.filters[filter])) {
-              if (Array.isArray(searchForm.filterForm.model[filter])) {
-                searchForm.filterForm.model[filter].push(query.filters[filter])
+      for (const filterName in query.filters) {
+        const formFilter = searchForm.filterForm.model[filterName]
+
+        if (typeof formFilter !== 'undefined') {
+          const queryFilter = query.filters[filterName]
+          const queryFilterType = Array.isArray(queryFilter) ? 'array' : typeof queryFilter
+
+          switch (queryFilterType) {
+            case 'string':
+              if (!formFilter.includes(queryFilter)) {
+                if (Array.isArray(formFilter)) {
+                  formFilter.push(queryFilter)
+                } else {
+                  searchForm.filterForm.model[filterName] = queryFilter
+                }
+              }
+              break
+            case 'array':
+              for (const queryFilterItem of queryFilter) {
+                if (!formFilter.includes(queryFilterItem)) {
+                  formFilter.push(queryFilterItem)
+                }
+              }
+              break
+            case 'object':
+              if (Array.isArray(formFilter)) {
+                if (Array.isArray(queryFilter.values)) {
+                  queryFilter.values.forEach(item => {
+                    if (!formFilter.includes(item)) {
+                      formFilter.push(item)
+                    }
+                  })
+                } else {
+                  if (!formFilter.includes(queryFilter.values)) {
+                    formFilter.push(queryFilter.values)
+                  }
+                }
               } else {
-                searchForm.filterForm.model[filter] = query.filters[filter]
+                searchForm.filterForm.model[filterName] = queryFilter.values
               }
-            }
-          }
-          if (Array.isArray(query.filters[filter])) {
-            for (let index in query.filters[filter]) {
-              if (!searchForm.filterForm.model[filter].includes(query.filters[filter][index])) {
-                searchForm.filterForm.model[filter].push(query.filters[filter][index])
-              }
-            }
+              break
+            default:
+              console.warn('An unknown query filter was encountered.')
+              break
           }
         }
       }

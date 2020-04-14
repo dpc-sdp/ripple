@@ -32,9 +32,6 @@ import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 ## Usage and Tests
 
-See [Storybook/Atoms/Layout/Grid](https://ripple.sdp.vic.gov.au/?path=/story/atoms-layout--grid).
-
-See [Storybook/Atoms/Layout/Grid system](https://ripple.sdp.vic.gov.au/?path=/story/atoms-layout--grid-system).
 
 --------------------------------------------------------------------------------
 

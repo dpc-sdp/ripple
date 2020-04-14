@@ -1,8 +1,15 @@
 import { cardColsSetting } from '../../../lib/config/layout.config.js'
-import { truncateText } from './../../../lib/core/tide-helper'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import search from './search/module'
 
 const searchMixin = {
   data () {
+    let tideSearch
+    if (this.$tideSearchOptions.loadOnDemand) {
+      tideSearch = search(this.$tideSearchOptions, this.$router, this.$store.state.tideSite.siteId)
+    } else {
+      tideSearch = this.$tideSearch
+    }
     return {
       errorMsg: '',
       loading: true,
@@ -16,7 +23,8 @@ const searchMixin = {
       searchComponent: 'default',
       type: null,
       count: null,
-      cardColBp: cardColsSetting
+      cardColBp: cardColsSetting,
+      tideSearch: tideSearch
     }
   },
   methods: {
@@ -44,10 +52,10 @@ const searchMixin = {
       this.updateSubmitLoader(true)
 
       try {
-        const response = await this.$tideSearch.search(this.searchOptions, queryString, page, filters, this.fields, this.docType, this.sort)
+        const response = await this.tideSearch.search(this.searchOptions, queryString, page, filters, this.fields, this.docType, this.sort)
         this.updateSubmitLoader(false)
         if (response.aggregations) {
-          this.$tideSearch.updateFilterOptions(this.searchForm.filterForm, response.aggregations)
+          this.tideSearch.updateFilterOptions(this.searchForm.filterForm, response.aggregations)
         }
         const results = []
         const hits = response.hits.hits
@@ -93,7 +101,7 @@ const searchMixin = {
     },
     getComputedFilters () {
       // override this method in your page component this to post process filter values
-      return this.$tideSearch.getFiltersValues(this.searchForm.filterForm)
+      return this.tideSearch.getFiltersValues(this.searchForm.filterForm)
     },
     noResultsMsg (searchString) {
       let noResultsMsg = `Sorry! We couldn't find any matches`
@@ -135,10 +143,10 @@ const searchMixin = {
   created () {
     // TODO: Refactor default page load query state so that a flag is used instead of string comparison.
     if (this.$route.query.page || this.$route.query.q) {
-      this.$tideSearch.setFiltersOnCreate(this.searchForm, this.$route.query)
+      this.tideSearch.setFiltersOnCreate(this.searchForm, this.$route.query)
       this.getSearchResults(this.$route.query.q, this.$route.query.page)
     } else {
-      this.$tideSearch.setFiltersOnCreate(this.searchForm)
+      this.tideSearch.setFiltersOnCreate(this.searchForm)
       this.getSearchResults()
     }
   },
@@ -165,7 +173,7 @@ const searchMixin = {
       if (this.searchForm.textSearch === undefined) {
         this.searchForm.prefillSearchTerm = this.$route.query.q
       }
-      this.pager.initialStep = this.$route.query.page
+      this.pager.initialStep = this.$route.query.page ? Number(this.$route.query.page) : 1
     }
   }
 }

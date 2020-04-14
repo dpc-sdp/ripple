@@ -52,7 +52,7 @@ import uniqueid from '@dpc-sdp/ripple-global/mixins/uniqueid'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import Vue from 'vue'
-import kebabCase from 'lodash.kebabcase'
+import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplAccordion',
@@ -75,7 +75,7 @@ export default {
   computed: {
     titleId () {
       if (this.title) {
-        return kebabCase(this.title)
+        return getAnchorLinkName(this.title)
       }
     }
   },
@@ -163,6 +163,10 @@ export default {
       margin: 0;
       padding: 0;
       background-color: $rpl-accordion-background-color;
+
+      @media print {
+        margin: $rpl-space-4 0;
+      }
     }
 
     &__list-item {
@@ -181,6 +185,10 @@ export default {
         width: 0;
         background-image: $rpl-accordion-border-image;
         transition: width .25s;
+
+        @media print {
+          display: none;
+        }
       }
 
       &--expanded {
@@ -196,7 +204,7 @@ export default {
 
     &__button {
       @include rpl_typography_ruleset($rpl-accordion-title-ruleset);
-      color: $rpl-accordion-button-text-color;
+      @include rpl_text_color($rpl-accordion-button-text-color);
       background: transparent;
       border: 0;
       width: 100%;
@@ -213,12 +221,17 @@ export default {
         }
       }
 
-      &:hover, &:focus {
-        color: $rpl-accordion-button-text-color-hover;
+      @media print {
+        padding: $rpl-space-3 ($rpl-space * 5);
+      }
+
+      &:hover,
+      &:focus {
+        @include rpl_text_color($rpl-accordion-button-text-color-hover);
       }
 
       &--expanded {
-        color: $rpl-accordion-button-text-color-expanded;
+        @include rpl_text_color($rpl-accordion-button-text-color-expanded);
       }
     }
 
@@ -233,7 +246,7 @@ export default {
     }
 
     &__title-number {
-      color: $rpl-accordion-button-number-text-color;
+      @include rpl_text_color($rpl-accordion-button-number-text-color);
       margin: $rpl-accordion-button-number-margin;
     }
 
@@ -243,12 +256,17 @@ export default {
 
     &__content {
       @include rpl_typography_ruleset($rpl-accordion-content-ruleset);
-      color: $rpl-accordion-content-text-color;
+      @include rpl_text_color($rpl-accordion-content-text-color);
       box-sizing: border-box;
       @each $bp, $val in $rpl-accordion-content-padding {
         @include rpl_breakpoint($bp) {
           padding: $val;
         }
+      }
+
+      @media print {
+        display: block !important;
+        padding: 0 ($rpl-space * 5);
       }
 
       &.accordion-enter-active,
@@ -265,13 +283,27 @@ export default {
 
     &__content-inner {
       padding: $rpl-accordion-content-inner-padding;
+
+      @media print {
+        display: block !important;
+        padding: 0 0 ($rpl-space * 5);
+      }
     }
 
     &__icon {
       margin-left: auto;
       transition: transform .25s;
+
+      @media print {
+        fill: rpl-color('black');
+      }
+
       &--expanded {
         transform: rotate(-180deg);
+
+        @media print {
+          transform: rotate(0deg);
+        }
       }
     }
   }

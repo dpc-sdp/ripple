@@ -2,7 +2,7 @@
   <transition name="section" @enter="start" @after-enter="end" @before-leave="start" @after-leave="end">
     <ul v-show="open" :data-depth="depth" class="rpl-section-menu">
       <li v-for="(link, index) in menu" :key="index" class="rpl-section-menu__item rpl-section-menu__item--parent" :class="{'rpl-section-menu__item--active': menuItemOpen[index]}">
-        <rpl-link v-if="!link.children" :href="link.url" class="rpl-section-menu__item-link">{{ link.text }}</rpl-link>
+        <rpl-link v-if="!link.children" :href="link.url" :target="link.target" class="rpl-section-menu__item-link">{{ link.text }}</rpl-link>
         <button
           v-else
           class="rpl-section-menu__item-link rpl-section-menu__item-link--parent"
@@ -77,7 +77,6 @@ export default {
   $rpl-section-menu-item-link-color: rpl_color('white') !default;
   $rpl-section-menu-item-link-parent-hover-background-color: rpl_color('primary') !default;
   $rpl-section-menu-item-link-parent-hover-background-image: rpl_gradient('primary_gradient') !default;
-  $rpl-section-menu-item-link-parent-background-color: rpl_color('secondary') !default;
   $rpl-section-menu-item-link-active-background-color: rpl_color('primary') !default;
   $rpl-section-menu-item-link-active-border-height: 1px;
   $rpl-section-menu-item-link-active-border: $rpl-section-menu-item-link-active-border-height solid rpl_color('dark_primary') !default;

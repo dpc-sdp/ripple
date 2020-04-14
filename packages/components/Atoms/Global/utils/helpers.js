@@ -33,6 +33,10 @@ const isAnchorLink = (url) => {
   return (typeof url === 'string' && url.length > 0 && url[0] === '#')
 }
 
+const getAnchorLinkName = (str) => {
+  return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[^a-zA-Z0-9\s]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
+}
+
 const formatMoney = (value) => {
   if (value && !isNaN(value)) {
     // Thousands seperator - https://stackoverflow.com/a/2901298
@@ -81,4 +85,34 @@ function _isTelOrEmailUrl (url) {
   return false
 }
 
-export { isRelativeUrl, isExternalUrl, isAnchorLink, formatMoney, isClient }
+const decodeSpecialCharacters = (html) => {
+  const map = {
+    '&amp;': '&',
+    '&gt;': '>',
+    '&lt;': '<',
+    '&apos;': "'",
+    '&#039;': "'",
+    '&quot;': '"',
+    '&nbsp;': ' '
+  }
+  let replaceableCodes = '('
+  let first = true
+  for (const code in map) {
+    replaceableCodes += first ? code : `|${code}`
+    first = false
+  }
+  replaceableCodes += ')'
+  return html.replace(new RegExp(replaceableCodes, 'gi'), (code) => { return map[code.toLowerCase()] })
+}
+
+const truncateText = (text, stop = 150, clamp) => {
+  if (text && typeof text === 'string') {
+    if (text.length > stop) {
+      return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
+    }
+    return text
+  }
+  return ''
+}
+
+export { isRelativeUrl, isExternalUrl, isAnchorLink, getAnchorLinkName, formatMoney, isClient, truncateText, decodeSpecialCharacters }

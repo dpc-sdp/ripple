@@ -1,14 +1,14 @@
 import { tide, Mapping } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
-import { search } from '@dpc-sdp/ripple-nuxt-tide/modules/search/index.js'
 import { serverSetProperties } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
-export default ({ env, app, req, res, store , route}, inject) => {
+export default ({ app, req, store , route }, inject) => {
   // We need to serialize functions, so use `serialize` instead of `JSON.stringify`.
   // https://github.com/nuxt-community/modules/issues/170
   // https://www.npmjs.com/package/serialize-javascript
   const options = <%= serialize(options) %>
 
   const config = options
+
   // Inject `tide` key
   // -> app.$tide
   // -> this.$tide in vue components
@@ -16,47 +16,6 @@ export default ({ env, app, req, res, store , route}, inject) => {
   const tideService = tide(app.$axios, options.site, config)
   inject('tide', tideService)
   inject('tideMapping', new Mapping(config, tideService))
-  inject('tideSearch', search(options.search, app.router, options.site))
-
-  // If a request is failed, set a error status code
-  app.$axios.onError(error => {
-    const responseUrl = error.request.path || error.request.responseURL
-    const errMessage = 'Request to Tide "' + responseUrl + '" failed.'
-
-    // Check what kind of request it is.
-    const routeRequest = responseUrl.includes('/route?')
-    const authPreviewRequest = responseUrl.includes('&current_version=') || responseUrl.includes('&resourceVersion=')
-
-    let code
-    if (error.code) {
-      code = error.code
-    } else if (error.response) {
-      code = error.response.status
-    }
-
-    // Set http status code if a route or preview request failed.
-    if (routeRequest || authPreviewRequest || code === 404) {
-      // We hide 403 and show it as 404
-      code = code === 403 ? 404 : code
-
-      app.tideResErrCode = code
-
-      if (typeof res !== 'undefined') {
-        res.statusCode = code
-      }
-
-      if (code !== 404 && process.server) {
-        console.error(new Error(errMessage), error)
-      }
-    } else {
-      // All other requests failure should be invisible for end user.
-      // We only log them in sever console.
-      if (process.server) {
-        console.error(new Error(errMessage), error)
-      }
-      return Promise.resolve({ error: true })
-    }
-  })
 
   // Register Tide Vuex module
   if (store) {
@@ -66,7 +25,8 @@ export default ({ env, app, req, res, store , route}, inject) => {
         host: null,
         protocol: null,
         currentUrl: null,
-        siteData: null
+        siteData: null,
+        pageData: null
       }),
       mutations: {
         setHost (state, host) {
@@ -80,13 +40,15 @@ export default ({ env, app, req, res, store , route}, inject) => {
         },
         setSiteData (state, siteData) {
           state.siteData = siteData
+        },
+        setPageData (state, pageData) {
+          state.pageData = pageData
         }
       },
       actions: {
-        async init ({ commit, dispatch }) {
+        async init ({ commit, dispatch }, { requestId = null } = {}) {
           if (process.server) {
-            const siteData = await app.$tide.getSiteData()
-            commit('setSiteData', siteData)
+            await dispatch('setSiteData', { requestId })
             commit('setHost', req.headers.host)
 
             // Set protocol
@@ -95,11 +57,7 @@ export default ({ env, app, req, res, store , route}, inject) => {
 
             // Load site module store.
             if (config.modules.site === 1) {
-              await store.dispatch('tideSite/init')
-            }
-            // Load alert module store.
-            if (config.modules.alert === 1) {
-              await store.dispatch('tideAlerts/init')
+              await store.dispatch('tideSite/init', { requestId })
             }
             // Load authenticated content store.
             if (config.modules.authenticatedContent === 1) {
@@ -107,10 +65,27 @@ export default ({ env, app, req, res, store , route}, inject) => {
             }
           }
         },
+        async setSiteData ({ commit }, { requestId = null } = {}) {
+          const headersConfig = { requestId }
+          const siteData = await app.$tide.getSiteData(headersConfig)
+          if (siteData instanceof Error) {
+            throw siteData
+          }
+          siteData.lastFetched = Date.now()
+          commit('setSiteData', siteData)
+          if (config.modules.alert === 1) {
+            if (siteData.site_alerts && siteData.site_alerts.length > 0) {
+              await store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })
+            }
+          }
+        },
         setCurrentUrl ({ commit }, fullPath) {
           const url = store.state.tide.protocol + '//' + store.state.tide.host + fullPath
           commit('setCurrentUrl', url)
-        }
+        },
+        setPageData ({ commit }, pageData) {
+          commit('setPageData', pageData)
+        },
       }
     }
 

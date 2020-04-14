@@ -32,7 +32,6 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-related-links-max-width-s: rem(583px);
   $rpl-related-links-background-color: rpl_color('primary') !default;
   $rpl-related-links-background-position: top right !default;
   $rpl-related-links-background-repeat: no-repeat !default;
@@ -42,9 +41,10 @@ export default {
   $rpl-related-links-margin: $rpl-space-2;
   $rpl-related-links-border-radius: rem(4px);
   $rpl-related-links-title-ruleset: ('l', 1.2em, 'bold');
-  $rpl-related-links-title-color: rpl_color('white');
+  $rpl-related-links-title-color: rpl_color('white') !default;
   $rpl-related-links-items-margin: $rpl-space-2 auto;
-  $rpl-related-links-item-margin: auto auto $rpl-space-3;
+  $rpl-related-links-item-min-width: rem(220px);
+  $rpl-related-links-item-margin: 0 $rpl-space-3 $rpl-space-3 auto;
 
   .rpl-related-links {
     padding: $rpl-related-links-padding;
@@ -55,17 +55,6 @@ export default {
     border-radius: $rpl-related-links-border-radius;
 
     @include rpl_print_hidden;
-
-    &__row {
-      @include rpl_breakpoint('s') {
-        max-width: $rpl-related-links-max-width-s;
-        margin: 0 auto;
-      }
-
-      @include rpl_breakpoint('l') {
-        max-width: none;
-      }
-    }
 
     &__icon {
       position: absolute;
@@ -85,18 +74,14 @@ export default {
       list-style: none;
       padding: 0;
       margin: $rpl-related-links-items-margin;
-
-      @include rpl_breakpoint('s') {
-        column-count: 2;
-      }
-
-      @include rpl_breakpoint('l') {
-        column-count: 1;
-      }
+      display: flex;
+      flex-wrap: wrap;
     }
 
     &__item {
       margin: $rpl-related-links-item-margin;
+      flex: 40%;
+      min-width: $rpl-related-links-item-min-width;
     }
   }
 </style>

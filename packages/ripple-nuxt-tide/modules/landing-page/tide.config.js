@@ -208,7 +208,10 @@ module.exports = {
             component: 'rpl-call-to-action',
             props: {
               'title': 'field_paragraph_title',
-              'summary': ['field_paragraph_body', 'processed'],
+              'summary': {
+                field: 'field_paragraph_body',
+                filters: ['formattedTextDecode']
+              },
               'link': {
                 field: 'field_paragraph_cta',
                 filters: ['paragraphCta']
@@ -229,7 +232,10 @@ module.exports = {
             component: 'rpl-card-cta',
             props: {
               'title': 'field_paragraph_title',
-              'summary': ['field_paragraph_body', 'processed'],
+              'summary': {
+                field: 'field_paragraph_body',
+                filters: ['formattedTextDecode']
+              },
               'link': {
                 field: 'field_paragraph_cta',
                 filters: ['paragraphCta']
@@ -266,7 +272,8 @@ module.exports = {
             field: 'field_paragraph_webform',
             filters: ['webform']
           }
-        }
+        },
+        class: ['tide-webform']
       },
 
       'paragraph--card_promotion': {

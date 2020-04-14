@@ -16,13 +16,27 @@ This is a globally available options object to allow passing options between rip
 
 ```js
   nuxt: false, // enable if using in SSR environment eg: nuxt
+  isDev: false, // set to true to enable dev mode, used to show Ripple component errors if have.
   hostname: 'localhost', // set hostname for rpl-link etc
   origin: '', // URL with protocol://host(:port) e.g. http://localhost:3000
   quickexit: false, // enable quick exit feature
   quickexiturl: 'https://www.google.com', // URL to use for quickexit
   plugins: [], // array of cheerio transformer function plugins to pass to RplMarkup
   viclogo: true // whether to display primary vic.gov.au logo
+  externalLinksInNewWindow: false // (Bool) Whether links open in new window by default
+  card: {
+    trimFieldfonts: ['Your-font-name'] // If custom fonts are used in card trimmed field, set them here.
+  }
 ```
+
+For add your options, you need to use the Ripple global plugin in your Vue.js porject.
+
+```JS
+import RplGlobal from '@dpc-sdp/ripple-global'
+Vue.use(RplGlobal, { // You options ... })
+```
+
+For how Vue plugin works, please check https://vuejs.org/v2/guide/plugins.html#Using-a-Plugin.
 
 --------------------------------------------------------------------------------
 
@@ -78,6 +92,12 @@ See [Storybook/Atoms/Global/Breakpoints](https://ripple.sdp.vic.gov.au/?path=/st
 See [Storybook/Atoms/Global/Divider](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--divider).
 
 <!-- /GENERATED_USAGE_AND_TESTS -->
+
+--------------------------------------------------------------------------------
+
+## Known issues
+
+* Typography: Display headings (with background) have reduced padding on IE11 / Edge.
 
 --------------------------------------------------------------------------------
 

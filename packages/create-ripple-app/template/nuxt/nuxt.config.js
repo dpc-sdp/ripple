@@ -1,4 +1,5 @@
 require('dotenv').config()
+const robots = require('./robots')
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 
@@ -8,13 +9,13 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: '<%= name %>',
+    title: '<%= domain %>',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'msapplication-TileColor', content: '#da532c' },
       { name: 'theme-color', content: '#ffffff' },
-      { hid: 'description', name: 'description', content: '<%= description %>' }
+      { hid: 'description', name: 'description', content: '<%= domain %>' }
     ],
     link: [
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon.ico' },
@@ -43,32 +44,39 @@ export default {
   modules: [
     // https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
     '@dpc-sdp/ripple-nuxt-tide',
-    // we want to always disallow bots on the example site
-    ['@nuxtjs/robots', {
-      UserAgent: '*',
-      Disallow: '/'
-    }]
-  ],<% if (examples === true) { %>
+    ['@nuxtjs/robots', robots]
+  ],
   /*
-  ** styleResources
-  * Override the path to the theme customisation scss
-  * loads scss with @nuxtjs/style-resources
-  * Defaults to /assets/_theme.scss
+  ** Build
+  * https://nuxtjs.org/api/configuration-build/
   */
-  // styleResources: {
-  //   scss: [
-  //     path.resolve(__dirname, './assets/_theme.scss')
-  //   ]
-  // }
-  /*
-  * Configuration for ripple-nuxt-ui
-  * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui
-  */
-  ripple: {},
-  /*
-  * Configuration for ripple-nuxt-tide
-  * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
-  */<%}%>
+  build: {
+    extend (config, { isDev, isClient }) {
+      const webpack = require('webpack')
+      const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+      config.plugins.push(new LodashModuleReplacementPlugin({
+        'caching': true,
+        'collections': true,
+        'paths': true,
+        'shorthands': true
+      }))
+      // Load moment 'en-au' locale only for performance.
+      // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+      // You need to change it if your site is not in Australia.
+      config.plugins.push(new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-au/))
+    },
+
+    // Currently lodash is mainly brought by Elastic search JS lib.
+    // Below lodash optimization can be reviewed after we migrate to new ES JS client.
+    babel: {
+      plugins: [
+        'lodash'
+      ]
+    }
+  },
+  css: [
+    '@/assets/_custom.scss'
+  ],
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
     auth: {
@@ -76,7 +84,7 @@ export default {
       password: process.env.CONTENT_API_AUTH_PASS
     },
     site: <%= siteid %>,
-    // Tide submodules, 1 for enable, 0 for disable.
+    // Tide submodules, 1 for enable, 0 for disable. See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide for available options
     modules: {
       <% if (page === 'yes') { %>page: 1,
       <%}%><% if (landingPage === 'yes') { %>landingPage: 1,
@@ -88,9 +96,7 @@ export default {
       <%}%><% if (media === 'yes') { %>media: 1,
       <%}%><% if (webform === 'yes') { %>webform: 1,
       <%}%><% if (search === 'yes') { %>search: 1,
-      <%}%><% if (monsido === 'yes') { %>monsido: 1,
       <%}%><% if (authenticatedContent === 'yes') { %>authenticatedContent: 1,
-      <%}%><% if (dataDrivenComponent === 'yes') { %>dataDrivenComponent: 1,
       <%}%><% if (alert === 'yes') { %>alert: 1,
       <%}%><% if (gtm === 'yes') { %>gtm: 1,
       <%}%><% if (site === 'yes') { %>site: 1<%}%>
@@ -107,7 +113,8 @@ export default {
       auth: {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD
-      }
+      },
+      loadOnDemand: 1
     }
   }
 }

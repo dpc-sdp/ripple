@@ -137,16 +137,12 @@ $rpl-search-back-to-top-offset: 72px / 2;
   }
 
   @include rpl_breakpoint(xxl) {
-    background-position: calc(50% - 43rem) -13rem;
+    // Decimal point to solve Safari's lack of sub-pixel rendering / rounding.
+    background-position: calc(50.001% - 43rem) -13rem;
     background-size: 40rem;
   }
 
   @media (min-width: 1900px) {
-    background-position: left -13rem;
-    background-size: 40rem;
-  }
-
-  @include rpl_breakpoint(xxxl) {
     background-position: left -13rem;
   }
 
@@ -167,6 +163,7 @@ $rpl-search-back-to-top-offset: 72px / 2;
 
     @include rpl_print {
       padding-top: 0;
+      background-image: none !important;
     }
   }
 

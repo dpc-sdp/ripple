@@ -54,7 +54,7 @@
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCheckbox from '../Checkbox.vue'
-import { isObject } from 'lodash'
+import isObject from 'lodash/isObject'
 import { abstractField, schema } from 'vue-form-generator'
 import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
@@ -84,7 +84,7 @@ export default {
     }
     this.setCheckedValues()
 
-    this.deprecatedWarn('"rpl-checklist" is depricated, please use "rpl-select" instead.')
+    this.deprecatedWarn('"rpl-checklist" is deprecated, please use "rpl-select" instead.')
   },
   watch: {
     value (newVal, oldVal) {

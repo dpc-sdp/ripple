@@ -54,7 +54,12 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
-    "step_definitions": "test/e2e/integration/"
+    "step_definitions": "test/e2e/integration/",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "./../../test-results/cucumber",
+      "filePrefix": "vue-example-app-"
+    }
   },
   "browserslist": [
     "> 1%",

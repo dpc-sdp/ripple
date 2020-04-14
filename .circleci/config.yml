@@ -178,7 +178,7 @@ jobs:
           command: cd examples/vue-example-app && yarn test:smoke
       - run:
           name: prepare cucumber test report
-          command: cd ../../ && yarn test:report
+          command: yarn test:report
       - store_test_results:
           path: test-results
       - store_artifacts:

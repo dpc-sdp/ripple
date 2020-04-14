@@ -236,14 +236,13 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-      # TODO : please fix this test
-      # - e2e-vue-example-app:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only:
-      #           - /^release\/.*/
+      - e2e-vue-example-app:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
       #  Release prerelease DEV tag to NPM on successful tests passing
       # - prerelease:
       #     requires:

@@ -12,17 +12,17 @@ Feature: Preview content
     Then I should see a 404 page
 
   Scenario: Accessing a preview when unauthorized redirects to login
-    When I attempt to visit the page "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7a27/latest?section=4"	
+    When I attempt to visit the page "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7<%= siteid %>/latest?section=<%= siteid %>"	
     Then the current page url should be "/login"
-  
+  @skip
   Scenario: Accessing a preview when authenticated shows page
-    When I visit the page "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7a27/latest?section=4"
+    When I visit the page "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7<%= siteid %>/latest?section=<%= siteid %>"
     And I enter the the following login credentials:
       | login                  | password  |
-      | e2e-test-2@example.com | ******** |
+      | e2e-test-2@<%= domain %> | ******** |
     And I submit the login form
     And I wait for 8 seconds
-    Then the current page url should be "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7a27/latest"
+    Then the current page url should be "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7<%= siteid %>/latest"
     Then the current page should not be an error page
     And there should be a draft banner 
     And there should be a header logout button

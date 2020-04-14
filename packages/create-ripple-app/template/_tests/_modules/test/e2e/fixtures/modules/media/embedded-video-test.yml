@@ -49,12 +49,6 @@
           - taxonomy_term
           - vid: sites
             name: '<%= domain %>'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'demo.<%= domain %>'
   field_node_primary_site:
     - '#process':
         callback: reference

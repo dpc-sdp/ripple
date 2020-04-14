@@ -61,7 +61,7 @@
     - uri: http://www.weatherzone.com.au/vic/central/healesville
   # Event author.
   field_node_author: Full Name
-  field_node_email: test.user@dpc.<%= domain %>
+  field_node_email: test.user@domain.com
   field_node_phone: '12345678'
   # Related links
   field_show_related_content: 1
@@ -83,7 +83,7 @@
       type: contact_us
       field_paragraph_title: Victorian Government
       field_paragraph_name: Victorian Government
-      field_paragraph_email: no-reply@<%= domain %>
+      field_paragraph_email: no-reply@domain.com
       field_paragraph_department_name: Department of Premier and Cabinet
       field_paragraph_location:
         - country_code: AU
@@ -147,23 +147,11 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Demo Section 1'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Another Demo Site'
+            name: '<%= domain %>'
   field_node_primary_site:
     - '#process':
         callback: reference
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
+            name: '<%= domain %>'

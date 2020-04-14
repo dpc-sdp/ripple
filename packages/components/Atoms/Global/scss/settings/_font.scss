@@ -44,8 +44,29 @@ $rpl-font-display-background-padding: (
 ) !default;
 
 $rpl-fonts: (
-  'regular': ('VIC-Regular', 'Arial', 'Helvetica', 'sans-serif'),
-  'medium': ('VIC-Medium', 'Arial', 'Helvetica', 'sans-serif'),
-  'semibold': ('VIC-SemiBold', 'Arial', 'Helvetica', 'sans-serif'),
-  'bold': ('VIC-Bold', 'Arial', 'Helvetica', 'sans-serif')
+  'regular': (
+    'family': ('VIC-Regular', 'Arial', 'Helvetica', 'sans-serif'),
+    'display': 'fallback'
+  ),
+  'medium': (
+    'family': ('VIC-Medium', 'Arial', 'Helvetica', 'sans-serif'),
+    'display': 'fallback'
+  ),
+  'semibold': (
+    'family': ('VIC-SemiBold', 'Arial', 'Helvetica', 'sans-serif'),
+    'display': 'swap'
+  ),
+  'bold': (
+    'family': ('VIC-Bold', 'Arial', 'Helvetica', 'sans-serif'),
+    'display': 'swap'
+  )
 ) !default;
+
+// Original $rpl-fonts structure(below) is still supported.
+// Custom Web fonts can use own loader.
+// Example: examples/basic-examples/assets/_theme.scss
+//
+// $rpl-fonts: (
+//  'regular': ('VIC-Regular', 'Arial', 'Helvetica', 'sans-serif'),
+//  'medium': ('VIC-Medium', 'Arial', 'Helvetica', 'sans-serif')
+// );

@@ -40,7 +40,13 @@ $rpl-font-base: 16px !default;
   @if map-get($rpl-fonts, $name) == null {
     @error '"#{$name}" is not an available font';
   }
-  @return map-get($rpl-fonts, $name);
+
+  $font: map-get($rpl-fonts, $name);
+  @if (type-of($font) == 'map') {
+    @return map-get($font, 'family');
+  } @else {
+    @return $font;
+  }
 }
 
 @function rpl-font-size($name) {

@@ -1,8 +1,8 @@
 - entity: node
   type: landing_page
   title: 1-FE-content-preview-1
-  uid: 11222
-  uuid: e9db742d-3a43-40fa-81e2-f81b4f0f7a27
+  uid: 11<%= siteid %>
+  uuid: e9db742d-3a43-40fa-81e2-f81b4f0f7<%= siteid %>
   nid: 80903
   path:
     - pathauto: 0

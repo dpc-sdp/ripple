@@ -10,5 +10,5 @@ Feature: App headers
   
   @smoke
   Scenario: There are expected Tide API response headers
-    Given a request is made to "/api/v1/route?site=4&path=/"
+    Given a request is made to "/api/v1/route?site=<%= siteid %>&path=/"
     And the response header "x-sdp-app-type" should has value "tide"

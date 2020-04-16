@@ -4,10 +4,11 @@
 
 <script>
 import RplForm from '@dpc-sdp/ripple-form'
+import webform from '@dpc-sdp/ripple-nuxt-tide/modules/webform/mixins'
 import conditionalLogic from '@dpc-sdp/ripple-nuxt-tide/modules/webform/conditional-logic'
 
 export default {
-  name: 'AppForm',
+  name: 'TideForm',
   components: {
     RplForm
   },
@@ -15,6 +16,7 @@ export default {
     'formData': Object,
     'title': String
   },
+  mixins: [webform],
   data () {
     return {
       messages: {
@@ -61,7 +63,7 @@ export default {
       const formData = this.formData.model
       const formId = this.formData.tideId
 
-      const res = await this.$tide.postForm(formId, formData)
+      const res = await this.postForm(formId, formData)
 
       if (res) {
         this.formData.formState = {

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-content-rating">
+  <div class="app-content-rating tide-content-rating">
     <rpl-form
     name="content-rating-form"
     :formData="formData"
@@ -12,16 +12,18 @@
 
 <script>
 import RplForm from '@dpc-sdp/ripple-form'
+import webform from '@dpc-sdp/ripple-nuxt-tide/modules/webform/mixins'
 
 // We hardcoded this form fields here because it's too complicate to generate dynamically
 // based on Drupal webform configuration.
 // Need to make sure the field name is match the Tide `tide_webform_content_rating` form
 // fields.
 export default {
-  name: 'AppContentRating',
+  name: 'TideContentRating',
   components: {
     RplForm
   },
+  mixins: [webform],
   data () {
     return {
       messages: {
@@ -135,7 +137,7 @@ export default {
           }
         }
       } else {
-        const res = await this.$tide.postForm(formId, formData)
+        const res = await this.postForm(formId, formData)
 
         if (res) {
           this.formData.formState = {

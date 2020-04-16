@@ -4,7 +4,7 @@ Feature: GTM
   
   Scenario: GTM is installed on page
     Given I visit the page "/"
-    Then the GTM script should be installed with id "GTM-T5283GW"
+    Then the GTM script should be installed with id "<%= gtmtoken %>"
   
   # @stubga
   # Scenario: Google analytics page view fires

@@ -14,10 +14,10 @@
     "cy:run-smoke": "cypress run -b chrome -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*' --record  --parallel --group $CIRCLE_JOB",
     <%_ if (e2e === true) { _%>
     "cy:run": "cypress run -b chrome -e TAGS='not @skip or @smoke'",
-    "test:e2e": "cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run",
+    "test:e2e": "cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start http://localhost:3000 cy:run",
     <%_ } _%>
     "test:dev": "cross-env NODE_ENV=dev start-server-and-test dev http://localhost:3000 cy:open",
-    "test:smoke": "cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke",
+    "test:smoke": "cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start http://localhost:3000 cy:run-smoke",
     <%_ } _%>
     <%_ if (unit === true) { _%>
     "test:unit": "cross-env BASIC_AUTH=0 NODE_ENV=test jest --passWithNoTests",

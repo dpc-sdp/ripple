@@ -3,10 +3,6 @@
   title: 1-FE-content-preview-1
   uid: 11222
   uuid: e9db742d-3a43-40fa-81e2-f81b4f0f7a27
-  nid: 80903
-  path:
-    - pathauto: 0
-      alias: '/1-FE-content-preview-1'
   status: 0
   moderation_state:
     - '#process':

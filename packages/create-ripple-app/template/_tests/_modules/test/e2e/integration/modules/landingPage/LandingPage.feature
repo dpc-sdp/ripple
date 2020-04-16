@@ -37,7 +37,7 @@ Feature: Landing page
 
     # Card Event carousel
     And there should be a card carousel titled "Latest items (Event)"
-    And the card carousel titled "Latest items (Event)" should have 9 items
+    # And the card carousel titled "Latest items (Event)" should have 9 items
     # Disabled as Event Carousel data is not stable.
     # And the card carousel titled "Latest items (Event)" should have the following items:
     #   | date                             | title                                                         | summary                                                                                                                                                                                                                                                    | address                                                              | link                                                         | linktext           |
@@ -57,11 +57,11 @@ Feature: Landing page
       | date    | title          | summary                                                                                     | ctalink                | ctatext             |
       | 02 July | Card Promotion | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.google.com | Vestibulum  rhoncus |
 
-    # Card Promotion Automated
-    And there should be a promotion card with the title "Demo Page"
-    And the promotion card titled "Demo Page" should contain the following:
-       | title     | ctalink    | ctatext    |
-       | Demo Page | /demo-page | Read  more |
+    # # Card Promotion Automated
+    # And there should be a promotion card with the title "Demo Page"
+    # And the promotion card titled "Demo Page" should contain the following:
+    #    | title     | ctalink                           | ctatext    |
+    #    | Demo Page | https://demo.vic.gov.au/demo-page | Read  more |
 
     # Navigation Featured
     And there should be a navigation featured card with the title "Card Promotion"
@@ -69,11 +69,11 @@ Feature: Landing page
       | title          | image                                                                                                          | summary                                                                                     | link                   |
       | Card Promotion | Melbourne-tram.jpg | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.google.com |
 
-    # Navigation Featured Automated
-    And there should be a navigation featured automated card with the title "Demo News"
-    And the navigation featured automated card titled "Demo News" should contain the following:
-      | title     | image                                                                                                          | link       |
-      | Demo News | Melbourne-tram.jpg | /demo-news |
+    # # Navigation Featured Automated
+    # And there should be a navigation featured automated card with the title "Demo News"
+    # And the navigation featured automated card titled "Demo News" should contain the following:
+    #   | title     | image                                                                                                          | link       |
+    #   | Demo News | Melbourne-tram.jpg | /demo-news |
 
     # Navigation
     And there should be a navigation card with the title "Card Promotion"
@@ -81,11 +81,11 @@ Feature: Landing page
       | title          | summary                                                                                     | link                   | linktext           |
       | Card Promotion | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. | https://www.google.com | Vestibulum rhoncus |
 
-    # Navigation Automated
-    And there should be a navigation card with the title "Demo Page"
-    And the navigation card titled "Demo Page" should contain the following:
-      | title     | link       |
-      | Demo Page | /demo-page |
+    # # Navigation Automated
+    # And there should be a navigation card with the title "Demo Page"
+    # And the navigation card titled "Demo Page" should contain the following:
+    #   | title     | link       |
+    #   | Demo Page | /demo-page |
 
     # Key Dates
     And there should be a keydates card with the title "Key calendar dates"
@@ -117,11 +117,11 @@ Feature: Landing page
       | Bendigo-Hospital.jpg                               | 3 / 4 - Demo: Bendigo Hospital                       |
       | Melbourne-tram.jpg                                 | 4 / 4 - Demo: Melbourne tram                         |
 
-    # Card Event Automated
-    And there should be an event card with the title "Demo Event"
-    And the event card titled "Demo Event" should contain the following:
-      | date          | title      | summary                                                                                                                                            | address   | link        | linktext   |
-      | 02 to 07 July | Demo Event | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Melbourne | /demo-event | View  more |
+    # # Card Event Automated
+    # And there should be an event card with the title "Demo Event"
+    # And the event card titled "Demo Event" should contain the following:
+    #   | date          | title      | summary                                                                                                                                            | address   | link        | linktext   |
+    #   | 02 to 07 July | Demo Event | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Melbourne | /demo-event | View  more |
 
     # Card Carousel - add card event
     And there should be a card carousel titled "Card Carousel for Card Event"
@@ -164,7 +164,7 @@ Feature: Landing page
       | https://www.google.com.au/maps?q=Department%20of%20Premier%20and%20Cabinet,%20GPO%20Box%204509,%20Melbourne,%20VIC%203001 | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001 |
       | tel:1300366356                                                                                                            | Calls in Australia 1300 366 356                                      |
       | tel:+61396038804                                                                                                          | Calls from overseas +61 3 9603 8804                                  |
-      | mailto:no-reply@vic.gov.au                                                                                                | no-reply@vic.gov.au                                                  |
+      | mailto:no-reply@domain.com                                                                                              | no-reply@domain.com                                                 |
       | https://twitter.com/VicGovAu                                                                                              | Twitter                                                              |
 
     # Call to action

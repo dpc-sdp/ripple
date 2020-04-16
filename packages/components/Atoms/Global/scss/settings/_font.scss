@@ -46,19 +46,19 @@ $rpl-font-display-background-padding: (
 $rpl-fonts: (
   'regular': (
     'family': ('VIC-Regular', 'Arial', 'Helvetica', 'sans-serif'),
-    'display': 'fallback'
+    'display': fallback
   ),
   'medium': (
     'family': ('VIC-Medium', 'Arial', 'Helvetica', 'sans-serif'),
-    'display': 'fallback'
+    'display': fallback
   ),
   'semibold': (
     'family': ('VIC-SemiBold', 'Arial', 'Helvetica', 'sans-serif'),
-    'display': 'swap'
+    'display': swap
   ),
   'bold': (
     'family': ('VIC-Bold', 'Arial', 'Helvetica', 'sans-serif'),
-    'display': 'swap'
+    'display': swap
   )
 ) !default;
 

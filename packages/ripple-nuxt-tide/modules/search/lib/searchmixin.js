@@ -24,7 +24,8 @@ const searchMixin = {
       type: null,
       count: null,
       cardColBp: cardColsSetting,
-      tideSearch: tideSearch
+      tideSearch: tideSearch,
+      setPageTitleOnResults: true
     }
   },
   methods: {
@@ -37,9 +38,11 @@ const searchMixin = {
       }
 
       // Set page title.
-      this.$store.dispatch('tide/setPageHead', {
-        title: queryString ? `Search results for "${queryString}"` : this.searchForm.title
-      })
+      if (this.setPageTitleOnResults) {
+        this.$store.dispatch('tide/setPageHead', {
+          title: queryString ? `Search results for "${queryString}"` : this.searchForm.title
+        })
+      }
 
       this.searchOptions.isMatchAll = Boolean(queryString)
 

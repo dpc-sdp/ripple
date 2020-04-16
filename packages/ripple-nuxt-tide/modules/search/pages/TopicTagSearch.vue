@@ -50,18 +50,17 @@ export default {
     RplCol
   },
   mixins: [searchMixin],
-  head () {
-    return {
-      title: `${this.type.charAt(0).toUpperCase() + this.type.slice(1)} - ${this.title}`
-    }
-  },
-  async asyncData ({ app, route }) {
+  async asyncData ({ app, route, store }) {
     const topicTagData = await app.$tide.getPageByPath(route.path)
+    const title = topicTagData.name
+    const type = topicTagData.type ? topicTagData.type.replace('taxonomy_term--', '') : ''
+    await store.dispatch('tide/setPageHead', { title: `${type.charAt(0).toUpperCase() + type.slice(1)} - ${title}` })
     return {
       sidebar: false,
       searchComponent: 'default',
-      title: topicTagData.name,
-      type: topicTagData.type ? topicTagData.type.replace('taxonomy_term--', '') : '',
+      title: title,
+      type: type,
+      setPageTitleOnResults: false,
       searchForm: {
         filterForm: {
           tideId: 'tide_search_form',

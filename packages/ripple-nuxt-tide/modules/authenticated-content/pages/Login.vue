@@ -23,7 +23,8 @@ export default {
     RplPageLayout,
     TideLogin
   },
-  asyncData ({ route, store, redirect }) {
+  async asyncData ({ route, store, redirect }) {
+    store.dispatch('tide/setPageHead', { title: 'Login' })
     const isAuthed = isAuthenticated(store)
     if (isAuthed) {
       if (route.query.destination !== undefined) {

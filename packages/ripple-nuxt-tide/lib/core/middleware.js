@@ -80,6 +80,7 @@ export default async function (context, pageData) {
     switch (context.app.tideResErrCode) {
       case 404:
         pageData.tideErrorType = '404'
+        context.store.dispatch('tide/setPageHead', { title: 'Page not found' })
         if (typeof context.res !== 'undefined') {
           context.res.statusCode = 404
         }
@@ -87,6 +88,7 @@ export default async function (context, pageData) {
 
       default:
         pageData.tideErrorType = 'other'
+        context.store.dispatch('tide/setPageHead', { title: 'Error' })
         if (process.server) {
           if (typeof context.res !== 'undefined') {
             context.res.statusCode = 500
@@ -342,7 +344,7 @@ export default async function (context, pageData) {
   // Add Page meta tags
   if (pageData.tidePage) {
     // Set details.
-    const title = pageData.tidePage.appMetatag.title || pageData.tidePage.appPageTitle || 'Page not found'
+    const title = pageData.tidePage.appMetatag.title || pageData.tidePage.appPageTitle || ''
     const description = pageData.tidePage.appMetatag.description || pageData.tidePage.field_news_intro_text || pageData.tidePage.field_landing_page_intro_text || pageData.tidePage.field_page_intro_text || pageData.tidePage.field_landing_page_summary || ''
     const url = context.store.state.tide.currentUrl || ''
     const siteSection = pageData.tidePage.section && pageData.tidePage.field_node_site && pageData.tidePage.field_node_site.find(site => site.drupal_internal__tid === parseInt(pageData.tidePage.section, 10))

@@ -70,7 +70,7 @@
     "winston-logstash-transport": "^2.0.0"
   },
   "peerDependencies": {
-    "nuxt": "^2.10.2"
+    "nuxt": "^2.12.2"
   },
   "devDependencies": {
     "mockdate": "^2.0.3",

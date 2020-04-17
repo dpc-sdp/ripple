@@ -42,9 +42,6 @@ Feature: Demo Page
     And should verify the lighthouse scores
       | metric            | threshold |
       | performance       | 65        |
-      | accessibility     | 91        |
-      | best-practices    | 71        |
-      | seo               | 90        | 
 
 # Need to fix existing errors or work out ruleset to skip
   # Scenario: There are no accessibility errors

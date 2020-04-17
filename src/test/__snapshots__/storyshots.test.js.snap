@@ -772,14 +772,14 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
     <!---->
      
     <code>
-      arrow_right_primary
+      arrow_right_primary_s
     </code>
   </li>
   <li>
     <!---->
      
     <code>
-      arrow_right_primary_s
+      arrow_right_primary
     </code>
   </li>
   <li>
@@ -842,14 +842,14 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
     <!---->
      
     <code>
-      csv
+      cross_circle
     </code>
   </li>
   <li>
     <!---->
      
     <code>
-      cross_circle
+      csv
     </code>
   </li>
   <li>
@@ -863,14 +863,14 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
     <!---->
      
     <code>
-      document
+      document_transparent
     </code>
   </li>
   <li>
     <!---->
      
     <code>
-      document_transparent
+      document
     </code>
   </li>
   <li>
@@ -940,6 +940,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
     <!---->
      
     <code>
+      enlarge_screen
+    </code>
+  </li>
+  <li>
+    <!---->
+     
+    <code>
       eps
     </code>
   </li>
@@ -1003,6 +1010,20 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
     <!---->
      
     <code>
+      image_gallery_arrow_left
+    </code>
+  </li>
+  <li>
+    <!---->
+     
+    <code>
+      image_gallery_arrow_right
+    </code>
+  </li>
+  <li>
+    <!---->
+     
+    <code>
       indd
     </code>
   </li>
@@ -1024,13 +1045,6 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
     <!---->
      
     <code>
-      link
-    </code>
-  </li>
-  <li>
-    <!---->
-     
-    <code>
       link_65
     </code>
   </li>
@@ -1039,6 +1053,13 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
      
     <code>
       link_90
+    </code>
+  </li>
+  <li>
+    <!---->
+     
+    <code>
+      link
     </code>
   </li>
   <li>
@@ -1150,14 +1171,14 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
     <!---->
      
     <code>
-      share
+      share_alternative
     </code>
   </li>
   <li>
     <!---->
      
     <code>
-      share_alternative
+      share
     </code>
   </li>
   <li>

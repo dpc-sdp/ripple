@@ -91,6 +91,41 @@ jobs:
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/screenshots
 
+  audit:
+    docker:
+      - image: cypress/browsers:node12.0.0-chrome73
+        environment:
+          TERM: xterm
+          CIRCLE_TEST_REPORTS: test-results
+          TZ: "Australia/Melbourne"
+
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
+      - run:
+          name: run lighthouse audit
+          command: yarn test:audit
+      - run:
+          name: prepare cucumber test report
+          command: yarn test:report
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/videos
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/screenshots
+
   e2e-vic-gov:
     # This runs the full suite of e2e tests
     docker:
@@ -220,6 +255,10 @@ workflows:
           context: Ripple
           requires:
             - build
+      - audit:
+          context: Ripple
+          requires:
+            - build
       # Run regression tests on release branches
       - e2e-vic-gov:
           context: Ripple
@@ -269,6 +308,10 @@ workflows:
       - build:
           context: Ripple
       - test:
+          context: Ripple
+          requires:
+            - build
+      - audit:
           context: Ripple
           requires:
             - build

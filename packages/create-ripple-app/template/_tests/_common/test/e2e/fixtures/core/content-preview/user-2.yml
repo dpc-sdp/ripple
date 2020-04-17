@@ -1,0 +1,19 @@
+- entity: user
+  status: 1
+  uid: 11<%= siteid %>
+  name: 'e2e-test-2@<%= domain %>'
+  mail: 'e2e-test-2@<%= domain %>'
+  roles:
+    - '#process':
+        callback: 'reference'
+        args:
+          - 'user_role'
+          - id: 'editor'
+  # Sites.
+  field_user_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: '<%= domain %>'

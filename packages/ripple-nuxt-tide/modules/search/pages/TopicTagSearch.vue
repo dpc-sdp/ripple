@@ -19,7 +19,7 @@
 
     <template slot="belowContent">
       <rpl-divider />
-      <app-content-rating class="rpl-site-constrain--on-all"/>
+      <component :is="contentRating" class="rpl-site-constrain--on-all"></component>
     </template>
   </rpl-page-layout>
 </template>
@@ -29,7 +29,6 @@ import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
 import { RplDivider } from '@dpc-sdp/ripple-global'
-import AppContentRating from '@dpc-sdp/ripple-nuxt-tide/lib/components/AppContentRating'
 
 // Layout.
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
@@ -39,7 +38,6 @@ import searchMixin from './../lib/searchmixin.js'
 export default {
   name: 'TideTopicTagSearch',
   components: {
-    AppContentRating,
     RplDivider,
     RplHeroBanner,
     RplBreadcrumbs,
@@ -139,6 +137,12 @@ export default {
         default:
           return []
       }
+    },
+    contentRating () {
+      if (this.$tide.isModuleEnabled('webform')) {
+        return () => import('@dpc-sdp/ripple-nuxt-tide/modules/webform/components/TideContentRating')
+      }
+      return false
     }
   },
   methods: {

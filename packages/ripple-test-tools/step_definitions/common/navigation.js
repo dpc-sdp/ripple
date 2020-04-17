@@ -104,5 +104,5 @@ Given(`I click the link {string}`, href => {
 })
 
 Then(`the current page url should be {string}`, (url) => {
-  cy.url().should('contain', url)
+  cy.url({ timeout: 10000 }).should('contain', url)
 })

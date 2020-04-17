@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-image-gallery">
     <button class="rpl-image-gallery__enlarge" @click="openModal()" :aria-label="enlargeText">
-      <rpl-icon symbol="fullscreen" color="primary" size="2.33" />
+      <rpl-icon symbol="enlarge_screen" color="primary" />
     </button>
     <carousel
       :perPage="1"
@@ -21,10 +21,10 @@
     </carousel>
     <div class="rpl-image-gallery__thumbnail-navigation">
       <button v-if="navTo > 0" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" @click="prevSlide" :aria-label="previousLabel">
-        <rpl-icon symbol="arrow_left_secondary" color="white" size="1.6" />
+        <rpl-icon symbol="image_gallery_arrow_left" />
       </button>
       <button v-if="navTo < totalSlides" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" @click="nextSlide" :aria-label="nextLabel">
-        <rpl-icon symbol="arrow_right_secondary" color="white" size="1.6" />
+        <rpl-icon symbol="image_gallery_arrow_right" />
       </button>
     </div>
     <!-- Modal -->

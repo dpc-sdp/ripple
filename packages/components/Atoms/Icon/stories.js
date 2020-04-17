@@ -10,10 +10,16 @@ storiesOf('Atoms/Icon', module)
   .add('Icon Library', () => ({
     components: { SIcons },
     template: '<s-icons :icons="icons" :color="color" :size="size" />',
+    props: {
+      color: {
+        default: text('Color', 'primary')
+      },
+      size: {
+        default: text('Size', 'm')
+      }
+    },
     data () {
       return {
-        color: text('Color', 'primary'),
-        size: text('Size', 'm'),
         icons: [
           'accessible',
           'addition',
@@ -30,8 +36,8 @@ storiesOf('Atoms/Icon', module)
           'arrow_down_tertiary',
           'arrow_left_primary',
           'arrow_left_secondary',
-          'arrow_right_primary',
           'arrow_right_primary_s',
+          'arrow_right_primary',
           'arrow_right_secondary',
           'arrow_up_primary',
           'attach',
@@ -40,11 +46,11 @@ storiesOf('Atoms/Icon', module)
           'calendar',
           'child_friendly',
           'close',
-          'csv',
           'cross_circle',
+          'csv',
           'doc',
-          'document',
           'document_transparent',
+          'document',
           'docx',
           'dollar_negative',
           'dot',
@@ -54,6 +60,7 @@ storiesOf('Atoms/Icon', module)
           'download',
           'email_solid',
           'email_transparent',
+          'enlarge_screen',
           'eps',
           'external_link',
           'facebook',
@@ -63,12 +70,14 @@ storiesOf('Atoms/Icon', module)
           'help',
           'home',
           'ics',
+          'image_gallery_arrow_left',
+          'image_gallery_arrow_right',
           'indd',
           'instagram',
           'left',
-          'link',
           'link_65',
           'link_90',
+          'link',
           'linkedin',
           'loading_star',
           'lock',
@@ -84,8 +93,8 @@ storiesOf('Atoms/Icon', module)
           'right',
           'search',
           'senior',
-          'share',
           'share_alternative',
+          'share',
           'star',
           'stop',
           'success',

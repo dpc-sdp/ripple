@@ -46,11 +46,6 @@ export default ({ app, req, store , route }, inject) => {
           state.pageData = pageData
         },
         setPageHead (state, pageHead) {
-          if (state.siteData.name && pageHead.title) {
-            if (pageHead.title.indexOf(`| ${state.siteData.name}`) < 0) {
-              pageHead.title = `${pageHead.title} | ${state.siteData.name}`
-            }
-          }
           state.pageHead = pageHead
         }
       },

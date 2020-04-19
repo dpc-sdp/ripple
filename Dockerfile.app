@@ -38,7 +38,7 @@ WORKDIR /app/examples/vic-gov-au/
 
 # force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
 RUN  . /home/.bashrc \
-    && yarn run build \
+    && yarn run build --modern=client \
     && chmod -R 755 ~/.config \
     # For JIRA commit script work.
     && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
@@ -46,4 +46,4 @@ RUN  . /home/.bashrc \
 ENV HOST 0.0.0.0
 EXPOSE 3000
 
-CMD ["./node_modules/.bin/nuxt", "start"]
+CMD ["./node_modules/.bin/nuxt", "start", "--modern=client"]

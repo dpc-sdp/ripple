@@ -3,6 +3,7 @@
     <template slot="header">
       <rpl-alert-base class="app-preview" v-if="preview">Draft only and not yet published</rpl-alert-base>
       <client-only>
+        <vue-announcer />
         <component v-if="alerts" :is="alerts" />
         <rpl-site-header
           :logo="header.logo"
@@ -75,6 +76,11 @@ export default {
         links: _store.state.tide.siteData.hierarchicalMenus.menuMain,
         sticky: true
       }
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.$announcer.set(`loading ${to.fullPath}`)
     }
   },
   computed: {

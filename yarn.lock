@@ -19741,6 +19741,11 @@ vm-browserify@^1.0.0, vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
+vue-announcer@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vue-announcer/-/vue-announcer-1.0.6.tgz#550322b6a386681b95f39449f213041903061804"
+  integrity sha512-lqHZTORhFrNlL5w3c+S8Y5yWNgwvQCaNpAOJvTNtYA7HK8BL6YWvq0RhG+DaMWwRp7BxpFNe9Yv2P9Vmsb/KnA==
+
 vue-carousel@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/vue-carousel/-/vue-carousel-0.18.0.tgz#478dfcad3abe2ee44c227020b6e60fb8484dc9f1"

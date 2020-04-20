@@ -26,6 +26,11 @@ module.exports = {
           data.devDependencies['cypress-cucumber-preprocessor'] = `^2.0.1`
 
           data.scripts['cy:run'] = `cypress run -b chrome -e TAGS='not @skip or @smoke' --record  --parallel --group $CIRCLE_JOB`
+          data.scripts['cy:run-local'] = `cypress run -b chrome -e TAGS='not @skip or @smoke'`
+          data.scripts['test:e2e-local'] = `cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-local`
+          data.scripts['test:e2e'] = `cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start http://localhost:3000 cy:run`
+          data.scripts['test:smoke'] = `cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-smoke`
+
           if (data['cypress-cucumber-preprocessor']) {
             data['cypress-cucumber-preprocessor'].step_definitions = 'test/e2e/integration/'
             data['cypress-cucumber-preprocessor'].cucumberJson = {

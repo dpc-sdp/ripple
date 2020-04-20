@@ -5,7 +5,6 @@
     - pathauto: 0
       alias: '/tc-9a-grant'
   uid: 1
-  uuid: 27430be1-39cd-45e8-9e1e-bca46b1e50f9
   nid: 70919
   status: 1
   moderation_state:
@@ -147,23 +146,11 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Demo Section 1'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Another Demo Site'
+            name: 'vic.gov.au'
   field_node_primary_site:
     - '#process':
         callback: reference
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
+            name: 'vic.gov.au'

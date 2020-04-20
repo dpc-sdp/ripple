@@ -1,24 +1,27 @@
 {
   "name": "ripple-app",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Example Vue.js app(Not Nuxt.js) for showing how to use Ripple",
   "private": true,
   "scripts": {
+    "dev": "cross-env BASIC_AUTH=0 nuxt",
     "serve": "vue-cli-service serve --port 3000",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "cy:open": "cypress open",
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
-    "test:smoke": "cross-env TEST=1 start-server-and-test serve http://localhost:3000 cy:run-smoke"
+    "test:smoke": "cross-env TEST=1 start-server-and-test serve http://localhost:3000 cy:run-smoke",
+    "test:dev": "cross-env NODE_ENV=test start-server-and-test dev http://localhost:3000 cy:open"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.6.0",
-    "@dpc-sdp/ripple-card": "1.6.0",
+    "@dpc-sdp/ripple-button": "1.7.0",
+    "@dpc-sdp/ripple-card": "1.7.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@dpc-sdp/ripple-test-tools": "1.7.0",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
@@ -51,6 +54,7 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
+    "step_definitions": "test/e2e/integration/",
     "cucumberJson": {
       "generate": true,
       "outputFolder": "./../../test-results/cucumber",

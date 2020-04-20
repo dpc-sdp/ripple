@@ -6,8 +6,7 @@
     - pathauto: 0
       alias: '/1-BE-Alert-1'
   uid: 1
-  uuid: 0566c8c7-1deb-41a7-a6e3-86ac81341a93
-  nid: 81069
+  nid: 811<%= siteid %>
   moderation_state:
     - '#process':
         callback: reference

@@ -1,8 +1,8 @@
 - entity: user
   status: 1
-  uid: 11222
-  name: 'e2e-test-2@example.com'
-  mail: 'e2e-test-2@example.com'
+  uid: 11<%= siteid %>
+  name: 'e2e-test-2@<%= domain %>'
+  mail: 'e2e-test-2@<%= domain %>'
   roles:
     - '#process':
         callback: 'reference'

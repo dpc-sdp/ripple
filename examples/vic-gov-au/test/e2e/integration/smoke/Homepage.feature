@@ -20,7 +20,7 @@ Feature: Home Page
       | performance       | 70        |
       | accessibility     | 91        |
       | best-practices    | 79        |
-      | seo               | 90        |
+      | seo               | 85        |
 
 # Need to fix existing errors or work out ruleset to skip
   @a11y @skip

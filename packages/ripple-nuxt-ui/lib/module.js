@@ -22,6 +22,15 @@ module.exports = function nuxtRipple (moduleOptions) {
     }
   }
 
+  // Preload fonts
+  this.options.render.bundleRenderer.shouldPreload = (file, type) => {
+    if (type === 'font') {
+      // We only preload woff2, which covers all modern browsers.
+      return /.woff2/.test(file)
+    }
+    return ['script', 'style'].includes(type)
+  }
+
   // Register `plugin.js` template
   this.addPlugin({
     src: path.resolve(__dirname, 'templates/plugin.js'),
@@ -29,6 +38,7 @@ module.exports = function nuxtRipple (moduleOptions) {
     options: options
   })
 
+  // Allow custom theming
   const themePath = resolve(__dirname, `${appDir}/assets/_theme.scss`)
 
   if (fs.existsSync(themePath) && !this.options.styleResources) {
@@ -39,7 +49,6 @@ module.exports = function nuxtRipple (moduleOptions) {
       ]
     }
   }
-
   this.addModule('@nuxtjs/style-resources', true)
 
   this.extendBuild((config, { isServer }) => {

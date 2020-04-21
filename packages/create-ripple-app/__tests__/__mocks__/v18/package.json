@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "cross-env BASIC_AUTH=0 nuxt",
     "build": "run-script-os",
-    "build:default": "if [ \"$NUXT_HOT_RELOADING\" != \"1\" ] ; then nuxt build; fi",
-    "build:win32": "IF \"%NUXT_HOT_RELOADING%\" NEQ \"1\" ( nuxt build )",
+    "build:default": "nuxt build --modern=client",
+    "build:win32": "nuxt build --modern=client",
     "cy:open": "cypress open",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
@@ -17,9 +17,9 @@
     "test:smoke": "cross-env NODE_ENV=test BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke",
     "lint": "eslint --ext .js,.vue . --max-warnings 0 && sass-lint",
     "start": "run-script-os",
-    "start:default": "if [ \"$NUXT_HOT_RELOADING\" = \"1\" ] ; then nuxt; else nuxt start; fi",
-    "start:win32": "IF \"%NUXT_HOT_RELOADING%\" EQU \"1\" ( nuxt ) ELSE ( nuxt start )",
-    "start:build": "nuxt build && nuxt start"
+    "start:default": "nuxt start --modern=client",
+    "start:win32": "nuxt start --modern=client",
+    "start:build": "nuxt build --modern=client && nuxt start --modern=client"
   },
   "dependencies": {
     "@dpc-sdp/ripple-nuxt-tide": "^1.3.0",

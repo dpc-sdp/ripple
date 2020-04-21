@@ -37,9 +37,6 @@ export default {
    */
   router: {
   },
-  plugins: [
-    { src: '~/plugins/announce.js', mode: 'client' }
-  ],
   /*
   ** Modules
   * https://nuxtjs.org/guide/modules

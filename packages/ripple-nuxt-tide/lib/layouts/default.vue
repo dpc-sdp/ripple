@@ -29,7 +29,7 @@
       </client-only>
     </template>
 
-    <nuxt/>
+    <nuxt ref="main" />
 
     <template slot="footer">
       <rpl-site-footer
@@ -52,6 +52,7 @@ import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
+import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
 
 export default {
   components: {
@@ -76,11 +77,6 @@ export default {
         links: _store.state.tide.siteData.hierarchicalMenus.menuMain,
         sticky: true
       }
-    }
-  },
-  watch: {
-    $route (to, from) {
-      this.$announcer.set(`loading ${to.fullPath}`)
     }
   },
   computed: {
@@ -114,8 +110,12 @@ export default {
     if (this.$route.hash) {
       this.anchorScrollFix(this.$route.hash)
     }
+    RplLinkEventBus.$on('navigate', this.onNavigate)
   },
   methods: {
+    onNavigate () {
+      this.$announcer.set(`page loading`)
+    },
     anchorScrollFix (hashbang) {
       const elmnt = document.querySelector(hashbang)
       if (elmnt) {

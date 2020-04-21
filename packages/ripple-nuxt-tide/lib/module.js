@@ -63,6 +63,12 @@ const nuxtTide = function (moduleOptions) {
     src: path.resolve(__dirname, 'templates/request-id.js'),
     fileName: './request-id.js'
   })
+
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/announcer.client.js'),
+    fileName: './announcer.js',
+    ssr: false
+  })
   this.options.router.middleware.push('request-id')
 
   // https://toor.co/blog/nuxtjs-smooth-scrolling-with-hash-links/

@@ -41,4 +41,5 @@ $rpl-font-directory: '~@dpc-sdp/ripple-global/assets/fonts/';
   font-family: 'VIC-Regular';
   src: url('#{$rpl-font-directory}VIC-Regular.woff') format('woff'),
   url('#{$rpl-font-directory}VIC-Regular.woff2') format('woff2');
+  font-display: swap;
 }

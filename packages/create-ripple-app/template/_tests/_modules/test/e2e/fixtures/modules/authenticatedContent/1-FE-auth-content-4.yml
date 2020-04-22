@@ -7,8 +7,7 @@
     - pathauto: 0
       alias: '/1-FE-auth-content-4'
   uid: 1
-  uuid: b66ab2d5-256f-44e0-a5af-b7fc4a38ef77
-  nid: 90774
+  nid: 907<%= siteid %>
   moderation_state:
     - '#process':
         callback: reference

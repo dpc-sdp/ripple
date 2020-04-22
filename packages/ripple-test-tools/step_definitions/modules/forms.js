@@ -22,12 +22,12 @@ When('I click the form submit button {string}', (label) => {
 })
 
 Then('I should see the form success message', () => {
-  cy.get('.rpl-form-alert', { timeout: 10000 }).then($el => {
+  cy.get('.rpl-form-alert', { timeout: 20000 }).then($el => {
     expect($el).to.have.class('rpl-form-alert--success')
   })
 })
 Then('I should see the form failure message', () => {
-  cy.get('.rpl-form-alert', { timeout: 10000 }).then($el => {
+  cy.get('.rpl-form-alert', { timeout: 20000 }).then($el => {
     expect($el).to.have.class('rpl-form-alert--danger')
   })
 })

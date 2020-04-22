@@ -2,6 +2,7 @@
   <div class="rpl-search-form" :class="{ 'rpl-search-form--dark': (theme === 'dark'), 'rpl-search-form--two-cols': (type === 'two-cols')  }">
     <h1 v-if="title">{{ title }}</h1>
     <h3 v-if="subtitle">{{ subtitle }}</h3>
+    <slot name="aboveFilters"></slot>
     <div class="rpl-search-form__field" v-if="textSearch">
       <label>
         <span class="rpl-search-form__label-text">{{ searchInputLabel }}</span>

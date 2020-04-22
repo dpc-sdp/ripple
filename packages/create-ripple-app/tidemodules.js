@@ -12,7 +12,6 @@ module.exports = [
   { value: 'webform', name: 'Webform', default: true },
   { value: 'search', name: 'Search', default: true },
   { value: 'publication', name: 'Publication', default: false },
-  { value: 'dataDrivenComponent', name: 'Data Driven Component', default: false },
   {
     value: 'authenticatedContent',
     name: 'Authenticated Content',

@@ -6,7 +6,8 @@ Feature: Global Notifications (Alert)
     Given I have logged into the backend
     And in the backend there are no "alert" nodes
     And in the backend there is a node at "/1-BE-Alert-1" with "modules/alert/1-BE-Alert-1" data
-    And in the backend there is a node at "/1-BE-Alert-2" with "modules/alert/1-BE-Alert-2" data
+<%_ if (domain === 'vic.gov.au') { _%>
+    And in the backend there is a node at "/1-BE-Alert-2" with "modules/alert/1-BE-Alert-2" data<%_ } _%>
 
   Scenario: Warm the cache
     When I visit the page "/"
@@ -16,7 +17,7 @@ Feature: Global Notifications (Alert)
     Then there should be the following global notifications:
       | title                   | type            | link                   | linkText      |
       | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://www.google.com | More  details |
-  
+  <%_ if (domain === 'vic.gov.au') { _%>
   Scenario: FE- 1-FE-Alert-2 Displays alert for site section
     When I visit the page "/housing-and-property"
     Then there should be the following global notifications:
@@ -27,3 +28,4 @@ Feature: Global Notifications (Alert)
     Then there should be the following global notifications:
       | title                   | type            | link                   | linkText      |
       | 1-BE-Alert-1 Demo Alert | Demo Alert Type | https://www.google.com | More  details |
+  <%_ } _%>

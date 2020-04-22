@@ -4,8 +4,8 @@ Feature: Preview content
 
   Scenario: BE - Create draft page
     Given I have logged into the backend
-    And in the backend there is a user "users/user-2"
-    And in the backend there is a node at "/1-fe-content-preview-1" with "content-preview/1-fe-content-preview-1" data
+    And in the backend there is a user "core/content-preview/user-2"
+    And in the backend there is a node at "/1-fe-content-preview-1" with "core/content-preview/1-fe-content-preview-1" data
   
   Scenario: No access to a draft page when unauthenticated
     When I attempt to visit the page "/1-fe-content-preview-1"
@@ -19,7 +19,7 @@ Feature: Preview content
     When I visit the page "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7a27/latest?section=4"
     And I enter the the following login credentials:
       | login                  | password  |
-      | e2e-test-2@example.com | ******** |
+      | e2e-test-2@vic.gov.au  | ******** |
     And I submit the login form
     And I wait for 8 seconds
     Then the current page url should be "/preview/landing_page/e9db742d-3a43-40fa-81e2-f81b4f0f7a27/latest"

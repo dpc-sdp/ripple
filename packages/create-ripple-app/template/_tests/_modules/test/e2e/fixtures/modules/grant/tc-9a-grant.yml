@@ -1,0 +1,156 @@
+- entity: node
+  type: grant
+  title: TC-9a Grant Simple Test - Date Range
+  path:
+    - pathauto: 0
+      alias: '/tc-9a-grant'
+  uid: 1
+  nid: 709<%= siteid %>
+  status: 1
+  moderation_state:
+    - '#process':
+        callback: reference
+        args:
+          - content_moderation_state
+          - workflow: editorial
+            moderation_state: published
+  # Page header.
+  field_featured_image:
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: image
+            name: 'Demo: Melbourne tram'
+  field_landing_page_intro_text: 'Blah blah'
+  field_overview_title: 'Overview title'
+  field_audience: 
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: audience
+            name: 'Business'
+  field_call_to_action:
+    - uri: https://www.google.com
+      title: More details
+  field_node_phone: '12345678'
+  field_node_department: 
+    - '#process':
+      callback: reference
+      args:
+        - taxonomy_term
+        - vid: department
+          name: 'Demo Department'
+  field_news_intro_text: 'news intro test'
+  field_description: 'Description'
+  field_node_author: 'bob'
+  field_node_email: 'no-reply@domain.com'
+  field_node_funding_level: 
+    - from: '11326'
+      to: '26494'
+  field_node_dates: 
+    - value: '2019-04-08T08:00:00'
+      end_value: '2019-05-08T10:00:00'
+  field_node_guidelines: 
+    - entity: paragraph
+      type: accordion
+      field_paragraph_title: Guidelines
+      field_paragraph_accordion_style: basic
+      field_paragraph_accordion:
+        - entity: paragraph
+          type: accordion_content
+          field_paragraph_accordion_name: 'Eligibility'
+          field_paragraph_accordion_body: 'Lorem ipsum'
+        - entity: paragraph
+          type: accordion_content
+          field_paragraph_accordion_name: 'Assessment criteria'
+          field_paragraph_accordion_body: 'Lorem ipsum'
+        - entity: paragraph
+          type: accordion_content
+          field_paragraph_accordion_name: 'Assessment process'
+          field_paragraph_accordion_body: 'Lorem ipsum'
+        - entity: paragraph
+          type: accordion_content
+          field_paragraph_accordion_name: 'How to apply'
+          field_paragraph_accordion_body: 'Lorem ipsum'
+  field_node_on_going: false
+  field_node_documents: 
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: document
+            name: 'Demo Sample Document'
+  field_node_timeline: 
+    - entity: paragraph
+      type: timelines
+      field_paragraph_title: Demo Timeline
+      field_timeline:
+        - entity: paragraph
+          type: timeline
+          field_paragraph_title: Demo Timeline Item
+          field_paragraph_date_range:
+            - value: '2020-01-01T08:00:00'
+              end_value: '2020-01-01T10:00:00'
+          field_paragraph_link: https://www.google.com
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+        - entity: paragraph
+          type: timeline
+          field_paragraph_title: Demo Timeline Item 2
+          field_paragraph_cta_text: Alternative
+          field_paragraph_link: https://www.google.com
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_summary: Anim excepteur magna eu aliqua quis velit voluptate sit culpa.
+  # Other.
+  field_show_social_sharing: 1
+  field_show_content_rating: 1
+  field_show_table_of_content: 1
+  field_topic:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: topic
+            name: 'Demo Topic'
+  field_tags:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: tags
+            name: 'Demo Tag'
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: tags
+            name: 'Another Demo Tag'
+  # Sites.
+  field_node_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: '<%= domain %>'
+  field_node_primary_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: '<%= domain %>'

@@ -6270,7 +6270,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
 <main
   class="rpl-page"
 >
-  <section
+  <div
     class="rpl-above-content-container"
   >
     <div
@@ -6292,7 +6292,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
     <div
       class="rpl-above-content-two"
     />
-  </section>
+  </div>
    
   <section
     class="rpl-content"
@@ -6320,11 +6320,11 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
     </div>
   </section>
    
-  <section
+  <div
     class="rpl-below-content"
   >
     Below content
-  </section>
+  </div>
 </main>
 `;
 
@@ -6332,7 +6332,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
 <main
   class="rpl-page"
 >
-  <section
+  <div
     class="rpl-above-content-container"
   >
     <div
@@ -6354,7 +6354,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
     <div
       class="rpl-above-content-two"
     />
-  </section>
+  </div>
    
   <section
     class="rpl-content rpl-content--with-sidebar"
@@ -6387,11 +6387,11 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
     </div>
   </section>
    
-  <section
+  <div
     class="rpl-below-content"
   >
     Below content
-  </section>
+  </div>
 </main>
 `;
 
@@ -6399,7 +6399,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with custom columns 1`] =
 <main
   class="rpl-page"
 >
-  <section
+  <div
     class="rpl-above-content-container"
   >
     <div
@@ -6421,7 +6421,7 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with custom columns 1`] =
     <div
       class="rpl-above-content-two"
     />
-  </section>
+  </div>
    
   <section
     class="rpl-content rpl-content--with-sidebar"
@@ -6454,11 +6454,11 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with custom columns 1`] =
     </div>
   </section>
    
-  <section
+  <div
     class="rpl-below-content"
   >
     Below content
-  </section>
+  </div>
 </main>
 `;
 
@@ -6494,7 +6494,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
   <main
     class="rpl-page main"
   >
-    <section
+    <div
       class="rpl-above-content-container"
     >
       <div
@@ -6535,7 +6535,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
       <div
         class="rpl-above-content-two"
       />
-    </section>
+    </div>
      
     <section
       class="rpl-content"
@@ -6725,7 +6725,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
       </div>
     </section>
      
-    <section
+    <div
       class="rpl-below-content"
     >
       <div
@@ -6737,7 +6737,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
           banner secondary
         </div>
       </div>
-    </section>
+    </div>
   </main>
     
   <!---->
@@ -6788,7 +6788,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
   <main
     class="rpl-page main"
   >
-    <section
+    <div
       class="rpl-above-content-container"
     >
       <div
@@ -6829,7 +6829,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
       <div
         class="rpl-above-content-two"
       />
-    </section>
+    </div>
      
     <section
       class="rpl-content rpl-content--with-sidebar"
@@ -7041,7 +7041,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
       </div>
     </section>
      
-    <section
+    <div
       class="rpl-below-content"
     >
       <div
@@ -7053,7 +7053,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
           banner secondary
         </div>
       </div>
-    </section>
+    </div>
   </main>
     
   <!---->

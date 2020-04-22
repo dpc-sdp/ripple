@@ -37,6 +37,12 @@ Feature: Demo Page
     And the whats next component should exist
     And the share this component should exist
 
+  @audit
+  Scenario: There are no audit issue
+    And should verify the lighthouse scores
+      | metric            | threshold |
+      | performance       | 65        |
+
 # Need to fix existing errors or work out ruleset to skip
   # Scenario: There are no accessibility errors
     # Then it has no detectable a11y violations on load

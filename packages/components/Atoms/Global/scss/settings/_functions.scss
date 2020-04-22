@@ -40,7 +40,13 @@ $rpl-font-base: 16px !default;
   @if map-get($rpl-fonts, $name) == null {
     @error '"#{$name}" is not an available font';
   }
-  @return map-get($rpl-fonts, $name);
+
+  $font: map-get($rpl-fonts, $name);
+  @if (type-of($font) == 'map') {
+    @return map-get($font, 'family');
+  } @else {
+    @return $font;
+  }
 }
 
 @function rpl-font-size($name) {
@@ -52,10 +58,16 @@ $rpl-font-base: 16px !default;
 
 // Colors
 @function rpl-color($name: 'primary') {
-  @if map-get($rpl-colors, $name) == null {
+  $all-colors: rpl-get-colors();
+  @if map-get($all-colors, $name) == null {
     @error '"#{$name}" is not an available colour';
   }
-  @return map-get($rpl-colors, $name);
+  @return map-get($all-colors, $name);
+}
+
+@function rpl-get-colors() {
+  // Combine custom colors with fallback.
+  @return map-merge($rpl-colors-core, $rpl-colors);
 }
 
 @function rpl-gradient($name: 'primary_gradient') {

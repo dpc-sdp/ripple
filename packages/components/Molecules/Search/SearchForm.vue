@@ -2,6 +2,7 @@
   <div class="rpl-search-form" :class="{ 'rpl-search-form--dark': (theme === 'dark'), 'rpl-search-form--two-cols': (type === 'two-cols')  }">
     <h1 v-if="title">{{ title }}</h1>
     <h3 v-if="subtitle">{{ subtitle }}</h3>
+    <slot name="aboveFilters"></slot>
     <div class="rpl-search-form__field" v-if="textSearch">
       <label>
         <span class="rpl-search-form__label-text">{{ searchInputLabel }}</span>
@@ -194,7 +195,12 @@ export default {
       cursor: pointer;
       display: flex;
       align-items: center;
-      @include rpl_focus_dark;
+
+      @at-root {
+        #{$root}--dark #{$root}__btn {
+          @include rpl_focus_dark;
+        }
+      }
 
       span {
         @include rpl_typography_ruleset($rpl-search-form-search-button-text);

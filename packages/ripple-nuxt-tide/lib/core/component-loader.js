@@ -88,8 +88,6 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return 'rpl-image-gallery'
     case 'rpl-accordion':
       return () => import(/* webpackChunkName: 'rpl-accordion' */ '@dpc-sdp/ripple-accordion')
-    case 'app-form':
-      return () => import(/* webpackChunkName: 'app-form' */ '@dpc-sdp/ripple-nuxt-tide/lib/components/AppForm')
     case 'tide-login':
       return () => import(/* webpackChunkName: 'tide-login' */ '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/components/TideLogin')
     default:

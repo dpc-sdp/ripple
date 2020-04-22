@@ -460,43 +460,6 @@ export const tide = (axios, site, config) => ({
     }
   },
 
-  // Post form to webform
-  postForm: async function (formId, formData = {}) {
-    const formResource = 'webform_submission'
-    // TODO: get IP here will slowdown the submit process, we may need to find another place to do this.
-    let ip = await helper.getClientIp(axios)
-
-    if (ip instanceof Error) {
-      if (process.server) {
-        logger.error('Get IP failed. Probably the service is down.', { error: ip, label: 'Tide' })
-      }
-      ip = ''
-    }
-
-    const data = {
-      data: {
-        type: formResource,
-        attributes: {
-          remote_addr: ip,
-          data: JSON.stringify(formData)
-        }
-      }
-    }
-
-    // TODO: Add better error handling/log for form API error.
-    // It's blocked by Tide webform response issue SDPA-477.
-    // Currently the Tide webform has no right response.
-    try {
-      const res = await this.post(formResource, data, formId)
-      if (res.data) {
-        return true
-      }
-      return false
-    } catch (e) {
-      return false
-    }
-  },
-
   callMiddleware: async function (context) {
     return middleware.callMiddleware(config.middleware, context)
   },

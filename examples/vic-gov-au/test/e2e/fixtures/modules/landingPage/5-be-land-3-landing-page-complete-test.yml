@@ -1,0 +1,583 @@
+- entity: node
+  type: landing_page
+  title: 5-BE-land-3  Landing Page - Complete Test
+  status: 1
+  moderation_state:
+    - '#process':
+        callback: reference
+        args:
+          - content_moderation_state
+          - workflow: editorial
+            moderation_state: published
+  # Page header.
+  field_featured_image:
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: image
+            name: 'Demo: Melbourne tram'
+  field_landing_page_hero_image:
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: image
+            name: 'Demo: Melbourne skyline at dusk'
+  field_graphical_image:
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: image
+            name: 'Demo: Parliament of Victoria'
+  field_landing_page_intro_text: 5-BE-land-3  Landing Page - Complete Test Intro
+  field_landing_page_summary: 5-BE-land-3  Landing Page - Complete Test - Complete Test Summary. Outside thundered the approaching surf of war and they conducted their quilted pantomime outside time and action.
+  field_landing_page_hero_theme: light
+  field_landing_page_bg_colour: white
+  # Hero banner.
+  field_landing_page_hero_banner:
+    - entity: paragraph
+      type: hero_banner_with_cta
+      field_paragraph_cta:
+        - uri: https://www.google.com
+          title: Phasellus congue
+      field_paragraph_freetext: Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae
+      field_paragraph_link_text:
+        - uri: https://www.google.com
+          title: Nullam laoreet
+      field_paragraph_background_image:
+        - '#process':
+            callback: reference
+            args:
+              - media
+              - bundle: image
+                name: 'Demo: Staff at Treasury'
+      field_paragraph_theme: light
+  # Key journeys.
+  field_landing_page_key_journeys:
+    - entity: paragraph
+      type: key_journeys
+      field_paragraph_title: 'Want to know more about...'
+      field_paragraph_links:
+        - uri: 'https://www.google.com'
+          title: Nullam laoreet
+        - uri: 'https://www.google.com'
+          title: Morbi cursus placerat mi
+      field_paragraph_cta:
+        - uri: https://www.google.com
+          title: Nullam laoreet
+  # Header components.
+  field_landing_page_header:
+    - entity: paragraph
+      type: introduction_banner
+      field_paragraph_title: Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae
+      field_paragraph_summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.
+      field_paragraph_links:
+        - uri: 'https://www.google.com'
+          title: Nullam laoreet
+        - uri: 'https://www.google.com'
+          title: Morbi cursus placerat mi
+  # Campaigns.
+  field_landing_page_c_primary:
+    - '#process':
+        callback: reference
+        args:
+          - block_content
+          - type: campaign
+            field_block_title: 'Demo Campaign'
+  field_show_c_primary_caption: 1
+  field_landing_page_c_secondary:
+    - '#process':
+        callback: reference
+        args:
+          - block_content
+          - type: campaign
+            field_block_title: 'Another Demo Campaign'
+  # Content Components.
+  field_show_table_of_content: 1
+  field_landing_page_component:
+    # Basic Text.
+    - entity: paragraph
+      type: basic_text
+      field_paragraph_body:
+      - format: rich_text
+        value: |
+          <p>And in the sky the clouds were twisting and darkness flowed through all the cracks into the sinking vessel of the landscape. Only in the telegraph wires a message still crackled.</p>
+          <drupal-entity data-caption="caption" data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid="ae64e624-4c3a-4562-9c69-0a6b5eb0b7e6" data-langcode="en"></drupal-entity>
+          <drupal-entity data-caption="caption" data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-embed-display-settings="" data-entity-type="media" data-entity-uuid="9dd62eae-39e2-40f7-b2a6-f84421041f83" data-langcode="en"></drupal-entity>
+          <blockquote>
+          <p>&nbsp;When I have seen by Time's fell hand defac'd The rich proud cost of outworn buried age; When sometime lofty towers I see down-ras'd And brass eternal slave to mortal rage;</p>
+          </blockquote>
+          <p>When I have seen the hungry ocean gain Advantage on the kingdom of the shore, And the firm soil win of the wat'ry main, Increasing store with loss and loss with store; When I have seen such interchange of state, Or state itself confounded to decay; Ruin hath taught me thus to ruminate, That Time will come and take my love away. This thought is as a death, which cannot choose But weep to have that which it fears to lose.</p>
+          <p><iframe frameborder="0" height="600" scrolling="no" src="https://mazzanet.net.au/cfa/?magickey=cfamonitor&amp;reg=13" width="600"></iframe></p>
+    # Accordion - basic.
+    - entity: paragraph
+      type: accordion
+      field_paragraph_title: Accordion Title
+      field_paragraph_accordion_style: basic
+      field_paragraph_accordion:
+        - entity: paragraph
+          type: accordion_content
+          field_paragraph_accordion_name: 'Accordion Content'
+          field_paragraph_accordion_body: 'Lorem ipsum'
+    # Accordion - basic 2
+    - entity: paragraph
+      type: accordion
+      field_paragraph_title: Accordion Title 1
+      field_paragraph_accordion_style: basic
+      field_paragraph_accordion:
+        - entity: paragraph
+          type: accordion_content
+          field_paragraph_accordion_name: 'Accordion Content 1'
+          field_paragraph_accordion_body: 'Lorem ipsum'
+    # Call to action.
+    - entity: paragraph
+      type: call_to_action
+      field_paragraph_title: 'Phasellus in varius leo'
+      field_paragraph_media:
+        - '#process':
+            callback: reference
+            args:
+              - media
+              - bundle: image
+                name: 'Demo: Melbourne tram'
+      field_paragraph_body: 'Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.'
+      field_paragraph_cta:
+        - uri: https://www.google.com
+          title: Victorian Government
+      field_paragraph_cta_style: banner
+    # Card carousel.
+    - entity: paragraph
+      type: card_carousel
+      field_paragraph_title: 'Latest items (Event)'
+      field_paragraph_latest_items: event
+    - entity: paragraph
+      type: card_carousel
+      field_paragraph_title: 'Latest items (News)'
+      field_paragraph_latest_items: news
+    - entity: paragraph
+      type: card_carousel
+      field_paragraph_title: 'Card Carousel for Card Event'
+      field_paragraph_latest_items: null
+      field_paragraph_items:
+        - entity: paragraph
+          type: card_event
+          field_paragraph_title: 'Carousel Card Event'
+          field_paragraph_date_range:
+            - value: '2020-01-01T08:00:00'
+              end_value: '2020-12-12T10:00:00'
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_topic:
+            - '#process':
+                callback: reference
+                args:
+                  - taxonomy_term
+                  - vid: topic
+                    name: 'Education'
+          field_paragraph_location:
+            - country_code: AU
+              administrative_area: VIC
+              locality: Melbourne
+              postal_code: 3000
+              address_line1: 35 Collins St
+          field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+          field_paragraph_cta:
+            - uri: https://www.google.com
+              title: Read more
+        - entity: paragraph
+          type: card_event
+          field_paragraph_title: 'Carousel Card Event 2'
+          field_paragraph_date_range:
+            - value: '2021-01-01T08:22:00'
+              end_value: '2021-01-01T11:11:00'
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_topic:
+            - '#process':
+                callback: reference
+                args:
+                  - taxonomy_term
+                  - vid: topic
+                    name: 'Education'
+          field_paragraph_location:
+            - country_code: AU
+              administrative_area: VIC
+              locality: Melbourne
+              postal_code: 3000
+              address_line1: 35 Collins St
+          field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+          field_paragraph_cta:
+            - uri: https://www.google.com
+              title: Read more
+    # Card Event.
+    - entity: paragraph
+      type: card_event
+      field_paragraph_title: 'Card Event 1'
+      field_paragraph_date_range:
+        - value: '2018-03-12T14:22:00'
+          end_value: '2020-12-12T11:11:00'
+      field_paragraph_media:
+        - '#process':
+            callback: reference
+            args:
+              - media
+              - bundle: image
+                name: 'Demo: Melbourne tram'
+      field_paragraph_topic:
+        - '#process':
+            callback: reference
+            args:
+              - taxonomy_term
+              - vid: topic
+                name: 'Education'
+      field_paragraph_location:
+        - country_code: AU
+          administrative_area: VIC
+          locality: Melbourne
+          postal_code: 3000
+          address_line1: 35 Collins St
+    # Card promotion.
+    - entity: paragraph
+      type: card_promotion
+      field_paragraph_title: 'Card Promotion'
+      field_paragraph_date: '2019-07-01T23:00:00'
+      field_paragraph_media:
+        - '#process':
+            callback: reference
+            args:
+              - media
+              - bundle: image
+                name: 'Demo: Melbourne tram'
+      field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+      field_paragraph_link:
+        - uri: https://www.google.com
+          title: Vestibulum rhoncus
+      field_paragraph_topic:
+        - '#process':
+            callback: reference
+            args:
+              - taxonomy_term
+              - vid: topic
+                name: 'Demo Topic'
+    # Card navigation.
+    - entity: paragraph
+      type: card_navigation
+      field_paragraph_title: 'Card Promotion'
+      field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+      field_paragraph_link:
+        - uri: https://www.google.com
+          title: Vestibulum rhoncus
+    # Card navigation featured.
+    - entity: paragraph
+      type: card_navigation_featured
+      field_paragraph_title: 'Card Promotion'
+      field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+      field_paragraph_link:
+        - uri: https://www.google.com
+          title: Vestibulum rhoncus
+      field_paragraph_media:
+        - '#process':
+            callback: reference
+            args:
+              - media
+              - bundle: image
+                name: 'Demo: Melbourne tram'
+    # Card keydates.
+    - entity: paragraph
+      type: card_keydates
+      field_paragraph_keydates:
+        - entity: paragraph
+          type: keydates
+          field_paragraph_keydate: '1 June'
+          field_paragraph_title: 'Demo Key Date'
+          field_paragraph_summary: 'First key date summary.'
+          field_paragraph_link:
+            - uri: https://www.google.com
+              title: First key date link
+        - entity: paragraph
+          type: keydates
+          field_paragraph_keydate: '2 June'
+          field_paragraph_title: 'Demo Key Date 2'
+          field_paragraph_summary: 'Second key date summary.'
+          field_paragraph_link:
+            - uri: https://www.google.com
+              title: Second key date link
+      field_paragraph_cta:
+        - uri: https://www.google.com
+          title: Read more
+    # Card promotion auto.
+    - entity: paragraph
+      type: card_promotion_auto
+      field_paragraph_cta_text: Read more
+      field_paragraph_reference:
+        - '#process':
+            callback: reference
+            args:
+              - node
+              - type: page
+                title: 'Demo Page'
+    # Card navigation auto.
+    - entity: paragraph
+      type: card_navigation_auto
+      field_paragraph_reference:
+        - '#process':
+            callback: reference
+            args:
+              - node
+              - type: page
+                title: 'Demo Page'
+    # Card navigation featured auto.
+    - entity: paragraph
+      type: card_navigation_featured_auto
+      field_paragraph_reference:
+        - '#process':
+            callback: reference
+            args:
+              - node
+              - type: news
+                title: 'Demo News'
+    # Featured news.
+    - entity: paragraph
+      type: featured_news
+      field_paragraph_news_reference:
+        - '#process':
+            callback: reference
+            args:
+              - node
+              - type: news
+                title: 'Demo News'
+    # Media gallery.
+    - entity: paragraph
+      type: media_gallery
+      field_paragraph_media_gallery:
+        - '#process':
+            callback: reference
+            args:
+              - block_content
+              - type: media_gallery
+                info: Demo Image Gallery block
+    # News listing.
+    - entity: paragraph
+      type: news_listing
+      field_paragraph_title: 'News Listing'
+      field_paragraph_topic:
+        - '#process':
+            callback: reference
+            args:
+              - taxonomy_term
+              - vid: topic
+                name: 'Demo Topic'
+    # Card event.
+    - entity: paragraph
+      type: card_event_auto
+      field_paragraph_cta_text: View more
+      field_paragraph_reference:
+        - '#process':
+            callback: reference
+            args:
+              - node
+              - type: event
+                title: 'Demo Event'
+    # latest events
+    - entity: paragraph
+      type: latest_events
+      field_paragraph_title: Demo latest events
+      field_paragraph_cta_card_event:
+        - entity: paragraph
+          type: call_to_action
+          field_paragraph_title: Latest Event 1
+          field_paragraph_body: 'Mauris tincidunt tincidunt felis vel tempus.'
+          field_paragraph_cta_style: banner
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_cta:
+            - uri: https://www.google.com
+              title: See more
+    # Timelines
+    - entity: paragraph
+      type: timelines
+      field_paragraph_title: Demo Timeline
+      field_timeline:
+        - entity: paragraph
+          type: timeline
+          field_paragraph_title: Demo Timeline Item
+          field_paragraph_date_range:
+            - value: '2020-01-01T08:00:00'
+              end_value: '2020-01-01T10:00:00'
+          field_paragraph_link: https://www.google.com
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_summary: Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.
+        - entity: paragraph
+          type: timeline
+          field_paragraph_title: Demo Timeline Item 2
+          field_paragraph_cta_text: Alternative
+          field_paragraph_link: https://www.google.com
+          field_paragraph_media:
+            - '#process':
+                callback: reference
+                args:
+                  - media
+                  - bundle: image
+                    name: 'Demo: Melbourne tram'
+          field_paragraph_summary: Anim excepteur magna eu aliqua quis velit voluptate sit culpa.
+  # What's Next.
+  field_show_whats_next: 1
+  field_whats_next:
+    - entity: paragraph
+      type: links
+      field_paragraph_link:
+        - uri: https://www.google.com
+          title: State Government of Victoria
+    - entity: paragraph
+      type: links
+      field_paragraph_link:
+        - uri: https://www.google.com
+          title: Department of Premier and Cabinet
+  # Related links
+  field_show_related_content: 1
+  field_related_links:
+    - entity: paragraph
+      type: related_links
+      field_paragraph_link:
+        - uri: https://www.google.com
+          title: State Government of Victoria
+    - entity: paragraph
+      type: related_links
+      field_paragraph_link:
+        - uri: https://www.google.com
+          title: Department of Premier and Cabinet
+  # Contact.
+  field_landing_page_show_contact: 1
+  field_landing_page_contact:
+    - entity: paragraph
+      type: contact_us
+      field_paragraph_title: Victorian Government
+      field_paragraph_name: Victorian Government
+      field_paragraph_email: no-reply@vic.gov.au
+      field_paragraph_department_name: Department of Premier and Cabinet
+      field_paragraph_location:
+        - country_code: AU
+          administrative_area: VIC
+          locality: Melbourne
+          postal_code: 3001
+          address_line1: Department of Premier and Cabinet
+          address_line2: GPO Box 4509
+      field_paragraph_postal_address:
+        - country_code: AU
+          administrative_area: VIC
+          locality: Melbourne
+          postal_code: 3001
+          address_line1: Department of Premier and Cabinet
+          address_line2: GPO Box 4509
+      field_paragraph_phones:
+        - entity: paragraph
+          type: phone
+          field_paragraph_phone_title: Calls in Australia
+          field_paragraph_phone_number: '1300 366 356'
+        - entity: paragraph
+          type: phone
+          field_paragraph_phone_title: Calls from overseas
+          field_paragraph_phone_number: '+61 3 9603 8804'
+      field_paragraph_social_media:
+        - entity: paragraph
+          type: social_link
+          field_paragraph_social_list: twitter
+          field_paragraph_link:
+            - uri: 'https://twitter.com/VicGovAu'
+              title: Twitter
+  # Other.
+  field_show_social_sharing: 1
+  field_show_content_rating: 1
+  field_show_site_section_nav: 1
+  field_landing_page_nav_title: 'Site-section Navigation'
+  # Topic and Tags.
+  field_topic:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: topic
+            name: 'Equality'
+  # Sites.
+  field_node_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'
+  field_node_primary_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'
+# Create menu links.
+- entity: menu_link_content
+  title: Demo Landing Page
+  menu_name: main-tide-demo
+  weight: 0
+  link:
+    - '#process':
+        callback: uri_reference
+        args:
+          - node
+          - type: landing_page
+            title: Demo Landing Page
+- entity: menu_link_content
+  title: Demo Landing Page
+  menu_name: footer-tide-demo
+  weight: 0
+  link:
+    - '#process':
+        callback: uri_reference
+        args:
+          - node
+          - type: landing_page
+            title: Demo Landing Page
+- entity: menu_link_content
+  title: Demo Landing Page
+  menu_name: main-tide-demo-another
+  weight: 0
+  link:
+    - '#process':
+        callback: uri_reference
+        args:
+          - node
+          - type: landing_page
+            title: Demo Landing Page
+- entity: menu_link_content
+  title: Demo Landing Page
+  menu_name: footer-tide-demo-another
+  weight: 0
+  link:
+    - '#process':
+        callback: uri_reference
+        args:
+          - node
+          - type: landing_page
+            title: Demo Landing Page

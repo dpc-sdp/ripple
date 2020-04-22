@@ -28,7 +28,7 @@ import RplLink from '@dpc-sdp/ripple-link'
 import vicLogoImage from '@dpc-sdp/ripple-global/assets/images/vic-logo.svg'
 const vicLogo = {
   src: vicLogoImage,
-  alt: 'Victoria Government Website',
+  alt: 'Victoria – logo – Victoria Government - home',
   url: 'https://vic.gov.au'
 }
 

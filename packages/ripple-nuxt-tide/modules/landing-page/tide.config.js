@@ -47,7 +47,6 @@ module.exports = {
       'field_landing_page_component.field_paragraph_reference.field_topic',
       'field_landing_page_component.field_paragraph_reference.field_featured_image',
       'field_landing_page_component.field_paragraph_reference.field_featured_image.field_media_image',
-      'field_landing_page_component.field_paragraph_webform',
       'field_landing_page_component.field_paragraph_media_gallery',
       'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media',
       'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image',
@@ -262,18 +261,6 @@ module.exports = {
           }
         },
         cols: cardColsSetting
-      },
-
-      'paragraph--embedded_webform': {
-        component: 'app-form',
-        props: {
-          'title': 'field_paragraph_title',
-          'formData': {
-            field: 'field_paragraph_webform',
-            filters: ['webform']
-          }
-        },
-        class: ['tide-webform']
       },
 
       'paragraph--card_promotion': {

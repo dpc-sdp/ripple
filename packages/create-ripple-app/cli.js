@@ -4,20 +4,7 @@ const fs = require('fs')
 const sao = require('sao')
 const args = require('minimist')(process.argv.slice(2))
 const compareVersions = require('compare-versions')
-
-const log = (msg, lvl = 'info') => {
-  switch (lvl) {
-    case 'error':
-      console.error(`ERROR: ${msg}`)
-      break
-    case 'info':
-      console.info(`> ${msg}`)
-      break
-    default:
-      console.log(`> ${msg}`)
-      break
-  }
-}
+const log = require('./logger')
 
 // Test project current version for each update.
 // If current is 20.0.0, target is 21.0.0,

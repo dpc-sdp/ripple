@@ -68,8 +68,9 @@ $rpl-alert-base-icom-margin: 0 $rpl-space-4 0 0 !default;
   display: flex;
   align-items: center;
   @include rpl_print_hidden;
+  $rpl-all-colors: rpl-get-colors();
 
-  @each $color-name, $color-value in $rpl-colors {
+  @each $color-name, $color-value in $rpl-all-colors {
     &--color-#{str-replace($color-name, ' ', '-')} {
       background-color: rpl-color($color-name);
     }
@@ -82,7 +83,7 @@ $rpl-alert-base-icom-margin: 0 $rpl-space-4 0 0 !default;
   &__content {
     @include rpl_typography_ruleset($rpl-alert-base-ruleset);
     color: $rpl-alert-base-text-color;
-    @each $color-name, $color-value in $rpl-colors {
+    @each $color-name, $color-value in $rpl-all-colors {
       &--color-#{str-replace($color-name, ' ', '-')} {
         color: rpl-color($color-name);
       }
@@ -91,7 +92,7 @@ $rpl-alert-base-icom-margin: 0 $rpl-space-4 0 0 !default;
     a {
       color: $rpl-alert-base-text-color;
       @at-root {
-        @each $color-name, $color-value in $rpl-colors {
+        @each $color-name, $color-value in $rpl-all-colors {
           #{$root}__content--color-#{str-replace($color-name, ' ', '-')} a {
             color: rpl-color($color-name);
           }

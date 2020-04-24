@@ -1,5 +1,5 @@
 <template>
-  <ul class="icons">
+  <ul class="icons" :class="{ 'icons--with-stroke': stroke }">
     <li v-for="(icon, index) in icons" :key="index">
       <rpl-icon :symbol="icon" :color="color" :size="size" />
       <code>{{ icon }}</code>
@@ -18,7 +18,8 @@ export default {
   props: {
     icons: Array,
     color: String,
-    size: String
+    size: String,
+    stroke: Boolean
   }
 }
 </script>
@@ -36,6 +37,12 @@ export default {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+
+    &--with-stroke {
+      .rpl-icon {
+        @include rpl_svg_stroke('black', 1px);
+      }
+    }
 
     li {
       display: flex;

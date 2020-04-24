@@ -1,5 +1,5 @@
 <template>
-  <svg v-if="validSymbol" :class="iconClass" :style="iconStyle" aria-hidden="true">
+  <svg v-if="validSymbol" :class="iconClass" :style="iconStyle" aria-hidden="true" overflow="visible">
     <!-- Use both xlink:href and href for browser support https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/ -->
     <use :xlink:href="'#' + iconPrefix + symbol" :href="'#' + iconPrefix + symbol"></use>
   </svg>

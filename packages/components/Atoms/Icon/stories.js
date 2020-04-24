@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
-import { withKnobs, text, select } from '@storybook/addon-knobs/vue'
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/vue'
 
 import SIcons from './../../../../src/storybook-components/Icons.vue'
 import { RplIcon, RplTextIcon } from './index'
@@ -9,13 +9,16 @@ storiesOf('Atoms/Icon', module)
   .addDecorator(withKnobs)
   .add('Icon Library', () => ({
     components: { SIcons },
-    template: '<s-icons :icons="icons" :color="color" :size="size" />',
+    template: '<s-icons :icons="icons" :color="color" :size="size" :stroke="stroke" />',
     props: {
       color: {
         default: text('Color', 'primary')
       },
       size: {
         default: text('Size', 'm')
+      },
+      stroke: {
+        default: boolean('Stroke', false)
       }
     },
     data () {

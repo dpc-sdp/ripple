@@ -21,10 +21,10 @@
     </carousel>
     <div class="rpl-image-gallery__thumbnail-navigation">
       <button v-if="navTo > 0" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--prev" @click="prevSlide" :aria-label="previousLabel">
-        <rpl-icon symbol="image_gallery_arrow_left" />
+        <rpl-icon symbol="arrow_left_secondary" color="white" size="1.5" class="rpl-image-gallery__thumbnail-navigation-icon" />
       </button>
       <button v-if="navTo < totalSlides" class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next" @click="nextSlide" :aria-label="nextLabel">
-        <rpl-icon symbol="image_gallery_arrow_right" />
+        <rpl-icon symbol="arrow_right_secondary" color="white" size="1.5" class="rpl-image-gallery__thumbnail-navigation-icon" />
       </button>
     </div>
     <!-- Modal -->
@@ -225,6 +225,10 @@ export default {
       &--next {
         right: ($rpl-space * 6);
       }
+    }
+
+    &__thumbnail-navigation-icon {
+      @include rpl_svg_stroke('black', (1px/1.5));
     }
 
     &__large-navigation {

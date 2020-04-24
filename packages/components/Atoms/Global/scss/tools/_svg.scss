@@ -1,0 +1,13 @@
+@mixin rpl_svg_stroke($color, $size, $linecap: false, $dasharray: false, $dashoffset: false) {
+  stroke: rpl_color($color);
+  stroke-width: $size;
+  @if $linecap {
+    stroke-linecap: $linecap;
+  }
+  @if $dasharray {
+    stroke-dasharray: $dasharray;
+  }
+  @if $dashoffset {
+    stroke-dashoffset: $dashoffset;
+  }
+}

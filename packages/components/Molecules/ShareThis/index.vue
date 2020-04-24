@@ -1,26 +1,26 @@
 <template>
   <div class="rpl-share-this">
     <h2 v-if="title" class="rpl-share-this__title" id="rpl-share-this__title">{{ title }}</h2>
-    <social-sharing :url="url" inline-template networkTag="li">
+    <social-sharing :url="url" inline-template networkTag="button">
       <ul class="rpl-share-this__list" :aria-label="label || 'Social networks'">
-        <network v-if="$parent.en.twitter" network="twitter" class="rpl-share-this__social">
-          <button class="rpl-share-this__button">
+        <li v-if="$parent.en.twitter">
+          <network network="twitter" class="rpl-share-this__button">
             <span class="rpl-share-this__icon"><rpl-icon symbol="twitter" color="primary" /></span>Twitter
             <span class="rpl-share-this__hint">, opens a new window</span>
-          </button>
-        </network>
-        <network v-if="$parent.en.facebook" network="facebook" class="rpl-share-this__social">
-          <button class="rpl-share-this__button">
+          </network>
+        </li>
+        <li v-if="$parent.en.facebook">
+          <network network="facebook" class="rpl-share-this__button">
             <span class="rpl-share-this__icon"><rpl-icon symbol="facebook" color="primary" /></span>Facebook
             <span class="rpl-share-this__hint">, opens a new window</span>
-          </button>
-        </network>
-        <network v-if="$parent.en.linkedin" network="linkedin" class="rpl-share-this__social">
-          <button class="rpl-share-this__button">
+          </network>
+        </li>
+        <li v-if="$parent.en.linkedin">
+          <network network="linkedin" class="rpl-share-this__button">
             <span class="rpl-share-this__icon"><rpl-icon symbol="linkedin" color="primary" /></span>LinkedIn
             <span class="rpl-share-this__hint">, opens a new window</span>
-          </button>
-        </network>
+          </network>
+        </li>
       </ul>
     </social-sharing>
   </div>
@@ -105,16 +105,6 @@ export default {
       margin: $rpl-share-this-title-margin;
     }
 
-    &__social {
-      @include rpl_typography_ruleset($rpl-share-this-social-ruleset);
-      margin: $rpl-share-this-social-margin-xs;
-      display: inline-block;
-      @include rpl_breakpoint('l') {
-        display: block;
-        margin: $rpl-share-this-social-margin-l;
-      }
-    }
-
     &__icon {
       min-width: $rpl-share-this-icon-min-width;
       display: inline-block;
@@ -133,11 +123,19 @@ export default {
     }
 
     &__button {
+      @include rpl_typography_ruleset($rpl-share-this-social-ruleset);
+      margin: $rpl-share-this-social-margin-xs;
+      display: inline-block;
       border: 0;
       background: 0;
       padding: 0;
       line-height: inherit;
       cursor: pointer;
+
+      @include rpl_breakpoint('l') {
+        display: block;
+        margin: $rpl-share-this-social-margin-l;
+      }
 
       &:hover,
       &:focus {

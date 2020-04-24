@@ -529,12 +529,6 @@
           - taxonomy_term
           - vid: sites
             name: 'vic.gov.au'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'demo.vic.gov.au'
   field_node_primary_site:
     - '#process':
         callback: reference

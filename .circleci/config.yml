@@ -91,6 +91,41 @@ jobs:
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/screenshots
 
+  audit:
+    docker:
+      - image: cypress/browsers:node12.0.0-chrome73
+        environment:
+          TERM: xterm
+          CIRCLE_TEST_REPORTS: test-results
+          TZ: "Australia/Melbourne"
+
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
+      - run:
+          name: run lighthouse audit
+          command: yarn test:audit
+      - run:
+          name: prepare cucumber test report
+          command: yarn test:report
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/videos
+      - store_artifacts:
+          path: examples/vic-gov-au/test/e2e/screenshots
+
   e2e-vic-gov:
     # This runs the full suite of e2e tests
     docker:
@@ -125,39 +160,6 @@ jobs:
       - store_artifacts:
           path: examples/vic-gov-au/test/e2e/screenshots
 
-  e2e-vic-gov-develop:
-    # Tests against the actual website using FQDN
-    docker:
-      - image: cypress/browsers:node12.0.0-chrome73
-        environment:
-          TERM: xterm
-          TZ: "Australia/Melbourne"
-          CYPRESS_BASE_URL: "https://www.develop.www.vic.gov.au"
-    working_directory: ~/app
-    parallelism: 1
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - restore_cache:
-          keys:
-            - v3-deps-{{ checksum "yarn.lock" }}
-            - v3-deps-{{ .Branch }}
-            - v3-deps
-      - run:
-          name: run full e2e test
-          command: yarn test:e2e-vic
-      - run:
-          name: prepare cucumber test report
-          command: yarn test:report
-          when: always
-      - store_artifacts:
-          path: test-results
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/videos
-      - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/screenshots
 
   e2e-example:
     # This runs the full suite of e2e tests
@@ -253,6 +255,10 @@ workflows:
           context: Ripple
           requires:
             - build
+      - audit:
+          context: Ripple
+          requires:
+            - build
       # Run regression tests on release branches
       - e2e-vic-gov:
           context: Ripple
@@ -262,7 +268,6 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-                - feature/fixturepaths
       - e2e-example:
           requires:
             - build
@@ -306,7 +311,11 @@ workflows:
           context: Ripple
           requires:
             - build
-      - e2e-vic-gov-develop:
+      - audit:
+          context: Ripple
+          requires:
+            - build
+      - e2e-vic-gov:
           context: Ripple
           requires:
             - build

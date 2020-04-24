@@ -23,7 +23,7 @@ When(`I click the search button in the site header`, () => {
 })
 
 When(`I type {string} into the site search input and hit enter`, (searchTerm) => {
-  cy.get('.rpl-search-form__input').type(searchTerm + '{enter}')
+  cy.get('.rpl-search-form__input').type(searchTerm + '{enter}', { force: true })
 })
 
 Then(`the site search box should be visible`, () => {

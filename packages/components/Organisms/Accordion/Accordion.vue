@@ -143,7 +143,7 @@ export default {
   $rpl-accordion-button-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-accordion-button-text-color-hover: rpl_color('primary') !default;
   $rpl-accordion-button-text-color-expanded: rpl_color('secondary') !default;
-  $rpl-accordion-button-number-text-color: rpl_color('mid_neutral_1') !default;
+  $rpl-accordion-button-number-text-color: rpl_color('dark_neutral_1') !default;
   $rpl-accordion-button-number-margin: 0 ($rpl-space * 5) 0 0 !default;
   $rpl-accordion-content-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-accordion-content-inner-padding: 0 0 rem(57px) !default;

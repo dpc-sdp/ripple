@@ -7691,7 +7691,7 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
   </h1>
    
   <!---->
-   
+    
   <div
     class="rpl-search-form__field"
   >
@@ -15744,13 +15744,11 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
     aria-label="Social networks"
     class="rpl-share-this__list"
   >
-    <li
-      class="rpl-share-this__social"
-      data-link="#share-twitter"
-      tabindex="0"
-    >
+    <li>
       <button
         class="rpl-share-this__button"
+        data-link="#share-twitter"
+        tabindex="0"
       >
         <span
           class="rpl-share-this__icon"
@@ -15767,13 +15765,11 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
       </button>
     </li>
      
-    <li
-      class="rpl-share-this__social"
-      data-link="#share-facebook"
-      tabindex="0"
-    >
+    <li>
       <button
         class="rpl-share-this__button"
+        data-link="#share-facebook"
+        tabindex="0"
       >
         <span
           class="rpl-share-this__icon"
@@ -15790,13 +15786,11 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
       </button>
     </li>
      
-    <li
-      class="rpl-share-this__social"
-      data-link="#share-linkedin"
-      tabindex="0"
-    >
+    <li>
       <button
         class="rpl-share-this__button"
+        data-link="#share-linkedin"
+        tabindex="0"
       >
         <span
           class="rpl-share-this__icon"
@@ -21300,7 +21294,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
           class="rpl-link__inner"
         >
           <img
-            alt="Victoria Government Website"
+            alt="Victoria – logo – Victoria Government - home"
             src="file-stub"
           />
         </span>

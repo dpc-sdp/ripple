@@ -81,15 +81,15 @@ Given(`in the backend there are no {string} nodes`, (contentType) => {
     cy.log(`Found ${routeResponse.body.meta.count} ${contentType} nodes`)
     if (routeResponse.status !== 200 || routeResponse.body.meta.count !== '0') {
       cy.log(`Deleting ${contentType}s`)
-      cy.visit(Cypress.env('CONTENT_API_SERVER') + `/admin/content?title=&field_node_primary_site_target_id=${Cypress.env('SITE_ID')}&field_node_site_target_id=All&type=${contentType}&moderation_state=All&status=1`, {
+      cy.visit(Cypress.env('CONTENT_API_SERVER') + `admin/content?title=&field_node_primary_site_target_id=All&field_node_site_target_id%5B%5D=${Cypress.env('SITE_ID')}&type=alert&moderation_state=All&status=1`, {
         auth: {
           username: Cypress.env('CONTENT_API_AUTH_USER'),
           password: Cypress.env('CONTENT_API_AUTH_PASS')
         }
       })
-      cy.get('.view-content .select-all [title="Select all rows in this table"]').click()
+      cy.get('.view-content .select-all [title="Select all rows in this table"]').click({ force: true })
       cy.get('[data-drupal-selector="edit-node-bulk-form"] [data-drupal-selector="edit-action"]').select('node_delete_action', { force: true })
-      cy.get('#edit-submit--2').click()
+      cy.get('#edit-submit--2').click({ force: true })
       cy.url().should('include', '/admin/content/node/delete')
       cy.get('#edit-submit').click()
     }

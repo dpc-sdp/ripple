@@ -25,6 +25,7 @@ $rpl-form-radio-size-s: 24px !default; // dont use rem - safari rounding bug
 $rpl-form-radio-dot-size: $rpl-form-radio-size / 4 !default;
 $rpl-form-radio-dot-size-s: $rpl-form-radio-size / 4 !default;
 $rpl-form-radio-checked-transition: background-color .2s ease !default;
+$rpl-form-radio-border-color: rpl-color('dark_neutral_1') !default;
 $rpl-form-shadow: 0 2px 4px 0 rgba(0, 0, 0, .08) !default;
 
 
@@ -69,7 +70,7 @@ $rpl-form-shadow: 0 2px 4px 0 rgba(0, 0, 0, .08) !default;
     outline: 0; // outline disabled to mimic native radio
     border-radius: 100%;
     background-color: rpl-color('light_neutral');
-    border: solid 1px rpl-color('mid_neutral_1');
+    border: solid 1px $rpl-form-radio-border-color;
     box-shadow: $rpl-form-shadow;
     width: $rpl-form-radio-size-s;
     height: $rpl-form-radio-size-s;

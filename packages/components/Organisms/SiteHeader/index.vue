@@ -69,7 +69,13 @@
                 <rpl-icon :symbol="logoutButton.icon" color="white" />
             </button>
             <!-- Search Button -->
-            <button v-if="showSearch" @click="searchToggle()" class="rpl-site-header__btn rpl-site-header__btn--search" :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}">
+            <button
+              v-if="showSearch"
+              @click="searchToggle()"
+              class="rpl-site-header__btn rpl-site-header__btn--search"
+              :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}"
+              :aria-expanded="(searchState === 'opened').toString()"
+            >
               <span>{{ searchButton[searchState].text }}</span>
               <rpl-icon :symbol="searchButton[searchState].icon" color="white" />
             </button>

@@ -5,8 +5,7 @@
     - pathauto: 0
       alias: '/tc-9b-grant'
   uid: 1
-  uuid: 11f8f83c-4d9f-41e6-8480-0dd4d9287bd3
-  nid: 70921
+  nid: 708<%= siteid %>
   status: 1
   moderation_state:
     - '#process':
@@ -147,23 +146,11 @@
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Demo Section 1'
-    - '#process':
-        callback: reference
-        args:
-          - taxonomy_term
-          - vid: sites
-            name: 'Another Demo Site'
+            name: '<%= domain %>'
   field_node_primary_site:
     - '#process':
         callback: reference
         args:
           - taxonomy_term
           - vid: sites
-            name: 'Demo Site'
+            name: '<%= domain %>'

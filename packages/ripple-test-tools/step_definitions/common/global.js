@@ -2,6 +2,21 @@
 
 const { Then } = require('cypress-cucumber-preprocessor/steps')
 
+Then('should verify the lighthouse scores', (dataTable) => {
+  if (!dataTable) {
+    cy.audit()
+  } else {
+    const thresholdsTable = dataTable.rawTable.slice(1)
+    const thresholds = {}
+    thresholdsTable.forEach((expected, index) => {
+      const metric = expected[0]
+      const threshold = expected[1]
+      thresholds[metric] = threshold
+    })
+    cy.audit(thresholds)
+  }
+})
+
 Then(`the page title should be {string}`, title => {
   cy.title().should('include', title)
 })

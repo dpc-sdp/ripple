@@ -8,8 +8,8 @@ Feature: Grant page
 
   Scenario: BE - Create TC-9a Grant
     Given I have logged into the backend
-    And in the backend there is a node at "/tc-9a-grant" with "modules/grant/TC-9a-grant" data
-    And in the backend there is a node at "/tc-9b-grant" with "modules/grant/TC-9b-grant" data
+    And in the backend there is a node at "/tc-9a-grant" with "modules/grant/tc-9a-grant" data
+    And in the backend there is a node at "/tc-9b-grant" with "modules/grant/tc-9b-grant" data
 
   Scenario: FE - TC-9a Grant - Simple Test - Date Range
     Given that the current date is "April 10, 2019 00:00:00"

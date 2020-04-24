@@ -70,8 +70,6 @@ storiesOf('Atoms/Icon', module)
           'help',
           'home',
           'ics',
-          'image_gallery_arrow_left',
-          'image_gallery_arrow_right',
           'indd',
           'instagram',
           'left',

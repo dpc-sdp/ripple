@@ -1010,20 +1010,6 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
     <!---->
      
     <code>
-      image_gallery_arrow_left
-    </code>
-  </li>
-  <li>
-    <!---->
-     
-    <code>
-      image_gallery_arrow_right
-    </code>
-  </li>
-  <li>
-    <!---->
-     
-    <code>
       indd
     </code>
   </li>

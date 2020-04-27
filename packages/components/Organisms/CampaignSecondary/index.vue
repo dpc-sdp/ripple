@@ -4,7 +4,7 @@
       <div v-if="image || video" class="rpl-campaign-secondary__left">
         <div class="rpl-campaign-secondary__content">
           <img v-if="image" :src="image" alt="" class="rpl-campaign-secondary__image" />
-          <rpl-embedded-video :variant="video.mediaLink ? 'link' : false" v-else-if="video" :src="video.src" :media-link="video.mediaLink" class="rpl-campaign-secondary__video" />
+          <rpl-embedded-video v-if="!image && video" :variant="video.mediaLink ? 'link' : false" :src="video.src" :media-link="video.mediaLink" class="rpl-campaign-secondary__video" />
         </div>
       </div>
       <div class="rpl-campaign-secondary__right">

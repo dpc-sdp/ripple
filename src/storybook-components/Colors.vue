@@ -60,7 +60,8 @@ ul {
   flex-wrap: wrap;
 }
 
-@each $color-name, $color-value in $rpl-colors {
+$rpl-all-colors: rpl-get-colors();
+@each $color-name, $color-value in $rpl-all-colors {
   .color__item--#{str-replace($color-name, ' ', '-')} {
     background-color: rpl-color($color-name);
   }

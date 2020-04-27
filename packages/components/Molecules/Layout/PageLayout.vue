@@ -1,6 +1,6 @@
 <template>
   <main class="rpl-page" :class="{'rpl-page--with-search': withSearch }">
-    <section
+    <div
       class="rpl-above-content-container"
       :class="{ 'rpl-above-content-container--with-bg': heroBackgroundImage }"
     >
@@ -17,7 +17,7 @@
       <div class="rpl-above-content-two">
         <slot name="aboveContentTwo"></slot>
       </div>
-    </section>
+    </div>
 
     <section id="rpl-main-content" class="rpl-content" :class="{'rpl-content--with-sidebar': sidebar, 'rpl-content--grey': bgGrey}">
       <div class="rpl-site-constrain--on-all">
@@ -37,9 +37,9 @@
       </div>
     </section>
 
-    <section class="rpl-below-content">
+    <div class="rpl-below-content">
       <slot name="belowContent"></slot>
-    </section>
+    </div>
 
   </main>
 </template>

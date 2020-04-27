@@ -50,7 +50,8 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
 
-  @each $color-name, $color-value in $rpl-colors {
+  $rpl-all-colors: rpl-get-colors();
+  @each $color-name, $color-value in $rpl-all-colors {
     .rpl-icon--color_#{str-replace($color-name, ' ', '-')} {
       fill: rpl-color($color-name);
     }

@@ -115,6 +115,7 @@ $rpl-colors: (
   'secondary': purple,
   'extra_dark_neutral': black,
   'dark_neutral': darkslategrey,
+  'dark_neutral_1': darkslategrey,
   'mid_neutral_1': slategrey,
   'mid_neutral_2': grey,
   'light_neutral': lightgrey,

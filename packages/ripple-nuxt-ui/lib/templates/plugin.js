@@ -37,6 +37,10 @@ let rplOptions = {
   rplOptions.card.trimFieldfonts = options.card.trimFieldfonts
 <% } %>
 
+<% if (options.externalLinksInNewWindow) { %>
+  rplOptions.externalLinksInNewWindow = options.externalLinksInNewWindow
+<% } %>
+
 <% if (options.customIcon) { %>
   // Add custom icons to library.
   addCustomIcons(require.context('../assets/ripple-icon/', true, /\.svg$/))

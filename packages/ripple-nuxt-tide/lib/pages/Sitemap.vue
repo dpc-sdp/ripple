@@ -33,14 +33,11 @@ export default {
     RplSitemap
   },
   data () {
+    const pageTitle = 'Site map'
+    this.$store.dispatch('tide/setPageHead', { title: pageTitle })
     return {
-      pageTitle: 'Site map',
+      pageTitle: pageTitle,
       menu: this.$store.state.tide.siteData.hierarchicalMenus.menuMain
-    }
-  },
-  head (tidePage) {
-    return {
-      title: 'Site map'
     }
   },
   computed: {

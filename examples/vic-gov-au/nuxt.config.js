@@ -9,6 +9,7 @@ export default {
   ** Headers of the page
   */
   head: {
+    titleTemplate: '%s | vic.gov.au',
     title: 'vic.gov.au',
     meta: [
       { charset: 'utf-8' },

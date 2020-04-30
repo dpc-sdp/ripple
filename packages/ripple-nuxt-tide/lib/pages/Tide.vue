@@ -102,9 +102,6 @@ export default {
     RplCol
   },
   name: 'TidePage',
-  head () {
-    return this.page.head
-  },
   data () {
     return {
       page: null,

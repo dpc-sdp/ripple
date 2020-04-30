@@ -53,6 +53,9 @@ export default {
   props: {
     page: Object
   },
+  async asyncData ({ route, store }) {
+    store.dispatch('tide/setPageHead', { title: 'Reset' })
+  },
   data () {
     return {
       messages: {

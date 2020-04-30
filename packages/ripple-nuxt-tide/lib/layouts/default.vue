@@ -172,6 +172,9 @@ export default {
         }
       }
     }
+  },
+  head () {
+    return this.$store.state.tide.pageHead
   }
 }
 </script>

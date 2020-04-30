@@ -39,6 +39,9 @@
         :caption="footerCaption"
         :logos="footer.logos"
         />
+      <client-only>
+        <div aria-live="assertive" class="rpl-visually-hidden">{{ announcerTitle }}</div>
+      </client-only>
     </template>
 
   </rpl-base-layout>
@@ -51,6 +54,7 @@ import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
+import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
 
 export default {
   components: {
@@ -74,7 +78,8 @@ export default {
         breakpoint: 992,
         links: _store.state.tide.siteData.hierarchicalMenus.menuMain,
         sticky: true
-      }
+      },
+      announcerTitle: ''
     }
   },
   computed: {
@@ -108,8 +113,12 @@ export default {
     if (this.$route.hash) {
       this.anchorScrollFix(this.$route.hash)
     }
+    RplLinkEventBus.$on('navigate', this.onNavigate)
   },
   methods: {
+    onNavigate () {
+      this.announcerTitle = `Page loading`
+    },
     anchorScrollFix (hashbang) {
       const elmnt = document.querySelector(hashbang)
       if (elmnt) {
@@ -175,6 +184,15 @@ export default {
   },
   head () {
     return this.$store.state.tide.pageHead
+  },
+  watch: {
+    $route (to, from) {
+      if (to.path !== from.path) {
+        setTimeout(() => {
+          this.announcerTitle = `${document.title.trim()} has loaded`
+        }, 1000)
+      }
+    }
   }
 }
 </script>

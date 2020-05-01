@@ -87,11 +87,6 @@ export default {
   props: {
     sidebar: Boolean
   },
-  head () {
-    return {
-      title: this.publication.title
-    }
-  },
   methods: {
     formatAnchor (title) {
       return kebabCase(title)
@@ -138,8 +133,9 @@ export default {
       })
     }
   },
-  async asyncData ({ app, route }) {
+  async asyncData ({ app, route, store }) {
     const publication = await app.$tide.getPageByPath('/' + route.params.publicationname)
+    store.dispatch('tide/setPageHead', { title: publication.title })
     try {
       publication.componentMapping = await app.$tideMapping.get(publication.field_landing_page_component, 'landingPageComponents')
 

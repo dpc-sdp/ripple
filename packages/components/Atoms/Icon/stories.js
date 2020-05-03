@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
-import { withKnobs, text, select } from '@storybook/addon-knobs/vue'
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/vue'
 
 import SIcons from './../../../../src/storybook-components/Icons.vue'
 import { RplIcon, RplTextIcon } from './index'
@@ -9,11 +9,20 @@ storiesOf('Atoms/Icon', module)
   .addDecorator(withKnobs)
   .add('Icon Library', () => ({
     components: { SIcons },
-    template: '<s-icons :icons="icons" :color="color" :size="size" />',
+    template: '<s-icons :icons="icons" :color="color" :size="size" :stroke="stroke" />',
+    props: {
+      color: {
+        default: text('Color', 'primary')
+      },
+      size: {
+        default: text('Size', 'm')
+      },
+      stroke: {
+        default: boolean('Stroke', false)
+      }
+    },
     data () {
       return {
-        color: text('Color', 'primary'),
-        size: text('Size', 'm'),
         icons: [
           'accessible',
           'addition',
@@ -30,8 +39,8 @@ storiesOf('Atoms/Icon', module)
           'arrow_down_tertiary',
           'arrow_left_primary',
           'arrow_left_secondary',
-          'arrow_right_primary',
           'arrow_right_primary_s',
+          'arrow_right_primary',
           'arrow_right_secondary',
           'arrow_up_primary',
           'attach',
@@ -40,11 +49,11 @@ storiesOf('Atoms/Icon', module)
           'calendar',
           'child_friendly',
           'close',
-          'csv',
           'cross_circle',
+          'csv',
           'doc',
-          'document',
           'document_transparent',
+          'document',
           'docx',
           'dollar_negative',
           'dot',
@@ -54,6 +63,7 @@ storiesOf('Atoms/Icon', module)
           'download',
           'email_solid',
           'email_transparent',
+          'enlarge_screen',
           'eps',
           'external_link',
           'facebook',
@@ -66,9 +76,9 @@ storiesOf('Atoms/Icon', module)
           'indd',
           'instagram',
           'left',
-          'link',
           'link_65',
           'link_90',
+          'link',
           'linkedin',
           'loading_star',
           'lock',
@@ -84,8 +94,8 @@ storiesOf('Atoms/Icon', module)
           'right',
           'search',
           'senior',
-          'share',
           'share_alternative',
+          'share',
           'star',
           'stop',
           'success',

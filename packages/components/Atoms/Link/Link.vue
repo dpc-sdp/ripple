@@ -20,6 +20,7 @@
 <script>
 import { focus } from 'vue-focus'
 import { isRelativeUrl, isExternalUrl, isAnchorLink } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { RplLinkEventBus } from './index'
 
 export default {
   name: 'RplLink',
@@ -59,6 +60,9 @@ export default {
       // Triggering an active link will reload the page.
       if (e.target.classList.contains('nuxt-link-active')) {
         window.location.href = e.target.attributes.href.value
+      }
+      if (this.isNuxtLink) {
+        RplLinkEventBus.$emit('navigate', 'route changed')
       }
     }
   },

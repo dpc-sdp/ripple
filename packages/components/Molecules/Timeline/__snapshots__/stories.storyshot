@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
+<div
+  class="rpl-timeline"
+>
+  <h2
+    class="rpl-timeline__title"
+  >
+    Timeline Heading
+  </h2>
+
+  <ol
+    class="rpl-timeline__list"
+  >
+    <li
+      class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
+    >
+      <img
+        alt=""
+        class="rpl-timeline__item-image"
+        src="https://placehold.it/320x240"
+      />
+
+      <h3
+        class="rpl-timeline__item-title"
+      >
+        <!---->
+
+        <a
+          class="rpl-link"
+          data-print-url="#"
+          href="#"
+        >
+          <span
+            class="rpl-link__inner"
+          >
+            Timeline item with link
+          </span>
+        </a>
+      </h3>
+
+      <p
+        class="rpl-timeline__item-subtitle"
+      >
+        01 January 2019 to 01 December 2020
+      </p>
+
+      <p
+        class="rpl-timeline__item-description"
+      >
+        Contains image, title, internal URL, different start / end date and description.
+      </p>
+    </li>
+    <li
+      class="rpl-timeline__list-item rpl-timeline__list-item--multi"
+    >
+      <!---->
+
+      <h3
+        class="rpl-timeline__item-title"
+      >
+        <span>
+          Timeline item 2
+        </span>
+
+        <!---->
+      </h3>
+
+      <p
+        class="rpl-timeline__item-subtitle"
+      >
+        Contains title and custom subtitle.
+      </p>
+
+      <!---->
+    </li>
+    <li
+      class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
+    >
+      <img
+        alt=""
+        class="rpl-timeline__item-image"
+        src="https://placehold.it/88x88"
+      />
+
+      <h3
+        class="rpl-timeline__item-title"
+      >
+        <span>
+          Timeline item 3
+        </span>
+
+        <!---->
+      </h3>
+
+      <p
+        class="rpl-timeline__item-subtitle"
+      >
+        01 to 15 January
+      </p>
+
+      <p
+        class="rpl-timeline__item-description"
+      >
+        Contains image, title, different start / end date, subtitle (hidden) and description.
+      </p>
+    </li>
+    <li
+      class="rpl-timeline__list-item rpl-timeline__list-item--multi"
+    >
+      <!---->
+
+      <h3
+        class="rpl-timeline__item-title"
+      >
+        <span>
+          Timeline item 4
+        </span>
+
+        <!---->
+      </h3>
+
+      <p
+        class="rpl-timeline__item-subtitle"
+      >
+        01 March
+      </p>
+
+      <p
+        class="rpl-timeline__item-description"
+      >
+        Contains title, matching start / end date and description.
+      </p>
+    </li>
+    <li
+      class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
+    >
+      <img
+        alt=""
+        class="rpl-timeline__item-image"
+        src="https://placehold.it/88x88"
+      />
+
+      <h3
+        class="rpl-timeline__item-title"
+      >
+        <!---->
+
+        <a
+          class="rpl-link"
+          data-print-url="https://www.google.com"
+          href="https://www.google.com"
+        >
+          <span
+            class="rpl-link__inner"
+          >
+            Timeline item 5 with link
+          </span>
+        </a>
+      </h3>
+
+      <!---->
+
+      <p
+        class="rpl-timeline__item-description"
+      >
+        Contains an image, title, external URL and description.
+      </p>
+    </li>
+  </ol>
+</div>
+`;

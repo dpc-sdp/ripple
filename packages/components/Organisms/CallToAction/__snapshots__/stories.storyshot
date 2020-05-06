@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RippleStoryshots Organisms/CallToAction Call to Action 1`] = `
+<div
+  class="rpl-call-to-action"
+>
+  <div
+    class="rpl-call-to-action__row"
+  >
+    <div
+      class="rpl-call-to-action__left"
+    >
+      <img
+        alt=""
+        class="rpl-call-to-action__image"
+        src="http://placehold.it/336x249"
+      />
+    </div>
+
+    <div
+      class="rpl-call-to-action__right"
+    >
+      <h2
+        class="rpl-call-to-action__title"
+      >
+        Card prompting an action
+      </h2>
+
+      <p
+        class="rpl-call-to-action__summary"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
+      </p>
+
+      <a
+        class="rpl-link rpl-button rpl-button--primary"
+        data-print-url="#"
+        href="#"
+      >
+        <span
+          class="rpl-link__inner"
+        >
+          Call to action
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;

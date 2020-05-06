@@ -91,7 +91,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/ripple-global/style";
+@import "~@dpc-sdp/ripple-global/scss/settings";
+@import "~@dpc-sdp/ripple-global/scss/tools";
+
 $table-stripe-color: rpl-color('light_neutral');
 $table-border: 1px solid rpl-color('mid_neutral_1');
 $table-header-ruleset: ('s', 1em, 'bold');

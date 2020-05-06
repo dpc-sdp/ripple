@@ -62,14 +62,8 @@ export default {
     RplCardEvent,
     RplCardKeydates,
     RplDevError,
-    Carousel: () =>
-      import('vue-carousel')
-        .then(m => m.Carousel)
-        .catch(),
-    Slide: () =>
-      import('vue-carousel')
-        .then(m => m.Slide)
-        .catch()
+    Carousel: () => import('vue-carousel').then(m => m.Carousel),
+    Slide: () => import('vue-carousel').then(m => m.Slide)
   },
   data () {
     return {

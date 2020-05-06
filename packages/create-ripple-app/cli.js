@@ -51,7 +51,8 @@ const cli = async () => {
 
   if (args.forcenew || existing) {
     const pkg = require(`${outDir}/package.json`)
-    const version = pkg.version
+    // If there is no `sdp_version`, fallback to `version`.
+    const version = pkg.sdp_version || pkg.version
     let targetVersion = config.release
 
     if (!targetVersion) {

@@ -10,10 +10,9 @@ module.exports = {
         type: 'modify',
         files: 'package.json',
         handler (data, filepath) {
-          data.version = '23.0.0'
-          // TODO: version should match the final released one.
-          // data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `1.8.0`
-          // data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.8.0`
+          data.sdp_version = '23.0.0'
+          data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `1.8.0`
+          data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.8.0`
           data.scripts['build:default'] = `nuxt build --modern=client`
           data.scripts['build:win32'] = `nuxt build --modern=client`
           data.scripts['start:default'] = `nuxt start --modern=client`

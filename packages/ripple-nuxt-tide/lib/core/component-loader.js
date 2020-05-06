@@ -39,8 +39,7 @@ const loadComponent = (name, dynamicComponentsConfig) => {
     case 'rpl-card-box':
       return () => import(/* webpackChunkName: 'rpl-card-box' */ '@dpc-sdp/ripple-card').then(m => m.RplCardBox)
     case 'rpl-card-carousel':
-      // this is already mounted in no-ssr
-      return 'rpl-card-carousel'
+      return () => import(/* webpackChunkName: 'rpl-card-carousel' */ '@dpc-sdp/ripple-card').then(m => m.RplCardCarousel)
     case 'rpl-card-cta':
       return () => import(/* webpackChunkName: 'rpl-card-cta' */ '@dpc-sdp/ripple-card').then(m => m.RplCardCta)
     case 'rpl-card-emergency-contact':
@@ -84,8 +83,7 @@ const loadComponent = (name, dynamicComponentsConfig) => {
     case 'rpl-publication-image':
       return () => import(/* webpackChunkName: 'rpl-publication-image' */ '@dpc-sdp/ripple-publication').then(m => m.RplPublicationImage)
     case 'rpl-image-gallery':
-      // this is already mounted in no-ssr
-      return 'rpl-image-gallery'
+      return () => import(/* webpackChunkName: 'rpl-image-gallery' */ '@dpc-sdp/ripple-image-gallery').then(m => m.RplImageGallery)
     case 'rpl-accordion':
       return () => import(/* webpackChunkName: 'rpl-accordion' */ '@dpc-sdp/ripple-accordion')
     case 'tide-login':

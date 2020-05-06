@@ -4,6 +4,7 @@
     <h2 v-if="title" class="rpl-card-carousel__title">{{ title }}</h2>
     <div class="rpl-card-carousel__slider">
       <carousel
+        v-if="showCarousel"
         :perPage="slidesPerPage"
         :navigateTo="navTo"
         :mouseDrag="false"
@@ -31,14 +32,13 @@
 import Vue from 'vue'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
-import { Carousel, Slide } from 'vue-carousel'
 import catchChildError from '@dpc-sdp/ripple-global/mixins/catch-child-error'
 import { RplDevError } from '@dpc-sdp/ripple-global'
 
 import RplIcon from '@dpc-sdp/ripple-icon'
-import RplCardPromotion from './../CardPromotion.vue'
-import RplCardEvent from './../CardEvent.vue'
-import RplCardKeydates from './../CardKeydates.vue'
+import RplCardPromotion from './CardPromotion.vue'
+import RplCardEvent from './CardEvent.vue'
+import RplCardKeydates from './CardKeydates.vue'
 // TODO: Add future card components
 
 export default {
@@ -58,12 +58,18 @@ export default {
   },
   components: {
     RplIcon,
-    Carousel,
-    Slide,
     RplCardPromotion,
     RplCardEvent,
     RplCardKeydates,
-    RplDevError
+    RplDevError,
+    Carousel: () =>
+      import('vue-carousel')
+        .then(m => m.Carousel)
+        .catch(),
+    Slide: () =>
+      import('vue-carousel')
+        .then(m => m.Slide)
+        .catch()
   },
   data () {
     return {
@@ -71,6 +77,7 @@ export default {
       eventBus: new Vue(),
       observer: null,
       lastCarouselInnerFlexBasis: null,
+      showCarousel: false,
       // Define which cards use cardtrimfield. These will be given the eventBus
       // object and their resize will be invoked on carousel size changes.
       trimmedCards: [
@@ -132,10 +139,17 @@ export default {
     }
   },
   mounted () {
+    // This is a workaround for allow Vue Carousel work in SSR.
+    // Need to wait for official SSR support.
+    // https://github.com/SSENSE/vue-carousel/issues/192
+    this.showCarousel = true
     // Update card size on Carousel width change.
     if (typeof MutationObserver !== 'undefined') {
       this.observer = new MutationObserver(this.updateTrimFields)
-      this.observer.observe(this.$el.querySelector('.VueCarousel-inner'), { attributes: true })
+      const carouselInner = this.$el.querySelector('.VueCarousel-inner')
+      if (carouselInner) {
+        this.observer.observe(this.$el.querySelector('.VueCarousel-inner'), { attributes: true })
+      }
     }
   },
   destroyed () {

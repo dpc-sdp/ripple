@@ -22,7 +22,6 @@ module.exports = {
         }
       }
     ]
-
     return actions
   },
   async completed () {

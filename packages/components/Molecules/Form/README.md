@@ -34,13 +34,28 @@ npm install @dpc-sdp/ripple-form --save
 ## Import
 
 ```js
-import { RplFormEventBus, VueFormGenerator } from '@dpc-sdp/ripple-form'
+import {
+  RplFormEventBus,
+  VueFormGenerator,
+  RplCheckbox,
+  RplSelect
+} from '@dpc-sdp/ripple-form'
 import RplForm from '@dpc-sdp/ripple-form'
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
+
+See [Storybook/Molecules/Form/Select/Single](https://ripple.sdp.vic.gov.au/?path=/story/molecules-form-select--single).
+
+See [Storybook/Molecules/Form/Select/Set initial state](https://ripple.sdp.vic.gov.au/?path=/story/molecules-form-select--set-initial-state).
+
+See [Storybook/Molecules/Form/Select/Multiselect](https://ripple.sdp.vic.gov.au/?path=/story/molecules-form-select--multiselect).
+
+See [Storybook/Molecules/Form/Select/Multiselect initial state](https://ripple.sdp.vic.gov.au/?path=/story/molecules-form-select--multiselect-initial-state).
+
+See [Storybook/Molecules/Form/Select/Multiselect initial state with object](https://ripple.sdp.vic.gov.au/?path=/story/molecules-form-select--multiselect-initial-state-with-object).
 
 See [Storybook/Molecules/Form/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-form--default).
 

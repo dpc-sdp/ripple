@@ -4,6 +4,7 @@
       <rpl-icon symbol="enlarge_screen" color="primary" />
     </button>
     <carousel
+      v-if="showCarousel"
       :perPage="1"
       :navigateTo="navTo"
       :loop="true"
@@ -63,10 +64,9 @@
 <script>
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import RplIcon from '@dpc-sdp/ripple-icon'
-import RplFittedImg from './../FittedImg.vue'
-import RplImageGalleryModal from './../ImageGalleryModal.vue'
-import RplFullscreenImage from './../FullscreenImage.vue'
-import { Carousel, Slide } from 'vue-carousel'
+import RplFittedImg from './FittedImg.vue'
+import RplImageGalleryModal from './ImageGalleryModal.vue'
+import RplFullscreenImage from './FullscreenImage.vue'
 
 export default {
   name: 'RplImageGallery',
@@ -76,8 +76,14 @@ export default {
     RplFittedImg,
     RplImageGalleryModal,
     RplFullscreenImage,
-    Carousel,
-    Slide
+    Carousel: () =>
+      import('vue-carousel')
+        .then(m => m.Carousel)
+        .catch(),
+    Slide: () =>
+      import('vue-carousel')
+        .then(m => m.Slide)
+        .catch()
   },
   props: {
     galleryData: Array,
@@ -89,7 +95,8 @@ export default {
     return {
       showModal: false,
       navTo: 0,
-      toggleCaption: false
+      toggleCaption: false,
+      showCarousel: false
     }
   },
   computed: {
@@ -102,6 +109,12 @@ export default {
     arrowColor () {
       return this.$breakpoint.l ? 'white' : 'secondary'
     }
+  },
+  mounted () {
+    // This is a workaround for allow Vue Carousel work in SSR.
+    // Need to wait for official SSR support.
+    // https://github.com/SSENSE/vue-carousel/issues/192
+    this.showCarousel = true
   },
   methods: {
     openModal () {
@@ -123,7 +136,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
-  @import "./../scss/image_gallery";
+  @import "./scss/image_gallery";
 
   $rpl-image-gallery-enlarge-background-color: rpl-color('white') !default;
   $rpl-image-gallery-enlarge-border-radius: rem(4px) !default;

@@ -24,7 +24,8 @@ npm install @dpc-sdp/ripple-publication --save
 ├── @dpc-sdp/ripple-icon
 ├── @dpc-sdp/ripple-image-gallery
 ├── @dpc-sdp/ripple-link
-└── @dpc-sdp/ripple-markup
+├── @dpc-sdp/ripple-markup
+└── pluralize
 ```
 
 --------------------------------------------------------------------------------

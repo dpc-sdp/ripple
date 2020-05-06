@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import RplImageGallery from './no-ssr/ImageGallery.vue'
+import RplImageGallery from './ImageGallery.vue'
 
 import {
   withKnobs,

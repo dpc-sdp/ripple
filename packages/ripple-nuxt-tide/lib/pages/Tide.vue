@@ -65,20 +65,15 @@
 </template>
 
 <script>
-// Tide
-import RplAccordion from '@dpc-sdp/ripple-accordion'
-
 // App.
 import AppError from '../components/AppError'
 import AppSidebar from '../components/AppSidebar'
-import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 
 // Layout.
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
-
-// Banner.
+import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 import { RplHeroBanner, RplIntroBanner } from '@dpc-sdp/ripple-hero-banner'
 import { RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 
@@ -91,7 +86,6 @@ export default {
   components: {
     AppError,
     AppSidebar,
-    RplAccordion,
     RplHeroBanner,
     RplAcknowledgement,
     RplIntroBanner,

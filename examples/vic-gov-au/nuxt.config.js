@@ -56,6 +56,8 @@ export default {
   * https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    extractCSS: true,
+
     extend (config, { isDev, isClient }) {
       if (isDev) {
         // For debugging in dev mode

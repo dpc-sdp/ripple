@@ -1,20 +1,15 @@
 @import '~@dpc-sdp/ripple-global/scss/settings/functions';
 
 $rpl-colors: (
-  'primary': #E63946,
-  'dark_primary': #AF1A26,
-  'secondary': #A8DADC,
-  'extra_dark_neutral': #1D3557,
-  'dark_neutral': #457B9D,
+  'primary': #e63946,
+  'dark_primary': #af1a26,
+  'secondary': #a8dadc,
+  'extra_dark_neutral': #1d3557,
+  'dark_neutral': #457b9d,
   'dark_neutral_1': #546a7c,
   'mid_neutral_1': #d7dbe0,
   'mid_neutral_2': #e8ebee,
-  'light_neutral': #f6f6f9,
-  'danger': #a50034,
-  'warning': #e35205,
-  'success': #009ca6,
-  'white': #fff,
-  'black': #000
+  'light_neutral': #f6f6f9
 );
 
 $rpl-card-navigation-title-color: rpl-color('dark_neutral');

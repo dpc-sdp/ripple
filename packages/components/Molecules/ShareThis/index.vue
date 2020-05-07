@@ -4,19 +4,19 @@
     <social-sharing :url="url" inline-template networkTag="button">
       <ul class="rpl-share-this__list" :aria-label="label || 'Social networks'">
         <li v-if="$parent.en.twitter">
-          <network network="twitter" class="rpl-share-this__button">
+          <network network="twitter" class="rpl-share-this__social rpl-share-this__button">
             <span class="rpl-share-this__icon"><rpl-icon symbol="twitter" color="primary" /></span>Twitter
             <span class="rpl-share-this__hint">, opens a new window</span>
           </network>
         </li>
         <li v-if="$parent.en.facebook">
-          <network network="facebook" class="rpl-share-this__button">
+          <network network="facebook" class="rpl-share-this__social rpl-share-this__button">
             <span class="rpl-share-this__icon"><rpl-icon symbol="facebook" color="primary" /></span>Facebook
             <span class="rpl-share-this__hint">, opens a new window</span>
           </network>
         </li>
         <li v-if="$parent.en.linkedin">
-          <network network="linkedin" class="rpl-share-this__button">
+          <network network="linkedin" class="rpl-share-this__social rpl-share-this__button">
             <span class="rpl-share-this__icon"><rpl-icon symbol="linkedin" color="primary" /></span>LinkedIn
             <span class="rpl-share-this__hint">, opens a new window</span>
           </network>

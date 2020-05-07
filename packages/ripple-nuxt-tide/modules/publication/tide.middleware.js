@@ -32,7 +32,10 @@ export default {
       }
 
       // add meta to page
-      if (publicationTitle && typeof pageData.tidePage.head.meta !== 'undefined') {
+      if (publicationTitle && pageData.tidePage.head) {
+        if (!Array.isArray(pageData.tidePage.head.meta)) {
+          pageData.tidePage.head.meta = []
+        }
         pageData.tidePage.head.meta.push({
           name: 'publication-title', content: publicationTitle
         })

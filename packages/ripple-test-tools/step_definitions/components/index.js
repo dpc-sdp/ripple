@@ -854,3 +854,11 @@ Then(`the sitemap component should exist`, () => {
 Then(`the author information component should exist`, () => {
   cy.get('.rpl-author-information').should('exist')
 })
+
+Then(`the site section navigation should exist`, () => {
+  cy.get('.rpl-site-section-navigation').should('exist')
+})
+
+Then(`the site section navigation should have the title {string}`, (title) => {
+  cy.get('.rpl-site-section-navigation__title').should('contain', title)
+})

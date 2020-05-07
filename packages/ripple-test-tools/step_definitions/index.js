@@ -11,5 +11,6 @@ require('./modules/forms')
 require('./modules/news')
 require('./modules/gtm')
 require('./modules/grants')
+require('./modules/publications')
 
 require('./components/quickexit')

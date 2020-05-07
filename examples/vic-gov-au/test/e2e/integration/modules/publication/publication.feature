@@ -16,6 +16,9 @@ Feature: Publication
     And there should be a navigation card with the title "Demo Publication - Chapter 2"
     And there should be a navigation card with the title "Demo Publication - Chapter 3"
     And the content rating component should exist
+    And the site section navigation should exist
+    And the site section navigation should have the title "Demo publication"
+    And the publication print component should exist
 
   Scenario: Print all publication pages
     Given the "/demo-publication" route exists

@@ -815,7 +815,7 @@ Then(`the share this component should have the title "Share this"`, () => {
 Then(`the share this component should have the following social links:`, (dataTable) => {
   const networks = dataTable.rawTable.slice(1)
   networks.forEach((network, index) => {
-    cy.get('.rpl-share-this__social').eq(index).then(shareLink => {
+    cy.get('.rpl-share-this__button').eq(index).then(shareLink => {
       const title = network[0]
       expect(shareLink).to.contain.text(title)
       cy.wrap(shareLink).get('.rpl-icon').should('exist')

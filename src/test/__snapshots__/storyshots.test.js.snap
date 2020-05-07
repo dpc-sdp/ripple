@@ -15753,7 +15753,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
   >
     <li>
       <button
-        class="rpl-share-this__button"
+        class="rpl-share-this__social rpl-share-this__button"
         data-link="#share-twitter"
         tabindex="0"
       >
@@ -15774,7 +15774,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
      
     <li>
       <button
-        class="rpl-share-this__button"
+        class="rpl-share-this__social rpl-share-this__button"
         data-link="#share-facebook"
         tabindex="0"
       >
@@ -15795,7 +15795,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
      
     <li>
       <button
-        class="rpl-share-this__button"
+        class="rpl-share-this__social rpl-share-this__button"
         data-link="#share-linkedin"
         tabindex="0"
       >

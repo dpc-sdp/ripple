@@ -1,6 +1,6 @@
 {
   "name": "<%= name %>",
-  "version": "<%= release %>",
+  "sdp_version": "<%= release %>",
   "description": "<%= domain %>",
   "author": "<%= author %>",
   "private": true,

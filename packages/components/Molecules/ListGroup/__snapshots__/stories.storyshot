@@ -12,12 +12,12 @@ exports[`RippleStoryshots Molecules/ListGroup Default 1`] = `
     >
       Test Element
     </h2>
-
+     
     <div>
       Lorem eiusmod enim deserunt minim.
     </div>
   </li>
-
+   
   <li
     class="rpl-list-group-item"
   >
@@ -26,12 +26,12 @@ exports[`RippleStoryshots Molecules/ListGroup Default 1`] = `
     >
       Test Element
     </h2>
-
+     
     <div>
       Lorem eiusmod enim deserunt minim.
     </div>
   </li>
-
+   
   <li
     class="rpl-list-group-item"
   >
@@ -40,7 +40,7 @@ exports[`RippleStoryshots Molecules/ListGroup Default 1`] = `
     >
       Test Element
     </h2>
-
+     
     <div>
       Lorem eiusmod enim deserunt minim.
     </div>
@@ -60,7 +60,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
     >
       Document link and button
     </h2>
-
+     
     <figure
       class="rpl-document-link"
     >
@@ -71,7 +71,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
         target="_blank"
       >
         <!---->
-
+         
         <div
           class="rpl-document-link__info"
         >
@@ -80,7 +80,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
           >
             Test document
           </span>
-
+           
           <div
             class="rpl-document-link__meta"
           >
@@ -89,7 +89,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
             >
               pdf
             </span>
-
+             
             <span
               class="rpl-document-link__size rpl-document-link__size--seperator"
             >
@@ -98,21 +98,21 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
           </div>
         </div>
       </a>
-
+       
       <figcaption
         class="rpl-document-link__caption"
       >
         An example document link
       </figcaption>
     </figure>
-
+     
     <button
       class="rpl-button rpl-button--primary"
     >
       Example call to action
     </button>
   </li>
-
+   
   <li
     class="rpl-list-group-item"
   >
@@ -121,7 +121,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
     >
       Document links
     </h2>
-
+     
     <figure
       class="rpl-document-link"
     >
@@ -132,7 +132,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
         target="_blank"
       >
         <!---->
-
+         
         <div
           class="rpl-document-link__info"
         >
@@ -141,7 +141,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
           >
             Document A
           </span>
-
+           
           <div
             class="rpl-document-link__meta"
           >
@@ -150,7 +150,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
             >
               docx
             </span>
-
+             
             <span
               class="rpl-document-link__size rpl-document-link__size--seperator"
             >
@@ -159,10 +159,10 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
           </div>
         </div>
       </a>
-
+       
       <!---->
     </figure>
-
+     
     <figure
       class="rpl-document-link"
     >
@@ -173,7 +173,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
         target="_blank"
       >
         <!---->
-
+         
         <div
           class="rpl-document-link__info"
         >
@@ -182,7 +182,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
           >
             Document B
           </span>
-
+           
           <div
             class="rpl-document-link__meta"
           >
@@ -191,7 +191,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
             >
               xlsx
             </span>
-
+             
             <span
               class="rpl-document-link__size rpl-document-link__size--seperator"
             >
@@ -200,7 +200,7 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
           </div>
         </div>
       </a>
-
+       
       <!---->
     </figure>
   </li>

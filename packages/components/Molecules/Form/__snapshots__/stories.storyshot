@@ -9,9 +9,9 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
   >
     Example Form
   </h3>
-
+   
   <!---->
-
+   
   <div
     class="vue-form-generator"
   >
@@ -25,7 +25,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
           class="form-group valid field-input"
         >
           <!---->
-
+           
           <div
             class="field-wrap"
           >
@@ -39,12 +39,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -56,10 +56,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Text
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -75,16 +75,16 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <div
             class="hint"
           >
             This is a hint text
           </div>
-
+           
           <!---->
         </div>
         <div
@@ -96,10 +96,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Email
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -113,16 +113,16 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <div
             class="hint"
           >
             This is a hint text
           </div>
-
+           
           <!---->
         </div>
         <div
@@ -134,10 +134,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Tel
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -151,12 +151,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -168,10 +168,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Number
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -189,12 +189,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -206,10 +206,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Text - With search icon
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -224,12 +224,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -241,10 +241,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Radio
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -274,16 +274,16 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 No
               </label>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <div
             class="hint"
           >
             This is a hint text
           </div>
-
+           
           <!---->
         </div>
         <div
@@ -295,10 +295,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Option button default
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -317,7 +317,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="A"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -335,7 +335,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="B"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -353,7 +353,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="C"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -371,7 +371,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="D"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -389,7 +389,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="E"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -407,7 +407,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="F"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -425,7 +425,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="G"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -443,7 +443,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="H"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -461,7 +461,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="I"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -479,7 +479,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="J"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -497,7 +497,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="K"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -515,7 +515,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="L"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -533,7 +533,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="M"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -551,7 +551,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="N"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -569,7 +569,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="O"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -587,7 +587,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="P"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -605,7 +605,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Q"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -623,7 +623,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="R"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -641,7 +641,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="S"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -659,7 +659,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="T"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -677,7 +677,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="U"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -695,7 +695,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="V"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -713,7 +713,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="W"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -731,7 +731,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="X"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -749,7 +749,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Y"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -767,7 +767,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Z"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -775,12 +775,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 </span>
               </label>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -792,10 +792,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Option button custom
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -814,7 +814,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Option one"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -832,7 +832,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Option two"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -850,7 +850,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Option three"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -868,7 +868,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Option four"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -886,7 +886,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Option five"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -904,7 +904,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Option six"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -922,7 +922,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Option seven"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -940,7 +940,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="radio"
                   value="Option eight"
                 />
-
+                 
                 <span
                   class="rpl-option-button__text"
                 >
@@ -948,12 +948,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 </span>
               </label>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -965,10 +965,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               text area
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -979,16 +979,16 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               required="required"
               rows="4"
             />
-
+             
             <!---->
           </div>
-
+           
           <div
             class="hint"
           >
             This is a hint text
           </div>
-
+           
           <!---->
         </div>
         <div
@@ -1000,10 +1000,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Date Range
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -1019,9 +1019,9 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   placeholder="Enter start date"
                   type="text"
                 />
-
+                 
                 <!---->
-
+                 
                 <div
                   aria-hidden="true"
                   class="rpl-form-pikaday__container"
@@ -1032,14 +1032,14 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   />
                 </div>
               </div>
-
+               
               <span
                 aria-hidden="true"
                 class="rpl-date-picker__separator"
               >
                 -
               </span>
-
+               
               <div
                 class="rpl-form-pikaday rpl-date-picker__end"
               >
@@ -1049,9 +1049,9 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   placeholder="Enter end date"
                   type="text"
                 />
-
+                 
                 <!---->
-
+                 
                 <div
                   aria-hidden="true"
                   class="rpl-form-pikaday__container"
@@ -1063,12 +1063,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 </div>
               </div>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -1080,10 +1080,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Date
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -1099,9 +1099,9 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   placeholder="Enter a date"
                   type="text"
                 />
-
+                 
                 <!---->
-
+                 
                 <div
                   aria-hidden="true"
                   class="rpl-form-pikaday__container"
@@ -1113,12 +1113,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 </div>
               </div>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -1130,10 +1130,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Set a funding range
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -1196,7 +1196,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   class="rpl-slider__spacer"
                 />
               </div>
-
+               
               <div
                 class="rpl-slider__wrapper"
               >
@@ -1204,7 +1204,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   class="rpl-slider__progress"
                   style="left: 12.5%; right: 12.5%;"
                 />
-
+                 
                 <label
                   class="rpl-slider__label rpl-slider__label--lower"
                   style="left: 12.5%;"
@@ -1214,14 +1214,14 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   >
                     Set a funding range - Lower value
                   </span>
-
+                   
                   <div
                     aria-hidden="true"
                     class="rpl-slider__display-label"
                   >
                     $10,000
                   </div>
-
+                   
                   <input
                     class="rpl-slider__input"
                     max="70000"
@@ -1230,7 +1230,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                     type="number"
                   />
                 </label>
-
+                 
                 <label
                   class="rpl-slider__label rpl-slider__label--upper"
                   style="right: 12.5%;"
@@ -1240,14 +1240,14 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   >
                     Set a funding range - Upper valueue
                   </span>
-
+                   
                   <div
                     aria-hidden="true"
                     class="rpl-slider__display-label"
                   >
                     $70,000
                   </div>
-
+                   
                   <input
                     class="rpl-slider__input"
                     max="80000"
@@ -1258,42 +1258,42 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 </label>
               </div>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <div
             class="hint"
           >
             $0 - $80,000
           </div>
-
+           
           <!---->
         </div>
         <div
           class="form-group valid field-rpldivider"
         >
           <!---->
-
+           
           <div
             class="field-wrap"
           >
             <hr
               class="rpl-divider"
             />
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
           class="form-group valid field-rplmarkup"
         >
           <!---->
-
+           
           <div
             class="field-wrap"
           >
@@ -1306,7 +1306,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <h3>
                   Markup field
                 </h3>
-
+                 
                 <figure
                   class="rpl-document-link"
                 >
@@ -1317,16 +1317,16 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                     href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
                   >
                     <!---->
-
+                     
                     <div
                       class="rpl-document-link__info"
                     >
                       <span
                         class="rpl-document-link__title"
                       >
-                         Detailed Guide on the mandatory IR management criteria
+                         Detailed Guide on the mandatory IR management criteria 
                       </span>
-
+                       
                       <div
                         class="rpl-document-link__meta"
                       >
@@ -1335,7 +1335,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         >
                           docx
                         </span>
-
+                         
                         <span
                           class="rpl-document-link__size rpl-document-link__size--seperator"
                         >
@@ -1344,16 +1344,16 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       </div>
                     </div>
                   </a>
-
+                   
                   <!---->
                 </figure>
-
+                 
                 <p>
-                  A paragraph of
+                  A paragraph of 
                   <strong>
                     text
                   </strong>
-                   with a
+                   with a 
                   <a
                     class="rpl-link rpl-text-link"
                     data-print-url="https://vic.gov.au"
@@ -1367,7 +1367,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       >
                         <span>
                           <!---->
-
+                           
                           <span
                             class="rpl-text-icon__group"
                           >
@@ -1382,19 +1382,19 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 </p>
               </div>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
           class="form-group valid field-rplcheckbox"
         >
           <!---->
-
+           
           <div
             class="field-wrap"
           >
@@ -1405,25 +1405,25 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 id="checkbox-3"
                 type="checkbox"
               />
-
+               
               <span
                 class="rpl-checkbox__box rpl-checkbox__box--checked"
               >
                 <!---->
               </span>
-
+               
               <span
                 class="rpl-checkbox__inline-label"
               >
                 Check box selected
               </span>
             </label>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -1435,10 +1435,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Multi-select list box
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -1462,13 +1462,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         name="topic_a"
                         type="checkbox"
                       />
-
+                       
                       <span
                         class="rpl-checkbox__box rpl-checkbox__box--checked"
                       >
                         <!---->
                       </span>
-
+                       
                       <span
                         class="rpl-checkbox__inline-label"
                       >
@@ -1487,13 +1487,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         name="topic_b"
                         type="checkbox"
                       />
-
+                       
                       <span
                         class="rpl-checkbox__box"
                       >
                         <!---->
                       </span>
-
+                       
                       <span
                         class="rpl-checkbox__inline-label"
                       >
@@ -1512,13 +1512,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         name="topic_c"
                         type="checkbox"
                       />
-
+                       
                       <span
                         class="rpl-checkbox__box"
                       >
                         <!---->
                       </span>
-
+                       
                       <span
                         class="rpl-checkbox__inline-label"
                       >
@@ -1537,13 +1537,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         name="topic_d"
                         type="checkbox"
                       />
-
+                       
                       <span
                         class="rpl-checkbox__box"
                       >
                         <!---->
                       </span>
-
+                       
                       <span
                         class="rpl-checkbox__inline-label"
                       >
@@ -1553,19 +1553,19 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   </div>
                 </div>
               </div>
-
+               
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <div
             class="hint"
           >
             Implemented using rplchecklist with listBox: true
           </div>
-
+           
           <!---->
         </div>
         <div
@@ -1577,10 +1577,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Single-select drop down
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -1602,10 +1602,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   >
                     Select a single topic
                   </span>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-select__dropdown"
                   style="display: none;"
@@ -1622,13 +1622,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic A
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1638,13 +1638,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic B
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1654,13 +1654,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic C
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1670,13 +1670,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic D
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1686,13 +1686,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic e
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1702,13 +1702,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic f
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1718,13 +1718,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic g
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1734,29 +1734,29 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic h
                       </span>
-
+                       
                       <!---->
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <div
             class="hint"
           >
             Implemented using rplSelect
           </div>
-
+           
           <!---->
         </div>
         <div
@@ -1768,10 +1768,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Multi-select drop down
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -1793,18 +1793,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   >
                     Topic C
                   </span>
-
+                   
                   <!---->
-
+                   
                   <span
                     class="rpl-select__label-visually-hidden"
                   >
                      Selected
                   </span>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-select__dropdown"
                   style="display: none;"
@@ -1825,22 +1825,22 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         class="rpl-checkbox rpl-select__checkbox"
                       >
                         <!---->
-
+                         
                         <span
                           class="rpl-checkbox__box"
                         >
                           <!---->
                         </span>
-
+                         
                         <!---->
                       </div>
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic A
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1853,22 +1853,22 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         class="rpl-checkbox rpl-select__checkbox"
                       >
                         <!---->
-
+                         
                         <span
                           class="rpl-checkbox__box"
                         >
                           <!---->
                         </span>
-
+                         
                         <!---->
                       </div>
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic with $#%&!@~^&*
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1882,22 +1882,22 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         class="rpl-checkbox rpl-select__checkbox"
                       >
                         <!---->
-
+                         
                         <span
                           class="rpl-checkbox__box rpl-checkbox__box--checked"
                         >
                           <!---->
                         </span>
-
+                         
                         <!---->
                       </div>
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic C
                       </span>
-
+                       
                       <span
                         class="rpl-select__label-visually-hidden"
                       >
@@ -1914,22 +1914,22 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         class="rpl-checkbox rpl-select__checkbox"
                       >
                         <!---->
-
+                         
                         <span
                           class="rpl-checkbox__box"
                         >
                           <!---->
                         </span>
-
+                         
                         <!---->
                       </div>
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic D
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1942,22 +1942,22 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         class="rpl-checkbox rpl-select__checkbox"
                       >
                         <!---->
-
+                         
                         <span
                           class="rpl-checkbox__box"
                         >
                           <!---->
                         </span>
-
+                         
                         <!---->
                       </div>
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic E
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1970,22 +1970,22 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         class="rpl-checkbox rpl-select__checkbox"
                       >
                         <!---->
-
+                         
                         <span
                           class="rpl-checkbox__box"
                         >
                           <!---->
                         </span>
-
+                         
                         <!---->
                       </div>
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic F
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -1998,22 +1998,22 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         class="rpl-checkbox rpl-select__checkbox"
                       >
                         <!---->
-
+                         
                         <span
                           class="rpl-checkbox__box"
                         >
                           <!---->
                         </span>
-
+                         
                         <!---->
                       </div>
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic G
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -2026,38 +2026,38 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         class="rpl-checkbox rpl-select__checkbox"
                       >
                         <!---->
-
+                         
                         <span
                           class="rpl-checkbox__box"
                         >
                           <!---->
                         </span>
-
+                         
                         <!---->
                       </div>
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Topic H
                       </span>
-
+                       
                       <!---->
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <div
             class="hint"
           >
             Implemented using rplSelect
           </div>
-
+           
           <!---->
         </div>
       </div>
@@ -2080,10 +2080,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Building name
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -2099,12 +2099,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -2116,10 +2116,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Street address
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -2135,12 +2135,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -2152,10 +2152,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Suburb
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -2171,12 +2171,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -2188,10 +2188,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               State
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -2213,18 +2213,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   >
                     Vic
                   </span>
-
+                   
                   <!---->
-
+                   
                   <span
                     class="rpl-select__label-visually-hidden"
                   >
                      Selected
                   </span>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-select__dropdown"
                   style="display: none;"
@@ -2241,13 +2241,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Vic
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -2257,13 +2257,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         New South Wales
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -2273,13 +2273,13 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Western Australia
                       </span>
-
+                       
                       <!---->
                     </div>
                     <div
@@ -2289,25 +2289,25 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       tabindex="-1"
                     >
                       <!---->
-
+                       
                       <span
                         class="rpl-select__listitem-label"
                       >
                         Queensland
                       </span>
-
+                       
                       <!---->
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
@@ -2319,10 +2319,10 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
             <span>
               Postcode
             </span>
-
+             
             <!---->
           </label>
-
+           
           <div
             class="field-wrap"
           >
@@ -2337,12 +2337,12 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               />
               <!---->
             </div>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
       </div>
@@ -2358,7 +2358,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
           class="form-group valid form-group--inline field-rplsubmitloader"
         >
           <!---->
-
+           
           <div
             class="field-wrap"
           >
@@ -2371,22 +2371,22 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               >
                 Submit (with animation)
               </span>
-
+               
               <!---->
             </button>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
         <div
           class="form-group valid form-group--inline field-rplclearform"
         >
           <!---->
-
+           
           <div
             class="field-wrap"
           >
@@ -2400,18 +2400,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   <!---->
                   Clear
                 </span>
-
+                 
                 <span>
                    search filters
                 </span>
               </span>
             </button>
-
+             
             <!---->
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
       </div>
@@ -2429,9 +2429,9 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
   >
     Submission Alerts
   </h3>
-
+   
   <!---->
-
+   
   <div
     class="vue-form-generator"
   >
@@ -2445,10 +2445,10 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
           <span>
             Alert type
           </span>
-
+           
           <!---->
         </label>
-
+         
         <div
           class="field-wrap"
         >
@@ -2489,12 +2489,12 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
               Other
             </label>
           </div>
-
+           
           <!---->
         </div>
-
+         
         <!---->
-
+         
         <!---->
       </div>
       <div
@@ -2506,10 +2506,10 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
           <span>
             Message
           </span>
-
+           
           <!---->
         </label>
-
+         
         <div
           class="field-wrap"
         >
@@ -2523,19 +2523,19 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
             />
             <!---->
           </div>
-
+           
           <!---->
         </div>
-
+         
         <!---->
-
+         
         <!---->
       </div>
       <div
         class="form-group field-rplsubmitloader"
       >
         <!---->
-
+         
         <div
           class="field-wrap"
         >
@@ -2548,15 +2548,15 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
             >
               Submit
             </span>
-
+             
             <!---->
           </button>
-
+           
           <!---->
         </div>
-
+         
         <!---->
-
+         
         <!---->
       </div>
     </fieldset>
@@ -2583,10 +2583,10 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
       >
         Select
       </span>
-
+       
       <!---->
     </div>
-
+     
     <div
       class="rpl-select__dropdown"
       style="display: none;"
@@ -2607,22 +2607,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Vic
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -2635,22 +2635,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             New South Wales
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -2663,22 +2663,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Western Australia
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -2691,22 +2691,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Queensland
           </span>
-
+           
           <!---->
         </div>
       </div>
@@ -2734,18 +2734,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
       >
         New South Wales, Vic
       </span>
-
+       
       <!---->
-
+       
       <span
         class="rpl-select__label-visually-hidden"
       >
          Selected
       </span>
-
+       
       <!---->
     </div>
-
+     
     <div
       class="rpl-select__dropdown"
       style="display: none;"
@@ -2767,22 +2767,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Vic
           </span>
-
+           
           <span
             class="rpl-select__label-visually-hidden"
           >
@@ -2800,22 +2800,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             New South Wales
           </span>
-
+           
           <span
             class="rpl-select__label-visually-hidden"
           >
@@ -2832,22 +2832,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Western Australia
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -2860,22 +2860,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Queensland
           </span>
-
+           
           <!---->
         </div>
       </div>
@@ -2903,18 +2903,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
       >
         New South Wales, Vic, Western Australia
       </span>
-
+       
       <!---->
-
+       
       <span
         class="rpl-select__label-visually-hidden"
       >
          Selected
       </span>
-
+       
       <!---->
     </div>
-
+     
     <div
       class="rpl-select__dropdown"
       style="display: none;"
@@ -2936,22 +2936,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Vic
           </span>
-
+           
           <span
             class="rpl-select__label-visually-hidden"
           >
@@ -2969,22 +2969,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             New South Wales
           </span>
-
+           
           <span
             class="rpl-select__label-visually-hidden"
           >
@@ -3002,22 +3002,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Western Australia
           </span>
-
+           
           <span
             class="rpl-select__label-visually-hidden"
           >
@@ -3034,22 +3034,22 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
             class="rpl-checkbox rpl-select__checkbox"
           >
             <!---->
-
+             
             <span
               class="rpl-checkbox__box"
             >
               <!---->
             </span>
-
+             
             <!---->
           </div>
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Queensland
           </span>
-
+           
           <!---->
         </div>
       </div>
@@ -3077,18 +3077,18 @@ exports[`RippleStoryshots Molecules/Form/Select Set initial state 1`] = `
       >
         New South Wales
       </span>
-
+       
       <!---->
-
+       
       <span
         class="rpl-select__label-visually-hidden"
       >
          Selected
       </span>
-
+       
       <!---->
     </div>
-
+     
     <div
       class="rpl-select__dropdown"
       style="display: none;"
@@ -3105,13 +3105,13 @@ exports[`RippleStoryshots Molecules/Form/Select Set initial state 1`] = `
           tabindex="-1"
         >
           <!---->
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Vic
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -3121,13 +3121,13 @@ exports[`RippleStoryshots Molecules/Form/Select Set initial state 1`] = `
           tabindex="-1"
         >
           <!---->
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             New South Wales
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -3137,13 +3137,13 @@ exports[`RippleStoryshots Molecules/Form/Select Set initial state 1`] = `
           tabindex="-1"
         >
           <!---->
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Western Australia
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -3153,13 +3153,13 @@ exports[`RippleStoryshots Molecules/Form/Select Set initial state 1`] = `
           tabindex="-1"
         >
           <!---->
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Queensland
           </span>
-
+           
           <!---->
         </div>
       </div>
@@ -3187,10 +3187,10 @@ exports[`RippleStoryshots Molecules/Form/Select Single 1`] = `
       >
         Select
       </span>
-
+       
       <!---->
     </div>
-
+     
     <div
       class="rpl-select__dropdown"
       style="display: none;"
@@ -3207,13 +3207,13 @@ exports[`RippleStoryshots Molecules/Form/Select Single 1`] = `
           tabindex="-1"
         >
           <!---->
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Vic
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -3223,13 +3223,13 @@ exports[`RippleStoryshots Molecules/Form/Select Single 1`] = `
           tabindex="-1"
         >
           <!---->
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             New South Wales
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -3239,13 +3239,13 @@ exports[`RippleStoryshots Molecules/Form/Select Single 1`] = `
           tabindex="-1"
         >
           <!---->
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Western Australia
           </span>
-
+           
           <!---->
         </div>
         <div
@@ -3255,13 +3255,13 @@ exports[`RippleStoryshots Molecules/Form/Select Single 1`] = `
           tabindex="-1"
         >
           <!---->
-
+           
           <span
             class="rpl-select__listitem-label"
           >
             Queensland
           </span>
-
+           
           <!---->
         </div>
       </div>

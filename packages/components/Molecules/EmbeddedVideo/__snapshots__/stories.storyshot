@@ -15,9 +15,9 @@ exports[`RippleStoryshots Molecules/EmbeddedVideo Default 1`] = `
       width="854"
     />
   </div>
-
+   
   <!---->
-
+   
   <div
     class="rpl-embed-video__transcript"
   >

@@ -7,9 +7,9 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
   <h1>
     Search results
   </h1>
-
+   
   <!---->
-
+    
   <div
     class="rpl-search-form__field"
   >
@@ -19,14 +19,14 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
       >
         Search for
       </span>
-
+       
       <input
         class="rpl-search-form__input"
         placeholder="Enter keywords"
         type="text"
       />
     </label>
-
+     
     <button
       class="rpl-search-form__btn"
     >
@@ -35,21 +35,21 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
       >
         Search
       </span>
-
+       
       <!---->
     </button>
   </div>
-
+   
   <button
     class="rpl-search-form__show-filters"
   >
     <span>
       Refine search
     </span>
-
+     
     <!---->
   </button>
-
+   
   <!---->
 </div>
 `;
@@ -66,7 +66,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
       Displaying 4 of 10 results
     </div>
   </div>
-
+   
   <div
     class="rpl-row rpl-search-results__main rpl-row--gutter rpl-search-results__main--events"
   >
@@ -88,18 +88,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             src="https://placehold.it/580x340"
           />
         </div>
-
+         
         <div
           class="rpl-card-content__details"
         >
           <!---->
-
+           
           <h2
             class="rpl-card-event__title"
           >
             This is the headline of an event with a location that will stretch over over 3 lines
           </h2>
-
+           
           <div
             class="rpl-card-event__trim-wrapper"
             style="max-height: none;"
@@ -110,12 +110,12 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
             </p>
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
-
+         
         <div
           class="rpl-card-content__link"
         >
@@ -123,7 +123,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             <span>
               See event
             </span>
-
+             
             <span
               class="rpl-text-icon__group"
             >
@@ -133,7 +133,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
           </span>
         </div>
       </a>
-
+       
       <!---->
     </div>
     <div
@@ -154,18 +154,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             src="https://placehold.it/580x340"
           />
         </div>
-
+         
         <div
           class="rpl-card-content__details"
         >
           <!---->
-
+           
           <h2
             class="rpl-card-event__title"
           >
             This is the headline of an event with a location that will stretch over over 3 lines
           </h2>
-
+           
           <div
             class="rpl-card-event__trim-wrapper"
             style="max-height: none;"
@@ -176,12 +176,12 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
             </p>
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
-
+         
         <div
           class="rpl-card-content__link"
         >
@@ -189,7 +189,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             <span>
               See event
             </span>
-
+             
             <span
               class="rpl-text-icon__group"
             >
@@ -199,7 +199,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
           </span>
         </div>
       </a>
-
+       
       <!---->
     </div>
     <div
@@ -212,18 +212,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
         href="#"
       >
         <!---->
-
+         
         <div
           class="rpl-card-content__details"
         >
           <!---->
-
+           
           <h2
             class="rpl-card-event__title"
           >
             This event has no image.
           </h2>
-
+           
           <div
             class="rpl-card-event__trim-wrapper"
             style="max-height: none;"
@@ -234,12 +234,12 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
             </p>
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
-
+         
         <div
           class="rpl-card-content__link"
         >
@@ -247,7 +247,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             <span>
               See event
             </span>
-
+             
             <span
               class="rpl-text-icon__group"
             >
@@ -257,7 +257,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
           </span>
         </div>
       </a>
-
+       
       <!---->
     </div>
     <div
@@ -278,18 +278,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             src="https://placehold.it/580x340"
           />
         </div>
-
+         
         <div
           class="rpl-card-content__details"
         >
           <!---->
-
+           
           <h2
             class="rpl-card-event__title"
           >
             This is the headline of an event with a location that will stretch over over 3 lines
           </h2>
-
+           
           <div
             class="rpl-card-event__trim-wrapper"
             style="max-height: none;"
@@ -300,12 +300,12 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
             </p>
           </div>
-
+           
           <!---->
-
+           
           <!---->
         </div>
-
+         
         <div
           class="rpl-card-content__link"
         >
@@ -313,7 +313,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             <span>
               See event
             </span>
-
+             
             <span
               class="rpl-text-icon__group"
             >
@@ -323,15 +323,15 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
           </span>
         </div>
       </a>
-
+       
       <!---->
     </div>
-
+     
     <!---->
-
+     
     <!---->
   </div>
-
+   
   <div
     class="rpl-row rpl-row--gutter"
   >
@@ -359,11 +359,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               >
                 current page
               </span>
-
+              
         1
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -382,11 +382,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               >
                 Go to page
               </span>
-
+              
         2
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -405,11 +405,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               >
                 Go to page
               </span>
-
+              
         3
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -428,11 +428,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               >
                 Go to page
               </span>
-
+              
         4
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -451,11 +451,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               >
                 Go to page
               </span>
-
+              
         5
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -464,24 +464,24 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             </span>
           </li>
         </ol>
-
+         
         <div
           class="rpl-pagination__controls"
         >
           <!---->
-
+           
           <button
             class="rpl-pagination__nav"
           >
             <span>
               Next page
             </span>
-
+             
             <!---->
           </button>
         </div>
       </nav>
-
+       
       <!---->
     </div>
   </div>
@@ -500,7 +500,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
       Displaying 3 of 3 results
     </div>
   </div>
-
+   
   <div
     class="rpl-row rpl-search-results__main rpl-row--gutter"
   >
@@ -537,7 +537,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 </span>
               </a>
             </h2>
-
+              
             <div
               class="rpl-list__list"
             >
@@ -550,7 +550,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -566,7 +566,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -582,7 +582,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -590,9 +590,9 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 </span>
               </div>
             </div>
-
+             
           </div>
-
+           
           <div
             class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
           >
@@ -602,10 +602,10 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
             </div>
           </div>
-
+           
           <!---->
         </div>
-
+         
         <ul
           class="rpl-grants-list-item__tags"
         >
@@ -657,7 +657,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
           </li>
         </ul>
       </div>
-
+       
       <!---->
     </div>
     <div
@@ -693,7 +693,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 </span>
               </a>
             </h2>
-
+              
             <div
               class="rpl-list__list"
             >
@@ -706,7 +706,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -722,7 +722,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -738,7 +738,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -746,9 +746,9 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 </span>
               </div>
             </div>
-
+             
           </div>
-
+           
           <div
             class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
           >
@@ -758,10 +758,10 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
             </div>
           </div>
-
+           
           <!---->
         </div>
-
+         
         <ul
           class="rpl-grants-list-item__tags"
         >
@@ -813,7 +813,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
           </li>
         </ul>
       </div>
-
+       
       <!---->
     </div>
     <div
@@ -849,7 +849,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 </span>
               </a>
             </h2>
-
+              
             <div
               class="rpl-list__list"
             >
@@ -862,7 +862,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -878,7 +878,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -894,7 +894,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -902,9 +902,9 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 </span>
               </div>
             </div>
-
+             
           </div>
-
+           
           <div
             class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
           >
@@ -914,10 +914,10 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
             </div>
           </div>
-
+           
           <!---->
         </div>
-
+         
         <ul
           class="rpl-grants-list-item__tags"
         >
@@ -969,7 +969,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
           </li>
         </ul>
       </div>
-
+       
       <!---->
     </div>
     <div
@@ -1005,7 +1005,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 </span>
               </a>
             </h2>
-
+              
             <div
               class="rpl-list__list"
             >
@@ -1018,7 +1018,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -1034,7 +1034,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -1050,7 +1050,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 >
                   <!---->
                 </span>
-
+                 
                 <span
                   class="rpl-list__text"
                 >
@@ -1058,9 +1058,9 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 </span>
               </div>
             </div>
-
+             
           </div>
-
+           
           <div
             class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
           >
@@ -1070,10 +1070,10 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
             </div>
           </div>
-
+           
           <!---->
         </div>
-
+         
         <ul
           class="rpl-grants-list-item__tags"
         >
@@ -1125,15 +1125,15 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
           </li>
         </ul>
       </div>
-
+       
       <!---->
     </div>
-
+     
     <!---->
-
+     
     <!---->
   </div>
-
+   
   <div
     class="rpl-row rpl-row--gutter"
   >
@@ -1161,11 +1161,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               >
                 current page
               </span>
-
+              
         1
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1184,11 +1184,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               >
                 Go to page
               </span>
-
+              
         2
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1207,11 +1207,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               >
                 Go to page
               </span>
-
+              
         3
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1230,11 +1230,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               >
                 Go to page
               </span>
-
+              
         4
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1253,11 +1253,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               >
                 Go to page
               </span>
-
+              
         5
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1266,24 +1266,24 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             </span>
           </li>
         </ol>
-
+         
         <div
           class="rpl-pagination__controls"
         >
           <!---->
-
+           
           <button
             class="rpl-pagination__nav"
           >
             <span>
               Next page
             </span>
-
+             
             <!---->
           </button>
         </div>
       </nav>
-
+       
       <!---->
     </div>
   </div>
@@ -1309,7 +1309,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Result 1
       </h2>
     </span>
   </a>
-
+   
   <a
     class="rpl-link rpl-search-result__link"
     data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
@@ -1321,7 +1321,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Result 1
       www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
     </span>
   </a>
-
+   
   <p
     class="rpl-search-result__date-description"
   >
@@ -1330,12 +1330,12 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Result 1
     >
       Jul 10, 2018
     </span>
-
+     
     <span>
-
+      
     </span>
   </p>
-
+   
   <ul
     class="rpl-search-result__terms"
   >
@@ -1400,7 +1400,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
       Displaying 10 of 70 results
     </div>
   </div>
-
+   
   <div
     class="rpl-row rpl-search-results__main rpl-row--gutter"
   >
@@ -1425,7 +1425,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
             </h2>
           </span>
         </a>
-
+         
         <a
           class="rpl-link rpl-search-result__link"
           data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
@@ -1437,7 +1437,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
             www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
           </span>
         </a>
-
+         
         <p
           class="rpl-search-result__date-description"
         >
@@ -1446,12 +1446,12 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
           >
             Jul 10, 2018
           </span>
-
+           
           <span>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
           </span>
         </p>
-
+         
         <ul
           class="rpl-search-result__terms"
         >
@@ -1503,7 +1503,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
           </li>
         </ul>
       </div>
-
+       
       <!---->
     </div>
     <div
@@ -1527,7 +1527,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
             </h2>
           </span>
         </a>
-
+         
         <a
           class="rpl-link rpl-search-result__link"
           data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
@@ -1539,7 +1539,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
             www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
           </span>
         </a>
-
+         
         <p
           class="rpl-search-result__date-description"
         >
@@ -1548,12 +1548,12 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
           >
             Jul 10, 2018
           </span>
-
+           
           <span>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
           </span>
         </p>
-
+         
         <ul
           class="rpl-search-result__terms"
         >
@@ -1605,15 +1605,15 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
           </li>
         </ul>
       </div>
-
+       
       <!---->
     </div>
-
+     
     <!---->
-
+     
     <!---->
   </div>
-
+   
   <div
     class="rpl-row rpl-row--gutter"
   >
@@ -1641,11 +1641,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
               >
                 current page
               </span>
-
+              
         1
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1664,11 +1664,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
               >
                 Go to page
               </span>
-
+              
         2
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1687,11 +1687,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
               >
                 Go to page
               </span>
-
+              
         3
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1710,11 +1710,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
               >
                 Go to page
               </span>
-
+              
         4
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1733,11 +1733,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
               >
                 Go to page
               </span>
-
+              
         5
-
+      
             </button>
-
+             
             <span
               aria-hidden="true"
               class="rpl-pagination__list-item-slash"
@@ -1746,24 +1746,24 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
             </span>
           </li>
         </ol>
-
+         
         <div
           class="rpl-pagination__controls"
         >
           <!---->
-
+           
           <button
             class="rpl-pagination__nav"
           >
             <span>
               Next page
             </span>
-
+             
             <!---->
           </button>
         </div>
       </nav>
-
+       
       <!---->
     </div>
   </div>

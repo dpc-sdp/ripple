@@ -12,7 +12,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Author Information 1
     >
       Author:
     </dt>
-
+     
     <dd
       class="rpl-description-list__cell rpl-description-list__description"
     >
@@ -27,7 +27,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Author Information 1
     >
       Date:
     </dt>
-
+     
     <dd
       class="rpl-description-list__cell rpl-description-list__description"
     >
@@ -42,7 +42,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Author Information 1
     >
       Copyright:
     </dt>
-
+     
     <dd
       class="rpl-description-list__cell rpl-description-list__description"
     >
@@ -67,7 +67,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
         href="#"
       >
         <!---->
-
+         
         <div
           class="rpl-document-link__info"
         >
@@ -76,7 +76,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
           >
             Short title of a document
           </span>
-
+           
           <div
             class="rpl-document-link__meta"
           >
@@ -85,7 +85,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
             >
               pdf
             </span>
-
+             
             <span
               class="rpl-document-link__size rpl-document-link__size--seperator"
             >
@@ -94,7 +94,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
           </div>
         </div>
       </a>
-
+       
       <!---->
     </figure>
   </li>
@@ -109,7 +109,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
         target="_blank"
       >
         <!---->
-
+         
         <div
           class="rpl-document-link__info"
         >
@@ -118,7 +118,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
           >
             External document link
           </span>
-
+           
           <div
             class="rpl-document-link__meta"
           >
@@ -127,7 +127,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
             >
               pdf
             </span>
-
+             
             <span
               class="rpl-document-link__size rpl-document-link__size--seperator"
             >
@@ -136,11 +136,11 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
           </div>
         </div>
       </a>
-
+       
       <!---->
     </figure>
   </li>
-
+   
   <li
     class="rpl-publication-download-print__print-list-item"
   >
@@ -153,7 +153,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
         class="rpl-link__inner"
       >
         <!---->
-
+         
         <div
           class="rpl-publication-download-print__print-link-info"
         >
@@ -165,7 +165,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
         </div>
       </span>
     </a>
-
+     
     <!---->
   </li>
 </ul>
@@ -180,7 +180,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
   >
     Figure 1.2
   </h3>
-
+   
   <figure
     class="rpl-figure"
   >
@@ -189,14 +189,14 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
       class="rpl-figure__image"
       src="https://placehold.it/800x400.jpg"
     />
-
+     
     <figcaption>
       <span
         class="rpl-figure__caption"
       >
         This is caption copy for use alongside informational images or for legal information.
       </span>
-
+       
       <span
         class="rpl-figure__source"
       >
@@ -204,7 +204,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
       </span>
     </figcaption>
   </figure>
-
+   
   <div
     class="rpl-publication-image__controls"
   >
@@ -218,13 +218,13 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
           <!---->
           View
         </span>
-
+         
         <span>
            Figure 1.2 in full screen
         </span>
       </span>
     </button>
-
+     
     <button
       class="rpl-publication-image__button"
     >
@@ -235,13 +235,13 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
           <!---->
           View
         </span>
-
+         
         <span>
            Figure 1.2 in table format
         </span>
       </span>
     </button>
-
+     
     <div
       class="rpl-publication-image__expander"
     >
@@ -257,17 +257,17 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
             <!---->
             Figure
           </span>
-
+           
           <span>
              1.2
           </span>
         </span>
-
+         
         <button
           class="rpl-publication-image__expander-close-button"
         >
           <!---->
-
+           
           <span
             class="rpl-publication-image__expander-close-button-text"
           >
@@ -275,7 +275,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
           </span>
         </button>
       </div>
-
+       
       <div
         class="rpl-publication-image__expander-markup"
       >
@@ -294,97 +294,97 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
                     <th>
                       Column header one
                     </th>
-
+                     
                     <th>
                       Header number two
                     </th>
-
+                     
                     <th>
                       Third column header
                     </th>
                   </tr>
                 </thead>
-
+                 
                 <tbody>
                   <tr>
                     <td>
                       Data point one
                     </td>
-
+                     
                     <td>
                       This is a piece of data
                     </td>
-
+                     
                     <td>
                       Third column information
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Data pt two
                     </td>
-
+                     
                     <td>
                       This is data
                     </td>
-
+                     
                     <td>
                       Fourth col info here
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Data point three
                     </td>
-
+                     
                     <td>
                       This is a piece of data
                     </td>
-
+                     
                     <td>
                       Third column info here
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Point four
                     </td>
-
+                     
                     <td>
                       This is some data
                     </td>
-
+                     
                     <td>
                       Information goes here
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Five
                     </td>
-
+                     
                     <td>
                       This is a piece of data
                     </td>
-
+                     
                     <td>
                       Third column info here
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Data point six
                     </td>
-
+                     
                     <td>
                       This is some data
                     </td>
-
+                     
                     <td>
                       Information
                     </td>
@@ -396,7 +396,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
         </div>
       </div>
     </div>
-
+     
     <a
       class="rpl-publication-image__button"
       download="800x400.jpg"
@@ -409,14 +409,14 @@ exports[`RippleStoryshots Organisms/Publication Publication Image 1`] = `
           <!---->
           Download
         </span>
-
+         
         <span>
            Figure 1.2
         </span>
       </span>
     </a>
   </div>
-
+   
   <!---->
 </div>
 `;
@@ -438,13 +438,13 @@ exports[`RippleStoryshots Organisms/Publication Publication Pagination 1`] = `
         class="rpl-publication-pagination__link-inner"
       >
         <!---->
-
+         
         <div
           class="rpl-publication-pagination__link-title"
         >
           Previous
         </div>
-
+         
         <div
           class="rpl-publication-pagination__link-description"
         >
@@ -457,7 +457,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Pagination 1`] = `
       </div>
     </a>
   </div>
-
+   
   <div
     class="rpl-publication-pagination__spacer"
   >
@@ -465,7 +465,7 @@ exports[`RippleStoryshots Organisms/Publication Publication Pagination 1`] = `
       class="rpl-publication-pagination__spacer-graphic"
     />
   </div>
-
+   
   <div
     class="rpl-publication-pagination__next"
   >
@@ -478,13 +478,13 @@ exports[`RippleStoryshots Organisms/Publication Publication Pagination 1`] = `
         class="rpl-publication-pagination__link-inner"
       >
         <!---->
-
+         
         <div
           class="rpl-publication-pagination__link-title"
         >
           Next
         </div>
-
+         
         <div
           class="rpl-publication-pagination__link-description"
         >

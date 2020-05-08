@@ -16,7 +16,7 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
         Program Overview
       </span>
     </h2>
-
+      
     <div
       class="rpl-list__list"
     >
@@ -29,7 +29,7 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <span
           class="rpl-list__text"
         >
@@ -45,7 +45,7 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <span
           class="rpl-list__text"
         >
@@ -61,7 +61,7 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <span
           class="rpl-list__text"
         >
@@ -69,9 +69,9 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
         </span>
       </div>
     </div>
-
+     
   </div>
-
+   
   <div
     class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
   >
@@ -79,7 +79,7 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
       class="rpl-markup__inner"
     >
       <p>
-        This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit.
+        This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit. 
       </p>
       <article
         class="embedded-entity embedded-entity--media embedded-entity--media--document"
@@ -102,7 +102,7 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
                 <span
                   class="file--title"
                 >
-                   Detailed Guide on the mandatory IR management criteria
+                   Detailed Guide on the mandatory IR management criteria 
                 </span>
                 <span
                   class="file--type"
@@ -119,13 +119,13 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
           </div>
         </article>
       </article>
-
+       
       <p>
-        A paragraph of
+        A paragraph of 
         <strong>
           text
         </strong>
-         with a
+         with a 
         <a
           href="https://vic.gov.au"
         >
@@ -135,7 +135,7 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
       </p>
     </div>
   </div>
-
+   
   <a
     class="rpl-link rpl-button rpl-grants-overview__cta rpl-button--primary"
     data-print-url="#"
@@ -166,7 +166,7 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
         Program Overview
       </span>
     </h2>
-
+      
     <div
       class="rpl-list__list"
     >
@@ -179,7 +179,7 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
         >
           <!---->
         </span>
-
+         
         <span
           class="rpl-list__text"
         >
@@ -195,7 +195,7 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
         >
           <!---->
         </span>
-
+         
         <span
           class="rpl-list__text"
         >
@@ -211,7 +211,7 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
         >
           <!---->
         </span>
-
+         
         <span
           class="rpl-list__text"
         >
@@ -219,9 +219,9 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
         </span>
       </div>
     </div>
-
+     
   </div>
-
+   
   <div
     class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
   >
@@ -229,7 +229,7 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
       class="rpl-markup__inner"
     >
       <p>
-        This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit.
+        This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit. 
       </p>
       <article
         class="embedded-entity embedded-entity--media embedded-entity--media--document"
@@ -252,7 +252,7 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
                 <span
                   class="file--title"
                 >
-                   Detailed Guide on the mandatory IR management criteria
+                   Detailed Guide on the mandatory IR management criteria 
                 </span>
                 <span
                   class="file--type"
@@ -269,13 +269,13 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
           </div>
         </article>
       </article>
-
+       
       <p>
-        A paragraph of
+        A paragraph of 
         <strong>
           text
         </strong>
-         with a
+         with a 
         <a
           href="https://vic.gov.au"
         >
@@ -285,7 +285,7 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
       </p>
     </div>
   </div>
-
+   
   <a
     class="rpl-link rpl-button rpl-grants-overview__cta rpl-button--primary"
     data-print-url="#"

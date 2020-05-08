@@ -9,7 +9,7 @@ exports[`RippleStoryshots Organisms/Profile Profile Highlight 1`] = `
     class="rpl-profile-highlight__image"
     src="http://placehold.it/156x156"
   />
-
+   
   <div
     class="rpl-profile-highlight__content"
   >
@@ -29,7 +29,7 @@ exports[`RippleStoryshots Organisms/Profile Profile Highlight Honour Roll 1`] = 
     class="rpl-profile-highlight__image"
     src="http://placehold.it/156x156"
   />
-
+   
   <div
     class="rpl-profile-highlight__content"
   >
@@ -44,7 +44,7 @@ exports[`RippleStoryshots Organisms/Profile Profile Highlight Honour Roll 1`] = 
         >
           Inducted:
         </dt>
-
+         
         <dd
           class="rpl-description-list__cell rpl-description-list__description"
         >
@@ -59,7 +59,7 @@ exports[`RippleStoryshots Organisms/Profile Profile Highlight Honour Roll 1`] = 
         >
           Category:
         </dt>
-
+         
         <dd
           class="rpl-description-list__cell rpl-description-list__description"
         >

@@ -5,7 +5,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
   class="rpl-card-box"
 >
   <!---->
-
+   
   <div
     class="rpl-card-box__items"
   >
@@ -25,40 +25,40 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
               Urgent
             </span>
           </div>
-
+           
           <h2
             class="rpl-card-emergency__title"
           >
             Emergency Assistance
           </h2>
-
+           
           <p
             class="rpl-card-emergency__summary"
           >
             Dial 000 for police, fire &amp; ambulance
           </p>
         </div>
-
+         
         <div
           class="rpl-card-emergency__cta"
         >
           <span
             class="rpl-card-emergency__separator"
           />
-
+           
           <a
             class="rpl-link rpl-card-emergency__cta-link"
             data-print-url="tel:0000"
             href="tel:0000"
           >
             <!---->
-
+             
             <span
               class="rpl-card-emergency__cta-link-text"
             >
-
+              
         Call 0000
-
+      
             </span>
           </a>
         </div>
@@ -80,40 +80,40 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
               Urgent
             </span>
           </div>
-
+           
           <h2
             class="rpl-card-emergency__title"
           >
             Police Assistance Line
           </h2>
-
+           
           <p
             class="rpl-card-emergency__summary"
           >
             Dial 000 for police, fire &amp; ambulance
           </p>
         </div>
-
+         
         <div
           class="rpl-card-emergency__cta"
         >
           <span
             class="rpl-card-emergency__separator"
           />
-
+           
           <a
             class="rpl-link rpl-card-emergency__cta-link"
             data-print-url="tel:000"
             href="tel:000"
           >
             <!---->
-
+             
             <span
               class="rpl-card-emergency__cta-link-text"
             >
-
+              
         Call 000
-
+      
             </span>
           </a>
         </div>
@@ -135,40 +135,40 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
               Urgent
             </span>
           </div>
-
+           
           <h2
             class="rpl-card-emergency__title"
           >
             Police Assistance Line
           </h2>
-
+           
           <p
             class="rpl-card-emergency__summary"
           >
             Dial 000 for police, fire &amp; ambulance
           </p>
         </div>
-
+         
         <div
           class="rpl-card-emergency__cta"
         >
           <span
             class="rpl-card-emergency__separator"
           />
-
+           
           <a
             class="rpl-link rpl-card-emergency__cta-link"
             data-print-url="/home"
             href="/home"
           >
             <!---->
-
+             
             <span
               class="rpl-card-emergency__cta-link-text"
             >
-
+              
         Internal link
-
+      
             </span>
           </a>
         </div>
@@ -184,40 +184,40 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
           class="rpl-card-emergency__content"
         >
           <!---->
-
+           
           <h2
             class="rpl-card-emergency__title"
           >
             Police Assistance Line
           </h2>
-
+           
           <p
             class="rpl-card-emergency__summary"
           >
             Dial 000 for police, fire &amp; ambulance
           </p>
         </div>
-
+         
         <div
           class="rpl-card-emergency__cta"
         >
           <span
             class="rpl-card-emergency__separator"
           />
-
+           
           <a
             class="rpl-link rpl-card-emergency__cta-link"
             data-print-url="http://google.com"
             href="http://google.com"
           >
             <!---->
-
+             
             <span
               class="rpl-card-emergency__cta-link-text"
             >
-
+              
         External link
-
+      
             </span>
           </a>
         </div>
@@ -232,13 +232,13 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
   class="rpl-card-carousel"
 >
   <!---->
-
+   
   <h2
     class="rpl-card-carousel__title"
   >
     Featured Content
   </h2>
-
+   
   <div
     class="rpl-card-carousel__slider"
   >
@@ -275,7 +275,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     src="https://placehold.it/580x340"
                   />
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__details"
                 >
@@ -288,13 +288,13 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       10 July
                     </div>
                   </div>
-
+                   
                   <h2
                     class="rpl-card-event__title"
                   >
                     This is the headline of an event
                   </h2>
-
+                   
                   <div
                     class="rpl-card-event__trim-wrapper"
                     style="max-height: none;"
@@ -305,17 +305,17 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte
                     </p>
                   </div>
-
+                   
                   <p
                     class="rpl-card-event__location"
                   >
                     <!---->
                     South Yarra
                   </p>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__link"
                 >
@@ -323,7 +323,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <span>
                       See event
                     </span>
-
+                     
                     <span
                       class="rpl-text-icon__group"
                     >
@@ -350,7 +350,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 href="#"
               >
                 <!---->
-
+                 
                 <div
                   class="rpl-card-content__details"
                 >
@@ -359,7 +359,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                   >
                     Key calendar dates
                   </h2>
-
+                   
                   <div
                     class="rpl-card-keydates__keydate"
                   >
@@ -367,18 +367,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-card-keydates__keydate-date"
                     >
                       <!---->
-
+                       
                       <span>
                         3 April
                       </span>
                     </div>
-
+                     
                     <h3
                       class="rpl-card-keydates__keydate-title"
                     >
                       Term two starts
                     </h3>
-
+                     
                     <p
                       class="rpl-card-keydates__keydate-description"
                     >
@@ -392,28 +392,28 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-card-keydates__keydate-date"
                     >
                       <!---->
-
+                       
                       <span>
                         23 April
                       </span>
                     </div>
-
+                     
                     <h3
                       class="rpl-card-keydates__keydate-title"
                     >
                       ANZAC Day
                     </h3>
-
+                     
                     <p
                       class="rpl-card-keydates__keydate-description"
                     >
                       National day of remembrance to commemorate the ANZACs.
                     </p>
                   </div>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__link"
                 >
@@ -421,7 +421,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <span>
                       See the events
                     </span>
-
+                     
                     <span
                       class="rpl-text-icon__group"
                     >
@@ -456,7 +456,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     src="https://placehold.it/580x340"
                   />
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__details"
                 >
@@ -468,20 +468,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     >
                       10 July
                     </div>
-
+                     
                     <div
                       class="rpl-card-promotion__tag"
                     >
                       News
                     </div>
                   </div>
-
+                   
                   <h2
                     class="rpl-card-promotion__title"
                   >
                     This is display copy that wraps 2 lines
                   </h2>
-
+                   
                   <div
                     class="rpl-card-promotion__trim-wrapper"
                     style="max-height: none;"
@@ -492,10 +492,10 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what&#39;s happening.
                     </p>
                   </div>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__link"
                 >
@@ -503,7 +503,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <span>
                       Read
                     </span>
-
+                     
                     <span
                       class="rpl-text-icon__group"
                     >
@@ -539,7 +539,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     src="https://placehold.it/580x340"
                   />
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__details"
                 >
@@ -552,13 +552,13 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       10 to 15 July
                     </div>
                   </div>
-
+                   
                   <h2
                     class="rpl-card-event__title"
                   >
                     This is the headline of an event
                   </h2>
-
+                   
                   <div
                     class="rpl-card-event__trim-wrapper"
                     style="max-height: none;"
@@ -569,17 +569,17 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte
                     </p>
                   </div>
-
+                   
                   <p
                     class="rpl-card-event__location"
                   >
                     <!---->
                     South Yarra
                   </p>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__link"
                 >
@@ -587,7 +587,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <span>
                       See event
                     </span>
-
+                     
                     <span
                       class="rpl-text-icon__group"
                     >
@@ -623,7 +623,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     src="https://placehold.it/580x340"
                   />
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__details"
                 >
@@ -636,13 +636,13 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       10 July to 10 September 2018
                     </div>
                   </div>
-
+                   
                   <h2
                     class="rpl-card-event__title"
                   >
                     This is the headline of an event
                   </h2>
-
+                   
                   <div
                     class="rpl-card-event__trim-wrapper"
                     style="max-height: none;"
@@ -653,17 +653,17 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor lorem ipsum dolor sit amet, consecte
                     </p>
                   </div>
-
+                   
                   <p
                     class="rpl-card-event__location"
                   >
                     <!---->
                     South Yarra
                   </p>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__link"
                 >
@@ -671,7 +671,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <span>
                       See event
                     </span>
-
+                     
                     <span
                       class="rpl-text-icon__group"
                     >
@@ -699,7 +699,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 href="#"
               >
                 <!---->
-
+                 
                 <div
                   class="rpl-card-content__details"
                 >
@@ -708,7 +708,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                   >
                     Key calendar dates
                   </h2>
-
+                   
                   <div
                     class="rpl-card-keydates__keydate"
                   >
@@ -716,18 +716,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-card-keydates__keydate-date"
                     >
                       <!---->
-
+                       
                       <span>
                         3 April
                       </span>
                     </div>
-
+                     
                     <h3
                       class="rpl-card-keydates__keydate-title"
                     >
                       Term two starts
                     </h3>
-
+                     
                     <p
                       class="rpl-card-keydates__keydate-description"
                     >
@@ -741,28 +741,28 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-card-keydates__keydate-date"
                     >
                       <!---->
-
+                       
                       <span>
                         23 April
                       </span>
                     </div>
-
+                     
                     <h3
                       class="rpl-card-keydates__keydate-title"
                     >
                       ANZAC Day
                     </h3>
-
+                     
                     <p
                       class="rpl-card-keydates__keydate-description"
                     >
                       National day of remembrance to commemorate the ANZACs.
                     </p>
                   </div>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__link"
                 >
@@ -770,7 +770,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <span>
                       See the events
                     </span>
-
+                     
                     <span
                       class="rpl-text-icon__group"
                     >
@@ -806,7 +806,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     src="https://placehold.it/580x340"
                   />
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__details"
                 >
@@ -818,20 +818,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     >
                       10 July
                     </div>
-
+                     
                     <div
                       class="rpl-card-promotion__tag"
                     >
                       News
                     </div>
                   </div>
-
+                   
                   <h2
                     class="rpl-card-promotion__title"
                   >
                     This is display copy that wraps 2 lines
                   </h2>
-
+                   
                   <div
                     class="rpl-card-promotion__trim-wrapper"
                     style="max-height: none;"
@@ -842,10 +842,10 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet, consecteten dolor at vero eos et accusamus et iusto odio dignis.
                     </p>
                   </div>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__link"
                 >
@@ -853,7 +853,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <span>
                       Read
                     </span>
-
+                     
                     <span
                       class="rpl-text-icon__group"
                     >
@@ -881,7 +881,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 href="#"
               >
                 <!---->
-
+                 
                 <div
                   class="rpl-card-content__details"
                 >
@@ -890,7 +890,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                   >
                     Key calendar dates
                   </h2>
-
+                   
                   <div
                     class="rpl-card-keydates__keydate"
                   >
@@ -898,18 +898,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-card-keydates__keydate-date"
                     >
                       <!---->
-
+                       
                       <span>
                         3 April
                       </span>
                     </div>
-
+                     
                     <h3
                       class="rpl-card-keydates__keydate-title"
                     >
                       Term two starts
                     </h3>
-
+                     
                     <p
                       class="rpl-card-keydates__keydate-description"
                     >
@@ -923,28 +923,28 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-card-keydates__keydate-date"
                     >
                       <!---->
-
+                       
                       <span>
                         23 April
                       </span>
                     </div>
-
+                     
                     <h3
                       class="rpl-card-keydates__keydate-title"
                     >
                       ANZAC Day
                     </h3>
-
+                     
                     <p
                       class="rpl-card-keydates__keydate-description"
                     >
                       National day of remembrance to commemorate the ANZACs.
                     </p>
                   </div>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__link"
                 >
@@ -952,7 +952,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <span>
                       See the events
                     </span>
-
+                     
                     <span
                       class="rpl-text-icon__group"
                     >
@@ -980,7 +980,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 href="#"
               >
                 <!---->
-
+                 
                 <div
                   class="rpl-card-content__details"
                 >
@@ -989,7 +989,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                   >
                     Key calendar dates
                   </h2>
-
+                   
                   <div
                     class="rpl-card-keydates__keydate"
                   >
@@ -997,18 +997,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-card-keydates__keydate-date"
                     >
                       <!---->
-
+                       
                       <span>
                         3 April
                       </span>
                     </div>
-
+                     
                     <h3
                       class="rpl-card-keydates__keydate-title"
                     >
                       Term two starts
                     </h3>
-
+                     
                     <p
                       class="rpl-card-keydates__keydate-description"
                     >
@@ -1022,28 +1022,28 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-card-keydates__keydate-date"
                     >
                       <!---->
-
+                       
                       <span>
                         23 April
                       </span>
                     </div>
-
+                     
                     <h3
                       class="rpl-card-keydates__keydate-title"
                     >
                       ANZAC Day
                     </h3>
-
+                     
                     <p
                       class="rpl-card-keydates__keydate-description"
                     >
                       National day of remembrance to commemorate the ANZACs.
                     </p>
                   </div>
-
+                   
                   <!---->
                 </div>
-
+                 
                 <div
                   class="rpl-card-content__link"
                 >
@@ -1051,7 +1051,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <span>
                       See the events
                     </span>
-
+                     
                     <span
                       class="rpl-text-icon__group"
                     >
@@ -1065,12 +1065,12 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
           </div>
         </div>
       </div>
-
+       
       <!---->
-
+       
       <!---->
     </div>
-
+     
     <div
       class="rpl-card-carousel__navigation"
     >
@@ -1082,7 +1082,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
       >
         <!---->
       </button>
-
+       
       <button
         aria-label="Go to next slide"
         class="rpl-card-carousel__navigation-button rpl-card-carousel__navigation-button--next"
@@ -1110,17 +1110,17 @@ exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
       src="https://placehold.it/580x340"
     />
   </div>
-
+   
   <div
     class="rpl-card-content__details"
   >
     <div>
       &lt;h2&gt;Custom Content&lt;/h2&gt;&lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
     </div>
-
+     
     <!---->
   </div>
-
+   
   <div
     class="rpl-card-content__link"
   >
@@ -1128,7 +1128,7 @@ exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
       <span>
         Read
       </span>
-
+       
       <span
         class="rpl-text-icon__group"
       >
@@ -1147,7 +1147,7 @@ exports[`RippleStoryshots Molecules/Card/Card Cta Default 1`] = `
   href="#"
 >
   <!---->
-
+   
   <div
     class="rpl-card-content__details"
   >
@@ -1156,13 +1156,13 @@ exports[`RippleStoryshots Molecules/Card/Card Cta Default 1`] = `
       class="rpl-card-cta__image"
       src="https://placehold.it/148x148"
     />
-
+     
     <h2
       class="rpl-card-cta__title"
     >
       Want to submit an event?
     </h2>
-
+     
     <div
       class="rpl-card-cta__trim-wrapper"
       style="max-height: none;"
@@ -1173,16 +1173,16 @@ exports[`RippleStoryshots Molecules/Card/Card Cta Default 1`] = `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
       </p>
     </div>
-
+     
     <span
       class="rpl-card-cta__button"
     >
       See event details
     </span>
-
+     
     <!---->
   </div>
-
+   
   <!---->
 </a>
 `;
@@ -1201,40 +1201,40 @@ exports[`RippleStoryshots Molecules/Card/Card Emergency Contact Default 1`] = `
         Urgent
       </span>
     </div>
-
+     
     <h2
       class="rpl-card-emergency__title"
     >
       Emergency Assistance
     </h2>
-
+     
     <p
       class="rpl-card-emergency__summary"
     >
       Dial 000 for police, fire &amp; ambulance
     </p>
   </div>
-
+   
   <div
     class="rpl-card-emergency__cta"
   >
     <span
       class="rpl-card-emergency__separator"
     />
-
+     
     <a
       class="rpl-link rpl-card-emergency__cta-link"
       data-print-url="tel:000"
       href="tel:000"
     >
       <!---->
-
+       
       <span
         class="rpl-card-emergency__cta-link-text"
       >
-
+        
         Call 000
-
+      
       </span>
     </a>
   </div>
@@ -1256,7 +1256,7 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
       src="https://placehold.it/304x199"
     />
   </div>
-
+   
   <div
     class="rpl-card-content__details"
   >
@@ -1269,13 +1269,13 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
         10 to 11 July
       </div>
     </div>
-
+     
     <h2
       class="rpl-card-event__title"
     >
       This is the headline of an event with a location that will stretch over over 3 lines
     </h2>
-
+     
     <div
       class="rpl-card-event__trim-wrapper"
       style="max-height: none;"
@@ -1286,17 +1286,17 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
       </p>
     </div>
-
+     
     <p
       class="rpl-card-event__location"
     >
       <!---->
       South Yarra
     </p>
-
+     
     <!---->
   </div>
-
+   
   <div
     class="rpl-card-content__link"
   >
@@ -1304,7 +1304,7 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
       <span>
         See event
       </span>
-
+       
       <span
         class="rpl-text-icon__group"
       >
@@ -1331,7 +1331,7 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
       src="https://placehold.it/304x199"
     />
   </div>
-
+   
   <div
     class="rpl-card-content__details"
   >
@@ -1346,27 +1346,27 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
         >
           23 March
         </div>
-
+         
         <div
           class="rpl-card-image-navigation__tag"
         >
           Community
         </div>
       </div>
-
+       
       <h2
         class="rpl-card-image-navigation__title"
       >
         This heading could wrap over two lines
       </h2>
-
+       
       <p
         class="rpl-card-image-navigation__summary"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
       </p>
     </div>
-
+     
     <div
       class="rpl-card-content__link"
     >
@@ -1374,7 +1374,7 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
         <span>
           Call to
         </span>
-
+         
         <span
           class="rpl-text-icon__group"
         >
@@ -1384,7 +1384,7 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
       </span>
     </div>
   </div>
-
+   
   <!---->
 </a>
 `;
@@ -1396,7 +1396,7 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
   href="#"
 >
   <!---->
-
+   
   <div
     class="rpl-card-content__details"
   >
@@ -1405,7 +1405,7 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
     >
       Key calendar dates
     </h2>
-
+     
     <div
       class="rpl-card-keydates__keydate"
     >
@@ -1413,18 +1413,18 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
         class="rpl-card-keydates__keydate-date"
       >
         <!---->
-
+         
         <span>
           3 April
         </span>
       </div>
-
+       
       <h3
         class="rpl-card-keydates__keydate-title"
       >
         Term two starts
       </h3>
-
+       
       <p
         class="rpl-card-keydates__keydate-description"
       >
@@ -1438,28 +1438,28 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
         class="rpl-card-keydates__keydate-date"
       >
         <!---->
-
+         
         <span>
           23 April
         </span>
       </div>
-
+       
       <h3
         class="rpl-card-keydates__keydate-title"
       >
         ANZAC Day
       </h3>
-
+       
       <p
         class="rpl-card-keydates__keydate-description"
       >
         National day of remembrance to commemorate the ANZACs.
       </p>
     </div>
-
+     
     <!---->
   </div>
-
+   
   <div
     class="rpl-card-content__link"
   >
@@ -1467,7 +1467,7 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
       <span>
         Read
       </span>
-
+       
       <span
         class="rpl-text-icon__group"
       >
@@ -1486,7 +1486,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Default 1`] = `
   href="#"
 >
   <!---->
-
+   
   <div
     class="rpl-card-content__details"
   >
@@ -1495,16 +1495,16 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Default 1`] = `
     >
       First navigation card
     </h2>
-
+     
     <p
       class="rpl-card-navigation__summary"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </p>
-
+     
     <!---->
   </div>
-
+   
   <div
     class="rpl-card-content__link"
   >
@@ -1512,7 +1512,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Default 1`] = `
       <span>
         Read
       </span>
-
+       
       <span
         class="rpl-text-icon__group"
       >
@@ -1538,7 +1538,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
       class="rpl-card-navigation-featured__image"
       src="https://placehold.it/818x497"
     />
-
+     
     <div
       class="rpl-card-navigation-featured__meta_and_title rpl-card-navigation-featured__meta_and_title--image rpl-card-navigation-featured__meta_and_title--summary"
     >
@@ -1550,14 +1550,14 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
         >
           23 March
         </span>
-
+         
         <span
           class="rpl-card-navigation-featured__tag"
         >
           Community
         </span>
       </div>
-
+       
       <h2
         class="rpl-card-navigation-featured__title"
       >
@@ -1567,13 +1567,13 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
       </h2>
     </div>
   </div>
-
+   
   <p
     class="rpl-card-navigation-featured__summary rpl-card-navigation-featured__summary--image"
   >
     We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what&#39;s happening.
   </p>
-
+   
   <!---->
 </a>
 `;
@@ -1585,7 +1585,7 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
   href="#"
 >
   <!---->
-
+   
   <div
     class="rpl-card-content__details"
   >
@@ -1597,41 +1597,41 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
         class="rpl-card-profile__image"
         src="https://placehold.it/148x148"
       />
-
+       
       <h2
         class="rpl-card-profile__name rpl-card-profile__name--no-margin"
       >
         Stella Young
       </h2>
-
+       
       <p
         class="rpl-card-profile__lifespan"
       >
         (1982 - 2014)
       </p>
-
+       
       <p
         class="rpl-card-profile__induction"
       >
         <span>
           Inducted
         </span>
-
+         
         <span>
           2017
         </span>
       </p>
-
+       
       <p
         class="rpl-card-profile__summary"
       >
         Journalist, comedian, feminist and fierce disability activist.
       </p>
     </div>
-
+     
     <!---->
   </div>
-
+   
   <div
     class="rpl-card-content__link"
   >
@@ -1639,7 +1639,7 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
       <span>
         Read Stella&#39;s
       </span>
-
+       
       <span
         class="rpl-text-icon__group"
       >
@@ -1666,7 +1666,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
       src="https://placehold.it/304x199"
     />
   </div>
-
+   
   <div
     class="rpl-card-content__details"
   >
@@ -1678,20 +1678,20 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
       >
         23 March
       </div>
-
+       
       <div
         class="rpl-card-promotion__tag"
       >
         News
       </div>
     </div>
-
+     
     <h2
       class="rpl-card-promotion__title"
     >
       This is display copy that wraps 2 lines
     </h2>
-
+     
     <div
       class="rpl-card-promotion__trim-wrapper"
       style="max-height: none;"
@@ -1702,10 +1702,10 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
       </p>
     </div>
-
+     
     <!---->
   </div>
-
+   
   <div
     class="rpl-card-content__link"
   >
@@ -1713,7 +1713,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
       <span>
         Read
       </span>
-
+       
       <span
         class="rpl-text-icon__group"
       >

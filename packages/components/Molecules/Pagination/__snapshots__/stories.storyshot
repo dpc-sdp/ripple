@@ -22,11 +22,11 @@ exports[`RippleStoryshots Molecules/Pagination Default 1`] = `
         >
           current page
         </span>
-
+        
         1
-
+      
       </button>
-
+       
       <span
         aria-hidden="true"
         class="rpl-pagination__list-item-slash"
@@ -45,11 +45,11 @@ exports[`RippleStoryshots Molecules/Pagination Default 1`] = `
         >
           Go to page
         </span>
-
+        
         2
-
+      
       </button>
-
+       
       <span
         aria-hidden="true"
         class="rpl-pagination__list-item-slash"
@@ -68,11 +68,11 @@ exports[`RippleStoryshots Molecules/Pagination Default 1`] = `
         >
           Go to page
         </span>
-
+        
         3
-
+      
       </button>
-
+       
       <span
         aria-hidden="true"
         class="rpl-pagination__list-item-slash"
@@ -91,11 +91,11 @@ exports[`RippleStoryshots Molecules/Pagination Default 1`] = `
         >
           Go to page
         </span>
-
+        
         4
-
+      
       </button>
-
+       
       <span
         aria-hidden="true"
         class="rpl-pagination__list-item-slash"
@@ -114,11 +114,11 @@ exports[`RippleStoryshots Molecules/Pagination Default 1`] = `
         >
           Go to page
         </span>
-
+        
         5
-
+      
       </button>
-
+       
       <span
         aria-hidden="true"
         class="rpl-pagination__list-item-slash"
@@ -127,19 +127,19 @@ exports[`RippleStoryshots Molecules/Pagination Default 1`] = `
       </span>
     </li>
   </ol>
-
+   
   <div
     class="rpl-pagination__controls"
   >
     <!---->
-
+     
     <button
       class="rpl-pagination__nav"
     >
       <span>
         Next page
       </span>
-
+       
       <!---->
     </button>
   </div>

@@ -10,14 +10,14 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
   >
     Share this
   </h2>
-
+   
   <ul
     aria-label="Social networks"
     class="rpl-share-this__list"
   >
     <li>
       <button
-        class="rpl-share-this__button"
+        class="rpl-share-this__social rpl-share-this__button"
         data-link="#share-twitter"
         tabindex="0"
       >
@@ -27,7 +27,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
           <!---->
         </span>
         Twitter
-
+          
         <span
           class="rpl-share-this__hint"
         >
@@ -35,10 +35,10 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         </span>
       </button>
     </li>
-
+     
     <li>
       <button
-        class="rpl-share-this__button"
+        class="rpl-share-this__social rpl-share-this__button"
         data-link="#share-facebook"
         tabindex="0"
       >
@@ -48,7 +48,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
           <!---->
         </span>
         Facebook
-
+          
         <span
           class="rpl-share-this__hint"
         >
@@ -56,10 +56,10 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
         </span>
       </button>
     </li>
-
+     
     <li>
       <button
-        class="rpl-share-this__button"
+        class="rpl-share-this__social rpl-share-this__button"
         data-link="#share-linkedin"
         tabindex="0"
       >
@@ -69,7 +69,7 @@ exports[`RippleStoryshots Molecules/ShareThis Share this 1`] = `
           <!---->
         </span>
         LinkedIn
-
+          
         <span
           class="rpl-share-this__hint"
         >

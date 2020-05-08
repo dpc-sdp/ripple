@@ -8,7 +8,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
   role="alert"
 >
   <!---->
-
+   
   <div
     class="rpl-alert-base__content rpl-alert-base__content--color-white"
   >
@@ -17,7 +17,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
     >
       This is an emergency alert.
     </span>
-
+     
     <a
       class="rpl-link rpl-text-link rpl-alert__link"
       data-print-url="#"
@@ -33,7 +33,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
             <span>
               Find out
             </span>
-
+             
             <span
               class="rpl-text-icon__group"
             >
@@ -45,7 +45,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
       </span>
     </a>
   </div>
-
+   
   <button
     class="rpl-alert-base__close"
   >
@@ -62,7 +62,7 @@ exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
   class="rpl-alert-base rpl-alert-base--color-dark_neutral"
 >
   <!---->
-
+   
   <div
     class="rpl-alert-base__content rpl-alert-base__content--color-white"
   >
@@ -70,7 +70,7 @@ exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
       Draft only and not yet published
     </div>
   </div>
-
+   
   <button
     class="rpl-alert-base__close"
   >

@@ -12,7 +12,7 @@ exports[`RippleStoryshots Molecules/DescriptionList Default 1`] = `
     >
       List Item 1:
     </dt>
-
+     
     <dd
       class="rpl-description-list__cell rpl-description-list__description"
     >
@@ -27,7 +27,7 @@ exports[`RippleStoryshots Molecules/DescriptionList Default 1`] = `
     >
       List Item 2:
     </dt>
-
+     
     <dd
       class="rpl-description-list__cell rpl-description-list__description"
     >
@@ -42,7 +42,7 @@ exports[`RippleStoryshots Molecules/DescriptionList Default 1`] = `
     >
       List Item 3:
     </dt>
-
+     
     <dd
       class="rpl-description-list__cell rpl-description-list__description"
     >

@@ -13,7 +13,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
       Related links
     </h2>
   </div>
-
+   
   <div
     class="rpl-related-links__row"
   >
@@ -38,7 +38,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
                 <span>
                   Link to external
                 </span>
-
+                 
                 <span
                   class="rpl-text-icon__group"
                 >

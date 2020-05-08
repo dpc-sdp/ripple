@@ -13,7 +13,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
       My List
     </span>
   </h2>
-
+    
   <div
     class="rpl-list__list"
   >
@@ -25,7 +25,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
       >
         <!---->
       </span>
-
+       
       <span
         class="rpl-list__text"
       >
@@ -40,7 +40,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
       >
         <!---->
       </span>
-
+       
       <span
         class="rpl-list__text"
       >
@@ -55,7 +55,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
       >
         <!---->
       </span>
-
+       
       <span
         class="rpl-list__text"
       >
@@ -70,7 +70,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
       >
         <!---->
       </span>
-
+       
       <a
         class="rpl-link rpl-list__text"
         data-print-url="https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/"
@@ -91,7 +91,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
       >
         <!---->
       </span>
-
+       
       <span
         class="rpl-list__text"
       >
@@ -106,7 +106,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
       >
         <!---->
       </span>
-
+       
       <span
         class="rpl-list__text"
       >
@@ -114,6 +114,6 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
       </span>
     </div>
   </div>
-
+   
 </div>
 `;

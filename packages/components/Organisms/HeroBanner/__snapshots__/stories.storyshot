@@ -18,7 +18,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
       />
     </div>
   </div>
-
+   
   <div
     class="rpl-row"
   >
@@ -32,28 +32,28 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
           This is display copy that wraps 2 lines
         </span>
       </h1>
-
+       
       <p
         class="rpl-hero-banner__description"
       >
-
+        
         This is supplementary intro text that can also wrap over a couple of lines.
-
+      
       </p>
-
+       
     </div>
-
+     
     <div
       class="rpl-hero-banner__right"
     >
       <h2
         class="rpl-hero-banner__link-heading"
       >
-
+        
         Want to know more about...
-
+      
       </h2>
-
+       
       <ul
         class="rpl-hero-banner__link-list"
       >
@@ -75,7 +75,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                   <span>
                     First journey based
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -105,7 +105,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                   <span>
                     Secondary journey based
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -135,7 +135,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                   <span>
                     Third link goes
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -165,7 +165,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                   <span>
                     Fourth journey based
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -177,7 +177,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
             </span>
           </a>
         </li>
-
+         
         <li
           class="rpl-hero-banner__link-list-item"
         >
@@ -196,7 +196,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Default 1`] = `
                   <span>
                     See
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -231,19 +231,19 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
           Welcome to Victoria Police Museum
         </span>
       </h2>
-
+       
       <p
         class="rpl-intro-banner__description"
       >
         From the largest collection of Kelly Gang armour in Australia to forensic evidence from some of Melbourne&#39;s most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.
       </p>
     </div>
-
+     
     <div
       class="rpl-intro-banner__right"
     >
       <!---->
-
+       
       <ul
         class="rpl-intro-banner__link-list"
       >
@@ -265,7 +265,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                   <span>
                     Plan your
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -293,7 +293,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
               >
                 <span>
                   <!---->
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -323,7 +323,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                   <span>
                     School
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -353,7 +353,7 @@ exports[`RippleStoryshots Organisms/HeroBanner Intro Banner 1`] = `
                   <span>
                     Group
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -376,7 +376,7 @@ exports[`RippleStoryshots Organisms/HeroBanner with CTA 1`] = `
   class="rpl-hero-banner rpl-hero-banner--cta rpl-site-constrain--on-all rpl-hero-banner--cta-light"
 >
   <!---->
-
+   
   <div
     class="rpl-row"
   >
@@ -390,15 +390,15 @@ exports[`RippleStoryshots Organisms/HeroBanner with CTA 1`] = `
           This is display copy that wraps 2 lines
         </span>
       </h1>
-
+       
       <p
         class="rpl-hero-banner__description"
       >
-
+        
         This is supplementary intro text that can also wrap over a couple of lines.
-
+      
       </p>
-
+       
       <div
         class="rpl-hero-banner--cta__left-bottom"
       >
@@ -413,7 +413,7 @@ exports[`RippleStoryshots Organisms/HeroBanner with CTA 1`] = `
             Call to action
           </span>
         </a>
-
+         
         <div
           class="rpl-hero-banner--cta__secondary"
         >
@@ -422,7 +422,7 @@ exports[`RippleStoryshots Organisms/HeroBanner with CTA 1`] = `
           >
             Not ready yet?
           </p>
-
+           
           <a
             class="rpl-link rpl-text-link rpl-hero-banner--cta__secondary-link"
             data-print-url="#"
@@ -438,7 +438,7 @@ exports[`RippleStoryshots Organisms/HeroBanner with CTA 1`] = `
                   <span>
                     Subscribe for tips to
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -452,12 +452,12 @@ exports[`RippleStoryshots Organisms/HeroBanner with CTA 1`] = `
         </div>
       </div>
     </div>
-
+     
     <div
       class="rpl-hero-banner__right"
     >
       <!---->
-
+       
       <!---->
     </div>
   </div>

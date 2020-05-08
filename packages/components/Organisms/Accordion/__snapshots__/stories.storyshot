@@ -10,7 +10,7 @@ exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
   >
     Accordion Set
   </h2>
-
+   
   <ul
     class="rpl-accordion__list"
   >
@@ -30,11 +30,11 @@ exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
           >
             Accordion Item
           </span>
-
+           
           <!---->
         </button>
       </h2>
-
+       
       <div
         class="rpl-accordion__content"
         id="rpl-accordion-0"
@@ -67,11 +67,11 @@ exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
           >
             Accordion Item
           </span>
-
+           
           <!---->
         </button>
       </h2>
-
+       
       <div
         class="rpl-accordion__content"
         id="rpl-accordion-1"

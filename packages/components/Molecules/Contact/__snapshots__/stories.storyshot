@@ -16,7 +16,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         Need additional help?
       </span>
     </h2>
-
+     
     <p
       class="rpl-contact__contact-details"
     >
@@ -25,20 +25,20 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
       >
         First Last Name (Job Title)
       </span>
-
+       
       <span
         class="rpl-contact__department"
       >
         Department name
       </span>
-
+       
       <span
         class="rpl-contact__postal"
       >
         PO Box 123, Suburb VIC 3421
       </span>
     </p>
-
+     
     <div
       class="rpl-list__list"
     >
@@ -50,7 +50,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <a
           class="rpl-link rpl-list__text"
           data-print-url="https://www.google.com.au/maps?q=13%20Street%20Name,%20Suburb%20VIC%203056"
@@ -71,7 +71,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <a
           class="rpl-link rpl-list__text"
           data-print-url="tel:0398766754"
@@ -92,7 +92,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <a
           class="rpl-link rpl-list__text"
           data-print-url="tel:0400000000"
@@ -113,7 +113,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <a
           class="rpl-link rpl-list__text"
           data-print-url="mailto:emailaddress@vic.gov.au"
@@ -134,7 +134,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <a
           class="rpl-link rpl-list__text"
           data-print-url="https://www.facebook.com"
@@ -155,7 +155,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <a
           class="rpl-link rpl-list__text"
           data-print-url="https://www.twitter.com"
@@ -176,7 +176,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <a
           class="rpl-link rpl-list__text"
           data-print-url="https://www.linkedin.com"
@@ -197,7 +197,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         >
           <!---->
         </span>
-
+         
         <a
           class="rpl-link rpl-list__text"
           data-print-url="https://www.intagram.com"
@@ -211,7 +211,7 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         </a>
       </div>
     </div>
-
+     
   </div>
 </div>
 `;

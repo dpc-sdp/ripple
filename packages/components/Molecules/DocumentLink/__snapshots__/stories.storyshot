@@ -11,7 +11,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Default 1`] = `
     target="_blank"
   >
     <!---->
-
+     
     <div
       class="rpl-document-link__info"
     >
@@ -20,7 +20,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Default 1`] = `
       >
         This is the name of the document
       </span>
-
+       
       <div
         class="rpl-document-link__meta"
       >
@@ -29,7 +29,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Default 1`] = `
         >
           pdf
         </span>
-
+         
         <span
           class="rpl-document-link__size rpl-document-link__size--seperator"
         >
@@ -38,7 +38,7 @@ exports[`RippleStoryshots Molecules/DocumentLink Default 1`] = `
       </div>
     </div>
   </a>
-
+   
   <figcaption
     class="rpl-document-link__caption"
   >

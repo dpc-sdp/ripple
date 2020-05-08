@@ -12,7 +12,7 @@ exports[`RippleStoryshots Molecules/PublishDateAndAuthor Default 1`] = `
        from location
     </span>
   </div>
-
+   
   <div
     class="rpl-publish-date-and-author__author"
   >

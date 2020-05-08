@@ -9,7 +9,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
   >
     Branch name goes here
   </h2>
-
+   
   <ul
     class="rpl-section-menu"
     data-depth="0"
@@ -26,10 +26,10 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
         >
           Your services
         </span>
-
+         
         <!---->
       </button>
-
+       
       <ul
         class="rpl-section-menu"
         data-depth="1"
@@ -48,7 +48,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Your services
             </span>
           </a>
-
+           
           <!---->
         </li>
         <li
@@ -65,7 +65,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Sub child A
             </span>
           </a>
-
+           
           <!---->
         </li>
         <li
@@ -80,10 +80,10 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             >
               Sub child B - With level 3
             </span>
-
+             
             <!---->
           </button>
-
+           
           <ul
             class="rpl-section-menu"
             data-depth="2"
@@ -103,7 +103,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child B - With level 3
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -118,10 +118,10 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 >
                   Sub child I
                 </span>
-
+                 
                 <!---->
               </button>
-
+               
               <ul
                 class="rpl-section-menu"
                 data-depth="3"
@@ -141,7 +141,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                       Sub child I
                     </span>
                   </a>
-
+                   
                   <!---->
                 </li>
                 <li
@@ -158,7 +158,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                       Level 3 child I
                     </span>
                   </a>
-
+                   
                   <!---->
                 </li>
                 <li
@@ -175,7 +175,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                       Level 3 child II
                     </span>
                   </a>
-
+                   
                   <!---->
                 </li>
                 <li
@@ -192,7 +192,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                       Level 3 child III
                     </span>
                   </a>
-
+                   
                   <!---->
                 </li>
               </ul>
@@ -211,7 +211,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child II
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -228,7 +228,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child III
                 </span>
               </a>
-
+               
               <!---->
             </li>
           </ul>
@@ -245,10 +245,10 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             >
               Test Path 2
             </span>
-
+             
             <!---->
           </button>
-
+           
           <ul
             class="rpl-section-menu"
             data-depth="2"
@@ -267,7 +267,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Test Path 2
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -284,7 +284,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child IV
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -299,10 +299,10 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 >
                   Test Path 3
                 </span>
-
+                 
                 <!---->
               </button>
-
+               
               <ul
                 class="rpl-section-menu"
                 data-depth="3"
@@ -321,7 +321,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                       Test Path 3
                     </span>
                   </a>
-
+                   
                   <!---->
                 </li>
                 <li
@@ -338,7 +338,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                       Sub child X
                     </span>
                   </a>
-
+                   
                   <!---->
                 </li>
                 <li
@@ -355,7 +355,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                       Sub child Y
                     </span>
                   </a>
-
+                   
                   <!---->
                 </li>
                 <li
@@ -372,7 +372,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                       Sub child Z
                     </span>
                   </a>
-
+                   
                   <!---->
                 </li>
               </ul>
@@ -391,7 +391,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child VI
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -408,7 +408,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child VII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -425,7 +425,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child VIII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -442,7 +442,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child IX
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -459,7 +459,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child X
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -476,7 +476,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child XI
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -493,7 +493,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child XII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -510,7 +510,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child XIII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -527,7 +527,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child IV
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -544,7 +544,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child V
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -561,7 +561,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child VI
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -578,7 +578,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child VII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -595,7 +595,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child VIII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -612,7 +612,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child IX
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -629,7 +629,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child X
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -646,7 +646,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child XI
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -663,7 +663,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child XII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -680,7 +680,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child XIII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -697,7 +697,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child IV
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -714,7 +714,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child V
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -731,7 +731,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child VI
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -748,7 +748,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child VII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -765,7 +765,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child VIII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -782,7 +782,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child IX
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -799,7 +799,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child X
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -816,7 +816,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child XI
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -833,7 +833,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child XII
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -850,7 +850,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child Last
                 </span>
               </a>
-
+               
               <!---->
             </li>
           </ul>
@@ -871,7 +871,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
           About VIC Government
         </span>
       </a>
-
+       
       <!---->
     </li>
     <li
@@ -886,10 +886,10 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
         >
           News
         </span>
-
+         
         <!---->
       </button>
-
+       
       <ul
         class="rpl-section-menu"
         data-depth="1"
@@ -909,7 +909,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               News
             </span>
           </a>
-
+           
           <!---->
         </li>
         <li
@@ -924,10 +924,10 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             >
               Sub child 2
             </span>
-
+             
             <!---->
           </button>
-
+           
           <ul
             class="rpl-section-menu"
             data-depth="2"
@@ -947,7 +947,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child 2
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -964,7 +964,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child 3
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -981,7 +981,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child 4
                 </span>
               </a>
-
+               
               <!---->
             </li>
             <li
@@ -998,7 +998,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child 5
                 </span>
               </a>
-
+               
               <!---->
             </li>
           </ul>
@@ -1017,10 +1017,10 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
         >
           Events
         </span>
-
+         
         <!---->
       </button>
-
+       
       <ul
         class="rpl-section-menu"
         data-depth="1"
@@ -1040,7 +1040,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Events
             </span>
           </a>
-
+           
           <!---->
         </li>
         <li
@@ -1057,7 +1057,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Sub child 3
             </span>
           </a>
-
+           
           <!---->
         </li>
         <li
@@ -1074,7 +1074,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Sub child 4
             </span>
           </a>
-
+           
           <!---->
         </li>
         <li
@@ -1091,7 +1091,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Sub child 5
             </span>
           </a>
-
+           
           <!---->
         </li>
       </ul>
@@ -1110,7 +1110,7 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
           Connect with us
         </span>
       </a>
-
+       
       <!---->
     </li>
   </ul>

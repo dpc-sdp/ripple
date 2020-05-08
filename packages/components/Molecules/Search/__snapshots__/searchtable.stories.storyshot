@@ -26,7 +26,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Custom Component 1
       </th>
     </tr>
   </thead>
-
+   
   <tbody>
     <tr
       data-tid="row-0"
@@ -41,7 +41,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Custom Component 1
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -70,7 +70,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Custom Component 1
         >
           Category
         </span>
-
+         
         <div
           class="rpl-meta-tag rpl-search-results-table__value rpl-meta-tag--light"
         >
@@ -95,7 +95,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Custom Component 1
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -133,7 +133,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Default Story 1`] 
       </th>
     </tr>
   </thead>
-
+   
   <tbody>
     <tr
       data-tid="row-0"
@@ -148,7 +148,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Default Story 1`] 
         >
           Title
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -165,7 +165,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Default Story 1`] 
         >
           Category
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -182,7 +182,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Default Story 1`] 
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -220,7 +220,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
       </th>
     </tr>
   </thead>
-
+   
   <tbody>
     <tr
       data-tid="row-0"
@@ -235,7 +235,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -264,7 +264,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -281,7 +281,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -302,7 +302,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -331,7 +331,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -348,7 +348,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -369,7 +369,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -398,7 +398,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -415,7 +415,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -436,7 +436,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -465,7 +465,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -482,7 +482,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -503,7 +503,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -532,7 +532,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -549,7 +549,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -570,7 +570,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -599,7 +599,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -616,7 +616,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -637,7 +637,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -666,7 +666,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -683,7 +683,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -704,7 +704,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -733,7 +733,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -750,7 +750,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -771,7 +771,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -800,7 +800,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -817,7 +817,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -838,7 +838,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -867,7 +867,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -884,7 +884,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -905,7 +905,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -934,7 +934,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -951,7 +951,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -972,7 +972,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -1001,7 +1001,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1018,7 +1018,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1039,7 +1039,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -1068,7 +1068,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1085,7 +1085,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1106,7 +1106,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -1135,7 +1135,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1152,7 +1152,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1173,7 +1173,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -1202,7 +1202,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1219,7 +1219,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1240,7 +1240,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -1269,7 +1269,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1286,7 +1286,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1307,7 +1307,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -1336,7 +1336,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1353,7 +1353,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1374,7 +1374,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -1403,7 +1403,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1420,7 +1420,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1441,7 +1441,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -1470,7 +1470,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1487,7 +1487,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1508,7 +1508,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Title
         </span>
-
+         
         <a
           class="rpl-link rpl-text-link rpl-search-results-table__value"
           data-print-url="www.google.com"
@@ -1537,7 +1537,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Number
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1554,7 +1554,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
         >
           Year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1592,7 +1592,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable No Column Config 1
       </th>
     </tr>
   </thead>
-
+   
   <tbody>
     <tr
       data-tid="row-0"
@@ -1607,7 +1607,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable No Column Config 1
         >
           firstColumn
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1624,7 +1624,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable No Column Config 1
         >
           secondColumn
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >
@@ -1641,7 +1641,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable No Column Config 1
         >
           year
         </span>
-
+         
         <span
           class="rpl-search-results-table__value"
         >

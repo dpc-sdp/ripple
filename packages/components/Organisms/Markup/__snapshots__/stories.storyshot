@@ -10,7 +10,7 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
     <h2>
       Embedded document
     </h2>
-
+     
     <article
       class="embedded-entity embedded-entity--media embedded-entity--media--document"
     >
@@ -32,8 +32,8 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
               <span
                 class="file--title"
               >
-
-                    Detailed Guide on the mandatory IR management criteria
+                
+                    Detailed Guide on the mandatory IR management criteria 
               </span>
               <span
                 class="file--type"
@@ -50,53 +50,53 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
         </div>
       </article>
     </article>
-
+     
     <h2>
       Link
     </h2>
-
+     
     <p>
-
-          A paragraph of
+      
+          A paragraph of 
       <strong>
         text
       </strong>
        with a
-
+          
       <a
         href="https://vic.gov.au"
       >
         link
       </a>
       .
-
+        
     </p>
-
+     
     <h2>
       Button
     </h2>
-
+     
     <a
       class="button"
       href="http://www.google.com"
     >
       go to google
     </a>
-
+     
     <h2>
       Quotation
     </h2>
-
+     
     <blockquote
       class="quotation"
     >
       <p>
-
+        
             Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis
             dolorpo rrorem reptaep elenis net.
-
+          
       </p>
-
+       
       <footer>
         <cite>
           <span
@@ -105,7 +105,7 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
             Her Excellency the Honourable Linda Dessau AC
           </span>
           <br />
-
+           
           <span
             class="quotation__author-title"
           >
@@ -114,11 +114,11 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
         </cite>
       </footer>
     </blockquote>
-
+     
     <h2>
       Image
     </h2>
-
+     
     <figure
       class="caption caption-article embedded-entity embedded-entity--media embedded-entity--media--image"
       role="group"
@@ -140,7 +140,7 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
           </div>
         </article>
       </article>
-
+       
       <figcaption>
         caption
       </figcaption>
@@ -189,17 +189,17 @@ exports[`RippleStoryshots Organisms/Markup Markup/Embedded document 1`] = `
         href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
       >
         <!---->
-
+         
         <div
           class="rpl-document-link__info"
         >
           <span
             class="rpl-document-link__title"
           >
-
-                  Detailed Guide on the mandatory IR management criteria
+            
+                  Detailed Guide on the mandatory IR management criteria 
           </span>
-
+           
           <div
             class="rpl-document-link__meta"
           >
@@ -208,7 +208,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Embedded document 1`] = `
             >
               docx
             </span>
-
+             
             <span
               class="rpl-document-link__size rpl-document-link__size--seperator"
             >
@@ -217,7 +217,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Embedded document 1`] = `
           </div>
         </div>
       </a>
-
+       
       <!---->
     </figure>
   </div>
@@ -245,12 +245,12 @@ exports[`RippleStoryshots Organisms/Markup Markup/Embedded video 1`] = `
           width="854"
         />
       </div>
-
+       
       <div
         class="rpl-embed-video__link"
       >
         <!---->
-
+         
         <a
           class="rpl-link rpl-text-link"
           data-print-url="/media/1665"
@@ -269,7 +269,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Embedded video 1`] = `
           </span>
         </a>
       </div>
-
+       
       <div
         class="rpl-embed-video__transcript"
       >
@@ -330,7 +330,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Image 1`] = `
           </div>
         </article>
       </article>
-
+       
       <figcaption>
         caption
       </figcaption>
@@ -347,13 +347,13 @@ exports[`RippleStoryshots Organisms/Markup Markup/Link 1`] = `
     class="rpl-markup__inner"
   >
     <p>
-
-            A paragraph of
+      
+            A paragraph of 
       <strong>
         text
       </strong>
        with a
-
+            
       <a
         class="rpl-link rpl-text-link"
         data-print-url="#"
@@ -372,7 +372,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Link 1`] = `
         </span>
       </a>
        and
-
+            
       <a
         class="rpl-link rpl-text-link"
         data-print-url="https://vic.gov.au"
@@ -388,7 +388,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Link 1`] = `
               <span>
                 external
               </span>
-
+               
               <span
                 class="rpl-text-icon__group"
               >
@@ -400,7 +400,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Link 1`] = `
         </span>
       </a>
       .
-
+          
     </p>
   </div>
 </div>
@@ -417,12 +417,12 @@ exports[`RippleStoryshots Organisms/Markup Markup/Quotation 1`] = `
       class="quotation"
     >
       <p>
-
+        
             Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis
             dolorpo rrorem reptaep elenis net.
-
+          
       </p>
-
+       
       <footer>
         <cite>
           <span
@@ -431,7 +431,7 @@ exports[`RippleStoryshots Organisms/Markup Markup/Quotation 1`] = `
             Her Excellency the Honourable Linda Dessau AC
           </span>
           <br />
-
+           
           <span
             class="quotation__author-title"
           >
@@ -461,40 +461,40 @@ exports[`RippleStoryshots Organisms/Markup Markup/Tables 1`] = `
           <caption>
             This is the table caption
           </caption>
-
+           
           <thead>
             <tr>
               <th>
                 Column 1
               </th>
-
+               
               <th>
                 Column 2
               </th>
-
+               
               <th>
                 Column 3 has quite a long heading
               </th>
-
+               
               <th>
                 Column 4
                 <br />
-
+                
           $000
               </th>
             </tr>
           </thead>
-
+           
           <tbody>
             <tr>
               <td>
                 Row 1 content
               </td>
-
+               
               <td>
                 row 1 content
               </td>
-
+               
               <td>
                 <p>
                   asymmetrical beard. Waistcoat photo booth synth drinking vinegar gastropub. Tilde pork belly gastropub, tacos
@@ -502,43 +502,43 @@ exports[`RippleStoryshots Organisms/Markup Markup/Tables 1`] = `
                   Sustainable woke pour-over man braid lyft lumbersexual crucifix iPhone, franzen subway tile four dollar toast
                   hoodie artisan. Retro hoodie occupy waistcoat narwhal. Succulents portland squid narwhal small batch
                 </p>
-
+                 
                 <p>
                   asymmetrical beard. Waistcoat photo booth synth drinking vinegar gastropub. Tilde pork belly gastropub, tacos
                   heirloom cold-pressed trust fund cred iPhone listicle succulents pok pok twee. Hell of vinyl tofu portland.
                   Sustainable woke pour-over man braid lyft lumbersexual crucifix iPhone, franzen subway tile four dollar toast
                   hoodie artisan. Retro hoodie occupy waistcoat narwhal. Succulents portland squid narwhal small batch.
                 </p>
-
+                 
                 <ul>
                   <li>
                     sometimes tables have lists
                   </li>
-
+                   
                   <li>
                     sometimes tables have lists
                   </li>
-
+                   
                   <li>
                     sometimes tables have lists
                   </li>
                 </ul>
               </td>
-
+               
               <td>
                 1,234,567
               </td>
             </tr>
-
+             
             <tr>
               <td>
                 Row 2 content
               </td>
-
+               
               <td>
                 row 2 content
               </td>
-
+               
               <td>
                 <p>
                   asymmetrical beard. Waistcoat photo booth synth drinking vinegar gastropub. Tilde pork belly gastropub, tacos
@@ -547,21 +547,21 @@ exports[`RippleStoryshots Organisms/Markup Markup/Tables 1`] = `
                   hoodie artisan. Retro hoodie occupy waistcoat narwhal. Succulents portland squid narwhal small batch.
                 </p>
               </td>
-
+               
               <td>
                 384
               </td>
             </tr>
-
+             
             <tr>
               <td>
                 Row 3 content
               </td>
-
+               
               <td>
                 row 3 content
               </td>
-
+               
               <td>
                 <p>
                   asymmetrical beard. Waistcoat photo booth synth drinking vinegar gastropub. Tilde pork belly gastropub, tacos
@@ -570,25 +570,25 @@ exports[`RippleStoryshots Organisms/Markup Markup/Tables 1`] = `
                   hoodie artisan. Retro hoodie occupy waistcoat narwhal. Succulents portland squid narwhal small batch.
                 </p>
               </td>
-
+               
               <td>
                 568,658
               </td>
             </tr>
-
+             
             <tr>
               <td>
                 x
               </td>
-
+               
               <td>
                 y
               </td>
-
+               
               <td>
                 z
               </td>
-
+               
               <td>
                 zz
               </td>

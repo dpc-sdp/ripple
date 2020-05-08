@@ -20,7 +20,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
           class="rpl-card-navigation-featured__image"
           src="https://placehold.it/818x497"
         />
-
+         
         <div
           class="rpl-card-navigation-featured__meta_and_title rpl-card-navigation-featured__meta_and_title--image rpl-card-navigation-featured__meta_and_title--summary"
         >
@@ -32,14 +32,14 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
             >
               23 March
             </span>
-
+             
             <span
               class="rpl-card-navigation-featured__tag"
             >
               Community
             </span>
           </div>
-
+           
           <h2
             class="rpl-card-navigation-featured__title"
           >
@@ -49,13 +49,13 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
           </h2>
         </div>
       </div>
-
+       
       <p
         class="rpl-card-navigation-featured__summary rpl-card-navigation-featured__summary--image"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
       </p>
-
+       
       <!---->
     </a>
   </li>
@@ -76,7 +76,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
           src="https://placehold.it/818x497"
         />
       </div>
-
+       
       <div
         class="rpl-card-content__details"
       >
@@ -91,27 +91,27 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
             >
               23 March
             </div>
-
+             
             <div
               class="rpl-card-image-navigation__tag"
             >
               Community
             </div>
           </div>
-
+           
           <h2
             class="rpl-card-image-navigation__title"
           >
             This heading could wrap over two lines
           </h2>
-
+           
           <p
             class="rpl-card-image-navigation__summary"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
           </p>
         </div>
-
+         
         <div
           class="rpl-card-content__link"
         >
@@ -119,7 +119,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
             <span>
               Call to
             </span>
-
+             
             <span
               class="rpl-text-icon__group"
             >
@@ -129,7 +129,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
           </span>
         </div>
       </div>
-
+       
       <!---->
     </a>
   </li>
@@ -150,7 +150,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
           src="https://placehold.it/818x497"
         />
       </div>
-
+       
       <div
         class="rpl-card-content__details"
       >
@@ -165,27 +165,27 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
             >
               23 March
             </div>
-
+             
             <div
               class="rpl-card-image-navigation__tag"
             >
               Community
             </div>
           </div>
-
+           
           <h2
             class="rpl-card-image-navigation__title"
           >
             This heading could wrap over two lines
           </h2>
-
+           
           <p
             class="rpl-card-image-navigation__summary"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
           </p>
         </div>
-
+         
         <div
           class="rpl-card-content__link"
         >
@@ -193,7 +193,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
             <span>
               Call to
             </span>
-
+             
             <span
               class="rpl-text-icon__group"
             >
@@ -203,7 +203,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
           </span>
         </div>
       </div>
-
+       
       <!---->
     </a>
   </li>
@@ -219,7 +219,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
   >
     Latest News
   </h2>
-
+   
   <ul
     class="rpl-news-listing__items"
   >
@@ -232,13 +232,13 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         >
           26 March 2018
         </span>
-
+         
         <span
           class="rpl-news-listing__item-tag"
         >
           Event
         </span>
-
+         
         <h3
           class="rpl-news-listing__item-heading"
         >
@@ -257,7 +257,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                   <span>
                     Australian Indigenous Tourism
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -280,13 +280,13 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         >
           25 March 2018
         </span>
-
+         
         <span
           class="rpl-news-listing__item-tag"
         >
           Community
         </span>
-
+         
         <h3
           class="rpl-news-listing__item-heading"
         >
@@ -305,7 +305,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                   <span>
                     Respect Women: Call it
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -328,13 +328,13 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         >
           24 March 2018
         </span>
-
+         
         <span
           class="rpl-news-listing__item-tag"
         >
           Arts &amp; Culture
         </span>
-
+         
         <h3
           class="rpl-news-listing__item-heading"
         >
@@ -353,7 +353,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                   <span>
                     NGV
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -376,13 +376,13 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         >
           22 February 2018
         </span>
-
+         
         <span
           class="rpl-news-listing__item-tag"
         >
           Sports
         </span>
-
+         
         <h3
           class="rpl-news-listing__item-heading"
         >
@@ -401,7 +401,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                   <span>
                     The World Games Facilities
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -424,13 +424,13 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         >
           21 February 2018
         </span>
-
+         
         <span
           class="rpl-news-listing__item-tag"
         >
           Law &amp; Justice
         </span>
-
+         
         <h3
           class="rpl-news-listing__item-heading"
         >
@@ -449,7 +449,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                   <span>
                     Access to Justice
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >
@@ -472,13 +472,13 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         >
           19 February 2018
         </span>
-
+         
         <span
           class="rpl-news-listing__item-tag"
         >
           Family Violence
         </span>
-
+         
         <h3
           class="rpl-news-listing__item-heading"
         >
@@ -497,7 +497,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                   <span>
                     New Bendigo Refuge for Families Escaping Family
                   </span>
-
+                   
                   <span
                     class="rpl-text-icon__group"
                   >

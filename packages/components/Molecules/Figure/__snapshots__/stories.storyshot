@@ -9,14 +9,14 @@ exports[`RippleStoryshots Molecules/Figure Default 1`] = `
     class="rpl-figure__image"
     src="https://placehold.it/800x400"
   />
-
+   
   <figcaption>
     <span
       class="rpl-figure__caption"
     >
       1.2 Caption to go here. This should be restricted in characters.
     </span>
-
+     
     <!---->
   </figcaption>
 </figure>

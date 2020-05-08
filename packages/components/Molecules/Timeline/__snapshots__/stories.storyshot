@@ -9,7 +9,7 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
   >
     Timeline Heading
   </h2>
-
+   
   <ol
     class="rpl-timeline__list"
   >
@@ -21,12 +21,12 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
         class="rpl-timeline__item-image"
         src="https://placehold.it/320x240"
       />
-
+       
       <h3
         class="rpl-timeline__item-title"
       >
         <!---->
-
+         
         <a
           class="rpl-link"
           data-print-url="#"
@@ -39,13 +39,13 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
           </span>
         </a>
       </h3>
-
+       
       <p
         class="rpl-timeline__item-subtitle"
       >
         01 January 2019 to 01 December 2020
       </p>
-
+       
       <p
         class="rpl-timeline__item-description"
       >
@@ -56,23 +56,23 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
       class="rpl-timeline__list-item rpl-timeline__list-item--multi"
     >
       <!---->
-
+       
       <h3
         class="rpl-timeline__item-title"
       >
         <span>
           Timeline item 2
         </span>
-
+         
         <!---->
       </h3>
-
+       
       <p
         class="rpl-timeline__item-subtitle"
       >
         Contains title and custom subtitle.
       </p>
-
+       
       <!---->
     </li>
     <li
@@ -83,23 +83,23 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
         class="rpl-timeline__item-image"
         src="https://placehold.it/88x88"
       />
-
+       
       <h3
         class="rpl-timeline__item-title"
       >
         <span>
           Timeline item 3
         </span>
-
+         
         <!---->
       </h3>
-
+       
       <p
         class="rpl-timeline__item-subtitle"
       >
         01 to 15 January
       </p>
-
+       
       <p
         class="rpl-timeline__item-description"
       >
@@ -110,23 +110,23 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
       class="rpl-timeline__list-item rpl-timeline__list-item--multi"
     >
       <!---->
-
+       
       <h3
         class="rpl-timeline__item-title"
       >
         <span>
           Timeline item 4
         </span>
-
+         
         <!---->
       </h3>
-
+       
       <p
         class="rpl-timeline__item-subtitle"
       >
         01 March
       </p>
-
+       
       <p
         class="rpl-timeline__item-description"
       >
@@ -141,12 +141,12 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
         class="rpl-timeline__item-image"
         src="https://placehold.it/88x88"
       />
-
+       
       <h3
         class="rpl-timeline__item-title"
       >
         <!---->
-
+         
         <a
           class="rpl-link"
           data-print-url="https://www.google.com"
@@ -159,9 +159,9 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
           </span>
         </a>
       </h3>
-
+       
       <!---->
-
+       
       <p
         class="rpl-timeline__item-description"
       >

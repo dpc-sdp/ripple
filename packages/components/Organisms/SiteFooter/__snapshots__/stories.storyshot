@@ -9,13 +9,13 @@ exports[`RippleStoryshots Organisms/SiteFooter Acknowledgement 1`] = `
     class="rpl-acknowledgement__flag"
     src="./assets/images/aboriginal-flag.png"
   />
-
+   
   <img
     alt="Torres Strait Islander flag"
     class="rpl-acknowledgement__flag"
     src="./assets/images/torres-strait-islander-flag.png"
   />
-
+   
   <div
     class="rpl-acknowledgement__text"
   >
@@ -51,10 +51,10 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               Your Services
             </span>
           </a>
-
+           
           <!---->
         </h2>
-
+         
         <ul
           class="rpl-footer-nav__submenu-item rpl-accordion-enter rpl-accordion-enter-active"
           style=""
@@ -221,10 +221,10 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               About VIC Government
             </span>
           </a>
-
+           
           <!---->
         </h2>
-
+         
         <ul
           class="rpl-footer-nav__submenu-item rpl-accordion-enter rpl-accordion-enter-active"
           style=""
@@ -391,10 +391,10 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               News
             </span>
           </a>
-
+           
           <!---->
         </h2>
-
+         
         <!---->
       </li>
       <li
@@ -414,10 +414,10 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               Events
             </span>
           </a>
-
+           
           <!---->
         </h2>
-
+         
         <!---->
       </li>
       <li
@@ -437,10 +437,10 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
               Connect with us
             </span>
           </a>
-
+           
           <!---->
         </h2>
-
+         
         <ul
           class="rpl-footer-nav__submenu-item rpl-accordion-enter rpl-accordion-enter-active"
           style=""
@@ -487,7 +487,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         </ul>
       </li>
     </ul>
-
+     
     <div
       class="rpl-acknowledgement rpl-site-footer__acknowledgement"
     >
@@ -496,27 +496,27 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         class="rpl-acknowledgement__flag"
         src="./assets/images/aboriginal-flag.png"
       />
-
+       
       <img
         alt="Torres Strait Islander flag"
         class="rpl-acknowledgement__flag"
         src="./assets/images/torres-strait-islander-flag.png"
       />
-
+       
       <div
         class="rpl-acknowledgement__text"
       >
         The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.
       </div>
     </div>
-
+     
     <div
       class="rpl-site-footer__caption"
     >
       Image credit: This caption is used to describe the image in the hero banner above.
     </div>
   </div>
-
+   
   <div
     class="rpl-site-footer__bottom"
   >
@@ -608,7 +608,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
             </a>
           </li>
         </ul>
-
+         
         <div
           class="rpl-links-and-copyright__copyright"
         >
@@ -616,7 +616,7 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         </div>
       </div>
     </div>
-
+     
     <div
       class="rpl-site-footer__logos"
     >

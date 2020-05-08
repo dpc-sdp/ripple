@@ -18,8 +18,6 @@ module.exports = {
           data.scripts['start:default'] = `nuxt start --modern=client`
           data.scripts['start:win32'] = `nuxt start --modern=client`
           data.scripts['start:build'] = `nuxt build --modern=client && nuxt start --modern=client`
-          // TODO: Dockerfile need to be updated https://github.com/dpc-sdp/ripple_platform/pull/7
-          // Each existing project need to update Dockerfile according to above PR.
           return data
         }
       }

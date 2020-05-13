@@ -41,14 +41,9 @@ import {
   RplCardEmergencyContact,
   RplCardBox,
   RplCardHonourRoll,
-  RplCardProfile
+  RplCardProfile,
+  RplCardCarousel
 } from '@dpc-sdp/ripple-card'
-```
-
-## Import for client-only components
-
-```js
-import { RplCardCarousel } from '@dpc-sdp/ripple-card/no-ssr'
 ```
 
 --------------------------------------------------------------------------------

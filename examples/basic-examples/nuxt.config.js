@@ -34,6 +34,7 @@ export default {
     '@/assets/_custom.scss'
   ],
   build: {
+    extractCSS: true,
     extend (config, { isDev, isClient }) {
       if (isDev) {
         // For debugging in dev mode

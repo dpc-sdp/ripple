@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-list-group --save
 ## Import
 
 ```js
-import { RplListGroup } from '@dpc-sdp/ripple-list-group'
+import { RplListGroup, RplListGroupItem } from '@dpc-sdp/ripple-list-group'
 ```
 
 --------------------------------------------------------------------------------
@@ -41,4 +41,5 @@ See [Storybook/Molecules/ListGroup/With components](https://ripple.sdp.vic.gov.a
 ## License
 
 Licensed under the Apache-2.0 License.
+
 <!-- /GENERATED_DOCS -->

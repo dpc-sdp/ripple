@@ -41,13 +41,13 @@ import { RplSearchForm } from '@dpc-sdp/ripple-search'
 
 See [Storybook/Molecules/Search/Search Form](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--search-form).
 
-See [Storybook/Molecules/Search/Search Result](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--search-result).
+See [Storybook/Molecules/Search/Legacy search results/Search Result](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search-legacy-search-results--search-result).
 
-See [Storybook/Molecules/Search/Search Results](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--search-results).
+See [Storybook/Molecules/Search/Legacy search results/Search Results](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search-legacy-search-results--search-results).
 
-See [Storybook/Molecules/Search/Card Search Results](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--card-search-results).
+See [Storybook/Molecules/Search/Legacy search results/Card Search Results](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search-legacy-search-results--card-search-results).
 
-See [Storybook/Molecules/Search/Grant Search Results](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search--grant-search-results).
+See [Storybook/Molecules/Search/Legacy search results/Grant Search Results](https://ripple.sdp.vic.gov.au/?path=/story/molecules-search-legacy-search-results--grant-search-results).
 
 --------------------------------------------------------------------------------
 

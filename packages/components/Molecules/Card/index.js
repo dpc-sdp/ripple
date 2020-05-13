@@ -9,6 +9,7 @@ import RplCardEmergencyContact from './CardEmergencyContact.vue'
 import RplCardBox from './CardBox.vue'
 import RplCardHonourRoll from './CardHonourRoll.vue'
 import RplCardProfile from './CardProfile.vue'
+import RplCardCarousel from './CardCarousel.vue'
 
 export { RplCardImageNavigation }
 export { RplCardNavigation }
@@ -21,4 +22,5 @@ export { RplCardEmergencyContact }
 export { RplCardBox }
 export { RplCardHonourRoll }
 export { RplCardProfile }
+export { RplCardCarousel }
 export default RplCardNavigation

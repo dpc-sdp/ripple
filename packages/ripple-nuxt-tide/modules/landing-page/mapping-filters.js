@@ -141,8 +141,11 @@ module.exports = {
     })
   },
 
-  embeddedSearchPlaceholder: (contentType) => {
-    if (contentType === 'none') {
+  embeddedSearchPlaceholder: (search) => {
+    const contentType = search.field_paragraph_search_block
+    if (contentType === 'custom') {
+      return search.field_paragraph_search_ph
+    } else if (contentType === 'none') {
       return 'Search all'
     } else if (contentType.endsWith('s')) {
       return `Search all ${contentType}`

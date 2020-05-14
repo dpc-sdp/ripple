@@ -85,10 +85,11 @@ module.exports = {
         component: 'rpl-search-form',
         props: {
           'searchPlaceholder': {
-            field: 'field_paragraph_search_block',
             filters: ['embeddedSearchPlaceholder']
           },
-          'type': 'field_paragraph_search_block'
+          'type': 'field_paragraph_search_block',
+          'searchTarget': 'field_paragraph_search_url',
+          'linkTarget': 'field_paragraph_search_target'
         },
         class: ['rpl-site-constrain--on-all']
       }

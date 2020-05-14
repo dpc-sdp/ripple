@@ -6,7 +6,7 @@
     <div class="rpl-search-form__field" v-if="textSearch">
       <label>
         <span class="rpl-search-form__label-text">{{ searchInputLabel }}</span>
-        <input v-model="searchInput" ref="searchinput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keydown.enter="submitSearch()" />
+        <input v-model="searchInput" ref="searchinput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keypress.enter="submitSearch()" />
       </label>
       <button @click="submitSearch()" class="rpl-search-form__btn">
         <span :class="{'rpl-visually-hidden' : buttonHiddenLabel}">{{ buttonLabel }}</span>

@@ -133,7 +133,7 @@ export default {
       let openInNewWindow = false
       switch (contentType) {
         case 'custom':
-          path = componentData.searchTarget.replace('[SEARCH-KEYWORDS]', encodeURIComponent(searchInput.replace(/\s/g, '+')))
+          path = componentData.searchTarget.replace('[SEARCH-KEYWORDS]', encodeURIComponent(searchInput))
           isInternalUrl = !isExternalUrl(path, this.rplOptions.hostname)
           openInNewWindow = (componentData.linkTarget === true)
           break

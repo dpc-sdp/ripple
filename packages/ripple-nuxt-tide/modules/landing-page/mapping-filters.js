@@ -152,6 +152,10 @@ module.exports = {
     } else {
       return `Search all ${contentType}s`
     }
+  },
+
+  embeddedSearchTheme: (search) => {
+    return 'solid'
   }
 
 }

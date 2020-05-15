@@ -89,7 +89,10 @@ module.exports = {
           },
           'type': 'field_paragraph_search_block',
           'searchTarget': 'field_paragraph_search_url',
-          'linkTarget': 'field_paragraph_search_target'
+          'linkTarget': 'field_paragraph_search_target',
+          'theme': {
+            filters: ['embeddedSearchTheme']
+          }
         },
         class: ['rpl-site-constrain--on-all']
       }

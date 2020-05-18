@@ -1,6 +1,8 @@
 module.exports = {
   include: {
     mediaBase: [],
-    mediaEmbeddedVideo: []
+    mediaEmbeddedVideo: [
+      'thumbnail'
+    ]
   }
 }

@@ -9,5 +9,6 @@ export { RplFormEventBus }
 export { VueFormGenerator }
 export { RplCheckbox }
 export { RplSelect }
+export { RplForm }
 
 export default RplForm

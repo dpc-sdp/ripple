@@ -44,7 +44,7 @@ import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplImageGalleryModal, RplFullscreenImage } from '@dpc-sdp/ripple-image-gallery'
 
 export default {
-  name: 'RplPublicationImage',
+  name: 'RplComplexImage',
   components: {
     RplIcon,
     RplTextIcon,

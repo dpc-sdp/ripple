@@ -353,7 +353,7 @@ module.exports = {
       },
 
       'paragraph--complex_image': {
-        component: 'rpl-publication-image',
+        component: 'rpl-complex-image',
         props: {
           'title': 'field_complex_image_title',
           'source': 'field_complex_image_source',

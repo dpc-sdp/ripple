@@ -143,6 +143,15 @@ export const tide = (axios, site, config) => ({
     return config && config.modules && config.modules[checkForModule] === 1
   },
 
+  /**
+   * Get module config
+   * @param {String} moduleName name of module
+   * @returns {Object}
+   */
+  getModuleConfig: function (moduleName) {
+    return config && config[moduleName]
+  },
+
   // TODO: this method need to be reviewed when we do SDPA-585.
   // So it can support without tide_site enabled.
   getSiteData: async function (headersConfig = {}, siteId = null) {

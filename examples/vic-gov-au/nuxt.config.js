@@ -145,6 +145,10 @@ export default {
       alert: 1,
       gtm: 1
     },
+    profile: {
+      route: '/victorian-honour-roll-of-women',
+      returnText: 'See all inductees'
+    },
     gtm: {
       // Set Google Tag Manager ID here
       id: process.env.GTM_ID

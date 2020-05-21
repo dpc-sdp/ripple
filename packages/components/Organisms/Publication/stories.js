@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/vue'
-import RplPublicationPagination from './PublicationPagination.vue'
 import RplPublicationDownloadPrint from './PublicationDownloadPrint.vue'
 import RplPublicationAuthorInformation from './PublicationAuthorInformation.vue'
 import RplPublicationImage from './PublicationImage.vue'
@@ -13,30 +12,6 @@ import {
 
 storiesOf('Organisms/Publication', module)
   .addDecorator(withKnobs)
-  .add('Publication Pagination', () => ({
-    components: { RplPublicationPagination },
-    template: `<rpl-publication-pagination :previousLink="previousLink" :previousText="previousText" :previousDescription="previousDescription" :nextLink="nextLink" :nextText="nextText" :nextDescription="nextDescription" />`,
-    props: {
-      previousLink: {
-        default: text('Previous Link', '#')
-      },
-      previousText: {
-        default: text('Previous Text', 'Previous')
-      },
-      previousDescription: {
-        default: text('Previous Description', 'Previous page title can wrap over two lines')
-      },
-      nextLink: {
-        default: text('Next Link', '#')
-      },
-      nextText: {
-        default: text('Next Text', 'Next')
-      },
-      nextDescription: {
-        default: text('Next Description', 'Next page title can wrap over two lines')
-      }
-    }
-  }))
   .add('Publication Download Print', () => ({
     components: { RplPublicationDownloadPrint },
     template: `<rpl-publication-download-print :links="links" :printPage="printPage" :printLink="printLink" @publicationPrint="print" @publicationDownload="download" />`,

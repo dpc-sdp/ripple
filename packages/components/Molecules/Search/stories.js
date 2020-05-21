@@ -311,19 +311,39 @@ storiesOf('Molecules/Search', module)
         @search="searchEvent"
       />
     `,
-    data () {
-      return {
-        title: text('Title', 'Search results'),
-        subtitle: text('Subtitle', ''),
-        searchPlaceholder: text('Search Placeholder', 'Enter keywords'),
-        prefillSearchTerm: text('Prefilled Search Term', 'Bananas'),
-        searchInputLabel: text('Search Input Label', 'Search for'),
-        buttonLabel: text('Button Label', 'Search'),
-        buttonHiddenLabel: boolean('Button Hidden Label', true),
-        autoFocus: boolean('Auto Focus', false),
-        textSearch: boolean('Text Search', true),
-        expandFilters: boolean('Expand Filters', false),
-        filterForm: object('Filter Form', {
+    props: {
+      title: {
+        default: text('Title', 'Search results')
+      },
+      subtitle: {
+        default: text('Subtitle', '')
+      },
+      searchPlaceholder: {
+        default: text('Search Placeholder', 'Enter keywords')
+      },
+      prefillSearchTerm: {
+        default: text('Prefilled Search Term', 'Bananas')
+      },
+      searchInputLabel: {
+        default: text('Search Input Label', 'Search for')
+      },
+      buttonLabel: {
+        default: text('Button Label', 'Search')
+      },
+      buttonHiddenLabel: {
+        default: boolean('Button Hidden Label', true)
+      },
+      autoFocus: {
+        default: boolean('Auto Focus', false)
+      },
+      textSearch: {
+        default: boolean('Text Search', true)
+      },
+      expandFilters: {
+        default: boolean('Expand Filters', false)
+      },
+      filterForm: {
+        default: () => object('Filter Form', {
           tideId: 'tide_search_form',
           model: {
             topic: []
@@ -331,10 +351,10 @@ storiesOf('Molecules/Search', module)
           schema: {
             fields: [
               {
-                type: 'rplchecklist',
+                type: 'rplselect',
                 label: 'Select a topic',
                 model: 'topic',
-                values: ['Topic A', 'Topic B', 'Topic C', 'Topic D'],
+                values: [{ id: 'topic_a', name: 'Topic A' }, { id: 'topic_b', name: 'Topic B' }, { id: 'topic_c', name: 'Topic C' }, { id: 'topic_d', name: 'Topic D' }],
                 placeholder: 'Select a topic'
               },
               {
@@ -349,15 +369,19 @@ storiesOf('Molecules/Search', module)
             validateAfterChanged: true
           },
           formState: {}
-        }),
-        filterText: text('Filter Text', 'Refine search'),
-        theme: select('Theme', { light: 'light', dark: 'dark' }, 'light'),
-        type: select(
-          'Type',
-          { 'two-cols': 'two-cols', default: 'default' },
-          'default'
-        ),
-        allowBlank: boolean('Allow Blank', false)
+        })
+      },
+      filterText: {
+        default: text('Filter Text', 'Refine search')
+      },
+      theme: {
+        default: select('Theme', { light: 'light', dark: 'dark', solid: 'solid' }, 'light')
+      },
+      type: {
+        default: select('Type', { 'two-cols': 'two-cols', default: 'default' }, 'default')
+      },
+      allowBlank: {
+        default: boolean('Allow Blank', false)
       }
     },
     methods: {

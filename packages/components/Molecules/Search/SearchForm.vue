@@ -1,12 +1,12 @@
 <template>
-  <div class="rpl-search-form" :class="{ 'rpl-search-form--dark': (theme === 'dark'), 'rpl-search-form--two-cols': (type === 'two-cols')  }">
+  <div class="rpl-search-form" :class="searchFormClass">
     <h1 v-if="title">{{ title }}</h1>
     <h3 v-if="subtitle">{{ subtitle }}</h3>
     <slot name="aboveFilters"></slot>
     <div class="rpl-search-form__field" v-if="textSearch">
       <label>
         <span class="rpl-search-form__label-text">{{ searchInputLabel }}</span>
-        <input v-model="searchInput" ref="searchinput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keydown.enter="submitSearch()" />
+        <input v-model="searchInput" ref="searchinput" class="rpl-search-form__input" type="text" :placeholder="searchPlaceholder" @keypress.enter="submitSearch()" />
       </label>
       <button @click="submitSearch()" class="rpl-search-form__btn">
         <span :class="{'rpl-visually-hidden' : buttonHiddenLabel}">{{ buttonLabel }}</span>
@@ -31,7 +31,7 @@
 
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
-import RplForm, { RplFormEventBus } from '@dpc-sdp/ripple-form'
+import { RplForm, RplFormEventBus } from '@dpc-sdp/ripple-form'
 let timeoutID
 
 export default {
@@ -109,6 +109,19 @@ export default {
         }
       }
       return count
+    },
+    searchFormClass () {
+      const classes = []
+      if (this.theme === 'dark') {
+        classes.push('rpl-search-form--dark')
+      }
+      if (this.theme === 'solid') {
+        classes.push('rpl-search-form--solid')
+      }
+      if (this.type === 'two-cols') {
+        classes.push('rpl-search-form--two-cols')
+      }
+      return classes
     }
   },
   watch: {
@@ -125,9 +138,10 @@ export default {
 
   $rpl-search-form-button-width: rem(28px) !default;
   $rpl-search-form-input-text-color: rpl-color('extra_dark_neutral') !default;
-  $rpl-search-form-input-margin: auto auto ($rpl-space-4) auto !default;
-  $rpl-search-form-input-margin-s: auto auto ($rpl-space-4) auto !default;
-  $rpl-search-form-input-margin-l: auto auto ($rpl-space-4) auto !default;
+  $rpl-search-form-input-margin: auto !default;
+  $rpl-search-form-input-margin-s: auto !default;
+  $rpl-search-form-input-margin-l: auto !default;
+  $rpl-search-form-show-filters-margin: $rpl-space-4 0 0 auto !default;
   $rpl-search-form--two-cols-col-padding-l: 0 0 0 rem(25px) !default;
   $rpl-search-form--two-cols-col-width-l: calc(50% - #{$rpl-space-4}) !default;
   $rpl-search-form-input-ruleset: (
@@ -153,6 +167,10 @@ export default {
   $rpl-search-form-show-filters-text-color: rpl-color('primary') !default;
   $rpl-search-form-search-button-text: $rpl-search-form-show-filters-ruleset !default;
   $rpl-search-form-search-button-text-color: rpl-color('primary') !default;
+  $rpl-search-form-solid-background-color: rpl-color('mid_neutral_2') !default;
+  $rpl-search-form-solid-field-background-color: rpl-color('white') !default;
+  $rpl-search-form-solid-field-border-color: 3px solid rpl-color('mid_neutral_1') !default;
+  $rpl-search-form-element-border-radius: rem(4px) !default;
 
   .rpl-search-form {
     $root: &;
@@ -172,6 +190,17 @@ export default {
 
     @include rpl_print_hidden;
 
+    &--solid {
+      background-color: $rpl-search-form-solid-background-color;
+      padding-top: $rpl-space * 8;
+      padding-bottom: $rpl-space * 8;
+
+      @include rpl_breakpoint('m') {
+        padding-top: $rpl-space * 13;
+        padding-bottom: $rpl-space * 13;
+      }
+    }
+
     h1 {
       @include rpl_typography_ruleset($rpl-search-form-heading-ruleset);
       color: $rpl-search-form-heading-color;
@@ -185,7 +214,7 @@ export default {
     }
 
     h3 {
-       @include rpl_typography_ruleset($rpl-search-form-sub-heading-ruleset);
+      @include rpl_typography_ruleset($rpl-search-form-sub-heading-ruleset);
     }
 
     &__btn {
@@ -266,6 +295,13 @@ export default {
         margin: $rpl-search-form-input-margin-l;
       }
 
+      #{$root}--solid & {
+        background-color: $rpl-search-form-solid-field-background-color;
+        padding: $rpl-space-4;
+        border: $rpl-search-form-solid-field-border-color;
+        border-radius: $rpl-search-form-element-border-radius;
+      }
+
       label {
         width: 100%;
       }
@@ -283,15 +319,19 @@ export default {
         @include rpl_breakpoint('l') {
           height: rem(3px);
         }
+
+        #{$root}--solid & {
+          display: none;
+        }
       }
     }
 
     &__show-filters {
       @include rpl_typography_ruleset($rpl-search-form-show-filters-ruleset);
       color: $rpl-search-form-show-filters-text-color;
+      margin: $rpl-search-form-show-filters-margin;
       background: transparent;
       border: 0;
-      margin-left: auto;
       display: block;
       cursor: pointer;
 

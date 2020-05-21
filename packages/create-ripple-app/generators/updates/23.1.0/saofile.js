@@ -11,10 +11,9 @@ module.exports = {
         type: 'modify',
         files: 'package.json',
         handler (data, filepath) {
-          data.sdp_version = '24.0.0'
-          // TODO: version should match the final released one.
-          // data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `1.9.0`
-          // data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.9.0`
+          data.sdp_version = '23.1.0'
+          data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `1.9.0`
+          data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.9.0`
           return data
         }
       },
@@ -49,6 +48,6 @@ module.exports = {
     return actions
   },
   async completed () {
-    console.log('Update to 24.0.0 complete!')
+    console.log('Update to 23.1.0 complete!')
   }
 }

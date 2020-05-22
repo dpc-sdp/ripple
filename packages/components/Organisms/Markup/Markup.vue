@@ -61,29 +61,30 @@ $rpl-markup-text-color: rpl-color('extra_dark_neutral') !default;
 $rpl-markup-link-color: rpl-color('primary') !default;
 
 $callout-text-color: rpl_color('extra_dark_neutral') !default;
-$callout-author-ruleset: (rem(20px), 1.2em, 'medium');
-$callout-mark-border: rem(4px) solid rpl_color('mid_neutral_2');
-$callout-padding: 0 0 0 ($rpl-space * 6);
-$callout-margin: ($rpl-space * 7) auto;
+$callout-author-ruleset: (rem(20px), 1.2em, 'medium') !default;
+$callout-mark-border: rem(4px) solid rpl_color('mid_neutral_2') !default;
+$callout-padding: 0 0 0 ($rpl-space * 6) !default;
+$callout-margin: ($rpl-space * 7) auto !default;
 
-$quotation-padding-xs: 0 0 0 ($rpl-space * 6);
-$quotation-padding-s: 0 0 0 ($rpl-space * 8);
-$quotation-text-ruleset: (rem(20px), 1.2em, 'medium');
-$quotation-text-color: rpl_color('extra_dark_neutral');
-$quotation-text-margin: ($rpl-space * 5) auto $rpl-space-2;
-$quotation-mark-border: rem(4px) solid rpl_color('mid_neutral_2');
-$quotation-mark-end-margin: auto auto (-$rpl-space-2) $rpl-space-2;
-$quotation-author-ruleset: (rem(12px), 1em, 'medium');
-$quotation-author-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%);
-$quotation-author-opacity: rpl_color('dark_neutral');
+$quotation-padding-xs: 0 0 0 ($rpl-space * 6) !default;
+$quotation-padding-s: 0 0 0 ($rpl-space * 8) !default;
+$quotation-text-ruleset: (rem(20px), 1.2em, 'medium') !default;
+$quotation-text-color: rpl_color('extra_dark_neutral') !default;
+$quotation-text-margin: ($rpl-space * 5) auto $rpl-space-2 !default;
+$quotation-mark-border: rem(4px) solid rpl_color('mid_neutral_2') !default;
+$quotation-mark-end-margin: auto auto (-$rpl-space-2) $rpl-space-2 !default;
+$quotation-author-ruleset: (rem(12px), 1em, 'medium')  !default;
+$quotation-author-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
+$quotation-author-opacity: rpl_color('dark_neutral') !default;
 
-$table-stripe-color: rpl-color('light_neutral');
-$table-border: 1px solid rpl-color('mid_neutral_1');
-$table-header-ruleset: ('s', 1em, 'bold');
-$table-padding: $rpl-space-4;
+$table-stripe-color: rpl-color('light_neutral') !default;
+$table-border: 1px solid rpl-color('mid_neutral_1') !default;
+$table-header-ruleset: ('s', 1em, 'bold') !default;
+$table-padding: $rpl-space-4 !default;
+$table-background-color: rpl-color('white') !default;
 
-$embedded-video-link-ruleset: (xs, 1em, 'semibold');
-$embedded-video-link-padding: $rpl-space-4 0;
+$embedded-video-link-ruleset: (xs, 1em, 'semibold') !default;
+$embedded-video-link-padding: $rpl-space-4 0 !default;
 $embedded-video-link-text-colour: rpl_color('primary') !default;
 $embedded-video-figcaption-ruleset: ('xxs', 1em, 'medium');
 $embedded-video-figcaption-color: rpl_color('dark_neutral') !default;
@@ -230,6 +231,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
 
       tbody {
         tr {
+          background-color: $table-background-color;
           &:nth-child(even) {
             background-color: $table-stripe-color;
           }

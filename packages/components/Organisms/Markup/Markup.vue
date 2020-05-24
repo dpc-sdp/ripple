@@ -209,6 +209,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
   .table-container {
     border: $table-border;
     border-radius: rem(4px);
+    background-color: $table-background-color;
     overflow: auto;
     width: 100%;
     -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes

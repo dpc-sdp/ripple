@@ -340,6 +340,9 @@ Then(`the promotion card titled {string} should contain the following:`, (title,
             if (column.ctatext !== undefined) {
               expect(card).to.contain.text(row[column.ctatext])
             }
+            if (column.topic !== undefined) {
+              expect(card).to.contain.text(row[column.topic])
+            }
           })
         }
       })

@@ -37,7 +37,7 @@ Feature: Landing page
 
     # Card Event carousel
     And there should be a card carousel titled "Latest items (Event)"
-    And the card carousel titled "Latest items (Event)" should have 9 items
+    # And the card carousel titled "Latest items (Event)" should have 9 items
     # Disabled as Event Carousel data is not stable.
     # And the card carousel titled "Latest items (Event)" should have the following items:
     #   | date                             | title                                                         | summary                                                                                                                                                                                                                                                    | address                                                              | link                                                         | linktext           |
@@ -60,8 +60,8 @@ Feature: Landing page
     # Card Promotion Automated
     And there should be a promotion card with the title "Demo Page"
     And the promotion card titled "Demo Page" should contain the following:
-       | title     | ctalink    | ctatext    |
-       | Demo Page | /demo-page | Read  more |
+       | title     | ctalink    | ctatext    | topic      |
+       | Demo Page | /demo-page | Read  more | Demo Topic |
 
     # Navigation Featured
     And there should be a navigation featured card with the title "Card Promotion"

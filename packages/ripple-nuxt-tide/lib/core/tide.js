@@ -41,7 +41,7 @@ export const tide = (axios, site, config) => ({
   // Build the axios config for Tide GET request
   _axiosConfig: function (headersConfig) {
     // axios config
-    let axiosTimeout = 4000
+    let axiosTimeout = 10000
 
     // Give more time in Circle CI test
     if (process.env.NODE_ENV === 'test' || process.env.TEST) {
@@ -331,7 +331,7 @@ export const tide = (axios, site, config) => ({
       // media entity
       case 'media':
         switch (pathData.bundle) {
-          case 'media--embedded_video':
+          case 'embedded_video':
             include = tideIncludeConfig.mediaBase
             include = include.concat(tideIncludeConfig.mediaEmbeddedVideo)
             break

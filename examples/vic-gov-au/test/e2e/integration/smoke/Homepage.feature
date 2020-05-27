@@ -18,7 +18,6 @@ Feature: Home Page
     And should verify the lighthouse scores
       | metric            | threshold |
       | performance       | 70        |
-      | accessibility     | 91        |
       | best-practices    | 79        |
       | seo               | 85        |
 

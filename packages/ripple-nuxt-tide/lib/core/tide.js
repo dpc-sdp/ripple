@@ -331,7 +331,7 @@ export const tide = (axios, site, config) => ({
       // media entity
       case 'media':
         switch (pathData.bundle) {
-          case 'media--embedded_video':
+          case 'embedded_video':
             include = tideIncludeConfig.mediaBase
             include = include.concat(tideIncludeConfig.mediaEmbeddedVideo)
             break

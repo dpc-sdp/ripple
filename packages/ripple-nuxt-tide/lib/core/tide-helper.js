@@ -78,3 +78,53 @@ export const getFormattedSize = (fileSize) => {
 export const stringToClass = (str) => {
   return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[^a-zA-Z0-9\s]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
 }
+
+/**
+ * Get a page head config, can be used in store tide/setPageHead.
+ * @param {Object} pageHead - Page head config.
+ * @param {string} pageHead.langcode - Page langcode.
+ * @param {string} pageHead.title - Page title.
+ * @param {string} pageHead.description - Page description.
+ * @param {string} pageHead.url - Page url.
+ * @param {string} pageHead.image - Social sharing image.
+ * @param {string} pageHead.imageAlt - Social sharing image alt text.
+ * @param {string} pageHead.siteSectionName - Page site section name.
+ * @param {string} pageHead.pageType - Page content type.
+ * @return {Object} pageHead, can be used in store tide/setPageHead.
+ */
+export const getPageHeadConfig = ({
+  langcode = 'en',
+  title,
+  description,
+  url,
+  image,
+  imageAlt,
+  siteSectionName = '',
+  pageType
+}) => {
+  return {
+    htmlAttrs: {
+      lang: langcode
+    },
+    title: title,
+    meta: [
+      { name: 'description', hid: 'description', content: description },
+      // Open Graph
+      { name: 'og:title', hid: 'og:title', content: title },
+      { name: 'og:description', hid: 'og:description', content: description },
+      { name: 'og:type', hid: 'og:type', content: 'website' },
+      { name: 'og:url', hid: 'og:url', content: url },
+      { name: 'og:image', hid: 'og:image', content: image },
+      // Twitter Card
+      { name: 'twitter:card', hid: 'twitter:card', content: 'summary' },
+      { name: 'twitter:site', hid: 'twitter:site', content: url },
+      { name: 'twitter:title', hid: 'twitter:title', content: title },
+      { name: 'twitter:description', hid: 'twitter:description', content: description },
+      { name: 'twitter:image', hid: 'twitter:image', content: image },
+      { name: 'twitter:image:alt', hid: 'hid:image:alt', content: imageAlt },
+      // Custom page meta
+      { name: 'sitesection', content: siteSectionName },
+      { name: 'content-type', content: pageType && pageType.replace('node--', '') }
+    ]
+  }
+}

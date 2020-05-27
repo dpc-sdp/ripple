@@ -41,7 +41,7 @@ export const tide = (axios, site, config) => ({
   // Build the axios config for Tide GET request
   _axiosConfig: function (headersConfig) {
     // axios config
-    let axiosTimeout = 4000
+    let axiosTimeout = 10000
 
     // Give more time in Circle CI test
     if (process.env.NODE_ENV === 'test' || process.env.TEST) {

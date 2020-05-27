@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
+<div
+  class="rpl-accordion"
+>
+  <h2
+    class="rpl-accordion__title-top"
+    id="accordion-set"
+  >
+    Accordion Set
+  </h2>
+   
+  <ul
+    class="rpl-accordion__list"
+  >
+    <li
+      class="rpl-accordion__list-item"
+    >
+      <h2
+        class="rpl-accordion__title"
+      >
+        <button
+          aria-controls="rpl-accordion-0"
+          aria-expanded="false"
+          class="rpl-accordion__button"
+        >
+          <span
+            class="rpl-accordion__button-text"
+          >
+            Accordion Item
+          </span>
+           
+          <!---->
+        </button>
+      </h2>
+       
+      <div
+        class="rpl-accordion__content"
+        id="rpl-accordion-0"
+        style="display: none;"
+      >
+        <div
+          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+        >
+          <div
+            class="rpl-markup__inner"
+          >
+            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="rpl-accordion__list-item"
+    >
+      <h2
+        class="rpl-accordion__title"
+      >
+        <button
+          aria-controls="rpl-accordion-1"
+          aria-expanded="false"
+          class="rpl-accordion__button"
+        >
+          <span
+            class="rpl-accordion__button-text"
+          >
+            Accordion Item
+          </span>
+           
+          <!---->
+        </button>
+      </h2>
+       
+      <div
+        class="rpl-accordion__content"
+        id="rpl-accordion-1"
+        style="display: none;"
+      >
+        <div
+          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+        >
+          <div
+            class="rpl-markup__inner"
+          >
+            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

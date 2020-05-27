@@ -31,7 +31,7 @@
               v-bind="headerComponent.data"
               :class="headerComponent.class"
               :key="headerComponent.id"
-              v-on="headerComponent.name === 'rpl-search-form' ? { search: ($event) => { return searchFunc($event, headerComponent.data.type)} } : {}"
+              v-on="headerComponent.name === 'rpl-search-form' ? { search: ($event) => { return searchFunc($event, headerComponent.data)} } : {}"
               v-if="headerComponent && headerComponent.component"
             ></component>
           </template>
@@ -65,25 +65,20 @@
 </template>
 
 <script>
-// Tide
-import RplAccordion from '@dpc-sdp/ripple-accordion'
-
 // App.
 import AppError from '../components/AppError'
 import AppSidebar from '../components/AppSidebar'
-import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 
 // Layout.
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
-
-// Banner.
+import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 import { RplHeroBanner, RplIntroBanner } from '@dpc-sdp/ripple-hero-banner'
 import { RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 
 import { anchorUtils } from '@dpc-sdp/ripple-nuxt-tide/lib/core/anchorlinks.js'
-import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { getAnchorLinkName, isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 
@@ -91,7 +86,6 @@ export default {
   components: {
     AppError,
     AppSidebar,
-    RplAccordion,
     RplHeroBanner,
     RplAcknowledgement,
     RplIntroBanner,
@@ -131,10 +125,18 @@ export default {
     }
   },
   methods: {
-    searchFunc (searchInput, contentType) {
+    searchFunc (searchInput, componentData) {
+      const contentType = componentData.type
       let path = ''
       let filters = ''
+      let isInternalUrl = true
+      let openInNewWindow = false
       switch (contentType) {
+        case 'custom':
+          path = componentData.searchTarget.replace('[SEARCH-KEYWORDS]', encodeURIComponent(searchInput))
+          isInternalUrl = !isExternalUrl(path, this.rplOptions.hostname)
+          openInNewWindow = (componentData.linkTarget === true)
+          break
         case 'event':
           path = '/whatson'
           break
@@ -146,7 +148,13 @@ export default {
           path = '/search'
           break
       }
-      searchPageRedirect(this.$router, path, searchInput, filters)
+      if (openInNewWindow) {
+        window.open(path, '_blank')
+      } else if (isInternalUrl) {
+        searchPageRedirect(this.$router, path, searchInput, filters)
+      } else {
+        window.location.href = path
+      }
     }
   },
   computed: {

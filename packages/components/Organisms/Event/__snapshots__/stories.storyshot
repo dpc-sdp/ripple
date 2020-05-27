@@ -1,0 +1,465 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
+<div
+  class="rpl-latest-events"
+>
+  <h2
+    class="rpl-latest-events__title"
+  >
+    Optional heading
+  </h2>
+   
+  <div
+    class="rpl-latest-events__list"
+  >
+    <div
+      class="rpl-latest-events__card"
+    >
+      <a
+        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+        data-print-url="#"
+        data-tid="latest-events-card"
+        href="#"
+      >
+        <div
+          class="rpl-card-content__image-wrapper"
+        >
+          <img
+            alt=""
+            class="rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
+        </div>
+         
+        <div
+          class="rpl-card-content__details"
+        >
+          <div
+            class="rpl-card-event__meta"
+          >
+            <div
+              class="rpl-card-event__date"
+            >
+              25 December 2018 to 05 January 2019
+            </div>
+          </div>
+           
+          <h2
+            class="rpl-card-event__title"
+          >
+            This is the headline of an event
+          </h2>
+           
+          <div
+            class="rpl-card-event__trim-wrapper"
+            style="max-height: none;"
+          >
+            <p
+              class="rpl-card-event__summary"
+            >
+              This event range occurs in 2018 and goes to 2019. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+            </p>
+          </div>
+           
+          <p
+            class="rpl-card-event__location"
+          >
+            <!---->
+            South Yarra
+          </p>
+           
+          <!---->
+        </div>
+         
+        <div
+          class="rpl-card-content__link"
+        >
+          <span>
+            <span>
+              See event
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               details
+              <!---->
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    <div
+      class="rpl-latest-events__card"
+    >
+      <a
+        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+        data-print-url="#"
+        data-tid="latest-events-card"
+        href="#"
+      >
+        <div
+          class="rpl-card-content__image-wrapper"
+        >
+          <img
+            alt=""
+            class="rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
+        </div>
+         
+        <div
+          class="rpl-card-content__details"
+        >
+          <div
+            class="rpl-card-event__meta"
+          >
+            <div
+              class="rpl-card-event__date"
+            >
+              09 to 10 May
+            </div>
+          </div>
+           
+          <h2
+            class="rpl-card-event__title"
+          >
+            This is the headline of an event
+          </h2>
+           
+          <div
+            class="rpl-card-event__trim-wrapper"
+            style="max-height: none;"
+          >
+            <p
+              class="rpl-card-event__summary"
+            >
+              This event range occurs in 2018, same month different day.
+            </p>
+          </div>
+           
+          <p
+            class="rpl-card-event__location"
+          >
+            <!---->
+            South Yarra
+          </p>
+           
+          <!---->
+        </div>
+         
+        <div
+          class="rpl-card-content__link"
+        >
+          <span>
+            <span>
+              See event
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               details
+              <!---->
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    <div
+      class="rpl-latest-events__card"
+    >
+      <a
+        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+        data-print-url="#"
+        data-tid="latest-events-card"
+        href="#"
+      >
+        <div
+          class="rpl-card-content__image-wrapper"
+        >
+          <img
+            alt=""
+            class="rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
+        </div>
+         
+        <div
+          class="rpl-card-content__details"
+        >
+          <div
+            class="rpl-card-event__meta"
+          >
+            <div
+              class="rpl-card-event__date"
+            >
+              12 February
+            </div>
+          </div>
+           
+          <h2
+            class="rpl-card-event__title"
+          >
+            This is the headline of an event
+          </h2>
+           
+          <div
+            class="rpl-card-event__trim-wrapper"
+            style="max-height: none;"
+          >
+            <p
+              class="rpl-card-event__summary"
+            >
+              This event range occurs in 2018, same day, different time.
+            </p>
+          </div>
+           
+          <p
+            class="rpl-card-event__location"
+          >
+            <!---->
+            South Yarra
+          </p>
+           
+          <!---->
+        </div>
+         
+        <div
+          class="rpl-card-content__link"
+        >
+          <span>
+            <span>
+              See event
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               details
+              <!---->
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    <div
+      class="rpl-latest-events__card"
+    >
+      <a
+        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+        data-print-url="#"
+        data-tid="latest-events-card"
+        href="#"
+      >
+        <div
+          class="rpl-card-content__image-wrapper"
+        >
+          <img
+            alt=""
+            class="rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
+        </div>
+         
+        <div
+          class="rpl-card-content__details"
+        >
+          <div
+            class="rpl-card-event__meta"
+          >
+            <div
+              class="rpl-card-event__date"
+            >
+              01 August to 02 September 2018
+            </div>
+          </div>
+           
+          <h2
+            class="rpl-card-event__title"
+          >
+            This is the headline of an event
+          </h2>
+           
+          <div
+            class="rpl-card-event__trim-wrapper"
+            style="max-height: none;"
+          >
+            <p
+              class="rpl-card-event__summary"
+            >
+              This event range occurs in 2018. Same year, different month.
+            </p>
+          </div>
+           
+          <p
+            class="rpl-card-event__location"
+          >
+            <!---->
+            South Yarra
+          </p>
+           
+          <!---->
+        </div>
+         
+        <div
+          class="rpl-card-content__link"
+        >
+          <span>
+            <span>
+              See event
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               details
+              <!---->
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    <div
+      class="rpl-latest-events__card"
+    >
+      <a
+        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
+        data-print-url="#"
+        data-tid="latest-events-card"
+        href="#"
+      >
+        <div
+          class="rpl-card-content__image-wrapper"
+        >
+          <img
+            alt=""
+            class="rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
+        </div>
+         
+        <div
+          class="rpl-card-content__details"
+        >
+          <div
+            class="rpl-card-event__meta"
+          >
+            <div
+              class="rpl-card-event__date"
+            >
+              02 February
+            </div>
+          </div>
+           
+          <h2
+            class="rpl-card-event__title"
+          >
+            This is the headline of an event with a location that will stretch over over 3 lines
+          </h2>
+           
+          <div
+            class="rpl-card-event__trim-wrapper"
+            style="max-height: none;"
+          >
+            <p
+              class="rpl-card-event__summary"
+            >
+              This single date event occurs in 2020. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+            </p>
+          </div>
+           
+          <p
+            class="rpl-card-event__location"
+          >
+            <!---->
+            South Yarra
+          </p>
+           
+          <!---->
+        </div>
+         
+        <div
+          class="rpl-card-content__link"
+        >
+          <span>
+            <span>
+              See event
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               details
+              <!---->
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+     
+    <div
+      class="rpl-latest-events__card"
+    >
+      <a
+        class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
+        data-print-url="#"
+        data-tid="latest-events-card"
+        href="#"
+      >
+        <!---->
+         
+        <div
+          class="rpl-card-content__details"
+        >
+          <img
+            alt=""
+            class="rpl-card-cta__image"
+            src="https://placehold.it/148x148"
+          />
+           
+          <h2
+            class="rpl-card-cta__title"
+          >
+            Want to submit an event?
+          </h2>
+           
+          <div
+            class="rpl-card-cta__trim-wrapper"
+            style="max-height: none;"
+          >
+            <p
+              class="rpl-card-cta__summary"
+            >
+              Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+            </p>
+          </div>
+           
+          <span
+            class="rpl-card-cta__button"
+          >
+            Submit a listing
+          </span>
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </a>
+    </div>
+  </div>
+   
+  <a
+    class="rpl-link rpl-button rpl-latest-events__call-to-action rpl-button--primary"
+    data-print-url="#"
+    href="#"
+  >
+    <span
+      class="rpl-link__inner"
+    >
+      See all events
+    </span>
+  </a>
+</div>
+`;

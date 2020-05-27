@@ -1,0 +1,516 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RippleStoryshots Organisms/News Featured News 1`] = `
+<ul
+  class="rpl-featured-news-list"
+>
+  <li
+    class="rpl-featured-news-list__item"
+  >
+    <a
+      class="rpl-link rpl-card-navigation-featured"
+      data-print-url="#"
+      href="#"
+    >
+      <div
+        class="rpl-card-navigation-featured__inner"
+      >
+        <img
+          alt=""
+          class="rpl-card-navigation-featured__image"
+          src="https://placehold.it/818x497"
+        />
+         
+        <div
+          class="rpl-card-navigation-featured__meta_and_title rpl-card-navigation-featured__meta_and_title--image rpl-card-navigation-featured__meta_and_title--summary"
+        >
+          <div
+            class="rpl-card-navigation-featured__meta"
+          >
+            <span
+              class="rpl-card-navigation-featured__date"
+            >
+              23 March
+            </span>
+             
+            <span
+              class="rpl-card-navigation-featured__tag"
+            >
+              Community
+            </span>
+          </div>
+           
+          <h2
+            class="rpl-card-navigation-featured__title"
+          >
+            <span>
+              This heading could wrap over two lines
+            </span>
+          </h2>
+        </div>
+      </div>
+       
+      <p
+        class="rpl-card-navigation-featured__summary rpl-card-navigation-featured__summary--image"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+       
+      <!---->
+    </a>
+  </li>
+  <li
+    class="rpl-featured-news-list__item"
+  >
+    <a
+      class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
+      data-print-url="#"
+      href="#"
+    >
+      <div
+        class="rpl-card-content__image-wrapper"
+      >
+        <img
+          alt=""
+          class="rpl-card-content__image"
+          src="https://placehold.it/818x497"
+        />
+      </div>
+       
+      <div
+        class="rpl-card-content__details"
+      >
+        <div
+          class="rpl-card-image-navigation__details"
+        >
+          <div
+            class="rpl-card-image-navigation__meta"
+          >
+            <div
+              class="rpl-card-image-navigation__date"
+            >
+              23 March
+            </div>
+             
+            <div
+              class="rpl-card-image-navigation__tag"
+            >
+              Community
+            </div>
+          </div>
+           
+          <h2
+            class="rpl-card-image-navigation__title"
+          >
+            This heading could wrap over two lines
+          </h2>
+           
+          <p
+            class="rpl-card-image-navigation__summary"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+         
+        <div
+          class="rpl-card-content__link"
+        >
+          <span>
+            <span>
+              Call to
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               action
+              <!---->
+            </span>
+          </span>
+        </div>
+      </div>
+       
+      <!---->
+    </a>
+  </li>
+  <li
+    class="rpl-featured-news-list__item"
+  >
+    <a
+      class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
+      data-print-url="#"
+      href="#"
+    >
+      <div
+        class="rpl-card-content__image-wrapper"
+      >
+        <img
+          alt=""
+          class="rpl-card-content__image"
+          src="https://placehold.it/818x497"
+        />
+      </div>
+       
+      <div
+        class="rpl-card-content__details"
+      >
+        <div
+          class="rpl-card-image-navigation__details"
+        >
+          <div
+            class="rpl-card-image-navigation__meta"
+          >
+            <div
+              class="rpl-card-image-navigation__date"
+            >
+              23 March
+            </div>
+             
+            <div
+              class="rpl-card-image-navigation__tag"
+            >
+              Community
+            </div>
+          </div>
+           
+          <h2
+            class="rpl-card-image-navigation__title"
+          >
+            This heading could wrap over two lines
+          </h2>
+           
+          <p
+            class="rpl-card-image-navigation__summary"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+         
+        <div
+          class="rpl-card-content__link"
+        >
+          <span>
+            <span>
+              Call to
+            </span>
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+               action
+              <!---->
+            </span>
+          </span>
+        </div>
+      </div>
+       
+      <!---->
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`RippleStoryshots Organisms/News News Listing 1`] = `
+<div
+  class="rpl-news-listing"
+>
+  <h2
+    class="rpl-news-listing__heading"
+  >
+    Latest News
+  </h2>
+   
+  <ul
+    class="rpl-news-listing__items"
+  >
+    <li
+      class="rpl-news-listing__item"
+    >
+      <div>
+        <span
+          class="rpl-news-listing__item-date"
+        >
+          26 March 2018
+        </span>
+         
+        <span
+          class="rpl-news-listing__item-tag"
+        >
+          Event
+        </span>
+         
+        <h3
+          class="rpl-news-listing__item-heading"
+        >
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <span
+                class="rpl-text-label"
+              >
+                <span>
+                  <span>
+                    Australian Indigenous Tourism
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Conference
+                    <!---->
+                  </span>
+                </span>
+              </span>
+            </span>
+          </a>
+        </h3>
+      </div>
+    </li>
+    <li
+      class="rpl-news-listing__item"
+    >
+      <div>
+        <span
+          class="rpl-news-listing__item-date"
+        >
+          25 March 2018
+        </span>
+         
+        <span
+          class="rpl-news-listing__item-tag"
+        >
+          Community
+        </span>
+         
+        <h3
+          class="rpl-news-listing__item-heading"
+        >
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <span
+                class="rpl-text-label"
+              >
+                <span>
+                  <span>
+                    Respect Women: Call it
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Out
+                    <!---->
+                  </span>
+                </span>
+              </span>
+            </span>
+          </a>
+        </h3>
+      </div>
+    </li>
+    <li
+      class="rpl-news-listing__item"
+    >
+      <div>
+        <span
+          class="rpl-news-listing__item-date"
+        >
+          24 March 2018
+        </span>
+         
+        <span
+          class="rpl-news-listing__item-tag"
+        >
+          Arts &amp; Culture
+        </span>
+         
+        <h3
+          class="rpl-news-listing__item-heading"
+        >
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <span
+                class="rpl-text-label"
+              >
+                <span>
+                  <span>
+                    NGV
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Triennial
+                    <!---->
+                  </span>
+                </span>
+              </span>
+            </span>
+          </a>
+        </h3>
+      </div>
+    </li>
+    <li
+      class="rpl-news-listing__item"
+    >
+      <div>
+        <span
+          class="rpl-news-listing__item-date"
+        >
+          22 February 2018
+        </span>
+         
+        <span
+          class="rpl-news-listing__item-tag"
+        >
+          Sports
+        </span>
+         
+        <h3
+          class="rpl-news-listing__item-heading"
+        >
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <span
+                class="rpl-text-label"
+              >
+                <span>
+                  <span>
+                    The World Games Facilities
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Fund
+                    <!---->
+                  </span>
+                </span>
+              </span>
+            </span>
+          </a>
+        </h3>
+      </div>
+    </li>
+    <li
+      class="rpl-news-listing__item"
+    >
+      <div>
+        <span
+          class="rpl-news-listing__item-date"
+        >
+          21 February 2018
+        </span>
+         
+        <span
+          class="rpl-news-listing__item-tag"
+        >
+          Law &amp; Justice
+        </span>
+         
+        <h3
+          class="rpl-news-listing__item-heading"
+        >
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <span
+                class="rpl-text-label"
+              >
+                <span>
+                  <span>
+                    Access to Justice
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Review
+                    <!---->
+                  </span>
+                </span>
+              </span>
+            </span>
+          </a>
+        </h3>
+      </div>
+    </li>
+    <li
+      class="rpl-news-listing__item"
+    >
+      <div>
+        <span
+          class="rpl-news-listing__item-date"
+        >
+          19 February 2018
+        </span>
+         
+        <span
+          class="rpl-news-listing__item-tag"
+        >
+          Family Violence
+        </span>
+         
+        <h3
+          class="rpl-news-listing__item-heading"
+        >
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
+            href="#"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              <span
+                class="rpl-text-label"
+              >
+                <span>
+                  <span>
+                    New Bendigo Refuge for Families Escaping Family
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Violence
+                    <!---->
+                  </span>
+                </span>
+              </span>
+            </span>
+          </a>
+        </h3>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

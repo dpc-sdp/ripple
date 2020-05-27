@@ -1,5 +1,6 @@
 // Import Ripple settings, mixin, functions.
-@import "~@dpc-sdp/ripple-global/style";
+@import '~@dpc-sdp/ripple-global/scss/settings';
+@import '~@dpc-sdp/ripple-global/scss/tools';
 
 // We should avoid add any styling changes for colours, spacing here.
 // The should be managed by sass variables in _theme.scss.
@@ -7,7 +8,7 @@
 
 // A example of attached a text to hero banner.
 .rpl-hero-banner {
-  &:after {
-    content: 'Text from custom css'
+  &::after {
+    content: 'Text from custom css';
   }
 }

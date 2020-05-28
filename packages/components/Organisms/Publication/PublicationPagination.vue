@@ -31,9 +31,11 @@
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
 import { RplLink, RplTextLabel } from '@dpc-sdp/ripple-link'
+import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
 export default {
   name: 'RplPublicationPagination',
+  mixins: [deprecate],
   components: {
     RplIcon,
     RplLink,
@@ -47,6 +49,9 @@ export default {
     nextLink: { type: String, default: null },
     nextText: { type: String, default: 'Next' },
     nextDescription: { type: String, default: '' }
+  },
+  mounted () {
+    this.deprecatedWarn('"rpl-publication-pagination" is deprecated, please import "rpl-prev-next" from @dpc-sdp/ripple-pagination instead')
   }
 }
 </script>

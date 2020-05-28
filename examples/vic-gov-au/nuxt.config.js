@@ -135,7 +135,10 @@ export default {
       event: 1,
       news: 1,
       grant: 1,
-      profile: 1,
+      profile: {
+        route: '/victorian-honour-roll-of-women',
+        returnText: 'See all inductees'
+      },
       publication: 1,
       // Other features
       media: 1,

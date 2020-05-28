@@ -41,7 +41,7 @@ export default {
     previous () {
       const config = this.$tide.getModuleConfig('profile')
       return {
-        previousLink: config.route,
+        previousLink: config.route || 'profiles',
         previousText: config.returnText || 'See all inductees',
         previousDescription: config.returnDescription || ''
       }

@@ -9,7 +9,7 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
   >
     Figure 1.2
   </h3>
-
+   
   <figure
     class="rpl-figure"
   >
@@ -18,14 +18,14 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
       class="rpl-figure__image"
       src="https://placehold.it/800x400.jpg"
     />
-
+     
     <figcaption>
       <span
         class="rpl-figure__caption"
       >
         This is caption copy for use alongside informational images or for legal information.
       </span>
-
+       
       <span
         class="rpl-figure__source"
       >
@@ -33,7 +33,7 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
       </span>
     </figcaption>
   </figure>
-
+   
   <div
     class="rpl-complex-image__controls"
   >
@@ -47,13 +47,13 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
           <!---->
           View
         </span>
-
+         
         <span>
            Figure 1.2 in full screen
         </span>
       </span>
     </button>
-
+     
     <button
       class="rpl-complex-image__button"
     >
@@ -64,13 +64,13 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
           <!---->
           View
         </span>
-
+         
         <span>
            Figure 1.2 in table format
         </span>
       </span>
     </button>
-
+     
     <div
       class="rpl-complex-image__expander"
     >
@@ -86,17 +86,17 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
             <!---->
             Figure
           </span>
-
+           
           <span>
              1.2
           </span>
         </span>
-
+         
         <button
           class="rpl-complex-image__expander-close-button"
         >
           <!---->
-
+           
           <span
             class="rpl-complex-image__expander-close-button-text"
           >
@@ -104,7 +104,7 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
           </span>
         </button>
       </div>
-
+       
       <div
         class="rpl-complex-image__expander-markup"
       >
@@ -123,97 +123,97 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
                     <th>
                       Column header one
                     </th>
-
+                     
                     <th>
                       Header number two
                     </th>
-
+                     
                     <th>
                       Third column header
                     </th>
                   </tr>
                 </thead>
-
+                 
                 <tbody>
                   <tr>
                     <td>
                       Data point one
                     </td>
-
+                     
                     <td>
                       This is a piece of data
                     </td>
-
+                     
                     <td>
                       Third column information
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Data pt two
                     </td>
-
+                     
                     <td>
                       This is data
                     </td>
-
+                     
                     <td>
                       Fourth col info here
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Data point three
                     </td>
-
+                     
                     <td>
                       This is a piece of data
                     </td>
-
+                     
                     <td>
                       Third column info here
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Point four
                     </td>
-
+                     
                     <td>
                       This is some data
                     </td>
-
+                     
                     <td>
                       Information goes here
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Five
                     </td>
-
+                     
                     <td>
                       This is a piece of data
                     </td>
-
+                     
                     <td>
                       Third column info here
                     </td>
                   </tr>
-
+                   
                   <tr>
                     <td>
                       Data point six
                     </td>
-
+                     
                     <td>
                       This is some data
                     </td>
-
+                     
                     <td>
                       Information
                     </td>
@@ -225,7 +225,7 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
         </div>
       </div>
     </div>
-
+     
     <a
       class="rpl-complex-image__button"
       download="800x400.jpg"
@@ -238,14 +238,14 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
           <!---->
           Download
         </span>
-
+         
         <span>
            Figure 1.2
         </span>
       </span>
     </a>
   </div>
-
+   
   <!---->
 </div>
 `;

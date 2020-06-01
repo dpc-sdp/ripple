@@ -5,7 +5,9 @@
 import RplImageGalleryModal from './ImageGalleryModal.vue'
 import RplFullscreenImage from './FullscreenImage.vue'
 import RplImageGallery from './ImageGallery.vue'
+import RplComplexImage from './ComplexImage.vue'
 
 export { RplImageGalleryModal }
 export { RplFullscreenImage }
 export { RplImageGallery }
+export { RplComplexImage }

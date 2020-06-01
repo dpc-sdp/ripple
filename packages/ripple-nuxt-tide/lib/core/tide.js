@@ -140,7 +140,21 @@ export const tide = (axios, site, config) => ({
    * @returns {Boolean}
    */
   isModuleEnabled: function (checkForModule) {
-    return config && config.modules && config.modules[checkForModule] === 1
+    const moduleConfig = config.modules[checkForModule]
+    return moduleConfig === 1 || (typeof moduleConfig === 'object' && moduleConfig !== null)
+  },
+
+  /**
+   * Get module config
+   * @param {String} moduleName name of module
+   * @returns {Object}
+   */
+  getModuleConfig: function (moduleName) {
+    const moduleConfig = config.modules[moduleName]
+    if (typeof moduleConfig === 'object' && moduleConfig !== null) {
+      return moduleConfig
+    }
+    return {}
   },
 
   // TODO: this method need to be reviewed when we do SDPA-585.

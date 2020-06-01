@@ -3,7 +3,7 @@
   "version": "1.9.0",
   "description": "A component for displaying a pagination bar with controls to change current step.",
   "license": "Apache-2.0",
-  "main": "index.vue",
+  "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Molecules/Pagination",
   "publishConfig": {

@@ -1,5 +1,255 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
+<div
+  class="rpl-complex-image"
+>
+  <h3
+    class="rpl-complex-image__title"
+  >
+    Figure 1.2
+  </h3>
+   
+  <figure
+    class="rpl-figure"
+  >
+    <img
+      alt="A generic square placeholder image."
+      class="rpl-figure__image"
+      src="https://placehold.it/800x400.jpg"
+    />
+     
+    <figcaption>
+      <span
+        class="rpl-figure__caption"
+      >
+        This is caption copy for use alongside informational images or for legal information.
+      </span>
+       
+      <span
+        class="rpl-figure__source"
+      >
+        Source: This is for the source to use alongside informational images or for legal information.
+      </span>
+    </figcaption>
+  </figure>
+   
+  <div
+    class="rpl-complex-image__controls"
+  >
+    <button
+      class="rpl-complex-image__button"
+    >
+      <span>
+        <span
+          class="rpl-text-icon__group"
+        >
+          <!---->
+          View
+        </span>
+         
+        <span>
+           Figure 1.2 in full screen
+        </span>
+      </span>
+    </button>
+     
+    <button
+      class="rpl-complex-image__button"
+    >
+      <span>
+        <span
+          class="rpl-text-icon__group"
+        >
+          <!---->
+          View
+        </span>
+         
+        <span>
+           Figure 1.2 in table format
+        </span>
+      </span>
+    </button>
+     
+    <div
+      class="rpl-complex-image__expander"
+    >
+      <div
+        class="rpl-complex-image__expander-header"
+      >
+        <span
+          class="rpl-complex-image__expander-title"
+        >
+          <span
+            class="rpl-text-icon__group"
+          >
+            <!---->
+            Figure
+          </span>
+           
+          <span>
+             1.2
+          </span>
+        </span>
+         
+        <button
+          class="rpl-complex-image__expander-close-button"
+        >
+          <!---->
+           
+          <span
+            class="rpl-complex-image__expander-close-button-text"
+          >
+            Close
+          </span>
+        </button>
+      </div>
+       
+      <div
+        class="rpl-complex-image__expander-markup"
+      >
+        <div
+          class="rpl-markup tide-wysiwyg app-wysiwyg"
+        >
+          <div
+            class="rpl-markup__inner"
+          >
+            <div
+              class="rpl-markup__table"
+            >
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      Column header one
+                    </th>
+                     
+                    <th>
+                      Header number two
+                    </th>
+                     
+                    <th>
+                      Third column header
+                    </th>
+                  </tr>
+                </thead>
+                 
+                <tbody>
+                  <tr>
+                    <td>
+                      Data point one
+                    </td>
+                     
+                    <td>
+                      This is a piece of data
+                    </td>
+                     
+                    <td>
+                      Third column information
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Data pt two
+                    </td>
+                     
+                    <td>
+                      This is data
+                    </td>
+                     
+                    <td>
+                      Fourth col info here
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Data point three
+                    </td>
+                     
+                    <td>
+                      This is a piece of data
+                    </td>
+                     
+                    <td>
+                      Third column info here
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Point four
+                    </td>
+                     
+                    <td>
+                      This is some data
+                    </td>
+                     
+                    <td>
+                      Information goes here
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Five
+                    </td>
+                     
+                    <td>
+                      This is a piece of data
+                    </td>
+                     
+                    <td>
+                      Third column info here
+                    </td>
+                  </tr>
+                   
+                  <tr>
+                    <td>
+                      Data point six
+                    </td>
+                     
+                    <td>
+                      This is some data
+                    </td>
+                     
+                    <td>
+                      Information
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <a
+      class="rpl-complex-image__button"
+      download="800x400.jpg"
+      href="https://placehold.it/800x400.jpg"
+    >
+      <span>
+        <span
+          class="rpl-text-icon__group"
+        >
+          <!---->
+          Download
+        </span>
+         
+        <span>
+           Figure 1.2
+        </span>
+      </span>
+    </a>
+  </div>
+   
+  <!---->
+</div>
+`;
+
 exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
 <div
   class="rpl-image-gallery"

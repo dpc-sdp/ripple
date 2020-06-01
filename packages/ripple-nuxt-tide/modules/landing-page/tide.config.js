@@ -272,7 +272,7 @@ module.exports = {
         props: {
           'image': ['field_paragraph_media', 'field_media_image', 'url'],
           'date': 'field_paragraph_date',
-          'topic': ['field_paragraph_topic', 'name'],
+          'topic': ['field_paragraph_topic', 0, 'name'],
           'title': 'field_paragraph_title',
           'summary': ['field_paragraph_summary'],
           'link': {
@@ -295,7 +295,9 @@ module.exports = {
             // News specific date field.
             ['field_paragraph_reference', 'field_news_date']
           ],
-          'topic': ['field_paragraph_reference', 'field_topic', 'name'],
+          'topic': {
+            filters: ['autoCardTopic']
+          },
           'title': ['field_paragraph_reference', 'title'],
           'summary': {
             field: 'field_paragraph_reference',

@@ -253,6 +253,9 @@
           locality: Melbourne
           postal_code: 3000
           address_line1: 35 Collins St
+      field_paragraph_cta:
+        - uri: https://www.google.com
+          title: Read more
     # Card promotion.
     - entity: paragraph
       type: card_promotion
@@ -326,6 +329,7 @@
     - entity: paragraph
       type: card_promotion_auto
       field_paragraph_cta_text: Read more
+      field_paragraph_display_topic: true
       field_paragraph_reference:
         - '#process':
             callback: reference

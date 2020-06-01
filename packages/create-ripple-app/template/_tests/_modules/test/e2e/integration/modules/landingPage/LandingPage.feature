@@ -60,8 +60,8 @@ Feature: Landing page
     # # Card Promotion Automated
     # And there should be a promotion card with the title "Demo Page"
     # And the promotion card titled "Demo Page" should contain the following:
-    #    | title     | ctalink                           | ctatext    |
-    #    | Demo Page | https://demo.vic.gov.au/demo-page | Read  more |
+    #    | title     | ctalink    | ctatext    | topic      |
+    #    | Demo Page | /demo-page | Read  more | Demo Topic |
 
     # Navigation Featured
     And there should be a navigation featured card with the title "Card Promotion"
@@ -164,7 +164,7 @@ Feature: Landing page
       | https://www.google.com.au/maps?q=Department%20of%20Premier%20and%20Cabinet,%20GPO%20Box%204509,%20Melbourne,%20VIC%203001 | Department of Premier and Cabinet, GPO Box 4509, Melbourne, VIC 3001 |
       | tel:1300366356                                                                                                            | Calls in Australia 1300 366 356                                      |
       | tel:+61396038804                                                                                                          | Calls from overseas +61 3 9603 8804                                  |
-      | mailto:no-reply@domain.com                                                                                              | no-reply@domain.com                                                 |
+      | mailto:no-reply@domain.com                                                                                                | no-reply@domain.com                                                  |
       | https://twitter.com/VicGovAu                                                                                              | Twitter                                                              |
 
     # Call to action

@@ -332,7 +332,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         <span
           class="rpl-news-listing__item-tag"
         >
-          Arts &amp; Culture
+          Arts & Culture
         </span>
          
         <h3
@@ -428,7 +428,7 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         <span
           class="rpl-news-listing__item-tag"
         >
-          Law &amp; Justice
+          Law & Justice
         </span>
          
         <h3

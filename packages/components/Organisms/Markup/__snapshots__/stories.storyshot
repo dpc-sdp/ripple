@@ -7,51 +7,58 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
   <div
     class="rpl-markup__inner"
   >
-    <h2>
+    <h2
+      id="embedded-document"
+    >
       Embedded document
     </h2>
      
-    <article
-      class="embedded-entity embedded-entity--media embedded-entity--media--document"
+    <figure
+      class="rpl-document-link"
     >
-      <article
-        class="media media--type-document media--view-mode-embedded"
+      <a
+        aria-label="
+                    Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+        class="rpl-document-link__link"
+        download=""
+        href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
       >
+        <!---->
+         
         <div
-          class="field field--name-field-media-file field--type-file field--label-hidden field__item"
+          class="rpl-document-link__info"
         >
           <span
-            class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"
+            class="rpl-document-link__title"
           >
-            <a
-              aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB."
-              class="x-office-document tide-external-link"
-              href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-              target="_blank"
-            >
-              <span
-                class="file--title"
-              >
-                
+            
                     Detailed Guide on the mandatory IR management criteria 
-              </span>
-              <span
-                class="file--type"
-              >
-                Word
-              </span>
-              <span
-                class="file--size"
-              >
-                75.22 KB
-              </span>
-            </a>
           </span>
+           
+          <div
+            class="rpl-document-link__meta"
+          >
+            <span
+              class="rpl-document-link__type"
+            >
+              docx
+            </span>
+             
+            <span
+              class="rpl-document-link__size rpl-document-link__size--seperator"
+            >
+              75.22 KB
+            </span>
+          </div>
         </div>
-      </article>
-    </article>
+      </a>
+       
+      <!---->
+    </figure>
      
-    <h2>
+    <h2
+      id="link"
+    >
       Link
     </h2>
      
@@ -64,26 +71,54 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
        with a
           
       <a
+        class="rpl-link rpl-text-link"
+        data-print-url="https://vic.gov.au"
         href="https://vic.gov.au"
       >
-        link
+        <span
+          class="rpl-link__inner"
+        >
+          <span
+            class="rpl-text-label"
+          >
+            <span>
+              <!---->
+               
+              <span
+                class="rpl-text-icon__group"
+              >
+                link
+                <!---->
+              </span>
+            </span>
+          </span>
+        </span>
       </a>
       .
         
     </p>
      
-    <h2>
+    <h2
+      id="button"
+    >
       Button
     </h2>
      
     <a
-      class="button"
+      class="rpl-link rpl-button rpl-button--primary"
+      data-print-url="http://www.google.com"
       href="http://www.google.com"
     >
-      go to google
+      <span
+        class="rpl-link__inner"
+      >
+        go to google
+      </span>
     </a>
      
-    <h2>
+    <h2
+      id="quotation"
+    >
       Quotation
     </h2>
      
@@ -115,7 +150,9 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
       </footer>
     </blockquote>
      
-    <h2>
+    <h2
+      id="image"
+    >
       Image
     </h2>
      

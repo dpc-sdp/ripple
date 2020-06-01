@@ -117,109 +117,113 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
             <div
               class="rpl-markup__table"
             >
-              <table>
-                <thead>
-                  <tr>
-                    <th>
-                      Column header one
-                    </th>
-                     
-                    <th>
-                      Header number two
-                    </th>
-                     
-                    <th>
-                      Third column header
-                    </th>
-                  </tr>
-                </thead>
-                 
-                <tbody>
-                  <tr>
-                    <td>
-                      Data point one
-                    </td>
-                     
-                    <td>
-                      This is a piece of data
-                    </td>
-                     
-                    <td>
-                      Third column information
-                    </td>
-                  </tr>
+              <div
+                class="rpl-markup__table"
+              >
+                <table>
+                  <thead>
+                    <tr>
+                      <th>
+                        Column header one
+                      </th>
+                       
+                      <th>
+                        Header number two
+                      </th>
+                       
+                      <th>
+                        Third column header
+                      </th>
+                    </tr>
+                  </thead>
                    
-                  <tr>
-                    <td>
-                      Data pt two
-                    </td>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Data point one
+                      </td>
+                       
+                      <td>
+                        This is a piece of data
+                      </td>
+                       
+                      <td>
+                        Third column information
+                      </td>
+                    </tr>
                      
-                    <td>
-                      This is data
-                    </td>
+                    <tr>
+                      <td>
+                        Data pt two
+                      </td>
+                       
+                      <td>
+                        This is data
+                      </td>
+                       
+                      <td>
+                        Fourth col info here
+                      </td>
+                    </tr>
                      
-                    <td>
-                      Fourth col info here
-                    </td>
-                  </tr>
-                   
-                  <tr>
-                    <td>
-                      Data point three
-                    </td>
+                    <tr>
+                      <td>
+                        Data point three
+                      </td>
+                       
+                      <td>
+                        This is a piece of data
+                      </td>
+                       
+                      <td>
+                        Third column info here
+                      </td>
+                    </tr>
                      
-                    <td>
-                      This is a piece of data
-                    </td>
+                    <tr>
+                      <td>
+                        Point four
+                      </td>
+                       
+                      <td>
+                        This is some data
+                      </td>
+                       
+                      <td>
+                        Information goes here
+                      </td>
+                    </tr>
                      
-                    <td>
-                      Third column info here
-                    </td>
-                  </tr>
-                   
-                  <tr>
-                    <td>
-                      Point four
-                    </td>
+                    <tr>
+                      <td>
+                        Five
+                      </td>
+                       
+                      <td>
+                        This is a piece of data
+                      </td>
+                       
+                      <td>
+                        Third column info here
+                      </td>
+                    </tr>
                      
-                    <td>
-                      This is some data
-                    </td>
-                     
-                    <td>
-                      Information goes here
-                    </td>
-                  </tr>
-                   
-                  <tr>
-                    <td>
-                      Five
-                    </td>
-                     
-                    <td>
-                      This is a piece of data
-                    </td>
-                     
-                    <td>
-                      Third column info here
-                    </td>
-                  </tr>
-                   
-                  <tr>
-                    <td>
-                      Data point six
-                    </td>
-                     
-                    <td>
-                      This is some data
-                    </td>
-                     
-                    <td>
-                      Information
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    <tr>
+                      <td>
+                        Data point six
+                      </td>
+                       
+                      <td>
+                        This is some data
+                      </td>
+                       
+                      <td>
+                        Information
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

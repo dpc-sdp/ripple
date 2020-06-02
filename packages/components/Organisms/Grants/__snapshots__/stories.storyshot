@@ -81,44 +81,46 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
       <p>
         This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit. 
       </p>
-      <article
-        class="embedded-entity embedded-entity--media embedded-entity--media--document"
+      <figure
+        class="rpl-document-link"
       >
-        <article
-          class="media media--type-document media--view-mode-embedded"
+        <a
+          aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+          class="rpl-document-link__link"
+          download=""
+          href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
         >
+          <!---->
+           
           <div
-            class="field field--name-field-media-file field--type-file field--label-hidden field__item"
+            class="rpl-document-link__info"
           >
             <span
-              class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"
+              class="rpl-document-link__title"
             >
-              <a
-                aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB."
-                class="x-office-document tide-external-link"
-                href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-                target="_blank"
-              >
-                <span
-                  class="file--title"
-                >
-                   Detailed Guide on the mandatory IR management criteria 
-                </span>
-                <span
-                  class="file--type"
-                >
-                  Word
-                </span>
-                <span
-                  class="file--size"
-                >
-                  75.22 KB
-                </span>
-              </a>
+               Detailed Guide on the mandatory IR management criteria 
             </span>
+             
+            <div
+              class="rpl-document-link__meta"
+            >
+              <span
+                class="rpl-document-link__type"
+              >
+                docx
+              </span>
+               
+              <span
+                class="rpl-document-link__size rpl-document-link__size--seperator"
+              >
+                75.22 KB
+              </span>
+            </div>
           </div>
-        </article>
-      </article>
+        </a>
+         
+        <!---->
+      </figure>
        
       <p>
         A paragraph of 
@@ -127,9 +129,28 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
         </strong>
          with a 
         <a
+          class="rpl-link rpl-text-link"
+          data-print-url="https://vic.gov.au"
           href="https://vic.gov.au"
         >
-          link
+          <span
+            class="rpl-link__inner"
+          >
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                <!---->
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                  link
+                  <!---->
+                </span>
+              </span>
+            </span>
+          </span>
         </a>
         .
       </p>
@@ -231,44 +252,46 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
       <p>
         This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit. 
       </p>
-      <article
-        class="embedded-entity embedded-entity--media embedded-entity--media--document"
+      <figure
+        class="rpl-document-link"
       >
-        <article
-          class="media media--type-document media--view-mode-embedded"
+        <a
+          aria-label=" Detailed Guide on the mandatory IR management criteria  File type: docx. Size: 75.22 KB"
+          class="rpl-document-link__link"
+          download=""
+          href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
         >
+          <!---->
+           
           <div
-            class="field field--name-field-media-file field--type-file field--label-hidden field__item"
+            class="rpl-document-link__info"
           >
             <span
-              class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"
+              class="rpl-document-link__title"
             >
-              <a
-                aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB."
-                class="x-office-document tide-external-link"
-                href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
-                target="_blank"
-              >
-                <span
-                  class="file--title"
-                >
-                   Detailed Guide on the mandatory IR management criteria 
-                </span>
-                <span
-                  class="file--type"
-                >
-                  Word
-                </span>
-                <span
-                  class="file--size"
-                >
-                  75.22 KB
-                </span>
-              </a>
+               Detailed Guide on the mandatory IR management criteria 
             </span>
+             
+            <div
+              class="rpl-document-link__meta"
+            >
+              <span
+                class="rpl-document-link__type"
+              >
+                docx
+              </span>
+               
+              <span
+                class="rpl-document-link__size rpl-document-link__size--seperator"
+              >
+                75.22 KB
+              </span>
+            </div>
           </div>
-        </article>
-      </article>
+        </a>
+         
+        <!---->
+      </figure>
        
       <p>
         A paragraph of 
@@ -277,9 +300,28 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
         </strong>
          with a 
         <a
+          class="rpl-link rpl-text-link"
+          data-print-url="https://vic.gov.au"
           href="https://vic.gov.au"
         >
-          link
+          <span
+            class="rpl-link__inner"
+          >
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                <!---->
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                  link
+                  <!---->
+                </span>
+              </span>
+            </span>
+          </span>
         </a>
         .
       </p>

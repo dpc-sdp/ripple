@@ -14,7 +14,9 @@ exports[`RippleStoryshots Organisms/Profile Profile Highlight 1`] = `
     class="rpl-profile-highlight__content"
   >
     <div>
-      &lt;p&gt;HTML Content&lt;/p&gt;
+      <p>
+        HTML Content
+      </p>
     </div>
   </div>
 </div>

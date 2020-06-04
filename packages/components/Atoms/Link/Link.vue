@@ -1,5 +1,5 @@
 <template>
-  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget" :data-print-url="printUrl">
+  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget" :data-print-url="printUrl" :data-dl-label="getDlLabel()">
     <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </span>
@@ -7,7 +7,7 @@
       <slot></slot>
     </template>
   </a>
-  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick" :data-print-url="printUrl">
+  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick" :data-print-url="printUrl" :data-dl-label="getDlLabel()">
     <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </span>
@@ -27,7 +27,8 @@ export default {
   props: {
     href: String,
     target: { type: String, default: '' },
-    innerWrap: { type: Boolean, default: true }
+    innerWrap: { type: Boolean, default: true },
+    dlLabel: { type: String, default: '' }
   },
   directives: {
     focus
@@ -63,6 +64,33 @@ export default {
       }
       if (this.isNuxtLink) {
         RplLinkEventBus.$emit('navigate', 'route changed')
+      }
+    },
+    getDlLabel: function () {
+      let getText = false
+      const getChildrenTextContent = function (children) {
+        let text = ''
+        for (var i = 0; i < children.length; i++) {
+          if (getText) {
+            break
+          }
+          if (children[i].children) {
+            text = getChildrenTextContent(children[i].children)
+          } else {
+            text = children[i].text
+          }
+
+          if (text && text.trim().length !== 0) {
+            getText = true
+            return text
+          }
+        }
+        return text
+      }
+      if (this.dlLabel.length !== 0) {
+        return this.dlLabel
+      } else {
+        return getChildrenTextContent(this.$slots.default)
       }
     }
   },

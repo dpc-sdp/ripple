@@ -11,7 +11,7 @@ module.exports = {
         type: 'modify',
         files: 'package.json',
         handler (data, filepath) {
-          data.version = '21.0.0'
+          data.sdp_version = '1.21.0'
           data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `1.6.0`
           data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.6.0`
           data.devDependencies['babel-plugin-lodash'] = `^3.3.2` // Add lodash build optimization
@@ -42,7 +42,7 @@ module.exports = {
           const defaultNode = rootData.find(j.ExportDefaultDeclaration)
           const build = defaultNode.find(j.Property, { key: { name: 'build' } })
           if (build.length) {
-            console.warn('We found existing build configs. You need to manually merge new build configs in nuxt.config.js.')
+            console.warn('[warn] We found existing build configs. You need to manually merge new build configs in nuxt.config.js.')
           }
           const buildConfigs = `build: {
   // Currently 'lodash' is mainly brought by Elastic search JS lib.
@@ -78,6 +78,6 @@ module.exports = {
     return actions
   },
   async completed () {
-    console.log('Update to 21.0.0 complete!')
+    console.log('Update to 1.21.0 complete!')
   }
 }

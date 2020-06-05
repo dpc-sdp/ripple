@@ -18,6 +18,12 @@ const nuxtTide = function (moduleOptions) {
       onProxyRes (proxyRes, req, res) {
         // Set headers as devOps required
         proxyRes.headers[RPL_HEADER.APP_TYPE] = 'tide'
+      },
+      onProxyReq (proxyReq, req, res) {
+        // remove 'section-io-id'' header from proxied req
+        if (req.headers && req.headers['section-io-id']) {
+          proxyReq.removeHeader('section-io-id')
+        }
       }
     },
     '/sites/default/files/': {

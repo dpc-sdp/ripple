@@ -10,7 +10,7 @@
     "build:win32": "nuxt build --modern=client",
     "cy:open": "cypress open",
     "cy:run": "cypress run -b chrome -e TAGS='not @skip or @smoke'",
-    "cy:run-record": "cypress run -b chrome -e TAGS='not @skip or @smoke' --record  --parallel --group $CIRCLE_JOB",
+    "cy:run-record": "cypress run -b chrome -e TAGS='not @skip or @smoke' --record --parallel --group $CIRCLE_JOB",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
     "cy:run-audit": "cypress run --headless -b chrome -e TAGS='@audit' --spec 'test/e2e/integration/smoke/*'",
     "test:dev": "cross-env NODE_ENV=test start-server-and-test dev http://localhost:3000 cy:open",

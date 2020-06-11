@@ -1,4 +1,5 @@
 const compareVersions = require('compare-versions')
+const sdpReleases = require('./sdp-releases.json')
 
 // Convert old SDP version to semver
 // TODO: remove this function after all sites been upgraded to 1.24.0
@@ -56,7 +57,34 @@ const needUpdate = (currentVersion, thisUpdateVersion, targetVersion) => {
   return false
 }
 
+/**
+ * Get the latest SDP release version
+ */
+const getLatestSdpRelease = () => {
+  const releases = Object.keys(sdpReleases)
+  return releases[releases.length - 1]
+}
+
+/**
+ * Get the Ripple package version by SDP release version
+ * @param {string} sdpVersion the SDP release version, e.g 1.23.0
+ */
+const getRippleVersion = (sdpVersion) => {
+  if (sdpVersion === 'latest') {
+    const latest = getLatestSdpRelease()
+    return sdpReleases[latest].rippleVersion
+  }
+
+  if (sdpReleases[sdpVersion]) {
+    return sdpReleases[sdpVersion].rippleVersion
+  } else {
+    return new Error(`Couldn't find SDP release record: "${sdpVersion}".`)
+  }
+}
+
 module.exports = {
   convertSdpVersion,
-  needUpdate
+  needUpdate,
+  getRippleVersion,
+  getLatestSdpRelease
 }

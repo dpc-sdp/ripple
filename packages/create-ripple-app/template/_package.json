@@ -30,7 +30,7 @@
     "start:build": "nuxt build --modern=client && nuxt start --modern=client"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "^<%= version %>",
+    "@dpc-sdp/ripple-nuxt-tide": "<%= version %>",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.10.2",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     <%_ if ((e2e === true) || (smoke === true)) { _%>
-    "@dpc-sdp/ripple-test-tools": "^<%= version %>",
+    "@dpc-sdp/ripple-test-tools": "<%= version %>",
     <%_ } _%>
     "babel-eslint": "^10.0.1",
     "babel-plugin-lodash": "^3.3.2",

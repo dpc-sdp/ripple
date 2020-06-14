@@ -39,7 +39,7 @@ module.exports = {
           const defaultNode = rootData.find(j.ExportDefaultDeclaration)
           defaultNode.find(j.Property, { key: { name: 'build' } })
             .find(j.Property, { key: { name: 'extend' } })
-            .insertAfter(`extractCSS: true`)
+            .insertAfter(`extractCSS: { ignoreOrder: true }`)
           const out = rootData.toSource({ quote: 'single' })
           return out
         }

@@ -6,7 +6,7 @@
       </div>
       <div class="rpl-call-to-action__right">
         <h2 v-if="title" class="rpl-call-to-action__title">{{ title }}</h2>
-        <p v-if="summary" class="rpl-call-to-action__summary">{{ summary }}</p>
+        <div v-if="summary" class="rpl-call-to-action__summary" v-html="summary"></div>
         <rpl-button v-if="link" :href="link.url" theme="primary">{{ link.text }}</rpl-button>
       </div>
     </div>

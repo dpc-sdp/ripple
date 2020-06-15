@@ -33,7 +33,13 @@ const getMiddleware = (middlewareConfig) => {
 }
 
 export const callMiddleware = async (middlewareConfig, context) => {
-  const pageData = {}
+  const pageData = {
+    tidePage: null,
+    tideErrorType: null,
+    tideLayout: {
+      sidebar: false
+    }
+  }
   try {
     // Call core middleware first
     await coreMiddleware(context, pageData)

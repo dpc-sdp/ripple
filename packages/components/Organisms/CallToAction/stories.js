@@ -17,7 +17,7 @@ storiesOf('Organisms/CallToAction', module)
         default: text('Title', 'Card prompting an action')
       },
       summary: {
-        default: text('Summary', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.')
+        default: text('Summary', '<p>Sed ut <b>perspiciatis</b> unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><p>Nemo enim ipsam voluptatem.</p>')
       },
       link: {
         default: () => object('Call to action', { text: 'Call to action', url: '#' })

@@ -179,7 +179,8 @@ const buildCoreModules = (tideConfig, _this) => {
   const coreModules = tideConfig.modules
   Object.keys(coreModules).forEach(module => {
     // Build only if the core module is enabled.
-    if (coreModules[module] === 1) {
+    const moduleConfig = coreModules[module]
+    if (moduleConfig === 1 || (typeof moduleConfig === 'object' && moduleConfig !== null)) {
       const moduleName = kebabCase(module)
       buildConfigs(configGroups.coreModule, tideConfig, _this, moduleName)
     }

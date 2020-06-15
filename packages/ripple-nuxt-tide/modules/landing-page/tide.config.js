@@ -272,7 +272,7 @@ module.exports = {
         props: {
           'image': ['field_paragraph_media', 'field_media_image', 'url'],
           'date': 'field_paragraph_date',
-          'topic': ['field_paragraph_topic', 'name'],
+          'topic': ['field_paragraph_topic', 0, 'name'],
           'title': 'field_paragraph_title',
           'summary': ['field_paragraph_summary'],
           'link': {
@@ -295,7 +295,9 @@ module.exports = {
             // News specific date field.
             ['field_paragraph_reference', 'field_news_date']
           ],
-          'topic': ['field_paragraph_reference', 'field_topic', 'name'],
+          'topic': {
+            filters: ['autoCardTopic']
+          },
           'title': ['field_paragraph_reference', 'title'],
           'summary': {
             field: 'field_paragraph_reference',
@@ -350,7 +352,25 @@ module.exports = {
         props: {
           'redirect': ['field_next_page', 'url'] // @TODO update fieldname to match contentapi final structure
         }
+      },
+
+      'paragraph--complex_image': {
+        component: 'rpl-complex-image',
+        props: {
+          'title': 'field_complex_image_title',
+          'source': 'field_complex_image_source',
+          'html': ['field_complex_image_data', 'processed'],
+          'fullscreen': 'field_complex_image_full_label',
+          'download': 'field_complex_image_dl_label',
+          'expand': 'field_complex_image_data_label',
+          'expandTitle': 'field_complex_image_title',
+          'image': {
+            field: 'field_complex_image_media',
+            filters: ['paragraphCtaImage']
+          }
+        }
       }
+
     }
   }
 }

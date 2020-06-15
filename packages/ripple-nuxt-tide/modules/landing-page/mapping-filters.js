@@ -45,6 +45,16 @@ module.exports = {
     ], card)
   },
 
+  autoCardTopic: (card) => {
+    const display = card.field_paragraph_display_topic
+    if (card.field_paragraph_reference && display) {
+      if (card.field_paragraph_reference.field_topic) {
+        return card.field_paragraph_reference.field_topic.name
+      }
+    }
+    return null
+  },
+
   paragraphCtaImage: (fieldParagraphCtaImage) => {
     let image
 

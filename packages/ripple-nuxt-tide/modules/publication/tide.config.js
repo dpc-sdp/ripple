@@ -50,25 +50,5 @@ module.exports = {
       'field_landing_page_component.field_complex_image_media',
       'field_landing_page_component.field_complex_image_media.field_media_image'
     ]
-  },
-  mapping: {
-    landingPageComponents: {
-      'paragraph--complex_image': {
-        component: 'rpl-publication-image',
-        props: {
-          'title': 'field_complex_image_title',
-          'source': 'field_complex_image_source',
-          'html': ['field_complex_image_data', 'processed'],
-          'fullscreen': 'field_complex_image_full_label',
-          'download': 'field_complex_image_dl_label',
-          'expand': 'field_complex_image_data_label',
-          'expandTitle': 'field_complex_image_title',
-          'image': {
-            field: 'field_complex_image_media',
-            filters: ['paragraphCtaImage']
-          }
-        }
-      }
-    }
   }
 }

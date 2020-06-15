@@ -80,8 +80,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'rpl-publish-date-and-author' */ '@dpc-sdp/ripple-publish-date-and-author')
     case 'rpl-publication-download-print':
       return () => import(/* webpackChunkName: 'rpl-publication-download-print' */ '@dpc-sdp/ripple-publication').then(m => m.RplPublicationDownloadPrint)
-    case 'rpl-publication-image':
-      return () => import(/* webpackChunkName: 'rpl-publication-image' */ '@dpc-sdp/ripple-publication').then(m => m.RplPublicationImage)
+    case 'rpl-complex-image':
+      return () => import(/* webpackChunkName: 'rpl-complex-image' */ '@dpc-sdp/ripple-image-gallery').then(m => m.RplComplexImage)
     case 'rpl-image-gallery':
       return () => import(/* webpackChunkName: 'rpl-image-gallery' */ '@dpc-sdp/ripple-image-gallery').then(m => m.RplImageGallery)
     case 'rpl-accordion':

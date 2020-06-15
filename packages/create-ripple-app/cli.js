@@ -5,21 +5,7 @@ const sao = require('sao')
 const args = require('minimist')(process.argv.slice(2))
 const compareVersions = require('compare-versions')
 const log = require('./logger')
-
-// Test project current version for each update.
-// If current is 20.0.0, target is 21.0.0,
-// then this should return false for 20.0.0 update as it's already in 20.0.0.
-// But return true for 21.0.0 update.
-// Other case is if target version is 20.0.0, then update 21.0.0 won't run.
-const needUpdate = (currentVersion, thisUpdateVersion, targetVersion) => {
-  if (compareVersions.compare(currentVersion, thisUpdateVersion, '>=')) {
-    return false
-  }
-  if (targetVersion === 'latest' || compareVersions.compare(targetVersion, thisUpdateVersion, '>=')) {
-    return true
-  }
-  return false
-}
+const { convertSdpVersion, needUpdate } = require('./helper')
 
 const cli = async () => {
   // Set options from a config file path relative to CWD
@@ -52,22 +38,25 @@ const cli = async () => {
   if (args.forcenew || existing) {
     const pkg = require(`${outDir}/package.json`)
     // If there is no `sdp_version`, fallback to `version`.
-    const version = pkg.sdp_version || pkg.version
+    let version = pkg.sdp_version || pkg.version
+    // Convert old SDP release version like 18.0.0 to 1.18.0
+    version = convertSdpVersion(version)
+
     let targetVersion = config.release
 
     if (!targetVersion) {
       targetVersion = 'latest'
     }
 
-    // Do auto updates for 16.0.1 release and above.
-    const minUpdateVersion = '16.0.1'
+    // Do auto updates for 1.16.1 release and above.
+    const minUpdateVersion = '1.16.1'
     // Quit if project under minimum version requirement
     if (compareVersions.compare(version, minUpdateVersion, '<')) {
       log('Cannot upgrade this version. Please use --forcenew flag to force new install.', 'error')
       process.exit(0)
     }
 
-    log(`Your site ${outDir} current version is ${version}`)
+    log(`Your site ${outDir} current SDP version is ${version}`)
 
     // Load all update scripts
     const dirs = p => fs.readdirSync(p).filter(f => fs.statSync(path.join(p, f)).isDirectory())

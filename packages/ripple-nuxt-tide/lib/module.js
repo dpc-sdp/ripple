@@ -14,7 +14,7 @@ const nuxtTide = function (moduleOptions) {
       target: options.baseUrl,
       // Set the proxy timeout for requesting to Tide API as 9 seconds.
       // POST request to Tide normally need more than 5 seconds to get response.
-      proxyTimeout: 9000,
+      proxyTimeout: 10000,
       onProxyRes (proxyRes, req, res) {
         // Set headers as devOps required
         proxyRes.headers[RPL_HEADER.APP_TYPE] = 'tide'

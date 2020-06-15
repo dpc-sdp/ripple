@@ -19,10 +19,14 @@ For updating Ripple to latest in your project:
 
 ```
 npx @dpc-sdp/create-ripple-app /home/user1/my-project --config /home/user1/example.json --release latest
-
 ```
 
-## Options config 
+For updating Ripple to specific SDP release in your project:
+```
+npx @dpc-sdp/create-ripple-app /home/user1/my-project --config /home/user1/example.json --release 1.23.0
+```
+
+## Options config
 
 There are several methods of providing config options
 
@@ -41,7 +45,7 @@ Example JSON file
   "name": "projectname",
   "author": "DPC",
   "description": "My great project",
-  "modules": ["site", "alert", "grants"],
+  "modules": "site,alert,grants",
   "backendurl": "http://develop.content.vic.gov.au",
   "siteid": "4",
   "authuser": "shielduser",

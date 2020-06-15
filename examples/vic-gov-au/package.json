@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/example-vic-gov-au",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "Reference nuxt site using Ripple front end and connecting to Tide backend",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "build:win32": "nuxt build --modern=client",
     "cy:open": "cypress open",
     "cy:run": "cypress run -b chrome -e TAGS='not @skip or @smoke'",
-    "cy:run-record": "cypress run -b chrome -e TAGS='not @skip or @smoke' --record  --parallel --group $CIRCLE_JOB",
+    "cy:run-record": "cypress run -b chrome -e TAGS='not @skip or @smoke' --record --parallel --group $CIRCLE_JOB",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
     "cy:run-audit": "cypress run --headless -b chrome -e TAGS='@audit' --spec 'test/e2e/integration/smoke/*'",
     "test:dev": "cross-env NODE_ENV=test start-server-and-test dev http://localhost:3000 cy:open",
@@ -25,14 +25,14 @@
     "start:build": "nuxt build --modern=client && nuxt start --modern=client"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.9.0",
+    "@dpc-sdp/ripple-nuxt-tide": "1.10.0",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.10.2",
     "run-script-os": "^1.0.7"
   },
   "devDependencies": {
-    "@dpc-sdp/ripple-test-tools": "1.9.0",
+    "@dpc-sdp/ripple-test-tools": "1.10.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-lodash": "^3.3.2",
     "cross-env": "^5.2.0",

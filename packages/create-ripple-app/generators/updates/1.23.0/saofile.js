@@ -10,7 +10,7 @@ module.exports = {
         type: 'modify',
         files: 'package.json',
         handler (data, filepath) {
-          data.sdp_version = '23.0.0'
+          data.sdp_version = '1.23.0'
           data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `1.8.0`
           data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.8.0`
           data.scripts['build:default'] = `nuxt build --modern=client`
@@ -25,6 +25,6 @@ module.exports = {
     return actions
   },
   async completed () {
-    console.log('Update to 23.0.0 complete!')
+    console.log('Update to 1.23.0 complete!')
   }
 }

@@ -1,5 +1,6 @@
 const OPTIONS = require('./../options')
 const TIDE_MODULES = require('./../tidemodules')
+const helper = require('./../helper')
 
 module.exports = {
   prompts () {
@@ -20,6 +21,18 @@ module.exports = {
       ...this.sao.opts.config
     }
 
+    // Set the sdp_version if user use "latest"
+    if (results.release === 'latest') {
+      results.release = helper.getLatestSdpRelease()
+    }
+
+    // Set the ripple package version based on SDP release version.
+    const rippleVersion = helper.getRippleVersion(results.release)
+    if (rippleVersion instanceof Error) {
+      throw rippleVersion
+    }
+    const version = { version: rippleVersion }
+
     const tideModules = {}
 
     TIDE_MODULES.map(m => m.value).forEach(module => {
@@ -32,6 +45,7 @@ module.exports = {
 
     return {
       ...results,
+      ...version,
       ...tideModules
     }
   }

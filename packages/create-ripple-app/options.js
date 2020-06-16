@@ -1,7 +1,5 @@
 const TIDE_MODULES = require('./tidemodules')
 
-const pkg = require('./package.json')
-
 module.exports = {
   name: {
     name: 'name',
@@ -13,14 +11,8 @@ module.exports = {
     name: 'release',
     message: 'Release Version (SDP Release)',
     type: 'string',
-    default: '1.0.0',
+    default: 'latest',
     store: true
-  },
-  version: {
-    name: 'version',
-    message: 'Ripple version',
-    type: 'string',
-    default: pkg.version
   },
   domain: {
     name: 'domain',

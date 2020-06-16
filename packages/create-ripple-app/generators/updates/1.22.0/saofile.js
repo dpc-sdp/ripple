@@ -17,7 +17,7 @@ module.exports = {
         type: 'modify',
         files: 'package.json',
         handler (data, filepath) {
-          data.version = '22.0.0'
+          data.sdp_version = '1.22.0'
           data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `1.7.0`
           data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.7.0`
           data.devDependencies['axe-core'] = `^3.5.2`
@@ -25,11 +25,11 @@ module.exports = {
           data.devDependencies['cypress-axe'] = `^0.5.3`
           data.devDependencies['cypress-cucumber-preprocessor'] = `^2.0.1`
 
-          data.scripts['cy:run'] = `cypress run -b chrome -e TAGS='not @skip or @smoke' --record  --parallel --group $CIRCLE_JOB`
+          data.scripts['cy:run'] = `cypress run -b chrome -e TAGS='not @skip or @smoke' --record --parallel --group $CIRCLE_JOB`
           data.scripts['cy:run-local'] = `cypress run -b chrome -e TAGS='not @skip or @smoke'`
           data.scripts['test:e2e-local'] = `cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-local`
           data.scripts['test:e2e'] = `cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start http://localhost:3000 cy:run`
-          data.scripts['test:smoke'] = `cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-smoke`
+          data.scripts['test:smoke'] = `cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start http://localhost:3000 cy:run-smoke`
 
           if (data['cypress-cucumber-preprocessor']) {
             data['cypress-cucumber-preprocessor'].step_definitions = 'test/e2e/integration/'
@@ -94,6 +94,6 @@ module.exports = {
     return actions
   },
   async completed () {
-    log('Update to 22.0.0 complete!')
+    log('Update to 1.22.0 complete!')
   }
 }

@@ -108,7 +108,7 @@ export default {
   $rpl-contact-postal-ruleset: ('xs', 1.4em, 'regular');
   $rpl-contact-list-ruleset: ('xs', 1em, 'medium');
   $rpl-contact-details-padding: 0 0 0 ($rpl-space * 5);
-  $rpl-contact-details-border-image: rpl-gradient('decorative_gradient_90');
+  $rpl-contact-details-border-image: rpl-gradient('decorative_gradient_90') !default;
   $rpl-contact-paragraph-margin: $rpl-space-4 0;
 
   .rpl-contact {

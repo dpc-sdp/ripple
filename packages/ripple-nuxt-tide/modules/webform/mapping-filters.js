@@ -351,7 +351,7 @@ module.exports = {
           group.styleClasses = ['rpl-fieldset--pad']
           group.fields.push({
             type: 'rplsubmitloader',
-            buttonText: element['#title'],
+            buttonText: element['#submit__label'] || element['#title'],
             loading: false,
             autoUpdate: true,
             styleClasses: ['form-group--inline']

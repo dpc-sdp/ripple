@@ -26,6 +26,10 @@ addParameters({
     // so we can tell if a component has the right background color.
     { name: 'light', value: '#edfafc', default: true }
   ],
+  knobs: {
+    // To allow knob text type to support v-html prop.
+    escapeHTML: false,
+  }
 })
 
 // Install Ripple Global plugin

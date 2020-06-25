@@ -16,7 +16,7 @@ module.exports = {
         type: 'modify',
         files: 'package.json',
         handler (data, filepath) {
-          data.version = '20.0.0'
+          data.sdp_version = '1.20.0'
           data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = `1.5.7`
           data.devDependencies['@dpc-sdp/ripple-test-tools'] = `1.5.7`
           if (results.unit === true) {
@@ -48,6 +48,6 @@ module.exports = {
     return actions
   },
   async completed () {
-    console.log('Update to 20.0.0 complete!')
+    console.log('Update to 1.20.0 complete!')
   }
 }

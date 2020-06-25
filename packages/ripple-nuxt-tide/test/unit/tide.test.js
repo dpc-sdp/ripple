@@ -7,7 +7,15 @@ const mockAxios = {
 }
 
 const site = 1
-const config = {}
+const config = {
+  modules: {
+    page: 1,
+    event: 0,
+    profile: {
+      route: '/profiles'
+    }
+  }
+}
 
 const tideApi = tide(mockAxios, site, config)
 
@@ -244,5 +252,26 @@ describe('tide', () => {
     expect.assertions(1)
     const data = await tideApi.getAllPaginatedData(response, false)
     expect(data).toEqual([1, 2, 3, 4, 5, 6, 7, 8])
+  })
+
+  test('should get tide module enabled status', () => {
+    const profileStatus = tideApi.isModuleEnabled('profile')
+    expect(profileStatus).toBe(true)
+    const pageStatus = tideApi.isModuleEnabled('page')
+    expect(pageStatus).toBe(true)
+    const eventStatus = tideApi.isModuleEnabled('event')
+    expect(eventStatus).toBe(false)
+  })
+
+  test('should get tide module config', () => {
+    const profileConfig = {
+      route: '/profiles'
+    }
+
+    const config = tideApi.getModuleConfig('profile')
+    expect(config).toEqual(profileConfig)
+
+    const emptyConfig = tideApi.getModuleConfig('page')
+    expect(emptyConfig).toEqual({})
   })
 })

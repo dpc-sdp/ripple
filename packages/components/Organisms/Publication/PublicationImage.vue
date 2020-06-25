@@ -42,9 +42,11 @@ import { RplIcon, RplTextIcon } from '@dpc-sdp/ripple-icon'
 import RplFigure from '@dpc-sdp/ripple-figure'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplImageGalleryModal, RplFullscreenImage } from '@dpc-sdp/ripple-image-gallery'
+import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
 export default {
   name: 'RplPublicationImage',
+  mixins: [deprecate],
   components: {
     RplIcon,
     RplTextIcon,
@@ -70,6 +72,9 @@ export default {
       markupVisible: false,
       showModal: false
     }
+  },
+  mounted () {
+    this.deprecatedWarn('"rpl-publication-image" is deprecated, please import "rpl-complex-image" instead')
   },
   computed: {
     fullscreenLabel () {

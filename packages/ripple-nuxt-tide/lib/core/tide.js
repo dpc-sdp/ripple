@@ -41,7 +41,7 @@ export const tide = (axios, site, config) => ({
   // Build the axios config for Tide GET request
   _axiosConfig: function (headersConfig) {
     // axios config
-    let axiosTimeout = 4000
+    let axiosTimeout = 10000
 
     // Give more time in Circle CI test
     if (process.env.NODE_ENV === 'test' || process.env.TEST) {
@@ -140,7 +140,21 @@ export const tide = (axios, site, config) => ({
    * @returns {Boolean}
    */
   isModuleEnabled: function (checkForModule) {
-    return config && config.modules && config.modules[checkForModule] === 1
+    const moduleConfig = config.modules[checkForModule]
+    return moduleConfig === 1 || (typeof moduleConfig === 'object' && moduleConfig !== null)
+  },
+
+  /**
+   * Get module config
+   * @param {String} moduleName name of module
+   * @returns {Object}
+   */
+  getModuleConfig: function (moduleName) {
+    const moduleConfig = config.modules[moduleName]
+    if (typeof moduleConfig === 'object' && moduleConfig !== null) {
+      return moduleConfig
+    }
+    return {}
   },
 
   // TODO: this method need to be reviewed when we do SDPA-585.
@@ -331,7 +345,7 @@ export const tide = (axios, site, config) => ({
       // media entity
       case 'media':
         switch (pathData.bundle) {
-          case 'media--embedded_video':
+          case 'embedded_video':
             include = tideIncludeConfig.mediaBase
             include = include.concat(tideIncludeConfig.mediaEmbeddedVideo)
             break

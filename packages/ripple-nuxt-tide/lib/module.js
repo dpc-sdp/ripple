@@ -14,10 +14,16 @@ const nuxtTide = function (moduleOptions) {
       target: options.baseUrl,
       // Set the proxy timeout for requesting to Tide API as 9 seconds.
       // POST request to Tide normally need more than 5 seconds to get response.
-      proxyTimeout: 9000,
+      proxyTimeout: 10000,
       onProxyRes (proxyRes, req, res) {
         // Set headers as devOps required
         proxyRes.headers[RPL_HEADER.APP_TYPE] = 'tide'
+      },
+      onProxyReq (proxyReq, req, res) {
+        // remove 'section-io-id'' header from proxied req
+        if (req.headers && req.headers['section-io-id']) {
+          proxyReq.removeHeader('section-io-id')
+        }
       }
     },
     '/sites/default/files/': {
@@ -110,9 +116,6 @@ const nuxtTide = function (moduleOptions) {
 
   // transpile @dpc-sdp modules
   this.options.build.transpile.push(/@dpc-sdp\/ripple/)
-
-  // TODO: Below is not working due to Webpack changes. https://digital-engagement.atlassian.net/browse/SDPA-3807
-  // this.options.build.optimization.splitChunks.maxSize = 300000
 
   // transpile none node modules to support browsers like IE
   this.options.build.transpile.push(/winston-transport/)

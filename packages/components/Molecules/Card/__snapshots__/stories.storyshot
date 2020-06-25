@@ -35,7 +35,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
           <p
             class="rpl-card-emergency__summary"
           >
-            Dial 000 for police, fire &amp; ambulance
+            Dial 000 for police, fire & ambulance
           </p>
         </div>
          
@@ -90,7 +90,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
           <p
             class="rpl-card-emergency__summary"
           >
-            Dial 000 for police, fire &amp; ambulance
+            Dial 000 for police, fire & ambulance
           </p>
         </div>
          
@@ -145,7 +145,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
           <p
             class="rpl-card-emergency__summary"
           >
-            Dial 000 for police, fire &amp; ambulance
+            Dial 000 for police, fire & ambulance
           </p>
         </div>
          
@@ -194,7 +194,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
           <p
             class="rpl-card-emergency__summary"
           >
-            Dial 000 for police, fire &amp; ambulance
+            Dial 000 for police, fire & ambulance
           </p>
         </div>
          
@@ -489,7 +489,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <p
                       class="rpl-card-promotion__summary"
                     >
-                      We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what&#39;s happening.
+                      We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what's happening.
                     </p>
                   </div>
                    
@@ -1115,7 +1115,12 @@ exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
     class="rpl-card-content__details"
   >
     <div>
-      &lt;h2&gt;Custom Content&lt;/h2&gt;&lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
+      <h2>
+        Custom Content
+      </h2>
+      <p>
+        Lorem ipsum dolor sit amet.
+      </p>
     </div>
      
     <!---->
@@ -1211,7 +1216,7 @@ exports[`RippleStoryshots Molecules/Card/Card Emergency Contact Default 1`] = `
     <p
       class="rpl-card-emergency__summary"
     >
-      Dial 000 for police, fire &amp; ambulance
+      Dial 000 for police, fire & ambulance
     </p>
   </div>
    
@@ -1571,7 +1576,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
   <p
     class="rpl-card-navigation-featured__summary rpl-card-navigation-featured__summary--image"
   >
-    We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what&#39;s happening.
+    We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what's happening.
   </p>
    
   <!---->
@@ -1637,7 +1642,7 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
   >
     <span>
       <span>
-        Read Stella&#39;s
+        Read Stella's
       </span>
        
       <span

@@ -77,7 +77,6 @@ export const tide = (axios, site, config) => ({
   post: async function (resource, data = {}, id = '') {
     // axios config
     const axiosConfig = {
-      baseUrl: config.baseUrl,
       auth: config.auth,
       timeout: 9000,
       headers: {

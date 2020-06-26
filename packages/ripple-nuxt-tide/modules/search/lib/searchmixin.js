@@ -179,7 +179,7 @@ const searchMixin = {
   watch: {
     '$route' (to, from) {
       if (this.searchForm.textSearch === undefined) {
-        this.searchForm.prefillSearchTerm = this.$route.query.q
+        this.searchForm.prefillSearchTerm = to.query.q
       }
       this.pager.initialStep = this.$route.query.page ? Number(this.$route.query.page) : 1
     }

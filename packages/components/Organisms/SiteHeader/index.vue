@@ -155,7 +155,7 @@ export default {
           icon: 'close'
         },
         closed: {
-          text: 'Search website',
+          text: 'Search',
           icon: 'search'
         }
       },

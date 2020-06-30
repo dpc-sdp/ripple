@@ -98,9 +98,8 @@ export default {
     },
     getDescription: (source) => {
       const type = source.type[0]
-      cons
       let summary = null
-      if (type == 'news' || type == 'page') {
+      if (type === 'news' || type === 'page') {
         summary = typeof source.summary_processed !== 'undefined' ? source.summary_processed[0] : (typeof source.field_page_intro_text !== 'undefined' ? source.field_page_intro_text[0] : '')
       } else {
         summary = typeof source.field_landing_page_summary !== 'undefined' ? source.field_landing_page_summary[0] : ''

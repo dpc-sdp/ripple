@@ -1,0 +1,32 @@
+{
+  "variables": {
+    "rpl-theme-color-primary": "hsl(326, 56%, 43%)",
+    "rpl-theme-color-primary-shade": "hsl(326, 56%, 30%)",
+    "rpl-theme-color-primary-tint": "hsl(326, 56%, 49%)",
+    "rpl-theme-color-primary-text": "white",
+    "rpl-theme-color-secondary": "hsl(215, 22%, 36%)",
+    "rpl-theme-color-secondary-shade": "hsl(215, 22%, 30%)",
+    "rpl-theme-color-secondary-tint": "hsl(215, 22%, 44%)",
+    "rpl-theme-color-secondary-text": "white",
+    "rpl-theme-color-teriary": "",
+    "rpl-theme-color-teriary-light": "",
+    "rpl-theme-color-teriary-dark": "",
+    "rpl-theme-color-neutral": "hsl(213, 13%, 88%)",
+    "rpl-theme-color-neutral-light": "hsl(202, 17%, 93%)",
+    "rpl-theme-color-neutral-lighter": "hsl(241, 26%, 97%)",
+    "rpl-theme-color-neutral-lightest": "white",
+    "rpl-theme-color-neutral-dark": "hsl(213, 22%, 40%)",
+    "rpl-theme-color-neutral-darker": "hsl(217, 97%, 14%)",
+    "rpl-theme-border-radius": "4px",
+    "rpl-theme-border-width": "1px",
+    "rpl-theme-color-danger": "hsl(355, 62%, 45%)",
+    "rpl-theme-color-warning": "hsl(17, 70%, 48%)",
+    "rpl-theme-color-success": "hsl(183, 100%, 34%)",
+    "rpl-theme-display-background-color": "var(--rpl-theme-color-neutral-lightest)",
+    "rpl-theme-display-text-color": "var(--rpl-theme-color-secondary)"
+  },
+  "options": {
+    "displayBgGraphic": false,
+    "searchText": "Search website"
+  }
+}

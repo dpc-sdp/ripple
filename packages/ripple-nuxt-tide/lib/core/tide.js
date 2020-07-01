@@ -23,9 +23,8 @@ export const tide = (axios, site, config) => ({
    * @param {String} id Resource UUID
    * @param {Object} headersConfig Tide API request headers config object:{ authToken: '', requestId: '' }
    */
-  get: async function (resource, params = {}, id = '', headersConfig = {}) {
-    const siteParam = 'site=' + site
-    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteParam}${Object.keys(params).length ? `&${qs.stringify(params, { indices: false })}` : ''}`
+  get: async function (resource, params = {}, id = '', headersConfig = {}, siteId = site) {
+    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}?${siteId ? `site=${siteId}&` : ''}${Object.keys(params).length ? `${qs.stringify(params, { indices: false })}` : ''}`
     return axios.$get(url, this._axiosConfig(headersConfig))
   },
 
@@ -159,8 +158,8 @@ export const tide = (axios, site, config) => ({
 
   // TODO: this method need to be reviewed when we do SDPA-585.
   // So it can support without tide_site enabled.
-  getSiteData: async function (headersConfig = {}, siteId = null) {
-    siteId = siteId || site
+  getSiteData: async function (headersConfig = {}, siteName = null) {
+    // siteId = siteId || site
     const include = [
       'field_site_logo',
       'field_site_footer_logos',
@@ -180,30 +179,32 @@ export const tide = (axios, site, config) => ({
 
     let siteData = null
 
-    if (siteId === null) {
+    if (siteName === null) {
       // TODO: Get site without site id in SDPA-585.
       return new Error('Could not get site data. No site id provided.', { label: 'Tide' })
     } else {
       params.filter = {
-        drupal_internal__tid: {
-          path: 'drupal_internal__tid',
-          value: siteId
+        name: {
+          path: 'name',
+          value: siteName
         }
       }
       try {
-        const response = await this.get(`taxonomy_term/sites`, params, '', headersConfig)
+        const response = await this.get(`taxonomy_term/sites`, params, '', headersConfig, false)
         if (response.error) {
           throw new Error(response.error)
         }
 
         siteData = jsonapiParse.parse(response).data[0]
+        console.log('siteData', siteData)
         // Tide API will return empty data array if no site data found.
         if (typeof siteData === 'undefined') {
           throw new Error('Empty data returns from Tide API.')
         }
       } catch (error) {
+        console.log('ERROR', error)
         if (process.server) {
-          logger.error('Failed to get site data for site id "%s".', siteId, { error, label: 'Tide' })
+          logger.error('Failed to get site data for site id "%s".', siteName, { error, label: 'Tide' })
         }
         return new Error('Could not get site data. Please check your site id and Tide site setting.')
       }
@@ -307,14 +308,14 @@ export const tide = (axios, site, config) => ({
     }
   },
 
-  getPathData: async function (path, params, headersConfig) {
+  getPathData: async function (path, params, headersConfig, siteId) {
     let routeParams = { path: path }
     if (!isEmpty(params)) {
       merge(routeParams, params)
     }
 
     try {
-      const response = await this.get('route', routeParams, '', headersConfig)
+      const response = await this.get('route', routeParams, '', headersConfig, siteId)
       return response
     } catch (error) {
       // TODO: use return error instead of throw.
@@ -322,7 +323,7 @@ export const tide = (axios, site, config) => ({
     }
   },
 
-  getEntityByPathData: async function (pathData, query, headersConfig) {
+  getEntityByPathData: async function (pathData, query, headersConfig, siteId) {
     const endpoint = `${pathData.entity_type}/${pathData.bundle}/${pathData.uuid}`
 
     let include
@@ -386,16 +387,16 @@ export const tide = (axios, site, config) => ({
       params = merge(query, params)
     }
     try {
-      const entity = await this.get(endpoint, params, '', headersConfig)
+      const entity = await this.get(endpoint, params, '', headersConfig, siteId)
       return entity
     } catch (error) {
       return new Error(`Failed to get entity "${pathData.entity_type}/${pathData.bundle}/${pathData.uuid}" data, with error "${error}"`)
     }
   },
 
-  getPageByPath: async function (path, params, headersConfig) {
+  getPageByPath: async function (path, params, headersConfig, siteId) {
     let pageData = null
-    const response = await this.getPathData(path, params, headersConfig)
+    const response = await this.getPathData(path, params, headersConfig, siteId)
 
     const pathData = jsonapiParse.parse(response).data
 
@@ -404,7 +405,7 @@ export const tide = (axios, site, config) => ({
       return pathData
     }
 
-    const entity = await this.getEntityByPathData(pathData, params, headersConfig)
+    const entity = await this.getEntityByPathData(pathData, params, headersConfig, siteId)
     if (entity instanceof Error) {
       throw entity
     }

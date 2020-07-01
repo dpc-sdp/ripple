@@ -1,0 +1,34 @@
+{
+  "variables": {
+    "rpl-theme-color-primary": "hsl(30, 100%, 45%)",
+    "rpl-theme-color-primary-shade": "hsl(30, 100%, 35%)",
+    "rpl-theme-color-primary-tint": "hsl(30, 100%, 50%)",
+    "rpl-theme-color-primary-text": "hsl(105, 0%, 13%)",
+    "rpl-theme-color-secondary": "hsl(105, 0%, 13%)",
+    "rpl-theme-color-secondary-shade": "hsl(105, 0%, 3%)",
+    "rpl-theme-color-secondary-tint": "hsl(105, 0%, 23%)",
+    "rpl-theme-color-secondary-text": "white",
+    "rpl-theme-color-teriary": "",
+    "rpl-theme-color-teriary-light": "",
+    "rpl-theme-color-teriary-dark": "",
+    "rpl-theme-color-neutral": "hsl(213, 13%, 88%)",
+    "rpl-theme-color-neutral-light": "hsl(202, 17%, 93%)",
+    "rpl-theme-color-neutral-lighter": "hsl(241, 26%, 97%)",
+    "rpl-theme-color-neutral-dark": "hsl(214, 4%, 34%)",
+    "rpl-theme-color-neutral-darker": "hsl(217, 97%, 14%)",
+    "rpl-theme-border-radius": "4px",
+    "rpl-theme-border-width": "1px",
+    "rpl-theme-color-danger": "hsl(355, 62%, 45%)",
+    "rpl-theme-color-warning": "hsl(17, 70%, 48%)",
+    "rpl-theme-color-success": "hsl(183, 100%, 34%)",
+    "rpl-site-header-color": "var(--rpl-theme-color-secondary)",
+    "rpl-site-header-color-shade": "var(--rpl-theme-color-secondary-shade)",
+    "rpl-site-header-color-tint": "var(--rpl-theme-color-primary-tint)",
+    "rpl-theme-display-background-color": "var(--rpl-theme-color-primary)",
+    "rpl-theme-display-text-color": "white"
+  },
+  "options": {
+    "displayBgGraphic": false,
+    "searchText": "Search website"
+  }
+}

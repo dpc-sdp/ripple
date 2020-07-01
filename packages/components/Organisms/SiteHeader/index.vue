@@ -328,7 +328,7 @@ export default {
 
     &__inner {
       overflow: hidden;
-      background-color: $rpl-site-header-background-color;
+      background-color: var(--rpl-color-primary);
       border-radius: $rpl-site-header-border-radius;
       transition: height .25s;
       height: $rpl-site-header-top-height-s;

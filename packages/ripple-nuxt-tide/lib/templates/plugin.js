@@ -27,7 +27,8 @@ export default ({ app, req, store , route }, inject) => {
         currentUrl: null,
         siteData: null,
         pageData: null,
-        pageHead: null
+        pageHead: null,
+        theme: null
       }),
       mutations: {
         setHost (state, host) {
@@ -47,6 +48,9 @@ export default ({ app, req, store , route }, inject) => {
         },
         setPageHead (state, pageHead) {
           state.pageHead = pageHead
+        },
+        setTheme (state, theme) {
+          state.theme = theme
         }
       },
       actions: {
@@ -71,12 +75,27 @@ export default ({ app, req, store , route }, inject) => {
         },
         async setSiteData ({ commit }, { requestId = null } = {}) {
           const headersConfig = { requestId }
-          const siteData = await app.$tide.getSiteData(headersConfig)
+          let siteName
+          const nonProdUrls = ['develop', 'localhost', '3000']
+          if (route.query.site) {
+            siteName = `${route.query.site}`
+          } else if (req.headers.host && !nonProdUrls.includes[req.headers.host]) {
+            siteName = `${req.headers.host}`
+          }
+          const siteData = await app.$tide.getSiteData(headersConfig, siteName)
           if (siteData instanceof Error) {
             throw siteData
           }
+          if (siteName) {
+            const theme = await app.$axios.get(`/${siteName}.json`).then(res => res.data)
+            if (theme) {
+              commit('setTheme', theme)
+            }
+          }
           siteData.lastFetched = Date.now()
           commit('setSiteData', siteData)
+
+
           if (config.modules.alert === 1) {
             if (siteData.site_alerts && siteData.site_alerts.length > 0) {
               await store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })

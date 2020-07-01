@@ -1,5 +1,6 @@
 <template>
   <rpl-base-layout :class="{ 'tide-preview-mode': preview }">
+    <app-theme v-if="theme" :theme="theme" />
     <template slot="header">
       <rpl-alert-base class="app-preview" v-if="preview">Draft only and not yet published</rpl-alert-base>
       <client-only>
@@ -28,7 +29,9 @@
       </client-only>
     </template>
 
-    <nuxt/>
+    <template v-if="$store.state.tide.siteData.drupal_internal__tid">
+      <nuxt />
+    </template>
 
     <template slot="footer">
       <rpl-site-footer
@@ -55,9 +58,11 @@ import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
+import AppTheme from '@dpc-sdp/ripple-nuxt-tide/lib/components/AppTheme.vue'
 
 export default {
   components: {
+    AppTheme,
     RplAlertBase,
     RplBaseLayout,
     RplSiteFooter,
@@ -83,6 +88,11 @@ export default {
     }
   },
   computed: {
+    theme () {
+      if (this.$store && this.$store.state.tide) {
+        return this.$store.state.tide.theme
+      }
+    },
     alerts () {
       if (this.$tide.isModuleEnabled('alert')) {
         return () => import('@dpc-sdp/ripple-nuxt-tide/modules/alert/components/TideAlert.vue')

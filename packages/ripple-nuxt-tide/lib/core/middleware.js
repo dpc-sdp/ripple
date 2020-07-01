@@ -18,6 +18,8 @@ import { tideAuthenticatedContent, tidePreview } from './../../modules/authentic
  */
 export default async function (context, pageData) {
   const mapping = context.app.$tideMapping
+  const siteId = context.app.store.state.tide.siteData.drupal_internal__tid
+
   let tideParams = {}
   const authToken = tideAuthenticatedContent(context, pageData)
   const headersConfig = { authToken, requestId: context.route.requestId }
@@ -28,7 +30,7 @@ export default async function (context, pageData) {
     // Otherwise get page data by path.
     const previewResponse = await tidePreview(context, pageData, authToken, headersConfig)
     if (previewResponse === false) {
-      response = await context.app.$tide.getPageByPath(context.route.path, tideParams, headersConfig)
+      response = await context.app.$tide.getPageByPath(context.route.path, tideParams, headersConfig, siteId)
     } else {
       response = previewResponse
     }

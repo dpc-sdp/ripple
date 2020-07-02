@@ -10,7 +10,7 @@ BRANCH=$4
 LAGOON_ROUTE=$5
 PR_TITLE=$6
 
-LAGOON_ROUTE = $(echo LAGOON_ROUTE | tr ',' ', ')
+LAGOON_ROUTE = $(echo $LAGOON_ROUTE | tr ',' ', ')
 
 # Extract ticket issue e.g. DDIDO-200
 extract_issue() {

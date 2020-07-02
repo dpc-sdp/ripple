@@ -10,6 +10,8 @@ BRANCH=$4
 LAGOON_ROUTE=$5
 PR_TITLE=$6
 
+LAGOON_ROUTE = $(echo LAGOON_ROUTE | tr ',' ', ')
+
 # Extract ticket issue e.g. DDIDO-200
 extract_issue() {
   local prefix=$(echo $1|sed -nE "s/(feature|hotfix)\/([A-Z]+).*/\2/p")

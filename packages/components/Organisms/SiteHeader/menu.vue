@@ -380,6 +380,14 @@ export default {
         margin: $rpl-menu-vertical-back-icon-margin;
       }
     }
+    .rpl-menu__item-link {
+      &.rpl-menu__item-link--home {
+        @include rpl_typography_ruleset($rpl-menu-item-link-home-ruleset);
+        span {
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   .rpl-menu--horizontal {
@@ -613,14 +621,22 @@ export default {
         background-color: $rpl-menu-item-link-background-color-active;
         color: $rpl-menu-item-link-color-active;
       }
+    }
+  }
 
-      &--home {
-        @include rpl_typography_ruleset($rpl-menu-item-link-home-ruleset);
-        span {
+  .rpl-menu--horizontal-floating-wrapper,
+  .rpl-menu--horizontal .rpl-menu--subs {
+    .rpl-menu__item-link {
+      &:hover {
+        border-radius: $rpl-menu-item-link-border-radius;
+        align-items: center;
+        padding: $rpl-menu-item-link-padding-active;
+        color: $rpl-menu-item-link-color-hover;
+        background-color: $rpl-menu-item-link-background-color-hover;
+         span {
           margin-right: 0;
         }
       }
     }
-
   }
 </style>

@@ -31,6 +31,18 @@
           </div>
           <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
             <li
+              v-if="isRoot && isVerticalLayout"
+              class="rpl-menu__item"
+            >
+              <rpl-link
+                class="rpl-menu__item-link"
+                href="/"
+              >
+                <rpl-icon symbol="menu_home" color="white" />
+                <span class="rpl-menu__item-link--text">Home</span>
+              </rpl-link>
+            </li>
+            <li
               v-for="(list, index) in menu"
               :key="index"
               :class="{
@@ -256,6 +268,7 @@ export default {
   $rpl-menu-item-link-icon-margin: auto $rpl-space-2 auto !default;
   $rpl-menu-item-link-border-radius: rem(4px) !default;
   $rpl-menu-item-link-ruleset: ('xs', 1.1em, 'medium') !default;
+  $rpl-menu-item-link-text-ruleset: ('xs', 1.1em, 'bold') !default;
   $rpl-menu-heading-ruleset: (
     'xs': ('xl', 1.33em, 'bold'),
     's': ('mega', 1.14em, 'bold')
@@ -579,7 +592,7 @@ export default {
       }
 
       &--active,
-      &:hover, &:focus {
+      &:focus {
         border-radius: $rpl-menu-item-link-border-radius;
         align-items: center;
         padding: $rpl-menu-item-link-padding-active;
@@ -590,7 +603,7 @@ export default {
         }
       }
 
-      &:hover, &:focus {
+      &:focus {
         background-color: $rpl-menu-item-link-background-color-hover;
       }
 
@@ -598,6 +611,10 @@ export default {
         background-image: $rpl-menu-item-link-background-image-active;
         background-color: $rpl-menu-item-link-background-color-active;
         color: $rpl-menu-item-link-color-active;
+      }
+
+      &--text {
+         @include rpl_typography_ruleset($rpl-menu-item-link-text-ruleset);
       }
     }
 

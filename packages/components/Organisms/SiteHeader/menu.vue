@@ -27,7 +27,7 @@
               <rpl-icon symbol="left" color="white" />
               <span class="rpl-visually-hidden">Close {{ title }} and return to </span><span>{{ backTitle }}</span>
             </button>
-            <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url" :target="parent.target">{{ parent.text }}</rpl-link>
+            <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url" :target="parent.target" :innerWrap="false">{{ parent.text }}</rpl-link>
           </div>
           <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
             <li
@@ -35,11 +35,11 @@
               class="rpl-menu__item"
             >
               <rpl-link
-                class="rpl-menu__item-link"
+                class="rpl-menu__item-link rpl-menu__item-link--home"
                 href="/"
+                :innerWrap="false"
               >
-                <rpl-icon symbol="menu_home" color="white" />
-                <span class="rpl-menu__item-link--text">Home</span>
+                <span><rpl-icon symbol="menu_home" color="white" /></span>Home
               </rpl-link>
             </li>
             <li
@@ -58,6 +58,7 @@
                 :href="list.url"
                 :target="list.target"
                 @focus="onItemFocus"
+                :innerWrap="false"
               >
                 {{ list.text }}
               </rpl-link>
@@ -268,7 +269,7 @@ export default {
   $rpl-menu-item-link-icon-margin: auto $rpl-space-2 auto !default;
   $rpl-menu-item-link-border-radius: rem(4px) !default;
   $rpl-menu-item-link-ruleset: ('xs', 1.1em, 'medium') !default;
-  $rpl-menu-item-link-text-ruleset: ('xs', 1.1em, 'bold') !default;
+  $rpl-menu-item-link-home-ruleset: ('xs', 1.1em, 'bold') !default;
   $rpl-menu-heading-ruleset: (
     'xs': ('xl', 1.33em, 'bold'),
     's': ('mega', 1.14em, 'bold')
@@ -613,8 +614,11 @@ export default {
         color: $rpl-menu-item-link-color-active;
       }
 
-      &--text {
-         @include rpl_typography_ruleset($rpl-menu-item-link-text-ruleset);
+      &--home {
+        @include rpl_typography_ruleset($rpl-menu-item-link-home-ruleset);
+        span {
+          margin-right: 0;
+        }
       }
     }
 

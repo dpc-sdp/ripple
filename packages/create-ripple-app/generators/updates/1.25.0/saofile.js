@@ -18,6 +18,6 @@ module.exports = {
     return actions
   },
   async completed () {
-    console.log('SDP 1.25.0: [SDPAA-666] replaced success color')
+    console.log('SDP 1.25.0: [SDPA-4441] replaced success color')
   }
 }

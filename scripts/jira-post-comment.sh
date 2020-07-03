@@ -3,14 +3,13 @@
 # Post comment with deployment URL to JIRA.
 #
 
+# LAGOON_ROUTE includes two routes in this project so code is modified to separate them via whitespace
 JIRA_URL=$1
 USER=$2
 PASSWORD=$3
 BRANCH=$4
-LAGOON_ROUTE=$5
+LAGOON_ROUTE=$(echo $5 | tr ',' ' ')
 PR_TITLE=$6
-
-LAGOON_ROUTE = $(echo $LAGOON_ROUTE | tr ',' ', ')
 
 # Extract ticket issue e.g. DDIDO-200
 extract_issue() {

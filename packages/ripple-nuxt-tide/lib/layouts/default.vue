@@ -187,7 +187,7 @@ export default {
   },
   watch: {
     $route (to, from) {
-      if (to.path !== from.path) {
+      if (to.path !== from.path && process.client) {
         setTimeout(() => {
           this.announcerTitle = `${document.title.trim()} has loaded`
         }, 1000)

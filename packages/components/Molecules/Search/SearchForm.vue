@@ -188,8 +188,6 @@ export default {
       padding-bottom: $rpl-space * 15;
     }
 
-    @include rpl_print_hidden;
-
     &--solid {
       background-color: $rpl-search-form-solid-background-color;
       padding-top: $rpl-space * 8;
@@ -224,6 +222,7 @@ export default {
       cursor: pointer;
       display: flex;
       align-items: center;
+      @include rpl_print_hidden;
 
       @at-root {
         #{$root}--dark #{$root}__btn {
@@ -286,6 +285,7 @@ export default {
       position: relative;
       display: flex;
       margin: $rpl-search-form-input-margin;
+      @include rpl_print_hidden;
 
       @include rpl_breakpoint('s') {
         margin: $rpl-search-form-input-margin-s;
@@ -334,6 +334,7 @@ export default {
       border: 0;
       display: block;
       cursor: pointer;
+      @include rpl_print_hidden;
 
       @at-root {
         #{$root}--dark #{$root}__show-filters {
@@ -354,6 +355,7 @@ export default {
 
     &__filters {
       padding-top: $rpl-space * 12;
+      @include rpl_print_hidden;
     }
 
   }

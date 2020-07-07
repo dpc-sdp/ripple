@@ -173,15 +173,10 @@ export default {
     getDescription: (source) => {
       const type = source.type[0]
       let summary = null
-      switch (type) {
-        case 'publication':
-        case 'landing_page':
-          summary = typeof source.field_landing_page_summary !== 'undefined' ? source.field_landing_page_summary[0] : ''
-          break
-        case 'news':
-        case 'page':
-          summary = typeof source.summary_processed !== 'undefined' ? source.summary_processed[0] : (typeof source.field_page_intro_text !== 'undefined' ? source.field_page_intro_text[0] : '')
-          break
+      if (type === 'news' || type === 'page') {
+        summary = typeof source.summary_processed !== 'undefined' ? source.summary_processed[0] : (typeof source.field_page_intro_text !== 'undefined' ? source.field_page_intro_text[0] : '')
+      } else {
+        summary = typeof source.field_landing_page_summary !== 'undefined' ? source.field_landing_page_summary[0] : ''
       }
       return summary
     },

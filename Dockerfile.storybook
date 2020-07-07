@@ -9,7 +9,6 @@ RUN yarn run build-storybook
 
 FROM amazeeio/node:10
 COPY --from=builder /app/src/public /app
-COPY scripts/jira-post-comment-storybook.sh /app/scripts/jira-post-comment.sh
 
 ARG LAGOON_GIT_BRANCH
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}

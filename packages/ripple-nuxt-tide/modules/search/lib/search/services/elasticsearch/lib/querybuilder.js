@@ -122,7 +122,7 @@ export default ({
    *     context.
    */
   addAgg: function (body, inputField) {
-    return body.agg(esb.termsAggregation(inputField.model, inputField.model).order('_key', 'asc').size(30)) // [SDPA-1999] TODO: Size should probaly come from the model
+    return body.agg(esb.termsAggregation(inputField.model, inputField.model).order('_key', 'asc').size(inputField.itemLimit || 30)) // Add itemLimit key to select config to override
   },
 
   setSort: function (body, sort) {

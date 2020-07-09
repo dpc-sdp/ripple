@@ -1,6 +1,6 @@
 <template>
   <div class="rpl-image-gallery">
-    <button class="rpl-image-gallery__enlarge" @click="openModal()" :aria-label="enlargeText">
+    <button class="rpl-image-gallery__enlarge" @click="modalToggle()" :aria-label="enlargeText">
       <rpl-icon symbol="enlarge_screen" color="primary" />
     </button>
     <carousel
@@ -29,7 +29,7 @@
       </button>
     </div>
     <!-- Modal -->
-    <rpl-image-gallery-modal v-if="showModal" @close="showModal = false">
+    <rpl-image-gallery-modal v-if="showModal" @close="modalToggle()">
       <template slot="body">
         <carousel
           :perPage="1"
@@ -67,6 +67,7 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplFittedImg from './FittedImg.vue'
 import RplImageGalleryModal from './ImageGalleryModal.vue'
 import RplFullscreenImage from './FullscreenImage.vue'
+import { RplImageGalleryBus } from './index'
 
 export default {
   name: 'RplImageGallery',
@@ -111,9 +112,6 @@ export default {
     this.showCarousel = true
   },
   methods: {
-    openModal () {
-      this.showModal = true
-    },
     nextSlide () {
       this.navTo = ((this.navTo < this.totalSlides) ? (this.navTo + 1) : 0)
     },
@@ -122,6 +120,11 @@ export default {
     },
     onPageChange (slideNumber) {
       this.navTo = slideNumber
+    },
+    modalToggle () {
+      var showModalState = this.showModal
+      this.showModal = showModalState ? false : true
+      RplImageGalleryBus.$emit('showModal', this.showModal)
     }
   }
 }

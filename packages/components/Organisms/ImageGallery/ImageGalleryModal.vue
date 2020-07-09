@@ -4,6 +4,7 @@
       <button class="rpl-image-gallery__modal-close" @click="closeModal()">
         <rpl-icon symbol="close" color="white" :size="iconSize" /><span>Close</span>
       </button>
+      <rpl-quick-exit class="rpl-image-gallery__modal__quickexit"  v-if="rplOptions.quickexit" />
       <div class="rpl-image-gallery__modal-body">
         <slot name="body"></slot>
       </div>
@@ -15,12 +16,14 @@
 import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
+import RplQuickExit from '@dpc-sdp/ripple-layout/QuickExit.vue'
 
 export default {
   name: 'RplImageGalleryModal',
   mixins: [breakpoint],
   components: {
-    RplIcon
+    RplIcon,
+    RplQuickExit
   },
   methods: {
     closeModal () {
@@ -58,6 +61,11 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "./scss/image_gallery";
 
+  $rpl-image-gallery-modal-quickexit-margin-top-xs: ($rpl-space-4 * 4);
+  $rpl-image-gallery-modal-quickexit-right-position-xs: $rpl-space-2;
+  $rpl-image-gallery-modal-quickexit-margin-top-l: ($rpl-space-4 * 7);
+  $rpl-image-gallery-modal-quickexit-right-position-l: ($rpl-space * 7);
+
   .rpl-image-gallery {
     &__modal-mask {
       position: fixed;
@@ -81,6 +89,7 @@ export default {
         margin-left: ($rpl-space * 15);
         margin-right: ($rpl-space * 15);
       }
+
     }
 
     &__modal-close {
@@ -105,6 +114,20 @@ export default {
 
       span {
         @include rpl_visually_hidden;
+      }
+    }
+
+    & &__modal__quickexit {
+      position: absolute;
+
+      @include rpl_breakpoint('xs') {
+        margin-top: $rpl-image-gallery-modal-quickexit-margin-top-xs;
+        right: $rpl-image-gallery-modal-quickexit-right-position-xs;
+      }
+
+      @include rpl_breakpoint('l') {
+        margin-top: $rpl-image-gallery-modal-quickexit-margin-top-l;
+        right: $rpl-image-gallery-modal-quickexit-right-position-l;
       }
     }
   }

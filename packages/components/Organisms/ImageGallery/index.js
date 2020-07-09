@@ -2,11 +2,14 @@
 // Provide a plugin which others can use it in Nuxt as no ssr mode.
 // Usage in Nuxt: https://nuxtjs.org/guide/plugins/#client-side-only
 
+import Vue from 'vue'
 import RplImageGalleryModal from './ImageGalleryModal.vue'
 import RplFullscreenImage from './FullscreenImage.vue'
 import RplImageGallery from './ImageGallery.vue'
 import RplComplexImage from './ComplexImage.vue'
+const RplImageGalleryBus = new Vue()
 
+export { RplImageGalleryBus }
 export { RplImageGalleryModal }
 export { RplFullscreenImage }
 export { RplImageGallery }

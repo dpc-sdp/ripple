@@ -8,7 +8,7 @@
         <div class="rpl-above-content__inner" :style="backgroundImage">
           <div class="rpl-above-content__top">
             <slot name="breadcrumbs"></slot>
-            <rpl-quick-exit v-if="quickexit && !menuopen" menuOffsetSelector=".rpl-above-content__inner" />
+            <rpl-quick-exit v-if="quickexit && !menuopen && !imagegallerymodalopen" menuOffsetSelector=".rpl-above-content__inner" />
           </div>
           <slot name="aboveContent"></slot>
         </div>
@@ -48,6 +48,7 @@
 import RplQuickExit from './QuickExit'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplSiteHeaderEventBus } from '@dpc-sdp/ripple-site-header'
+import { RplImageGalleryBus } from '@dpc-sdp/ripple-image-gallery'
 
 export default {
   components: { RplContainer, RplRow, RplCol, RplQuickExit },
@@ -74,7 +75,8 @@ export default {
   data () {
     return {
       quickexit: false,
-      menuopen: false
+      menuopen: false,
+      imagegallerymodalopen: false
     }
   },
   computed: {
@@ -97,6 +99,7 @@ export default {
   },
   mounted () {
     RplSiteHeaderEventBus.$on('open', this.setMenuOpen)
+    RplImageGalleryBus.$on('showModal', this.setImageGalleryModalOpen)
   },
   created () {
     this.quickexit = (this.quickExit !== null) ? this.quickExit : this.rplOptions.quickexit
@@ -104,6 +107,9 @@ export default {
   methods: {
     setMenuOpen (val) {
       this.menuopen = val
+    },
+    setImageGalleryModalOpen (data) {
+      this.imagegallerymodalopen = data
     }
   }
 }

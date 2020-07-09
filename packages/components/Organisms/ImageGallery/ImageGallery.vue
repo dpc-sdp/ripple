@@ -123,7 +123,7 @@ export default {
     },
     modalToggle () {
       var showModalState = this.showModal
-      this.showModal = showModalState ? false : true
+      this.showModal = !showModalState
       RplImageGalleryBus.$emit('showModal', this.showModal)
     }
   }

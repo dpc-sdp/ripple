@@ -48,7 +48,7 @@
 import RplQuickExit from './QuickExit'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplSiteHeaderEventBus } from '@dpc-sdp/ripple-site-header'
-import { RplImageGalleryBus } from '@dpc-sdp/ripple-image-gallery'
+import { RplImageGalleryEventBus } from '@dpc-sdp/ripple-image-gallery'
 
 export default {
   components: { RplContainer, RplRow, RplCol, RplQuickExit },
@@ -99,7 +99,7 @@ export default {
   },
   mounted () {
     RplSiteHeaderEventBus.$on('open', this.setMenuOpen)
-    RplImageGalleryBus.$on('showModal', this.setImageGalleryModalOpen)
+    RplImageGalleryEventBus.$on('showModal', this.setImageGalleryModalOpen)
   },
   created () {
     this.quickexit = (this.quickExit !== null) ? this.quickExit : this.rplOptions.quickexit

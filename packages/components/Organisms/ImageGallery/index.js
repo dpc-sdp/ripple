@@ -7,9 +7,9 @@ import RplImageGalleryModal from './ImageGalleryModal.vue'
 import RplFullscreenImage from './FullscreenImage.vue'
 import RplImageGallery from './ImageGallery.vue'
 import RplComplexImage from './ComplexImage.vue'
-const RplImageGalleryBus = new Vue()
+const RplImageGalleryEventBus = new Vue()
 
-export { RplImageGalleryBus }
+export { RplImageGalleryEventBus }
 export { RplImageGalleryModal }
 export { RplFullscreenImage }
 export { RplImageGallery }

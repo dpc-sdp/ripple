@@ -67,7 +67,7 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplFittedImg from './FittedImg.vue'
 import RplImageGalleryModal from './ImageGalleryModal.vue'
 import RplFullscreenImage from './FullscreenImage.vue'
-import { RplImageGalleryBus } from './index'
+import { RplImageGalleryEventBus } from './index'
 
 export default {
   name: 'RplImageGallery',
@@ -124,7 +124,7 @@ export default {
     modalToggle () {
       var showModalState = this.showModal
       this.showModal = !showModalState
-      RplImageGalleryBus.$emit('showModal', this.showModal)
+      RplImageGalleryEventBus.$emit('showModal', this.showModal)
     }
   }
 }

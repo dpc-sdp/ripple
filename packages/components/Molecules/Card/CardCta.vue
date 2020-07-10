@@ -3,7 +3,7 @@
     <img class="rpl-card-cta__image" v-if="image" ref="image" :src="image" alt="" />
     <h2 class="rpl-card-cta__title" v-if="title">{{ title }}</h2>
     <div class="rpl-card-cta__trim-wrapper" v-if="summary" :style="{ maxHeight: trimFieldMaxHeight }">
-      <p class="rpl-card-cta__summary" v-if="summary">{{ summary }}</p>
+      <div v-if="summary" class="rpl-card-cta__summary" v-html="summary"></div>
     </div>
     <span class="rpl-card-cta__button" v-if="link.text">{{ link.text }}</span>
   </rpl-card-content>

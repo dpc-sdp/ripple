@@ -15,7 +15,7 @@
             <div class="rpl-site-header__logo-container-inner">
               <!-- Menu Button -->
               <button
-                v-if="searchState !== 'opened'"
+                v-if="searchState !== 'opened' && menulinks > 0"
                 class="rpl-site-header__btn rpl-site-header__btn--menu"
                 :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
                 :aria-expanded="(menuState === 'opened').toString()"
@@ -259,6 +259,13 @@ export default {
         this.headerVisible = true
       }
       this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop
+    }
+  },
+  computed: {
+    menulinks: function () {
+      // This checks if a site has header menu links.
+      let linkLength = (typeof this.links !== 'undefined') ? this.links.length : 0
+      return linkLength
     }
   },
   mounted: function () {

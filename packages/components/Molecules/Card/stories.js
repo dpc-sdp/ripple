@@ -190,7 +190,7 @@ storiesOf('Molecules/Card/Card Cta', module)
         default: text('Title', 'Want to submit an event?')
       },
       summary: {
-        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.')
+        default: text('Summary', '<p>Lorem ipsum dolor <b>sit amet</b>, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.</p>')
       },
       link: {
         default: () => object('Link', { text: 'See event details', url: '#' })

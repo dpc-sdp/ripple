@@ -114,7 +114,7 @@ const tideSideBar = async (context, pageData, headersConfig) => {
       order: 105,
       data: {
         title: 'Share this page',
-        url: context.store.state.absoluteUrl
+        url: `https://${context.store.getters['tideSite/getCurrentSite']}${context.route.path}`
       }
     })
   }

@@ -113,7 +113,7 @@ const tideSideBar = async (context, pageData, headersConfig) => {
       name: 'rpl-share-this',
       order: 105,
       data: {
-        title: 'Share this',
+        title: 'Share this page',
         url: context.store.state.absoluteUrl
       }
     })

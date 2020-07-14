@@ -94,6 +94,10 @@ const nuxtTide = function (moduleOptions) {
       }
     }
 
+    if (to.path === from.path && to.query) {
+      return false
+    }
+
     return { x: 0, y: 0 }
   }
 

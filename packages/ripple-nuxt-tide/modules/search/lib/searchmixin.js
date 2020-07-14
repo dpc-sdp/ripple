@@ -178,10 +178,7 @@ const searchMixin = {
   },
   watch: {
     '$route' (to, from) {
-      if (this.searchForm.textSearch === undefined) {
-        this.searchForm.prefillSearchTerm = this.$route.query.q
-      }
-      this.pager.initialStep = this.$route.query.page ? Number(this.$route.query.page) : 1
+      this.pager.initialStep = to.query.page ? Number(to.query.page) : 1
     }
   }
 }

@@ -1172,11 +1172,17 @@ exports[`RippleStoryshots Molecules/Card/Card Cta Default 1`] = `
       class="rpl-card-cta__trim-wrapper"
       style="max-height: none;"
     >
-      <p
+      <div
         class="rpl-card-cta__summary"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
+        <p>
+          Lorem ipsum dolor 
+          <b>
+            sit amet
+          </b>
+          , consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
     </div>
      
     <span

@@ -34,7 +34,14 @@ export default ({ app, store }) => {
           }
           commit('setSiteId', options.site)
         }
-      }
+      },
+      getters: {
+        getCurrentSite: state => {
+          if (state.siteId && state.sitesDomainMap) {
+            return state.sitesDomainMap[state.siteId]
+          }
+        }
+      },
     }
     // In SSR, Vuex regiseter store module on both server side and client side.
     // That causes the module store states will be reset in client side.

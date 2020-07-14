@@ -94,6 +94,10 @@ const nuxtTide = function (moduleOptions) {
       }
     }
 
+    if (to.path === from.path && to.query) {
+      return false
+    }
+
     return { x: 0, y: 0 }
   }
 
@@ -103,6 +107,8 @@ const nuxtTide = function (moduleOptions) {
   this.addServerMiddleware(require('./server-middleware/headers'))
 
   this.options.head.htmlAttrs = this.options.head.hasOwnProperty('htmlAttrs') ? this.options.head.htmlAttrs : this.options.head.htmlAttrs = { lang: 'en' }
+  // Disable iPhone phone link feature in Nuxt https://github.com/nuxt/nuxt.js/issues/130
+  this.options.head.meta.push({ 'name': 'format-detection', 'content': 'telephone=no' })
 
   // Register `@nuxtjs/axios` module
   this.addModule(['@nuxtjs/axios', {

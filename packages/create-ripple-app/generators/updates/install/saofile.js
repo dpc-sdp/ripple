@@ -11,14 +11,16 @@ module.exports = {
       ...this.answers,
       ...this.sao.opts.config
     }
-    // Set the ripple version based on SDP release version.
-    // So we don't need to set ripple version manually in each update.
-    const rippleVer = helper.getRippleVersion(results.release)
+    // Set the sdp/ripple version based on SDP release version.
+    // So we don't need to set sdp/ripple version manually in each update.
+    const sdpVer = results.release === 'latest' ? helper.getLatestSdpRelease(results.release) : results.release
+    const rippleVer = helper.getRippleVersion(sdpVer)
     const actions = [
       {
         type: 'modify',
         files: 'package.json',
         handler (data, filepath) {
+          data.sdp_version = sdpVer
           data.dependencies['@dpc-sdp/ripple-nuxt-tide'] = rippleVer
           data.devDependencies['@dpc-sdp/ripple-test-tools'] = rippleVer
           return data
@@ -34,6 +36,6 @@ module.exports = {
     }
     // Install dependencies to update lock files
     await this.npmInstall({ npmClient: results.pm })
-    log(`Update complete!`)
+    log(`Update to ${results.release} complete!`)
   }
 }

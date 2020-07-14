@@ -36,7 +36,6 @@ export default {
   $rpl-anchor-links-max-width-xl: rem(463px) !default;
   $rpl-anchor-links-border-image: rpl-gradient('decorative_gradient_0') 1 100% !default;
   $rpl-anchor-links-border: rem(6px) solid !default;
-  $rpl-anchor-links-margin: $rpl-space-4 0 !default;
   $rpl-anchor-links-left-padding-xs: $rpl-space-4 !default;
   $rpl-anchor-links-left-padding-s: ($rpl-space * 9) !default;
   $rpl-anchor-links-left-padding-xl: ($rpl-space * 8) !default;
@@ -56,7 +55,6 @@ export default {
     border-right: 0;
     border-image: $rpl-anchor-links-border-image;
     position: relative;
-    margin: $rpl-anchor-links-margin;
 
     @include rpl_print {
       border-left: 0;

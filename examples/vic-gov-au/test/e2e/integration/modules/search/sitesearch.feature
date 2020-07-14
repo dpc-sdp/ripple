@@ -13,7 +13,7 @@ Feature: Search (Site search)
     Given I am using a "macbook-15" device
     When I visit the page "/"
     Then the search button in the site header should exist
-    Then the search button in the site header should have the text "Search website"
+    Then the search button in the site header should have the text "Search"
     When I scroll to the "top" of the page
     And I click the search button in the site header
     Then the site search box should be visible

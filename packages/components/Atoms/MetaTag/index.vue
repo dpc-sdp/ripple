@@ -37,11 +37,13 @@ export default {
   $rpl-meta-tag-ruleset: ('xxs', 1.2em, 'medium') !default;
   $rpl-meta-tag-solid-ruleset: ('xs', 1.28em, 'medium') !default;
   $rpl-meta-tag-margin: 0 $rpl-space-2 $rpl-space-2 0 !default;
-  $rpl-meta-tag-padding: $rpl-space-2 ($rpl-space * 5) !default;
+  $rpl-meta-tag-padding: $rpl-space ($rpl-space * 5) !default;
   $rpl-meta-tag-border: 2px solid rpl-color('primary') !default;
   $rpl-meta-tag-border-radius: rem(40px) !default;
   $rpl-meta-tag-solid-border-radius: rem(14px) !default;
   $rpl-meta-tag-text-color: rpl-color('primary') !default;
+  $rpl-meta-tag-text-hover-color:rpl-color('white') !default;
+  $rpl-meta-tag-link-hover-background-color: rpl-color('primary') !default;
   $rpl-meta-tag-dark-border-color: rpl-color('white') !default;
   $rpl-meta-tag-dark-text-color: rpl-color('white') !default;
   $rpl-meta-tag-solid-text-color: rpl-color('white') !default;
@@ -51,8 +53,9 @@ export default {
     $root: &;
     display: inline-block;
 
-    #{$root}--light &,
-    #{$root}--dark & {
+    &--light,
+    &--dark,
+    &--solid {
       margin: $rpl-meta-tag-margin;
     }
 
@@ -73,6 +76,9 @@ export default {
 
       #{$root}--light & {
         @include rpl_text_color($rpl-meta-tag-text-color);
+        &:hover {
+          background: $rpl-meta-tag-link-hover-background-color;
+        }
       }
 
       #{$root}--dark & {
@@ -98,6 +104,9 @@ export default {
 
       #{$root}--light & {
         @include rpl_text_color($rpl-meta-tag-text-color);
+      }
+      #{$root}--light #{$root}__link:hover & {
+        @include rpl_text_color($rpl-meta-tag-text-hover-color);
       }
 
       #{$root}--dark & {

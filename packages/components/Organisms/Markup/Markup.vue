@@ -165,6 +165,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     margin-left: 0;
     margin-right: 0;
     padding: $quotation-padding-xs;
+    max-width: $rpl-content-max-width;
 
     @include rpl_breakpoint('s') {
       padding: $quotation-padding-s;

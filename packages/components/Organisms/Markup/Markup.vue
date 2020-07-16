@@ -112,6 +112,10 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     > h2:first-child {
       margin-top: 0;
     }
+
+    p, h2, h3, h4, h5, h6 {
+      max-width: $rpl-content-max-width;
+    }
   }
 
   a:not(.rpl-button) {

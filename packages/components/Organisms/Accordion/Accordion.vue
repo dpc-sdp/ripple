@@ -255,7 +255,6 @@ export default {
     }
 
     &__content {
-      max-width: $rpl-content-max-width;
       @include rpl_typography_ruleset($rpl-accordion-content-ruleset);
       @include rpl_text_color($rpl-accordion-content-text-color);
       box-sizing: border-box;

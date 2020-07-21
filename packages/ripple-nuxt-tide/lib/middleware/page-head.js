@@ -30,7 +30,8 @@ const tidePageHead = (context, pageData) => {
       siteSectionName: siteSection ? siteSection.name : '',
       image,
       imageAlt,
-      pageType: pageData.tidePage.type
+      pageType: pageData.tidePage.type,
+      robotsNoIndex: pageData.tidePage.appMetatag.robots
     }
 
     context.store.dispatch('tide/setPageHead', getPageHeadConfig(headData))

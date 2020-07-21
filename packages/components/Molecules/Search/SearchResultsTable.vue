@@ -94,8 +94,8 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
-$table-stripe-color: rpl-color('light_neutral');
-$table-border: 1px solid rpl-color('mid_neutral_1');
+$table-stripe-color: rpl-color('light_neutral') !default;
+$table-border: 1px solid rpl-color('mid_neutral_1') !default;
 $table-header-ruleset: ('s', 1em, 'bold');
 $table-padding: $rpl-space-3 0;
 $search-table-link-ruleset: ('s', 1em, 'bold');

@@ -79,7 +79,7 @@ $rpl-zindex-content-top: 1020 !default;
 $rpl-border-width: 1px !default;
 
 // Dropshadow
-$rpl-dropshadow-color: rgba(0, 0, 0, .14);
+$rpl-dropshadow-color: rgba(0, 0, 0, .14) !default;
 
 // Focus
 $rpl-active-focus-outline-dark: 1px solid rpl-color('white') !default;

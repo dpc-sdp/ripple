@@ -254,7 +254,7 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
   }
 
   .app-button--cancel:hover {
-    background-color: $rpl-button-quick-exit-hover-background-color;
+    background-color: $rpl-button-danger-hover-background-color;
   }
 
   .tide-tell-me-your-email {

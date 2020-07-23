@@ -250,7 +250,11 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
   }
 
   .app-button--cancel {
-    background-color: rpl-color('danger');
+    background-color: $rpl-button-danger-background-color;
+  }
+
+  .app-button--cancel:hover {
+    background-color: $rpl-button-danger-hover-background-color;
   }
 
   .tide-tell-me-your-email {

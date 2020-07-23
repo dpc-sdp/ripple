@@ -22,6 +22,9 @@ const tidePageHead = (context, pageData) => {
     const image = mediaImage ? mediaImage.url : `${context.store.state.tide.protocol + '//' + context.store.state.tide.host}/img/social-media-image.jpg`
     const imageAlt = mediaImage ? mediaImage.meta.alt : ''
 
+    // Set robots
+    const robotsMeta = pageData.tidePage.appMetatag.robots ? pageData.tidePage.appMetatag.robots : ''
+
     const headData = {
       langcode: pageData.tidePage.langcode,
       title,
@@ -31,7 +34,7 @@ const tidePageHead = (context, pageData) => {
       image,
       imageAlt,
       pageType: pageData.tidePage.type,
-      robotsMeta: pageData.tidePage.appMetatag.robots
+      robotsMeta
     }
 
     context.store.dispatch('tide/setPageHead', getPageHeadConfig(headData))

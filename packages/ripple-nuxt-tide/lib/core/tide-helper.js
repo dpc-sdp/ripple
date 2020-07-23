@@ -104,7 +104,7 @@ export const getPageHeadConfig = ({
   pageType,
   robotsMeta
 }) => {
-  return {
+  const head = {
     htmlAttrs: {
       lang: langcode
     },
@@ -126,9 +126,13 @@ export const getPageHeadConfig = ({
       { name: 'twitter:image:alt', hid: 'hid:image:alt', content: imageAlt },
       // Custom page meta
       { name: 'sitesection', content: siteSectionName },
-      { name: 'content-type', content: pageType && pageType.replace('node--', '') },
-      // Robots meta
-      robotsMeta ? { name: 'robots', content: robotsMeta } : ''
+      { name: 'content-type', content: pageType && pageType.replace('node--', '') }
     ]
   }
+  if (robotsMeta) {
+    // Robots meta
+    let robotsMetaTag = { name: 'robots', content: robotsMeta }
+    head.meta.push(robotsMetaTag)
+  }
+  return head
 }

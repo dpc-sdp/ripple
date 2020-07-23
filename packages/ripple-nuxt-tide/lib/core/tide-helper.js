@@ -128,7 +128,7 @@ export const getPageHeadConfig = ({
       { name: 'sitesection', content: siteSectionName },
       { name: 'content-type', content: pageType && pageType.replace('node--', '') },
       // Robots meta
-      { name: 'robots', content: robotsMeta }
+      robotsMeta ? { name: 'robots', content: robotsMeta } : ''
     ]
   }
 }

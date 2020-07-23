@@ -133,7 +133,7 @@ export default {
       &:hover,
       &:focus {
         text-decoration: none;
-        background-color: $rpl-button-quick-exit-hover-background-color;
+        background-color: $rpl-button-danger-hover-background-color;
       }
     }
   }

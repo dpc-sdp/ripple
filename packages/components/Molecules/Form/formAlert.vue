@@ -66,8 +66,8 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-form-alert-text-ruleset: ('s', 1em, 'bold') !default;
-$rpl-form-alert-border-color-success: rpl-color('success');
-$rpl-form-alert-border-color-danger: rpl-color('danger');
+$rpl-form-alert-border-color-success: rpl-color('success') !default;
+$rpl-form-alert-border-color-danger: rpl-color('danger') !default;
 $rpl-form-alert-border-radius: rem(4px) !default;
 
 .rpl-form-alert {

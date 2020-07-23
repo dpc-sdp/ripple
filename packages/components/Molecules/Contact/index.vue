@@ -96,7 +96,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-contact-background: transparent;
+  $rpl-contact-background: transparent !default;
   $rpl-contact-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-contact-title-margin: 0 0 $rpl-space-4;
   $rpl-contact-title-color: rpl_color('extra_dark_neutral') !default;

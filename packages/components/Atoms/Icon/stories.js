@@ -4,6 +4,7 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/vue'
 
 import SIcons from './../../../../src/storybook-components/Icons.vue'
 import { RplIcon, RplTextIcon } from './index'
+import './icons/index.js'
 
 storiesOf('Atoms/Icon', module)
   .addDecorator(withKnobs)
@@ -131,7 +132,7 @@ storiesOf('Atoms/Icon', module)
     },
     props: {
       icon: {
-        default: text('Symbol', 'search')
+        default: text('Symbol', 'accessible')
       },
       color: {
         default: text('Color', 'primary')
@@ -163,29 +164,3 @@ storiesOf('Atoms/Icon', module)
       }
     }
   }))
-
-// storiesOf('Atoms/Icon', module).add(
-//   'Icon Custom',
-//   withInfo(`
-//     ### Add custom icons
-//     To use your own svg icon, you need to name your own custom icon in the same format as Ripple does.
-//     A example: \`rpl_icon_arrow\`. Always use \`rpl_icon_\` prefix.
-
-//     You can put your custom icons in any directory in your project, e.g. "/assets/ripple-icons/".
-
-//     To add icons, below code has to be added before you start your app by calling \`new Vue()\`:
-//     ~~~javascript
-//     import { addCustomIcons } from '@dpc-sdp/ripple-icon'
-//     addCustomIcons(require.context('./assets/ripple-icons/', true, /\\.svg$/))
-//     ~~~
-//     Then you should able to use your own icon as others.
-
-//     To use your own svg icon to replace the default icon, you must use the exact same file name as default.
-
-//     You can find the default icons in [Icon/assets/img](https://github.com/dpc-sdp/ripple/tree/master/packages/components/Atoms/Icon/assets/img).
-
-//     `)(() => ({
-//     components: { RplIcon },
-//     template: '<rpl-icon symbol="custom_icon" color="primary" size="m" />'
-//   }))
-// )

@@ -74,7 +74,7 @@ $quotation-text-margin: ($rpl-space * 5) auto $rpl-space-2 !default;
 $quotation-mark-border: rem(4px) solid rpl_color('mid_neutral_2') !default;
 $quotation-mark-end-margin: auto auto (-$rpl-space-2) $rpl-space-2 !default;
 $quotation-author-ruleset: (rem(12px), 1em, 'medium')  !default;
-$quotation-author-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
+$quotation-author-color: rpl_color('dark_neutral') !default;
 $quotation-author-opacity: rpl_color('dark_neutral') !default;
 
 $table-stripe-color: rpl-color('light_neutral') !default;

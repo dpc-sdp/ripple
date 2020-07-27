@@ -54,7 +54,6 @@ export default {
 
     &--primary {
       @include rpl_button_primary;
-      background-color: var(--rpl-color-primary);
     }
 
     &--secondary {

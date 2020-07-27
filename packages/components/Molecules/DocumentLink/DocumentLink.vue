@@ -74,9 +74,9 @@ export default {
 
   $rpl-document-link-caption-color: rpl_color('extra_dark_neutral') !default;
   $rpl-document-link-meta-type-ruleset: ('xxs', 1em, 'medium') !default;
-  $rpl-document-link-meta-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
+  $rpl-document-link-meta-color: rpl_color('dark_neutral') !default;
   $rpl-document-link-meta-margin-top: $rpl-space !default;
-  $rpl-document-link-meta-separator-color: mix(rpl_color('mid_neutral_1'), rpl_color('white'), 93%) !default;
+  $rpl-document-link-meta-separator-color: rpl_color('mid_neutral_1') !default;
   $rpl-document-link-caption-ruleset: ('xs', 1em, 'semibold') !default;
   $rpl-document-link-caption-margin-top: $rpl-space-2 !default;
   $rpl-document-link-margin: $rpl-space-2 0 !default;

@@ -294,7 +294,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/site_header";
 
-  $rpl-site-header-logo-width: auto !default;
+  $rpl-site-header-logo-width: 150px !default;
   $rpl-site-header-logo-primary-width: rem(98px);
   $rpl-site-header-text-color: rpl-color('white') !default;
   $rpl-site-header-border-radius: rem(4px) !default;
@@ -306,7 +306,7 @@ export default {
   $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space-2 auto 0 !default;
   $rpl-site-header-search-toggle-icon-margin: auto 0 auto $rpl-space-2 !default;
   $rpl-site-header-logout-btn-background-color: rpl-color('dark_primary') !default;
-  $rpl-site-header-logout-btn-background-color-mobile: darken($rpl-site-header-logout-btn-background-color, 10%) !default;
+  $rpl-site-header-logout-btn-background-color-mobile: $rpl-site-header-logout-btn-background-color !default;
   $rpl-site-header-logout-btn-padding-mobile: rem(8px) rem(10px) !default;
   $rpl-site-header-logout-btn-padding: rem(10px) !default;
   $rpl-site-header-logout-btn-margin: $rpl-space-4 !default;
@@ -328,7 +328,7 @@ export default {
 
     &__inner {
       overflow: hidden;
-      background-color: var(--rpl-color-primary);
+      background-color: $rpl-site-header-background-color;
       border-radius: $rpl-site-header-border-radius;
       transition: height .25s;
       height: $rpl-site-header-top-height-s;
@@ -385,9 +385,10 @@ export default {
       }
 
       img {
-        width: $rpl-site-header-logo-width;
+        width: auto;
         margin-left: $rpl-site-header-menu-toggle-border-spacing;
         vertical-align: middle;
+        max-width: $rpl-site-header-logo-width;
       }
 
       &--vic-logo-primary {

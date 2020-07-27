@@ -110,7 +110,7 @@ $rpl-pikaday-padding: $rpl-space-3 !default;
 $rpl-pikaday-label-text-color: rpl-color('extra_dark_neutral') !default;
 $rpl-pikaday-nav-arrow-color: rpl-color('primary') !default;
 $rpl-pikaday-nav-arrow-color-hover: rpl-color('secondary') !default;
-$rpl-pikaday-header-text-color: mix(rpl-color('white'), rpl-color('dark_neutral'), 0.65) !default;
+$rpl-pikaday-header-text-color: rpl-color('white') !default;
 $rpl-pikaday-date-size: 2.125rem !default;
 $rpl-pikaday-date-text-color: rpl-color('dark_neutral') !default;
 $rpl-pikaday-date-text-color-hover: rpl-color('primary') !default;

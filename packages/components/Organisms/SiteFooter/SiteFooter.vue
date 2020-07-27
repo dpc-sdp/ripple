@@ -87,7 +87,7 @@ $gutterless-grid: (
   @include rpl_grid_container;
   @include rpl_typography('copy_extra_small');
   @include rpl_text_color($rpl-footer-text-color);
-  background-color: var(--rpl-color-primary);
+  background-color: $rpl-footer-bg-color;
 
   @include rpl_breakpoint($rpl-footer-breakpoint) {
     background-image: $rpl-footer-bg-image;

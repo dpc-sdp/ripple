@@ -85,7 +85,7 @@ export const tide = (axios, site, config) => ({
         'X-Request-Id': helper.generateId()
       }
     }
-    const siteParam = resource === 'user/register' ? '?site=' + site : ''
+    const siteParam = '?site=' + site
     const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}${siteParam}`
 
     return axios.$post(url, data, axiosConfig)

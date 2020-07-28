@@ -76,12 +76,17 @@ export default ({ app, req, store , route }, inject) => {
         async setSiteData ({ commit }, { requestId = null } = {}) {
           const headersConfig = { requestId }
           let siteName
-          const nonProdUrls = ['develop', 'localhost', '3000']
+          const nonProdUrls = ['develop', 'master', 'release']
           if (route.query.site) {
             siteName = `${route.query.site}`
-          } else if (req.headers.host && !nonProdUrls.includes[req.headers.host]) {
+          } else if (req.headers.host.includes('localhost')) {
+            siteName = 'vic.gov.au'
+          } else if (nonProdUrls.includes[req.headers.host]) {
+            siteName = req.headers.host.replace(new RegExp(nonProdUrls.join('|') + '.', 'gi'), '')
+          } else {
             siteName = `${req.headers.host}`
           }
+
           const siteData = await app.$tide.getSiteData(headersConfig, siteName)
           if (siteData instanceof Error) {
             throw siteData

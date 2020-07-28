@@ -78,7 +78,7 @@ export default {
 
   $rpl-card-content-border-color: rpl_color('mid_neutral_1') !default;
   $rpl-card-content-border: 1px solid $rpl-card-content-border-color !default;
-  $rpl-card-content-border-radius: rem(4px) !default;
+  $rpl-card-content-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
   $rpl-card-content-border-height: rem(8px) !default;
   $rpl-card-content-background: rpl_color('white') !default;
   $rpl-card-content-no-image-padding: (rem(56px) - $rpl-card-vertical-padding) 0 0 0 !default;

@@ -159,7 +159,6 @@ export const tide = (axios, site, config) => ({
   // TODO: this method need to be reviewed when we do SDPA-585.
   // So it can support without tide_site enabled.
   getSiteData: async function (headersConfig = {}, siteName = null) {
-    // siteId = siteId || site
     const include = [
       'field_site_logo',
       'field_site_footer_logos',
@@ -180,8 +179,7 @@ export const tide = (axios, site, config) => ({
     let siteData = null
 
     if (siteName === null) {
-      // TODO: Get site without site id in SDPA-585.
-      return new Error('Could not get site data. No site id provided.', { label: 'Tide' })
+      return new Error('Could not get site data. No site name provided.', { label: 'Tide' })
     } else {
       params.filter = {
         name: {
@@ -196,17 +194,16 @@ export const tide = (axios, site, config) => ({
         }
 
         siteData = jsonapiParse.parse(response).data[0]
-        console.log('siteData', siteData)
         // Tide API will return empty data array if no site data found.
         if (typeof siteData === 'undefined') {
-          throw new Error('Empty data returns from Tide API.')
+          throw new Error('Empty data returned from Tide API.')
         }
       } catch (error) {
         console.log('ERROR', error)
         if (process.server) {
-          logger.error('Failed to get site data for site id "%s".', siteName, { error, label: 'Tide' })
+          logger.error('Failed to get site data for site name "%s".', siteName, { error, label: 'Tide' })
         }
-        return new Error('Could not get site data. Please check your site id and Tide site setting.')
+        return new Error('Could not get site data. Please check your site name and Tide site setting.')
       }
     }
 

@@ -76,13 +76,13 @@ export default ({ app, req, store , route }, inject) => {
         async setSiteData ({ commit }, { requestId = null } = {}) {
           const headersConfig = { requestId }
           let siteName
-          const nonProdUrls = ['develop', 'master', 'release']
+          const nonProdBranches = ['develop', 'master', 'release']
           if (route.query.site) {
             siteName = `${route.query.site}`
-          } else if (req.headers.host.includes('localhost')) {
+          } else if (['amazee.io', 'localhost'].includes(req.headers.host)) {
             siteName = 'vic.gov.au'
-          } else if (nonProdUrls.includes[req.headers.host]) {
-            siteName = req.headers.host.replace(new RegExp(nonProdUrls.join('|') + '.', 'gi'), '')
+          } else if (nonProdBranches.includes[req.headers.host]) {
+            siteName = req.headers.host.replace(new RegExp(nonProdBranches.join('|') + '.', 'gi'), '')
           } else {
             siteName = `${req.headers.host}`
           }

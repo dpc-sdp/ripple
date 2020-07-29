@@ -6,7 +6,7 @@
     <div class="rpl-related-links__row">
       <ul class="rpl-related-links__items" v-if="links">
         <li class="rpl-related-links__item" v-for="(item, index) of links" :key="index">
-          <rpl-text-link :url="item.url" icon-color="white" :text="item.text" :underline="true" size="small" theme="dark" />
+          <rpl-text-link :url="item.url" icon-color="primary" :text="item.text" :underline="true" size="small" theme="light" />
         </li>
       </ul>
     </div>
@@ -32,7 +32,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-related-links-background-color: rpl_color('primary') !default;
+  $rpl-related-links-background-color: rpl_color('neutral-lighter') !default;
   $rpl-related-links-background-position: top right !default;
   $rpl-related-links-background-repeat: no-repeat !default;
   $rpl-related-links-padding-xs: ($rpl-space * 7) $rpl-component-padding-xs;
@@ -41,7 +41,7 @@ export default {
   $rpl-related-links-margin: $rpl-space-2;
   $rpl-related-links-border-radius: rem(4px);
   $rpl-related-links-title-ruleset: ('l', 1.2em, 'bold');
-  $rpl-related-links-title-color: rpl_color('white') !default;
+  $rpl-related-links-title-color: rpl_color('neutral-darkest') !default;
   $rpl-related-links-items-margin: $rpl-space-2 auto;
   $rpl-related-links-item-min-width: rem(220px);
   $rpl-related-links-item-margin: 0 $rpl-space-3 $rpl-space-3 auto;

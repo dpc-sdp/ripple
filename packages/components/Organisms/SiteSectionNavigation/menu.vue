@@ -71,17 +71,17 @@ export default {
 
   $rpl-section-menu-link-ruleset: ('xs', 1em, 'medium') !default;
   $rpl-section-menu-link-sub-ruleset: ('xs', 1em, 'regular') !default;
-  $rpl-section-menu-item-background-color: rpl_color('primary') !default;
+  $rpl-section-menu-item-background-color: rpl_color('neutral') !default;
   $rpl-section-menu-item-left-padding: ($rpl-space * 6) !default;
   $rpl-section-menu-item-link-padding: $rpl-space-4 $rpl-section-menu-item-left-padding !default;
-  $rpl-section-menu-item-link-color: rpl_color('white') !default;
-  $rpl-section-menu-item-link-parent-hover-background-color: rpl_color('primary') !default;
-  $rpl-section-menu-item-link-parent-hover-background-image: rpl_gradient('primary_gradient') !default;
-  $rpl-section-menu-item-link-active-background-color: rpl_color('primary') !default;
+  $rpl-section-menu-item-link-color: rpl_color('neutral-darkest') !default;
+  $rpl-section-menu-item-link-parent-hover-background-color: rpl_color('neutral') !default;
+  $rpl-section-menu-item-link-parent-hover-background-image: rpl_color('primary') !default;
+  $rpl-section-menu-item-link-active-background-color: rpl_color('neutral-dark') !default;
   $rpl-section-menu-item-link-active-border-height: 1px;
-  $rpl-section-menu-item-link-active-border: $rpl-section-menu-item-link-active-border-height solid rpl_color('dark_primary') !default;
-  $rpl-section-menu-first-level-background: rpl_color('primary') !default;
-  $rpl-section-menu-first-level-item-background-color: rpl_color('dark_primary') !default;
+  $rpl-section-menu-item-link-active-border: $rpl-section-menu-item-link-active-border-height solid rpl_color('primary') !default;
+  $rpl-section-menu-first-level-background: rpl_color('neutral-light') !default;
+  $rpl-section-menu-first-level-item-background-color: rpl_color('neutral-light') !default;
   $rpl-section-menu-item-link-parent-text-margin: 0 ($rpl-space * 5) 0 0 !default;
   $rpl-section-menu-item-link-parent-icon-min-width: rem(8px) !default;
   $rpl-section-menu-item-indent-padding: rem(13px) !default;

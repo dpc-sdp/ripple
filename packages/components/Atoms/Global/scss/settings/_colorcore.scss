@@ -1,6 +1,23 @@
 // Fallback core colors.
 $rpl-colors-core: (
-  'primary': #0052c2,
+  'primary': hsl(207, 100%, 40%),
+  'primary-dark': hsl(215, 100%, 37%),
+  'primary-darker': hsl(207, 100%, 32%),
+  'primary-light': hsl(206, 67%, 82%),
+  'primary-lighter': hsl(206, 66%, 94%),
+  'neutral': hsl(210, 13%, 74%),
+  'neutral-dark': hsl(208, 19%, 41%),
+  'neutral-darker': hsl(208, 19%, 28%),
+  'neutral-darkest': hsl(206, 25%, 14%),
+  'neutral-light': hsl(213, 12%, 87%),
+  'neutral-lighter': hsl(208, 10%, 91%),
+  'neutral-lightest': hsl(219, 15%, 95%),
+  'white': hsl(219, 15%, 100%),
+  'black': hsl(219, 15%, 0%),
+  'danger': #af272f,
+  'warning': #ca4c21,
+  'success': #027a83,
+  // 'primary': #0052c2,
   'dark_primary': #023b89,
   'secondary': #0095ec,
   'extra_dark_neutral': #011a3c,
@@ -8,10 +25,10 @@ $rpl-colors-core: (
   'dark_neutral_1': #546a7c,
   'mid_neutral_1': #d7dbe0,
   'mid_neutral_2': #e8ebee,
-  'light_neutral': #f6f6f9,
-  'danger': #af272f,
-  'warning': #ca4c21,
-  'success': #027a83,
-  'white': #fff,
-  'black': #000
+  'light_neutral': #f6f6f9
+  // 'danger': #af272f,
+  // 'warning': #ca4c21,
+  // 'success': #027a83,
+  // 'white': #fff,
+  // 'black': #000
 );

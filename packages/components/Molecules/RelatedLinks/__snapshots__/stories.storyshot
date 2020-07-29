@@ -32,7 +32,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
             class="rpl-link__inner"
           >
             <span
-              class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
             >
               <span>
                 <span>
@@ -62,7 +62,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
             class="rpl-link__inner"
           >
             <span
-              class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
             >
               <span>
                 Second link it goes right here
@@ -83,7 +83,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
             class="rpl-link__inner"
           >
             <span
-              class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
             >
               <span>
                 Third link to extra content
@@ -104,7 +104,7 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
             class="rpl-link__inner"
           >
             <span
-              class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
             >
               <span>
                 This is a long link to extra content

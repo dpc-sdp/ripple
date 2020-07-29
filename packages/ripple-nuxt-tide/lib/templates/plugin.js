@@ -27,8 +27,7 @@ export default ({ app, req, store , route }, inject) => {
         currentUrl: null,
         siteData: null,
         pageData: null,
-        pageHead: null,
-        theme: null
+        pageHead: null
       }),
       mutations: {
         setHost (state, host) {
@@ -48,9 +47,6 @@ export default ({ app, req, store , route }, inject) => {
         },
         setPageHead (state, pageHead) {
           state.pageHead = pageHead
-        },
-        setTheme (state, theme) {
-          state.theme = theme
         }
       },
       actions: {
@@ -76,26 +72,19 @@ export default ({ app, req, store , route }, inject) => {
         async setSiteData ({ commit }, { requestId = null } = {}) {
           const headersConfig = { requestId }
           let siteName
-          const nonProdBranches = ['develop', 'master', 'release']
+          const nonProdUrls = ['develop.', 'master.', 'release.', '.localhost:3000']
           if (route.query.site) {
             siteName = `${route.query.site}`
-          } else if (['amazee.io', 'localhost'].includes(req.headers.host)) {
-            siteName = 'vic.gov.au'
-          } else if (nonProdBranches.includes[req.headers.host]) {
-            siteName = req.headers.host.replace(new RegExp(nonProdBranches.join('|') + '.', 'gi'), '')
+          } else if (req.headers.host === 'localhost:3000') {
+            // fallback to tide demo site for localhost
+            siteName = 'demo.vic.gov.au'
           } else {
-            siteName = `${req.headers.host}`
+            siteName = req.headers.host.replace(new RegExp(nonProdUrls.join('|'), 'gi'), '')
           }
 
           const siteData = await app.$tide.getSiteData(headersConfig, siteName)
           if (siteData instanceof Error) {
             throw siteData
-          }
-          if (siteName) {
-            const theme = await app.$axios.get(`/${siteName}.json`).then(res => res.data)
-            if (theme) {
-              commit('setTheme', theme)
-            }
           }
           siteData.lastFetched = Date.now()
           commit('setSiteData', siteData)

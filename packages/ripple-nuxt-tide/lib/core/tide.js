@@ -163,7 +163,10 @@ export const tide = (axios, site, config) => ({
       'field_site_logo',
       'field_site_footer_logos',
       'field_site_footer_logos.field_paragraph_media',
-      'field_site_footer_logos.field_paragraph_media.field_media_image'
+      'field_site_footer_logos.field_paragraph_media.field_media_image',
+      'field_header_top_graphic',
+      'field_header_bottom_graphic',
+      'field_footer_graphic'
     ]
 
     if (this.isModuleEnabled('alert')) {
@@ -182,8 +185,9 @@ export const tide = (axios, site, config) => ({
       return new Error('Could not get site data. No site name provided.', { label: 'Tide' })
     } else {
       params.filter = {
-        name: {
-          path: 'name',
+        field_site_domains: {
+          path: 'field_site_domains',
+          operator: 'CONTAINS',
           value: siteName
         }
       }

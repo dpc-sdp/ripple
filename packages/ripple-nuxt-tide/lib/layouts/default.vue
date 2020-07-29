@@ -59,6 +59,7 @@ import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nu
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
 import AppTheme from '@dpc-sdp/ripple-nuxt-tide/lib/components/AppTheme.vue'
+import get from 'lodash.get'
 
 export default {
   components: {
@@ -89,8 +90,9 @@ export default {
   },
   computed: {
     theme () {
-      if (this.$store && this.$store.state.tide) {
-        return this.$store.state.tide.theme
+      const themeVars = get(this.$store, 'state.tide.siteData.field_theme_variables', [])
+      if (themeVars.length > 0) {
+        return themeVars
       }
     },
     alerts () {

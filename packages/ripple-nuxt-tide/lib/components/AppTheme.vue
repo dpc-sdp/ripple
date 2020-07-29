@@ -9,14 +9,11 @@
 <script>
 export default {
   props: {
-    theme: Object
+    theme: Array
   },
   computed: {
     variables () {
-      if (this.theme) {
-        const customVars = this.theme.variables ? Object.keys(this.theme.variables) : []
-        return customVars.map(customVar => `--${customVar}: ${this.theme.variables[customVar]};`).join('\n \t')
-      }
+      return this.theme.map(customVar => `--${customVar.key}: ${customVar.value};`).join('\n \t')
     }
   }
 

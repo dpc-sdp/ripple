@@ -62,7 +62,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-intro-banner-title-typography-ruleset: ('mega', 1.2em, 'bold') !default;
-  $rpl-intro-banner-title-color: rpl_color('primary') !default;
+  $rpl-intro-banner-title-color: var(--rpl-intro-banner-title-color, rpl_color('primary')) !default;
   $rpl-intro-banner-description-typography-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-intro-banner-description-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-intro-banner-link-heading-typography-rules: (

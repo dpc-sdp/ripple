@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-site-footer">
+  <div class="rpl-site-footer" :style="graphic ? `background-image: url(${graphic});` : ''">
     <div class="rpl-site-footer__main">
       <rpl-footer-navigation :nav="nav"></rpl-footer-navigation>
       <rpl-acknowledgement class="rpl-site-footer__acknowledgement" :text="acknowledgement" />
@@ -46,7 +46,8 @@ export default {
     copyright: String,
     acknowledgement: String,
     caption: String,
-    logos: Array
+    logos: Array,
+    graphic: String
   },
   computed: {
     footerLogos () {
@@ -65,7 +66,6 @@ export default {
 
 $rpl-footer-breakpoint: 'l' !default;
 $rpl-footer-bg-color: rpl-color('dark_primary') !default;
-$rpl-footer-bg-image: url('./assets/images/footer-shape.png') !default;
 $rpl-footer-bottom-bg-color: transparent !default;
 $rpl-footer-text-color: rpl-color('white') !default;
 $rpl-footer-border-width: $rpl-border-width !default;
@@ -90,7 +90,6 @@ $gutterless-grid: (
   background-color: $rpl-footer-bg-color;
 
   @include rpl_breakpoint($rpl-footer-breakpoint) {
-    background-image: $rpl-footer-bg-image;
     background-position: calc(100% + #{rem(600px)}) bottom;
     background-repeat: no-repeat;
     background-size: rem(880px);

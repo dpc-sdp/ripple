@@ -41,6 +41,7 @@
         :acknowledgement="footer.acknowledgement"
         :caption="footerCaption"
         :logos="footer.logos"
+        :graphic="footer.graphic"
         />
       <client-only>
         <div aria-live="assertive" class="rpl-visually-hidden">{{ announcerTitle }}</div>
@@ -71,13 +72,19 @@ export default {
   },
   data () {
     let _store = this.$store
+    const theme = get(this.$store, 'state.tide.siteData.field_theme_variables', [])
+    const footerGraphic = get(this.$store, 'state.tide.siteData.field_footer_graphic.url')
+    // const headerGraphicTop = get(this.$store, 'state.tide.siteData.field_header_bottom_graphic.url')
+    // const headerGraphicBottom = get(this.$store, 'state.tide.siteData.field_header_bottom_graphic.url')
+
     return {
       nav: _store.state.tide.siteData.hierarchicalMenus.menuMain,
       footer: {
         links: _store.state.tide.siteData.hierarchicalMenus.menuFooter,
         copyright: _store.state.tide.siteData.field_site_footer_text ? _store.state.tide.siteData.field_site_footer_text.processed : null,
         acknowledgement: _store.state.tide.siteData.field_acknowledgement_to_country ? _store.state.tide.siteData.field_acknowledgement_to_country : null,
-        logos: this.getFooterLogos(_store.state.tide.siteData)
+        logos: this.getFooterLogos(_store.state.tide.siteData),
+        graphic: footerGraphic
       },
       header: {
         logo: _store.state.tide.siteData.siteLogo,
@@ -85,16 +92,11 @@ export default {
         links: _store.state.tide.siteData.hierarchicalMenus.menuMain,
         sticky: true
       },
-      announcerTitle: ''
+      announcerTitle: '',
+      theme
     }
   },
   computed: {
-    theme () {
-      const themeVars = get(this.$store, 'state.tide.siteData.field_theme_variables', [])
-      if (themeVars.length > 0) {
-        return themeVars
-      }
-    },
     alerts () {
       if (this.$tide.isModuleEnabled('alert')) {
         return () => import('@dpc-sdp/ripple-nuxt-tide/modules/alert/components/TideAlert.vue')

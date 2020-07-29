@@ -81,6 +81,7 @@ import { anchorUtils } from '@dpc-sdp/ripple-nuxt-tide/lib/core/anchorlinks.js'
 import { getAnchorLinkName, isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
+import get from 'lodash.get'
 
 export default {
   components: {
@@ -182,10 +183,11 @@ export default {
       return []
     },
     heroBgGraphic () {
+      const defaultImage = get(this, '$store.state.tide.siteData.field_header_top_graphic.url')
       if (this.page.field_graphical_image && this.page.field_graphical_image.field_media_image) {
         return this.page.field_graphical_image.field_media_image.url
-      } else {
-        return '/img/header-pattern-shape.png'
+      } else if (defaultImage) {
+        return defaultImage
       }
     },
     acknowledgement () {

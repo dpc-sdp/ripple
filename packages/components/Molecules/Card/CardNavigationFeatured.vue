@@ -77,7 +77,7 @@ export default {
   $rpl-card-navigation-featured-background-alter: rpl_color('secondary') !default;
   $rpl-card-navigation-featured-max-width: rem(818px) !default;
   $rpl-card-navigation-featured-color: rpl_color('extra_dark_neutral') !default;
-  $rpl-card-navigation-featured-border-radius: rem(4px) !default;
+  $rpl-card-navigation-featured-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
   $rpl-card-navigation-featured-title-ruleset: (
     'xs': ('mega', 1.3em, 'bold', true),
     's': ('giga', 1.6em, 'bold', true)

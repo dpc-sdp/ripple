@@ -248,7 +248,7 @@ $rpl-checklist-checkbox-border: 1px solid rpl-color('mid_neutral_1');
 $rpl-checklist-checkbox-border-focus: 1px solid rpl-color('primary');
 $rpl-checklist-list-row-padding: $rpl-space-3 $rpl-form-element-padding-m-horizontal;
 $rpl-checklist-list-row-odd-background: rpl-color('white');
-$rpl-checklist-checkbox-border-radius: rem(4px);
+$rpl-checklist-checkbox-border-radius: var(--rpl-theme-border-radius, rem(4px));
 $rpl-checklist-more-text-color: rpl-color('primary');
 $rpl-checklist-dropdown-max-height: (rem(38px) * 10);
 

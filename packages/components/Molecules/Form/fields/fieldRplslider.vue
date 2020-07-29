@@ -172,7 +172,7 @@ $rpl-slider-progress-bar-color: rpl-color('secondary') !default;
 $rpl-slider-label-padding: $rpl-space $rpl-space-4 !default;
 $rpl-slider-label-border: 1px solid rpl-color('mid_neutral_2') !default;
 $rpl-slider-label-background: rpl-color('white') !default;
-$rpl-slider-label-border-radius: rem(4px) !default;
+$rpl-slider-label-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
 $rpl-slider-label-ruleset: ('s', 1em, 'bold') !default;
 $rpl-slider-handle-color: rpl-color('light_neutral') !default;
 $rpl-slider-handle-border: 1px solid rpl-color('mid_neutral_1') !default;

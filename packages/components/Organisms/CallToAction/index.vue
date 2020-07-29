@@ -39,7 +39,7 @@ export default {
   // will be more consistent.
   $rpl-call-to-action-border-color: rpl_color('mid_neutral_1') !default;
   $rpl-call-to-action-border: 1px solid $rpl-call-to-action-border-color !default;
-  $rpl-call-to-action-border-radius: rem(4px) !default;
+  $rpl-call-to-action-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
   $rpl-call-to-action-bg-color: rpl-color('white') !default;
   $rpl-call-to-action-padding-xs: ($rpl-space * 8) ($rpl-space * 5) !default;
   $rpl-call-to-action-padding-s: ($rpl-space * 18) $rpl-component-padding-s !default;

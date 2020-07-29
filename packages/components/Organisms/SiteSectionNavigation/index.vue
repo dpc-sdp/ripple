@@ -39,7 +39,7 @@ export default {
 
   $rpl-section-menu-background-color: rpl_color('dark_primary') !default;
   $rpl-section-menu-padding: ($rpl-space * 6) 0 !default;
-  $rpl-section-menu-border-radius: rem(4px) !default;
+  $rpl-section-menu-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
   $rpl-section-menu-title-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-section-menu-title-color: rpl_color('white') !default;
   $rpl-section-menu-title-padding: 0 ($rpl-space * 6) !default;

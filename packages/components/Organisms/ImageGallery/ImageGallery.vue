@@ -133,7 +133,7 @@ export default {
   @import "./scss/image_gallery";
 
   $rpl-image-gallery-enlarge-background-color: rpl-color('white') !default;
-  $rpl-image-gallery-enlarge-border-radius: rem(4px) !default;
+  $rpl-image-gallery-enlarge-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
 
   $rpl-image-gallery-thumbnail-title-ruleset: ('s', 1.5em, 'bold') !default;
   $rpl-image-gallery-thumbnail-title-text-color: rpl-color('extra_dark_neutral') !default;
@@ -147,7 +147,7 @@ export default {
   $rpl-image-gallery-thumbnail-border: 1px solid $rpl-image-gallery-thumbnail-border-color !default;
   $rpl-image-gallery-thumbnail-background: rpl_color('white') !default;
   $rpl-image-gallery-thumbnail-details-padding: ($rpl-space * 6) !default;
-  $rpl-image-gallery-thumbnail-border-radius: rem(4px) !default;
+  $rpl-image-gallery-thumbnail-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
 
   .rpl-image-gallery {
     position: relative;

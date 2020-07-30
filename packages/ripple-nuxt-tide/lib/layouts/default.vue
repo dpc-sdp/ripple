@@ -128,6 +128,13 @@ export default {
       this.anchorScrollFix(this.$route.hash)
     }
     RplLinkEventBus.$on('navigate', this.onNavigate)
+
+    if (process.client && window.MSInputMethodContext && document.documentMode) {
+      const script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.src = 'https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js'
+      document.body.appendChild(script)
+    }
   },
   methods: {
     onNavigate () {

@@ -68,7 +68,7 @@ export default {
   $rpl-campaign-secondary-summary-margin-m: $rpl-space-3 0 ($rpl-space * 6) !default;
   $rpl-campaign-primary-content-padding-xs: 0 $rpl-component-padding-xs !default;
   $rpl-campaign-secondary-content-padding-s: 0 !default;
-  $rpl-campaign-secondary-border-radius: var(--rpl-theme-border-radius, rem(4px));
+  $rpl-campaign-secondary-border-radius: $rpl-border-radius !default;
 
   .rpl-campaign-secondary {
     position: relative;

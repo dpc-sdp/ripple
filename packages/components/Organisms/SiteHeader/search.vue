@@ -130,7 +130,7 @@ export default {
         position: absolute;
         display: inline-block;
         bottom: rem(-5px);
-        border-radius: var(--rpl-theme-border-radius, rem(4px));
+        border-radius: $rpl-border-radius;
         left: 0;
         right: 0;
         height: rem(4px);

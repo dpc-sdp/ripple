@@ -33,7 +33,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-whats-next-background: transparent !default;
-  $rpl-whats-next-border-radius: var(--rpl-theme-border-radius, rem(4px));
+  $rpl-whats-next-border-radius: $rpl-border-radius !default;
   $rpl-whats-next-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-whats-next-title-color: rpl_color('extra_dark_neutral') !default;
   $rpl-whats-next-items-margin: $rpl-space-2 auto;

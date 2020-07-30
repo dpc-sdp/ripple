@@ -267,7 +267,7 @@ export default {
   $rpl-menu-item-link-color-active: $rpl-menu-text-color !default;
   $rpl-menu-item-link-background-color-active: transparent !default;
   $rpl-menu-item-link-icon-margin: auto $rpl-space-2 auto !default;
-  $rpl-menu-item-link-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
+  $rpl-menu-item-link-border-radius: $rpl-border-radius !default;
   $rpl-menu-item-link-ruleset: ('xs', 1.1em, 'medium') !default;
   $rpl-menu-item-link-home-ruleset: ('xs', 1.1em, 'bold') !default;
   $rpl-menu-heading-ruleset: (

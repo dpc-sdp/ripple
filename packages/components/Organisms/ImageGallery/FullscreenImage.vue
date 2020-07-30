@@ -56,7 +56,7 @@ export default {
   @import "./scss/image_gallery";
 
   $rpl-fullscreen-image-image-box-shadow: 0 ($rpl-space * 7) ($rpl-space * 9) 0 rgba(0, 0, 0, 0.36) !default;
-  $rpl-fullscreen-image-image-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
+  $rpl-fullscreen-image-image-border-radius: $rpl-border-radius !default;
   $rpl-fullscreen-image-details-mobile-background-image: linear-gradient(to bottom, rgba($rpl-image-gallery-modal-background-color, 0), rgba($rpl-image-gallery-modal-background-color, 0) rem(50px), rgba($rpl-image-gallery-modal-background-color, 0.9) rem(94px), $rpl-image-gallery-modal-background-color rem(120px)) !default;
   $rpl-fullscreen-image-details-padding: ($rpl-space * 17) $rpl-space-3 ($rpl-space * 8) !default;
   $rpl-fullscreen-image-details-navigation-height: ($rpl-space * 8) !default;

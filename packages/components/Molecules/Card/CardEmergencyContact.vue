@@ -67,7 +67,7 @@ $rpl-card-emergency-background: rpl-color('white') !default;
 $rpl-card-emergency-padding: $rpl-space * 5 !default;
 $rpl-card-emergency-border: 1px solid rpl-color('primary') !default;
 $rpl-card-emergency-hover-border: 1px solid rgba(rpl-color('primary'), .2) !default;
-$rpl-card-emergency-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
+$rpl-card-emergency-border-radius: $rpl-border-radius !default;
 $rpl-card-emergency-subtitle-ruleset: ('xs', 1.357em, 'bold') !default;
 $rpl-card-emergency-subtitle-background-color: rpl-color('primary') !default;
 $rpl-card-emergency-subtitle-background-color-hover: rpl-color('mid_neutral_1') !default;

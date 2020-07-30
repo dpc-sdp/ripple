@@ -229,7 +229,7 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
       input[type="submit"] {
         order: 2;
         max-width: rem(145px);
-        border-radius: var(--rpl-theme-border-radius, rem(4px));
+        border-radius: $rpl-border-radius;
 
         @include rpl-breakpoint(s) {
           max-width: rem(180px);
@@ -239,7 +239,7 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
       button {
         order: 1;
         max-width: rem(145px);
-        border-radius: var(--rpl-theme-border-radius, rem(4px));
+        border-radius: $rpl-border-radius;
 
         @include rpl-breakpoint(s) {
           max-width: rem(180px);

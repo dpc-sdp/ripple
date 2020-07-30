@@ -68,7 +68,7 @@ export default {
 $rpl-form-alert-text-ruleset: ('s', 1em, 'bold') !default;
 $rpl-form-alert-border-color-success: rpl-color('success') !default;
 $rpl-form-alert-border-color-danger: rpl-color('danger') !default;
-$rpl-form-alert-border-radius: var(--rpl-theme-border-radius, rem(4px)) !default;
+$rpl-form-alert-border-radius: $rpl-border-radius !default;
 
 .rpl-form-alert {
   @include rpl_typography_ruleset($rpl-form-alert-text-ruleset);

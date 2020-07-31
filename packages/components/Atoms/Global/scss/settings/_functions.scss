@@ -75,7 +75,8 @@ $rpl-font-base: 16px !default;
   @if map-get($rpl-gradients, $name) == null {
     @error '"#{$name}" is not an available gradient';
   }
-  @return map-get($rpl-gradients, $name);
+  $gradient-var: map-get($rpl-gradients, $name);
+  @return var(--rpl-theme-gradient-#{$name}, $gradient-var);
 }
 
 // Graphic

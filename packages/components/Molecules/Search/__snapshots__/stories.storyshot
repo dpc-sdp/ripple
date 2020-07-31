@@ -41,7 +41,8 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
   </div>
    
   <button
-    class="rpl-search-form__show-filters"
+    aria-expanded="true"
+    class="rpl-search-form__show-filters rpl-search-form__show-filters--expanded"
   >
     <span>
       Refine search
@@ -50,7 +51,175 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
     <!---->
   </button>
    
-  <!---->
+  <div
+    class="rpl-search-form__filters"
+  >
+    <form
+      class="rpl-form"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="vue-form-generator"
+      >
+        <fieldset>
+          <div
+            class="form-group valid field-rplselect"
+          >
+            <label
+              for="select-a-topic"
+            >
+              <span>
+                Select a topic
+              </span>
+               
+              <!---->
+            </label>
+             
+            <div
+              class="field-wrap"
+            >
+              <div
+                class="rpl-select"
+              >
+                <div
+                  class="rpl-select__inner"
+                >
+                  <div
+                    aria-haspopup="listbox"
+                    aria-labelledby="select-a-topic-rpl-select-trigger select-a-topic-rpl-select-value"
+                    class="rpl-select__trigger"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span
+                      id="select-a-topic-rpl-select-trigger"
+                    >
+                      Select a topic
+                    </span>
+                     
+                    <!---->
+                  </div>
+                   
+                  <div
+                    class="rpl-select__dropdown"
+                    style="display: none;"
+                  >
+                    <div
+                      class="rpl-select__listbox"
+                      role="listbox"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="rpl-select__listitem"
+                        id="select-a-topic__topic__005fa"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="rpl-select__listitem-label"
+                        >
+                          Topic A
+                        </span>
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="rpl-select__listitem"
+                        id="select-a-topic__topic__005fb"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="rpl-select__listitem-label"
+                        >
+                          Topic B
+                        </span>
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="rpl-select__listitem"
+                        id="select-a-topic__topic__005fc"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="rpl-select__listitem-label"
+                        >
+                          Topic C
+                        </span>
+                         
+                        <!---->
+                      </div>
+                      <div
+                        class="rpl-select__listitem"
+                        id="select-a-topic__topic__005fd"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="rpl-select__listitem-label"
+                        >
+                          Topic D
+                        </span>
+                         
+                        <!---->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               
+              <!---->
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
+          <div
+            class="form-group valid field-rplsubmitloader"
+          >
+            <!---->
+             
+            <div
+              class="field-wrap"
+            >
+              <button
+                class="rpl-submit-loader form-control"
+                type="submit"
+              >
+                <span
+                  class="rpl-submit-loader__text"
+                >
+                  Apply change
+                </span>
+                 
+                <!---->
+              </button>
+               
+              <!---->
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
+        </fieldset>
+      </div>
+    </form>
+  </div>
 </div>
 `;
 

@@ -74,7 +74,7 @@ export default {
   $rpl-card-navigation-featured-margin-xs: $rpl-space-3 auto !default;
   $rpl-card-navigation-featured-margin-s: ($rpl-space * 5) auto !default;
   $rpl-card-navigation-featured-background: rpl_color('primary') !default;
-  $rpl-card-navigation-featured-background-alter: rpl_color('secondary') !default;
+  $rpl-card-navigation-featured-background-alter: $rpl-theme-card-navigation-featured-background-alter !default;
   $rpl-card-navigation-featured-max-width: rem(818px) !default;
   $rpl-card-navigation-featured-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-navigation-featured-border-radius: rem(4px) !default;

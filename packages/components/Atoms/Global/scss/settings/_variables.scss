@@ -103,3 +103,8 @@ $rpl-theme-related-links-background-color: var(--rpl-theme-related-links-backgro
 
 // Site header
 $rpl-theme-site-header-logo-width: var(--rpl-theme-site-header-logo-width, 150px) !default;
+
+// Card
+$rpl-theme-card-keydates-keydate-date-background: var(--rpl-theme-card-keydates-keydate-date-background, rpl_color('secondary')) !default;
+$rpl-theme-card-keydates-keydate-date-text-color: var(--rpl-theme-card-keydates-keydate-date-text-color, rpl_color('white')) !default;
+$rpl-theme-card-navigation-featured-background-alter: var(--rpl-theme-card-navigation-featured-background-alter, rpl_color('secondary')) !default;

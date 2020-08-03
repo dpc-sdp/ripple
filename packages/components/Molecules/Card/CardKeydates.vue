@@ -64,8 +64,8 @@ export default {
   $rpl-card-keydates-title-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-keydates-title-margin: 0 0 $rpl-space-3 0 !default;
   $rpl-card-keydates-keydate-date-ruleset: ('l', 1em, 'bold') !default;
-  $rpl-card-keydates-keydate-date-background: rpl_color('secondary') !default;
-  $rpl-card-keydates-keydate-date-text-color: rpl_color('white') !default;
+  $rpl-card-keydates-keydate-date-background: $rpl-theme-card-keydates-keydate-date-background !default;
+  $rpl-card-keydates-keydate-date-text-color: $rpl-theme-card-keydates-keydate-date-text-color !default;
   $rpl-card-keydates-keydate-date-padding: $rpl-space-2 !default;
   $rpl-card-keydates-keydate-date-margin: 0 0 $rpl-space-3 !default;
   $rpl-card-keydates-keydate-date-icon-margin: rem(-2px) $rpl-space 0 auto !default;

@@ -8,7 +8,7 @@ $rpl-button-padding: $rpl-space-4 ($rpl-space * 12) !default;
 $rpl-button-border: 1px solid transparent !default;
 $rpl-button-primary-background-color: rpl_color('primary') !default;
 $rpl-button-primary-text-color: rpl_color('white') !default;
-$rpl-button-primary-hover-background-color: rpl_color('secondary') !default;
+$rpl-button-primary-hover-background-color: var(--rpl-button-primary-hover-background-color, rpl_color('secondary')) !default;
 $rpl-button-primary-hover-text-color: rpl_color('white') !default;
 $rpl-button-secondary-background-color: rpl_color('secondary') !default;
 $rpl-button-secondary-text-color: rpl_color('white') !default;

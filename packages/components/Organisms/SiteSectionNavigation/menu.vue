@@ -77,7 +77,7 @@ export default {
   $rpl-section-menu-item-link-color: rpl_color('white') !default;
   $rpl-section-menu-item-link-parent-hover-background-color: rpl_color('primary') !default;
   $rpl-section-menu-item-link-parent-hover-background-image: rpl_gradient('primary_gradient') !default;
-  $rpl-section-menu-item-link-active-background-color: rpl_color('primary') !default;
+  $rpl-section-menu-item-link-active-background-color: $rpl-theme-section-menu-item-link-active-background-color !default;
   $rpl-section-menu-item-link-active-border-height: 1px;
   $rpl-section-menu-item-link-active-border: $rpl-section-menu-item-link-active-border-height solid rpl_color('dark_primary') !default;
   $rpl-section-menu-first-level-background: rpl_color('primary') !default;
@@ -86,7 +86,7 @@ export default {
   $rpl-section-menu-item-link-parent-icon-min-width: rem(8px) !default;
   $rpl-section-menu-item-indent-padding: rem(13px) !default;
   $rpl-section-menu-item-link-active-text-color: rpl-color('white') !default;
-  $rpl-section-menu-active-left-bar: url('data:image/svg+xml,%3Csvg%20width%3D%224%22%20height%3D%221%22%20viewBox%3D%220%200%204%201%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%224%22%20height%3D%221%22%20fill%3D%22%23#{str-slice(quote(rpl_color("secondary")), 2)}%22%2F%3E%3C%2Fsvg%3E') !default;
+  $rpl-section-menu-active-left-bar: $rpl-theme-section-menu-active-left-bar !default;
 
   @mixin rpl-section-menu-active-left-border {
     background-image: $rpl-section-menu-active-left-bar;

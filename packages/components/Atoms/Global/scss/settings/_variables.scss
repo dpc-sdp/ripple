@@ -86,6 +86,8 @@ $rpl-active-focus-outline-dark: 1px solid rpl-color('white') !default;
 
 // Menu
 $rpl-theme-menu-horizontal-hover-color: var(--rpl-theme-menu-horizontal-hover-color, rpl_color('secondary')) !default;
+$rpl-theme-section-menu-item-link-active-background-color: var(--rpl-theme-section-menu-item-link-active-background-color, rpl_color('primary')) !default;
+$rpl-theme-section-menu-active-left-bar: var(--rpl-theme-section-menu-active-left-bar, url('data:image/svg+xml,%3Csvg%20width%3D%224%22%20height%3D%221%22%20viewBox%3D%220%200%204%201%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%224%22%20height%3D%221%22%20fill%3D%22%23#{str-slice(quote(rpl_color("secondary")), 2)}%22%2F%3E%3C%2Fsvg%3E')) !default;
 
 // Hero banner
 $rpl-theme-hero-banner-title-color: var(--rpl-theme-hero-banner-title-color, rpl_color('primary')) !default;

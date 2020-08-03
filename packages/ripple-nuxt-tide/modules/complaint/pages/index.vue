@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import RplcomplaintsOverview from '@dpc-sdp/ripple-complaints'
+import RplComplaintsOverview from '@dpc-sdp/ripple-complaints'
 import RplTimeline from '@dpc-sdp/ripple-timeline'
 import RplDocumentLink from '@dpc-sdp/ripple-document-link'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
@@ -40,7 +40,7 @@ export default {
     RplCol,
     RplDocumentLink,
     RplRow,
-    RplcomplaintsOverview,
+    RplComplaintsOverview,
     RplTimeline,
     RplAccordion
   },

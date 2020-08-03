@@ -1,4 +1,4 @@
-# complaint
+# Complaint
 
 ## Usage
 

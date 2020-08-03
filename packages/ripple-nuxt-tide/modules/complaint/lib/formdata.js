@@ -7,8 +7,8 @@ export default {
       fieldName: 'field_topic_name'
     })
     return {
-      title: 'complaints',
-      searchPlaceholder: 'Search all complaints and programs',
+      title: 'Complaints',
+      searchPlaceholder: 'Search all complaints',
       theme: 'light',
       allowBlank: true,
       filterForm: {
@@ -38,7 +38,7 @@ export default {
                 },
                 {
                   type: 'rplchecklist',
-                  label: 'complaint topic',
+                  label: 'Complaint or program topic',
                   model: 'field_topic_name',
                   styleClasses: ['form-group--col-two'],
                   values: complaintTopicValues,

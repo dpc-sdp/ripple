@@ -1,15 +1,18 @@
 module.exports = {
   include: {
     complaint: [
+      'field_audience',
+      'field_node_guidelines',
+      'field_node_guidelines.field_paragraph_accordion',
+      'field_node_timeline',
+      'field_node_timeline.field_timeline',
+      'field_node_timeline.field_timeline.field_paragraph_media',
+      'field_node_timeline.field_timeline.field_paragraph_media.field_media_image',
+      'field_node_documents',
+      'field_node_documents.field_media_file',
       'field_landing_page_contact',
-      'field_node_department',
-      'field_landing_page_intro_text',
-      'field_more_information',
-      'field_node_primary_site',
-      'field_landing_page_show_contact',
-      'field_node_site',
-      'field_landing_page_summary',
-      'field_topic'
+      'field_landing_page_contact.field_paragraph_phones',
+      'field_landing_page_contact.field_paragraph_social_media'
     ]
   }
 }

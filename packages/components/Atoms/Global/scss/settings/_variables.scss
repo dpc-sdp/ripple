@@ -90,3 +90,8 @@ $rpl-menu-horizontal-hover-color: var(--rpl-menu-horizontal-hover-color, rpl_col
 // Hero banner
 $rpl-hero-banner-title-color: var(--rpl-hero-banner-title-color, rpl_color('primary')) !default;
 $rpl-hero-banner-title-background-color: var(--rpl-hero-banner-title-background-color, rpl_color('white')) !default;
+
+// Footer
+$rpl-site-footer-background-color: var(--rpl-site-footer-background-color, rpl-color('dark_primary')) !default
+$rpl-site-footer-border-color: var(--rpl-site-footer-border-color, rpl-color('primary')) !default;
+$rpl-site-footer-border-color-light: var(--rpl-site-footer-border-color, rpl-color('white')) !default;

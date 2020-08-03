@@ -251,7 +251,7 @@ export default {
   $rpl-menu-horizontal-items-root-link-color: rpl-color('white') !default;
   $rpl-menu-horizontal-items-root-margin: auto ($rpl-space * 7) auto auto !default;
   $rpl-menu-horizontal-items-root-active-line-background-image: rpl-gradient('primary_gradient') !default;
-  $rpl-menu-horizontal-items-root-active-hover-line-color: rpl-color('secondary') !default;
+  $rpl-menu-horizontal-items-root-active-hover-line-color: $rpl-menu-horizontal-hover-color !default;
   $rpl-menu-horizontal-items-root-active-thickness: 2px !default;
   $rpl-menu-horizontal-items-root-parent-icon-margin: auto auto auto $rpl-space !default;
   $rpl-menu-horizontal-inner-margin: ($rpl-space * 12) auto auto !default;

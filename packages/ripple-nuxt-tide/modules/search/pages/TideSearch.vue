@@ -6,6 +6,7 @@
         @search="getSearchResults"
         class="rpl-site-constrain--on-all"
         v-bind="searchForm"
+        :showFilters="rplOptions.flags && rplOptions.flags['site-search'] !== 'false'"
       />
       <rpl-divider />
     </template>

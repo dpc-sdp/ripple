@@ -74,8 +74,6 @@ export default {
     let _store = this.$store
     const theme = get(this.$store, 'state.tide.siteData.field_theme_variables', [])
     const footerGraphic = get(this.$store, 'state.tide.siteData.field_footer_graphic.url')
-    // const headerGraphicTop = get(this.$store, 'state.tide.siteData.field_header_bottom_graphic.url')
-    // const headerGraphicBottom = get(this.$store, 'state.tide.siteData.field_header_bottom_graphic.url')
 
     return {
       nav: _store.state.tide.siteData.hierarchicalMenus.menuMain,
@@ -201,6 +199,13 @@ export default {
           this.logoutFunc()
         }
       }
+    }
+    const featureFlags = get(this.$store, 'state.tide.siteData.field_site_features', [])
+    this.rplOptions.flags = {}
+    if (featureFlags && featureFlags.length > 0) {
+      featureFlags.forEach(itm => {
+        this.rplOptions.flags[`${itm.key}`] = itm.value
+      })
     }
   },
   head () {

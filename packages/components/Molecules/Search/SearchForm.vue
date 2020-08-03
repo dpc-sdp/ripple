@@ -14,7 +14,7 @@
       </button>
     </div>
     <button
-      v-if="filterForm && !expandFilters"
+      v-if="showFilters && filterForm && !expandFilters"
       :aria-expanded="showFilters"
       class="rpl-search-form__show-filters"
       :class="{ 'rpl-search-form__show-filters--expanded': showFilters }"
@@ -51,7 +51,8 @@ export default {
     filterText: { type: String, default: 'Refine search' },
     theme: String,
     type: { type: String, default: 'default' },
-    allowBlank: { type: Boolean, default: false }
+    allowBlank: { type: Boolean, default: false },
+    showFilters: { type: Boolean, default: true }
   },
   components: {
     RplForm,
@@ -59,8 +60,7 @@ export default {
   },
   data: function () {
     return {
-      searchInput: this.prefillSearchTerm,
-      showFilters: false
+      searchInput: this.prefillSearchTerm
     }
   },
   mounted () {
@@ -71,9 +71,6 @@ export default {
           this.focusSearchInput()
         }, 100)
       })
-    }
-    if (this.expandFilters) {
-      this.showFilters = true
     }
     RplFormEventBus.$on('clearform', this.clearSearch)
   },

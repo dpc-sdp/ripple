@@ -158,7 +158,8 @@ export const tide = (axios, site, config) => ({
 
   // TODO: this method need to be reviewed when we do SDPA-585.
   // So it can support without tide_site enabled.
-  getSiteData: async function (headersConfig = {}, siteName = null) {
+  getSiteData: async function (headersConfig = {}, siteName = null, siteId = null) {
+    debugger
     const include = [
       'field_site_logo',
       'field_site_footer_logos',
@@ -180,10 +181,9 @@ export const tide = (axios, site, config) => ({
     const params = { include: include.toString() }
 
     let siteData = null
-
-    if (siteName === null) {
-      return new Error('Could not get site data. No site name provided.', { label: 'Tide' })
-    } else {
+    let getMethod = ''
+    if (siteName) {
+      getMethod = 'name'
       params.filter = {
         field_site_domains: {
           path: 'field_site_domains',
@@ -191,24 +191,35 @@ export const tide = (axios, site, config) => ({
           value: siteName
         }
       }
-      try {
-        const response = await this.get(`taxonomy_term/sites`, params, '', headersConfig, false)
-        if (response.error) {
-          throw new Error(response.error)
+    } else if (siteId) {
+      getMethod = 'id'
+      params.filter = {
+        drupal_internal__tid: {
+          path: 'drupal_internal__tid',
+          value: siteId
         }
-
-        siteData = jsonapiParse.parse(response).data[0]
-        // Tide API will return empty data array if no site data found.
-        if (typeof siteData === 'undefined') {
-          throw new Error('Empty data returned from Tide API.')
-        }
-      } catch (error) {
-        console.log('ERROR', error)
-        if (process.server) {
-          logger.error('Failed to get site data for site name "%s".', siteName, { error, label: 'Tide' })
-        }
-        return new Error('Could not get site data. Please check your site name and Tide site setting.')
       }
+    } else {
+      return new Error('Could not get site data. No site provided.', { label: 'Tide' })
+    }
+
+    try {
+      const response = await this.get(`taxonomy_term/sites`, params, '', headersConfig, false)
+      if (response.error) {
+        throw new Error(response.error)
+      }
+
+      siteData = jsonapiParse.parse(response).data[0]
+      // Tide API will return empty data array if no site data found.
+      if (typeof siteData === 'undefined') {
+        throw new Error('Empty data returned from Tide API.')
+      }
+    } catch (error) {
+      console.log('ERROR', error)
+      if (process.server) {
+        logger.error(`Failed to get site data for site ${getMethod} "%s".`, getMethod === 'id' ? siteId : siteName, { error, label: 'Tide' })
+      }
+      return new Error(`Could not get site data.`)
     }
 
     // Menus

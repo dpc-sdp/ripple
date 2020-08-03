@@ -65,7 +65,7 @@ const tideSideBar = async (context, pageData, headersConfig) => {
   }
   // site section
   if (pageData.tidePage.section) {
-    const siteSectionData = await context.app.$tide.getSiteData(headersConfig, pageData.tidePage.section)
+    const siteSectionData = await context.app.$tide.getSiteData(headersConfig, null, pageData.tidePage.section)
 
     if (siteSectionData instanceof Error) {
       if (process.server) {

@@ -32,7 +32,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-related-links-background-color: rpl_color('primary') !default;
+  $rpl-related-links-background-color: $rpl-theme-related-links-background-color !default;
   $rpl-related-links-background-position: top right !default;
   $rpl-related-links-background-repeat: no-repeat !default;
   $rpl-related-links-padding-xs: ($rpl-space * 7) $rpl-component-padding-xs;

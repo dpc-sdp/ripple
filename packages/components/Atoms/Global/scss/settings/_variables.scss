@@ -85,13 +85,19 @@ $rpl-dropshadow-color: rgba(0, 0, 0, .14) !default;
 $rpl-active-focus-outline-dark: 1px solid rpl-color('white') !default;
 
 // Menu
-$rpl-menu-horizontal-hover-color: var(--rpl-menu-horizontal-hover-color, rpl_color('secondary')) !default;
+$rpl-theme-menu-horizontal-hover-color: var(--rpl-theme-menu-horizontal-hover-color, rpl_color('secondary')) !default;
 
 // Hero banner
-$rpl-hero-banner-title-color: var(--rpl-hero-banner-title-color, rpl_color('primary')) !default;
-$rpl-hero-banner-title-background-color: var(--rpl-hero-banner-title-background-color, rpl_color('white')) !default;
+$rpl-theme-hero-banner-title-color: var(--rpl-theme-hero-banner-title-color, rpl_color('primary')) !default;
+$rpl-theme-hero-banner-title-background-color: var(--rpl-theme-hero-banner-title-background-color, rpl_color('white')) !default;
 
 // Footer
-$rpl-site-footer-background-color: var(--rpl-site-footer-background-color, rpl-color('dark_primary')) !default
-$rpl-site-footer-border-color: var(--rpl-site-footer-border-color, rpl-color('primary')) !default;
-$rpl-site-footer-border-color-light: var(--rpl-site-footer-border-color-light, rpl-color('white')) !default;
+$rpl-theme-site-footer-background-color: var(--rpl-theme-site-footer-background-color, rpl-color('dark_primary')) !default
+$rpl-theme-site-footer-border-color: var(--rpl-theme-site-footer-border-color, rpl-color('primary')) !default;
+$rpl-theme-site-footer-border-color-light: var(--rpl-theme-site-footer-border-color-light, rpl-color('white')) !default;
+
+// Related links
+$rpl-theme-related-links-background-color: var(--rpl-theme-related-links-background-color, rpl_color('primary')) !default;
+
+// Site header
+$rpl-theme-site-header-logo-width: var(--rpl-theme-site-header-logo-width, 150px) !default;

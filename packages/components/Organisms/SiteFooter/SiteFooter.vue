@@ -65,12 +65,12 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-footer-breakpoint: 'l' !default;
-$rpl-footer-bg-color: $rpl-site-footer-background-color !default;
+$rpl-footer-bg-color: $rpl-theme-site-footer-background-color !default;
 $rpl-footer-bottom-bg-color: transparent !default;
 $rpl-footer-text-color: rpl-color('white') !default;
 $rpl-footer-border-width: $rpl-border-width !default;
-$rpl-footer-border-color: $rpl-site-footer-border-color !default;
-$rpl-footer-border-color-light: $rpl-site-footer-border-color-light !default;
+$rpl-footer-border-color: $rpl-theme-site-footer-border-color !default;
+$rpl-footer-border-color-light: $rpl-theme-site-footer-border-color-light !default;
 $rpl-footer-logo-max-width: rem(112px) !default;
 $rpl-footer-logo-max-height: rem(52px) !default;
 $rpl-footer-acknowledgement-margin: $rpl-space-3 0 ($rpl-space * 9) !default;

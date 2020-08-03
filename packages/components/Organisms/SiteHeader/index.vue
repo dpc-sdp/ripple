@@ -294,7 +294,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/site_header";
 
-  $rpl-site-header-logo-width: 150px !default;
+  $rpl-site-header-logo-width: $rpl-theme-site-header-logo-width !default;
   $rpl-site-header-logo-primary-width: rem(98px);
   $rpl-site-header-text-color: rpl-color('white') !default;
   $rpl-site-header-border-radius: rem(4px) !default;

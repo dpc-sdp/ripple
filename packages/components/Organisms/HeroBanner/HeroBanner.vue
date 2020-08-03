@@ -128,8 +128,8 @@ export default {
     'l': ('tera', 1.07em, 'bold', true),
     'xxl': ('tera', 1em, 'bold', true)
   ) !default;
-  $rpl-hero-banner-title-color: $rpl-hero-banner-title-color !default;
-  $rpl-hero-banner-title-background-color: $rpl-hero-banner-title-background-color !default;
+  $rpl-hero-banner-title-color: $rpl-theme-hero-banner-title-color !default;
+  $rpl-hero-banner-title-background-color: $rpl-theme-hero-banner-title-background-color !default;
   $rpl-hero-banner-description-typography-ruleset: (
     'xs': ('l', 1.2em, 'medium'),
     'm': ('xl', 1.17em, 'medium'),

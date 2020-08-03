@@ -105,7 +105,7 @@ export default {
 
 $rpl-pikaday-background: rpl-color('white') !default;
 $rpl-pikaday-border: 1px solid rpl-color('primary') !default;
-$rpl-pikaday-border-radius: rem(4px) !default;
+$rpl-pikaday-border-radius: $rpl-border-radius !default;
 $rpl-pikaday-padding: $rpl-space-3 !default;
 $rpl-pikaday-label-text-color: rpl-color('extra_dark_neutral') !default;
 $rpl-pikaday-nav-arrow-color: rpl-color('primary') !default;

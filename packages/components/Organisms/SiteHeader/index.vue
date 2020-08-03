@@ -297,7 +297,7 @@ export default {
   $rpl-site-header-logo-width: 150px !default;
   $rpl-site-header-logo-primary-width: rem(98px);
   $rpl-site-header-text-color: rpl-color('white') !default;
-  $rpl-site-header-border-radius: rem(4px) !default;
+  $rpl-site-header-border-radius: $rpl-border-radius !default;
   $rpl-site-header-background-color: rpl-color('primary') !default;
   $rpl-site-header-background-color-open: rpl-color('dark_primary') !default;
   $rpl-site-header-top-padding: ($rpl-space * 6) ($rpl-space * 5) !default;
@@ -349,7 +349,7 @@ export default {
 
       #{$root}__inner {
         margin: 0;
-        border-radius: rem(4px);
+        border-radius: $rpl-border-radius;
         background-color: $rpl-site-header-background-color-open;
         height: 100%;
       }

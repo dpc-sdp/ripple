@@ -15,7 +15,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-list-group-border: 1px solid rpl-color('mid_neutral_1') !default;
-  $rpl-list-group-border-radius: rem(4px) !default;
+  $rpl-list-group-border-radius: $rpl-border-radius !default;
   $rpl-list-group-color: rpl-color('white') !default;
 
   .rpl-list-group {

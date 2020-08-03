@@ -26,7 +26,7 @@ export default {
   $rpl-figure-caption-ruleset: ('xxs', 1em, 'medium') !default;
   $rpl-figure-caption-text-color: rpl-color('dark_neutral') !default;
   $rpl-figure-caption-margin: $rpl-space-3 0 $rpl-space-2 !default;
-  $rpl-figure-image-border-radius: rem(4px) !default;
+  $rpl-figure-image-border-radius: $rpl-border-radius !default;
   $rpl-figure-source-ruleset: ('xxs', 1.33em, 'regular') !default;
   $rpl-figure-source-color: rpl-color('dark_neutral') !default;
   $rpl-figure-source-margin: $rpl-space-2 0 !default;

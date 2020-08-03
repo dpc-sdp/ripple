@@ -167,7 +167,7 @@ export default {
   $rpl-search-form-solid-background-color: rpl-color('mid_neutral_2') !default;
   $rpl-search-form-solid-field-background-color: rpl-color('white') !default;
   $rpl-search-form-solid-field-border-color: 3px solid rpl-color('mid_neutral_1') !default;
-  $rpl-search-form-element-border-radius: rem(4px) !default;
+  $rpl-search-form-element-border-radius: $rpl-border-radius !default;
 
   .rpl-search-form {
     $root: &;

@@ -143,7 +143,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_edge('card element');
       display: table;
       height: auto;
-      border-radius: rem(4px);
+      border-radius: $rpl-border-radius;
 
       @include rpl_breakpoint('m') {
         max-width: 100%;
@@ -208,7 +208,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
   &__table,
   .table-container {
     border: $table-border;
-    border-radius: rem(4px);
+    border-radius: $rpl-border-radius;
     background-color: $table-background-color;
     overflow: auto;
     width: 100%;

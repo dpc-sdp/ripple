@@ -39,7 +39,7 @@ export default {
   $rpl-related-links-padding-s: ($rpl-space * 7) $rpl-component-padding-s;
   $rpl-related-links-padding: ($rpl-space * 7) ($rpl-space * 6);
   $rpl-related-links-margin: $rpl-space-2;
-  $rpl-related-links-border-radius: rem(4px);
+  $rpl-related-links-border-radius: $rpl-border-radius !default;
   $rpl-related-links-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-related-links-title-color: rpl_color('white') !default;
   $rpl-related-links-items-margin: $rpl-space-2 auto;

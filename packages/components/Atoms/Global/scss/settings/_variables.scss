@@ -86,3 +86,7 @@ $rpl-active-focus-outline-dark: 1px solid rpl-color('white') !default;
 
 // Menu
 $rpl-menu-horizontal-hover-color: var(--rpl-menu-horizontal-hover-color, rpl_color('secondary')) !default;
+
+// Hero banner
+$rpl-hero-banner-title-color: var(--rpl-hero-banner-title-color, rpl_color('primary')) !default;
+$rpl-hero-banner-title-background-color: var(--rpl-hero-banner-title-background-color, rpl_color('white')) !default;

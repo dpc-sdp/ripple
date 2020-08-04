@@ -1,226 +1,230 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RippleStoryshots Molecules/Pagination Pagination steps 1`] = `
-<nav
-  aria-label="Search"
-  class="rpl-pagination"
->
-  <ol
-    class="rpl-pagination__list"
+<div>
+  <nav
+    aria-label="Search"
+    class="rpl-pagination"
   >
-    <li
-      aria-current="page"
-      aria-disabled="true"
-      class="rpl-pagination__list-item"
+    <ol
+      class="rpl-pagination__list"
     >
-      <button
-        class="rpl-pagination__step rpl-pagination__step-current"
-        disabled="disabled"
+      <li
+        aria-current="page"
+        aria-disabled="true"
+        class="rpl-pagination__list-item"
       >
-        <span
-          class="rpl-pagination__step-label"
+        <button
+          class="rpl-pagination__step rpl-pagination__step-current"
+          disabled="disabled"
         >
-          current page
-        </span>
-        
+          <span
+            class="rpl-pagination__step-label"
+          >
+            current page
+          </span>
+          
         1
       
-      </button>
-       
-      <span
-        aria-hidden="true"
-        class="rpl-pagination__list-item-slash"
-      >
-        /
-      </span>
-    </li>
-    <li
-      class="rpl-pagination__list-item"
-    >
-      <button
-        class="rpl-pagination__step"
-      >
+        </button>
+         
         <span
-          class="rpl-pagination__step-label"
+          aria-hidden="true"
+          class="rpl-pagination__list-item-slash"
         >
-          Go to page
+          /
         </span>
-        
+      </li>
+      <li
+        class="rpl-pagination__list-item"
+      >
+        <button
+          class="rpl-pagination__step"
+        >
+          <span
+            class="rpl-pagination__step-label"
+          >
+            Go to page
+          </span>
+          
         2
       
-      </button>
-       
-      <span
-        aria-hidden="true"
-        class="rpl-pagination__list-item-slash"
-      >
-        /
-      </span>
-    </li>
-    <li
-      class="rpl-pagination__list-item"
-    >
-      <button
-        class="rpl-pagination__step"
-      >
+        </button>
+         
         <span
-          class="rpl-pagination__step-label"
+          aria-hidden="true"
+          class="rpl-pagination__list-item-slash"
         >
-          Go to page
+          /
         </span>
-        
+      </li>
+      <li
+        class="rpl-pagination__list-item"
+      >
+        <button
+          class="rpl-pagination__step"
+        >
+          <span
+            class="rpl-pagination__step-label"
+          >
+            Go to page
+          </span>
+          
         3
       
-      </button>
-       
-      <span
-        aria-hidden="true"
-        class="rpl-pagination__list-item-slash"
-      >
-        /
-      </span>
-    </li>
-    <li
-      class="rpl-pagination__list-item"
-    >
-      <button
-        class="rpl-pagination__step"
-      >
+        </button>
+         
         <span
-          class="rpl-pagination__step-label"
+          aria-hidden="true"
+          class="rpl-pagination__list-item-slash"
         >
-          Go to page
+          /
         </span>
-        
+      </li>
+      <li
+        class="rpl-pagination__list-item"
+      >
+        <button
+          class="rpl-pagination__step"
+        >
+          <span
+            class="rpl-pagination__step-label"
+          >
+            Go to page
+          </span>
+          
         4
       
-      </button>
-       
-      <span
-        aria-hidden="true"
-        class="rpl-pagination__list-item-slash"
-      >
-        /
-      </span>
-    </li>
-    <li
-      class="rpl-pagination__list-item"
-    >
-      <button
-        class="rpl-pagination__step"
-      >
+        </button>
+         
         <span
-          class="rpl-pagination__step-label"
+          aria-hidden="true"
+          class="rpl-pagination__list-item-slash"
         >
-          Go to page
+          /
         </span>
-        
+      </li>
+      <li
+        class="rpl-pagination__list-item"
+      >
+        <button
+          class="rpl-pagination__step"
+        >
+          <span
+            class="rpl-pagination__step-label"
+          >
+            Go to page
+          </span>
+          
         5
       
-      </button>
-       
-      <span
-        aria-hidden="true"
-        class="rpl-pagination__list-item-slash"
-      >
-        /
-      </span>
-    </li>
-  </ol>
-   
-  <div
-    class="rpl-pagination__controls"
-  >
-    <!---->
+        </button>
+         
+        <span
+          aria-hidden="true"
+          class="rpl-pagination__list-item-slash"
+        >
+          /
+        </span>
+      </li>
+    </ol>
      
-    <button
-      class="rpl-pagination__nav"
+    <div
+      class="rpl-pagination__controls"
     >
-      <span>
-        Next page
-      </span>
-       
       <!---->
-    </button>
-  </div>
-</nav>
+       
+      <button
+        class="rpl-pagination__nav"
+      >
+        <span>
+          Next page
+        </span>
+         
+        <!---->
+      </button>
+    </div>
+  </nav>
+</div>
 `;
 
 exports[`RippleStoryshots Molecules/Pagination Previous next page 1`] = `
-<nav
-  aria-label="Publication"
-  class="rpl-prev-next"
->
-  <div
-    class="rpl-prev-next__previous"
-  >
-    <a
-      class="rpl-link rpl-prev-next__link"
-      data-print-url="#"
-      href="#"
-    >
-      <div
-        class="rpl-prev-next__link-inner"
-      >
-        <!---->
-         
-        <div
-          class="rpl-prev-next__link-title"
-        >
-          Previous
-        </div>
-         
-        <div
-          class="rpl-prev-next__link-description"
-        >
-          <span
-            class="rpl-text-label rpl-prev-next__link-description-text rpl-text-label--small rpl-text-label--small--underline"
-          >
-            Previous page title can wrap over two lines
-          </span>
-        </div>
-      </div>
-    </a>
-  </div>
-   
-  <div
-    class="rpl-prev-next__spacer"
+<div>
+  <nav
+    aria-label="Publication"
+    class="rpl-prev-next"
   >
     <div
-      class="rpl-prev-next__spacer-graphic"
-    />
-  </div>
-   
-  <div
-    class="rpl-prev-next__next"
-  >
-    <a
-      class="rpl-link rpl-prev-next__link"
-      data-print-url="#"
-      href="#"
+      class="rpl-prev-next__previous"
+    >
+      <a
+        class="rpl-link rpl-prev-next__link"
+        data-print-url="#"
+        href="#"
+      >
+        <div
+          class="rpl-prev-next__link-inner"
+        >
+          <!---->
+           
+          <div
+            class="rpl-prev-next__link-title"
+          >
+            Previous
+          </div>
+           
+          <div
+            class="rpl-prev-next__link-description"
+          >
+            <span
+              class="rpl-text-label rpl-prev-next__link-description-text rpl-text-label--small rpl-text-label--small--underline"
+            >
+              Previous page title can wrap over two lines
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+     
+    <div
+      class="rpl-prev-next__spacer"
     >
       <div
-        class="rpl-prev-next__link-inner"
+        class="rpl-prev-next__spacer-graphic"
+      />
+    </div>
+     
+    <div
+      class="rpl-prev-next__next"
+    >
+      <a
+        class="rpl-link rpl-prev-next__link"
+        data-print-url="#"
+        href="#"
       >
-        <!---->
-         
         <div
-          class="rpl-prev-next__link-title"
+          class="rpl-prev-next__link-inner"
         >
-          Next
-        </div>
-         
-        <div
-          class="rpl-prev-next__link-description"
-        >
-          <span
-            class="rpl-text-label rpl-prev-next__link-description-text rpl-text-label--small rpl-text-label--small--underline"
+          <!---->
+           
+          <div
+            class="rpl-prev-next__link-title"
           >
-            Next page title can wrap over two lines
-          </span>
+            Next
+          </div>
+           
+          <div
+            class="rpl-prev-next__link-description"
+          >
+            <span
+              class="rpl-text-label rpl-prev-next__link-description-text rpl-text-label--small rpl-text-label--small--underline"
+            >
+              Next page title can wrap over two lines
+            </span>
+          </div>
         </div>
-      </div>
-    </a>
-  </div>
-</nav>
+      </a>
+    </div>
+  </nav>
+</div>
 `;

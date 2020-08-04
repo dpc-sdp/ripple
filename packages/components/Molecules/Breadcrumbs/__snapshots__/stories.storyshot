@@ -1,59 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RippleStoryshots Molecules/Breadcrumbs Breadcrumbs 1`] = `
-<div
-  class="rpl-breadcrumbs"
->
+<div>
   <div
-    class="rpl-breadcrumbs__row"
+    class="rpl-breadcrumbs"
   >
-    <nav
-      aria-label="breadcrumbs"
+    <div
+      class="rpl-breadcrumbs__row"
     >
-      <ul
-        class="rpl-breadcrumbs__items"
+      <nav
+        aria-label="breadcrumbs"
       >
-        <li
-          class="rpl-breadcrumbs__item"
+        <ul
+          class="rpl-breadcrumbs__items"
         >
-          <a
-            class="rpl-link rpl-breadcrumbs__link"
-            data-print-url="#"
-            href="#"
+          <li
+            class="rpl-breadcrumbs__item"
+          >
+            <a
+              class="rpl-link rpl-breadcrumbs__link"
+              data-print-url="#"
+              href="#"
+            >
+              <span
+                class="rpl-link__inner"
+              >
+                Home
+              </span>
+            </a>
+          </li>
+          <li
+            class="rpl-breadcrumbs__item"
+          >
+            <a
+              class="rpl-link rpl-breadcrumbs__link"
+              data-print-url="#"
+              href="#"
+            >
+              <span
+                class="rpl-link__inner"
+              >
+                Level 1 page title
+              </span>
+            </a>
+          </li>
+          <li
+            class="rpl-breadcrumbs__item"
           >
             <span
-              class="rpl-link__inner"
+              class="rpl-breadcrumbs__text"
             >
-              Home
+              Level 2 page title
             </span>
-          </a>
-        </li>
-        <li
-          class="rpl-breadcrumbs__item"
-        >
-          <a
-            class="rpl-link rpl-breadcrumbs__link"
-            data-print-url="#"
-            href="#"
-          >
-            <span
-              class="rpl-link__inner"
-            >
-              Level 1 page title
-            </span>
-          </a>
-        </li>
-        <li
-          class="rpl-breadcrumbs__item"
-        >
-          <span
-            class="rpl-breadcrumbs__text"
-          >
-            Level 2 page title
-          </span>
-        </li>
-      </ul>
-    </nav>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </div>
 `;

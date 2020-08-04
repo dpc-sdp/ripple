@@ -1,1939 +1,1949 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
-<div
-  class="rpl-search-form"
->
-  <h1>
-    Search results
-  </h1>
-   
-  <!---->
-    
+<div>
   <div
-    class="rpl-search-form__field"
+    class="rpl-search-form"
   >
-    <label>
-      <span
-        class="rpl-search-form__label-text"
-      >
-        Search for
-      </span>
+    <h1>
+      Search results
+    </h1>
+     
+    <!---->
+      
+    <div
+      class="rpl-search-form__field"
+    >
+      <label>
+        <span
+          class="rpl-search-form__label-text"
+        >
+          Search for
+        </span>
+         
+        <input
+          class="rpl-search-form__input"
+          placeholder="Enter keywords"
+          type="text"
+        />
+      </label>
        
-      <input
-        class="rpl-search-form__input"
-        placeholder="Enter keywords"
-        type="text"
-      />
-    </label>
+      <button
+        class="rpl-search-form__btn"
+      >
+        <span
+          class="rpl-visually-hidden"
+        >
+          Search
+        </span>
+         
+        <!---->
+      </button>
+    </div>
      
     <button
-      class="rpl-search-form__btn"
+      aria-expanded="true"
+      class="rpl-search-form__show-filters rpl-search-form__show-filters--expanded"
     >
-      <span
-        class="rpl-visually-hidden"
-      >
-        Search
+      <span>
+        Refine search
       </span>
        
       <!---->
     </button>
-  </div>
-   
-  <button
-    aria-expanded="true"
-    class="rpl-search-form__show-filters rpl-search-form__show-filters--expanded"
-  >
-    <span>
-      Refine search
-    </span>
      
-    <!---->
-  </button>
-   
-  <div
-    class="rpl-search-form__filters"
-  >
-    <form
-      class="rpl-form"
+    <div
+      class="rpl-search-form__filters"
     >
-      <!---->
-       
-      <!---->
-       
-      <div
-        class="vue-form-generator"
+      <form
+        class="rpl-form"
       >
-        <fieldset>
-          <div
-            class="form-group valid field-rplselect"
-          >
-            <label
-              for="select-a-topic"
-            >
-              <span>
-                Select a topic
-              </span>
-               
-              <!---->
-            </label>
-             
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="vue-form-generator"
+        >
+          <fieldset>
             <div
-              class="field-wrap"
+              class="form-group valid field-rplselect"
             >
+              <label
+                for="select-a-topic"
+              >
+                <span>
+                  Select a topic
+                </span>
+                 
+                <!---->
+              </label>
+               
               <div
-                class="rpl-select"
+                class="field-wrap"
               >
                 <div
-                  class="rpl-select__inner"
+                  class="rpl-select"
                 >
                   <div
-                    aria-haspopup="listbox"
-                    aria-labelledby="select-a-topic-rpl-select-trigger select-a-topic-rpl-select-value"
-                    class="rpl-select__trigger"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      id="select-a-topic-rpl-select-trigger"
-                    >
-                      Select a topic
-                    </span>
-                     
-                    <!---->
-                  </div>
-                   
-                  <div
-                    class="rpl-select__dropdown"
-                    style="display: none;"
+                    class="rpl-select__inner"
                   >
                     <div
-                      class="rpl-select__listbox"
-                      role="listbox"
-                      tabindex="-1"
+                      aria-haspopup="listbox"
+                      aria-labelledby="select-a-topic-rpl-select-trigger select-a-topic-rpl-select-value"
+                      class="rpl-select__trigger"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        id="select-a-topic-rpl-select-trigger"
+                      >
+                        Select a topic
+                      </span>
+                       
+                      <!---->
+                    </div>
+                     
+                    <div
+                      class="rpl-select__dropdown"
+                      style="display: none;"
                     >
                       <div
-                        class="rpl-select__listitem"
-                        id="select-a-topic__topic__005fa"
-                        role="option"
+                        class="rpl-select__listbox"
+                        role="listbox"
                         tabindex="-1"
                       >
-                        <!---->
-                         
-                        <span
-                          class="rpl-select__listitem-label"
+                        <div
+                          class="rpl-select__listitem"
+                          id="select-a-topic__topic__005fa"
+                          role="option"
+                          tabindex="-1"
                         >
-                          Topic A
-                        </span>
-                         
-                        <!---->
-                      </div>
-                      <div
-                        class="rpl-select__listitem"
-                        id="select-a-topic__topic__005fb"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        <!---->
-                         
-                        <span
-                          class="rpl-select__listitem-label"
+                          <!---->
+                           
+                          <span
+                            class="rpl-select__listitem-label"
+                          >
+                            Topic A
+                          </span>
+                           
+                          <!---->
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="select-a-topic__topic__005fb"
+                          role="option"
+                          tabindex="-1"
                         >
-                          Topic B
-                        </span>
-                         
-                        <!---->
-                      </div>
-                      <div
-                        class="rpl-select__listitem"
-                        id="select-a-topic__topic__005fc"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        <!---->
-                         
-                        <span
-                          class="rpl-select__listitem-label"
+                          <!---->
+                           
+                          <span
+                            class="rpl-select__listitem-label"
+                          >
+                            Topic B
+                          </span>
+                           
+                          <!---->
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="select-a-topic__topic__005fc"
+                          role="option"
+                          tabindex="-1"
                         >
-                          Topic C
-                        </span>
-                         
-                        <!---->
-                      </div>
-                      <div
-                        class="rpl-select__listitem"
-                        id="select-a-topic__topic__005fd"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        <!---->
-                         
-                        <span
-                          class="rpl-select__listitem-label"
+                          <!---->
+                           
+                          <span
+                            class="rpl-select__listitem-label"
+                          >
+                            Topic C
+                          </span>
+                           
+                          <!---->
+                        </div>
+                        <div
+                          class="rpl-select__listitem"
+                          id="select-a-topic__topic__005fd"
+                          role="option"
+                          tabindex="-1"
                         >
-                          Topic D
-                        </span>
-                         
-                        <!---->
+                          <!---->
+                           
+                          <span
+                            class="rpl-select__listitem-label"
+                          >
+                            Topic D
+                          </span>
+                           
+                          <!---->
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                 
+                <!---->
               </div>
                
               <!---->
-            </div>
-             
-            <!---->
-             
-            <!---->
-          </div>
-          <div
-            class="form-group valid field-rplsubmitloader"
-          >
-            <!---->
-             
-            <div
-              class="field-wrap"
-            >
-              <button
-                class="rpl-submit-loader form-control"
-                type="submit"
-              >
-                <span
-                  class="rpl-submit-loader__text"
-                >
-                  Apply change
-                </span>
-                 
-                <!---->
-              </button>
                
               <!---->
             </div>
-             
-            <!---->
-             
-            <!---->
-          </div>
-        </fieldset>
-      </div>
-    </form>
+            <div
+              class="form-group valid field-rplsubmitloader"
+            >
+              <!---->
+               
+              <div
+                class="field-wrap"
+              >
+                <button
+                  class="rpl-submit-loader form-control"
+                  type="submit"
+                >
+                  <span
+                    class="rpl-submit-loader__text"
+                  >
+                    Apply change
+                  </span>
+                   
+                  <!---->
+                </button>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+          </fieldset>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 `;
 
 exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Results 1`] = `
-<div
-  class="rpl-search-results"
-  pagerchangehandler="function () { [native code] }"
->
+<div>
   <div
-    class="rpl-search-results__info"
-  >
-    <div>
-      Displaying 4 of 10 results
-    </div>
-  </div>
-   
-  <div
-    class="rpl-row rpl-search-results__main rpl-row--gutter rpl-search-results__main--events"
+    class="rpl-search-results"
+    pagerchangehandler="function () { [native code] }"
   >
     <div
-      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+      class="rpl-search-results__info"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
-        data-print-url="#"
-        date="2018-07-10T09:00:00.000+10:00"
-        href="#"
-      >
-        <div
-          class="rpl-card-content__image-wrapper"
-        >
-          <img
-            alt=""
-            class="rpl-card-content__image"
-            src="https://placehold.it/580x340"
-          />
-        </div>
-         
-        <div
-          class="rpl-card-content__details"
-        >
-          <!---->
-           
-          <h2
-            class="rpl-card-event__title"
-          >
-            This is the headline of an event with a location that will stretch over over 3 lines
-          </h2>
-           
-          <div
-            class="rpl-card-event__trim-wrapper"
-            style="max-height: none;"
-          >
-            <p
-              class="rpl-card-event__summary"
-            >
-              This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
-            </p>
-          </div>
-           
-          <!---->
-           
-          <!---->
-        </div>
-         
-        <div
-          class="rpl-card-content__link"
-        >
-          <span>
-            <span>
-              See event
-            </span>
-             
-            <span
-              class="rpl-text-icon__group"
-            >
-               details
-              <!---->
-            </span>
-          </span>
-        </div>
-      </a>
-       
-      <!---->
-    </div>
-    <div
-      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
-    >
-      <a
-        class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
-        data-print-url="#"
-        date="2018-07-10T09:00:00.000+10:00"
-        href="#"
-      >
-        <div
-          class="rpl-card-content__image-wrapper"
-        >
-          <img
-            alt=""
-            class="rpl-card-content__image"
-            src="https://placehold.it/580x340"
-          />
-        </div>
-         
-        <div
-          class="rpl-card-content__details"
-        >
-          <!---->
-           
-          <h2
-            class="rpl-card-event__title"
-          >
-            This is the headline of an event with a location that will stretch over over 3 lines
-          </h2>
-           
-          <div
-            class="rpl-card-event__trim-wrapper"
-            style="max-height: none;"
-          >
-            <p
-              class="rpl-card-event__summary"
-            >
-              This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
-            </p>
-          </div>
-           
-          <!---->
-           
-          <!---->
-        </div>
-         
-        <div
-          class="rpl-card-content__link"
-        >
-          <span>
-            <span>
-              See event
-            </span>
-             
-            <span
-              class="rpl-text-icon__group"
-            >
-               details
-              <!---->
-            </span>
-          </span>
-        </div>
-      </a>
-       
-      <!---->
-    </div>
-    <div
-      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
-    >
-      <a
-        class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
-        data-print-url="#"
-        date="2018-07-10T09:00:00.000+10:00"
-        href="#"
-      >
-        <!---->
-         
-        <div
-          class="rpl-card-content__details"
-        >
-          <!---->
-           
-          <h2
-            class="rpl-card-event__title"
-          >
-            This event has no image.
-          </h2>
-           
-          <div
-            class="rpl-card-event__trim-wrapper"
-            style="max-height: none;"
-          >
-            <p
-              class="rpl-card-event__summary"
-            >
-              This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
-            </p>
-          </div>
-           
-          <!---->
-           
-          <!---->
-        </div>
-         
-        <div
-          class="rpl-card-content__link"
-        >
-          <span>
-            <span>
-              See event
-            </span>
-             
-            <span
-              class="rpl-text-icon__group"
-            >
-               details
-              <!---->
-            </span>
-          </span>
-        </div>
-      </a>
-       
-      <!---->
-    </div>
-    <div
-      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
-    >
-      <a
-        class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
-        data-print-url="#"
-        date="2018-07-10T09:00:00.000+10:00"
-        href="#"
-      >
-        <div
-          class="rpl-card-content__image-wrapper"
-        >
-          <img
-            alt=""
-            class="rpl-card-content__image"
-            src="https://placehold.it/580x340"
-          />
-        </div>
-         
-        <div
-          class="rpl-card-content__details"
-        >
-          <!---->
-           
-          <h2
-            class="rpl-card-event__title"
-          >
-            This is the headline of an event with a location that will stretch over over 3 lines
-          </h2>
-           
-          <div
-            class="rpl-card-event__trim-wrapper"
-            style="max-height: none;"
-          >
-            <p
-              class="rpl-card-event__summary"
-            >
-              This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
-            </p>
-          </div>
-           
-          <!---->
-           
-          <!---->
-        </div>
-         
-        <div
-          class="rpl-card-content__link"
-        >
-          <span>
-            <span>
-              See event
-            </span>
-             
-            <span
-              class="rpl-text-icon__group"
-            >
-               details
-              <!---->
-            </span>
-          </span>
-        </div>
-      </a>
-       
-      <!---->
+      <div>
+        Displaying 4 of 10 results
+      </div>
     </div>
      
-    <!---->
-     
-    <!---->
-  </div>
-   
-  <div
-    class="rpl-row rpl-row--gutter"
-  >
     <div
-      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+      class="rpl-row rpl-search-results__main rpl-row--gutter rpl-search-results__main--events"
     >
-      <nav
-        aria-label="Search"
-        class="rpl-pagination"
+      <div
+        class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
       >
-        <ol
-          class="rpl-pagination__list"
+        <a
+          class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+          data-print-url="#"
+          date="2018-07-10T09:00:00.000+10:00"
+          href="#"
         >
-          <li
-            aria-current="page"
-            aria-disabled="true"
-            class="rpl-pagination__list-item"
+          <div
+            class="rpl-card-content__image-wrapper"
           >
-            <button
-              class="rpl-pagination__step rpl-pagination__step-current"
-              disabled="disabled"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                current page
-              </span>
-              
-        1
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                Go to page
-              </span>
-              
-        2
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                Go to page
-              </span>
-              
-        3
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                Go to page
-              </span>
-              
-        4
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                Go to page
-              </span>
-              
-        5
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-        </ol>
-         
-        <div
-          class="rpl-pagination__controls"
-        >
-          <!---->
+            <img
+              alt=""
+              class="rpl-card-content__image"
+              src="https://placehold.it/580x340"
+            />
+          </div>
            
-          <button
-            class="rpl-pagination__nav"
+          <div
+            class="rpl-card-content__details"
           >
-            <span>
-              Next page
-            </span>
+            <!---->
+             
+            <h2
+              class="rpl-card-event__title"
+            >
+              This is the headline of an event with a location that will stretch over over 3 lines
+            </h2>
+             
+            <div
+              class="rpl-card-event__trim-wrapper"
+              style="max-height: none;"
+            >
+              <p
+                class="rpl-card-event__summary"
+              >
+                This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+              </p>
+            </div>
              
             <!---->
-          </button>
-        </div>
-      </nav>
+             
+            <!---->
+          </div>
+           
+          <div
+            class="rpl-card-content__link"
+          >
+            <span>
+              <span>
+                See event
+              </span>
+               
+              <span
+                class="rpl-text-icon__group"
+              >
+                 details
+                <!---->
+              </span>
+            </span>
+          </div>
+        </a>
+         
+        <!---->
+      </div>
+      <div
+        class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+      >
+        <a
+          class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+          data-print-url="#"
+          date="2018-07-10T09:00:00.000+10:00"
+          href="#"
+        >
+          <div
+            class="rpl-card-content__image-wrapper"
+          >
+            <img
+              alt=""
+              class="rpl-card-content__image"
+              src="https://placehold.it/580x340"
+            />
+          </div>
+           
+          <div
+            class="rpl-card-content__details"
+          >
+            <!---->
+             
+            <h2
+              class="rpl-card-event__title"
+            >
+              This is the headline of an event with a location that will stretch over over 3 lines
+            </h2>
+             
+            <div
+              class="rpl-card-event__trim-wrapper"
+              style="max-height: none;"
+            >
+              <p
+                class="rpl-card-event__summary"
+              >
+                This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+              </p>
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
+           
+          <div
+            class="rpl-card-content__link"
+          >
+            <span>
+              <span>
+                See event
+              </span>
+               
+              <span
+                class="rpl-text-icon__group"
+              >
+                 details
+                <!---->
+              </span>
+            </span>
+          </div>
+        </a>
+         
+        <!---->
+      </div>
+      <div
+        class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+      >
+        <a
+          class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+          data-print-url="#"
+          date="2018-07-10T09:00:00.000+10:00"
+          href="#"
+        >
+          <!---->
+           
+          <div
+            class="rpl-card-content__details"
+          >
+            <!---->
+             
+            <h2
+              class="rpl-card-event__title"
+            >
+              This event has no image.
+            </h2>
+             
+            <div
+              class="rpl-card-event__trim-wrapper"
+              style="max-height: none;"
+            >
+              <p
+                class="rpl-card-event__summary"
+              >
+                This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+              </p>
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
+           
+          <div
+            class="rpl-card-content__link"
+          >
+            <span>
+              <span>
+                See event
+              </span>
+               
+              <span
+                class="rpl-text-icon__group"
+              >
+                 details
+                <!---->
+              </span>
+            </span>
+          </div>
+        </a>
+         
+        <!---->
+      </div>
+      <div
+        class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+      >
+        <a
+          class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+          data-print-url="#"
+          date="2018-07-10T09:00:00.000+10:00"
+          href="#"
+        >
+          <div
+            class="rpl-card-content__image-wrapper"
+          >
+            <img
+              alt=""
+              class="rpl-card-content__image"
+              src="https://placehold.it/580x340"
+            />
+          </div>
+           
+          <div
+            class="rpl-card-content__details"
+          >
+            <!---->
+             
+            <h2
+              class="rpl-card-event__title"
+            >
+              This is the headline of an event with a location that will stretch over over 3 lines
+            </h2>
+             
+            <div
+              class="rpl-card-event__trim-wrapper"
+              style="max-height: none;"
+            >
+              <p
+                class="rpl-card-event__summary"
+              >
+                This event occurs in 2018. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet lorem ipsum dolor sit amet.
+              </p>
+            </div>
+             
+            <!---->
+             
+            <!---->
+          </div>
+           
+          <div
+            class="rpl-card-content__link"
+          >
+            <span>
+              <span>
+                See event
+              </span>
+               
+              <span
+                class="rpl-text-icon__group"
+              >
+                 details
+                <!---->
+              </span>
+            </span>
+          </div>
+        </a>
+         
+        <!---->
+      </div>
        
       <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-row rpl-row--gutter"
+    >
+      <div
+        class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+      >
+        <nav
+          aria-label="Search"
+          class="rpl-pagination"
+        >
+          <ol
+            class="rpl-pagination__list"
+          >
+            <li
+              aria-current="page"
+              aria-disabled="true"
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step rpl-pagination__step-current"
+                disabled="disabled"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  current page
+                </span>
+                
+        1
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
+        2
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
+        3
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
+        4
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
+        5
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+          </ol>
+           
+          <div
+            class="rpl-pagination__controls"
+          >
+            <!---->
+             
+            <button
+              class="rpl-pagination__nav"
+            >
+              <span>
+                Next page
+              </span>
+               
+              <!---->
+            </button>
+          </div>
+        </nav>
+         
+        <!---->
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Results 1`] = `
-<div
-  class="rpl-search-results"
-  pagerchangehandler="function () { [native code] }"
->
+<div>
   <div
-    class="rpl-search-results__info"
-  >
-    <div>
-      Displaying 3 of 3 results
-    </div>
-  </div>
-   
-  <div
-    class="rpl-row rpl-search-results__main rpl-row--gutter"
+    class="rpl-search-results"
+    pagerchangehandler="function () { [native code] }"
   >
     <div
-      class="rpl-col rpl-col--full"
+      class="rpl-search-results__info"
     >
-      <div
-        class="rpl-grants-list-item rpl-search-results__item rpl-component-gutter rpl-search-results__item--grant"
-      >
-        <div
-          class="rpl-grants-overview"
-        >
-          <div
-            class="rpl-list rpl-grants-overview__list rpl-list--large"
-          >
-            <h2
-              class="rpl-list__title"
-            >
-              <a
-                class="rpl-link rpl-text-link rpl-list__title-inner"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-text-label"
-                  >
-                    <span>
-                      Program Overview
-                    </span>
-                  </span>
-                </span>
-              </a>
-            </h2>
-              
-            <div
-              class="rpl-list__list"
-            >
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-funding"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  $10,000 - $30,000
-                </span>
-              </div>
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-audience"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  individuals, organisations, local council
-                </span>
-              </div>
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-status"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  Closed
-                </span>
-              </div>
-            </div>
-             
-          </div>
-           
-          <div
-            class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
-          >
-            <div
-              class="rpl-markup__inner"
-            >
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
-            </div>
-          </div>
-           
-          <!---->
-        </div>
-         
-        <ul
-          class="rpl-grants-list-item__tags"
-        >
-          <li
-            class="rpl-grants-list-item__tag"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-          <li
-            class="rpl-grants-list-item__tag"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-        </ul>
+      <div>
+        Displaying 3 of 3 results
       </div>
-       
-      <!---->
-    </div>
-    <div
-      class="rpl-col rpl-col--full"
-    >
-      <div
-        class="rpl-grants-list-item rpl-search-results__item rpl-component-gutter rpl-search-results__item--grant"
-      >
-        <div
-          class="rpl-grants-overview"
-        >
-          <div
-            class="rpl-list rpl-grants-overview__list rpl-list--large"
-          >
-            <h2
-              class="rpl-list__title"
-            >
-              <a
-                class="rpl-link rpl-text-link rpl-list__title-inner"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-text-label"
-                  >
-                    <span>
-                      Program Overview
-                    </span>
-                  </span>
-                </span>
-              </a>
-            </h2>
-              
-            <div
-              class="rpl-list__list"
-            >
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-funding"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  $10,000 - $30,000
-                </span>
-              </div>
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-audience"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  individuals, organisations, local council
-                </span>
-              </div>
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-status"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  Closed
-                </span>
-              </div>
-            </div>
-             
-          </div>
-           
-          <div
-            class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
-          >
-            <div
-              class="rpl-markup__inner"
-            >
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
-            </div>
-          </div>
-           
-          <!---->
-        </div>
-         
-        <ul
-          class="rpl-grants-list-item__tags"
-        >
-          <li
-            class="rpl-grants-list-item__tag"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-          <li
-            class="rpl-grants-list-item__tag"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-       
-      <!---->
-    </div>
-    <div
-      class="rpl-col rpl-col--full"
-    >
-      <div
-        class="rpl-grants-list-item rpl-search-results__item rpl-component-gutter rpl-search-results__item--grant"
-      >
-        <div
-          class="rpl-grants-overview"
-        >
-          <div
-            class="rpl-list rpl-grants-overview__list rpl-list--large"
-          >
-            <h2
-              class="rpl-list__title"
-            >
-              <a
-                class="rpl-link rpl-text-link rpl-list__title-inner"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-text-label"
-                  >
-                    <span>
-                      Program Overview
-                    </span>
-                  </span>
-                </span>
-              </a>
-            </h2>
-              
-            <div
-              class="rpl-list__list"
-            >
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-funding"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  $10,000 - $30,000
-                </span>
-              </div>
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-audience"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  individuals, organisations, local council
-                </span>
-              </div>
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-status"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  Closed
-                </span>
-              </div>
-            </div>
-             
-          </div>
-           
-          <div
-            class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
-          >
-            <div
-              class="rpl-markup__inner"
-            >
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
-            </div>
-          </div>
-           
-          <!---->
-        </div>
-         
-        <ul
-          class="rpl-grants-list-item__tags"
-        >
-          <li
-            class="rpl-grants-list-item__tag"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-          <li
-            class="rpl-grants-list-item__tag"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-       
-      <!---->
-    </div>
-    <div
-      class="rpl-col rpl-col--full"
-    >
-      <div
-        class="rpl-grants-list-item rpl-search-results__item rpl-component-gutter rpl-search-results__item--grant"
-      >
-        <div
-          class="rpl-grants-overview"
-        >
-          <div
-            class="rpl-list rpl-grants-overview__list rpl-list--large"
-          >
-            <h2
-              class="rpl-list__title"
-            >
-              <a
-                class="rpl-link rpl-text-link rpl-list__title-inner"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-text-label"
-                  >
-                    <span>
-                      Program Overview
-                    </span>
-                  </span>
-                </span>
-              </a>
-            </h2>
-              
-            <div
-              class="rpl-list__list"
-            >
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-funding"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  $10,000 - $30,000
-                </span>
-              </div>
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-audience"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  individuals, organisations, local council
-                </span>
-              </div>
-              <div
-                class="rpl-list__list-item"
-                data-tid="grants-status"
-              >
-                <span
-                  class="rpl-list__icon"
-                >
-                  <!---->
-                </span>
-                 
-                <span
-                  class="rpl-list__text"
-                >
-                  Closed
-                </span>
-              </div>
-            </div>
-             
-          </div>
-           
-          <div
-            class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
-          >
-            <div
-              class="rpl-markup__inner"
-            >
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
-            </div>
-          </div>
-           
-          <!---->
-        </div>
-         
-        <ul
-          class="rpl-grants-list-item__tags"
-        >
-          <li
-            class="rpl-grants-list-item__tag"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-          <li
-            class="rpl-grants-list-item__tag"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-       
-      <!---->
     </div>
      
-    <!---->
-     
-    <!---->
-  </div>
-   
-  <div
-    class="rpl-row rpl-row--gutter"
-  >
     <div
-      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+      class="rpl-row rpl-search-results__main rpl-row--gutter"
     >
-      <nav
-        aria-label="Search"
-        class="rpl-pagination"
+      <div
+        class="rpl-col rpl-col--full"
       >
-        <ol
-          class="rpl-pagination__list"
-        >
-          <li
-            aria-current="page"
-            aria-disabled="true"
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step rpl-pagination__step-current"
-              disabled="disabled"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                current page
-              </span>
-              
-        1
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                Go to page
-              </span>
-              
-        2
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                Go to page
-              </span>
-              
-        3
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                Go to page
-              </span>
-              
-        4
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
-              <span
-                class="rpl-pagination__step-label"
-              >
-                Go to page
-              </span>
-              
-        5
-      
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-        </ol>
-         
         <div
-          class="rpl-pagination__controls"
+          class="rpl-grants-list-item rpl-search-results__item rpl-component-gutter rpl-search-results__item--grant"
         >
-          <!---->
-           
-          <button
-            class="rpl-pagination__nav"
+          <div
+            class="rpl-grants-overview"
           >
-            <span>
-              Next page
-            </span>
+            <div
+              class="rpl-list rpl-grants-overview__list rpl-list--large"
+            >
+              <h2
+                class="rpl-list__title"
+              >
+                <a
+                  class="rpl-link rpl-text-link rpl-list__title-inner"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-text-label"
+                    >
+                      <span>
+                        Program Overview
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              </h2>
+                
+              <div
+                class="rpl-list__list"
+              >
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-funding"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    $10,000 - $30,000
+                  </span>
+                </div>
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-audience"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    individuals, organisations, local council
+                  </span>
+                </div>
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-status"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    Closed
+                  </span>
+                </div>
+              </div>
+               
+            </div>
+             
+            <div
+              class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
+            >
+              <div
+                class="rpl-markup__inner"
+              >
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
+              </div>
+            </div>
              
             <!---->
-          </button>
+          </div>
+           
+          <ul
+            class="rpl-grants-list-item__tags"
+          >
+            <li
+              class="rpl-grants-list-item__tag"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li
+              class="rpl-grants-list-item__tag"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+          </ul>
         </div>
-      </nav>
+         
+        <!---->
+      </div>
+      <div
+        class="rpl-col rpl-col--full"
+      >
+        <div
+          class="rpl-grants-list-item rpl-search-results__item rpl-component-gutter rpl-search-results__item--grant"
+        >
+          <div
+            class="rpl-grants-overview"
+          >
+            <div
+              class="rpl-list rpl-grants-overview__list rpl-list--large"
+            >
+              <h2
+                class="rpl-list__title"
+              >
+                <a
+                  class="rpl-link rpl-text-link rpl-list__title-inner"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-text-label"
+                    >
+                      <span>
+                        Program Overview
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              </h2>
+                
+              <div
+                class="rpl-list__list"
+              >
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-funding"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    $10,000 - $30,000
+                  </span>
+                </div>
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-audience"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    individuals, organisations, local council
+                  </span>
+                </div>
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-status"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    Closed
+                  </span>
+                </div>
+              </div>
+               
+            </div>
+             
+            <div
+              class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
+            >
+              <div
+                class="rpl-markup__inner"
+              >
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <ul
+            class="rpl-grants-list-item__tags"
+          >
+            <li
+              class="rpl-grants-list-item__tag"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li
+              class="rpl-grants-list-item__tag"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+         
+        <!---->
+      </div>
+      <div
+        class="rpl-col rpl-col--full"
+      >
+        <div
+          class="rpl-grants-list-item rpl-search-results__item rpl-component-gutter rpl-search-results__item--grant"
+        >
+          <div
+            class="rpl-grants-overview"
+          >
+            <div
+              class="rpl-list rpl-grants-overview__list rpl-list--large"
+            >
+              <h2
+                class="rpl-list__title"
+              >
+                <a
+                  class="rpl-link rpl-text-link rpl-list__title-inner"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-text-label"
+                    >
+                      <span>
+                        Program Overview
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              </h2>
+                
+              <div
+                class="rpl-list__list"
+              >
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-funding"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    $10,000 - $30,000
+                  </span>
+                </div>
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-audience"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    individuals, organisations, local council
+                  </span>
+                </div>
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-status"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    Closed
+                  </span>
+                </div>
+              </div>
+               
+            </div>
+             
+            <div
+              class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
+            >
+              <div
+                class="rpl-markup__inner"
+              >
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <ul
+            class="rpl-grants-list-item__tags"
+          >
+            <li
+              class="rpl-grants-list-item__tag"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li
+              class="rpl-grants-list-item__tag"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+         
+        <!---->
+      </div>
+      <div
+        class="rpl-col rpl-col--full"
+      >
+        <div
+          class="rpl-grants-list-item rpl-search-results__item rpl-component-gutter rpl-search-results__item--grant"
+        >
+          <div
+            class="rpl-grants-overview"
+          >
+            <div
+              class="rpl-list rpl-grants-overview__list rpl-list--large"
+            >
+              <h2
+                class="rpl-list__title"
+              >
+                <a
+                  class="rpl-link rpl-text-link rpl-list__title-inner"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-text-label"
+                    >
+                      <span>
+                        Program Overview
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              </h2>
+                
+              <div
+                class="rpl-list__list"
+              >
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-funding"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    $10,000 - $30,000
+                  </span>
+                </div>
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-audience"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    individuals, organisations, local council
+                  </span>
+                </div>
+                <div
+                  class="rpl-list__list-item"
+                  data-tid="grants-status"
+                >
+                  <span
+                    class="rpl-list__icon"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <span
+                    class="rpl-list__text"
+                  >
+                    Closed
+                  </span>
+                </div>
+              </div>
+               
+            </div>
+             
+            <div
+              class="rpl-markup tide-wysiwyg app-wysiwyg rpl-grants-overview__description"
+            >
+              <div
+                class="rpl-markup__inner"
+              >
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
+              </div>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <ul
+            class="rpl-grants-list-item__tags"
+          >
+            <li
+              class="rpl-grants-list-item__tag"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li
+              class="rpl-grants-list-item__tag"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+         
+        <!---->
+      </div>
        
       <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-row rpl-row--gutter"
+    >
+      <div
+        class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+      >
+        <nav
+          aria-label="Search"
+          class="rpl-pagination"
+        >
+          <ol
+            class="rpl-pagination__list"
+          >
+            <li
+              aria-current="page"
+              aria-disabled="true"
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step rpl-pagination__step-current"
+                disabled="disabled"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  current page
+                </span>
+                
+        1
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
+        2
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
+        3
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
+        4
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
+        5
+      
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+          </ol>
+           
+          <div
+            class="rpl-pagination__controls"
+          >
+            <!---->
+             
+            <button
+              class="rpl-pagination__nav"
+            >
+              <span>
+                Next page
+              </span>
+               
+              <!---->
+            </button>
+          </div>
+        </nav>
+         
+        <!---->
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`RippleStoryshots Molecules/Search/Legacy search results Search Result 1`] = `
-<div
-  class="rpl-search-result"
->
-  <a
-    class="rpl-link"
-    data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-    href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+<div>
+  <div
+    class="rpl-search-result"
   >
-    <span
-      class="rpl-link__inner"
+    <a
+      class="rpl-link"
+      data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+      href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
     >
-      <h2
-        class="rpl-search-result__heading"
+      <span
+        class="rpl-link__inner"
       >
-        Schools private policy
-      </h2>
-    </span>
-  </a>
-   
-  <a
-    class="rpl-link rpl-search-result__link"
-    data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-    href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-  >
-    <span
-      class="rpl-link__inner"
-    >
-      www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-    </span>
-  </a>
-   
-  <p
-    class="rpl-search-result__date-description"
-  >
-    <span
-      class="rpl-search-result__date"
-    >
-      Jul 10, 2018
-    </span>
+        <h2
+          class="rpl-search-result__heading"
+        >
+          Schools private policy
+        </h2>
+      </span>
+    </a>
      
-    <span>
-      
-    </span>
-  </p>
-   
-  <ul
-    class="rpl-search-result__terms"
-  >
-    <li
-      class="rpl-search-result__term"
+    <a
+      class="rpl-link rpl-search-result__link"
+      data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+      href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
     >
-      <div
-        class="rpl-meta-tag rpl-meta-tag--light"
+      <span
+        class="rpl-link__inner"
       >
-        <a
-          class="rpl-link rpl-meta-tag__link"
-          data-print-url="#"
-          href="#"
+        www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+      </span>
+    </a>
+     
+    <p
+      class="rpl-search-result__date-description"
+    >
+      <span
+        class="rpl-search-result__date"
+      >
+        Jul 10, 2018
+      </span>
+       
+      <span>
+        
+      </span>
+    </p>
+     
+    <ul
+      class="rpl-search-result__terms"
+    >
+      <li
+        class="rpl-search-result__term"
+      >
+        <div
+          class="rpl-meta-tag rpl-meta-tag--light"
         >
-          <span
-            class="rpl-link__inner"
+          <a
+            class="rpl-link rpl-meta-tag__link"
+            data-print-url="#"
+            href="#"
           >
             <span
-              class="rpl-meta-tag__text"
+              class="rpl-link__inner"
             >
-              This is a content tag
+              <span
+                class="rpl-meta-tag__text"
+              >
+                This is a content tag
+              </span>
             </span>
-          </span>
-        </a>
-      </div>
-    </li>
-    <li
-      class="rpl-search-result__term"
-    >
-      <div
-        class="rpl-meta-tag rpl-meta-tag--light"
+          </a>
+        </div>
+      </li>
+      <li
+        class="rpl-search-result__term"
       >
-        <a
-          class="rpl-link rpl-meta-tag__link"
-          data-print-url="#"
-          href="#"
+        <div
+          class="rpl-meta-tag rpl-meta-tag--light"
         >
-          <span
-            class="rpl-link__inner"
+          <a
+            class="rpl-link rpl-meta-tag__link"
+            data-print-url="#"
+            href="#"
           >
             <span
-              class="rpl-meta-tag__text"
+              class="rpl-link__inner"
             >
-              This is a content tag
+              <span
+                class="rpl-meta-tag__text"
+              >
+                This is a content tag
+              </span>
             </span>
-          </span>
-        </a>
-      </div>
-    </li>
-  </ul>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
 exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 1`] = `
-<div
-  class="rpl-search-results"
->
+<div>
   <div
-    class="rpl-search-results__info"
-  >
-    <div>
-      Displaying 10 of 70 results
-    </div>
-  </div>
-   
-  <div
-    class="rpl-row rpl-search-results__main rpl-row--gutter"
+    class="rpl-search-results"
   >
     <div
-      class="rpl-col rpl-col--full"
+      class="rpl-search-results__info"
+    >
+      <div>
+        Displaying 10 of 70 results
+      </div>
+    </div>
+     
+    <div
+      class="rpl-row rpl-search-results__main rpl-row--gutter"
     >
       <div
-        class="rpl-search-result rpl-search-results__item rpl-component-gutter"
+        class="rpl-col rpl-col--full"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-          href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <div
+          class="rpl-search-result rpl-search-results__item rpl-component-gutter"
         >
-          <span
-            class="rpl-link__inner"
+          <a
+            class="rpl-link"
+            data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+            href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
           >
-            <h2
-              class="rpl-search-result__heading"
+            <span
+              class="rpl-link__inner"
             >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
-         
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-          href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-        >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
-         
-        <p
-          class="rpl-search-result__date-description"
-        >
-          <span
-            class="rpl-search-result__date"
-          >
-            Jul 10, 2018
-          </span>
+              <h2
+                class="rpl-search-result__heading"
+              >
+                Schools private policy
+              </h2>
+            </span>
+          </a>
            
-          <span>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-          </span>
-        </p>
+          <a
+            class="rpl-link rpl-search-result__link"
+            data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+            href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+            </span>
+          </a>
+           
+          <p
+            class="rpl-search-result__date-description"
+          >
+            <span
+              class="rpl-search-result__date"
+            >
+              Jul 10, 2018
+            </span>
+             
+            <span>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+            </span>
+          </p>
+           
+          <ul
+            class="rpl-search-result__terms"
+          >
+            <li
+              class="rpl-search-result__term"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li
+              class="rpl-search-result__term"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
+                >
+                  <span
+                    class="rpl-link__inner"
+                  >
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
          
-        <ul
-          class="rpl-search-result__terms"
+        <!---->
+      </div>
+      <div
+        class="rpl-col rpl-col--full"
+      >
+        <div
+          class="rpl-search-result rpl-search-results__item rpl-component-gutter"
         >
-          <li
-            class="rpl-search-result__term"
+          <a
+            class="rpl-link"
+            data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+            href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
           >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
+            <span
+              class="rpl-link__inner"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
+              <h2
+                class="rpl-search-result__heading"
               >
-                <span
-                  class="rpl-link__inner"
+                Schools private policy
+              </h2>
+            </span>
+          </a>
+           
+          <a
+            class="rpl-link rpl-search-result__link"
+            data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+            href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+          >
+            <span
+              class="rpl-link__inner"
+            >
+              www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+            </span>
+          </a>
+           
+          <p
+            class="rpl-search-result__date-description"
+          >
+            <span
+              class="rpl-search-result__date"
+            >
+              Jul 10, 2018
+            </span>
+             
+            <span>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+            </span>
+          </p>
+           
+          <ul
+            class="rpl-search-result__terms"
+          >
+            <li
+              class="rpl-search-result__term"
+            >
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
+              >
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
                 >
                   <span
-                    class="rpl-meta-tag__text"
+                    class="rpl-link__inner"
                   >
-                    This is a content tag
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
                   </span>
-                </span>
-              </a>
-            </div>
-          </li>
-          <li
-            class="rpl-search-result__term"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
+                </a>
+              </div>
+            </li>
+            <li
+              class="rpl-search-result__term"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
+              <div
+                class="rpl-meta-tag rpl-meta-tag--light"
               >
-                <span
-                  class="rpl-link__inner"
+                <a
+                  class="rpl-link rpl-meta-tag__link"
+                  data-print-url="#"
+                  href="#"
                 >
                   <span
-                    class="rpl-meta-tag__text"
+                    class="rpl-link__inner"
                   >
-                    This is a content tag
+                    <span
+                      class="rpl-meta-tag__text"
+                    >
+                      This is a content tag
+                    </span>
                   </span>
-                </span>
-              </a>
-            </div>
-          </li>
-        </ul>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+         
+        <!---->
       </div>
        
       <!---->
-    </div>
-    <div
-      class="rpl-col rpl-col--full"
-    >
-      <div
-        class="rpl-search-result rpl-search-results__item rpl-component-gutter"
-      >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-          href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-        >
-          <span
-            class="rpl-link__inner"
-          >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
-         
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-          href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
-        >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
-         
-        <p
-          class="rpl-search-result__date-description"
-        >
-          <span
-            class="rpl-search-result__date"
-          >
-            Jul 10, 2018
-          </span>
-           
-          <span>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-          </span>
-        </p>
-         
-        <ul
-          class="rpl-search-result__terms"
-        >
-          <li
-            class="rpl-search-result__term"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-          <li
-            class="rpl-search-result__term"
-          >
-            <div
-              class="rpl-meta-tag rpl-meta-tag--light"
-            >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
-                href="#"
-              >
-                <span
-                  class="rpl-link__inner"
-                >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
-                </span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
        
       <!---->
     </div>
      
-    <!---->
-     
-    <!---->
-  </div>
-   
-  <div
-    class="rpl-row rpl-row--gutter"
-  >
     <div
-      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+      class="rpl-row rpl-row--gutter"
     >
-      <nav
-        aria-label="Search"
-        class="rpl-pagination"
+      <div
+        class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
       >
-        <ol
-          class="rpl-pagination__list"
+        <nav
+          aria-label="Search"
+          class="rpl-pagination"
         >
-          <li
-            aria-current="page"
-            aria-disabled="true"
-            class="rpl-pagination__list-item"
+          <ol
+            class="rpl-pagination__list"
           >
-            <button
-              class="rpl-pagination__step rpl-pagination__step-current"
-              disabled="disabled"
+            <li
+              aria-current="page"
+              aria-disabled="true"
+              class="rpl-pagination__list-item"
             >
-              <span
-                class="rpl-pagination__step-label"
+              <button
+                class="rpl-pagination__step rpl-pagination__step-current"
+                disabled="disabled"
               >
-                current page
-              </span>
-              
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  current page
+                </span>
+                
         1
       
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
+              </button>
+               
               <span
-                class="rpl-pagination__step-label"
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
               >
-                Go to page
+                /
               </span>
-              
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
         2
       
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
+              </button>
+               
               <span
-                class="rpl-pagination__step-label"
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
               >
-                Go to page
+                /
               </span>
-              
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
         3
       
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
+              </button>
+               
               <span
-                class="rpl-pagination__step-label"
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
               >
-                Go to page
+                /
               </span>
-              
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
         4
       
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-          <li
-            class="rpl-pagination__list-item"
-          >
-            <button
-              class="rpl-pagination__step"
-            >
+              </button>
+               
               <span
-                class="rpl-pagination__step-label"
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
               >
-                Go to page
+                /
               </span>
-              
+            </li>
+            <li
+              class="rpl-pagination__list-item"
+            >
+              <button
+                class="rpl-pagination__step"
+              >
+                <span
+                  class="rpl-pagination__step-label"
+                >
+                  Go to page
+                </span>
+                
         5
       
-            </button>
-             
-            <span
-              aria-hidden="true"
-              class="rpl-pagination__list-item-slash"
-            >
-              /
-            </span>
-          </li>
-        </ol>
-         
-        <div
-          class="rpl-pagination__controls"
-        >
-          <!---->
+              </button>
+               
+              <span
+                aria-hidden="true"
+                class="rpl-pagination__list-item-slash"
+              >
+                /
+              </span>
+            </li>
+          </ol>
            
-          <button
-            class="rpl-pagination__nav"
+          <div
+            class="rpl-pagination__controls"
           >
-            <span>
-              Next page
-            </span>
-             
             <!---->
-          </button>
-        </div>
-      </nav>
-       
-      <!---->
+             
+            <button
+              class="rpl-pagination__nav"
+            >
+              <span>
+                Next page
+              </span>
+               
+              <!---->
+            </button>
+          </div>
+        </nav>
+         
+        <!---->
+      </div>
     </div>
   </div>
 </div>

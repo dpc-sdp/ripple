@@ -9,8 +9,10 @@ import '../storybook-components/scss/story.scss'
 
 import RplGlobal from '@dpc-sdp/ripple-global'
 import RplMarkupExamplePlugins from '@dpc-sdp/ripple-markup/examplePlugins'
+import { withThemes } from 'storybook-addon-themes/vue'
 
 addDecorator(withA11y)
+addDecorator(withThemes);
 
 addParameters({
   docs: {
@@ -29,7 +31,11 @@ addParameters({
   knobs: {
     // To allow knob text type to support v-html prop.
     escapeHTML: false,
-  }
+  },
+  themes: [
+    { name: 'vic-gov-au', class: 'theme-vic-gov-au', color: '#004fbf' },
+    { name: 'multiculturalcommission', class: 'theme-multiculturalcommission-vic-gov-au', color: '#ac3077' }
+  ],
 })
 
 // Install Ripple Global plugin

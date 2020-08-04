@@ -21,7 +21,7 @@ const tideConfig = {
       'grant',
       'news',
       'event',
-      'complaint'
+      'complaints'
     ]
   },
 

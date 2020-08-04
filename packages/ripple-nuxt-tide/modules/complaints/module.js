@@ -3,7 +3,7 @@ module.exports = function () {
     routes.push({
       name: 'tidecomplaints',
       path: '/complaints',
-      component: '@dpc-sdp/ripple-nuxt-tide/modules/complaint/pages/search.vue'
+      component: '@dpc-sdp/ripple-nuxt-tide/modules/complaints/pages/search.vue'
     })
   })
 }

@@ -44,7 +44,7 @@ import utils from './../lib/utils.js'
 import { searchMixin, getSearch } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
 
 export default {
-  name: 'ComplaintSearch',
+  name: 'complaintsearch',
   components: {
     RplDivider,
     RplBreadcrumbs,
@@ -63,7 +63,7 @@ export default {
     return {
       sidebar: false,
       breadcrumbs: getBreadcrumbs(route.path, searchForm.title, null),
-      searchComponent: 'RplComplaintsListItem',
+      searchComponent: 'RplcomplaintsListItem',
       searchForm,
       searchOptions: {
         currentSiteOnly: true,
@@ -98,7 +98,7 @@ export default {
   methods: {
     getComputedFilters () {
       const _filters = this.tideSearch.getFiltersValues(this.searchForm.filterForm)
-      return utils.getComplaintsFilters(_filters)
+      return utils.getcomplaintsFilters(_filters)
     },
     mapSearchResults (source) {
       let mapTags = []

@@ -27,22 +27,16 @@
 </template>
 
 <script>
-import RplComplaintsOverview from '@dpc-sdp/ripple-complaints'
-import RplTimeline from '@dpc-sdp/ripple-timeline'
 import RplDocumentLink from '@dpc-sdp/ripple-document-link'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import RplAccordion from '@dpc-sdp/ripple-accordion'
 import mime from 'mime-types'
-import utils from '@dpc-sdp/ripple-nuxt-tide/modules/complaint/lib/utils.js'
+import utils from '@dpc-sdp/ripple-nuxt-tide/modules/complaints/lib/utils.js'
 
 export default {
   components: {
     RplCol,
     RplDocumentLink,
-    RplRow,
-    RplComplaintsOverview,
-    RplTimeline,
-    RplAccordion
+    RplRow
   },
   props: {
     page: Object

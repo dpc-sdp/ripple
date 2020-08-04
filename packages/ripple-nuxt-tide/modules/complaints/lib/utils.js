@@ -49,7 +49,7 @@ const utils = {
    * @param  {Object} filters search filters object
    * @return {Object} filters object
    */
-  getComplaintsFilters: (filters) => {
+  getcomplaintsFilters: (filters) => {
     const getOperator = (status) => {
       switch (status) {
         case 'Open':

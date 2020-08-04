@@ -135,7 +135,7 @@ export default {
       event: 1,
       news: 1,
       grant: 1,
-      complaint: 1,
+      complaints: 1,
       profile: {
         route: '/victorian-honour-roll-of-women',
         returnText: 'See all inductees'

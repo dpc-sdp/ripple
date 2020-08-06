@@ -1,269 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RippleStoryshots Molecules/Layout Base Layout 1`] = `
-<div
-  class="rpl-site-layout"
->
-   
+<div>
   <div
-    class="rpl-skip-link"
-    id="rpl-skip-link"
+    class="rpl-site-layout"
   >
-    <a
-      class="rpl-skip-link__link"
-      href="#rpl-main-content"
+     
+    <div
+      class="rpl-skip-link"
+      id="rpl-skip-link"
     >
-      Skip to main content
-    </a>
+      <a
+        class="rpl-skip-link__link"
+        href="#rpl-main-content"
+      >
+        Skip to main content
+      </a>
+    </div>
+     
+    <header
+      class="rpl-site-header-container"
+    >
+      Site header
+    </header>
+      
+    <p>
+      This is page content
+    </p>
+      
+    <!---->
+     
+    <footer
+      class="rpl-site-footer-container"
+    >
+      Site footer
+    </footer>
   </div>
-   
-  <header
-    class="rpl-site-header-container"
-  >
-    Site header
-  </header>
-    
-  <p>
-    This is page content
-  </p>
-    
-  <!---->
-   
-  <footer
-    class="rpl-site-footer-container"
-  >
-    Site footer
-  </footer>
 </div>
 `;
 
 exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
-<main
-  class="rpl-page"
->
-  <div
-    class="rpl-above-content-container"
-  >
-    <div
-      class="rpl-above-content"
-    >
-      <div
-        class="rpl-above-content__inner"
-      >
-        <div
-          class="rpl-above-content__top"
-        >
-           
-          <!---->
-        </div>
-         Above content
-      </div>
-    </div>
-     
-    <div
-      class="rpl-above-content-two"
-    />
-  </div>
-   
-  <section
-    class="rpl-content"
-    id="rpl-main-content"
-  >
-    <div
-      class="rpl-site-constrain--on-all"
-    >
-      <div
-        class="rpl-row"
-      >
-        <div
-          class="rpl-main rpl-col rpl-col--full"
-        >
-           
-          <p>
-            This is page content
-          </p>
-            
-          <!---->
-        </div>
-         
-        <!---->
-      </div>
-    </div>
-  </section>
-   
-  <div
-    class="rpl-below-content"
-  >
-    Below content
-  </div>
-</main>
-`;
-
-exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
-<main
-  class="rpl-page"
->
-  <div
-    class="rpl-above-content-container"
-  >
-    <div
-      class="rpl-above-content"
-    >
-      <div
-        class="rpl-above-content__inner"
-      >
-        <div
-          class="rpl-above-content__top"
-        >
-           
-          <!---->
-        </div>
-         Above content
-      </div>
-    </div>
-     
-    <div
-      class="rpl-above-content-two"
-    />
-  </div>
-   
-  <section
-    class="rpl-content rpl-content--with-sidebar"
-    id="rpl-main-content"
-  >
-    <div
-      class="rpl-site-constrain--on-all"
-    >
-      <div
-        class="rpl-row"
-      >
-        <div
-          class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
-        >
-           
-          <p>
-            This is page content
-          </p>
-             
-          <!---->
-        </div>
-         
-        <div
-          class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
-        >
-          sidebar content 
-          <!---->
-        </div>
-      </div>
-    </div>
-  </section>
-   
-  <div
-    class="rpl-below-content"
-  >
-    Below content
-  </div>
-</main>
-`;
-
-exports[`RippleStoryshots Molecules/Layout Page Layout with custom columns 1`] = `
-<main
-  class="rpl-page"
->
-  <div
-    class="rpl-above-content-container"
-  >
-    <div
-      class="rpl-above-content"
-    >
-      <div
-        class="rpl-above-content__inner"
-      >
-        <div
-          class="rpl-above-content__top"
-        >
-           
-          <!---->
-        </div>
-         Above content
-      </div>
-    </div>
-     
-    <div
-      class="rpl-above-content-two"
-    />
-  </div>
-   
-  <section
-    class="rpl-content rpl-content--with-sidebar"
-    id="rpl-main-content"
-  >
-    <div
-      class="rpl-site-constrain--on-all"
-    >
-      <div
-        class="rpl-row"
-      >
-        <div
-          class="rpl-main rpl-col rpl-col--full rpl-col--8-l"
-        >
-           
-          <p>
-            This is page content
-          </p>
-             
-          <!---->
-        </div>
-         
-        <div
-          class="rpl-sidebar rpl-col rpl-col--full rpl-col--3-l rpl-col--push-1-l"
-        >
-          sidebar content 
-          <!---->
-        </div>
-      </div>
-    </div>
-  </section>
-   
-  <div
-    class="rpl-below-content"
-  >
-    Below content
-  </div>
-</main>
-`;
-
-exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
-<div
-  class="rpl-site-layout demo"
->
-   
-  <div
-    class="rpl-skip-link"
-    id="rpl-skip-link"
-  >
-    <a
-      class="rpl-skip-link__link"
-      href="#rpl-main-content"
-    >
-      Skip to main content
-    </a>
-  </div>
-   
-  <header
-    class="rpl-site-header-container"
-  >
-    <div
-      class="sub-content demo-header"
-    >
-      
-      site header
-    
-    </div>
-  </header>
-    
+<div>
   <main
-    class="rpl-page main"
+    class="rpl-page"
   >
     <div
       class="rpl-above-content-container"
@@ -280,26 +59,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
              
             <!---->
           </div>
-           
-          <div
-            class="banner-hero rpl-site-constrain--on-all"
-          >
-            <div
-              class="sub-content"
-            >
-              banner hero
-            </div>
-          </div>
-           
-          <div
-            class="banner-primary rpl-site-constrain--on-all"
-          >
-            <div
-              class="sub-content"
-            >
-              banner primary
-            </div>
-          </div>
+           Above content
         </div>
       </div>
        
@@ -322,172 +82,10 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
             class="rpl-main rpl-col rpl-col--full"
           >
              
-            <div
-              class="rpl-row demo-main rpl-row--gutter"
-            >
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  <div
-                    class="image"
-                  >
-                    Image
-                  </div>
-                  
-          card
-        
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full"
-              >
-                <div>
-                  
-          other component
-        
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full"
-              >
-                
-        Nested grids
-        
-                <div
-                  class="rpl-row"
-                >
-                  <div
-                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
-                  >
-                    <div>
-                      1/4 col
-                    </div>
-                     
-                    <!---->
-                  </div>
-                   
-                  <div
-                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
-                  >
-                    <div>
-                      1/4 col
-                    </div>
-                     
-                    <!---->
-                  </div>
-                   
-                  <div
-                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
-                  >
-                    <div>
-                      1/4 col
-                    </div>
-                     
-                    <!---->
-                  </div>
-                   
-                  <div
-                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
-                  >
-                    <div>
-                      1/4 col
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full"
-              >
-                <div
-                  class="cta rpl-edge--on-all rpl-site-constrain--on-all"
-                >
-                  <div
-                    class="sub-content"
-                  >
-                    
-            edge style call to action
-          
-                  </div>
-                </div>
-                 
-                <!---->
-              </div>
-            </div>
-               
+            <p>
+              This is page content
+            </p>
+              
             <!---->
           </div>
            
@@ -499,65 +97,16 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
     <div
       class="rpl-below-content"
     >
-      <div
-        class="banner-secondary rpl-site-constrain--on-all"
-      >
-        <div
-          class="sub-content"
-        >
-          banner secondary
-        </div>
-      </div>
+      Below content
     </div>
   </main>
-    
-  <!---->
-   
-  <footer
-    class="rpl-site-footer-container"
-  >
-    <div
-      class="sub-content demo-header"
-    >
-      
-      site footer
-    
-    </div>
-  </footer>
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
-<div
-  class="rpl-site-layout demo"
->
-   
-  <div
-    class="rpl-skip-link"
-    id="rpl-skip-link"
-  >
-    <a
-      class="rpl-skip-link__link"
-      href="#rpl-main-content"
-    >
-      Skip to main content
-    </a>
-  </div>
-   
-  <header
-    class="rpl-site-header-container"
-  >
-    <div
-      class="sub-content demo-header"
-    >
-      
-      site header
-    
-    </div>
-  </header>
-    
+exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
+<div>
   <main
-    class="rpl-page main"
+    class="rpl-page"
   >
     <div
       class="rpl-above-content-container"
@@ -574,26 +123,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
              
             <!---->
           </div>
-           
-          <div
-            class="banner-hero rpl-site-constrain--on-all"
-          >
-            <div
-              class="sub-content"
-            >
-              banner hero
-            </div>
-          </div>
-           
-          <div
-            class="banner-primary rpl-site-constrain--on-all"
-          >
-            <div
-              class="sub-content"
-            >
-              banner primary
-            </div>
-          </div>
+           Above content
         </div>
       </div>
        
@@ -616,171 +146,9 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
             class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
           >
              
-            <div
-              class="rpl-row demo-main rpl-row--gutter"
-            >
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  <div
-                    class="image"
-                  >
-                    Image
-                  </div>
-                  
-          card
-        
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
-              >
-                <div
-                  class="card"
-                >
-                  card
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full"
-              >
-                <div>
-                  
-          other component
-        
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full"
-              >
-                
-        Nested grids
-        
-                <div
-                  class="rpl-row"
-                >
-                  <div
-                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
-                  >
-                    <div>
-                      1/4 col
-                    </div>
-                     
-                    <!---->
-                  </div>
-                   
-                  <div
-                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
-                  >
-                    <div>
-                      1/4 col
-                    </div>
-                     
-                    <!---->
-                  </div>
-                   
-                  <div
-                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
-                  >
-                    <div>
-                      1/4 col
-                    </div>
-                     
-                    <!---->
-                  </div>
-                   
-                  <div
-                    class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
-                  >
-                    <div>
-                      1/4 col
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </div>
-                 
-                <!---->
-              </div>
-               
-              <div
-                class="rpl-col rpl-col--full"
-              >
-                <div
-                  class="cta rpl-edge--below-l rpl-site-constrain--below-l"
-                >
-                  <div
-                    class="sub-content"
-                  >
-                    
-            edge style call to action
-          
-                  </div>
-                </div>
-                 
-                <!---->
-              </div>
-            </div>
+            <p>
+              This is page content
+            </p>
                
             <!---->
           </div>
@@ -788,24 +156,7 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
           <div
             class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
           >
-            <div
-              class="sub-content"
-            >
-              Sidebar content
-            </div>
-             
-            <div
-              class="sub-content"
-            >
-              Sidebar content
-            </div>
-             
-            <div
-              class="sub-content"
-            >
-              Sidebar content
-            </div>
-             
+            sidebar content 
             <!---->
           </div>
         </div>
@@ -815,30 +166,691 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
     <div
       class="rpl-below-content"
     >
-      <div
-        class="banner-secondary rpl-site-constrain--on-all"
-      >
-        <div
-          class="sub-content"
-        >
-          banner secondary
-        </div>
-      </div>
+      Below content
     </div>
   </main>
-    
-  <!---->
-   
-  <footer
-    class="rpl-site-footer-container"
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Layout Page Layout with custom columns 1`] = `
+<div>
+  <main
+    class="rpl-page"
   >
     <div
-      class="sub-content demo-header"
+      class="rpl-above-content-container"
     >
+      <div
+        class="rpl-above-content"
+      >
+        <div
+          class="rpl-above-content__inner"
+        >
+          <div
+            class="rpl-above-content__top"
+          >
+             
+            <!---->
+          </div>
+           Above content
+        </div>
+      </div>
+       
+      <div
+        class="rpl-above-content-two"
+      />
+    </div>
+     
+    <section
+      class="rpl-content rpl-content--with-sidebar"
+      id="rpl-main-content"
+    >
+      <div
+        class="rpl-site-constrain--on-all"
+      >
+        <div
+          class="rpl-row"
+        >
+          <div
+            class="rpl-main rpl-col rpl-col--full rpl-col--8-l"
+          >
+             
+            <p>
+              This is page content
+            </p>
+               
+            <!---->
+          </div>
+           
+          <div
+            class="rpl-sidebar rpl-col rpl-col--full rpl-col--3-l rpl-col--push-1-l"
+          >
+            sidebar content 
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+     
+    <div
+      class="rpl-below-content"
+    >
+      Below content
+    </div>
+  </main>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
+<div>
+  <div
+    class="rpl-site-layout demo"
+  >
+     
+    <div
+      class="rpl-skip-link"
+      id="rpl-skip-link"
+    >
+      <a
+        class="rpl-skip-link__link"
+        href="#rpl-main-content"
+      >
+        Skip to main content
+      </a>
+    </div>
+     
+    <header
+      class="rpl-site-header-container"
+    >
+      <div
+        class="sub-content demo-header"
+      >
+        
+      site header
+    
+      </div>
+    </header>
       
+    <main
+      class="rpl-page main"
+    >
+      <div
+        class="rpl-above-content-container"
+      >
+        <div
+          class="rpl-above-content"
+        >
+          <div
+            class="rpl-above-content__inner"
+          >
+            <div
+              class="rpl-above-content__top"
+            >
+               
+              <!---->
+            </div>
+             
+            <div
+              class="banner-hero rpl-site-constrain--on-all"
+            >
+              <div
+                class="sub-content"
+              >
+                banner hero
+              </div>
+            </div>
+             
+            <div
+              class="banner-primary rpl-site-constrain--on-all"
+            >
+              <div
+                class="sub-content"
+              >
+                banner primary
+              </div>
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-above-content-two"
+        />
+      </div>
+       
+      <section
+        class="rpl-content"
+        id="rpl-main-content"
+      >
+        <div
+          class="rpl-site-constrain--on-all"
+        >
+          <div
+            class="rpl-row"
+          >
+            <div
+              class="rpl-main rpl-col rpl-col--full"
+            >
+               
+              <div
+                class="rpl-row demo-main rpl-row--gutter"
+              >
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    <div
+                      class="image"
+                    >
+                      Image
+                    </div>
+                    
+          card
+        
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full"
+                >
+                  <div>
+                    
+          other component
+        
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full"
+                >
+                  
+        Nested grids
+        
+                  <div
+                    class="rpl-row"
+                  >
+                    <div
+                      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
+                    >
+                      <div>
+                        1/4 col
+                      </div>
+                       
+                      <!---->
+                    </div>
+                     
+                    <div
+                      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
+                    >
+                      <div>
+                        1/4 col
+                      </div>
+                       
+                      <!---->
+                    </div>
+                     
+                    <div
+                      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
+                    >
+                      <div>
+                        1/4 col
+                      </div>
+                       
+                      <!---->
+                    </div>
+                     
+                    <div
+                      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
+                    >
+                      <div>
+                        1/4 col
+                      </div>
+                       
+                      <!---->
+                    </div>
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full"
+                >
+                  <div
+                    class="cta rpl-edge--on-all rpl-site-constrain--on-all"
+                  >
+                    <div
+                      class="sub-content"
+                    >
+                      
+            edge style call to action
+          
+                    </div>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </div>
+                 
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+        </div>
+      </section>
+       
+      <div
+        class="rpl-below-content"
+      >
+        <div
+          class="banner-secondary rpl-site-constrain--on-all"
+        >
+          <div
+            class="sub-content"
+          >
+            banner secondary
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    <!---->
+     
+    <footer
+      class="rpl-site-footer-container"
+    >
+      <div
+        class="sub-content demo-header"
+      >
+        
       site footer
     
+      </div>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
+<div>
+  <div
+    class="rpl-site-layout demo"
+  >
+     
+    <div
+      class="rpl-skip-link"
+      id="rpl-skip-link"
+    >
+      <a
+        class="rpl-skip-link__link"
+        href="#rpl-main-content"
+      >
+        Skip to main content
+      </a>
     </div>
-  </footer>
+     
+    <header
+      class="rpl-site-header-container"
+    >
+      <div
+        class="sub-content demo-header"
+      >
+        
+      site header
+    
+      </div>
+    </header>
+      
+    <main
+      class="rpl-page main"
+    >
+      <div
+        class="rpl-above-content-container"
+      >
+        <div
+          class="rpl-above-content"
+        >
+          <div
+            class="rpl-above-content__inner"
+          >
+            <div
+              class="rpl-above-content__top"
+            >
+               
+              <!---->
+            </div>
+             
+            <div
+              class="banner-hero rpl-site-constrain--on-all"
+            >
+              <div
+                class="sub-content"
+              >
+                banner hero
+              </div>
+            </div>
+             
+            <div
+              class="banner-primary rpl-site-constrain--on-all"
+            >
+              <div
+                class="sub-content"
+              >
+                banner primary
+              </div>
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="rpl-above-content-two"
+        />
+      </div>
+       
+      <section
+        class="rpl-content rpl-content--with-sidebar"
+        id="rpl-main-content"
+      >
+        <div
+          class="rpl-site-constrain--on-all"
+        >
+          <div
+            class="rpl-row"
+          >
+            <div
+              class="rpl-main rpl-col rpl-col--full rpl-col--7-l"
+            >
+               
+              <div
+                class="rpl-row demo-main rpl-row--gutter"
+              >
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    <div
+                      class="image"
+                    >
+                      Image
+                    </div>
+                    
+          card
+        
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-xxxl"
+                >
+                  <div
+                    class="card"
+                  >
+                    card
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full"
+                >
+                  <div>
+                    
+          other component
+        
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full"
+                >
+                  
+        Nested grids
+        
+                  <div
+                    class="rpl-row"
+                  >
+                    <div
+                      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
+                    >
+                      <div>
+                        1/4 col
+                      </div>
+                       
+                      <!---->
+                    </div>
+                     
+                    <div
+                      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
+                    >
+                      <div>
+                        1/4 col
+                      </div>
+                       
+                      <!---->
+                    </div>
+                     
+                    <div
+                      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
+                    >
+                      <div>
+                        1/4 col
+                      </div>
+                       
+                      <!---->
+                    </div>
+                     
+                    <div
+                      class="rpl-col rpl-col--full rpl-col--6-m rpl-col--3-l"
+                    >
+                      <div>
+                        1/4 col
+                      </div>
+                       
+                      <!---->
+                    </div>
+                  </div>
+                   
+                  <!---->
+                </div>
+                 
+                <div
+                  class="rpl-col rpl-col--full"
+                >
+                  <div
+                    class="cta rpl-edge--below-l rpl-site-constrain--below-l"
+                  >
+                    <div
+                      class="sub-content"
+                    >
+                      
+            edge style call to action
+          
+                    </div>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </div>
+                 
+              <!---->
+            </div>
+             
+            <div
+              class="rpl-sidebar rpl-col rpl-col--full rpl-col--4-l rpl-col--push-1-l"
+            >
+              <div
+                class="sub-content"
+              >
+                Sidebar content
+              </div>
+               
+              <div
+                class="sub-content"
+              >
+                Sidebar content
+              </div>
+               
+              <div
+                class="sub-content"
+              >
+                Sidebar content
+              </div>
+               
+              <!---->
+            </div>
+          </div>
+        </div>
+      </section>
+       
+      <div
+        class="rpl-below-content"
+      >
+        <div
+          class="banner-secondary rpl-site-constrain--on-all"
+        >
+          <div
+            class="sub-content"
+          >
+            banner secondary
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    <!---->
+     
+    <footer
+      class="rpl-site-footer-container"
+    >
+      <div
+        class="sub-content demo-header"
+      >
+        
+      site footer
+    
+      </div>
+    </footer>
+  </div>
 </div>
 `;

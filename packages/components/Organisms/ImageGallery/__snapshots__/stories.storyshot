@@ -1,497 +1,501 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
-<div
-  class="rpl-complex-image"
->
-  <h3
-    class="rpl-complex-image__title"
-  >
-    Figure 1.2
-  </h3>
-   
-  <figure
-    class="rpl-figure"
-  >
-    <img
-      alt="A generic square placeholder image."
-      class="rpl-figure__image"
-      src="https://placehold.it/800x400.jpg"
-    />
-     
-    <figcaption>
-      <span
-        class="rpl-figure__caption"
-      >
-        This is caption copy for use alongside informational images or for legal information.
-      </span>
-       
-      <span
-        class="rpl-figure__source"
-      >
-        Source: This is for the source to use alongside informational images or for legal information.
-      </span>
-    </figcaption>
-  </figure>
-   
+<div>
   <div
-    class="rpl-complex-image__controls"
+    class="rpl-complex-image"
   >
-    <button
-      class="rpl-complex-image__button"
+    <h3
+      class="rpl-complex-image__title"
     >
-      <span>
-        <span
-          class="rpl-text-icon__group"
-        >
-          <!---->
-          View
-        </span>
-         
-        <span>
-           Figure 1.2 in full screen
-        </span>
-      </span>
-    </button>
+      Figure 1.2
+    </h3>
      
-    <button
-      class="rpl-complex-image__button"
+    <figure
+      class="rpl-figure"
     >
-      <span>
+      <img
+        alt="A generic square placeholder image."
+        class="rpl-figure__image"
+        src="https://placehold.it/800x400.jpg"
+      />
+       
+      <figcaption>
         <span
-          class="rpl-text-icon__group"
+          class="rpl-figure__caption"
         >
-          <!---->
-          View
+          This is caption copy for use alongside informational images or for legal information.
         </span>
          
-        <span>
-           Figure 1.2 in table format
+        <span
+          class="rpl-figure__source"
+        >
+          Source: This is for the source to use alongside informational images or for legal information.
         </span>
-      </span>
-    </button>
+      </figcaption>
+    </figure>
      
     <div
-      class="rpl-complex-image__expander"
+      class="rpl-complex-image__controls"
     >
-      <div
-        class="rpl-complex-image__expander-header"
+      <button
+        class="rpl-complex-image__button"
       >
-        <span
-          class="rpl-complex-image__expander-title"
-        >
+        <span>
           <span
             class="rpl-text-icon__group"
           >
             <!---->
-            Figure
+            View
           </span>
            
           <span>
-             1.2
+             Figure 1.2 in full screen
           </span>
         </span>
-         
-        <button
-          class="rpl-complex-image__expander-close-button"
-        >
-          <!---->
-           
+      </button>
+       
+      <button
+        class="rpl-complex-image__button"
+      >
+        <span>
           <span
-            class="rpl-complex-image__expander-close-button-text"
+            class="rpl-text-icon__group"
           >
-            Close
+            <!---->
+            View
           </span>
-        </button>
-      </div>
+           
+          <span>
+             Figure 1.2 in table format
+          </span>
+        </span>
+      </button>
        
       <div
-        class="rpl-complex-image__expander-markup"
+        class="rpl-complex-image__expander"
       >
         <div
-          class="rpl-markup tide-wysiwyg app-wysiwyg"
+          class="rpl-complex-image__expander-header"
+        >
+          <span
+            class="rpl-complex-image__expander-title"
+          >
+            <span
+              class="rpl-text-icon__group"
+            >
+              <!---->
+              Figure
+            </span>
+             
+            <span>
+               1.2
+            </span>
+          </span>
+           
+          <button
+            class="rpl-complex-image__expander-close-button"
+          >
+            <!---->
+             
+            <span
+              class="rpl-complex-image__expander-close-button-text"
+            >
+              Close
+            </span>
+          </button>
+        </div>
+         
+        <div
+          class="rpl-complex-image__expander-markup"
         >
           <div
-            class="rpl-markup__inner"
+            class="rpl-markup tide-wysiwyg app-wysiwyg"
           >
             <div
-              class="rpl-markup__table"
+              class="rpl-markup__inner"
             >
               <div
                 class="rpl-markup__table"
               >
-                <table>
-                  <thead>
-                    <tr>
-                      <th>
-                        Column header one
-                      </th>
-                       
-                      <th>
-                        Header number two
-                      </th>
-                       
-                      <th>
-                        Third column header
-                      </th>
-                    </tr>
-                  </thead>
-                   
-                  <tbody>
-                    <tr>
-                      <td>
-                        Data point one
-                      </td>
-                       
-                      <td>
-                        This is a piece of data
-                      </td>
-                       
-                      <td>
-                        Third column information
-                      </td>
-                    </tr>
+                <div
+                  class="rpl-markup__table"
+                >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>
+                          Column header one
+                        </th>
+                         
+                        <th>
+                          Header number two
+                        </th>
+                         
+                        <th>
+                          Third column header
+                        </th>
+                      </tr>
+                    </thead>
                      
-                    <tr>
-                      <td>
-                        Data pt two
-                      </td>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Data point one
+                        </td>
+                         
+                        <td>
+                          This is a piece of data
+                        </td>
+                         
+                        <td>
+                          Third column information
+                        </td>
+                      </tr>
                        
-                      <td>
-                        This is data
-                      </td>
+                      <tr>
+                        <td>
+                          Data pt two
+                        </td>
+                         
+                        <td>
+                          This is data
+                        </td>
+                         
+                        <td>
+                          Fourth col info here
+                        </td>
+                      </tr>
                        
-                      <td>
-                        Fourth col info here
-                      </td>
-                    </tr>
-                     
-                    <tr>
-                      <td>
-                        Data point three
-                      </td>
+                      <tr>
+                        <td>
+                          Data point three
+                        </td>
+                         
+                        <td>
+                          This is a piece of data
+                        </td>
+                         
+                        <td>
+                          Third column info here
+                        </td>
+                      </tr>
                        
-                      <td>
-                        This is a piece of data
-                      </td>
+                      <tr>
+                        <td>
+                          Point four
+                        </td>
+                         
+                        <td>
+                          This is some data
+                        </td>
+                         
+                        <td>
+                          Information goes here
+                        </td>
+                      </tr>
                        
-                      <td>
-                        Third column info here
-                      </td>
-                    </tr>
-                     
-                    <tr>
-                      <td>
-                        Point four
-                      </td>
+                      <tr>
+                        <td>
+                          Five
+                        </td>
+                         
+                        <td>
+                          This is a piece of data
+                        </td>
+                         
+                        <td>
+                          Third column info here
+                        </td>
+                      </tr>
                        
-                      <td>
-                        This is some data
-                      </td>
-                       
-                      <td>
-                        Information goes here
-                      </td>
-                    </tr>
-                     
-                    <tr>
-                      <td>
-                        Five
-                      </td>
-                       
-                      <td>
-                        This is a piece of data
-                      </td>
-                       
-                      <td>
-                        Third column info here
-                      </td>
-                    </tr>
-                     
-                    <tr>
-                      <td>
-                        Data point six
-                      </td>
-                       
-                      <td>
-                        This is some data
-                      </td>
-                       
-                      <td>
-                        Information
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                      <tr>
+                        <td>
+                          Data point six
+                        </td>
+                         
+                        <td>
+                          This is some data
+                        </td>
+                         
+                        <td>
+                          Information
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+       
+      <a
+        class="rpl-complex-image__button"
+        download="800x400.jpg"
+        href="https://placehold.it/800x400.jpg"
+      >
+        <span>
+          <span
+            class="rpl-text-icon__group"
+          >
+            <!---->
+            Download
+          </span>
+           
+          <span>
+             Figure 1.2
+          </span>
+        </span>
+      </a>
     </div>
      
-    <a
-      class="rpl-complex-image__button"
-      download="800x400.jpg"
-      href="https://placehold.it/800x400.jpg"
-    >
-      <span>
-        <span
-          class="rpl-text-icon__group"
-        >
-          <!---->
-          Download
-        </span>
-         
-        <span>
-           Figure 1.2
-        </span>
-      </span>
-    </a>
+    <!---->
   </div>
-   
-  <!---->
 </div>
 `;
 
 exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
-<div
-  class="rpl-image-gallery"
->
-  <button
-    aria-label="Click to enlarge"
-    class="rpl-image-gallery__enlarge"
-  >
-    <!---->
-  </button>
-   
+<div>
   <div
-    class="VueCarousel"
+    class="rpl-image-gallery"
   >
-    <div
-      class="VueCarousel-wrapper"
-    >
-      <div
-        class="VueCarousel-inner"
-        style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden; height: auto;"
-      >
-        <div
-          aria-hidden="true"
-          class="VueCarousel-slide rpl-image-gallery__thumbnail"
-          role="tabpanel"
-          tabindex="-1"
-        >
-          <img
-            alt="A test image"
-            class="rpl-image-gallery__thumbnail-image"
-            src="https://placehold.it/604x309/900/fff"
-          />
-           
-          <div
-            class="rpl-image-gallery__thumbnail-details"
-          >
-            <h2
-              class="rpl-image-gallery__thumbnail-title"
-            >
-              1 / 7 - Image title here
-            </h2>
-             
-            <p
-              class="rpl-image-gallery__thumbnail-caption"
-            >
-              Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate.
-            </p>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="VueCarousel-slide rpl-image-gallery__thumbnail"
-          role="tabpanel"
-          tabindex="-1"
-        >
-          <img
-            alt="A test image"
-            class="rpl-image-gallery__thumbnail-image"
-            src="https://placehold.it/604x309/090/fff"
-          />
-           
-          <div
-            class="rpl-image-gallery__thumbnail-details"
-          >
-            <h2
-              class="rpl-image-gallery__thumbnail-title"
-            >
-              2 / 7 - Image title here
-            </h2>
-             
-            <p
-              class="rpl-image-gallery__thumbnail-caption"
-            >
-              Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia.
-            </p>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="VueCarousel-slide rpl-image-gallery__thumbnail"
-          role="tabpanel"
-          tabindex="-1"
-        >
-          <img
-            alt="A test image"
-            class="rpl-image-gallery__thumbnail-image"
-            src="https://placehold.it/604x309/009/fff"
-          />
-           
-          <div
-            class="rpl-image-gallery__thumbnail-details"
-          >
-            <h2
-              class="rpl-image-gallery__thumbnail-title"
-            >
-              3 / 7 - Image title here
-            </h2>
-             
-            <p
-              class="rpl-image-gallery__thumbnail-caption"
-            >
-              Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate. Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate.
-            </p>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="VueCarousel-slide rpl-image-gallery__thumbnail"
-          role="tabpanel"
-          tabindex="-1"
-        >
-          <img
-            alt="A test image"
-            class="rpl-image-gallery__thumbnail-image"
-            src="https://placehold.it/604x309/099/fff"
-          />
-           
-          <div
-            class="rpl-image-gallery__thumbnail-details"
-          >
-            <h2
-              class="rpl-image-gallery__thumbnail-title"
-            >
-              4 / 7 - Image title here
-            </h2>
-             
-            <p
-              class="rpl-image-gallery__thumbnail-caption"
-            >
-              A small caption.
-            </p>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="VueCarousel-slide rpl-image-gallery__thumbnail"
-          role="tabpanel"
-          tabindex="-1"
-        >
-          <img
-            alt="A test image"
-            class="rpl-image-gallery__thumbnail-image"
-            src="https://placehold.it/604x309/909/fff"
-          />
-           
-          <div
-            class="rpl-image-gallery__thumbnail-details"
-          >
-            <h2
-              class="rpl-image-gallery__thumbnail-title"
-            >
-              5 / 7 - Image title here
-            </h2>
-             
-            <p
-              class="rpl-image-gallery__thumbnail-caption"
-            >
-              Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium.
-            </p>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="VueCarousel-slide rpl-image-gallery__thumbnail"
-          role="tabpanel"
-          tabindex="-1"
-        >
-          <img
-            alt="A test image"
-            class="rpl-image-gallery__thumbnail-image"
-            src="https://placehold.it/604x309/990/fff"
-          />
-           
-          <div
-            class="rpl-image-gallery__thumbnail-details"
-          >
-            <h2
-              class="rpl-image-gallery__thumbnail-title"
-            >
-              6 / 7 - Image title here
-            </h2>
-             
-            <p
-              class="rpl-image-gallery__thumbnail-caption"
-            >
-              Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim.
-            </p>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="VueCarousel-slide rpl-image-gallery__thumbnail"
-          role="tabpanel"
-          tabindex="-1"
-        >
-          <img
-            alt="A test image"
-            class="rpl-image-gallery__thumbnail-image"
-            src="https://placehold.it/604x309/000/fff"
-          />
-           
-          <div
-            class="rpl-image-gallery__thumbnail-details"
-          >
-            <h2
-              class="rpl-image-gallery__thumbnail-title"
-            >
-              7 / 7 - Image title here
-            </h2>
-             
-            <p
-              class="rpl-image-gallery__thumbnail-caption"
-            >
-              Sed ut perspiciatis unde omnis.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-     
-    <!---->
-     
-    <!---->
-  </div>
-   
-  <div
-    class="rpl-image-gallery__thumbnail-navigation"
-  >
-    <!---->
-     
     <button
-      aria-label="Go to next slide"
-      class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next"
+      aria-label="Click to enlarge"
+      class="rpl-image-gallery__enlarge"
     >
       <!---->
     </button>
+     
+    <div
+      class="VueCarousel"
+    >
+      <div
+        class="VueCarousel-wrapper"
+      >
+        <div
+          class="VueCarousel-inner"
+          style="transform: translate(0px, 0); transition: 0.5s ease transform; flex-basis: 0px; visibility: hidden; height: auto;"
+        >
+          <div
+            aria-hidden="true"
+            class="VueCarousel-slide rpl-image-gallery__thumbnail"
+            role="tabpanel"
+            tabindex="-1"
+          >
+            <img
+              alt="A test image"
+              class="rpl-image-gallery__thumbnail-image"
+              src="https://placehold.it/604x309/900/fff"
+            />
+             
+            <div
+              class="rpl-image-gallery__thumbnail-details"
+            >
+              <h2
+                class="rpl-image-gallery__thumbnail-title"
+              >
+                1 / 7 - Image title here
+              </h2>
+               
+              <p
+                class="rpl-image-gallery__thumbnail-caption"
+              >
+                Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate.
+              </p>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="VueCarousel-slide rpl-image-gallery__thumbnail"
+            role="tabpanel"
+            tabindex="-1"
+          >
+            <img
+              alt="A test image"
+              class="rpl-image-gallery__thumbnail-image"
+              src="https://placehold.it/604x309/090/fff"
+            />
+             
+            <div
+              class="rpl-image-gallery__thumbnail-details"
+            >
+              <h2
+                class="rpl-image-gallery__thumbnail-title"
+              >
+                2 / 7 - Image title here
+              </h2>
+               
+              <p
+                class="rpl-image-gallery__thumbnail-caption"
+              >
+                Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia.
+              </p>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="VueCarousel-slide rpl-image-gallery__thumbnail"
+            role="tabpanel"
+            tabindex="-1"
+          >
+            <img
+              alt="A test image"
+              class="rpl-image-gallery__thumbnail-image"
+              src="https://placehold.it/604x309/009/fff"
+            />
+             
+            <div
+              class="rpl-image-gallery__thumbnail-details"
+            >
+              <h2
+                class="rpl-image-gallery__thumbnail-title"
+              >
+                3 / 7 - Image title here
+              </h2>
+               
+              <p
+                class="rpl-image-gallery__thumbnail-caption"
+              >
+                Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate. Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptate.
+              </p>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="VueCarousel-slide rpl-image-gallery__thumbnail"
+            role="tabpanel"
+            tabindex="-1"
+          >
+            <img
+              alt="A test image"
+              class="rpl-image-gallery__thumbnail-image"
+              src="https://placehold.it/604x309/099/fff"
+            />
+             
+            <div
+              class="rpl-image-gallery__thumbnail-details"
+            >
+              <h2
+                class="rpl-image-gallery__thumbnail-title"
+              >
+                4 / 7 - Image title here
+              </h2>
+               
+              <p
+                class="rpl-image-gallery__thumbnail-caption"
+              >
+                A small caption.
+              </p>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="VueCarousel-slide rpl-image-gallery__thumbnail"
+            role="tabpanel"
+            tabindex="-1"
+          >
+            <img
+              alt="A test image"
+              class="rpl-image-gallery__thumbnail-image"
+              src="https://placehold.it/604x309/909/fff"
+            />
+             
+            <div
+              class="rpl-image-gallery__thumbnail-details"
+            >
+              <h2
+                class="rpl-image-gallery__thumbnail-title"
+              >
+                5 / 7 - Image title here
+              </h2>
+               
+              <p
+                class="rpl-image-gallery__thumbnail-caption"
+              >
+                Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium.
+              </p>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="VueCarousel-slide rpl-image-gallery__thumbnail"
+            role="tabpanel"
+            tabindex="-1"
+          >
+            <img
+              alt="A test image"
+              class="rpl-image-gallery__thumbnail-image"
+              src="https://placehold.it/604x309/990/fff"
+            />
+             
+            <div
+              class="rpl-image-gallery__thumbnail-details"
+            >
+              <h2
+                class="rpl-image-gallery__thumbnail-title"
+              >
+                6 / 7 - Image title here
+              </h2>
+               
+              <p
+                class="rpl-image-gallery__thumbnail-caption"
+              >
+                Sed ut perspiciatis unde omnis. Iste natus error sit voluptatem accuntium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Nemo enim.
+              </p>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="VueCarousel-slide rpl-image-gallery__thumbnail"
+            role="tabpanel"
+            tabindex="-1"
+          >
+            <img
+              alt="A test image"
+              class="rpl-image-gallery__thumbnail-image"
+              src="https://placehold.it/604x309/000/fff"
+            />
+             
+            <div
+              class="rpl-image-gallery__thumbnail-details"
+            >
+              <h2
+                class="rpl-image-gallery__thumbnail-title"
+              >
+                7 / 7 - Image title here
+              </h2>
+               
+              <p
+                class="rpl-image-gallery__thumbnail-caption"
+              >
+                Sed ut perspiciatis unde omnis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-image-gallery__thumbnail-navigation"
+    >
+      <!---->
+       
+      <button
+        aria-label="Go to next slide"
+        class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next"
+      >
+        <!---->
+      </button>
+    </div>
+     
+    <!---->
   </div>
-   
-  <!---->
 </div>
 `;

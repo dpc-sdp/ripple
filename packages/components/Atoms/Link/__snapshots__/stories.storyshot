@@ -1,44 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RippleStoryshots Atoms/Link Link 1`] = `
-<a
-  class="rpl-link"
-  data-print-url="#"
-  href="#"
->
-  <span
-    class="rpl-link__inner"
+<div>
+  <a
+    class="rpl-link"
+    data-print-url="#"
+    href="#"
   >
-    Ripple Link
-  </span>
-</a>
+    <span
+      class="rpl-link__inner"
+    >
+      Ripple Link
+    </span>
+  </a>
+</div>
 `;
 
 exports[`RippleStoryshots Atoms/Link Text Link 1`] = `
-<a
-  class="rpl-link rpl-text-link"
-  data-print-url="#"
-  href="#"
->
-  <span
-    class="rpl-link__inner"
+<div>
+  <a
+    class="rpl-link rpl-text-link"
+    data-print-url="#"
+    href="#"
   >
     <span
-      class="rpl-text-label rpl-text-label--small"
+      class="rpl-link__inner"
     >
-      <span>
+      <span
+        class="rpl-text-label rpl-text-label--small"
+      >
         <span>
-          Text
-        </span>
-         
-        <span
-          class="rpl-text-icon__group"
-        >
-           Link
-          <!---->
+          <span>
+            Text
+          </span>
+           
+          <span
+            class="rpl-text-icon__group"
+          >
+             Link
+            <!---->
+          </span>
         </span>
       </span>
     </span>
-  </span>
-</a>
+  </a>
+</div>
 `;

@@ -62,7 +62,8 @@ $rpl-font-base: 16px !default;
   @if map-get($all-colors, $name) == null {
     @error '"#{$name}" is not an available colour';
   }
-  @return map-get($all-colors, $name);
+  $color-var: map-get($all-colors, $name);
+  @return var(--rpl-theme-palette-#{$name}, $color-var);
 }
 
 @function rpl-get-colors() {

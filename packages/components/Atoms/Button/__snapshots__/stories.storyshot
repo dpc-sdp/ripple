@@ -1,65 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RippleStoryshots Atoms/Button default 1`] = `
-<a
-  class="rpl-link rpl-button rpl-button--primary"
-  data-print-url="#"
-  href="#"
->
-  <span
-    class="rpl-link__inner"
+<div>
+  <a
+    class="rpl-link rpl-button rpl-button--primary"
+    data-print-url="#"
+    href="#"
   >
-    Ripple Button
-  </span>
-</a>
+    <span
+      class="rpl-link__inner"
+    >
+      Ripple Button
+    </span>
+  </a>
+</div>
 `;
 
 exports[`RippleStoryshots Atoms/Button disabled 1`] = `
-<a
-  class="rpl-link rpl-button rpl-button--primary rpl-button--disabled"
-  data-print-url="#"
-  href="#"
->
-  <span
-    class="rpl-link__inner"
+<div>
+  <a
+    class="rpl-link rpl-button rpl-button--primary rpl-button--disabled"
+    data-print-url="#"
+    href="#"
   >
-    Ripple Button
-  </span>
-</a>
+    <span
+      class="rpl-link__inner"
+    >
+      Ripple Button
+    </span>
+  </a>
+</div>
 `;
 
 exports[`RippleStoryshots Atoms/Button secondary theme 1`] = `
-<a
-  class="rpl-link rpl-button rpl-button--secondary"
-  data-print-url="#"
-  href="#"
->
-  <span
-    class="rpl-link__inner"
+<div>
+  <a
+    class="rpl-link rpl-button rpl-button--secondary"
+    data-print-url="#"
+    href="#"
   >
-    Ripple Button
-  </span>
-</a>
+    <span
+      class="rpl-link__inner"
+    >
+      Ripple Button
+    </span>
+  </a>
+</div>
 `;
 
 exports[`RippleStoryshots Atoms/Button with href 1`] = `
-<a
-  class="rpl-link rpl-button rpl-button--primary"
-  data-print-url="#"
-  href="#"
->
-  <span
-    class="rpl-link__inner"
+<div>
+  <a
+    class="rpl-link rpl-button rpl-button--primary"
+    data-print-url="#"
+    href="#"
   >
-    Ripple Button
-  </span>
-</a>
+    <span
+      class="rpl-link__inner"
+    >
+      Ripple Button
+    </span>
+  </a>
+</div>
 `;
 
 exports[`RippleStoryshots Atoms/Button without href 1`] = `
-<button
-  class="rpl-button rpl-button--primary"
->
-  Ripple Button
-</button>
+<div>
+  <button
+    class="rpl-button rpl-button--primary"
+  >
+    Ripple Button
+  </button>
+</div>
 `;

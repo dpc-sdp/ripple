@@ -81,7 +81,7 @@ export default {
     'm': ('s', 1.5em, 'regular'),
     'xxxl': ('m', 1.5em, 'regular')
   ) !default;
-  $rpl-campaign-primary-summary-text-color: mix(rpl_color('extra_dark_neutral'), rpl_color('white'), 93%) !default;
+  $rpl-campaign-primary-summary-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-campaign-primary-summary-margin-xs: ($rpl-space * 5) 0 ($rpl-space * 7) !default;
   $rpl-campaign-primary-summary-margin-s: ($rpl-space * 6) 0 !default;
   $rpl-campaign-primary-caption-ruleset: ('xxs', 1.17em, 'medium') !default;

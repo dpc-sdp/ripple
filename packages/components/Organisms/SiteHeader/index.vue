@@ -70,7 +70,7 @@
             </button>
             <!-- Search Button -->
             <button
-              v-if="showSearch"
+              v-if="showSearch && rplOptions.flags['site-search'] !== 'false'"
               @click="searchToggle()"
               class="rpl-site-header__btn rpl-site-header__btn--search"
               :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}"
@@ -294,10 +294,10 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/site_header";
 
-  $rpl-site-header-logo-width: auto !default;
+  $rpl-site-header-logo-width: 150px !default;
   $rpl-site-header-logo-primary-width: rem(98px);
   $rpl-site-header-text-color: rpl-color('white') !default;
-  $rpl-site-header-border-radius: rem(4px) !default;
+  $rpl-site-header-border-radius: $rpl-border-radius !default;
   $rpl-site-header-background-color: rpl-color('primary') !default;
   $rpl-site-header-background-color-open: rpl-color('dark_primary') !default;
   $rpl-site-header-top-padding: ($rpl-space * 6) ($rpl-space * 5) !default;
@@ -306,7 +306,7 @@ export default {
   $rpl-site-header-menu-toggle-icon-margin: auto $rpl-space-2 auto 0 !default;
   $rpl-site-header-search-toggle-icon-margin: auto 0 auto $rpl-space-2 !default;
   $rpl-site-header-logout-btn-background-color: rpl-color('dark_primary') !default;
-  $rpl-site-header-logout-btn-background-color-mobile: darken($rpl-site-header-logout-btn-background-color, 10%) !default;
+  $rpl-site-header-logout-btn-background-color-mobile: $rpl-site-header-logout-btn-background-color !default;
   $rpl-site-header-logout-btn-padding-mobile: rem(8px) rem(10px) !default;
   $rpl-site-header-logout-btn-padding: rem(10px) !default;
   $rpl-site-header-logout-btn-margin: $rpl-space-4 !default;
@@ -349,7 +349,7 @@ export default {
 
       #{$root}__inner {
         margin: 0;
-        border-radius: rem(4px);
+        border-radius: $rpl-border-radius;
         background-color: $rpl-site-header-background-color-open;
         height: 100%;
       }
@@ -385,9 +385,10 @@ export default {
       }
 
       img {
-        width: $rpl-site-header-logo-width;
+        width: auto;
         margin-left: $rpl-site-header-menu-toggle-border-spacing;
         vertical-align: middle;
+        max-width: $rpl-site-header-logo-width;
       }
 
       &--vic-logo-primary {

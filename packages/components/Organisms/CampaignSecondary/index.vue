@@ -62,13 +62,13 @@ export default {
     'xs': ('xs', 1.4em, 'regular'),
     's': ('s', 1.5em, 'regular'),
   ) !default;
-  $rpl-campaign-secondary-summary-text-color: mix(rpl_color('extra_dark_neutral'), rpl_color('white'), 93%) !default;
+  $rpl-campaign-secondary-summary-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-campaign-secondary-summary-margin-xs: $rpl-space-3 0 ($rpl-space * 5) !default;
   $rpl-campaign-secondary-summary-margin-s: ($rpl-space * 4) 0 ($rpl-space * 6) !default;
   $rpl-campaign-secondary-summary-margin-m: $rpl-space-3 0 ($rpl-space * 6) !default;
   $rpl-campaign-primary-content-padding-xs: 0 $rpl-component-padding-xs !default;
   $rpl-campaign-secondary-content-padding-s: 0 !default;
-  $rpl-campaign-secondary-border-radius: rem(4px);
+  $rpl-campaign-secondary-border-radius: $rpl-border-radius !default;
 
   .rpl-campaign-secondary {
     position: relative;

@@ -1,5 +1,8 @@
+import get from 'lodash.get'
+
 const tideBanners = async (context, pageData) => {
   const mapping = context.app.$tideMapping
+
   // Hero banner
   // Hero banner background image
   let heroBgImage = ''
@@ -29,8 +32,13 @@ const tideBanners = async (context, pageData) => {
 
   // Add bottom graphic.
   if (!heroBgImage && !pageData.tidePage.field_landing_page_c_primary) {
-    const hasBottomImage = (pageData.tidePage.field_bottom_graphical_image && pageData.tidePage.field_bottom_graphical_image.field_media_image)
-    heroBanner.backgroundGraphic = (hasBottomImage) ? pageData.tidePage.field_bottom_graphical_image.field_media_image.url : '/img/header-pattern-bottom.png'
+    const customPageGraphic = get(pageData, 'tidePage.field_bottom_graphical_image.field_media_image')
+    const defaultSiteGraphic = get(context, 'store.state.tide.siteData.field_header_bottom_graphic.url')
+    if (customPageGraphic) {
+      heroBanner.backgroundGraphic = customPageGraphic
+    } else if (defaultSiteGraphic) {
+      heroBanner.backgroundGraphic = defaultSiteGraphic
+    }
   }
 
   pageData.tidePage.appHeroBanner = await mapping.get(heroBanner)

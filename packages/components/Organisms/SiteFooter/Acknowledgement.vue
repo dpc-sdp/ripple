@@ -29,6 +29,7 @@ export default {
 
   $rpl-acknowledgement-ruleset: ('s', 1.25em, 'semibold') !default;
   $rpl-acknowledgement-ruleset-standalone: ('xs', 1.43em, 'regular') !default;
+  $rpl-acknowledgement-bg-standalone: rpl-color('white') !default;
   $rpl-acknowledgement-flag-border: 1px solid rpl-color('white') !default;
   $rpl-acknowledgement-border: 1px solid rpl_color('mid_neutral_1') !default;
 
@@ -46,6 +47,7 @@ export default {
       padding-bottom: $rpl-space-4;
       border-top: $rpl-acknowledgement-border;
       border-bottom: $rpl-acknowledgement-border;
+      background: $rpl-acknowledgement-bg-standalone;
 
       // Avoid x2 thickness border when component is placed after hero banner.
       .rpl-hero-banner + & {

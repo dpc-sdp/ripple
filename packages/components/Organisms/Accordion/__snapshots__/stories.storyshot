@@ -1,93 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
-<div
-  class="rpl-accordion"
->
-  <h2
-    class="rpl-accordion__title-top"
-    id="accordion-set"
+<div>
+  <div
+    class="rpl-accordion"
   >
-    Accordion Set
-  </h2>
-   
-  <ul
-    class="rpl-accordion__list"
-  >
-    <li
-      class="rpl-accordion__list-item"
+    <h2
+      class="rpl-accordion__title-top"
+      id="accordion-set"
     >
-      <h2
-        class="rpl-accordion__title"
+      Accordion Set
+    </h2>
+     
+    <ul
+      class="rpl-accordion__list"
+    >
+      <li
+        class="rpl-accordion__list-item"
       >
-        <button
-          aria-controls="rpl-accordion-0"
-          aria-expanded="false"
-          class="rpl-accordion__button"
+        <h2
+          class="rpl-accordion__title"
         >
-          <span
-            class="rpl-accordion__button-text"
+          <button
+            aria-controls="rpl-accordion-0"
+            aria-expanded="false"
+            class="rpl-accordion__button"
           >
-            Accordion Item
-          </span>
-           
-          <!---->
-        </button>
-      </h2>
-       
-      <div
-        class="rpl-accordion__content"
-        id="rpl-accordion-0"
-        style="display: none;"
-      >
+            <span
+              class="rpl-accordion__button-text"
+            >
+              Accordion Item
+            </span>
+             
+            <!---->
+          </button>
+        </h2>
+         
         <div
-          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+          class="rpl-accordion__content"
+          id="rpl-accordion-0"
+          style="display: none;"
         >
           <div
-            class="rpl-markup__inner"
+            class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
           >
-            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+            <div
+              class="rpl-markup__inner"
+            >
+              Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-    <li
-      class="rpl-accordion__list-item"
-    >
-      <h2
-        class="rpl-accordion__title"
+      </li>
+      <li
+        class="rpl-accordion__list-item"
       >
-        <button
-          aria-controls="rpl-accordion-1"
-          aria-expanded="false"
-          class="rpl-accordion__button"
+        <h2
+          class="rpl-accordion__title"
         >
-          <span
-            class="rpl-accordion__button-text"
+          <button
+            aria-controls="rpl-accordion-1"
+            aria-expanded="false"
+            class="rpl-accordion__button"
           >
-            Accordion Item
-          </span>
-           
-          <!---->
-        </button>
-      </h2>
-       
-      <div
-        class="rpl-accordion__content"
-        id="rpl-accordion-1"
-        style="display: none;"
-      >
+            <span
+              class="rpl-accordion__button-text"
+            >
+              Accordion Item
+            </span>
+             
+            <!---->
+          </button>
+        </h2>
+         
         <div
-          class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
+          class="rpl-accordion__content"
+          id="rpl-accordion-1"
+          style="display: none;"
         >
           <div
-            class="rpl-markup__inner"
+            class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
           >
-            Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+            <div
+              class="rpl-markup__inner"
+            >
+              Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>
 `;

@@ -71,12 +71,25 @@ export default ({ app, req, store , route }, inject) => {
         },
         async setSiteData ({ commit }, { requestId = null } = {}) {
           const headersConfig = { requestId }
-          const siteData = await app.$tide.getSiteData(headersConfig)
+          let siteName
+          const nonProdUrls = ['develop.', 'master.', 'release.', '.localhost:3000']
+          if (route.query.site) {
+            siteName = `${route.query.site}`
+          } else if (req.headers.host === 'localhost:3000') {
+            // fallback to tide demo site for localhost
+            siteName = 'demo.vic.gov.au'
+          } else {
+            siteName = req.headers.host.replace(new RegExp(nonProdUrls.join('|'), 'gi'), '')
+          }
+
+          const siteData = await app.$tide.getSiteData(headersConfig, siteName)
           if (siteData instanceof Error) {
             throw siteData
           }
           siteData.lastFetched = Date.now()
           commit('setSiteData', siteData)
+
+
           if (config.modules.alert === 1) {
             if (siteData.site_alerts && siteData.site_alerts.length > 0) {
               await store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })

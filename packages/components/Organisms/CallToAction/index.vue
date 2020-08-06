@@ -39,7 +39,7 @@ export default {
   // will be more consistent.
   $rpl-call-to-action-border-color: rpl_color('mid_neutral_1') !default;
   $rpl-call-to-action-border: 1px solid $rpl-call-to-action-border-color !default;
-  $rpl-call-to-action-border-radius: rem(4px) !default;
+  $rpl-call-to-action-border-radius: $rpl-border-radius !default;
   $rpl-call-to-action-bg-color: rpl-color('white') !default;
   $rpl-call-to-action-padding-xs: ($rpl-space * 8) ($rpl-space * 5) !default;
   $rpl-call-to-action-padding-s: ($rpl-space * 18) $rpl-component-padding-s !default;
@@ -57,7 +57,7 @@ export default {
     'xs': ('xs', 1.4em, 'regular'),
     's': ('s', 1.5em, 'regular')
   ) !default;
-  $rpl-call-to-action-summary-text-color: mix(rpl_color('extra_dark_neutral'), rpl_color('white'), 93%) !default;
+  $rpl-call-to-action-summary-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-call-to-action-summary-margin-xs: $rpl-space-3 0 !default;
   $rpl-call-to-action-summary-margin-s: ($rpl-space * 6) 0 !default;
 

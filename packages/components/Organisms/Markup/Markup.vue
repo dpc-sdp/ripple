@@ -74,7 +74,7 @@ $quotation-text-margin: ($rpl-space * 5) auto $rpl-space-2 !default;
 $quotation-mark-border: rem(4px) solid rpl_color('mid_neutral_2') !default;
 $quotation-mark-end-margin: auto auto (-$rpl-space-2) $rpl-space-2 !default;
 $quotation-author-ruleset: (rem(12px), 1em, 'medium')  !default;
-$quotation-author-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
+$quotation-author-color: rpl_color('dark_neutral') !default;
 $quotation-author-opacity: rpl_color('dark_neutral') !default;
 
 $table-stripe-color: rpl-color('light_neutral') !default;
@@ -143,7 +143,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_edge('card element');
       display: table;
       height: auto;
-      border-radius: rem(4px);
+      border-radius: $rpl-border-radius;
 
       @include rpl_breakpoint('m') {
         max-width: 100%;
@@ -208,7 +208,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
   &__table,
   .table-container {
     border: $table-border;
-    border-radius: rem(4px);
+    border-radius: $rpl-border-radius;
     background-color: $table-background-color;
     overflow: auto;
     width: 100%;

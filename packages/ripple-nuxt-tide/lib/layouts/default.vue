@@ -1,5 +1,6 @@
 <template>
   <rpl-base-layout :class="{ 'tide-preview-mode': preview }">
+    <app-theme v-if="theme" :theme="theme" />
     <template slot="header">
       <rpl-alert-base class="app-preview" v-if="preview">Draft only and not yet published</rpl-alert-base>
       <client-only>
@@ -28,7 +29,9 @@
       </client-only>
     </template>
 
-    <nuxt/>
+    <template v-if="$store.state.tide.siteData.drupal_internal__tid">
+      <nuxt />
+    </template>
 
     <template slot="footer">
       <rpl-site-footer
@@ -38,6 +41,7 @@
         :acknowledgement="footer.acknowledgement"
         :caption="footerCaption"
         :logos="footer.logos"
+        :graphic="footer.graphic"
         />
       <client-only>
         <div aria-live="assertive" class="rpl-visually-hidden">{{ announcerTitle }}</div>
@@ -55,9 +59,12 @@ import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
+import AppTheme from '@dpc-sdp/ripple-nuxt-tide/lib/components/AppTheme.vue'
+import get from 'lodash.get'
 
 export default {
   components: {
+    AppTheme,
     RplAlertBase,
     RplBaseLayout,
     RplSiteFooter,
@@ -65,13 +72,17 @@ export default {
   },
   data () {
     let _store = this.$store
+    const theme = get(this.$store, 'state.tide.siteData.field_theme_variables', [])
+    const footerGraphic = get(this.$store, 'state.tide.siteData.field_footer_graphic.url')
+
     return {
       nav: _store.state.tide.siteData.hierarchicalMenus.menuMain,
       footer: {
         links: _store.state.tide.siteData.hierarchicalMenus.menuFooter,
         copyright: _store.state.tide.siteData.field_site_footer_text ? _store.state.tide.siteData.field_site_footer_text.processed : null,
         acknowledgement: _store.state.tide.siteData.field_acknowledgement_to_country ? _store.state.tide.siteData.field_acknowledgement_to_country : null,
-        logos: this.getFooterLogos(_store.state.tide.siteData)
+        logos: this.getFooterLogos(_store.state.tide.siteData),
+        graphic: footerGraphic
       },
       header: {
         logo: _store.state.tide.siteData.siteLogo,
@@ -79,7 +90,8 @@ export default {
         links: _store.state.tide.siteData.hierarchicalMenus.menuMain,
         sticky: true
       },
-      announcerTitle: ''
+      announcerTitle: '',
+      theme
     }
   },
   computed: {
@@ -114,6 +126,13 @@ export default {
       this.anchorScrollFix(this.$route.hash)
     }
     RplLinkEventBus.$on('navigate', this.onNavigate)
+
+    if (process.client && window.MSInputMethodContext && document.documentMode) {
+      const script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.src = 'https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js'
+      document.body.appendChild(script)
+    }
   },
   methods: {
     onNavigate () {
@@ -180,6 +199,13 @@ export default {
           this.logoutFunc()
         }
       }
+    }
+    const featureFlags = get(this.$store, 'state.tide.siteData.field_site_features', [])
+    this.rplOptions.flags = {}
+    if (featureFlags && featureFlags.length > 0) {
+      featureFlags.forEach(itm => {
+        this.rplOptions.flags[`${itm.key}`] = itm.value
+      })
     }
   },
   head () {

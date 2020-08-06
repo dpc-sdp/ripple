@@ -70,7 +70,7 @@
             </button>
             <!-- Search Button -->
             <button
-              v-if="showSearch"
+              v-if="showSearch && rplOptions.flags['site-search'] !== 'false'"
               @click="searchToggle()"
               class="rpl-site-header__btn rpl-site-header__btn--search"
               :class="{'rpl-site-header__btn--search-open' : (searchState === 'opened')}"

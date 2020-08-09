@@ -13,6 +13,7 @@ packages/create-ripple-app/template/nuxt/*
 
 # ignore storybook files
 src/scripts
+storybook-static/
 
 # Nuxt folders
 /examples/**/dist

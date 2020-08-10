@@ -40,7 +40,7 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
         aria-hidden="true"
         class="rpl-icon rpl-icon--search rpl-icon--color_primary"
         overflow="visible"
-        style="width: 18px; height: 18px;"
+        style="width: 24px; height: 24px;"
       >
         <use
           href="#rpl_icon_search"

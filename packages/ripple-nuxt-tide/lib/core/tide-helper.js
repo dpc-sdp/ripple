@@ -90,6 +90,7 @@ export const stringToClass = (str) => {
  * @param {string} pageHead.imageAlt - Social sharing image alt text.
  * @param {string} pageHead.siteSectionName - Page site section name.
  * @param {string} pageHead.pageType - Page content type.
+ * @param {string} pageHead.robotsMeta - Robots meta type.
  * @return {Object} pageHead, can be used in store tide/setPageHead.
  */
 export const getPageHeadConfig = ({
@@ -100,9 +101,10 @@ export const getPageHeadConfig = ({
   image,
   imageAlt,
   siteSectionName = '',
-  pageType
+  pageType,
+  robotsMeta
 }) => {
-  return {
+  const head = {
     htmlAttrs: {
       lang: langcode
     },
@@ -127,4 +129,10 @@ export const getPageHeadConfig = ({
       { name: 'content-type', content: pageType && pageType.replace('node--', '') }
     ]
   }
+  if (robotsMeta) {
+    // Robots meta
+    let robotsMetaTag = { name: 'robots', content: robotsMeta }
+    head.meta.push(robotsMetaTag)
+  }
+  return head
 }

@@ -330,7 +330,7 @@ module.exports = {
               {
                 type: 'input',
                 inputType: 'text',
-                label: 'Family name',
+                label: 'Given name',
                 required: required,
                 validator: required ? ['required'] : [],
                 placeholder: 'Enter some text...',

@@ -56,8 +56,6 @@ export default {
   * https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    extractCSS: { ignoreOrder: true },
-
     extend (config, { isDev, isClient }) {
       if (isDev) {
         // For debugging in dev mode

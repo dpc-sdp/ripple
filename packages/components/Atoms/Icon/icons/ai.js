@@ -2,8 +2,8 @@ import Icon from '../Icon.vue'
 
 Icon.register({
   'ai': {
-    width: 12,
-    height: 12,
+    width: 20,
+    height: 20,
     paths: [
       {
         d: 'M12.34 11.92l-.448 1.331h.868l-.42-1.33zm.974 3.096l-.232-.742h-1.533l-.245.742h-1.282l1.814-4.987h.945l1.814 4.987h-1.281zm1.783 0h1.226V10.03h-1.226z'

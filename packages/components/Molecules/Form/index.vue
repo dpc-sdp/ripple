@@ -84,6 +84,20 @@ export default {
       }
       return []
     }
+    // Validate if multiple select is a required field, then atleast one value should be selected.
+    VueFormGenerator.validators.rplSelectMultipleRequired = function (value, field) {
+      if (value && value.length >= field.min) {
+        return []
+      }
+      return ['Add a selection']
+    }
+    // Validate if multiple select has a max limiit of selection.
+    VueFormGenerator.validators.rplSelectMaxLimit = function (value, field) {
+      if (value && value.length <= field.max) {
+        return []
+      }
+      return ['More than ' + field.max + ' selections are not allowed']
+    }
   },
   methods: {
 

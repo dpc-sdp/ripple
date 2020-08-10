@@ -224,6 +224,12 @@ module.exports = {
             field.multiselect = true
             if (field.required) {
               field.min = 1
+              field.validator.push('rplSelectMultipleRequired')
+            }
+            // Check if there is a max limit given.
+            if (typeof element['#multiple'] !== 'boolean') {
+              field.max = element['#multiple']
+              field.validator.push('rplSelectMaxLimit')
             }
           } else {
             field.multiselect = false

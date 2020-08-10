@@ -73,6 +73,7 @@ export default {
     &__heading {
       @include rpl_typography_ruleset($rpl-search-result-heading-ruleset);
       color: $rpl-search-result-heading-text-color;
+      max-width: $rpl-content-max-width;
     }
 
     &__link {
@@ -92,6 +93,7 @@ export default {
     &__date-description {
       @include rpl_typography_ruleset($rpl-search-result-date-description-ruleset);
       color: $rpl-search-result-date-description-text-color;
+      max-width: $rpl-content-max-width;
     }
 
     &__terms {

@@ -31,7 +31,7 @@ export default ({
       // Only update the filter options if a selection hasn't already been made, otherwise the filter would need to be
       // cleared before another selection can be made.
       if (!filters[inputField.model]) {
-        if (inputField.type === 'rplchecklist' && inputField.values.length > 0 && (typeof inputField.filter.computedFilter === 'undefined' || inputField.filter.computedFilter === false)) {
+        if (inputField.type === 'rplchecklist' && (typeof inputField.filter.computedFilter === 'undefined' || inputField.filter.computedFilter === false)) {
           dsl.body = qB.addAgg(dsl.body, inputField)
         }
       }

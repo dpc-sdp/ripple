@@ -62,9 +62,7 @@ const searchMixin = {
       try {
         const response = await this.tideSearch.search(this.searchOptions, queryString, page, filters, this.fields, this.docType, this.sort)
         this.updateSubmitLoader(false)
-        if (response.aggregations) {
-          this.tideSearch.updateFilterOptions(this.searchForm.filterForm, response.aggregations)
-        }
+        this.tideSearch.updateFilterOptions(this.searchForm.filterForm, response.aggregations)
         const results = []
         const hits = response.hits.hits
         for (let hit of hits) {

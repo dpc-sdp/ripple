@@ -166,7 +166,7 @@ export default (config, router, site) => ({
   },
   updateFilterOptions: function (filterForm, aggregations) {
     for (let filter of this.getFormFields(filterForm)) {
-      if (aggregations[filter.model] && (filter.values.length > 0 && filter.type === 'rplchecklist') && (typeof filter.filter.computedFilter === 'undefined' || filter.filter.computedFilter === false)) {
+      if (aggregations[filter.model] && (filter.type === 'rplchecklist') && (typeof filter.filter.computedFilter === 'undefined' || filter.filter.computedFilter === false)) {
         // Reset the array.
         filter.values = []
         for (let terms of aggregations[filter.model].buckets) {

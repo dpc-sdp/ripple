@@ -24,10 +24,10 @@ storiesOf('Organisms/Accordion', module)
       accordions: {
         default: () => object('Accordion', [{
           title: 'Accordion Item',
-          content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
+          content: '<p>Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.</p>'
         }, {
           title: 'Accordion Item',
-          content: 'Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.'
+          content: '<p>Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.</p>'
         }])
       },
       single: {

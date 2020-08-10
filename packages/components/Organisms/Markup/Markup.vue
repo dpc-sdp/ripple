@@ -64,7 +64,7 @@ $callout-text-color: rpl_color('extra_dark_neutral') !default;
 $callout-author-ruleset: (rem(20px), 1.2em, 'medium') !default;
 $callout-mark-border: rem(4px) solid rpl_color('mid_neutral_2') !default;
 $callout-padding: 0 0 0 ($rpl-space * 6) !default;
-$callout-margin: ($rpl-space * 7) auto !default;
+$callout-margin: ($rpl-space * 7) 0 !default;
 
 $quotation-padding-xs: 0 0 0 ($rpl-space * 6) !default;
 $quotation-padding-s: 0 0 0 ($rpl-space * 8) !default;
@@ -111,6 +111,10 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
   &__inner {
     > h2:first-child {
       margin-top: 0;
+    }
+
+    p, h2, h3, h4, h5, h6 {
+      max-width: $rpl-content-max-width;
     }
   }
 
@@ -165,6 +169,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     margin-left: 0;
     margin-right: 0;
     padding: $quotation-padding-xs;
+    max-width: $rpl-content-max-width;
 
     @include rpl_breakpoint('s') {
       padding: $quotation-padding-s;

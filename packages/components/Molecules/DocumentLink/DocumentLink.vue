@@ -84,6 +84,7 @@ export default {
   .rpl-document-link {
     $root: &;
     margin: $rpl-document-link-margin;
+    max-width: $rpl-content-max-width;
 
     &__link {
       display: flex;

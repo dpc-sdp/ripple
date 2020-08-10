@@ -170,6 +170,7 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
 
   &__title {
     margin-top: 0;
+    max-width: $rpl-content-max-width;
   }
 
   label:not(.rpl-option-button__label) {

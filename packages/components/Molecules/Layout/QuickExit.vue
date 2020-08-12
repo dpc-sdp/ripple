@@ -105,7 +105,7 @@ export default {
       @include rpl_narrow_button_danger;
 
       &--stickable {
-        z-index: $rpl-zindex-header;
+        z-index: $rpl-zindex-popover;
         top: $rpl-header-horizontal-padding-xs;
         right: $rpl-header-horizontal-padding-xs;
 

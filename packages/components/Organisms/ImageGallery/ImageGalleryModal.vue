@@ -92,11 +92,11 @@ export default {
       cursor: pointer;
       z-index: 1;
       top: $rpl-image-gallery-modal-edge-margin-s;
-      right: $rpl-image-gallery-modal-edge-margin-s;
+      left: $rpl-image-gallery-modal-edge-margin-s;
 
       @include rpl-breakpoint('l') {
         top: $rpl-image-gallery-modal-edge-margin-l;
-        right: $rpl-image-gallery-modal-edge-margin-l;
+        left: $rpl-image-gallery-modal-edge-margin-l;
       }
 
       svg {

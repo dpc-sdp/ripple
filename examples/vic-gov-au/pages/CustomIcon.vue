@@ -8,7 +8,7 @@ import './../../../packages/components/Atoms/Icon/icons/index'
 import './../assets/ripple-icon/icon_circle_arrow_right'
 
 export default {
-  name: "CustomIcon",
+  name: 'CustomIcon',
   components: {
     RplIcon
   }

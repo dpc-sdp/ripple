@@ -105,10 +105,13 @@ module.exports = {
         }
       }
 
+      const defaultValue = element['#default_value']
+
       switch (element['#type']) {
         case 'hidden':
           field.type = 'input'
           field.inputType = 'hidden'
+          if (defaultValue) data.model[eName] = defaultValue
           break
 
         case 'textfield':
@@ -120,6 +123,7 @@ module.exports = {
           } else {
             field.validator.push('string')
           }
+          if (defaultValue) data.model[eName] = defaultValue
           break
 
         case 'number':
@@ -134,26 +138,27 @@ module.exports = {
           if (element['#step']) {
             field.step = element['#step']
           }
+          if (defaultValue) data.model[eName] = defaultValue
           break
 
         case 'email':
           field.type = 'input'
           field.inputType = 'email'
           field.validator.push('email', 'string')
+          if (defaultValue) data.model[eName] = defaultValue
           break
 
         case 'tel':
           field.type = 'input'
           field.inputType = 'tel'
           field.validator.push('string')
+          if (defaultValue) data.model[eName] = defaultValue
           break
 
         case 'radios':
           field.type = 'radios'
-          const defaultValue = element['#default_value']
           const fields = element['#options']
           field.values = []
-
           if (defaultValue && fields[defaultValue]) {
             data.model[eName] = defaultValue
           }
@@ -184,7 +189,7 @@ module.exports = {
           } else {
             field.validator.push('string')
           }
-
+          if (defaultValue) data.model[eName] = defaultValue
           break
 
         case 'checkbox':
@@ -192,11 +197,12 @@ module.exports = {
           // inlineLabel is used in place of label for checkbxoes.
           field.label = null
           field.inlineLabel = element['#title'] ? element['#title'] : null
+          if (defaultValue) data.model[eName] = defaultValue
           break
 
         case 'select':
           field.type = 'rplselect'
-
+          // TODO: Add multiple select support.
           const options = element['#options']
           field.values = Object.keys(options).map((key) => {
             return {
@@ -208,6 +214,8 @@ module.exports = {
           if (element['#empty_option']) {
             field.placeholder = element['#empty_option']
           }
+
+          if (defaultValue) data.model[eName] = defaultValue
           break
 
         case 'webform_term_select':
@@ -216,6 +224,12 @@ module.exports = {
             field.multiselect = true
             if (field.required) {
               field.min = 1
+              field.validator.push('rplSelectMultipleRequired')
+            }
+            // Check if there is a max limit given.
+            if (typeof element['#multiple'] !== 'boolean') {
+              field.max = element['#multiple']
+              field.validator.push('rplSelectMaxLimit')
             }
           } else {
             field.multiselect = false
@@ -257,6 +271,7 @@ module.exports = {
           field.type = 'input'
           field.inputType = 'url'
           field.validator.push('string')
+          if (defaultValue) data.model[eName] = defaultValue
           break
 
         case 'webform_horizontal_rule':
@@ -267,21 +282,67 @@ module.exports = {
           data.model[eName] = {}
           group.fields = []
           group.legend = element['#title'] ? element['#title'] : null
+          let addrOverrides = element['#field_overrides'] || {}
           let requiredAddress = false
           if (element['#required']) {
             requiredAddress = true
           }
-          if (element['#default_value']) {
-            // convert yaml value to object
-            const defaults = {}
-            element['#default_value'].split('\n').map(val => val.split(': ')).forEach(function (d) { defaults[d[0]] = d[1] })
 
-            if (defaults.country_code) {
-              data.model[eName].country_code = defaults.country_code
-            }
-            if (defaults.administrative_area) {
-              data.model[eName].administrative_area = defaults.administrative_area
-            }
+          let addressDefaults = {}
+          // Somehow address default values from API can be both string and object
+          if (defaultValue && typeof defaultValue === 'string') {
+            // convert yaml value to object
+            defaultValue.split('\n').map(val => val.split(': ')).forEach(function (d) { addressDefaults[d[0]] = d[1] })
+          } else if (defaultValue && typeof defaultValue === 'object') {
+            addressDefaults = defaultValue
+          }
+
+          data.model[eName].country_code = addressDefaults.country_code || 'AU'
+          data.model[eName].administrative_area = addressDefaults.administrative_area || ''
+
+          if (addrOverrides.organization !== 'hidden') {
+            const required = addrOverrides.organization === 'required' && requiredAddress
+            group.fields.push(
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Organization',
+                required: required,
+                validator: required ? ['required'] : [],
+                placeholder: 'Enter some text...',
+                model: `${eName}.organization`
+              }
+            )
+          }
+
+          if (addrOverrides.familyName !== 'hidden') {
+            const required = addrOverrides.familyName !== 'optional' && requiredAddress
+            group.fields.push(
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Family name',
+                required: required,
+                validator: required ? ['required'] : [],
+                placeholder: 'Enter some text...',
+                model: `${eName}.family_name`
+              }
+            )
+          }
+
+          if (addrOverrides.givenName !== 'hidden') {
+            const required = addrOverrides.givenName !== 'optional' && requiredAddress
+            group.fields.push(
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Given name',
+                required: required,
+                validator: required ? ['required'] : [],
+                placeholder: 'Enter some text...',
+                model: `${eName}.given_name`
+              }
+            )
           }
 
           group.fields.push(

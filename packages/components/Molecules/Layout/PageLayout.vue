@@ -113,6 +113,7 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 $rpl-search-back-to-top-offset: 72px / 2;
+$rpl-content-bg-color-grey: rpl-color('light_neutral') !default;
 
 .rpl-above-content {
   background-repeat: no-repeat;
@@ -194,7 +195,7 @@ $rpl-search-back-to-top-offset: 72px / 2;
   }
 
   &--grey {
-    background: rpl-color('light_neutral')
+    background: $rpl-content-bg-color-grey;
   }
 
   .rpl-row {

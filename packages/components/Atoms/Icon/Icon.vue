@@ -60,7 +60,6 @@ export default {
   },
   mounted () {
     if (!this.symbol && this.symbol !== null && this.$children.length === 0) {
-      console.log(`Invalid prop: prop "name" is required.`)
       return
     }
 

@@ -14,6 +14,7 @@
     "@dpc-sdp/ripple-campaign-primary": "1.11.0",
     "@dpc-sdp/ripple-campaign-secondary": "1.11.0",
     "@dpc-sdp/ripple-card": "1.11.0",
+    "@dpc-sdp/ripple-complaints": "1.11.0",
     "@dpc-sdp/ripple-contact": "1.11.0",
     "@dpc-sdp/ripple-document-link": "1.11.0",
     "@dpc-sdp/ripple-embedded-video": "1.11.0",

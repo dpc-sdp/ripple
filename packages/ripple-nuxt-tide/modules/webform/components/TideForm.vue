@@ -1,5 +1,15 @@
 <template>
-  <rpl-form v-if="formData" novalidate :name="`form-${formData.tideId}`" :formData="formData" :submitHandler="submitForm" :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess" :title="title" ></rpl-form>
+  <rpl-form
+    v-if="formData"
+    novalidate
+    :name="`form-${formData.tideId}`"
+    :formData="formData"
+    :submitHandler="submitForm"
+    :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess"
+    :title="title"
+    :fullWidth="false"
+  >
+  </rpl-form>
 </template>
 
 <script>

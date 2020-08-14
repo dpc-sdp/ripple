@@ -98,6 +98,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
   /* Lists  */
   ul {
     list-style-type: disc;
+    max-width: $rpl-content-max-width;
 
     ul {
       list-style-type: circle;

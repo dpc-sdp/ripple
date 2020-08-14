@@ -1,5 +1,5 @@
 <template>
-  <form class="rpl-form" @submit="onSubmit">
+  <form class="rpl-form" @submit="onSubmit" :class="{ 'rpl-form--full-wdith': fullWidth }">
     <h3 class="rpl-form__title" v-if="title">{{title}}</h3>
     <rpl-form-alert v-if="formData.formState.response && formData.formState.response.message" :variant="formData.formState.response.status">
       <span v-html="formData.formState.response.message"></span>
@@ -67,7 +67,8 @@ export default {
     clearFormOnSuccess: { type: Boolean, default: false },
     submitFormOnClear: { type: Boolean, default: false },
     scrollToMessage: { type: Boolean, default: true },
-    validateOnSubmit: { type: Boolean, default: true }
+    validateOnSubmit: { type: Boolean, default: true },
+    fullWidth: { type: Boolean, default: true }
   },
   mounted () {
     RplFormEventBus.$on('clearform', this.clearForm)
@@ -166,11 +167,11 @@ $rpl-form-input-prepend-icon-color: rpl-color('dark_neutral') !default;
 $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.99 9.243c1.597-2.45 1.224-5.82-1.133-7.833C7.59-.526 4.137-.46 1.94 1.557a6 6 0 00-.19 8.653c2.043 2.045 5.205 2.293 7.527.757.031-.02.102-.083.198-.173l4.343 4.195a.941.941 0 101.308-1.354l-4.324-4.176c.098-.106.166-.184.188-.216zm-8.023-.25a4.274 4.274 0 010-6.035 4.266 4.266 0 016.03 0 4.274 4.274 0 010 6.034 4.266 4.266 0 01-6.03 0z' fill='%23#{str-slice(quote($rpl-form-input-prepend-icon-color), 2)}'/%3E%3C/svg%3E");
 
 .rpl-form {
+  max-width: $rpl-content-max-width;
   @include rpl_typography_ruleset($rpl-form-text-ruleset);
 
   &__title {
     margin-top: 0;
-    max-width: $rpl-content-max-width;
   }
 
   label:not(.rpl-option-button__label) {
@@ -292,6 +293,10 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
       margin-bottom: $rpl-space-2;
       color: rpl-color('danger');
     }
+  }
+
+  &--full-wdith {
+    max-width: 100%;
   }
 }
 

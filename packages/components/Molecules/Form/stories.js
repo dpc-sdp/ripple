@@ -2,6 +2,13 @@ import { storiesOf } from '@storybook/vue'
 import RplForm from './index.vue'
 import RplSelect from './Select.vue'
 
+import {
+  withKnobs,
+  text,
+  boolean,
+  object
+} from '@storybook/addon-knobs/vue'
+
 storiesOf('Molecules/Form/Select', module)
   .add('Single', () => ({
     components: { RplSelect },
@@ -88,9 +95,10 @@ storiesOf('Molecules/Form/Select', module)
   }))
 
 storiesOf('Molecules/Form', module)
+  .addDecorator(withKnobs)
   .add('Default', () => ({
     components: { RplForm },
-    template: `<rpl-form :formData="formData" :submitHandler="submitHandler" :title="title"></rpl-form>`,
+    template: `<rpl-form :formData="formData" :submitHandler="submitHandler" :title="title" :fullWidth="fullWidth"></rpl-form>`,
     data () {
       return {
         submitHandler () {
@@ -106,13 +114,22 @@ storiesOf('Molecules/Form', module)
             }, 500)
           })
         },
-        title: 'Example Form',
         isNewModel: true,
         options: {
           validateAfterChanged: true,
           validateAfterLoad: false
-        },
-        formData: {
+        }
+      }
+    },
+    props: {
+      title: {
+        default: text('Title', 'Example form')
+      },
+      fullWidth: {
+        default: boolean('Full Width', true)
+      },
+      formData: {
+        default: () => object('Form Data', {
           model: {
             hidden: '',
             text: null,
@@ -406,7 +423,7 @@ storiesOf('Molecules/Form', module)
           },
 
           formState: {}
-        }
+        })
       }
     }
   }))

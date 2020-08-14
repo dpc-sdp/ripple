@@ -1,5 +1,5 @@
 <template>
-  <form class="rpl-form" @submit="onSubmit" :class="{ 'rpl-form--full-wdith': fullWidth }">
+  <form class="rpl-form" @submit="onSubmit" :class="{ 'rpl-form--full-width': fullWidth }">
     <h3 class="rpl-form__title" v-if="title">{{title}}</h3>
     <rpl-form-alert v-if="formData.formState.response && formData.formState.response.message" :variant="formData.formState.response.status">
       <span v-html="formData.formState.response.message"></span>
@@ -295,7 +295,7 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
     }
   }
 
-  &--full-wdith {
+  &--full-width {
     max-width: 100%;
   }
 }

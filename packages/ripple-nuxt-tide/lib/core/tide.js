@@ -74,7 +74,7 @@ export const tide = (axios, site, config) => ({
     return axiosConfig
   },
 
-  post: async function (resource, data = {}, id = '') {
+  post: async function (url, data = {}) {
     // axios config
     const axiosConfig = {
       baseUrl: config.baseUrl,
@@ -86,9 +86,13 @@ export const tide = (axios, site, config) => ({
         'X-Request-Id': helper.generateId()
       }
     }
-    const siteParam = '?site=' + site
-    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}${siteParam}`
 
+    // Add site id
+    let siteParam = '?site=' + site
+    if (url.includes('?')) {
+      siteParam = '&site=' + site
+    }
+    url = `${apiPrefix}${url}${siteParam}`
     return axios.$post(url, data, axiosConfig)
   },
 

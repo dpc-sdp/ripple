@@ -2,12 +2,12 @@
 
 exports[`RippleStoryshots Molecules/Form Default 1`] = `
 <form
-  class="rpl-form"
+  class="rpl-form rpl-form--full-width"
 >
   <h3
     class="rpl-form__title"
   >
-    Example Form
+    Example form
   </h3>
    
   <!---->
@@ -2422,7 +2422,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
 
 exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
 <form
-  class="rpl-form"
+  class="rpl-form rpl-form--full-width"
 >
   <h3
     class="rpl-form__title"

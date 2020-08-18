@@ -25,7 +25,8 @@ const webform = {
       // It's blocked by Tide webform response issue SDPA-477.
       // Currently the Tide webform has no right response.
       try {
-        const res = await this.$tide.post(formResource, data, formId)
+        const url = formResource + '/' + formId
+        const res = await this.$tide.post(url, data)
         if (res.data) {
           return true
         }

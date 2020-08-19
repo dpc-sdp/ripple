@@ -1,6 +1,6 @@
 import searchMixin from '../../modules/search/lib/searchmixin'
 
-describe('search filters', () => {
+describe('searchMixin', () => {
   it('tests overridding of mapSearchResults and return filtered results correctly', async () => {
     // Overridde method
     searchMixin.methods.mapSearchResults = function (source) {

@@ -1,0 +1,9 @@
+
+@mixin rpl_table_cols {
+  $cols: 12;
+  @for $col from 1 through $cols {
+    .rpl-table--col-#{$col} {
+      width: calc(#{$col} / #{$cols} * 100%);
+    }
+  }
+}

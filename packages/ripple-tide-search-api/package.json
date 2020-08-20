@@ -1,0 +1,32 @@
+{
+  "name": "@dpc-sdp/ripple-tide-search-api",
+  "version": "1.11.0",
+  "description": "Ripple API endpoints for Tide search provider",
+  "license": "Apache-2.0",
+  "contributors": [
+    {
+      "name": "Dylan Kelly <dylan.kelly@dpc.vic.gov.au>"
+    }
+  ],
+  "scripts": {
+    "start": "nodemon --exec babel-node --presets @babel/preset-env server.js",
+    "debug": "nodemon --inspect --exec babel-node --presets @babel/preset-env server.js"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.8.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "qs": "^6.9.4",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.2"
+  }
+}

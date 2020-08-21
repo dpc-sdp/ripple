@@ -1,6 +1,5 @@
 import coreComponents from './../config/tide.load-components'
 import logger from './logger'
-
 // The order of loading dynamic components config is custom module > custom root > core modules > core.
 const loadComponent = (name, dynamicComponentsConfig) => {
   let component = null
@@ -88,6 +87,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'rpl-accordion' */ '@dpc-sdp/ripple-accordion')
     case 'tide-login':
       return () => import(/* webpackChunkName: 'tide-login' */ '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/components/TideLogin')
+    case 'automated-card-listing':
+      return () => import(/* webpackChunkName: 'automated-card-listing' */ '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/components/AppAutomatedCardListing')
     default:
       if (coreComponents[name]) {
         return coreComponents[name]

@@ -39,6 +39,7 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardEvent from './CardEvent.vue'
 import RplCardKeydates from './CardKeydates.vue'
+import CardAutomatedListing from './CardAutomated.vue'
 // TODO: Add future card components
 
 export default {
@@ -61,6 +62,7 @@ export default {
     RplCardPromotion,
     RplCardEvent,
     RplCardKeydates,
+    CardAutomatedListing,
     RplDevError,
     Carousel: () => import('vue-carousel').then(m => m.Carousel),
     Slide: () => import('vue-carousel').then(m => m.Slide)

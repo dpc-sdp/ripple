@@ -269,7 +269,7 @@ export const htmlEmbeddedDoc = `
 ## Table
 export const htmlTable = `
 <div class="rpl-markup__table">
-  <table><caption>This is the table caption</caption> <thead><tr><th>Column 1</th> <th>Column 2</th> <th>Column 3 has quite a long heading</th> <th>Column 4<br>
+  <table><caption>This is the table caption</caption> <thead><tr><th class="rpl-table--col2">Column 1</th> <th class="rpl-table--col2">Column 2</th> <th class="rpl-table--col6">Column 3 has quite a long heading</th> <th class="rpl-table--col2">Column 4<br>
   $000</th>
   </tr>
   </thead>
@@ -326,6 +326,9 @@ export const htmlTable = `
   </table>
 </div>
 `
+
+A set of classes can be used to control the table column widths
+`rpl-table--col1`, `rpl-table--col2`, `rpl-table--col3`, ... `rpl-table--col12`
 
 <Preview>
   <Story name="Table" height="500px">

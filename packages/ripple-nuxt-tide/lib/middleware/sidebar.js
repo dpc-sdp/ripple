@@ -98,7 +98,7 @@ const tideSideBar = async (context, pageData, headersConfig) => {
   // contact us
   if (pageData.tidePage.field_landing_page_show_contact && pageData.tidePage.field_landing_page_contact) {
     pageData.tidePage.appContact = await context.app.$tideMapping.get(pageData.tidePage.field_landing_page_contact)
-    if (pageData.tidePage.appContact) {
+    if (pageData.tidePage.appContact && pageData.tidePage.appContact instanceof Array) {
       const contact = pageData.tidePage.appContact
       for (const key in pageData.tidePage.appContact) {
         pageData.tidePage.sidebarComponents.push({

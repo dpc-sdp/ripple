@@ -3,6 +3,9 @@ module.exports = {
   include: {
     landingPage: [
       'field_landing_page_component.field_paragraph_webform'
+    ],
+    publicationPage: [
+      'field_landing_page_component.field_paragraph_webform'
     ]
   },
 

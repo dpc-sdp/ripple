@@ -56,6 +56,7 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 @import "scss/iframe";
+@import "~@dpc-sdp/ripple-global/scss/components/table";
 
 $rpl-markup-text-color: rpl-color('extra_dark_neutral') !default;
 $rpl-markup-link-color: rpl-color('primary') !default;
@@ -219,6 +220,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     overflow: auto;
     width: 100%;
     -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
+    @include rpl_table_cols;
 
     table {
       border-collapse: collapse;

@@ -167,13 +167,11 @@ export const tide = (axios, site, config) => ({
     siteId = siteId || site
     const include = [
       'field_site_logo',
-      'field_site_footer_logos',
-      'field_site_footer_logos.field_paragraph_media',
       'field_site_footer_logos.field_paragraph_media.field_media_image'
     ]
 
     if (this.isModuleEnabled('alert')) {
-      include.push(['site_alerts', 'site_alerts.field_alert_type', 'site_alerts.field_node_site'])
+      include.push(['site_alerts.field_alert_type', 'site_alerts.field_node_site'])
     }
 
     const menuFields = this.getMenuFields()

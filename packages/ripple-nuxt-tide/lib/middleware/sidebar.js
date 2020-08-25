@@ -109,12 +109,13 @@ const tideSideBar = async (context, pageData, headersConfig) => {
 
   // social sharing
   if (pageData.tidePage.field_show_social_sharing) {
+    const currentSiteDomain = context.store.state.tide.currentDomain
     pageData.tidePage.sidebarComponents.push({
       name: 'rpl-share-this',
       order: 105,
       data: {
         title: 'Share this page',
-        url: `https://${context.store.getters['tideSite/getCurrentSite']}${context.route.path}`
+        url: `https://${currentSiteDomain}${context.route.path}`
       }
     })
   }

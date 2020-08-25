@@ -1,6 +1,7 @@
 import { cardColsSetting } from '../../../lib/config/layout.config.js'
 import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import search from './search/module'
+import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
 const searchMixin = {
   data () {
@@ -77,9 +78,13 @@ const searchMixin = {
         this.pager.totalSteps = response.totalSteps
         this.count = response.hits.total
         this.noResultsCopy = this.count === 0 ? this.noResultsMsg(queryString) : ''
-      } catch (e) {
+      } catch (error) {
         const msg = 'Search isn\'t working right now, please try again later.'
         this.errorMsg = msg
+
+        if (process.server) {
+          logger.error('Retrieving search results failed in getSearchResults()', { error, label: 'SearchMixin' })
+        }
       }
       this.loading = false
     },

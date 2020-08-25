@@ -26,22 +26,9 @@ export default ({ app, store }) => {
       },
       actions: {
         async init ({ commit }, { requestId = null } = {}) {
-          if (process.server) {
-            const headersConfig = { requestId }
-            // TODO: This request may unnecessary, as we should able to get from other request.
-            const sitesDomainMap = await app.$tide.getSitesDomainMap(headersConfig)
-            commit('setSitesDomainMap', sitesDomainMap)
-          }
           commit('setSiteId', options.site)
         }
-      },
-      getters: {
-        getCurrentSite: state => {
-          if (state.siteId && state.sitesDomainMap) {
-            return state.sitesDomainMap[state.siteId]
-          }
-        }
-      },
+      }
     }
     // In SSR, Vuex regiseter store module on both server side and client side.
     // That causes the module store states will be reset in client side.

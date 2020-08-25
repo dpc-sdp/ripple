@@ -86,7 +86,7 @@ export default {
       const site = this.$store.state.tide.siteData.drupal_internal__tid
       let date = source.changed ? source.changed[0] : source.created[0]
       return {
-        title: source.title[0] || '',
+        title: source.title ? source.title[0] : '',
         link: source.url && this.getLink(source.url, site, source.field_node_primary_site, this.$store.state.tideSite.sitesDomainMap, { text: 'linkText', url: 'linkUrl' }, 'See event details'),
         date: this.validDate(date) ? date : '',
         description: typeof source.field_landing_page_summary !== 'undefined' ? this.truncateText(source.field_landing_page_summary[0]) : this.truncateText(source.body[0]),

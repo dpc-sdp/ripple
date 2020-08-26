@@ -103,7 +103,6 @@ const tideSideBar = async (context, pageData, headersConfig) => {
       const componentName = 'rpl-contact'
       const order = 104
 
-      // TODO this is added for backward compatibility - remove this Object support when we stop supporting single contact in API
       if (Array.isArray(contact)) {
         for (const key in contact) {
           pageData.tidePage.sidebarComponents.push({
@@ -112,7 +111,7 @@ const tideSideBar = async (context, pageData, headersConfig) => {
             data: contact[key].data
           })
         }
-      } else {
+      } else { // TODO this is added for backward compatibility - remove this Object support when we stop supporting single contact in API
         pageData.tidePage.sidebarComponents.push({
           name: componentName,
           order: order,

@@ -56,6 +56,7 @@
     "@dpc-sdp/ripple-timeline": "1.12.0",
     "@dpc-sdp/ripple-updated-date": "1.12.0",
     "@dpc-sdp/ripple-whats-next": "1.12.0",
+    "@dpc-sdp/ripple-responsive-img": "1.12.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {

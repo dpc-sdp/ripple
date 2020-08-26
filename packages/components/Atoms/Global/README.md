@@ -89,8 +89,6 @@ See [Storybook/Atoms/Global/Typography](https://ripple.sdp.vic.gov.au/?path=/sto
 
 See [Storybook/Atoms/Global/Breakpoints](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--breakpoints).
 
-See [Storybook/Atoms/Global/Divider](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--divider).
-
 <!-- /GENERATED_USAGE_AND_TESTS -->
 
 --------------------------------------------------------------------------------

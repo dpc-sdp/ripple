@@ -862,6 +862,10 @@ Then(`the site section navigation should exist`, () => {
   cy.get('.rpl-site-section-navigation').should('exist')
 })
 
+Then(`the responsive image component should exist`, () => {
+  cy.get('.rpl-responsive-image').should('exist')
+})
+
 Then(`the site section navigation should have the title {string}`, (title) => {
   cy.get('.rpl-site-section-navigation__title').should('contain', title)
 })

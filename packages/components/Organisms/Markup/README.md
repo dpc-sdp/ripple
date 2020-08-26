@@ -39,22 +39,6 @@ import { markupTranspiler, RplMarkup } from '@dpc-sdp/ripple-markup'
 
 See [Storybook/Organisms/Markup/Default](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--default).
 
-See [Storybook/Organisms/Markup/Markup/Button](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-button).
-
-See [Storybook/Organisms/Markup/Markup/Iframe](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-iframe).
-
-See [Storybook/Organisms/Markup/Markup/Embedded video](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-embedded-video).
-
-See [Storybook/Organisms/Markup/Markup/Image](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-image).
-
-See [Storybook/Organisms/Markup/Markup/Link](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-link).
-
-See [Storybook/Organisms/Markup/Markup/Quotation](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-quotation).
-
-See [Storybook/Organisms/Markup/Markup/Embedded document](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-embedded-document).
-
-See [Storybook/Organisms/Markup/Markup/Tables](https://ripple.sdp.vic.gov.au/?path=/story/organisms-markup--markup-tables).
-
 --------------------------------------------------------------------------------
 
 ## License

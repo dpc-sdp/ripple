@@ -112,14 +112,15 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-hero-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
+  $rpl-hero-banner-border: 0;
   $rpl-hero-banner-title-typography-ruleset: (
-    'xs': ('mega', 1.14em, 'bold'),
     's': ('giga', 1.11em, 'bold'),
     'm': ('xgiga', 1.08em, 'bold'),
     'l': ('tera', 1.07em, 'bold'),
     'xxl': ('tera', 1em, 'bold')
   ) !default;
+
+  $rpl-hero-banner-title-typography-xs: ('xs': ('mega', 1.14em, 'bold', true)) !default;
   $rpl-hero-banner-title-print-line-height: 1.2em;
   $rpl-hero-banner-title-typography-ruleset-dark: (
     'xs': ('mega', 1.14em, 'bold', true),
@@ -136,6 +137,7 @@ export default {
   ) !default;
   $rpl-hero-banner-description-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-description-text-color-dark: rpl_color('white') !default;
+  $rpl-hero-banner-description-text-color-s: rpl_color('white') !default;
   $rpl-hero-banner-description-letter-spacing: rem(-0.12px) !default;
   $rpl-hero-banner-link-heading-typography-rules: (
     'xs': ('xs', 1.7em, 'bold'),
@@ -143,6 +145,7 @@ export default {
   ) !default;
   $rpl-hero-banner-link-heading-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-hero-banner-link-heading-text-color-dark: rpl_color('white') !default;
+  $rpl-hero-banner-link-heading-text-color-s: rpl_color('white') !default;
   $rpl-hero-banner-link-margin: auto auto $rpl-space-3 !default;
   $rpl-hero-banner-link-heading-margin: 0 auto rem(15px) auto !default;
   $rpl-hero-banner-vertical-spacing-logo-offset: (
@@ -185,6 +188,8 @@ export default {
     'xxxl': ('pos': 'right', 'v-offset': $rpl-hero-banner-background-graphic-v-offset-xxl),
     '2660px': ('pos': 'right')
   ) !default;
+
+  $rpl-hero-banner-with-image-padding-s: rem(28px) 0;
 
   @mixin rpl_position_background_graphic($vars) {
     $pos: map-get($vars, 'pos');
@@ -274,7 +279,7 @@ export default {
       max-height: rem(64px);
       margin-bottom: $rpl-space-2;
       @include rpl_breakpoint('l') {
-      margin-bottom: $rpl-space-3;
+        margin-bottom: $rpl-space-3;
         max-height: rem(100px);
       }
     }
@@ -284,6 +289,13 @@ export default {
       @include rpl_text_color($rpl-hero-banner-title-color);
       word-wrap: break-word;
       margin: 0;
+
+      @include rpl_breakpoint_down(s) {
+        @include rpl_typography_ruleset($rpl-hero-banner-title-typography-xs);
+        span {
+          background-color: rpl_color('primary');
+        }
+      }
 
       @include rpl_print {
         line-height: $rpl-hero-banner-title-print-line-height;
@@ -308,6 +320,10 @@ export default {
 
       &--dark {
         color: $rpl-hero-banner-description-text-color-dark;
+      }
+
+      @include rpl_breakpoint_down(l) {
+        color: $rpl-hero-banner-description-text-color-s;
       }
     }
 
@@ -354,6 +370,12 @@ export default {
         @include rpl_breakpoint($bp) {
           padding-top: calc(#{map-get($spacing, top)} - #{map-get($rpl-hero-banner-vertical-spacing-logo-offset, $bp)});
         }
+      }
+    }
+
+    .rpl-page-header--with-image & {
+      @include rpl_breakpoint_down('s') {
+        padding: $rpl-hero-banner-with-image-padding-s;
       }
     }
   }

@@ -21,6 +21,14 @@ import {
   number
 } from '@storybook/addon-knobs/vue'
 
+const addQueryString = {
+  created () {
+    // This is just for demo purpose.
+    // You should set it in Ripple global plugins.
+    this.rplOptions.imgQueryString = false
+  }
+}
+
 storiesOf('Molecules/Card/Card Navigation', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
@@ -43,6 +51,7 @@ storiesOf('Molecules/Card/Card Navigation Featured', module)
   .addDecorator(withKnobs)
 
   .add('Default', () => ({
+    ...addQueryString,
     components: { RplCardNavigationFeatured },
     template: `<rpl-card-navigation-featured :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :url="url" />`,
     props: {
@@ -72,6 +81,7 @@ storiesOf('Molecules/Card/Card Image Navigation', module)
 
   .add('Default', () => ({
     components: { RplCardImageNavigation },
+    ...addQueryString,
     template: `<rpl-card-image-navigation :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
     props: {
       image: {
@@ -101,6 +111,7 @@ storiesOf('Molecules/Card/Card Promotion', module)
   .add('Default', () => ({
     components: { RplCardPromotion },
     template: `<rpl-card-promotion :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
+    ...addQueryString,
     props: {
       image: {
         default: text('Image', 'https://placehold.it/304x199')
@@ -151,6 +162,7 @@ storiesOf('Molecules/Card/Card Event', module)
   .add('Default', () => ({
     components: { RplCardEvent },
     template: `<rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" />`,
+    ...addQueryString,
     props: {
       image: {
         default: text('Image', 'https://placehold.it/304x199')
@@ -285,6 +297,7 @@ storiesOf('Molecules/Card/Card Profile', module)
         :image="image"
       />
     `,
+    ...addQueryString,
     props: {
       name: {
         default: text('Name', 'Stella Young')
@@ -311,6 +324,7 @@ storiesOf('Molecules/Card/Card Content (base)', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
     components: { RplCardContent },
+    ...addQueryString,
     template: `
       <rpl-card-content :link="link" :image="image" :border="border" :type="type" :center="center">
         <div v-html="content"></div>
@@ -344,6 +358,7 @@ storiesOf('Molecules/Card/Card Carousel', module)
   .add('Default', () => ({
     components: { RplCardCarousel },
     template: `<rpl-card-carousel :title="title" :cards="cards" :childColsBp="childColsBp" :totalGridColumns="totalGridColumns" />`,
+    ...addQueryString,
     props: {
       title: {
         default: text('Title', 'Featured Content')

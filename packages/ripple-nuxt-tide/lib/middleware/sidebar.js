@@ -104,13 +104,7 @@ const tideSideBar = async (context, pageData, headersConfig) => {
       const order = 104
 
       // TODO this is added for backward compatibility - remove this Object support when we stop supporting single contact in API
-      if (contact instanceof Object) {
-        pageData.tidePage.sidebarComponents.push({
-          name: componentName,
-          order: order,
-          data: contact.data
-        })
-      } else {
+      if (Array.isArray(contact)) {
         for (const key in contact) {
           pageData.tidePage.sidebarComponents.push({
             name: componentName,
@@ -118,6 +112,12 @@ const tideSideBar = async (context, pageData, headersConfig) => {
             data: contact[key].data
           })
         }
+      } else {
+        pageData.tidePage.sidebarComponents.push({
+          name: componentName,
+          order: order,
+          data: contact.data
+        })
       }
     }
   }

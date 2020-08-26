@@ -1,9 +1,8 @@
 import TideSearch from '../services/tide-search'
 import utils from './../utils'
 
-export default function (config) {
+export const searchGetController = (config) => {
   const tideSearchApi = new TideSearch(config)
-
   return async function (req, res) {
     try {
       if (req.params.template) {
@@ -19,4 +18,29 @@ export default function (config) {
       utils.handleError(error, res)
     }
   }
+}
+
+export const searchPostController = (config) => {
+  const tideSearchApi = new TideSearch(config)
+  return async function (req, res) {
+    try {
+      if (req && req.body) {
+        const results = await tideSearchApi.searchByTemplate(req.params.template, req.body)
+        console.log('RESULTS', JSON.stringify(results.debug.request.source))
+        if (results && !results.error) {
+          return res.json(results)
+        } else {
+          utils.handleError(results.error, res)
+        }
+      }
+    } catch (error) {
+      console.log(error)
+      utils.handleError(error, res)
+    }
+  }
+}
+
+export default {
+  post: searchPostController,
+  get: searchGetController
 }

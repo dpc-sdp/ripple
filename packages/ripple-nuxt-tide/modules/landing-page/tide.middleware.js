@@ -1,4 +1,5 @@
-import AutomatedListingSearch from '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/lib/automated-listing-search'
+// import AutomatedListingSearch from '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/lib/automated-listing-search'
+import searchClient from '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/lib/search'
 
 export default {
   automatedListing: async (context, pageData) => {
@@ -23,7 +24,7 @@ export default {
           automatedCardRequests.push({
             key,
             state,
-            promise: AutomatedListingSearch.getListing(component.data.listingSettings, state)
+            promise: searchClient.search({ content_type: 'event', ...component.data.listingSettings })
           })
         }
       }

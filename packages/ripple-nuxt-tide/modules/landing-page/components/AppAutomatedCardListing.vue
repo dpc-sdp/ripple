@@ -1,5 +1,6 @@
 <template>
   <div class="automated-card-listing" v-if="showComponent" ref="listing">
+    {{initialResults}}
     <h2 v-if="title" class="automated-card-listing__title">{{ title }}</h2>
     <div v-if="!showNoResultMessage && (listingSettings.display && listingSettings.display.type === 'carousel')">
       <client-only>
@@ -102,14 +103,14 @@ export default {
   },
   computed: {
     showComponent () {
-      if (this.listingSettings) {
+      if (this.listingSettings && this.cards) {
         const min = this.listingSettings.results.min || 1
         return !(this.listingSettings.results.min_not_met === 'hide' && this.cards.length < min)
       }
       return false
     },
     showNoResultMessage () {
-      if (this.listingSettings) {
+      if (this.listingSettings && this.cards) {
         const min = this.listingSettings.results.min || 1
         return (this.listingSettings.results.min_not_met === 'no_results_message' && this.cards.length < min)
       }

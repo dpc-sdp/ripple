@@ -1,3 +1,4 @@
+import { getTermsFilter, getIncludesByType } from './template-utils'
 export default {
   all: params => {
     const filter = []
@@ -29,6 +30,40 @@ export default {
       },
       _source: {
         excludes
+      }
+    }
+  },
+  collection: params => {
+    let filter = []
+    let must = {
+      match_all: {}
+    }
+
+    if (params.filters) {
+      filter = getTermsFilter(params)
+    }
+
+    if (params.type && params.type !== 'all') {
+      filter.push({
+        term: {
+          type: params.type
+        }
+      })
+    }
+
+    return {
+      query: {
+        bool: {
+          must,
+          filter: {
+            bool: {
+              must: filter
+            }
+          }
+        }
+      },
+      _source: {
+        includes: getIncludesByType(params.type)
       }
     }
   }

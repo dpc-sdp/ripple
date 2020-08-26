@@ -71,24 +71,18 @@ export default class SearchApi {
   }
 
   async searchByTemplate (template, params, isDev) {
-    if (templates.hasOwnProperty(template)) {
+    if (this.templates.hasOwnProperty(template)) {
       const templateParams = this.getSearchParams({ ...params, site: this.site })
-      let searchTemplate = templates[template]
+      let searchTemplate = this.templates[template]
       if (typeof searchTemplate === 'function') {
-        searchTemplate = templates[template](templateParams)
+        searchTemplate = this.templates[template](templateParams)
       }
       if (process.env.SEARCH_LOG === 'trace') {
-        console.log('SEARCH TEMPLATE', JSON.stringify({ body: {
-          source: searchTemplate,
-          params
-        } }, null, 2))
+        console.log('SEARCH TEMPLATE', JSON.stringify({ body: searchTemplate }, null, 2))
       }
-      return this.client.searchTemplate({
+      return this.client.search({
         index: this.index,
-        body: {
-          source: searchTemplate,
-          params
-        }
+        body: searchTemplate
       }, { ignore: [400, 404] })
         .then(({ err, body, statusCode }) => {
           if (statusCode === 200 && body) {

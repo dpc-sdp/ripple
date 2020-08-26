@@ -1,7 +1,7 @@
 import appHandler from './index'
 require('dotenv').config()
 
-const port = 3000
+const port = 3001
 
 const app = appHandler({
   apiBase: 'api',

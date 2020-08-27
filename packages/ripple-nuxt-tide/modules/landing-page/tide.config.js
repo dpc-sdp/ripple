@@ -347,6 +347,13 @@ module.exports = {
             filters: ['paragraphCtaImage']
           }
         }
+      },
+
+      'paragraph--form_embed_openforms': {
+        component: 'tide-open-form',
+        props: {
+          'formLink': ['field_form_link', 'uri']
+        }
       }
 
     }

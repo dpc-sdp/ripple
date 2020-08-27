@@ -50,7 +50,6 @@ export default {
   ) !default;
   $rpl-hero-banner-cta-secondary-text-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-hero-banner-cta-secondary-text-color: rpl-color('extra_dark_neutral') !default;
-  $rpl-hero-banner-cta-btn-border: 1px solid white !default;
 
   .rpl-hero-banner--cta {
     &__left-bottom {
@@ -107,14 +106,6 @@ export default {
     &__primary {
       &.rpl-button {
         @include rpl_print_hidden;
-      }
-      @include rpl_breakpoint_down(s) {
-        .rpl-page-header--with-image & {
-          border: $rpl-hero-banner-cta-btn-border;
-          &:hover {
-            border: 1px solid transparent;
-          }
-        }
       }
     }
   }

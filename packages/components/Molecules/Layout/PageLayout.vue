@@ -125,8 +125,7 @@ $rpl-search-back-to-top-offset: 72px / 2;
 $rpl-content-bg-color-grey: rpl_color('light_neutral') !default;
 $rpl-page-header-bg-color: rpl_color('secondary') !default;
 $rpl-page-header-title-bg-color-s: rpl_color('primary') !default;
-$rpl-page-header-image-overlay: rgba(0, 0, 0, 0.3) !default;
-$rpl-page-header-image-height-s: rem(340px) !default;
+
 .rpl-above-content {
   background-repeat: no-repeat;
   background-position: -.5rem -9rem;
@@ -245,35 +244,11 @@ $rpl-page-header-image-height-s: rem(340px) !default;
 .rpl-page-header {
   &--with-image {
     position: relative;
-    @include rpl_breakpoint_down('s') {
-      background-color: $rpl-page-header-bg-color;
-      .rpl-hero-banner__title--dark span {
-        background-color: $rpl-page-header-title-bg-color-s;
-      }
-    }
-    .rpl-above-content__inner {
-      @include rpl_breakpoint_down('s') {
-        padding-top: 0;
-      }
-    }
   }
   &__picture {
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: $rpl-page-header-image-overlay;
-      z-index: 0;
-    }
+    position: absolute;
     z-index: -1;
-    height: $rpl-page-header-image-height-s;
-    @include rpl_breakpoint('s') {
-      height: 100%;
-      position: absolute;
-    }
+    height: 100%;
   }
 }
 

@@ -15,7 +15,7 @@
     v-if="link"
   >
     <div class="rpl-card-content__image-wrapper" v-if="image">
-      <rpl-responsive-img class="rpl-card-content__image" alt="" :src="image" :srcSet="[{ size: 'xs', height: 200, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
+      <rpl-responsive-img class="rpl-card-content__image" alt="" :src="image" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </div>
     <div class="rpl-card-content__details">
       <slot></slot>
@@ -111,9 +111,11 @@ export default {
   $rpl-card-content-inline-link-padding-xs: $rpl-space-3 0 $rpl-space-3 0 !default;
   $rpl-card-content-inline-link-padding-s: $rpl-space-3 0 $rpl-space-3 0 !default;
   $rpl-card-content-inline-link-padding-m: $rpl-space-3 0 0 0 !default;
-  $rpl-card-content-img-height-m: 200px !default;
-  $rpl-card-content-img-height-l: 232px !default;
-  $rpl-card-content-img-height-xl: 200px !default;
+  $rpl-card-content-img-height: (
+    'm': rem(200px),
+    'l': rem(232px),
+    'xl': rem(200px)
+  ) !default;
 
   .rpl-card-content {
     $root: &;
@@ -178,17 +180,12 @@ export default {
 
     &__image-wrapper {
       width: 100%;
-
       #{$root}--default &,
       #{$root}--simple & {
-        @include rpl_breakpoint('m') {
-          height: rem($rpl-card-content-img-height-m);
-        }
-        @include rpl_breakpoint('l') {
-          height: rem($rpl-card-content-img-height-l);
-        }
-        @include rpl_breakpoint('xl') {
-          height: rem($rpl-card-content-img-height-xl);
+        @each $bp, $height in $rpl-card-content-img-height {
+          @include rpl_breakpoint($bp) {
+            height: $height;
+          }
         }
       }
 
@@ -204,17 +201,15 @@ export default {
     &__image {
       width: 100%;
       display: table;
-      height: rem(200px);
+
       #{$root}--default &,
       #{$root}--simple & {
-        @include rpl_breakpoint('l') {
-          height: rem($rpl-card-content-img-height-l);
-        }
-        @include rpl_breakpoint('xl') {
-          height: rem($rpl-card-content-img-height-xl);
+        @each $bp, $height in $rpl-card-content-img-height {
+          @include rpl_breakpoint($bp) {
+            height: $height;
+          }
         }
       }
-
       #{$root}--inline & {
         @include rpl_breakpoint('m') {
           border-radius: $rpl-card-content-border-radius;

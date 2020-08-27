@@ -73,7 +73,8 @@ export default {
     },
     calcFocalPoint () {
       if (this.focalPoint && this.height && this.width) {
-        const focalPoint = `${getPercentage(this.focalPoint.x, this.width)}% ${getPercentage(this.focalPoint.y, this.height)}%`
+        // default value is 0 0, we set this to the middle instead
+        const focalPoint = this.focalPoint.x === 0 && this.focalPoint.y === 0 ? '50% 50%' : `${getPercentage(this.focalPoint.x, this.width)}% ${getPercentage(this.focalPoint.y, this.height)}%`
         return {
           [`object-position`]: focalPoint,
           [`font-family`]: `'object-fit: cover; object-position: ${focalPoint};'`

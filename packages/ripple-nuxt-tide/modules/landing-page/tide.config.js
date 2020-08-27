@@ -144,7 +144,10 @@ module.exports = {
             ['field_paragraph_link', 'url'],
             ['field_paragraph_link', 'uri']
           ],
-          'image': ['field_paragraph_media', 'field_media_image', 'url']
+          'image': {
+            field: 'field_paragraph_media',
+            filters: ['cardImage']
+          }
         }
       },
 
@@ -157,7 +160,10 @@ module.exports = {
             filters: ['autoCardSummary']
           },
           'url': ['field_paragraph_reference', 'path', 'url'],
-          'image': ['field_paragraph_reference', 'field_featured_image', 'field_media_image', 'url']
+          'image': {
+            field: 'field_paragraph_media',
+            filters: ['cardImage']
+          }
         }
       },
 
@@ -221,7 +227,10 @@ module.exports = {
                 field: 'field_paragraph_cta',
                 filters: ['paragraphCta']
               },
-              'image': ['field_paragraph_media', 'field_media_image', 'url']
+              'image': {
+                field: 'field_paragraph_media',
+                filters: ['cardImage']
+              }
             },
             cols: cardColsSetting
           }
@@ -231,7 +240,10 @@ module.exports = {
       'paragraph--card_event': {
         component: 'rpl-card-event',
         props: {
-          'image': ['field_paragraph_media', 'field_media_image', 'url'],
+          'image': {
+            field: 'field_paragraph_media',
+            filters: ['cardImage']
+          },
           'dateStart': ['field_paragraph_date_range', 'value'],
           'dateEnd': ['field_paragraph_date_range', 'end_value'],
           'location': ['field_paragraph_location', 'locality'],
@@ -248,7 +260,10 @@ module.exports = {
       'paragraph--card_promotion': {
         component: 'rpl-card-promotion',
         props: {
-          'image': ['field_paragraph_media', 'field_media_image', 'url'],
+          'image': {
+            field: 'field_paragraph_media',
+            filters: ['cardImage']
+          },
           'date': 'field_paragraph_date',
           'topic': ['field_paragraph_topic', 0, 'name'],
           'title': 'field_paragraph_title',

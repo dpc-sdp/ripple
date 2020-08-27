@@ -15,7 +15,7 @@
     v-if="link"
   >
     <div class="rpl-card-content__image-wrapper" v-if="image">
-      <rpl-responsive-img class="rpl-card-content__image" alt="" :src="image" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
+      <rpl-responsive-img class="rpl-card-content__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </div>
     <div class="rpl-card-content__details">
       <slot></slot>
@@ -42,7 +42,7 @@ export default {
       type: Object,
       required: true
     },
-    image: String,
+    image: [String, Object],
     border: { type: Boolean, default: true },
     center: { type: Boolean, default: false },
     type: { type: String, default: 'default' }

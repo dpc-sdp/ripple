@@ -65,7 +65,15 @@ storiesOf('Molecules/Card/Card Navigation Featured', module)
         default: text('Url', '#')
       },
       image: {
-        default: text('Image', 'https://placehold.it/818x497')
+        default: object('Link', {
+          src: 'https://placehold.it/818x497',
+          focalPoint: {
+            x: '409',
+            y: '248'
+          },
+          width: '818',
+          height: '497'
+        })
       },
       date: {
         default: text('Date', '2018-03-23T09:00:00.000+10:00')
@@ -85,7 +93,15 @@ storiesOf('Molecules/Card/Card Image Navigation', module)
     template: `<rpl-card-image-navigation :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
     props: {
       image: {
-        default: text('Image', 'https://placehold.it/304x199')
+        default: object('Link', {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: '304',
+          height: '199'
+        })
       },
       date: {
         default: text('Date', '2018-03-23T09:00:00.000+10:00')
@@ -114,7 +130,15 @@ storiesOf('Molecules/Card/Card Promotion', module)
     ...addQueryString,
     props: {
       image: {
-        default: text('Image', 'https://placehold.it/304x199')
+        default: object('Link', {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: '304',
+          height: '199'
+        })
       },
       date: {
         default: text('Date', '2018-03-23T09:00:00.000+10:00')
@@ -165,7 +189,15 @@ storiesOf('Molecules/Card/Card Event', module)
     ...addQueryString,
     props: {
       image: {
-        default: text('Image', 'https://placehold.it/304x199')
+        default: object('Link', {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: '304',
+          height: '199'
+        })
       },
       dateStart: {
         default: text('Date Start', '2018-07-10T09:00:00.000+10:00')
@@ -196,7 +228,15 @@ storiesOf('Molecules/Card/Card Cta', module)
     template: `<rpl-card-cta :image="image" :title="title" :summary="summary" :link="link" />`,
     props: {
       image: {
-        default: text('Image', 'https://placehold.it/148x148')
+        default: object('Link', {
+          src: 'https://placehold.it/148x148',
+          focalPoint: {
+            x: '74',
+            y: '74'
+          },
+          width: '148',
+          height: '148'
+        })
       },
       title: {
         default: text('Title', 'Want to submit an event?')
@@ -315,7 +355,15 @@ storiesOf('Molecules/Card/Card Profile', module)
         default: () => object('Link', { text: 'Read Stella\'s profile', url: '#' })
       },
       image: {
-        default: text('Image', 'https://placehold.it/148x148')
+        default: object('Link', {
+          src: 'https://placehold.it/148x148',
+          focalPoint: {
+            x: '74',
+            y: '74'
+          },
+          width: '148',
+          height: '148'
+        })
       }
     }
   }))
@@ -335,7 +383,15 @@ storiesOf('Molecules/Card/Card Content (base)', module)
         default: () => object('Link', { text: 'Read more', url: '#' })
       },
       image: {
-        default: text('Image', 'https://placehold.it/580x340')
+        default: object('Link', {
+          src: 'https://placehold.it/580x340',
+          focalPoint: {
+            x: '290',
+            y: '170'
+          },
+          width: '580',
+          height: '340'
+        })
       },
       border: {
         default: boolean('Border', true)
@@ -374,7 +430,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-event',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               dateStart: '2018-07-10T09:00:00.000+10:00',
               location: 'South Yarra',
               title: 'This is the headline of an event',
@@ -396,7 +462,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-promotion',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               date: '2018-07-10T09:00:00.000+10:00',
               topic: 'News',
               title: 'This is display copy that wraps 2 lines',
@@ -407,7 +483,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-event',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               dateStart: '2018-07-10T09:00:00.000+10:00',
               dateEnd: '2018-07-15T09:00:00.000+10:00',
               location: 'South Yarra',
@@ -419,7 +505,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-event',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               dateStart: '2018-07-10T09:00:00.000+10:00',
               dateEnd: '2018-09-10T09:00:00.000+10:00',
               location: 'South Yarra',
@@ -442,7 +538,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-promotion',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               date: '2018-07-10T09:00:00.000+10:00',
               topic: 'News',
               title: 'This is display copy that wraps 2 lines',

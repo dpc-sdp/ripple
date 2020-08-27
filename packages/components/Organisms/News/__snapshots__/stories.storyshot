@@ -70,11 +70,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       <div
         class="rpl-card-content__image-wrapper"
       >
-        <img
-          alt=""
-          class="rpl-responsive-image rpl-card-content__image"
-          src="https://placehold.it/818x497"
-        />
+        <!---->
       </div>
        
       <div
@@ -144,11 +140,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       <div
         class="rpl-card-content__image-wrapper"
       >
-        <img
-          alt=""
-          class="rpl-responsive-image rpl-card-content__image"
-          src="https://placehold.it/818x497"
-        />
+        <!---->
       </div>
        
       <div

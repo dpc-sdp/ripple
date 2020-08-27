@@ -38,6 +38,18 @@ module.exports = {
     return null
   },
 
+  cardImage: (card) => {
+    if (card.field_media_image) {
+      const mediaImage = card.field_media_image
+      return {
+        src: mediaImage.url,
+        focalPoint: mediaImage.meta.focal_point,
+        width: mediaImage.meta.width,
+        height: mediaImage.meta.height
+      }
+    }
+  },
+
   autoCardSummary: (card, { mapping }) => {
     return mapping.parseField([
       ['body', 'summary'],

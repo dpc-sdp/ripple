@@ -98,12 +98,26 @@ const tideSideBar = async (context, pageData, headersConfig) => {
   // contact us
   if (pageData.tidePage.field_landing_page_show_contact && pageData.tidePage.field_landing_page_contact) {
     pageData.tidePage.appContact = await context.app.$tideMapping.get(pageData.tidePage.field_landing_page_contact)
-    if (pageData.tidePage.appContact) {
-      pageData.tidePage.sidebarComponents.push({
-        name: 'rpl-contact',
-        order: 104,
-        data: pageData.tidePage.appContact.data
-      })
+    if (pageData.tidePage.appContact && (pageData.tidePage.appContact instanceof Array || pageData.tidePage.appContact instanceof Object)) {
+      const contact = pageData.tidePage.appContact
+      const componentName = 'rpl-contact'
+      const order = 104
+
+      if (Array.isArray(contact)) {
+        for (const key in contact) {
+          pageData.tidePage.sidebarComponents.push({
+            name: componentName,
+            order: order,
+            data: contact[key].data
+          })
+        }
+      } else { // TODO this is added for backward compatibility - remove this Object support when we stop supporting single contact in API
+        pageData.tidePage.sidebarComponents.push({
+          name: componentName,
+          order: order,
+          data: contact.data
+        })
+      }
     }
   }
 

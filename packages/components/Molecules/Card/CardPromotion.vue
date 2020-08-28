@@ -20,7 +20,7 @@ export default {
   name: 'RplCardPromotion',
   mixins: [formatdate, cardtrimfield],
   props: {
-    image: String,
+    image: [String, Object],
     date: String,
     topic: String,
     title: String,

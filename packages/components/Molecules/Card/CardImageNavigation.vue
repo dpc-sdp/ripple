@@ -22,7 +22,7 @@ export default {
     RplCardContent
   },
   props: {
-    image: String,
+    image: [String, Object],
     date: String,
     topic: String,
     title: String,

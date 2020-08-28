@@ -18,7 +18,7 @@ export default {
   name: 'RplCardCta',
   mixins: [cardtrimfield],
   props: {
-    image: String,
+    image: [String, Object],
     title: String,
     summary: String,
     link: Object

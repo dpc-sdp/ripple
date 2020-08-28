@@ -112,6 +112,7 @@ export default {
   $rpl-card-content-inline-link-padding-s: $rpl-space-3 0 $rpl-space-3 0 !default;
   $rpl-card-content-inline-link-padding-m: $rpl-space-3 0 0 0 !default;
   $rpl-card-content-img-height: (
+    'xs': rem(300px),
     'm': rem(200px),
     'l': rem(232px),
     'xl': rem(200px)

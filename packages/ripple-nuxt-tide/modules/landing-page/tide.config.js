@@ -205,7 +205,7 @@ module.exports = {
               },
               'image': {
                 field: ['field_paragraph_media', 'field_media_image'],
-                filters: ['paragraphCtaImage']
+                filters: ['cardImage']
               }
             },
             class: {

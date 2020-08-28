@@ -2,7 +2,7 @@
   <div class="rpl-call-to-action">
     <div class="rpl-call-to-action__row">
       <div class="rpl-call-to-action__left">
-        <img v-if="image" class="rpl-call-to-action__image" :src="image.src" :alt="image.alt" />
+        <rpl-responsive-img class="rpl-call-to-action__image" v-bind="image" :alt="image.alt" />
       </div>
       <div class="rpl-call-to-action__right">
         <h2 v-if="title" class="rpl-call-to-action__title">{{ title }}</h2>
@@ -15,6 +15,7 @@
 
 <script>
 import RplButton from '@dpc-sdp/ripple-button'
+import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
   name: 'RplCallToAction',
@@ -25,7 +26,8 @@ export default {
     image: Object
   },
   components: {
-    RplButton
+    RplButton,
+    RplResponsiveImg
   }
 }
 </script>

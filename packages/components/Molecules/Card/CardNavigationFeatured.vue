@@ -1,7 +1,7 @@
 <template>
   <rpl-link class="rpl-card-navigation-featured" :href="url" v-if="url" :innerWrap="false">
     <div class="rpl-card-navigation-featured__inner">
-      <img v-if="image" class="rpl-card-navigation-featured__image" :src="image" alt="" />
+      <rpl-responsive-img class="rpl-card-navigation-featured__image" v-bind="image" alt="" />
       <div
         v-if="title || date || topic"
         class="rpl-card-navigation-featured__meta_and_title"
@@ -37,6 +37,7 @@
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import RplLink from '@dpc-sdp/ripple-link'
 import RplIcon from '@dpc-sdp/ripple-icon'
+import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
   name: 'RplCardNavigationFeatured',
@@ -48,11 +49,12 @@ export default {
       type: String,
       required: true
     },
-    image: String,
+    image: Object,
     date: String,
     topic: String
   },
   components: {
+    RplResponsiveImg,
     RplLink,
     RplIcon
   },
@@ -134,6 +136,7 @@ export default {
     &__image {
       display: table;
       width: 100%;
+      height: 300px;
       @include rpl_breakpoint('s') {
         border-radius: $rpl-card-navigation-featured-border-radius $rpl-card-navigation-featured-border-radius 0 0;
       }

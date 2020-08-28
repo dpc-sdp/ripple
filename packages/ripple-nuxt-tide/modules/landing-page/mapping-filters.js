@@ -38,16 +38,6 @@ module.exports = {
     return null
   },
 
-  cardImage: (mediaImage) => {
-    if (mediaImage) {
-      return {
-        src: mediaImage.url,
-        focalPoint: mediaImage.meta.focal_point,
-        width: mediaImage.meta.width,
-        height: mediaImage.meta.height
-      }
-    }
-  },
   cardAutoImage: (card) => {
     const getCardImage = (mediaImage) => ({
       src: mediaImage.url,

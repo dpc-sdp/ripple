@@ -288,13 +288,6 @@ export default {
       word-wrap: break-word;
       margin: 0;
 
-/*       @include rpl_breakpoint_down(s) {
-        @include rpl_typography_ruleset($rpl-hero-banner-title-typography-xs);
-        span {
-          background-color: rpl_color('primary');
-        }
-      } */
-
       @include rpl_print {
         line-height: $rpl-hero-banner-title-print-line-height;
       }

@@ -38,15 +38,27 @@ module.exports = {
     return null
   },
 
-  cardImage: (card) => {
-    if (card.field_media_image) {
-      const mediaImage = card.field_media_image
+  cardImage: (mediaImage) => {
+    if (mediaImage) {
       return {
         src: mediaImage.url,
         focalPoint: mediaImage.meta.focal_point,
         width: mediaImage.meta.width,
         height: mediaImage.meta.height
       }
+    }
+  },
+  cardAutoImage: (card) => {
+    const getCardImage = (mediaImage) => ({
+      src: mediaImage.url,
+      focalPoint: mediaImage.meta.focal_point,
+      width: mediaImage.meta.width,
+      height: mediaImage.meta.height
+    })
+    if (card.field_featured_image) {
+      return getCardImage(card.field_featured_image.field_media_image)
+    } else {
+      return getCardImage(card.field_media_image)
     }
   },
 

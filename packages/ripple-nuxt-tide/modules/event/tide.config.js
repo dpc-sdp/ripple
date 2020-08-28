@@ -39,10 +39,10 @@ module.exports = {
       'paragraph--card_event_auto': {
         component: 'rpl-card-event',
         props: {
-          'image': [
-            ['field_paragraph_reference', 'field_featured_image', 'field_media_image', 'url'],
-            ['field_paragraph_reference', 'field_media_image', 'url']
-          ],
+          'image': {
+            field: ['field_paragraph_reference'],
+            filters: ['cardAutoImage']
+          },
           'dateStart': ['field_paragraph_reference', 'field_event_details', 0, 'field_paragraph_date_range', 'value'],
           'dateEnd': ['field_paragraph_reference', 'field_event_details', 0, 'field_paragraph_date_range', 'end_value'],
           'location': ['field_paragraph_reference', 'field_event_details', 0, 'field_paragraph_location', 'locality'],

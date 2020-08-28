@@ -145,7 +145,7 @@ module.exports = {
             ['field_paragraph_link', 'uri']
           ],
           'image': {
-            field: 'field_paragraph_media',
+            field: ['field_paragraph_media', 'field_media_image'],
             filters: ['cardImage']
           }
         }
@@ -161,7 +161,7 @@ module.exports = {
           },
           'url': ['field_paragraph_reference', 'path', 'url'],
           'image': {
-            field: 'field_paragraph_media',
+            field: ['field_paragraph_media', 'field_media_image'],
             filters: ['cardImage']
           }
         }
@@ -204,7 +204,7 @@ module.exports = {
                 filters: ['paragraphCta']
               },
               'image': {
-                field: 'field_paragraph_media',
+                field: ['field_paragraph_media', 'field_media_image'],
                 filters: ['paragraphCtaImage']
               }
             },
@@ -228,7 +228,7 @@ module.exports = {
                 filters: ['paragraphCta']
               },
               'image': {
-                field: 'field_paragraph_media',
+                field: ['field_paragraph_media', 'field_media_image'],
                 filters: ['cardImage']
               }
             },
@@ -241,7 +241,7 @@ module.exports = {
         component: 'rpl-card-event',
         props: {
           'image': {
-            field: 'field_paragraph_media',
+            field: ['field_paragraph_media', 'field_media_image'],
             filters: ['cardImage']
           },
           'dateStart': ['field_paragraph_date_range', 'value'],
@@ -261,7 +261,7 @@ module.exports = {
         component: 'rpl-card-promotion',
         props: {
           'image': {
-            field: 'field_paragraph_media',
+            field: ['field_paragraph_media', 'field_media_image'],
             filters: ['cardImage']
           },
           'date': 'field_paragraph_date',
@@ -279,10 +279,10 @@ module.exports = {
       'paragraph--card_promotion_auto': {
         component: 'rpl-card-promotion',
         props: {
-          'image': [
-            ['field_paragraph_reference', 'field_featured_image', 'field_media_image', 'url'],
-            ['field_paragraph_reference', 'field_media_image', 'url']
-          ],
+          'image': {
+            field: ['field_paragraph_reference'],
+            filters: ['cardAutoImage']
+          },
           'date': [
             ['field_paragraph_reference', 'field_paragraph_date'],
             // News specific date field.

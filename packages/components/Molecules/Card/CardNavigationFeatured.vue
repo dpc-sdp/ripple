@@ -107,6 +107,7 @@ export default {
   $rpl-card-navigation-featured-date-ruleset: ('xs', 1em, 'semibold') !default;
   $rpl-card-navigation-featured-tag-ruleset: ('xxs', 1em, 'medium') !default;
   $rpl-card-navigation-featured-meta-divider-margin: auto $rpl-space-2 !default;
+  $rpl-card-navigation-featured-image-height: 355px !default;
 
   .rpl-card-navigation-featured {
     $root: &;
@@ -136,7 +137,7 @@ export default {
     &__image {
       display: table;
       width: 100%;
-      height: 300px;
+      height: $rpl-card-navigation-featured-image-height;
       @include rpl_breakpoint('s') {
         border-radius: $rpl-card-navigation-featured-border-radius $rpl-card-navigation-featured-border-radius 0 0;
       }

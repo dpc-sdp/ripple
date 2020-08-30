@@ -71,7 +71,12 @@ export default {
   $rpl-campaign-primary-content-padding-xs: 0 $rpl-component-padding-xs !default;
   $rpl-campaign-secondary-content-padding-s: 0 !default;
   $rpl-campaign-secondary-border-radius: rem(4px);
-  $rpl-campaign-secondary-image-max-height: 300px;
+  $rpl-campaign-secondary-image-max-height: (
+    'xs': 422px,
+    's': 300px,
+    'l': 207px,
+    'xl': 180px,
+  ) !default;
 
   .rpl-campaign-secondary {
     position: relative;
@@ -130,7 +135,12 @@ export default {
       border-radius: $rpl-campaign-secondary-border-radius;
       display: block;
       width: 100%;
-      max-height: $rpl-campaign-secondary-image-max-height;
+
+      @each $bp, $val in $rpl-campaign-secondary-image-max-height {
+        @include rpl_breakpoint($bp) {
+          max-height: $val;
+        }
+      }
       @include rpl_breakpoint('s') {
         padding: $rpl-campaign-secondary-content-padding-s;
       }

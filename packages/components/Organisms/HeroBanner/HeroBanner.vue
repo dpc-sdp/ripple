@@ -78,6 +78,12 @@ import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
+/**
+ * Hero banners - Compulsory component for every page, providing introduction and context.
+ * Hero banners contain display text, optional supplementary copy,
+ * and optional set of links designed to connect users through specific streams of content.
+ * Graphics switch across templates to create a visually interesting experience.
+ */
 export default {
   name: 'RplHeroBanner',
   mixins: [breakpoint],

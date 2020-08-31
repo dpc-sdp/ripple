@@ -170,19 +170,6 @@ export default {
     // Set ripple quickexit option by tide site settings
     this.rplOptions.quickexit = this.$store.state.tide.siteData.field_site_show_exit_site
     this.rplOptions.origin = this.$store.state.tide.protocol + '//' + this.$store.state.tide.host
-    this.rplOptions.imgQueryString = (bp) => {
-      // Provides query string for images using section kraken.io - https://www.section.io/docs/modules/kraken/reference/kraken-advanced-config/
-      const params = {
-        strategy: 'auto'
-      }
-      for (const key in bp) {
-        const whitelistParams = ['height', 'width', 'strategy']
-        if (bp.hasOwnProperty(key) && whitelistParams.includes(key)) {
-          params[key] = bp[key]
-        }
-      }
-      return '?' + queryString(params)
-    }
     // Set RplMarkup plugins globally
     this.rplOptions.rplMarkup = {
       plugins: this.$tide.getMarkupPlugins()

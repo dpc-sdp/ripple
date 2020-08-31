@@ -62,6 +62,7 @@ export default {
   $rpl-call-to-action-summary-text-color: mix(rpl_color('extra_dark_neutral'), rpl_color('white'), 93%) !default;
   $rpl-call-to-action-summary-margin-xs: $rpl-space-3 0 !default;
   $rpl-call-to-action-summary-margin-s: ($rpl-space * 6) 0 !default;
+  $rpl-call-to-action-image-height: 300px !default;
 
 .rpl-content {
   .rpl-call-to-action {
@@ -72,6 +73,7 @@ export default {
 
     &__image {
       width: 100%;
+      max-height: $rpl-call-to-action-image-height;
     }
 
     @include rpl_breakpoint('s') {

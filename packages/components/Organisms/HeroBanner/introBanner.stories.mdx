@@ -1,0 +1,107 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import RplIntroBanner from './IntroBanner.vue'
+import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs'
+
+<Meta title="Organisms|Banners" component={ RplIntroBanner } decorators={ [withKnobs] } />
+
+# Intro Banner
+
+<Description of={ RplIntroBanner } type='docgen' />
+
+## Props
+
+<Props of={ RplIntroBanner } />
+
+## Intro Banner with links
+
+<Preview>
+  <Story name="Intro Banner with links" height="600px">
+    {
+      {
+        components: {RplIntroBanner},
+        template: `
+          <rpl-intro-banner
+            :title="title"
+            :introText="introText"
+            :linkHeading="linkHeading"
+            :links="links"
+            :showLinks="showLinks"
+            class="rpl-site-constrain--on-all"
+          />`,
+        props: {
+          title: {
+            default: text('Title', 'Intro Banner with links')
+          },
+          introText: {
+            default: text('Intro Text', 'From the largest collection of Kelly Gang armour in Australia to forensic evidence from some of Melbourne\'s most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.')
+          },
+          linkHeading: {
+            default: text('Link Heading', '')
+          },
+          links: {
+            default: () => object('Links', [
+              { text: 'Plan your visit', url: '#' },
+              { text: 'Collections', url: '#' },
+              { text: 'School Programs', url: '#' },
+              { text: 'Group Bookings', url: '#' }
+            ])
+          },
+          showLinks: {
+            default: boolean('Show Links', true)
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Intro Banner with buttons and icon
+
+<Preview>
+  <Story name="Intro Banner with buttons and icon" height="600px">
+    {
+      {
+        components: {RplIntroBanner},
+        template: `
+          <rpl-intro-banner
+            :title="title"
+            :introText="introText"
+            :linkHeading="linkHeading"
+            :links="links"
+            :showLinks="showLinks"
+            :linksType="linksType"
+            :icon="icon"
+            class="rpl-site-constrain--on-all"
+          />`,
+        props: {
+          title: {
+            default: text('Title', 'Intro Banner with buttons and icon')
+          },
+          icon: {
+            default: text('Icon', 'alert_information')
+          },
+          introText: {
+            default: text('Intro Text', '<p>From the <strong>largest collection</strong> of Kelly Gang armour in Australia to forensic evidence from some of Melbourne\'s most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.</p>')
+          },
+          linkHeading: {
+            default: text('Link Heading', 'Add a link heading here')
+          },
+          linksType: {
+            default: select('Links Type', { button: 'button', link: 'link'}, 'button'),
+          },
+          links: {
+            default: () => object('Links', [
+              { text: 'Plan your visit', url: '#' },
+              { text: 'Collections', url: '#' },
+              { text: 'School Programs', url: '#' },
+              { text: 'Group Bookings', url: '#' }
+            ])
+          },
+          showLinks: {
+            default: boolean('Show Links', true)
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>

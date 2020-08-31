@@ -180,6 +180,27 @@ module.exports = {
 
   embeddedSearchTheme: (search) => {
     return 'solid'
+  },
+
+  introBannerLinkTypes: (type) => {
+    switch (type) {
+      case 'buttons':
+        return 'button'
+
+      case 'featured_links':
+      default:
+        return 'link'
+    }
+  },
+
+  introBannerTypeToIcon: (type) => {
+    switch (type) {
+      case 'with_icon':
+        return 'alert_information'
+
+      default:
+        return null
+    }
   }
 
 }

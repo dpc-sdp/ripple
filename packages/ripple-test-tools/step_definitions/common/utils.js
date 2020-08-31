@@ -87,3 +87,9 @@ Given(`I am using a {string} device`, (deviceString) => {
 Then(`All stubbed routes should be removed`, () => {
   cy.server({ enable: false })
 })
+
+Then(`{string} image snapshot matches`, (selector) => {
+  cy.wait(2000)
+  cy.get(selector)
+    .toMatchImageSnapshot()
+})

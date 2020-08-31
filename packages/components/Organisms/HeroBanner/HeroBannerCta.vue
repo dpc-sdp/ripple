@@ -21,6 +21,9 @@ import RplHeroBanner from './HeroBanner'
 import RplButton from '@dpc-sdp/ripple-button'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 
+/**
+ * Hero Banner with call to action links
+ */
 export default {
   name: 'RplHeroBannerCta',
   components: {

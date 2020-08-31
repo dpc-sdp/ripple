@@ -205,8 +205,8 @@ export default {
       }
 
       ul {
-        list-style-position: inside;
         padding-left: 0;
+        margin-left: rem(17px);
       }
     }
 

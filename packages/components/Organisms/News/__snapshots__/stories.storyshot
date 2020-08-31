@@ -15,7 +15,11 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       <div
         class="rpl-card-navigation-featured__inner"
       >
-        <!---->
+        <img
+          alt=""
+          class="rpl-responsive-image rpl-card-navigation-featured__image"
+          src="https://placehold.it/818x497"
+        />
          
         <div
           class="rpl-card-navigation-featured__meta_and_title rpl-card-navigation-featured__meta_and_title--image rpl-card-navigation-featured__meta_and_title--summary"

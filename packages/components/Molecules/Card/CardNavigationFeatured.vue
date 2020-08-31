@@ -1,7 +1,7 @@
 <template>
   <rpl-link class="rpl-card-navigation-featured" :href="url" v-if="url" :innerWrap="false">
     <div class="rpl-card-navigation-featured__inner">
-      <rpl-responsive-img class="rpl-card-navigation-featured__image" v-bind="image" alt="" />
+      <rpl-responsive-img class="rpl-card-navigation-featured__image" v-bind="computedImg" alt="" />
       <div
         v-if="title || date || topic"
         class="rpl-card-navigation-featured__meta_and_title"
@@ -49,7 +49,7 @@ export default {
       type: String,
       required: true
     },
-    image: Object,
+    image: [Object, String],
     date: String,
     topic: String
   },
@@ -63,6 +63,11 @@ export default {
     // The reason we are not handle it here is we want the card container to know the error so it can apply different style.
     if (!this.url) {
       throw new Error('Invalid url is provided to card navigation featured component.')
+    }
+  },
+  computed: {
+    computedImg () {
+      return typeof this.image === 'string' ? { src: this.image } : this.image
     }
   }
 }

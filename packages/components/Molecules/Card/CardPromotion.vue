@@ -1,5 +1,5 @@
 <template>
-  <rpl-card-content class="rpl-card-promotion" :image="image" :link="link">
+  <rpl-card-content class="rpl-card-promotion" :image="computedImg" :link="link">
     <div class="rpl-card-promotion__meta" v-if="date || topic">
       <div class="rpl-card-promotion__date" v-if="date">{{ formatDate(date) }}</div>
       <div class="rpl-card-promotion__tag" >{{ topic }}</div>
@@ -41,6 +41,11 @@ export default {
     getTrimFieldMaxHeightOffset: function (card) {
       const link = this.$el.querySelector('.rpl-card-content__link')
       return link ? (card.clientHeight - link.clientHeight) : card.clientHeight
+    }
+  },
+  computed: {
+    computedImg () {
+      return typeof this.image === 'string' ? { src: this.image } : this.image
     }
   }
 }

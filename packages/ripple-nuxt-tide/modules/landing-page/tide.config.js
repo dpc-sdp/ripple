@@ -161,8 +161,8 @@ module.exports = {
           },
           'url': ['field_paragraph_reference', 'path', 'url'],
           'image': {
-            field: ['field_paragraph_media', 'field_media_image'],
-            filters: ['cardImage']
+            field: ['field_paragraph_reference'],
+            filters: ['cardAutoImage']
           }
         }
       },

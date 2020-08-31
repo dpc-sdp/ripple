@@ -48,13 +48,22 @@ module.exports = {
         component: 'rpl-intro-banner',
         props: {
           'title': 'field_paragraph_title',
-          'introText': 'field_paragraph_summary',
+          'introText': ['field_paragraph_body', 'processed'],
+          'linkHeading': 'field_call_to_action_title',
           'links': {
             field: 'field_paragraph_links',
             filters: ['paragraphKeyJourneyLinks']
           },
           'showLinks': {
             value: true
+          },
+          'linksType': {
+            field: 'field_banner_display_type',
+            filters: ['introBannerLinkTypes']
+          },
+          'icon': {
+            field: 'field_banner_type',
+            filters: ['introBannerTypeToIcon']
           }
         },
         class: ['rpl-site-constrain--on-all']

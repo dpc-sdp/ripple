@@ -14,8 +14,8 @@
     :innerWrap="false"
     v-if="link"
   >
-    <div class="rpl-card-content__image-wrapper" v-if="image">
-      <rpl-responsive-img class="rpl-card-content__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
+    <div class="rpl-card-content__image-wrapper" v-if="computedImg">
+      <rpl-responsive-img class="rpl-card-content__image" v-bind="computedImg" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </div>
     <div class="rpl-card-content__details">
       <slot></slot>
@@ -55,6 +55,9 @@ export default {
   computed: {
     iconSymbol () {
       return isExternalUrl(this.link.url, this.rplOptions.hostname) ? 'external_link' : 'arrow_right_primary'
+    },
+    computedImg () {
+      return typeof this.image === 'string' ? { src: this.image } : this.image
     }
   },
   created () {

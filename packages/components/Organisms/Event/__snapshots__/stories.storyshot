@@ -25,7 +25,11 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         <div
           class="rpl-card-content__image-wrapper"
         >
-          <!---->
+          <img
+            alt=""
+            class="rpl-responsive-image rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
         </div>
          
         <div
@@ -98,7 +102,11 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         <div
           class="rpl-card-content__image-wrapper"
         >
-          <!---->
+          <img
+            alt=""
+            class="rpl-responsive-image rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
         </div>
          
         <div
@@ -171,7 +179,11 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         <div
           class="rpl-card-content__image-wrapper"
         >
-          <!---->
+          <img
+            alt=""
+            class="rpl-responsive-image rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
         </div>
          
         <div
@@ -244,7 +256,11 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         <div
           class="rpl-card-content__image-wrapper"
         >
-          <!---->
+          <img
+            alt=""
+            class="rpl-responsive-image rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
         </div>
          
         <div
@@ -317,7 +333,11 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         <div
           class="rpl-card-content__image-wrapper"
         >
-          <!---->
+          <img
+            alt=""
+            class="rpl-responsive-image rpl-card-content__image"
+            src="https://placehold.it/580x340"
+          />
         </div>
          
         <div
@@ -395,7 +415,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         >
           <img
             alt=""
-            class="rpl-card-cta__image"
+            class="rpl-responsive-image rpl-card-cta__image"
             src="https://placehold.it/148x148"
           />
            

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import RplGlobal from '@dpc-sdp/ripple-global'
 import { addCustomIcons } from '@dpc-sdp/ripple-icon'
+import { queryString } from '@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper'
 
 const options = <%= serialize(options) %>
 

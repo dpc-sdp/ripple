@@ -39,6 +39,7 @@
     "@dpc-sdp/ripple-publication": "1.13.0",
     "@dpc-sdp/ripple-publish-date-and-author": "1.13.0",
     "@dpc-sdp/ripple-related-links": "1.13.0",
+    "@dpc-sdp/ripple-responsive-img": "1.13.0",
     "@dpc-sdp/ripple-search": "1.13.0",
     "@dpc-sdp/ripple-share-this": "1.13.0",
     "@dpc-sdp/ripple-site-footer": "1.13.0",

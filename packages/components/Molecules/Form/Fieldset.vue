@@ -37,7 +37,6 @@ $rpl-fieldset-margin: $rpl-space-4 0;
     align-items: center;
     margin-left: -$rpl-fieldset-col-padding;
     margin-right: -$rpl-fieldset-col-padding;
-    max-width: $rpl-content-max-width;
   }
 
   &--pad {

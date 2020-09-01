@@ -1,13 +1,7 @@
 const tideBanners = async (context, pageData) => {
   const mapping = context.app.$tideMapping
-  // Hero banner
-  // Hero banner background image
-  let heroBgImage = ''
-  if (pageData.tidePage.field_landing_page_hero_image && pageData.tidePage.field_landing_page_hero_image.field_media_image) {
-    heroBgImage = pageData.tidePage.field_landing_page_hero_image.field_media_image.url
-  }
 
-  pageData.tidePage.appHeroBgImage = heroBgImage
+  const hasImageBanner = pageData.tidePage.field_landing_page_hero_image && pageData.tidePage.field_landing_page_hero_image.field_media_image
 
   // Hero banner Core fields
   let heroBanner = {
@@ -24,11 +18,21 @@ const tideBanners = async (context, pageData) => {
   // Additional fields may will be moved into core or modifier
   heroBanner.keyJourneys = pageData.tidePage.field_landing_page_key_journeys || {}
   heroBanner.theme = pageData.tidePage.field_landing_page_hero_theme
-  heroBanner.showLinks = !heroBgImage
+  heroBanner.showLinks = !hasImageBanner
   heroBanner.logo = pageData.tidePage.field_landing_page_hero_logo ? pageData.tidePage.field_landing_page_hero_logo.field_media_image.url : null
 
+  if (pageData.tidePage.field_landing_page_hero_image && pageData.tidePage.field_landing_page_hero_image.field_media_image) {
+    const mediaImage = pageData.tidePage.field_landing_page_hero_image.field_media_image
+    pageData.tidePage.appHeroBgImage = {
+      src: mediaImage.url,
+      focalPoint: mediaImage.meta.focal_point,
+      width: mediaImage.meta.width,
+      height: mediaImage.meta.height
+    }
+  }
+
   // Add bottom graphic.
-  if (!heroBgImage && !pageData.tidePage.field_landing_page_c_primary) {
+  if (!hasImageBanner && !pageData.tidePage.field_landing_page_c_primary) {
     const hasBottomImage = (pageData.tidePage.field_bottom_graphical_image && pageData.tidePage.field_bottom_graphical_image.field_media_image)
     heroBanner.backgroundGraphic = (hasBottomImage) ? pageData.tidePage.field_bottom_graphical_image.field_media_image.url : '/img/header-pattern-bottom.png'
   }
@@ -40,6 +44,7 @@ const tideBanners = async (context, pageData) => {
   if (pageData.tidePage.field_show_hero_image_caption) {
     imageCaption = pageData.tidePage.field_landing_page_hero_image && pageData.tidePage.field_landing_page_hero_image.field_media_caption
   }
+
   context.store.dispatch('tide/setPageData', { imageCaption })
 
   // Landing pages

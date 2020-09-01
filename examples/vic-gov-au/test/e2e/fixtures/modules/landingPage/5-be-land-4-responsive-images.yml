@@ -1,0 +1,77 @@
+- entity: node
+  type: landing_page
+  title: 5-be-land-4 responsive images test
+  status: 1
+  moderation_state:
+    - '#process':
+        callback: reference
+        args:
+          - content_moderation_state
+          - workflow: editorial
+            moderation_state: published
+  # Page header.
+  field_featured_image:
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: image
+            name: 'Demo: Melbourne tram'
+  field_landing_page_hero_image:
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: image
+            name: 'Demo: Melbourne skyline at dusk'
+  field_landing_page_intro_text: 5-BE-land-3  Landing Page - Complete Test Intro
+  field_landing_page_summary: 5-BE-land-3  Landing Page - Complete Test - Complete Test Summary. Outside thundered the approaching surf of war and they conducted their quilted pantomime outside time and action.
+  field_landing_page_hero_theme: dark
+  # Hero banner.
+  field_landing_page_hero_banner:
+    - entity: paragraph
+      type: hero_banner_with_cta
+      field_paragraph_cta:
+        - uri: https://www.google.com
+          title: Phasellus congue
+      field_paragraph_freetext: Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae
+
+  field_landing_page_component:
+    # Basic Text.
+    - entity: paragraph
+      type: basic_text
+      field_paragraph_body:
+      - format: rich_text
+        value: |
+          <p>And in the sky the clouds were twisting and darkness flowed through all the cracks into the sinking vessel of the landscape. Only in the telegraph wires a message still crackled.</p>
+          <drupal-entity data-caption="caption" data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid="ae64e624-4c3a-4562-9c69-0a6b5eb0b7e6" data-langcode="en"></drupal-entity>
+          <drupal-entity data-caption="caption" data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-embed-display-settings="" data-entity-type="media" data-entity-uuid="9dd62eae-39e2-40f7-b2a6-f84421041f83" data-langcode="en"></drupal-entity>
+          <blockquote>
+          <p>&nbsp;When I have seen by Time's fell hand defac'd The rich proud cost of outworn buried age; When sometime lofty towers I see down-ras'd And brass eternal slave to mortal rage;</p>
+          </blockquote>
+          <p>When I have seen the hungry ocean gain Advantage on the kingdom of the shore, And the firm soil win of the wat'ry main, Increasing store with loss and loss with store; When I have seen such interchange of state, Or state itself confounded to decay; Ruin hath taught me thus to ruminate, That Time will come and take my love away. This thought is as a death, which cannot choose But weep to have that which it fears to lose.</p>
+          <p><iframe frameborder="0" height="600" scrolling="no" src="https://mazzanet.net.au/cfa/?magickey=cfamonitor&amp;reg=13" width="600"></iframe></p>
+
+  # Topic and Tags.
+  field_topic:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: topic
+            name: 'Equality'
+  # Sites.
+  field_node_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'
+  field_node_primary_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'

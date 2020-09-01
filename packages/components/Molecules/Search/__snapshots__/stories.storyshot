@@ -84,7 +84,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
         >
           <img
             alt=""
-            class="rpl-card-content__image"
+            class="rpl-responsive-image rpl-card-content__image"
             src="https://placehold.it/580x340"
           />
         </div>
@@ -150,7 +150,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
         >
           <img
             alt=""
-            class="rpl-card-content__image"
+            class="rpl-responsive-image rpl-card-content__image"
             src="https://placehold.it/580x340"
           />
         </div>
@@ -211,7 +211,11 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
         date="2018-07-10T09:00:00.000+10:00"
         href="#"
       >
-        <!---->
+        <div
+          class="rpl-card-content__image-wrapper"
+        >
+          <!---->
+        </div>
          
         <div
           class="rpl-card-content__details"
@@ -274,7 +278,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
         >
           <img
             alt=""
-            class="rpl-card-content__image"
+            class="rpl-responsive-image rpl-card-content__image"
             src="https://placehold.it/580x340"
           />
         </div>

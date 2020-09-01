@@ -1,0 +1,15 @@
+{
+  "name": "@dpc-sdp/ripple-responsive-img",
+  "version": "1.12.0",
+  "description": "A component which renders an image with optimised sources for each breakpoint using kraken.io querystrings",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Atoms/ResponsiveImg",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-global": "1.12.0"
+  }
+}

@@ -18,6 +18,10 @@ This is a globally available options object to allow passing options between rip
   nuxt: false, // enable if using in SSR environment eg: nuxt
   isDev: false, // set to true to enable dev mode, used to show Ripple component errors if have.
   hostname: 'localhost', // set hostname for rpl-link etc
+  imgQueryString: (bp) => {
+    // Override function that appends query string to images to use with image processing CDN's - see @spc-sdp/ripple-nuxt-ui for example
+    return `?height=100&width=200` 
+  },
   origin: '', // URL with protocol://host(:port) e.g. http://localhost:3000
   quickexit: false, // enable quick exit feature
   quickexiturl: 'https://www.google.com', // URL to use for quickexit
@@ -88,8 +92,6 @@ See [Storybook/Atoms/Global/Fonts](https://ripple.sdp.vic.gov.au/?path=/story/at
 See [Storybook/Atoms/Global/Typography](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--typography).
 
 See [Storybook/Atoms/Global/Breakpoints](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--breakpoints).
-
-See [Storybook/Atoms/Global/Divider](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--divider).
 
 <!-- /GENERATED_USAGE_AND_TESTS -->
 

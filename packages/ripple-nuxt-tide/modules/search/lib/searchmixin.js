@@ -1,6 +1,7 @@
 import { cardColsSetting } from '../../../lib/config/layout.config.js'
 import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import search from './search/module'
+import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
 const searchMixin = {
   data () {
@@ -77,9 +78,13 @@ const searchMixin = {
         this.pager.totalSteps = response.totalSteps
         this.count = response.hits.total
         this.noResultsCopy = this.count === 0 ? this.noResultsMsg(queryString) : ''
-      } catch (e) {
+      } catch (error) {
         const msg = 'Search isn\'t working right now, please try again later.'
         this.errorMsg = msg
+
+        if (process.server) {
+          logger.error('Retrieving search results failed in getSearchResults()', { error, label: 'SearchMixin' })
+        }
       }
       this.loading = false
     },
@@ -148,7 +153,13 @@ const searchMixin = {
       }
     }
   },
-  created () {
+  async created () {
+    // Set the site domain map for generating search result link url
+    if (this.$store.state.tideSite.sitesDomainMap === null) {
+      const domains = await this.$tide.getSitesDomainMap()
+      this.$store.commit('tideSite/setSitesDomainMap', domains)
+    }
+
     // TODO: Refactor default page load query state so that a flag is used instead of string comparison.
     if (this.$route.query.page || this.$route.query.q) {
       this.tideSearch.setFiltersOnCreate(this.searchForm, this.$route.query)

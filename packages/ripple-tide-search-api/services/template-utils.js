@@ -19,6 +19,17 @@ export const getTermsFilter = (params) => {
   }
 }
 
+export const getPagination = (params) => {
+  const query = {}
+  if (params.limit) {
+    query.size = params.limit
+  }
+  if (params.page && params.page !== 0) {
+    query.from = query.size * params.page
+  }
+  return query
+}
+
 export const getIncludesByType = (type) => {
   const includes = [
     'title',
@@ -26,7 +37,10 @@ export const getIncludesByType = (type) => {
     'changed',
     'field_topic_name',
     'url',
-    'field_node_primary_csite'
+    'uuid',
+    'field_media_image_absolute_path',
+    'field_node_primary_csite',
+    'field_landing_page_summary'
   ]
   switch (type) {
     case 'event':
@@ -37,6 +51,16 @@ export const getIncludesByType = (type) => {
         'field_event_details_event_price_from',
         'field_event_date_end_value',
         'field_event_category_name'
+      ]
+    case 'profile':
+    case 'vdrp_profile':
+    case 'sr_profile':
+    case 'vada_profile':
+    case 'aboriginal_honor_roll':
+      return [
+        ...includes,
+        'field_profile_category_name',
+        'field_year'
       ]
 
     default:

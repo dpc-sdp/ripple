@@ -378,7 +378,7 @@ module.exports = {
         props: {
           title: 'field_paragraph_title',
           cardCtaText: 'field_paragraph_cta_text',
-          listingSettings: ['field_paragraph_auto_listing'],
+          config: ['field_paragraph_auto_listing'],
           ctaLink: {
             field: 'field_paragraph_cta',
             filters: ['paragraphCta']

@@ -1,10 +1,10 @@
 export default {
   handleError: (error, res) => {
-    if (error && error.hasOwnProperty('status')) {
+    if (error && error.hasOwnProperty('error')) {
       res.status(error.status).json({
         error: {
           status: error.status,
-          message: error.statusText
+          message: error.debug
         }
       })
     } else if (error.hasOwnProperty('response')) {

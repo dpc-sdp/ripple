@@ -88,7 +88,7 @@ const loadComponent = (name, dynamicComponentsConfig) => {
     case 'tide-login':
       return () => import(/* webpackChunkName: 'tide-login' */ '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/components/TideLogin')
     case 'automated-card-listing':
-      return () => import(/* webpackChunkName: 'automated-card-listing' */ '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/components/AppAutomatedCardListing')
+      return () => import(/* webpackChunkName: 'automated-card-listing' */ '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/components/CardCollection')
     default:
       if (coreComponents[name]) {
         return coreComponents[name]

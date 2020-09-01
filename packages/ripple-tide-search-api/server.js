@@ -1,11 +1,12 @@
 import appHandler from './index'
+import templates from './example-template'
 require('dotenv').config()
 
 const port = 3001
 
 const app = appHandler({
-  apiBase: 'api',
-  apiVersion: 'v2',
+  apiBase: 'search',
+  apiVersion: 'v1',
   auth: {
     username: 'dpc',
     password: 'sdp'
@@ -14,6 +15,8 @@ const app = appHandler({
     site: 4,
     baseUrl: 'https://develop.content.vic.gov.au/',
     search: {
+      cacheAge: 30,
+      templates,
       service: process.env.SEARCH_SERVICE,
       index: process.env.SEARCH_INDEX,
       url: 'https://' + process.env.SEARCH_HASH + '.' + process.env.SEARCH_URL,

@@ -10,7 +10,7 @@ export const searchGetController = (config) => {
         if (results && !results.error) {
           return res.json(results)
         } else {
-          utils.handleError(results.error, res)
+          utils.handleError(results, res)
         }
       }
       throw new Error('No page requested!')
@@ -26,7 +26,6 @@ export const searchPostController = (config) => {
     try {
       if (req && req.body) {
         const results = await tideSearchApi.searchByTemplate(req.params.template, req.body)
-        console.log('RESULTS', JSON.stringify(results.debug.request.source))
         if (results && !results.error) {
           return res.json(results)
         } else {
@@ -34,7 +33,6 @@ export const searchPostController = (config) => {
         }
       }
     } catch (error) {
-      console.log(error)
       utils.handleError(error, res)
     }
   }

@@ -9,9 +9,10 @@ export default class SearchApi {
     })
     this.site = config.tide.site
     this.index = config.tide.search.index
+    const customTemplates = config.tide.search && config.tide.search.templates ? config.tide.search.templates : {}
     this.templates = {
       ...templates,
-      ...config.templates
+      ...customTemplates
     }
   }
 
@@ -29,25 +30,6 @@ export default class SearchApi {
     })
   }
 
-  mapResults (body, debug = false) {
-    if (body) {
-      return {
-        total: body.hits.total,
-        results: body.hits.hits.map(hit => {
-          if (debug) {
-            return hit
-          }
-          return {
-            _id: hit._id,
-            _score: hit._score,
-            _matched: hit.matched_queries,
-            ...hit._source
-          }
-        }),
-        aggregations: body.aggregations
-      }
-    }
-  }
   getSearchParams (params) {
     if (params.aggregations) {
       params.aggs = this.getAggregationsByFields(params.aggregations)
@@ -70,24 +52,56 @@ export default class SearchApi {
     return params
   }
 
+  getQuery (templateName, params) {
+    if (this.templates.hasOwnProperty(templateName)) {
+      if (this.templates[templateName].hasOwnProperty('requestMapping') && typeof this.templates[templateName].requestMapping === 'function') {
+        return this.templates[templateName].requestMapping(params)
+      } else if (typeof this.templates[templateName] === 'function') {
+        return this.templates[templateName](params)
+      }
+    }
+  }
+  async mapResults (res, templateName, debug = false) {
+    if (this.templates.hasOwnProperty(templateName) && this.templates[templateName].hasOwnProperty('responseMapping')) {
+      if (this.templates[templateName].responseMapping.constructor.name === 'AsyncFunction') {
+        const response = await this.templates[templateName].responseMapping(res)
+        return response
+      } else if (typeof this.templates[templateName].responseMapping === 'function') {
+        return this.templates[templateName].responseMapping(res)
+      }
+    }
+    return {
+      total: res.hits.total,
+      results: res.hits.hits.map(hit => {
+        if (debug) {
+          return hit
+        }
+        return {
+          _id: hit._id,
+          _score: hit._score,
+          _matched: hit.matched_queries,
+          ...hit._source
+        }
+      }),
+      aggregations: res.aggregations
+    }
+  }
+
   async searchByTemplate (template, params, isDev) {
     if (this.templates.hasOwnProperty(template)) {
-      const templateParams = this.getSearchParams({ ...params, site: this.site })
-      let searchTemplate = this.templates[template]
-      if (typeof searchTemplate === 'function') {
-        searchTemplate = this.templates[template](templateParams)
-      }
+      const searchQuery = this.getQuery(template, params)
       if (process.env.SEARCH_LOG === 'trace') {
-        console.log('SEARCH TEMPLATE', JSON.stringify({ body: searchTemplate }, null, 2))
+        console.log('SEARCH TEMPLATE', JSON.stringify({ body: searchQuery }, null, 2))
       }
       return this.client.search({
         index: this.index,
-        body: searchTemplate
+        body: searchQuery
       }, { ignore: [400, 404] })
-        .then(({ err, body, statusCode }) => {
+        .then(async ({ err, body, statusCode }) => {
           if (statusCode === 200 && body) {
             if (body) {
-              return this.mapResults(body)
+              const results = await this.mapResults(body, template)
+              return results
             }
           } else {
             return {
@@ -96,7 +110,7 @@ export default class SearchApi {
               debug: {
                 err,
                 request: {
-                  source: searchTemplate,
+                  source: searchQuery,
                   params
                 }
               }

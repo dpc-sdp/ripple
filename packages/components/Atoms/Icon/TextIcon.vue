@@ -41,10 +41,10 @@ export default {
       return this.text.substr(this.trimmedText.lastIndexOf(' '))
     },
     textWithoutFirstWord: function () {
-      return this.text.substr(this.trimmedText.indexOf(' '))
+      return this.text.substr(this.trimmedText.indexOf(' ') + 1)
     },
     textFirstWord: function () {
-      return this.text.substr(0, this.trimmedText.indexOf(' '))
+      return this.text.substr(0, (this.trimmedText.indexOf(' ') + 1))
     },
     iconProps: function () {
       return {

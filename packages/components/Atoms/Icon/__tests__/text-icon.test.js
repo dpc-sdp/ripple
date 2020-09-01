@@ -59,7 +59,7 @@ describe('RplTextIcon', () => {
     expect(wrapper.vm.textLastWord).toEqual(' amet ')
 
     // Text without trailing space
-    wrapper.setProps({text: 'Lorem ipsum dolor sit amet'})
+    wrapper.setProps({ text: 'Lorem ipsum dolor sit amet' })
     expect(wrapper.vm.textLastWord).toEqual(' amet')
   })
 
@@ -76,8 +76,8 @@ describe('RplTextIcon', () => {
 
     expect(wrapper.vm.textWithoutFirstWord).toEqual(' ipsum dolor sit amet ')
 
-    //Test text without trailing spaces
-    wrapper.setProps({text: 'Lorem ipsum dolor sit amet'})
+    // Test text without trailing spaces
+    wrapper.setProps({ text: 'Lorem ipsum dolor sit amet' })
     expect(wrapper.vm.textWithoutFirstWord).toEqual('ipsum dolor sit amet')
   })
 
@@ -94,8 +94,8 @@ describe('RplTextIcon', () => {
 
     expect(wrapper.vm.textFirstWord).toEqual(' Lorem')
 
-    //Test text without trailing spaces
-    wrapper.setProps({text: 'Lorem ipsum dolor sit amet'})
+    // Test text without trailing spaces
+    wrapper.setProps({ text: 'Lorem ipsum dolor sit amet' })
     expect(wrapper.vm.textFirstWord).toEqual('Lorem ')
   })
 

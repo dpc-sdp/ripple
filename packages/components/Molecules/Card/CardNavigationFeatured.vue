@@ -1,7 +1,7 @@
 <template>
   <rpl-link class="rpl-card-navigation-featured" :href="url" v-if="url" :innerWrap="false">
     <div class="rpl-card-navigation-featured__inner">
-      <img v-if="image" class="rpl-card-navigation-featured__image" :src="image" alt="" />
+      <rpl-responsive-img class="rpl-card-navigation-featured__image" v-bind="computedImg" alt="" />
       <div
         v-if="title || date || topic"
         class="rpl-card-navigation-featured__meta_and_title"
@@ -37,6 +37,7 @@
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import RplLink from '@dpc-sdp/ripple-link'
 import RplIcon from '@dpc-sdp/ripple-icon'
+import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
   name: 'RplCardNavigationFeatured',
@@ -48,11 +49,12 @@ export default {
       type: String,
       required: true
     },
-    image: String,
+    image: [Object, String],
     date: String,
     topic: String
   },
   components: {
+    RplResponsiveImg,
     RplLink,
     RplIcon
   },
@@ -61,6 +63,11 @@ export default {
     // The reason we are not handle it here is we want the card container to know the error so it can apply different style.
     if (!this.url) {
       throw new Error('Invalid url is provided to card navigation featured component.')
+    }
+  },
+  computed: {
+    computedImg () {
+      return typeof this.image === 'string' ? { src: this.image } : this.image
     }
   }
 }
@@ -105,6 +112,7 @@ export default {
   $rpl-card-navigation-featured-date-ruleset: ('xs', 1em, 'semibold') !default;
   $rpl-card-navigation-featured-tag-ruleset: ('xxs', 1em, 'medium') !default;
   $rpl-card-navigation-featured-meta-divider-margin: auto $rpl-space-2 !default;
+  $rpl-card-navigation-featured-image-height: 355px !default;
 
   .rpl-card-navigation-featured {
     $root: &;
@@ -134,6 +142,7 @@ export default {
     &__image {
       display: table;
       width: 100%;
+      height: $rpl-card-navigation-featured-image-height;
       @include rpl_breakpoint('s') {
         border-radius: $rpl-card-navigation-featured-border-radius $rpl-card-navigation-featured-border-radius 0 0;
       }

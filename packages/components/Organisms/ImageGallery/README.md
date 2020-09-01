@@ -31,7 +31,8 @@ npm install @dpc-sdp/ripple-image-gallery --save
 import {
   RplImageGalleryModal,
   RplFullscreenImage,
-  RplImageGallery
+  RplImageGallery,
+  RplComplexImage
 } from '@dpc-sdp/ripple-image-gallery'
 ```
 
@@ -40,6 +41,8 @@ import {
 ## Usage and Tests
 
 See [Storybook/Organisms/ImageGallery/Image Gallery](https://ripple.sdp.vic.gov.au/?path=/story/organisms-imagegallery--image-gallery).
+
+See [Storybook/Organisms/ImageGallery/Complex Image](https://ripple.sdp.vic.gov.au/?path=/story/organisms-imagegallery--complex-image).
 
 --------------------------------------------------------------------------------
 

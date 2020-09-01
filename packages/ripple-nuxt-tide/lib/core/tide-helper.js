@@ -1,5 +1,6 @@
 import cuid from 'cuid'
 import mime from 'mime-types'
+import qs from 'qs'
 
 // Generate a unique id
 export const generateId = () => {
@@ -135,4 +136,11 @@ export const getPageHeadConfig = ({
     head.meta.push(robotsMetaTag)
   }
   return head
+}
+
+export const queryString = (params, options = { indices: false, encode: false }) => {
+  if (params) {
+    return qs.stringify(params, options)
+  }
+  return ''
 }

@@ -1,9 +1,11 @@
 const cucumber = require('cypress-cucumber-preprocessor').default
 const rippleTasks = require('@dpc-sdp/ripple-test-tools/tasks')
+const { initPlugin } = require('cypress-plugin-snapshots/plugin')
 // Environment variables that need exposing to cypress go here - use the example site .env file
 require('dotenv').config()
 
 module.exports = (on, config) => {
+  initPlugin(on, config)
   on('file:preprocessor', cucumber())
 
   config.env = {

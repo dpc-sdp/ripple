@@ -38,9 +38,9 @@ import {
   RplFormEventBus,
   VueFormGenerator,
   RplCheckbox,
-  RplSelect
+  RplSelect,
+  RplForm
 } from '@dpc-sdp/ripple-form'
-import RplForm from '@dpc-sdp/ripple-form'
 ```
 
 --------------------------------------------------------------------------------

@@ -48,13 +48,22 @@ module.exports = {
         component: 'rpl-intro-banner',
         props: {
           'title': 'field_paragraph_title',
-          'introText': 'field_paragraph_summary',
+          'introText': ['field_paragraph_body', 'processed'],
+          'linkHeading': 'field_call_to_action_title',
           'links': {
             field: 'field_paragraph_links',
             filters: ['paragraphKeyJourneyLinks']
           },
           'showLinks': {
             value: true
+          },
+          'linksType': {
+            field: 'field_banner_display_type',
+            filters: ['introBannerLinkTypes']
+          },
+          'icon': {
+            field: 'field_banner_type',
+            filters: ['introBannerTypeToIcon']
           }
         },
         class: ['rpl-site-constrain--on-all']
@@ -144,7 +153,10 @@ module.exports = {
             ['field_paragraph_link', 'url'],
             ['field_paragraph_link', 'uri']
           ],
-          'image': ['field_paragraph_media', 'field_media_image', 'url']
+          'image': {
+            field: ['field_paragraph_media', 'field_media_image'],
+            filters: ['cardImage']
+          }
         }
       },
 
@@ -157,7 +169,10 @@ module.exports = {
             filters: ['autoCardSummary']
           },
           'url': ['field_paragraph_reference', 'path', 'url'],
-          'image': ['field_paragraph_reference', 'field_featured_image', 'field_media_image', 'url']
+          'image': {
+            field: ['field_paragraph_reference'],
+            filters: ['cardAutoImage']
+          }
         }
       },
 
@@ -198,8 +213,8 @@ module.exports = {
                 filters: ['paragraphCta']
               },
               'image': {
-                field: 'field_paragraph_media',
-                filters: ['paragraphCtaImage']
+                field: ['field_paragraph_media', 'field_media_image'],
+                filters: ['cardImage']
               }
             },
             class: {
@@ -221,7 +236,10 @@ module.exports = {
                 field: 'field_paragraph_cta',
                 filters: ['paragraphCta']
               },
-              'image': ['field_paragraph_media', 'field_media_image', 'url']
+              'image': {
+                field: ['field_paragraph_media', 'field_media_image'],
+                filters: ['cardImage']
+              }
             },
             cols: cardColsSetting
           }
@@ -231,7 +249,10 @@ module.exports = {
       'paragraph--card_event': {
         component: 'rpl-card-event',
         props: {
-          'image': ['field_paragraph_media', 'field_media_image', 'url'],
+          'image': {
+            field: ['field_paragraph_media', 'field_media_image'],
+            filters: ['cardImage']
+          },
           'dateStart': ['field_paragraph_date_range', 'value'],
           'dateEnd': ['field_paragraph_date_range', 'end_value'],
           'location': ['field_paragraph_location', 'locality'],
@@ -248,7 +269,10 @@ module.exports = {
       'paragraph--card_promotion': {
         component: 'rpl-card-promotion',
         props: {
-          'image': ['field_paragraph_media', 'field_media_image', 'url'],
+          'image': {
+            field: ['field_paragraph_media', 'field_media_image'],
+            filters: ['cardImage']
+          },
           'date': 'field_paragraph_date',
           'topic': ['field_paragraph_topic', 0, 'name'],
           'title': 'field_paragraph_title',
@@ -264,10 +288,10 @@ module.exports = {
       'paragraph--card_promotion_auto': {
         component: 'rpl-card-promotion',
         props: {
-          'image': [
-            ['field_paragraph_reference', 'field_featured_image', 'field_media_image', 'url'],
-            ['field_paragraph_reference', 'field_media_image', 'url']
-          ],
+          'image': {
+            field: ['field_paragraph_reference'],
+            filters: ['cardAutoImage']
+          },
           'date': [
             ['field_paragraph_reference', 'field_paragraph_date'],
             // News specific date field.
@@ -361,6 +385,13 @@ module.exports = {
           }
         },
         childCols: cardColsSetting
+      },
+
+      'paragraph--form_embed_openforms': {
+        component: 'tide-open-form',
+        props: {
+          'formLink': ['field_form_link', 'uri']
+        }
       }
 
     }

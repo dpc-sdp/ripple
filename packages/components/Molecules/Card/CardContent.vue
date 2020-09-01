@@ -14,8 +14,8 @@
     :innerWrap="false"
     v-if="link"
   >
-    <div class="rpl-card-content__image-wrapper" v-if="image">
-      <img class="rpl-card-content__image" ref="image" :src="image" alt="" />
+    <div class="rpl-card-content__image-wrapper" v-if="computedImg">
+      <rpl-responsive-img class="rpl-card-content__image" v-bind="computedImg" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </div>
     <div class="rpl-card-content__details">
       <slot></slot>
@@ -30,10 +30,10 @@
 </template>
 
 <script>
-import objectFitImages from 'object-fit-images'
 import RplLink from '@dpc-sdp/ripple-link'
 import { RplTextIcon } from '@dpc-sdp/ripple-icon'
 import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
   name: 'RplCardContent',
@@ -42,18 +42,22 @@ export default {
       type: Object,
       required: true
     },
-    image: String,
+    image: [String, Object],
     border: { type: Boolean, default: true },
     center: { type: Boolean, default: false },
     type: { type: String, default: 'default' }
   },
   components: {
     RplLink,
-    RplTextIcon
+    RplTextIcon,
+    RplResponsiveImg
   },
   computed: {
     iconSymbol () {
       return isExternalUrl(this.link.url, this.rplOptions.hostname) ? 'external_link' : 'arrow_right_primary'
+    },
+    computedImg () {
+      return typeof this.image === 'string' ? { src: this.image } : this.image
     }
   },
   created () {
@@ -61,11 +65,6 @@ export default {
     // The reason we are not handle it here is we want the card container to handle it in UI, so user can see it.
     if (!this.link || typeof this.link.url === 'undefined') {
       throw new Error('Invalid link is provided to card component.')
-    }
-  },
-  mounted () {
-    if (this.image) {
-      objectFitImages(this.$refs['image'])
     }
   }
 }
@@ -115,6 +114,12 @@ export default {
   $rpl-card-content-inline-link-padding-xs: $rpl-space-3 0 $rpl-space-3 0 !default;
   $rpl-card-content-inline-link-padding-s: $rpl-space-3 0 $rpl-space-3 0 !default;
   $rpl-card-content-inline-link-padding-m: $rpl-space-3 0 0 0 !default;
+  $rpl-card-content-img-height: (
+    'xs': rem(300px),
+    'm': rem(200px),
+    'l': rem(232px),
+    'xl': rem(200px)
+  ) !default;
 
   .rpl-card-content {
     $root: &;
@@ -179,17 +184,12 @@ export default {
 
     &__image-wrapper {
       width: 100%;
-
       #{$root}--default &,
       #{$root}--simple & {
-        @include rpl_breakpoint('m') {
-          height: rem(200px);
-        }
-        @include rpl_breakpoint('l') {
-          height: rem(232px);
-        }
-        @include rpl_breakpoint('xl') {
-          height: rem(200px);
+        @each $bp, $height in $rpl-card-content-img-height {
+          @include rpl_breakpoint($bp) {
+            height: $height;
+          }
         }
       }
 
@@ -203,23 +203,17 @@ export default {
     }
 
     &__image {
-      @include object_fit_image(cover);
       width: 100%;
       display: table;
 
       #{$root}--default &,
       #{$root}--simple & {
-        @include rpl_breakpoint('m') {
-          height: rem(200px);
-        }
-        @include rpl_breakpoint('l') {
-          height: rem(232px);
-        }
-        @include rpl_breakpoint('xl') {
-          height: rem(200px);
+        @each $bp, $height in $rpl-card-content-img-height {
+          @include rpl_breakpoint($bp) {
+            height: $height;
+          }
         }
       }
-
       #{$root}--inline & {
         @include rpl_breakpoint('m') {
           border-radius: $rpl-card-content-border-radius;

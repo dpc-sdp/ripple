@@ -21,7 +21,7 @@ export default {
   name: 'RplCardEvent',
   mixins: [formatdate, cardtrimfield],
   props: {
-    image: String,
+    image: [String, Object],
     dateStart: String,
     dateEnd: String,
     location: String,

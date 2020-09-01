@@ -23,7 +23,15 @@ storiesOf('Organisms/CampaignSecondary', module)
         default: () => object('Call to action', { text: 'Call to action', url: '#' })
       },
       image: {
-        default: text('Image', 'http://placehold.it/699x411')
+        default: object('Link', {
+          src: 'https://placehold.it/580x340',
+          focalPoint: {
+            x: '290',
+            y: '170'
+          },
+          width: '580',
+          height: '340'
+        })
       },
       video: {
         default: () => object('Video', null)
@@ -44,7 +52,7 @@ storiesOf('Organisms/CampaignSecondary', module)
         default: () => object('Call to action', { text: 'Call to action', url: '#' })
       },
       image: {
-        default: text('Image', '')
+        default: object('Image', null)
       },
       video: {
         default: () => object('Video', { src: 'https://www.youtube.com/embed/bSlnfyGTiss', mediaLink: { text: 'View transcript', url: '#' } })

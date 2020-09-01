@@ -27,14 +27,16 @@ npm install @dpc-sdp/ripple-pagination --save
 ## Import
 
 ```js
-import RplPagination from '@dpc-sdp/ripple-pagination'
+import { RplPagination, RplPrevNext } from '@dpc-sdp/ripple-pagination'
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Molecules/Pagination/Default](https://ripple.sdp.vic.gov.au/?path=/story/molecules-pagination--default).
+See [Storybook/Molecules/Pagination/Pagination steps](https://ripple.sdp.vic.gov.au/?path=/story/molecules-pagination--pagination-steps).
+
+See [Storybook/Molecules/Pagination/Previous next page](https://ripple.sdp.vic.gov.au/?path=/story/molecules-pagination--previous-next-page).
 
 --------------------------------------------------------------------------------
 

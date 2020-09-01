@@ -12,7 +12,7 @@ exports[`RippleStoryshots Organisms/CallToAction Call to Action 1`] = `
     >
       <img
         alt=""
-        class="rpl-call-to-action__image"
+        class="rpl-responsive-image rpl-call-to-action__image"
         src="http://placehold.it/336x249"
       />
     </div>

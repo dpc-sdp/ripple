@@ -28,20 +28,23 @@ export default {
     RplIcon
   },
   computed: {
+    trimmedText: function () {
+      return this.text.trim()
+    },
     textWordCount: function () {
       return (this.text.match(/[.*]|[^ \r\n]+/gi) || []).length
     },
     textWithoutLastWord: function () {
-      return this.text.substr(0, this.text.lastIndexOf(' '))
+      return this.text.substr(0, this.trimmedText.lastIndexOf(' '))
     },
     textLastWord: function () {
-      return this.text.substr(this.text.lastIndexOf(' '))
+      return this.text.substr(this.trimmedText.lastIndexOf(' '))
     },
     textWithoutFirstWord: function () {
-      return this.text.substr(this.text.indexOf(' '))
+      return this.text.substr(this.trimmedText.indexOf(' '))
     },
     textFirstWord: function () {
-      return this.text.substr(0, this.text.indexOf(' '))
+      return this.text.substr(0, this.trimmedText.indexOf(' '))
     },
     iconProps: function () {
       return {
@@ -58,8 +61,8 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
 
-  $rpl-text-link-before-margin: auto $rpl-space-2 auto auto !default;
-  $rpl-text-link-after-margin: auto auto auto $rpl-space-2 !default;
+  $rpl-text-link-before-margin: auto $rpl-space auto auto !default;
+  $rpl-text-link-after-margin: auto auto auto $rpl-space !default;
 
   .rpl-text-icon {
     &__group {

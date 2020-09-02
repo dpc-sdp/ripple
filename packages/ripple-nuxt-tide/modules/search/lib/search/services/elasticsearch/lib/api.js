@@ -25,8 +25,13 @@ export default ({
     }
 
     if (sort) {
-      dsl.body = qB.setSort(dsl.body, sort)
+      if (sort instanceof Array) {
+        Array.from(sort).forEach((item) => { qB.setSort(dsl.body, item) })
+      } else {
+        dsl.body = qB.setSort(dsl.body, sort)
+      }
     }
+
     for (let inputField of filterFields) {
       // Only update the filter options if a selection hasn't already been made, otherwise the filter would need to be
       // cleared before another selection can be made.

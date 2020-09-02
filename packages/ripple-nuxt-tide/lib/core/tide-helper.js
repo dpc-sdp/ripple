@@ -127,7 +127,7 @@ export const getPageHeadConfig = ({
       { name: 'twitter:title', hid: 'twitter:title', content: title },
       { name: 'twitter:description', hid: 'twitter:description', content: description },
       { name: 'twitter:image', hid: 'twitter:image', content: imageTwitter },
-      { name: 'twitter:image:alt', hid: 'twitter:imagetwitter:alt', content: imageTwitterAlt },
+      { name: 'twitter:image:alt', hid: 'twitter:image:alt', content: imageTwitterAlt },
       // Custom page meta
       { name: 'sitesection', content: siteSectionName },
       { name: 'content-type', content: pageType && pageType.replace('node--', '') }

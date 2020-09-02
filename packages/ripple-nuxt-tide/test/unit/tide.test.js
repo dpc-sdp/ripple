@@ -149,6 +149,11 @@ describe('tide helpers', () => {
           hid: 'og:image',
           content: 'https://www.vic.gov.au/Melbourne-tram.jpg'
         },
+        {
+          name: 'og:image:alt',
+          hid: 'og:image:alt',
+          content: 'Demo: Melbourne tram'
+        },
         { name: 'twitter:card', hid: 'twitter:card', content: 'summary' },
         {
           name: 'twitter:site',
@@ -172,7 +177,7 @@ describe('tide helpers', () => {
         },
         {
           name: 'twitter:image:alt',
-          hid: 'hid:image:alt',
+          hid: 'twitter:image:alt',
           content: 'Demo: Melbourne tram'
         },
         { name: 'sitesection', content: '' },

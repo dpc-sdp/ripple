@@ -15,6 +15,10 @@
 <script>
 import RplIcon from './Icon.vue'
 
+/**
+ * Text Icon allows user to display text with an icon that can be placed before or after.
+ * This is commonly used in an anchor <a> tag where the icon helps represents the action of the text.
+ */
 export default {
   name: 'RplTextIcon',
   props: {

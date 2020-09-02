@@ -101,6 +101,8 @@ export const getPageHeadConfig = ({
   url,
   image,
   imageAlt,
+  imageTwitter,
+  imageTwitterAlt,
   siteSectionName = '',
   pageType,
   robotsMeta
@@ -118,13 +120,14 @@ export const getPageHeadConfig = ({
       { name: 'og:type', hid: 'og:type', content: 'website' },
       { name: 'og:url', hid: 'og:url', content: url },
       { name: 'og:image', hid: 'og:image', content: image },
+      { name: 'og:image:alt', hid: 'og:image:alt', content: imageAlt },
       // Twitter Card
       { name: 'twitter:card', hid: 'twitter:card', content: 'summary' },
       { name: 'twitter:site', hid: 'twitter:site', content: url },
       { name: 'twitter:title', hid: 'twitter:title', content: title },
       { name: 'twitter:description', hid: 'twitter:description', content: description },
-      { name: 'twitter:image', hid: 'twitter:image', content: image },
-      { name: 'twitter:image:alt', hid: 'hid:image:alt', content: imageAlt },
+      { name: 'twitter:image', hid: 'twitter:image', content: imageTwitter },
+      { name: 'twitter:image:alt', hid: 'twitter:imagetwitter:alt', content: imageTwitterAlt },
       // Custom page meta
       { name: 'sitesection', content: siteSectionName },
       { name: 'content-type', content: pageType && pageType.replace('node--', '') }

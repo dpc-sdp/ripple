@@ -40,11 +40,17 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         <h2
           class="rpl-footer-nav__heading"
         >
-          <rpl-link
+          <a
+            class="rpl-link"
+            data-print-url="#"
             href="#"
           >
-            Your Services
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Your Services
+            </span>
+          </a>
            
           <!---->
         </h2>
@@ -54,81 +60,147 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
           style=""
         >
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Grants awards and assistance
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Grants awards and assistance
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Law and safety
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Law and safety
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Business and Industry
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Business and Industry
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Jobs and the Workplace
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Jobs and the Workplace
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Transport and Traffic
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Transport and Traffic
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Education
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Education
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Housing and Property
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Housing and Property
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Health
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Health
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Community
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Community
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Art, Culture and Sport
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Art, Culture and Sport
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Environment and Water
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Environment and Water
+              </span>
+            </a>
           </li>
         </ul>
       </li>
@@ -138,11 +210,17 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         <h2
           class="rpl-footer-nav__heading"
         >
-          <rpl-link
+          <a
+            class="rpl-link"
+            data-print-url="#"
             href="#"
           >
-            About VIC Government
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              About VIC Government
+            </span>
+          </a>
            
           <!---->
         </h2>
@@ -152,81 +230,147 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
           style=""
         >
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Grants awards and assistance
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Grants awards and assistance
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Law and safety
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Law and safety
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Business and Industry
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Business and Industry
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Jobs and the Workplace
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Jobs and the Workplace
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Transport and Traffic
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Transport and Traffic
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Education
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Education
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Housing and Property
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Housing and Property
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Health
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Health
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Community
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Community
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Art, Culture and Sport
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Art, Culture and Sport
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Environment and Water
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Environment and Water
+              </span>
+            </a>
           </li>
         </ul>
       </li>
@@ -236,11 +380,17 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         <h2
           class="rpl-footer-nav__heading"
         >
-          <rpl-link
+          <a
+            class="rpl-link"
+            data-print-url="#"
             href="#"
           >
-            News
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              News
+            </span>
+          </a>
            
           <!---->
         </h2>
@@ -253,11 +403,17 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         <h2
           class="rpl-footer-nav__heading"
         >
-          <rpl-link
+          <a
+            class="rpl-link"
+            data-print-url="#"
             href="#"
           >
-            Events
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Events
+            </span>
+          </a>
            
           <!---->
         </h2>
@@ -270,11 +426,17 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
         <h2
           class="rpl-footer-nav__heading"
         >
-          <rpl-link
+          <a
+            class="rpl-link"
+            data-print-url="#"
             href="#"
           >
-            Connect with us
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Connect with us
+            </span>
+          </a>
            
           <!---->
         </h2>
@@ -284,25 +446,43 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
           style=""
         >
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Education
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Education
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Housing and Property
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Housing and Property
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Health
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Health
+              </span>
+            </a>
           </li>
         </ul>
       </li>
@@ -350,46 +530,82 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
           class="rpl-links-and-copyright__links"
         >
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Privacy
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Privacy
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Disclaimer
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Disclaimer
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Terms of use
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Terms of use
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Sitemap
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Sitemap
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Accessibility Statement
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Accessibility Statement
+              </span>
+            </a>
           </li>
           <li>
-            <rpl-link
+            <a
+              class="rpl-link"
+              data-print-url="#"
               href="#"
             >
-              Help
-            </rpl-link>
+              <span
+                class="rpl-link__inner"
+              >
+                Help
+              </span>
+            </a>
           </li>
         </ul>
          
@@ -404,51 +620,76 @@ exports[`RippleStoryshots Organisms/SiteFooter Site footer 1`] = `
     <div
       class="rpl-site-footer__logos"
     >
-      <rpl-link
-        class="rpl-site-footer__logo"
+      <a
+        class="rpl-link rpl-site-footer__logo"
+        data-print-url="#"
         href="#"
       >
-        <img
-          alt="Max native size"
-          src="https://placehold.it/112x52"
-        />
-      </rpl-link>
-      <rpl-link
-        class="rpl-site-footer__logo"
+        <span
+          class="rpl-link__inner"
+        >
+          <img
+            alt="Max native size"
+            src="https://placehold.it/112x52"
+          />
+        </span>
+      </a>
+      <a
+        class="rpl-link rpl-site-footer__logo"
+        data-print-url="#"
         href="#"
       >
-        <img
-          alt="Smaller than max size"
-          src="https://placehold.it/32x32"
-        />
-      </rpl-link>
-      <rpl-link
-        class="rpl-site-footer__logo"
+        <span
+          class="rpl-link__inner"
+        >
+          <img
+            alt="Smaller than max size"
+            src="https://placehold.it/32x32"
+          />
+        </span>
+      </a>
+      <a
+        class="rpl-link rpl-site-footer__logo"
+        data-print-url="#"
         href="#"
       >
-        <img
-          alt="Portrait"
-          src="https://placehold.it/80x200"
-        />
-      </rpl-link>
-      <rpl-link
-        class="rpl-site-footer__logo"
+        <span
+          class="rpl-link__inner"
+        >
+          <img
+            alt="Portrait"
+            src="https://placehold.it/80x200"
+          />
+        </span>
+      </a>
+      <a
+        class="rpl-link rpl-site-footer__logo"
+        data-print-url="#"
         href="#"
       >
-        <img
-          alt="Landscape"
-          src="https://placehold.it/200x80"
-        />
-      </rpl-link>
-      <rpl-link
-        class="rpl-site-footer__logo"
+        <span
+          class="rpl-link__inner"
+        >
+          <img
+            alt="Landscape"
+            src="https://placehold.it/200x80"
+          />
+        </span>
+      </a>
+      <a
+        class="rpl-link rpl-site-footer__logo"
+        data-print-url="https://vic.gov.au"
         href="https://vic.gov.au"
       >
-        <img
-          alt="Victoria – logo – Victoria Government - home"
-          src="file-stub"
-        />
-      </rpl-link>
+        <span
+          class="rpl-link__inner"
+        >
+          <img
+            alt="Victoria – logo – Victoria Government - home"
+            src="file-stub"
+          />
+        </span>
+      </a>
     </div>
   </div>
 </div>

@@ -15,26 +15,30 @@ exports[`RippleStoryshots Atoms/Link Link 1`] = `
 `;
 
 exports[`RippleStoryshots Atoms/Link Text Link 1`] = `
-<rpl-link
-  class="rpl-text-link"
+<a
+  class="rpl-link rpl-text-link"
+  data-print-url="#"
   href="#"
-  innerwrap="true"
 >
   <span
-    class="rpl-text-label rpl-text-label--small"
+    class="rpl-link__inner"
   >
-    <span>
+    <span
+      class="rpl-text-label rpl-text-label--small"
+    >
       <span>
-        Text
-      </span>
-       
-      <span
-        class="rpl-text-icon__group"
-      >
-         Link
-        <!---->
+        <span>
+          Text
+        </span>
+         
+        <span
+          class="rpl-text-icon__group"
+        >
+           Link
+          <!---->
+        </span>
       </span>
     </span>
   </span>
-</rpl-link>
+</a>
 `;

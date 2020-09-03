@@ -4,15 +4,20 @@ exports[`RippleStoryshots Atoms/MetaTag Meta Tag 1`] = `
 <div
   class="rpl-meta-tag rpl-meta-tag--light"
 >
-  <rpl-link
-    class="rpl-meta-tag__link"
+  <a
+    class="rpl-link rpl-meta-tag__link"
+    data-print-url="#"
     href="#"
   >
     <span
-      class="rpl-meta-tag__text"
+      class="rpl-link__inner"
     >
-      Metatag
+      <span
+        class="rpl-meta-tag__text"
+      >
+        Metatag
+      </span>
     </span>
-  </rpl-link>
+  </a>
 </div>
 `;

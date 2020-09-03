@@ -23,79 +23,95 @@ exports[`RippleStoryshots Molecules/RelatedLinks Default 1`] = `
       <li
         class="rpl-related-links__item"
       >
-        <rpl-link
-          class="rpl-text-link rpl-text-link--underline"
+        <a
+          class="rpl-link rpl-text-link rpl-text-link--underline"
+          data-print-url="http://www.google.com"
           href="http://www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+            class="rpl-link__inner"
           >
-            <span>
+            <span
+              class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+            >
               <span>
-                Link to external
+                <span>
+                  Link to external
+                </span>
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                   content
+                  <!---->
+                </span>
               </span>
-               
-              <span
-                class="rpl-text-icon__group"
-              >
-                 content
-                <!---->
+            </span>
+          </span>
+        </a>
+      </li>
+      <li
+        class="rpl-related-links__item"
+      >
+        <a
+          class="rpl-link rpl-text-link rpl-text-link--underline"
+          data-print-url="#"
+          href="#"
+        >
+          <span
+            class="rpl-link__inner"
+          >
+            <span
+              class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+            >
+              <span>
+                Second link it goes right here
               </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </li>
       <li
         class="rpl-related-links__item"
       >
-        <rpl-link
-          class="rpl-text-link rpl-text-link--underline"
+        <a
+          class="rpl-link rpl-text-link rpl-text-link--underline"
+          data-print-url="#"
           href="#"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+            class="rpl-link__inner"
           >
-            <span>
-              Second link it goes right here
+            <span
+              class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+            >
+              <span>
+                Third link to extra content
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </li>
       <li
         class="rpl-related-links__item"
       >
-        <rpl-link
-          class="rpl-text-link rpl-text-link--underline"
+        <a
+          class="rpl-link rpl-text-link rpl-text-link--underline"
+          data-print-url="#"
           href="#"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+            class="rpl-link__inner"
           >
-            <span>
-              Third link to extra content
+            <span
+              class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+            >
+              <span>
+                This is a long link to extra content
+              </span>
             </span>
           </span>
-        </rpl-link>
-      </li>
-      <li
-        class="rpl-related-links__item"
-      >
-        <rpl-link
-          class="rpl-text-link rpl-text-link--underline"
-          href="#"
-          innerwrap="true"
-        >
-          <span
-            class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
-          >
-            <span>
-              This is a long link to extra content
-            </span>
-          </span>
-        </rpl-link>
+        </a>
       </li>
     </ul>
   </div>

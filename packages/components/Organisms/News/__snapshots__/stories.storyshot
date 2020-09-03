@@ -7,8 +7,9 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
   <li
     class="rpl-featured-news-list__item"
   >
-    <rpl-link
-      class="rpl-card-navigation-featured"
+    <a
+      class="rpl-link rpl-card-navigation-featured"
+      data-print-url="#"
       href="#"
     >
       <div
@@ -56,13 +57,14 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       </p>
        
       <!---->
-    </rpl-link>
+    </a>
   </li>
   <li
     class="rpl-featured-news-list__item"
   >
-    <rpl-link
-      class="rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
+    <a
+      class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
+      data-print-url="#"
       href="#"
     >
       <div
@@ -129,13 +131,14 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       </div>
        
       <!---->
-    </rpl-link>
+    </a>
   </li>
   <li
     class="rpl-featured-news-list__item"
   >
-    <rpl-link
-      class="rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
+    <a
+      class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
+      data-print-url="#"
       href="#"
     >
       <div
@@ -202,7 +205,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       </div>
        
       <!---->
-    </rpl-link>
+    </a>
   </li>
 </ul>
 `;
@@ -239,28 +242,32 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         <h3
           class="rpl-news-listing__item-heading"
         >
-          <rpl-link
-            class="rpl-text-link"
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
             href="#"
-            innerwrap="true"
           >
             <span
-              class="rpl-text-label"
+              class="rpl-link__inner"
             >
-              <span>
+              <span
+                class="rpl-text-label"
+              >
                 <span>
-                  Australian Indigenous Tourism
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   Conference
-                  <!---->
+                  <span>
+                    Australian Indigenous Tourism
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Conference
+                    <!---->
+                  </span>
                 </span>
               </span>
             </span>
-          </rpl-link>
+          </a>
         </h3>
       </div>
     </li>
@@ -283,28 +290,32 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         <h3
           class="rpl-news-listing__item-heading"
         >
-          <rpl-link
-            class="rpl-text-link"
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
             href="#"
-            innerwrap="true"
           >
             <span
-              class="rpl-text-label"
+              class="rpl-link__inner"
             >
-              <span>
+              <span
+                class="rpl-text-label"
+              >
                 <span>
-                  Respect Women: Call it
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   Out
-                  <!---->
+                  <span>
+                    Respect Women: Call it
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Out
+                    <!---->
+                  </span>
                 </span>
               </span>
             </span>
-          </rpl-link>
+          </a>
         </h3>
       </div>
     </li>
@@ -327,28 +338,32 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         <h3
           class="rpl-news-listing__item-heading"
         >
-          <rpl-link
-            class="rpl-text-link"
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
             href="#"
-            innerwrap="true"
           >
             <span
-              class="rpl-text-label"
+              class="rpl-link__inner"
             >
-              <span>
+              <span
+                class="rpl-text-label"
+              >
                 <span>
-                  NGV
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   Triennial
-                  <!---->
+                  <span>
+                    NGV
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Triennial
+                    <!---->
+                  </span>
                 </span>
               </span>
             </span>
-          </rpl-link>
+          </a>
         </h3>
       </div>
     </li>
@@ -371,28 +386,32 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         <h3
           class="rpl-news-listing__item-heading"
         >
-          <rpl-link
-            class="rpl-text-link"
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
             href="#"
-            innerwrap="true"
           >
             <span
-              class="rpl-text-label"
+              class="rpl-link__inner"
             >
-              <span>
+              <span
+                class="rpl-text-label"
+              >
                 <span>
-                  The World Games Facilities
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   Fund
-                  <!---->
+                  <span>
+                    The World Games Facilities
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Fund
+                    <!---->
+                  </span>
                 </span>
               </span>
             </span>
-          </rpl-link>
+          </a>
         </h3>
       </div>
     </li>
@@ -415,28 +434,32 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         <h3
           class="rpl-news-listing__item-heading"
         >
-          <rpl-link
-            class="rpl-text-link"
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
             href="#"
-            innerwrap="true"
           >
             <span
-              class="rpl-text-label"
+              class="rpl-link__inner"
             >
-              <span>
+              <span
+                class="rpl-text-label"
+              >
                 <span>
-                  Access to Justice
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   Review
-                  <!---->
+                  <span>
+                    Access to Justice
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Review
+                    <!---->
+                  </span>
                 </span>
               </span>
             </span>
-          </rpl-link>
+          </a>
         </h3>
       </div>
     </li>
@@ -459,28 +482,32 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
         <h3
           class="rpl-news-listing__item-heading"
         >
-          <rpl-link
-            class="rpl-text-link"
+          <a
+            class="rpl-link rpl-text-link"
+            data-print-url="#"
             href="#"
-            innerwrap="true"
           >
             <span
-              class="rpl-text-label"
+              class="rpl-link__inner"
             >
-              <span>
+              <span
+                class="rpl-text-label"
+              >
                 <span>
-                  New Bendigo Refuge for Families Escaping Family
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   Violence
-                  <!---->
+                  <span>
+                    New Bendigo Refuge for Families Escaping Family
+                  </span>
+                   
+                  <span
+                    class="rpl-text-icon__group"
+                  >
+                     Violence
+                    <!---->
+                  </span>
                 </span>
               </span>
             </span>
-          </rpl-link>
+          </a>
         </h3>
       </div>
     </li>

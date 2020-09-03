@@ -38,7 +38,7 @@ storiesOf('Molecules/Layout', module)
     template: `
       <rpl-page-layout>
         <template slot="aboveContent">{{ aboveContentSlot }}</template>
-        <p>{{ contentSlot }}t</p>
+        <p>{{ contentSlot }}</p>
         <template slot="belowContent">{{ belowContentSlot }}</template>
       </rpl-page-layout>
     `,

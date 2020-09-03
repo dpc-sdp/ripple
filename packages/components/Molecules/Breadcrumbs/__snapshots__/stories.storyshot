@@ -16,22 +16,32 @@ exports[`RippleStoryshots Molecules/Breadcrumbs Breadcrumbs 1`] = `
         <li
           class="rpl-breadcrumbs__item"
         >
-          <rpl-link
-            class="rpl-breadcrumbs__link"
+          <a
+            class="rpl-link rpl-breadcrumbs__link"
+            data-print-url="#"
             href="#"
           >
-            Home
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Home
+            </span>
+          </a>
         </li>
         <li
           class="rpl-breadcrumbs__item"
         >
-          <rpl-link
-            class="rpl-breadcrumbs__link"
+          <a
+            class="rpl-link rpl-breadcrumbs__link"
+            data-print-url="#"
             href="#"
           >
-            Level 1 page title
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Level 1 page title
+            </span>
+          </a>
         </li>
         <li
           class="rpl-breadcrumbs__item"

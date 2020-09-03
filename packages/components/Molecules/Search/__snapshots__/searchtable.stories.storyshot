@@ -42,19 +42,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Custom Component 1
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              test
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                test
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -232,19 +236,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Transport (Compliance and Miscellaneous) Act 1983
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Transport (Compliance and Miscellaneous) Act 1983
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -295,19 +303,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Crimes Act 1958
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Crimes Act 1958
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -358,19 +370,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Disability Act 2006
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Disability Act 2006
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -421,19 +437,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Neque porro quisquam est Act 1975
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Neque porro quisquam est Act 1975
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -484,19 +504,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Ut enim ad minim veniam quis nostrud Act 1987
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Ut enim ad minim veniam quis nostrud Act 1987
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -547,19 +571,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Lorem ipsum dolor sit amet Act 2001
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Lorem ipsum dolor sit amet Act 2001
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -610,19 +638,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Neque porro quisquam est Act 1975
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Neque porro quisquam est Act 1975
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -673,19 +705,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Ut enim ad minim veniam quis nostrud Act 1987
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Ut enim ad minim veniam quis nostrud Act 1987
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -736,19 +772,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Lorem ipsum dolor sit amet Act 2001
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Lorem ipsum dolor sit amet Act 2001
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -799,19 +839,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Neque porro quisquam est Act 1975
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Neque porro quisquam est Act 1975
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -862,19 +906,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Ut enim ad minim veniam quis nostrud Act 1987
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Ut enim ad minim veniam quis nostrud Act 1987
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -925,19 +973,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Lorem ipsum dolor sit amet Act 2001
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Lorem ipsum dolor sit amet Act 2001
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -988,19 +1040,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Neque porro quisquam est Act 1975
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Neque porro quisquam est Act 1975
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -1051,19 +1107,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Ut enim ad minim veniam quis nostrud Act 1987
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Ut enim ad minim veniam quis nostrud Act 1987
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -1114,19 +1174,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Lorem ipsum dolor sit amet Act 2001
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Lorem ipsum dolor sit amet Act 2001
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -1177,19 +1241,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Ut enim ad minim veniam quis nostrud Act 1987
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Ut enim ad minim veniam quis nostrud Act 1987
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -1240,19 +1308,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Lorem ipsum dolor sit amet Act 2001
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Lorem ipsum dolor sit amet Act 2001
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -1303,19 +1375,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Neque porro quisquam est Act 1975
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Neque porro quisquam est Act 1975
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -1366,19 +1442,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Ut enim ad minim veniam quis nostrud Act 1987
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Ut enim ad minim veniam quis nostrud Act 1987
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""
@@ -1429,19 +1509,23 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsTable Legislation Exampl
           Title
         </span>
          
-        <rpl-link
-          class="rpl-text-link rpl-search-results-table__value"
+        <a
+          class="rpl-link rpl-text-link rpl-search-results-table__value"
+          data-print-url="www.google.com"
           href="www.google.com"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              Lorem ipsum dolor sit amet Act 2001
+            <span
+              class="rpl-text-label"
+            >
+              <span>
+                Lorem ipsum dolor sit amet Act 2001
+              </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
       </td>
       <td
         class=""

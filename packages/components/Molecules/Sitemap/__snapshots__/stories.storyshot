@@ -16,12 +16,17 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
     <li
       class="rpl-sitemap-menu__list-item"
     >
-      <rpl-link
-        class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+      <a
+        class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+        data-print-url="#"
         href="#"
       >
-        Your services
-      </rpl-link>
+        <span
+          class="rpl-link__inner"
+        >
+          Your services
+        </span>
+      </a>
        
       <ul
         class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-1"
@@ -29,24 +34,34 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
         <li
           class="rpl-sitemap-menu__list-item"
         >
-          <rpl-link
-            class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+          <a
+            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+            data-print-url="#"
             href="#"
           >
-            Sub child A
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Sub child A
+            </span>
+          </a>
            
           <!---->
         </li>
         <li
           class="rpl-sitemap-menu__list-item"
         >
-          <rpl-link
-            class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+          <a
+            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+            data-print-url="#"
             href="#"
           >
-            Sub child B
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Sub child B
+            </span>
+          </a>
            
           <ul
             class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-2"
@@ -54,36 +69,51 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child I
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child I
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child II
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child II
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child III
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child III
+                </span>
+              </a>
                
               <!---->
             </li>
@@ -92,12 +122,17 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
         <li
           class="rpl-sitemap-menu__list-item"
         >
-          <rpl-link
-            class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+          <a
+            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+            data-print-url="#"
             href="#"
           >
-            Test Path 2
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Test Path 2
+            </span>
+          </a>
            
           <ul
             class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-2"
@@ -105,24 +140,34 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child IV
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child IV
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Test Path 3
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Test Path 3
+                </span>
+              </a>
                
               <ul
                 class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-3"
@@ -130,36 +175,51 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
                 <li
                   class="rpl-sitemap-menu__list-item"
                 >
-                  <rpl-link
-                    class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-3"
+                  <a
+                    class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-3"
+                    data-print-url="#"
                     href="#"
                   >
-                    Sub child X
-                  </rpl-link>
+                    <span
+                      class="rpl-link__inner"
+                    >
+                      Sub child X
+                    </span>
+                  </a>
                    
                   <!---->
                 </li>
                 <li
                   class="rpl-sitemap-menu__list-item"
                 >
-                  <rpl-link
-                    class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-3"
+                  <a
+                    class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-3"
+                    data-print-url="#"
                     href="#"
                   >
-                    Sub child Y
-                  </rpl-link>
+                    <span
+                      class="rpl-link__inner"
+                    >
+                      Sub child Y
+                    </span>
+                  </a>
                    
                   <!---->
                 </li>
                 <li
                   class="rpl-sitemap-menu__list-item"
                 >
-                  <rpl-link
-                    class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-3"
+                  <a
+                    class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-3"
+                    data-print-url="#"
                     href="#"
                   >
-                    Sub child Z
-                  </rpl-link>
+                    <span
+                      class="rpl-link__inner"
+                    >
+                      Sub child Z
+                    </span>
+                  </a>
                    
                   <!---->
                 </li>
@@ -168,336 +228,476 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child VI
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child VI
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child VII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child VII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child VIII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child VIII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child IX
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child IX
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child X
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child X
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child XI
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child XI
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child XII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child XII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child XIII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child XIII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child IV
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child IV
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child V
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child V
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child VI
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child VI
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child VII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child VII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child VIII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child VIII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child IX
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child IX
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child X
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child X
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child XI
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child XI
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child XII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child XII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child XIII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child XIII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child IV
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child IV
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child V
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child V
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child VI
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child VI
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child VII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child VII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child VIII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child VIII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child IX
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child IX
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child X
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child X
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child XI
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child XI
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child XII
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child XII
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child Last
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child Last
+                </span>
+              </a>
                
               <!---->
             </li>
@@ -508,24 +708,34 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
     <li
       class="rpl-sitemap-menu__list-item"
     >
-      <rpl-link
-        class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+      <a
+        class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+        data-print-url="#"
         href="#"
       >
-        About VIC Government
-      </rpl-link>
+        <span
+          class="rpl-link__inner"
+        >
+          About VIC Government
+        </span>
+      </a>
        
       <!---->
     </li>
     <li
       class="rpl-sitemap-menu__list-item"
     >
-      <rpl-link
-        class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+      <a
+        class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+        data-print-url="#"
         href="#"
       >
-        News
-      </rpl-link>
+        <span
+          class="rpl-link__inner"
+        >
+          News
+        </span>
+      </a>
        
       <ul
         class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-1"
@@ -533,12 +743,17 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
         <li
           class="rpl-sitemap-menu__list-item"
         >
-          <rpl-link
-            class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+          <a
+            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+            data-print-url="#"
             href="#"
           >
-            Sub child 2
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Sub child 2
+            </span>
+          </a>
            
           <ul
             class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-2"
@@ -546,36 +761,51 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child 3
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child 3
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child 4
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child 4
+                </span>
+              </a>
                
               <!---->
             </li>
             <li
               class="rpl-sitemap-menu__list-item"
             >
-              <rpl-link
-                class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+              <a
+                class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-2"
+                data-print-url="#"
                 href="#"
               >
-                Sub child 5
-              </rpl-link>
+                <span
+                  class="rpl-link__inner"
+                >
+                  Sub child 5
+                </span>
+              </a>
                
               <!---->
             </li>
@@ -586,12 +816,17 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
     <li
       class="rpl-sitemap-menu__list-item"
     >
-      <rpl-link
-        class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+      <a
+        class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+        data-print-url="#"
         href="#"
       >
-        Events
-      </rpl-link>
+        <span
+          class="rpl-link__inner"
+        >
+          Events
+        </span>
+      </a>
        
       <ul
         class="rpl-sitemap-menu__list rpl-sitemap-menu__list--depth-1"
@@ -599,36 +834,51 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
         <li
           class="rpl-sitemap-menu__list-item"
         >
-          <rpl-link
-            class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+          <a
+            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+            data-print-url="#"
             href="#"
           >
-            Sub child 3
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Sub child 3
+            </span>
+          </a>
            
           <!---->
         </li>
         <li
           class="rpl-sitemap-menu__list-item"
         >
-          <rpl-link
-            class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+          <a
+            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+            data-print-url="#"
             href="#"
           >
-            Sub child 4
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Sub child 4
+            </span>
+          </a>
            
           <!---->
         </li>
         <li
           class="rpl-sitemap-menu__list-item"
         >
-          <rpl-link
-            class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+          <a
+            class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-1"
+            data-print-url="#"
             href="#"
           >
-            Sub child 5
-          </rpl-link>
+            <span
+              class="rpl-link__inner"
+            >
+              Sub child 5
+            </span>
+          </a>
            
           <!---->
         </li>
@@ -637,12 +887,17 @@ exports[`RippleStoryshots Molecules/Sitemap Default 1`] = `
     <li
       class="rpl-sitemap-menu__list-item"
     >
-      <rpl-link
-        class="rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+      <a
+        class="rpl-link rpl-sitemap-menu__link rpl-sitemap-menu__link--depth-0"
+        data-print-url="#"
         href="#"
       >
-        Connect with us
-      </rpl-link>
+        <span
+          class="rpl-link__inner"
+        >
+          Connect with us
+        </span>
+      </a>
        
       <!---->
     </li>

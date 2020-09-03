@@ -73,8 +73,9 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <rpl-link
-        class="rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+      <a
+        class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+        data-print-url="#"
         date="2018-07-10T09:00:00.000+10:00"
         href="#"
       >
@@ -131,15 +132,16 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             </span>
           </span>
         </div>
-      </rpl-link>
+      </a>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <rpl-link
-        class="rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+      <a
+        class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+        data-print-url="#"
         date="2018-07-10T09:00:00.000+10:00"
         href="#"
       >
@@ -196,15 +198,16 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             </span>
           </span>
         </div>
-      </rpl-link>
+      </a>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <rpl-link
-        class="rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+      <a
+        class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+        data-print-url="#"
         date="2018-07-10T09:00:00.000+10:00"
         href="#"
       >
@@ -257,15 +260,16 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             </span>
           </span>
         </div>
-      </rpl-link>
+      </a>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <rpl-link
-        class="rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+      <a
+        class="rpl-link rpl-card-content rpl-card-event rpl-search-results__item rpl-component-gutter rpl-card-content--default rpl-card-content--has-link-text rpl-search-results__item--event"
+        data-print-url="#"
         date="2018-07-10T09:00:00.000+10:00"
         href="#"
       >
@@ -322,7 +326,7 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
             </span>
           </span>
         </div>
-      </rpl-link>
+      </a>
        
       <!---->
     </div>
@@ -519,19 +523,23 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <h2
               class="rpl-list__title"
             >
-              <rpl-link
-                class="rpl-text-link rpl-list__title-inner"
+              <a
+                class="rpl-link rpl-text-link rpl-list__title-inner"
+                data-print-url="#"
                 href="#"
-                innerwrap="true"
               >
                 <span
-                  class="rpl-text-label"
+                  class="rpl-link__inner"
                 >
-                  <span>
-                    Program Overview
+                  <span
+                    class="rpl-text-label"
+                  >
+                    <span>
+                      Program Overview
+                    </span>
                   </span>
                 </span>
-              </rpl-link>
+              </a>
             </h2>
               
             <div
@@ -611,16 +619,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
           <li
@@ -629,16 +642,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
         </ul>
@@ -661,19 +679,23 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <h2
               class="rpl-list__title"
             >
-              <rpl-link
-                class="rpl-text-link rpl-list__title-inner"
+              <a
+                class="rpl-link rpl-text-link rpl-list__title-inner"
+                data-print-url="#"
                 href="#"
-                innerwrap="true"
               >
                 <span
-                  class="rpl-text-label"
+                  class="rpl-link__inner"
                 >
-                  <span>
-                    Program Overview
+                  <span
+                    class="rpl-text-label"
+                  >
+                    <span>
+                      Program Overview
+                    </span>
                   </span>
                 </span>
-              </rpl-link>
+              </a>
             </h2>
               
             <div
@@ -753,16 +775,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
           <li
@@ -771,16 +798,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
         </ul>
@@ -803,19 +835,23 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <h2
               class="rpl-list__title"
             >
-              <rpl-link
-                class="rpl-text-link rpl-list__title-inner"
+              <a
+                class="rpl-link rpl-text-link rpl-list__title-inner"
+                data-print-url="#"
                 href="#"
-                innerwrap="true"
               >
                 <span
-                  class="rpl-text-label"
+                  class="rpl-link__inner"
                 >
-                  <span>
-                    Program Overview
+                  <span
+                    class="rpl-text-label"
+                  >
+                    <span>
+                      Program Overview
+                    </span>
                   </span>
                 </span>
-              </rpl-link>
+              </a>
             </h2>
               
             <div
@@ -895,16 +931,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
           <li
@@ -913,16 +954,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
         </ul>
@@ -945,19 +991,23 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <h2
               class="rpl-list__title"
             >
-              <rpl-link
-                class="rpl-text-link rpl-list__title-inner"
+              <a
+                class="rpl-link rpl-text-link rpl-list__title-inner"
+                data-print-url="#"
                 href="#"
-                innerwrap="true"
               >
                 <span
-                  class="rpl-text-label"
+                  class="rpl-link__inner"
                 >
-                  <span>
-                    Program Overview
+                  <span
+                    class="rpl-text-label"
+                  >
+                    <span>
+                      Program Overview
+                    </span>
                   </span>
                 </span>
-              </rpl-link>
+              </a>
             </h2>
               
             <div
@@ -1037,16 +1087,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
           <li
@@ -1055,16 +1110,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
         </ul>
@@ -1238,22 +1298,33 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Result 1
 <div
   class="rpl-search-result"
 >
-  <rpl-link
+  <a
+    class="rpl-link"
+    data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
     href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
   >
-    <h2
-      class="rpl-search-result__heading"
+    <span
+      class="rpl-link__inner"
     >
-      Schools private policy
-    </h2>
-  </rpl-link>
+      <h2
+        class="rpl-search-result__heading"
+      >
+        Schools private policy
+      </h2>
+    </span>
+  </a>
    
-  <rpl-link
-    class="rpl-search-result__link"
+  <a
+    class="rpl-link rpl-search-result__link"
+    data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
     href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
   >
-    www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-  </rpl-link>
+    <span
+      class="rpl-link__inner"
+    >
+      www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+    </span>
+  </a>
    
   <p
     class="rpl-search-result__date-description"
@@ -1278,16 +1349,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Result 1
       <div
         class="rpl-meta-tag rpl-meta-tag--light"
       >
-        <rpl-link
-          class="rpl-meta-tag__link"
+        <a
+          class="rpl-link rpl-meta-tag__link"
+          data-print-url="#"
           href="#"
         >
           <span
-            class="rpl-meta-tag__text"
+            class="rpl-link__inner"
           >
-            This is a content tag
+            <span
+              class="rpl-meta-tag__text"
+            >
+              This is a content tag
+            </span>
           </span>
-        </rpl-link>
+        </a>
       </div>
     </li>
     <li
@@ -1296,16 +1372,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Result 1
       <div
         class="rpl-meta-tag rpl-meta-tag--light"
       >
-        <rpl-link
-          class="rpl-meta-tag__link"
+        <a
+          class="rpl-link rpl-meta-tag__link"
+          data-print-url="#"
           href="#"
         >
           <span
-            class="rpl-meta-tag__text"
+            class="rpl-link__inner"
           >
-            This is a content tag
+            <span
+              class="rpl-meta-tag__text"
+            >
+              This is a content tag
+            </span>
           </span>
-        </rpl-link>
+        </a>
       </div>
     </li>
   </ul>
@@ -1333,22 +1414,33 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
       <div
         class="rpl-search-result rpl-search-results__item rpl-component-gutter"
       >
-        <rpl-link
+        <a
+          class="rpl-link"
+          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <h2
-            class="rpl-search-result__heading"
+          <span
+            class="rpl-link__inner"
           >
-            Schools private policy
-          </h2>
-        </rpl-link>
+            <h2
+              class="rpl-search-result__heading"
+            >
+              Schools private policy
+            </h2>
+          </span>
+        </a>
          
-        <rpl-link
-          class="rpl-search-result__link"
+        <a
+          class="rpl-link rpl-search-result__link"
+          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-        </rpl-link>
+          <span
+            class="rpl-link__inner"
+          >
+            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+          </span>
+        </a>
          
         <p
           class="rpl-search-result__date-description"
@@ -1373,16 +1465,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
           <li
@@ -1391,16 +1488,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
         </ul>
@@ -1414,22 +1516,33 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
       <div
         class="rpl-search-result rpl-search-results__item rpl-component-gutter"
       >
-        <rpl-link
+        <a
+          class="rpl-link"
+          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <h2
-            class="rpl-search-result__heading"
+          <span
+            class="rpl-link__inner"
           >
-            Schools private policy
-          </h2>
-        </rpl-link>
+            <h2
+              class="rpl-search-result__heading"
+            >
+              Schools private policy
+            </h2>
+          </span>
+        </a>
          
-        <rpl-link
-          class="rpl-search-result__link"
+        <a
+          class="rpl-link rpl-search-result__link"
+          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-        </rpl-link>
+          <span
+            class="rpl-link__inner"
+          >
+            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+          </span>
+        </a>
          
         <p
           class="rpl-search-result__date-description"
@@ -1454,16 +1567,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
           <li
@@ -1472,16 +1590,21 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <rpl-link
-                class="rpl-meta-tag__link"
+              <a
+                class="rpl-link rpl-meta-tag__link"
+                data-print-url="#"
                 href="#"
               >
                 <span
-                  class="rpl-meta-tag__text"
+                  class="rpl-link__inner"
                 >
-                  This is a content tag
+                  <span
+                    class="rpl-meta-tag__text"
+                  >
+                    This is a content tag
+                  </span>
                 </span>
-              </rpl-link>
+              </a>
             </div>
           </li>
         </ul>

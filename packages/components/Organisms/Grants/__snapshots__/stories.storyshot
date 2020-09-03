@@ -128,37 +128,46 @@ exports[`RippleStoryshots Organisms/Grants Default 1`] = `
           text
         </strong>
          with a 
-        <rpl-link
-          class="rpl-text-link"
+        <a
+          class="rpl-link rpl-text-link"
+          data-print-url="https://vic.gov.au"
           href="https://vic.gov.au"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              <!---->
-               
-              <span
-                class="rpl-text-icon__group"
-              >
-                link
+            <span
+              class="rpl-text-label"
+            >
+              <span>
                 <!---->
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                  link
+                  <!---->
+                </span>
               </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
         .
       </p>
     </div>
   </div>
    
-  <rpl-link
-    class="rpl-button rpl-grants-overview__cta rpl-button--primary"
+  <a
+    class="rpl-link rpl-button rpl-grants-overview__cta rpl-button--primary"
+    data-print-url="#"
     href="#"
   >
-    Apply Now
-  </rpl-link>
+    <span
+      class="rpl-link__inner"
+    >
+      Apply Now
+    </span>
+  </a>
 </div>
 `;
 
@@ -290,36 +299,45 @@ exports[`RippleStoryshots Organisms/Grants Open - Countdown displayed 1`] = `
           text
         </strong>
          with a 
-        <rpl-link
-          class="rpl-text-link"
+        <a
+          class="rpl-link rpl-text-link"
+          data-print-url="https://vic.gov.au"
           href="https://vic.gov.au"
-          innerwrap="true"
         >
           <span
-            class="rpl-text-label"
+            class="rpl-link__inner"
           >
-            <span>
-              <!---->
-               
-              <span
-                class="rpl-text-icon__group"
-              >
-                link
+            <span
+              class="rpl-text-label"
+            >
+              <span>
                 <!---->
+                 
+                <span
+                  class="rpl-text-icon__group"
+                >
+                  link
+                  <!---->
+                </span>
               </span>
             </span>
           </span>
-        </rpl-link>
+        </a>
         .
       </p>
     </div>
   </div>
    
-  <rpl-link
-    class="rpl-button rpl-grants-overview__cta rpl-button--primary"
+  <a
+    class="rpl-link rpl-button rpl-grants-overview__cta rpl-button--primary"
+    data-print-url="#"
     href="#"
   >
-    Apply Now
-  </rpl-link>
+    <span
+      class="rpl-link__inner"
+    >
+      Apply Now
+    </span>
+  </a>
 </div>
 `;

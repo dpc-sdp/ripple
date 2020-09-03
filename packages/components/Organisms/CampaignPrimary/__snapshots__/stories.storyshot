@@ -92,17 +92,12 @@ exports[`RippleStoryshots Organisms/CampaignPrimary Default 1`] = `
         </div>
       </div>
        
-      <a
-        class="rpl-link rpl-button rpl-campaign-primary__call-to-action rpl-button--primary"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-button rpl-campaign-primary__call-to-action rpl-button--primary"
         href="#"
       >
-        <span
-          class="rpl-link__inner"
-        >
-          Call to action
-        </span>
-      </a>
+        Call to action
+      </rpl-link>
        
       <div
         aria-hidden="true"

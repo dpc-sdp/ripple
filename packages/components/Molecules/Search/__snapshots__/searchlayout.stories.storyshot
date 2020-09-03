@@ -26,9 +26,8 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -95,16 +94,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -171,16 +169,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -247,16 +244,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -323,16 +319,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -399,16 +394,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -475,16 +469,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -551,16 +544,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -627,16 +619,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -703,16 +694,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -779,16 +769,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -855,16 +844,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -931,16 +919,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -1007,16 +994,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -1083,16 +1069,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -1159,16 +1144,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -1235,16 +1219,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -1311,16 +1294,15 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
     <div
       class="rpl-col rpl-col--full rpl-col--6-m rpl-col--4-l rpl-col--3-xxxl"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
         href="#"
       >
         <!---->
@@ -1387,7 +1369,7 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
        
       <!---->
     </div>
@@ -1511,33 +1493,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -1562,21 +1533,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -1585,21 +1551,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -1613,33 +1574,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -1664,21 +1614,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -1687,21 +1632,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -1715,33 +1655,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -1766,21 +1695,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -1789,21 +1713,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -1817,33 +1736,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -1868,21 +1776,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -1891,21 +1794,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -1919,33 +1817,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -1970,21 +1857,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -1993,21 +1875,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2021,33 +1898,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2072,21 +1938,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -2095,21 +1956,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2123,33 +1979,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2174,21 +2019,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -2197,21 +2037,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2225,33 +2060,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2276,21 +2100,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -2299,21 +2118,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2327,33 +2141,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2378,21 +2181,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -2401,21 +2199,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2429,33 +2222,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2480,21 +2262,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -2503,21 +2280,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2531,33 +2303,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2582,21 +2343,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -2605,21 +2361,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2633,33 +2384,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2684,21 +2424,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -2707,21 +2442,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2735,33 +2465,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2786,21 +2505,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -2809,21 +2523,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2837,33 +2546,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2888,21 +2586,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -2911,21 +2604,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -2939,33 +2627,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -2990,21 +2667,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -3013,21 +2685,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -3041,33 +2708,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -3092,21 +2748,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -3115,21 +2766,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -3143,33 +2789,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -3194,21 +2829,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -3217,21 +2847,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -3245,33 +2870,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -3296,21 +2910,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -3319,21 +2928,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -3347,33 +2951,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -3398,21 +2991,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -3421,21 +3009,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>
@@ -3449,33 +3032,22 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
       <div
         class="rpl-search-result"
       >
-        <a
-          class="rpl-link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
+          <h2
+            class="rpl-search-result__heading"
           >
-            <h2
-              class="rpl-search-result__heading"
-            >
-              Schools private policy
-            </h2>
-          </span>
-        </a>
+            Schools private policy
+          </h2>
+        </rpl-link>
          
-        <a
-          class="rpl-link rpl-search-result__link"
-          data-print-url="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
+        <rpl-link
+          class="rpl-search-result__link"
           href="//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx"
         >
-          <span
-            class="rpl-link__inner"
-          >
-            www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
-          </span>
-        </a>
+          www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx
+        </rpl-link>
          
         <p
           class="rpl-search-result__date-description"
@@ -3500,21 +3072,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
           <li
@@ -3523,21 +3090,16 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Search Resul
             <div
               class="rpl-meta-tag rpl-meta-tag--light"
             >
-              <a
-                class="rpl-link rpl-meta-tag__link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-meta-tag__link"
                 href="#"
               >
                 <span
-                  class="rpl-link__inner"
+                  class="rpl-meta-tag__text"
                 >
-                  <span
-                    class="rpl-meta-tag__text"
-                  >
-                    This is a content tag
-                  </span>
+                  This is a content tag
                 </span>
-              </a>
+              </rpl-link>
             </div>
           </li>
         </ul>

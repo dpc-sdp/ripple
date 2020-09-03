@@ -16,9 +16,8 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
     <div
       class="rpl-latest-events__card"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-tid="latest-events-card"
         href="#"
       >
@@ -88,14 +87,13 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
     </div>
     <div
       class="rpl-latest-events__card"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-tid="latest-events-card"
         href="#"
       >
@@ -165,14 +163,13 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
     </div>
     <div
       class="rpl-latest-events__card"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-tid="latest-events-card"
         href="#"
       >
@@ -242,14 +239,13 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
     </div>
     <div
       class="rpl-latest-events__card"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-tid="latest-events-card"
         href="#"
       >
@@ -319,14 +315,13 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
     </div>
     <div
       class="rpl-latest-events__card"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
         data-tid="latest-events-card"
         href="#"
       >
@@ -396,15 +391,14 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
             </span>
           </span>
         </div>
-      </a>
+      </rpl-link>
     </div>
      
     <div
       class="rpl-latest-events__card"
     >
-      <a
-        class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
         data-tid="latest-events-card"
         href="#"
       >
@@ -446,20 +440,15 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         </div>
          
         <!---->
-      </a>
+      </rpl-link>
     </div>
   </div>
    
-  <a
-    class="rpl-link rpl-button rpl-latest-events__call-to-action rpl-button--primary"
-    data-print-url="#"
+  <rpl-link
+    class="rpl-button rpl-latest-events__call-to-action rpl-button--primary"
     href="#"
   >
-    <span
-      class="rpl-link__inner"
-    >
-      See all events
-    </span>
-  </a>
+    See all events
+  </rpl-link>
 </div>
 `;

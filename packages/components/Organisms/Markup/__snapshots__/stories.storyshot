@@ -70,30 +70,26 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
       </strong>
        with a
           
-      <a
-        class="rpl-link rpl-text-link"
-        data-print-url="https://vic.gov.au"
+      <rpl-link
+        class="rpl-text-link"
         href="https://vic.gov.au"
+        innerwrap="true"
       >
         <span
-          class="rpl-link__inner"
+          class="rpl-text-label"
         >
-          <span
-            class="rpl-text-label"
-          >
-            <span>
+          <span>
+            <!---->
+             
+            <span
+              class="rpl-text-icon__group"
+            >
+              link
               <!---->
-               
-              <span
-                class="rpl-text-icon__group"
-              >
-                link
-                <!---->
-              </span>
             </span>
           </span>
         </span>
-      </a>
+      </rpl-link>
       .
         
     </p>
@@ -104,17 +100,12 @@ exports[`RippleStoryshots Organisms/Markup Default 1`] = `
       Button
     </h2>
      
-    <a
-      class="rpl-link rpl-button rpl-button--primary"
-      data-print-url="http://www.google.com"
+    <rpl-link
+      class="rpl-button rpl-button--primary"
       href="http://www.google.com"
     >
-      <span
-        class="rpl-link__inner"
-      >
-        go to google
-      </span>
-    </a>
+      go to google
+    </rpl-link>
      
     <h2
       id="quotation"

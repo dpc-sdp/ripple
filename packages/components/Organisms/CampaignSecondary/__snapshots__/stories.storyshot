@@ -45,17 +45,12 @@ exports[`RippleStoryshots Organisms/CampaignSecondary With image 1`] = `
         </div>
       </div>
        
-      <a
-        class="rpl-link rpl-button rpl-button--primary"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-button rpl-button--primary"
         href="#"
       >
-        <span
-          class="rpl-link__inner"
-        >
-          Call to action
-        </span>
-      </a>
+        Call to action
+      </rpl-link>
     </div>
   </div>
 </div>
@@ -94,23 +89,19 @@ exports[`RippleStoryshots Organisms/CampaignSecondary With video 1`] = `
           >
             <!---->
              
-            <a
-              class="rpl-link rpl-text-link"
-              data-print-url="#"
+            <rpl-link
+              class="rpl-text-link"
               href="#"
+              innerwrap="true"
             >
               <span
-                class="rpl-link__inner"
+                class="rpl-text-label"
               >
-                <span
-                  class="rpl-text-label"
-                >
-                  <span>
-                    View transcript
-                  </span>
+                <span>
+                  View transcript
                 </span>
               </span>
-            </a>
+            </rpl-link>
           </div>
            
           <!---->
@@ -137,17 +128,12 @@ exports[`RippleStoryshots Organisms/CampaignSecondary With video 1`] = `
         </div>
       </div>
        
-      <a
-        class="rpl-link rpl-button rpl-button--primary"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-button rpl-button--primary"
         href="#"
       >
-        <span
-          class="rpl-link__inner"
-        >
-          Call to action
-        </span>
-      </a>
+        Call to action
+      </rpl-link>
     </div>
   </div>
 </div>

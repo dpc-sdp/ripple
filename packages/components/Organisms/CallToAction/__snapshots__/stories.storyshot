@@ -41,17 +41,12 @@ exports[`RippleStoryshots Organisms/CallToAction Call to Action 1`] = `
         </p>
       </div>
        
-      <a
-        class="rpl-link rpl-button rpl-button--primary"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-button rpl-button--primary"
         href="#"
       >
-        <span
-          class="rpl-link__inner"
-        >
-          Call to action
-        </span>
-      </a>
+        Call to action
+      </rpl-link>
     </div>
   </div>
 </div>

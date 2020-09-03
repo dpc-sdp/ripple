@@ -37,34 +37,24 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
         <li
           class="rpl-section-menu__item rpl-section-menu__item--parent"
         >
-          <a
-            class="rpl-link rpl-section-menu__item-link"
-            data-print-url="#"
+          <rpl-link
+            class="rpl-section-menu__item-link"
             href="#"
           >
-            <span
-              class="rpl-link__inner"
-            >
-              Your services
-            </span>
-          </a>
+            Your services
+          </rpl-link>
            
           <!---->
         </li>
         <li
           class="rpl-section-menu__item rpl-section-menu__item--parent"
         >
-          <a
-            class="rpl-link rpl-section-menu__item-link"
-            data-print-url="#"
+          <rpl-link
+            class="rpl-section-menu__item-link"
             href="#"
           >
-            <span
-              class="rpl-link__inner"
-            >
-              Sub child A
-            </span>
-          </a>
+            Sub child A
+          </rpl-link>
            
           <!---->
         </li>
@@ -92,17 +82,12 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child B - With level 3
-                </span>
-              </a>
+                Sub child B - With level 3
+              </rpl-link>
                
               <!---->
             </li>
@@ -130,68 +115,48 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent"
                 >
-                  <a
-                    class="rpl-link rpl-section-menu__item-link"
-                    data-print-url="#"
+                  <rpl-link
+                    class="rpl-section-menu__item-link"
                     href="#"
                   >
-                    <span
-                      class="rpl-link__inner"
-                    >
-                      Sub child I
-                    </span>
-                  </a>
+                    Sub child I
+                  </rpl-link>
                    
                   <!---->
                 </li>
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent"
                 >
-                  <a
-                    class="rpl-link rpl-section-menu__item-link"
-                    data-print-url="#"
+                  <rpl-link
+                    class="rpl-section-menu__item-link"
                     href="#"
                   >
-                    <span
-                      class="rpl-link__inner"
-                    >
-                      Level 3 child I
-                    </span>
-                  </a>
+                    Level 3 child I
+                  </rpl-link>
                    
                   <!---->
                 </li>
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent"
                 >
-                  <a
-                    class="rpl-link rpl-section-menu__item-link"
-                    data-print-url="#"
+                  <rpl-link
+                    class="rpl-section-menu__item-link"
                     href="#"
                   >
-                    <span
-                      class="rpl-link__inner"
-                    >
-                      Level 3 child II
-                    </span>
-                  </a>
+                    Level 3 child II
+                  </rpl-link>
                    
                   <!---->
                 </li>
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent"
                 >
-                  <a
-                    class="rpl-link rpl-section-menu__item-link"
-                    data-print-url="#"
+                  <rpl-link
+                    class="rpl-section-menu__item-link"
                     href="#"
                   >
-                    <span
-                      class="rpl-link__inner"
-                    >
-                      Level 3 child III
-                    </span>
-                  </a>
+                    Level 3 child III
+                  </rpl-link>
                    
                   <!---->
                 </li>
@@ -200,34 +165,24 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child II
-                </span>
-              </a>
+                Sub child II
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child III
-                </span>
-              </a>
+                Sub child III
+              </rpl-link>
                
               <!---->
             </li>
@@ -256,34 +211,24 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Test Path 2
-                </span>
-              </a>
+                Test Path 2
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child IV
-                </span>
-              </a>
+                Sub child IV
+              </rpl-link>
                
               <!---->
             </li>
@@ -310,68 +255,48 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent"
                 >
-                  <a
-                    class="rpl-link rpl-section-menu__item-link"
-                    data-print-url="#"
+                  <rpl-link
+                    class="rpl-section-menu__item-link"
                     href="#"
                   >
-                    <span
-                      class="rpl-link__inner"
-                    >
-                      Test Path 3
-                    </span>
-                  </a>
+                    Test Path 3
+                  </rpl-link>
                    
                   <!---->
                 </li>
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent rpl-section-menu__item--active"
                 >
-                  <a
-                    class="rpl-link rpl-section-menu__item-link"
-                    data-print-url="/active-link"
+                  <rpl-link
+                    class="rpl-section-menu__item-link"
                     href="/active-link"
                   >
-                    <span
-                      class="rpl-link__inner"
-                    >
-                      Sub child X
-                    </span>
-                  </a>
+                    Sub child X
+                  </rpl-link>
                    
                   <!---->
                 </li>
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent"
                 >
-                  <a
-                    class="rpl-link rpl-section-menu__item-link"
-                    data-print-url="#"
+                  <rpl-link
+                    class="rpl-section-menu__item-link"
                     href="#"
                   >
-                    <span
-                      class="rpl-link__inner"
-                    >
-                      Sub child Y
-                    </span>
-                  </a>
+                    Sub child Y
+                  </rpl-link>
                    
                   <!---->
                 </li>
                 <li
                   class="rpl-section-menu__item rpl-section-menu__item--parent"
                 >
-                  <a
-                    class="rpl-link rpl-section-menu__item-link"
-                    data-print-url="#"
+                  <rpl-link
+                    class="rpl-section-menu__item-link"
                     href="#"
                   >
-                    <span
-                      class="rpl-link__inner"
-                    >
-                      Sub child Z
-                    </span>
-                  </a>
+                    Sub child Z
+                  </rpl-link>
                    
                   <!---->
                 </li>
@@ -380,476 +305,336 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child VI
-                </span>
-              </a>
+                Sub child VI
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child VII
-                </span>
-              </a>
+                Sub child VII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child VIII
-                </span>
-              </a>
+                Sub child VIII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child IX
-                </span>
-              </a>
+                Sub child IX
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child X
-                </span>
-              </a>
+                Sub child X
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child XI
-                </span>
-              </a>
+                Sub child XI
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child XII
-                </span>
-              </a>
+                Sub child XII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child XIII
-                </span>
-              </a>
+                Sub child XIII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child IV
-                </span>
-              </a>
+                Sub child IV
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child V
-                </span>
-              </a>
+                Sub child V
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child VI
-                </span>
-              </a>
+                Sub child VI
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child VII
-                </span>
-              </a>
+                Sub child VII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child VIII
-                </span>
-              </a>
+                Sub child VIII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child IX
-                </span>
-              </a>
+                Sub child IX
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child X
-                </span>
-              </a>
+                Sub child X
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child XI
-                </span>
-              </a>
+                Sub child XI
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child XII
-                </span>
-              </a>
+                Sub child XII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child XIII
-                </span>
-              </a>
+                Sub child XIII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child IV
-                </span>
-              </a>
+                Sub child IV
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child V
-                </span>
-              </a>
+                Sub child V
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child VI
-                </span>
-              </a>
+                Sub child VI
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child VII
-                </span>
-              </a>
+                Sub child VII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child VIII
-                </span>
-              </a>
+                Sub child VIII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child IX
-                </span>
-              </a>
+                Sub child IX
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child X
-                </span>
-              </a>
+                Sub child X
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child XI
-                </span>
-              </a>
+                Sub child XI
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child XII
-                </span>
-              </a>
+                Sub child XII
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child Last
-                </span>
-              </a>
+                Sub child Last
+              </rpl-link>
                
               <!---->
             </li>
@@ -860,17 +645,12 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
     <li
       class="rpl-section-menu__item rpl-section-menu__item--parent"
     >
-      <a
-        class="rpl-link rpl-section-menu__item-link"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-section-menu__item-link"
         href="#"
       >
-        <span
-          class="rpl-link__inner"
-        >
-          About VIC Government
-        </span>
-      </a>
+        About VIC Government
+      </rpl-link>
        
       <!---->
     </li>
@@ -898,17 +678,12 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
         <li
           class="rpl-section-menu__item rpl-section-menu__item--parent"
         >
-          <a
-            class="rpl-link rpl-section-menu__item-link"
-            data-print-url="#"
+          <rpl-link
+            class="rpl-section-menu__item-link"
             href="#"
           >
-            <span
-              class="rpl-link__inner"
-            >
-              News
-            </span>
-          </a>
+            News
+          </rpl-link>
            
           <!---->
         </li>
@@ -936,68 +711,48 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child 2
-                </span>
-              </a>
+                Sub child 2
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child 3
-                </span>
-              </a>
+                Sub child 3
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child 4
-                </span>
-              </a>
+                Sub child 4
+              </rpl-link>
                
               <!---->
             </li>
             <li
               class="rpl-section-menu__item rpl-section-menu__item--parent"
             >
-              <a
-                class="rpl-link rpl-section-menu__item-link"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-section-menu__item-link"
                 href="#"
               >
-                <span
-                  class="rpl-link__inner"
-                >
-                  Sub child 5
-                </span>
-              </a>
+                Sub child 5
+              </rpl-link>
                
               <!---->
             </li>
@@ -1029,68 +784,48 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
         <li
           class="rpl-section-menu__item rpl-section-menu__item--parent"
         >
-          <a
-            class="rpl-link rpl-section-menu__item-link"
-            data-print-url="#"
+          <rpl-link
+            class="rpl-section-menu__item-link"
             href="#"
           >
-            <span
-              class="rpl-link__inner"
-            >
-              Events
-            </span>
-          </a>
+            Events
+          </rpl-link>
            
           <!---->
         </li>
         <li
           class="rpl-section-menu__item rpl-section-menu__item--parent"
         >
-          <a
-            class="rpl-link rpl-section-menu__item-link"
-            data-print-url="#"
+          <rpl-link
+            class="rpl-section-menu__item-link"
             href="#"
           >
-            <span
-              class="rpl-link__inner"
-            >
-              Sub child 3
-            </span>
-          </a>
+            Sub child 3
+          </rpl-link>
            
           <!---->
         </li>
         <li
           class="rpl-section-menu__item rpl-section-menu__item--parent"
         >
-          <a
-            class="rpl-link rpl-section-menu__item-link"
-            data-print-url="#"
+          <rpl-link
+            class="rpl-section-menu__item-link"
             href="#"
           >
-            <span
-              class="rpl-link__inner"
-            >
-              Sub child 4
-            </span>
-          </a>
+            Sub child 4
+          </rpl-link>
            
           <!---->
         </li>
         <li
           class="rpl-section-menu__item rpl-section-menu__item--parent"
         >
-          <a
-            class="rpl-link rpl-section-menu__item-link"
-            data-print-url="#"
+          <rpl-link
+            class="rpl-section-menu__item-link"
             href="#"
           >
-            <span
-              class="rpl-link__inner"
-            >
-              Sub child 5
-            </span>
-          </a>
+            Sub child 5
+          </rpl-link>
            
           <!---->
         </li>
@@ -1099,17 +834,12 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
     <li
       class="rpl-section-menu__item rpl-section-menu__item--parent"
     >
-      <a
-        class="rpl-link rpl-section-menu__item-link"
-        data-print-url="#"
+      <rpl-link
+        class="rpl-section-menu__item-link"
         href="#"
       >
-        <span
-          class="rpl-link__inner"
-        >
-          Connect with us
-        </span>
-      </a>
+        Connect with us
+      </rpl-link>
        
       <!---->
     </li>

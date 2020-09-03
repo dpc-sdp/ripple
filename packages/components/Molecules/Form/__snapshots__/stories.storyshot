@@ -1354,30 +1354,26 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                     text
                   </strong>
                    with a 
-                  <a
-                    class="rpl-link rpl-text-link"
-                    data-print-url="https://vic.gov.au"
+                  <rpl-link
+                    class="rpl-text-link"
                     href="https://vic.gov.au"
+                    innerwrap="true"
                   >
                     <span
-                      class="rpl-link__inner"
+                      class="rpl-text-label"
                     >
-                      <span
-                        class="rpl-text-label"
-                      >
-                        <span>
+                      <span>
+                        <!---->
+                         
+                        <span
+                          class="rpl-text-icon__group"
+                        >
+                          link
                           <!---->
-                           
-                          <span
-                            class="rpl-text-icon__group"
-                          >
-                            link
-                            <!---->
-                          </span>
                         </span>
                       </span>
                     </span>
-                  </a>
+                  </rpl-link>
                   .
                 </p>
               </div>
@@ -2435,129 +2431,135 @@ exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
   <div
     class="vue-form-generator"
   >
-    <fieldset>
+    <fieldset
+      class="rpl-fieldset"
+    >
       <div
-        class="form-group field-radios"
+        class="rpl-fieldset__inner"
       >
-        <label
-          for="alert-type"
-        >
-          <span>
-            Alert type
-          </span>
-           
-          <!---->
-        </label>
-         
         <div
-          class="field-wrap"
+          class="form-group valid field-radios"
         >
-          <div
-            class="radio-list"
+          <label
+            for="alert-type"
           >
-            <label
-              class="is-checked"
-            >
-              <input
-                id="alert-type-12"
-                name="submissionType"
-                type="radio"
-                value="Success"
-              />
-              Success
-            </label>
-            <label
-              class=""
-            >
-              <input
-                id="alert-type-13"
-                name="submissionType"
-                type="radio"
-                value="Error"
-              />
-              Error
-            </label>
-            <label
-              class=""
-            >
-              <input
-                id="alert-type-14"
-                name="submissionType"
-                type="radio"
-                value="Other"
-              />
-              Other
-            </label>
-          </div>
-           
-          <!---->
-        </div>
-         
-        <!---->
-         
-        <!---->
-      </div>
-      <div
-        class="form-group field-input"
-      >
-        <label
-          for="message"
-        >
-          <span>
-            Message
-          </span>
-           
-          <!---->
-        </label>
-         
-        <div
-          class="field-wrap"
-        >
-          <div
-            class="wrapper"
-          >
-            <input
-              class="form-control"
-              id="message"
-              type="text"
-            />
-            <!---->
-          </div>
-           
-          <!---->
-        </div>
-         
-        <!---->
-         
-        <!---->
-      </div>
-      <div
-        class="form-group field-rplsubmitloader"
-      >
-        <!---->
-         
-        <div
-          class="field-wrap"
-        >
-          <button
-            class="rpl-submit-loader form-control"
-            type="submit"
-          >
-            <span
-              class="rpl-submit-loader__text"
-            >
-              Submit
+            <span>
+              Alert type
             </span>
              
             <!---->
-          </button>
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="radio-list"
+            >
+              <label
+                class="is-checked"
+              >
+                <input
+                  id="alert-type-12"
+                  name="submissionType"
+                  type="radio"
+                  value="Success"
+                />
+                Success
+              </label>
+              <label
+                class=""
+              >
+                <input
+                  id="alert-type-13"
+                  name="submissionType"
+                  type="radio"
+                  value="Error"
+                />
+                Error
+              </label>
+              <label
+                class=""
+              >
+                <input
+                  id="alert-type-14"
+                  name="submissionType"
+                  type="radio"
+                  value="Other"
+                />
+                Other
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
            
           <!---->
         </div>
-         
-        <!---->
-         
-        <!---->
+        <div
+          class="form-group valid field-input"
+        >
+          <label
+            for="message"
+          >
+            <span>
+              Message
+            </span>
+             
+            <!---->
+          </label>
+           
+          <div
+            class="field-wrap"
+          >
+            <div
+              class="wrapper"
+            >
+              <input
+                class="form-control"
+                id="message"
+                type="text"
+              />
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+        <div
+          class="form-group valid field-rplsubmitloader"
+        >
+          <!---->
+           
+          <div
+            class="field-wrap"
+          >
+            <button
+              class="rpl-submit-loader form-control"
+              type="submit"
+            >
+              <span
+                class="rpl-submit-loader__text"
+              >
+                Submit
+              </span>
+               
+              <!---->
+            </button>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
       </div>
     </fieldset>
   </div>

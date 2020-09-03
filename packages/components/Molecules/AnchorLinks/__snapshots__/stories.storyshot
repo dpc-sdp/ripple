@@ -23,128 +23,104 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
       <li
         class="rpl-anchor-links__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                This is the first anchor link
-              </span>
+            <span>
+              This is the first anchor link
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-anchor-links__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                Second link to extra content
-              </span>
+            <span>
+              Second link to extra content
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-anchor-links__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                Third link goes here
-              </span>
+            <span>
+              Third link goes here
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-anchor-links__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                Link to additional content
-              </span>
+            <span>
+              Link to additional content
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-anchor-links__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                Another link to extra content
-              </span>
+            <span>
+              Another link to extra content
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-anchor-links__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                This is another link
-              </span>
+            <span>
+              This is another link
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
     </ul>
   </div>

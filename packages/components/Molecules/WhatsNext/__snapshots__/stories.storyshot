@@ -23,137 +23,113 @@ exports[`RippleStoryshots Molecules/WhatsNext Default 1`] = `
       <li
         class="rpl-whats-next__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="http://www.google.com"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="http://www.google.com"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
+            <span>
               <span>
-                <span>
-                  Link to external
-                </span>
-                 
-                <span
-                  class="rpl-text-icon__group"
-                >
-                   content
-                  <!---->
-                </span>
+                Link to external
+              </span>
+               
+              <span
+                class="rpl-text-icon__group"
+              >
+                 content
+                <!---->
               </span>
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-whats-next__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                Second link to extra content
-              </span>
+            <span>
+              Second link to extra content
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-whats-next__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                Third link goes here
-              </span>
+            <span>
+              Third link goes here
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-whats-next__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                Link to additional content
-              </span>
+            <span>
+              Link to additional content
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-whats-next__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                Second link to extra content
-              </span>
+            <span>
+              Second link to extra content
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
       <li
         class="rpl-whats-next__item"
       >
-        <a
-          class="rpl-link rpl-text-link rpl-text-link--underline"
-          data-print-url="#"
+        <rpl-link
+          class="rpl-text-link rpl-text-link--underline"
           href="#"
+          innerwrap="true"
         >
           <span
-            class="rpl-link__inner"
+            class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
           >
-            <span
-              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
-            >
-              <span>
-                This is another link
-              </span>
+            <span>
+              This is another link
             </span>
           </span>
-        </a>
+        </rpl-link>
       </li>
     </ul>
   </div>

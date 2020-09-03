@@ -144,27 +144,22 @@ exports[`RippleStoryshots Organisms/Publication Publication Download Print 1`] =
   <li
     class="rpl-publication-download-print__print-list-item"
   >
-    <a
-      class="rpl-link rpl-publication-download-print__print-item rpl-publication-download-print__print-link"
-      data-print-url="/printall"
+    <rpl-link
+      class="rpl-publication-download-print__print-item rpl-publication-download-print__print-link"
       href="/printall"
     >
-      <span
-        class="rpl-link__inner"
+      <!---->
+       
+      <div
+        class="rpl-publication-download-print__print-link-info"
       >
-        <!---->
-         
-        <div
-          class="rpl-publication-download-print__print-link-info"
+        <span
+          class="rpl-publication-download-print__print-link-title"
         >
-          <span
-            class="rpl-publication-download-print__print-link-title"
-          >
-            Print full document
-          </span>
-        </div>
-      </span>
-    </a>
+          Print full document
+        </span>
+      </div>
+    </rpl-link>
      
     <!---->
   </li>

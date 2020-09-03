@@ -46,9 +46,8 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             class="rpl-card-emergency__separator"
           />
            
-          <a
-            class="rpl-link rpl-card-emergency__cta-link"
-            data-print-url="tel:0000"
+          <rpl-link
+            class="rpl-card-emergency__cta-link"
             href="tel:0000"
           >
             <!---->
@@ -60,7 +59,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
         Call 0000
       
             </span>
-          </a>
+          </rpl-link>
         </div>
       </div>
     </div>
@@ -101,9 +100,8 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             class="rpl-card-emergency__separator"
           />
            
-          <a
-            class="rpl-link rpl-card-emergency__cta-link"
-            data-print-url="tel:000"
+          <rpl-link
+            class="rpl-card-emergency__cta-link"
             href="tel:000"
           >
             <!---->
@@ -115,7 +113,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
         Call 000
       
             </span>
-          </a>
+          </rpl-link>
         </div>
       </div>
     </div>
@@ -156,9 +154,8 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             class="rpl-card-emergency__separator"
           />
            
-          <a
-            class="rpl-link rpl-card-emergency__cta-link"
-            data-print-url="/home"
+          <rpl-link
+            class="rpl-card-emergency__cta-link"
             href="/home"
           >
             <!---->
@@ -170,7 +167,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
         Internal link
       
             </span>
-          </a>
+          </rpl-link>
         </div>
       </div>
     </div>
@@ -205,9 +202,8 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             class="rpl-card-emergency__separator"
           />
            
-          <a
-            class="rpl-link rpl-card-emergency__cta-link"
-            data-print-url="http://google.com"
+          <rpl-link
+            class="rpl-card-emergency__cta-link"
             href="http://google.com"
           >
             <!---->
@@ -219,7 +215,7 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
         External link
       
             </span>
-          </a>
+          </rpl-link>
         </div>
       </div>
     </div>
@@ -260,9 +256,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
             <div
               class="rpl-card-carousel__slide-wrap"
             >
-              <a
-                class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                 data-tid="carousel-card"
                 href="#"
               >
@@ -328,7 +323,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     </span>
                   </span>
                 </div>
-              </a>
+              </rpl-link>
             </div>
           </div>
           <div
@@ -339,9 +334,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
             <div
               class="rpl-card-carousel__slide-wrap"
             >
-              <a
-                class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-tid="carousel-card"
                 href="#"
               >
@@ -426,7 +420,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     </span>
                   </span>
                 </div>
-              </a>
+              </rpl-link>
             </div>
           </div>
           <div
@@ -437,9 +431,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
             <div
               class="rpl-card-carousel__slide-wrap"
             >
-              <a
-                class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                 data-tid="carousel-card"
                 href="#"
               >
@@ -504,7 +497,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     </span>
                   </span>
                 </div>
-              </a>
+              </rpl-link>
             </div>
           </div>
           <div
@@ -516,9 +509,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
             <div
               class="rpl-card-carousel__slide-wrap"
             >
-              <a
-                class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                 data-tid="carousel-card"
                 href="#"
               >
@@ -584,7 +576,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     </span>
                   </span>
                 </div>
-              </a>
+              </rpl-link>
             </div>
           </div>
           <div
@@ -596,9 +588,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
             <div
               class="rpl-card-carousel__slide-wrap"
             >
-              <a
-                class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
                 data-tid="carousel-card"
                 href="#"
               >
@@ -664,7 +655,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     </span>
                   </span>
                 </div>
-              </a>
+              </rpl-link>
             </div>
           </div>
           <div
@@ -676,9 +667,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
             <div
               class="rpl-card-carousel__slide-wrap"
             >
-              <a
-                class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-tid="carousel-card"
                 href="#"
               >
@@ -763,7 +753,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     </span>
                   </span>
                 </div>
-              </a>
+              </rpl-link>
             </div>
           </div>
           <div
@@ -775,9 +765,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
             <div
               class="rpl-card-carousel__slide-wrap"
             >
-              <a
-                class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
                 data-tid="carousel-card"
                 href="#"
               >
@@ -842,7 +831,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     </span>
                   </span>
                 </div>
-              </a>
+              </rpl-link>
             </div>
           </div>
           <div
@@ -854,9 +843,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
             <div
               class="rpl-card-carousel__slide-wrap"
             >
-              <a
-                class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-tid="carousel-card"
                 href="#"
               >
@@ -941,7 +929,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     </span>
                   </span>
                 </div>
-              </a>
+              </rpl-link>
             </div>
           </div>
           <div
@@ -953,9 +941,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
             <div
               class="rpl-card-carousel__slide-wrap"
             >
-              <a
-                class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
-                data-print-url="#"
+              <rpl-link
+                class="rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
                 data-tid="carousel-card"
                 href="#"
               >
@@ -1040,7 +1027,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     </span>
                   </span>
                 </div>
-              </a>
+              </rpl-link>
             </div>
           </div>
         </div>
@@ -1076,9 +1063,8 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-content--default rpl-card-content--has-link-text"
-  data-print-url="#"
+<rpl-link
+  class="rpl-card-content rpl-card-content--default rpl-card-content--has-link-text"
   href="#"
 >
   <div
@@ -1125,13 +1111,12 @@ exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
       </span>
     </span>
   </div>
-</a>
+</rpl-link>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Cta Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
-  data-print-url="#"
+<rpl-link
+  class="rpl-card-content rpl-card-cta rpl-card-content--no-image rpl-card-content--default"
   href="#"
 >
   <!---->
@@ -1181,7 +1166,7 @@ exports[`RippleStoryshots Molecules/Card/Card Cta Default 1`] = `
   </div>
    
   <!---->
-</a>
+</rpl-link>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Emergency Contact Default 1`] = `
@@ -1219,9 +1204,8 @@ exports[`RippleStoryshots Molecules/Card/Card Emergency Contact Default 1`] = `
       class="rpl-card-emergency__separator"
     />
      
-    <a
-      class="rpl-link rpl-card-emergency__cta-link"
-      data-print-url="tel:000"
+    <rpl-link
+      class="rpl-card-emergency__cta-link"
       href="tel:000"
     >
       <!---->
@@ -1233,15 +1217,14 @@ exports[`RippleStoryshots Molecules/Card/Card Emergency Contact Default 1`] = `
         Call 000
       
       </span>
-    </a>
+    </rpl-link>
   </div>
 </div>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
-  data-print-url="#"
+<rpl-link
+  class="rpl-card-content rpl-card-event rpl-card-content--default rpl-card-content--has-link-text"
   href="#"
 >
   <div
@@ -1313,13 +1296,12 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
       </span>
     </span>
   </div>
-</a>
+</rpl-link>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
-  data-print-url="#"
+<rpl-link
+  class="rpl-card-content rpl-card-image-navigation rpl-card-content--inline rpl-card-content--has-link-text"
   href="#"
 >
   <div
@@ -1389,13 +1371,12 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
   </div>
    
   <!---->
-</a>
+</rpl-link>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
-  data-print-url="#"
+<rpl-link
+  class="rpl-card-content rpl-card-keydates rpl-card-content--no-image rpl-card-content--has-border rpl-card-content--default rpl-card-content--has-link-text"
   href="#"
 >
   <!---->
@@ -1479,13 +1460,12 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
       </span>
     </span>
   </div>
-</a>
+</rpl-link>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Navigation Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-navigation rpl-card-content--no-image rpl-card-content--simple rpl-card-content--has-link-text"
-  data-print-url="#"
+<rpl-link
+  class="rpl-card-content rpl-card-navigation rpl-card-content--no-image rpl-card-content--simple rpl-card-content--has-link-text"
   href="#"
 >
   <!---->
@@ -1524,13 +1504,12 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Default 1`] = `
       </span>
     </span>
   </div>
-</a>
+</rpl-link>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = `
-<a
-  class="rpl-link rpl-card-navigation-featured"
-  data-print-url="#"
+<rpl-link
+  class="rpl-card-navigation-featured"
   href="#"
 >
   <div
@@ -1581,13 +1560,12 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
   </p>
    
   <!---->
-</a>
+</rpl-link>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
-  data-print-url="#"
+<rpl-link
+  class="rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
   href="#"
 >
   <!---->
@@ -1654,13 +1632,12 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
       </span>
     </span>
   </div>
-</a>
+</rpl-link>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
-<a
-  class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
-  data-print-url="#"
+<rpl-link
+  class="rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"
   href="#"
 >
   <div
@@ -1731,5 +1708,5 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
       </span>
     </span>
   </div>
-</a>
+</rpl-link>
 `;

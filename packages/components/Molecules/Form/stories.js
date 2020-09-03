@@ -521,12 +521,6 @@ storiesOf('Molecules/Form', module)
               }
             ]
           },
-          tag: 'rpl-fieldset',
-          formOptions: {
-            validateAfterLoad: false,
-            validateAfterChanged: true
-          },
-
           formState: {}
         })
       }

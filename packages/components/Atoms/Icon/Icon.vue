@@ -35,9 +35,7 @@ export default {
       childrenHeight: 0,
       outerScale: 1,
       x: false,
-      y: false,
-      title: 'some title',
-      label: 'any label'
+      y: false
     }
   },
   computed: {
@@ -66,69 +64,31 @@ export default {
         return `0 0 ${this.icon.width} ${this.icon.height}`
       }
       return `0 0 ${this.width} ${this.height}`
-    },
-    raw () {
-      // generate unique id for each icon's SVG element with ID
-      if (!this.icon || !this.icon.raw) {
-        return null
-      }
-      let raw = this.icon.raw
-      let ids = {}
-      raw = raw.replace(
-        /\s(?:xml:)?id=(["']?)([^"')\s]+)\1/g,
-        (match, quote, id) => {
-          let uniqueId = getId('vat-')
-          ids[id] = uniqueId
-          return ` id="${uniqueId}"`
-        }
-      )
-      raw = raw.replace(
-        /#(?:([^'")\s]+)|xpointer\(id\((['"]?)([^')]+)\2\)\))/g,
-        (match, rawId, _, pointerId) => {
-          let id = rawId || pointerId
-          if (!id || !ids[id]) {
-            return match
-          }
-          return `#${ids[id]}`
-        }
-      )
-      console.log('rawwww', raw)
-      return raw
     }
   },
   mounted () {
-    console.log('mounted pdateddd..')
-    this.updateStack()
-  },
-  updated () {
-    console.log('updated pdateddd..')
-    this.updateStack()
-  },
-  methods: {
-    updateStack () {
-      if (!this.symbol && this.symbol !== null && this.$children.length === 0) {
-        return
-      }
-
-      if (this.icon) {
-        return
-      }
-      let width = 0
-      let height = 0
-      console.log('hereeeee..', this.$children)
-      this.$children.forEach(child => {
-        console.log('child..', child)
-        child.outerScale = this.normalizedScale
-        width = Math.max(width, child.width)
-        height = Math.max(height, child.height)
-      })
-      this.childrenWidth = width
-      this.childrenHeight = height
-      this.$children.forEach(child => {
-        child.x = (width - child.width) / 2
-        child.y = (height - child.height) / 2
-      })
+    // TODO fix and remove if not required.
+    if (!this.symbol && this.symbol !== null && this.$children.length === 0) {
+      return
     }
+
+    if (this.icon) {
+      return
+    }
+    let width = 0
+    let height = 0
+
+    this.$children.forEach(child => {
+      child.outerScale = this.normalizedScale
+      width = Math.max(width, child.width)
+      height = Math.max(height, child.height)
+    })
+    this.childrenWidth = width
+    this.childrenHeight = height
+    this.$children.forEach(child => {
+      child.x = (width - child.width) / 2
+      child.y = (height - child.height) / 2
+    })
   },
   register (data) {
     for (let name in data) {
@@ -162,10 +122,6 @@ function assign (obj, ...sources) {
 
 function hasOwn (obj, key) {
   return Object.prototype.hasOwnProperty.call(obj, key)
-}
-
-function escapeHTML (html) {
-  return html.replace(/[<>"&]/g, c => ESCAPE_MAP[c] || c)
 }
 </script>
 

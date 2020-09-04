@@ -94,6 +94,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
           class="rpl-icon rpl-icon--addition rpl-icon--color_primary"
           overflow="visible"
           style="width: 12px; height: 12px;"
+          viewBox="0 0 12 12"
         >
           <use
             href="#rpl_icon_addition"
@@ -124,6 +125,7 @@ exports[`RippleStoryshots Molecules/List Default 1`] = `
           class="rpl-icon rpl-icon--addition rpl-icon--color_primary"
           overflow="visible"
           style="width: 12px; height: 12px;"
+          viewBox="0 0 12 12"
         >
           <use
             href="#rpl_icon_addition"

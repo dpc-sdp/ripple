@@ -41,6 +41,7 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
         class="rpl-icon rpl-icon--search rpl-icon--color_primary"
         overflow="visible"
         style="width: 24px; height: 24px;"
+        viewBox="0 0 16 16"
       >
         <use
           href="#rpl_icon_search"
@@ -143,7 +144,23 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <use
+                  href="#rpl_icon_arrow_right_primary"
+                  xlink:href="#rpl_icon_arrow_right_primary"
+                />
+                 
+                <path
+                  d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -209,7 +226,23 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <use
+                  href="#rpl_icon_arrow_right_primary"
+                  xlink:href="#rpl_icon_arrow_right_primary"
+                />
+                 
+                <path
+                  d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -271,7 +304,23 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <use
+                  href="#rpl_icon_arrow_right_primary"
+                  xlink:href="#rpl_icon_arrow_right_primary"
+                />
+                 
+                <path
+                  d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -337,7 +386,23 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <use
+                  href="#rpl_icon_arrow_right_primary"
+                  xlink:href="#rpl_icon_arrow_right_primary"
+                />
+                 
+                <path
+                  d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>

@@ -488,7 +488,23 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
       aria-label="Go to next slide"
       class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next"
     >
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-image-gallery__thumbnail-navigation-icon rpl-icon rpl-icon--arrow_right_secondary rpl-icon--color_white"
+        overflow="visible"
+        style="width: 18px; height: 33px;"
+        viewBox="0 0 12 22"
+      >
+        <use
+          href="#rpl_icon_arrow_right_secondary"
+          xlink:href="#rpl_icon_arrow_right_secondary"
+        />
+         
+        <path
+          d="M1.25262 2.66437C0.8857 2.25158 0.922843 1.61952 1.33563 1.2526C1.74841 0.88568 2.38051 0.922869 2.74743 1.33565L10.7474 10.3356C11.0842 10.7145 11.0842 11.2855 10.7474 11.6644L2.74743 20.6644C2.38051 21.0771 1.74841 21.1143 1.33563 20.7474C0.922843 20.3805 0.8857 19.7484 1.25262 19.3356L8.66204 11L1.25262 2.66437Z"
+        />
+         
+      </svg>
     </button>
   </div>
    

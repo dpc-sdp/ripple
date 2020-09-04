@@ -15,8 +15,11 @@ exports[`RippleStoryshots Organisms/CampaignSecondary With image 1`] = `
       >
         <img
           alt=""
-          class="rpl-campaign-secondary__image"
-          src="http://placehold.it/699x411"
+          class="rpl-responsive-image rpl-campaign-secondary__image"
+          height="340"
+          src="https://placehold.it/580x340"
+          style="object-position: 50.00% 50.00%; font-family: 'object-fit: cover; object-position: 50.00% 50.00%;';"
+          width="580"
         />
          
         <!---->

@@ -1,19 +1,18 @@
 <template>
   <main class="rpl-page" :class="{'rpl-page--with-search': withSearch }">
-    <div
-      class="rpl-above-content-container"
-      :class="{ 'rpl-above-content-container--with-bg': heroBackgroundImage }"
-    >
-      <div class="rpl-above-content" :style="bgGraphic">
-        <div class="rpl-above-content__inner" :style="backgroundImage">
+    <div class="rpl-above-content" :style="bgGraphic">
+      <div class="rpl-page-header" :class="{'rpl-page-header--with-image': bannerImage }">
+        <RplResponsiveImg v-if="bannerImage" class="rpl-page-header__picture" v-bind="bannerImage" />
+        <div class="rpl-above-content__inner">
           <div class="rpl-above-content__top">
             <slot name="breadcrumbs"></slot>
             <rpl-quick-exit v-if="quickexit && !menuopen" menuOffsetSelector=".rpl-above-content__inner" />
           </div>
-          <slot name="aboveContent"></slot>
+          <div class="rpl-above-content__below">
+            <slot name="aboveContent"></slot>
+          </div>
         </div>
       </div>
-
       <div class="rpl-above-content-two">
         <slot name="aboveContentTwo"></slot>
       </div>
@@ -48,9 +47,10 @@
 import RplQuickExit from './QuickExit'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplSiteHeaderEventBus } from '@dpc-sdp/ripple-site-header'
+import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
-  components: { RplContainer, RplRow, RplCol, RplQuickExit },
+  components: { RplContainer, RplRow, RplCol, RplQuickExit, RplResponsiveImg },
   props: {
     'sidebar': Boolean,
     'columns': {
@@ -67,7 +67,7 @@ export default {
     },
     'quickExit': { type: Boolean, default: null },
     'backgroundColor': String,
-    'heroBackgroundImage': String,
+    'heroBackgroundImage': Object,
     'backgroundGraphic': String,
     'withSearch': Boolean
   },
@@ -84,15 +84,24 @@ export default {
     bgGrey () {
       return this.backgroundColor === 'grey'
     },
-    backgroundImage () {
-      if (this.heroBackgroundImage) {
-        return { 'background-image': 'url(' + this.heroBackgroundImage + ')' }
-      }
-
-      return {}
-    },
     bgGraphic () {
-      return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
+      if (!this.heroBackgroundImage) {
+        return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
+      }
+    },
+    bannerImage () {
+      if (this.heroBackgroundImage) {
+        return {
+          ...this.heroBackgroundImage,
+          srcSet: [
+            { size: 'xs', height: 300, width: 575 },
+            { size: 's', height: 600, width: 768 },
+            { size: 'm', height: 600, width: 992 },
+            { size: 'xxl', height: 600, width: 1600 }
+          ],
+          sizes: '100vw'
+        }
+      }
     }
   },
   mounted () {
@@ -113,6 +122,9 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 $rpl-search-back-to-top-offset: 72px / 2;
+$rpl-content-bg-color-grey: rpl_color('light_neutral') !default;
+$rpl-page-header-bg-color: rpl_color('secondary') !default;
+$rpl-page-header-title-bg-color-s: rpl_color('primary') !default;
 
 .rpl-above-content {
   background-repeat: no-repeat;
@@ -170,7 +182,7 @@ $rpl-search-back-to-top-offset: 72px / 2;
   &__top {
     display: flex;
     padding: 0 $rpl-header-horizontal-padding-xs;
-    @include rpl_breakpoint('s') {
+    @include rpl_breakpoint(s) {
       justify-content: space-between;
       padding: 0 $rpl-header-horizontal-padding-s;
     }
@@ -194,7 +206,7 @@ $rpl-search-back-to-top-offset: 72px / 2;
   }
 
   &--grey {
-    background: rpl-color('light_neutral')
+    background: $rpl-content-bg-color-grey;
   }
 
   .rpl-row {
@@ -226,6 +238,17 @@ $rpl-search-back-to-top-offset: 72px / 2;
     @include rpl_breakpoint(m) {
       width: 100%;
     }
+  }
+}
+
+.rpl-page-header {
+  &--with-image {
+    position: relative;
+  }
+  &__picture {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
   }
 }
 

@@ -269,11 +269,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 <div
                   class="rpl-card-content__image-wrapper"
                 >
-                  <img
-                    alt=""
-                    class="rpl-card-content__image"
-                    src="https://placehold.it/580x340"
-                  />
+                  <!---->
                 </div>
                  
                 <div
@@ -450,11 +446,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 <div
                   class="rpl-card-content__image-wrapper"
                 >
-                  <img
-                    alt=""
-                    class="rpl-card-content__image"
-                    src="https://placehold.it/580x340"
-                  />
+                  <!---->
                 </div>
                  
                 <div
@@ -533,11 +525,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 <div
                   class="rpl-card-content__image-wrapper"
                 >
-                  <img
-                    alt=""
-                    class="rpl-card-content__image"
-                    src="https://placehold.it/580x340"
-                  />
+                  <!---->
                 </div>
                  
                 <div
@@ -617,11 +605,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 <div
                   class="rpl-card-content__image-wrapper"
                 >
-                  <img
-                    alt=""
-                    class="rpl-card-content__image"
-                    src="https://placehold.it/580x340"
-                  />
+                  <!---->
                 </div>
                  
                 <div
@@ -800,11 +784,7 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                 <div
                   class="rpl-card-content__image-wrapper"
                 >
-                  <img
-                    alt=""
-                    class="rpl-card-content__image"
-                    src="https://placehold.it/580x340"
-                  />
+                  <!---->
                 </div>
                  
                 <div
@@ -1106,8 +1086,11 @@ exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
   >
     <img
       alt=""
-      class="rpl-card-content__image"
+      class="rpl-responsive-image rpl-card-content__image"
+      height="340"
       src="https://placehold.it/580x340"
+      style="object-position: 50.00% 50.00%; font-family: 'object-fit: cover; object-position: 50.00% 50.00%;';"
+      width="580"
     />
   </div>
    
@@ -1158,8 +1141,11 @@ exports[`RippleStoryshots Molecules/Card/Card Cta Default 1`] = `
   >
     <img
       alt=""
-      class="rpl-card-cta__image"
+      class="rpl-responsive-image rpl-card-cta__image"
+      height="148"
       src="https://placehold.it/148x148"
+      style="object-position: 100% 100%; font-family: 'object-fit: cover; object-position: 100% 100%;';"
+      width="148"
     />
      
     <h2
@@ -1263,8 +1249,11 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
   >
     <img
       alt=""
-      class="rpl-card-content__image"
+      class="rpl-responsive-image rpl-card-content__image"
+      height="199"
       src="https://placehold.it/304x199"
+      style="object-position: 50.00% 50.25%; font-family: 'object-fit: cover; object-position: 50.00% 50.25%;';"
+      width="304"
     />
   </div>
    
@@ -1338,8 +1327,11 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
   >
     <img
       alt=""
-      class="rpl-card-content__image"
+      class="rpl-responsive-image rpl-card-content__image"
+      height="199"
       src="https://placehold.it/304x199"
+      style="object-position: 50.00% 50.25%; font-family: 'object-fit: cover; object-position: 50.00% 50.25%;';"
+      width="304"
     />
   </div>
    
@@ -1546,8 +1538,11 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
   >
     <img
       alt=""
-      class="rpl-card-navigation-featured__image"
+      class="rpl-responsive-image rpl-card-navigation-featured__image"
+      height="497"
       src="https://placehold.it/818x497"
+      style="object-position: 50.00% 49.90%; font-family: 'object-fit: cover; object-position: 50.00% 49.90%;';"
+      width="818"
     />
      
     <div
@@ -1606,7 +1601,7 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
       <img
         alt=""
         class="rpl-card-profile__image"
-        src="https://placehold.it/148x148"
+        src="[object Object]"
       />
        
       <h2
@@ -1673,8 +1668,11 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
   >
     <img
       alt=""
-      class="rpl-card-content__image"
+      class="rpl-responsive-image rpl-card-content__image"
+      height="199"
       src="https://placehold.it/304x199"
+      style="object-position: 50.00% 50.25%; font-family: 'object-fit: cover; object-position: 50.00% 50.25%;';"
+      width="304"
     />
   </div>
    

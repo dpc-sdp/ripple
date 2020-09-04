@@ -42,11 +42,13 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
   class="rpl-page"
 >
   <div
-    class="rpl-above-content-container"
+    class="rpl-above-content"
   >
     <div
-      class="rpl-above-content"
+      class="rpl-page-header"
     >
+      <!---->
+       
       <div
         class="rpl-above-content__inner"
       >
@@ -56,7 +58,12 @@ exports[`RippleStoryshots Molecules/Layout Page Layout 1`] = `
            
           <!---->
         </div>
-         Above content
+         
+        <div
+          class="rpl-above-content__below"
+        >
+          Above content
+        </div>
       </div>
     </div>
      
@@ -104,11 +111,13 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
   class="rpl-page"
 >
   <div
-    class="rpl-above-content-container"
+    class="rpl-above-content"
   >
     <div
-      class="rpl-above-content"
+      class="rpl-page-header"
     >
+      <!---->
+       
       <div
         class="rpl-above-content__inner"
       >
@@ -118,7 +127,12 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with Sidebar 1`] = `
            
           <!---->
         </div>
-         Above content
+         
+        <div
+          class="rpl-above-content__below"
+        >
+          Above content
+        </div>
       </div>
     </div>
      
@@ -171,11 +185,13 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with custom columns 1`] =
   class="rpl-page"
 >
   <div
-    class="rpl-above-content-container"
+    class="rpl-above-content"
   >
     <div
-      class="rpl-above-content"
+      class="rpl-page-header"
     >
+      <!---->
+       
       <div
         class="rpl-above-content__inner"
       >
@@ -185,7 +201,12 @@ exports[`RippleStoryshots Molecules/Layout Page Layout with custom columns 1`] =
            
           <!---->
         </div>
-         Above content
+         
+        <div
+          class="rpl-above-content__below"
+        >
+          Above content
+        </div>
       </div>
     </div>
      
@@ -266,11 +287,13 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
     class="rpl-page main"
   >
     <div
-      class="rpl-above-content-container"
+      class="rpl-above-content"
     >
       <div
-        class="rpl-above-content"
+        class="rpl-page-header"
       >
+        <!---->
+         
         <div
           class="rpl-above-content__inner"
         >
@@ -282,22 +305,26 @@ exports[`RippleStoryshots Molecules/Layout Site Layout 1`] = `
           </div>
            
           <div
-            class="banner-hero rpl-site-constrain--on-all"
+            class="rpl-above-content__below"
           >
             <div
-              class="sub-content"
+              class="banner-hero rpl-site-constrain--on-all"
             >
-              banner hero
+              <div
+                class="sub-content"
+              >
+                banner hero
+              </div>
             </div>
-          </div>
-           
-          <div
-            class="banner-primary rpl-site-constrain--on-all"
-          >
+             
             <div
-              class="sub-content"
+              class="banner-primary rpl-site-constrain--on-all"
             >
-              banner primary
+              <div
+                class="sub-content"
+              >
+                banner primary
+              </div>
             </div>
           </div>
         </div>
@@ -560,11 +587,13 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
     class="rpl-page main"
   >
     <div
-      class="rpl-above-content-container"
+      class="rpl-above-content"
     >
       <div
-        class="rpl-above-content"
+        class="rpl-page-header"
       >
+        <!---->
+         
         <div
           class="rpl-above-content__inner"
         >
@@ -576,22 +605,26 @@ exports[`RippleStoryshots Molecules/Layout Site Layout with Sidebar 1`] = `
           </div>
            
           <div
-            class="banner-hero rpl-site-constrain--on-all"
+            class="rpl-above-content__below"
           >
             <div
-              class="sub-content"
+              class="banner-hero rpl-site-constrain--on-all"
             >
-              banner hero
+              <div
+                class="sub-content"
+              >
+                banner hero
+              </div>
             </div>
-          </div>
-           
-          <div
-            class="banner-primary rpl-site-constrain--on-all"
-          >
+             
             <div
-              class="sub-content"
+              class="banner-primary rpl-site-constrain--on-all"
             >
-              banner primary
+              <div
+                class="sub-content"
+              >
+                banner primary
+              </div>
             </div>
           </div>
         </div>

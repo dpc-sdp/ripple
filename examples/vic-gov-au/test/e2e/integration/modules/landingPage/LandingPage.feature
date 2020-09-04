@@ -5,6 +5,7 @@ Feature: Landing page
   Scenario: BE - Create landing page
     Given I have logged into the backend
     And in the backend there is a node at "/5-be-land-3-landing-page-complete-test" with "modules/landingPage/5-be-land-3-landing-page-complete-test" data
+    And in the backend there is a node at "/5-be-land-4-responsive-images-test" with "modules/landingPage/5-be-land-4-responsive-images" data
 
   Scenario: FE - 5-FE-land-6 Landing Page - Complete Test
     When I visit the page "/5-be-land-3-landing-page-complete-test"
@@ -206,3 +207,8 @@ Feature: Landing page
     Then the content rating component summary textfield should display
     And the the content rating component "Cancel" button should be visible
     And the the content rating component "Submit" button should be visible
+  
+  Scenario: Responsive image banner
+    Given I am using a "iphone-x" device
+    When I visit the page "/5-be-land-4-responsive-images-test"
+    Then the responsive image component should exist

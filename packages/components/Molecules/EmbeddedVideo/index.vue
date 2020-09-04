@@ -48,6 +48,15 @@ export default {
 
   .rpl-embedded-video {
     @include rpl_print_hidden;
+
+    iframe {
+      border: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .rpl-embedded-video-iframe-container {
@@ -56,15 +65,6 @@ export default {
     padding-top:$rpl-embedded-video-padding-top;
     height: $rpl-embedded-video-height;
     overflow: hidden;
-  }
-
-  iframe {
-    border: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
   }
 
   .rpl-embed-video__transcript {

@@ -74,7 +74,7 @@ export const tide = (axios, site, config) => ({
     return axiosConfig
   },
 
-  post: async function (resource, data = {}, id = '') {
+  post: async function (url, data = {}) {
     // axios config
     const axiosConfig = {
       baseUrl: config.baseUrl,
@@ -86,9 +86,13 @@ export const tide = (axios, site, config) => ({
         'X-Request-Id': helper.generateId()
       }
     }
-    const siteParam = '?site=' + site
-    const url = `${apiPrefix}${resource}${id ? `/${id}` : ''}${siteParam}`
 
+    // Add site id
+    let siteParam = '?site=' + site
+    if (url.includes('?')) {
+      siteParam = '&site=' + site
+    }
+    url = `${apiPrefix}${url}${siteParam}`
     return axios.$post(url, data, axiosConfig)
   },
 
@@ -163,13 +167,11 @@ export const tide = (axios, site, config) => ({
     siteId = siteId || site
     const include = [
       'field_site_logo',
-      'field_site_footer_logos',
-      'field_site_footer_logos.field_paragraph_media',
       'field_site_footer_logos.field_paragraph_media.field_media_image'
     ]
 
     if (this.isModuleEnabled('alert')) {
-      include.push(['site_alerts', 'site_alerts.field_alert_type', 'site_alerts.field_node_site'])
+      include.push(['site_alerts.field_alert_type', 'site_alerts.field_node_site'])
     }
 
     const menuFields = this.getMenuFields()

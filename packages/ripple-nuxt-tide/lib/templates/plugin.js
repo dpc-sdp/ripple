@@ -25,6 +25,7 @@ export default ({ app, req, store , route }, inject) => {
         host: null,
         protocol: null,
         currentUrl: null,
+        currentDomain: null,
         siteData: null,
         pageData: null,
         pageHead: null
@@ -38,6 +39,9 @@ export default ({ app, req, store , route }, inject) => {
         },
         setCurrentUrl (state, currentUrl) {
           state.currentUrl = currentUrl
+        },
+        setCurrentDomain (state, currentDomain) {
+          state.currentDomain = currentDomain
         },
         setSiteData (state, siteData) {
           state.siteData = siteData
@@ -77,6 +81,13 @@ export default ({ app, req, store , route }, inject) => {
           }
           siteData.lastFetched = Date.now()
           commit('setSiteData', siteData)
+
+          if (siteData.field_site_domains) {
+            // Current site domain should be the first one in site domains
+            const siteDomain = siteData.field_site_domains.valueOf().split('\r\n', 1)
+            commit('setCurrentDomain', siteDomain[0])
+          }
+
           if (config.modules.alert === 1) {
             if (siteData.site_alerts && siteData.site_alerts.length > 0) {
               await store.dispatch('tideAlerts/setAlerts', { alerts: siteData.site_alerts, siteSection: siteData.drupal_internal__tid })

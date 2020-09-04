@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import RplGlobal from '@dpc-sdp/ripple-global'
 import { addCustomIcons } from '@dpc-sdp/ripple-icon'
+import { queryString } from '@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper'
 
 const options = <%= serialize(options) %>
 
@@ -26,6 +27,24 @@ let rplOptions = {
 
 <% if (typeof options.viclogo !== 'undefined') { %>
   rplOptions.viclogo = options.viclogo
+<% } %>
+
+<% if (typeof options.imgQueryString !== 'undefined') { %>
+    rplOptions.imgQueryString = options.imgQueryString
+<%   } else { %>
+    rplOptions.imgQueryString = (bp) => {
+      // Provides query string for images using section kraken.io - https://www.section.io/docs/modules/kraken/reference/kraken-advanced-config/
+      const params = {
+        strategy: 'auto'
+      }
+      for (const key in bp) {
+        const whitelistParams = ['height', 'width', 'strategy']
+        if (bp.hasOwnProperty(key) && whitelistParams.includes(key)) {
+          params[key] = bp[key]
+        }
+      }
+      return '?' + queryString(params)
+    }
 <% } %>
 
 <% if (typeof options.viclogoFooter !== 'undefined') { %>

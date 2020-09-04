@@ -30,6 +30,20 @@ storiesOf('Atoms/Icon', module)
           'ai',
           'alert_fire',
           'alert_flood',
+          'alert_high_temperature',
+          'alert_information',
+          'alert_lightning',
+          'alert_medical',
+          'alert_smoke',
+          'alert_transport',
+          'arrow_down_primary',
+          'arrow_down_tertiary',
+          'arrow_left_primary',
+          'arrow_left_secondary',
+          'arrow_right_primary',
+          'arrow_right_primary_s',
+          'arrow_right_secondary',
+          'arrow_up_primary',
           'search'
         ]
       }

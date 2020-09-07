@@ -10,14 +10,8 @@ import {
   array
 } from '@storybook/addon-knobs'
 
-const selectItems = object('Values', [
-  { id: 'vic', name: 'Vic' },
-  { id: 'nsw', name: 'New South Wales' },
-  { id: 'wa', name: 'Western Australia' },
-  { id: 'ql', name: 'Queensland' }
-])
-
 storiesOf('Molecules/Form/Select', module)
+  .addDecorator(withKnobs)
   .add('Single', () => ({
     components: { RplSelect },
     template: `<rpl-select :values="values" :config="config"></rpl-select>`,
@@ -35,7 +29,12 @@ storiesOf('Molecules/Form/Select', module)
         default: text('State', '')
       },
       values: {
-        default: selectItems
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
       },
       disabled: {
         default: boolean('Disabled', false)
@@ -59,7 +58,12 @@ storiesOf('Molecules/Form/Select', module)
         default: text('State', 'nsw')
       },
       values: {
-        default: selectItems
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
       },
       disabled: {
         default: boolean('Disabled', false)
@@ -83,7 +87,12 @@ storiesOf('Molecules/Form/Select', module)
         default: object('State', [])
       },
       values: {
-        default: selectItems
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
       },
       disabled: {
         default: boolean('Disabled', false)
@@ -107,7 +116,12 @@ storiesOf('Molecules/Form/Select', module)
         default: array('State', ['vic', 'nsw'])
       },
       values: {
-        default: selectItems
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
       },
       disabled: {
         default: boolean('Disabled', false)
@@ -131,7 +145,12 @@ storiesOf('Molecules/Form/Select', module)
         default: array('State', ['vic', 'nsw', 'wa'])
       },
       values: {
-        default: selectItems
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
       },
       disabled: {
         default: boolean('Disabled', false)

@@ -208,7 +208,6 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_typography_ruleset($quotation-author-ruleset);
       color: $quotation-author-color;
       font-style: normal;
-      text-transform: uppercase;
     }
   }
 

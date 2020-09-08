@@ -12,7 +12,7 @@
           <rpl-link v-if="item.url" :href="item.url">{{ item.title }}</rpl-link>
         </h3>
         <p v-if="hasSubtitle(item)" class="rpl-timeline__item-subtitle">{{ subtitle(item) }}</p>
-        <p v-if="item.description" class="rpl-timeline__item-description">{{ item.description }}</p>
+        <rpl-markup v-if="item.description.processed" class="rpl-timeline__item-description" :html="item.description.processed"></rpl-markup>
       </li>
     </ol>
   </div>
@@ -22,6 +22,7 @@
 import objectFitImages from 'object-fit-images'
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import { RplLink } from '@dpc-sdp/ripple-link'
+import RplMarkup from '@dpc-sdp/ripple-markup'
 
 export default {
   name: 'RplTimeline',
@@ -31,7 +32,8 @@ export default {
     list: Array
   },
   components: {
-    RplLink
+    RplLink,
+    RplMarkup
   },
   data () {
     return {
@@ -76,6 +78,7 @@ export default {
   $rpl-timeline-list-item-padding: 0 0 rem(48px) $rpl-timeline-sidebar-gutter-width !default;
   $rpl-timeline-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-timeline-item-title-ruleset: ('l', 1.2em, 'bold') !default;
+  $rpl-timeline-item-title-text-link-color: rpl-color('primary') !default;
   $rpl-timeline-item-subtitle-ruleset: ('s', 1.5em, 'medium') !default;
   $rpl-timeline-item-description-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-timeline-item-title-text-color: rpl-color('extra_dark_neutral') !default;
@@ -189,7 +192,7 @@ export default {
       margin: 0;
 
       .rpl-link {
-        @include rpl_text_color($rpl-timeline-item-title-text-color);
+        @include rpl_text_color($rpl-timeline-item-title-text-link-color);
       }
     }
 

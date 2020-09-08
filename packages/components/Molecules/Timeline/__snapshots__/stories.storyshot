@@ -162,11 +162,15 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
        
       <!---->
        
-      <p
-        class="rpl-timeline__item-description"
+      <div
+        class="rpl-markup tide-wysiwyg app-wysiwyg rpl-timeline__item-description"
       >
-        Contains an image, title, external URL and description.
-      </p>
+        <div
+              class="rpl-markup__inner"
+            >
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
+            </div>
+      </div>
     </li>
   </ol>
 </div>

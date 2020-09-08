@@ -44,6 +44,13 @@ storiesOf('Atoms/Icon', module)
           'arrow_right_primary_s',
           'arrow_right_secondary',
           'arrow_up_primary',
+          'attach',
+          'blank_solid',
+          'browser',
+          'calendar',
+          'child_friendly',
+          'close',
+          'cross_circle',
           'search'
         ]
       }

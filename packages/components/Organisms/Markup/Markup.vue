@@ -125,11 +125,25 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_text_color($rpl-markup-link-color);
     }
   }
+
   /* Iframes */
   &__iframe-container {
-    @include rpl_responsive_iframe;
-    padding-bottom: $responsive-iframe-padding-bottom;
-    padding-top: $responsive-iframe-padding-top;
+    iframe {
+      width: 100%;
+      border: 0;
+    }
+
+    &--default {
+      iframe {
+        width: 100%;
+        height: rem(650px);
+        border: 0;
+
+        @include rpl_breakpoint(m) {
+          height: rem(550px);
+        }
+      }
+    }
   }
 
   /* Callouts */

@@ -160,7 +160,7 @@ module.exports = {
         url: item.field_paragraph_link ? item.field_paragraph_link.url || item.field_paragraph_link.uri : null,
         dateStart: dateRange ? dateRange.value : null,
         dateEnd: dateRange ? dateRange.end_value : null,
-        description: mapping.parseField(['field_paragraph_body'], item)
+        description: mapping.parseField(['field_paragraph_body', 'processed'], item)
       }
     })
   },

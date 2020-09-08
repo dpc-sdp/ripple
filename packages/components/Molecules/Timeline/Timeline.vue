@@ -12,7 +12,7 @@
           <rpl-link v-if="item.url" :href="item.url">{{ item.title }}</rpl-link>
         </h3>
         <p v-if="hasSubtitle(item)" class="rpl-timeline__item-subtitle">{{ subtitle(item) }}</p>
-        <rpl-markup v-if="item.description.processed" class="rpl-timeline__item-description" :html="item.description.processed"></rpl-markup>
+        <rpl-markup v-if="item.description" class="rpl-timeline__item-description" :html="item.description"></rpl-markup>
       </li>
     </ol>
   </div>

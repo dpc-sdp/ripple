@@ -51,6 +51,13 @@ storiesOf('Atoms/Icon', module)
           'child_friendly',
           'close',
           'cross_circle',
+          'csv',
+          'doc',
+          'dollar_negative',
+          'dot',
+          'document',
+          'document_transparent',
+          'docx',
           'search'
         ]
       }

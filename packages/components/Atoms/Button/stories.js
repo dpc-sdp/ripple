@@ -6,18 +6,18 @@ import {
   text,
   boolean,
   select
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 const template = `<rpl-button :href="href" :theme="theme" :disabled="disabled">{{ content }}</rpl-button>`
 
 storiesOf('Atoms/Button', module)
   .addDecorator(withKnobs)
-  .add('default', () => ({
+  .add('Primary', () => ({
     components: { RplButton },
     template,
     props: {
       content: {
-        default: text('Content', 'Ripple Button')
+        default: text('Content', 'Primary button')
       },
       href: {
         default: text('href', '#')
@@ -30,51 +30,57 @@ storiesOf('Atoms/Button', module)
       }
     }
   }))
-  .add('with href', () => ({
+  .add('Secondary', () => ({
     components: { RplButton },
     template,
-    data () {
-      return {
-        content: 'Ripple Button',
-        href: '#',
-        theme: 'primary',
-        disabled: false
+    props: {
+      content: {
+        default: text('Content', 'Secondary button')
+      },
+      href: {
+        default: text('href', '#')
+      },
+      theme: {
+        default: select('Theme', { primary: 'primary', secondary: 'secondary' }, 'secondary')
+      },
+      disabled: {
+        default: boolean('Disabled', false)
+      }
+    }
+  }))
+  .add('Disabled', () => ({
+    components: { RplButton },
+    template,
+    props: {
+      content: {
+        default: text('Content', 'Disabled button')
+      },
+      href: {
+        default: text('href', '#')
+      },
+      theme: {
+        default: select('Theme', { primary: 'primary', secondary: 'secondary' }, 'secondary')
+      },
+      disabled: {
+        default: boolean('Disabled', true)
       }
     }
   }))
   .add('without href', () => ({
     components: { RplButton },
     template,
-    data () {
-      return {
-        content: 'Ripple Button',
-        href: '',
-        theme: 'primary',
-        disabled: false
-      }
-    }
-  }))
-  .add('secondary theme', () => ({
-    components: { RplButton },
-    template,
-    data () {
-      return {
-        content: 'Ripple Button',
-        href: '#',
-        theme: 'secondary',
-        disabled: false
-      }
-    }
-  }))
-  .add('disabled', () => ({
-    components: { RplButton },
-    template,
-    data () {
-      return {
-        content: 'Ripple Button',
-        href: '#',
-        theme: 'primary',
-        disabled: true
+    props: {
+      content: {
+        default: text('Content', 'Button with href')
+      },
+      href: {
+        default: text('href', '')
+      },
+      theme: {
+        default: select('Theme', { primary: 'primary', secondary: 'secondary' }, 'primary')
+      },
+      disabled: {
+        default: boolean('Disabled', false)
       }
     }
   }))

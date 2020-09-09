@@ -46,11 +46,15 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
         01 January 2019 to 01 December 2020
       </p>
        
-      <p
-        class="rpl-timeline__item-description"
+      <div
+        class="rpl-markup tide-wysiwyg app-wysiwyg rpl-timeline__item-description"
       >
-        Contains image, title, internal URL, different start / end date and description.
-      </p>
+        <div
+          class="rpl-markup__inner"
+        >
+          Contains image, title, internal URL, different start / end date and description.
+        </div>
+      </div>
     </li>
     <li
       class="rpl-timeline__list-item rpl-timeline__list-item--multi"
@@ -100,11 +104,15 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
         01 to 15 January
       </p>
        
-      <p
-        class="rpl-timeline__item-description"
+      <div
+        class="rpl-markup tide-wysiwyg app-wysiwyg rpl-timeline__item-description"
       >
-        Contains image, title, different start / end date, subtitle (hidden) and description.
-      </p>
+        <div
+          class="rpl-markup__inner"
+        >
+          Contains image, title, different start / end date, subtitle (hidden) and description.
+        </div>
+      </div>
     </li>
     <li
       class="rpl-timeline__list-item rpl-timeline__list-item--multi"
@@ -127,11 +135,15 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
         01 March
       </p>
        
-      <p
-        class="rpl-timeline__item-description"
+      <div
+        class="rpl-markup tide-wysiwyg app-wysiwyg rpl-timeline__item-description"
       >
-        Contains title, matching start / end date and description.
-      </p>
+        <div
+          class="rpl-markup__inner"
+        >
+          Contains title, matching start / end date and description.
+        </div>
+      </div>
     </li>
     <li
       class="rpl-timeline__list-item rpl-timeline__list-item--with-image rpl-timeline__list-item--multi"
@@ -162,11 +174,15 @@ exports[`RippleStoryshots Molecules/Timeline Default 1`] = `
        
       <!---->
        
-      <p
-        class="rpl-timeline__item-description"
+      <div
+        class="rpl-markup tide-wysiwyg app-wysiwyg rpl-timeline__item-description"
       >
-        Contains an image, title, external URL and description.
-      </p>
+        <div
+          class="rpl-markup__inner"
+        >
+          Contains an image, title, external URL and description.
+        </div>
+      </div>
     </li>
   </ol>
 </div>

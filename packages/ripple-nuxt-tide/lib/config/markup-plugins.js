@@ -116,6 +116,10 @@ const pluginIframe = function () {
   const wrapperClasses = ['rpl-markup__iframe-container']
   this.find('iframe').map((i, el) => {
     const iframe = this.find(el)
+    // If no height setting from CMS, we give it a default height.
+    if (!iframe.attr('height')) {
+      wrapperClasses.push('rpl-markup__iframe-container--default')
+    }
     const markup = `<div class="${wrapperClasses.join(' ')}"></div>`
     return iframe.wrap(markup)
   })

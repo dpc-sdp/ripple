@@ -30,65 +30,35 @@ export default {
         'l': 1.5,
         'xl': 2,
         'xxl': 2.5
-      },
-      childrenWidth: 0,
-      childrenHeight: 0,
-      outerScale: 1,
-      x: false,
-      y: false
+      }
     }
   },
   computed: {
     iconClass () {
-      let rtn = (this.icon) ? `rpl-icon rpl-icon--${this.symbol}` : ''
+      if (!this.icon) return ''
+
+      let rtn = `rpl-icon rpl-icon--${this.symbol}`
       return this.color ? `${rtn} rpl-icon--color_${this.color}` : rtn
     },
     iconStyle () {
-      if (this.icon) {
-        const width = this.icon.width
-        const height = this.icon.height
-        let size = (this.sizes[this.size] === undefined) ? parseFloat(this.size) : this.sizes[this.size]
-        size = isNaN(size) ? 1 : size
+      if (!this.icon) return ''
 
-        return `width: ${width * size}px; height: ${height * size}px`
-      }
+      const width = this.icon.width
+      const height = this.icon.height
+      let size = (this.sizes[this.size] === undefined) ? parseFloat(this.size) : this.sizes[this.size]
+      size = isNaN(size) ? 1 : size
+
+      return `width: ${width * size}px; height: ${height * size}px`
     },
     icon () {
-      if (this.symbol) {
-        return icons[this.symbol]
-      }
-      return null
+      if (!this.symbol) return null
+
+      return icons[this.symbol]
     },
     box () {
-      if (this.icon) {
-        return `0 0 ${this.icon.width} ${this.icon.height}`
-      }
-      return `0 0 ${this.width} ${this.height}`
+      if (!this.icon) return
+      return `0 0 ${this.icon.width} ${this.icon.height}`
     }
-  },
-  mounted () {
-    // TODO fix and remove if not required.
-    if (!this.symbol && this.symbol !== null && this.$children.length === 0) {
-      return
-    }
-
-    if (this.icon) {
-      return
-    }
-    let width = 0
-    let height = 0
-
-    this.$children.forEach(child => {
-      child.outerScale = this.normalizedScale
-      width = Math.max(width, child.width)
-      height = Math.max(height, child.height)
-    })
-    this.childrenWidth = width
-    this.childrenHeight = height
-    this.$children.forEach(child => {
-      child.x = (width - child.width) / 2
-      child.y = (height - child.height) / 2
-    })
   },
   register (data) {
     for (let name in data) {
@@ -112,16 +82,12 @@ export default {
 function assign (obj, ...sources) {
   sources.forEach(source => {
     for (let key in source) {
-      if (hasOwn(source, key)) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
         obj[key] = source[key]
       }
     }
   })
   return obj
-}
-
-function hasOwn (obj, key) {
-  return Object.prototype.hasOwnProperty.call(obj, key)
 }
 </script>
 

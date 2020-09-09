@@ -1,4 +1,4 @@
-import Icon from '../../../../packages/components/Atoms/Icon/Icon'
+import Icon from '@dpc-sdp/ripple-icon'
 
 Icon.register({
   'icon_circle_arrow_right': {

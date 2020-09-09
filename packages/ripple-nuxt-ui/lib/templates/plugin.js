@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import RplGlobal from '@dpc-sdp/ripple-global'
-import { addCustomIcons } from '@dpc-sdp/ripple-icon'
 import { queryString } from '@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper'
 
 const options = <%= serialize(options) %>
@@ -58,11 +57,6 @@ let rplOptions = {
 
 <% if (options.externalLinksInNewWindow) { %>
   rplOptions.externalLinksInNewWindow = options.externalLinksInNewWindow
-<% } %>
-
-<% if (options.customIcon) { %>
-  // Add custom icons to library.
-  addCustomIcons(require.context('../assets/ripple-icon/', true, /\.svg$/))
 <% } %>
 
 Vue.use(RplGlobal, rplOptions)

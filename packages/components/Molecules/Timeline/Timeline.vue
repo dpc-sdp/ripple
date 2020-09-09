@@ -75,7 +75,7 @@ export default {
   $rpl-timeline-sidebar-size: $rpl-timeline-point-thickness !default;
   $rpl-timeline-sidebar-color: $rpl-timeline-point-color !default;
   $rpl-timeline-sidebar-gutter-width: ($rpl-space * 8) !default;
-  $rpl-timeline-list-item-padding: 0 0 rem(48px) $rpl-timeline-sidebar-gutter-width !default;
+  $rpl-timeline-list-item-padding: 0 0 rem(18px) $rpl-timeline-sidebar-gutter-width !default;
   $rpl-timeline-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-timeline-item-title-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-timeline-item-title-text-link-color: rpl-color('primary') !default;
@@ -205,7 +205,13 @@ export default {
     &__item-description {
       @include rpl_typography_ruleset($rpl-timeline-item-description-ruleset);
       @include rpl_text_color($rpl-timeline-item-description-text-color);
-      margin: 0 0 $rpl-space 0;
+      margin: $rpl-space-3 0 $rpl-space 0;
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+      }
+      p {
+        margin-top: 0;
+      }
     }
   }
 </style>

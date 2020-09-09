@@ -46,8 +46,14 @@ export const metatagConverter = (metatagNormalized) => {
     switch (element.tag) {
       case 'meta':
         if (element.attributes['http-equiv']) {
-          metatags.lang = element.attributes.content
-        } else {
+          if (element.attributes['http-equiv'] === 'content-language') {
+            metatags.lang = element.attributes.content
+          }
+          // TODO: to respect all Drupal metatags, we need other task.
+          // The getPageHeadConfig() function need to be refactored to deal with them dynamically.
+        }
+
+        if (element.attributes['name']) {
           metatags[element.attributes.name] = element.attributes.content
         }
         break

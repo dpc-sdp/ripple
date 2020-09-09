@@ -18,10 +18,6 @@ environments:
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
-    monitoring_urls:
-      - "www.ripple.sdp.vic.gov.au"
-      - "app-ripple-production.lagoon.vicsdp.amazee.io"
-      - "storybook-ripple-production.lagoon.vicsdp.amazee.io"
   master:
     routes:
       - storybook:

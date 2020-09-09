@@ -6,90 +6,154 @@ import {
   withKnobs,
   text,
   boolean,
-  object
-} from '@storybook/addon-knobs/vue'
+  object,
+  array
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/Form/Select', module)
+  .addDecorator(withKnobs)
   .add('Single', () => ({
     components: { RplSelect },
     template: `<rpl-select :values="values" :config="config"></rpl-select>`,
-    data () {
-      return {
-        config: {
+    props: {
+      config: {
+        default: object('Config', {
           multiselect: false,
           placeholder: 'Select',
           showitems: 4,
           fieldId: 'select',
           label: ''
-        },
-        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+        })
+      },
+      state: {
+        default: text('State', '')
+      },
+      values: {
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
+      },
+      disabled: {
+        default: boolean('Disabled', false)
       }
     }
   }))
   .add('Set initial state', () => ({
     components: { RplSelect },
     template: `<rpl-select :values="values" :config="config" :state="state"></rpl-select>`,
-    data () {
-      return {
-        config: {
+    props: {
+      config: {
+        default: object('Config', {
           multiselect: false,
           placeholder: 'Select',
           showitems: 4,
           fieldId: 'select',
           label: ''
-        },
-        state: 'nsw',
-        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+        })
+      },
+      state: {
+        default: text('State', 'nsw')
+      },
+      values: {
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
+      },
+      disabled: {
+        default: boolean('Disabled', false)
       }
     }
   }))
   .add('Multiselect', () => ({
     components: { RplSelect },
     template: `<rpl-select :values="values" :config="config"></rpl-select>`,
-    data () {
-      return {
-        config: {
+    props: {
+      config: {
+        default: object('Config', {
           multiselect: true,
           placeholder: 'Select',
           showitems: 4,
           fieldId: 'select',
           label: ''
-        },
-        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+        })
+      },
+      state: {
+        default: object('State', [])
+      },
+      values: {
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
+      },
+      disabled: {
+        default: boolean('Disabled', false)
       }
     }
   }))
   .add('Multiselect initial state', () => ({
     components: { RplSelect },
     template: `<rpl-select :values="values" :config="config" :state="state"></rpl-select>`,
-    data () {
-      return {
-        config: {
+    props: {
+      config: {
+        default: object('Config', {
           multiselect: true,
           placeholder: 'Select',
           showitems: 4,
           fieldId: 'select',
           label: ''
-        },
-        state: ['vic', 'nsw'],
-        values: [{ id: 'vic', name: 'Vic' }, { id: 'nsw', name: 'New South Wales' }, { id: 'wa', name: 'Western Australia' }, { id: 'ql', name: 'Queensland' }]
+        })
+      },
+      state: {
+        default: array('State', ['vic', 'nsw'])
+      },
+      values: {
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
+      },
+      disabled: {
+        default: boolean('Disabled', false)
       }
     }
   }))
   .add('Multiselect initial state with object', () => ({
     components: { RplSelect },
     template: `<rpl-select :values="values" :config="config" :state="state"></rpl-select>`,
-    data () {
-      return {
-        config: {
+    props: {
+      config: {
+        default: object('Config', {
           multiselect: true,
           placeholder: 'Select',
           showitems: 4,
           fieldId: 'select',
           label: ''
-        },
-        state: ['vic', 'nsw', 'wa'],
-        values: [{ id: 'vic', name: 'Vic', value: { postcode: 3000 } }, { id: 'nsw', name: 'New South Wales', value: { postcode: 2000 } }, { id: 'wa', name: 'Western Australia', value: { postcode: 6000 } }, { id: 'ql', name: 'Queensland', value: { postcode: 4000 } }]
+        })
+      },
+      state: {
+        default: array('State', ['vic', 'nsw', 'wa'])
+      },
+      values: {
+        default: object('Values', [
+          { id: 'vic', name: 'Vic' },
+          { id: 'nsw', name: 'New South Wales' },
+          { id: 'wa', name: 'Western Australia' },
+          { id: 'ql', name: 'Queensland' }
+        ])
+      },
+      disabled: {
+        default: boolean('Disabled', false)
       }
     }
   }))
@@ -432,17 +496,24 @@ storiesOf('Molecules/Form', module)
     template: `<rpl-form :formData="formData" :submitHandler="submitHandler" :title="title"></rpl-form>`,
     data () {
       return {
-        title: 'Submission Alerts',
         isNewModel: true,
         options: {
           validateAfterChanged: true,
           validateAfterLoad: false
-        },
-        formData: {
+        }
+      }
+    },
+    props: {
+      title: {
+        default: text('Title', 'Submission Alerts')
+      },
+      formData: {
+        default: () => object('Form Data', {
           model: {
             submissionType: 'Success',
             message: 'Thank you! Your response has been submitted.'
           },
+
           schema: {
             fields: [
               {
@@ -470,7 +541,7 @@ storiesOf('Molecules/Form', module)
             ]
           },
           formState: {}
-        }
+        })
       }
     },
     methods: {

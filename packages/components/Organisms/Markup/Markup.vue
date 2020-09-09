@@ -55,7 +55,6 @@ export default {
 <style lang="scss">
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
-@import "scss/iframe";
 @import "~@dpc-sdp/ripple-global/scss/components/table";
 
 $rpl-markup-text-color: rpl-color('extra_dark_neutral') !default;

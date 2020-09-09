@@ -45,7 +45,11 @@ export const metatagConverter = (metatagNormalized) => {
   metatagNormalized.forEach(element => {
     switch (element.tag) {
       case 'meta':
-        metatags[element.attributes.name] = element.attributes.content
+        if (element.attributes['http-equiv']) {
+          metatags.lang = element.attributes.content
+        } else {
+          metatags[element.attributes.name] = element.attributes.content
+        }
         break
 
       case 'link':

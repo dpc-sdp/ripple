@@ -55,7 +55,6 @@ export default {
 <style lang="scss">
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
-@import "scss/iframe";
 @import "~@dpc-sdp/ripple-global/scss/components/table";
 
 $rpl-markup-text-color: rpl-color('extra_dark_neutral') !default;
@@ -125,11 +124,27 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_text_color($rpl-markup-link-color);
     }
   }
+
   /* Iframes */
   &__iframe-container {
-    @include rpl_responsive_iframe;
-    padding-bottom: $responsive-iframe-padding-bottom;
-    padding-top: $responsive-iframe-padding-top;
+    iframe {
+      width: 100%;
+      border: 0;
+      // Shouldn't be oversize in mobile
+      max-height: 80vh;
+    }
+
+    &--default {
+      iframe {
+        width: 100%;
+        height: rem(600px);
+        border: 0;
+
+        @include rpl_breakpoint(m) {
+          height: rem(550px);
+        }
+      }
+    }
   }
 
   /* Callouts */

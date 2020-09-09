@@ -131,12 +131,14 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     iframe {
       width: 100%;
       border: 0;
+      // Shouldn't be oversize in mobile
+      max-height: 80vh;
     }
 
     &--default {
       iframe {
         width: 100%;
-        height: rem(650px);
+        height: rem(600px);
         border: 0;
 
         @include rpl_breakpoint(m) {

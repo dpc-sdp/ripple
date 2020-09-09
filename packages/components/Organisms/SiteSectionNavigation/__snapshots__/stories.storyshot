@@ -27,7 +27,23 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
           Your services
         </span>
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--down rpl-icon--color_white"
+          overflow="visible"
+          style="width: 8px; height: 5px;"
+          viewBox="0 0 8 5"
+        >
+          <use
+            href="#rpl_icon_down"
+            xlink:href="#rpl_icon_down"
+          />
+           
+          <path
+            d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+          />
+           
+        </svg>
       </button>
        
       <ul
@@ -81,7 +97,23 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Sub child B - With level 3
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+              overflow="visible"
+              style="width: 8px; height: 5px;"
+              viewBox="0 0 8 5"
+            >
+              <use
+                href="#rpl_icon_down"
+                xlink:href="#rpl_icon_down"
+              />
+               
+              <path
+                d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+              />
+               
+            </svg>
           </button>
            
           <ul
@@ -119,7 +151,23 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child I
                 </span>
                  
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                  overflow="visible"
+                  style="width: 8px; height: 5px;"
+                  viewBox="0 0 8 5"
+                >
+                  <use
+                    href="#rpl_icon_down"
+                    xlink:href="#rpl_icon_down"
+                  />
+                   
+                  <path
+                    d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                  />
+                   
+                </svg>
               </button>
                
               <ul
@@ -246,7 +294,23 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Test Path 2
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+              overflow="visible"
+              style="width: 8px; height: 5px;"
+              viewBox="0 0 8 5"
+            >
+              <use
+                href="#rpl_icon_down"
+                xlink:href="#rpl_icon_down"
+              />
+               
+              <path
+                d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+              />
+               
+            </svg>
           </button>
            
           <ul
@@ -300,7 +364,23 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Test Path 3
                 </span>
                  
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                  overflow="visible"
+                  style="width: 8px; height: 5px;"
+                  viewBox="0 0 8 5"
+                >
+                  <use
+                    href="#rpl_icon_down"
+                    xlink:href="#rpl_icon_down"
+                  />
+                   
+                  <path
+                    d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                  />
+                   
+                </svg>
               </button>
                
               <ul
@@ -887,7 +967,23 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
           News
         </span>
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--down rpl-icon--color_white"
+          overflow="visible"
+          style="width: 8px; height: 5px;"
+          viewBox="0 0 8 5"
+        >
+          <use
+            href="#rpl_icon_down"
+            xlink:href="#rpl_icon_down"
+          />
+           
+          <path
+            d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+          />
+           
+        </svg>
       </button>
        
       <ul
@@ -925,7 +1021,23 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Sub child 2
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+              overflow="visible"
+              style="width: 8px; height: 5px;"
+              viewBox="0 0 8 5"
+            >
+              <use
+                href="#rpl_icon_down"
+                xlink:href="#rpl_icon_down"
+              />
+               
+              <path
+                d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+              />
+               
+            </svg>
           </button>
            
           <ul
@@ -1018,7 +1130,23 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
           Events
         </span>
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--down rpl-icon--color_white"
+          overflow="visible"
+          style="width: 8px; height: 5px;"
+          viewBox="0 0 8 5"
+        >
+          <use
+            href="#rpl_icon_down"
+            xlink:href="#rpl_icon_down"
+          />
+           
+          <path
+            d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+          />
+           
+        </svg>
       </button>
        
       <ul

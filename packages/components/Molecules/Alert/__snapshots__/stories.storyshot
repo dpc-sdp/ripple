@@ -54,7 +54,23 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
               class="rpl-text-icon__group"
             >
                more
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--right rpl-icon--color_white rpl-text-icon--after"
+                overflow="visible"
+                style="width: 5px; height: 8px;"
+                viewBox="0 0 5 8"
+              >
+                <use
+                  href="#rpl_icon_right"
+                  xlink:href="#rpl_icon_right"
+                />
+                 
+                <path
+                  d="M0.292893 7.70711C-0.0976311 7.31658 -0.0976311 6.68342 0.292893 6.29289L2.58579 4L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4.70711 3.29289C5.09763 3.68342 5.09763 4.31658 4.70711 4.70711L1.70711 7.70711C1.31658 8.09763 0.683417 8.09763 0.292893 7.70711Z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </span>
@@ -65,7 +81,23 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
   <button
     class="rpl-alert-base__close"
   >
-    <!---->
+    <svg
+      aria-hidden="true"
+      class="rpl-icon rpl-icon--close rpl-icon--color_white"
+      overflow="visible"
+      style="width: 16px; height: 16px;"
+      viewBox="0 0 16 16"
+    >
+      <use
+        href="#rpl_icon_close"
+        xlink:href="#rpl_icon_close"
+      />
+       
+      <path
+        d="M14.9956 0.292893C14.6051 -0.0976311 13.9719 -0.0976311 13.5814 0.292893L7.64424 6.23003L1.70711 0.292893C1.31658 -0.0976311 0.683418 -0.0976311 0.292894 0.292893C-0.0976312 0.683418 -0.0976312 1.31658 0.292894 1.70711L6.23003 7.64424L0.651418 13.2228C0.260893 13.6134 0.260893 14.2465 0.651418 14.6371C1.04194 15.0276 1.67511 15.0276 2.06563 14.6371L7.64424 9.05845L13.2228 14.6371C13.6134 15.0276 14.2465 15.0276 14.6371 14.6371C15.0276 14.2465 15.0276 13.6134 14.6371 13.2228L9.05845 7.64424L14.9956 1.70711C15.3861 1.31658 15.3861 0.683418 14.9956 0.292893Z"
+      />
+       
+    </svg>
     <span>
       Dismiss alert
     </span>
@@ -106,7 +138,23 @@ exports[`RippleStoryshots Molecules/Alert Alert Base 1`] = `
   <button
     class="rpl-alert-base__close"
   >
-    <!---->
+    <svg
+      aria-hidden="true"
+      class="rpl-icon rpl-icon--close rpl-icon--color_white"
+      overflow="visible"
+      style="width: 16px; height: 16px;"
+      viewBox="0 0 16 16"
+    >
+      <use
+        href="#rpl_icon_close"
+        xlink:href="#rpl_icon_close"
+      />
+       
+      <path
+        d="M14.9956 0.292893C14.6051 -0.0976311 13.9719 -0.0976311 13.5814 0.292893L7.64424 6.23003L1.70711 0.292893C1.31658 -0.0976311 0.683418 -0.0976311 0.292894 0.292893C-0.0976312 0.683418 -0.0976312 1.31658 0.292894 1.70711L6.23003 7.64424L0.651418 13.2228C0.260893 13.6134 0.260893 14.2465 0.651418 14.6371C1.04194 15.0276 1.67511 15.0276 2.06563 14.6371L7.64424 9.05845L13.2228 14.6371C13.6134 15.0276 14.2465 15.0276 14.6371 14.6371C15.0276 14.2465 15.0276 13.6134 14.6371 13.2228L9.05845 7.64424L14.9956 1.70711C15.3861 1.31658 15.3861 0.683418 14.9956 0.292893Z"
+      />
+       
+    </svg>
     <span>
       Close
     </span>

@@ -32,7 +32,32 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                 aria-expanded="false"
                 class="rpl-site-header__btn rpl-site-header__btn--menu"
               >
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-icon rpl-icon--hamburger rpl-icon--color_white"
+                  overflow="visible"
+                  style="width: 18px; height: 14px;"
+                  viewBox="0 0 18 14"
+                >
+                  <use
+                    href="#rpl_icon_hamburger"
+                    xlink:href="#rpl_icon_hamburger"
+                  />
+                   
+                  <path
+                    d="M0 1C0 0.447715 0.447715 0 1 0H9C9.55229 0 10 0.447715 10 1C10 1.55228 9.55229 2 9 2H1C0.447715 2 0 1.55228 0 1Z"
+                  />
+                  <path
+                    d="M0 5C0 4.44772 0.447715 4 1 4H17C17.5523 4 18 4.44772 18 5C18 5.55228 17.5523 6 17 6H1C0.447715 6 0 5.55228 0 5Z"
+                  />
+                  <path
+                    d="M0 9C0 8.44772 0.447715 8 1 8H13C13.5523 8 14 8.44772 14 9C14 9.55228 13.5523 10 13 10H1C0.447715 10 0 9.55228 0 9Z"
+                  />
+                  <path
+                    d="M0 13C0 12.4477 0.447715 12 1 12H17C17.5523 12 18 12.4477 18 13C18 13.5523 17.5523 14 17 14H1C0.447715 14 0 13.5523 0 13Z"
+                  />
+                   
+                </svg>
                  
                 <span>
                   Menu
@@ -125,7 +150,23 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                               Your services
                             </span>
                              
-                            <!---->
+                            <svg
+                              aria-hidden="true"
+                              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                              overflow="visible"
+                              style="width: 8px; height: 5px;"
+                              viewBox="0 0 8 5"
+                            >
+                              <use
+                                href="#rpl_icon_down"
+                                xlink:href="#rpl_icon_down"
+                              />
+                               
+                              <path
+                                d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                              />
+                               
+                            </svg>
                           </button>
                            
                           <div
@@ -399,7 +440,23 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                           Sub child B
                                         </span>
                                          
-                                        <!---->
+                                        <svg
+                                          aria-hidden="true"
+                                          class="rpl-icon rpl-icon--right rpl-icon--color_white"
+                                          overflow="visible"
+                                          style="width: 5px; height: 8px;"
+                                          viewBox="0 0 5 8"
+                                        >
+                                          <use
+                                            href="#rpl_icon_right"
+                                            xlink:href="#rpl_icon_right"
+                                          />
+                                           
+                                          <path
+                                            d="M0.292893 7.70711C-0.0976311 7.31658 -0.0976311 6.68342 0.292893 6.29289L2.58579 4L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4.70711 3.29289C5.09763 3.68342 5.09763 4.31658 4.70711 4.70711L1.70711 7.70711C1.31658 8.09763 0.683417 8.09763 0.292893 7.70711Z"
+                                          />
+                                           
+                                        </svg>
                                       </button>
                                        
                                       <div
@@ -499,7 +556,23 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                           Test Path 2
                                         </span>
                                          
-                                        <!---->
+                                        <svg
+                                          aria-hidden="true"
+                                          class="rpl-icon rpl-icon--right rpl-icon--color_white"
+                                          overflow="visible"
+                                          style="width: 5px; height: 8px;"
+                                          viewBox="0 0 5 8"
+                                        >
+                                          <use
+                                            href="#rpl_icon_right"
+                                            xlink:href="#rpl_icon_right"
+                                          />
+                                           
+                                          <path
+                                            d="M0.292893 7.70711C-0.0976311 7.31658 -0.0976311 6.68342 0.292893 6.29289L2.58579 4L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4.70711 3.29289C5.09763 3.68342 5.09763 4.31658 4.70711 4.70711L1.70711 7.70711C1.31658 8.09763 0.683417 8.09763 0.292893 7.70711Z"
+                                          />
+                                           
+                                        </svg>
                                       </button>
                                        
                                       <div
@@ -563,7 +636,23 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                       Test Path 3
                                                     </span>
                                                      
-                                                    <!---->
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      class="rpl-icon rpl-icon--right rpl-icon--color_white"
+                                                      overflow="visible"
+                                                      style="width: 5px; height: 8px;"
+                                                      viewBox="0 0 5 8"
+                                                    >
+                                                      <use
+                                                        href="#rpl_icon_right"
+                                                        xlink:href="#rpl_icon_right"
+                                                      />
+                                                       
+                                                      <path
+                                                        d="M0.292893 7.70711C-0.0976311 7.31658 -0.0976311 6.68342 0.292893 6.29289L2.58579 4L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4.70711 3.29289C5.09763 3.68342 5.09763 4.31658 4.70711 4.70711L1.70711 7.70711C1.31658 8.09763 0.683417 8.09763 0.292893 7.70711Z"
+                                                      />
+                                                       
+                                                    </svg>
                                                   </button>
                                                    
                                                   <div
@@ -1110,7 +1199,23 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                               News
                             </span>
                              
-                            <!---->
+                            <svg
+                              aria-hidden="true"
+                              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                              overflow="visible"
+                              style="width: 8px; height: 5px;"
+                              viewBox="0 0 8 5"
+                            >
+                              <use
+                                href="#rpl_icon_down"
+                                xlink:href="#rpl_icon_down"
+                              />
+                               
+                              <path
+                                d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                              />
+                               
+                            </svg>
                           </button>
                            
                           <div
@@ -1159,7 +1264,23 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                           Sub child 2
                                         </span>
                                          
-                                        <!---->
+                                        <svg
+                                          aria-hidden="true"
+                                          class="rpl-icon rpl-icon--right rpl-icon--color_white"
+                                          overflow="visible"
+                                          style="width: 5px; height: 8px;"
+                                          viewBox="0 0 5 8"
+                                        >
+                                          <use
+                                            href="#rpl_icon_right"
+                                            xlink:href="#rpl_icon_right"
+                                          />
+                                           
+                                          <path
+                                            d="M0.292893 7.70711C-0.0976311 7.31658 -0.0976311 6.68342 0.292893 6.29289L2.58579 4L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4.70711 3.29289C5.09763 3.68342 5.09763 4.31658 4.70711 4.70711L1.70711 7.70711C1.31658 8.09763 0.683417 8.09763 0.292893 7.70711Z"
+                                          />
+                                           
+                                        </svg>
                                       </button>
                                        
                                       <div
@@ -1265,7 +1386,23 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                               Events
                             </span>
                              
-                            <!---->
+                            <svg
+                              aria-hidden="true"
+                              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                              overflow="visible"
+                              style="width: 8px; height: 5px;"
+                              viewBox="0 0 8 5"
+                            >
+                              <use
+                                href="#rpl_icon_down"
+                                xlink:href="#rpl_icon_down"
+                              />
+                               
+                              <path
+                                d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L4 2.58579L6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L4.70711 4.70711C4.31658 5.09763 3.68342 5.09763 3.29289 4.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                              />
+                               
+                            </svg>
                           </button>
                            
                           <div

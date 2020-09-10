@@ -9,6 +9,7 @@
       'rpl-button--disabled': disabled
     }"
   >
+    <!-- @slot Button label -->
     <slot></slot>
   </rpl-link>
   <button
@@ -21,6 +22,7 @@
       'rpl-button--disabled': disabled
     }"
   >
+    <!-- @slot Button label -->
     <slot></slot>
   </button>
 </template>

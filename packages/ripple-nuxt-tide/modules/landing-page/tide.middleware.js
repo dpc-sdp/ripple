@@ -1,9 +1,8 @@
-// import AutomatedListingSearch from '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/lib/automated-listing-search'
+import { getQueryParams } from './lib/card-collection-utils'
 
-import getQueryParams from './lib/card-query'
 import get from 'lodash.get'
 export default {
-  automatedListing: async (context, pageData) => {
+  cardCollection: async (context, pageData) => {
     if (pageData.tidePage) {
       // Automated card listing.
       const automatedCardRequests = []

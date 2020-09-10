@@ -4,7 +4,7 @@
  * @param {Object} settings Settings from card collection
  * @returns {Object} queryParams to pass to pass to tideSearchApi
  */
-const getQueryParams = (settings) => {
+export const getQueryParams = (settings) => {
   if (settings) {
     const queryParams = {
       type: settings.content_type || 'all'

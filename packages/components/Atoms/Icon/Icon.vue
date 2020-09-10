@@ -1,18 +1,23 @@
 <!-- credits to https://github.com/Justineo/vue-awesome/blob/master/src/components/Icon.vue -->
 <template>
   <svg v-if="icon" :class="iconClass" :style="iconStyle" :viewBox="box" aria-hidden="true" overflow="visible">
-    <!-- Use both xlink:href and href for browser support https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/ -->
-    <use :xlink:href="'#' + iconPrefix + symbol" :href="'#' + iconPrefix + symbol"></use>
-    <template v-if="icon.paths">
-      <path v-for="(path, i) in icon.paths" :key="`${symbol}-path${i}`" v-bind="path" />
+    <template v-if="iconPropsSVG">
+      <!-- Use both xlink:href and href for browser support https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/ -->
+      <use :xlink:href="'#' + iconPrefix + symbol" :href="'#' + iconPrefix + symbol"></use>
     </template>
-    <template v-if="icon.polygons">
-      <polygon v-for="(polygon, i) in icon.polygons" :key="`${symbol}-polygon${i}`" v-bind="polygon" />
+    <template v-else>
+      <template v-if="icon.paths">
+        <path v-for="(path, i) in icon.paths" :key="`${symbol}-path${i}`" v-bind="path" />
+      </template>
+      <template v-if="icon.polygons">
+        <polygon v-for="(polygon, i) in icon.polygons" :key="`${symbol}-polygon${i}`" v-bind="polygon" />
+      </template>
     </template>
   </svg>
 </template>
 
 <script>
+import { getIconProps } from './icon-library'
 let icons = {}
 
 export default {
@@ -23,6 +28,7 @@ export default {
   },
   data: function () {
     return {
+      iconProperties: getIconProps(),
       iconPrefix: 'rpl_icon_',
       sizes: {
         's': 0.5,
@@ -34,6 +40,10 @@ export default {
     }
   },
   computed: {
+    // TODO this is to support custom icons using svg, must be deleted when clients have converted
+    iconPropsSVG () {
+      return (this.symbol && this.iconProperties[this.iconPrefix + this.symbol] !== undefined)
+    },
     iconClass () {
       if (!this.icon) return ''
 

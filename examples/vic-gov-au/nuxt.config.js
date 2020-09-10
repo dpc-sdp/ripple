@@ -112,7 +112,9 @@ export default {
   * Configuration for ripple-nuxt-ui
   * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui
   */
-  ripple: {},
+  ripple: {
+    customIcon: true
+  },
   /*
   * Configuration for ripple-nuxt-tide
   * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide

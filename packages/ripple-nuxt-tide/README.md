@@ -152,11 +152,31 @@ To make it work, you must load the custom scss file in your Nuxt project `css` s
 
 #### Custom icons
 
-This folder should include any custom icons you wish to override or add to the
-`rpl-icon` library.
+To enable custom icons, register your icon by creating a JS file with a structure below.
 
-To enable custom icons, place your custom icon `.svg` files into `/ripple-icon/`
-folder with a `rpl_icon_` prefix, followed by the name of the icon.
+```Javascript
+import Icon from '@dpc-sdp/ripple-icon'
+
+Icon.register({
+  'custom_arrow_right': {
+    width: 10,
+    height: 10,
+    paths: [
+      {
+        d: 'M0 10c0 5.524 4.476 10 10 10s10-4.476 10-10S15.524 0 10 0 0 4.476 0 10zm18.065 0A8.062 8.062 0 0110 18.065 8.062 8.062 0 011.935 10 8.062 8.062 0 0110 1.935 8.062 8.062 0 0118.065 10zM10.44 4.762l4.895 4.895c.19.19.19.496 0 .686l-4.895 4.895a.484.484 0 01-.686 0l-.79-.79a.483.483 0 01.008-.694l2.834-2.706H5.323a.485.485 0 01-.484-.483v-1.13c0-.266.217-.483.484-.483h6.483L8.972 6.246a.483.483 0 01-.008-.694l.79-.79c.19-.19.496-.19.686 0z'
+      }
+    ],
+    polygons: []
+  }
+})
+```
+
+Update the name of the icon - this will be used for symbol prop later, `width`, `height`, `paths` and `polygons` accordingly.
+Add this to `assets/rpl_icon/index.js`
+
+```javascript
+import './custom_arrow_right.js'
+```
 
 Then in `nuxt.config.js`, add a `customIcon` boolean into the `ripple` config:
 
@@ -166,32 +186,19 @@ ripple: {
 },
 ```
 
+The new custom icon can now be used as a normal rpl-icon.
+```html
+<rpl-icon symbol="custom_arrow_right" color="primary" size="m" />
+```
 ##### Overriding an existing icon
 
-Custom icons with a duplicate name to an existing default library icon will be
-imported instead of their default.
-
-E.g. The default `close` icon will be overridden by the following:
-
-```txt
-/ripple-icon/rpl_icon_close.svg
-```
+Custom icons with a duplicate name takes higher specificity therefore overrides the default.
+Ensure to name the icon uniquely if you just wanted a new icon not defined in icon library.
 
 ##### Adding a new icon
 
 An icon with a unique name will be added to the default library.
-
-E.g. A `feedback` icon could be added by including the following:
-
-```txt
-/ripple-icon/rpl_icon_feedback.svg
-```
-
-And could be referenced in a component with:
-
-```html
-<rpl-icon symbol="feedback" />
-```
+The process is the same as above when adding a custom icon.
 
 #### Custom images
 

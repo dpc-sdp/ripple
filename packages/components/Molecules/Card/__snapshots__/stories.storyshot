@@ -58,11 +58,6 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
               style="width: 14.700000000000001px; height: 14.700000000000001px;"
               viewBox="0 0 14 14"
             >
-              <use
-                href="#rpl_icon_phone_number"
-                xlink:href="#rpl_icon_phone_number"
-              />
-               
               <path
                 d="M13.7383 10.6808L11.4212 8.35068C11.0707 7.99766 10.499 7.99766 10.1485 8.34889L8.0893 10.4069L3.59525 5.91543L5.65712 3.85477C6.00766 3.50444 6.00855 2.93582 5.65802 2.58459L3.33908 0.263422C2.98765 -0.0878074 2.4187 -0.0878074 2.06727 0.263422L0.00359525 2.32499L0 2.32229C0 8.77198 5.23108 14 11.6845 14L13.7365 11.9492C14.0871 11.598 14.088 11.0321 13.7383 10.6808Z"
               />
@@ -129,11 +124,6 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
               style="width: 14.700000000000001px; height: 14.700000000000001px;"
               viewBox="0 0 14 14"
             >
-              <use
-                href="#rpl_icon_phone_number"
-                xlink:href="#rpl_icon_phone_number"
-              />
-               
               <path
                 d="M13.7383 10.6808L11.4212 8.35068C11.0707 7.99766 10.499 7.99766 10.1485 8.34889L8.0893 10.4069L3.59525 5.91543L5.65712 3.85477C6.00766 3.50444 6.00855 2.93582 5.65802 2.58459L3.33908 0.263422C2.98765 -0.0878074 2.4187 -0.0878074 2.06727 0.263422L0.00359525 2.32499L0 2.32229C0 8.77198 5.23108 14 11.6845 14L13.7365 11.9492C14.0871 11.598 14.088 11.0321 13.7383 10.6808Z"
               />
@@ -200,11 +190,6 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
               style="width: 13.65px; height: 12.600000000000001px;"
               viewBox="0 0 13 12"
             >
-              <use
-                href="#rpl_icon_arrow_right_primary"
-                xlink:href="#rpl_icon_arrow_right_primary"
-              />
-               
               <path
                 d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
               />
@@ -265,11 +250,6 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
               style="width: 14.700000000000001px; height: 14.700000000000001px;"
               viewBox="0 0 14 14"
             >
-              <use
-                href="#rpl_icon_external_link"
-                xlink:href="#rpl_icon_external_link"
-              />
-               
               <path
                 d="M14 1.53906V12.6016C14 13.3008 13.3008 14 12.4609 14H1.53906C0.699219 14 0 13.3008 0 12.4609V1.53906C0 0.699219 0.699219 0 1.53906 0H12.6016C13.3008 0 14 0.699219 14 1.53906ZM11.1992 1.96094H7.69922C7.14063 1.96094 6.71875 2.80078 7.28125 3.21875L8.26172 4.19922L2.10156 10.3594C1.96094 10.5 1.96094 10.7812 2.10156 10.9219L3.07812 11.8984C3.21875 12.0391 3.5 12.0391 3.64062 11.8984L9.80078 5.73828L10.7812 6.71875C11.1992 7.28125 12.0391 6.85937 12.0391 6.30078V2.80078C12.0391 2.37891 11.6211 1.96094 11.1992 1.96094Z"
               />
@@ -376,11 +356,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       style="width: 9px; height: 12px;"
                       viewBox="0 0 12 16"
                     >
-                      <use
-                        href="#rpl_icon_map_marker"
-                        xlink:href="#rpl_icon_map_marker"
-                      />
-                       
                       <path
                         d="M0 6C0 10.41 6 16 6 16C6 16 12 10.41 12 6C12 2.7492 9.31714 0 6 0C2.68286 0 0 2.7492 0 6ZM3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z"
                       />
@@ -411,11 +386,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 9.1px; height: 8.399999999999999px;"
                         viewBox="0 0 13 12"
                       >
-                        <use
-                          href="#rpl_icon_arrow_right_primary"
-                          xlink:href="#rpl_icon_arrow_right_primary"
-                        />
-                         
                         <path
                           d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
                         />
@@ -465,11 +435,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 18px; height: 18px;"
                         viewBox="0 0 18 18"
                       >
-                        <use
-                          href="#rpl_icon_calendar"
-                          xlink:href="#rpl_icon_calendar"
-                        />
-                         
                         <path
                           clip-rule="evenodd"
                           d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -508,11 +473,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 18px; height: 18px;"
                         viewBox="0 0 18 18"
                       >
-                        <use
-                          href="#rpl_icon_calendar"
-                          xlink:href="#rpl_icon_calendar"
-                        />
-                         
                         <path
                           clip-rule="evenodd"
                           d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -561,11 +521,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 9.1px; height: 8.399999999999999px;"
                         viewBox="0 0 13 12"
                       >
-                        <use
-                          href="#rpl_icon_arrow_right_primary"
-                          xlink:href="#rpl_icon_arrow_right_primary"
-                        />
-                         
                         <path
                           d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
                         />
@@ -655,11 +610,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 9.1px; height: 8.399999999999999px;"
                         viewBox="0 0 13 12"
                       >
-                        <use
-                          href="#rpl_icon_arrow_right_primary"
-                          xlink:href="#rpl_icon_arrow_right_primary"
-                        />
-                         
                         <path
                           d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
                         />
@@ -732,11 +682,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       style="width: 9px; height: 12px;"
                       viewBox="0 0 12 16"
                     >
-                      <use
-                        href="#rpl_icon_map_marker"
-                        xlink:href="#rpl_icon_map_marker"
-                      />
-                       
                       <path
                         d="M0 6C0 10.41 6 16 6 16C6 16 12 10.41 12 6C12 2.7492 9.31714 0 6 0C2.68286 0 0 2.7492 0 6ZM3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z"
                       />
@@ -767,11 +712,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 9.1px; height: 8.399999999999999px;"
                         viewBox="0 0 13 12"
                       >
-                        <use
-                          href="#rpl_icon_arrow_right_primary"
-                          xlink:href="#rpl_icon_arrow_right_primary"
-                        />
-                         
                         <path
                           d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
                         />
@@ -844,11 +784,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       style="width: 9px; height: 12px;"
                       viewBox="0 0 12 16"
                     >
-                      <use
-                        href="#rpl_icon_map_marker"
-                        xlink:href="#rpl_icon_map_marker"
-                      />
-                       
                       <path
                         d="M0 6C0 10.41 6 16 6 16C6 16 12 10.41 12 6C12 2.7492 9.31714 0 6 0C2.68286 0 0 2.7492 0 6ZM3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z"
                       />
@@ -879,11 +814,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 9.1px; height: 8.399999999999999px;"
                         viewBox="0 0 13 12"
                       >
-                        <use
-                          href="#rpl_icon_arrow_right_primary"
-                          xlink:href="#rpl_icon_arrow_right_primary"
-                        />
-                         
                         <path
                           d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
                         />
@@ -934,11 +864,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 18px; height: 18px;"
                         viewBox="0 0 18 18"
                       >
-                        <use
-                          href="#rpl_icon_calendar"
-                          xlink:href="#rpl_icon_calendar"
-                        />
-                         
                         <path
                           clip-rule="evenodd"
                           d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -977,11 +902,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 18px; height: 18px;"
                         viewBox="0 0 18 18"
                       >
-                        <use
-                          href="#rpl_icon_calendar"
-                          xlink:href="#rpl_icon_calendar"
-                        />
-                         
                         <path
                           clip-rule="evenodd"
                           d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -1030,11 +950,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 9.1px; height: 8.399999999999999px;"
                         viewBox="0 0 13 12"
                       >
-                        <use
-                          href="#rpl_icon_arrow_right_primary"
-                          xlink:href="#rpl_icon_arrow_right_primary"
-                        />
-                         
                         <path
                           d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
                         />
@@ -1125,11 +1040,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 9.1px; height: 8.399999999999999px;"
                         viewBox="0 0 13 12"
                       >
-                        <use
-                          href="#rpl_icon_arrow_right_primary"
-                          xlink:href="#rpl_icon_arrow_right_primary"
-                        />
-                         
                         <path
                           d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
                         />
@@ -1180,11 +1090,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 18px; height: 18px;"
                         viewBox="0 0 18 18"
                       >
-                        <use
-                          href="#rpl_icon_calendar"
-                          xlink:href="#rpl_icon_calendar"
-                        />
-                         
                         <path
                           clip-rule="evenodd"
                           d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -1223,11 +1128,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 18px; height: 18px;"
                         viewBox="0 0 18 18"
                       >
-                        <use
-                          href="#rpl_icon_calendar"
-                          xlink:href="#rpl_icon_calendar"
-                        />
-                         
                         <path
                           clip-rule="evenodd"
                           d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -1276,11 +1176,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 9.1px; height: 8.399999999999999px;"
                         viewBox="0 0 13 12"
                       >
-                        <use
-                          href="#rpl_icon_arrow_right_primary"
-                          xlink:href="#rpl_icon_arrow_right_primary"
-                        />
-                         
                         <path
                           d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
                         />
@@ -1331,11 +1226,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 18px; height: 18px;"
                         viewBox="0 0 18 18"
                       >
-                        <use
-                          href="#rpl_icon_calendar"
-                          xlink:href="#rpl_icon_calendar"
-                        />
-                         
                         <path
                           clip-rule="evenodd"
                           d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -1374,11 +1264,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 18px; height: 18px;"
                         viewBox="0 0 18 18"
                       >
-                        <use
-                          href="#rpl_icon_calendar"
-                          xlink:href="#rpl_icon_calendar"
-                        />
-                         
                         <path
                           clip-rule="evenodd"
                           d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -1427,11 +1312,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                         style="width: 9.1px; height: 8.399999999999999px;"
                         viewBox="0 0 13 12"
                       >
-                        <use
-                          href="#rpl_icon_arrow_right_primary"
-                          xlink:href="#rpl_icon_arrow_right_primary"
-                        />
-                         
                         <path
                           d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
                         />
@@ -1467,11 +1347,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
           style="width: 19.200000000000003px; height: 35.2px;"
           viewBox="0 0 12 22"
         >
-          <use
-            href="#rpl_icon_arrow_left_secondary"
-            xlink:href="#rpl_icon_arrow_left_secondary"
-          />
-           
           <path
             d="M10.7474 2.66437C11.1143 2.25158 11.0771 1.61952 10.6644 1.2526C10.2516 0.88568 9.6195 0.922869 9.25258 1.33565L1.25258 10.3356C0.91579 10.7145 0.91579 11.2855 1.25258 11.6644L9.25258 20.6644C9.6195 21.0771 10.2516 21.1143 10.6644 20.7474C11.0771 20.3805 11.1143 19.7484 10.7474 19.3356L3.33794 11L10.7474 2.66437Z"
           />
@@ -1491,11 +1366,6 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
           style="width: 19.200000000000003px; height: 35.2px;"
           viewBox="0 0 12 22"
         >
-          <use
-            href="#rpl_icon_arrow_right_secondary"
-            xlink:href="#rpl_icon_arrow_right_secondary"
-          />
-           
           <path
             d="M1.25262 2.66437C0.8857 2.25158 0.922843 1.61952 1.33563 1.2526C1.74841 0.88568 2.38051 0.922869 2.74743 1.33565L10.7474 10.3356C11.0842 10.7145 11.0842 11.2855 10.7474 11.6644L2.74743 20.6644C2.38051 21.0771 1.74841 21.1143 1.33563 20.7474C0.922843 20.3805 0.8857 19.7484 1.25262 19.3356L8.66204 11L1.25262 2.66437Z"
           />
@@ -1560,11 +1430,6 @@ exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
           style="width: 9.1px; height: 8.399999999999999px;"
           viewBox="0 0 13 12"
         >
-          <use
-            href="#rpl_icon_arrow_right_primary"
-            xlink:href="#rpl_icon_arrow_right_primary"
-          />
-           
           <path
             d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
           />
@@ -1679,11 +1544,6 @@ exports[`RippleStoryshots Molecules/Card/Card Emergency Contact Default 1`] = `
         style="width: 14.700000000000001px; height: 14.700000000000001px;"
         viewBox="0 0 14 14"
       >
-        <use
-          href="#rpl_icon_phone_number"
-          xlink:href="#rpl_icon_phone_number"
-        />
-         
         <path
           d="M13.7383 10.6808L11.4212 8.35068C11.0707 7.99766 10.499 7.99766 10.1485 8.34889L8.0893 10.4069L3.59525 5.91543L5.65712 3.85477C6.00766 3.50444 6.00855 2.93582 5.65802 2.58459L3.33908 0.263422C2.98765 -0.0878074 2.4187 -0.0878074 2.06727 0.263422L0.00359525 2.32499L0 2.32229C0 8.77198 5.23108 14 11.6845 14L13.7365 11.9492C14.0871 11.598 14.088 11.0321 13.7383 10.6808Z"
         />
@@ -1761,11 +1621,6 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
         style="width: 9px; height: 12px;"
         viewBox="0 0 12 16"
       >
-        <use
-          href="#rpl_icon_map_marker"
-          xlink:href="#rpl_icon_map_marker"
-        />
-         
         <path
           d="M0 6C0 10.41 6 16 6 16C6 16 12 10.41 12 6C12 2.7492 9.31714 0 6 0C2.68286 0 0 2.7492 0 6ZM3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z"
         />
@@ -1796,11 +1651,6 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
           style="width: 9.1px; height: 8.399999999999999px;"
           viewBox="0 0 13 12"
         >
-          <use
-            href="#rpl_icon_arrow_right_primary"
-            xlink:href="#rpl_icon_arrow_right_primary"
-          />
-           
           <path
             d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
           />
@@ -1885,11 +1735,6 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
             style="width: 9.1px; height: 8.399999999999999px;"
             viewBox="0 0 13 12"
           >
-            <use
-              href="#rpl_icon_arrow_right_primary"
-              xlink:href="#rpl_icon_arrow_right_primary"
-            />
-             
             <path
               d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
             />
@@ -1934,11 +1779,6 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
           style="width: 18px; height: 18px;"
           viewBox="0 0 18 18"
         >
-          <use
-            href="#rpl_icon_calendar"
-            xlink:href="#rpl_icon_calendar"
-          />
-           
           <path
             clip-rule="evenodd"
             d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -1977,11 +1817,6 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
           style="width: 18px; height: 18px;"
           viewBox="0 0 18 18"
         >
-          <use
-            href="#rpl_icon_calendar"
-            xlink:href="#rpl_icon_calendar"
-          />
-           
           <path
             clip-rule="evenodd"
             d="M2 16H16V5H2V16ZM17 2H15V1.01C15 0.452 14.553 0 14 0C13.447 0 13 0.452 13 1.01V2H5V1.01C5 0.452 4.553 0 4 0C3.447 0 3 0.452 3 1.01V2H1C0.447 2 0 2.447 0 3V17C0 17.552 0.447 18 1 18H17C17.553 18 18 17.552 18 17V3C18 2.447 17.553 2 17 2ZM10 14.021H14V10.021H10V14.021Z"
@@ -2030,11 +1865,6 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
           style="width: 9.1px; height: 8.399999999999999px;"
           viewBox="0 0 13 12"
         >
-          <use
-            href="#rpl_icon_arrow_right_primary"
-            xlink:href="#rpl_icon_arrow_right_primary"
-          />
-           
           <path
             d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
           />
@@ -2091,11 +1921,6 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Default 1`] = `
           style="width: 9.1px; height: 8.399999999999999px;"
           viewBox="0 0 13 12"
         >
-          <use
-            href="#rpl_icon_arrow_right_primary"
-            xlink:href="#rpl_icon_arrow_right_primary"
-          />
-           
           <path
             d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
           />
@@ -2167,11 +1992,6 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
     style="width: 13px; height: 12px;"
     viewBox="0 0 13 12"
   >
-    <use
-      href="#rpl_icon_arrow_right_primary"
-      xlink:href="#rpl_icon_arrow_right_primary"
-    />
-     
     <path
       d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
     />
@@ -2253,11 +2073,6 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
           style="width: 9.1px; height: 8.399999999999999px;"
           viewBox="0 0 13 12"
         >
-          <use
-            href="#rpl_icon_arrow_right_primary"
-            xlink:href="#rpl_icon_arrow_right_primary"
-          />
-           
           <path
             d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
           />
@@ -2346,11 +2161,6 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
           style="width: 9.1px; height: 8.399999999999999px;"
           viewBox="0 0 13 12"
         >
-          <use
-            href="#rpl_icon_arrow_right_primary"
-            xlink:href="#rpl_icon_arrow_right_primary"
-          />
-           
           <path
             d="M11.74 5.32601L7.194 0.32601C6.822 -0.0809905 6.191 -0.11099 5.781 0.25901C5.373 0.63101 5.344 1.26301 5.715 1.67201L8.739 4.99901H1C0.447 4.99901 0 5.44601 0 5.99901C0 6.55201 0.447 6.99901 1 6.99901H8.739L5.715 10.326C5.344 10.735 5.373 11.367 5.781 11.739C5.973 11.913 6.215 11.999 6.454 11.999C6.726 11.999 6.997 11.888 7.194 11.672L11.74 6.67201C12.087 6.29001 12.087 5.70801 11.74 5.32601Z"
           />

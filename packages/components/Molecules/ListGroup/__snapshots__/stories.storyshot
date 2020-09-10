@@ -77,11 +77,6 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
           style="width: 30px; height: 30px;"
           viewBox="0 0 20 20"
         >
-          <use
-            href="#rpl_icon_pdf"
-            xlink:href="#rpl_icon_pdf"
-          />
-           
           <path
             d="M10 5V2.824L12.176 5H10ZM10.003 0H1C0.447 0 0 0.447 0 1V19C0 19.553 0.447 20 1 20H14C14.553 20 15 19.553 15 19V16H13V18H2V2H8V6C8 6.553 8.447 7 9 7H13V9H15V4.997L10.003 0Z"
           />
@@ -163,11 +158,6 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
           style="width: 30px; height: 30px;"
           viewBox="0 0 20 20"
         >
-          <use
-            href="#rpl_icon_docx"
-            xlink:href="#rpl_icon_docx"
-          />
-           
           <path
             d="M10 5V2.824L12.176 5H10ZM10.003 0H1C0.447 0 0 0.447 0 1V19C0 19.553 0.447 20 1 20H14C14.553 20 15 19.553 15 19V16H13V18H2V2H8V6C8 6.553 8.447 7 9 7H13V9H15V4.997L10.003 0Z"
           />
@@ -232,11 +222,6 @@ exports[`RippleStoryshots Molecules/ListGroup With components 1`] = `
           style="width: 30px; height: 30px;"
           viewBox="0 0 20 20"
         >
-          <use
-            href="#rpl_icon_xlsx"
-            xlink:href="#rpl_icon_xlsx"
-          />
-           
           <path
             d="M10 5V2.824L12.176 5H10ZM10.003 0H1C0.447 0 0 0.447 0 1V19C0 19.553 0.447 20 1 20H14C14.553 20 15 19.553 15 19V16H13V18H2V2H8V6C8 6.553 8.447 7 9 7H13V9H15V4.997L10.003 0Z"
           />

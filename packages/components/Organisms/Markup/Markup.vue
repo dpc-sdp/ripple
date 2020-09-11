@@ -221,7 +221,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       color: $quotation-author-color;
       font-style: normal;
       display: inline-block;
-      line-height: rem(16px);
+      line-height: rem(14px);
     }
   }
 

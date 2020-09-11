@@ -76,7 +76,6 @@ $quotation-mark-end-margin: auto auto (-$rpl-space-2) $rpl-space-2 !default;
 $quotation-author-ruleset: (rem(12px), 1em, 'medium')  !default;
 $quotation-author-color: mix(rpl_color('dark_neutral'), rpl_color('white'), 93%) !default;
 $quotation-author-opacity: rpl_color('dark_neutral') !default;
-$quotation-text-line-height: 1.429em !default;
 
 $table-stripe-color: rpl-color('light_neutral') !default;
 $table-border: 1px solid rpl-color('mid_neutral_1') !default;
@@ -177,7 +176,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_typography_ruleset($quotation-text-ruleset);
       color: $quotation-text-color;
       margin: $quotation-text-margin;
-      line-height: $quotation-text-line-height;
+      line-height: rem(24px);
 
       &::before,
       &::after {
@@ -206,6 +205,8 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_typography_ruleset($quotation-author-ruleset);
       color: $quotation-author-color;
       font-style: normal;
+      display: inline-block;
+      line-height: rem(16px);
     }
   }
 

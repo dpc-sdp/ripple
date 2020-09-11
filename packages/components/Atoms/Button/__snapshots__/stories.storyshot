@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RippleStoryshots Atoms/Button default 1`] = `
+exports[`RippleStoryshots Atoms/Button Disabled 1`] = `
+<a
+  class="rpl-link rpl-button rpl-button--secondary rpl-button--disabled"
+  data-print-url="#"
+  href="#"
+>
+  <span
+    class="rpl-link__inner"
+  >
+    Disabled button
+  </span>
+</a>
+`;
+
+exports[`RippleStoryshots Atoms/Button Primary 1`] = `
 <a
   class="rpl-link rpl-button rpl-button--primary"
   data-print-url="#"
@@ -9,26 +23,12 @@ exports[`RippleStoryshots Atoms/Button default 1`] = `
   <span
     class="rpl-link__inner"
   >
-    Ripple Button
+    Primary button
   </span>
 </a>
 `;
 
-exports[`RippleStoryshots Atoms/Button disabled 1`] = `
-<a
-  class="rpl-link rpl-button rpl-button--primary rpl-button--disabled"
-  data-print-url="#"
-  href="#"
->
-  <span
-    class="rpl-link__inner"
-  >
-    Ripple Button
-  </span>
-</a>
-`;
-
-exports[`RippleStoryshots Atoms/Button secondary theme 1`] = `
+exports[`RippleStoryshots Atoms/Button Secondary 1`] = `
 <a
   class="rpl-link rpl-button rpl-button--secondary"
   data-print-url="#"
@@ -37,21 +37,7 @@ exports[`RippleStoryshots Atoms/Button secondary theme 1`] = `
   <span
     class="rpl-link__inner"
   >
-    Ripple Button
-  </span>
-</a>
-`;
-
-exports[`RippleStoryshots Atoms/Button with href 1`] = `
-<a
-  class="rpl-link rpl-button rpl-button--primary"
-  data-print-url="#"
-  href="#"
->
-  <span
-    class="rpl-link__inner"
-  >
-    Ripple Button
+    Secondary button
   </span>
 </a>
 `;
@@ -60,6 +46,6 @@ exports[`RippleStoryshots Atoms/Button without href 1`] = `
 <button
   class="rpl-button rpl-button--primary"
 >
-  Ripple Button
+  Button with href
 </button>
 `;

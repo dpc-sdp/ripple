@@ -4,8 +4,8 @@ import logger from './logger'
 
 export default class TideSearchApi {
   constructor (config) {
-    this.client = axios.bind(axios)
-    this.baseURL = config.baseURl || `http://localhost:3000/search/v1`
+    this.client = config.client || axios.bind(axios)
+    this.baseUrl = config.baseUrl
   }
 
   setClient (client) {
@@ -16,7 +16,7 @@ export default class TideSearchApi {
     try {
       const config = {
         method: 'get',
-        baseURL: this.baseURL,
+        baseURL: this.baseUrl,
         url,
         responseType: 'json',
         responseEncoding: 'utf8',
@@ -39,7 +39,7 @@ export default class TideSearchApi {
         return response.data
       }
     } catch (e) {
-      logger.error('Search API error', e.message, { label: 'TideSearch' })
+      logger.error('Search API error', e, { label: 'TideSearch' })
       return false
     }
   }

@@ -11,6 +11,7 @@ export const getQueryParams = (settings) => {
     }
 
     if (settings.filters) {
+      delete settings.filters.type
       queryParams.filters = settings.filters
     }
 

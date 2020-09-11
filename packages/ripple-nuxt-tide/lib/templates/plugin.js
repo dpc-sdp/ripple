@@ -15,8 +15,10 @@ export default ({ app, req, store , route }, inject) => {
   // -> this.$tide in store actions/mutations
   const tideService = tide(app.$axios, options.site, config)
   inject('tide', tideService)
+  
   inject('tideSearchApi', new TideSearchApi({
-    baseUrl: process.env.SEARCH_API_BASE_URL ? process.env.SEARCH_API_BASE_URL : 'http://localhost:3000/search/v1'
+    client: app.$axios,
+    baseUrl: process.env.SEARCH_API_BASE_URL ? process.env.SEARCH_API_BASE_URL : 'http://localhost:3000/search/v1/'
   }))
   inject('tideMapping', new Mapping(config, tideService))
 

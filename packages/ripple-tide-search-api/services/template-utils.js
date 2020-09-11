@@ -22,10 +22,13 @@ export const getTermsFilter = (params) => {
 export const getPagination = (params) => {
   const query = {}
   if (params.limit) {
-    query.size = params.limit
+    query.size = parseInt(params.limit, 10)
   }
-  if (params.page && params.page !== 0) {
-    query.from = query.size * params.page
+  if (params.page) {
+    const page = parseInt(params.page, 10)
+    if (page > 1) {
+      query.from = ((page - 1) * query.size)
+    }
   }
   return query
 }

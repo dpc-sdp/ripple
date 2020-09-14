@@ -166,7 +166,8 @@ export default {
             switch (component.name) {
               case 'rpl-markup':
                 if (component.data.html) {
-                  anchors.push(...anchorUtils.getAnchorLinks(component.data.html))
+                  let showSubHeading = this.page.field_node_display_headings || false
+                  anchors.push(...anchorUtils.getAnchorLinks(component.data.html, showSubHeading))
                 }
                 break
               case 'rpl-accordion':

@@ -22,7 +22,8 @@ const anchorUtils = {
       if (this.textExists(item.text)) {
         result.push({
           text: item.text,
-          url: '#' + getAnchorLinkName(item.text)
+          url: '#' + getAnchorLinkName(item.text),
+          type: item.type
         })
       }
       return result
@@ -30,9 +31,9 @@ const anchorUtils = {
   },
 
   getAnchorHeadings (html) {
-    // Return an array of h2 heading index positions and text.
+    // Return an array of h2 and h3 headings index positions and text.
     let headings = []
-    let reg = /<h2>[\w\W]*?<\/h2>/gim
+    let reg = /<(h2|h3)>[\w\W]*?<\/(h2|h3)>/gim
     let match = reg.exec(html)
 
     while (match !== null) {
@@ -40,7 +41,8 @@ const anchorUtils = {
       if (this.textExists(matchedText)) {
         headings.push({
           indexStart: match.index,
-          text: match[0].replace(/<.+?>/gi, '')
+          text: match[0].replace(/<.+?>/gi, ''),
+          type: match[0].substr(1, 2)
         })
       }
       match = reg.exec(html)

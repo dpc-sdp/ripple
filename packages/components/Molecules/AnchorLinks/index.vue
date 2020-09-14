@@ -6,6 +6,7 @@
     <div class="rpl-anchor-links__row">
       <ul class="rpl-anchor-links__items" v-if="links">
         <li class="rpl-anchor-links__item" v-for="(item, index) of links" :key="index">
+          <sup v-if="item.type && item.type === 'h3'" class="rpl-anchor-links__item-sup">L</sup>
           <rpl-text-link :url="item.url" :text="item.text" :underline="true" size="small" />
         </li>
       </ul>
@@ -47,6 +48,8 @@ export default {
   $rpl-anchor-links-title-color: rpl_color('extra_dark_neutral') !default;
   $rpl-anchor-links-items-margin: $rpl-space-2 auto !default;
   $rpl-anchor-links-item-margin: auto auto $rpl-space-3 !default;
+  $rpl-anchor-links-item-sup-padding: 0 rem(10px) !default;
+  $rpl-anchor-links-item-sup-color: rpl_color('dark_neutral') !default;
 
   .rpl-anchor-links {
     @include rpl_mobile_padding;
@@ -109,6 +112,11 @@ export default {
 
     &__item {
       margin: $rpl-anchor-links-item-margin;
+    }
+
+    &__item-sup {
+      padding: $rpl-anchor-links-item-sup-padding;
+      color: $rpl-anchor-links-item-sup-color;
     }
   }
 </style>

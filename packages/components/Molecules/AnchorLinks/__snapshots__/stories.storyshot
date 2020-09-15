@@ -46,6 +46,33 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
       <li
         class="rpl-anchor-links__item"
       >
+        <sup
+          class="rpl-anchor-links__item-sup"
+        >
+          L
+        </sup>
+         
+        <a
+          class="rpl-link rpl-text-link rpl-text-link--underline"
+          data-print-url="#"
+          href="#"
+        >
+          <span
+            class="rpl-link__inner"
+          >
+            <span
+              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
+            >
+              <span>
+                This is sub heading following first anchor link
+              </span>
+            </span>
+          </span>
+        </a>
+      </li>
+      <li
+        class="rpl-anchor-links__item"
+      >
         <!---->
          
         <a
@@ -130,6 +157,60 @@ exports[`RippleStoryshots Molecules/AnchorLinks Anchor Links 1`] = `
             >
               <span>
                 Another link to extra content
+              </span>
+            </span>
+          </span>
+        </a>
+      </li>
+      <li
+        class="rpl-anchor-links__item"
+      >
+        <sup
+          class="rpl-anchor-links__item-sup"
+        >
+          L
+        </sup>
+         
+        <a
+          class="rpl-link rpl-text-link rpl-text-link--underline"
+          data-print-url="#"
+          href="#"
+        >
+          <span
+            class="rpl-link__inner"
+          >
+            <span
+              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
+            >
+              <span>
+                This is another sub heading
+              </span>
+            </span>
+          </span>
+        </a>
+      </li>
+      <li
+        class="rpl-anchor-links__item"
+      >
+        <sup
+          class="rpl-anchor-links__item-sup"
+        >
+          L
+        </sup>
+         
+        <a
+          class="rpl-link rpl-text-link rpl-text-link--underline"
+          data-print-url="#"
+          href="#"
+        >
+          <span
+            class="rpl-link__inner"
+          >
+            <span
+              class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline"
+            >
+              <span>
+                And another sub heading
               </span>
             </span>
           </span>

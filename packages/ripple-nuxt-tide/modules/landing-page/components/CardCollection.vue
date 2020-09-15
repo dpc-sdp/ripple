@@ -1,7 +1,7 @@
 <template>
   <div class="app-card-collection" :class="`app-card-collection--${displayType}`">
     <h2 v-if="title" class="app-card-collection__title">{{ title }}</h2>
-    <template v-if="cards && cards.length > 0">
+    <template v-if="hasResults">
       <template v-if="displayType === 'carousel'">
         <client-only>
           <rpl-card-carousel :cards="cards" :childColsBp="cols" />
@@ -25,6 +25,9 @@
         </div>
       </template>
     </template>
+    <div v-else-if="noResultsMsg" class="app-card-collection__no-results">
+      {{noResultsMsg}}
+    </div>
   </div>
 </template>
 
@@ -120,6 +123,14 @@ export default {
         })
       }
       return []
+    },
+    hasResults () {
+      return this.results.length > 0
+    },
+    noResultsMsg () {
+      if (!this.hasResults && this.config.results.min_not_met === 'no_results_message') {
+        return this.config.results.no_results_message || 'There are currently no results'
+      }
     }
   }
 }

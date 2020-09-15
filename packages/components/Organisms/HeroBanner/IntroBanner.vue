@@ -117,6 +117,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-intro-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
+  $rpl-intro-banner-left-padding-xl: rem(25px) !default;
   $rpl-intro-banner-title-typography-ruleset: ('mega', 1.2em, 'bold') !default;
   $rpl-intro-banner-title-color: rpl_color('extra_dark_neutral') !default;
   $rpl-intro-banner-description-typography-ruleset: ('s', 1.5em, 'regular') !default;
@@ -168,6 +169,9 @@ export default {
         @include rpl_breakpoint('l') {
           @include rpl_grid_column(10);
         }
+      }
+      @include rpl_breakpoint('xl') {
+        padding-right: $rpl-intro-banner-left-padding-xl;
       }
     }
 

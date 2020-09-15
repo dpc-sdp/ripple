@@ -6,7 +6,7 @@ export const searchGetController = (config) => {
   return async function (req, res) {
     try {
       if (req.params.template) {
-        const results = await tideSearchApi.searchByTemplate(req.params.template, req.query)
+        const results = await tideSearchApi.searchByTemplate(req.params.template, req.query, req.headers)
         if (results && !results.error) {
           return res.json(results)
         } else {

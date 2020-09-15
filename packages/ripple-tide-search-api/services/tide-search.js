@@ -14,6 +14,14 @@ export default class SearchApi {
       ...templates,
       ...customTemplates
     }
+
+    this.client.on('response', (err, result) => {
+      const { id } = result.meta.request
+      if (process.env.SEARCH_LOG === 'trace') {
+        // TODO - this should be logged somewhere
+        console.log({ error: err, reqId: id, request: result.meta.request.params })
+      }
+    })
   }
 
   async search (query, options) {
@@ -87,16 +95,23 @@ export default class SearchApi {
     }
   }
 
-  async searchByTemplate (template, params, isDev) {
+  async searchByTemplate (template, params, reqHeaders = {}, isDev) {
     if (this.templates.hasOwnProperty(template)) {
       const searchQuery = this.getQuery(template, params)
-      if (process.env.SEARCH_LOG === 'trace') {
-        console.log('SEARCH TEMPLATE', JSON.stringify({ body: searchQuery }, null, 2))
+      const headers = {}
+      if (reqHeaders.tide_search_request_id) {
+        headers['TIDE_SEARCH_REQUEST_ID'] = reqHeaders.tide_search_request_id
       }
+
       return this.client.search({
         index: this.index,
         body: searchQuery
-      }, { ignore: [400, 404] })
+      },
+      {
+        ignore: [400, 404],
+        headers,
+        id: reqHeaders.tide_search_request_id
+      })
         .then(async ({ err, body, statusCode }) => {
           if (statusCode === 200 && body) {
             if (body) {

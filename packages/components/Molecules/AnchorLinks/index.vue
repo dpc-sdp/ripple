@@ -49,7 +49,7 @@ export default {
   $rpl-anchor-links-item-margin: auto auto $rpl-space-3 !default;
 
   $rpl-anchor-links-item-indent-list-style-image: url('./assets/images/list-indent.svg') !default;
-  $rpl-anchor-links-item-indent-padding: 0 0 0 rem(30px) !default;
+  $rpl-anchor-links-item-indent-padding-left: $rpl-space !default;
 
   .rpl-anchor-links {
     @include rpl_mobile_padding;
@@ -114,8 +114,9 @@ export default {
       margin: $rpl-anchor-links-item-margin;
 
       &--indent {
-        margin: $rpl-anchor-links-item-indent-padding;
         list-style-image: $rpl-anchor-links-item-indent-list-style-image;
+        padding-left: $rpl-anchor-links-item-indent-padding-left;
+        list-style-position: inside;
       }
     }
   }

@@ -5,7 +5,7 @@
     </div>
     <div class="rpl-anchor-links__row">
       <ul class="rpl-anchor-links__items" v-if="links">
-        <li v-for="(item, index) of links" :key="index" :class="[{'rpl-anchor-links__item--indent': (item.type && item.type === 'h3')},  'rpl-anchor-links__item']">
+        <li v-for="(item, index) of links" :key="index" :class="['rpl-anchor-links__item', {'rpl-anchor-links__item--indent': (item.type && item.type === 'h3')}]">
           <rpl-text-link :url="item.url" :text="item.text" :underline="true" size="small" />
         </li>
       </ul>

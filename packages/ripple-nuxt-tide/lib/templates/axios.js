@@ -10,6 +10,10 @@ export default function ({ $axios, app, res }) {
       logger.info('Making %s request to %s', config.method.toUpperCase(), fullUrl, {label: 'Axios', requestId: config.headers['X-Request-Id']})
       logger.debug('Headers %O', config.headers, {label: 'Axios'})
     }
+    // Preview links authorisation.
+    if (app.$auth) {
+      config.headers.common['Authorization'] = `${app.$auth.getToken('drupal')}`
+    }
   })
 
   $axios.onError(error => {

@@ -78,7 +78,7 @@ export default {
     '@/assets/_custom.scss'
   ],
   tide: {
-    baseUrl: process.env.CONTENT_API_SERVER,
+    baseUrl: 'https://nginx-php-content-vic-pr-963.lagoon.vicsdp.amazee.io/',
     auth: {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS

@@ -12,7 +12,8 @@ export default function ({ $axios, app, res }) {
     }
     // Preview links authorisation.
     if (app.$auth) {
-      config.headers.common['Authorization'] = `${app.$auth.getToken('drupal')}`
+      // config.headers.common['Authorization'] = `OAuth2 ${app.$auth.getToken('drupal')}`
+      // config.headers['X-OAuth2-Authorization'] = `OAuth2 ${app.$auth.getToken('drupal')}`
     }
   })
 

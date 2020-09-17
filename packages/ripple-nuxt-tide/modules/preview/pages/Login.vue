@@ -9,7 +9,9 @@
       <rpl-col cols="full">
         <div class="tide-authenticate">
           <p>Log into your Drupal account to grant access to see this page.</p>
-          <rpl-button @click.native="login" theme="primary">Grant</rpl-button>
+          <rpl-button v-if="!$auth.loggedIn" @click.native="login" theme="primary">Log in</rpl-button>
+          <rpl-button v-if="$auth.loggedIn" @click.native="logout" theme="primary">Log out</rpl-button>
+
         </div>
       </rpl-col>
     </rpl-row>
@@ -34,11 +36,20 @@ export default {
   methods: {
     async login () {
       const result = await this.$auth.loginWith('drupal')
-      console.log(result)
+    },
+    async logout () {
+      const result = await this.$auth.logout()
     }
   },
   async asyncData ({ app, route, store }) {
     store.dispatch('tide/setPageHead', { title: 'Login' })
+  },
+  mounted () {
+    // console.log(this.$route.query.code)
+    // if (this.$route.query.code) {
+    //   this.$auth.setUserToken(this.$route.query.code)
+    //   this.$auth.fetchUser()
+    // }
   }
 }
 </script>

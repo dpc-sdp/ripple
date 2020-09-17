@@ -1,74 +1,68 @@
 import { Client } from '@elastic/elasticsearch'
-import templates from './templates'
+import coreTemplates from './templates'
 
 export default class SearchApi {
   constructor (config) {
-    this.client = new Client({
-      node: config.tide.search.url,
-      auth: config.tide.search.auth
-    })
-    this.site = config.tide.site
-    this.index = config.tide.search.index
-    const customTemplates = config.tide.search && config.tide.search.templates ? config.tide.search.templates : {}
+    if (!config) {
+      throw new Error('No configuration specified')
+    }
+    if (config.client) {
+      this.client = config.client
+      if (config.index) {
+        this.index = config.index
+      }
+    } else if (config.tide && config.tide.search) {
+      this.client = new Client({
+        node: config.tide.search.url,
+        auth: config.tide.search.auth
+      })
+      this.index = config.tide.search.index
+    } else {
+      throw new Error('No search configuration specified')
+    }
+
+    this.site = config.tide && config.tide.site
+
+    const customTemplates = config.templates && typeof config.templates === 'object' ? config.templates : {}
     this.templates = {
-      ...templates,
+      ...coreTemplates,
       ...customTemplates
     }
 
-    this.client.on('response', (err, result) => {
-      const { id } = result.meta.request
-      if (process.env.SEARCH_LOG === 'trace') {
+    if (config.log && config.log.level === 'trace') {
+      this.client.on('response', (error, result) => {
+        const { id } = result.meta.request
         // TODO - this should be logged somewhere
-        console.log({ error: err, reqId: id, request: result.meta.request.params })
-      }
-    })
-  }
-
-  async search (query, options) {
-    return this.client.search({
-      index: this.index,
-      body: {
-        query,
-        ...options
-      }
-    }).then(res => {
-      if (res && res.body.hits) {
-        return this.mapResults(res.body)
-      }
-    })
-  }
-
-  getSearchParams (params) {
-    if (params.aggregations) {
-      params.aggs = this.getAggregationsByFields(params.aggregations)
-      delete params.aggregations
-    } else {
-      params.aggs = {}
-    }
-    if (!params.includeFilters || !Array.isArray(params.includeFilters)) {
-      params.includeFilters = []
-    } else if (Array.isArray(params.includeFilters) && !params.includeFilters.find(filter => filter.terms && filter.terms.field_node_site)) {
-      params.includeFilters.push({
-        term: {
-          field_node_site: params.site
+        if (!error) {
+          console.log({ id, request: result.meta.request.params })
+        } else {
+          console.error({ error, id, request: result.meta.request.params })
         }
       })
     }
-    if (!params.excludeFilters) {
-      params.excludeFilters = []
-    }
-    return params
   }
 
-  getQuery (templateName, params) {
+  async search (body, headers, index = this.index) {
+    return this.client.search({
+      body,
+      index
+    }, headers)
+  }
+
+  async getQuery (templateName, params) {
     if (this.templates.hasOwnProperty(templateName)) {
-      if (this.templates[templateName].hasOwnProperty('requestMapping') && typeof this.templates[templateName].requestMapping === 'function') {
-        return this.templates[templateName].requestMapping(params)
-      } else if (typeof this.templates[templateName] === 'function') {
-        return this.templates[templateName](params)
+      if (this.templates[templateName].hasOwnProperty('requestMapping')) {
+        if (this.templates[templateName].requestMapping.constructor.name === 'AsyncFunction') {
+          const response = await this.templates[templateName].requestMapping(params)
+          return response
+        } else if (typeof this.templates[templateName].requestMapping === 'function') {
+          return this.templates[templateName].requestMapping(params)
+        }
       }
+      return Promise.reject(new Error(`No requestMapping found for ${templateName}`))
     }
   }
+
   async mapResults (res, templateName, debug = false) {
     if (this.templates.hasOwnProperty(templateName) && this.templates[templateName].hasOwnProperty('responseMapping')) {
       if (this.templates[templateName].responseMapping.constructor.name === 'AsyncFunction') {
@@ -95,70 +89,46 @@ export default class SearchApi {
     }
   }
 
-  async searchByTemplate (template, params, reqHeaders = {}, isDev) {
-    if (this.templates.hasOwnProperty(template)) {
-      const searchQuery = this.getQuery(template, params)
-      const headers = {}
-      if (reqHeaders.tide_search_request_id) {
-        headers['TIDE_SEARCH_REQUEST_ID'] = reqHeaders.tide_search_request_id
-      }
+  getHeaders (reqHeaders) {
+    const headers = {}
+    if (reqHeaders.tide_search_request_id) {
+      headers['TIDE_SEARCH_REQUEST_ID'] = reqHeaders.tide_search_request_id
+    }
+    return headers
+  }
 
-      return this.client.search({
-        index: this.index,
-        body: searchQuery
-      },
-      {
-        ignore: [400, 404],
+  handleError (message, statusCode, meta) {
+    const error = new Error(message)
+    error.meta = meta
+    error.statusCode = statusCode || 500
+    return error
+  }
+
+  async searchByTemplate (template, params, reqHeaders = {}, isDev) {
+    try {
+      const headers = this.getHeaders(reqHeaders)
+      const reqConfig = {
         headers,
         id: reqHeaders.tide_search_request_id
-      })
-        .then(async ({ err, body, statusCode }) => {
-          if (statusCode === 200 && body) {
-            if (body) {
-              const results = await this.mapResults(body, template)
-              return results
-            }
-          } else {
-            return {
-              error: true,
-              status: statusCode,
-              debug: {
-                err,
-                request: {
-                  source: searchQuery,
-                  params
-                }
-              }
-            }
-          }
-        })
-    } else {
-      return this.client.renderSearchTemplate({
-        index: this.index,
-        id: template,
-        body: {
-          params
+      }
+      if (this.templates.hasOwnProperty(template)) {
+        const searchQuery = await this.getQuery(template, params)
+        const { body, statusCode } = await this.search(searchQuery, reqConfig)
+
+        if (body && statusCode === 200) {
+          const results = await this.mapResults(body, template)
+          return results
         }
-      }, { ignore: [400, 404] })
-        .then(res => {
-          if (res.statusCode === 200 && res.body) {
-            if (res.body) {
-              return this.mapResults(res.body)
-            }
-          } else {
-            return {
-              error: true,
-              status: res.statusCode,
-              debug: {
-                err: res.err,
-                request: {
-                  template,
-                  params
-                }
-              }
-            }
-          }
-        })
+        throw this.handleError(`Error fetching search data`, statusCode, { searchQuery })
+      }
+      throw this.handleError(`Could not find the template ${template}`, 404)
+    } catch (error) {
+      return {
+        error: true,
+        status: error.statusCode,
+        message: `${error.message}`,
+        meta: error.meta
+      }
     }
   }
 

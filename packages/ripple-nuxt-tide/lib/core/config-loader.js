@@ -161,7 +161,7 @@ const buildConfigs = (group, tideConfig, _this, moduleName = null) => {
     }
 
     // For configs has dynamic import, need to be import in runtime. Add path only in build time.
-    if (configItem.type === 'path') {  
+    if (configItem.type === 'path') {
       configPath = getConfigPath(group, configItem, moduleName)
       if (configPath) {
         tideConfig[configName].push(configPath)

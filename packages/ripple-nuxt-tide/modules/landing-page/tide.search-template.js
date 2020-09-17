@@ -1,6 +1,6 @@
 import get from 'lodash.get'
-import { getTermsFilter, getPagination, getIncludesByType } from '@dpc-sdp/ripple-tide-search-api/services/template-utils'
-import { getFilterTodayConditions, capitalize } from './lib/card-collection-utils'
+import { getTermsFilter, getPagination } from '@dpc-sdp/ripple-tide-search-api/services/template-utils'
+import { getFilterTodayConditions, capitalize, getIncludesByType } from './lib/card-collection-utils'
 
 module.exports = {
   cards: {

@@ -1,44 +1,27 @@
 import TideSearch from '../services/tide-search'
-import utils from './../utils'
 
-export const searchGetController = (config) => {
+export const searchController = (config) => {
   const tideSearchApi = new TideSearch(config)
   return async function (req, res) {
     try {
       if (req.params.template) {
-        const results = await tideSearchApi.searchByTemplate(req.params.template, req.query, req.headers)
-        if (results && !results.error) {
-          return res.json(results)
+        const response = await tideSearchApi.searchByTemplate(req.params.template, req.query, req.headers)
+        if (response && !response.error) {
+          return res.status(200).json(response)
         } else {
-          utils.handleError(results, res)
+          return res.status(response.status).json(response)
         }
       }
-      throw new Error('No page requested!')
+      throw new Error('No template specified')
     } catch (error) {
-      utils.handleError(error, res)
+      res.status(500).json({
+        error: true,
+        status: 500,
+        message: 'Error fetching data',
+        debug: error.message
+      })
     }
   }
 }
 
-export const searchPostController = (config) => {
-  const tideSearchApi = new TideSearch(config)
-  return async function (req, res) {
-    try {
-      if (req && req.body) {
-        const results = await tideSearchApi.searchByTemplate(req.params.template, req.body)
-        if (results && !results.error) {
-          return res.json(results)
-        } else {
-          utils.handleError(results.error, res)
-        }
-      }
-    } catch (error) {
-      utils.handleError(error, res)
-    }
-  }
-}
-
-export default {
-  post: searchPostController,
-  get: searchGetController
-}
+export default searchController

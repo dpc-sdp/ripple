@@ -105,12 +105,11 @@ export default {
     cards () {
       if (this.results.length > 0) {
         return this.results.map(item => {
-          const uuid = item.uuid
           const url = getSiteDomainUrl(item.link.url, this.$store.state.tideSite.siteId, this.$store.state.tideSite.sitesDomainMap)
           return {
             name: 'rpl-card',
             cols: this.cols,
-            uuid,
+            uuid: item.uuid,
             data: {
               ...item,
               link: {

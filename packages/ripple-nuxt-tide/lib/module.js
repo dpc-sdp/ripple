@@ -65,21 +65,17 @@ const nuxtTide = function (moduleOptions) {
   }
 
   this.addServerMiddleware(tideSearchApiMiddleware({
-    apiBase: 'search',
-    apiVersion: 'v1',
-    auth: {
-      username: 'dpc',
-      password: 'sdp'
+    apiBase: 'search-api',
+    templates: options.tideSearchTemplates,
+    log: {
+      level: process.env.SEARCH_LOG
     },
     tide: {
       site: 4,
-      baseUrl: process.env.CONTENT_API_SERVER,
       search: {
-        templates: options.tideSearchTemplates,
         service: process.env.SEARCH_SERVICE,
         index: process.env.SEARCH_INDEX,
         url: 'https://' + process.env.SEARCH_HASH + '.' + process.env.SEARCH_URL,
-        log: process.env.SEARCH_LOG,
         auth: {
           username: process.env.SEARCH_AUTH_USERNAME,
           password: process.env.SEARCH_AUTH_PASSWORD

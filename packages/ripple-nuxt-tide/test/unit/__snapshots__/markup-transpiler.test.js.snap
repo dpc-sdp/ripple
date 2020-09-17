@@ -17,7 +17,7 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 <rpl-text-link url=\\"/test\\" theme=\\"primary\\" text=\\"A test link &lt;&amp;&apos;&quot;\\"></rpl-text-link>
 
 <!-- pluginIframe -->
-<div class=\\"rpl-markup__iframe-container\\"><iframe src=\\"https://ripple.sdp.vic.gov.au\\"></iframe></div>
+<div class=\\"rpl-markup__iframe-container rpl-markup__iframe-container--default\\"><iframe src=\\"https://ripple.sdp.vic.gov.au\\"></iframe></div>
 
 <!-- pluginTables -->
 <div class=\\"rpl-markup__table\\"><table>

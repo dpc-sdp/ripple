@@ -1,8 +1,8 @@
 import get from 'lodash.get'
 import { getTermsFilter, getPagination, getIncludesByType } from '@dpc-sdp/ripple-tide-search-api/services/template-utils'
-import { getFilterTodayConditions, capitalize } from './card-collection-utils'
+import { getFilterTodayConditions, capitalize } from './lib/card-collection-utils'
 
-export default {
+module.exports = {
   cards: {
     requestMapping: params => {
       let filters = []
@@ -57,7 +57,7 @@ export default {
 
       return query
     },
-    async responseMapping (res) {
+    responseMapping: res => {
       const hits = get(res, ['hits', 'hits'], [])
       if (hits && hits.length > 0) {
         return {

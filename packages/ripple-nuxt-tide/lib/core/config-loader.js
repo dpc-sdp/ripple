@@ -33,6 +33,15 @@ const customConfigs = {
       configGroups.customModule
     ]
   },
+  tideSearchTemplates: {
+    filename: 'tide.search-template',
+    type: Object,
+    merge: true,
+    groups: [
+      configGroups.coreModule,
+      configGroups.customModule
+    ]
+  },
   extendFilters: {
     filename: 'mapping-filters',
     type: Array,
@@ -152,7 +161,7 @@ const buildConfigs = (group, tideConfig, _this, moduleName = null) => {
     }
 
     // For configs has dynamic import, need to be import in runtime. Add path only in build time.
-    if (configItem.type === 'path') {
+    if (configItem.type === 'path') {  
       configPath = getConfigPath(group, configItem, moduleName)
       if (configPath) {
         tideConfig[configName].push(configPath)
@@ -168,7 +177,14 @@ const buildConfigs = (group, tideConfig, _this, moduleName = null) => {
             config.call(_this)
             break
           case Object:
-            tideConfig[configName] = config
+            if (configItem.merge) {
+              tideConfig[configName] = {
+                ...tideConfig[configName],
+                ...config
+              }
+            } else {
+              tideConfig[configName] = config
+            }
         }
       }
     }

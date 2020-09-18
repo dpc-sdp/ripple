@@ -91,9 +91,7 @@ $embedded-video-figcaption-color: rpl_color('dark_neutral') !default;
 $responsive-iframe-padding-bottom: 56.25% !default;
 $responsive-iframe-padding-top: $rpl-space-4 !default;
 
-$callout-wrapper-border-color-default: rpl_color('mid_neutral_2') !default;
-$callout-wrapper-border-color-primary: rpl_color('primary') !default;
-$callout-wrapper-border-color-secondary: rpl_color('secondary') !default;
+$callout-wrapper-border-color: rpl_color('primary') !default;
 $callout-wrapper-border-left: rem(4px) solid !default;
 $callout-wrapper-padding-left: $rpl-space-4 !default;
 
@@ -298,15 +296,7 @@ $callout-wrapper-padding-left: $rpl-space-4 !default;
   .callout-wrapper {
     padding-left: $callout-wrapper-padding-left;
     border-left: $callout-wrapper-border-left;
-    border-color: $callout-wrapper-border-color-default;
-
-    &--primary {
-      border-color: $callout-wrapper-border-color-primary;
-    }
-
-    &--secondary {
-      border-color: $callout-wrapper-border-color-secondary;
-    }
+    border-color: $callout-wrapper-border-color;
 
     ul {
       padding-left: $callout-wrapper-padding-left;

@@ -19,7 +19,7 @@ rplOptions.hostname = options.hostname
 
 <% if (options.quickexit) { %>
   rplOptions.quickexit = options.quickexit
-    <% } %>
+<% } %>
 
 <% if (options.quickexiturl) { %>
   rplOptions.quickexiturl = options.quickexiturl

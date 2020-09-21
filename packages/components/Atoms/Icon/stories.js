@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/vue'
+import { withKnobs, text, boolean } from '@storybook/addon-knobs/vue'
 
 import SIcons from './../../../../src/storybook-components/Icons.vue'
-import { RplIcon, RplTextIcon } from './index'
+import { RplIcon } from './index'
 import './icons/index.js'
 
 storiesOf('Atoms/Icon', module)

@@ -1,10 +1,1 @@
-<svg width="21" height="20" viewBox="0 0 21 20" overflow="visible" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5V2.824L12.176 5H10ZM10.003 0H1C0.447 0 0 0.447 0 1V19C0 19.553 0.447 20 1 20H14C14.553 20 15 19.553 15 19V16H13V18H2V2H8V6C8 6.553 8.447 7 9 7H13V9H15V4.997L10.003 0Z"
-    fill="inherit" />
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.3818 11.1181V15.0131H9.15479V11.1181H7.92979V10.0261H11.6078V11.1181H10.3818Z"
-    fill="inherit" />
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M14.8545 15.0127L14.0355 13.4787L13.2155 15.0127H11.8145L13.3695 12.4557L11.9135 10.0267H13.3065L14.0355 11.4337L14.7635 10.0267H16.1575L14.7005 12.4557L16.2545 15.0127H14.8545Z"
-    fill="inherit" />
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7744 11.1181V15.0131H17.5484V11.1181H16.3234V10.0261H20.0004V11.1181H18.7744Z"
-    fill="inherit" />
-</svg>
+<svg width="21" height="20" overflow="visible" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 5V2.824L12.176 5H10zm.003-5H1a1 1 0 00-1 1v18a1 1 0 001 1h13a1 1 0 001-1v-3h-2v2H2V2h6v4a1 1 0 001 1h4v2h2V4.997L10.003 0z" fill="inherit"/><path fill-rule="evenodd" clip-rule="evenodd" d="M10.382 11.118v3.895H9.155v-3.895H7.93v-1.092h3.678v1.092h-1.226zM14.854 15.013l-.818-1.534-.82 1.534h-1.401l1.555-2.557-1.456-2.43h1.393l.729 1.408.728-1.407h1.393L14.7 12.456l1.555 2.557h-1.4zM18.774 11.118v3.895h-1.226v-3.895h-1.225v-1.092H20v1.092h-1.226z" fill="inherit"/></svg>

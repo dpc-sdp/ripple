@@ -15,6 +15,10 @@
 <script>
 import RplIcon from './Icon.vue'
 
+/**
+ * Text Icon allows user to display text with an icon that can be placed before or after.
+ * This is commonly used in an anchor <a> tag where the icon helps represents the action of the text.
+ */
 export default {
   name: 'RplTextIcon',
   props: {
@@ -28,20 +32,23 @@ export default {
     RplIcon
   },
   computed: {
+    trimmedText: function () {
+      return this.text.trim()
+    },
     textWordCount: function () {
       return (this.text.match(/[.*]|[^ \r\n]+/gi) || []).length
     },
     textWithoutLastWord: function () {
-      return this.text.substr(0, this.text.lastIndexOf(' '))
+      return this.text.substr(0, this.trimmedText.lastIndexOf(' '))
     },
     textLastWord: function () {
-      return this.text.substr(this.text.lastIndexOf(' '))
+      return this.text.substr(this.trimmedText.lastIndexOf(' '))
     },
     textWithoutFirstWord: function () {
-      return this.text.substr(this.text.indexOf(' '))
+      return this.text.substr(this.trimmedText.indexOf(' ') + 1)
     },
     textFirstWord: function () {
-      return this.text.substr(0, this.text.indexOf(' '))
+      return this.text.substr(0, (this.trimmedText.indexOf(' ') + 1))
     },
     iconProps: function () {
       return {
@@ -58,8 +65,8 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
 
-  $rpl-text-link-before-margin: auto $rpl-space-2 auto auto !default;
-  $rpl-text-link-after-margin: auto auto auto $rpl-space-2 !default;
+  $rpl-text-link-before-margin: auto $rpl-space auto auto !default;
+  $rpl-text-link-after-margin: auto auto auto $rpl-space !default;
 
   .rpl-text-icon {
     &__group {

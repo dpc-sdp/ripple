@@ -1,0 +1,51 @@
+import { Meta, Preview, Story, Props, Description } from '@storybook/addon-docs/blocks';
+import RplTextIcon from './TextIcon.vue'
+import { withKnobs, text, select } from '@storybook/addon-knobs'
+
+<Meta title="Atoms|Icon" component={ RplTextIcon } decorators={ [withKnobs] } />
+
+# Text Icon
+
+<Description of={ RplTextIcon } type='docgen' />
+
+## Props
+
+<Props of={ RplTextIcon } />
+
+## Text Icon with default Icon showing after the text
+<Preview>
+  <Story name="Text Icon">
+    {
+      {
+        components: { RplTextIcon },
+        template: `
+          <rpl-text-icon
+            :symbol="icon"
+            :color="color"
+            :size="size"
+            :text="text"
+            :placement="placement"
+          />
+        `,
+        props: {
+          text: {
+            default: text('Text', 'Text Link')
+          },
+          placement: {
+            default: select('Placement', { before: 'before', after: 'after' }, 'after')
+          },
+          icon: {
+            default: text('Symbol', 'search')
+          },
+          color: {
+            default: text('Color', 'primary')
+          },
+          size: {
+            default: text('Size', 'm')
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+

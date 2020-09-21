@@ -8,10 +8,22 @@
 <script>
 import { getIconProps } from './icon-library'
 
+/**
+ * Icons are designed to represent actions and items.
+ */
 export default {
   props: {
+    /**
+     * See the Icon Library page for options.
+     */
     'symbol': String,
+    /**
+     * Any named color in Global/Colors.
+     */
     'color': String,
+    /**
+     * One of [s, m, l, xl, xxl]
+     */
     'size': String
   },
   data: function () {

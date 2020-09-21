@@ -45,11 +45,11 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
           class="rpl-text-icon__group"
         >
           <!---->
-          View
+          View 
         </span>
          
         <span>
-           Figure 1.2 in full screen
+          Figure 1.2 in full screen
         </span>
       </span>
     </button>
@@ -62,11 +62,11 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
           class="rpl-text-icon__group"
         >
           <!---->
-          View
+          View 
         </span>
          
         <span>
-           Figure 1.2 in table format
+          Figure 1.2 in table format
         </span>
       </span>
     </button>
@@ -84,11 +84,11 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
             class="rpl-text-icon__group"
           >
             <!---->
-            Figure
+            Figure 
           </span>
            
           <span>
-             1.2
+            1.2
           </span>
         </span>
          
@@ -240,11 +240,11 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
           class="rpl-text-icon__group"
         >
           <!---->
-          Download
+          Download 
         </span>
          
         <span>
-           Figure 1.2
+          Figure 1.2
         </span>
       </span>
     </a>

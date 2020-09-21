@@ -2398,11 +2398,11 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   class="rpl-text-icon__group"
                 >
                   <!---->
-                  Clear
+                  Clear 
                 </span>
                  
                 <span>
-                   search filters
+                  search filters
                 </span>
               </span>
             </button>

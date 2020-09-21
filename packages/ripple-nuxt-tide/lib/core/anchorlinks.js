@@ -6,7 +6,7 @@ const anchorUtils = {
     let newHTML = html
     let offset = 0
     const headingTagOffset = '<h2'.length
-    this.getAnchorHeadings(html).forEach(item => {
+    this.getAnchorHeadings(html, true).forEach(item => {
       const newAnchor = this.textExists(item.text) ? ` id="${getAnchorLinkName(item.text)}"` : ''
       const headingIndex = item.indexStart + offset + headingTagOffset
       newHTML = newHTML.slice(0, headingIndex) + newAnchor + newHTML.slice(headingIndex)
@@ -15,24 +15,29 @@ const anchorUtils = {
     return newHTML
   },
 
-  getAnchorLinks (html) {
+  getAnchorLinks (html, includeSubHeading = false) {
     // Return an array of links to anchored headings.
-    return this.getAnchorHeadings(html).reduce((result, item) => {
+    return this.getAnchorHeadings(html, includeSubHeading).reduce((result, item) => {
       // Ignore empty headings.
       if (this.textExists(item.text)) {
         result.push({
           text: item.text,
-          url: '#' + getAnchorLinkName(item.text)
+          url: '#' + getAnchorLinkName(item.text),
+          type: item.type
         })
       }
       return result
     }, [])
   },
 
-  getAnchorHeadings (html) {
-    // Return an array of h2 heading index positions and text.
+  getAnchorHeadings (html, includeSubHeading = false) {
+    // Return an array of h2 and h3 headings index positions and text.
     let headings = []
     let reg = /<h2>[\w\W]*?<\/h2>/gim
+    if (includeSubHeading) {
+      reg = /<(h2|h3)>[\w\W]*?<\/(h2|h3)>/gim
+    }
+
     let match = reg.exec(html)
 
     while (match !== null) {
@@ -40,7 +45,8 @@ const anchorUtils = {
       if (this.textExists(matchedText)) {
         headings.push({
           indexStart: match.index,
-          text: match[0].replace(/<.+?>/gi, '')
+          text: match[0].replace(/<.+?>/gi, ''),
+          type: match[0].substr(1, 2)
         })
       }
       match = reg.exec(html)

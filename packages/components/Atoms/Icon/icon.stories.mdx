@@ -1,0 +1,43 @@
+import { Meta, Preview, Story, Props, Description } from '@storybook/addon-docs/blocks';
+import RplIcon from './Icon.vue'
+import { withKnobs, text } from '@storybook/addon-knobs'
+
+<Meta title="Atoms|Icon" component={ RplIcon } decorators={ [withKnobs] } />
+
+# Icon
+
+<Description of={ RplIcon } type='docgen' />
+
+## Props
+
+<Props of={ RplIcon } />
+
+## Icon
+<Preview>
+  <Story name="Icon">
+    {
+      {
+        components: { RplIcon },
+        template: `
+          <rpl-icon
+            :symbol="icon"
+            :color="color"
+            :size="size"
+          />
+        `,
+        props: {
+          icon: {
+            default: text('Symbol', 'search')
+          },
+          color: {
+            default: text('Color', 'primary')
+          },
+          size: {
+            default: text('Size', 'm')
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+

@@ -92,10 +92,10 @@ $responsive-iframe-padding-bottom: 56.25% !default;
 $responsive-iframe-padding-top: $rpl-space-4 !default;
 
 $callout-wrapper-border-color: rpl_color('secondary') !default;
-$callout-wrapper-background-color: lighten(rpl_color('secondary'), 50%) !default;
+$callout-wrapper-background-color: rpl_color('light_secondary') !default;
 $callout-wrapper-border-left: rem(4px) solid !default;
 $callout-wrapper-list-padding-left: ($rpl-space * 6) !default;
-$callout-wrapper-padding: ($rpl-space) ($rpl-space * 6) ($rpl-space * 4) ($rpl-space * 6) !default;
+$callout-wrapper-padding: ($rpl-space * 6) ($rpl-space * 6) ($rpl-space * 7) !default;
 
 .rpl-markup {
   @include rpl_text_color($rpl-markup-text-color);
@@ -303,6 +303,17 @@ $callout-wrapper-padding: ($rpl-space) ($rpl-space * 6) ($rpl-space * 4) ($rpl-s
 
     ul {
       padding-left: $callout-wrapper-list-padding-left;
+    }
+
+    &__title {
+      font-weight: bold;
+      line-height: rem(24px);
+      font-size: rem(20px);
+      padding-bottom: $rpl-space-3;
+    }
+
+    &__content {
+      max-width: $rpl-content-max-width;
     }
   }
 }

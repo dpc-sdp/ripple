@@ -103,8 +103,8 @@ const pluginEmbeddedDocument = function () {
 }
 
 const parseForLinks = function () {
-  // Give h2 headings an id so they can be linked to
-  this.find('h2').map((i, element) => {
+  // Give h2 and h3 headings an id so they can be linked to
+  this.find('h2,h3').map((i, element) => {
     const el = this.find(element)
     const idName = el.text()
     return el.attr('id', getAnchorLinkName(idName))

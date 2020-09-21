@@ -116,6 +116,8 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
+  $rpl-intro-banner-border: 1px solid rpl_color('mid_neutral_1') !default;
+  $rpl-intro-banner-left-padding-xl: rem(25px) !default;
   $rpl-intro-banner-title-typography-ruleset: ('mega', 1.2em, 'bold') !default;
   $rpl-intro-banner-title-color: rpl_color('extra_dark_neutral') !default;
   $rpl-intro-banner-description-typography-ruleset: ('s', 1.5em, 'regular') !default;
@@ -144,6 +146,9 @@ export default {
         padding-bottom: map-get($spacing, bottom);
       }
     }
+    @include rpl_breakpoint('m') {
+      border-bottom: $rpl-intro-banner-border;
+    }
 
     @include rpl_print_margin('l');
 
@@ -156,14 +161,17 @@ export default {
         flex-direction: row;
       }
 
-      @include rpl_breakpoint('xl') {
+      @include rpl_breakpoint('l') {
         @include rpl_grid_column(8);
       }
 
       #{$root}--no-links & {
-        @include rpl_breakpoint('xl') {
+        @include rpl_breakpoint('l') {
           @include rpl_grid_column(10);
         }
+      }
+      @include rpl_breakpoint('xl') {
+        padding-right: $rpl-intro-banner-left-padding-xl;
       }
     }
 
@@ -171,7 +179,7 @@ export default {
       @include rpl_grid_full;
       z-index: $rpl-zindex-content-top;
 
-      @include rpl_breakpoint('xl') {
+      @include rpl_breakpoint('l') {
         @include rpl_grid_column(4);
       }
 
@@ -221,14 +229,7 @@ export default {
       padding: 0;
 
       &--link {
-        @include rpl_breakpoint('s') {
-          column-count: 2;
-          column-gap: rem(50px);
-        }
-
-        @include rpl_breakpoint('m') {
-          column-count: auto;
-        }
+        column-count: auto;
       }
     }
 

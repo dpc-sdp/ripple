@@ -67,10 +67,9 @@ $callout-padding: 0 0 0 ($rpl-space * 6) !default;
 $callout-margin: ($rpl-space * 7) 0 !default;
 
 $quotation-padding-xs: 0 0 0 ($rpl-space * 6) !default;
-$quotation-padding-s: 0 0 0 ($rpl-space * 8) !default;
 $quotation-text-ruleset: (rem(20px), 1.2em, 'medium') !default;
 $quotation-text-color: rpl_color('extra_dark_neutral') !default;
-$quotation-text-margin: ($rpl-space * 5) auto $rpl-space-2 !default;
+$quotation-text-margin: ($rpl-space * 5) auto $rpl-space-3 !default;
 $quotation-mark-border: rem(4px) solid rpl_color('mid_neutral_2') !default;
 $quotation-mark-end-margin: auto auto (-$rpl-space-2) $rpl-space-2 !default;
 $quotation-author-ruleset: (rem(12px), 1em, 'medium')  !default;
@@ -188,20 +187,17 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     padding: $quotation-padding-xs;
     max-width: $rpl-content-max-width;
 
-    @include rpl_breakpoint('s') {
-      padding: $quotation-padding-s;
-    }
-
     p {
       @include rpl_typography_ruleset($quotation-text-ruleset);
       color: $quotation-text-color;
       margin: $quotation-text-margin;
+      line-height: rem(24px);
 
       &::before,
       &::after {
         content: '';
         display: inline-block;
-        width: rem(8px);
+        width: rem(4px);
         height: rem(24px);
         border-left: $quotation-mark-border;
         border-right: $quotation-mark-border;
@@ -210,6 +206,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       &::before {
         position: absolute;
         left: 0;
+        margin-top: rem(6px);
       }
 
       &::after {
@@ -223,7 +220,8 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_typography_ruleset($quotation-author-ruleset);
       color: $quotation-author-color;
       font-style: normal;
-      text-transform: uppercase;
+      display: inline-block;
+      line-height: rem(14px);
     }
   }
 

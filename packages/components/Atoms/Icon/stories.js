@@ -144,25 +144,3 @@ storiesOf('Atoms/Icon', module)
       }
     }
   }))
-  .add('Text Icon', () => ({
-    components: { RplTextIcon },
-    template:
-      '<rpl-text-icon :symbol="icon" :color="color" :size="size" :text="text" :placement="placement"/>',
-    props: {
-      text: {
-        default: text('Text', 'Text Link')
-      },
-      placement: {
-        default: select('Placement', { before: 'before', after: 'after' }, 'after')
-      },
-      icon: {
-        default: text('Symbol', 'search')
-      },
-      color: {
-        default: text('Color', 'primary')
-      },
-      size: {
-        default: text('Size', 'm')
-      }
-    }
-  }))

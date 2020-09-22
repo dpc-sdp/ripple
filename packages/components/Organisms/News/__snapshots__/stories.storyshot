@@ -17,7 +17,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       >
         <img
           alt=""
-          class="rpl-responsive-image rpl-card-navigation-featured__image"
+          class="rpl-responsive-image rpl-card-navigation-featured__image rpl-responsive-image--fit-cover"
           src="https://placehold.it/818x497"
         />
          
@@ -72,7 +72,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       >
         <img
           alt=""
-          class="rpl-responsive-image rpl-card-content__image"
+          class="rpl-responsive-image rpl-card-content__image rpl-responsive-image--fit-cover"
           src="https://placehold.it/818x497"
         />
       </div>
@@ -146,7 +146,7 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
       >
         <img
           alt=""
-          class="rpl-responsive-image rpl-card-content__image"
+          class="rpl-responsive-image rpl-card-content__image rpl-responsive-image--fit-cover"
           src="https://placehold.it/818x497"
         />
       </div>

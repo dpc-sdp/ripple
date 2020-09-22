@@ -6,7 +6,7 @@ Icon.register({
     height: 15,
     paths: [
       {
-        d: 'M17 5V3L10 6L3 3V5L10 8.022L17 5ZM2 13H18V2H2V13ZM1 0C0.447 0 0 0.447 0 1V14C0 14.553 0.447 15 1 15H19C19.553 15 20 14.553 20 14V1C20 0.447 19.553 0 19 0H1Z',
+        d: 'M17 5V3l-7 3-7-3v2l7 3.022L17 5zM2 13h16V2H2v11zM1 0a1 1 0 00-1 1v13a1 1 0 001 1h18a1 1 0 001-1V1a1 1 0 00-1-1H1z',
         'fill-rule': 'evenodd',
         'clip-rule': 'evenodd'
       }

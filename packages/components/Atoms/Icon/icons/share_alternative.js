@@ -6,7 +6,7 @@ Icon.register({
     height: 14,
     paths: [
       {
-        d: 'M0 14L15.9924 7L0 0V6L11.9924 7L0 8V14Z'
+        d: 'M0 14l15.992-7L0 0v6l11.992 1L0 8v6z'
       }
     ]
   }

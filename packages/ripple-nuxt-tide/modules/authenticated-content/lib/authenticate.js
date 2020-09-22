@@ -1,6 +1,6 @@
 import cookieparser from 'cookieparser'
 import Cookie from 'js-cookie'
-import { isPreviewPath } from './preview'
+import { isPreviewPath } from '../../../lib/core/path'
 
 const authCookieName = 'authenticatedContent'
 const nullValue = '{"tideAuthenticatedContent":{"token":null}}'

@@ -1,5 +1,5 @@
 import { isTokenExpired, clientGetToken, serverGetToken, clientClearToken, clientSetProperties } from './authenticate'
-import { isPreviewPath } from './preview'
+import { isPreviewPath } from '../../../lib/core/path'
 
 const tideAuthenticatedContent = (context, pageData) => {
   let authToken = null

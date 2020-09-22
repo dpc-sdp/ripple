@@ -18,12 +18,15 @@ storiesOf('Molecules/AnchorLinks', module)
       },
       links: {
         default: () => object('Links', [
-          { text: 'This is the first anchor link', url: '#' },
-          { text: 'Second link to extra content', url: '#' },
-          { text: 'Third link goes here', url: '#' },
-          { text: 'Link to additional content', url: '#' },
-          { text: 'Another link to extra content', url: '#' },
-          { text: 'This is another link', url: '#' }
+          { text: 'This is the first anchor link', url: '#', type: 'h2' },
+          { text: 'This is sub heading following first anchor link', url: '#', type: 'h3' },
+          { text: 'Second link to extra content', url: '#', type: 'h2' },
+          { text: 'Third link goes here', url: '#', type: 'h2' },
+          { text: 'Link to additional content', url: '#', type: 'h2' },
+          { text: 'Another link to extra content', url: '#', type: 'h2' },
+          { text: 'This is another sub heading', url: '#', type: 'h3' },
+          { text: 'And another sub heading', url: '#', type: 'h3' },
+          { text: 'This is another link', url: '#', type: 'h2' }
         ])
       }
     }

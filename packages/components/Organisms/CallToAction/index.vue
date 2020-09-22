@@ -1,7 +1,7 @@
 <template>
-  <div class="rpl-call-to-action">
+  <div class="rpl-call-to-action" v-bind:class="{'rpl-call-to-action__no-image': !image}">
     <div class="rpl-call-to-action__row">
-      <div class="rpl-call-to-action__left">
+      <div class="rpl-call-to-action__left" v-if="image">
         <rpl-responsive-img class="rpl-call-to-action__image" v-bind="image" :alt="image.alt" />
       </div>
       <div class="rpl-call-to-action__right">
@@ -43,6 +43,7 @@ export default {
   $rpl-call-to-action-border: 1px solid $rpl-call-to-action-border-color !default;
   $rpl-call-to-action-border-radius: rem(4px) !default;
   $rpl-call-to-action-bg-color: rpl-color('white') !default;
+  $rpl-call-to-action-padding-no-image: ($rpl-space * 4) ($rpl-space * 3) !default;
   $rpl-call-to-action-padding-xs: ($rpl-space * 8) ($rpl-space * 5) !default;
   $rpl-call-to-action-padding-s: ($rpl-space * 18) $rpl-component-padding-s !default;
   $rpl-call-to-action-padding-l: ($rpl-space * 18) $rpl-component-padding-l !default;
@@ -74,6 +75,10 @@ export default {
     &__image {
       width: 100%;
       max-height: $rpl-call-to-action-image-height;
+    }
+
+    &__no-image {
+      padding: $rpl-call-to-action-padding-no-image;
     }
 
     @include rpl_breakpoint('s') {

@@ -28,9 +28,8 @@ const tidePageHead = (context, pageData) => {
 
     // Set robots
     const robotsMeta = pageData.tidePage.appMetatag.robots ? pageData.tidePage.appMetatag.robots : ''
-
     const headData = {
-      langcode: pageData.tidePage.langcode,
+      langcode: pageData.tidePage.appMetatag.lang || pageData.tidePage.langcode || 'en',
       title,
       description,
       url,

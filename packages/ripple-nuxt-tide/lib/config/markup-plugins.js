@@ -103,8 +103,8 @@ const pluginEmbeddedDocument = function () {
 }
 
 const parseForLinks = function () {
-  // Give h2 headings an id so they can be linked to
-  this.find('h2').map((i, element) => {
+  // Give h2 and h3 headings an id so they can be linked to
+  this.find('h2,h3').map((i, element) => {
     const el = this.find(element)
     const idName = el.text()
     return el.attr('id', getAnchorLinkName(idName))
@@ -116,6 +116,10 @@ const pluginIframe = function () {
   const wrapperClasses = ['rpl-markup__iframe-container']
   this.find('iframe').map((i, el) => {
     const iframe = this.find(el)
+    // If no height setting from CMS, we give it a default height.
+    if (!iframe.attr('height')) {
+      wrapperClasses.push('rpl-markup__iframe-container--default')
+    }
     const markup = `<div class="${wrapperClasses.join(' ')}"></div>`
     return iframe.wrap(markup)
   })

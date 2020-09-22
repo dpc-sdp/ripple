@@ -8,9 +8,7 @@
   "videosFolder": "test/e2e/videos",
   "ignoreTestFiles": [
     "*.js",
-    "*.md",
-    "**/__snapshots__/*",
-    "**/__image_snapshots__/*"
+    "*.md"
   ],
   "snapshotFileName": "test/e2e/snapshots.js",
   "projectId": "wtymar",
@@ -21,14 +19,5 @@
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100
-  },
-  "env": {
-    "cypress-plugin-snapshots": {
-      "imageConfig": {
-        "createDiffImage": true,
-        "threshold": 0.01,
-        "thresholdType": "percent"
-      }
-    }
   }
 }

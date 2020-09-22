@@ -19,7 +19,7 @@ import {
   object,
   boolean,
   number
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 const addQueryString = {
   created () {
@@ -93,7 +93,7 @@ storiesOf('Molecules/Card/Card Image Navigation', module)
     template: `<rpl-card-image-navigation :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
     props: {
       image: {
-        default: object('Link', {
+        default: object('Image', {
           src: 'https://placehold.it/304x199',
           focalPoint: {
             x: '152',
@@ -130,7 +130,7 @@ storiesOf('Molecules/Card/Card Promotion', module)
     ...addQueryString,
     props: {
       image: {
-        default: object('Link', {
+        default: object('Image', {
           src: 'https://placehold.it/304x199',
           focalPoint: {
             x: '152',
@@ -189,7 +189,7 @@ storiesOf('Molecules/Card/Card Event', module)
     ...addQueryString,
     props: {
       image: {
-        default: object('Link', {
+        default: object('Image', {
           src: 'https://placehold.it/304x199',
           focalPoint: {
             x: '152',
@@ -228,7 +228,7 @@ storiesOf('Molecules/Card/Card Cta', module)
     template: `<rpl-card-cta :image="image" :title="title" :summary="summary" :link="link" />`,
     props: {
       image: {
-        default: object('Link', {
+        default: object('Image', {
           src: 'https://placehold.it/148x148',
           focalPoint: {
             x: '74',
@@ -355,7 +355,7 @@ storiesOf('Molecules/Card/Card Profile', module)
         default: () => object('Link', { text: 'Read Stella\'s profile', url: '#' })
       },
       image: {
-        default: object('Link', {
+        default: object('Image', {
           src: 'https://placehold.it/148x148',
           focalPoint: {
             x: '74',
@@ -383,7 +383,7 @@ storiesOf('Molecules/Card/Card Content (base)', module)
         default: () => object('Link', { text: 'Read more', url: '#' })
       },
       image: {
-        default: object('Link', {
+        default: object('Image', {
           src: 'https://placehold.it/580x340',
           focalPoint: {
             x: '290',

@@ -15,11 +15,10 @@ module.exports = function () {
       path: '/user/reset/:id/:time/:hash',
       component: '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/pages/Reset.vue'
     })
-    // TODO - This route now conflicts with preview sub-module.
-    // routes.push({
-    //   name: 'tideauthenticated_login',
-    //   path: '/login',
-    //   component: '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/pages/Login.vue'
-    // })
+    routes.push({
+      name: 'tideauthenticated_login',
+      path: '/login',
+      component: '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/pages/Login.vue'
+    })
   })
 }

@@ -2,13 +2,13 @@
   <div class="app-card-collection" :class="`app-card-collection--${displayType}`">
     <h2 v-if="title" ref="title" class="app-card-collection__title">{{ title }}</h2>
     <template v-if="hasResults">
-      <template v-if="displayType === 'carousel'">
+      <div class="app-card-collection__carousel" v-if="displayType === 'carousel'">
         <client-only>
           <rpl-card-carousel :cards="cards" :childColsBp="cols" />
         </client-only>
-      </template>
-      <template v-else-if="displayType === 'grid'">
-        <rpl-row row-gutter>
+      </div>
+      <div class="app-card-collection__grid" v-else-if="displayType === 'grid'">
+        <rpl-row row-gutter :class="{ [`app-card-collection__grid--loading`]: loading }">
           <template v-for="card in cards">
             <rpl-col cols="full" :colsBp="card.cols" :key="card.uuid" :data-card-collection-item="card.uuid">
               <rpl-card v-bind="card.data" />
@@ -23,7 +23,7 @@
             @change="pageChange"
           />
         </div>
-      </template>
+      </div>
     </template>
     <div v-else-if="noResultsMsg" class="app-card-collection__no-results">
       {{noResultsMsg}}
@@ -61,14 +61,17 @@ export default {
         l: 4,
         xxxl: 3
       },
-      results: []
+      results: [],
+      loading: false
     }
   },
   methods: {
-    pageChange (p) {
+    async pageChange (p) {
       if (this.page !== p) {
         this.page = p
-        this.doSearch()
+        this.loading = true
+        await this.doSearch()
+        this.loading = false
         if (this.$refs.title) {
           VueScrollTo.scrollTo(this.$refs.title, 500, { offset: -100 })
         }
@@ -154,6 +157,18 @@ $card-collection-title-text-color: rpl-color('extra_dark_neutral') !default;
     @include rpl_typography_ruleset($card-collection-title-ruleset);
     color: $card-collection-title-text-color;
     margin-top: 0;
+  }
+
+  &__grid {
+    .rpl-link {
+      pointer-events: inherit;
+    }
+    &--loading {
+      opacity: 0.5;
+      a.rpl-link {
+        pointer-events: none;
+      }
+    }
   }
 
   &__no-results-msg {

@@ -52,7 +52,8 @@ import { RplAlertBase } from '@dpc-sdp/ripple-alert'
 import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
-import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { clientClearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { isPreviewPath } from '@dpc-sdp/ripple-nuxt-tide/modules/preview/lib/preview'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
 
@@ -96,8 +97,8 @@ export default {
       return false
     },
     preview () {
-      if (this.$tide.isModuleEnabled('authenticatedContent')) {
-        return isPreview(this.$store)
+      if (this.$tide.isModuleEnabled('preview')) {
+        return isPreviewPath(this.$route.path) && this.$auth.loggedIn
       }
       return false
     },

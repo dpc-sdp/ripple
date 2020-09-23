@@ -17,10 +17,14 @@ const tidePageHead = (context, pageData) => {
     // Set image.
     const featuredImage = pageData.tidePage.field_featured_image ? pageData.tidePage.field_featured_image.field_media_image : null
     const sectionImage = siteSection && siteSection.field_site_og_image ? siteSection.field_site_og_image.field_media_image : null
+    const twitterImage = siteSection && siteSection.field_site_twitter_image ? siteSection.field_site_twitter_image.field_media_image : null
     const primaryImage = pageData.tidePage.field_node_primary_site && pageData.tidePage.field_node_primary_site.field_site_og_image ? pageData.tidePage.field_node_primary_site.field_site_og_image.field_media_image : null
     const mediaImage = (featuredImage || sectionImage || primaryImage || null)
+    const mediaTwitterImage = (twitterImage || mediaImage || null)
     const image = mediaImage ? mediaImage.url : `${context.store.state.tide.protocol + '//' + context.store.state.tide.host}/img/social-media-image.jpg`
     const imageAlt = mediaImage ? mediaImage.meta.alt : ''
+    const imageTwitter = mediaTwitterImage ? mediaTwitterImage.url : `${context.store.state.tide.protocol + '//' + context.store.state.tide.host}/img/social-media-image.jpg`
+    const imageTwitterAlt = mediaTwitterImage ? mediaTwitterImage.meta.alt : ''
 
     // Set robots
     const robotsMeta = pageData.tidePage.appMetatag.robots ? pageData.tidePage.appMetatag.robots : ''
@@ -32,6 +36,8 @@ const tidePageHead = (context, pageData) => {
       siteSectionName: siteSection ? siteSection.name : '',
       image,
       imageAlt,
+      imageTwitter,
+      imageTwitterAlt,
       pageType: pageData.tidePage.type,
       robotsMeta
     }

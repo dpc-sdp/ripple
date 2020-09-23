@@ -118,6 +118,8 @@ describe('tide helpers', () => {
       url: 'https://www.vic.gov.au',
       image: 'https://www.vic.gov.au/Melbourne-tram.jpg',
       imageAlt: 'Demo: Melbourne tram',
+      imageTwitter: 'https://www.vic.gov.au/Melbourne-tram-Twitter.jpg',
+      imageTwitterAlt: 'Demo: Twitter Melbourne tram',
       siteSectionName: '',
       pageType: 'landing_page',
       robotsMeta: 'noindex'
@@ -149,6 +151,11 @@ describe('tide helpers', () => {
           hid: 'og:image',
           content: 'https://www.vic.gov.au/Melbourne-tram.jpg'
         },
+        {
+          name: 'og:image:alt',
+          hid: 'og:image:alt',
+          content: 'Demo: Melbourne tram'
+        },
         { name: 'twitter:card', hid: 'twitter:card', content: 'summary' },
         {
           name: 'twitter:site',
@@ -168,12 +175,12 @@ describe('tide helpers', () => {
         {
           name: 'twitter:image',
           hid: 'twitter:image',
-          content: 'https://www.vic.gov.au/Melbourne-tram.jpg'
+          content: 'https://www.vic.gov.au/Melbourne-tram-Twitter.jpg'
         },
         {
           name: 'twitter:image:alt',
-          hid: 'hid:image:alt',
-          content: 'Demo: Melbourne tram'
+          hid: 'twitter:image:alt',
+          content: 'Demo: Twitter Melbourne tram'
         },
         { name: 'sitesection', content: '' },
         { name: 'content-type', content: 'landing_page' },

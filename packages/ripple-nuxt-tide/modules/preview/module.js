@@ -3,7 +3,7 @@ module.exports = function () {
 
   this.options.proxy = {
     ...this.options.proxy,
-    '/oauth/': {
+    '/oauth/token': {
       target: options.baseUrl
     }
   }
@@ -26,22 +26,22 @@ module.exports = function () {
     },
     rewriteRedirects: true,
     redirect: {
-      login: '/login',
+      login: '/oauth/login',
       logout: '/',
-      home: '/loginsuccess',
-      callback: '/login'
+      home: '/oauth/success',
+      callback: '/oauth/login'
     }
   }])
 
   this.extendRoutes((routes, resolve) => {
     routes.push({
       name: 'login',
-      path: '/login',
+      path: '/oauth/login',
       component: resolve(__dirname, 'pages', 'Login.vue')
     },
     {
       name: 'loginsuccess',
-      path: '/loginsuccess',
+      path: '/oauth/success',
       component: resolve(__dirname, 'pages', 'Success.vue')
     })
   })

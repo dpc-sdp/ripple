@@ -1,17 +1,6 @@
 import { isTokenExpired } from '../../modules/authenticated-content/lib/authenticate'
-import { isPreviewPath } from '../../modules/authenticated-content/lib/preview'
 
 describe('Authenticated content', () => {
-  test('"/preview-page" route is not preview path', async () => {
-    const result = isPreviewPath('/preview-page')
-    expect(result).toEqual(false)
-  })
-
-  test('"/preview/..." route is preview path', async () => {
-    const result = isPreviewPath('/preview/landing_page/d5457459-1735-4b80-8fc6-46e6bdfd74b3/latest?section=224')
-    expect(result).toEqual(true)
-  })
-
   test('token should be expired', async () => {
     // Expiry date: January 1 2019
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDYyNjEyMDAwMDAsImV4cCI6MTU0NjI2MTIwMDAwMCwiZHJ1cGFsIjp7InVpZCI6IjEifX0.htgSTJS6-ygsTAaGT99srWiEvl6mVAjujJ_aKSb0xzw'

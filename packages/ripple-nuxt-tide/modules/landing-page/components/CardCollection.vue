@@ -1,6 +1,6 @@
 <template>
   <div class="app-card-collection" :class="`app-card-collection--${displayType}`">
-    <h2 v-if="title" class="app-card-collection__title">{{ title }}</h2>
+    <h2 v-if="title" ref="title" class="app-card-collection__title">{{ title }}</h2>
     <template v-if="hasResults">
       <template v-if="displayType === 'carousel'">
         <client-only>
@@ -37,6 +37,7 @@ import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplCardCarousel, RplCard } from '@dpc-sdp/ripple-card'
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import { getQueryParams, getSiteDomainUrl } from './../lib/card-collection-utils'
+import VueScrollTo from 'vue-scrollto'
 
 export default {
   props: {
@@ -68,6 +69,9 @@ export default {
       if (this.page !== p) {
         this.page = p
         this.doSearch()
+        if (this.$refs.title) {
+          VueScrollTo.scrollTo(this.$refs.title, 500, { offset: -100 })
+        }
       }
     },
     async doSearch () {

@@ -12,6 +12,11 @@ export default {
       let queryClause = {
         match_all: {}
       }
+      if (!params) {
+        return {
+          query: queryClause
+        }
+      }
       const queryFields = [
         'body',
         'field_landing_page_summary',

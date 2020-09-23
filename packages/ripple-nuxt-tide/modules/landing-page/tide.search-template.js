@@ -100,6 +100,7 @@ module.exports = {
                     ...result,
                     topic: get(item, ['field_topic_name', 0], '')
                   }
+                // TODO: Add all profile types here
                 case 'profile':
                 case 'aboriginal_honour_roll':
                   return {

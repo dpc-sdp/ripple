@@ -16,7 +16,7 @@ export default ({ app, req, store , route }, inject) => {
   const tideService = tide(app.$axios, options.site, config)
   inject('tide', tideService)
   const getBaseUrl = () => {
-    const apiRoot = '/search/v1/'
+    const apiRoot = '/search-api/v2/'
     if (process.env.SEARCH_API_BASE_URL) {
       return process.env.SEARCH_API_BASE_URL
     }

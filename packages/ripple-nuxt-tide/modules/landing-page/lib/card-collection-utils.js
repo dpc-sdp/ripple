@@ -19,7 +19,7 @@ export const getQueryParams = (settings) => {
       queryParams.sort = [{ [`${settings.sort.field}`]: settings.sort.direction }]
     }
 
-    if (settings.sort) {
+    if (settings.sort && settings.sort.field) {
       queryParams.sort = [{ [`${settings.sort.field}`]: settings.sort.direction }]
     }
 

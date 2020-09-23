@@ -66,6 +66,7 @@ const nuxtTide = function (moduleOptions) {
 
   this.addServerMiddleware(tideSearchApiMiddleware({
     apiBase: 'search-api',
+    version: 'v2',
     templates: options.tideSearchTemplates,
     log: {
       level: process.env.SEARCH_LOG

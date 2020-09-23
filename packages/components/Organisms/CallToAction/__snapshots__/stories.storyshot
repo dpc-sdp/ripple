@@ -2,56 +2,121 @@
 
 exports[`RippleStoryshots Organisms/CallToAction Call to Action 1`] = `
 <div
-  class="rpl-call-to-action"
+  class="rpl-content"
 >
   <div
-    class="rpl-call-to-action__row"
+    class="rpl-call-to-action"
   >
     <div
-      class="rpl-call-to-action__left"
+      class="rpl-call-to-action__row"
     >
-      <img
-        alt=""
-        class="rpl-responsive-image rpl-call-to-action__image"
-        src="http://placehold.it/336x249"
-      />
-    </div>
-     
-    <div
-      class="rpl-call-to-action__right"
-    >
-      <h2
-        class="rpl-call-to-action__title"
-      >
-        Card prompting an action
-      </h2>
-       
       <div
-        class="rpl-call-to-action__summary"
+        class="rpl-call-to-action__left"
       >
-        <p>
-          Sed ut 
-          <b>
-            perspiciatis
-          </b>
-           unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </p>
-        <p>
-          Nemo enim ipsam voluptatem.
-        </p>
+        <img
+          alt=""
+          class="rpl-responsive-image rpl-call-to-action__image rpl-responsive-image--fit-contain"
+          src="http://placehold.it/336x249"
+        />
       </div>
        
-      <a
-        class="rpl-link rpl-button rpl-button--primary"
-        data-print-url="#"
-        href="#"
+      <div
+        class="rpl-call-to-action__right"
       >
-        <span
-          class="rpl-link__inner"
+        <h2
+          class="rpl-call-to-action__title"
         >
-          Call to action
-        </span>
-      </a>
+          Card prompting an action
+        </h2>
+         
+        <div
+          class="rpl-call-to-action__summary"
+        >
+          <p>
+            Sed ut 
+            <b>
+              perspiciatis
+            </b>
+             unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          </p>
+          <p>
+            Nemo enim ipsam voluptatem.
+          </p>
+        </div>
+         
+        <a
+          class="rpl-link rpl-button rpl-button--primary"
+          data-print-url="#"
+          href="#"
+        >
+          <span
+            class="rpl-link__inner"
+          >
+            Call to action
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RippleStoryshots Organisms/CallToAction without sidebar 1`] = `
+<div
+  class="rpl-content"
+>
+  <div
+    class="rpl-call-to-action rpl-call-to-action--without-sidebar"
+  >
+    <div
+      class="rpl-call-to-action__row"
+    >
+      <div
+        class="rpl-call-to-action__left"
+      >
+        <img
+          alt=""
+          class="rpl-responsive-image rpl-call-to-action__image rpl-responsive-image--fit-contain"
+          src="http://placehold.it/336x249"
+        />
+      </div>
+       
+      <div
+        class="rpl-call-to-action__right"
+      >
+        <h2
+          class="rpl-call-to-action__title"
+        >
+          Card prompting an action
+        </h2>
+         
+        <div
+          class="rpl-call-to-action__summary"
+        >
+          <p>
+            Sed ut 
+            <b>
+              perspiciatis
+            </b>
+             unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          </p>
+          <p>
+            Nemo enim ipsam voluptatem.
+          </p>
+        </div>
+         
+        <a
+          class="rpl-link rpl-button rpl-button--primary"
+          data-print-url="#"
+          href="#"
+        >
+          <span
+            class="rpl-link__inner"
+          >
+            Call to action
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </div>

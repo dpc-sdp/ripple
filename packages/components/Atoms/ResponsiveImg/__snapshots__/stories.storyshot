@@ -2,7 +2,7 @@
 
 exports[`RippleStoryshots Atoms/ResponsiveImg Default 1`] = `
 <img
-  class="rpl-responsive-image"
+  class="rpl-responsive-image rpl-responsive-image--fit-cover"
   sizes="100vw"
   src="https://images.unsplash.com/photo-1591302418462-eb55463b49d6"
   srcset="https://images.unsplash.com/photo-1591302418462-eb55463b49d6?w=575&h=300 575w, https://images.unsplash.com/photo-1591302418462-eb55463b49d6?w=768&h=600 768w, https://images.unsplash.com/photo-1591302418462-eb55463b49d6?w=992&h=600 992w, https://images.unsplash.com/photo-1591302418462-eb55463b49d6?w=1600&h=600 1600w"

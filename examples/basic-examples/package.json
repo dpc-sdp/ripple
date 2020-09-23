@@ -1,6 +1,6 @@
 {
   "name": "basic-examples",
-  "version": "1.14.1",
+  "version": "1.15.0",
   "description": "Example site for showing how to add custom work",
   "private": true,
   "scripts": {
@@ -21,7 +21,7 @@
     "start:build": "nuxt build --modern=client && nuxt start --modern=client"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.14.1",
+    "@dpc-sdp/ripple-nuxt-tide": "1.15.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.10.2",
     "run-script-os": "^1.0.7"

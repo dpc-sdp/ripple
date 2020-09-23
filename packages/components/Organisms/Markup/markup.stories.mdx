@@ -223,6 +223,35 @@ export const htmlQuotation = `
   </Story>
 </Preview>
 
+## Call out
+export const htmlCallout = `
+<div class="callout-wrapper">
+  <h2>Lorem ipsum dolor</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <ul>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </ul>
+</div>
+`
+
+<Preview>
+  <Story name="Callout" height="250px">
+    {
+      {
+        components: { RplMarkup },
+        template: `<rpl-markup :html="html" />`,
+        props: {
+          html: {
+            default: text('html', htmlCallout)
+          },
+        }
+      }
+    }
+  </Story>
+</Preview>
+
 ## Embedded document
 export const htmlEmbeddedDoc = `
 <article

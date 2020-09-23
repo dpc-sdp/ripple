@@ -1,5 +1,5 @@
 <template>
-  <img v-if="src" class="rpl-responsive-image" :alt="alt" :height="height" :width="width" ref="image" :src="src" :srcset="calcSrcSet" :sizes="calcSizes" :style="calcFocalPoint"  />
+  <img v-if="src" class="rpl-responsive-image" :class="`rpl-responsive-image--fit-${fit}`" :alt="alt" :height="height" :width="width" ref="image" :src="src" :srcset="calcSrcSet" :sizes="calcSizes" :style="calcFocalPoint"  />
 </template>
 
 <script>
@@ -40,6 +40,11 @@ export default {
     },
     width: {
       type: Number
+    },
+    fit: {
+      type: String,
+      default: 'cover',
+      validator: val => ['cover', 'contain'].includes(val)
     }
   },
   mounted () {
@@ -107,6 +112,11 @@ export default {
 
   .rpl-responsive-image {
     width: 100%;
-    @include object_fit_image(cover);
+    &--fit-cover {
+      @include object_fit_image(cover);
+    }
+    &--fit-contain {
+      @include object_fit_image(contain);
+    }
   }
 </style>

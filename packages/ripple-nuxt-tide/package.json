@@ -63,6 +63,7 @@
     "js-cookie": "^2.2.0",
     "jsonapi-parse": "^2.0.0",
     "jwt-decode": "^2.2.0",
+    "lodash.chunk": "^4.2.0",
     "mime-types": "^2.1.21",
     "moment-timezone": "0.5.21",
     "qs": "^6.5.1",

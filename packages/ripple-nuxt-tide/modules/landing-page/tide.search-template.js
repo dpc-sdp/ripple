@@ -2,6 +2,18 @@ import get from 'lodash.get'
 import { getTermsFilter, getPagination } from '@dpc-sdp/ripple-tide-search-api/services/template-utils'
 import { getFilterTodayConditions, capitalize, getIncludesByType } from './lib/card-collection-utils'
 
+const aggregationItemLimit = 50
+
+const getAggregations = (aggs) => {
+  if (aggs && typeof aggs === 'object') {
+    const aggregations = {}
+    Object.keys(aggs).forEach(key => {
+      aggregations[key] = aggs[key].buckets.map(agg => agg.key)
+    })
+    return aggregations
+  }
+}
+
 module.exports = {
   cards: {
     requestMapping: params => {
@@ -52,6 +64,36 @@ module.exports = {
         sort,
         _source: getIncludesByType(params.type),
         ...getPagination(params)
+      }
+
+      if (params.q) {
+        query.query.bool.must = {
+          multi_match: {
+            query: params.q.value,
+            fields: params.q.fields
+          }
+        }
+        query.query.bool.should = {
+          match_phrase: {
+            title: {
+              query: params.q.value,
+              boost: 2
+            }
+          }
+        }
+      }
+
+      if (params.aggs && Array.isArray(params.aggs)) {
+        query.aggs = {}
+        params.aggs.forEach(agg => {
+          query.aggs[agg] = {
+            terms: {
+              field: agg,
+              size: aggregationItemLimit,
+              order: { '_key': 'asc' }
+            }
+          }
+        })
       }
 
       return query
@@ -113,7 +155,8 @@ module.exports = {
                   return result
               }
             }
-          })
+          }),
+          aggregations: getAggregations(res.aggregations)
         }
       } else if (res.hits) {
         return {

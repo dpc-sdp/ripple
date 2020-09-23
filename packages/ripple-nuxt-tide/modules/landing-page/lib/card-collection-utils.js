@@ -1,3 +1,5 @@
+import chunk from 'lodash.chunk'
+
 /**
  * Get query params from card collection settings
  *
@@ -32,6 +34,15 @@ export const getQueryParams = (settings) => {
     }
 
     const carouselLimit = 9
+
+    if (settings.form && settings.form.fields) {
+      queryParams.aggs = []
+      settings.form.fields.forEach(f => {
+        if (f.type === 'select') {
+          queryParams.aggs.push(f.field)
+        }
+      })
+    }
 
     if (settings.display) {
       if (settings.display.type === 'grid' && settings.display.items) {
@@ -137,9 +148,94 @@ export const getIncludesByType = (type) => {
   }
 }
 
+export const getFilterFormFromConfig = async ({ fields, submit = false, clear = false, columns = 2 }, aggregations) => {
+  const schema = {
+    fields: []
+  }
+  const model = {}
+  const colClasses = {
+    1: `one`,
+    2: `two`
+  }
+  if (fields && Array.isArray(fields)) {
+    fields.forEach(fieldConfig => {
+      model[fieldConfig.field] = ''
+      const field = {
+        label: fieldConfig.label,
+        model: fieldConfig.field,
+        placeholder: fieldConfig.placeholder,
+        styleClasses: `form-group--col-${colClasses[columns]}`
+      }
+      switch (fieldConfig.type) {
+        case 'select':
+          field.type = 'rplselect'
+          if (aggregations.hasOwnProperty(fieldConfig.field) && Array.isArray(aggregations[fieldConfig.field])) {
+            field.values = aggregations[fieldConfig.field].map(val => ({
+              id: val,
+              name: val
+            }))
+          }
+          field.multiselect = fieldConfig.multiple || true
+          break
+        case 'number':
+          field.type = 'input'
+          field.inputType = 'number'
+          break
+        case 'text':
+          field.type = 'input'
+          field.inputType = 'text'
+          break
+
+        default:
+          break
+      }
+      schema.fields.push(field)
+    })
+  }
+  if (submit && submit.button) {
+    schema.fields.push({
+      type: 'rplsubmitloader',
+      buttonText: submit.buttonText || 'Submit',
+      loading: false,
+      autoUpdate: true,
+      styleClasses: ['form-group--inline']
+    })
+  }
+  if (clear) {
+    schema.fields.push({
+      type: 'rplclearform',
+      buttonText: clear.buttonText || 'Clear search filters',
+      styleClasses: ['form-group--inline']
+    })
+  }
+  if (schema.fields.length > columns) {
+    const groups = chunk(schema.fields, columns)
+    schema.groups = []
+    groups.forEach(group => schema.groups.push({
+      legend: '',
+      fields: group
+    }))
+    delete schema.fields
+  }
+
+  return {
+    formData: {
+      schema,
+      model,
+      formOptions: {
+        validateAfterLoad: false,
+        validateAfterChanged: true
+      },
+      formState: {},
+      tag: 'rpl-fieldset'
+    }
+  }
+}
+
 export default {
   capitalize,
   getQueryParams,
   getSiteDomainUrl,
-  getFilterTodayConditions
+  getFilterTodayConditions,
+  getFilterFormFromConfig
 }

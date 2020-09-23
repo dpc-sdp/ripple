@@ -15,7 +15,44 @@ export default {
             const domains = await context.app.$tide.getSitesDomainMap()
             context.store.commit('tideSite/setSitesDomainMap', domains)
           }
-
+          const filterFormMock = {
+            form: {
+              columns: 2,
+              submit: {
+                onChange: false,
+                button: true,
+                buttonText: 'Submit before me'
+              },
+              clear: {
+                buttonText: 'Clear form'
+              },
+              titleFields: ['title', 'body'],
+              fields: [
+                // {
+                //   label: 'test',
+                //   placeholder: 'type anything',
+                //   type: 'text',
+                //   field: 'title'
+                // },
+                {
+                  label: 'Event requirements',
+                  placeholder: 'Select an item',
+                  type: 'select',
+                  field: 'field_event_details_event_requirements_name'
+                },
+                {
+                  label: 'Event Category',
+                  placeholder: 'Select an item',
+                  type: 'select',
+                  field: 'field_event_category_name'
+                }
+              ]
+            }
+          }
+          component.data.config = {
+            ...component.data.config,
+            ...filterFormMock
+          }
           // Request listings for all automated card listings.
           automatedCardRequests.push({
             key,
@@ -33,7 +70,8 @@ export default {
           const request = automatedCardRequests[index]
           const component = pageData.tidePage.appDComponents[request.key]
           component.data.initialResults = response.results
-          component.data.total = response.total
+          component.data.initialTotal = response.total
+          component.data.aggregations = response.aggregations
         })
       }
     }

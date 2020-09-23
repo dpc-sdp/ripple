@@ -1,6 +1,6 @@
 <template>
   <div class="app-card-collection" :class="`app-card-collection--${displayType}`">
-    <h2 v-if="title" ref="title" class="app-card-collection__title">{{ title }}</h2>
+    <h2 v-if="title && (hasResults || noResultsMsg)" ref="title" class="app-card-collection__title">{{ title }}</h2>
     <template v-if="hasResults">
       <div class="app-card-collection__carousel" v-if="displayType === 'carousel'">
         <client-only>
@@ -8,12 +8,21 @@
         </client-only>
       </div>
       <div class="app-card-collection__grid" v-else-if="displayType === 'grid'">
-        <rpl-row row-gutter :class="{ [`app-card-collection__grid--loading`]: loading }">
-          <template v-for="card in cards">
-            <rpl-col cols="full" :colsBp="card.cols" :key="card.uuid" :data-card-collection-item="card.uuid">
-              <rpl-card v-bind="card.data" />
-            </rpl-col>
-          </template>
+        <div class="app-card-collection__filters" v-if="filterForm">
+          <rpl-title-search placeholder="search all something" ref="titlesearch" @submit-search="titleSearchSubmit" />
+          <button @click="toggleFilters()" class="app-card-collection__filter-toggle">
+            {{ showFilters ? 'Hide' : 'Show' }} filters
+          </button>
+          <rpl-form
+            v-if="showFilters"
+            :submitHandler="searchFormSubmit"
+            v-bind="filterForm"
+          />
+        </div>
+        <rpl-row v-if="cards.length > 0" row-gutter :class="{ [`app-card-collection__grid--loading`]: loading }">
+          <rpl-col v-for="card in cards" cols="full" :colsBp="card.cols" :key="card.uuid" :data-card-collection-item="card.uuid">
+            <rpl-card v-bind="card.data" />
+          </rpl-col>
         </rpl-row>
         <div v-if="total > results.length" class="app-card-collection__pagination">
           <rpl-pagination
@@ -36,22 +45,26 @@ import get from 'lodash.get'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplCardCarousel, RplCard } from '@dpc-sdp/ripple-card'
 import RplPagination from '@dpc-sdp/ripple-pagination'
-import { getQueryParams, getSiteDomainUrl } from './../lib/card-collection-utils'
+import { RplForm, RplFormEventBus } from '@dpc-sdp/ripple-form'
+import { getQueryParams, getSiteDomainUrl, getFilterFormFromConfig } from './../lib/card-collection-utils'
 import VueScrollTo from 'vue-scrollto'
-
+import RplTitleSearch from './TitleSearch'
 export default {
   props: {
     title: String,
     config: Object,
     initialResults: Array,
-    total: Number
+    initialTotal: Number,
+    aggregations: Object
   },
   components: {
     RplRow,
     RplCol,
     RplCard,
     RplCardCarousel,
-    RplPagination
+    RplPagination,
+    RplTitleSearch,
+    RplForm
   },
   data () {
     return {
@@ -62,7 +75,10 @@ export default {
         xxxl: 3
       },
       results: [],
-      loading: false
+      filterForm: {},
+      loading: false,
+      total: 0,
+      showFilters: false
     }
   },
   methods: {
@@ -77,19 +93,67 @@ export default {
         }
       }
     },
-    async doSearch () {
+    toggleFilters () {
+      this.showFilters = !this.showFilters
+    },
+    async doSearch (formParams, title) {
       const params = getQueryParams(this.config)
-      const response = await this.$tideSearchApi.search('/cards', {
-        ...params,
-        site: this.$store.state.tideSite.siteId,
-        page: this.page
-      })
+      params.filters = {
+        ...params.filters,
+        ...formParams
+      }
+
+      if (this.config.form.titleFields && title) {
+        params.q = {
+          value: title,
+          fields: this.config.form.titleFields
+        }
+      }
+      if (this.$store.state.tideSite.siteId) {
+        params.site = this.$store.state.tideSite.siteId
+      }
+      if (this.page) {
+        params.page = this.page
+      }
+      console.log('params', params, title)
+      const response = await this.$tideSearchApi.search('/cards', params)
+      // TODO : Update form from aggregation values
       this.results = response.results
+      this.total = Number(response.total)
+    },
+    titleSearchSubmit (title) {
+      this.searchFormSubmit(this.filterForm.formData.model, title)
+    },
+    searchFormSubmit (formModel = this.filterForm.formData.model, title = false) {
+      if (formModel && !this.loading) {
+        this.loading = true
+        const filters = {}
+        Object.keys(formModel).forEach(key => {
+          filters[key] = {
+            values: formModel[key]
+          }
+        })
+        this.doSearch(filters, title)
+        this.loading = false
+      }
+    },
+    async setfilterForm () {
+      if (this.config.form) {
+        const filterForm = await getFilterFormFromConfig(this.config.form, this.aggregations)
+        this.filterForm = filterForm
+      }
     }
   },
   created () {
     if (this.initialResults) {
       this.results = this.initialResults
+    }
+    this.setfilterForm()
+    this.total = this.initialTotal
+  },
+  mounted () {
+    if (this.config && this.config.form.submit.onChange) {
+      RplFormEventBus.$on('updated', this.searchFormSubmit)
     }
   },
   computed: {

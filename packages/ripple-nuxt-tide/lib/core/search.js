@@ -38,6 +38,7 @@ export default class TideSearchApi {
       if (response.data) {
         return response.data
       }
+      throw new Error('error fetching data')
     } catch (e) {
       logger.error('Search API error', e, { label: 'TideSearch' })
       return false

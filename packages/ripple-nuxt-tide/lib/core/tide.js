@@ -419,19 +419,18 @@ export const tide = (axios, site, config) => ({
     return pageData
   },
 
-  getPreviewPage: async function (contentType, uuid, revisionId, section, params, headersConfig) {
-    if (revisionId === 'latest') {
-      params.resourceVersion = 'rel:working-copy'
-    } else {
-      params.resourceVersion = `id:${revisionId}`
-    }
+  getPageByPreviewLink: async function (path, section) {
+    const params = {}
+    const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')
+
+    params.resourceVersion = (revisionId === 'latest') ? 'rel:working-copy' : `id:${revisionId}`
 
     const pathData = {
       entity_type: 'node',
       bundle: contentType,
       uuid: uuid
     }
-    const entity = await this.getEntityByPathData(pathData, params, headersConfig)
+    const entity = await this.getEntityByPathData(pathData, params)
     if (entity instanceof Error) {
       throw entity
     }

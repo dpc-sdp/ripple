@@ -5,7 +5,8 @@ import tideMisc from './../middleware/misc.js'
 import tideBanners from './../middleware/banners.js'
 import tidePageHead from './../middleware/page-head.js'
 import { tideAuthenticatedContent } from './../../modules/authenticated-content/lib/middleware'
-import { tidePreview } from './../../modules/preview/lib/middleware'
+import { tidePreview } from '../../modules/preview/lib/helpers'
+import { isPreviewPath } from './path'
 import { getSiteSectionData } from './utils/site-section.js'
 
 // Fetch page data from Tide API by current path
@@ -26,13 +27,11 @@ export default async function (context, pageData) {
 
   try {
     let response = null
-    // If preview, get preview page data.
-    // Otherwise get page data by path.
-    const previewResponse = await tidePreview(context, pageData, headersConfig)
-    if (previewResponse === false) {
-      response = await context.app.$tide.getPageByPath(context.route.path, tideParams, headersConfig)
+
+    if (context.app.$tide.isModuleEnabled('preview') && isPreviewPath(context.route.path)) {
+      response = await tidePreview(context)
     } else {
-      response = previewResponse
+      response = await context.app.$tide.getPageByPath(context.route.path, tideParams, headersConfig)
     }
 
     // If redirect required, redirect.

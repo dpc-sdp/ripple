@@ -50,7 +50,7 @@
     "@dpc-sdp/ripple-timeline": "1.18.0",
     "@dpc-sdp/ripple-updated-date": "1.18.0",
     "@dpc-sdp/ripple-whats-next": "1.18.0",
-    "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/auth-next": "^5.0.0-1595976864.509d9d6",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/proxy": "^1.2.4",
     "basic-auth": "^2.0.0",

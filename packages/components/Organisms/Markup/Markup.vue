@@ -92,7 +92,7 @@ $responsive-iframe-padding-bottom: 56.25% !default;
 $responsive-iframe-padding-top: $rpl-space-4 !default;
 
 $callout-wrapper-border-color: rpl_color('secondary') !default;
-$callout-wrapper-background-color: rpl_color('light_secondary') !default;
+$callout-wrapper-background-color: tint(rpl_color('secondary'), 90%) !default;
 $callout-wrapper-border-left: rem(4px) solid !default;
 $callout-wrapper-list-padding-left: ($rpl-space * 6) !default;
 $callout-wrapper-padding: ($rpl-space-3) ($rpl-space * 6) ($rpl-space * 6) ($rpl-space * 6) !default;

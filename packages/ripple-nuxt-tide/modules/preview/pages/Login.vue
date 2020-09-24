@@ -2,18 +2,17 @@
   <rpl-page-layout class="app-main">
 
     <template slot="aboveContent" >
-      <rpl-hero-banner title="Log in" class="rpl-site-constrain--on-all"/>
+      <rpl-hero-banner :title="title" class="rpl-site-constrain--on-all"/>
     </template>
 
     <rpl-row row-gutter>
       <rpl-col cols="full">
         <div class="tide-authenticate">
-          <div v-if="!$auth.loggedIn && !loginInProgress">
-            <p>Log into your Drupal account to grant access to see this page.</p>
-            <rpl-button @click.native="login" theme="primary">Log in</rpl-button>
-          </div>
-          <div v-if="!$auth.loggedIn && loginInProgress">
+          <div v-if="!$auth.loggedIn && !this.loggingOut">
             <p>Please wait while we log you in.</p>
+          </div>
+          <div v-if="loggingOut">
+            <p>Please wait while we log you out.</p>
           </div>
           <div v-if="$auth.loggedIn">
             <p>You are currently logged in. To log out please click below.</p>
@@ -40,6 +39,16 @@ export default {
     RplCol,
     RplPageLayout
   },
+  data () {
+    return {
+      loggingOut: false
+    }
+  },
+  computed: {
+    title () {
+      return (!this.$auth.loggedIn && !this.loggingOut) ? 'Logging in' : 'Log in'
+    }
+  },
   methods: {
     async login () {
       // Store destination. Redirection happens in ./Success.vue.
@@ -49,20 +58,18 @@ export default {
       await this.$auth.loginWith('drupal')
     },
     async logout () {
+      this.loggingOut = true
       await this.$auth.logout()
     }
   },
-  data () {
-    return {
-      loginInProgress: false
-    }
-  },
   async asyncData ({ app, route, store }) {
-    store.dispatch('tide/setPageHead', { title: 'Login' })
+    const title = !app.$auth.loggedIn ? 'Logging in' : 'Log in'
+    store.dispatch('tide/setPageHead', { title })
   },
   mounted () {
-    if (this.$route.query.code) {
-      this.loginInProgress = true
+    const isLoginInProgress = (this.$route.query.code !== undefined)
+    if (!this.$auth.loggedIn && !isLoginInProgress) {
+      this.login()
     }
   }
 }

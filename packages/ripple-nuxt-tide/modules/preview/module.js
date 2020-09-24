@@ -1,3 +1,5 @@
+import { redirect } from './config/paths'
+
 module.exports = function () {
   const options = this.options.tide
 
@@ -25,23 +27,18 @@ module.exports = function () {
       }
     },
     rewriteRedirects: true,
-    redirect: {
-      login: '/oauth/login',
-      logout: '/',
-      home: '/oauth/success',
-      callback: '/oauth/login'
-    }
+    redirect: redirect
   }])
 
   this.extendRoutes((routes, resolve) => {
     routes.push({
       name: 'login',
-      path: '/oauth/login',
+      path: redirect.login,
       component: resolve(__dirname, 'pages', 'Login.vue')
     },
     {
       name: 'loginsuccess',
-      path: '/oauth/success',
+      path: redirect.home,
       component: resolve(__dirname, 'pages', 'Success.vue')
     })
   })

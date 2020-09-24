@@ -133,6 +133,9 @@ export default {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     },
+    oauth: {
+      clientId: process.env.CONTENT_API_CLIENT_ID
+    },
     site: '4',
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {

@@ -10,14 +10,13 @@ module.exports = {
 
       if (params.filters) {
         filters = getTermsFilter(params)
-      }
-
-      if (params.site) {
-        filters.push({
-          term: {
-            field_node_site: params.site
-          }
-        })
+        if (!params.filters.hasOwnProperty('field_node_site') && params.site) {
+          filters.push({
+            term: {
+              field_node_site: params.site
+            }
+          })
+        }
       }
 
       if (params.type && params.type !== 'all') {

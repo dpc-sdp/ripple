@@ -2,13 +2,12 @@
   <rpl-page-layout class="app-main">
 
     <template slot="aboveContent" >
-      <rpl-hero-banner title="Successful login" class="rpl-site-constrain--on-all"/>
+      <rpl-hero-banner title="Logging in" class="rpl-site-constrain--on-all"/>
     </template>
 
     <rpl-row row-gutter>
       <rpl-col cols="full">
-        <p v-if="hasRedirect">Please wait while we redirect you.</p>
-        <p v-else>You are now logged in.</p>
+        <p>Please wait while we log you in.</p>
       </rpl-col>
     </rpl-row>
   </rpl-page-layout>
@@ -27,20 +26,18 @@ export default {
     RplCol,
     RplPageLayout
   },
-  data () {
-    return {
-      hasRedirect: false
-    }
-  },
   async asyncData ({ app, route, store, redirect }) {
-    store.dispatch('tide/setPageHead', { title: 'Successful login' })
+    store.dispatch('tide/setPageHead', { title: 'Logging in' })
   },
   mounted () {
     const destination = localStorage.getItem('login-destination')
     if (destination) {
-      this.hasRedirect = true
+      // Go to destination.
       localStorage.removeItem('login-destination')
-      this.$router.push({ path: destination })
+      this.$router.replace({ path: destination })
+    } else {
+      // Go to home.
+      this.$router.replace({ path: '/' })
     }
   }
 }

@@ -18,7 +18,7 @@ module.exports = function () {
       drupal: {
         scheme: 'oauth2',
         endpoints: {
-          authorization: `${process.env.CONTENT_API_SERVER}oauth/authorize`,
+          authorization: `${options.baseUrl}oauth/authorize`,
           token: `/oauth/token`
         },
         token: {
@@ -33,7 +33,7 @@ module.exports = function () {
         },
         responseType: 'code',
         grantType: 'authorization_code',
-        clientId: process.env.CONTENT_API_CLIENT_ID,
+        clientId: options.oauth.clientId,
         scope: ['editor', 'authenticated']
       }
     },

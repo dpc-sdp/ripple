@@ -24,7 +24,6 @@ export default function ({ $axios, app, res }) {
 
     // Check what kind of request it is.
     const routeRequest = responseUrl.includes('/route?')
-    // TODO - Do we need this anymore?
     const authPreviewRequest = responseUrl.includes('&current_version=') || responseUrl.includes('&resourceVersion=')
 
     if (code === 401) {

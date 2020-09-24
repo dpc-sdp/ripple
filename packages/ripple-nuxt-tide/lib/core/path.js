@@ -7,4 +7,3 @@ function isPreviewPath (path) {
 }
 
 export { isPreviewPath }
-export default isPreviewPath

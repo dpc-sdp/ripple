@@ -10,20 +10,31 @@ module.exports = function () {
     }
   }
 
-  // Register `@nuxtjs/auth` module
-  this.addModule(['@nuxtjs/auth', {
+  // Using `@nuxtjs/auth-next` instead of `@nuxtjs/auth` due to this bug:
+  // https://github.com/nuxt-community/auth-module/issues/761
+  // Switch to stable when v5 is released.
+  this.addModule(['@nuxtjs/auth-next', {
     strategies: {
       drupal: {
-        _scheme: 'oauth2',
-        authorization_endpoint: `${process.env.CONTENT_API_SERVER}oauth/authorize`,
-        access_token_endpoint: `/oauth/token`,
-        userinfo_endpoint: false,
-        response_type: 'code',
-        client_id: process.env.CONTENT_API_CLIENT_ID,
-        scope: ['editor', 'authenticated'],
-        tokenName: 'X-OAuth2-Authorization',
-        token_type: 'Bearer',
-        grant_type: 'authorization_code'
+        scheme: 'oauth2',
+        endpoints: {
+          authorization: `${process.env.CONTENT_API_SERVER}oauth/authorize`,
+          token: `/oauth/token`
+        },
+        token: {
+          property: 'access_token',
+          type: 'Bearer',
+          maxAge: 300,
+          name: 'X-OAuth2-Authorization'
+        },
+        refreshToken: {
+          property: 'refresh_token',
+          maxAge: 1209600
+        },
+        responseType: 'code',
+        grantType: 'authorization_code',
+        clientId: process.env.CONTENT_API_CLIENT_ID,
+        scope: ['editor', 'authenticated']
       }
     },
     rewriteRedirects: true,

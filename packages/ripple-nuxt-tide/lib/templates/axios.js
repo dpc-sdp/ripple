@@ -20,21 +20,17 @@ export default function ({ $axios, app, res }) {
       code = error.response.status
     }
 
-    const responseUrl = error.request.path || error.request.responseURL || error.config.url
+    let responseUrl
+    if (error.request) {
+      responseUrl = error.request.path || error.request.responseURL
+    } else {
+      responseUrl = error.config ? error.config.url : ''
+    }
 
     // Check what kind of request it is.
     const routeRequest = responseUrl.includes('/route?')
     const authPreviewRequest = responseUrl.includes('&current_version=') || responseUrl.includes('&resourceVersion=')
 
-    if (code === 401) {
-      // Existing token likely failing to Authenticate.
-      if (app.$auth && app.$auth.loggedIn) {
-      // Clear token and redirect to initial URL.
-        app.$auth.reset()
-        // TODO - Reload the page. Something like:
-        // app.router.replace({ path: app.router.currentRoute.fullPath })
-      }
-    }
 
     // Set http status code if a route or preview request failed.
     if (routeRequest || authPreviewRequest) {

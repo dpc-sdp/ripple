@@ -1,4 +1,5 @@
 import { redirect } from './config/paths'
+import path from 'path'
 
 module.exports = function () {
   const options = this.options.tide
@@ -29,17 +30,24 @@ module.exports = function () {
         },
         refreshToken: {
           property: 'refresh_token',
-          maxAge: 1209600
+          maxAge: 60
         },
         responseType: 'code',
         grantType: 'authorization_code',
         clientId: process.env.CONTENT_API_CLIENT_ID,
-        scope: ['editor', 'authenticated']
+        scope: ['editor', 'authenticated'],
+        resetOnError: true
       }
     },
     rewriteRedirects: true,
     redirect: redirect
   }])
+
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/plugin.js'),
+    fileName: 'tide-preview.js',
+    options: { ...options, site: this.options.tide.site }
+  })
 
   this.extendRoutes((routes, resolve) => {
     routes.push({

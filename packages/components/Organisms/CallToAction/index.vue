@@ -74,8 +74,12 @@ export default {
 
     &__image {
       width: auto;
+      height: auto;
       max-width: 100%;
       max-height: $rpl-call-to-action-image-max-height;
+      @include rpl_breakpoint('l') {
+        margin-top: $rpl-space;
+      }
     }
 
     &__no-image {

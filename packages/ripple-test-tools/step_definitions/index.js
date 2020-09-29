@@ -12,5 +12,6 @@ require('./modules/news')
 require('./modules/gtm')
 require('./modules/grants')
 require('./modules/publications')
+require('./modules/sharelink')
 
 require('./components/quickexit')

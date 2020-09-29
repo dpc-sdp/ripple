@@ -29,6 +29,7 @@ import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 import RplButton from '@dpc-sdp/ripple-button'
+import { tidePreviewLogin } from '../lib/helpers'
 
 export default {
   name: 'Login',
@@ -50,13 +51,6 @@ export default {
     }
   },
   methods: {
-    async login () {
-      // Store destination. Redirection happens in ./Success.vue.
-      if (this.$route.query.destination) {
-        localStorage.setItem('login-destination', this.$route.query.destination)
-      }
-      await this.$auth.loginWith('drupal')
-    },
     async logout () {
       this.loggingOut = true
       await this.$auth.logout()
@@ -67,10 +61,7 @@ export default {
     store.dispatch('tide/setPageHead', { title })
   },
   mounted () {
-    const isLoginInProgress = (this.$route.query.code !== undefined)
-    if (!this.$auth.loggedIn && !isLoginInProgress) {
-      this.login()
-    }
+    tidePreviewLogin(this.$route, this.$auth, localStorage)
   }
 }
 </script>

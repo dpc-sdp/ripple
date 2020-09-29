@@ -17,6 +17,7 @@
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
+import { tidePreviewSuccessRedirect } from '../lib/helpers'
 
 export default {
   name: 'Success',
@@ -30,15 +31,7 @@ export default {
     store.dispatch('tide/setPageHead', { title: 'Logging in' })
   },
   mounted () {
-    const destination = localStorage.getItem('login-destination')
-    if (destination) {
-      // Go to destination.
-      localStorage.removeItem('login-destination')
-      this.$router.replace({ path: destination })
-    } else {
-      // Go to home.
-      this.$router.replace({ path: '/' })
-    }
+    tidePreviewSuccessRedirect(this.$router, localStorage)
   }
 }
 </script>

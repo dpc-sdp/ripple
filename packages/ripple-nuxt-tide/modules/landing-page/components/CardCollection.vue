@@ -1,16 +1,15 @@
 <template>
   <div class="app-card-collection" :class="`app-card-collection--${displayType}`">
     <h2 v-if="title && (hasResults || noResultsMsg)" ref="title" class="app-card-collection__title">{{ title }}</h2>
-    <template v-if="hasResults">
       <div class="app-card-collection__carousel" v-if="displayType === 'carousel'">
-        <client-only>
+        <client-only v-if="hasResults">
           <rpl-card-carousel :cards="cards" :childColsBp="cols" />
         </client-only>
       </div>
       <div class="app-card-collection__grid" v-else-if="displayType === 'grid'">
         <div class="app-card-collection__filters" v-if="filterForm">
-          <rpl-title-search placeholder="search all something" ref="titlesearch" @submit-search="titleSearchSubmit" />
-          <button @click="toggleFilters()" class="app-card-collection__filter-toggle">
+          <rpl-title-search class="app-card-collection__keyword-search" placeholder="search all something" ref="titlesearch" @submit-search="titleSearchSubmit" />
+          <button v-if="!alwaysShowFilters" @click="toggleFilters()" class="app-card-collection__filter-toggle">
             {{ showFilters ? 'Hide' : 'Show' }} filters
           </button>
           <rpl-form
@@ -19,7 +18,7 @@
             v-bind="filterForm"
           />
         </div>
-        <rpl-row v-if="cards.length > 0" row-gutter :class="{ [`app-card-collection__grid--loading`]: loading }">
+        <rpl-row v-if="hasResults && cards.length > 0" row-gutter :class="{ [`app-card-collection__grid--loading`]: loading }">
           <rpl-col v-for="card in cards" cols="full" :colsBp="card.cols" :key="card.uuid" :data-card-collection-item="card.uuid">
             <rpl-card v-bind="card.data" />
           </rpl-col>
@@ -33,8 +32,7 @@
           />
         </div>
       </div>
-    </template>
-    <div v-else-if="noResultsMsg" class="app-card-collection__no-results">
+    <div v-if="!hasResults && noResultsMsg" class="app-card-collection__no-results">
       {{noResultsMsg}}
     </div>
   </div>
@@ -78,7 +76,8 @@ export default {
       filterForm: {},
       loading: false,
       total: 0,
-      showFilters: false
+      showFilters: false,
+      alwaysShowFilters: false
     }
   },
   methods: {
@@ -150,6 +149,9 @@ export default {
     }
     this.setfilterForm()
     this.total = this.initialTotal
+    if (this.alwaysShowFilters) {
+      this.showFilters = true
+    }
   },
   mounted () {
     if (this.config && this.config.form.submit.onChange) {
@@ -233,6 +235,24 @@ $card-collection-title-text-color: rpl-color('extra_dark_neutral') !default;
         pointer-events: none;
       }
     }
+  }
+
+  &__filters {
+    margin-bottom: $rpl-space-4;
+  }
+
+  &__keyword-search {
+    margin-bottom: $rpl-space-4;
+  }
+
+  &__filter-toggle {
+    color: $card-collection-title-text-color;
+    margin-left: auto;
+    background: none;
+    border: 0;
+    display: flex;
+    padding: $rpl-space-2;
+    margin-top: $rpl-space-2;
   }
 
   &__no-results-msg {

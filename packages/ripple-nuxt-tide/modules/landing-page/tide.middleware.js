@@ -28,12 +28,6 @@ export default {
               },
               titleFields: ['title', 'body'],
               fields: [
-                // {
-                //   label: 'test',
-                //   placeholder: 'type anything',
-                //   type: 'text',
-                //   field: 'title'
-                // },
                 {
                   label: 'Event requirements',
                   placeholder: 'Select an item',

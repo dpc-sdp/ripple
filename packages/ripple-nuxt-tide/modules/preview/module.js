@@ -6,7 +6,10 @@ module.exports = function () {
   this.options.proxy = {
     ...this.options.proxy,
     '/oauth/token': {
-      target: options.baseUrl
+      target: options.baseUrl,
+      onProxyReq (proxyReq, req, res) {
+        proxyReq.removeHeader('authorization')
+      }
     }
   }
 

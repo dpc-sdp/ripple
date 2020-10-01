@@ -2,7 +2,7 @@
   <div class="rpl-call-to-action" v-bind:class="{'rpl-call-to-action__no-image': !image}">
     <div class="rpl-call-to-action__row">
       <div class="rpl-call-to-action__left" v-if="image">
-        <rpl-responsive-img class="rpl-call-to-action__image" v-bind="image" :alt="image.alt" />
+        <rpl-responsive-img class="rpl-call-to-action__image" v-bind="image" fit="contain" :srcSet="[{ size: 'xs', height: 249, width: 336 }]" :alt="image.alt" />
       </div>
       <div class="rpl-call-to-action__right">
         <h2 v-if="title" class="rpl-call-to-action__title">{{ title }}</h2>
@@ -63,7 +63,7 @@ export default {
   $rpl-call-to-action-summary-text-color: mix(rpl_color('extra_dark_neutral'), rpl_color('white'), 93%) !default;
   $rpl-call-to-action-summary-margin-xs: $rpl-space-3 0 !default;
   $rpl-call-to-action-summary-margin-s: ($rpl-space * 6) 0 !default;
-  $rpl-call-to-action-image-height: 300px !default;
+  $rpl-call-to-action-image-max-height: 400px !default;
 
 .rpl-content {
   .rpl-call-to-action {
@@ -73,8 +73,13 @@ export default {
     border: $rpl-call-to-action-border;
 
     &__image {
-      width: 100%;
-      max-height: $rpl-call-to-action-image-height;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: $rpl-call-to-action-image-max-height;
+      @include rpl_breakpoint('l') {
+        margin-top: $rpl-space;
+      }
     }
 
     &__no-image {

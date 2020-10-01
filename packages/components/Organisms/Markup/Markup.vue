@@ -91,6 +91,13 @@ $embedded-video-figcaption-color: rpl_color('dark_neutral') !default;
 $responsive-iframe-padding-bottom: 56.25% !default;
 $responsive-iframe-padding-top: $rpl-space-4 !default;
 
+$callout-wrapper-border-color: rpl_color('secondary') !default;
+$callout-wrapper-background-color: tint(rpl_color('secondary'), 90%) !default;
+$callout-wrapper-border-left: rem(4px) solid !default;
+$callout-wrapper-list-padding-left: ($rpl-space * 6) !default;
+$callout-wrapper-padding: ($rpl-space-3) ($rpl-space * 6) ($rpl-space * 6) ($rpl-space * 6) !default;
+$callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
+
 .rpl-markup {
   @include rpl_text_color($rpl-markup-text-color);
 
@@ -286,6 +293,22 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       text-transform: uppercase;
     }
 
+  }
+
+  &__callout-wrapper,
+  .callout-wrapper {
+    padding: $callout-wrapper-padding;
+    border-left: $callout-wrapper-border-left;
+    border-color: $callout-wrapper-border-color;
+    background-color: $callout-wrapper-background-color;
+
+    ul {
+      padding-left: $callout-wrapper-list-padding-left;
+    }
+
+    h2, h3 {
+      margin: $callout-wrapper-heading-margin;
+    }
   }
 
 }

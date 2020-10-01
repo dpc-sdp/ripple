@@ -256,7 +256,7 @@ export default {
     &__left {
       @include rpl_grid_full;
 
-      @include rpl_breakpoint('xl') {
+      @include rpl_breakpoint('l') {
         @include rpl_grid_column(8);
         padding-right: $rpl-hero-banner-left-padding;
       }
@@ -271,7 +271,7 @@ export default {
       @include rpl_grid_full;
       z-index: $rpl-zindex-content-top;
 
-      @include rpl_breakpoint('xl') {
+      @include rpl_breakpoint('l') {
         @include rpl_grid_column(4);
       }
 
@@ -334,15 +334,7 @@ export default {
     &__link-list {
       margin: 0;
       padding: 0;
-
-      @include rpl_breakpoint('s') {
-        column-count: 2;
-        column-gap: rem(50px);
-      }
-
-      @include rpl_breakpoint('m') {
-        column-count: auto;
-      }
+      column-count: auto;
     }
 
     &__link-list-item {
@@ -352,7 +344,7 @@ export default {
 
     &--no-links {
       & #{$root}__left {
-        @include rpl_breakpoint('xl') {
+        @include rpl_breakpoint('l') {
           @include rpl_grid_column(10);
         }
       }

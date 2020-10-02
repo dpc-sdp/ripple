@@ -11,7 +11,7 @@ const getSiteSectionData = (sectionId, sites) => {
     return {
       id: sectionId,
       name: site.name,
-      quickexit: site.field_site_show_exit_site
+      quickexit: site.field_site_show_exit_site || false
     }
   } else {
     return null

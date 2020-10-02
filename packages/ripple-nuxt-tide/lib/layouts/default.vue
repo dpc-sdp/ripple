@@ -53,7 +53,7 @@ import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import { clientClearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
-import { isPreviewPath } from '@dpc-sdp/ripple-nuxt-tide/lib/core/path'
+import { isPreviewPath, isShareLinkPath } from '@dpc-sdp/ripple-nuxt-tide/lib/core/path'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
 
@@ -97,10 +97,14 @@ export default {
       return false
     },
     preview () {
+      let isDraftAlertVisible = false
       if (this.$tide.isModuleEnabled('preview')) {
         return isPreviewPath(this.$route.path) && this.$auth.loggedIn
       }
-      return false
+      if (!isDraftAlertVisible) {
+        isDraftAlertVisible = isShareLinkPath(this.$route.path)
+      }
+      return isDraftAlertVisible
     },
     footerCaption () {
       return this.$store.state.tide.pageData ? this.$store.state.tide.pageData.imageCaption : null

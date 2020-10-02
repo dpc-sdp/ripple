@@ -19,7 +19,7 @@
             <span class="rpl-complex-image__expander-close-button-text">{{ expandcloseText }}</span>
           </button>
         </div>
-        <div class="rpl-complex-image__expander-markup" v-if="html">
+        <div class="rpl-complex-image__expander-markup">
           <rpl-markup :html="html" />
         </div>
       </div>
@@ -169,7 +169,6 @@ export default {
       width: 100%;
       background: $rpl-complex-image-markup-background;
       display: none;
-      margin-bottom: $rpl-complex-image-item-bottom-margin;
 
       &--open {
         display: block;
@@ -208,6 +207,7 @@ export default {
         @include rpl_typography_ruleset($rpl-complex-image-markup-ruleset);
         border: $rpl-complex-image-markup-border;
         border-top: 0;
+        margin-bottom: $rpl-complex-image-item-bottom-margin;
         padding: $rpl-complex-image-expander-markup-padding;
 
         .rpl-markup {

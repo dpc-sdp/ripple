@@ -16,7 +16,6 @@ module.exports = function () {
   this.options.proxy = {
     ...this.options.proxy,
     '/sitemap.xml': baseUrl + 'sitemap.xml?site=' + options.site,
-    '/sitemaps/**/sitemap.xml': { target: baseUrl, pathRewrite: (path) => { return baseUrl + path + '?site=' + options.site } },
-    '/sitemaps': options.baseUrl + 'sitemaps?site=' + options.site
+    '/sitemaps/**/sitemap.xml': { target: baseUrl, pathRewrite: (path) => { return baseUrl + path + '?site=' + options.site } }
   }
 }

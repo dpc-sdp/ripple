@@ -9,6 +9,9 @@ module.exports = function () {
     '/oauth/token': {
       target: options.baseUrl,
       onProxyReq (proxyReq, req, res) {
+        // As oauth/token is a proxied request, this authorization header
+        // for the nuxt site is not valid for the proxied target.
+        // Not removing it will present an unauthorizable user prompt.
         proxyReq.removeHeader('authorization')
       }
     }

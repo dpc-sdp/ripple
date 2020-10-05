@@ -36,7 +36,7 @@ module.exports = function () {
         },
         refreshToken: {
           property: 'refresh_token',
-          maxAge: 60
+          maxAge: 1209600
         },
         responseType: 'code',
         grantType: 'authorization_code',

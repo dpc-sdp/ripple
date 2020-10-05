@@ -425,55 +425,6 @@ export const tide = (axios, site, config) => ({
     return pageData
   },
 
-  getPageByPreviewLink: async function (path, section) {
-    const params = {}
-    const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')
-
-    params.resourceVersion = (revisionId === 'latest') ? 'rel:working-copy' : `id:${revisionId}`
-
-    const pathData = {
-      entity_type: 'node',
-      bundle: contentType,
-      uuid: uuid
-    }
-    const entity = await this.getEntityByPathData(pathData, params)
-    if (entity instanceof Error) {
-      throw entity
-    }
-    const pageData = jsonapiParse.parse(entity).data
-
-    // Append the site section to page data
-    pageData.section = (section && section !== site) ? section : null
-    return pageData
-  },
-
-  getPageByShareLink: async function (path, section) {
-    // Get shared link node info
-    const shareLinkResponse = await this.getByURL(path)
-    const sharedNode = shareLinkResponse.data.relationships.shared_node.data
-
-    // Get node
-    const params = {}
-    const headersConfig = { shareLinkToken: shareLinkResponse.data.id }
-    const pathData = {
-      entity_type: 'node',
-      bundle: sharedNode.type.replace('node--', ''),
-      uuid: sharedNode.id
-    }
-    if (shareLinkResponse.data.attributes.vid) {
-      params.resourceVersion = `id:${shareLinkResponse.data.attributes.vid}`
-    }
-    const entity = await this.getEntityByPathData(pathData, params, headersConfig)
-    if (entity instanceof Error) {
-      throw entity
-    }
-    const pageData = jsonapiParse.parse(entity).data
-
-    // Append the site section to page data
-    pageData.section = (section && section !== site) ? section : null
-    return pageData
-  },
-
   getContentList: async function (bundle, filtering, includes, pagination, sorting, config) {
     return this.getEntityList('node', bundle, filtering, includes, pagination, sorting, config)
   },

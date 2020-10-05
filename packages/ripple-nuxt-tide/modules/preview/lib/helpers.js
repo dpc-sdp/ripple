@@ -1,10 +1,11 @@
 import { redirect } from '../config/paths'
+import jsonapiParse from 'jsonapi-parse'
 
-async function tidePreview (context) {
+async function tidePreview (context, headersConfig) {
   if (!context.$auth.loggedIn) {
     return context.redirect(`${redirect.login}?destination=${context.req.url}`)
   } else {
-    return context.app.$tide.getPageByPreviewLink(context.route.path, context.route.query.section)
+    return getPageByPreviewLink(context.app.$tide, context.route.path, context.store.state.tide.siteId, context.route.query.section, headersConfig)
   }
 }
 
@@ -31,6 +32,62 @@ function tidePreviewSuccessRedirect ($router, storage) {
   }
 }
 
+async function getPageByPreviewLink ($tide, path, site, section, headersConfig) {
+  const params = {}
+  const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')
+
+  params.resourceVersion = (revisionId === 'latest') ? 'rel:working-copy' : `id:${revisionId}`
+
+  const pathData = {
+    entity_type: 'node',
+    bundle: contentType,
+    uuid: uuid
+  }
+  const entity = await $tide.getEntityByPathData(pathData, params, headersConfig)
+  if (entity instanceof Error) {
+    throw entity
+  }
+  const pageData = jsonapiParse.parse(entity).data
+
+  // Append the site section to page data
+  pageData.section = (section && section !== site) ? section : null
+  return pageData
+}
+
+async function tideShare (context, headersConfig) {
+  return getPageByShareLink(context.app.$tide, context.route.path, context.store.state.tide.siteId, context.route.query.section, headersConfig)
+}
+
+async function getPageByShareLink ($tide, path, site, section, headersConfig) {
+  // Get shared link node info
+  const shareLinkResponse = await $tide.getByURL(path)
+  const sharedNode = shareLinkResponse.data.relationships.shared_node.data
+
+  // Get node
+  const params = {}
+  const headers = Object.assign({}, headersConfig, { shareLinkToken: shareLinkResponse.data.id })
+  const pathData = {
+    entity_type: 'node',
+    bundle: sharedNode.type.replace('node--', ''),
+    uuid: sharedNode.id
+  }
+  if (shareLinkResponse.data.attributes.vid) {
+    params.resourceVersion = `id:${shareLinkResponse.data.attributes.vid}`
+  }
+  const entity = await $tide.getEntityByPathData(pathData, params, headers)
+  if (entity instanceof Error) {
+    throw entity
+  }
+  const pageData = jsonapiParse.parse(entity).data
+
+  // Append the site section to page data
+  pageData.section = (section && section !== site) ? section : null
+  return pageData
+}
+
 export { tidePreview }
 export { tidePreviewLogin }
 export { tidePreviewSuccessRedirect }
+export { getPageByPreviewLink }
+export { tideShare }
+export { getPageByShareLink }

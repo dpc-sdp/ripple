@@ -57,6 +57,11 @@ const nuxtTide = function (moduleOptions) {
     options: { cachePurgePattern: options.cachePurgePattern }
   })
 
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/page.js'),
+    fileName: 'tide-page.js'
+  })
+
   if (process.env.BASIC_AUTH === '1') {
     const basicAuth = require('./core/basic-auth.js')
     this.addServerMiddleware(basicAuth)

@@ -27,15 +27,37 @@ describe('tidePreview', () => {
           section: 'sectionTest'
         }
       },
+      store: {
+        state: {
+          tide: {
+            siteId: 4
+          }
+        }
+      },
       app: {
         $tide: {
-          getPageByPreviewLink: (path, section) => {
-            return 'preview-link-content'
+          getEntityByPathData: (pathData, params, headersConfig) => {
+            return `{
+              "jsonapi": { "version": "1.0", "meta": { "links": { "self": { "href": "http://jsonapi.org/format/1.0/" } } } },
+              "data": {
+                "type": "test_type",
+                "id": "test_id",
+                "links": {
+                  "self": {
+                    "href": "test"
+                  }
+                }
+              },
+              "links": { "self": { "href": "test" } }
+            }`
           }
         }
       }
+    }, {
+      requestId: 1
     })
-    expect(result).toEqual('preview-link-content')
+    expect(result.id).toEqual('test_id')
+    expect(result.type).toEqual('test_type')
   })
 })
 

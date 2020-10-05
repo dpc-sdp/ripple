@@ -97,11 +97,12 @@ export default {
       return false
     },
     preview () {
+      const isPreviewModuleEnabled = this.$tide.isModuleEnabled('preview')
       let isDraftAlertVisible = false
-      if (this.$tide.isModuleEnabled('preview')) {
-        return isPreviewPath(this.$route.path) && this.$auth.loggedIn
+      if (isPreviewModuleEnabled) {
+        isDraftAlertVisible = isPreviewPath(this.$route.path) && this.$auth.loggedIn
       }
-      if (!isDraftAlertVisible) {
+      if (!isDraftAlertVisible && isPreviewModuleEnabled) {
         isDraftAlertVisible = isShareLinkPath(this.$route.path)
       }
       return isDraftAlertVisible

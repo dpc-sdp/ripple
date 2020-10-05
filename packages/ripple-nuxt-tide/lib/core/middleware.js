@@ -5,7 +5,7 @@ import tideMisc from './../middleware/misc.js'
 import tideBanners from './../middleware/banners.js'
 import tidePageHead from './../middleware/page-head.js'
 import { tideAuthenticatedContent } from './../../modules/authenticated-content/lib/middleware'
-import { tidePreview } from '../../modules/preview/lib/helpers'
+import { tidePreview, tideShare } from '../../modules/preview/lib/helpers'
 import { isPreviewPath, isShareLinkPath } from './path'
 import { getSiteSectionData } from './utils/site-section.js'
 
@@ -27,11 +27,12 @@ export default async function (context, pageData) {
 
   try {
     let response = null
+    const isPreviewModuleEnabled = context.app.$tide.isModuleEnabled('preview')
 
-    if (isShareLinkPath(context.route.path)) {
-      response = await context.app.$tide.getPageByShareLink(context.route.path, context.route.query.section)
-    } else if (context.app.$tide.isModuleEnabled('preview') && isPreviewPath(context.route.path)) {
-      response = await tidePreview(context, pageData, authToken, headersConfig)
+    if (isPreviewModuleEnabled && isShareLinkPath(context.route.path)) {
+      response = await tideShare(context, headersConfig)
+    } else if (isPreviewModuleEnabled && isPreviewPath(context.route.path)) {
+      response = await tidePreview(context, headersConfig)
     } else {
       response = await context.app.$tide.getPageByPath(context.route.path, tideParams, headersConfig)
     }

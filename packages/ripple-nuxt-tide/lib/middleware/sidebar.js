@@ -65,6 +65,8 @@ const tideSideBar = async (context, pageData, headersConfig) => {
   }
   // site section
   if (pageData.tidePage.section) {
+    // TODO: SDPA-4675 It's unnecessary query site data here, as we can get the site section data from page field_node_site, which includes the menu ids.
+    // We should just get the menu here, which can reduce Tide requests number from at 3 to 1 here.
     const siteSectionData = await context.app.$tide.getSiteData(headersConfig, pageData.tidePage.section)
 
     if (siteSectionData instanceof Error) {

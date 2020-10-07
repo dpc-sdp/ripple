@@ -40,7 +40,7 @@ module.exports = function () {
         },
         responseType: 'code',
         grantType: 'authorization_code',
-        clientId: options.oauth.clientId,
+        clientId: process.env.CONTENT_API_OAUTH_CLIENT_ID,
         scope: ['editor', 'authenticated'],
         resetOnError: true
       }

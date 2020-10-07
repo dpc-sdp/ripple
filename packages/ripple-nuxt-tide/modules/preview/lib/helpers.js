@@ -5,7 +5,9 @@ async function tidePreview (context, headersConfig) {
   if (!context.$auth.loggedIn) {
     return context.redirect(`${redirect.login}?destination=${context.req.url}`)
   } else {
-    return getPageByPreviewLink(context.app.$tide, context.route.path, context.store.state.tide.siteId, context.route.query.section, headersConfig)
+    const siteId = (context.store.state.tide && context.store.state.tide.siteId) ? context.store.state.tide.siteId : null
+    const section = (context.route.query && context.route.query.section) ? context.route.query.section : null
+    return getPageByPreviewLink(context.app.$tide, context.route.path, siteId, section, headersConfig)
   }
 }
 
@@ -55,7 +57,9 @@ async function getPageByPreviewLink ($tide, path, site, section, headersConfig) 
 }
 
 async function tideShare (context, headersConfig) {
-  return getPageByShareLink(context.app.$tide, context.route.path, context.store.state.tide.siteId, context.route.query.section, headersConfig)
+  const siteId = (context.store.state.tide && context.store.state.tide.siteId) ? context.store.state.tide.siteId : null
+  const section = (context.route.query && context.route.query.section) ? context.route.query.section : null
+  return getPageByShareLink(context.app.$tide, context.route.path, siteId, section, headersConfig)
 }
 
 async function getPageByShareLink ($tide, path, site, section, headersConfig) {

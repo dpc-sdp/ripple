@@ -10,16 +10,12 @@ share links.
 Ensure `nuxt.config.js` has the following changes:
 
 - the preview module is enabled
-- the oauth client ID is set from a process environment variable
 
 ```js
 {
   tide: {
     modules: {
       preview: 1
-    },
-    oauth: {
-      clientId: process.env.CONTENT_API_OAUTH_CLIENT_ID
     }
   }
 }

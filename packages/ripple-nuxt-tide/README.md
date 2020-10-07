@@ -172,7 +172,7 @@ Icon.register({
 ```
 
 Update the name of the icon - this will be used for symbol prop later, `width`, `height`, `paths` and `polygons` accordingly.
-Add this to `assets/ripple_icon/index.js`
+Add this to `assets/ripple-icon/index.js`
 
 ```javascript
 import './custom_arrow_right.js'

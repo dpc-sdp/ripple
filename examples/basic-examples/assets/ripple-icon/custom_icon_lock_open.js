@@ -1,4 +1,4 @@
-import Icon from '@dpc-sdp/ripple-icon/Icon.vue
+import Icon from '@dpc-sdp/ripple-icon/Icon.vue'
 
 Icon.register({
   'lock_open': {

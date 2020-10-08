@@ -41,10 +41,11 @@ module.exports = function () {
         responseType: 'code',
         grantType: 'authorization_code',
         clientId: process.env.CONTENT_API_OAUTH_CLIENT_ID,
-        scope: ['editor', 'authenticated'],
-        resetOnError: true
+        scope: ['editor', 'authenticated']
       }
     },
+    resetOnError: true,
+    localStorage: false,
     rewriteRedirects: true,
     redirect: redirect
   }])

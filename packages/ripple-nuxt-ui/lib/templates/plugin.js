@@ -65,7 +65,7 @@ rplOptions.hostname = options.hostname
     addCustomIcons(require.context('../assets/ripple-icon/', true, /\.svg$/))
     // Loop through all JS files to register the icons
     const requireCustomFile = require.context(
-      './../assets/ripple-icon/', false, /js$/
+      './../assets/ripple-icon/', false, /\.js$/
     )
     requireCustomFile.keys().forEach(fileName => {
       requireCustomFile(fileName);

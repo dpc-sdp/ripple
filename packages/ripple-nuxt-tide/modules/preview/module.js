@@ -42,7 +42,7 @@ module.exports = function () {
         },
         responseType: 'code',
         grantType: 'authorization_code',
-        clientId: process.env.CONTENT_API_OAUTH_CLIENT_ID,
+        clientId: 'dc881486-c14a-4b92-a0d0-e5dcd706f5ad',
         scope: ['editor', 'authenticated']
       }
     },

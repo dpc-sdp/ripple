@@ -1,4 +1,4 @@
-import Icon from '../../../../packages/components/Atoms/Icon/Icon.vue'
+import Icon from '@dpc-sdp/ripple-icon/Icon.vue'
 
 Icon.register({
   'search': {

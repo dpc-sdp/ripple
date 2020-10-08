@@ -61,8 +61,15 @@ rplOptions.hostname = options.hostname
       <% } %>
 
 <% if (options.customIcon) { %>
-    // Add custom icons to library.
+    // Add custom icons to library. This will be remove when all svgs are converted to JS.
     addCustomIcons(require.context('../assets/ripple-icon/', true, /\.svg$/))
+    // Loop through all JS files to register the icons
+    const requireCustomFile = require.context(
+      './../assets/ripple-icon/', false, /js$/
+    )
+    requireCustomFile.keys().forEach(fileName => {
+      requireCustomFile(fileName);
+    })
     <% } %>
 
   Vue.use(RplGlobal, rplOptions)

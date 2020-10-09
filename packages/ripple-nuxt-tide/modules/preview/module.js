@@ -3,11 +3,13 @@ import path from 'path'
 
 module.exports = function () {
   const options = this.options.tide
+  const { URL } = require('url')
+  const baseUrl = options.baseUrl ? new URL(options.baseUrl).toString() : options.baseUrl
 
   this.options.proxy = {
     ...this.options.proxy,
     '/oauth/token': {
-      target: options.baseUrl,
+      target: baseUrl,
       onProxyReq (proxyReq, req, res) {
         // As oauth/token is a proxied request, this authorization header
         // for the nuxt site is not valid for the proxied target.
@@ -25,7 +27,7 @@ module.exports = function () {
       drupal: {
         scheme: 'oauth2',
         endpoints: {
-          authorization: `${options.baseUrl}oauth/authorize`,
+          authorization: `${baseUrl}oauth/authorize`,
           token: `/oauth/token`
         },
         token: {

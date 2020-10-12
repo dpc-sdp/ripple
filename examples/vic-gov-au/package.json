@@ -14,7 +14,7 @@
     "cy:run-record": "cypress run -b chrome -e TAGS='not @skip or @smoke' --record --parallel --group $CIRCLE_JOB",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
     "cy:run-audit": "cypress run --headless -b chrome -e TAGS='@audit' --spec 'test/e2e/integration/smoke/*'",
-    "test:dev": "cross-env MOCK_SERVER_URL=3001 NODE_ENV=test start-server-and-test dev http://localhost:3000 cy:open",
+    "test:dev": "cross-env SEARCH_API_BASE_URL=http://localhost:3001 NODE_ENV=test start-server-and-test dev http://localhost:3000 cy:open",
     "test:smoke": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-smoke",
     "test:audit": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-audit",
     "test:e2e": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-record",

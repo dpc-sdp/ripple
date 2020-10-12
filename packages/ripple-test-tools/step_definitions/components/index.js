@@ -881,7 +881,7 @@ Then(`the card collection component should have the {string} layout`, (layout) =
 Then(`the card collection component should have the following cards`, dataTable => {
   const expectedItems = dataTable.hashes()
   expectedItems.forEach((item) => {
-    cy.get(`.app-card-collection [data-card-collection-item="${item.uuid}"`).then(card => {
+    cy.get(`.app-card-collection [data-card-collection-item="${item.uuid}"]`).then(card => {
       if (item.title) {
         expect(card).to.contain.text(item.title)
       }
@@ -893,13 +893,13 @@ Then(`the card collection component should have the following cards`, dataTable 
   cy.log(expectedItems)
 })
 
-Given(`the card collection endpoint {string} returns fixture {string} with status {int}`, (route, fixture, status) => {
+Given(`the endpoint {string} returns fixture {string} with status {int}`, (route, fixture, status) => {
   cy.fixture(fixture).then((response) => {
     cy.task('setMockRoute', { route, status, response })
   })
 })
 
-Given(`the card collection endpoint {string} with query {string} returns fixture {string} with status {int}`, (route, query, fixture, status) => {
+Given(`the endpoint {string} with query {string} returns fixture {string} with status {int}`, (route, query, fixture, status) => {
   cy.fixture(fixture).then((response) => {
     cy.task('setMockRouteWithQuery', { route, status, response, query })
   })

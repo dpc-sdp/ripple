@@ -1,6 +1,7 @@
 import get from 'lodash.get'
 import { getTermsFilter, getPagination } from '@dpc-sdp/ripple-tide-search-api/services/template-utils'
-import { getFilterTodayConditions, capitalize, getIncludesByType } from './lib/card-collection-utils'
+import { getFilterTodayConditions, getIncludesByType } from './lib/card-collection-utils'
+import { truncateText, capitalize } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 module.exports = {
   cards: {
@@ -21,7 +22,7 @@ module.exports = {
 
       if (params.type && params.type !== 'all') {
         filters.push({
-          term: {
+          terms: {
             type: params.type
           }
         })
@@ -66,7 +67,7 @@ module.exports = {
             const result = {
               uuid: get(item, ['uuid', 0], ''),
               title: get(item, ['title', 0], ''),
-              summary: get(item, ['field_landing_page_summary', 0], ''),
+              summary: truncateText(get(item, ['field_landing_page_summary', 0], ''), 200),
               image: get(item, ['field_media_image_absolute_path', 0], ''),
               link: {
                 url: get(item, ['field_node_link', 0], get(item, ['url', 0], '')),
@@ -84,6 +85,12 @@ module.exports = {
                       from: get(item, ['field_event_date_start_value', 0], ''),
                       to: get(item, ['field_event_date_end_value', 0], '')
                     }
+                  }
+                case 'news':
+                  return {
+                    ...result,
+                    tag: capitalize(get(item, ['type', 0], '')),
+                    summary: truncateText(get(item, ['field_event_intro_text', 0], get(item, ['body', 0], '')))
                   }
                 case 'publication':
                   return {

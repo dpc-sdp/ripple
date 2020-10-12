@@ -68,12 +68,11 @@ export const getSiteDomainUrl = (url, currentSite, domains) => {
   return url
 }
 
-export const getFilterTodayConditions = (params) => {
+export const getFilterTodayConditions = (params, today = new Date()) => {
   const filters = []
-  if (params.date_filter.start_field) {
+  if (params && params.date_filter.start_field) {
     const startField = params.date_filter.start_field
     const endField = params.date_filter.end_field || startField
-    const today = new Date()
     switch (params.date_filter.criteria) {
       case 'all':
         // Nothing
@@ -97,9 +96,7 @@ export const getFilterTodayConditions = (params) => {
   return filters
 }
 
-export const capitalize = (str) => `${str.charAt(0).toUpperCase() + str.slice(1)}`
-
-export const getIncludesByType = (type) => {
+export const getIncludesByType = (types) => {
   const includes = [
     'title',
     'type',
@@ -111,34 +108,43 @@ export const getIncludesByType = (type) => {
     'field_node_primary_csite',
     'field_landing_page_summary'
   ]
-  switch (type) {
-    case 'event':
-      return [
-        ...includes,
-        'field_event_date_start_value',
-        'field_event_details_event_address_1',
-        'field_event_details_event_price_from',
-        'field_event_date_end_value',
-        'field_event_category_name'
-      ]
-    case 'profile':
-    case 'vdrp_profile':
-    case 'sr_profile':
-    case 'vada_profile':
-    case 'aboriginal_honor_roll':
-      return [
-        ...includes,
-        'field_profile_category_name',
-        'field_year'
-      ]
 
-    default:
-      return includes
+  if (!types || !Array.isArray(types)) {
+    return includes
   }
+
+  types.forEach(type => {
+    switch (type) {
+      case 'event':
+        includes.push(
+          'field_event_date_start_value',
+          'field_event_details_event_address_1',
+          'field_event_details_event_price_from',
+          'field_event_date_end_value',
+          'field_event_category_name'
+        )
+        break
+      case 'news':
+        includes.push(
+          'field_event_intro_text'
+        )
+        break
+      case 'profile':
+      case 'vdrp_profile':
+      case 'sr_profile':
+      case 'vada_profile':
+      case 'aboriginal_honor_roll':
+        includes.push(
+          'field_profile_category_name',
+          'field_year'
+        )
+        break
+    }
+  })
+  return [...new Set(includes)]
 }
 
 export default {
-  capitalize,
   getQueryParams,
   getSiteDomainUrl,
   getFilterTodayConditions

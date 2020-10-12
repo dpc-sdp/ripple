@@ -26,6 +26,7 @@ export default {
           })
         }
       }
+
       // Set initial card data on all resolved automated card listings promises.
       if (automatedCardRequests.length > 0) {
         const automatedCardResults = await Promise.all(automatedCardRequests.map(item => item.promise))
@@ -34,6 +35,7 @@ export default {
           const component = pageData.tidePage.appDComponents[request.key]
           component.data.initialResults = response.results
           component.data.total = response.total
+          component.data.sidebar = pageData.tideLayout.sidebar
         })
       }
     }

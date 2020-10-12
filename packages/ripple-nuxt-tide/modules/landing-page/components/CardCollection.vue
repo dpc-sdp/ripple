@@ -44,7 +44,11 @@ export default {
     title: String,
     config: Object,
     initialResults: Array,
-    total: Number
+    total: Number,
+    sidebar: {
+      type: Boolean,
+      default: false
+    }
   },
   components: {
     RplRow,
@@ -90,6 +94,9 @@ export default {
   created () {
     if (this.initialResults) {
       this.results = this.initialResults
+    }
+    if (this.sidebar) {
+      this.cols.l = 6
     }
   },
   computed: {

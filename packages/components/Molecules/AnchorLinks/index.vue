@@ -119,7 +119,6 @@ export default {
       &--indent {
         display: flex;
         padding-left: $rpl-anchor-links-item-indent-padding-left;
-        list-style-position: inside;
         &-icon {
           margin-right: $rpl-anchor-links-item-indent-icon-marign-right;
         }

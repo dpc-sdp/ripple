@@ -19,11 +19,11 @@ $rpl-button-danger-hover-background-color: lighten(rpl-color('danger'), 5%) !def
 $rpl-button-danger-text-color: rpl_color('white') !default;
 $rpl-button-active-text-color: $rpl-button-text-color !default;
 $rpl-button-active-background-color: transparent !default;
+$rpl-button-active-background-image: rpl_gradient('primary_gradient_90') !default;
 $rpl-button-primary-active-background-color: transparent !default;
-$rpl-button-primary-active-background-image: rpl_gradient('primary_gradient_90') !default;
+$rpl-button-primary-active-background-image: $rpl-button-active-background-image !default;
 $rpl-button-primary-active-text-color: $rpl-button-primary-text-color !default;
 $rpl-button-secondary-active-background-color: transparent !default;
-$rpl-button-active-background-image: rpl_gradient('primary_gradient_90') !default;
 $rpl-button-secondary-active-background-image: $rpl-button-active-background-image !default;
 $rpl-button-secondary-active-text-color: $rpl-button-secondary-text-color !default;
 $rpl-button-disabled-border: 1px solid rpl_color('dark_neutral') !default;

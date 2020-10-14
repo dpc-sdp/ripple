@@ -8,7 +8,7 @@
         <rpl-text-icon symbol="view" color="primary" :text="fullscreenLabel" placement="before" />
       </button>
       <!-- Markup expander -->
-      <button class="rpl-complex-image__button" v-if="expandLabel && !markupVisible" @click="markupVisible = true">
+      <button class="rpl-complex-image__button" v-if="expandLabel && !markupVisible && html" @click="markupVisible = true">
         <rpl-text-icon symbol="table" color="primary" :text="expandLabel" placement="before" />
       </button>
       <div class="rpl-complex-image__expander" :class="{ 'rpl-complex-image__expander--open': markupVisible }">

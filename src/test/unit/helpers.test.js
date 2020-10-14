@@ -56,9 +56,16 @@ describe('getAnchorLinkName', () => {
   test.each`
     text                                                | expected
     ${'Anchor&nbsp;&amp;&nbsp;&copy;&nbsp;Link'}        | ${'anchor-link'}
+    ${' _.~"<>%|\'!*();:@&=+$,/?%#[]{}\n`^\\'}         | ${''}
     ${'Anchor`~!@#$%^&*()-_=+{}[]\\|;:\'"<>,.?/\nLink'} | ${'anchor-link'}
     ${'   ANCHOR   LINK   '}                            | ${'anchor-link'}
     ${'1234567890'}                                     | ${'1234567890'}
+    ${'مستويات القيود الحاليَّة في فكتوريا'}              | ${'مستويات-القيود-الحاليَّة-في-فكتوريا'}
+    ${'Uže gradsko područje Melburna'}                  | ${'uže-gradsko-područje-melburna'}
+    ${'中文标题'}                                        | ${'中文标题'}
+    ${'Alɛ̈th ë kum ë nyin'}                             | ${'alɛ̈th-ë-kum-ë-nyin'}
+    ${'Регионы штата Виктория'}                         | ${'регионы-штата-виктория'}
+    ${'Επαρχιακή Βικτώρια'}                             | ${'επαρχιακή-βικτώρια'}
   `('returns $expected for $text', ({ text, expected }) => {
     expect(getAnchorLinkName(text)).toBe(expected)
   })

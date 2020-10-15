@@ -113,17 +113,13 @@ export default (config, router, site) => ({
       delete router.app.$route.query.page
     }
 
-    if (!updates.queryString) {
-      updates.filters = {}
-    } else {
-      // delete filters that shouldn't be shown in uri
-      if (updates.filters) {
-        for (const key in updates.filters) {
-          if (filterFromURI.includes(key)) {
-            delete updates.filters[key]
-          } else if (filterFromURI.includes('*')) {
-            updates.filters = {}
-          }
+    // delete filters that shouldn't be shown in uri
+    if (updates.filters) {
+      for (const key in updates.filters) {
+        if (filterFromURI.includes(key)) {
+          delete updates.filters[key]
+        } else if (filterFromURI.includes('*')) {
+          updates.filters = {}
         }
       }
     }

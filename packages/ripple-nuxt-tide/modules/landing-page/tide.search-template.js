@@ -98,7 +98,6 @@ module.exports = {
                     ...result,
                     tag: capitalize(get(item, ['type', 0], '')),
                     status: calcStatus(get(item, ['field_node_dates_start_value', 0]), get(item, ['field_node_dates_end_value', 0], ''), false),
-                    endDate: get(item, ['field_node_dates_end_value', 0], ''),
                     summary: truncateText(get(item, ['field_landing_page_summary', 0], get(item, ['body', 0], '')))
                   }
                 case 'publication':

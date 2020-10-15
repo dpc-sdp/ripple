@@ -1657,6 +1657,265 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
 </a>
 `;
 
+exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Event 1`] = `
+<a
+  class="rpl-link rpl-card-promo rpl-card-promo--no-image"
+  data-print-url="#"
+  href="#"
+>
+  <span
+    class="rpl-link__inner"
+  >
+    <!---->
+     
+    <div
+      class="rpl-card-promo__content"
+    >
+      <div
+        class="rpl-card-promo__meta"
+      >
+        <div
+          class="rpl-card-promo__tag"
+        >
+          Event
+        </div>
+         
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="rpl-card-promo__date"
+        >
+          02 July to 25 September 2020
+        </div>
+      </div>
+       
+      <h2
+        class="rpl-card-promo__title"
+      >
+        First promo card
+      </h2>
+       
+      <p
+        class="rpl-card-promo__summary"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+       
+    </div>
+  </span>
+</a>
+`;
+
+exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Grant 1`] = `
+<a
+  class="rpl-link rpl-card-promo rpl-card-promo--no-image"
+  data-print-url="#"
+  href="#"
+>
+  <span
+    class="rpl-link__inner"
+  >
+    <!---->
+     
+    <div
+      class="rpl-card-promo__content"
+    >
+      <div
+        class="rpl-card-promo__meta"
+      >
+        <div
+          class="rpl-card-promo__tag"
+        >
+          Grant
+        </div>
+         
+        <!---->
+         
+        <div
+          class="rpl-card-promo__status rpl-card-promo__status--open"
+        >
+          <!---->
+           
+          <span>
+            open
+          </span>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <h2
+        class="rpl-card-promo__title"
+      >
+        First promo card
+      </h2>
+       
+      <p
+        class="rpl-card-promo__summary"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+       
+    </div>
+  </span>
+</a>
+`;
+
+exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Landing Page 1`] = `
+<a
+  class="rpl-link rpl-card-promo rpl-card-promo--no-image"
+  data-print-url="#"
+  href="#"
+>
+  <span
+    class="rpl-link__inner"
+  >
+    <!---->
+     
+    <div
+      class="rpl-card-promo__content"
+    >
+      <div
+        class="rpl-card-promo__meta"
+      >
+        <!---->
+         
+        <div
+          class="rpl-card-promo__topic"
+        >
+          Arts, Culture and Humanities
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <h2
+        class="rpl-card-promo__title"
+      >
+        First promo card
+      </h2>
+       
+      <p
+        class="rpl-card-promo__summary"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+       
+    </div>
+  </span>
+</a>
+`;
+
+exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Profile 1`] = `
+<a
+  class="rpl-link rpl-card-promo rpl-card-promo--with-image rpl-card-promo--profile"
+  data-print-url="#"
+  href="#"
+>
+  <span
+    class="rpl-link__inner"
+  >
+    <img
+      alt=""
+      class="rpl-responsive-image rpl-card-promo__image rpl-responsive-image--fit-cover"
+      src="https://s3.amazonaws.com/uifaces/faces/twitter/yecidsm/128.jpg"
+    />
+     
+    <div
+      class="rpl-card-promo__content"
+    >
+      <div
+        class="rpl-card-promo__meta"
+      >
+        <div
+          class="rpl-card-promo__tag"
+        >
+          Profile
+        </div>
+         
+        <div
+          class="rpl-card-promo__topic"
+        >
+          02 July 2020
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <h2
+        class="rpl-card-promo__title"
+      >
+        First promo card
+      </h2>
+       
+      <p
+        class="rpl-card-promo__summary"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
+      </p>
+       
+    </div>
+  </span>
+</a>
+`;
+
+exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 With Image 1`] = `
+<a
+  class="rpl-link rpl-card-promo rpl-card-promo--with-image"
+  data-print-url="#"
+  href="#"
+>
+  <span
+    class="rpl-link__inner"
+  >
+    <img
+      alt=""
+      class="rpl-responsive-image rpl-card-promo__image rpl-responsive-image--fit-cover"
+      src="https://images.unsplash.com/photo-1602699121297-81f2312fa4e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
+    />
+     
+    <div
+      class="rpl-card-promo__content"
+    >
+      <div
+        class="rpl-card-promo__meta"
+      >
+        <!---->
+         
+        <div
+          class="rpl-card-promo__topic"
+        >
+          Arts, Culture and Humanities
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <h2
+        class="rpl-card-promo__title"
+      >
+        First promo card
+      </h2>
+       
+      <p
+        class="rpl-card-promo__summary"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
+      </p>
+       
+    </div>
+  </span>
+</a>
+`;
+
 exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
 <a
   class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"

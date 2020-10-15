@@ -129,6 +129,12 @@ export const getIncludesByType = (types) => {
           'field_event_intro_text'
         )
         break
+      case 'grant':
+        includes.push(
+          'field_node_dates_start_value',
+          'field_node_dates_end_value'
+        )
+        break
       case 'profile':
       case 'vdrp_profile':
       case 'sr_profile':

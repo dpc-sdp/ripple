@@ -36,11 +36,10 @@ import catchChildError from '@dpc-sdp/ripple-global/mixins/catch-child-error'
 import { RplDevError } from '@dpc-sdp/ripple-global'
 
 import RplIcon from '@dpc-sdp/ripple-icon'
-import RplCard from './Card.vue'
+import RplCardPromo from './CardPromo.vue'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardEvent from './CardEvent.vue'
 import RplCardKeydates from './CardKeydates.vue'
-import CardAutomatedListing from './CardAutomated.vue'
 // TODO: Add future card components
 
 export default {
@@ -60,11 +59,10 @@ export default {
   },
   components: {
     RplIcon,
-    RplCard,
+    RplCardPromo,
     RplCardPromotion,
     RplCardEvent,
     RplCardKeydates,
-    CardAutomatedListing,
     RplDevError,
     Carousel: () => import('vue-carousel').then(m => m.Carousel),
     Slide: () => import('vue-carousel').then(m => m.Slide)

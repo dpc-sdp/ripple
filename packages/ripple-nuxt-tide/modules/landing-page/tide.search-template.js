@@ -2,6 +2,7 @@ import get from 'lodash.get'
 import { getTermsFilter, getPagination } from '@dpc-sdp/ripple-tide-search-api/services/template-utils'
 import { getFilterTodayConditions, getIncludesByType } from './lib/card-collection-utils'
 import { truncateText, capitalize } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import calcStatus from '@dpc-sdp/ripple-grants/grants-status.js'
 
 module.exports = {
   cards: {
@@ -91,6 +92,14 @@ module.exports = {
                     ...result,
                     tag: capitalize(get(item, ['type', 0], '')),
                     summary: truncateText(get(item, ['field_event_intro_text', 0], get(item, ['body', 0], '')))
+                  }
+                case 'grant':
+                  return {
+                    ...result,
+                    tag: capitalize(get(item, ['type', 0], '')),
+                    status: calcStatus(get(item, ['field_node_dates_start_value', 0]), get(item, ['field_node_dates_end_value', 0], ''), false),
+                    endDate: get(item, ['field_node_dates_end_value', 0], ''),
+                    summary: truncateText(get(item, ['field_landing_page_summary', 0], get(item, ['body', 0], '')))
                   }
                 case 'publication':
                   return {

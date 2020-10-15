@@ -1,6 +1,6 @@
 <template>
   <div class="app-card-collection" :class="`app-card-collection--${displayType}`">
-    <h2 v-if="title" ref="title" class="app-card-collection__title">{{ title }}</h2>
+    <h2 v-if="title && (hasResults || noResultsMsg)" ref="title" class="app-card-collection__title">{{ title }}</h2>
     <template v-if="hasResults">
       <div class="app-card-collection__carousel" v-if="displayType === 'carousel'">
         <client-only>
@@ -11,7 +11,7 @@
         <rpl-row row-gutter :class="{ [`app-card-collection__grid--loading`]: loading }">
           <template v-for="card in cards">
             <rpl-col cols="full" :colsBp="card.cols" :key="card.uuid" :data-card-collection-item="card.uuid">
-              <rpl-card v-bind="card.data" />
+              <rpl-card-promo v-bind="card.data" />
             </rpl-col>
           </template>
         </rpl-row>
@@ -34,7 +34,7 @@
 <script>
 import get from 'lodash.get'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import { RplCardCarousel, RplCard } from '@dpc-sdp/ripple-card'
+import { RplCardCarousel, RplCardPromo } from '@dpc-sdp/ripple-card'
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import { getQueryParams, getSiteDomainUrl } from './../lib/card-collection-utils'
 import VueScrollTo from 'vue-scrollto'
@@ -53,7 +53,7 @@ export default {
   components: {
     RplRow,
     RplCol,
-    RplCard,
+    RplCardPromo,
     RplCardCarousel,
     RplPagination
   },
@@ -111,6 +111,9 @@ export default {
         return get(this.config, ['display', 'type'], 'grid')
       }
     },
+    minResults () {
+      return get(this.config, ['results', 'min'], 1)
+    },
     contentType () {
       if (this.config) {
         return get(this.config, 'content_type', 'all')
@@ -121,7 +124,7 @@ export default {
         return this.results.map(item => {
           const url = getSiteDomainUrl(item.link.url, this.$store.state.tideSite.siteId, this.$store.state.tideSite.sitesDomainMap)
           return {
-            name: 'rpl-card',
+            name: 'rpl-card-promo',
             cols: this.cols,
             uuid: item.uuid,
             data: {
@@ -138,7 +141,7 @@ export default {
       return []
     },
     hasResults () {
-      return this.results.length > 0
+      return this.results.length >= this.minResults
     },
     noResultsMsg () {
       if (!this.hasResults && this.config.results.min_not_met === 'no_results_message') {

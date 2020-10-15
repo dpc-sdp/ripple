@@ -11,6 +11,7 @@ import RplCardEmergencyContact from './CardEmergencyContact.vue'
 import RplCardBox from './CardBox.vue'
 import RplCardProfile from './CardProfile.vue'
 import RplCardCarousel from './CardCarousel.vue'
+import RplCardPromo from './CardPromo.vue'
 
 import {
   withKnobs,
@@ -404,6 +405,24 @@ storiesOf('Molecules/Card/Card Content (base)', module)
       },
       content: {
         default: text('HTML content', '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>')
+      }
+    }
+  }))
+
+storiesOf('Molecules/Card/Card Promotion - V2', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" />`,
+    props: {
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
       }
     }
   }))

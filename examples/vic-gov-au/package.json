@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "dev": "cross-env BASIC_AUTH=0 nuxt",
-    "dev-debug": "BASIC_AUTH=0 node --inspect node_modules/.bin/nuxt",
     "build": "run-script-os",
     "build:default": "nuxt build --modern=client",
     "build:win32": "nuxt build --modern=client",

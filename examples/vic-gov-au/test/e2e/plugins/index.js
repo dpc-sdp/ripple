@@ -18,7 +18,7 @@ module.exports = (on, config) => {
     CONTENT_API_SERVER: process.env.CONTENT_API_SERVER,
     SEARCH_AUTH_USERNAME: process.env.SEARCH_AUTH_USERNAME,
     SEARCH_AUTH_PASSWORD: process.env.SEARCH_AUTH_PASSWORD,
-    MOCK_SERVER_URL: process.env.MOCK_SERVER_URL,
+    SEARCH_API_BASE_URL: process.env.SEARCH_API_BASE_URL,
     SEARCH_ENDPOINT: `https://${process.env.SEARCH_HASH}.${process.env.SEARCH_URL}/${process.env.SEARCH_INDEX}/_search`
   }
 
@@ -32,7 +32,7 @@ module.exports = (on, config) => {
   on('task', {
     // mockserver
     async startMockServer () {
-      const port = process.env.MOCK_SERVER_PORT ? parseInt(process.env.MOCK_SERVER_PORT, 10) : 3001
+      const port = 3001
       try {
         if (mockServer.url) {
           await mockServer.stop()

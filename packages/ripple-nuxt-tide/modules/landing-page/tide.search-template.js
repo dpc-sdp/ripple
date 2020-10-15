@@ -117,6 +117,9 @@ module.exports = {
                 // TODO: Add all profile types here
                 case 'profile':
                 case 'aboriginal_honour_roll':
+                case 'sr_profile':
+                case 'vada_profile':
+                case 'vdrp_profile':
                   return {
                     ...result,
                     tag: 'Profile',

@@ -125,11 +125,9 @@ export default {
   $rpl-card-promotion-bg-color: rpl_color('white');
   $rpl-card-promo-min-height: rem(400px);
   $rpl-card-promo-meta-margin: 0 0 $rpl-space-3 0 !default;
-  $rpl-card-promo-date-ruleset: ('xxs', 1em, 'medium') !default;
-  $rpl-card-promo-date-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-card-promo-meta-ruleset: ('xxs', 1em, 'medium') !default;
+  $rpl-card-promo-meta-text-color: rpl_color('dark_neutral') !default;
   $rpl-card-promo-date-padding: $rpl-space $rpl-space-2 !default;
-  $rpl-card-promo-tag-ruleset: ('xxs', 1em, 'medium') !default;
-  $rpl-card-promo-tag-text-color: rpl_color('dark_neutral') !default;
   $rpl-card-promo-tag-bg-color: rpl_color('light_neutral') !default;
   $rpl-card-promo-tag-padding: $rpl-space;
   $rpl-card-promo-link-color: rpl_color('extra_dark_neutral') !default;
@@ -192,9 +190,9 @@ export default {
 
     &__date,
     &__topic {
-      @include rpl_typography_ruleset($rpl-card-promo-date-ruleset);
+      @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
       display: inline;
-      color: $rpl-card-promo-date-color;
+      color: $rpl-card-promo-meta-text-color;
       text-transform: uppercase;
     }
 
@@ -203,9 +201,9 @@ export default {
     }
 
     &__tag {
-      @include rpl_typography_ruleset($rpl-card-promo-tag-ruleset);
+      @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
       display: inline;
-      color: $rpl-card-promo-tag-text-color;
+      color: $rpl-card-promo-meta-text-color;
       background-color: $rpl-card-promo-tag-bg-color;
       text-transform: capitalize;
       padding: $rpl-card-promo-tag-padding;
@@ -216,7 +214,7 @@ export default {
       align-items: center;
       padding-left: $rpl-space-2;
       span {
-        @include rpl_typography_ruleset($rpl-card-promo-tag-ruleset);
+        @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
         padding-left: $rpl-space;
         color: rpl_color('dark_neutral');
         text-transform: uppercase;

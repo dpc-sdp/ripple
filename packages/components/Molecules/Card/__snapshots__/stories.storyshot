@@ -1657,6 +1657,49 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
 </a>
 `;
 
+exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Default 1`] = `
+<a
+  class="rpl-link rpl-card-promo rpl-card-promo--no-image"
+  data-print-url="#"
+  href="#"
+>
+  <span
+    class="rpl-link__inner"
+  >
+    <!---->
+     
+    <div
+      class="rpl-card-promo__content"
+    >
+      <div
+        class="rpl-card-promo__meta"
+      >
+        <!---->
+         
+        <!---->
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <h2
+        class="rpl-card-promo__title"
+      >
+        First promo card
+      </h2>
+       
+      <p
+        class="rpl-card-promo__summary"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+       
+    </div>
+  </span>
+</a>
+`;
+
 exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
 <a
   class="rpl-link rpl-card-content rpl-card-promotion rpl-card-content--default rpl-card-content--has-link-text"

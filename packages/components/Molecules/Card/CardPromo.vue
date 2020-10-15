@@ -122,7 +122,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/card";
-
+  $rpl-card-promotion-bg-color: rpl_color('white');
   $rpl-card-promo-min-height: rem(400px);
   $rpl-card-promo-meta-margin: 0 0 $rpl-space-3 0 !default;
   $rpl-card-promo-date-ruleset: ('xxs', 1em, 'medium') !default;
@@ -163,7 +163,7 @@ export default {
     flex-direction: column;
     border: $rpl-card-promo-border;
     border-radius: $rpl-card-promo-border-radius;
-
+    background-color: $rpl-card-promotion-bg-color;
     &:hover,
     &:focus {
       @include rpl_dropshadow;

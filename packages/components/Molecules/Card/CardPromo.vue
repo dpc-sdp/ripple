@@ -172,6 +172,7 @@ export default {
 
       #{$root}__title {
         color: $rpl-card-promo-link-color-hover;
+        text-decoration: underline;
       }
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-search-api",
-  "version": "1.14.1",
+  "version": "1.15.1",
   "description": "Ripple API endpoints for Tide search provider",
   "license": "Apache-2.0",
   "contributors": [
@@ -19,8 +19,7 @@
     "express": "^4.17.1",
     "lodash.get": "^4.4.2",
     "nodemon": "^2.0.4",
-    "qs": "^6.9.4",
-    "swagger-ui-express": "^4.1.4"
+    "qs": "^6.9.4"
   },
   "publishConfig": {
     "access": "public"

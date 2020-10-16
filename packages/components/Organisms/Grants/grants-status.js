@@ -8,6 +8,7 @@ export const defaultStatusTerms = {
   ongoing: 'Ongoing',
   openingSoon: (startdate) => `Opening on ${startdate}`,
   closingSoon: (end, now) => {
+    if (!end || !now) { return 'Opening soon' }
     const daysRemaining = parseInt(end.diff(now, 'days'))
     if (daysRemaining > 1) {
       return `Open, closing in ${daysRemaining} days`
@@ -45,8 +46,12 @@ export default function calcStatus (startDate, endDate, displaySoon = true, stat
           return statusTerms.ongoing
         }
       }
+
       // displays status as "Opening on startdate" when current date is within one month of startdate
       if (now.isBetween(moment(start).subtract(1, 'months'), start)) {
+        if (!displaySoon) {
+          return statusTerms.openingSoon()
+        }
         return statusTerms.openingSoon(formatDate(startDate))
       }
       // displays status as "Closed" when current date is more than one month of startdate

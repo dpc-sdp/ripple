@@ -106,7 +106,8 @@ export const getIncludesByType = (types) => {
     'uuid',
     'field_media_image_absolute_path',
     'field_node_primary_csite',
-    'field_landing_page_summary'
+    'field_landing_page_summary',
+    'field_node_link'
   ]
 
   if (!types || !Array.isArray(types)) {

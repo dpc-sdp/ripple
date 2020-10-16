@@ -10,7 +10,7 @@
           <div class="rpl-card-promo__topic" v-if="topic" >{{ topic }}</div>
           <slot name="status">
             <div class="rpl-card-promo__status" :class="`rpl-card-promo__status--${this.status.toLowerCase()}`" v-if="status" >
-              <rpl-icon :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
+              <rpl-icon class="rpl-card-promo__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
               <span>{{status}}</span>
             </div>
           </slot>
@@ -213,12 +213,17 @@ export default {
     &__status {
       display: inline-flex;
       align-items: center;
-      padding-left: $rpl-space-2;
+      padding-left: $rpl-space;
       span {
         @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
         padding-left: $rpl-space;
         color: rpl_color('dark_neutral');
         text-transform: uppercase;
+        padding-left: $rpl-space-4;
+      }
+      &-icon {
+        position: absolute;
+
       }
     }
 

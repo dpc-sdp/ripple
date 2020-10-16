@@ -13,7 +13,8 @@ describe('getIncludesByType', () => {
     'uuid',
     'field_media_image_absolute_path',
     'field_node_primary_csite',
-    'field_landing_page_summary'
+    'field_landing_page_summary',
+    'field_node_link'
   ]
   test('return default if no type passed', () => {
     expect(getIncludesByType()).toEqual(defaultIncludes)

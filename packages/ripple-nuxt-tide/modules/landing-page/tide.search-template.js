@@ -7,18 +7,15 @@ import calcStatus from '@dpc-sdp/ripple-grants/grants-status.js'
 module.exports = {
   cards: {
     requestMapping: params => {
-      let filters = []
+      let filters = params.filters ? getTermsFilter(params) : []
       const sort = []
 
-      if (params.filters) {
-        filters = getTermsFilter(params)
-        if (!params.filters.hasOwnProperty('field_node_site') && params.site) {
-          filters.push({
-            term: {
-              field_node_site: params.site
-            }
-          })
-        }
+      if ((!params.filters || !params.filters.hasOwnProperty('field_node_site')) && params.site) {
+        filters.push({
+          term: {
+            field_node_site: params.site
+          }
+        })
       }
 
       if (params.type && params.type !== 'all') {

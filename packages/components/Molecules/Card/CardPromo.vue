@@ -86,8 +86,11 @@ export default {
       if (this.date) {
         if (typeof this.date === 'string') {
           return this.date
-        } else if (typeof this.date === 'object' && this.date.hasOwnProperty('from') && this.date.hasOwnProperty('to')) {
-          return this.formatDateRange(this.date.from, this.date.to)
+        } else if (typeof this.date === 'object' && this.date.hasOwnProperty('from')) {
+          if (this.date.to) {
+            return this.formatDateRange(this.date.from, this.date.to)
+          }
+          return this.formatDate(this.date.from)
         }
       }
     },

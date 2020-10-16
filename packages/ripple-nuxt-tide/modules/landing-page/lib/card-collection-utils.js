@@ -136,6 +136,11 @@ export const getIncludesByType = (types) => {
           'field_node_dates_end_value'
         )
         break
+      case 'publication':
+        includes.push(
+          'field_publication_date'
+        )
+        break
       case 'profile':
       case 'vdrp_profile':
       case 'sr_profile':

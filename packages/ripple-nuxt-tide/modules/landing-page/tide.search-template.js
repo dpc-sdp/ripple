@@ -102,8 +102,7 @@ module.exports = {
                     ...result,
                     tag: capitalize(get(item, ['type', 0], '')),
                     date: {
-                      from: get(item, ['field_event_date_start_value', 0], ''),
-                      to: get(item, ['field_event_date_end_value', 0], '')
+                      from: get(item, ['field_publication_date', 0], '')
                     }
                   }
                 case 'landing_page':

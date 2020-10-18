@@ -81,6 +81,7 @@ storiesOf('Atoms/Icon', module)
           'link_65',
           'link_90',
           'linkedin',
+          'list_indent',
           'loading_star',
           'lock',
           'map_marker',

@@ -1092,6 +1092,27 @@ exports[`RippleStoryshots Atoms/Icon Icon Library 1`] = `
   <li>
     <svg
       aria-hidden="true"
+      class="rpl-icon rpl-icon--list_indent rpl-icon--color_primary"
+      overflow="visible"
+      style="width: 20px; height: 18px;"
+      viewBox="0 0 20 18"
+    >
+      <path
+        d="m 9 5 v 8 h 5 "
+        fill="none"
+        stroke="#465870"
+        stroke-width="1"
+      />
+       
+    </svg>
+     
+    <code>
+      list_indent
+    </code>
+  </li>
+  <li>
+    <svg
+      aria-hidden="true"
       class="rpl-icon rpl-icon--loading_star rpl-icon--color_primary"
       overflow="visible"
       style="width: 20px; height: 20px;"

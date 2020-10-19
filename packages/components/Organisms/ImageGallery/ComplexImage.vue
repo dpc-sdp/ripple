@@ -8,7 +8,7 @@
         <rpl-text-icon symbol="view" color="primary" :text="fullscreenLabel" placement="before" />
       </button>
       <!-- Markup expander -->
-      <button class="rpl-complex-image__button" v-if="expandLabel && !markupVisible" @click="markupVisible = true">
+      <button class="rpl-complex-image__button" v-if="expandLabel && !markupVisible && html" @click="markupVisible = true">
         <rpl-text-icon symbol="table" color="primary" :text="expandLabel" placement="before" />
       </button>
       <div class="rpl-complex-image__expander" :class="{ 'rpl-complex-image__expander--open': markupVisible }">
@@ -19,7 +19,7 @@
             <span class="rpl-complex-image__expander-close-button-text">{{ expandcloseText }}</span>
           </button>
         </div>
-        <div class="rpl-complex-image__expander-markup">
+        <div class="rpl-complex-image__expander-markup" v-if="html">
           <rpl-markup :html="html" />
         </div>
       </div>
@@ -169,6 +169,7 @@ export default {
       width: 100%;
       background: $rpl-complex-image-markup-background;
       display: none;
+      margin-bottom: $rpl-complex-image-item-bottom-margin;
 
       &--open {
         display: block;
@@ -207,7 +208,6 @@ export default {
         @include rpl_typography_ruleset($rpl-complex-image-markup-ruleset);
         border: $rpl-complex-image-markup-border;
         border-top: 0;
-        margin-bottom: $rpl-complex-image-item-bottom-margin;
         padding: $rpl-complex-image-expander-markup-padding;
 
         .rpl-markup {

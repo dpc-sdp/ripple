@@ -36,7 +36,18 @@ exports[`RippleStoryshots Molecules/Search Search Form 1`] = `
         Search
       </span>
        
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-icon rpl-icon--search rpl-icon--color_primary"
+        overflow="visible"
+        style="width: 24px; height: 24px;"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M10.99 9.243c1.597-2.45 1.224-5.82-1.133-7.833C7.59-.526 4.137-.46 1.94 1.557a6 6 0 00-.19 8.653c2.043 2.045 5.205 2.293 7.527.757.031-.02.102-.083.198-.173l4.343 4.195a.941.941 0 101.308-1.354l-4.324-4.176c.098-.106.166-.184.188-.216zm-8.023-.25a4.274 4.274 0 010-6.035 4.266 4.266 0 016.03 0 4.274 4.274 0 010 6.034 4.266 4.266 0 01-6.03 0z"
+        />
+         
+      </svg>
     </button>
   </div>
    
@@ -128,7 +139,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -194,7 +216,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -256,7 +289,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -322,7 +366,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -481,7 +536,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Card Search Res
               Next page
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--right rpl-icon--color_primary"
+              overflow="visible"
+              style="width: 8px; height: 12.8px;"
+              viewBox="0 0 5 8"
+            >
+              <path
+                d="M.293 7.707a1 1 0 010-1.414L2.586 4 .293 1.707A1 1 0 011.707.293l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414 0z"
+              />
+               
+            </svg>
           </button>
         </div>
       </nav>
@@ -552,7 +618,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--dollar_negative rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 12 12"
+                  >
+                    <path
+                      d="M5.313 8.95C4.43 8.78 3.723 8.26 3.5 7.488l1.4-.432c.175.533.577.773 1.118.773.54 0 .851-.249.851-.58 0-.258-.118-.433-.53-.516l-1.145-.258c-.824-.193-1.547-.626-1.547-1.676 0-.94.657-1.577 1.666-1.758v-.607c0-.246.158-.434.444-.434h.483c.247 0 .405.186.407.434v.631c.755.187 1.327.657 1.55 1.329l-1.328.35c-.182-.452-.586-.608-.96-.608-.468 0-.77.25-.77.58 0 .23.1.406.449.488l1.153.258c.989.24 1.566.765 1.566 1.685 0 .993-.712 1.605-1.662 1.794v.59c0 .243-.103.469-.405.469h-.483c-.37 0-.444-.3-.444-.469V8.95zM6 0C2.691 0 0 2.692 0 6s2.691 6 6 6c3.308 0 6-2.692 6-6S9.308 0 6 0z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -568,7 +645,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--user rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 12 12"
+                  >
+                    <path
+                      d="M6 0c3.308 0 6 2.692 6 6s-2.692 6-6 6c-3.309 0-6-2.692-6-6s2.691-6 6-6zm1.2 6h-.223a2.334 2.334 0 01-1.953 0H4.8A1.8 1.8 0 003 7.8v.557c0 .355.288.643.643.643h4.714A.643.643 0 009 8.357V7.8A1.8 1.8 0 007.2 6zM6 5.5a1.75 1.75 0 10.001-3.499A1.75 1.75 0 006 5.5z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -584,7 +672,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--cross_circle rpl-icon--color_danger"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm5.884 15.15a.581.581 0 010 .823l-1.916 1.91a.581.581 0 01-.823 0L12 14.71l-3.15 3.174a.581.581 0 01-.823 0l-1.91-1.916a.581.581 0 010-.823L9.29 12 6.116 8.85a.581.581 0 010-.823l1.916-1.916a.581.581 0 01.823 0L12 9.291l3.15-3.175a.581.581 0 01.823 0l1.916 1.916a.581.581 0 010 .823L14.709 12l3.175 3.15z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -708,7 +807,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--dollar_negative rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 12 12"
+                  >
+                    <path
+                      d="M5.313 8.95C4.43 8.78 3.723 8.26 3.5 7.488l1.4-.432c.175.533.577.773 1.118.773.54 0 .851-.249.851-.58 0-.258-.118-.433-.53-.516l-1.145-.258c-.824-.193-1.547-.626-1.547-1.676 0-.94.657-1.577 1.666-1.758v-.607c0-.246.158-.434.444-.434h.483c.247 0 .405.186.407.434v.631c.755.187 1.327.657 1.55 1.329l-1.328.35c-.182-.452-.586-.608-.96-.608-.468 0-.77.25-.77.58 0 .23.1.406.449.488l1.153.258c.989.24 1.566.765 1.566 1.685 0 .993-.712 1.605-1.662 1.794v.59c0 .243-.103.469-.405.469h-.483c-.37 0-.444-.3-.444-.469V8.95zM6 0C2.691 0 0 2.692 0 6s2.691 6 6 6c3.308 0 6-2.692 6-6S9.308 0 6 0z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -724,7 +834,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--user rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 12 12"
+                  >
+                    <path
+                      d="M6 0c3.308 0 6 2.692 6 6s-2.692 6-6 6c-3.309 0-6-2.692-6-6s2.691-6 6-6zm1.2 6h-.223a2.334 2.334 0 01-1.953 0H4.8A1.8 1.8 0 003 7.8v.557c0 .355.288.643.643.643h4.714A.643.643 0 009 8.357V7.8A1.8 1.8 0 007.2 6zM6 5.5a1.75 1.75 0 10.001-3.499A1.75 1.75 0 006 5.5z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -740,7 +861,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--cross_circle rpl-icon--color_danger"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm5.884 15.15a.581.581 0 010 .823l-1.916 1.91a.581.581 0 01-.823 0L12 14.71l-3.15 3.174a.581.581 0 01-.823 0l-1.91-1.916a.581.581 0 010-.823L9.29 12 6.116 8.85a.581.581 0 010-.823l1.916-1.916a.581.581 0 01.823 0L12 9.291l3.15-3.175a.581.581 0 01.823 0l1.916 1.916a.581.581 0 010 .823L14.709 12l3.175 3.15z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -864,7 +996,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--dollar_negative rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 12 12"
+                  >
+                    <path
+                      d="M5.313 8.95C4.43 8.78 3.723 8.26 3.5 7.488l1.4-.432c.175.533.577.773 1.118.773.54 0 .851-.249.851-.58 0-.258-.118-.433-.53-.516l-1.145-.258c-.824-.193-1.547-.626-1.547-1.676 0-.94.657-1.577 1.666-1.758v-.607c0-.246.158-.434.444-.434h.483c.247 0 .405.186.407.434v.631c.755.187 1.327.657 1.55 1.329l-1.328.35c-.182-.452-.586-.608-.96-.608-.468 0-.77.25-.77.58 0 .23.1.406.449.488l1.153.258c.989.24 1.566.765 1.566 1.685 0 .993-.712 1.605-1.662 1.794v.59c0 .243-.103.469-.405.469h-.483c-.37 0-.444-.3-.444-.469V8.95zM6 0C2.691 0 0 2.692 0 6s2.691 6 6 6c3.308 0 6-2.692 6-6S9.308 0 6 0z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -880,7 +1023,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--user rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 12 12"
+                  >
+                    <path
+                      d="M6 0c3.308 0 6 2.692 6 6s-2.692 6-6 6c-3.309 0-6-2.692-6-6s2.691-6 6-6zm1.2 6h-.223a2.334 2.334 0 01-1.953 0H4.8A1.8 1.8 0 003 7.8v.557c0 .355.288.643.643.643h4.714A.643.643 0 009 8.357V7.8A1.8 1.8 0 007.2 6zM6 5.5a1.75 1.75 0 10.001-3.499A1.75 1.75 0 006 5.5z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -896,7 +1050,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--cross_circle rpl-icon--color_danger"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm5.884 15.15a.581.581 0 010 .823l-1.916 1.91a.581.581 0 01-.823 0L12 14.71l-3.15 3.174a.581.581 0 01-.823 0l-1.91-1.916a.581.581 0 010-.823L9.29 12 6.116 8.85a.581.581 0 010-.823l1.916-1.916a.581.581 0 01.823 0L12 9.291l3.15-3.175a.581.581 0 01.823 0l1.916 1.916a.581.581 0 010 .823L14.709 12l3.175 3.15z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -1020,7 +1185,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--dollar_negative rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 12 12"
+                  >
+                    <path
+                      d="M5.313 8.95C4.43 8.78 3.723 8.26 3.5 7.488l1.4-.432c.175.533.577.773 1.118.773.54 0 .851-.249.851-.58 0-.258-.118-.433-.53-.516l-1.145-.258c-.824-.193-1.547-.626-1.547-1.676 0-.94.657-1.577 1.666-1.758v-.607c0-.246.158-.434.444-.434h.483c.247 0 .405.186.407.434v.631c.755.187 1.327.657 1.55 1.329l-1.328.35c-.182-.452-.586-.608-.96-.608-.468 0-.77.25-.77.58 0 .23.1.406.449.488l1.153.258c.989.24 1.566.765 1.566 1.685 0 .993-.712 1.605-1.662 1.794v.59c0 .243-.103.469-.405.469h-.483c-.37 0-.444-.3-.444-.469V8.95zM6 0C2.691 0 0 2.692 0 6s2.691 6 6 6c3.308 0 6-2.692 6-6S9.308 0 6 0z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -1036,7 +1212,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--user rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 12 12"
+                  >
+                    <path
+                      d="M6 0c3.308 0 6 2.692 6 6s-2.692 6-6 6c-3.309 0-6-2.692-6-6s2.691-6 6-6zm1.2 6h-.223a2.334 2.334 0 01-1.953 0H4.8A1.8 1.8 0 003 7.8v.557c0 .355.288.643.643.643h4.714A.643.643 0 009 8.357V7.8A1.8 1.8 0 007.2 6zM6 5.5a1.75 1.75 0 10.001-3.499A1.75 1.75 0 006 5.5z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -1052,7 +1239,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
                 <span
                   class="rpl-list__icon"
                 >
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--cross_circle rpl-icon--color_danger"
+                    overflow="visible"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm5.884 15.15a.581.581 0 010 .823l-1.916 1.91a.581.581 0 01-.823 0L12 14.71l-3.15 3.174a.581.581 0 01-.823 0l-1.91-1.916a.581.581 0 010-.823L9.29 12 6.116 8.85a.581.581 0 010-.823l1.916-1.916a.581.581 0 01.823 0L12 9.291l3.15-3.175a.581.581 0 01.823 0l1.916 1.916a.581.581 0 010 .823L14.709 12l3.175 3.15z"
+                    />
+                     
+                  </svg>
                 </span>
                  
                 <span
@@ -1283,7 +1481,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Grant Search Re
               Next page
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--right rpl-icon--color_primary"
+              overflow="visible"
+              style="width: 8px; height: 12.8px;"
+              viewBox="0 0 5 8"
+            >
+              <path
+                d="M.293 7.707a1 1 0 010-1.414L2.586 4 .293 1.707A1 1 0 011.707.293l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414 0z"
+              />
+               
+            </svg>
           </button>
         </div>
       </nav>
@@ -1763,7 +1972,18 @@ exports[`RippleStoryshots Molecules/Search/Legacy search results Search Results 
               Next page
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--right rpl-icon--color_primary"
+              overflow="visible"
+              style="width: 8px; height: 12.8px;"
+              viewBox="0 0 5 8"
+            >
+              <path
+                d="M.293 7.707a1 1 0 010-1.414L2.586 4 .293 1.707A1 1 0 011.707.293l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414 0z"
+              />
+               
+            </svg>
           </button>
         </div>
       </nav>

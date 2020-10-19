@@ -44,7 +44,18 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
         <span
           class="rpl-text-icon__group"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--view rpl-icon--color_primary rpl-text-icon--before"
+            overflow="visible"
+            style="width: 15px; height: 11px;"
+            viewBox="0 0 15 11"
+          >
+            <path
+              d="M7.5 0C4.09 0 1.18 2.195 0 5.294c1.18 3.099 4.09 5.294 7.5 5.294s6.32-2.195 7.5-5.294C13.82 2.195 10.91 0 7.5 0zm0 8.824c-1.882 0-3.41-1.582-3.41-3.53 0-1.948 1.528-3.53 3.41-3.53 1.882 0 3.41 1.582 3.41 3.53 0 1.948-1.528 3.53-3.41 3.53zm0-5.648c-1.132 0-2.045.946-2.045 2.118S6.368 7.412 7.5 7.412s2.045-.946 2.045-2.118S8.632 3.176 7.5 3.176z"
+            />
+             
+          </svg>
           View 
         </span>
          
@@ -61,7 +72,18 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
         <span
           class="rpl-text-icon__group"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--table rpl-icon--color_primary rpl-text-icon--before"
+            overflow="visible"
+            style="width: 14px; height: 13px;"
+            viewBox="0 0 14 13"
+          >
+            <path
+              d="M0 1.378C0 .995.128.67.383.402S.948 0 1.313 0h11.374c.365 0 .675.134.93.402s.383.593.383.976v10.106c0 .383-.128.709-.383.976a1.236 1.236 0 01-.93.402H1.313c-.365 0-.675-.134-.93-.402A1.363 1.363 0 010 11.484V1.378zM12.906 7.81V5.053h-7.52V7.81h7.52zm0 1.149h-7.52v2.756h7.192a.31.31 0 00.232-.1.341.341 0 00.096-.245V8.958zM1.094 5.053V7.81h3.199V5.053h-3.2zm4.293-1.148h7.52V1.493a.34.34 0 00-.097-.244.31.31 0 00-.232-.1H5.387v2.756zM4.293 1.148H1.422a.31.31 0 00-.233.101.34.34 0 00-.095.244v2.412h3.199V1.148zm-3.2 7.81v2.411c0 .096.033.178.096.245a.31.31 0 00.233.1h2.871V8.958h-3.2z"
+            />
+             
+          </svg>
           View 
         </span>
          
@@ -83,7 +105,18 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
           <span
             class="rpl-text-icon__group"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--table rpl-icon--color_primary rpl-text-icon--before"
+              overflow="visible"
+              style="width: 14px; height: 13px;"
+              viewBox="0 0 14 13"
+            >
+              <path
+                d="M0 1.378C0 .995.128.67.383.402S.948 0 1.313 0h11.374c.365 0 .675.134.93.402s.383.593.383.976v10.106c0 .383-.128.709-.383.976a1.236 1.236 0 01-.93.402H1.313c-.365 0-.675-.134-.93-.402A1.363 1.363 0 010 11.484V1.378zM12.906 7.81V5.053h-7.52V7.81h7.52zm0 1.149h-7.52v2.756h7.192a.31.31 0 00.232-.1.341.341 0 00.096-.245V8.958zM1.094 5.053V7.81h3.199V5.053h-3.2zm4.293-1.148h7.52V1.493a.34.34 0 00-.097-.244.31.31 0 00-.232-.1H5.387v2.756zM4.293 1.148H1.422a.31.31 0 00-.233.101.34.34 0 00-.095.244v2.412h3.199V1.148zm-3.2 7.81v2.411c0 .096.033.178.096.245a.31.31 0 00.233.1h2.871V8.958h-3.2z"
+              />
+               
+            </svg>
             Figure 
           </span>
            
@@ -95,7 +128,18 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
         <button
           class="rpl-complex-image__expander-close-button"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--close rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 8px; height: 8px;"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M14.996.293a1 1 0 00-1.415 0L7.644 6.23 1.707.293A1 1 0 00.293 1.707L6.23 7.644.651 13.223a1 1 0 001.415 1.414l5.578-5.579 5.579 5.58a1 1 0 001.414-1.415L9.058 7.644l5.938-5.937a1 1 0 000-1.414z"
+            />
+             
+          </svg>
            
           <span
             class="rpl-complex-image__expander-close-button-text"
@@ -239,7 +283,18 @@ exports[`RippleStoryshots Organisms/ImageGallery Complex Image 1`] = `
         <span
           class="rpl-text-icon__group"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--download rpl-icon--color_primary rpl-text-icon--before"
+            overflow="visible"
+            style="width: 11px; height: 12px;"
+            viewBox="0 0 11 12"
+          >
+            <path
+              d="M9.643 12h-9A.641.641 0 010 11.357v-.643c0-.356.287-.643.643-.643h9c.356 0 .643.287.643.643v.643a.641.641 0 01-.643.643zM3.429.643v3.643h-2.35a.535.535 0 00-.377.913l4.077 4.077c.2.2.53.2.73 0l4.078-4.077a.535.535 0 00-.378-.913H6.857V.643A.641.641 0 006.214 0H4.071a.641.641 0 00-.642.643z"
+            />
+             
+          </svg>
           Download 
         </span>
          
@@ -262,7 +317,22 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
     aria-label="Click to enlarge"
     class="rpl-image-gallery__enlarge"
   >
-    <!---->
+    <svg
+      aria-hidden="true"
+      class="rpl-icon rpl-icon--enlarge_screen rpl-icon--color_primary"
+      overflow="visible"
+      style="width: 30px; height: 30px;"
+      viewBox="0 0 30 30"
+    >
+      <path
+        d="M29 4v22a3 3 0 01-3 3H4a3 3 0 01-3-3V4a3 3 0 013-3h22a3 3 0 013 3z"
+        fill="white"
+      />
+      <path
+        d="M6.335 15.01l.903.012a.713.713 0 01.698.714l-.054 4.783 4.117-4.118a.689.689 0 01.976.012l.66.66c.273.273.279.708.012.975l-4.118 4.118 4.782-.055a.707.707 0 01.714.699l.012.902a.666.666 0 01-.68.68l-7.903-.099a.709.709 0 01-.698-.698l-.101-7.904a.666.666 0 01.68-.68zm9.356-9.332l7.902.1a.709.709 0 01.698.698l.102 7.904a.666.666 0 01-.68.68l-.903-.011a.712.712 0 01-.698-.715l.054-4.782-4.118 4.118a.689.689 0 01-.976-.012l-.659-.66a.689.689 0 01-.012-.975l4.118-4.118-4.782.054a.707.707 0 01-.715-.698l-.011-.903a.666.666 0 01.68-.68z"
+      />
+       
+    </svg>
   </button>
    
   <div
@@ -488,7 +558,18 @@ exports[`RippleStoryshots Organisms/ImageGallery Image Gallery 1`] = `
       aria-label="Go to next slide"
       class="rpl-image-gallery__thumbnail-navigation-button rpl-image-gallery__thumbnail-navigation-button--next"
     >
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-image-gallery__thumbnail-navigation-icon rpl-icon rpl-icon--arrow_right_secondary rpl-icon--color_white"
+        overflow="visible"
+        style="width: 18px; height: 33px;"
+        viewBox="0 0 12 22"
+      >
+        <path
+          d="M1.253 2.664a1 1 0 111.494-1.328l8 9a1 1 0 010 1.328l-8 9a1 1 0 01-1.494-1.328L8.662 11l-7.41-8.336z"
+        />
+         
+      </svg>
     </button>
   </div>
    

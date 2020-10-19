@@ -48,7 +48,18 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         <span
           class="rpl-list__icon"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--map_marker rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 12px; height: 16px;"
+            viewBox="0 0 12 16"
+          >
+            <path
+              d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+            />
+             
+          </svg>
         </span>
          
         <a
@@ -69,7 +80,18 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         <span
           class="rpl-list__icon"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--phone_number rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 11.998px; height: 11.998px;"
+            viewBox="0 0 14 14"
+          >
+            <path
+              d="M13.738 10.68l-2.317-2.33a.899.899 0 00-1.272-.001l-2.06 2.058-4.494-4.492 2.062-2.06a.899.899 0 00.001-1.27L3.339.263a.9.9 0 00-1.272 0L.004 2.325 0 2.322C0 8.772 5.231 14 11.684 14l2.053-2.05a.897.897 0 00.001-1.27z"
+            />
+             
+          </svg>
         </span>
          
         <a
@@ -90,7 +112,18 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         <span
           class="rpl-list__icon"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--phone_number rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 11.998px; height: 11.998px;"
+            viewBox="0 0 14 14"
+          >
+            <path
+              d="M13.738 10.68l-2.317-2.33a.899.899 0 00-1.272-.001l-2.06 2.058-4.494-4.492 2.062-2.06a.899.899 0 00.001-1.27L3.339.263a.9.9 0 00-1.272 0L.004 2.325 0 2.322C0 8.772 5.231 14 11.684 14l2.053-2.05a.897.897 0 00.001-1.27z"
+            />
+             
+          </svg>
         </span>
          
         <a
@@ -111,7 +144,18 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         <span
           class="rpl-list__icon"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--email_solid rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 13px; height: 9.75px;"
+            viewBox="0 0 20 15"
+          >
+            <path
+              d="M1 0a1 1 0 00-1 1v13c0 .554.447 1 1 1h18a1 1 0 001-1V1a1 1 0 00-1-1H1zm16 2.999V5l-7 3.022L3 5V2.999L10 6l7-3.001z"
+            />
+             
+          </svg>
         </span>
          
         <a
@@ -132,7 +176,18 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         <span
           class="rpl-list__icon"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--facebook rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 8px; height: 16px;"
+            viewBox="0 0 8 16"
+          >
+            <path
+              d="M2.223 16V8.844H0V6h2.223V3.76C2.223 1.324 3.603 0 5.617 0 6.582 0 7.41.078 7.65.113v2.543H6.254c-1.095 0-1.307.563-1.307 1.385V6H7.42l-.34 2.844H4.947V16"
+            />
+             
+          </svg>
         </span>
          
         <a
@@ -153,7 +208,18 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         <span
           class="rpl-list__icon"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--twitter rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 12.96px; height: 10.530000000000001px;"
+            viewBox="0 0 16 13"
+          >
+            <path
+              d="M14.355 3.19c.01.14.01.28.01.42 0 4.27-3.299 9.19-9.33 9.19A9.37 9.37 0 010 11.35c.264.03.518.04.792.04 1.533 0 2.944-.51 4.071-1.38-1.442-.03-2.65-.96-3.066-2.24.203.03.406.05.62.05.294 0 .588-.04.862-.11C1.777 7.41.65 6.11.65 4.54V4.5c.437.24.945.39 1.483.41A3.215 3.215 0 01.67 2.22c0-.6.162-1.15.447-1.63a9.369 9.369 0 006.761 3.38c-.05-.24-.081-.49-.081-.74 0-1.78 1.462-3.23 3.28-3.23.943 0 1.796.39 2.395 1.02a6.516 6.516 0 002.081-.78 3.23 3.23 0 01-1.441 1.78c.66-.07 1.3-.25 1.888-.5a6.992 6.992 0 01-1.645 1.67z"
+            />
+             
+          </svg>
         </span>
          
         <a
@@ -174,7 +240,18 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         <span
           class="rpl-list__icon"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--linkedin rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 11.34px; height: 11.34px;"
+            viewBox="0 0 14 14"
+          >
+            <path
+              d="M3.134 13.611H.23V4.524h2.903v9.087zM1.68 3.284C.753 3.284 0 2.537 0 1.634 0 .733.753 0 1.68 0c.929 0 1.682.732 1.682 1.635 0 .902-.753 1.65-1.681 1.65zm12.316 10.327H11.1V9.187c0-1.054-.022-2.406-1.51-2.406-1.508 0-1.74 1.146-1.74 2.33v4.5H4.952V4.524h2.784v1.24h.04c.388-.715 1.334-1.468 2.747-1.468C13.46 4.296 14 6.176 14 8.619v4.992h-.003z"
+            />
+             
+          </svg>
         </span>
          
         <a
@@ -195,7 +272,23 @@ exports[`RippleStoryshots Molecules/Contact Default 1`] = `
         <span
           class="rpl-list__icon"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--instagram rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 12.96px; height: 13.770000000000001px;"
+            viewBox="0 0 16 17"
+          >
+            <path
+              d="M4.702 8.977a3.274 3.274 0 116.548 0 3.274 3.274 0 01-6.548 0z"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M4.649 16.812h6.683c2.556 0 4.648-2.142 4.648-4.76V4.76C15.98 2.142 13.888 0 11.331 0H4.65C2.092 0 0 2.142 0 4.76v7.292c0 2.618 2.092 4.76 4.649 4.76zM12.5 2.472a1 1 0 110 2 1 1 0 010-2zM8 13.973a5 5 0 100-10 5 5 0 000 10z"
+              fill-rule="evenodd"
+            />
+             
+          </svg>
         </span>
          
         <a

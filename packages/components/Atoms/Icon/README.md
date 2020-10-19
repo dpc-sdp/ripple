@@ -25,7 +25,7 @@ npm install @dpc-sdp/ripple-icon --save
 ## Import
 
 ```js
-import { RplIcon, RplTextIcon, addCustomIcons } from '@dpc-sdp/ripple-icon'
+import { RplIcon, RplTextIcon } from '@dpc-sdp/ripple-icon'
 ```
 
 --------------------------------------------------------------------------------

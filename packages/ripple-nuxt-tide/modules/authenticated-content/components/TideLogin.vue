@@ -123,7 +123,7 @@ export default {
           formOptions,
           messages: {
             success: 'Thank you. Your registration request has been sent. It will be reviewed within 1 business day. You will receive an email when you get access.',
-            error: 'We are experiencing a server error. Please try again, otherwise contact us.'
+            error: "An error occurred and we're unable to create your account. If you already have an account, please use the reset password feature to update your password."
           },
           formState: {}
         },

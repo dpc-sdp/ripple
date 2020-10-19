@@ -46,9 +46,9 @@ module.exports = {
       height: mediaImage.meta.height
     })
     if (card.field_featured_image) {
-      return getCardImage(card.field_featured_image.field_media_image)
+      return card.field_featured_image.field_media_image ? getCardImage(card.field_featured_image.field_media_image) : null
     } else {
-      return getCardImage(card.field_media_image)
+      return card.field_media_image ? getCardImage(card.field_media_image) : null
     }
   },
 

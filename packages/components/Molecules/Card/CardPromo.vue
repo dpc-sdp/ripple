@@ -88,7 +88,7 @@ export default {
           return this.date
         } else if (typeof this.date === 'object' && this.date.hasOwnProperty('from')) {
           if (this.date.to) {
-            return this.formatDateRange(this.date.from, this.date.to)
+            return this.formatDateRange(this.date.from, this.date.to, { day: 'DD', month: 'MMM', year: 'YYYY' })
           }
           return this.formatDate(this.date.from)
         }
@@ -128,11 +128,12 @@ export default {
   $rpl-card-promotion-bg-color: rpl_color('white');
   $rpl-card-promo-min-height: rem(400px);
   $rpl-card-promo-meta-margin: 0 0 $rpl-space-3 0 !default;
-  $rpl-card-promo-meta-ruleset: ('xxs', 1em, 'medium') !default;
+  $rpl-card-promo-meta-ruleset: ('xs', 1em, 'medium') !default;
   $rpl-card-promo-meta-text-color: rpl_color('dark_neutral') !default;
   $rpl-card-promo-date-padding: $rpl-space $rpl-space-2 !default;
+  $rpl-card-promo-tag-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-promo-tag-bg-color: rpl_color('light_neutral') !default;
-  $rpl-card-promo-tag-padding: $rpl-space;
+  $rpl-card-promo-tag-padding: $rpl-space $rpl-space-2;
   $rpl-card-promo-link-color: rpl_color('extra_dark_neutral') !default;
   $rpl-card-promo-link-color-hover: rpl_color('primary') !default;
   $rpl-card-promo-title-ruleset: ('l', 1.2em, 'bold') !default;
@@ -206,8 +207,8 @@ export default {
 
     &__tag {
       @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
-      display: inline;
-      color: $rpl-card-promo-meta-text-color;
+      display: inline-block;
+      color: $rpl-card-promo-tag-color;
       background-color: $rpl-card-promo-tag-bg-color;
       text-transform: capitalize;
       padding: $rpl-card-promo-tag-padding;

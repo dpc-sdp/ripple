@@ -34,10 +34,10 @@ export const getQueryParams = (settings) => {
     const carouselLimit = 9
 
     if (settings.display) {
-      if (settings.display.type === 'grid' && settings.display.items) {
-        queryParams.limit = settings.display.items
-      } else if (settings.display.items && settings.display.items !== 0 && settings.display.items < carouselLimit) {
-        queryParams.limit = settings.display.items
+      if (settings.display.type === 'grid' && settings.display.items_per_page) {
+        queryParams.limit = settings.display.items_per_page
+      } else if (settings.display.items_per_page && settings.display.items_per_page !== 0 && settings.display.items_per_page < carouselLimit) {
+        queryParams.limit = settings.display.items_per_page
       } else {
         queryParams.limit = carouselLimit
       }

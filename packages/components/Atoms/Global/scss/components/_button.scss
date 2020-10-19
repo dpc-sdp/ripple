@@ -58,7 +58,9 @@
   }
 
   &:active {
-    @include rpl_text_color($rpl-button-active-text-color);
+    @include rpl_text_color($rpl-button-primary-active-text-color);
+    background-color: $rpl-button-primary-active-background-color;
+    background-image: $rpl-button-primary-active-background-image;
   }
 }
 

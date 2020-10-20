@@ -74,6 +74,7 @@ module.exports = {
             }
 
             if (item.type && item.type.length > 0) {
+              // Add mapping for each content type
               switch (item.type[0]) {
                 case 'event':
                   return {
@@ -101,7 +102,12 @@ module.exports = {
                     tag: undefined,
                     topic: getField(item, ['field_topic_name'])
                   }
-                // TODO: Add all profile types here
+                case 'fv_recommendation':
+                  return {
+                    ...result,
+                    tag: 'Recommendation'
+                  }
+                // Add all profile types here
                 case 'profile':
                 case 'aboriginal_honour_roll':
                 case 'sr_profile':

@@ -1,6 +1,6 @@
 import get from 'lodash.get'
-import { getTermsFilter, getPagination } from '@dpc-sdp/ripple-tide-search-api/services/template-utils'
-import { getFilterTodayConditions, getIncludesByType } from './lib/card-collection-utils'
+import { getTermsFilter, getPagination, getField } from '@dpc-sdp/ripple-tide-search-api/services/template-utils'
+import { getFilterTodayConditions } from './lib/card-collection-utils'
 import { truncateText, capitalize } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import calcStatus from '@dpc-sdp/ripple-grants/grants-status.js'
 
@@ -49,7 +49,6 @@ module.exports = {
           }
         },
         sort,
-        _source: getIncludesByType(params.type),
         ...getPagination(params)
       }
 
@@ -63,12 +62,13 @@ module.exports = {
           results: hits.map(hit => {
             const item = hit._source
             const result = {
-              uuid: get(item, ['uuid', 0], ''),
-              title: get(item, ['title', 0], ''),
-              summary: truncateText(get(item, ['field_landing_page_summary', 0], ''), 200),
-              image: get(item, ['field_media_image_absolute_path', 0], ''),
+              uuid: getField(item, ['uuid']),
+              title: getField(item, ['title']),
+              tag: capitalize(getField(item, ['type']).replace('_', ' ')),
+              summary: truncateText(getField(item, ['field_landing_page_summary', 'field_page_intro_text', 'summary_processed', 'body']), 200),
+              image: getField(item, ['field_media_image_absolute_path']),
               link: {
-                url: get(item, ['field_node_link', 0], get(item, ['url', 0], '')),
+                url: getField(item, ['field_node_link', 'url']),
                 text: ''
               }
             }
@@ -78,37 +78,28 @@ module.exports = {
                 case 'event':
                   return {
                     ...result,
-                    tag: capitalize(get(item, ['type', 0], '')),
                     date: {
-                      from: get(item, ['field_event_date_start_value', 0], ''),
-                      to: get(item, ['field_event_date_end_value', 0], '')
+                      from: getField(item, ['field_event_date_start_value']),
+                      to: getField(item, ['field_event_date_end_value'])
                     }
-                  }
-                case 'news':
-                  return {
-                    ...result,
-                    tag: capitalize(get(item, ['type', 0], '')),
-                    summary: truncateText(get(item, ['field_event_intro_text', 0], get(item, ['body', 0], '')))
                   }
                 case 'grant':
                   return {
                     ...result,
-                    tag: capitalize(get(item, ['type', 0], '')),
-                    status: calcStatus(get(item, ['field_node_dates_start_value', 0]), get(item, ['field_node_dates_end_value', 0], ''), false),
-                    summary: truncateText(get(item, ['field_landing_page_summary', 0], get(item, ['body', 0], '')))
+                    status: calcStatus(getField(item, ['field_node_dates_start_value', 'field_node_dates_end_value'], false))
                   }
                 case 'publication':
                   return {
                     ...result,
-                    tag: capitalize(get(item, ['type', 0], '')),
                     date: {
-                      from: get(item, ['field_publication_date', 0], '')
+                      from: getField(item, ['field_publication_date'])
                     }
                   }
                 case 'landing_page':
                   return {
                     ...result,
-                    topic: get(item, ['field_topic_name', 0], '')
+                    tag: undefined,
+                    topic: getField(item, ['field_topic_name'])
                   }
                 // TODO: Add all profile types here
                 case 'profile':
@@ -120,8 +111,8 @@ module.exports = {
                     ...result,
                     tag: 'Profile',
                     variation: 'profile',
-                    summary: get(item, ['field_profile_intro_text', 0], get(item, ['field_landing_page_summary', 0], '')),
-                    date: get(item, ['field_year', 0], '')
+                    summary: getField(item, ['field_profile_intro_text', 'field_landing_page_summary']),
+                    date: getField(item, ['field_year'])
                   }
                 default:
                   return result

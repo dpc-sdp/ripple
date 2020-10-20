@@ -97,6 +97,7 @@ export default {
     }
     if (this.sidebar) {
       this.cols.l = 6
+      this.cols.xxxl = 4
     }
   },
   computed: {

@@ -64,7 +64,6 @@ module.exports = {
             const result = {
               uuid: getField(item, ['uuid']),
               title: getField(item, ['title']),
-              tag: capitalize(getField(item, ['type']).replace('_', ' ')),
               summary: truncateText(getField(item, ['field_landing_page_summary', 'field_page_intro_text', 'summary_processed', 'body']), 200),
               image: getField(item, ['field_media_image_absolute_path']),
               link: {
@@ -72,13 +71,14 @@ module.exports = {
                 text: ''
               }
             }
-
             if (item.type && item.type.length > 0) {
               // Add mapping for each content type
+              const tag = capitalize(getField(item, ['type']).replace('_', ' '))
               switch (item.type[0]) {
                 case 'event':
                   return {
                     ...result,
+                    tag,
                     date: {
                       from: getField(item, ['field_event_date_start_value']),
                       to: getField(item, ['field_event_date_end_value'])
@@ -87,11 +87,19 @@ module.exports = {
                 case 'grant':
                   return {
                     ...result,
+                    tag,
                     status: calcStatus(getField(item, ['field_node_dates_start_value', 'field_node_dates_end_value'], false))
+                  }
+                case 'news':
+                  return {
+                    ...result,
+                    tag
+                    // TODO : field_news_date needs to be indexed and displayed here
                   }
                 case 'publication':
                   return {
                     ...result,
+                    tag,
                     date: {
                       from: getField(item, ['field_publication_date'])
                     }
@@ -99,7 +107,6 @@ module.exports = {
                 case 'landing_page':
                   return {
                     ...result,
-                    tag: undefined,
                     topic: getField(item, ['field_topic_name'])
                   }
                 case 'fv_recommendation':

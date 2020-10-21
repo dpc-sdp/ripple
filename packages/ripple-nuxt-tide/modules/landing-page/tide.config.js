@@ -373,6 +373,20 @@ module.exports = {
         }
       },
 
+      'paragraph--automated_card_listing': {
+        component: 'automated-card-listing',
+        props: {
+          title: 'field_paragraph_title',
+          cardCtaText: 'field_paragraph_cta_text',
+          config: ['field_paragraph_auto_listing'],
+          ctaLink: {
+            field: 'field_paragraph_cta',
+            filters: ['paragraphCta']
+          }
+        },
+        childCols: cardColsSetting
+      },
+
       'paragraph--form_embed_openforms': {
         component: 'tide-open-form',
         props: {

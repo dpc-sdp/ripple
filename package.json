@@ -8,6 +8,7 @@
       "packages/components/**/*",
       "packages/ripple-nuxt-tide",
       "packages/ripple-nuxt-ui",
+      "packages/ripple-tide-search-api",
       "packages/create-ripple-app",
       "packages/ripple-test-tools",
       "examples/*",

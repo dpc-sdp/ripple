@@ -1,0 +1,43 @@
+- entity: node
+  type: landing_page
+  title: Test listing
+  status: 1
+  moderation_state:
+    - '#process':
+        callback: reference
+        args:
+          - content_moderation_state
+          - workflow: editorial
+            moderation_state: published
+  # Page header.
+  field_landing_page_summary: 5-BE-land-3  Landing Page - Complete Test - Complete Test Summary. Outside thundered the approaching surf of war and they conducted their quilted pantomime outside time and action.
+  field_landing_page_component:
+    - entity: paragraph
+      type: automated_card_listing
+      field_paragraph_title: 'test'
+      field_paragraph_auto_listing:
+        content_type: 'event'
+
+  # Topic and Tags.
+  field_topic:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: topic
+            name: 'Equality'
+  # Sites.
+  field_node_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'
+  field_node_primary_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'

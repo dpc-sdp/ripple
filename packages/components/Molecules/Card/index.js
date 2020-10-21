@@ -1,3 +1,4 @@
+import RplCard from './Card.vue'
 import RplCardImageNavigation from './CardImageNavigation.vue'
 import RplCardNavigation from './CardNavigation.vue'
 import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
@@ -11,6 +12,7 @@ import RplCardHonourRoll from './CardHonourRoll.vue'
 import RplCardProfile from './CardProfile.vue'
 import RplCardCarousel from './CardCarousel.vue'
 
+export { RplCard }
 export { RplCardImageNavigation }
 export { RplCardNavigation }
 export { RplCardNavigationFeatured }

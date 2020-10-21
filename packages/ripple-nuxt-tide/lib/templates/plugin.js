@@ -1,4 +1,4 @@
-import { tide, Mapping } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
+import { tide, Mapping, TideSearchApi } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 import { serverSetProperties } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 
 export default ({ app, req, store , route }, inject) => {
@@ -15,6 +15,21 @@ export default ({ app, req, store , route }, inject) => {
   // -> this.$tide in store actions/mutations
   const tideService = tide(app.$axios, options.site, config)
   inject('tide', tideService)
+  const getBaseUrl = () => {
+    const apiRoot = '/search-api/v2/'
+    if (process.env.SEARCH_API_BASE_URL) {
+      return process.env.SEARCH_API_BASE_URL
+    }
+    if (req) {
+      return req.protocol + '://' + req.headers.host + apiRoot
+    } else if (typeof window !== 'undefined') {
+      return window.location.origin + apiRoot
+    }
+  }
+  inject('tideSearchApi', new TideSearchApi({
+    client: app.$axios,
+    baseUrl: getBaseUrl()
+  }))
   inject('tideMapping', new Mapping(config, tideService))
 
   // Register Tide Vuex module

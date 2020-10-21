@@ -100,8 +100,16 @@ export default {
       return ['More than ' + field.max + ' selections are not allowed']
     }
   },
+  watch: {
+    'formData.model': {
+      handler: function (newModel, oldModel) {
+        RplFormEventBus.$emit('updated', newModel)
+        return newModel
+      },
+      deep: true
+    }
+  },
   methods: {
-
     hideForm () {
       if (this.formData.formState.response) {
         return !(this.hideAfterSuccess && this.formData.formState.response.status === 'success')

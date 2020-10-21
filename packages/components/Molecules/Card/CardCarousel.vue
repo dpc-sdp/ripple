@@ -36,9 +36,11 @@ import catchChildError from '@dpc-sdp/ripple-global/mixins/catch-child-error'
 import { RplDevError } from '@dpc-sdp/ripple-global'
 
 import RplIcon from '@dpc-sdp/ripple-icon'
+import RplCard from './Card.vue'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardEvent from './CardEvent.vue'
 import RplCardKeydates from './CardKeydates.vue'
+import CardAutomatedListing from './CardAutomated.vue'
 // TODO: Add future card components
 
 export default {
@@ -58,9 +60,11 @@ export default {
   },
   components: {
     RplIcon,
+    RplCard,
     RplCardPromotion,
     RplCardEvent,
     RplCardKeydates,
+    CardAutomatedListing,
     RplDevError,
     Carousel: () => import('vue-carousel').then(m => m.Carousel),
     Slide: () => import('vue-carousel').then(m => m.Slide)
@@ -186,6 +190,7 @@ export default {
     }
 
     &__slide-wrap {
+      height: 100%;
       @include rpl_breakpoint('m') {
         margin-left: $rpl-card-carousel-slide-gutter / 2;
         margin-right: $rpl-card-carousel-slide-gutter / 2;

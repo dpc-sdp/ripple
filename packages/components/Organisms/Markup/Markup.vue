@@ -116,6 +116,9 @@ $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
   }
 
   &__inner {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
     > h2:first-child {
       margin-top: 0;
     }

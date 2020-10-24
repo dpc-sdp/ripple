@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import RplCardContent from './CardContent.vue'
 import RplCardImageNavigation from './CardImageNavigation.vue'
 import RplCardNavigation from './CardNavigation.vue'
+import RplCardNavigationV2 from './CardNavigationV2.vue'
 import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
@@ -43,6 +44,47 @@ storiesOf('Molecules/Card/Card Navigation', module)
       },
       link: {
         default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+
+storiesOf('Molecules/Card/Card Navigation V2', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { RplCardNavigationV2 },
+    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :image="image" :author="author" />`,
+    props: {
+      title: {
+        default: text('Title', 'First navigation card')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      },
+      image: {
+        default: object('Image', {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: 304,
+          height: 199
+        })
+      },
+      tag: {
+        default: text('Tag', 'Event')
+      },
+      date: {
+        default: text('Date', '2020-03-23T09:00:00.000+10:00')
+      },
+      author: {
+        default: text('Author', 'John Doe')
+      },
+      status: {
+        default: text('Status', 'Open')
       }
     }
   }))

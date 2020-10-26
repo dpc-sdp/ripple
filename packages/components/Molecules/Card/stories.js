@@ -12,6 +12,7 @@ import RplCardEmergencyContact from './CardEmergencyContact.vue'
 import RplCardBox from './CardBox.vue'
 import RplCardProfile from './CardProfile.vue'
 import RplCardCarousel from './CardCarousel.vue'
+import RplCardPromo from './CardPromo.vue'
 
 import {
   withKnobs,
@@ -446,6 +447,120 @@ storiesOf('Molecules/Card/Card Content (base)', module)
       },
       content: {
         default: text('HTML content', '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>')
+      }
+    }
+  }))
+
+storiesOf('Molecules/Card/Card Promotion - V2', module)
+  .addDecorator(withKnobs)
+  .add('With Image', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :tag="tag" :topic="topic" />`,
+    props: {
+      image: {
+        default: text('Image', 'https://images.unsplash.com/photo-1602699121297-81f2312fa4e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80')
+      },
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', '')
+      },
+      topic: {
+        default: text('Topic', 'Arts, Culture and Humanities')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+  .add('Event', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :date="date" />`,
+    props: {
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', 'Event')
+      },
+      date: {
+        default: () => object('date', { from: new Date('02 July 2020'), to: new Date('25 September 2020') })
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+  .add('Grant', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :status="status" />`,
+    props: {
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', 'Grant')
+      },
+      status: {
+        default: () => select('Status', { open: 'Open', closed: 'Closed', ongoing: 'Ongoing' }, 'open')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+  .add('Landing Page', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :topic="topic" />`,
+    props: {
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', '')
+      },
+      topic: {
+        default: text('Topic', 'Arts, Culture and Humanities')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+  .add('Profile', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :image="image" variation="profile" :topic="topic" />`,
+    props: {
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', 'Profile')
+      },
+      image: {
+        default: text('Image', 'https://s3.amazonaws.com/uifaces/faces/twitter/yecidsm/128.jpg')
+      },
+      topic: {
+        default: text('date', '02 July 2020')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
       }
     }
   }))

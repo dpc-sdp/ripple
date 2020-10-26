@@ -7,7 +7,8 @@ const tideConfig = {
     'example-content-type',
     'example-override-component',
     'example-override-mapping',
-    'example-search'
+    'example-search',
+    'example-search-template'
   ]
 }
 

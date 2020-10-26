@@ -115,6 +115,6 @@ const truncateText = (text, stop = 150, clamp) => {
   return ''
 }
 
-export const capitalize = (str) => `${str.charAt(0).toUpperCase() + str.slice(1)}`
+export const capitalize = (str) => typeof str === 'string' && str.length > 0 ? `${str.charAt(0).toUpperCase() + str.slice(1)}` : ''
 
 export { isRelativeUrl, isExternalUrl, isAnchorLink, getAnchorLinkName, formatMoney, isClient, truncateText, decodeSpecialCharacters }

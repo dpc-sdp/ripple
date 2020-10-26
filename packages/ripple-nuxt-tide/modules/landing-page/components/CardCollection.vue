@@ -115,11 +115,6 @@ export default {
     minResults () {
       return get(this.config, ['results', 'min'], 1)
     },
-    contentType () {
-      if (this.config) {
-        return get(this.config, 'content_type', 'all')
-      }
-    },
     cards () {
       if (this.results.length > 0) {
         return this.results.map(item => {

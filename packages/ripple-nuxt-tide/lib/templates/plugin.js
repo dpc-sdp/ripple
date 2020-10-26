@@ -16,7 +16,7 @@ export default ({ app, req, store , route }, inject) => {
   const tideService = tide(app.$axios, options.site, config)
   inject('tide', tideService)
   const getBaseUrl = () => {
-    const apiRoot = '/search-api/v2/'
+    const apiRoot = options.searchApi ? `/${options.searchApi.apiBase}/${options.searchApi.apiVersion}` : '/search-api/v2/'
 
     if (process.env.SEARCH_API_BASE_URL) {
       return process.env.SEARCH_API_BASE_URL + apiRoot
@@ -27,10 +27,12 @@ export default ({ app, req, store , route }, inject) => {
       return window.location.origin + apiRoot
     }
   }
-  inject('tideSearchApi', new TideSearchApi({
-    client: app.$axios,
-    baseUrl: getBaseUrl()
-  }))
+  if (options.searchApi) {
+    inject('tideSearchApi', new TideSearchApi({
+      client: app.$axios,
+      baseUrl: getBaseUrl()
+    }))
+  }
   inject('tideMapping', new Mapping(config, tideService))
 
   // Register Tide Vuex module

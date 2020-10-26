@@ -9,22 +9,22 @@
     }
   ],
   "scripts": {
-    "start": "nodemon --exec babel-node --presets @babel/preset-env server.js",
-    "debug": "nodemon --inspect --exec babel-node --presets @babel/preset-env server.js"
+    "start": "nodemon --exec babel-node server.js",
+    "debug": "nodemon --inspect --exec babel-node server.js"
   },
   "main": "index.js",
   "dependencies": {
     "@elastic/elasticsearch": "^7.8.0",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "lodash.get": "^4.4.2",
-    "nodemon": "^2.0.4",
     "qs": "^6.9.4"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
+    "nodemon": "^2.0.4",
+    "dotenv": "^8.2.0",
     "@babel/core": "^7.10.2",
     "@babel/node": "^7.10.1",
     "@babel/preset-env": "^7.10.2",

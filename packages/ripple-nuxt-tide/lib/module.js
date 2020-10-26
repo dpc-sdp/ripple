@@ -69,26 +69,13 @@ const nuxtTide = function (moduleOptions) {
     this.addServerMiddleware(basicAuth)
   }
 
-  this.addServerMiddleware(tideSearchApiMiddleware({
-    apiBase: 'search-api',
-    version: 'v2',
-    templates: options.tideSearchTemplates,
-    log: {
-      level: process.env.SEARCH_LOG
-    },
-    tide: {
-      site: 4,
-      search: {
-        service: process.env.SEARCH_SERVICE,
-        index: process.env.SEARCH_INDEX,
-        url: 'https://' + process.env.SEARCH_HASH + '.' + process.env.SEARCH_URL,
-        auth: {
-          username: process.env.SEARCH_AUTH_USERNAME,
-          password: process.env.SEARCH_AUTH_PASSWORD
-        }
-      }
-    }
-  }))
+  if (options.searchApi) {
+    this.addServerMiddleware(tideSearchApiMiddleware({
+      templates: options.searchTemplates,
+      tide: options,
+      ...options.searchApi
+    }))
+  }
 
   this.addModule('@dpc-sdp/ripple-nuxt-ui', true)
 

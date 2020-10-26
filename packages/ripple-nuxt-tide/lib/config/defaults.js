@@ -14,7 +14,7 @@ const defaults = {
   dynamicComponents: [], // Dynamic components importing for Tide mapping.
   middleware: [],
   markupPlugins: [],
-  tideSearchTemplates: {},
+  searchTemplates: {},
   modules: {
     site: 0,
     page: 0,

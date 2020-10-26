@@ -33,13 +33,14 @@ const customConfigs = {
       configGroups.customModule
     ]
   },
-  tideSearchTemplates: {
+  searchTemplates: {
     filename: 'tide.search-template',
     type: Object,
     merge: true,
     groups: [
-      configGroups.coreModule,
-      configGroups.customModule
+      configGroups.customRoot,
+      configGroups.customModule,
+      configGroups.coreModule
     ]
   },
   extendFilters: {

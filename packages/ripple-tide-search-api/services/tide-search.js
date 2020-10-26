@@ -1,5 +1,7 @@
 import { Client } from '@elastic/elasticsearch'
+import { responseMappingByType } from './template-utils'
 import coreTemplates from './templates'
+import get from 'lodash.get'
 
 export default class SearchApi {
   constructor (config) {
@@ -28,8 +30,8 @@ export default class SearchApi {
       ...coreTemplates,
       ...customTemplates
     }
-
-    if (config.log && config.log.level === 'trace') {
+    const logLevel = get(config, ['tide', 'search', 'log'])
+    if (logLevel === 'trace') {
       this.client.on('response', (error, result) => {
         const { id } = result.meta.request
         // TODO - this should be logged somewhere
@@ -63,30 +65,32 @@ export default class SearchApi {
     }
   }
 
-  async mapResults (res, templateName, debug = false) {
-    if (this.templates.hasOwnProperty(templateName) && this.templates[templateName].hasOwnProperty('responseMapping')) {
-      if (this.templates[templateName].responseMapping.constructor.name === 'AsyncFunction') {
-        const response = await this.templates[templateName].responseMapping(res)
-        return response
-      } else if (typeof this.templates[templateName].responseMapping === 'function') {
-        return this.templates[templateName].responseMapping(res)
-      }
-    }
-    return {
+  async mapResults (res, templateName) {
+    const returnData = {
       total: res.hits.total,
-      results: res.hits.hits.map(hit => {
-        if (debug) {
-          return hit
-        }
-        return {
-          _id: hit._id,
-          _score: hit._score,
-          _matched: hit.matched_queries,
-          ...hit._source
-        }
-      }),
+      results: [],
       aggregations: res.aggregations
     }
+    if (res.hits && res.hits.hits && res.hits.hits.length > 0) {
+      for (let i = 0; i < res.hits.hits.length; i++) {
+        const hit = res.hits.hits[i]._source
+        let result = res.hits.hits[i]
+        if (this.templates.hasOwnProperty(templateName)) {
+          const template = this.templates[templateName]
+          if (template.hasOwnProperty('responseMapping')) {
+            if (template.responseMapping.constructor.name === 'AsyncFunction') {
+              result = await template.responseMapping(hit)
+            } else if (typeof template.responseMapping === 'function') {
+              result = template.responseMapping(hit)
+            } else if (typeof template.responseMapping === 'object') {
+              result = await responseMappingByType(template.responseMapping, hit)
+            }
+          }
+        }
+        returnData.results.push(result)
+      }
+    }
+    return returnData
   }
 
   getHeaders (reqHeaders) {

@@ -125,8 +125,8 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/card";
-  $rpl-card-promotion-bg-color: rpl_color('white');
-  $rpl-card-promo-min-height: rem(400px);
+  $rpl-card-promotion-bg-color: rpl_color('white') !default;
+  $rpl-card-promo-min-height: rem(400px) !default;
   $rpl-card-promo-meta-margin: 0 0 $rpl-space-3 0 !default;
   $rpl-card-promo-meta-ruleset: ('xs', 1em, 'medium') !default;
   $rpl-card-promo-meta-text-color: rpl_color('dark_neutral') !default;
@@ -141,7 +141,7 @@ export default {
   $rpl-card-promo-title-margin: 0 0 $rpl-space-3 0 !default;
   $rpl-card-promo-summary-ruleset: ('xs', 1.5em, 'regular') !default;
   $rpl-card-promo-summary-text-color: rpl_color('extra_dark_neutral') !default;
-  $rpl-card-promo-content-padding: $rpl-space-4;
+  $rpl-card-promo-content-padding: $rpl-space-4 !default;
   $rpl-card-promo-border-color: rpl_color('mid_neutral_1') !default;
   $rpl-card-promo-border: 1px solid $rpl-card-promo-border-color !default;
   $rpl-card-promo-border-radius: 4px !default;

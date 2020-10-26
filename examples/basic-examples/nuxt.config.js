@@ -66,7 +66,8 @@ export default {
   ripple: {
     card: {
       trimFieldfonts: ['Oswald']
-    }
+    },
+    customIcon: true
   },
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,

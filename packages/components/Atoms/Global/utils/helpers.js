@@ -34,7 +34,10 @@ const isAnchorLink = (url) => {
 }
 
 const getAnchorLinkName = (str) => {
-  return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[^a-zA-Z0-9\s]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
+  // Anchorlink should support any unicode characters.
+  // But as anchorlink need to be used in URL, we strip out some special characters.
+  // https://developers.google.com/maps/documentation/urls/url-encoding
+  return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[_.~"<>%|'!*();:@&=+$,/?%#[\]{}\n`^\\]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
 }
 
 const formatMoney = (value) => {

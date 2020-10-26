@@ -51,7 +51,18 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             data-print-url="tel:0000"
             href="tel:0000"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--phone_number rpl-icon--color_primary"
+              overflow="visible"
+              style="width: 14.700000000000001px; height: 14.700000000000001px;"
+              viewBox="0 0 14 14"
+            >
+              <path
+                d="M13.738 10.68l-2.317-2.33a.899.899 0 00-1.272-.001l-2.06 2.058-4.494-4.492 2.062-2.06a.899.899 0 00.001-1.27L3.339.263a.9.9 0 00-1.272 0L.004 2.325 0 2.322C0 8.772 5.231 14 11.684 14l2.053-2.05a.897.897 0 00.001-1.27z"
+              />
+               
+            </svg>
              
             <span
               class="rpl-card-emergency__cta-link-text"
@@ -106,7 +117,18 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             data-print-url="tel:000"
             href="tel:000"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--phone_number rpl-icon--color_primary"
+              overflow="visible"
+              style="width: 14.700000000000001px; height: 14.700000000000001px;"
+              viewBox="0 0 14 14"
+            >
+              <path
+                d="M13.738 10.68l-2.317-2.33a.899.899 0 00-1.272-.001l-2.06 2.058-4.494-4.492 2.062-2.06a.899.899 0 00.001-1.27L3.339.263a.9.9 0 00-1.272 0L.004 2.325 0 2.322C0 8.772 5.231 14 11.684 14l2.053-2.05a.897.897 0 00.001-1.27z"
+              />
+               
+            </svg>
              
             <span
               class="rpl-card-emergency__cta-link-text"
@@ -161,7 +183,18 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             data-print-url="/home"
             href="/home"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary"
+              overflow="visible"
+              style="width: 13.65px; height: 12.600000000000001px;"
+              viewBox="0 0 13 12"
+            >
+              <path
+                d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+              />
+               
+            </svg>
              
             <span
               class="rpl-card-emergency__cta-link-text"
@@ -210,7 +243,18 @@ exports[`RippleStoryshots Molecules/Card/Card Box Default 1`] = `
             data-print-url="http://google.com"
             href="http://google.com"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--external_link rpl-icon--color_primary"
+              overflow="visible"
+              style="width: 14.700000000000001px; height: 14.700000000000001px;"
+              viewBox="0 0 14 14"
+            >
+              <path
+                d="M14 1.54v11.062C14 13.3 13.3 14 12.46 14H1.54C.7 14 0 13.3 0 12.46V1.54C0 .7.7 0 1.54 0h11.062C13.3 0 14 .7 14 1.54zm-2.8.42H7.7c-.56 0-.981.84-.419 1.259l.98.98-6.16 6.16a.428.428 0 000 .563l.977.976c.14.141.422.141.563 0l6.16-6.16.98.98c.418.563 1.258.141 1.258-.417V2.8c0-.422-.418-.84-.84-.84z"
+              />
+               
+            </svg>
              
             <span
               class="rpl-card-emergency__cta-link-text"
@@ -305,7 +349,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                   <p
                     class="rpl-card-event__location"
                   >
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-icon rpl-icon--map_marker rpl-icon--color_secondary"
+                      overflow="visible"
+                      style="width: 9px; height: 12px;"
+                      viewBox="0 0 12 16"
+                    >
+                      <path
+                        d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+                      />
+                       
+                    </svg>
                     South Yarra
                   </p>
                    
@@ -324,7 +379,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-text-icon__group"
                     >
                        details
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                        overflow="visible"
+                        style="width: 9.1px; height: 8.399999999999999px;"
+                        viewBox="0 0 13 12"
+                      >
+                        <path
+                          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                        />
+                         
+                      </svg>
                     </span>
                   </span>
                 </div>
@@ -362,7 +428,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <div
                       class="rpl-card-keydates__keydate-date"
                     >
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+                        overflow="visible"
+                        style="width: 18px; height: 18px;"
+                        viewBox="0 0 18 18"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                          fill-rule="evenodd"
+                        />
+                         
+                      </svg>
                        
                       <span>
                         3 April
@@ -387,7 +466,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <div
                       class="rpl-card-keydates__keydate-date"
                     >
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+                        overflow="visible"
+                        style="width: 18px; height: 18px;"
+                        viewBox="0 0 18 18"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                          fill-rule="evenodd"
+                        />
+                         
+                      </svg>
                        
                       <span>
                         23 April
@@ -422,7 +514,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-text-icon__group"
                     >
                        calendar
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                        overflow="visible"
+                        style="width: 9.1px; height: 8.399999999999999px;"
+                        viewBox="0 0 13 12"
+                      >
+                        <path
+                          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                        />
+                         
+                      </svg>
                     </span>
                   </span>
                 </div>
@@ -500,7 +603,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-text-icon__group"
                     >
                        more
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                        overflow="visible"
+                        style="width: 9.1px; height: 8.399999999999999px;"
+                        viewBox="0 0 13 12"
+                      >
+                        <path
+                          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                        />
+                         
+                      </svg>
                     </span>
                   </span>
                 </div>
@@ -561,7 +675,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                   <p
                     class="rpl-card-event__location"
                   >
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-icon rpl-icon--map_marker rpl-icon--color_secondary"
+                      overflow="visible"
+                      style="width: 9px; height: 12px;"
+                      viewBox="0 0 12 16"
+                    >
+                      <path
+                        d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+                      />
+                       
+                    </svg>
                     South Yarra
                   </p>
                    
@@ -580,7 +705,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-text-icon__group"
                     >
                        details
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                        overflow="visible"
+                        style="width: 9.1px; height: 8.399999999999999px;"
+                        viewBox="0 0 13 12"
+                      >
+                        <path
+                          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                        />
+                         
+                      </svg>
                     </span>
                   </span>
                 </div>
@@ -641,7 +777,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                   <p
                     class="rpl-card-event__location"
                   >
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-icon rpl-icon--map_marker rpl-icon--color_secondary"
+                      overflow="visible"
+                      style="width: 9px; height: 12px;"
+                      viewBox="0 0 12 16"
+                    >
+                      <path
+                        d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+                      />
+                       
+                    </svg>
                     South Yarra
                   </p>
                    
@@ -660,7 +807,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-text-icon__group"
                     >
                        details
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                        overflow="visible"
+                        style="width: 9.1px; height: 8.399999999999999px;"
+                        viewBox="0 0 13 12"
+                      >
+                        <path
+                          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                        />
+                         
+                      </svg>
                     </span>
                   </span>
                 </div>
@@ -699,7 +857,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <div
                       class="rpl-card-keydates__keydate-date"
                     >
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+                        overflow="visible"
+                        style="width: 18px; height: 18px;"
+                        viewBox="0 0 18 18"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                          fill-rule="evenodd"
+                        />
+                         
+                      </svg>
                        
                       <span>
                         3 April
@@ -724,7 +895,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <div
                       class="rpl-card-keydates__keydate-date"
                     >
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+                        overflow="visible"
+                        style="width: 18px; height: 18px;"
+                        viewBox="0 0 18 18"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                          fill-rule="evenodd"
+                        />
+                         
+                      </svg>
                        
                       <span>
                         23 April
@@ -759,7 +943,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-text-icon__group"
                     >
                        calendar
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                        overflow="visible"
+                        style="width: 9.1px; height: 8.399999999999999px;"
+                        viewBox="0 0 13 12"
+                      >
+                        <path
+                          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                        />
+                         
+                      </svg>
                     </span>
                   </span>
                 </div>
@@ -838,7 +1033,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-text-icon__group"
                     >
                        more
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                        overflow="visible"
+                        style="width: 9.1px; height: 8.399999999999999px;"
+                        viewBox="0 0 13 12"
+                      >
+                        <path
+                          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                        />
+                         
+                      </svg>
                     </span>
                   </span>
                 </div>
@@ -877,7 +1083,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <div
                       class="rpl-card-keydates__keydate-date"
                     >
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+                        overflow="visible"
+                        style="width: 18px; height: 18px;"
+                        viewBox="0 0 18 18"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                          fill-rule="evenodd"
+                        />
+                         
+                      </svg>
                        
                       <span>
                         3 April
@@ -902,7 +1121,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <div
                       class="rpl-card-keydates__keydate-date"
                     >
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+                        overflow="visible"
+                        style="width: 18px; height: 18px;"
+                        viewBox="0 0 18 18"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                          fill-rule="evenodd"
+                        />
+                         
+                      </svg>
                        
                       <span>
                         23 April
@@ -937,7 +1169,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-text-icon__group"
                     >
                        calendar
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                        overflow="visible"
+                        style="width: 9.1px; height: 8.399999999999999px;"
+                        viewBox="0 0 13 12"
+                      >
+                        <path
+                          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                        />
+                         
+                      </svg>
                     </span>
                   </span>
                 </div>
@@ -976,7 +1219,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <div
                       class="rpl-card-keydates__keydate-date"
                     >
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+                        overflow="visible"
+                        style="width: 18px; height: 18px;"
+                        viewBox="0 0 18 18"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                          fill-rule="evenodd"
+                        />
+                         
+                      </svg>
                        
                       <span>
                         3 April
@@ -1001,7 +1257,20 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                     <div
                       class="rpl-card-keydates__keydate-date"
                     >
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+                        overflow="visible"
+                        style="width: 18px; height: 18px;"
+                        viewBox="0 0 18 18"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                          fill-rule="evenodd"
+                        />
+                         
+                      </svg>
                        
                       <span>
                         23 April
@@ -1036,7 +1305,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
                       class="rpl-text-icon__group"
                     >
                        calendar
-                      <!---->
+                      <svg
+                        aria-hidden="true"
+                        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                        overflow="visible"
+                        style="width: 9.1px; height: 8.399999999999999px;"
+                        viewBox="0 0 13 12"
+                      >
+                        <path
+                          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                        />
+                         
+                      </svg>
                     </span>
                   </span>
                 </div>
@@ -1060,7 +1340,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
         disabled="disabled"
         role="button"
       >
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--arrow_left_secondary rpl-icon--color_mid_neutral_1"
+          overflow="visible"
+          style="width: 19.200000000000003px; height: 35.2px;"
+          viewBox="0 0 12 22"
+        >
+          <path
+            d="M10.747 2.664a1 1 0 00-1.494-1.328l-8 9a1 1 0 000 1.328l8 9a1 1 0 001.494-1.328L3.337 11l7.41-8.336z"
+          />
+           
+        </svg>
       </button>
        
       <button
@@ -1068,7 +1359,18 @@ exports[`RippleStoryshots Molecules/Card/Card Carousel Default 1`] = `
         class="rpl-card-carousel__navigation-button rpl-card-carousel__navigation-button--next"
         role="button"
       >
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--arrow_right_secondary rpl-icon--color_primary"
+          overflow="visible"
+          style="width: 19.200000000000003px; height: 35.2px;"
+          viewBox="0 0 12 22"
+        >
+          <path
+            d="M1.253 2.664a1 1 0 111.494-1.328l8 9a1 1 0 010 1.328l-8 9a1 1 0 01-1.494-1.328L8.662 11l-7.41-8.336z"
+          />
+           
+        </svg>
       </button>
     </div>
   </div>
@@ -1121,7 +1423,18 @@ exports[`RippleStoryshots Molecules/Card/Card Content (base) Default 1`] = `
         class="rpl-text-icon__group"
       >
          more
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+          overflow="visible"
+          style="width: 9.1px; height: 8.399999999999999px;"
+          viewBox="0 0 13 12"
+        >
+          <path
+            d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+          />
+           
+        </svg>
       </span>
     </span>
   </div>
@@ -1224,7 +1537,18 @@ exports[`RippleStoryshots Molecules/Card/Card Emergency Contact Default 1`] = `
       data-print-url="tel:000"
       href="tel:000"
     >
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-icon rpl-icon--phone_number rpl-icon--color_primary"
+        overflow="visible"
+        style="width: 14.700000000000001px; height: 14.700000000000001px;"
+        viewBox="0 0 14 14"
+      >
+        <path
+          d="M13.738 10.68l-2.317-2.33a.899.899 0 00-1.272-.001l-2.06 2.058-4.494-4.492 2.062-2.06a.899.899 0 00.001-1.27L3.339.263a.9.9 0 00-1.272 0L.004 2.325 0 2.322C0 8.772 5.231 14 11.684 14l2.053-2.05a.897.897 0 00.001-1.27z"
+        />
+         
+      </svg>
        
       <span
         class="rpl-card-emergency__cta-link-text"
@@ -1290,7 +1614,18 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
     <p
       class="rpl-card-event__location"
     >
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-icon rpl-icon--map_marker rpl-icon--color_secondary"
+        overflow="visible"
+        style="width: 9px; height: 12px;"
+        viewBox="0 0 12 16"
+      >
+        <path
+          d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+        />
+         
+      </svg>
       South Yarra
     </p>
      
@@ -1309,7 +1644,18 @@ exports[`RippleStoryshots Molecules/Card/Card Event Default 1`] = `
         class="rpl-text-icon__group"
       >
          details
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+          overflow="visible"
+          style="width: 9.1px; height: 8.399999999999999px;"
+          viewBox="0 0 13 12"
+        >
+          <path
+            d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+          />
+           
+        </svg>
       </span>
     </span>
   </div>
@@ -1382,7 +1728,18 @@ exports[`RippleStoryshots Molecules/Card/Card Image Navigation Default 1`] = `
           class="rpl-text-icon__group"
         >
            action
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+            overflow="visible"
+            style="width: 9.1px; height: 8.399999999999999px;"
+            viewBox="0 0 13 12"
+          >
+            <path
+              d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+            />
+             
+          </svg>
         </span>
       </span>
     </div>
@@ -1415,7 +1772,20 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
       <div
         class="rpl-card-keydates__keydate-date"
       >
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+          overflow="visible"
+          style="width: 18px; height: 18px;"
+          viewBox="0 0 18 18"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+            fill-rule="evenodd"
+          />
+           
+        </svg>
          
         <span>
           3 April
@@ -1440,7 +1810,20 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
       <div
         class="rpl-card-keydates__keydate-date"
       >
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--calendar rpl-icon--color_white"
+          overflow="visible"
+          style="width: 18px; height: 18px;"
+          viewBox="0 0 18 18"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+            fill-rule="evenodd"
+          />
+           
+        </svg>
          
         <span>
           23 April
@@ -1475,7 +1858,18 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
         class="rpl-text-icon__group"
       >
          more
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+          overflow="visible"
+          style="width: 9.1px; height: 8.399999999999999px;"
+          viewBox="0 0 13 12"
+        >
+          <path
+            d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+          />
+           
+        </svg>
       </span>
     </span>
   </div>
@@ -1520,7 +1914,18 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Default 1`] = `
         class="rpl-text-icon__group"
       >
          more
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+          overflow="visible"
+          style="width: 9.1px; height: 8.399999999999999px;"
+          viewBox="0 0 13 12"
+        >
+          <path
+            d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+          />
+           
+        </svg>
       </span>
     </span>
   </div>
@@ -1580,7 +1985,18 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
     We are looking at ways to make housing more affordable and renting more secure. Tell us what works for you or find out what's happening.
   </p>
    
-  <!---->
+  <svg
+    aria-hidden="true"
+    class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_white"
+    overflow="visible"
+    style="width: 13px; height: 12px;"
+    viewBox="0 0 13 12"
+  >
+    <path
+      d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+    />
+     
+  </svg>
 </a>
 `;
 
@@ -1650,7 +2066,18 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
         class="rpl-text-icon__group"
       >
          profile
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+          overflow="visible"
+          style="width: 9.1px; height: 8.399999999999999px;"
+          viewBox="0 0 13 12"
+        >
+          <path
+            d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+          />
+           
+        </svg>
       </span>
     </span>
   </div>
@@ -1736,7 +2163,18 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Grant 1`] = `
         <div
           class="rpl-card-promo__status rpl-card-promo__status--open"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-card-promo__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+            overflow="visible"
+            style="width: 10px; height: 10px;"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+            />
+             
+          </svg>
            
           <span>
             open
@@ -1986,7 +2424,18 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion Default 1`] = `
         class="rpl-text-icon__group"
       >
          more
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+          overflow="visible"
+          style="width: 9.1px; height: 8.399999999999999px;"
+          viewBox="0 0 13 12"
+        >
+          <path
+            d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+          />
+           
+        </svg>
       </span>
     </span>
   </div>

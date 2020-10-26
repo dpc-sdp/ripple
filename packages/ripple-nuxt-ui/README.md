@@ -19,26 +19,26 @@ soon.
 Without using `create-nuxt-app`, you can setup it in your existing Nuxt site with
 following steps.
 
-#### Add `@dpc-sdp/ripple-nuxt-ripple` dependency using yarn or npm to your project
+#### Add `@dpc-sdp/ripple-nuxt-ui` dependency using yarn or npm to your project
 
 Install with yarn
 
 ```shell
-yarn add @dpc-sdp/ripple-nuxt-ripple
+yarn add @dpc-sdp/ripple-nuxt-ui
 ```
 
 Install with npm
 
 ```shell
-npm install add @dpc-sdp/ripple-nuxt-ripple
+npm install add @dpc-sdp/ripple-nuxt-ui
 ```
 
-#### Add `@dpc-sdp/ripple-nuxt-ripple` to `modules` section of `nuxt.config.js`
+#### Add `@dpc-sdp/ripple-nuxt-ui` to `modules` section of `nuxt.config.js`
 
 ```js
 {
   modules: [
-    'dpc-sdp/ripple-nuxt-ripple'
+    '@dpc-sdp/ripple-nuxt-ui'
   ],
 
   ripple: {

@@ -68,6 +68,7 @@ import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import { RplPublicationAuthorInformation, RplPublicationDownloadPrint } from '@dpc-sdp/ripple-publication'
 import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 import kebabCase from 'lodash/kebabCase'
+import { mergeFields } from '../helpers'
 import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
 export default {
@@ -182,8 +183,9 @@ export default {
       }
     }
 
-    const includeConfig = require('./../tide.config')
-    const includes = includeConfig.include.publicationPage
+    // Add list of tideConfigs for publication pages
+    const includeConfigs = [require('./../tide.config')]
+    const includes = mergeFields(includeConfigs)
 
     const publicationPagesData = await app.$tide.getContentList('publication_page', filters, includes)
     const sortedPages = ids.map(id => {

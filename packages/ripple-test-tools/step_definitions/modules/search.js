@@ -75,6 +75,14 @@ Then(`the pagination component should exist`, () => {
   cy.get('.rpl-pagination').should('exist')
 })
 
+Then(`the pagination component should not exist`, () => {
+  cy.get('.rpl-pagination').should('not.exist')
+})
+
+When(`I click the pagination item {int}`, (step) => {
+  cy.get('.rpl-pagination__list-item').eq(step - 1).click()
+})
+
 Then(`the pagination component should have {int} steps`, (steps) => {
   cy.get('.rpl-pagination__list-item').should('have.length', steps)
 })

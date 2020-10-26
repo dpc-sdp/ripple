@@ -1,7 +1,7 @@
 /* global cy */
 /* eslint jest/valid-expect: "off" */
 
-const { When, Then } = require('cypress-cucumber-preprocessor/steps')
+const { When, Then, Given } = require('cypress-cucumber-preprocessor/steps')
 
 // Layout common elements
 
@@ -868,4 +868,39 @@ Then(`the responsive image component should exist`, () => {
 
 Then(`the site section navigation should have the title {string}`, (title) => {
   cy.get('.rpl-site-section-navigation__title').should('contain', title)
+})
+
+Then(`the card collection component titled {string} should exist`, (title) => {
+  cy.get('.app-card-collection').contains(title).should('exist')
+})
+
+Then(`the card collection component should have the {string} layout`, (layout) => {
+  cy.get('.app-card-collection').should('have.class', `app-card-collection--${layout}`)
+})
+
+Then(`the card collection component should have the following cards`, dataTable => {
+  const expectedItems = dataTable.hashes()
+  expectedItems.forEach((item) => {
+    cy.get(`.app-card-collection [data-card-collection-item="${item.uuid}"]`).then(card => {
+      if (item.title) {
+        expect(card).to.contain.text(item.title)
+      }
+      if (item.url) {
+        cy.wrap(card).find('.rpl-link').should('have.attr', 'href', item.url)
+      }
+    })
+  })
+  cy.log(expectedItems)
+})
+
+Given(`the endpoint {string} returns fixture {string} with status {int}`, (route, fixture, status) => {
+  cy.fixture(fixture).then((response) => {
+    cy.task('setMockRoute', { route, status, response })
+  })
+})
+
+Given(`the endpoint {string} with query {string} returns fixture {string} with status {int}`, (route, query, fixture, status) => {
+  cy.fixture(fixture).then((response) => {
+    cy.task('setMockRouteWithQuery', { route, status, response, query })
+  })
 })

@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tide Search API built in templates filter should return correct term filters 1`] = `
+Object {
+  "query": Object {
+    "bool": Object {
+      "match_all": Object {},
+    },
+    "filter": Object {
+      "bool": Object {
+        "must": Array [
+          Object {
+            "term": Object {
+              "type": "event",
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`Tide Search API built in templates filter should return correct terms filters 1`] = `
+Object {
+  "query": Object {
+    "bool": Object {
+      "match_all": Object {},
+    },
+    "filter": Object {
+      "bool": Object {
+        "must": Array [
+          Object {
+            "terms": Object {
+              "type": Array [
+                "event",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`Tide Search API built in templates set type filter 1`] = `
+Object {
+  "query": Object {
+    "bool": Object {
+      "match_all": Object {},
+    },
+    "filter": Object {
+      "bool": Object {
+        "must": Array [
+          Object {
+            "term": Object {
+              "type": "test",
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`Tide Search API built in templates should return correct search query 1`] = `
+Object {
+  "query": Object {
+    "bool": Object {
+      "must": Object {
+        "multi_match": Object {
+          "fields": Array [
+            "body",
+            "field_landing_page_summary",
+            "field_paragraph_body",
+            "field_paragraph_summary",
+            "title",
+          ],
+          "query": "test",
+        },
+      },
+      "should": Object {
+        "match_phrase": Object {
+          "title": Object {
+            "boost": 2,
+            "query": "test",
+          },
+        },
+      },
+    },
+  },
+}
+`;

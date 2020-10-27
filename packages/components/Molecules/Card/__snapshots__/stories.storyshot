@@ -2080,7 +2080,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Default 1`] = `
     <h2
       class="rpl-card-navigation__title"
     >
-      First navigation card
+      Navigation card V2
     </h2>
      
     <p
@@ -2161,7 +2161,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Grant 1`] = `
     <h2
       class="rpl-card-navigation__title"
     >
-      First navigation card
+      Navigation card V2
     </h2>
      
     <p
@@ -2214,7 +2214,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Without image 1`] = 
     <h2
       class="rpl-card-navigation__title"
     >
-      First navigation card
+      Navigation card V2
     </h2>
      
     <p

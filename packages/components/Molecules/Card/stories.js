@@ -56,7 +56,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
     template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :image="image" :author="author" />`,
     props: {
       title: {
-        default: text('Title', 'First navigation card')
+        default: text('Title', 'Navigation card V2')
       },
       summary: {
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
@@ -91,7 +91,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
     template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" />`,
     props: {
       title: {
-        default: text('Title', 'First navigation card')
+        default: text('Title', 'Navigation card V2')
       },
       summary: {
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
@@ -115,7 +115,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
     template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :status="status" :author="author" />`,
     props: {
       title: {
-        default: text('Title', 'First navigation card')
+        default: text('Title', 'Navigation card V2')
       },
       summary: {
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')

@@ -1,19 +1,15 @@
 <template>
-  <rpl-link
-    v-if="link"
-    class="rpl-card-navigation"
-    :class="{
-      'rpl-card-content--with-image': !image
-    }"
-    :href="link.url"
-    :innerWrap="false"
-  >
+  <rpl-link v-if="link" class="rpl-card-navigation" :href="link.url" :innerWrap="false">
     <div v-if="image" class="rpl-card-navigation__image-wrapper">
       <rpl-responsive-img class="rpl-card-navigation__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-navigation__details">
       <div v-if="date || tag" class="rpl-card-navigation__meta">
         <div v-if="tag" class="rpl-card-navigation__tag" >{{ tag }}</div>
+        <div v-if="status" class="rpl-card-navigation__status" :class="`rpl-card-navigation__status--${this.status.toLowerCase()}`">
+          <rpl-icon v-if="statusIcon" class="rpl-card-navigation__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
+          <span>{{ status }}</span>
+        </div>
         <div v-if="date" class="rpl-card-navigation__date">{{ formatDate(date, 'DD MMMM YYYY') }}</div>
       </div>
       <h2 v-if="title" class="rpl-card-navigation__title">{{ title }}</h2>
@@ -27,17 +23,11 @@
 import RplLink from '@dpc-sdp/ripple-link'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
-
-const srcSetData = [
-  { size: 'xs', height: 534, width: 764 },
-  { size: 's', height: 200, width: 764 },
-  { size: 'm', height: 232, width: 448 },
-  { size: 'l', height: 232, width: 333 }
-]
+import statusIcon from '@dpc-sdp/ripple-card/mixins/status-icon'
 
 export default {
   name: 'RplCardNavigationV2',
-  mixins: [formatdate],
+  mixins: [formatdate, statusIcon],
   components: {
     RplLink,
     RplResponsiveImg
@@ -54,12 +44,20 @@ export default {
   },
   data () {
     return {
-      srcSet: srcSetData
+      srcSet: [
+        { size: 'xs', height: 534, width: 764 },
+        { size: 's', height: 200, width: 764 },
+        { size: 'm', height: 232, width: 448 },
+        { size: 'l', height: 232, width: 333 }
+      ]
     }
   },
   computed: {
     computedImg () {
       return typeof this.image === 'string' ? { src: this.image } : this.image
+    },
+    statusIcon () {
+      return this.getStatusIcon(this.status)
     }
   }
 }
@@ -79,29 +77,22 @@ $rpl-card-navigation-details-padding-s: $rpl-card-vertical-padding $rpl-componen
 $rpl-card-navigation-details-padding-m: $rpl-card-vertical-padding $rpl-card-horizontal-padding-m !default;
 $rpl-card-navigation-details-width-xxxl: rem(435px) !default;
 $rpl-card-navigation-inline-padding-m: ($rpl-space * 8) ($rpl-space * 8) !default;
-$rpl-card-navigation-title-ruleset: (
-'xs': ('l', 1.2em, 'bold'),
-'s': ('mega', 1.3em, 'bold')
-) !default;
+$rpl-card-navigation-title-ruleset:  ('l', 1.2em, 'bold') !default;
 $rpl-card-navigation-title-color: rpl_color('extra_dark_neutral') !default;
 $rpl-card-navigation-title-hover-color: rpl_color('primary') !default;
 $rpl-card-navigation-title-text-decoration: underline !default;
 $rpl-card-navigation-title-margin: 0 0 rem(12px) !default;
-$rpl-card-navigation-summary-ruleset: (
-'xs': ('xs', 1.4em, 'regular'),
-'s': ('s', 1.5em, 'regular')
-) !default;
+$rpl-card-navigation-summary-ruleset: ('xs', 1.5em, 'regular') !default;
 $rpl-card-navigation-summary-color: rpl_color('extra_dark_neutral') !default;
 $rpl-card-navigation-link-color-hover: rpl_color('primary') !default;
 $rpl-card-navigation-no-image-padding: (rem(56px) - $rpl-card-vertical-padding) 0 0 0 !default;
-$rpl-card-navigation-tag-ruleset: ('xs', 1em, 'medium') !default;
 $rpl-card-navigation-tag-color: rpl_color('extra_dark_neutral') !default;
 $rpl-card-navigation-tag-background-color: rpl_color('mid_neutral_2') !default;
 $rpl-card-navigation-tag-padding: $rpl-space $rpl-space-2 !default;
 $rpl-card-navigation-meta-margin: 0 0 $rpl-space-3 0 !default;
-$rpl-card-navigation-date-ruleset: ('xxs', 1em, 'medium') !default;
+$rpl-card-navigation-meta-ruleset: ('xs', 1em, 'medium') !default;
 $rpl-card-navigation-date-text-color: rpl_color('dark_neutral') !default;
-$rpl-card-navigation-date-margin: 0 0 0 $rpl-space-2 !default;
+$rpl-card-navigation-date-padding: $rpl-space $rpl-space-2 !default;
 $rpl-card-navigation-img-height: (
   'xs': rem(300px),
   'm': rem(200px),
@@ -178,6 +169,22 @@ $rpl-card-navigation-author-font-size: rem(14px) !default;
     margin: $rpl-card-navigation-title-margin;
   }
 
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    padding-left: $rpl-space;
+    span {
+      @include rpl_typography_ruleset($rpl-card-navigation-meta-ruleset);
+      padding-left: $rpl-space;
+      color: rpl_color('dark_neutral');
+      text-transform: uppercase;
+      padding-left: $rpl-space-4;
+    }
+    &-icon {
+      position: absolute;
+    }
+  }
+
   &__summary {
     @include rpl_typography_ruleset($rpl-card-navigation-summary-ruleset);
     margin: 0;
@@ -207,20 +214,22 @@ $rpl-card-navigation-author-font-size: rem(14px) !default;
     margin: $rpl-card-navigation-meta-margin;
   }
 
+  &__date,
   &__tag {
-    @include rpl_typography_ruleset($rpl-card-navigation-tag-ruleset);
+    @include rpl_typography_ruleset($rpl-card-navigation-meta-ruleset);
     display: inline;
+  }
+
+  &__tag {
     color: $rpl-card-navigation-tag-color;
     background-color: $rpl-card-navigation-tag-background-color;
     padding: $rpl-card-navigation-tag-padding;
   }
 
   &__date {
-    @include rpl_typography_ruleset($rpl-card-navigation-date-ruleset);
-    display: inline;
     color: $rpl-card-navigation-date-text-color;
     text-transform: uppercase;
-    margin: $rpl-card-navigation-date-margin;
+    padding: $rpl-card-navigation-date-padding;
   }
 }
 </style>

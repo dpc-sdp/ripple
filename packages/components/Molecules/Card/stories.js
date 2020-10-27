@@ -76,16 +76,72 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
         })
       },
       tag: {
-        default: text('Tag', 'Event')
+        default: () => select('Tag', [ 'Event', 'News', 'Publication' ], 'Event')
       },
       date: {
         default: text('Date', '2020-03-23T09:00:00.000+10:00')
       },
       author: {
         default: text('Author', 'John Doe')
+      }
+    }
+  }))
+  .add('Without image', () => ({
+    components: { RplCardNavigationV2 },
+    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" />`,
+    props: {
+      title: {
+        default: text('Title', 'First navigation card')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      },
+      tag: {
+        default: () => select('Tag', [ 'Event', 'News', 'Publication' ], 'Publication')
+      },
+      date: {
+        default: text('Date', '2020-03-23T09:00:00.000+10:00')
+      },
+      author: {
+        default: text('Author', 'John Doe')
+      }
+    }
+  }))
+  .add('Grant', () => ({
+    components: { RplCardNavigationV2 },
+    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :status="status" :author="author" />`,
+    props: {
+      title: {
+        default: text('Title', 'First navigation card')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      },
+      image: {
+        default: object('Image', {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: 304,
+          height: 199
+        })
+      },
+      tag: {
+        default: text('Tag', 'Grant')
+      },
+      author: {
+        default: text('Author', 'John Doe')
       },
       status: {
-        default: text('Status', 'Open')
+        default: () => select('Status', { open: 'Open', closed: 'Closed', ongoing: 'Ongoing' }, 'open')
       }
     }
   }))
@@ -588,15 +644,13 @@ storiesOf('Molecules/Card/Card Carousel', module)
             name: 'rpl-card-event',
             data: {
               image: {
-                default: object('Link', {
-                  src: 'https://placehold.it/580x340',
-                  focalPoint: {
-                    x: '290',
-                    y: '170'
-                  },
-                  width: '580',
-                  height: '340'
-                })
+                src: 'https://placehold.it/580x340',
+                focalPoint: {
+                  x: '290',
+                  y: '170'
+                },
+                width: 580,
+                height: 340
               },
               dateStart: '2018-07-10T09:00:00.000+10:00',
               location: 'South Yarra',
@@ -620,15 +674,13 @@ storiesOf('Molecules/Card/Card Carousel', module)
             name: 'rpl-card-promotion',
             data: {
               image: {
-                default: object('Link', {
-                  src: 'https://placehold.it/580x340',
-                  focalPoint: {
-                    x: '290',
-                    y: '170'
-                  },
-                  width: '580',
-                  height: '340'
-                })
+                src: 'https://placehold.it/580x340',
+                focalPoint: {
+                  x: '290',
+                  y: '170'
+                },
+                width: 580,
+                height: 340
               },
               date: '2018-07-10T09:00:00.000+10:00',
               topic: 'News',
@@ -641,15 +693,13 @@ storiesOf('Molecules/Card/Card Carousel', module)
             name: 'rpl-card-event',
             data: {
               image: {
-                default: object('Link', {
-                  src: 'https://placehold.it/580x340',
-                  focalPoint: {
-                    x: '290',
-                    y: '170'
-                  },
-                  width: '580',
-                  height: '340'
-                })
+                src: 'https://placehold.it/580x340',
+                focalPoint: {
+                  x: '290',
+                  y: '170'
+                },
+                width: 580,
+                height: 340
               },
               dateStart: '2018-07-10T09:00:00.000+10:00',
               dateEnd: '2018-07-15T09:00:00.000+10:00',
@@ -663,15 +713,13 @@ storiesOf('Molecules/Card/Card Carousel', module)
             name: 'rpl-card-event',
             data: {
               image: {
-                default: object('Link', {
-                  src: 'https://placehold.it/580x340',
-                  focalPoint: {
-                    x: '290',
-                    y: '170'
-                  },
-                  width: '580',
-                  height: '340'
-                })
+                src: 'https://placehold.it/580x340',
+                focalPoint: {
+                  x: '290',
+                  y: '170'
+                },
+                width: 580,
+                height: 340
               },
               dateStart: '2018-07-10T09:00:00.000+10:00',
               dateEnd: '2018-09-10T09:00:00.000+10:00',
@@ -696,15 +744,13 @@ storiesOf('Molecules/Card/Card Carousel', module)
             name: 'rpl-card-promotion',
             data: {
               image: {
-                default: object('Link', {
-                  src: 'https://placehold.it/580x340',
-                  focalPoint: {
-                    x: '290',
-                    y: '170'
-                  },
-                  width: '580',
-                  height: '340'
-                })
+                src: 'https://placehold.it/580x340',
+                focalPoint: {
+                  x: '290',
+                  y: '170'
+                },
+                width: 580,
+                height: 340
               },
               date: '2018-07-10T09:00:00.000+10:00',
               topic: 'News',

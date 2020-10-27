@@ -33,10 +33,11 @@ import RplLink from '@dpc-sdp/ripple-link'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import statusIcon from '@dpc-sdp/ripple-card/mixins/status-icon'
 
 export default {
   name: 'RplCardPromo',
-  mixins: [formatdate],
+  mixins: [formatdate, statusIcon],
   props: {
     image: [String, Object],
     date: [String, Object],
@@ -98,24 +99,7 @@ export default {
       return this.tag || this.date || this.topic || this.status
     },
     statusIcon () {
-      switch (this.status) {
-        case 'Closed':
-          return {
-            symbol: 'cross_circle',
-            color: 'danger'
-          }
-        case 'Open':
-        case 'Ongoing':
-          return {
-            symbol: 'success',
-            color: 'success'
-          }
-        default:
-          return {
-            symbol: 'success',
-            color: 'success'
-          }
-      }
+      return this.getStatusIcon(this.status)
     }
   }
 }

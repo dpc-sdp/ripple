@@ -33,11 +33,11 @@ import RplLink from '@dpc-sdp/ripple-link'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
-import statusIcon from '@dpc-sdp/ripple-card/mixins/status-icon'
+import card from '@dpc-sdp/ripple-card/mixins/card'
 
 export default {
   name: 'RplCardPromo',
-  mixins: [formatdate, statusIcon],
+  mixins: [formatdate, card],
   props: {
     image: [String, Object],
     date: [String, Object],
@@ -80,9 +80,6 @@ export default {
       }
       return this.summary ? truncateText(this.summary, summaryLength) : ''
     },
-    computedImg () {
-      return typeof this.image === 'string' ? { src: this.image } : this.image
-    },
     computedDate () {
       if (this.date) {
         if (typeof this.date === 'string') {
@@ -97,9 +94,6 @@ export default {
     },
     hasMeta () {
       return this.tag || this.date || this.topic || this.status
-    },
-    statusIcon () {
-      return this.getStatusIcon(this.status)
     }
   }
 }

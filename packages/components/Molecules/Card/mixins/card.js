@@ -1,9 +1,9 @@
-const statusIcon = {
-  methods: {
-    getStatusIcon (status) {
-      if (!status) return
+const card = {
+  computed: {
+    statusIcon () {
+      if (!this.status) return
 
-      switch (status.toLowerCase()) {
+      switch (this.status.toLowerCase()) {
         case 'closed':
           return {
             symbol: 'cross_circle',
@@ -21,8 +21,11 @@ const statusIcon = {
             color: 'success'
           }
       }
+    },
+    computedImg () {
+      return typeof this.image === 'string' ? { src: this.image } : this.image
     }
   }
 }
 
-export default statusIcon
+export default card

@@ -23,11 +23,11 @@
 import RplLink from '@dpc-sdp/ripple-link'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
-import statusIcon from '@dpc-sdp/ripple-card/mixins/status-icon'
+import card from '@dpc-sdp/ripple-card/mixins/card'
 
 export default {
   name: 'RplCardNavigationV2',
-  mixins: [formatdate, statusIcon],
+  mixins: [formatdate, card],
   components: {
     RplLink,
     RplResponsiveImg
@@ -50,14 +50,6 @@ export default {
         { size: 'm', height: 232, width: 448 },
         { size: 'l', height: 232, width: 333 }
       ]
-    }
-  },
-  computed: {
-    computedImg () {
-      return typeof this.image === 'string' ? { src: this.image } : this.image
-    },
-    statusIcon () {
-      return this.getStatusIcon(this.status)
     }
   }
 }

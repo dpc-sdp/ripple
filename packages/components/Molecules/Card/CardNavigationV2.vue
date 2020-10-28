@@ -12,7 +12,7 @@
         </div>
         <div v-if="date" class="rpl-card-navigation__date">{{ formatDate(date, 'DD MMMM YYYY') }}</div>
       </div>
-      <h2 v-if="title" class="rpl-card-navigation__title">{{ title }}</h2>
+      <h2 v-if="title" class="rpl-card-navigation__title"><span>{{ title }}</span></h2>
       <p v-if="summary" class="rpl-card-navigation__summary">{{ summary }}</p>
       <p v-if="author" class="rpl-card-navigation__author"><strong>Author:</strong> {{ author }}</p>
     </div>
@@ -88,20 +88,38 @@ $rpl-card-navigation-link-color-hover: rpl_color('primary') !default;
 $rpl-card-navigation-no-image-padding: (rem(56px) - $rpl-card-vertical-padding) 0 0 0 !default;
 $rpl-card-navigation-tag-color: rpl_color('extra_dark_neutral') !default;
 $rpl-card-navigation-tag-background-color: rpl_color('mid_neutral_2') !default;
-$rpl-card-navigation-tag-padding: $rpl-space $rpl-space-2 !default;
+$rpl-card-navigation-meta-padding: $rpl-space $rpl-space-2 !default;
 $rpl-card-navigation-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-navigation-meta-ruleset: ('xs', 1em, 'medium') !default;
 $rpl-card-navigation-date-text-color: rpl_color('dark_neutral') !default;
-$rpl-card-navigation-date-padding: $rpl-space $rpl-space-2 !default;
+$rpl-card-navigation-img-width: (
+  'm': rem(280px),
+  'l': rem(153px),
+  'xxl': rem(213px),
+  'xxxl': rem(294px)
+) !default;
 $rpl-card-navigation-img-height: (
-  'xs': rem(300px),
-  'm': rem(200px),
-  'l': rem(232px),
-  'xl': rem(200px)
+  'xs': rem(161px),
+  'l': rem(159px),
+  'xxl': rem(194px)
 ) !default;
 $rpl-card-navigation-img-wrapper-padding-xs: $rpl-component-padding-xs $rpl-component-padding-xs 0 !default;
 $rpl-card-navigation-img-wrapper-padding-m: 0 rem(25px) 0 0 !default;
 $rpl-card-navigation-author-font-size: rem(14px) !default;
+$rpl-card-navigation-featured-title-bg-color: rpl-color('primary') !default;
+$rpl-card-navigation-featured-title-bg-color-hover: rpl-color('secondary') !default;
+$rpl-card-navigation-featured-title-ruleset: (
+  'xs': ('mega', 1.3em, 'bold', true),
+  's': ('giga', 1.6em, 'bold', true)
+) !default;
+$rpl-card-navigation-featured-details-padding: 2rem !default;
+$rpl-card-navigation-featured-meta-margin-bottom: rem(14px) !default;
+$rpl-card-navigation-featured-meta-margin-bottom-m: rem(18px) !default;
+$rpl-card-navigation-featured-img-height: (
+  'xs': rem(200px),
+  'l': rem(285px),
+  'xxl': rem(355px)
+) !default;
 
 .rpl-card-navigation {
   $root: &;
@@ -142,21 +160,22 @@ $rpl-card-navigation-author-font-size: rem(14px) !default;
     @include rpl_breakpoint('m') {
       padding: $rpl-card-navigation-img-wrapper-padding-m;
       width: 40%;
-      max-width: rem(280px);
     }
-    @include rpl_breakpoint('l') {
-      max-width: rem(153px);
+    @each $bp, $width in $rpl-card-navigation-img-width {
+      @include rpl_breakpoint($bp) {
+        max-width: $width;
+      }
     }
-    @include rpl_breakpoint('xxl') {
-      max-width: rem(213px);
-    }
-    @include rpl_breakpoint('xxxl') {
-      max-width: rem(294px);
+    @each $bp, $height in $rpl-card-navigation-img-height {
+      @include rpl_breakpoint($bp) {
+        max-height: $height;
+      }
     }
   }
 
   &__image {
     width: 100%;
+    height: 100%;
     display: table;
     @include rpl_breakpoint('s') {
       border-radius: $rpl-card-navigation-border-radius;
@@ -218,18 +237,85 @@ $rpl-card-navigation-author-font-size: rem(14px) !default;
   &__tag {
     @include rpl_typography_ruleset($rpl-card-navigation-meta-ruleset);
     display: inline;
+    padding: $rpl-card-navigation-meta-padding;
   }
 
   &__tag {
     color: $rpl-card-navigation-tag-color;
     background-color: $rpl-card-navigation-tag-background-color;
-    padding: $rpl-card-navigation-tag-padding;
+
   }
 
   &__date {
     color: $rpl-card-navigation-date-text-color;
     text-transform: uppercase;
-    padding: $rpl-card-navigation-date-padding;
+  }
+
+  &--featured {
+    padding: 0;
+    flex-wrap: wrap;
+    max-width: rem(320px);
+
+    @include rpl_breakpoint('l') {
+      max-width: rem(488px);
+    }
+    @include rpl_breakpoint('xxl') {
+      max-width: rem(608px);
+    }
+
+    &:hover,
+    &:focus {
+      #{$root}__title {
+        text-decoration: none;
+        span {
+          background-color: $rpl-card-navigation-featured-title-bg-color-hover;
+        }
+      }
+    }
+
+    #{$root}__image-wrapper {
+      max-width: 608px;
+      padding: 0;
+      @each $bp, $height in $rpl-card-navigation-featured-img-height {
+        @include rpl_breakpoint($bp) {
+          max-height: $height;
+        }
+      }
+    }
+
+    #{$root}__details, #{$root}__image-wrapper, #{$root}__image {
+      width: 100%;
+    }
+
+    #{$root}__details {
+      padding: $rpl-card-navigation-featured-details-padding;
+    }
+
+    #{$root}__image {
+      border-radius: 0;
+    }
+
+    #{$root}__title {
+      @include rpl_typography_ruleset($rpl-card-navigation-featured-title-ruleset);
+      margin: 0;
+      padding-bottom: $rpl-card-navigation-featured-meta-margin-bottom;
+
+      @include rpl_breakpoint('m') {
+        padding-bottom: $rpl-card-navigation-featured-meta-margin-bottom-m;
+      }
+
+      span {
+        background-color: $rpl-card-navigation-featured-title-bg-color;
+        line-height: 1.5em;
+      }
+    }
+
+    #{$root}__meta {
+      margin-bottom: $rpl-card-navigation-featured-meta-margin-bottom;
+      @include rpl_breakpoint('m') {
+        margin-bottom: $rpl-card-navigation-featured-meta-margin-bottom-m;
+      }
+    }
   }
 }
 </style>

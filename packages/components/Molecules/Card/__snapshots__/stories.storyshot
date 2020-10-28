@@ -2080,7 +2080,77 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Default 1`] = `
     <h2
       class="rpl-card-navigation__title"
     >
-      Navigation card V2
+      <span>
+        Navigation card V2
+      </span>
+    </h2>
+     
+    <p
+      class="rpl-card-navigation__summary"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+     
+    <p
+      class="rpl-card-navigation__author"
+    >
+      <strong>
+        Author:
+      </strong>
+       John Doe
+    </p>
+  </div>
+</a>
+`;
+
+exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Featured 1`] = `
+<a
+  class="rpl-link rpl-card-navigation rpl-card-navigation--featured"
+  data-print-url="#"
+  href="#"
+>
+  <div
+    class="rpl-card-navigation__image-wrapper"
+  >
+    <img
+      alt=""
+      class="rpl-responsive-image rpl-card-navigation__image rpl-responsive-image--fit-cover"
+      height="355"
+      sizes="(max-width: 576px) 764px, (max-width: 768px) 448px, (max-width: 992px) 333px, 100vw"
+      src="https://placehold.it/608x355"
+      srcset="https://placehold.it/608x355?w=764&h=534 764w, https://placehold.it/608x355?w=764&h=200 764w, https://placehold.it/608x355?w=448&h=232 448w, https://placehold.it/608x355?w=333&h=232 333w"
+      style="object-position: 49.34% 42.25%; font-family: 'object-fit: cover; object-position: 49.34% 42.25%;';"
+      width="608"
+    />
+  </div>
+   
+  <div
+    class="rpl-card-navigation__details"
+  >
+    <div
+      class="rpl-card-navigation__meta"
+    >
+      <div
+        class="rpl-card-navigation__tag"
+      >
+        Publication
+      </div>
+       
+      <!---->
+       
+      <div
+        class="rpl-card-navigation__date"
+      >
+        23 March 2020
+      </div>
+    </div>
+     
+    <h2
+      class="rpl-card-navigation__title"
+    >
+      <span>
+        Navigation card V2
+      </span>
     </h2>
      
     <p
@@ -2161,7 +2231,9 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Grant 1`] = `
     <h2
       class="rpl-card-navigation__title"
     >
-      Navigation card V2
+      <span>
+        Navigation card V2
+      </span>
     </h2>
      
     <p
@@ -2214,7 +2286,9 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Without image 1`] = 
     <h2
       class="rpl-card-navigation__title"
     >
-      Navigation card V2
+      <span>
+        Navigation card V2
+      </span>
     </h2>
      
     <p

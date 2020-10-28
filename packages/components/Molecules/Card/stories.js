@@ -145,6 +145,41 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
       }
     }
   }))
+  .add('Featured', () => ({
+    components: { RplCardNavigationV2 },
+    template: `<rpl-card-navigation-v2 class="rpl-card-navigation--featured" :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" :image="image" />`,
+    props: {
+      title: {
+        default: text('Title', 'Navigation card V2')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      },
+      image: {
+        default: object('Image', {
+          src: 'https://placehold.it/608x355',
+          focalPoint: {
+            x: '300',
+            y: '150'
+          },
+          width: 608,
+          height: 355
+        })
+      },
+      tag: {
+        default: () => select('Tag', [ 'Event', 'News', 'Publication' ], 'Publication')
+      },
+      date: {
+        default: text('Date', '2020-03-23T09:00:00.000+10:00')
+      },
+      author: {
+        default: text('Author', 'John Doe')
+      }
+    }
+  }))
 
 storiesOf('Molecules/Card/Card Navigation Featured', module)
   .addDecorator(withKnobs)

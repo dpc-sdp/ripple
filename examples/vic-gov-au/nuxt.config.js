@@ -152,7 +152,7 @@ export default {
     },
     search: {
       service: process.env.SEARCH_SERVICE,
-      index: process.env.SEARCH_INDEX,
+      index: 'elasticsearch_index_nonprod_node',
       url: 'https://' + process.env.SEARCH_HASH + '.' + process.env.SEARCH_URL,
       log: process.env.SEARCH_LOG,
       auth: {

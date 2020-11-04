@@ -246,6 +246,26 @@ module.exports = {
         ]
       },
 
+      'paragraph--navigation_v2': {
+        component: 'rpl-card-navigation-v2',
+        props: {
+          'title': 'field_paragraph_title',
+          'summary': ['field_paragraph_summary'],
+          'image': {
+            field: ['field_paragraph_media', 'field_media_image'],
+            filters: ['cardImage']
+          },
+          'link': {
+            field: 'field_paragraph_link',
+            filters: ['paragraphLink']
+          },
+          'date': 'field_paragraph_date',
+          'tag': ['field_paragraph_topic', 0, 'name'],
+          'author': 'field_paragraph_author'
+        },
+        cols: cardColsSetting
+      },
+
       'paragraph--card_event': {
         component: 'rpl-card-event',
         props: {

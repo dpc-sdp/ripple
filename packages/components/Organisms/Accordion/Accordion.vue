@@ -10,17 +10,14 @@
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
         </h2>
-        <transition
-          name="accordion"
-          @enter="start"
-          @after-enter="end"
-          @before-leave="start"
-          @after-leave="end"
+        <div
+          class="rpl-accordion__content"
+          :style="accordionIsOpen(index) ? `height: ${getHeight(index)}; visibility: visible;` : ''"
+          :id="accordionId(index)"
+          :ref="accordionId(index)"
         >
-          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)" :id="accordionId(index)">
-            <rpl-markup class="rpl-accordion__content-inner"  :html="accordion.content" />
-          </div>
-        </transition>
+          <rpl-markup class="rpl-accordion__content-inner"  :html="accordion.content" />
+        </div>
       </li>
     </ol>
     <ul class="rpl-accordion__list" v-else>
@@ -31,17 +28,14 @@
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
         </h2>
-        <transition
-          name="accordion"
-          @enter="start"
-          @after-enter="end"
-          @before-leave="start"
-          @after-leave="end"
+        <div
+          class="rpl-accordion__content"
+          :style="accordionIsOpen(index) ? `height: ${getHeight(index)}; visibility: visible;` : ''"
+          :id="accordionId(index)"
+          :ref="accordionId(index)"
         >
-          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)" :id="accordionId(index)">
-            <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
-          </div>
-        </transition>
+          <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
+        </div>
       </li>
     </ul>
   </div>
@@ -94,17 +88,16 @@ export default {
       }
       Vue.set(this.itemOpen, index, !this.itemOpen[index])
     },
-    start (el) {
-      el.style.height = el.scrollHeight + 'px'
-    },
-    end (el) {
-      el.style.height = ''
-    },
     accordionIsOpen: function (index) {
       return (this.itemOpen[index] === undefined) ? false : this.itemOpen[index]
     },
     accordionId (index) {
       return `rpl-accordion-${this.getIdFromLocalRegistry(index)}`
+    },
+    getHeight (index) {
+      const ref = this.accordionId(index)
+      const section = this.$refs[ref]
+      return section[0].scrollHeight + 'px'
     }
   }
 }
@@ -258,6 +251,13 @@ export default {
       @include rpl_typography_ruleset($rpl-accordion-content-ruleset);
       @include rpl_text_color($rpl-accordion-content-text-color);
       box-sizing: border-box;
+      // Firefox has issue to render some iframe inside container which has display:none
+      // https://bugzilla.mozilla.org/show_bug.cgi?id=941146
+      visibility: hidden;
+      overflow:auto;
+      height: 0;
+      transition: height .5s, visibility .5s;
+
       @each $bp, $val in $rpl-accordion-content-padding {
         @include rpl_breakpoint($bp) {
           padding: $val;
@@ -267,17 +267,6 @@ export default {
       @media print {
         display: block !important;
         padding: 0 ($rpl-space * 5);
-      }
-
-      &.accordion-enter-active,
-      &.accordion-leave-active {
-        transition: height .5s;
-        overflow: hidden;
-      }
-
-      &.accordion-enter,
-      &.accordion-leave-to {
-        height: 0 !important;
       }
     }
 

@@ -97,7 +97,11 @@ export default {
     getHeight (index) {
       const ref = this.accordionId(index)
       const section = this.$refs[ref]
-      return section[0].scrollHeight + 'px'
+      if (section[0]) {
+        return section[0].scrollHeight + 'px'
+      } else {
+        throw new Error('Something is wrong while getting the height of the referred content')
+      }
     }
   }
 }

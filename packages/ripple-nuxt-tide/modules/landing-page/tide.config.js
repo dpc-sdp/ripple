@@ -38,7 +38,8 @@ module.exports = {
       'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_featured_image.field_media_image',
       'field_landing_page_component.field_paragraph_items.field_paragraph_keydates',
       'field_landing_page_component.field_paragraph_items.field_paragraph_media.field_media_image',
-      'field_landing_page_component.field_complex_image_media.field_media_image'
+      'field_landing_page_component.field_complex_image_media.field_media_image',
+      'field_landing_page_component.field_card_display_style'
     ]
   },
 
@@ -246,7 +247,7 @@ module.exports = {
         ]
       },
 
-      'paragraph--navigation_v2': {
+      'paragraph--navigation_card': {
         component: 'rpl-card-navigation-v2',
         props: {
           'title': 'field_paragraph_title',
@@ -261,9 +262,13 @@ module.exports = {
           },
           'date': 'field_paragraph_date',
           'tag': ['field_paragraph_topic', 0, 'name'],
-          'author': 'field_paragraph_author'
+          'author': 'field_paragraph_author',
+          'displayStyle': 'field_card_display_style'
         },
-        cols: cardColsSetting
+        cols: {
+          wide: { l: 6 },
+          narrow: {}
+        }
       },
 
       'paragraph--card_event': {

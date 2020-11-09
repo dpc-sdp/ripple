@@ -4,7 +4,7 @@
       <rpl-responsive-img class="rpl-card-navigation__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-navigation__details">
-      <div v-if="date || tag" class="rpl-card-navigation__meta">
+      <div v-if="date || tag || status" class="rpl-card-navigation__meta">
         <div v-if="tag" class="rpl-card-navigation__tag" >{{ tag }}</div>
         <div v-if="status" class="rpl-card-navigation__status" :class="`rpl-card-navigation__status--${this.status.toLowerCase()}`">
           <rpl-icon v-if="statusIcon" class="rpl-card-navigation__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
@@ -12,8 +12,8 @@
         </div>
         <div v-if="date" class="rpl-card-navigation__date">{{ formatDate(date, 'DD MMMM YYYY') }}</div>
       </div>
-      <h2 v-if="title" class="rpl-card-navigation__title"><span>{{ title }}</span></h2>
-      <p v-if="summary" class="rpl-card-navigation__summary">{{ summary }}</p>
+      <h2 v-if="title" class="rpl-card-navigation__title"><span>{{ trimmedTitle }}</span></h2>
+      <p v-if="summary" class="rpl-card-navigation__summary">{{ trimmedSummary }}</p>
       <p v-if="author" class="rpl-card-navigation__author"><strong>Author:</strong> {{ author }}</p>
     </div>
   </rpl-link>

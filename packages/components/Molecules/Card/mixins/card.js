@@ -1,3 +1,5 @@
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers'
+
 const card = {
   computed: {
     statusIcon () {
@@ -24,6 +26,17 @@ const card = {
     },
     computedImg () {
       return typeof this.image === 'string' ? { src: this.image } : this.image
+    },
+    trimmedTitle () {
+      const titleLength = 150
+      return this.title ? truncateText(this.title, titleLength) : ''
+    },
+    trimmedSummary () {
+      let summaryLength = 300
+      if (this.image) {
+        summaryLength = 200
+      }
+      return this.summary ? truncateText(this.summary, summaryLength) : ''
     }
   }
 }

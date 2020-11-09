@@ -1,5 +1,5 @@
 <template>
-  <rpl-link v-if="link" class="rpl-card-navigation" :href="link.url" :innerWrap="false">
+  <rpl-link v-if="link" :class="modifiers" :href="link.url" :innerWrap="false">
     <div v-if="image" class="rpl-card-navigation__image-wrapper">
       <rpl-responsive-img class="rpl-card-navigation__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     </div>
@@ -42,7 +42,8 @@ export default {
     tag: String,
     date: String,
     author: String,
-    status: String
+    status: String,
+    displayStyle: String
   },
   data () {
     return {
@@ -53,6 +54,17 @@ export default {
         { size: 'l', height: 232, width: 333 }
       ]
     }
+  },
+  computed: {
+    modifiers () {
+      const prefix = 'rpl-card-navigation'
+      const modifiers = [ prefix ]
+      if (this.displayStyle && this.displayStyle.toLowerCase() === 'featured') {
+        modifiers.push(`${prefix}--featured`)
+      }
+
+      return modifiers
+    },
   }
 }
 </script>

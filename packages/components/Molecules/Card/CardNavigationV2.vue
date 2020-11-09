@@ -21,6 +21,7 @@
 
 <script>
 import RplLink from '@dpc-sdp/ripple-link'
+import RplIcon from '@dpc-sdp/ripple-icon'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import card from '@dpc-sdp/ripple-card/mixins/card'
@@ -30,7 +31,8 @@ export default {
   mixins: [formatdate, card],
   components: {
     RplLink,
-    RplResponsiveImg
+    RplResponsiveImg,
+    RplIcon
   },
   props: {
     title: String,

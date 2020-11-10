@@ -33,6 +33,16 @@ const customConfigs = {
       configGroups.customModule
     ]
   },
+  searchTemplates: {
+    filename: 'tide.search-template',
+    type: Object,
+    merge: true,
+    groups: [
+      configGroups.customRoot,
+      configGroups.customModule,
+      configGroups.coreModule
+    ]
+  },
   extendFilters: {
     filename: 'mapping-filters',
     type: Array,
@@ -168,7 +178,14 @@ const buildConfigs = (group, tideConfig, _this, moduleName = null) => {
             config.call(_this)
             break
           case Object:
-            tideConfig[configName] = config
+            if (configItem.merge) {
+              tideConfig[configName] = {
+                ...tideConfig[configName],
+                ...config
+              }
+            } else {
+              tideConfig[configName] = config
+            }
         }
       }
     }

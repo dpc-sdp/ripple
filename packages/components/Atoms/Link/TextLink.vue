@@ -1,5 +1,5 @@
 <template>
-  <rpl-link v-if="url !== null" class="rpl-text-link" :class="{ 'rpl-text-link--underline': underline }" :href="url" :innerWrap="innerWrap">
+  <rpl-link v-if="url !== null" class="rpl-text-link" :class="{ 'rpl-text-link--underline': underline, 'rpl-text-link--dark': (theme === 'dark') }" :href="url" :innerWrap="innerWrap">
     <rpl-text-label :theme="theme" :size="size" :underline="underline" :emphasis="emphasis">
       <rpl-text-icon :text="textDecoded" :symbol="iconSymbolFinal" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
     </rpl-text-label>
@@ -66,6 +66,10 @@ export default {
           text-decoration: none;
         }
       }
+    }
+
+    &--dark {
+      @include rpl_focus_dark;
     }
 
     &:hover,

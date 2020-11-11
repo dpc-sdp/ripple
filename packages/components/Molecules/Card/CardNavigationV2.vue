@@ -3,14 +3,14 @@
     <div v-if="image" class="rpl-card-navigation__image-wrapper">
       <rpl-responsive-img class="rpl-card-navigation__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     </div>
-    <div class="rpl-card-navigation__details">
+    <div class="rpl-card-navigation__content">
       <div v-if="date || tag || status" class="rpl-card-navigation__meta">
         <div v-if="tag" class="rpl-card-navigation__tag" >{{ tag }}</div>
         <div v-if="status" class="rpl-card-navigation__status" :class="`rpl-card-navigation__status--${this.status.toLowerCase()}`">
           <rpl-icon v-if="statusIcon" class="rpl-card-navigation__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
           <span>{{ status }}</span>
         </div>
-        <div v-if="date" class="rpl-card-navigation__date">{{ formatDate(date, 'DD MMMM YYYY') }}</div>
+        <div v-if="formattedDate" class="rpl-card-navigation__date">{{ formattedDate }}</div>
       </div>
       <h2 v-if="title" class="rpl-card-navigation__title"><span>{{ trimmedTitle }}</span></h2>
       <p v-if="summary" class="rpl-card-navigation__summary">{{ trimmedSummary }}</p>
@@ -40,7 +40,8 @@ export default {
     summary: String,
     link: Object,
     tag: String,
-    date: String,
+    dateStart: String,
+    dateEnd: String,
     author: String,
     status: String,
     displayStyle: String
@@ -65,6 +66,16 @@ export default {
 
       return modifiers
     },
+    formattedDate () {
+      if (!this.dateStart && !this.dateEnd) return ''
+
+      let formatted = this.formatDate(this.dateStart, 'DD MMMM YYYY')
+      if (this.dateEnd) {
+        formatted = this.formatDateRange(this.dateStart, this.dateEnd, { day: 'DD', month: 'MMM', year: 'YYYY' })
+      }
+
+      return formatted
+    }
   }
 }
 </script>
@@ -78,10 +89,10 @@ $rpl-card-navigation-background: rpl_color('white') !default;
 $rpl-card-navigation-border-color: rpl_color('mid_neutral_1') !default;
 $rpl-card-navigation-border: 1px solid $rpl-card-navigation-border-color !default;
 $rpl-card-navigation-border-radius: rem(4px) !default;
-$rpl-card-navigation-details-padding-xs: $rpl-card-vertical-padding $rpl-component-padding-xs !default;
-$rpl-card-navigation-details-padding-s: $rpl-card-vertical-padding $rpl-component-padding-s !default;
-$rpl-card-navigation-details-padding-m: $rpl-card-vertical-padding $rpl-card-horizontal-padding-m !default;
-$rpl-card-navigation-details-width-xxxl: rem(435px) !default;
+$rpl-card-navigation-content-padding-xs: $rpl-card-vertical-padding $rpl-component-padding-xs !default;
+$rpl-card-navigation-content-padding-s: $rpl-card-vertical-padding $rpl-component-padding-s !default;
+$rpl-card-navigation-content-padding-m: $rpl-card-vertical-padding $rpl-card-horizontal-padding-m !default;
+$rpl-card-navigation-content-width-xxxl: rem(435px) !default;
 $rpl-card-navigation-inline-padding-m: ($rpl-space * 8) ($rpl-space * 8) !default;
 $rpl-card-navigation-title-ruleset:  ('l', 1.2em, 'bold') !default;
 $rpl-card-navigation-title-color: rpl_color('extra_dark_neutral') !default;
@@ -118,7 +129,7 @@ $rpl-card-navigation-featured-title-ruleset: (
   'xs': ('mega', 1.3em, 'bold', true),
   's': ('giga', 1.6em, 'bold', true)
 ) !default;
-$rpl-card-navigation-featured-details-padding: 2rem !default;
+$rpl-card-navigation-featured-content-padding: 2rem !default;
 $rpl-card-navigation-featured-meta-margin-bottom: rem(14px) !default;
 $rpl-card-navigation-featured-meta-margin-bottom-m: rem(18px) !default;
 $rpl-card-navigation-featured-img-height: (
@@ -220,14 +231,14 @@ $rpl-card-navigation-featured-img-height: (
     margin-bottom: 0;
   }
 
-  &__details {
+  &__content {
     color: $rpl-card-navigation-summary-color;
     width: 100%;
     box-sizing: border-box;
-    padding: $rpl-card-navigation-details-padding-xs;
+    padding: $rpl-card-navigation-content-padding-xs;
 
     @include rpl_breakpoint('s') {
-      padding: $rpl-card-navigation-details-padding-s;
+      padding: $rpl-card-navigation-content-padding-s;
     }
     @include rpl_breakpoint('m') {
       padding: 0;
@@ -289,12 +300,12 @@ $rpl-card-navigation-featured-img-height: (
       }
     }
 
-    #{$root}__details, #{$root}__image-wrapper, #{$root}__image {
+    #{$root}__content, #{$root}__image-wrapper, #{$root}__image {
       width: 100%;
     }
 
-    #{$root}__details {
-      padding: $rpl-card-navigation-featured-details-padding;
+    #{$root}__content {
+      padding: $rpl-card-navigation-featured-content-padding;
     }
 
     #{$root}__image {

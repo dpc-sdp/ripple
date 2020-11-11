@@ -109,4 +109,19 @@ describe('CardNavigationV2', () => {
     expect(wrapper.vm.trimmedSummary).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a...')
     expect(wrapper.vm.trimmedSummary.length).toEqual(200 + 3)
   })
+
+  it('formats the date correctly', () => {
+    const wrapper = shallowMount(CardNavigationV2, {
+      propsData: {
+        title: 'Navigation card V2',
+        dateStart: '2020-11-10T23:45:00',
+        dateEnd: '2020-11-11T00:15:00'
+      }
+    })
+
+    expect(wrapper.vm.formattedDate).toEqual('10 to 11 Nov')
+
+    wrapper.setProps({ dateEnd: null })
+    expect(wrapper.vm.formattedDate).toEqual('10 November 2020')
+  })
 })

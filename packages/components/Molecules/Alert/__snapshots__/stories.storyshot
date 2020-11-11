@@ -30,7 +30,7 @@ exports[`RippleStoryshots Molecules/Alert Alert 1`] = `
     </span>
      
     <a
-      class="rpl-link rpl-text-link rpl-alert__link"
+      class="rpl-link rpl-text-link rpl-alert__link rpl-text-link--dark"
       data-print-url="#"
       href="#"
     >

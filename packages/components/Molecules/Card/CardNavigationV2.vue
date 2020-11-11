@@ -1,10 +1,10 @@
 <template>
-  <rpl-link v-if="link" class="rpl-card-navigation" :href="link.url" :innerWrap="false">
+  <rpl-link v-if="link" :class="modifiers" :href="link.url" :innerWrap="false">
     <div v-if="image" class="rpl-card-navigation__image-wrapper">
       <rpl-responsive-img class="rpl-card-navigation__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-navigation__details">
-      <div v-if="date || tag" class="rpl-card-navigation__meta">
+      <div v-if="date || tag || status" class="rpl-card-navigation__meta">
         <div v-if="tag" class="rpl-card-navigation__tag" >{{ tag }}</div>
         <div v-if="status" class="rpl-card-navigation__status" :class="`rpl-card-navigation__status--${this.status.toLowerCase()}`">
           <rpl-icon v-if="statusIcon" class="rpl-card-navigation__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
@@ -12,8 +12,8 @@
         </div>
         <div v-if="date" class="rpl-card-navigation__date">{{ formatDate(date, 'DD MMMM YYYY') }}</div>
       </div>
-      <h2 v-if="title" class="rpl-card-navigation__title"><span>{{ title }}</span></h2>
-      <p v-if="summary" class="rpl-card-navigation__summary">{{ summary }}</p>
+      <h2 v-if="title" class="rpl-card-navigation__title"><span>{{ trimmedTitle }}</span></h2>
+      <p v-if="summary" class="rpl-card-navigation__summary">{{ trimmedSummary }}</p>
       <p v-if="author" class="rpl-card-navigation__author"><strong>Author:</strong> {{ author }}</p>
     </div>
   </rpl-link>
@@ -21,6 +21,7 @@
 
 <script>
 import RplLink from '@dpc-sdp/ripple-link'
+import RplIcon from '@dpc-sdp/ripple-icon'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import card from '@dpc-sdp/ripple-card/mixins/card'
@@ -30,7 +31,8 @@ export default {
   mixins: [formatdate, card],
   components: {
     RplLink,
-    RplResponsiveImg
+    RplResponsiveImg,
+    RplIcon
   },
   props: {
     title: String,
@@ -40,7 +42,8 @@ export default {
     tag: String,
     date: String,
     author: String,
-    status: String
+    status: String,
+    displayStyle: String
   },
   data () {
     return {
@@ -51,6 +54,17 @@ export default {
         { size: 'l', height: 232, width: 333 }
       ]
     }
+  },
+  computed: {
+    modifiers () {
+      const prefix = 'rpl-card-navigation'
+      const modifiers = [ prefix ]
+      if (this.displayStyle && this.displayStyle.toLowerCase() === 'featured') {
+        modifiers.push(`${prefix}--featured`)
+      }
+
+      return modifiers
+    },
   }
 }
 </script>

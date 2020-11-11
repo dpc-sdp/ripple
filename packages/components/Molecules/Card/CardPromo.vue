@@ -32,7 +32,6 @@ import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import RplLink from '@dpc-sdp/ripple-link'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import RplIcon from '@dpc-sdp/ripple-icon'
-import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import card from '@dpc-sdp/ripple-card/mixins/card'
 
 export default {
@@ -68,17 +67,6 @@ export default {
       }
 
       return modifiers
-    },
-    trimmedTitle () {
-      const titleLength = 150
-      return this.title ? truncateText(this.title, titleLength) : ''
-    },
-    trimmedSummary () {
-      let summaryLength = 300
-      if (this.image) {
-        summaryLength = 200
-      }
-      return this.summary ? truncateText(this.summary, summaryLength) : ''
     },
     computedDate () {
       if (this.date) {

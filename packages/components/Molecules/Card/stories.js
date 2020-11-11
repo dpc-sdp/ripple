@@ -76,7 +76,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
         })
       },
       tag: {
-        default: () => select('Tag', [ 'Event', 'News', 'Publication' ], 'Event')
+        default: () => select('Tag', [ 'Event', 'News' ], 'Event')
       },
       date: {
         default: text('Date', '2020-03-23T09:00:00.000+10:00')
@@ -100,7 +100,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
         default: () => object('Link', { text: 'Read more', url: '#' })
       },
       tag: {
-        default: () => select('Tag', [ 'Event', 'News', 'Publication' ], 'Publication')
+        default: () => select('Tag', [ 'Event', 'News' ], 'Event')
       },
       date: {
         default: text('Date', '2020-03-23T09:00:00.000+10:00')
@@ -110,7 +110,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
       }
     }
   }))
-  .add('Grant', () => ({
+  .add('Event', () => ({
     components: { RplCardNavigationV2 },
     template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :status="status" :author="author" />`,
     props: {
@@ -135,7 +135,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
         })
       },
       tag: {
-        default: text('Tag', 'Grant')
+        default: text('Tag', 'Event')
       },
       author: {
         default: text('Author', 'John Doe')
@@ -170,13 +170,16 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
         })
       },
       tag: {
-        default: () => select('Tag', [ 'Event', 'News', 'Publication' ], 'Publication')
+        default: () => select('Tag', [ 'Event', 'News' ], 'News')
       },
       date: {
         default: text('Date', '2020-03-23T09:00:00.000+10:00')
       },
       author: {
         default: text('Author', 'John Doe')
+      },
+      displayStyle: {
+        default: text('Display Style', 'featured')
       }
     }
   }))

@@ -51,9 +51,9 @@ storiesOf('Molecules/Card/Card Navigation', module)
 
 storiesOf('Molecules/Card/Card Navigation V2', module)
   .addDecorator(withKnobs)
-  .add('Default', () => ({
+  .add('Thumbnail', () => ({
     components: { RplCardNavigationV2 },
-    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :image="image" :author="author" />`,
+    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :image="image" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -83,10 +83,13 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
       },
       author: {
         default: text('Author', 'John Doe')
+      },
+      displayStyle: {
+        default: text('Display style', 'thumbnail')
       }
     }
   }))
-  .add('Without image', () => ({
+  .add('No image', () => ({
     components: { RplCardNavigationV2 },
     template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" />`,
     props: {
@@ -112,7 +115,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
   }))
   .add('Event', () => ({
     components: { RplCardNavigationV2 },
-    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :status="status" :author="author" />`,
+    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :status="status" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -142,12 +145,15 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
       },
       status: {
         default: () => select('Status', { open: 'Open', closed: 'Closed', ongoing: 'Ongoing' }, 'open')
+      },
+      displayStyle: {
+        default: text('Display style', 'thumbnail')
       }
     }
   }))
   .add('Featured', () => ({
     components: { RplCardNavigationV2 },
-    template: `<rpl-card-navigation-v2 class="rpl-card-navigation--featured" :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" :image="image" />`,
+    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" :image="image" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')

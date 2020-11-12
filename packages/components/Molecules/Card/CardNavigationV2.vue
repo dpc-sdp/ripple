@@ -4,7 +4,7 @@
       <rpl-responsive-img class="rpl-card-navigation__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-navigation__content">
-      <div v-if="date || tag || status" class="rpl-card-navigation__meta">
+      <div v-if="formattedDate || tag || status" class="rpl-card-navigation__meta">
         <div v-if="tag" class="rpl-card-navigation__tag" >{{ tag }}</div>
         <div v-if="status" class="rpl-card-navigation__status" :class="`rpl-card-navigation__status--${this.status.toLowerCase()}`">
           <rpl-icon v-if="statusIcon" class="rpl-card-navigation__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
@@ -44,7 +44,11 @@ export default {
     dateEnd: String,
     author: String,
     status: String,
-    displayStyle: String
+    displayStyle: {
+      type: String,
+      default: 'noImage',
+      validator: val => ['noImage', 'thumbnail', 'featured'].includes(val)
+    }
   },
   data () {
     return {
@@ -60,9 +64,7 @@ export default {
     modifiers () {
       const prefix = 'rpl-card-navigation'
       const modifiers = [ prefix ]
-      if (this.displayStyle && this.displayStyle.toLowerCase() === 'featured') {
-        modifiers.push(`${prefix}--featured`)
-      }
+      modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
 
       return modifiers
     },
@@ -137,6 +139,13 @@ $rpl-card-navigation-featured-img-height: (
   'l': rem(285px),
   'xxl': rem(355px)
 ) !default;
+$rpl-card-navigation-featured-max-width: (
+  'xs': rem(320px),
+  'l': rem(488px),
+  'xxl': rem(608px)
+) !default;
+$rpl-card-navigation-thumbnail-max-width: rem(818px) !default;
+$rpl-card-navigation-noimage-max-width: rem(607px) !default;
 
 .rpl-card-navigation {
   $root: &;
@@ -233,7 +242,6 @@ $rpl-card-navigation-featured-img-height: (
 
   &__content {
     color: $rpl-card-navigation-summary-color;
-    width: 100%;
     box-sizing: border-box;
     padding: $rpl-card-navigation-content-padding-xs;
 
@@ -242,7 +250,6 @@ $rpl-card-navigation-featured-img-height: (
     }
     @include rpl_breakpoint('m') {
       padding: 0;
-      width: 60%;
     }
   }
 
@@ -268,16 +275,22 @@ $rpl-card-navigation-featured-img-height: (
     text-transform: uppercase;
   }
 
+  &--thumbnail {
+    max-width: $rpl-card-navigation-thumbnail-max-width;
+  }
+
+  &--noimage {
+    max-width: $rpl-card-navigation-noimage-max-width;
+  }
+
   &--featured {
     padding: 0;
     flex-wrap: wrap;
-    max-width: rem(320px);
 
-    @include rpl_breakpoint('l') {
-      max-width: rem(488px);
-    }
-    @include rpl_breakpoint('xxl') {
-      max-width: rem(608px);
+    @each $bp, $max-width in $rpl-card-navigation-featured-max-width {
+      @include rpl_breakpoint($bp) {
+        max-width: $max-width;
+      }
     }
 
     &:hover,

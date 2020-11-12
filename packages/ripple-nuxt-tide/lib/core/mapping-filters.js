@@ -16,11 +16,20 @@ export default {
   },
   cardImage: (mediaImage) => {
     if (mediaImage) {
+      let imageWidth = null
+      let imageHeight = null
+      if (mediaImage.meta && typeof mediaImage.meta === 'object' && (mediaImage.meta.width || mediaImage.meta.height)) {
+        imageWidth = mediaImage.meta.width
+        imageHeight = mediaImage.meta.height
+      } else if (mediaImage.data && typeof mediaImage.data === 'object' && (mediaImage.data[0].width || mediaImage.data[0].height)) {
+        imageWidth = mediaImage.data[0].width
+        imageHeight = mediaImage.data[0].height
+      }
       return {
         src: mediaImage.url,
-        focalPoint: mediaImage.meta.focal_point,
-        width: mediaImage.meta.width,
-        height: mediaImage.meta.height
+        focalPoint: mediaImage.meta.focal_point || null,
+        width: parseInt(imageWidth),
+        height: parseInt(imageHeight)
       }
     }
   },

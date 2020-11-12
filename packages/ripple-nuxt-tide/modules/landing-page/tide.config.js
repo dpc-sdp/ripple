@@ -38,8 +38,7 @@ module.exports = {
       'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_featured_image.field_media_image',
       'field_landing_page_component.field_paragraph_items.field_paragraph_keydates',
       'field_landing_page_component.field_paragraph_items.field_paragraph_media.field_media_image',
-      'field_landing_page_component.field_complex_image_media.field_media_image',
-      'field_landing_page_component.field_card_display_style'
+      'field_landing_page_component.field_complex_image_media.field_media_image'
     ]
   },
 
@@ -259,7 +258,10 @@ module.exports = {
             ['field_paragraph_summary']
           ],
           'image': {
-            field: ['field_paragraph_media', 'field_media_image'],
+            field: [
+              ['field_paragraph_link', 'image'],
+              ['field_paragraph_media', 'field_media_image']
+            ],
             filters: ['cardImage']
           },
           'link': {
@@ -268,8 +270,8 @@ module.exports = {
           },
           'dateStart': ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
           'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
-          'tag':  ['field_paragraph_link', 'internal_node_fields', 'topic'],
-          'status':  ['field_paragraph_link', 'internal_node_fields', 'status'],
+          'tag': ['field_paragraph_link', 'internal_node_fields', 'topic'],
+          'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
           'author': ['field_paragraph_link', 'internal_node_fields', 'author'],
           'displayStyle': 'field_nav_card_display_style'
         },

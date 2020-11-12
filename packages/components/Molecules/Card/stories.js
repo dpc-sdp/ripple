@@ -76,7 +76,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
         })
       },
       tag: {
-        default: () => select('Tag', [ 'Event', 'News' ], 'Event')
+        default: () => select('Tag', [ 'Event', 'News', '' ], 'Event')
       },
       date: {
         default: text('Date', '2020-03-23T09:00:00.000+10:00')
@@ -103,7 +103,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
         default: () => object('Link', { text: 'Read more', url: '#' })
       },
       tag: {
-        default: () => select('Tag', [ 'Event', 'News' ], 'Event')
+        default: () => select('Tag', [ 'Event', 'News', '' ], 'Event')
       },
       date: {
         default: text('Date', '2020-03-23T09:00:00.000+10:00')
@@ -176,7 +176,7 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
         })
       },
       tag: {
-        default: () => select('Tag', [ 'Event', 'News' ], 'News')
+        default: () => select('Tag', [ 'Event', 'News', '' ], 'News')
       },
       date: {
         default: text('Date', '2020-03-23T09:00:00.000+10:00')

@@ -1,7 +1,7 @@
 <template>
   <rpl-link v-if="link" :class="modifiers" :href="link.url" :innerWrap="false">
     <div v-if="image" class="rpl-card-navigation__image-wrapper">
-      <rpl-responsive-img class="rpl-card-navigation__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
+      <rpl-responsive-img class="rpl-card-navigation__image" v-bind="image" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-navigation__content">
       <div v-if="formattedDate || tag || status" class="rpl-card-navigation__meta">
@@ -36,7 +36,7 @@ export default {
   },
   props: {
     title: String,
-    image: [String, Object],
+    image: Object,
     summary: String,
     link: Object,
     tag: String,
@@ -181,11 +181,9 @@ $rpl-card-navigation-noimage-max-width: rem(607px) !default;
   }
 
   &__image-wrapper {
-    width: 100%;
     padding: $rpl-card-navigation-img-wrapper-padding-xs;
     @include rpl_breakpoint('m') {
       padding: $rpl-card-navigation-img-wrapper-padding-m;
-      width: 40%;
     }
     @each $bp, $width in $rpl-card-navigation-img-width {
       @include rpl_breakpoint($bp) {

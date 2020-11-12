@@ -15,22 +15,25 @@ export default {
     }
   },
   cardImage: (mediaImage) => {
-    if (mediaImage) {
-      let imageWidth = null
-      let imageHeight = null
-      if (mediaImage.meta && typeof mediaImage.meta === 'object' && (mediaImage.meta.width || mediaImage.meta.height)) {
-        imageWidth = mediaImage.meta.width
-        imageHeight = mediaImage.meta.height
-      } else if (mediaImage.data && typeof mediaImage.data === 'object' && (mediaImage.data[0].width || mediaImage.data[0].height)) {
-        imageWidth = mediaImage.data[0].width
-        imageHeight = mediaImage.data[0].height
-      }
-      return {
-        src: mediaImage.url,
-        focalPoint: mediaImage.meta.focal_point || null,
-        width: parseInt(imageWidth),
-        height: parseInt(imageHeight)
-      }
+    if (!mediaImage || !mediaImage.url) return null
+
+    let imageWidth = null
+    let imageHeight = null
+    if (mediaImage.meta && typeof mediaImage.meta === 'object' && (mediaImage.meta.width || mediaImage.meta.height)) {
+      // Parse image from field_paragraph_media
+      imageWidth = mediaImage.meta.width
+      imageHeight = mediaImage.meta.height
+    } else if (mediaImage.data && mediaImage.data[0] && (mediaImage.data[0].width || mediaImage.data[0].height)) {
+      // Parse image from field_paragraph_link
+      imageWidth = mediaImage.data[0].width
+      imageHeight = mediaImage.data[0].height
+    }
+    let focalPoint = (mediaImage.meta && mediaImage.meta.focal_point) ? mediaImage.meta.focal_point : null
+    return {
+      src: mediaImage.url,
+      focalPoint: focalPoint,
+      width: parseInt(imageWidth),
+      height: parseInt(imageHeight)
     }
   },
 

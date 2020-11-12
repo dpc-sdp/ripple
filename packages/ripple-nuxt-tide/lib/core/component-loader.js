@@ -53,6 +53,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'rpl-card-keydates' */ '@dpc-sdp/ripple-card').then(m => m.RplCardKeydates)
     case 'rpl-card-navigation':
       return () => import(/* webpackChunkName: 'rpl-card-navigation' */ '@dpc-sdp/ripple-card').then(m => m.RplCardNavigation)
+    case 'rpl-card-promo':
+      return () => import(/* webpackChunkName: 'rpl-card-promo' */ '@dpc-sdp/ripple-card').then(m => m.RplCardPromo)
     case 'rpl-card-navigation-featured':
       return () => import(/* webpackChunkName: 'rpl-card-navigation-featured' */ '@dpc-sdp/ripple-card').then(m => m.RplCardNavigationFeatured)
     case 'rpl-campaign-primary':

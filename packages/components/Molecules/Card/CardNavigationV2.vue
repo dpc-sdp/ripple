@@ -67,16 +67,6 @@ export default {
       modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
 
       return modifiers
-    },
-    formattedDate () {
-      if (!this.dateStart && !this.dateEnd) return ''
-
-      let formatted = this.formatDate(this.dateStart, 'DD MMMM YYYY')
-      if (this.dateEnd) {
-        formatted = this.formatDateRange(this.dateStart, this.dateEnd, { day: 'DD', month: 'MMM', year: 'YYYY' })
-      }
-
-      return formatted
     }
   }
 }

@@ -2388,6 +2388,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Event 1`] = `
 <a
   class="rpl-link rpl-card-promo rpl-card-promo--no-image"
   data-print-url="#"
+  date="[object Object]"
   href="#"
 >
   <span
@@ -2411,11 +2412,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Event 1`] = `
          
         <!---->
          
-        <div
-          class="rpl-card-promo__date"
-        >
-          02 Jul to 25 Sep 2020
-        </div>
+        <!---->
       </div>
        
       <h2
@@ -2550,9 +2547,10 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Landing Page 1`] = 
 
 exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Profile 1`] = `
 <a
-  class="rpl-link rpl-card-promo rpl-card-promo--with-image rpl-card-promo--profile"
+  class="rpl-link rpl-card-promo rpl-card-promo--with-image"
   data-print-url="#"
   href="#"
+  variation="profile"
 >
   <span
     class="rpl-link__inner"

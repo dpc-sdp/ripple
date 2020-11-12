@@ -37,6 +37,16 @@ const card = {
         summaryLength = 200
       }
       return this.summary ? truncateText(this.summary, summaryLength) : ''
+    },
+    formattedDate () {
+      if (!this.dateStart && !this.dateEnd) return ''
+
+      let formatted = this.formatDate(this.dateStart, 'DD MMMM YYYY')
+      if (this.dateEnd) {
+        formatted = this.formatDateRange(this.dateStart, this.dateEnd, { day: 'DD', month: 'MMM', year: 'YYYY' })
+      }
+
+      return formatted
     }
   }
 }

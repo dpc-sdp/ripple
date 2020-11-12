@@ -14,7 +14,7 @@
               <span>{{status}}</span>
             </div>
           </slot>
-          <div class="rpl-card-promo__date" v-if="computedDate">{{ computedDate }}</div>
+          <div class="rpl-card-promo__date" v-if="formattedDate">{{ formattedDate }}</div>
         </slot>
       </div>
       <slot name="content">
@@ -39,14 +39,19 @@ export default {
   mixins: [formatdate, card],
   props: {
     image: [String, Object],
-    date: [String, Object],
-    variation: String,
+    dateStart: [String, Object],
+    dateEnd: [String, Object],
     tag: String,
     topic: String,
     status: String,
     title: String,
     summary: String,
-    link: Object
+    link: Object,
+    displayStyle: {
+      type: String,
+      default: 'noImage',
+      validator: val => ['noImage', 'thumbnail', 'profile'].includes(val)
+    }
   },
   components: {
     RplResponsiveImg,
@@ -62,23 +67,11 @@ export default {
       } else if (!this.image) {
         modifiers.push(`${prefix}--no-image`)
       }
-      if (this.variation) {
-        modifiers.push(`${prefix}--${this.variation}`)
+      if (this.displayStyle && this.displayStyle.toLowerCase() === 'profile') {
+        modifiers.push(`${prefix}--${this.displayStyle}`)
       }
 
       return modifiers
-    },
-    computedDate () {
-      if (this.date) {
-        if (typeof this.date === 'string') {
-          return this.date
-        } else if (typeof this.date === 'object' && this.date.hasOwnProperty('from')) {
-          if (this.date.to) {
-            return this.formatDateRange(this.date.from, this.date.to, { day: 'DD', month: 'MMM', year: 'YYYY' })
-          }
-          return this.formatDate(this.date.from)
-        }
-      }
     },
     hasMeta () {
       return this.tag || this.date || this.topic || this.status

@@ -24,9 +24,6 @@ const card = {
           }
       }
     },
-    computedImg () {
-      return typeof this.image === 'string' ? { src: this.image } : this.image
-    },
     trimmedTitle () {
       const titleLength = 150
       return this.title ? truncateText(this.title, titleLength) : ''

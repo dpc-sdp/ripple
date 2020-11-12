@@ -2037,16 +2037,16 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
 
 exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Event 1`] = `
 <a
-  class="rpl-link rpl-card-navigation rpl-card-navigation--thumbnail"
+  class="rpl-link rpl-card-nav rpl-card-nav--thumbnail"
   data-print-url="#"
   href="#"
 >
   <div
-    class="rpl-card-navigation__image-wrapper"
+    class="rpl-card-nav__image-wrapper"
   >
     <img
       alt=""
-      class="rpl-responsive-image rpl-card-navigation__image rpl-responsive-image--fit-cover"
+      class="rpl-responsive-image rpl-card-nav__image rpl-responsive-image--fit-cover"
       height="199"
       sizes="(max-width: 576px) 764px, (max-width: 768px) 448px, (max-width: 992px) 333px, 100vw"
       src="https://placehold.it/304x199"
@@ -2057,23 +2057,23 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Event 1`] = `
   </div>
    
   <div
-    class="rpl-card-navigation__content"
+    class="rpl-card-nav__content"
   >
     <div
-      class="rpl-card-navigation__meta"
+      class="rpl-card-nav__meta"
     >
       <div
-        class="rpl-card-navigation__tag"
+        class="rpl-card-nav__tag"
       >
         Event
       </div>
        
       <div
-        class="rpl-card-navigation__status rpl-card-navigation__status--open"
+        class="rpl-card-nav__status rpl-card-nav__status--open"
       >
         <svg
           aria-hidden="true"
-          class="rpl-card-navigation__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+          class="rpl-card-nav__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
           overflow="visible"
           style="width: 10px; height: 10px;"
           viewBox="0 0 20 20"
@@ -2093,7 +2093,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Event 1`] = `
     </div>
      
     <h2
-      class="rpl-card-navigation__title"
+      class="rpl-card-nav__title"
     >
       <span>
         Navigation card V2
@@ -2101,13 +2101,13 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Event 1`] = `
     </h2>
      
     <p
-      class="rpl-card-navigation__summary"
+      class="rpl-card-nav__summary"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
     </p>
      
     <p
-      class="rpl-card-navigation__author"
+      class="rpl-card-nav__author"
     >
       <strong>
         Author:
@@ -2120,17 +2120,17 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Event 1`] = `
 
 exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Featured 1`] = `
 <a
-  class="rpl-link rpl-card-navigation rpl-card-navigation--featured"
+  class="rpl-link rpl-card-nav rpl-card-nav--featured"
   data-print-url="#"
   date="2020-03-23T09:00:00.000+10:00"
   href="#"
 >
   <div
-    class="rpl-card-navigation__image-wrapper"
+    class="rpl-card-nav__image-wrapper"
   >
     <img
       alt=""
-      class="rpl-responsive-image rpl-card-navigation__image rpl-responsive-image--fit-cover"
+      class="rpl-responsive-image rpl-card-nav__image rpl-responsive-image--fit-cover"
       height="355"
       sizes="(max-width: 576px) 764px, (max-width: 768px) 448px, (max-width: 992px) 333px, 100vw"
       src="https://placehold.it/608x355"
@@ -2141,13 +2141,13 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Featured 1`] = `
   </div>
    
   <div
-    class="rpl-card-navigation__content"
+    class="rpl-card-nav__content"
   >
     <div
-      class="rpl-card-navigation__meta"
+      class="rpl-card-nav__meta"
     >
       <div
-        class="rpl-card-navigation__tag"
+        class="rpl-card-nav__tag"
       >
         News
       </div>
@@ -2158,7 +2158,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Featured 1`] = `
     </div>
      
     <h2
-      class="rpl-card-navigation__title"
+      class="rpl-card-nav__title"
     >
       <span>
         Navigation card V2
@@ -2166,13 +2166,13 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Featured 1`] = `
     </h2>
      
     <p
-      class="rpl-card-navigation__summary"
+      class="rpl-card-nav__summary"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
     </p>
      
     <p
-      class="rpl-card-navigation__author"
+      class="rpl-card-nav__author"
     >
       <strong>
         Author:
@@ -2185,7 +2185,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Featured 1`] = `
 
 exports[`RippleStoryshots Molecules/Card/Card Navigation V2 No image 1`] = `
 <a
-  class="rpl-link rpl-card-navigation rpl-card-navigation--noimage"
+  class="rpl-link rpl-card-nav rpl-card-nav--noimage"
   data-print-url="#"
   date="2020-03-23T09:00:00.000+10:00"
   href="#"
@@ -2193,13 +2193,13 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 No image 1`] = `
   <!---->
    
   <div
-    class="rpl-card-navigation__content"
+    class="rpl-card-nav__content"
   >
     <div
-      class="rpl-card-navigation__meta"
+      class="rpl-card-nav__meta"
     >
       <div
-        class="rpl-card-navigation__tag"
+        class="rpl-card-nav__tag"
       >
         Event
       </div>
@@ -2210,7 +2210,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 No image 1`] = `
     </div>
      
     <h2
-      class="rpl-card-navigation__title"
+      class="rpl-card-nav__title"
     >
       <span>
         Navigation card V2
@@ -2218,13 +2218,13 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 No image 1`] = `
     </h2>
      
     <p
-      class="rpl-card-navigation__summary"
+      class="rpl-card-nav__summary"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </p>
      
     <p
-      class="rpl-card-navigation__author"
+      class="rpl-card-nav__author"
     >
       <strong>
         Author:
@@ -2237,17 +2237,17 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 No image 1`] = `
 
 exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Thumbnail 1`] = `
 <a
-  class="rpl-link rpl-card-navigation rpl-card-navigation--thumbnail"
+  class="rpl-link rpl-card-nav rpl-card-nav--thumbnail"
   data-print-url="#"
   date="2020-03-23T09:00:00.000+10:00"
   href="#"
 >
   <div
-    class="rpl-card-navigation__image-wrapper"
+    class="rpl-card-nav__image-wrapper"
   >
     <img
       alt=""
-      class="rpl-responsive-image rpl-card-navigation__image rpl-responsive-image--fit-cover"
+      class="rpl-responsive-image rpl-card-nav__image rpl-responsive-image--fit-cover"
       height="199"
       sizes="(max-width: 576px) 764px, (max-width: 768px) 448px, (max-width: 992px) 333px, 100vw"
       src="https://placehold.it/304x199"
@@ -2258,13 +2258,13 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Thumbnail 1`] = `
   </div>
    
   <div
-    class="rpl-card-navigation__content"
+    class="rpl-card-nav__content"
   >
     <div
-      class="rpl-card-navigation__meta"
+      class="rpl-card-nav__meta"
     >
       <div
-        class="rpl-card-navigation__tag"
+        class="rpl-card-nav__tag"
       >
         Event
       </div>
@@ -2275,7 +2275,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Thumbnail 1`] = `
     </div>
      
     <h2
-      class="rpl-card-navigation__title"
+      class="rpl-card-nav__title"
     >
       <span>
         Navigation card V2
@@ -2283,13 +2283,13 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Thumbnail 1`] = `
     </h2>
      
     <p
-      class="rpl-card-navigation__summary"
+      class="rpl-card-nav__summary"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
     </p>
      
     <p
-      class="rpl-card-navigation__author"
+      class="rpl-card-nav__author"
     >
       <strong>
         Author:
@@ -2555,11 +2555,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Profile 1`] = `
   <span
     class="rpl-link__inner"
   >
-    <img
-      alt=""
-      class="rpl-responsive-image rpl-card-promo__image rpl-responsive-image--fit-cover"
-      src="https://s3.amazonaws.com/uifaces/faces/twitter/yecidsm/128.jpg"
-    />
+    <!---->
      
     <div
       class="rpl-card-promo__content"
@@ -2610,11 +2606,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 With Image 1`] = `
   <span
     class="rpl-link__inner"
   >
-    <img
-      alt=""
-      class="rpl-responsive-image rpl-card-promo__image rpl-responsive-image--fit-cover"
-      src="https://images.unsplash.com/photo-1602699121297-81f2312fa4e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
-    />
+    <!---->
      
     <div
       class="rpl-card-promo__content"

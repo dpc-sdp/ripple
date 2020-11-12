@@ -1,6 +1,7 @@
 import RplCardPromo from './CardPromo.vue'
 import RplCardImageNavigation from './CardImageNavigation.vue'
 import RplCardNavigation from './CardNavigation.vue'
+import RplCardNavigationV2 from './CardNavigationV2.vue'
 import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
@@ -15,6 +16,7 @@ import RplCardCarousel from './CardCarousel.vue'
 export { RplCardPromo }
 export { RplCardImageNavigation }
 export { RplCardNavigation }
+export { RplCardNavigationV2 }
 export { RplCardNavigationFeatured }
 export { RplCardPromotion }
 export { RplCardKeydates }

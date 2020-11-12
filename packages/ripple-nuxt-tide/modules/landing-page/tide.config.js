@@ -246,6 +246,41 @@ module.exports = {
         ]
       },
 
+      'paragraph--navigation_card': {
+        component: 'rpl-card-navigation-v2',
+        props: {
+          'title': [
+            ['field_paragraph_link', 'internal_node_fields', 'title'],
+            ['field_paragraph_title']
+          ],
+          'summary': [
+            ['field_paragraph_link', 'internal_node_fields', 'summary'],
+            ['field_paragraph_summary']
+          ],
+          'image': {
+            field: [
+              ['field_paragraph_link', 'image'],
+              ['field_paragraph_media', 'field_media_image']
+            ],
+            filters: ['cardImage']
+          },
+          'link': {
+            field: 'field_paragraph_link',
+            filters: ['paragraphLink']
+          },
+          'dateStart': ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
+          'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
+          'tag': ['field_paragraph_link', 'internal_node_fields', 'topic'],
+          'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
+          'author': ['field_paragraph_link', 'internal_node_fields', 'author'],
+          'displayStyle': 'field_nav_card_display_style'
+        },
+        cols: {
+          wide: { l: 6 },
+          narrow: {}
+        }
+      },
+
       'paragraph--promotion_card': {
         component: 'rpl-card-promo',
         props: {

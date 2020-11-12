@@ -2,15 +2,14 @@ const tideConfig = {
   // `internal` config is for SDP internal use only, not able to be extended.
   internal: {
     sdpPageBase: [
-      'field_node_site',
       'field_node_site.field_site_main_menu',
-      'field_node_site.field_site_og_image',
       'field_node_site.field_site_og_image.field_media_image',
-      'field_featured_image',
       'field_featured_image.field_media_image',
+      'field_node_site.field_site_twitter_image.field_media_image',
       'field_tags',
       'field_topic',
-      'field_related_links'
+      'field_related_links',
+      'field_department_agency'
     ],
     // SDP content types share the same base fields in `sdpPageBase`.
     sdpPageTypes: [
@@ -97,7 +96,10 @@ const tideConfig = {
             field: 'field_block_cta',
             filters: ['paragraphCta']
           },
-          image: ['field_block_image', 'field_media_image', 'url']
+          'image': {
+            field: ['field_block_image', 'field_media_image'],
+            filters: ['cardImage']
+          }
         }
       },
 
@@ -110,7 +112,10 @@ const tideConfig = {
             field: 'field_block_cta',
             filters: ['paragraphCta']
           },
-          image: ['field_block_image', 'field_media_image', 'url'],
+          'image': {
+            field: ['field_block_image', 'field_media_image'],
+            filters: ['cardImage']
+          },
           video: {
             field: 'field_block_embedded_video',
             filters: ['embeddedVideo']

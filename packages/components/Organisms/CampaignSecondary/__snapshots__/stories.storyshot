@@ -15,8 +15,11 @@ exports[`RippleStoryshots Organisms/CampaignSecondary With image 1`] = `
       >
         <img
           alt=""
-          class="rpl-campaign-secondary__image"
-          src="http://placehold.it/699x411"
+          class="rpl-responsive-image rpl-campaign-secondary__image rpl-responsive-image--fit-cover"
+          height="340"
+          src="https://placehold.it/580x340"
+          style="object-position: 50.00% 50.00%; font-family: 'object-fit: cover; object-position: 50.00% 50.00%;';"
+          width="580"
         />
          
         <!---->
@@ -89,7 +92,18 @@ exports[`RippleStoryshots Organisms/CampaignSecondary With video 1`] = `
           <div
             class="rpl-embed-video__link"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--view rpl-icon--color_primary"
+              overflow="visible"
+              style="width: 15px; height: 11px;"
+              viewBox="0 0 15 11"
+            >
+              <path
+                d="M7.5 0C4.09 0 1.18 2.195 0 5.294c1.18 3.099 4.09 5.294 7.5 5.294s6.32-2.195 7.5-5.294C13.82 2.195 10.91 0 7.5 0zm0 8.824c-1.882 0-3.41-1.582-3.41-3.53 0-1.948 1.528-3.53 3.41-3.53 1.882 0 3.41 1.582 3.41 3.53 0 1.948-1.528 3.53-3.41 3.53zm0-5.648c-1.132 0-2.045.946-2.045 2.118S6.368 7.412 7.5 7.412s2.045-.946 2.045-2.118S8.632 3.176 7.5 3.176z"
+              />
+               
+            </svg>
              
             <a
               class="rpl-link rpl-text-link"

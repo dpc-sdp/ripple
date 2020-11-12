@@ -27,7 +27,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         >
           <img
             alt=""
-            class="rpl-card-content__image"
+            class="rpl-responsive-image rpl-card-content__image rpl-responsive-image--fit-cover"
             src="https://placehold.it/580x340"
           />
         </div>
@@ -65,7 +65,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
           <p
             class="rpl-card-event__location"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--map_marker rpl-icon--color_secondary"
+              overflow="visible"
+              style="width: 9px; height: 12px;"
+              viewBox="0 0 12 16"
+            >
+              <path
+                d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+              />
+               
+            </svg>
             South Yarra
           </p>
            
@@ -84,7 +95,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -104,7 +126,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         >
           <img
             alt=""
-            class="rpl-card-content__image"
+            class="rpl-responsive-image rpl-card-content__image rpl-responsive-image--fit-cover"
             src="https://placehold.it/580x340"
           />
         </div>
@@ -142,7 +164,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
           <p
             class="rpl-card-event__location"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--map_marker rpl-icon--color_secondary"
+              overflow="visible"
+              style="width: 9px; height: 12px;"
+              viewBox="0 0 12 16"
+            >
+              <path
+                d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+              />
+               
+            </svg>
             South Yarra
           </p>
            
@@ -161,7 +194,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -181,7 +225,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         >
           <img
             alt=""
-            class="rpl-card-content__image"
+            class="rpl-responsive-image rpl-card-content__image rpl-responsive-image--fit-cover"
             src="https://placehold.it/580x340"
           />
         </div>
@@ -219,7 +263,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
           <p
             class="rpl-card-event__location"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--map_marker rpl-icon--color_secondary"
+              overflow="visible"
+              style="width: 9px; height: 12px;"
+              viewBox="0 0 12 16"
+            >
+              <path
+                d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+              />
+               
+            </svg>
             South Yarra
           </p>
            
@@ -238,7 +293,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -258,7 +324,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         >
           <img
             alt=""
-            class="rpl-card-content__image"
+            class="rpl-responsive-image rpl-card-content__image rpl-responsive-image--fit-cover"
             src="https://placehold.it/580x340"
           />
         </div>
@@ -296,7 +362,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
           <p
             class="rpl-card-event__location"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--map_marker rpl-icon--color_secondary"
+              overflow="visible"
+              style="width: 9px; height: 12px;"
+              viewBox="0 0 12 16"
+            >
+              <path
+                d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+              />
+               
+            </svg>
             South Yarra
           </p>
            
@@ -315,7 +392,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -335,7 +423,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         >
           <img
             alt=""
-            class="rpl-card-content__image"
+            class="rpl-responsive-image rpl-card-content__image rpl-responsive-image--fit-cover"
             src="https://placehold.it/580x340"
           />
         </div>
@@ -373,7 +461,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
           <p
             class="rpl-card-event__location"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--map_marker rpl-icon--color_secondary"
+              overflow="visible"
+              style="width: 9px; height: 12px;"
+              viewBox="0 0 12 16"
+            >
+              <path
+                d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+              />
+               
+            </svg>
             South Yarra
           </p>
            
@@ -392,7 +491,18 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
               class="rpl-text-icon__group"
             >
                details
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -415,7 +525,7 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
         >
           <img
             alt=""
-            class="rpl-card-cta__image"
+            class="rpl-responsive-image rpl-card-cta__image rpl-responsive-image--fit-cover"
             src="https://placehold.it/148x148"
           />
            
@@ -429,11 +539,11 @@ exports[`RippleStoryshots Organisms/Event Latest Events 1`] = `
             class="rpl-card-cta__trim-wrapper"
             style="max-height: none;"
           >
-            <p
+            <div
               class="rpl-card-cta__summary"
             >
               Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.
-            </p>
+            </div>
           </div>
            
           <span

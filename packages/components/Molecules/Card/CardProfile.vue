@@ -26,7 +26,7 @@ export default {
     lifespan: String,
     summary: String,
     link: Object,
-    image: String
+    image: [String, Object]
   },
   components: {
     RplCardContent

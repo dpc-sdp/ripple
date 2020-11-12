@@ -51,8 +51,6 @@ export default {
   * https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    extractCSS: { ignoreOrder: true },
-
     extend (config, { isDev, isClient }) {
       const webpack = require('webpack')
       const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')

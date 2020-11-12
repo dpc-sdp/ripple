@@ -11,6 +11,7 @@ import RplCardEmergencyContact from './CardEmergencyContact.vue'
 import RplCardBox from './CardBox.vue'
 import RplCardProfile from './CardProfile.vue'
 import RplCardCarousel from './CardCarousel.vue'
+import RplCardPromo from './CardPromo.vue'
 
 import {
   withKnobs,
@@ -19,7 +20,15 @@ import {
   object,
   boolean,
   number
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
+
+const addQueryString = {
+  created () {
+    // This is just for demo purpose.
+    // You should set it in Ripple global plugins.
+    this.rplOptions.imgQueryString = false
+  }
+}
 
 storiesOf('Molecules/Card/Card Navigation', module)
   .addDecorator(withKnobs)
@@ -43,6 +52,7 @@ storiesOf('Molecules/Card/Card Navigation Featured', module)
   .addDecorator(withKnobs)
 
   .add('Default', () => ({
+    ...addQueryString,
     components: { RplCardNavigationFeatured },
     template: `<rpl-card-navigation-featured :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :url="url" />`,
     props: {
@@ -56,7 +66,15 @@ storiesOf('Molecules/Card/Card Navigation Featured', module)
         default: text('Url', '#')
       },
       image: {
-        default: text('Image', 'https://placehold.it/818x497')
+        default: object('Link', {
+          src: 'https://placehold.it/818x497',
+          focalPoint: {
+            x: '409',
+            y: '248'
+          },
+          width: '818',
+          height: '497'
+        })
       },
       date: {
         default: text('Date', '2018-03-23T09:00:00.000+10:00')
@@ -72,10 +90,19 @@ storiesOf('Molecules/Card/Card Image Navigation', module)
 
   .add('Default', () => ({
     components: { RplCardImageNavigation },
+    ...addQueryString,
     template: `<rpl-card-image-navigation :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
     props: {
       image: {
-        default: text('Image', 'https://placehold.it/304x199')
+        default: object('Image', {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: '304',
+          height: '199'
+        })
       },
       date: {
         default: text('Date', '2018-03-23T09:00:00.000+10:00')
@@ -101,9 +128,18 @@ storiesOf('Molecules/Card/Card Promotion', module)
   .add('Default', () => ({
     components: { RplCardPromotion },
     template: `<rpl-card-promotion :image="image" :date="date" :topic="topic" :title="title" :summary="summary" :link="link" />`,
+    ...addQueryString,
     props: {
       image: {
-        default: text('Image', 'https://placehold.it/304x199')
+        default: object('Image', {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: '304',
+          height: '199'
+        })
       },
       date: {
         default: text('Date', '2018-03-23T09:00:00.000+10:00')
@@ -151,9 +187,18 @@ storiesOf('Molecules/Card/Card Event', module)
   .add('Default', () => ({
     components: { RplCardEvent },
     template: `<rpl-card-event :image="image" :dateStart="dateStart" :dateEnd="dateEnd" :location="location" :title="title" :summary="summary" :link="link" />`,
+    ...addQueryString,
     props: {
       image: {
-        default: text('Image', 'https://placehold.it/304x199')
+        default: object('Image', {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: '304',
+          height: '199'
+        })
       },
       dateStart: {
         default: text('Date Start', '2018-07-10T09:00:00.000+10:00')
@@ -184,13 +229,21 @@ storiesOf('Molecules/Card/Card Cta', module)
     template: `<rpl-card-cta :image="image" :title="title" :summary="summary" :link="link" />`,
     props: {
       image: {
-        default: text('Image', 'https://placehold.it/148x148')
+        default: object('Image', {
+          src: 'https://placehold.it/148x148',
+          focalPoint: {
+            x: '74',
+            y: '74'
+          },
+          width: '148',
+          height: '148'
+        })
       },
       title: {
         default: text('Title', 'Want to submit an event?')
       },
       summary: {
-        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.')
+        default: text('Summary', '<p>Lorem ipsum dolor <b>sit amet</b>, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.</p>')
       },
       link: {
         default: () => object('Link', { text: 'See event details', url: '#' })
@@ -285,6 +338,7 @@ storiesOf('Molecules/Card/Card Profile', module)
         :image="image"
       />
     `,
+    ...addQueryString,
     props: {
       name: {
         default: text('Name', 'Stella Young')
@@ -302,7 +356,15 @@ storiesOf('Molecules/Card/Card Profile', module)
         default: () => object('Link', { text: 'Read Stella\'s profile', url: '#' })
       },
       image: {
-        default: text('Image', 'https://placehold.it/148x148')
+        default: object('Image', {
+          src: 'https://placehold.it/148x148',
+          focalPoint: {
+            x: '74',
+            y: '74'
+          },
+          width: '148',
+          height: '148'
+        })
       }
     }
   }))
@@ -311,6 +373,7 @@ storiesOf('Molecules/Card/Card Content (base)', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
     components: { RplCardContent },
+    ...addQueryString,
     template: `
       <rpl-card-content :link="link" :image="image" :border="border" :type="type" :center="center">
         <div v-html="content"></div>
@@ -321,7 +384,15 @@ storiesOf('Molecules/Card/Card Content (base)', module)
         default: () => object('Link', { text: 'Read more', url: '#' })
       },
       image: {
-        default: text('Image', 'https://placehold.it/580x340')
+        default: object('Image', {
+          src: 'https://placehold.it/580x340',
+          focalPoint: {
+            x: '290',
+            y: '170'
+          },
+          width: '580',
+          height: '340'
+        })
       },
       border: {
         default: boolean('Border', true)
@@ -338,12 +409,127 @@ storiesOf('Molecules/Card/Card Content (base)', module)
     }
   }))
 
+storiesOf('Molecules/Card/Card Promotion - V2', module)
+  .addDecorator(withKnobs)
+  .add('With Image', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :tag="tag" :topic="topic" />`,
+    props: {
+      image: {
+        default: text('Image', 'https://images.unsplash.com/photo-1602699121297-81f2312fa4e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80')
+      },
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', '')
+      },
+      topic: {
+        default: text('Topic', 'Arts, Culture and Humanities')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+  .add('Event', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :date="date" />`,
+    props: {
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', 'Event')
+      },
+      date: {
+        default: () => object('date', { from: new Date('02 July 2020'), to: new Date('25 September 2020') })
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+  .add('Grant', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :status="status" />`,
+    props: {
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', 'Grant')
+      },
+      status: {
+        default: () => select('Status', { open: 'Open', closed: 'Closed', ongoing: 'Ongoing' }, 'open')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+  .add('Landing Page', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :topic="topic" />`,
+    props: {
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', '')
+      },
+      topic: {
+        default: text('Topic', 'Arts, Culture and Humanities')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+  .add('Profile', () => ({
+    components: { RplCardPromo },
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :image="image" variation="profile" :topic="topic" />`,
+    props: {
+      title: {
+        default: text('Title', 'First promo card')
+      },
+      tag: {
+        default: text('Tag', 'Profile')
+      },
+      image: {
+        default: text('Image', 'https://s3.amazonaws.com/uifaces/faces/twitter/yecidsm/128.jpg')
+      },
+      topic: {
+        default: text('date', '02 July 2020')
+      },
+      summary: {
+        default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      },
+      link: {
+        default: () => object('Link', { text: 'Read more', url: '#' })
+      }
+    }
+  }))
+
 storiesOf('Molecules/Card/Card Carousel', module)
   .addDecorator(withKnobs)
 
   .add('Default', () => ({
     components: { RplCardCarousel },
     template: `<rpl-card-carousel :title="title" :cards="cards" :childColsBp="childColsBp" :totalGridColumns="totalGridColumns" />`,
+    ...addQueryString,
     props: {
       title: {
         default: text('Title', 'Featured Content')
@@ -359,7 +545,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-event',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               dateStart: '2018-07-10T09:00:00.000+10:00',
               location: 'South Yarra',
               title: 'This is the headline of an event',
@@ -381,7 +577,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-promotion',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               date: '2018-07-10T09:00:00.000+10:00',
               topic: 'News',
               title: 'This is display copy that wraps 2 lines',
@@ -392,7 +598,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-event',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               dateStart: '2018-07-10T09:00:00.000+10:00',
               dateEnd: '2018-07-15T09:00:00.000+10:00',
               location: 'South Yarra',
@@ -404,7 +620,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-event',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               dateStart: '2018-07-10T09:00:00.000+10:00',
               dateEnd: '2018-09-10T09:00:00.000+10:00',
               location: 'South Yarra',
@@ -427,7 +653,17 @@ storiesOf('Molecules/Card/Card Carousel', module)
           {
             name: 'rpl-card-promotion',
             data: {
-              image: 'https://placehold.it/580x340',
+              image: {
+                default: object('Link', {
+                  src: 'https://placehold.it/580x340',
+                  focalPoint: {
+                    x: '290',
+                    y: '170'
+                  },
+                  width: '580',
+                  height: '340'
+                })
+              },
               date: '2018-07-10T09:00:00.000+10:00',
               topic: 'News',
               title: 'This is display copy that wraps 2 lines',

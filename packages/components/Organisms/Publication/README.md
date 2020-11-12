@@ -45,13 +45,9 @@ import {
 
 ## Usage and Tests
 
-See [Storybook/Organisms/Publication/Publication Pagination](https://ripple.sdp.vic.gov.au/?path=/story/organisms-publication--publication-pagination).
-
 See [Storybook/Organisms/Publication/Publication Download Print](https://ripple.sdp.vic.gov.au/?path=/story/organisms-publication--publication-download-print).
 
 See [Storybook/Organisms/Publication/Publication Author Information](https://ripple.sdp.vic.gov.au/?path=/story/organisms-publication--publication-author-information).
-
-See [Storybook/Organisms/Publication/Publication Image](https://ripple.sdp.vic.gov.au/?path=/story/organisms-publication--publication-image).
 
 --------------------------------------------------------------------------------
 

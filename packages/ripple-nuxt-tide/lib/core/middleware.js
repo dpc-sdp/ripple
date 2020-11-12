@@ -5,6 +5,7 @@ import tideMisc from './../middleware/misc.js'
 import tideBanners from './../middleware/banners.js'
 import tidePageHead from './../middleware/page-head.js'
 import { tideAuthenticatedContent, tidePreview } from './../../modules/authenticated-content/lib/middleware'
+import { getSiteSectionData } from './utils/site-section.js'
 
 // Fetch page data from Tide API by current path
 /**
@@ -68,6 +69,11 @@ export default async function (context, pageData) {
 
   if (pageData.tidePage) {
     pageData.tidePage.appPageTitle = pageData.tidePage.title
+
+    // Get site section data
+    if (pageData.tidePage.section && pageData.tidePage.field_node_site) {
+      pageData.tidePage.appSection = getSiteSectionData(pageData.tidePage.section, pageData.tidePage.field_node_site)
+    }
 
     // Preprocess data
     // A list of async tasks to run concurrently.

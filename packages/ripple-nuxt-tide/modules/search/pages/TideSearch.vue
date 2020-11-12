@@ -10,17 +10,30 @@
       <rpl-divider />
     </template>
 
-    <rpl-search-results
+    <rpl-search-results-layout
       :searchResults="searchResults"
       :pager="searchResults.length === 0 ? undefined : pager"
       :responseSize="searchResults.length === 0 ? 0 : searchOptions.responseSize"
       :count="searchResults.length === 0 ? 0 : count"
       :errorMsg="errorMsg"
       :noResultsMsg="noResultsCopy"
-      :childColsBp="sidebar ? cardColBp.narrow : cardColBp.wide"
+      :pagerColsBp="sidebar ? cardColBp.narrow : cardColBp.wide"
       @pager-change="changed"
-      :type="searchComponent"
-    />
+      v-if="!loading"
+    >
+      <template v-slot:results="resultsProps">
+        <rpl-col cols="full" v-for="(result, i) in resultsProps.searchResults" :key="i + '-result'">
+          <rpl-search-result
+            :title="result.title"
+            :link="result.link"
+            :date="result.date"
+            :description="result.description"
+            :tags="result.tags"
+            :locale="result.locale"
+          />
+        </rpl-col>
+      </template>
+    </rpl-search-results-layout>
   </rpl-page-layout>
 </template>
 
@@ -28,7 +41,7 @@
 
 import { RplDivider } from '@dpc-sdp/ripple-global'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
-import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
+import { RplSearchForm, RplSearchResultsLayout, RplSearchResultsTable, RplSearchResult } from '@dpc-sdp/ripple-search'
 
 // Layout.
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
@@ -42,8 +55,9 @@ export default {
     RplDivider,
     RplBreadcrumbs,
     RplSearchForm,
-    RplSearchResults,
-
+    RplSearchResultsLayout,
+    RplSearchResultsTable,
+    RplSearchResult,
     // Layout.
     RplPageLayout,
     RplRow,
@@ -99,15 +113,10 @@ export default {
     getDescription: (source) => {
       const type = source.type[0]
       let summary = null
-      switch (type) {
-        case 'publication':
-        case 'landing_page':
-          summary = typeof source.field_landing_page_summary !== 'undefined' ? source.field_landing_page_summary[0] : ''
-          break
-        case 'news':
-        case 'page':
-          summary = typeof source.summary_processed !== 'undefined' ? source.summary_processed[0] : (typeof source.field_page_intro_text !== 'undefined' ? source.field_page_intro_text[0] : '')
-          break
+      if (type === 'news' || type === 'page') {
+        summary = typeof source.summary_processed !== 'undefined' ? source.summary_processed[0] : (typeof source.field_page_intro_text !== 'undefined' ? source.field_page_intro_text[0] : '')
+      } else {
+        summary = typeof source.field_landing_page_summary !== 'undefined' ? source.field_landing_page_summary[0] : ''
       }
       return summary
     },
@@ -115,7 +124,7 @@ export default {
       const site = this.$store.state.tide.siteData.drupal_internal__tid
       let date = source.changed ? source.changed[0] : source.created[0]
       return {
-        title: source.title[0],
+        title: source.title ? source.title[0] : '',
         link: this.getLink(source.url, site, source.field_node_primary_site, this.$store.state.tideSite.sitesDomainMap, { text: 'linkText', url: 'linkUrl' }),
         date: this.validDate(date) ? date : '',
         description: this.getDescription(source),

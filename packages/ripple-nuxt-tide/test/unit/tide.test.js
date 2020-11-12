@@ -110,6 +110,87 @@ describe('tide helpers', () => {
     expect(metatag2).toEqual({})
   })
 
+  test('should able to get header config', () => {
+    const headData = {
+      langcode: 'en',
+      title: 'Test title',
+      description: 'Test description',
+      url: 'https://www.vic.gov.au',
+      image: 'https://www.vic.gov.au/Melbourne-tram.jpg',
+      imageAlt: 'Demo: Melbourne tram',
+      imageTwitter: 'https://www.vic.gov.au/Melbourne-tram-Twitter.jpg',
+      imageTwitterAlt: 'Demo: Twitter Melbourne tram',
+      siteSectionName: '',
+      pageType: 'landing_page',
+      robotsMeta: 'noindex'
+    }
+
+    const result = {
+      htmlAttrs: { lang: 'en' },
+      title: 'Test title',
+      meta: [
+        {
+          name: 'description',
+          hid: 'description',
+          content: 'Test description'
+        },
+        { name: 'og:title', hid: 'og:title', content: 'Test title' },
+        {
+          name: 'og:description',
+          hid: 'og:description',
+          content: 'Test description'
+        },
+        { name: 'og:type', hid: 'og:type', content: 'website' },
+        {
+          name: 'og:url',
+          hid: 'og:url',
+          content: 'https://www.vic.gov.au'
+        },
+        {
+          name: 'og:image',
+          hid: 'og:image',
+          content: 'https://www.vic.gov.au/Melbourne-tram.jpg'
+        },
+        {
+          name: 'og:image:alt',
+          hid: 'og:image:alt',
+          content: 'Demo: Melbourne tram'
+        },
+        { name: 'twitter:card', hid: 'twitter:card', content: 'summary' },
+        {
+          name: 'twitter:site',
+          hid: 'twitter:site',
+          content: 'https://www.vic.gov.au'
+        },
+        {
+          name: 'twitter:title',
+          hid: 'twitter:title',
+          content: 'Test title'
+        },
+        {
+          name: 'twitter:description',
+          hid: 'twitter:description',
+          content: 'Test description'
+        },
+        {
+          name: 'twitter:image',
+          hid: 'twitter:image',
+          content: 'https://www.vic.gov.au/Melbourne-tram-Twitter.jpg'
+        },
+        {
+          name: 'twitter:image:alt',
+          hid: 'twitter:image:alt',
+          content: 'Demo: Twitter Melbourne tram'
+        },
+        { name: 'sitesection', content: '' },
+        { name: 'content-type', content: 'landing_page' },
+        { name: 'robots', content: 'noindex' }
+      ]
+    }
+    const headconfig = helper.getPageHeadConfig(headData)
+    expect(headconfig).toEqual(result)
+  })
+
   describe('pathToClass', () => {
     /* eslint-disable indent */
     test.each`

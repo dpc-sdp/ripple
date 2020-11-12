@@ -78,6 +78,12 @@ import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
+/**
+ * Hero banners - Compulsory component for every page, providing introduction and context.
+ * Hero banners contain display text, optional supplementary copy,
+ * and optional set of links designed to connect users through specific streams of content.
+ * Graphics switch across templates to create a visually interesting experience.
+ */
 export default {
   name: 'RplHeroBanner',
   mixins: [breakpoint],
@@ -120,6 +126,7 @@ export default {
     'l': ('tera', 1.07em, 'bold'),
     'xxl': ('tera', 1em, 'bold')
   ) !default;
+
   $rpl-hero-banner-title-print-line-height: 1.2em;
   $rpl-hero-banner-title-typography-ruleset-dark: (
     'xs': ('mega', 1.14em, 'bold', true),
@@ -186,6 +193,8 @@ export default {
     '2660px': ('pos': 'right')
   ) !default;
 
+  $rpl-hero-banner-with-image-padding-s: rem(28px) 0;
+
   @mixin rpl_position_background_graphic($vars) {
     $pos: map-get($vars, 'pos');
     $size: map-get($vars, 'size');
@@ -247,7 +256,7 @@ export default {
     &__left {
       @include rpl_grid_full;
 
-      @include rpl_breakpoint('xl') {
+      @include rpl_breakpoint('l') {
         @include rpl_grid_column(8);
         padding-right: $rpl-hero-banner-left-padding;
       }
@@ -262,7 +271,7 @@ export default {
       @include rpl_grid_full;
       z-index: $rpl-zindex-content-top;
 
-      @include rpl_breakpoint('xl') {
+      @include rpl_breakpoint('l') {
         @include rpl_grid_column(4);
       }
 
@@ -274,7 +283,7 @@ export default {
       max-height: rem(64px);
       margin-bottom: $rpl-space-2;
       @include rpl_breakpoint('l') {
-      margin-bottom: $rpl-space-3;
+        margin-bottom: $rpl-space-3;
         max-height: rem(100px);
       }
     }
@@ -325,15 +334,7 @@ export default {
     &__link-list {
       margin: 0;
       padding: 0;
-
-      @include rpl_breakpoint('s') {
-        column-count: 2;
-        column-gap: rem(50px);
-      }
-
-      @include rpl_breakpoint('m') {
-        column-count: auto;
-      }
+      column-count: auto;
     }
 
     &__link-list-item {
@@ -343,7 +344,7 @@ export default {
 
     &--no-links {
       & #{$root}__left {
-        @include rpl_breakpoint('xl') {
+        @include rpl_breakpoint('l') {
           @include rpl_grid_column(10);
         }
       }

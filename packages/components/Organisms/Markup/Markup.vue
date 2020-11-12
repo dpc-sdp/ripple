@@ -55,7 +55,7 @@ export default {
 <style lang="scss">
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
-@import "scss/iframe";
+@import "~@dpc-sdp/ripple-global/scss/components/table";
 
 $rpl-markup-text-color: rpl-color('extra_dark_neutral') !default;
 $rpl-markup-link-color: rpl-color('primary') !default;
@@ -64,13 +64,12 @@ $callout-text-color: rpl_color('extra_dark_neutral') !default;
 $callout-author-ruleset: (rem(20px), 1.2em, 'medium') !default;
 $callout-mark-border: rem(4px) solid rpl_color('mid_neutral_2') !default;
 $callout-padding: 0 0 0 ($rpl-space * 6) !default;
-$callout-margin: ($rpl-space * 7) auto !default;
+$callout-margin: ($rpl-space * 7) 0 !default;
 
 $quotation-padding-xs: 0 0 0 ($rpl-space * 6) !default;
-$quotation-padding-s: 0 0 0 ($rpl-space * 8) !default;
 $quotation-text-ruleset: (rem(20px), 1.2em, 'medium') !default;
 $quotation-text-color: rpl_color('extra_dark_neutral') !default;
-$quotation-text-margin: ($rpl-space * 5) auto $rpl-space-2 !default;
+$quotation-text-margin: ($rpl-space * 5) auto $rpl-space-3 !default;
 $quotation-mark-border: rem(4px) solid rpl_color('mid_neutral_2') !default;
 $quotation-mark-end-margin: auto auto (-$rpl-space-2) $rpl-space-2 !default;
 $quotation-author-ruleset: (rem(12px), 1em, 'medium')  !default;
@@ -92,12 +91,20 @@ $embedded-video-figcaption-color: rpl_color('dark_neutral') !default;
 $responsive-iframe-padding-bottom: 56.25% !default;
 $responsive-iframe-padding-top: $rpl-space-4 !default;
 
+$callout-wrapper-border-color: rpl_color('secondary') !default;
+$callout-wrapper-background-color: tint(rpl_color('secondary'), 90%) !default;
+$callout-wrapper-border-left: rem(4px) solid !default;
+$callout-wrapper-list-padding-left: ($rpl-space * 6) !default;
+$callout-wrapper-padding: ($rpl-space-3) ($rpl-space * 6) ($rpl-space * 6) ($rpl-space * 6) !default;
+$callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
+
 .rpl-markup {
   @include rpl_text_color($rpl-markup-text-color);
 
   /* Lists  */
   ul {
     list-style-type: disc;
+    max-width: $rpl-content-max-width;
 
     ul {
       list-style-type: circle;
@@ -109,8 +116,15 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
   }
 
   &__inner {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
     > h2:first-child {
       margin-top: 0;
+    }
+
+    p, h2, h3, h4, h5, h6 {
+      max-width: $rpl-content-max-width;
     }
   }
 
@@ -119,11 +133,27 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_text_color($rpl-markup-link-color);
     }
   }
+
   /* Iframes */
   &__iframe-container {
-    @include rpl_responsive_iframe;
-    padding-bottom: $responsive-iframe-padding-bottom;
-    padding-top: $responsive-iframe-padding-top;
+    iframe {
+      width: 100%;
+      border: 0;
+      // Shouldn't be oversize in mobile
+      max-height: 80vh;
+    }
+
+    &--default {
+      iframe {
+        width: 100%;
+        height: rem(600px);
+        border: 0;
+
+        @include rpl_breakpoint(m) {
+          height: rem(550px);
+        }
+      }
+    }
   }
 
   /* Callouts */
@@ -165,21 +195,19 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     margin-left: 0;
     margin-right: 0;
     padding: $quotation-padding-xs;
-
-    @include rpl_breakpoint('s') {
-      padding: $quotation-padding-s;
-    }
+    max-width: $rpl-content-max-width;
 
     p {
       @include rpl_typography_ruleset($quotation-text-ruleset);
       color: $quotation-text-color;
       margin: $quotation-text-margin;
+      line-height: rem(24px);
 
       &::before,
       &::after {
         content: '';
         display: inline-block;
-        width: rem(8px);
+        width: rem(4px);
         height: rem(24px);
         border-left: $quotation-mark-border;
         border-right: $quotation-mark-border;
@@ -188,6 +216,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       &::before {
         position: absolute;
         left: 0;
+        margin-top: rem(6px);
       }
 
       &::after {
@@ -201,7 +230,8 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       @include rpl_typography_ruleset($quotation-author-ruleset);
       color: $quotation-author-color;
       font-style: normal;
-      text-transform: uppercase;
+      display: inline-block;
+      line-height: rem(14px);
     }
   }
 
@@ -213,6 +243,7 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
     overflow: auto;
     width: 100%;
     -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
+    @include rpl_table_cols;
 
     table {
       border-collapse: collapse;
@@ -265,6 +296,22 @@ $responsive-iframe-padding-top: $rpl-space-4 !default;
       text-transform: uppercase;
     }
 
+  }
+
+  &__callout-wrapper,
+  .callout-wrapper {
+    padding: $callout-wrapper-padding;
+    border-left: $callout-wrapper-border-left;
+    border-color: $callout-wrapper-border-color;
+    background-color: $callout-wrapper-background-color;
+
+    ul {
+      padding-left: $callout-wrapper-list-padding-left;
+    }
+
+    h2, h3 {
+      margin: $callout-wrapper-heading-margin;
+    }
   }
 
 }

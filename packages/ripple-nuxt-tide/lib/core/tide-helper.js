@@ -44,7 +44,17 @@ export const metatagConverter = (metatagNormalized) => {
   metatagNormalized.forEach(element => {
     switch (element.tag) {
       case 'meta':
-        metatags[element.attributes.name] = element.attributes.content
+        if (element.attributes['http-equiv']) {
+          if (element.attributes['http-equiv'] === 'content-language') {
+            metatags.lang = element.attributes.content
+          }
+          // TODO: to respect all Drupal metatags, we need other task.
+          // The getPageHeadConfig() function need to be refactored to deal with them dynamically.
+        }
+
+        if (element.attributes['name']) {
+          metatags[element.attributes.name] = element.attributes.content
+        }
         break
 
       case 'link':
@@ -90,6 +100,7 @@ export const stringToClass = (str) => {
  * @param {string} pageHead.imageAlt - Social sharing image alt text.
  * @param {string} pageHead.siteSectionName - Page site section name.
  * @param {string} pageHead.pageType - Page content type.
+ * @param {string} pageHead.robotsMeta - Robots meta type.
  * @return {Object} pageHead, can be used in store tide/setPageHead.
  */
 export const getPageHeadConfig = ({
@@ -99,10 +110,13 @@ export const getPageHeadConfig = ({
   url,
   image,
   imageAlt,
+  imageTwitter,
+  imageTwitterAlt,
   siteSectionName = '',
-  pageType
+  pageType,
+  robotsMeta
 }) => {
-  return {
+  const head = {
     htmlAttrs: {
       lang: langcode
     },
@@ -115,16 +129,23 @@ export const getPageHeadConfig = ({
       { name: 'og:type', hid: 'og:type', content: 'website' },
       { name: 'og:url', hid: 'og:url', content: url },
       { name: 'og:image', hid: 'og:image', content: image },
+      { name: 'og:image:alt', hid: 'og:image:alt', content: imageAlt },
       // Twitter Card
       { name: 'twitter:card', hid: 'twitter:card', content: 'summary' },
       { name: 'twitter:site', hid: 'twitter:site', content: url },
       { name: 'twitter:title', hid: 'twitter:title', content: title },
       { name: 'twitter:description', hid: 'twitter:description', content: description },
-      { name: 'twitter:image', hid: 'twitter:image', content: image },
-      { name: 'twitter:image:alt', hid: 'hid:image:alt', content: imageAlt },
+      { name: 'twitter:image', hid: 'twitter:image', content: imageTwitter },
+      { name: 'twitter:image:alt', hid: 'twitter:image:alt', content: imageTwitterAlt },
       // Custom page meta
       { name: 'sitesection', content: siteSectionName },
       { name: 'content-type', content: pageType && pageType.replace('node--', '') }
     ]
   }
+  if (robotsMeta) {
+    // Robots meta
+    let robotsMetaTag = { name: 'robots', content: robotsMeta }
+    head.meta.push(robotsMetaTag)
+  }
+  return head
 }

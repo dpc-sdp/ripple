@@ -173,15 +173,10 @@ export default {
     getDescription: (source) => {
       const type = source.type[0]
       let summary = null
-      switch (type) {
-        case 'publication':
-        case 'landing_page':
-          summary = typeof source.field_landing_page_summary !== 'undefined' ? source.field_landing_page_summary[0] : ''
-          break
-        case 'news':
-        case 'page':
-          summary = typeof source.summary_processed !== 'undefined' ? source.summary_processed[0] : (typeof source.field_page_intro_text !== 'undefined' ? source.field_page_intro_text[0] : '')
-          break
+      if (type === 'news' || type === 'page') {
+        summary = typeof source.summary_processed !== 'undefined' ? source.summary_processed[0] : (typeof source.field_page_intro_text !== 'undefined' ? source.field_page_intro_text[0] : '')
+      } else {
+        summary = typeof source.field_landing_page_summary !== 'undefined' ? source.field_landing_page_summary[0] : ''
       }
       return summary
     },
@@ -189,7 +184,7 @@ export default {
       const site = this.$store.state.tide.siteData.drupal_internal__tid
       let date = source.changed ? source.changed[0] : source.created[0]
       return {
-        title: source.title[0],
+        title: source.title ? source.title[0] : '',
         link: this.getLink(source.url, site, source.field_node_primary_site, this.$store.state.tideSite.sitesDomainMap, { text: 'linkText', url: 'linkUrl' }),
         date: this.validDate(date) ? date : '',
         description: this.getDescription(source),

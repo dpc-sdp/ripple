@@ -1,29 +1,30 @@
 <template>
   <rpl-card-content class="rpl-card-cta" :border="false" :link="linkOnly">
-    <img class="rpl-card-cta__image" v-if="image" ref="image" :src="image" alt="" />
+    <rpl-responsive-img class="rpl-card-cta__image" v-bind="computedImg" alt="" />
     <h2 class="rpl-card-cta__title" v-if="title">{{ title }}</h2>
     <div class="rpl-card-cta__trim-wrapper" v-if="summary" :style="{ maxHeight: trimFieldMaxHeight }">
-      <p class="rpl-card-cta__summary" v-if="summary">{{ summary }}</p>
+      <div v-if="summary" class="rpl-card-cta__summary" v-html="summary"></div>
     </div>
     <span class="rpl-card-cta__button" v-if="link.text">{{ link.text }}</span>
   </rpl-card-content>
 </template>
 
 <script>
-import objectFitImages from 'object-fit-images'
 import RplCardContent from './CardContent.vue'
 import cardtrimfield from './mixins/cardtrimfield'
+import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
   name: 'RplCardCta',
   mixins: [cardtrimfield],
   props: {
-    image: String,
+    image: [String, Object],
     title: String,
     summary: String,
     link: Object
   },
   components: {
+    RplResponsiveImg,
     RplCardContent
   },
   data: function () {
@@ -40,9 +41,9 @@ export default {
       return linkButton ? (rtnMaxHeight - linkButton.clientHeight) : rtnMaxHeight
     }
   },
-  mounted () {
-    if (this.image) {
-      objectFitImages(this.$refs['image'])
+  computed: {
+    computedImg () {
+      return typeof this.image === 'string' ? { src: this.image } : this.image
     }
   }
 }

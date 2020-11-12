@@ -5,8 +5,10 @@ import SSiteLayout from './../../../../src/storybook-components/SiteLayout.vue'
 
 import {
   withKnobs,
-  object
-} from '@storybook/addon-knobs/vue'
+  object,
+  text,
+  boolean
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/Layout', module)
   .addDecorator(withKnobs)
@@ -14,21 +16,43 @@ storiesOf('Molecules/Layout', module)
     components: { RplBaseLayout },
     template: `
       <rpl-base-layout>
-        <template slot="header">Site header</template>
-        <p>This is page content</p>
-        <template slot="footer">Site footer</template>
+        <template slot="header">{{ headerSlot }}</template>
+        <p>{{ contentSlot }}</p>
+        <template slot="footer">{{ footerSlot }}</template>
       </rpl-base-layout>
-    `
+    `,
+    props: {
+      headerSlot: {
+        default: text('Header slot', 'Site header')
+      },
+      contentSlot: {
+        default: text('Content slot', 'This is page content')
+      },
+      footerSlot: {
+        default: text('Footer slot', 'Site footer')
+      }
+    }
   }))
   .add('Page Layout', () => ({
     components: { RplPageLayout },
     template: `
       <rpl-page-layout>
-        <template slot="aboveContent">Above content</template>
-        <p>This is page content</p>
-        <template slot="belowContent">Below content</template>
+        <template slot="aboveContent">{{ aboveContentSlot }}</template>
+        <p>{{ contentSlot }}</p>
+        <template slot="belowContent">{{ belowContentSlot }}</template>
       </rpl-page-layout>
-  `
+    `,
+    props: {
+      aboveContentSlot: {
+        default: text('Above content slot', 'Above content')
+      },
+      contentSlot: {
+        default: text('Content slot', 'This is page content')
+      },
+      belowContentSlot: {
+        default: text('Below content slot', 'Below content')
+      }
+    }
   }))
   .add('Page Layout with Sidebar', () => ({
     components: { RplPageLayout },
@@ -40,9 +64,12 @@ storiesOf('Molecules/Layout', module)
         <template slot="belowContent">Below content</template>
       </rpl-page-layout>
     `,
-    data () {
-      return {
-        columns: object('Columns', {
+    props: {
+      sidebar: {
+        default: boolean('Sidebar', true)
+      },
+      columns: {
+        default: object('Columns', {
           main: { l: 8 },
           sidebar: {
             colsBp: { l: 3 },
@@ -62,9 +89,9 @@ storiesOf('Molecules/Layout', module)
         <template slot="belowContent">Below content</template>
       </rpl-page-layout>
     `,
-    data () {
-      return {
-        columns: object('Columns', {
+    props: {
+      columns: {
+        default: object('Columns', {
           main: { l: 8 },
           sidebar: {
             colsBp: { l: 3 },

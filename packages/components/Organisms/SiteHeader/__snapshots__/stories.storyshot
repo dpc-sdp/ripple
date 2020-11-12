@@ -32,7 +32,18 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                 aria-expanded="false"
                 class="rpl-site-header__btn rpl-site-header__btn--menu"
               >
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-icon rpl-icon--hamburger rpl-icon--color_white"
+                  overflow="visible"
+                  style="width: 18px; height: 14px;"
+                  viewBox="0 0 18 14"
+                >
+                  <path
+                    d="M0 1a1 1 0 011-1h8a1 1 0 110 2H1a1 1 0 01-1-1zM0 5a1 1 0 011-1h16a1 1 0 110 2H1a1 1 0 01-1-1zM0 9a1 1 0 011-1h12a1 1 0 110 2H1a1 1 0 01-1-1zM0 13a1 1 0 011-1h16a1 1 0 110 2H1a1 1 0 01-1-1z"
+                  />
+                   
+                </svg>
                  
                 <span>
                   Menu
@@ -112,6 +123,8 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                       <ul
                         class="rpl-menu__items rpl-menu__items--root"
                       >
+                        <!---->
+                         
                         <li
                           class="rpl-menu__item"
                         >
@@ -123,7 +136,18 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                               Your services
                             </span>
                              
-                            <!---->
+                            <svg
+                              aria-hidden="true"
+                              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                              overflow="visible"
+                              style="width: 8px; height: 5px;"
+                              viewBox="0 0 8 5"
+                            >
+                              <path
+                                d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                              />
+                               
+                            </svg>
                           </button>
                            
                           <div
@@ -152,17 +176,15 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                       data-print-url="#"
                                       href="#"
                                     >
-                                      <span
-                                        class="rpl-link__inner"
-                                      >
-                                        Your services
-                                      </span>
+                                      Your services
                                     </a>
                                   </div>
                                    
                                   <ul
                                     class="rpl-menu__items"
                                   >
+                                    <!---->
+                                     
                                     <li
                                       class="rpl-menu__item"
                                     >
@@ -171,13 +193,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -190,13 +208,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -209,13 +223,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -228,13 +238,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -247,13 +253,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -266,13 +268,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -285,13 +283,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -304,13 +298,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -323,13 +313,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -342,13 +328,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -361,13 +343,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -380,13 +358,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -399,13 +373,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -418,13 +388,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -437,13 +403,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child A
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -459,7 +421,18 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                           Sub child B
                                         </span>
                                          
-                                        <!---->
+                                        <svg
+                                          aria-hidden="true"
+                                          class="rpl-icon rpl-icon--right rpl-icon--color_white"
+                                          overflow="visible"
+                                          style="width: 5px; height: 8px;"
+                                          viewBox="0 0 5 8"
+                                        >
+                                          <path
+                                            d="M.293 7.707a1 1 0 010-1.414L2.586 4 .293 1.707A1 1 0 011.707.293l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414 0z"
+                                          />
+                                           
+                                        </svg>
                                       </button>
                                        
                                       <div
@@ -488,17 +461,15 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                   data-print-url="#"
                                                   href="#"
                                                 >
-                                                  <span
-                                                    class="rpl-link__inner"
-                                                  >
-                                                    Sub child B
-                                                  </span>
+                                                  Sub child B
                                                 </a>
                                               </div>
                                                
                                               <ul
                                                 class="rpl-menu__items"
                                               >
+                                                <!---->
+                                                 
                                                 <li
                                                   class="rpl-menu__item"
                                                 >
@@ -507,13 +478,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child I
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -526,13 +493,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child II
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -545,13 +508,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child III
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -573,7 +532,18 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                           Test Path 2
                                         </span>
                                          
-                                        <!---->
+                                        <svg
+                                          aria-hidden="true"
+                                          class="rpl-icon rpl-icon--right rpl-icon--color_white"
+                                          overflow="visible"
+                                          style="width: 5px; height: 8px;"
+                                          viewBox="0 0 5 8"
+                                        >
+                                          <path
+                                            d="M.293 7.707a1 1 0 010-1.414L2.586 4 .293 1.707A1 1 0 011.707.293l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414 0z"
+                                          />
+                                           
+                                        </svg>
                                       </button>
                                        
                                       <div
@@ -602,17 +572,15 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                   data-print-url="#"
                                                   href="#"
                                                 >
-                                                  <span
-                                                    class="rpl-link__inner"
-                                                  >
-                                                    Test Path 2
-                                                  </span>
+                                                  Test Path 2
                                                 </a>
                                               </div>
                                                
                                               <ul
                                                 class="rpl-menu__items"
                                               >
+                                                <!---->
+                                                 
                                                 <li
                                                   class="rpl-menu__item"
                                                 >
@@ -621,13 +589,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child IV
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -643,7 +607,18 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                       Test Path 3
                                                     </span>
                                                      
-                                                    <!---->
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      class="rpl-icon rpl-icon--right rpl-icon--color_white"
+                                                      overflow="visible"
+                                                      style="width: 5px; height: 8px;"
+                                                      viewBox="0 0 5 8"
+                                                    >
+                                                      <path
+                                                        d="M.293 7.707a1 1 0 010-1.414L2.586 4 .293 1.707A1 1 0 011.707.293l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414 0z"
+                                                      />
+                                                       
+                                                    </svg>
                                                   </button>
                                                    
                                                   <div
@@ -672,17 +647,15 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                               data-print-url="#"
                                                               href="#"
                                                             >
-                                                              <span
-                                                                class="rpl-link__inner"
-                                                              >
-                                                                Test Path 3
-                                                              </span>
+                                                              Test Path 3
                                                             </a>
                                                           </div>
                                                            
                                                           <ul
                                                             class="rpl-menu__items"
                                                           >
+                                                            <!---->
+                                                             
                                                             <li
                                                               class="rpl-menu__item"
                                                             >
@@ -691,13 +664,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                                 data-print-url="#"
                                                                 href="#"
                                                               >
-                                                                <span
-                                                                  class="rpl-link__inner"
-                                                                >
-                                                                  
+                                                                
               Sub child X
             
-                                                                </span>
                                                               </a>
                                                                
                                                               <!---->
@@ -710,13 +679,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                                 data-print-url="#"
                                                                 href="#"
                                                               >
-                                                                <span
-                                                                  class="rpl-link__inner"
-                                                                >
-                                                                  
+                                                                
               Sub child Y
             
-                                                                </span>
                                                               </a>
                                                                
                                                               <!---->
@@ -729,13 +694,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                                 data-print-url="#"
                                                                 href="#"
                                                               >
-                                                                <span
-                                                                  class="rpl-link__inner"
-                                                                >
-                                                                  
+                                                                
               Sub child Z
             
-                                                                </span>
                                                               </a>
                                                                
                                                               <!---->
@@ -754,13 +715,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child VI
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -773,13 +730,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child VII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -792,13 +745,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child VIII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -811,13 +760,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child IX
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -830,13 +775,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child X
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -849,13 +790,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child XI
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -868,13 +805,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child XII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -887,13 +820,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child XIII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -906,13 +835,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child IV
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -925,13 +850,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child V
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -944,13 +865,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child VI
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -963,13 +880,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child VII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -982,13 +895,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child VIII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1001,13 +910,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child IX
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1020,13 +925,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child X
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1039,13 +940,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child XI
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1058,13 +955,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child XII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1077,13 +970,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child XIII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1096,13 +985,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child IV
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1115,13 +1000,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child V
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1134,13 +1015,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child VI
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1153,13 +1030,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child VII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1172,13 +1045,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child VIII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1191,13 +1060,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child IX
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1210,13 +1075,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child X
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1229,13 +1090,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child XI
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1248,13 +1105,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child XII
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1267,13 +1120,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child Last
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1298,13 +1147,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                             data-print-url="#"
                             href="#"
                           >
-                            <span
-                              class="rpl-link__inner"
-                            >
-                              
+                            
               About VIC Government
             
-                            </span>
                           </a>
                            
                           <!---->
@@ -1320,7 +1165,18 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                               News
                             </span>
                              
-                            <!---->
+                            <svg
+                              aria-hidden="true"
+                              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                              overflow="visible"
+                              style="width: 8px; height: 5px;"
+                              viewBox="0 0 8 5"
+                            >
+                              <path
+                                d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                              />
+                               
+                            </svg>
                           </button>
                            
                           <div
@@ -1349,17 +1205,15 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                       data-print-url="#"
                                       href="#"
                                     >
-                                      <span
-                                        class="rpl-link__inner"
-                                      >
-                                        News
-                                      </span>
+                                      News
                                     </a>
                                   </div>
                                    
                                   <ul
                                     class="rpl-menu__items"
                                   >
+                                    <!---->
+                                     
                                     <li
                                       class="rpl-menu__item"
                                     >
@@ -1371,7 +1225,18 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                           Sub child 2
                                         </span>
                                          
-                                        <!---->
+                                        <svg
+                                          aria-hidden="true"
+                                          class="rpl-icon rpl-icon--right rpl-icon--color_white"
+                                          overflow="visible"
+                                          style="width: 5px; height: 8px;"
+                                          viewBox="0 0 5 8"
+                                        >
+                                          <path
+                                            d="M.293 7.707a1 1 0 010-1.414L2.586 4 .293 1.707A1 1 0 011.707.293l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414 0z"
+                                          />
+                                           
+                                        </svg>
                                       </button>
                                        
                                       <div
@@ -1400,17 +1265,15 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                   data-print-url="#"
                                                   href="#"
                                                 >
-                                                  <span
-                                                    class="rpl-link__inner"
-                                                  >
-                                                    Sub child 2
-                                                  </span>
+                                                  Sub child 2
                                                 </a>
                                               </div>
                                                
                                               <ul
                                                 class="rpl-menu__items"
                                               >
+                                                <!---->
+                                                 
                                                 <li
                                                   class="rpl-menu__item"
                                                 >
@@ -1419,13 +1282,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child 3
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1438,13 +1297,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child 4
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1457,13 +1312,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                                     data-print-url="#"
                                                     href="#"
                                                   >
-                                                    <span
-                                                      class="rpl-link__inner"
-                                                    >
-                                                      
+                                                    
               Sub child 5
             
-                                                    </span>
                                                   </a>
                                                    
                                                   <!---->
@@ -1491,7 +1342,18 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                               Events
                             </span>
                              
-                            <!---->
+                            <svg
+                              aria-hidden="true"
+                              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                              overflow="visible"
+                              style="width: 8px; height: 5px;"
+                              viewBox="0 0 8 5"
+                            >
+                              <path
+                                d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                              />
+                               
+                            </svg>
                           </button>
                            
                           <div
@@ -1520,17 +1382,15 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                       data-print-url="#"
                                       href="#"
                                     >
-                                      <span
-                                        class="rpl-link__inner"
-                                      >
-                                        Events
-                                      </span>
+                                      Events
                                     </a>
                                   </div>
                                    
                                   <ul
                                     class="rpl-menu__items"
                                   >
+                                    <!---->
+                                     
                                     <li
                                       class="rpl-menu__item"
                                     >
@@ -1539,13 +1399,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child 3
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -1558,13 +1414,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child 4
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -1577,13 +1429,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                                         data-print-url="#"
                                         href="#"
                                       >
-                                        <span
-                                          class="rpl-link__inner"
-                                        >
-                                          
+                                        
               Sub child 5
             
-                                        </span>
                                       </a>
                                        
                                       <!---->
@@ -1602,13 +1450,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                             data-print-url="#"
                             href="#"
                           >
-                            <span
-                              class="rpl-link__inner"
-                            >
-                              
+                            
               Connect with us
             
-                            </span>
                           </a>
                            
                           <!---->

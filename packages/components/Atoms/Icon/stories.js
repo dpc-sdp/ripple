@@ -1,9 +1,10 @@
 import { storiesOf } from '@storybook/vue'
 
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/vue'
+import { withKnobs, text, boolean } from '@storybook/addon-knobs/vue'
 
 import SIcons from './../../../../src/storybook-components/Icons.vue'
-import { RplIcon, RplTextIcon } from './index'
+import { RplIcon } from './index'
+import './icons/index.js'
 
 storiesOf('Atoms/Icon', module)
   .addDecorator(withKnobs)
@@ -39,8 +40,8 @@ storiesOf('Atoms/Icon', module)
           'arrow_down_tertiary',
           'arrow_left_primary',
           'arrow_left_secondary',
-          'arrow_right_primary_s',
           'arrow_right_primary',
+          'arrow_right_primary_s',
           'arrow_right_secondary',
           'arrow_up_primary',
           'attach',
@@ -52,8 +53,8 @@ storiesOf('Atoms/Icon', module)
           'cross_circle',
           'csv',
           'doc',
-          'document_transparent',
           'document',
+          'document_transparent',
           'docx',
           'dollar_negative',
           'dot',
@@ -76,13 +77,15 @@ storiesOf('Atoms/Icon', module)
           'indd',
           'instagram',
           'left',
+          'link',
           'link_65',
           'link_90',
-          'link',
           'linkedin',
+          'list_indent',
           'loading_star',
           'lock',
           'map_marker',
+          'menu_home',
           'microphone',
           'pause',
           'pdf',
@@ -94,11 +97,12 @@ storiesOf('Atoms/Icon', module)
           'right',
           'search',
           'senior',
-          'share_alternative',
           'share',
+          'share_alternative',
           'star',
           'stop',
           'success',
+          'table',
           'tick',
           'tif',
           'trash',
@@ -112,7 +116,7 @@ storiesOf('Atoms/Icon', module)
           'xls',
           'xlsm',
           'xlsx',
-          'youtube',
+          'youtube_channel',
           'zip',
           'zoom_in',
           'zoom_out'
@@ -131,7 +135,7 @@ storiesOf('Atoms/Icon', module)
     },
     props: {
       icon: {
-        default: text('Symbol', 'search')
+        default: text('Symbol', 'accessible')
       },
       color: {
         default: text('Color', 'primary')
@@ -141,51 +145,3 @@ storiesOf('Atoms/Icon', module)
       }
     }
   }))
-  .add('Text Icon', () => ({
-    components: { RplTextIcon },
-    template:
-      '<rpl-text-icon :symbol="icon" :color="color" :size="size" :text="text" :placement="placement"/>',
-    props: {
-      text: {
-        default: text('Text', 'Text Link')
-      },
-      placement: {
-        default: select('Placement', { before: 'before', after: 'after' }, 'after')
-      },
-      icon: {
-        default: text('Symbol', 'search')
-      },
-      color: {
-        default: text('Color', 'primary')
-      },
-      size: {
-        default: text('Size', 'm')
-      }
-    }
-  }))
-
-// storiesOf('Atoms/Icon', module).add(
-//   'Icon Custom',
-//   withInfo(`
-//     ### Add custom icons
-//     To use your own svg icon, you need to name your own custom icon in the same format as Ripple does.
-//     A example: \`rpl_icon_arrow\`. Always use \`rpl_icon_\` prefix.
-
-//     You can put your custom icons in any directory in your project, e.g. "/assets/ripple-icons/".
-
-//     To add icons, below code has to be added before you start your app by calling \`new Vue()\`:
-//     ~~~javascript
-//     import { addCustomIcons } from '@dpc-sdp/ripple-icon'
-//     addCustomIcons(require.context('./assets/ripple-icons/', true, /\\.svg$/))
-//     ~~~
-//     Then you should able to use your own icon as others.
-
-//     To use your own svg icon to replace the default icon, you must use the exact same file name as default.
-
-//     You can find the default icons in [Icon/assets/img](https://github.com/dpc-sdp/ripple/tree/master/packages/components/Atoms/Icon/assets/img).
-
-//     `)(() => ({
-//     components: { RplIcon },
-//     template: '<rpl-icon symbol="custom_icon" color="primary" size="m" />'
-//   }))
-// )

@@ -105,7 +105,7 @@ export default {
       @include rpl_narrow_button_danger;
 
       &--stickable {
-        z-index: $rpl-zindex-header;
+        z-index: $rpl-zindex-popover;
         top: $rpl-header-horizontal-padding-xs;
         right: $rpl-header-horizontal-padding-xs;
 
@@ -133,7 +133,7 @@ export default {
       &:hover,
       &:focus {
         text-decoration: none;
-        background-color: $rpl-button-quick-exit-hover-background-color;
+        background-color: $rpl-button-danger-hover-background-color;
       }
     }
   }

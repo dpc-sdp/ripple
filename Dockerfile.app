@@ -4,7 +4,6 @@ COPY . /app/
 
 # Remove storybook from reference site
 RUN rm /app/src/package.json \
-    && mv /app/scripts/jira-post-comment-app.sh /app/scripts/jira-post-comment.sh \
     && yarn install
 
 FROM amazeeio/node:10
@@ -14,6 +13,8 @@ COPY --from=builder /app/. /app/
 ARG LAGOON_GIT_BRANCH
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
+ARG CONTENT_API_SERVER
+ENV CONTENT_API_SERVER ${CONTENT_API_SERVER}
 ARG CONTENT_API_AUTH_PASS
 ENV CONTENT_API_AUTH_PASS ${CONTENT_API_AUTH_PASS}
 ARG CONTENT_API_AUTH_USER

@@ -38,6 +38,20 @@ module.exports = {
     return null
   },
 
+  cardAutoImage: (card) => {
+    const getCardImage = (mediaImage) => ({
+      src: mediaImage.url,
+      focalPoint: mediaImage.meta.focal_point,
+      width: mediaImage.meta.width,
+      height: mediaImage.meta.height
+    })
+    if (card.field_featured_image) {
+      return card.field_featured_image.field_media_image ? getCardImage(card.field_featured_image.field_media_image) : null
+    } else {
+      return card.field_media_image ? getCardImage(card.field_media_image) : null
+    }
+  },
+
   autoCardSummary: (card, { mapping }) => {
     return mapping.parseField([
       ['body', 'summary'],
@@ -146,7 +160,7 @@ module.exports = {
         url: item.field_paragraph_link ? item.field_paragraph_link.url || item.field_paragraph_link.uri : null,
         dateStart: dateRange ? dateRange.value : null,
         dateEnd: dateRange ? dateRange.end_value : null,
-        description: mapping.parseField(['field_paragraph_summary'], item)
+        description: mapping.parseField(['field_paragraph_body', 'processed'], item)
       }
     })
   },
@@ -166,6 +180,27 @@ module.exports = {
 
   embeddedSearchTheme: (search) => {
     return 'solid'
+  },
+
+  introBannerLinkTypes: (type) => {
+    switch (type) {
+      case 'buttons':
+        return 'button'
+
+      case 'featured_links':
+      default:
+        return 'link'
+    }
+  },
+
+  introBannerTypeToIcon: (type) => {
+    switch (type) {
+      case 'with_icon':
+        return 'alert_information'
+
+      default:
+        return null
+    }
   }
 
 }

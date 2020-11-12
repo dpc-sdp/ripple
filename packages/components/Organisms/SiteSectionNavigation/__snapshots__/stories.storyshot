@@ -27,7 +27,18 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
           Your services
         </span>
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--down rpl-icon--color_white"
+          overflow="visible"
+          style="width: 8px; height: 5px;"
+          viewBox="0 0 8 5"
+        >
+          <path
+            d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+          />
+           
+        </svg>
       </button>
        
       <ul
@@ -81,7 +92,18 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Sub child B - With level 3
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+              overflow="visible"
+              style="width: 8px; height: 5px;"
+              viewBox="0 0 8 5"
+            >
+              <path
+                d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              />
+               
+            </svg>
           </button>
            
           <ul
@@ -119,7 +141,18 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Sub child I
                 </span>
                  
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                  overflow="visible"
+                  style="width: 8px; height: 5px;"
+                  viewBox="0 0 8 5"
+                >
+                  <path
+                    d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                  />
+                   
+                </svg>
               </button>
                
               <ul
@@ -246,7 +279,18 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Test Path 2
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+              overflow="visible"
+              style="width: 8px; height: 5px;"
+              viewBox="0 0 8 5"
+            >
+              <path
+                d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              />
+               
+            </svg>
           </button>
            
           <ul
@@ -300,7 +344,18 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
                   Test Path 3
                 </span>
                  
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-icon rpl-icon--down rpl-icon--color_white"
+                  overflow="visible"
+                  style="width: 8px; height: 5px;"
+                  viewBox="0 0 8 5"
+                >
+                  <path
+                    d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                  />
+                   
+                </svg>
               </button>
                
               <ul
@@ -887,7 +942,18 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
           News
         </span>
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--down rpl-icon--color_white"
+          overflow="visible"
+          style="width: 8px; height: 5px;"
+          viewBox="0 0 8 5"
+        >
+          <path
+            d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+          />
+           
+        </svg>
       </button>
        
       <ul
@@ -925,7 +991,18 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
               Sub child 2
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--down rpl-icon--color_white"
+              overflow="visible"
+              style="width: 8px; height: 5px;"
+              viewBox="0 0 8 5"
+            >
+              <path
+                d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              />
+               
+            </svg>
           </button>
            
           <ul
@@ -1018,7 +1095,18 @@ exports[`RippleStoryshots Organisms/SiteSectionNavigation Site Section Navigatio
           Events
         </span>
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="rpl-icon rpl-icon--down rpl-icon--color_white"
+          overflow="visible"
+          style="width: 8px; height: 5px;"
+          viewBox="0 0 8 5"
+        >
+          <path
+            d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+          />
+           
+        </svg>
       </button>
        
       <ul

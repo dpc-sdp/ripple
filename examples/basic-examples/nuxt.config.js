@@ -34,7 +34,6 @@ export default {
     '@/assets/_custom.scss'
   ],
   build: {
-    extractCSS: true,
     extend (config, { isDev, isClient }) {
       if (isDev) {
         // For debugging in dev mode
@@ -67,7 +66,8 @@ export default {
   ripple: {
     card: {
       trimFieldfonts: ['Oswald']
-    }
+    },
+    customIcon: true
   },
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,

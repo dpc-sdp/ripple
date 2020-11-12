@@ -1,8 +1,8 @@
 <template>
-  <div class="rpl-call-to-action">
+  <div class="rpl-call-to-action" v-bind:class="{'rpl-call-to-action__no-image': !image}">
     <div class="rpl-call-to-action__row">
-      <div class="rpl-call-to-action__left">
-        <img v-if="image" class="rpl-call-to-action__image" :src="image.src" :alt="image.alt" />
+      <div class="rpl-call-to-action__left" v-if="image">
+        <rpl-responsive-img class="rpl-call-to-action__image" v-bind="image" fit="contain" :srcSet="[{ size: 'xs', height: 249, width: 336 }]" :alt="image.alt" />
       </div>
       <div class="rpl-call-to-action__right">
         <h2 v-if="title" class="rpl-call-to-action__title">{{ title }}</h2>
@@ -15,6 +15,7 @@
 
 <script>
 import RplButton from '@dpc-sdp/ripple-button'
+import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
   name: 'RplCallToAction',
@@ -25,7 +26,8 @@ export default {
     image: Object
   },
   components: {
-    RplButton
+    RplButton,
+    RplResponsiveImg
   }
 }
 </script>
@@ -41,6 +43,7 @@ export default {
   $rpl-call-to-action-border: 1px solid $rpl-call-to-action-border-color !default;
   $rpl-call-to-action-border-radius: rem(4px) !default;
   $rpl-call-to-action-bg-color: rpl-color('white') !default;
+  $rpl-call-to-action-padding-no-image: ($rpl-space * 4) ($rpl-space * 3) !default;
   $rpl-call-to-action-padding-xs: ($rpl-space * 8) ($rpl-space * 5) !default;
   $rpl-call-to-action-padding-s: ($rpl-space * 18) $rpl-component-padding-s !default;
   $rpl-call-to-action-padding-l: ($rpl-space * 18) $rpl-component-padding-l !default;
@@ -60,6 +63,7 @@ export default {
   $rpl-call-to-action-summary-text-color: mix(rpl_color('extra_dark_neutral'), rpl_color('white'), 93%) !default;
   $rpl-call-to-action-summary-margin-xs: $rpl-space-3 0 !default;
   $rpl-call-to-action-summary-margin-s: ($rpl-space * 6) 0 !default;
+  $rpl-call-to-action-image-max-height: 400px !default;
 
 .rpl-content {
   .rpl-call-to-action {
@@ -69,7 +73,17 @@ export default {
     border: $rpl-call-to-action-border;
 
     &__image {
-      width: 100%;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: $rpl-call-to-action-image-max-height;
+      @include rpl_breakpoint('l') {
+        margin-top: $rpl-space;
+      }
+    }
+
+    &__no-image {
+      padding: $rpl-call-to-action-padding-no-image;
     }
 
     @include rpl_breakpoint('s') {

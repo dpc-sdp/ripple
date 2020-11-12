@@ -74,8 +74,8 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/form";
 
-  $rpl-checkbox-box-border: 1px solid $rpl-form-radio-border-color;
-  $rpl-checkbox-box-border-focus: 1px solid rpl-color('primary');
+  $rpl-checkbox-box-border: 1px solid $rpl-form-radio-border-color !default;
+  $rpl-checkbox-box-border-focus: 1px solid rpl-color('primary') !default;
   $rpl-checkbox-box-border-radius: rem(4px);
 
   .rpl-checkbox {

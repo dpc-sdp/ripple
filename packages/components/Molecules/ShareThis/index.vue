@@ -82,6 +82,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
+  $rpl-share-this-title-color: rpl_color('extra_dark_neutral') !default;
   $rpl-share-this-title-ruleset: ('l', 1.2rem, 'bold');
   $rpl-share-this-title-margin: 0 0 $rpl-space-4;
   $rpl-share-this-margin-l: $rpl-space-4 0;
@@ -102,6 +103,7 @@ export default {
 
     &__title {
       @include rpl_typography_ruleset($rpl-share-this-title-ruleset);
+      color: $rpl-share-this-title-color;
       margin: $rpl-share-this-title-margin;
     }
 
@@ -124,6 +126,7 @@ export default {
 
     &__button {
       @include rpl_typography_ruleset($rpl-share-this-social-ruleset);
+      color: $rpl-share-this-link-color;
       margin: $rpl-share-this-social-margin-xs;
       display: inline-block;
       border: 0;

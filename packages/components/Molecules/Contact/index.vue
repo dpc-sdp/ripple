@@ -96,7 +96,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-contact-background: transparent;
+  $rpl-contact-background: transparent !default;
   $rpl-contact-title-ruleset: ('l', 1.2em, 'bold');
   $rpl-contact-title-margin: 0 0 $rpl-space-4;
   $rpl-contact-title-color: rpl_color('extra_dark_neutral') !default;
@@ -108,7 +108,7 @@ export default {
   $rpl-contact-postal-ruleset: ('xs', 1.4em, 'regular');
   $rpl-contact-list-ruleset: ('xs', 1em, 'medium');
   $rpl-contact-details-padding: 0 0 0 ($rpl-space * 5);
-  $rpl-contact-details-border-image: rpl-gradient('decorative_gradient_90');
+  $rpl-contact-details-border-image: rpl-gradient('decorative_gradient_90') !default;
   $rpl-contact-paragraph-margin: $rpl-space-4 0;
 
   .rpl-contact {

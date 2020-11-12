@@ -2,12 +2,12 @@
 
 exports[`RippleStoryshots Molecules/Form Default 1`] = `
 <form
-  class="rpl-form"
+  class="rpl-form rpl-form--full-width"
 >
   <h3
     class="rpl-form__title"
   >
-    Example Form
+    Example form
   </h3>
    
   <!---->
@@ -1020,7 +1020,20 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="text"
                 />
                  
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-form-pikaday__icon rpl-icon rpl-icon--calendar rpl-icon--color_primary"
+                  overflow="visible"
+                  style="width: 18px; height: 18px;"
+                  viewBox="0 0 18 18"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                    fill-rule="evenodd"
+                  />
+                   
+                </svg>
                  
                 <div
                   aria-hidden="true"
@@ -1050,7 +1063,20 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="text"
                 />
                  
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-form-pikaday__icon rpl-icon rpl-icon--calendar rpl-icon--color_primary"
+                  overflow="visible"
+                  style="width: 18px; height: 18px;"
+                  viewBox="0 0 18 18"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                    fill-rule="evenodd"
+                  />
+                   
+                </svg>
                  
                 <div
                   aria-hidden="true"
@@ -1100,7 +1126,20 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                   type="text"
                 />
                  
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-form-pikaday__icon rpl-icon rpl-icon--calendar rpl-icon--color_primary"
+                  overflow="visible"
+                  style="width: 18px; height: 18px;"
+                  viewBox="0 0 18 18"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z"
+                    fill-rule="evenodd"
+                  />
+                   
+                </svg>
                  
                 <div
                   aria-hidden="true"
@@ -1316,7 +1355,24 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                     download=""
                     href="/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx"
                   >
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-document-link__icon rpl-icon rpl-icon--docx rpl-icon--color_primary"
+                      overflow="visible"
+                      style="width: 30px; height: 30px;"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 5V2.824L12.176 5H10zm.003-5H1a1 1 0 00-1 1v18a1 1 0 001 1h13a1 1 0 001-1v-3h-2v2H2V2h6v4a1 1 0 001 1h4v2h2V4.997L10.003 0z"
+                      />
+                      <path
+                        d="M5.606 11.398c-.11-.168-.28-.28-.588-.28H4.48v2.801h.54c.307 0 .476-.112.587-.28.1-.139.134-.272.134-1.12 0-.84-.035-.98-.134-1.12zm.841 3.124c-.343.343-.826.49-1.345.49H3.253v-4.986h1.85c.518 0 1.001.146 1.344.49.581.581.518 1.22.518 2.003 0 .784.063 1.422-.518 2.003zM9.898 11.294a.614.614 0 00-.49-.218c-.224 0-.4.099-.49.218-.113.146-.182.314-.182 1.226 0 .91.069 1.07.182 1.218.09.119.266.224.49.224a.617.617 0 00.49-.224c.111-.147.183-.308.183-1.218 0-.912-.072-1.08-.183-1.226zm.902 3.2c-.363.364-.784.56-1.392.56-.61 0-1.03-.196-1.394-.56-.525-.525-.504-1.225-.504-1.974 0-.75-.021-1.451.504-1.976.364-.364.784-.56 1.394-.56.609 0 1.03.196 1.393.56.525.525.505 1.226.505 1.976 0 .749.02 1.449-.505 1.974zM13.74 15.055c-.58 0-1.022-.196-1.387-.561-.525-.525-.504-1.225-.504-1.974 0-.75-.02-1.45.504-1.976.365-.364.806-.56 1.387-.56.945 0 1.71.525 1.891 1.625h-1.246c-.078-.28-.232-.533-.638-.533-.224 0-.392.092-.484.21-.11.148-.188.323-.188 1.234 0 .91.077 1.085.188 1.232.092.119.26.21.484.21.406 0 .56-.252.638-.532h1.246c-.182 1.1-.946 1.625-1.89 1.625z"
+                      />
+                      <path
+                        d="M18.599 15.013l-.82-1.534-.82 1.534h-1.4l1.556-2.557-1.457-2.43h1.393l.729 1.408.728-1.407h1.394l-1.456 2.429L20 15.013h-1.401z"
+                      />
+                       
+                    </svg>
                      
                     <div
                       class="rpl-document-link__info"
@@ -1372,7 +1428,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                             class="rpl-text-icon__group"
                           >
                             link
-                            <!---->
+                            <svg
+                              aria-hidden="true"
+                              class="rpl-icon rpl-icon--external_link rpl-icon--color_primary rpl-text-icon--after"
+                              overflow="visible"
+                              style="width: 14px; height: 14px;"
+                              viewBox="0 0 14 14"
+                            >
+                              <path
+                                d="M14 1.54v11.062C14 13.3 13.3 14 12.46 14H1.54C.7 14 0 13.3 0 12.46V1.54C0 .7.7 0 1.54 0h11.062C13.3 0 14 .7 14 1.54zm-2.8.42H7.7c-.56 0-.981.84-.419 1.259l.98.98-6.16 6.16a.428.428 0 000 .563l.977.976c.14.141.422.141.563 0l6.16-6.16.98.98c.418.563 1.258.141 1.258-.417V2.8c0-.422-.418-.84-.84-.84z"
+                              />
+                               
+                            </svg>
                           </span>
                         </span>
                       </span>
@@ -1409,7 +1476,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
               <span
                 class="rpl-checkbox__box rpl-checkbox__box--checked"
               >
-                <!---->
+                <svg
+                  aria-hidden="true"
+                  class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                  overflow="visible"
+                  style="width: 11px; height: 11px;"
+                  viewBox="0 0 11 11"
+                >
+                  <path
+                    d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                  />
+                   
+                </svg>
               </span>
                
               <span
@@ -1466,7 +1544,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       <span
                         class="rpl-checkbox__box rpl-checkbox__box--checked"
                       >
-                        <!---->
+                        <svg
+                          aria-hidden="true"
+                          class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                          overflow="visible"
+                          style="width: 11px; height: 11px;"
+                          viewBox="0 0 11 11"
+                        >
+                          <path
+                            d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                          />
+                           
+                        </svg>
                       </span>
                        
                       <span
@@ -1491,7 +1580,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       <span
                         class="rpl-checkbox__box"
                       >
-                        <!---->
+                        <svg
+                          aria-hidden="true"
+                          class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                          overflow="visible"
+                          style="width: 11px; height: 11px;"
+                          viewBox="0 0 11 11"
+                        >
+                          <path
+                            d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                          />
+                           
+                        </svg>
                       </span>
                        
                       <span
@@ -1516,7 +1616,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       <span
                         class="rpl-checkbox__box"
                       >
-                        <!---->
+                        <svg
+                          aria-hidden="true"
+                          class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                          overflow="visible"
+                          style="width: 11px; height: 11px;"
+                          viewBox="0 0 11 11"
+                        >
+                          <path
+                            d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                          />
+                           
+                        </svg>
                       </span>
                        
                       <span
@@ -1541,7 +1652,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                       <span
                         class="rpl-checkbox__box"
                       >
-                        <!---->
+                        <svg
+                          aria-hidden="true"
+                          class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                          overflow="visible"
+                          style="width: 11px; height: 11px;"
+                          viewBox="0 0 11 11"
+                        >
+                          <path
+                            d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                          />
+                           
+                        </svg>
                       </span>
                        
                       <span
@@ -1603,7 +1725,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                     Select a single topic
                   </span>
                    
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-select__trigger-icon rpl-icon rpl-icon--down rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 8px; height: 5px;"
+                    viewBox="0 0 8 5"
+                  >
+                    <path
+                      d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                    />
+                     
+                  </svg>
                 </div>
                  
                 <div
@@ -1802,7 +1935,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                      Selected
                   </span>
                    
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-select__trigger-icon rpl-icon rpl-icon--down rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 8px; height: 5px;"
+                    viewBox="0 0 8 5"
+                  >
+                    <path
+                      d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                    />
+                     
+                  </svg>
                 </div>
                  
                 <div
@@ -1829,7 +1973,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         <span
                           class="rpl-checkbox__box"
                         >
-                          <!---->
+                          <svg
+                            aria-hidden="true"
+                            class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                            overflow="visible"
+                            style="width: 11px; height: 11px;"
+                            viewBox="0 0 11 11"
+                          >
+                            <path
+                              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                            />
+                             
+                          </svg>
                         </span>
                          
                         <!---->
@@ -1857,7 +2012,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         <span
                           class="rpl-checkbox__box"
                         >
-                          <!---->
+                          <svg
+                            aria-hidden="true"
+                            class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                            overflow="visible"
+                            style="width: 11px; height: 11px;"
+                            viewBox="0 0 11 11"
+                          >
+                            <path
+                              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                            />
+                             
+                          </svg>
                         </span>
                          
                         <!---->
@@ -1886,7 +2052,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         <span
                           class="rpl-checkbox__box rpl-checkbox__box--checked"
                         >
-                          <!---->
+                          <svg
+                            aria-hidden="true"
+                            class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                            overflow="visible"
+                            style="width: 11px; height: 11px;"
+                            viewBox="0 0 11 11"
+                          >
+                            <path
+                              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                            />
+                             
+                          </svg>
                         </span>
                          
                         <!---->
@@ -1918,7 +2095,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         <span
                           class="rpl-checkbox__box"
                         >
-                          <!---->
+                          <svg
+                            aria-hidden="true"
+                            class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                            overflow="visible"
+                            style="width: 11px; height: 11px;"
+                            viewBox="0 0 11 11"
+                          >
+                            <path
+                              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                            />
+                             
+                          </svg>
                         </span>
                          
                         <!---->
@@ -1946,7 +2134,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         <span
                           class="rpl-checkbox__box"
                         >
-                          <!---->
+                          <svg
+                            aria-hidden="true"
+                            class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                            overflow="visible"
+                            style="width: 11px; height: 11px;"
+                            viewBox="0 0 11 11"
+                          >
+                            <path
+                              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                            />
+                             
+                          </svg>
                         </span>
                          
                         <!---->
@@ -1974,7 +2173,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         <span
                           class="rpl-checkbox__box"
                         >
-                          <!---->
+                          <svg
+                            aria-hidden="true"
+                            class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                            overflow="visible"
+                            style="width: 11px; height: 11px;"
+                            viewBox="0 0 11 11"
+                          >
+                            <path
+                              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                            />
+                             
+                          </svg>
                         </span>
                          
                         <!---->
@@ -2002,7 +2212,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         <span
                           class="rpl-checkbox__box"
                         >
-                          <!---->
+                          <svg
+                            aria-hidden="true"
+                            class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                            overflow="visible"
+                            style="width: 11px; height: 11px;"
+                            viewBox="0 0 11 11"
+                          >
+                            <path
+                              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                            />
+                             
+                          </svg>
                         </span>
                          
                         <!---->
@@ -2030,7 +2251,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                         <span
                           class="rpl-checkbox__box"
                         >
-                          <!---->
+                          <svg
+                            aria-hidden="true"
+                            class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                            overflow="visible"
+                            style="width: 11px; height: 11px;"
+                            viewBox="0 0 11 11"
+                          >
+                            <path
+                              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                            />
+                             
+                          </svg>
                         </span>
                          
                         <!---->
@@ -2222,7 +2454,18 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                      Selected
                   </span>
                    
-                  <!---->
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-select__trigger-icon rpl-icon rpl-icon--down rpl-icon--color_primary"
+                    overflow="visible"
+                    style="width: 8px; height: 5px;"
+                    viewBox="0 0 8 5"
+                  >
+                    <path
+                      d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                    />
+                     
+                  </svg>
                 </div>
                  
                 <div
@@ -2397,12 +2640,23 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 <span
                   class="rpl-text-icon__group"
                 >
-                  <!---->
-                  Clear
+                  <svg
+                    aria-hidden="true"
+                    class="rpl-icon rpl-icon--cross_circle rpl-icon--color_danger rpl-text-icon--before"
+                    overflow="visible"
+                    style="width: 20.000016000000002px; height: 20.000016000000002px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm5.884 15.15a.581.581 0 010 .823l-1.916 1.91a.581.581 0 01-.823 0L12 14.71l-3.15 3.174a.581.581 0 01-.823 0l-1.91-1.916a.581.581 0 010-.823L9.29 12 6.116 8.85a.581.581 0 010-.823l1.916-1.916a.581.581 0 01.823 0L12 9.291l3.15-3.175a.581.581 0 01.823 0l1.916 1.916a.581.581 0 010 .823L14.709 12l3.175 3.15z"
+                    />
+                     
+                  </svg>
+                  Clear 
                 </span>
                  
                 <span>
-                   search filters
+                  search filters
                 </span>
               </span>
             </button>
@@ -2422,7 +2676,7 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
 
 exports[`RippleStoryshots Molecules/Form Submission Alerts 1`] = `
 <form
-  class="rpl-form"
+  class="rpl-form rpl-form--full-width"
 >
   <h3
     class="rpl-form__title"
@@ -2584,7 +2838,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
         Select
       </span>
        
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-select__trigger-icon rpl-icon rpl-icon--down rpl-icon--color_primary"
+        overflow="visible"
+        style="width: 8px; height: 5px;"
+        viewBox="0 0 8 5"
+      >
+        <path
+          d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+        />
+         
+      </svg>
     </div>
      
     <div
@@ -2611,7 +2876,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
             <span
               class="rpl-checkbox__box"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -2639,7 +2915,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
             <span
               class="rpl-checkbox__box"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -2667,7 +2954,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
             <span
               class="rpl-checkbox__box"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -2695,7 +2993,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect 1`] = `
             <span
               class="rpl-checkbox__box"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -2743,7 +3052,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
          Selected
       </span>
        
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-select__trigger-icon rpl-icon rpl-icon--down rpl-icon--color_primary"
+        overflow="visible"
+        style="width: 8px; height: 5px;"
+        viewBox="0 0 8 5"
+      >
+        <path
+          d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+        />
+         
+      </svg>
     </div>
      
     <div
@@ -2771,7 +3091,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -2804,7 +3135,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -2836,7 +3178,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
             <span
               class="rpl-checkbox__box"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -2864,7 +3217,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state 1`] = 
             <span
               class="rpl-checkbox__box"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -2912,7 +3276,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
          Selected
       </span>
        
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-select__trigger-icon rpl-icon rpl-icon--down rpl-icon--color_primary"
+        overflow="visible"
+        style="width: 8px; height: 5px;"
+        viewBox="0 0 8 5"
+      >
+        <path
+          d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+        />
+         
+      </svg>
     </div>
      
     <div
@@ -2940,7 +3315,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -2973,7 +3359,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -3006,7 +3403,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
             <span
               class="rpl-checkbox__box rpl-checkbox__box--checked"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -3038,7 +3446,18 @@ exports[`RippleStoryshots Molecules/Form/Select Multiselect initial state with o
             <span
               class="rpl-checkbox__box"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick rpl-icon--color_primary"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </span>
              
             <!---->
@@ -3086,7 +3505,18 @@ exports[`RippleStoryshots Molecules/Form/Select Set initial state 1`] = `
          Selected
       </span>
        
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-select__trigger-icon rpl-icon rpl-icon--down rpl-icon--color_primary"
+        overflow="visible"
+        style="width: 8px; height: 5px;"
+        viewBox="0 0 8 5"
+      >
+        <path
+          d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+        />
+         
+      </svg>
     </div>
      
     <div
@@ -3188,7 +3618,18 @@ exports[`RippleStoryshots Molecules/Form/Select Single 1`] = `
         Select
       </span>
        
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-select__trigger-icon rpl-icon rpl-icon--down rpl-icon--color_primary"
+        overflow="visible"
+        style="width: 8px; height: 5px;"
+        viewBox="0 0 8 5"
+      >
+        <path
+          d="M.293.293a1 1 0 011.414 0L4 2.586 6.293.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+        />
+         
+      </svg>
     </div>
      
     <div

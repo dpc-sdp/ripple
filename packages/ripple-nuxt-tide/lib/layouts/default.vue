@@ -166,8 +166,6 @@ export default {
     }
   },
   created () {
-    // Set ripple quickexit option by tide site settings
-    this.rplOptions.quickexit = this.$store.state.tide.siteData.field_site_show_exit_site
     this.rplOptions.origin = this.$store.state.tide.protocol + '//' + this.$store.state.tide.host
     // Set RplMarkup plugins globally
     this.rplOptions.rplMarkup = {
@@ -187,7 +185,7 @@ export default {
   },
   watch: {
     $route (to, from) {
-      if (to.path !== from.path) {
+      if (to.path !== from.path && process.client) {
         setTimeout(() => {
           this.announcerTitle = `${document.title.trim()} has loaded`
         }, 1000)

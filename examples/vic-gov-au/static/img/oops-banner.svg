@@ -21,7 +21,7 @@
                     <use xlink:href="#path-1"></use>
                 </mask>
                 <g id="Oops"></g>
-                <rect id="Gradient-colour" fill="url(#linearGradient-3)" style="mix-blend-mode: overlay;" mask="url(#mask-2)" x="-97.6211849" y="-95.3125" width="1255.01795" height="400"></rect>
+                <rect id="Gradient-colour" fill="url(#linearGradient-3)" mask="url(#mask-2)" x="-97.6211849" y="-95.3125" width="1255.01795" height="400"></rect>
             </g>
         </g>
     </g>

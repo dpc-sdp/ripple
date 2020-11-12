@@ -2035,74 +2035,9 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Default 1`] = `
-<a
-  class="rpl-link rpl-card-navigation"
-  data-print-url="#"
-  date="2020-03-23T09:00:00.000+10:00"
-  href="#"
->
-  <div
-    class="rpl-card-navigation__image-wrapper"
-  >
-    <img
-      alt=""
-      class="rpl-responsive-image rpl-card-navigation__image rpl-responsive-image--fit-cover"
-      height="199"
-      sizes="(max-width: 576px) 764px, (max-width: 768px) 448px, (max-width: 992px) 333px, 100vw"
-      src="https://placehold.it/304x199"
-      srcset="https://placehold.it/304x199?w=764&h=534 764w, https://placehold.it/304x199?w=764&h=200 764w, https://placehold.it/304x199?w=448&h=232 448w, https://placehold.it/304x199?w=333&h=232 333w"
-      style="object-position: 50.00% 50.25%; font-family: 'object-fit: cover; object-position: 50.00% 50.25%;';"
-      width="304"
-    />
-  </div>
-   
-  <div
-    class="rpl-card-navigation__content"
-  >
-    <div
-      class="rpl-card-navigation__meta"
-    >
-      <div
-        class="rpl-card-navigation__tag"
-      >
-        Event
-      </div>
-       
-      <!---->
-       
-      <!---->
-    </div>
-     
-    <h2
-      class="rpl-card-navigation__title"
-    >
-      <span>
-        Navigation card V2
-      </span>
-    </h2>
-     
-    <p
-      class="rpl-card-navigation__summary"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
-    </p>
-     
-    <p
-      class="rpl-card-navigation__author"
-    >
-      <strong>
-        Author:
-      </strong>
-       John Doe
-    </p>
-  </div>
-</a>
-`;
-
 exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Event 1`] = `
 <a
-  class="rpl-link rpl-card-navigation"
+  class="rpl-link rpl-card-navigation rpl-card-navigation--thumbnail"
   data-print-url="#"
   href="#"
 >
@@ -2185,7 +2120,7 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Event 1`] = `
 
 exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Featured 1`] = `
 <a
-  class="rpl-link rpl-card-navigation--featured rpl-card-navigation"
+  class="rpl-link rpl-card-navigation rpl-card-navigation--featured"
   data-print-url="#"
   date="2020-03-23T09:00:00.000+10:00"
   href="#"
@@ -2248,9 +2183,9 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Featured 1`] = `
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Without image 1`] = `
+exports[`RippleStoryshots Molecules/Card/Card Navigation V2 No image 1`] = `
 <a
-  class="rpl-link rpl-card-navigation"
+  class="rpl-link rpl-card-navigation rpl-card-navigation--noimage"
   data-print-url="#"
   date="2020-03-23T09:00:00.000+10:00"
   href="#"
@@ -2286,6 +2221,71 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Without image 1`] = 
       class="rpl-card-navigation__summary"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+     
+    <p
+      class="rpl-card-navigation__author"
+    >
+      <strong>
+        Author:
+      </strong>
+       John Doe
+    </p>
+  </div>
+</a>
+`;
+
+exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Thumbnail 1`] = `
+<a
+  class="rpl-link rpl-card-navigation rpl-card-navigation--thumbnail"
+  data-print-url="#"
+  date="2020-03-23T09:00:00.000+10:00"
+  href="#"
+>
+  <div
+    class="rpl-card-navigation__image-wrapper"
+  >
+    <img
+      alt=""
+      class="rpl-responsive-image rpl-card-navigation__image rpl-responsive-image--fit-cover"
+      height="199"
+      sizes="(max-width: 576px) 764px, (max-width: 768px) 448px, (max-width: 992px) 333px, 100vw"
+      src="https://placehold.it/304x199"
+      srcset="https://placehold.it/304x199?w=764&h=534 764w, https://placehold.it/304x199?w=764&h=200 764w, https://placehold.it/304x199?w=448&h=232 448w, https://placehold.it/304x199?w=333&h=232 333w"
+      style="object-position: 50.00% 50.25%; font-family: 'object-fit: cover; object-position: 50.00% 50.25%;';"
+      width="304"
+    />
+  </div>
+   
+  <div
+    class="rpl-card-navigation__content"
+  >
+    <div
+      class="rpl-card-navigation__meta"
+    >
+      <div
+        class="rpl-card-navigation__tag"
+      >
+        Event
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <h2
+      class="rpl-card-navigation__title"
+    >
+      <span>
+        Navigation card V2
+      </span>
+    </h2>
+     
+    <p
+      class="rpl-card-navigation__summary"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
     </p>
      
     <p

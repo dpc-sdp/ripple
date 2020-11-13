@@ -247,7 +247,7 @@ module.exports = {
       },
 
       'paragraph--navigation_card': {
-        component: 'rpl-card-navigation-v2',
+        component: 'rpl-card-nav',
         props: {
           'title': [
             ['field_paragraph_link', 'internal_node_fields', 'title'],

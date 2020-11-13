@@ -305,9 +305,9 @@ module.exports = {
           },
           'dateStart': ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
           'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
-          'tag': ['field_paragraph_link', 'internal_node_fields', 'topic'],
+          'tag': ['field_paragraph_link', 'internal_node_fields', 'tag'],
+          'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
           'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
-          'author': ['field_paragraph_link', 'internal_node_fields', 'author'],
           'displayStyle': 'field_promo_card_display_style'
         },
         cols: {

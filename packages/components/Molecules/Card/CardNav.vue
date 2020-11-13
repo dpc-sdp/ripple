@@ -77,27 +77,27 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/tools";
 @import "scss/card";
 
-$rpl-card-nav-background: rpl_color('white') !default;
-$rpl-card-nav-border-color: rpl_color('mid_neutral_1') !default;
+$rpl-card-nav-bg-color: $rpl-card-background !default;
+$rpl-card-nav-border-color: $rpl-card-border-color !default;
 $rpl-card-nav-border: 1px solid $rpl-card-nav-border-color !default;
-$rpl-card-nav-border-radius: rem(4px) !default;
+$rpl-card-nav-border-radius: $rpl-card-border-radius !default;
 $rpl-card-nav-content-padding-xs: $rpl-card-vertical-padding $rpl-component-padding-xs !default;
 $rpl-card-nav-content-padding-s: $rpl-card-vertical-padding $rpl-component-padding-s !default;
 $rpl-card-nav-inline-padding-m: ($rpl-space * 8) ($rpl-space * 8) !default;
-$rpl-card-nav-title-ruleset:  ('l', 1.2em, 'bold') !default;
-$rpl-card-nav-title-color: rpl_color('extra_dark_neutral') !default;
-$rpl-card-nav-title-hover-color: rpl_color('primary') !default;
-$rpl-card-nav-title-text-decoration: underline !default;
+$rpl-card-nav-title-ruleset:  $rpl-card-title-ruleset !default;
+$rpl-card-nav-title-text-color: $nav-card-text-color !default;
+$rpl-card-nav-title-hover-color: $rpl-card-link-hover-color !default;
+$rpl-card-nav-title-text-decoration: $rpl-card-title-text-decoration !default;
 $rpl-card-nav-title-margin: 0 0 rem(12px) !default;
-$rpl-card-nav-summary-ruleset: ('xs', 1.5em, 'regular') !default;
-$rpl-card-nav-summary-color: rpl_color('extra_dark_neutral') !default;
-$rpl-card-nav-link-color-hover: rpl_color('primary') !default;
-$rpl-card-nav-tag-color: rpl_color('extra_dark_neutral') !default;
+$rpl-card-nav-summary-ruleset: $rpl-card-summary-ruleset !default;
+$rpl-card-nav-summary-color: $nav-card-text-color !default;
+$rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
+$rpl-card-nav-tag-color: $nav-card-text-color !default;
 $rpl-card-nav-tag-background-color: rpl_color('mid_neutral_2') !default;
 $rpl-card-nav-meta-padding: $rpl-space $rpl-space-2 !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
-$rpl-card-nav-meta-ruleset: ('xs', 1em, 'medium') !default;
-$rpl-card-nav-date-text-color: rpl_color('dark_neutral') !default;
+$rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;
+$rpl-card-nav-date-text-color: $rpl-card-meta-text-color !default;
 $rpl-card-nav-img-width: (
   'm': rem(280px),
   'l': rem(153px),
@@ -141,7 +141,7 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  background-color: $rpl-card-nav-background;
+  background-color: $rpl-card-nav-bg-color;
   border: $rpl-card-nav-border;
   border-radius: $rpl-card-nav-border-radius;
   @include rpl_breakpoint('m') {
@@ -195,7 +195,7 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
 
   &__title {
     @include rpl_typography_ruleset($rpl-card-nav-title-ruleset);
-    color: $rpl-card-nav-title-color;
+    color: $rpl-card-nav-title-text-color;
     margin: $rpl-card-nav-title-margin;
   }
 

@@ -69,6 +69,11 @@ const nuxtTide = function (moduleOptions) {
     fileName: 'tide-page.js'
   })
 
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/polyfill.js'),
+    mode: 'client'
+  })
+
   if (process.env.BASIC_AUTH === '1') {
     const basicAuth = require('./core/basic-auth.js')
     this.addServerMiddleware(basicAuth)
@@ -147,6 +152,11 @@ const nuxtTide = function (moduleOptions) {
   this.options.build.transpile.push(/winston-transport/)
   this.options.build.transpile.push(/winston-logstash-transport/)
   this.options.build.transpile.push(/logform/)
+
+  // transpile auth modules
+  this.options.build.transpile.push(/@nuxtjs\/auth-next/)
+  this.options.build.transpile.push(/nanoid/)
+
   // To support transpile unknown type of source code
   // https://babeljs.io/docs/en/options#sourcetype
   // https://github.com/webpack/webpack/issues/4039#issuecomment-498033015

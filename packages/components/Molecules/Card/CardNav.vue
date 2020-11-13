@@ -27,7 +27,7 @@ import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import card from '@dpc-sdp/ripple-card/mixins/card'
 
 export default {
-  name: 'RplCardNavigationV2',
+  name: 'RplCardNav',
   mixins: [formatdate, card],
   components: {
     RplLink,

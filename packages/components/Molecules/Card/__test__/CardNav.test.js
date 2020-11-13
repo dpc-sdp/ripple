@@ -1,9 +1,9 @@
 import { shallowMount } from '@vue/test-utils'
-import CardNavigationV2 from '../CardNavigationV2'
+import CardNav from '../CardNav'
 
-describe('CardNavigationV2', () => {
+describe('CardNav', () => {
   it('returns status icon data properly.', () => {
-    const wrapper = shallowMount(CardNavigationV2, {
+    const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Navigation card V2',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -36,7 +36,7 @@ describe('CardNavigationV2', () => {
   })
 
   it('returns correct image format.', () => {
-    const wrapper = shallowMount(CardNavigationV2, {
+    const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Navigation card V2',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -69,7 +69,7 @@ describe('CardNavigationV2', () => {
   })
 
   it('trimmed Title to expected limit', () => {
-    const wrapper = shallowMount(CardNavigationV2, {
+    const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Navigation card V2 that is more than 150 characters Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident'
       }
@@ -80,7 +80,7 @@ describe('CardNavigationV2', () => {
   })
 
   it('trimmed Summary to expected limit', () => {
-    const wrapper = shallowMount(CardNavigationV2, {
+    const wrapper = shallowMount(CardNav, {
       propsData: {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
       }
@@ -91,7 +91,7 @@ describe('CardNavigationV2', () => {
   })
 
   it('trimmed Summary to expected limit when there is an image', () => {
-    const wrapper = shallowMount(CardNavigationV2, {
+    const wrapper = shallowMount(CardNav, {
       propsData: {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image: {
@@ -111,7 +111,7 @@ describe('CardNavigationV2', () => {
   })
 
   it('formats the date correctly', () => {
-    const wrapper = shallowMount(CardNavigationV2, {
+    const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Navigation card V2',
         dateStart: '2020-11-10T23:45:00',

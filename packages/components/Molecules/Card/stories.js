@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import RplCardContent from './CardContent.vue'
 import RplCardImageNavigation from './CardImageNavigation.vue'
 import RplCardNavigation from './CardNavigation.vue'
-import RplCardNavigationV2 from './CardNavigationV2.vue'
+import RplCardNav from './CardNav.vue'
 import RplCardNavigationFeatured from './CardNavigationFeatured.vue'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardKeydates from './CardKeydates.vue'
@@ -49,11 +49,11 @@ storiesOf('Molecules/Card/Card Navigation', module)
     }
   }))
 
-storiesOf('Molecules/Card/Card Navigation V2', module)
+storiesOf('Molecules/Card/Card Nav', module)
   .addDecorator(withKnobs)
   .add('Thumbnail', () => ({
-    components: { RplCardNavigationV2 },
-    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :image="image" :author="author" :display-style="displayStyle" />`,
+    components: { RplCardNav },
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :image="image" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -90,8 +90,8 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
     }
   }))
   .add('No image', () => ({
-    components: { RplCardNavigationV2 },
-    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" />`,
+    components: { RplCardNav },
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -114,8 +114,8 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
     }
   }))
   .add('Event', () => ({
-    components: { RplCardNavigationV2 },
-    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :status="status" :author="author" :display-style="displayStyle" />`,
+    components: { RplCardNav },
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :status="status" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -152,8 +152,8 @@ storiesOf('Molecules/Card/Card Navigation V2', module)
     }
   }))
   .add('Featured', () => ({
-    components: { RplCardNavigationV2 },
-    template: `<rpl-card-navigation-v2 :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" :image="image" :display-style="displayStyle" />`,
+    components: { RplCardNav },
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" :image="image" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')

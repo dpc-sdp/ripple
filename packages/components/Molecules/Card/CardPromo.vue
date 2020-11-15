@@ -65,9 +65,6 @@ export default {
       modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
 
       return modifiers
-    },
-    hasMeta () {
-      return this.tag || this.date || this.topic || this.status
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <rpl-link class="rpl-card-promo" :class="modifiers" :href="link.url">
+  <rpl-link :class="modifiers" :href="link.url">
     <slot name="image">
       <rpl-responsive-img v-if="image" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </slot>
@@ -61,15 +61,8 @@ export default {
   computed: {
     modifiers () {
       const prefix = 'rpl-card-promo'
-      const modifiers = []
-      if (this.image) {
-        modifiers.push(`${prefix}--with-image`)
-      } else if (!this.image) {
-        modifiers.push(`${prefix}--no-image`)
-      }
-      if (this.displayStyle && this.displayStyle.toLowerCase() === 'profile') {
-        modifiers.push(`${prefix}--${this.displayStyle}`)
-      }
+      const modifiers = [ prefix ]
+      modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
 
       return modifiers
     },
@@ -208,12 +201,12 @@ export default {
     &__content {
       padding: $rpl-card-promo-content-padding;
 
-      #{$root}--no-image & {
+      #{$root}--noimage & {
         padding-top: $rpl-card-promo-no-image-padding-top;
       }
     }
 
-    &--no-image {
+    &--noimage {
       background-image: $rpl-card-promo-no-image-border;
       background-size: 100% $rpl-card-promo-no-image-border-height;
       background-repeat: no-repeat;

@@ -40,8 +40,8 @@ export default {
     summary: String,
     link: Object,
     tag: String,
-    dateStart: String,
-    dateEnd: String,
+    dateStart: [String, Object],
+    dateEnd: [String, Object],
     author: String,
     status: String,
     displayStyle: {

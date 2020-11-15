@@ -53,7 +53,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   .addDecorator(withKnobs)
   .add('Thumbnail', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :image="image" :author="author" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :date-end="dateEnd" :image="image" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -78,8 +78,11 @@ storiesOf('Molecules/Card/Card Nav', module)
       tag: {
         default: () => select('Tag', [ 'Event', 'News', '' ], 'Event')
       },
-      date: {
-        default: text('Date', '2020-03-23T09:00:00.000+10:00')
+      dateStart: {
+        default: text('Date start', '2020-03-23T09:00:00.000+10:00')
+      },
+      dateEnd: {
+        default: text('Date end', '')
       },
       author: {
         default: text('Author', 'John Doe')
@@ -91,7 +94,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   }))
   .add('No image', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :author="author" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -105,8 +108,8 @@ storiesOf('Molecules/Card/Card Nav', module)
       tag: {
         default: () => select('Tag', [ 'Event', 'News', '' ], 'Event')
       },
-      date: {
-        default: text('Date', '2020-03-23T09:00:00.000+10:00')
+      dateStart: {
+        default: text('Date start', '2020-03-23T09:00:00.000+10:00')
       },
       author: {
         default: text('Author', 'John Doe')
@@ -115,7 +118,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   }))
   .add('Event', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :status="status" :author="author" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :date-end="dateEnd" :image="image" :status="status" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -140,6 +143,12 @@ storiesOf('Molecules/Card/Card Nav', module)
       tag: {
         default: text('Tag', 'Event')
       },
+      dateStart: {
+        default: text('Date start', '2021-03-23T09:00:00.000+10:00')
+      },
+      dateEnd: {
+        default: text('Date end', '')
+      },
       author: {
         default: text('Author', 'John Doe')
       },
@@ -153,7 +162,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   }))
   .add('Featured', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date="date" :author="author" :image="image" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :author="author" :image="image" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -178,8 +187,8 @@ storiesOf('Molecules/Card/Card Nav', module)
       tag: {
         default: () => select('Tag', [ 'Event', 'News', '' ], 'News')
       },
-      date: {
-        default: text('Date', '2020-03-23T09:00:00.000+10:00')
+      dateStart: {
+        default: text('Date start', '2020-03-23T09:00:00.000+10:00')
       },
       author: {
         default: text('Author', 'John Doe')
@@ -587,7 +596,7 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('Event', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :date="date" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
@@ -598,14 +607,20 @@ storiesOf('Molecules/Card/Card Promo', module)
       status: {
         default: () => select('Status', { open: 'Open', closed: 'Closed', ongoing: 'Ongoing' }, 'open')
       },
-      date: {
-        default: () => object('date', { from: new Date('02 July 2020'), to: new Date('25 September 2020') })
+      dateStart: {
+        default: () => object('Date start', { from: new Date('02 July 2020'), to: new Date('25 September 2020') })
+      },
+      dateEnd: {
+        default: () => text('Date end', '')
       },
       summary: {
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
       },
       link: {
         default: () => object('Link', { text: 'Read more', url: '#' })
+      },
+      displayStyle: {
+        default: () => text('Display style', 'Noimage')
       }
     }
   }))

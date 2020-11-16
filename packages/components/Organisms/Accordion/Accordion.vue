@@ -12,11 +12,10 @@
         </h2>
         <div
           class="rpl-accordion__content"
-          :style="accordionIsOpen(index) ? `height: ${getHeight(index)}; visibility: visible;` : ''"
           :id="accordionId(index)"
           :ref="accordionId(index)"
         >
-          <rpl-markup class="rpl-accordion__content-inner"  :html="accordion.content" />
+          <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
         </div>
       </li>
     </ol>
@@ -30,7 +29,6 @@
         </h2>
         <div
           class="rpl-accordion__content"
-          :style="accordionIsOpen(index) ? `height: ${getHeight(index)}; visibility: visible;` : ''"
           :id="accordionId(index)"
           :ref="accordionId(index)"
         >
@@ -82,10 +80,13 @@ export default {
         let strIndex = index.toString()
         for (let item in this.itemOpen) {
           if (item !== strIndex) {
+            this.collapseContent(item)
             Vue.set(this.itemOpen, item, false)
           }
         }
       }
+
+      this.toggleContent(index)
       Vue.set(this.itemOpen, index, !this.itemOpen[index])
     },
     accordionIsOpen: function (index) {
@@ -94,13 +95,40 @@ export default {
     accordionId (index) {
       return `rpl-accordion-${this.getIdFromLocalRegistry(index)}`
     },
-    getHeight (index) {
+    expandContent (index) {
       const ref = this.accordionId(index)
       const section = this.$refs[ref]
       if (section[0]) {
-        return section[0].scrollHeight + 'px'
+        // Set fixed height for transition
+        section[0].style.height = section[0].scrollHeight + 'px'
+        section[0].style.visibility = 'visible'
+        setTimeout(function () {
+          // Remove the fixed height after transition so it can be responsive
+          section[0].style.height = 'auto'
+        }, 500)
       } else {
         throw new Error('Something is wrong while getting the height of the referred content')
+      }
+    },
+    collapseContent (index) {
+      const ref = this.accordionId(index)
+      const section = this.$refs[ref]
+      if (section[0]) {
+        // Set fixed height for transition
+        section[0].style.height = section[0].scrollHeight + 'px'
+        setTimeout(function () {
+          section[0].style.height = ''
+          section[0].style.visibility = ''
+        }, 1)
+      } else {
+        throw new Error('Something is wrong while getting the height of the referred content')
+      }
+    },
+    toggleContent (index) {
+      if (this.itemOpen[index]) {
+        this.collapseContent(index)
+      } else {
+        this.expandContent(index)
       }
     }
   }

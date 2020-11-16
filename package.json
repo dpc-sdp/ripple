@@ -55,7 +55,7 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@ljharb/eslint-config": "^13.1.1",
-    "@vue/test-utils": "^1.1.1",
+    "@vue/test-utils": "^1.0.0-beta.29",
     "axe-core": "^3.5.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",

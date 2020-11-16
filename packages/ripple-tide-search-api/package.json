@@ -23,11 +23,11 @@
     "access": "public"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
-    "dotenv": "^8.2.0",
-    "@babel/core": "^7.10.2",
+    "@babel/core": "^7.12.3",
     "@babel/node": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
-    "@elastic/elasticsearch-mock": "^0.3.0"
+    "@elastic/elasticsearch-mock": "^0.3.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
   }
 }

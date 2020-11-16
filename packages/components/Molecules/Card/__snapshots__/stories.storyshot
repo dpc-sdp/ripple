@@ -2422,7 +2422,26 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Event 1`] = `
          
         <!---->
          
-        <!---->
+        <div
+          class="rpl-card-promo__status rpl-card-promo__status--open"
+        >
+          <svg
+            aria-hidden="true"
+            class="rpl-card-promo__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+            overflow="visible"
+            style="width: 10px; height: 10px;"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+            />
+             
+          </svg>
+           
+          <span>
+            open
+          </span>
+        </div>
          
         <div
           class="rpl-card-promo__date"
@@ -2440,7 +2459,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Event 1`] = `
       <p
         class="rpl-card-promo__summary"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
       </p>
        
     </div>

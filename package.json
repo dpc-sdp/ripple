@@ -83,7 +83,7 @@
     "markdown-loader-jest": "^0.1.1",
     "mockdate": "^2.0.3",
     "sass-lint": "^1.12.1",
-    "start-server-and-test": "^1.7.11",
+    "start-server-and-test": "^1.11.5",
     "vue-jest": "^3.0.7",
     "vuex-mock-store": "^0.0.7"
   },

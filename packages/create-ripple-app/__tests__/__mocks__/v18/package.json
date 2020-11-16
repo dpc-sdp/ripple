@@ -46,8 +46,8 @@
     "node-sass": "^4.11.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
-    "sass-resources-loader": "^2.0.0",
-    "start-server-and-test": "^1.7.11"
+    "sass-resources-loader": "^2.1.1",
+    "start-server-and-test": "^1.11.5"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true

@@ -31,7 +31,7 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^2.0.1",
-    "start-server-and-test": "^1.7.11",
+    "start-server-and-test": "^1.11.5",
     "svg-sprite-loader": "^4.1.6",
     "svgo": "^1.2.2",
     "svgo-loader": "^2.2.0",

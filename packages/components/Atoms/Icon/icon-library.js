@@ -32,9 +32,10 @@ function getIconProps () {
     // In Jest there is no webpack require.context support, also we don't transform files.
     // Let's skip this part in tests.
     if (process.env.NODE_ENV !== 'test') {
-      addIconsToLibrary(require.context('./assets/img/', true, /\.svg$/))
+      // addIconsToLibrary(require.context('./assets/img/', true, /\.svg$/))
     }
   }
+
   return iconProps
 }
 

@@ -31,7 +31,18 @@ exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
             Accordion Item
           </span>
            
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-accordion__icon rpl-icon rpl-icon--arrow_down_tertiary rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 15px; height: 9px;"
+            viewBox="0 0 15 9"
+          >
+            <path
+              d="M.44.44a1.5 1.5 0 012.12 0L7.5 5.378l4.94-4.94a1.5 1.5 0 012.12 2.122l-6 6a1.5 1.5 0 01-2.12 0l-6-6a1.5 1.5 0 010-2.122z"
+            />
+             
+          </svg>
         </button>
       </h2>
        
@@ -70,7 +81,18 @@ exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
             Accordion Item
           </span>
            
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-accordion__icon rpl-icon rpl-icon--arrow_down_tertiary rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 15px; height: 9px;"
+            viewBox="0 0 15 9"
+          >
+            <path
+              d="M.44.44a1.5 1.5 0 012.12 0L7.5 5.378l4.94-4.94a1.5 1.5 0 012.12 2.122l-6 6a1.5 1.5 0 01-2.12 0l-6-6a1.5 1.5 0 010-2.122z"
+            />
+             
+          </svg>
         </button>
       </h2>
        

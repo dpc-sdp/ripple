@@ -56,7 +56,18 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.
       </p>
        
-      <!---->
+      <svg
+        aria-hidden="true"
+        class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_white"
+        overflow="visible"
+        style="width: 13px; height: 12px;"
+        viewBox="0 0 13 12"
+      >
+        <path
+          d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+        />
+         
+      </svg>
     </a>
   </li>
   <li
@@ -124,7 +135,18 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
               class="rpl-text-icon__group"
             >
                action
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -198,7 +220,18 @@ exports[`RippleStoryshots Organisms/News Featured News 1`] = `
               class="rpl-text-icon__group"
             >
                action
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                overflow="visible"
+                style="width: 9.1px; height: 8.399999999999999px;"
+                viewBox="0 0 13 12"
+              >
+                <path
+                  d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                />
+                 
+              </svg>
             </span>
           </span>
         </div>
@@ -262,7 +295,18 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                     class="rpl-text-icon__group"
                   >
                      Conference
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                      overflow="visible"
+                      style="width: 13px; height: 12px;"
+                      viewBox="0 0 13 12"
+                    >
+                      <path
+                        d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                      />
+                       
+                    </svg>
                   </span>
                 </span>
               </span>
@@ -310,7 +354,18 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                     class="rpl-text-icon__group"
                   >
                      Out
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                      overflow="visible"
+                      style="width: 13px; height: 12px;"
+                      viewBox="0 0 13 12"
+                    >
+                      <path
+                        d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                      />
+                       
+                    </svg>
                   </span>
                 </span>
               </span>
@@ -358,7 +413,18 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                     class="rpl-text-icon__group"
                   >
                      Triennial
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                      overflow="visible"
+                      style="width: 13px; height: 12px;"
+                      viewBox="0 0 13 12"
+                    >
+                      <path
+                        d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                      />
+                       
+                    </svg>
                   </span>
                 </span>
               </span>
@@ -406,7 +472,18 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                     class="rpl-text-icon__group"
                   >
                      Fund
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                      overflow="visible"
+                      style="width: 13px; height: 12px;"
+                      viewBox="0 0 13 12"
+                    >
+                      <path
+                        d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                      />
+                       
+                    </svg>
                   </span>
                 </span>
               </span>
@@ -454,7 +531,18 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                     class="rpl-text-icon__group"
                   >
                      Review
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                      overflow="visible"
+                      style="width: 13px; height: 12px;"
+                      viewBox="0 0 13 12"
+                    >
+                      <path
+                        d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                      />
+                       
+                    </svg>
                   </span>
                 </span>
               </span>
@@ -502,7 +590,18 @@ exports[`RippleStoryshots Organisms/News News Listing 1`] = `
                     class="rpl-text-icon__group"
                   >
                      Violence
-                    <!---->
+                    <svg
+                      aria-hidden="true"
+                      class="rpl-icon rpl-icon--arrow_right_primary rpl-icon--color_primary rpl-text-icon--after"
+                      overflow="visible"
+                      style="width: 13px; height: 12px;"
+                      viewBox="0 0 13 12"
+                    >
+                      <path
+                        d="M11.74 5.326l-4.546-5A1.003 1.003 0 005.781.259a1.001 1.001 0 00-.066 1.413l3.024 3.327H1a1 1 0 100 2h7.739l-3.024 3.327a1.001 1.001 0 00.739 1.673 1 1 0 00.74-.327l4.546-5a1 1 0 000-1.346z"
+                      />
+                       
+                    </svg>
                   </span>
                 </span>
               </span>

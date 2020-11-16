@@ -36,6 +36,7 @@ import catchChildError from '@dpc-sdp/ripple-global/mixins/catch-child-error'
 import { RplDevError } from '@dpc-sdp/ripple-global'
 
 import RplIcon from '@dpc-sdp/ripple-icon'
+import RplCardPromo from './CardPromo.vue'
 import RplCardPromotion from './CardPromotion.vue'
 import RplCardEvent from './CardEvent.vue'
 import RplCardKeydates from './CardKeydates.vue'
@@ -58,6 +59,7 @@ export default {
   },
   components: {
     RplIcon,
+    RplCardPromo,
     RplCardPromotion,
     RplCardEvent,
     RplCardKeydates,
@@ -186,6 +188,7 @@ export default {
     }
 
     &__slide-wrap {
+      height: 100%;
       @include rpl_breakpoint('m') {
         margin-left: $rpl-card-carousel-slide-gutter / 2;
         margin-right: $rpl-card-carousel-slide-gutter / 2;

@@ -1,6 +1,8 @@
 import defaults from './config/defaults'
 import * as configLoader from './core/config-loader'
 import { RPL_HEADER } from './config/constants'
+import tideSearchApiMiddleware from '@dpc-sdp/ripple-tide-search-api'
+
 const path = require('path')
 
 const nuxtTide = function (moduleOptions) {
@@ -65,6 +67,14 @@ const nuxtTide = function (moduleOptions) {
   if (process.env.BASIC_AUTH === '1') {
     const basicAuth = require('./core/basic-auth.js')
     this.addServerMiddleware(basicAuth)
+  }
+
+  if (options.searchApi) {
+    this.addServerMiddleware(tideSearchApiMiddleware({
+      templates: options.searchTemplates,
+      tide: options,
+      ...options.searchApi
+    }))
   }
 
   this.addModule('@dpc-sdp/ripple-nuxt-ui', true)

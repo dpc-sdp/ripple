@@ -27,17 +27,30 @@ class GTM {
     })
   }
 
+  validateObj (data) {
+    if (!window || !window[this.options.layer]) {
+      throw new Error('missing GTM dataLayer')
+    }
+    if (typeof data !== 'object') {
+      throw new Error('data should be an object')
+    }
+  }
+
   pushEvent (obj) {
     try {
-      if (!window || !window[this.options.layer]) {
-        throw new Error('missing GTM dataLayer')
-      }
-      if (typeof obj !== 'object') {
-        throw new Error('event should be an object')
-      }
+      this.validateObj(obj)
       if (!obj.hasOwnProperty('event')) {
         throw new Error('missing event property')
       }
+      window[this.options.layer].push(obj)
+    } catch (error) {
+      logger.error('Failed to push event.', { error, label: 'GTM' })
+    }
+  }
+
+  pushObj (obj) {
+    try {
+      this.validateObj(obj)
       window[this.options.layer].push(obj)
     } catch (error) {
       logger.error('Failed to push event.', { error, label: 'GTM' })

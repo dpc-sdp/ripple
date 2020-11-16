@@ -2427,7 +2427,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Event 1`] = `
         <div
           class="rpl-card-promo__date"
         >
-          16 November 2020
+          10 to 15 November
         </div>
       </div>
        
@@ -2448,7 +2448,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Event 1`] = `
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Promo Landing Page 1`] = `
+exports[`RippleStoryshots Molecules/Card/Card Promo No image 1`] = `
 <a
   class="rpl-link rpl-card-promo rpl-card-promo--noimage"
   data-print-url="#"
@@ -2475,7 +2475,11 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Landing Page 1`] = `
          
         <!---->
          
-        <!---->
+        <div
+          class="rpl-card-promo__date"
+        >
+          10 November 2020
+        </div>
       </div>
        
       <h2
@@ -2500,7 +2504,6 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Profile 1`] = `
   class="rpl-link rpl-card-promo rpl-card-promo--profile"
   data-print-url="#"
   href="#"
-  variation="profile"
 >
   <span
     class="rpl-link__inner"
@@ -2526,15 +2529,15 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Profile 1`] = `
           Profile
         </div>
          
+        <!---->
+         
+        <!---->
+         
         <div
-          class="rpl-card-promo__topic"
+          class="rpl-card-promo__date"
         >
-          02 July 2020
+          10 November 2020
         </div>
-         
-        <!---->
-         
-        <!---->
       </div>
        
       <h2
@@ -2554,7 +2557,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Profile 1`] = `
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Promo With Image 1`] = `
+exports[`RippleStoryshots Molecules/Card/Card Promo With image 1`] = `
 <a
   class="rpl-link rpl-card-promo rpl-card-promo--noimage"
   data-print-url="#"
@@ -2588,7 +2591,11 @@ exports[`RippleStoryshots Molecules/Card/Card Promo With Image 1`] = `
          
         <!---->
          
-        <!---->
+        <div
+          class="rpl-card-promo__date"
+        >
+          10 November 2020
+        </div>
       </div>
        
       <h2

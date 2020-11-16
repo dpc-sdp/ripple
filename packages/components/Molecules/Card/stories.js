@@ -94,7 +94,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   }))
   .add('No image', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :author="author" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :date-end="dateEnd" :author="author" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -110,6 +110,9 @@ storiesOf('Molecules/Card/Card Nav', module)
       },
       dateStart: {
         default: text('Date start', '2020-03-23T09:00:00.000+10:00')
+      },
+      dateEnd: {
+        default: text('Date end', '')
       },
       author: {
         default: text('Author', 'John Doe')
@@ -162,7 +165,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   }))
   .add('Featured', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :author="author" :image="image" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :date-end="dateEnd" :author="author" :image="image" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -189,6 +192,9 @@ storiesOf('Molecules/Card/Card Nav', module)
       },
       dateStart: {
         default: text('Date start', '2020-03-23T09:00:00.000+10:00')
+      },
+      dateEnd: {
+        default: text('Date end', '')
       },
       author: {
         default: text('Author', 'John Doe')
@@ -562,9 +568,9 @@ storiesOf('Molecules/Card/Card Content (base)', module)
 
 storiesOf('Molecules/Card/Card Promo', module)
   .addDecorator(withKnobs)
-  .add('With Image', () => ({
+  .add('With image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :tag="tag" :topic="topic" />`,
+    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :tag="tag" :topic="topic" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       image: {
         default: object('Image', {
@@ -582,6 +588,12 @@ storiesOf('Molecules/Card/Card Promo', module)
       },
       tag: {
         default: text('Tag', '')
+      },
+      dateStart: {
+        default: () => text('Date start', '2020-11-10T09:00:00.000+10:00')
+      },
+      dateEnd: {
+        default: () => text('Date end', '')
       },
       topic: {
         default: text('Topic', 'Arts, Culture and Humanities')
@@ -608,10 +620,10 @@ storiesOf('Molecules/Card/Card Promo', module)
         default: () => select('Status', { open: 'Open', closed: 'Closed', ongoing: 'Ongoing' }, 'open')
       },
       dateStart: {
-        default: () => object('Date start', { from: new Date('02 July 2020'), to: new Date('25 September 2020') })
+        default: () => text('Date start', '2020-11-10T09:00:00.000+10:00')
       },
       dateEnd: {
-        default: () => text('Date end', '')
+        default: () => text('Date end', '2020-11-15T09:00:00.000+10:00')
       },
       summary: {
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
@@ -624,9 +636,9 @@ storiesOf('Molecules/Card/Card Promo', module)
       }
     }
   }))
-  .add('Landing Page', () => ({
+  .add('No image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :topic="topic" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :topic="topic" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
@@ -636,6 +648,12 @@ storiesOf('Molecules/Card/Card Promo', module)
       },
       topic: {
         default: text('Topic', 'Arts, Culture and Humanities')
+      },
+      dateStart: {
+        default: () => text('Date start', '2020-11-10T09:00:00.000+10:00')
+      },
+      dateEnd: {
+        default: () => text('Date end', '')
       },
       summary: {
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
@@ -647,7 +665,7 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('Profile', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :image="image" variation="profile" :topic="topic" :display-style="displayStyle" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :topic="topic" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
@@ -667,7 +685,13 @@ storiesOf('Molecules/Card/Card Promo', module)
         })
       },
       topic: {
-        default: text('date', '02 July 2020')
+        default: text('Topic', '')
+      },
+      dateStart: {
+        default: () => text('Date start', '2020-11-10T09:00:00.000+10:00')
+      },
+      dateEnd: {
+        default: () => text('Date end', '')
       },
       summary: {
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')

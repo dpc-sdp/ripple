@@ -39,7 +39,7 @@ const card = {
       if (!this.dateStart && !this.dateEnd) return ''
 
       let formatted = this.formatDate(this.dateStart, 'DD MMMM YYYY')
-      if (this.dateEnd) {
+      if (this.dateStart && this.dateEnd) {
         formatted = this.formatDateRange(this.dateStart, this.dateEnd)
       }
 

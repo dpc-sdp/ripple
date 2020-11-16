@@ -39,8 +39,8 @@ export default {
   mixins: [formatdate, card],
   props: {
     image: Object,
-    dateStart: [String, Object],
-    dateEnd: [String, Object],
+    dateStart: String,
+    dateEnd: String,
     tag: String,
     topic: String,
     status: String,

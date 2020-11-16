@@ -608,13 +608,16 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('Event', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :image="image" :link="link" :tag="tag" :status="status" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
       },
       tag: {
         default: text('Tag', 'Event')
+      },
+      image: {
+        default: object('Image', {})
       },
       status: {
         default: () => select('Status', { open: 'Open', closed: 'Closed', ongoing: 'Ongoing' }, 'open')

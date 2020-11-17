@@ -24,13 +24,14 @@
                 <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
                 <span>{{ menuButton[menuState].text }}</span>
               </button>
+              <div class="rpl-site-header__divider rpl-site-header__divider--vic" :class="dividerStateClass"></div>
               <!-- Primary vic.gov.au Logo -->
               <div v-if="!menuContentOpen && this.rplOptions.viclogo" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
                 <rpl-link :href="vicLogoPrimary.url">
                   <img :src="vicLogoPrimary.image" :alt="vicLogoPrimary.alt" />
                 </rpl-link>
               </div>
-
+              <div class="rpl-site-header__divider rpl-site-header__divider--cobrand" :class="dividerStateClass"></div>
               <!--Co brand logo if it exists-->
               <div v-if="!menuContentOpen && logo" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
                 <rpl-link :href="logo.url">
@@ -274,6 +275,20 @@ export default {
       // This checks if a site has header menu links.
       let linkLength = (typeof this.links !== 'undefined') ? this.links.length : 0
       return linkLength
+    },
+    dividerStateClass () {
+      const dividerClass = 'rpl-site-header__divider'
+      const isVicLogo = this.rplOptions.viclogo
+      const isCobrandLogo = this.logo
+      if (isVicLogo && isCobrandLogo) {
+        return `${dividerClass}--has-both`
+      } else if (isVicLogo) {
+        return `${dividerClass}--has-vic-only`
+      } else if (isCobrandLogo) {
+        return `${dividerClass}--has-cobrand-only`
+      } else {
+        return null
+      }
     }
   },
   mounted: function () {
@@ -319,6 +334,11 @@ export default {
   $rpl-site-header-logout-btn-padding: rem(10px) !default;
   $rpl-site-header-logout-btn-margin: $rpl-space-4 !default;
   $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
+  $rpl-site-header-menu-divider-border-right: $rpl-site-header-menu-toggle-border-right !default;
+  $rpl-site-header-menu-divider-margin-xl: 0 $rpl-space-2 !default;
+  $rpl-site-header-menu-divider-margin-l: 0 $rpl-space-4 !default;
+  $rpl-site-header-menu-divider-height-xl: rem(14px) !default;
+  $rpl-site-header-menu-divider-height-l: rem(27px) !default;
 
   .rpl-site-header {
     $root: &;
@@ -380,6 +400,56 @@ export default {
       }
     }
 
+    &__divider {
+      $divider_root: &;
+      height: $rpl-site-header-menu-divider-height-xl;
+      margin: $rpl-site-header-menu-divider-margin-xl;
+      border-right: $rpl-site-header-menu-divider-border-right;
+
+      @include rpl_breakpoint('l') {
+        margin: $rpl-site-header-menu-divider-margin-l;
+        height: $rpl-site-header-menu-divider-height-l;
+      }
+
+      &--vic {
+        display: none;
+
+        &#{$divider_root}--has-both {
+          @include rpl_breakpoint('m') {
+            display: block;
+          }
+
+          @include rpl_breakpoint('l') {
+            display: none;
+          }
+        }
+
+        &#{$divider_root}--has-vic-only {
+          display: block;
+
+          @include rpl_breakpoint('l') {
+            display: none;
+          }
+        }
+      }
+
+      &--cobrand {
+        display: none;
+
+        &#{$divider_root}--has-both {
+          display: block;
+        }
+
+        &#{$divider_root}--has-cobrand-only {
+          display: block;
+
+          @include rpl_breakpoint('l') {
+            display: none;
+          }
+        }
+      }
+    }
+
     &__logo-container {
       &-inner {
         display: flex;
@@ -394,8 +464,7 @@ export default {
 
       img {
         width: $rpl-site-header-logo-width;
-        margin-left: $rpl-site-header-menu-toggle-border-spacing;
-        vertical-align: middle;
+        display: block;
       }
 
       &--vic-logo-primary {
@@ -406,17 +475,12 @@ export default {
         }
 
         &--cobrand {
-
-          padding-right: 0.5rem;
-          border-right: 1px solid #fff;
           display: none;
 
           @include rpl_breakpoint('m') {
             display: block;
           }
-
         }
-
       }
     }
 
@@ -475,18 +539,12 @@ export default {
       @include rpl_focus_dark;
 
       &--menu {
-        padding-right: $rpl-site-header-menu-toggle-border-spacing;
-        border-right: $rpl-site-header-menu-toggle-border-right;
-
         span {
+          padding-left: $rpl-site-header-menu-toggle-border-spacing;
           display: none;
           @include rpl_breakpoint('s') {
             display: block;
           }
-        }
-
-        .rpl-icon {
-          margin: $rpl-site-header-menu-toggle-icon-margin;
         }
       }
 

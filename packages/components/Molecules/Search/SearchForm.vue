@@ -138,6 +138,7 @@ export default {
 
   $rpl-search-form-button-width: rem(28px) !default;
   $rpl-search-form-input-text-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-search-form-input-placeholder-color: $rpl-search-form-input-text-color !default;
   $rpl-search-form-input-margin: auto !default;
   $rpl-search-form-input-margin-s: auto !default;
   $rpl-search-form-input-margin-l: auto !default;
@@ -154,6 +155,7 @@ export default {
   $rpl-search-form-field-underline-background: rpl-color('mid_neutral_2') !default;
   $rpl-search-form-heading-color: rpl-color('primary') !default;
   $rpl-search-form-dark-text-color: rpl-color('white') !default;
+  $rpl-search-form-dark-input-placeholder-color: $rpl-search-form-dark-text-color !default;
   $rpl-search-form-heading-ruleset: (
     'xs': ('mega', 1.07em, 'bold'),
     'm': ('xgiga', 1em, 'bold'),
@@ -266,13 +268,12 @@ export default {
         }
       }
 
-      &::-webkit-input-placeholder {
-        color: $rpl-search-form-input-text-color;
+      &::placeholder {
+        color: $rpl-search-form-input-placeholder-color;
+        opacity: 1;
 
-        @at-root {
-          #{$root}--dark #{$root}__input::-webkit-input-placeholder {
-            color: $rpl-search-form-dark-text-color;
-          }
+        #{$root}--dark & {
+          color: $rpl-search-form-dark-input-placeholder-color;
         }
       }
     }

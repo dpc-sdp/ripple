@@ -54,10 +54,10 @@ export default {
   computed: {
     // TODO this is to support custom icons using svg, must be deleted when clients have converted
     iconPropsSVG () {
-      return (this.symbol && this.iconProperties[`${this.iconPrefix + this.symbol}`])
+      return (this.symbol && this.iconProperties[`${this.iconPrefix + this.symbol}`] !== undefined)
     },
     iconClass () {
-      if (!this.icon) return ''
+      if (!this.icon && !this.iconPropsSVG) return ''
 
       let rtn = `rpl-icon rpl-icon--${this.symbol}`
       return this.color ? `${rtn} rpl-icon--color_${this.color}` : rtn
@@ -65,15 +65,14 @@ export default {
     iconStyle () {
       if (!this.icon && !this.iconPropsSVG) return ''
 
+      let width = this.icon ? this.icon.width ? this.icon.width : null : null
+      let height = this.icon ? this.icon.height ? this.icon.height : null : null
       if (this.iconPropsSVG) {
-        const { width, height } = this.iconProperties[`${this.iconPrefix + this.symbol}`]
-        let size = (this.sizes[this.size] === undefined) ? parseFloat(this.size) : this.sizes[this.size]
-        size = isNaN(size) ? 1 : size
-        return `width: ${width * size}px; height: ${height * size}px`
+        let iconPropsSVG = this.iconProperties[`${this.iconPrefix + this.symbol}`]
+        width = iconPropsSVG.width
+        height = iconPropsSVG.height
       }
 
-      const width = this.icon.width
-      const height = this.icon.height
       let size = (this.sizes[this.size] === undefined) ? parseFloat(this.size) : this.sizes[this.size]
       size = isNaN(size) ? 1 : size
 

@@ -1,6 +1,6 @@
 <!-- credits to https://github.com/Justineo/vue-awesome/blob/master/src/components/Icon.vue -->
 <template>
-  <svg v-if="icon" :class="iconClass" :style="iconStyle" :viewBox="box" aria-hidden="true" overflow="visible">
+  <svg v-if="icon || iconPropsSVG" :class="iconClass" :style="iconStyle" :viewBox="box" aria-hidden="true" overflow="visible">
     <template v-if="iconPropsSVG">
       <!-- Use both xlink:href and href for browser support https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/ -->
       <use :xlink:href="'#' + iconPrefix + symbol" :href="'#' + iconPrefix + symbol"></use>
@@ -54,7 +54,7 @@ export default {
   computed: {
     // TODO this is to support custom icons using svg, must be deleted when clients have converted
     iconPropsSVG () {
-      return (this.symbol && this.iconProperties[this.iconPrefix + this.symbol] !== undefined)
+      return (this.symbol && this.iconProperties[`${this.iconPrefix + this.symbol}`])
     },
     iconClass () {
       if (!this.icon) return ''
@@ -63,7 +63,14 @@ export default {
       return this.color ? `${rtn} rpl-icon--color_${this.color}` : rtn
     },
     iconStyle () {
-      if (!this.icon) return ''
+      if (!this.icon && !this.iconPropsSVG) return ''
+
+      if (this.iconPropsSVG) {
+        const { width, height } = this.iconProperties[`${this.iconPrefix + this.symbol}`]
+        let size = (this.sizes[this.size] === undefined) ? parseFloat(this.size) : this.sizes[this.size]
+        size = isNaN(size) ? 1 : size
+        return `width: ${width * size}px; height: ${height * size}px`
+      }
 
       const width = this.icon.width
       const height = this.icon.height

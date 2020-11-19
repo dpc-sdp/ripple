@@ -30,10 +30,11 @@ export default function ({ $axios, app, res }) {
     // Check what kind of request it is.
     const routeRequest = responseUrl.includes('/route?')
     const authPreviewRequest = responseUrl.includes('&current_version=') || responseUrl.includes('&resourceVersion=')
+    const shareRequest = responseUrl.includes('/share_link/')
 
 
-    // Set http status code if a route or preview request failed.
-    if (routeRequest || authPreviewRequest) {
+    // Set http status code if a route, preview or share request failed.
+    if (routeRequest || authPreviewRequest || shareRequest) {
       // We hide 403 and show it as 404
       code = code === 403 ? 404 : code
 

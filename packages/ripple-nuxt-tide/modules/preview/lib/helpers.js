@@ -59,7 +59,8 @@ async function getPageByPreviewLink ($tide, path, site, section, headersConfig) 
 async function tideShare (context, headersConfig) {
   const siteId = (context.store.state.tide && context.store.state.tide.siteId) ? context.store.state.tide.siteId : null
   const section = (context.route.query && context.route.query.section) ? context.route.query.section : null
-  return getPageByShareLink(context.app.$tide, context.route.path, siteId, section, headersConfig)
+  const path = context.route.path[0] === '/' ? context.route.path.substring(1) : context.route.path
+  return getPageByShareLink(context.app.$tide, path, siteId, section, headersConfig)
 }
 
 async function getPageByShareLink ($tide, path, site, section, headersConfig) {

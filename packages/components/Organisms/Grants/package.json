@@ -15,6 +15,6 @@
     "@dpc-sdp/ripple-list": "1.16.0",
     "@dpc-sdp/ripple-markup": "1.16.0",
     "@dpc-sdp/ripple-meta-tag": "1.16.0",
-    "moment": "^2.22.1"
+    "moment": "^2.29.1"
   }
 }

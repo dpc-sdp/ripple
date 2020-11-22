@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "masonry-layout": "^4.2.1",
-    "moment": "^2.22.1",
+    "moment": "^2.29.1",
     "object-fit-images": "^3.2.3",
     "vue-focus": "^2.1.0"
   },

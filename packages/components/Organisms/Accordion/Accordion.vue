@@ -1,6 +1,9 @@
 <template>
   <div class="rpl-accordion">
     <h2 class="rpl-accordion__title-top" :id="titleId" v-if="title">{{ title }}</h2>
+    <div class="rpl-accordion__collapse">
+      <a href="" @click.prevent="collapseExpandAll" v-html="collapseExpandLabel" />
+    </div>
     <ol class="rpl-accordion__list" v-if="type === 'numbered'">
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
         <h2 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
@@ -69,7 +72,13 @@ export default {
   mixins: [uniqueid],
   data: function () {
     return {
-      itemOpen: {}
+      itemOpen: {},
+      isCollapsed: false
+    }
+  },
+  mounted () {
+    for (const index in this.accordions) {
+      Vue.set(this.itemOpen, index, false)
     }
   },
   computed: {
@@ -77,13 +86,26 @@ export default {
       if (this.title) {
         return getAnchorLinkName(this.title)
       }
+    },
+    isAllItemOpen () {
+      for (const index in this.itemOpen) {
+        if (!this.itemOpen[index]) {
+          return false
+        }
+      }
+
+      return true
+    },
+    collapseExpandLabel () {
+      if (this.isCollapsed || this.isAllItemOpen) {
+        return 'Close all'
+      }
+
+      return 'Open all'
     }
   },
   methods: {
     accordionClick: function (index) {
-      if (this.itemOpen[index] === undefined) {
-        Vue.set(this.itemOpen, index, false)
-      }
       if (this.single) {
         let strIndex = index.toString()
         for (let item in this.itemOpen) {
@@ -93,6 +115,16 @@ export default {
         }
       }
       Vue.set(this.itemOpen, index, !this.itemOpen[index])
+    },
+    collapseExpandAll () {
+      this.isCollapsed = true
+      if (this.isAllItemOpen) {
+        this.isCollapsed = false
+      }
+
+      for (let item in this.itemOpen) {
+        Vue.set(this.itemOpen, item, this.isCollapsed)
+      }
     },
     start (el) {
       el.style.height = el.scrollHeight + 'px'
@@ -147,8 +179,21 @@ export default {
   $rpl-accordion-button-number-margin: 0 ($rpl-space * 5) 0 0 !default;
   $rpl-accordion-content-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-accordion-content-inner-padding: 0 0 rem(57px) !default;
+  $rpl-accordion-collapse-padding: rem(10px) 0 !default;
+  $rpl-accordion-collapse-color: rpl_color('primary') !default;
 
   .rpl-accordion {
+    &__collapse {
+      text-align: right;
+      padding: $rpl-accordion-collapse-padding;
+      @include rpl_typography_font('xs', 1em, 'bold');
+
+      a, a:hover:focus:active {
+        text-decoration: none;
+        color: $rpl-accordion-collapse-color;
+      }
+    }
+
     &__title-top {
       margin-top: 0;
       // TODO: Lines below should be removed on merging of SDPA-1810.

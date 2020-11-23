@@ -26,14 +26,14 @@
               </button>
               <div class="rpl-site-header__divider rpl-site-header__divider--vic" :class="dividerStateClass"></div>
               <!-- Primary vic.gov.au Logo -->
-              <div v-if="!menuContentOpen && this.rplOptions.viclogo" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
+              <div v-if="vicLogoVisible" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
                 <rpl-link :href="vicLogoPrimary.url">
                   <img :src="vicLogoPrimary.image" :alt="vicLogoPrimary.alt" />
                 </rpl-link>
               </div>
               <div class="rpl-site-header__divider rpl-site-header__divider--cobrand" :class="dividerStateClass"></div>
               <!--Co brand logo if it exists-->
-              <div v-if="!menuContentOpen && logo" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
+              <div v-if="cobrandVisible" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
                 <rpl-link :href="logo.url">
                   <img :src="logo.image" :alt="logo.alt" />
                 </rpl-link>
@@ -199,7 +199,8 @@ export default {
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
     },
     showMenuBtn: function () {
-      if (this.menuState === 'opened' && this.searchState !== 'opened' && this.menulinks > 0) {
+      const menuLinkCount = (Array.isArray(this.links) && this.links.length > 0)
+      if (this.menuState === 'opened' && this.searchState !== 'opened' && menuLinkCount) {
         return true
       } else if (this.menuLayout === 'vertical' && this.searchState !== 'opened') {
         return true
@@ -271,24 +272,17 @@ export default {
     }
   },
   computed: {
-    menulinks: function () {
-      // This checks if a site has header menu links.
-      let linkLength = (typeof this.links !== 'undefined') ? this.links.length : 0
-      return linkLength
+    vicLogoVisible () {
+      return (!this.menuContentOpen && this.rplOptions.viclogo)
+    },
+    cobrandVisible () {
+      return (!this.menuContentOpen && this.logo)
     },
     dividerStateClass () {
-      const dividerClass = 'rpl-site-header__divider'
-      const isVicLogo = this.rplOptions.viclogo
-      const isCobrandLogo = this.logo
-      if (isVicLogo && isCobrandLogo) {
-        return `${dividerClass}--has-both`
-      } else if (isVicLogo) {
-        return `${dividerClass}--has-vic-only`
-      } else if (isCobrandLogo) {
-        return `${dividerClass}--has-cobrand-only`
-      } else {
-        return null
-      }
+      const hasMenu = this.menuToggleVisible ? `1` : `0`
+      const hasVic = this.vicLogoVisible ? `1` : `0`
+      const hasCobrand = this.cobrandVisible ? `1` : `0`
+      return `rpl-site-header__divider--${hasMenu}${hasVic}${hasCobrand}`
     }
   },
   mounted: function () {
@@ -414,18 +408,18 @@ export default {
       &--vic {
         display: none;
 
-        &#{$divider_root}--has-both {
-          @include rpl_breakpoint('m') {
-            display: block;
-          }
+        &#{$divider_root}--110 {
+          display: block;
 
           @include rpl_breakpoint('l') {
             display: none;
           }
         }
 
-        &#{$divider_root}--has-vic-only {
-          display: block;
+        &#{$divider_root}--111 {
+          @include rpl_breakpoint('m') {
+            display: block;
+          }
 
           @include rpl_breakpoint('l') {
             display: none;
@@ -436,16 +430,22 @@ export default {
       &--cobrand {
         display: none;
 
-        &#{$divider_root}--has-both {
-          display: block;
+        &#{$divider_root}--011 {
+          @include rpl_breakpoint('m') {
+            display: block;
+          }
         }
 
-        &#{$divider_root}--has-cobrand-only {
+        &#{$divider_root}--101 {
           display: block;
 
           @include rpl_breakpoint('l') {
             display: none;
           }
+        }
+
+        &#{$divider_root}--111 {
+          display: block;
         }
       }
     }

@@ -31,7 +31,7 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
               <!---->
                
               <div
-                class="rpl-site-header__divider rpl-site-header__divider--vic rpl-site-header__divider--has-both"
+                class="rpl-site-header__divider rpl-site-header__divider--vic rpl-site-header__divider--111"
               />
 
               <div
@@ -54,7 +54,7 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
               </div>
                
               <div
-                class="rpl-site-header__divider rpl-site-header__divider--cobrand rpl-site-header__divider--has-both"
+                class="rpl-site-header__divider rpl-site-header__divider--cobrand rpl-site-header__divider--111"
               />
 
               <div

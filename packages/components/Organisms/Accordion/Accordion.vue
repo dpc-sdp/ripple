@@ -2,7 +2,7 @@
   <div class="rpl-accordion">
     <h2 class="rpl-accordion__title-top" :id="titleId" v-if="title">{{ title }}</h2>
     <div class="rpl-accordion__collapse">
-      <a href="" @click.prevent="collapseExpandAll" v-html="collapseExpandLabel" />
+      <a class="rpl-accordion__collapse-link" href="" @click.prevent="collapseExpandAll">{{ closeOpenLabel }}</a>
     </div>
     <ol class="rpl-accordion__list" v-if="type === 'numbered'">
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
@@ -73,7 +73,8 @@ export default {
   data: function () {
     return {
       itemOpen: {},
-      isCollapsed: false
+      isCollapsed: false,
+      closeOpenLabel: 'Open all'
     }
   },
   mounted () {
@@ -95,13 +96,6 @@ export default {
       }
 
       return true
-    },
-    collapseExpandLabel () {
-      if (this.isCollapsed || this.isAllItemOpen) {
-        return 'Close all'
-      }
-
-      return 'Open all'
     }
   },
   methods: {
@@ -115,12 +109,10 @@ export default {
         }
       }
       Vue.set(this.itemOpen, index, !this.itemOpen[index])
+      this.isCollapsed = this.isAllItemOpen
     },
     collapseExpandAll () {
-      this.isCollapsed = true
-      if (this.isAllItemOpen) {
-        this.isCollapsed = false
-      }
+      this.isCollapsed = !this.isCollapsed
 
       for (let item in this.itemOpen) {
         Vue.set(this.itemOpen, item, this.isCollapsed)
@@ -137,6 +129,15 @@ export default {
     },
     accordionId (index) {
       return `rpl-accordion-${this.getIdFromLocalRegistry(index)}`
+    }
+  },
+  watch: {
+    isCollapsed (val) {
+      if (val) {
+        this.closeOpenLabel = 'Close all'
+      } else {
+        this.closeOpenLabel = 'Open all'
+      }
     }
   }
 }
@@ -186,11 +187,17 @@ export default {
     &__collapse {
       text-align: right;
       padding: $rpl-accordion-collapse-padding;
+    }
+
+    &__collapse-link, a:hover:focus:active {
+      text-decoration: none;
+      color: $rpl-accordion-collapse-color;
       @include rpl_typography_font('xs', 1em, 'bold');
 
-      a, a:hover:focus:active {
+      &:hover,
+      &:focus,
+      &:active {
         text-decoration: none;
-        color: $rpl-accordion-collapse-color;
       }
     }
 

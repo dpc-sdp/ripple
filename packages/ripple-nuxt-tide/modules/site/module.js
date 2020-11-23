@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = function () {
   const options = this.options.tide
   const { URL } = require('url')
-  const baseUrl = new URL(options.baseUrl)
+  const baseUrl = options.baseUrl? new URL(options.baseUrl) : ''
   this.addPlugin({
     src: path.resolve(__dirname, 'templates/plugin.js'),
     fileName: 'tide-site.js',

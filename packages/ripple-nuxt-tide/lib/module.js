@@ -9,7 +9,7 @@ const path = require('path')
 const nuxtTide = function (moduleOptions) {
   const options = Object.assign(defaults, this.options.tide, moduleOptions)
 
-  if (!options || (options && !options.baseUrl)) {
+  if (!(options.baseUrl)) {
     logger.error('Base URL is not defined', { label: 'NuxtTide' })
     throw new Error('Base URL is not defined')
   }

@@ -1306,16 +1306,6 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
-"@dpc-sdp/ripple-tide-search-api@1.18.0":
-  version "1.17.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-search-api/-/ripple-tide-search-api-1.17.0.tgz#71ea28c717f7daf1d675f7084e6faadff88daec9"
-  integrity sha512-BIOlB0/ifBNKR8NIJWQ3FzeiTkqrYdK2BDm+gx7bh6uZz9jQFUaTtV/eW7aKhfPbTEnnpZSbNH4DQNjk713apg==
-  dependencies:
-    "@elastic/elasticsearch" "^7.8.0"
-    express "^4.17.1"
-    lodash.get "^4.4.2"
-    qs "^6.9.4"
-
 "@egoist/vue-to-react@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@egoist/vue-to-react/-/vue-to-react-1.1.0.tgz#83c884b8608e8ee62e76c03e91ce9c26063a91ad"
@@ -1330,7 +1320,7 @@
     find-my-way "^2.2.2"
     into-stream "^5.1.1"
 
-"@elastic/elasticsearch@^7.10.0", "@elastic/elasticsearch@^7.8.0":
+"@elastic/elasticsearch@^7.10.0":
   version "7.10.0"
   resolved "https://registry.yarnpkg.com/@elastic/elasticsearch/-/elasticsearch-7.10.0.tgz#da105a9c1f14146f9f2cab4e7026cb7949121b8d"
   integrity sha512-vXtMAQf5/DwqeryQgRriMtnFppJNLc/R7/R0D8E+wG5/kGM5i7mg+Hi7TM4NZEuXgtzZ2a/Nf7aR0vLyrxOK/w==

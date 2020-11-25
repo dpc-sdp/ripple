@@ -1,6 +1,6 @@
 {
   "name": "ripple-app",
-  "version": "1.16.0",
+  "version": "1.18.0",
   "description": "Example Vue.js app(Not Nuxt.js) for showing how to use Ripple",
   "private": true,
   "scripts": {
@@ -14,13 +14,13 @@
     "test:dev": "cross-env NODE_ENV=test start-server-and-test serve http://localhost:3000 cy:open"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.16.0",
-    "@dpc-sdp/ripple-card": "1.16.0",
+    "@dpc-sdp/ripple-button": "1.18.0",
+    "@dpc-sdp/ripple-card": "1.18.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@dpc-sdp/ripple-test-tools": "1.16.0",
+    "@dpc-sdp/ripple-test-tools": "1.18.0",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-service": "^3.8.0",

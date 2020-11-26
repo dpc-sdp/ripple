@@ -189,15 +189,13 @@ export default {
       padding: $rpl-accordion-collapse-padding;
     }
 
-    &__collapse-link, a:hover:focus:active {
+    &__collapse-link {
       text-decoration: none;
       color: $rpl-accordion-collapse-color;
       @include rpl_typography_font('xs', 1em, 'bold');
 
-      &:hover,
-      &:focus,
-      &:active {
-        text-decoration: none;
+      &:hover {
+        text-decoration: underline;
       }
     }
 

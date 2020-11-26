@@ -42,20 +42,13 @@ describe('SearchForm', () => {
   })
 
   it('returns total number of form filters correctly', () => {
-    const wrapper = shallowMount(SearchForm)
-
-    wrapper.setProps({ filterForm: {} })
-    expect(wrapper.vm.filterCount).toEqual(0)
-
-    wrapper.setProps({
-      filterForm: {
-        model: {
-          testOne: ['one', 'two', 'three'],
-          testTwo: ['one', 'two', 'three']
-        }
+    const wrapper = shallowMount(SearchForm, {
+      propsData: {
+        filterForm: {}
       }
     })
-    expect(wrapper.vm.filterCount).toEqual(2)
+
+    expect(wrapper.vm.filterCount).toEqual(0)
 
     wrapper.setProps({
       filterForm: {
@@ -70,9 +63,12 @@ describe('SearchForm', () => {
   })
 
   it('tests watcher for prefillSearchTerm to assign value to searchInput correctly', () => {
-    const wrapper = shallowMount(SearchForm)
+    const wrapper = shallowMount(SearchForm, {
+      propsData: {
+        prefillSearchTerm: 'something'
+      }
+    })
 
-    wrapper.setProps({ prefillSearchTerm: 'something' })
     expect(wrapper.vm.searchInput).toEqual('something')
   })
 })

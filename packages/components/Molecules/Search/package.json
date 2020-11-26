@@ -17,6 +17,6 @@
     "@dpc-sdp/ripple-link": "1.18.0",
     "@dpc-sdp/ripple-meta-tag": "1.18.0",
     "@dpc-sdp/ripple-pagination": "1.18.0",
-    "vue-focus-lock": "1.3.0"
+    "vue-focus-lock": "1.4.0"
   }
 }

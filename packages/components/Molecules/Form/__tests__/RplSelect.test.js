@@ -29,8 +29,11 @@ describe('RplSelect', () => {
     ]
   }
 
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+
   const baseConfig = {
-    attachToDocument: true,
+    attachTo: div,
     propsData: {
       ...basePropsData
     },
@@ -60,68 +63,52 @@ describe('RplSelect', () => {
     expect(wrapper.find('.rpl-select__native').isVisible()).toBeTruthy()
   })
 
-  it('does not have native select on desktop', () => {
+  it('opens on click', async () => {
     wrapper = mount(RplSelect, {
       ...baseConfig
     })
-    expect(wrapper.isVueInstance()).toBeTruthy()
-    expect(wrapper.find('.rpl-select__native').exists()).toBeFalsy()
-  })
-
-  it('is closed on load', () => {
-    wrapper = mount(RplSelect, {
-      ...baseConfig
-    })
-    expect(wrapper.find('.rpl-select__trigger').attributes('aria-expanded')).toBeUndefined()
-    expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeFalsy()
-  })
-
-  it('opens on click', () => {
-    wrapper = mount(RplSelect, {
-      ...baseConfig
-    })
-    wrapper.find('.rpl-select__trigger').trigger('click')
+    await wrapper.find('.rpl-select__trigger').trigger('click')
 
     expect(wrapper.find('.rpl-select__trigger').attributes('aria-expanded')).toBeTruthy()
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
   })
 
-  it('opens on spacebar', () => {
+  it('opens on spacebar', async () => {
     wrapper = mount(RplSelect, {
       ...baseConfig
     })
-    wrapper.find('.rpl-select__trigger').trigger('keyup.space')
+    await wrapper.find('.rpl-select__trigger').trigger('keyup.space')
 
     expect(wrapper.find('.rpl-select__trigger').attributes('aria-expanded')).toBeTruthy()
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
   })
 
-  it('opens on enter', () => {
+  it('opens on enter', async () => {
     wrapper = mount(RplSelect, {
       ...baseConfig
     })
-    wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
+    await wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
 
     expect(wrapper.find('.rpl-select__trigger').attributes('aria-expanded')).toBeTruthy()
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
   })
 
-  it('closes on esc', () => {
+  it('closes on esc', async () => {
     wrapper = mount(RplSelect, {
       ...baseConfig
     })
-    wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
-    wrapper.find('.rpl-select__listbox').trigger('keyup.esc')
+    await wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
+    await wrapper.find('.rpl-select__listbox').trigger('keyup.esc')
 
     expect(wrapper.find('.rpl-select__trigger').attributes('aria-expanded')).toBeUndefined()
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeFalsy()
   })
 
-  test('Selects first item when opened', () => {
+  test('Selects first item when opened', async () => {
     wrapper = mount(RplSelect, {
       ...baseConfig
     })
-    wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
+    await wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
 
     wrapper.vm.$nextTick(() => {
@@ -131,7 +118,7 @@ describe('RplSelect', () => {
     })
   })
 
-  test('navigates to next item when press down arrow', () => {
+  test('navigates to next item when press down arrow', async () => {
     wrapper = mount(RplSelect, {
       ...baseConfig,
       propsData: {
@@ -139,29 +126,29 @@ describe('RplSelect', () => {
         state: 'topic_b'
       }
     })
-    wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
-    wrapper.find('.rpl-select__listbox').trigger('keydown.down')
-    wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+    await wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
+    await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+    await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
     expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic D')
   })
 
-  it('navigates to previous item when press up arrow', () => {
+  it('navigates to previous item when press up arrow', async () => {
     wrapper = mount(RplSelect, {
       ...baseConfig,
       propsData: {
         ...baseConfig.propsData
       },
-      attachToDocument: true
+      attachTo: div
     })
 
-    wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
-    wrapper.find('.rpl-select__listbox').trigger('keydown.down')
-    wrapper.find('.rpl-select__listbox').trigger('keydown.down')
-    wrapper.find('.rpl-select__listbox').trigger('keydown.down')
-    wrapper.find('.rpl-select__listbox').trigger('keydown.up')
+    await wrapper.find('.rpl-select__trigger').trigger('keyup.enter') // On Enter, first element is already selected
+    await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+    await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+    await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+    await wrapper.find('.rpl-select__listbox').trigger('keydown.up')
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
-    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic B')
+    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic C')
   })
 
   it('initialises value from state prop', () => {
@@ -234,7 +221,7 @@ describe('RplSelect', () => {
       wrapper.destroy()
     })
 
-    it('makes selections with spacebar', () => {
+    it('makes selections with spacebar', async () => {
       wrapper = mount(RplSelect, {
         ...baseConfig,
         propsData: {
@@ -247,20 +234,19 @@ describe('RplSelect', () => {
         }
       })
 
-      wrapper.find('.rpl-select__trigger').trigger('click')
+      await wrapper.find('.rpl-select__trigger').trigger('click') // Focuses on first element Topic A
       expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
-      wrapper.find('.rpl-select__listbox').trigger('keydown.down')
-      wrapper.find('.rpl-select__listbox').trigger('keydown.down')
-      expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic B')
-      wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+      await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+      await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
       expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic C')
-      wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+      await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
       expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic D')
-      wrapper.find('.rpl-select__listitem--focussed').trigger('click')
+      await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+      expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic e')
+      await wrapper.find('.rpl-select__listitem--focussed').trigger('click')
       expect(wrapper.find('.rpl-select__listitem--focussed').find('.rpl-select__checkbox').exists()).toBeTruthy()
-      wrapper.vm.$nextTick(() => {
-        expect(wrapper.find('.rpl-select__trigger').text()).toContain('Topic D')
-      })
+
+      expect(wrapper.find('.rpl-select__trigger').text()).toContain('Topic e')
     })
   })
 })

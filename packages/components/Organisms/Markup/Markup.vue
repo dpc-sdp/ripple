@@ -1,6 +1,6 @@
 <template>
   <!-- Keep app-wysiwyg class here for backward compatibility, as some project may use that class for custom style -->
-  <div class="rpl-markup tide-wysiwyg app-wysiwyg">
+  <div v-if="html" class="rpl-markup tide-wysiwyg app-wysiwyg">
     <!-- Use dynamic component to render string template in runtime -->
     <component :is="{ template: getTemplate.html, data: () => getTemplate.data }" />
   </div>

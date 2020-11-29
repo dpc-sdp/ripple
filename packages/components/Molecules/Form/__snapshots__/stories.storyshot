@@ -1041,7 +1041,6 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 >
                   <div
                     class="pika-single rpl-pikaday is-hidden is-bound"
-                    style="position: static;"
                   />
                 </div>
               </div>
@@ -1084,7 +1083,6 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 >
                   <div
                     class="pika-single rpl-pikaday is-hidden is-bound"
-                    style="position: static;"
                   />
                 </div>
               </div>
@@ -1147,7 +1145,6 @@ exports[`RippleStoryshots Molecules/Form Default 1`] = `
                 >
                   <div
                     class="pika-single rpl-pikaday is-hidden is-bound"
-                    style="position: static;"
                   />
                 </div>
               </div>

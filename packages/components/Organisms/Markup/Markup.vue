@@ -1,6 +1,6 @@
 <template>
   <!-- Keep app-wysiwyg class here for backward compatibility, as some project may use that class for custom style -->
-  <div class="rpl-markup tide-wysiwyg app-wysiwyg">
+  <div v-if="html" class="rpl-markup tide-wysiwyg app-wysiwyg">
     <!-- Use dynamic component to render string template in runtime -->
     <component :is="{ template: getTemplate.html, data: () => getTemplate.data }" />
   </div>
@@ -125,6 +125,11 @@ $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
 
     p, h2, h3, h4, h5, h6 {
       max-width: $rpl-content-max-width;
+    }
+
+    b,
+    strong {
+      @include rpl_typography_font('s', 1.5em, 'semibold');
     }
   }
 

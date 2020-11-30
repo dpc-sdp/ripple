@@ -77,6 +77,9 @@ import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 import { RplHeroBanner, RplIntroBanner } from '@dpc-sdp/ripple-hero-banner'
 import { RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 
+// Mixin.
+import dataLayer from '@dpc-sdp/ripple-nuxt-tide/lib/mixins/data-layer'
+
 import { anchorUtils } from '@dpc-sdp/ripple-nuxt-tide/lib/core/anchorlinks.js'
 import { getAnchorLinkName, isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
@@ -96,6 +99,7 @@ export default {
     RplCol
   },
   name: 'TidePage',
+  mixins: [dataLayer],
   data () {
     return {
       page: null,

@@ -21,11 +21,11 @@ describe('RplAccordion', () => {
     expect(wrapper.vm.closeOpenLabel).toEqual('Open all')
     expect(wrapper.vm.isCollapsed).toEqual(false)
 
-    await wrapper.find('.rpl-accordion__collapse-link').trigger('click') // click Open all link
+    await wrapper.find('.rpl-accordion__collapse-btn').trigger('click') // click Open all link
     expect(wrapper.vm.closeOpenLabel).toEqual('Close all')
     expect(wrapper.vm.isCollapsed).toEqual(true)
 
-    await wrapper.find('.rpl-accordion__collapse-link').trigger('click') // click Close all link
+    await wrapper.find('.rpl-accordion__collapse-btn').trigger('click') // click Close all link
     expect(wrapper.vm.closeOpenLabel).toEqual('Open all')
     expect(wrapper.vm.isCollapsed).toEqual(false)
 

@@ -11,6 +11,16 @@ exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
     Accordion Set
   </h2>
    
+  <div
+    class="rpl-accordion__collapse"
+  >
+    <button
+      class="rpl-accordion__collapse-btn"
+    >
+      Open all
+    </button>
+  </div>
+   
   <ul
     class="rpl-accordion__list"
   >

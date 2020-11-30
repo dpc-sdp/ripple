@@ -2,7 +2,7 @@
   <div class="rpl-accordion">
     <h2 class="rpl-accordion__title-top" :id="titleId" v-if="title">{{ title }}</h2>
     <div class="rpl-accordion__collapse">
-      <a class="rpl-accordion__collapse-link" href="" @click.prevent="closeOpenAll">{{ closeOpenLabel }}</a>
+      <button class="rpl-accordion__collapse-btn" @click="closeOpenAll">{{ closeOpenLabel }}</button>
     </div>
     <ol class="rpl-accordion__list" v-if="type === 'numbered'">
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
@@ -219,9 +219,11 @@ export default {
       padding: $rpl-accordion-collapse-padding;
     }
 
-    &__collapse-link {
+    &__collapse-btn {
       text-decoration: none;
       color: $rpl-accordion-collapse-color;
+      background: none;
+      border: none;
       @include rpl_typography_font('xs', 1em, 'bold');
 
       &:hover {

@@ -2,7 +2,7 @@
   <div class="rpl-accordion">
     <h2 class="rpl-accordion__title-top" :id="titleId" v-if="title">{{ title }}</h2>
     <div class="rpl-accordion__collapse">
-      <a class="rpl-accordion__collapse-link" href="" @click.prevent="collapseExpandAll">{{ closeOpenLabel }}</a>
+      <a class="rpl-accordion__collapse-link" href="" @click.prevent="closeOpenAll">{{ closeOpenLabel }}</a>
     </div>
     <ol class="rpl-accordion__list" v-if="type === 'numbered'">
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
@@ -106,11 +106,16 @@ export default {
       Vue.set(this.itemOpen, index, !this.itemOpen[index])
       this.isCollapsed = this.isAllItemOpen
     },
-    collapseExpandAll () {
+    closeOpenAll () {
       this.isCollapsed = !this.isCollapsed
 
       for (let item in this.itemOpen) {
         Vue.set(this.itemOpen, item, this.isCollapsed)
+        if (this.isCollapsed) {
+          this.expandContent(item)
+        } else {
+          this.collapseContent(item)
+        }
       }
     },
     accordionIsOpen: function (index) {

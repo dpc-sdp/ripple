@@ -29,11 +29,11 @@ describe('RplAccordion', () => {
     expect(wrapper.vm.closeOpenLabel).toEqual('Open all')
     expect(wrapper.vm.isCollapsed).toEqual(false)
 
-    wrapper.vm.accordionClick(0) // expand first item
+    await wrapper.vm.accordionClick(0) // expand first item
     expect(wrapper.vm.closeOpenLabel).toEqual('Open all')
     expect(wrapper.vm.isCollapsed).toEqual(false)
 
-    wrapper.vm.accordionClick(1) // expand second item
+    await wrapper.vm.accordionClick(1) // expand second item
     expect(wrapper.vm.closeOpenLabel).toEqual('Close all')
     expect(wrapper.vm.isCollapsed).toEqual(true)
   })

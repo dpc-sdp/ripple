@@ -2,12 +2,17 @@ import defaults from './config/defaults'
 import * as configLoader from './core/config-loader'
 import { RPL_HEADER } from './config/constants'
 import tideSearchApiMiddleware from '@dpc-sdp/ripple-tide-search-api'
+import logger from './core/logger'
 
 const path = require('path')
 
 const nuxtTide = function (moduleOptions) {
   const options = Object.assign(defaults, this.options.tide, moduleOptions)
 
+  if (!(options.baseUrl)) {
+    logger.error('Base URL is not defined', { label: 'NuxtTide' })
+    throw new Error('Base URL is not defined')
+  }
   configLoader.build(options, this)
 
   this.options.proxy = {

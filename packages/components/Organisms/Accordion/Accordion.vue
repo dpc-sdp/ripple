@@ -13,17 +13,13 @@
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
         </h2>
-        <transition
-          name="accordion"
-          @enter="start"
-          @after-enter="end"
-          @before-leave="start"
-          @after-leave="end"
+        <div
+          class="rpl-accordion__content"
+          :id="accordionId(index)"
+          :ref="accordionId(index)"
         >
-          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)" :id="accordionId(index)">
-            <rpl-markup class="rpl-accordion__content-inner"  :html="accordion.content" />
-          </div>
-        </transition>
+          <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
+        </div>
       </li>
     </ol>
     <ul class="rpl-accordion__list" v-else>
@@ -34,17 +30,13 @@
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
         </h2>
-        <transition
-          name="accordion"
-          @enter="start"
-          @after-enter="end"
-          @before-leave="start"
-          @after-leave="end"
+        <div
+          class="rpl-accordion__content"
+          :id="accordionId(index)"
+          :ref="accordionId(index)"
         >
-          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)" :id="accordionId(index)">
-            <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
-          </div>
-        </transition>
+          <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
+        </div>
       </li>
     </ul>
   </div>
@@ -104,10 +96,13 @@ export default {
         let strIndex = index.toString()
         for (let item in this.itemOpen) {
           if (item !== strIndex) {
+            this.collapseContent(item)
             Vue.set(this.itemOpen, item, false)
           }
         }
       }
+
+      this.toggleContent(index)
       Vue.set(this.itemOpen, index, !this.itemOpen[index])
       this.isCollapsed = this.isAllItemOpen
     },
@@ -118,17 +113,47 @@ export default {
         Vue.set(this.itemOpen, item, this.isCollapsed)
       }
     },
-    start (el) {
-      el.style.height = el.scrollHeight + 'px'
-    },
-    end (el) {
-      el.style.height = ''
-    },
     accordionIsOpen: function (index) {
       return (this.itemOpen[index] === undefined) ? false : this.itemOpen[index]
     },
     accordionId (index) {
       return `rpl-accordion-${this.getIdFromLocalRegistry(index)}`
+    },
+    expandContent (index) {
+      const ref = this.accordionId(index)
+      const section = this.$refs[ref]
+      if (section[0]) {
+        // Set fixed height for transition
+        section[0].style.height = section[0].scrollHeight + 'px'
+        section[0].style.visibility = 'visible'
+        setTimeout(function () {
+          // Remove the fixed height after transition so it can be responsive
+          section[0].style.height = 'auto'
+        }, 500)
+      } else {
+        throw new Error('Something is wrong while getting the height of the referred content')
+      }
+    },
+    collapseContent (index) {
+      const ref = this.accordionId(index)
+      const section = this.$refs[ref]
+      if (section[0]) {
+        // Set fixed height for transition
+        section[0].style.height = section[0].scrollHeight + 'px'
+        setTimeout(function () {
+          section[0].style.height = ''
+          section[0].style.visibility = ''
+        }, 1)
+      } else {
+        throw new Error('Something is wrong while getting the height of the referred content')
+      }
+    },
+    toggleContent (index) {
+      if (this.itemOpen[index]) {
+        this.collapseContent(index)
+      } else {
+        this.expandContent(index)
+      }
     }
   },
   watch: {
@@ -308,6 +333,13 @@ export default {
       @include rpl_typography_ruleset($rpl-accordion-content-ruleset);
       @include rpl_text_color($rpl-accordion-content-text-color);
       box-sizing: border-box;
+      // Firefox has issue to render some iframe inside container which has display:none
+      // https://bugzilla.mozilla.org/show_bug.cgi?id=941146
+      visibility: hidden;
+      overflow:auto;
+      height: 0;
+      transition: height .5s, visibility .5s;
+
       @each $bp, $val in $rpl-accordion-content-padding {
         @include rpl_breakpoint($bp) {
           padding: $val;
@@ -317,17 +349,6 @@ export default {
       @media print {
         display: block !important;
         padding: 0 ($rpl-space * 5);
-      }
-
-      &.accordion-enter-active,
-      &.accordion-leave-active {
-        transition: height .5s;
-        overflow: hidden;
-      }
-
-      &.accordion-enter,
-      &.accordion-leave-to {
-        height: 0 !important;
       }
     }
 

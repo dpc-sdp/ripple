@@ -60,7 +60,6 @@ exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
       <div
         class="rpl-accordion__content"
         id="rpl-accordion-0"
-        style="display: none;"
       >
         <div
           class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"
@@ -110,7 +109,6 @@ exports[`RippleStoryshots Organisms/Accordion Default 1`] = `
       <div
         class="rpl-accordion__content"
         id="rpl-accordion-1"
-        style="display: none;"
       >
         <div
           class="rpl-markup tide-wysiwyg app-wysiwyg rpl-accordion__content-inner"

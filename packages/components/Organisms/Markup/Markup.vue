@@ -126,6 +126,11 @@ $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
     p, h2, h3, h4, h5, h6 {
       max-width: $rpl-content-max-width;
     }
+
+    b,
+    strong {
+      @include rpl_typography_font('s', 1.5em, 'semibold');
+    }
   }
 
   a:not(.rpl-button) {

@@ -6,20 +6,12 @@ const resolve = (dir) => {
 
 module.exports = {
   stories: ['../../packages/components/**/stories.@(js|mdx)'],
-  logLevel: 'debug',
   addons: [
     '@storybook/addon-knobs',
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
     '@storybook/addon-backgrounds',
-    {
-      name: '@storybook/addon-docs', // new addon for docs
-      options: {
-        configureJSX: true,
-        babelOptions: {},
-        sourceLoaderOptions: null
-      }
-    },
+    '@storybook/addon-docs'
   ],
   webpackFinal: async (config, { mode }) => {
     // `mode` has a value of 'DEVELOPMENT' or 'PRODUCTION'

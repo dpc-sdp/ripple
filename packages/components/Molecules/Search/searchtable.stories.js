@@ -1,5 +1,5 @@
 import RplSearchResultsTable from './SearchResultsTable'
-import { withKnobs, object } from '@storybook/addon-knobs/vue'
+import { withKnobs, object } from '@storybook/addon-knobs'
 
 export default {
   title: 'Molecules/Search/SearchResultsTable',

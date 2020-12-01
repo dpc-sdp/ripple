@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 
 import {
   withKnobs
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 import {{componentRippleName}} from './{{componentFileName}}.vue'
 

@@ -6,7 +6,7 @@ import {
   withKnobs,
   text,
   object
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Organisms/ImageGallery', module)
   .addDecorator(withKnobs)

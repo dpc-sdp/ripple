@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import RplLatestEvents from './LatestEvents.vue'
 
-import { withKnobs, text, object } from '@storybook/addon-knobs/vue'
+import { withKnobs, text, object } from '@storybook/addon-knobs'
 
 storiesOf('Organisms/Event', module)
   .addDecorator(withKnobs)

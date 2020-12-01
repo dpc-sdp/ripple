@@ -5,7 +5,7 @@ import {
   withKnobs,
   text,
   object
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/RelatedLinks', module)
   .addDecorator(withKnobs)

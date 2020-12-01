@@ -6,7 +6,7 @@ import {
   text,
   select,
   object
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/EmbeddedVideo', module)
   .addDecorator(withKnobs)

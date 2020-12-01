@@ -7,7 +7,7 @@ import {
   text,
   boolean,
   select
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Atoms/Link', module)
   .addDecorator(withKnobs)

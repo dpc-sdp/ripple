@@ -4,7 +4,7 @@ import RplSitemap from './index.vue'
 import {
   withKnobs,
   object
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/Sitemap', module)
   .addDecorator(withKnobs)

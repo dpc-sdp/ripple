@@ -4,7 +4,7 @@ import RplBreadcrumbs from './index.vue'
 import {
   withKnobs,
   object
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/Breadcrumbs', module)
   .addDecorator(withKnobs)

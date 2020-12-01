@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import {
   withKnobs,
   text
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 import RplListGroup from './ListGroup.vue'
 import RplListGroupItem from './ListGroupItem.vue'

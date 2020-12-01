@@ -10,7 +10,7 @@ import {
   number,
   boolean,
   object
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 const demoData = {
   honourRollSearchResultItems: () => [

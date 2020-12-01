@@ -4,7 +4,7 @@ import RplDescriptionList from './DescriptionList.vue'
 import {
   withKnobs,
   object
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/DescriptionList', module)
   .addDecorator(withKnobs)

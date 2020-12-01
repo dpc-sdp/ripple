@@ -4,7 +4,7 @@ import RplDocumentLink from './DocumentLink.vue'
 import {
   withKnobs,
   text
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/DocumentLink', module)
   .addDecorator(withKnobs)

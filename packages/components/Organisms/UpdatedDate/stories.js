@@ -4,7 +4,7 @@ import RplUpdatedDate from './index.vue'
 import {
   withKnobs,
   text
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Organisms/UpdatedDate', module)
   .addDecorator(withKnobs)

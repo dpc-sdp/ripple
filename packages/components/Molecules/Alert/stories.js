@@ -7,7 +7,7 @@ import {
   text,
   object,
   select
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/Alert', module)
   .addDecorator(withKnobs)

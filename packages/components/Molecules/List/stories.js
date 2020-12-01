@@ -6,7 +6,7 @@ import {
   select,
   object,
   number
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/List', module)
   .addDecorator(withKnobs)

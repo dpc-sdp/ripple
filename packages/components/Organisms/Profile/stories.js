@@ -5,7 +5,7 @@ import RplProfileHighlightHonourRoll from './ProfileHighlightHonourRoll.vue'
 import {
   withKnobs,
   text
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Organisms/Profile', module)
   .addDecorator(withKnobs)

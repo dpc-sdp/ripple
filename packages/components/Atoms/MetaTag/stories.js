@@ -5,7 +5,7 @@ import {
   withKnobs,
   text,
   select
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Atoms/MetaTag', module)
   .addDecorator(withKnobs)

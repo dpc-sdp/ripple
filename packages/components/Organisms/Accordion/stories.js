@@ -7,7 +7,7 @@ import {
   select,
   object,
   boolean
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Organisms/Accordion', module)
   .addDecorator(withKnobs)

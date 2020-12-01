@@ -6,7 +6,7 @@ import {
   number,
   object,
   boolean
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Organisms/SiteHeader', module)
   .addDecorator(withKnobs)

@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
-import { withKnobs, text, boolean } from '@storybook/addon-knobs/vue'
+import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 
 import SIcons from './../../../../src/storybook-components/Icons.vue'
 import { RplIcon } from './index'

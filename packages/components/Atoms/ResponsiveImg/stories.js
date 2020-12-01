@@ -4,7 +4,7 @@ import {
   withKnobs,
   text,
   object
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 import RplResponsiveImg from './ResponsiveImg.vue'
 

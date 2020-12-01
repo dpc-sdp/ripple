@@ -6,7 +6,7 @@ import {
   withKnobs,
   number,
   text
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/Pagination', module)
   .addDecorator(withKnobs)

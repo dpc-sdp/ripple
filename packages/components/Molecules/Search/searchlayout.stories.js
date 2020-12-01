@@ -4,7 +4,7 @@ import RplSearchResult from './SearchResult.vue'
 
 import { RplCol } from '@dpc-sdp/ripple-grid'
 import { RplCardProfile } from '@dpc-sdp/ripple-card'
-import { withKnobs, object, number } from '@storybook/addon-knobs/vue'
+import { withKnobs, object, number } from '@storybook/addon-knobs'
 
 export default {
   title: 'Molecules/Search/SearchResultsLayout',

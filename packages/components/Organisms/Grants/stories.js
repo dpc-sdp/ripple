@@ -6,7 +6,7 @@ import {
   text,
   object,
   boolean
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Organisms/Grants', module)
   .addDecorator(withKnobs)

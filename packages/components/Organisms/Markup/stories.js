@@ -4,7 +4,7 @@ import RplMarkup from './Markup.vue'
 import {
   withKnobs,
   text
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Organisms/Markup', module)
   .addDecorator(withKnobs)

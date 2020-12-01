@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
-import { text, boolean, select, withKnobs } from '@storybook/addon-knobs/vue'
+import { text, boolean, select, withKnobs } from '@storybook/addon-knobs'
 
 import SColors from './../../../../src/storybook-components/Colors.vue'
 import SFonts from './../../../../src/storybook-components/Fonts.vue'

@@ -4,7 +4,7 @@ import RplShareThis from './index.vue'
 import {
   withKnobs,
   text
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 storiesOf('Molecules/ShareThis', module)
   .addDecorator(withKnobs)

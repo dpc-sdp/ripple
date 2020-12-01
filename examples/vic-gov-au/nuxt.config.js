@@ -102,9 +102,10 @@ export default {
     // Enable below two lines to debug in dev mode
     // enabled: true,
     // debug: true,
+    id: process.env.GTM_ID,
     pageTracking: true,
     pageViewEventName: 'routeChange',
-    id: process.env.GTM_ID
+    noscript: false
   },
   /*
   ** styleResources

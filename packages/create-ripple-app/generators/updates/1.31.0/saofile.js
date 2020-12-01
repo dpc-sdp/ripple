@@ -1,5 +1,6 @@
 const common = require('./../../common')
 const templateDir = './../../../template'
+const jscodeshift = require('jscodeshift')
 
 module.exports = {
   ...common,
@@ -25,5 +26,6 @@ module.exports = {
   async completed () {
     console.log('SDP 1.31.0:')
     console.log('[SDPA-4647] Update dependencies')
+    console.log('[SDPA-4658] Let GTM respect DNT')
   }
 }

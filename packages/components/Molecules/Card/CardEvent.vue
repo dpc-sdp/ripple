@@ -1,7 +1,7 @@
 <template>
   <rpl-card-content :image="image" :link="link" class="rpl-card-event">
     <div class="rpl-card-event__meta" v-if="date">
-      <div class="rpl-card-event__date" v-if="date">{{ date }}</div>
+      <div class="rpl-card-event__date">{{ date }}</div>
     </div>
     <h2 class="rpl-card-event__title" v-if="title">{{ title }}</h2>
     <div class="rpl-card-event__trim-wrapper" v-if="summary" :style="{ maxHeight: trimFieldMaxHeight }">
@@ -69,7 +69,7 @@ export default {
   @import "scss/card";
 
   $rpl-card-event-meta-margin: 0 0 $rpl-space-3 0 !default;
-  $rpl-card-event-date-ruleset: ('s', 1em, 'bold') !default;
+  $rpl-card-event-date-ruleset: ('s', 2em, 'bold') !default;
   $rpl-card-event-date-color: rpl_color('white') !default;
   $rpl-card-event-date-background-color: rpl_color('secondary') !default;
   $rpl-card-event-date-padding: $rpl-space-2 !default;
@@ -94,6 +94,10 @@ export default {
       color: $rpl-card-event-date-color;
       background-color: $rpl-card-event-date-background-color;
       padding: $rpl-card-event-date-padding;
+      @supports (box-decoration-break: clone) or (-webkit-box-decoration-break: clone) {
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
     }
 
     &__title {

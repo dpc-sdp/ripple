@@ -17,10 +17,6 @@
       :type="searchComponent"
     />
 
-    <template slot="belowContent">
-      <rpl-divider />
-      <component :is="contentRating" class="rpl-site-constrain--on-all"></component>
-    </template>
   </rpl-page-layout>
 </template>
 

@@ -1,4 +1,4 @@
-import { addDecorator, configure, addParameters } from '@storybook/vue'
+import { configure } from '@storybook/vue'
 import Vue from 'vue'
 
 // Apply our Ripple global styles on storybook
@@ -9,7 +9,7 @@ import '../storybook-components/scss/story.scss'
 import RplGlobal from '@dpc-sdp/ripple-global'
 import RplMarkupExamplePlugins from '@dpc-sdp/ripple-markup/examplePlugins'
 
-addParameters({
+export const parameters = {
   a11y: {
     element: '#root',
     config: {},
@@ -17,6 +17,7 @@ addParameters({
     manual: true,
   },
   docs: {
+    // Set a smaller default height.
     iframeHeight: '60px',
     // Disable Docs globally for now until we got time to update them.
     // We are still able to add Docs in component level.
@@ -38,7 +39,9 @@ addParameters({
     // To allow knob text type to support v-html prop.
     escapeHTML: false,
   }
-})
+}
 
 // Install Ripple Global plugin
 Vue.use(RplGlobal, { imgQueryString: false, rplMarkup: {plugins: RplMarkupExamplePlugins, options: { decodeEntities: false }}})
+
+configure(require.context('./../../packages/components', true, /(stories\.js|mdx)$/), module)

@@ -1,7 +1,7 @@
 import SGrids from './../../../../src/storybook-components/Grids.vue'
 
 export default {
-  title: 'Atoms | Layout'
+  title: 'Atoms/Layout'
 }
 
 export const grids = () => ({

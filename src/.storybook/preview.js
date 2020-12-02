@@ -17,6 +17,7 @@ export const parameters = {
     manual: true,
   },
   docs: {
+    // Set a smaller default height.
     iframeHeight: '60px',
     // Disable Docs globally for now until we got time to update them.
     // We are still able to add Docs in component level.

@@ -1,0 +1,77 @@
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
+import RplButton from '@dpc-sdp/ripple-button'
+
+<Meta
+  title="Atoms/Button"
+  component={RplButton}
+  argTypes={{
+    theme: { control: { type: 'text' } },
+    href: { control: { type: 'text' } },
+    disabled: { control: { type: 'boolean' } },
+  }}
+/>
+
+# Button
+
+<Props of={RplButton} />
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplButton },
+  template: '<rpl-button :theme="theme" :href="href" :disabled="disabled">{{label}}</rpl-button>',
+});
+
+## Primary
+
+<Canvas>
+  <Story
+    name="Primary"
+    args={{
+      theme: 'primary',
+      href: 'https://example.com',
+      disabled: false,
+      label: 'Primary button',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Primary" />
+
+## Secondary
+
+<Canvas>
+  <Story
+    name="Secondary"
+    args={{
+      theme: 'secondary',
+      href: 'https://example.com',
+      disabled: false,
+      label: 'Secondary button',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Secondary" />
+
+## Disabled
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{
+      theme: '',
+      href: '',
+      disabled: true,
+      label: 'Disabled button',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Disabled" />
+

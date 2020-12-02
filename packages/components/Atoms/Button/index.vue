@@ -33,8 +33,17 @@ import RplLink from '@dpc-sdp/ripple-link'
 export default {
   name: 'RplButton',
   props: {
+    /**
+     * The URL destination of button.
+     */
     href: String,
+    /**
+     * Theme of button e.g. primary, secondary.
+     */
     theme: String,
+    /**
+     * Flag to enable/disable the button.
+     */
     disabled: Boolean
   },
   components: {

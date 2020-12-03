@@ -392,6 +392,10 @@ export default {
 
   .rpl-menu--horizontal {
     margin: 0;
+    // iPad
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+      position: relative;
+    }
 
     .rpl-menu__heading {
       margin: 0;
@@ -474,7 +478,7 @@ export default {
         width: 100%;
         overflow-x: hidden;
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: auto;
         top: $rpl-site-header-top-height-s;
         height: calc(100vh - #{$rpl-site-header-top-height-s + (2 * $rpl-header-horizontal-padding-xs)});
         @include rpl_breakpoint('s') {

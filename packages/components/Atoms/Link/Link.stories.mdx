@@ -1,0 +1,72 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplLink from './Link.vue'
+import RplTextLink from './TextLink.vue'
+
+<Meta title="Atoms/Link" />
+
+# Link
+
+
+## Link
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplLink },
+  template: '<rpl-link :href="href" :target="target">{{ content }}</rpl-link>',
+});
+
+<Canvas>
+  <Story
+    name="Link"
+    args={{
+      href: '#',
+      target: '',
+      content: "Ripple Link",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplLink } />
+
+## Text link
+
+export const TemplateTextLink = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplTextLink },
+  template: `<rpl-text-link
+    :url="url"
+    :text="text"
+    :iconSymbol="iconSymbol"
+    :iconColor="iconColor"
+    :iconPlacement="iconPlacement"
+    :iconSize="iconSize"
+    :underline="underline"
+    :theme="theme"
+    :size="size"
+    :emphasis="emphasis"
+  />`,
+});
+
+<Canvas>
+  <Story
+    name="Text icon"
+    args={{
+      url: '#',
+      text: 'Text Link',
+      iconSymbol: "arrow_right_primary",
+      iconColor: "primary",
+      iconSize: "m",
+      iconPlacement: "after",
+      theme: 'light',
+      size: 'small',
+      underline: false,
+      emphasis: false
+    }}
+  >
+    {TemplateTextLink.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplTextLink } />

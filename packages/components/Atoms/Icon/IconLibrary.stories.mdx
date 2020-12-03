@@ -1,0 +1,125 @@
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
+import SIcons from './../../../../src/storybook-components/Icons.vue'
+import './icons/index.js'
+
+<Meta
+  title="Atoms/Icon/Icon library"
+  argTypes={{
+    icons: { table: { disable: true } }
+  }} />
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SIcons },
+  template: '<s-icons :icons="icons" :color="color" :size="size" :stroke="stroke" />',
+});
+
+# Icon library
+
+<Story
+  name="Icon library"
+  args={{
+    icons: [
+      'accessible',
+      'addition',
+      'ai',
+      'alert_fire',
+      'alert_flood',
+      'alert_high_temperature',
+      'alert_information',
+      'alert_lightning',
+      'alert_medical',
+      'alert_smoke',
+      'alert_transport',
+      'arrow_down_primary',
+      'arrow_down_tertiary',
+      'arrow_left_primary',
+      'arrow_left_secondary',
+      'arrow_right_primary',
+      'arrow_right_primary_s',
+      'arrow_right_secondary',
+      'arrow_up_primary',
+      'attach',
+      'blank_solid',
+      'browser',
+      'calendar',
+      'child_friendly',
+      'close',
+      'cross_circle',
+      'csv',
+      'doc',
+      'document',
+      'document_transparent',
+      'docx',
+      'dollar_negative',
+      'dot',
+      'dotm',
+      'dotx',
+      'down',
+      'download',
+      'email_solid',
+      'email_transparent',
+      'enlarge_screen',
+      'eps',
+      'external_link',
+      'facebook',
+      'free',
+      'fullscreen',
+      'hamburger',
+      'help',
+      'home',
+      'ics',
+      'indd',
+      'instagram',
+      'left',
+      'link',
+      'link_65',
+      'link_90',
+      'linkedin',
+      'list_indent',
+      'loading_star',
+      'lock',
+      'map_marker',
+      'menu_home',
+      'microphone',
+      'pause',
+      'pdf',
+      'phone_number',
+      'play',
+      'ppt',
+      'pptx',
+      'print',
+      'right',
+      'search',
+      'senior',
+      'share',
+      'share_alternative',
+      'star',
+      'stop',
+      'success',
+      'table',
+      'tick',
+      'tif',
+      'trash',
+      'twitter',
+      'txt',
+      'up',
+      'upload',
+      'user',
+      'view',
+      'webinar',
+      'xls',
+      'xlsm',
+      'xlsx',
+      'youtube_channel',
+      'zip',
+      'zoom_in',
+      'zoom_out'
+    ],
+    color: 'primary',
+    size: "m",
+    stroke: false,
+  }}
+>
+  {Template.bind({})}
+</Story>

@@ -1,0 +1,56 @@
+import { Meta, Canvas, Story, ArgsTable, Description } from '@storybook/addon-docs/blocks';
+import RplIcon from '@dpc-sdp/ripple-icon'
+import RplTextIcon from './TextIcon.vue'
+
+<Meta title="Atoms/Icon" />
+
+# Icon
+
+
+## Icon
+
+export const TemplateIcon = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplIcon },
+  template: '<rpl-icon :symbol="symbol" :color="color" :size="size" />',
+});
+
+<Canvas>
+  <Story
+    name="Icon"
+    args={{
+      symbol: 'home',
+      color: 'primary',
+      size: "xl",
+    }}
+  >
+    {TemplateIcon.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplIcon } />
+
+## Text icon
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplTextIcon },
+  template: '<rpl-text-icon :symbol="symbol" :color="color" :size="size" :text="text" :placement="placement" />',
+});
+
+<Canvas>
+  <Story
+    name="Text icon"
+    args={{
+      symbol: 'search',
+      color: 'primary',
+      size: "m",
+      text: 'Search',
+      placement: 'after'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplTextIcon } />

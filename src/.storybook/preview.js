@@ -43,5 +43,3 @@ export const parameters = {
 
 // Install Ripple Global plugin
 Vue.use(RplGlobal, { imgQueryString: false, rplMarkup: {plugins: RplMarkupExamplePlugins, options: { decodeEntities: false }}})
-
-configure(require.context('./../../packages/components', true, /(stories\.js|mdx)$/), module)

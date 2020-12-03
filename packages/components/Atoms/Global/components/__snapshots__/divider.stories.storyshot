@@ -5,3 +5,9 @@ exports[`RippleStoryshots Atoms | Global Divider 1`] = `
   class="rpl-divider"
 />
 `;
+
+exports[`RippleStoryshots Atoms/Global Divider 1`] = `
+<hr
+  class="rpl-divider"
+/>
+`;

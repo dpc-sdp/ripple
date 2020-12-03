@@ -1,4 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import RplContainer from './Container.vue'
 import RplRow from './Row.vue'
 import RplCol from './Col.vue'
@@ -21,7 +21,7 @@ $rpl-grid: (
 
 A basic example of three columns.
 
-<Preview>
+<Canvas>
   <Story name="basic">
     {{
       components: {RplContainer, RplRow, RplCol},
@@ -35,13 +35,13 @@ A basic example of three columns.
   </RplContainer>`,
     }}
   </Story>
-</Preview>
+</Canvas>
 
 ## Multiple rows
 
 Keep adding `rpl-col` will auto wrap.
 
-<Preview>
+<Canvas>
   <Story name="multiple rows">
     {{
       components: {RplContainer, RplRow, RplCol},
@@ -61,7 +61,7 @@ Keep adding `rpl-col` will auto wrap.
   </RplContainer>`,
     }}
   </Story>
-</Preview>
+</Canvas>
 
 ## Responsive grid
 
@@ -78,7 +78,7 @@ A example of `colsBp` value:
 ```
 Check Ripple [breakpoints](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--breakpoints) to find out all breakpoints.
 
-<Preview>
+<Canvas>
   <Story name="responsive" height="300px">
     {{
       components: {RplContainer, RplRow, RplCol},
@@ -121,13 +121,13 @@ Check Ripple [breakpoints](https://ripple.sdp.vic.gov.au/?path=/story/atoms-glob
   </RplContainer>`,
     }}
   </Story>
-</Preview>
+</Canvas>
 
 ## With row gutter
 
 On `rpl-row` add `rowGutter` prop to add row gutter.
 
-<Preview>
+<Canvas>
   <Story name="row gutter" height="300px">
     {{
       components: {RplContainer, RplRow, RplCol},
@@ -170,10 +170,10 @@ On `rpl-row` add `rowGutter` prop to add row gutter.
   </RplContainer>`,
     }}
   </Story>
-</Preview>
+</Canvas>
 
 ## Nested grid
-<Preview>
+<Canvas>
   <Story name="nested" height="300px">
     {{
       components: {RplContainer, RplRow, RplCol},
@@ -201,7 +201,7 @@ On `rpl-row` add `rowGutter` prop to add row gutter.
   </RplContainer>`,
     }}
   </Story>
-</Preview>
+</Canvas>
 
 ## Push and pull
 
@@ -209,7 +209,7 @@ This is kind of deprecated old feature which is not in use in our project.
 For reordering columns, please use Flexbox ordering [Ordering Flex Items
 ](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items) instead of this push & pull. As our grid is based on Flexbox.
 
-<Preview>
+<Canvas>
   <Story name="push and pull">
     {{
       components: {RplContainer, RplRow, RplCol},
@@ -234,4 +234,4 @@ For reordering columns, please use Flexbox ordering [Ordering Flex Items
   </RplContainer>`,
     }}
   </Story>
-</Preview>
+</Canvas>

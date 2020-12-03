@@ -1,8 +1,8 @@
-import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, ArgsTable, Source, Description } from '@storybook/addon-docs/blocks';
 import RplHeroBannerCta from './HeroBannerCta.vue'
 import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs'
 
-<Meta title="Organisms/Banners" component={ RplHeroBannerCta } decorators={ [withKnobs] } />
+<Meta title="Organisms/Banners/Hero Banner CTA" component={ RplHeroBannerCta } decorators={ [withKnobs] } />
 
 # Hero Banner CTA
 
@@ -10,10 +10,10 @@ import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs
 
 ## Props
 
-<Props of={ RplHeroBannerCta } />
+<ArgsTable of={ RplHeroBannerCta } />
 
 ## Hero Banner CTA
-<Preview>
+<Canvas>
   <Story name="Hero Banner CTA" height="600px">
     {
       {
@@ -51,4 +51,4 @@ import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs
       }
     }
   </Story>
-</Preview>
+</Canvas>

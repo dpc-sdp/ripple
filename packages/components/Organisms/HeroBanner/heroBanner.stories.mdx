@@ -1,8 +1,8 @@
-import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, ArgsTable, Source, Description } from '@storybook/addon-docs/blocks';
 import RplHeroBanner from './HeroBanner.vue'
 import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs'
 
-<Meta title="Organisms/Banners" component={ RplHeroBanner } decorators={ [withKnobs] } />
+<Meta title="Organisms/Banners/Hero Banner" component={ RplHeroBanner } decorators={ [withKnobs] } />
 
 # Hero Banner
 
@@ -10,10 +10,10 @@ import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs
 
 ## Props
 
-<Props of={ RplHeroBanner } />
+<ArgsTable of={ RplHeroBanner } />
 
 ## Hero Banner
-<Preview>
+<Canvas>
   <Story name="Hero Banner" height="600px">
     {
       {
@@ -67,4 +67,4 @@ import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs
       }
     }
   </Story>
-</Preview>
+</Canvas>

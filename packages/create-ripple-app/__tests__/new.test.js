@@ -27,8 +27,7 @@ describe('Test new project generator', () => {
         'webform',
         'search',
         'authenticatedContent',
-        'alert',
-        'gtm'
+        'alert'
       ],
       author: 'DPC',
       pm: 'npm',

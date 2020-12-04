@@ -27,8 +27,8 @@ const defaults = {
     search: 0,
     publication: 0,
     authenticatedContent: 0,
-    alert: 0,
-    gtm: 0
+    preview: 0,
+    alert: 0
   },
   search: {
     service: '',

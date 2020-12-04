@@ -1,0 +1,117 @@
+- entity: node
+  type: landing_page
+  uuid: 5f3f08d3-7ec3-401f-99d6-412fee2e053a
+  nid: 90911
+  title: 1-FE-share-links-1
+  uid: 1
+  status: 0
+  moderation_state:
+    - '#process':
+        callback: reference
+        args:
+          - content_moderation_state
+          - workflow: editorial
+            moderation_state: draft
+  # Page header.
+  field_featured_image:
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: image
+            name: 'Demo: Melbourne tram'
+  field_landing_page_hero_image:
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: image
+            name: 'Demo: Melbourne skyline at dusk'
+  field_graphical_image:
+    - '#process':
+        callback: reference
+        args:
+          - media
+          - bundle: image
+            name: 'Demo: Parliament of Victoria'
+  field_landing_page_intro_text: Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae
+  field_landing_page_summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.
+  field_landing_page_hero_theme: light
+  field_landing_page_bg_colour: white
+  # Hero banner.
+  field_landing_page_hero_banner:
+    - entity: paragraph
+      type: hero_banner_with_cta
+      field_paragraph_cta:
+        - uri: https://www.google.com
+          title: Phasellus congue
+      field_paragraph_freetext: Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae
+      field_paragraph_link_text:
+        - uri: https://www.google.com
+          title: Nullam laoreet
+      field_paragraph_background_image:
+        - '#process':
+            callback: reference
+            args:
+              - media
+              - bundle: image
+                name: 'Demo: Staff at Treasury'
+      field_paragraph_theme: light
+  # Content Components.
+  # field_show_table_of_content: 1
+  field_landing_page_component:
+    # Basic Text.
+    - entity: paragraph
+      type: basic_text
+      field_paragraph_body:
+      - format: rich_text
+        value: |
+          <h2>Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>
+          <h3>Phasellus congue aliquam vehicula</h3>
+          <p class="wysiwyg-callout">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>
+          <h3>Donec scelerisque cursus ex varius efficitur</h3>
+          <h4>Morbi cursus placerat mi</h4>
+          <h5>Nullam laoreet ante placerat</h5>
+          <p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>
+          <blockquote class='quotation'>
+            <p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>
+            <footer>
+              <cite>
+                <span class="quotation__author">Duis ligula lacus</span><br />
+                <span class="quotation__author-title">Phasellus est turpis, efficitur nec odio imperdiet</span><br />
+              </cite>
+            </footer>
+          </blockquote>
+          <h6>Mauris tincidunt tincidunt felis vel tempus</h6>
+          <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid='11dede11-10c0-111e1-1100-000000000124'></drupal-entity>
+          <p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>
+          <drupal-entity data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid='11dede11-10c0-111e1-1100-000000000007'></drupal-entity>
+  # Topic and Tags.
+  field_topic:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: topic
+            name: 'Demo Topic'
+  field_tags:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: tags
+            name: 'Demo Tag'
+  field_node_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'
+  field_node_primary_site:
+    - '#process':
+        callback: reference
+        args:
+          - taxonomy_term
+          - vid: sites
+            name: 'vic.gov.au'

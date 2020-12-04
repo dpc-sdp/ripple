@@ -21,7 +21,7 @@ export const tide = (axios, site, config) => ({
    * @param {String} resource Resource type e.g. <entity type>/<bundle>
    * @param {Object} params Object to convert to QueryString. Passed in URL.
    * @param {String} id Resource UUID
-   * @param {Object} headersConfig Tide API request headers config object:{ authToken: '', requestId: '' }
+   * @param {Object} headersConfig Tide API request headers config object:{ authToken: '', requestId: '', shareLinkToken: '' }
    */
   get: async function (resource, params = {}, id = '', headersConfig = {}) {
     const siteParam = 'site=' + site
@@ -71,6 +71,11 @@ export const tide = (axios, site, config) => ({
     if (headersConfig.requestId) {
       axiosConfig.headers['X-Request-Id'] = headersConfig.requestId
     }
+
+    if (headersConfig.shareLinkToken) {
+      axiosConfig.headers['X-Share-Link-Token'] = headersConfig.shareLinkToken
+    }
+
     return axiosConfig
   },
 
@@ -416,29 +421,6 @@ export const tide = (axios, site, config) => ({
 
     // Append the site section to page data
     pageData.section = pathData.section === site ? null : pathData.section
-    return pageData
-  },
-
-  getPreviewPage: async function (contentType, uuid, revisionId, section, params, headersConfig) {
-    if (revisionId === 'latest') {
-      params.resourceVersion = 'rel:working-copy'
-    } else {
-      params.resourceVersion = `id:${revisionId}`
-    }
-
-    const pathData = {
-      entity_type: 'node',
-      bundle: contentType,
-      uuid: uuid
-    }
-    const entity = await this.getEntityByPathData(pathData, params, headersConfig)
-    if (entity instanceof Error) {
-      throw entity
-    }
-    const pageData = jsonapiParse.parse(entity).data
-
-    // Append the site section to page data
-    pageData.section = (section && section !== site) ? section : null
     return pageData
   },
 

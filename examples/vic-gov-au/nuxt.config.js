@@ -153,6 +153,7 @@ export default {
       webform: 1,
       search: 1,
       authenticatedContent: 1,
+      preview: 1,
       alert: 1
     },
     search: {

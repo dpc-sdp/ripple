@@ -47,19 +47,6 @@ module.exports = {
       {
         test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
         loader: 'url-loader',
-        exclude: [
-          resolve('static/custom_icons/')
-        ],
-      },
-      {
-        test: /\.svg$/,
-        include: [
-          resolve('static/custom_icons/')
-        ],
-        use: [
-          'svg-sprite-loader',
-          'svgo-loader'
-        ]
       },
       {
         test: /\.(js|vue)$/,

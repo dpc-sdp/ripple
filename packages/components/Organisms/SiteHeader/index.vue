@@ -15,7 +15,7 @@
             <div class="rpl-site-header__logo-container-inner">
               <!-- Menu Button -->
               <button
-                v-if="searchState !== 'opened' && menulinks > 0"
+                v-if="showMenuBtn()"
                 class="rpl-site-header__btn rpl-site-header__btn--menu"
                 :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
                 :aria-expanded="(menuState === 'opened').toString()"
@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { isClient, isIPadPro } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import RplMenu from './menu'
 import RplSearch from './search'
 import RplIcon from '@dpc-sdp/ripple-icon'
@@ -197,6 +197,14 @@ export default {
       this.searchState = 'closed'
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
     },
+    showMenuBtn: function () {
+      if (this.menuState === 'opened' && this.searchState !== 'opened' && this.menulinks > 0) {
+        return true
+      } else if (this.menuLayout === 'vertical' && this.searchState !== 'opened') {
+        return true
+      }
+      return false
+    },
     toggleBodyScroll () {
       if (this.menuContentOpen) {
         this.$nextTick(function () {
@@ -211,7 +219,7 @@ export default {
     },
     windowResize: function (e) {
       var w = window.innerWidth || document.documentElement.clientWidth
-      if (w >= this.breakpoint && (this.menuWideEnabled || this.menuWideEnabled === null)) {
+      if (!isIPadPro() && w >= this.breakpoint && (this.menuWideEnabled || this.menuWideEnabled === null)) {
         // Desktop.
         this.menuWideEnabled = false
         this.menuLayout = 'horizontal'
@@ -469,9 +477,6 @@ export default {
       &--menu {
         padding-right: $rpl-site-header-menu-toggle-border-spacing;
         border-right: $rpl-site-header-menu-toggle-border-right;
-        @include rpl_breakpoint('l') {
-          display: none;
-        }
 
         span {
           display: none;
@@ -487,9 +492,7 @@ export default {
 
       &--menu-open {
         border-right: 0;
-        @include rpl_breakpoint('l') {
-          display: flex;
-        }
+        display: flex;
       }
 
       &--search {

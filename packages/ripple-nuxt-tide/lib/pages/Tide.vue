@@ -228,7 +228,7 @@ export default {
     siteSectionName () {
       let sectionName = ''
       if (this.page.appSection.name) {
-          return sectionName = this.page.appSection.name
+        sectionName = this.page.appSection.name
       }
       return sectionName
     }

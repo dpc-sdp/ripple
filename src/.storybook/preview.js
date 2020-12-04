@@ -27,7 +27,7 @@ export const parameters = {
     // However multi stories with same knob name in one docs page will be overridden.
     // We need to migrate knobs to control in v6.
     // https://github.com/storybookjs/storybook/blob/next/addons/controls/README.md#how-do-i-migrate-from-addon-knobs
-    inlineStories: true
+    // inlineStories: true
   },
   backgrounds: {
     default: 'light',

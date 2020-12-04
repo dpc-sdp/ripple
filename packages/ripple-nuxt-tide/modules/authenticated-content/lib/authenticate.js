@@ -1,6 +1,5 @@
 import cookieparser from 'cookieparser'
 import Cookie from 'js-cookie'
-import { isPreviewPath } from './preview'
 
 const authCookieName = 'authenticatedContent'
 const nullValue = '{"tideAuthenticatedContent":{"token":null}}'
@@ -103,9 +102,7 @@ function clientSetProperties (path, store) {
  */
 function setAuthProperties (token, path, store) {
   const isAuthenticated = token && !isTokenExpired(token)
-  const isPreview = isPreviewPath(path) && isAuthenticated
   store.dispatch('tideAuthenticatedContent/setAuthenticated', isAuthenticated)
-  store.dispatch('tideAuthenticatedContent/setPreview', isPreview)
 }
 
 /**
@@ -117,15 +114,6 @@ function isAuthenticated (store) {
   return store.state.tideAuthenticatedContent.isAuthenticated
 }
 
-/**
- * Check if current path is a preview page.
- * @param {Object} store vuex store object
- * @return {Boolean} is preview page
- */
-function isPreview (store) {
-  return store.state.tideAuthenticatedContent.isPreview
-}
-
 export { isTokenExpired }
 export { clientGetToken }
 export { clientSetToken }
@@ -134,4 +122,3 @@ export { clientSetProperties }
 export { serverGetToken }
 export { serverSetProperties }
 export { isAuthenticated }
-export { isPreview }

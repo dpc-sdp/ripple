@@ -52,7 +52,8 @@ import { RplAlertBase } from '@dpc-sdp/ripple-alert'
 import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
-import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { clientClearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { isPreviewPath, isShareLinkPath } from '@dpc-sdp/ripple-nuxt-tide/lib/core/path'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
 
@@ -96,10 +97,15 @@ export default {
       return false
     },
     preview () {
-      if (this.$tide.isModuleEnabled('authenticatedContent')) {
-        return isPreview(this.$store)
+      const isPreviewModuleEnabled = this.$tide.isModuleEnabled('preview')
+      let isDraftAlertVisible = false
+      if (isPreviewModuleEnabled) {
+        isDraftAlertVisible = isPreviewPath(this.$route.path) && this.$auth.loggedIn
       }
-      return false
+      if (!isDraftAlertVisible && isPreviewModuleEnabled) {
+        isDraftAlertVisible = isShareLinkPath(this.$route.path)
+      }
+      return isDraftAlertVisible
     },
     footerCaption () {
       return this.$store.state.tide.pageData ? this.$store.state.tide.pageData.imageCaption : null

@@ -1,23 +1,23 @@
-import { storiesOf } from '@storybook/vue'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import RplTimeline from './Timeline.vue'
 
-import {
-  withKnobs,
-  text,
-  object
-} from '@storybook/addon-knobs'
+<Meta title="Molecules/Timeline" />
 
-storiesOf('Molecules/Timeline', module)
-  .addDecorator(withKnobs)
-  .add('Default', () => ({
-    components: { RplTimeline },
-    template: `<rpl-timeline :title="title" :list="list" />`,
-    props: {
-      title: {
-        default: text('Title', 'Timeline Heading')
-      },
-      list: {
-        default: () => object('List', [{
+# Timeline
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplTimeline },
+  template: `<rpl-timeline :title="title" :list="list" />`
+});
+
+<Canvas>
+  <Story
+    name="Timeline"
+    args={{
+      title: 'Timeline Heading',
+      list: [
+        {
           image: 'https://placehold.it/320x240',
           title: 'Timeline item with link',
           url: '#',
@@ -45,7 +45,12 @@ storiesOf('Molecules/Timeline', module)
           url: 'https://www.google.com',
           description: 'Contains an image, title, external URL and description.'
         }
-        ])
-      }
-    }
-  }))
+      ],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplTimeline} />
+

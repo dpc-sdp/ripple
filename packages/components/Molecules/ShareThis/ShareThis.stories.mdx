@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplShareThis from './index.vue'
+
+<Meta title="Molecules/ShareThis" />
+
+# ShareThis
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplShareThis },
+  template: ` <rpl-share-this :title="title" :url="url" :label="label" :enabled="enabled" />`
+});
+
+<Canvas>
+  <Story
+    name="ShareThis"
+    args={{
+      title: 'Share this',
+      label: '',
+      url: 'https://app-vic-gov-au-develop.lagoon.vicsdp.amazee.io/',
+      enabled: { twitter: true, facebook: true, linkedin: true }
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplShareThis} />
+

@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import RplButton from '@dpc-sdp/ripple-button'
 
 <Meta
@@ -7,8 +7,6 @@ import RplButton from '@dpc-sdp/ripple-button'
 />
 
 # Button
-
-<Props of={RplButton} />
 
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -32,8 +30,6 @@ export const Template = (args, { argTypes }) => ({
   </Story>
 </Canvas>
 
-<ArgsTable story="Primary" />
-
 ## Secondary
 
 <Canvas>
@@ -49,8 +45,6 @@ export const Template = (args, { argTypes }) => ({
     {Template.bind({})}
   </Story>
 </Canvas>
-
-<ArgsTable story="Secondary" />
 
 ## Disabled
 
@@ -68,5 +62,5 @@ export const Template = (args, { argTypes }) => ({
   </Story>
 </Canvas>
 
-<ArgsTable story="Disabled" />
+<ArgsTable of={RplButton} />
 

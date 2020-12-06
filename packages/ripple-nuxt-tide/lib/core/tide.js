@@ -41,12 +41,7 @@ export const tide = (axios, site, config) => ({
   // Build the axios config for Tide GET request
   _axiosConfig: function (headersConfig) {
     // axios config
-    let axiosTimeout = 10000
-
-    // Give more time in Circle CI test
-    if (process.env.NODE_ENV === 'test' || process.env.TEST) {
-      axiosTimeout = 9000
-    }
+    let axiosTimeout = headersConfig.axiosTimeout || config.tideTimeout
 
     const axiosConfig = {
       auth: config.auth,
@@ -79,11 +74,11 @@ export const tide = (axios, site, config) => ({
     return axiosConfig
   },
 
-  post: async function (url, data = {}) {
+  post: async function (url, data = {}, headersConfig = {}) {
     // axios config
     const axiosConfig = {
       auth: config.auth,
-      timeout: 9000,
+      timeout: headersConfig.axiosTimeout || config.tideTimeout,
       headers: {
         'Content-Type': 'application/vnd.api+json;charset=UTF-8',
         [RPL_HEADER.REQ_LOCATION]: 'tide',
@@ -447,7 +442,9 @@ export const tide = (axios, site, config) => ({
       params.sort = sorting
     }
     try {
-      const response = await this.get(`${entityType}/${bundle}`, params)
+      // Give more time for list response, normally it's slow
+      const headersConfig = { axiosTimeout: config.tideListingTimeout }
+      const response = await this.get(`${entityType}/${bundle}`, params, '', headersConfig)
       if (allPages) {
         return this.getAllPaginatedData(response)
       } else {

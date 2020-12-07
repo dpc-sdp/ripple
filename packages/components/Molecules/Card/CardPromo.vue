@@ -44,7 +44,9 @@ export default {
     },
     link: {
       type: Object,
-      default: {}
+      default () {
+        return {}
+      }
     },
     summary: {
       type: String,
@@ -52,7 +54,9 @@ export default {
     },
     image: {
       type: Object,
-      default: {}
+      default () {
+        return {}
+      }
     },
     dateStart: {
       type: String,

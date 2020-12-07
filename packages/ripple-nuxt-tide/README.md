@@ -33,6 +33,9 @@ You Can move some setting value into your env variables.
       password: 'yourPass' // Basic auth credential for Tide API.
     },
     site: 4, // Mandatory, should be your own site ID in Tide.
+    proxyTimeout: 60000, // Optional. Proxy request timeout. Default to 60s.
+    tideTimeout: 10000, // Optional. Tide API request timeout. Default to 10s.
+    tideListingTimeout: 30000, // Optional. Tide API listing request timeout. Default to 30s.
     // Tide core modules, 1 for enable, 0 for disable.
     // Should match the Tide backend modules.
     modules: {

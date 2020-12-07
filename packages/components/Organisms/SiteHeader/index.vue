@@ -24,15 +24,16 @@
                 <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
                 <span>{{ menuButton[menuState].text }}</span>
               </button>
+              <div v-if="showMenuBtn()" class="rpl-site-header__divider rpl-site-header__divider--vic" :class="dividerStateClass"></div>
               <!-- Primary vic.gov.au Logo -->
-              <div v-if="!menuContentOpen && this.rplOptions.viclogo" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
+              <div v-if="vicLogoVisible" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
                 <rpl-link :href="vicLogoPrimary.url">
                   <img :src="vicLogoPrimary.image" :alt="vicLogoPrimary.alt" />
                 </rpl-link>
               </div>
-
+              <div class="rpl-site-header__divider rpl-site-header__divider--cobrand" :class="dividerStateClass"></div>
               <!--Co brand logo if it exists-->
-              <div v-if="!menuContentOpen && logo" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
+              <div v-if="cobrandVisible" class="rpl-site-header__title"> <!--Render element if taxonomy includes a cobrand logo-->
                 <rpl-link :href="logo.url">
                   <img :src="logo.image" :alt="logo.alt" />
                 </rpl-link>
@@ -198,7 +199,8 @@ export default {
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
     },
     showMenuBtn: function () {
-      if (this.menuState === 'opened' && this.searchState !== 'opened' && this.menulinks > 0) {
+      const menuLinkCount = (Array.isArray(this.links) && this.links.length > 0)
+      if (this.menuState === 'opened' && this.searchState !== 'opened' && menuLinkCount) {
         return true
       } else if (this.menuLayout === 'vertical' && this.searchState !== 'opened') {
         return true
@@ -270,10 +272,17 @@ export default {
     }
   },
   computed: {
-    menulinks: function () {
-      // This checks if a site has header menu links.
-      let linkLength = (typeof this.links !== 'undefined') ? this.links.length : 0
-      return linkLength
+    vicLogoVisible () {
+      return (!this.menuContentOpen && this.rplOptions.viclogo)
+    },
+    cobrandVisible () {
+      return (!this.menuContentOpen && this.logo)
+    },
+    dividerStateClass () {
+      const hasMenu = this.showMenuBtn() ? `1` : `0`
+      const hasVic = this.vicLogoVisible ? `1` : `0`
+      const hasCobrand = this.cobrandVisible ? `1` : `0`
+      return `rpl-site-header__divider--${hasMenu}${hasVic}${hasCobrand}`
     }
   },
   mounted: function () {
@@ -319,6 +328,11 @@ export default {
   $rpl-site-header-logout-btn-padding: rem(10px) !default;
   $rpl-site-header-logout-btn-margin: $rpl-space-4 !default;
   $rpl-site-header-logout-btn-icon-margin: 0 0 0 $rpl-space-2 !default;
+  $rpl-site-header-menu-divider-border-right: $rpl-site-header-menu-toggle-border-right !default;
+  $rpl-site-header-menu-divider-margin-xl: 0 $rpl-space-2 !default;
+  $rpl-site-header-menu-divider-margin-l: 0 $rpl-space-4 !default;
+  $rpl-site-header-menu-divider-height-xl: rem(14px) !default;
+  $rpl-site-header-menu-divider-height-l: rem(27px) !default;
 
   .rpl-site-header {
     $root: &;
@@ -380,6 +394,50 @@ export default {
       }
     }
 
+    &__divider {
+      $divider_root: &;
+      height: $rpl-site-header-menu-divider-height-xl;
+      margin: $rpl-site-header-menu-divider-margin-xl;
+      border-right: $rpl-site-header-menu-divider-border-right;
+
+      @include rpl_breakpoint('l') {
+        margin: $rpl-site-header-menu-divider-margin-l;
+        height: $rpl-site-header-menu-divider-height-l;
+      }
+
+      &--vic {
+        display: none;
+
+        &#{$divider_root}--110 {
+          display: block;
+        }
+
+        &#{$divider_root}--111 {
+          @include rpl_breakpoint('m') {
+            display: block;
+          }
+        }
+      }
+
+      &--cobrand {
+        display: none;
+
+        &#{$divider_root}--011 {
+          @include rpl_breakpoint('m') {
+            display: block;
+          }
+        }
+
+        &#{$divider_root}--101 {
+          display: block;
+        }
+
+        &#{$divider_root}--111 {
+          display: block;
+        }
+      }
+    }
+
     &__logo-container {
       &-inner {
         display: flex;
@@ -394,8 +452,7 @@ export default {
 
       img {
         width: $rpl-site-header-logo-width;
-        margin-left: $rpl-site-header-menu-toggle-border-spacing;
-        vertical-align: middle;
+        display: block;
       }
 
       &--vic-logo-primary {
@@ -406,17 +463,12 @@ export default {
         }
 
         &--cobrand {
-
-          padding-right: 0.5rem;
-          border-right: 1px solid #fff;
           display: none;
 
           @include rpl_breakpoint('m') {
             display: block;
           }
-
         }
-
       }
     }
 
@@ -475,18 +527,12 @@ export default {
       @include rpl_focus_dark;
 
       &--menu {
-        padding-right: $rpl-site-header-menu-toggle-border-spacing;
-        border-right: $rpl-site-header-menu-toggle-border-right;
-
         span {
+          padding-left: $rpl-site-header-menu-toggle-border-spacing;
           display: none;
           @include rpl_breakpoint('s') {
             display: block;
           }
-        }
-
-        .rpl-icon {
-          margin: $rpl-site-header-menu-toggle-icon-margin;
         }
       }
 

@@ -16,6 +16,7 @@ describe('Test new project generator', () => {
       gtmtoken: 'GTM-12345-1',
       modules: [
         'site',
+        'preview',
         'page',
         'landingPage',
         'event',
@@ -45,7 +46,6 @@ describe('Test new project generator', () => {
     }
 
     const stream = await sao({ generator, logLevel: 2, config }, mockPromptAnswers)
-
     expect(stream.fileList.includes('package.json')).toEqual(true)
     expect(stream.fileList.includes('jest.config.js')).toEqual(false)
   })

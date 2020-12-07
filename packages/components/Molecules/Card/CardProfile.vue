@@ -8,7 +8,7 @@
         <span v-if="inductionPrefix">{{ inductionPrefix }}</span>
         <span>{{ inductionYear }}</span>
       </p>
-      <p class="rpl-card-profile__summary" v-if="summary" v-html="summary" />
+      <div class="rpl-card-profile__summary" v-if="summary" v-html="summary"></div>
     </div>
   </rpl-card-content>
 </template>

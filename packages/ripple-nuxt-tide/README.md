@@ -36,7 +36,9 @@ You Can move some setting value into your env variables.
     // Tide core modules, 1 for enable, 0 for disable.
     // Should match the Tide backend modules.
     modules: {
+      // Core features
       site: 1,
+      preview: 1,
       // Content types
       page: 1,
       landingPage: 1,
@@ -50,7 +52,6 @@ You Can move some setting value into your env variables.
       webform: 1,
       search: 1,
       monsido: 1,
-      authenticatedContent: 1,
       alert: 1
     },
     search: {},

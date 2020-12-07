@@ -9,7 +9,7 @@
         <span v-if="inductionYear && category" class="rpl-card-honour-roll__separator">|</span>
         <span v-if="category">{{ category }}</span>
       </p>
-      <p class="rpl-card-honour-roll__summary" v-if="summary" v-html="summary" />
+      <div class="rpl-card-honour-roll__summary" v-if="summary" v-html="summary"></div>
     </div>
   </rpl-card-content>
 </template>

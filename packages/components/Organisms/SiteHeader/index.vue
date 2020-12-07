@@ -24,7 +24,7 @@
                 <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
                 <span>{{ menuButton[menuState].text }}</span>
               </button>
-              <div class="rpl-site-header__divider rpl-site-header__divider--vic" :class="dividerStateClass"></div>
+              <div v-if="showMenuBtn()" class="rpl-site-header__divider rpl-site-header__divider--vic" :class="dividerStateClass"></div>
               <!-- Primary vic.gov.au Logo -->
               <div v-if="vicLogoVisible" class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary" :class = "{'rpl-site-header__logo-container--vic-logo-primary--cobrand' : (logo)}"> <!--Only apply vic-logo cobrand class if there is a coBrand logo-->
                 <rpl-link :href="vicLogoPrimary.url">
@@ -279,7 +279,7 @@ export default {
       return (!this.menuContentOpen && this.logo)
     },
     dividerStateClass () {
-      const hasMenu = this.menuToggleVisible ? `1` : `0`
+      const hasMenu = this.showMenuBtn() ? `1` : `0`
       const hasVic = this.vicLogoVisible ? `1` : `0`
       const hasCobrand = this.cobrandVisible ? `1` : `0`
       return `rpl-site-header__divider--${hasMenu}${hasVic}${hasCobrand}`
@@ -410,19 +410,11 @@ export default {
 
         &#{$divider_root}--110 {
           display: block;
-
-          @include rpl_breakpoint('l') {
-            display: none;
-          }
         }
 
         &#{$divider_root}--111 {
           @include rpl_breakpoint('m') {
             display: block;
-          }
-
-          @include rpl_breakpoint('l') {
-            display: none;
           }
         }
       }
@@ -438,10 +430,6 @@ export default {
 
         &#{$divider_root}--101 {
           display: block;
-
-          @include rpl_breakpoint('l') {
-            display: none;
-          }
         }
 
         &#{$divider_root}--111 {

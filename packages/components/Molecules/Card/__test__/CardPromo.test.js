@@ -109,9 +109,9 @@ describe('CardPromo', () => {
       }
     })
 
-    expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo', 'rpl-card-promo--profile'])
+    expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo--profile'])
 
     wrapper.setProps({ displayStyle: 'noImage' })
-    expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo', 'rpl-card-promo--noimage'])
+    expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo--noimage'])
   })
 })

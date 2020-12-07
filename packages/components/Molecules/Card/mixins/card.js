@@ -30,7 +30,7 @@ const card = {
     },
     trimmedSummary () {
       let summaryLength = 300
-      if (this.image) {
+      if (this.image && Object.keys(this.image).length) {
         summaryLength = 200
       }
       return this.summary ? truncateText(this.summary, summaryLength) : ''

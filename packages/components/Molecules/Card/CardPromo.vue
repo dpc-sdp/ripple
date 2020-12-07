@@ -1,5 +1,5 @@
 <template>
-  <rpl-link :class="modifiers" :href="link.url">
+  <rpl-link v-if="link" :class="['rpl-card-promo', modifiers]" :href="link.url">
     <slot name="image">
       <rpl-responsive-img v-if="image" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </slot>
@@ -38,15 +38,42 @@ export default {
   name: 'RplCardPromo',
   mixins: [formatdate, card],
   props: {
-    image: Object,
-    dateStart: String,
-    dateEnd: String,
-    tag: String,
-    topic: String,
-    status: String,
-    title: String,
-    summary: String,
-    link: Object,
+    title: {
+      type: String,
+      required: true
+    },
+    link: {
+      type: Object,
+      default: {}
+    },
+    summary: {
+      type: String,
+      default: ''
+    },
+    image: {
+      type: Object,
+      default: {}
+    },
+    dateStart: {
+      type: String,
+      default: ''
+    },
+    dateEnd: {
+      type: String,
+      default: ''
+    },
+    tag: {
+      type: String,
+      default: ''
+    },
+    topic: {
+      type: String,
+      default: ''
+    },
+    status: {
+      type: String,
+      default: ''
+    },
     displayStyle: {
       type: String,
       default: 'noImage',
@@ -61,7 +88,7 @@ export default {
   computed: {
     modifiers () {
       const prefix = 'rpl-card-promo'
-      const modifiers = [ prefix ]
+      const modifiers = []
       modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
 
       return modifiers

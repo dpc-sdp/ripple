@@ -25,7 +25,7 @@ export default {
     link: Object
   },
   mounted () {
-    this.deprecatedWarn('"rpl-card-navigation" is deprecated, please import "rpl-card-navigation" from @dpc-sdp/ripple-card-navigation-v2 instead')
+    this.deprecatedWarn('"rpl-card-navigation" is deprecated, please import "rpl-card-nav" from @dpc-sdp/ripple-card-nav instead')
   }
 }
 </script>

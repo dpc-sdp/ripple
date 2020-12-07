@@ -31,6 +31,9 @@ const nuxtTide = function (moduleOptions) {
         if (req.headers && req.headers['section-io-id']) {
           proxyReq.removeHeader('section-io-id')
         }
+      },
+      onError (err, req, res) {
+        logger.error('Proxy server error', { error: err, label: 'NuxtTide' })
       }
     },
     '/sites/default/files/': {

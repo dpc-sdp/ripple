@@ -23,7 +23,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.7",
+    "@babel/core": "^7.12.9",
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
     "@elastic/elasticsearch-mock": "^0.3.0",

@@ -11,7 +11,7 @@ module.exports = {
         type: 'modify',
         files: 'package.json',
         handler (data, filepath) {
-          data.dependencies['nuxt'] = `2.14.7`
+          data.dependencies['nuxt'] = `2.14.10`
           data.dependencies['@nuxtjs/gtm'] = '^2.4.0'
           data.dependencies['run-script-os'] = `^1.1.3`
           data.devDependencies['babel-eslint'] = `^10.1.0`

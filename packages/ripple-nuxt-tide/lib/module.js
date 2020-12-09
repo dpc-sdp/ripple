@@ -152,9 +152,10 @@ const nuxtTide = function (moduleOptions) {
   this.options.build.transpile.push(/@dpc-sdp\/ripple/)
 
   // transpile none node modules to support browsers like IE
-  this.options.build.transpile.push(/winston-transport/)
+  this.options.build.transpile.push(/winston/)
   this.options.build.transpile.push(/winston-logstash-transport/)
   this.options.build.transpile.push(/logform/)
+  this.options.build.transpile.push(/async/)
 
   // transpile auth modules
   this.options.build.transpile.push(/@nuxtjs\/auth-next/)

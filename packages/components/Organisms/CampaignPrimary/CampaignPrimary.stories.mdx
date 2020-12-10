@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplCampaignPrimary from './index.vue'
+
+<Meta title="Organisms/CampaignPrimary" />
+
+# Campaign primary
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCampaignPrimary },
+  template: '<rpl-campaign-primary :title="title" :summary="summary" :link="link" :image="image" :caption="caption" />'
+});
+
+<Canvas>
+  <Story
+    name="CampaignPrimary"
+    args={{
+      title: 'Primary campaign headline',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
+      link: { text: 'Call to action', url: '#' },
+      image: { src: 'http://placehold.it/699x411', alt: '' },
+      caption: 'Image credit: This credit is used to describe the image to the right of the banner.'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplCampaignPrimary} />

@@ -1,0 +1,52 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplProfileHighlight from './ProfileHighlight.vue'
+import RplProfileHighlightHonourRoll from './ProfileHighlightHonourRoll.vue'
+
+<Meta title="Organisms/Profile" />
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplProfileHighlight },
+  template: `
+    <rpl-profile-highlight :image="image">
+      <template slot="details">
+        <div v-html="content"></div>
+      </template>
+    </rpl-profile-highlight>
+  `
+});
+
+<Canvas>
+  <Story
+    name="Profile highlight"
+    args={{
+      image: 'http://placehold.it/156x156',
+      content: '<p>HTML Content</p>'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplProfileHighlight} />
+
+export const TemplateHonourRoll = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplProfileHighlightHonourRoll },
+  template: `<rpl-profile-highlight-honour-roll :image="image" :inductedYear="inductedYear" :category="category"/>`
+});
+
+<Canvas>
+  <Story
+    name="Profile highlight honour roll"
+    args={{
+      image: 'http://placehold.it/156x156',
+      inductedYear: '2018',
+      category: 'Local Champion'
+    }}
+  >
+    {TemplateHonourRoll.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplProfileHighlightHonourRoll} />

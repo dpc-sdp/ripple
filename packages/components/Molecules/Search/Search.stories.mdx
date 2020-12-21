@@ -1,0 +1,249 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplSearchForm from './SearchForm.vue'
+import RplSearchResult from './SearchResult.vue'
+import RplSearchResults from './SearchResults.vue'
+
+<Meta title="Molecules/Search" />
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSearchForm },
+  methods: {
+    searchEvent (searchKeywords) {
+      console.log('Search triggered. Keywords: ' + searchKeywords)
+    }
+  },
+  template: `
+    <rpl-search-form
+      :title="title"
+      :subtitle="subtitle"
+      :searchPlaceholder="searchPlaceholder"
+      :prefillSearchTerm="prefillSearchTerm"
+      :searchInputLabel="searchInputLabel"
+      :buttonLabel="buttonLabel"
+      :buttonHiddenLabel="buttonHiddenLabel"
+      :autoFocus="autoFocus"
+      :textSearch="textSearch"
+      :expandFilters="expandFilters"
+      :filterForm="filterForm"
+      :filterText="filterText"
+      :theme="theme"
+      :type="type"
+      :allowBlank="allowBlank"
+      @search="searchEvent"
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="Search form"
+    argTypes={{
+      theme: {
+        control: {
+          type: 'select',
+          options: ['light', 'dark', 'solid']
+        }
+      },
+      type: {
+        control: {
+          type: 'select',
+          options: ['two-cols', 'default']
+        }
+      },
+      aboveFilters: {
+        control: {
+          type: 'text'
+        }
+      }
+    }}
+    args={{
+      title: 'Search results',
+      subtitle: '',
+      searchPlaceholder: 'Enter keywords',
+      prefillSearchTerm: 'What is covid?',
+      searchInputLabel: 'Search for',
+      buttonLabel: 'Search',
+      buttonHiddenLabel: true,
+      autoFocus: false,
+      textSearch: true,
+      expandFilters: false,
+      filterForm: {
+        tideId: 'tide_search_form',
+        model: {
+          topic: []
+        },
+        schema: {
+          fields: [
+            {
+              type: 'rplselect',
+              label: 'Select a topic',
+              model: 'topic',
+              values: [{ id: 'topic_a', name: 'Topic A' }, { id: 'topic_b', name: 'Topic B' }, { id: 'topic_c', name: 'Topic C' }, { id: 'topic_d', name: 'Topic D' }],
+              placeholder: 'Select a topic'
+            },
+            {
+              type: 'rplsubmitloader',
+              buttonText: 'Apply change',
+              loading: false
+            }
+          ]
+        },
+        formOptions: {
+          validateAfterLoad: true,
+          validateAfterChanged: true
+        },
+        formState: {}
+      },
+      filterText: 'Refine text',
+      theme: 'light',
+      type: 'default',
+      allowBlank: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplSearchForm} />
+
+export const TemplateSearch = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSearchResult },
+  template: `
+    <rpl-search-result
+      :title="title"
+      :link="link"
+      :date="date"
+      :description="description"
+      :tags="tags"
+      :locale="locale"
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="Search result"
+    args={{
+      title: 'Schools private policy',
+      link: {
+        linkText: 'www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx',
+        linkUrl: '//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx'
+      },
+      date: '2018-07-10T09:00:00.000+10:00',
+      description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem',
+      tags: [
+        {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        },
+        {
+          linkText: 'This is another content tag',
+          linkUrl: '#'
+        }
+      ],
+      locale: 'en-au'
+    }}
+  >
+    {TemplateSearch.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplSearchResult} />
+
+export const TemplateSearchResults = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSearchResults },
+  methods: {
+    pagerChange (newStep) {
+      // Use your own custom code to handle it.
+      console.log('Going to step: ' + newStep)
+    }
+  },
+  template: `
+    <rpl-search-results
+      :searchResults="searchResultsItems"
+      :pager="pager"
+      :responseSize="searchResults.responseSize"
+      :count="searchResults.count"
+      :errorMsg="hasError ? searchResults.errorMsg : undefined"
+      :noResultsMsg="searchResults.noResultsMsg"
+      :type="searchResults.type"
+      @pager-change="pagerChange"
+    />
+  `
+});
+
+export const demoData = {
+  pagination: () => ({
+    totalSteps: 8,
+    initialStep: 1,
+    stepsAround: 2
+  }),
+};
+
+<Canvas>
+  <Story
+    name="Search results"
+    args={{
+      title: 'Schools private policy',
+      link: {
+        linkText: 'www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx',
+        linkUrl: '//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx'
+      },
+      date: '2018-07-10T09:00:00.000+10:00',
+      description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem',
+      tags: [
+        {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        },
+        {
+          linkText: 'This is another content tag',
+          linkUrl: '#'
+        }
+      ],
+      locale: 'en-au',
+      pager: {
+        totalSteps: 8,
+        initialStep: 1,
+        stepsAround: 2
+      },
+      searchResults: {
+        count: 70,
+        type: 'default',
+        responseSize: 10,
+        errorMsg: 'Search isn\'t working right now, please try again later.',
+        noResultsMsg: 'Sorry! We couldn\'t find any matches for bananas'
+      },
+      hasError: false,
+      noResults: false,
+      searchResultsItems: {
+        title: 'Schools private policy',
+        link: {
+          linkText: 'www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx',
+          linkUrl: '//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx'
+        },
+        date: '2018-07-10T09:00:00.000+10:00',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem',
+        tags: [
+          {
+            linkText: 'This is a content tag',
+            linkUrl: '#'
+          },
+          {
+            linkText: 'This is a content tag',
+            linkUrl: '#'
+          }
+        ],
+        locale: 'en-au'
+      }
+    }}
+  >
+    {TemplateSearchResults.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplSearchResults} />
+

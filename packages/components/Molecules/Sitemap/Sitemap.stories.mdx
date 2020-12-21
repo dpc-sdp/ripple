@@ -1,54 +1,23 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import RplSiteHeader from './index.vue'
+import RplSitemap from './index.vue'
 
-<Meta title="Organisms/SiteHeader" />
+<Meta title="Molecules/Sitemap" />
 
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { RplSiteHeader },
-  template: `
-    <rpl-site-header
-      :logo="logo"
-      :links="links"
-      :breakpoint="breakpoint"
-      :searchTerms="searchTerms"
-      :sticky="sticky"
-      :hideOnScroll="hideOnScroll"
-      :showSearch="showSearch"
-      :showLogout="showLogout"
-    />
-  `
+  components: { RplSitemap },
+  template: `<rpl-sitemap :menu="menu" />`
 });
 
 <Canvas>
   <Story
-    name="SiteHeader"
-    height= "170px"
+    name="Sitemap"
     args={{
-      logo: {
-        alt: 'vic.gov.au',
-        url: '#',
-        image: '/cobrand-logo.png'
-      },
-      links: [
+      menu: [
         {
           text: 'Your services',
           url: '#',
           children: [
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
             { text: 'Sub child A', url: '#' },
             {
               text: 'Sub child B',
@@ -131,26 +100,11 @@ export const Template = (args, { argTypes }) => ({
           ]
         },
         { text: 'Connect with us', url: '#' }
-      ],
-      breakpoint: 992,
-      searchTerms: [
-        {
-          linkText: 'Road works',
-          linkUrl: '#'
-        },
-        {
-          linkText: 'School holidays',
-          linkUrl: '#'
-        }
-      ],
-      sticky: false,
-      hideOnScroll: false,
-      showSearch: false,
-      showLogout: false
+      ]
     }}
   >
     {Template.bind({})}
   </Story>
 </Canvas>
 
-<ArgsTable of={RplSiteHeader} />
+<ArgsTable of={RplSitemap} />

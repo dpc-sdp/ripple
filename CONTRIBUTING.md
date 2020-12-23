@@ -37,7 +37,7 @@ You can use `/examples/vic-gov-au/example.env` as a template.
 yarn
 
 # Start the storybook server
-yarn yarn run start:example
+yarn start:example
 
 ```
 
@@ -61,7 +61,7 @@ New storytest will be added automatically at first time.
 Update storyshots tests if you need by `yarn test:unit -u`.
 
 ``` bash
-# We uses Jest for unit test and snapshots test
+# We use Jest for unit test and snapshots test
 yarn test:unit
 ```
 

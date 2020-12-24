@@ -1,3 +1,4 @@
+// TODO this can be removed once all cards are consolidated to Navigation and Promotion
 import { storiesOf } from '@storybook/vue'
 import RplCardContent from './CardContent.vue'
 import RplCardImageNavigation from './CardImageNavigation.vue'

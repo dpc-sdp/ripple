@@ -1965,7 +1965,11 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Event 1`] = `
         </span>
       </div>
        
-      <!---->
+      <div
+        class="rpl-card-nav__date"
+      >
+        23 March 2021
+      </div>
     </div>
      
     <h2
@@ -1998,7 +2002,6 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Featured 1`] = `
 <a
   class="rpl-link rpl-card-nav rpl-card-nav--featured"
   data-print-url="#"
-  date="2020-03-23T09:00:00.000+10:00"
   href="#"
 >
   <div
@@ -2030,7 +2033,11 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Featured 1`] = `
        
       <!---->
        
-      <!---->
+      <div
+        class="rpl-card-nav__date"
+      >
+        23 March 2020
+      </div>
     </div>
      
     <h2
@@ -2063,7 +2070,6 @@ exports[`RippleStoryshots Molecules/Card/Card Nav No image 1`] = `
 <a
   class="rpl-link rpl-card-nav rpl-card-nav--noimage"
   data-print-url="#"
-  date="2020-03-23T09:00:00.000+10:00"
   href="#"
 >
   <!---->
@@ -2082,7 +2088,11 @@ exports[`RippleStoryshots Molecules/Card/Card Nav No image 1`] = `
        
       <!---->
        
-      <!---->
+      <div
+        class="rpl-card-nav__date"
+      >
+        23 March 2020
+      </div>
     </div>
      
     <h2
@@ -2115,7 +2125,6 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Thumbnail 1`] = `
 <a
   class="rpl-link rpl-card-nav rpl-card-nav--thumbnail"
   data-print-url="#"
-  date="2020-03-23T09:00:00.000+10:00"
   href="#"
 >
   <div
@@ -2147,7 +2156,11 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Thumbnail 1`] = `
        
       <!---->
        
-      <!---->
+      <div
+        class="rpl-card-nav__date"
+      >
+        23 March 2020
+      </div>
     </div>
      
     <h2
@@ -2300,271 +2313,6 @@ exports[`RippleStoryshots Molecules/Card/Card Navigation Featured Default 1`] = 
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Event 1`] = `
-<a
-  class="rpl-link rpl-card-nav rpl-card-nav--thumbnail"
-  data-print-url="#"
-  href="#"
->
-  <div
-    class="rpl-card-nav__image-wrapper"
-  >
-    <img
-      alt=""
-      class="rpl-responsive-image rpl-card-nav__image rpl-responsive-image--fit-cover"
-      height="199"
-      sizes="(max-width: 576px) 764px, (max-width: 768px) 448px, (max-width: 992px) 333px, 100vw"
-      src="https://placehold.it/304x199"
-      srcset="https://placehold.it/304x199?w=764&h=534 764w, https://placehold.it/304x199?w=764&h=200 764w, https://placehold.it/304x199?w=448&h=232 448w, https://placehold.it/304x199?w=333&h=232 333w"
-      style="object-position: 50.00% 50.25%; font-family: 'object-fit: cover; object-position: 50.00% 50.25%;';"
-      width="304"
-    />
-  </div>
-   
-  <div
-    class="rpl-card-nav__content"
-  >
-    <div
-      class="rpl-card-nav__meta"
-    >
-      <div
-        class="rpl-card-nav__tag"
-      >
-        Event
-      </div>
-       
-      <div
-        class="rpl-card-nav__status rpl-card-nav__status--open"
-      >
-        <svg
-          aria-hidden="true"
-          class="rpl-card-nav__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
-          overflow="visible"
-          style="width: 10px; height: 10px;"
-          viewBox="0 0 20 20"
-        >
-          <path
-            d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
-          />
-           
-        </svg>
-         
-        <span>
-          open
-        </span>
-      </div>
-       
-      <!---->
-    </div>
-     
-    <h2
-      class="rpl-card-nav__title"
-    >
-      <span>
-        Navigation card V2
-      </span>
-    </h2>
-     
-    <p
-      class="rpl-card-nav__summary"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
-    </p>
-     
-    <p
-      class="rpl-card-nav__author"
-    >
-      <strong>
-        Author:
-      </strong>
-       John Doe
-    </p>
-  </div>
-</a>
-`;
-
-exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Featured 1`] = `
-<a
-  class="rpl-link rpl-card-nav rpl-card-nav--featured"
-  data-print-url="#"
-  date="2020-03-23T09:00:00.000+10:00"
-  href="#"
->
-  <div
-    class="rpl-card-nav__image-wrapper"
-  >
-    <img
-      alt=""
-      class="rpl-responsive-image rpl-card-nav__image rpl-responsive-image--fit-cover"
-      height="355"
-      sizes="(max-width: 576px) 764px, (max-width: 768px) 448px, (max-width: 992px) 333px, 100vw"
-      src="https://placehold.it/608x355"
-      srcset="https://placehold.it/608x355?w=764&h=534 764w, https://placehold.it/608x355?w=764&h=200 764w, https://placehold.it/608x355?w=448&h=232 448w, https://placehold.it/608x355?w=333&h=232 333w"
-      style="object-position: 49.34% 42.25%; font-family: 'object-fit: cover; object-position: 49.34% 42.25%;';"
-      width="608"
-    />
-  </div>
-   
-  <div
-    class="rpl-card-nav__content"
-  >
-    <div
-      class="rpl-card-nav__meta"
-    >
-      <div
-        class="rpl-card-nav__tag"
-      >
-        News
-      </div>
-       
-      <!---->
-       
-      <!---->
-    </div>
-     
-    <h2
-      class="rpl-card-nav__title"
-    >
-      <span>
-        Navigation card V2
-      </span>
-    </h2>
-     
-    <p
-      class="rpl-card-nav__summary"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
-    </p>
-     
-    <p
-      class="rpl-card-nav__author"
-    >
-      <strong>
-        Author:
-      </strong>
-       John Doe
-    </p>
-  </div>
-</a>
-`;
-
-exports[`RippleStoryshots Molecules/Card/Card Navigation V2 No image 1`] = `
-<a
-  class="rpl-link rpl-card-nav rpl-card-nav--noimage"
-  data-print-url="#"
-  date="2020-03-23T09:00:00.000+10:00"
-  href="#"
->
-  <!---->
-   
-  <div
-    class="rpl-card-nav__content"
-  >
-    <div
-      class="rpl-card-nav__meta"
-    >
-      <div
-        class="rpl-card-nav__tag"
-      >
-        Event
-      </div>
-       
-      <!---->
-       
-      <!---->
-    </div>
-     
-    <h2
-      class="rpl-card-nav__title"
-    >
-      <span>
-        Navigation card V2
-      </span>
-    </h2>
-     
-    <p
-      class="rpl-card-nav__summary"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-     
-    <p
-      class="rpl-card-nav__author"
-    >
-      <strong>
-        Author:
-      </strong>
-       John Doe
-    </p>
-  </div>
-</a>
-`;
-
-exports[`RippleStoryshots Molecules/Card/Card Navigation V2 Thumbnail 1`] = `
-<a
-  class="rpl-link rpl-card-nav rpl-card-nav--thumbnail"
-  data-print-url="#"
-  date="2020-03-23T09:00:00.000+10:00"
-  href="#"
->
-  <div
-    class="rpl-card-nav__image-wrapper"
-  >
-    <img
-      alt=""
-      class="rpl-responsive-image rpl-card-nav__image rpl-responsive-image--fit-cover"
-      height="199"
-      sizes="(max-width: 576px) 764px, (max-width: 768px) 448px, (max-width: 992px) 333px, 100vw"
-      src="https://placehold.it/304x199"
-      srcset="https://placehold.it/304x199?w=764&h=534 764w, https://placehold.it/304x199?w=764&h=200 764w, https://placehold.it/304x199?w=448&h=232 448w, https://placehold.it/304x199?w=333&h=232 333w"
-      style="object-position: 50.00% 50.25%; font-family: 'object-fit: cover; object-position: 50.00% 50.25%;';"
-      width="304"
-    />
-  </div>
-   
-  <div
-    class="rpl-card-nav__content"
-  >
-    <div
-      class="rpl-card-nav__meta"
-    >
-      <div
-        class="rpl-card-nav__tag"
-      >
-        Event
-      </div>
-       
-      <!---->
-       
-      <!---->
-    </div>
-     
-    <h2
-      class="rpl-card-nav__title"
-    >
-      <span>
-        Navigation card V2
-      </span>
-    </h2>
-     
-    <p
-      class="rpl-card-nav__summary"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
-    </p>
-     
-    <p
-      class="rpl-card-nav__author"
-    >
-      <strong>
-        Author:
-      </strong>
-       John Doe
-    </p>
-  </div>
-</a>
-`;
-
 exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
 <a
   class="rpl-link rpl-card-content rpl-card-profile rpl-card-content--no-image rpl-card-content--default rpl-card-content--has-link-text"
@@ -2649,9 +2397,9 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Event 1`] = `
+exports[`RippleStoryshots Molecules/Card/Card Promo Event 1`] = `
 <a
-  class="rpl-link rpl-card-promo rpl-card-promo--no-image"
+  class="rpl-link rpl-card-promo rpl-card-promo--noimage"
   data-print-url="#"
   href="#"
 >
@@ -2670,57 +2418,6 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Event 1`] = `
           class="rpl-card-promo__tag"
         >
           Event
-        </div>
-         
-        <!---->
-         
-        <!---->
-         
-        <div
-          class="rpl-card-promo__date"
-        >
-          02 Jul to 25 Sep 2020
-        </div>
-      </div>
-       
-      <h2
-        class="rpl-card-promo__title"
-      >
-        First promo card
-      </h2>
-       
-      <p
-        class="rpl-card-promo__summary"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-       
-    </div>
-  </span>
-</a>
-`;
-
-exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Grant 1`] = `
-<a
-  class="rpl-link rpl-card-promo rpl-card-promo--no-image"
-  data-print-url="#"
-  href="#"
->
-  <span
-    class="rpl-link__inner"
-  >
-    <!---->
-     
-    <div
-      class="rpl-card-promo__content"
-    >
-      <div
-        class="rpl-card-promo__meta"
-      >
-        <div
-          class="rpl-card-promo__tag"
-        >
-          Grant
         </div>
          
         <!---->
@@ -2746,7 +2443,11 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Grant 1`] = `
           </span>
         </div>
          
-        <!---->
+        <div
+          class="rpl-card-promo__date"
+        >
+          10 to 15 November
+        </div>
       </div>
        
       <h2
@@ -2766,9 +2467,9 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Grant 1`] = `
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Landing Page 1`] = `
+exports[`RippleStoryshots Molecules/Card/Card Promo No image 1`] = `
 <a
-  class="rpl-link rpl-card-promo rpl-card-promo--no-image"
+  class="rpl-link rpl-card-promo rpl-card-promo--noimage"
   data-print-url="#"
   href="#"
 >
@@ -2793,7 +2494,11 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Landing Page 1`] = 
          
         <!---->
          
-        <!---->
+        <div
+          class="rpl-card-promo__date"
+        >
+          10 November 2020
+        </div>
       </div>
        
       <h2
@@ -2813,9 +2518,9 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Landing Page 1`] = 
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Profile 1`] = `
+exports[`RippleStoryshots Molecules/Card/Card Promo Profile 1`] = `
 <a
-  class="rpl-link rpl-card-promo rpl-card-promo--with-image rpl-card-promo--profile"
+  class="rpl-link rpl-card-promo rpl-card-promo--profile"
   data-print-url="#"
   href="#"
 >
@@ -2825,7 +2530,10 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Profile 1`] = `
     <img
       alt=""
       class="rpl-responsive-image rpl-card-promo__image rpl-responsive-image--fit-cover"
+      height="340"
       src="https://s3.amazonaws.com/uifaces/faces/twitter/yecidsm/128.jpg"
+      style="object-position: 50.00% 50.00%; font-family: 'object-fit: cover; object-position: 50.00% 50.00%;';"
+      width="580"
     />
      
     <div
@@ -2840,15 +2548,15 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Profile 1`] = `
           Profile
         </div>
          
+        <!---->
+         
+        <!---->
+         
         <div
-          class="rpl-card-promo__topic"
+          class="rpl-card-promo__date"
         >
-          02 July 2020
+          10 November 2020
         </div>
-         
-        <!---->
-         
-        <!---->
       </div>
        
       <h2
@@ -2868,9 +2576,9 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 Profile 1`] = `
 </a>
 `;
 
-exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 With Image 1`] = `
+exports[`RippleStoryshots Molecules/Card/Card Promo With image 1`] = `
 <a
-  class="rpl-link rpl-card-promo rpl-card-promo--with-image"
+  class="rpl-link rpl-card-promo rpl-card-promo--noimage"
   data-print-url="#"
   href="#"
 >
@@ -2880,7 +2588,10 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 With Image 1`] = `
     <img
       alt=""
       class="rpl-responsive-image rpl-card-promo__image rpl-responsive-image--fit-cover"
+      height="340"
       src="https://images.unsplash.com/photo-1602699121297-81f2312fa4e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
+      style="object-position: 50.00% 50.00%; font-family: 'object-fit: cover; object-position: 50.00% 50.00%;';"
+      width="580"
     />
      
     <div
@@ -2899,7 +2610,11 @@ exports[`RippleStoryshots Molecules/Card/Card Promotion - V2 With Image 1`] = `
          
         <!---->
          
-        <!---->
+        <div
+          class="rpl-card-promo__date"
+        >
+          10 November 2020
+        </div>
       </div>
        
       <h2

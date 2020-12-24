@@ -24,19 +24,26 @@ const card = {
           }
       }
     },
-    computedImg () {
-      return typeof this.image === 'string' ? { src: this.image } : this.image
-    },
     trimmedTitle () {
       const titleLength = 150
       return this.title ? truncateText(this.title, titleLength) : ''
     },
     trimmedSummary () {
       let summaryLength = 300
-      if (this.image) {
+      if (this.image && Object.keys(this.image).length) {
         summaryLength = 200
       }
       return this.summary ? truncateText(this.summary, summaryLength) : ''
+    },
+    formattedDate () {
+      if (!this.dateStart && !this.dateEnd) return ''
+
+      let formatted = this.formatDate(this.dateStart, 'DD MMMM YYYY')
+      if (this.dateStart && this.dateEnd) {
+        formatted = this.formatDateRange(this.dateStart, this.dateEnd)
+      }
+
+      return formatted
     }
   }
 }

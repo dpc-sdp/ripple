@@ -1,7 +1,7 @@
 <template>
-  <rpl-link class="rpl-card-promo" :class="modifiers" :href="link.url">
+  <rpl-link v-if="link" :class="['rpl-card-promo', modifiers]" :href="link.url">
     <slot name="image">
-      <rpl-responsive-img class="rpl-card-promo__image" v-bind="computedImg" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
+      <rpl-responsive-img v-if="image" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </slot>
     <div class="rpl-card-promo__content">
       <div class="rpl-card-promo__meta">
@@ -14,7 +14,7 @@
               <span>{{status}}</span>
             </div>
           </slot>
-          <div class="rpl-card-promo__date" v-if="computedDate">{{ computedDate }}</div>
+          <div class="rpl-card-promo__date" v-if="formattedDate">{{ formattedDate }}</div>
         </slot>
       </div>
       <slot name="content">
@@ -38,15 +38,51 @@ export default {
   name: 'RplCardPromo',
   mixins: [formatdate, card],
   props: {
-    image: [String, Object],
-    date: [String, Object],
-    variation: String,
-    tag: String,
-    topic: String,
-    status: String,
-    title: String,
-    summary: String,
-    link: Object
+    title: {
+      type: String,
+      required: true
+    },
+    link: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    summary: {
+      type: String,
+      default: ''
+    },
+    image: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    dateStart: {
+      type: String,
+      default: ''
+    },
+    dateEnd: {
+      type: String,
+      default: ''
+    },
+    tag: {
+      type: String,
+      default: ''
+    },
+    topic: {
+      type: String,
+      default: ''
+    },
+    status: {
+      type: String,
+      default: ''
+    },
+    displayStyle: {
+      type: String,
+      default: 'noImage',
+      validator: val => ['noImage', 'thumbnail', 'profile'].includes(val)
+    }
   },
   components: {
     RplResponsiveImg,
@@ -57,31 +93,9 @@ export default {
     modifiers () {
       const prefix = 'rpl-card-promo'
       const modifiers = []
-      if (this.image) {
-        modifiers.push(`${prefix}--with-image`)
-      } else if (!this.image) {
-        modifiers.push(`${prefix}--no-image`)
-      }
-      if (this.variation) {
-        modifiers.push(`${prefix}--${this.variation}`)
-      }
+      modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
 
       return modifiers
-    },
-    computedDate () {
-      if (this.date) {
-        if (typeof this.date === 'string') {
-          return this.date
-        } else if (typeof this.date === 'object' && this.date.hasOwnProperty('from')) {
-          if (this.date.to) {
-            return this.formatDateRange(this.date.from, this.date.to, { day: 'DD', month: 'MMM', year: 'YYYY' })
-          }
-          return this.formatDate(this.date.from)
-        }
-      }
-    },
-    hasMeta () {
-      return this.tag || this.date || this.topic || this.status
     }
   }
 }
@@ -91,26 +105,27 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/card";
-  $rpl-card-promotion-bg-color: rpl_color('white') !default;
+  $rpl-card-promotion-bg-color: $rpl-card-background !default;
   $rpl-card-promo-min-height: rem(400px) !default;
   $rpl-card-promo-meta-margin: 0 0 $rpl-space-3 0 !default;
-  $rpl-card-promo-meta-ruleset: ('xs', 1em, 'medium') !default;
-  $rpl-card-promo-meta-text-color: rpl_color('dark_neutral') !default;
+  $rpl-card-promo-meta-ruleset: $rpl-card-meta-ruleset !default;
+  $rpl-card-promo-meta-text-color: $rpl-card-meta-text-color !default;
   $rpl-card-promo-date-padding: $rpl-space $rpl-space-2 !default;
-  $rpl-card-promo-tag-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-card-promo-tag-color: $nav-card-text-color !default;
   $rpl-card-promo-tag-bg-color: rpl_color('light_neutral') !default;
   $rpl-card-promo-tag-padding: $rpl-space $rpl-space-2;
-  $rpl-card-promo-link-color: rpl_color('extra_dark_neutral') !default;
-  $rpl-card-promo-link-color-hover: rpl_color('primary') !default;
-  $rpl-card-promo-title-ruleset: ('l', 1.2em, 'bold') !default;
-  $rpl-card-promo-title-text-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-card-promo-link-color: $nav-card-text-color !default;
+  $rpl-card-promo-link-color-hover: $rpl-card-link-hover-color !default;
+  $rpl-card-promo-title-ruleset: $rpl-card-title-ruleset !default;
+  $rpl-card-promo-title-text-color: $nav-card-text-color !default;
+  $rpl-card-promo-title-text-decoration: $rpl-card-title-text-decoration !default;
   $rpl-card-promo-title-margin: 0 0 $rpl-space-3 0 !default;
-  $rpl-card-promo-summary-ruleset: ('xs', 1.5em, 'regular') !default;
-  $rpl-card-promo-summary-text-color: rpl_color('extra_dark_neutral') !default;
+  $rpl-card-promo-summary-ruleset: $rpl-card-summary-ruleset !default;
+  $rpl-card-promo-summary-text-color: $nav-card-text-color !default;
   $rpl-card-promo-content-padding: $rpl-space-4 !default;
-  $rpl-card-promo-border-color: rpl_color('mid_neutral_1') !default;
+  $rpl-card-promo-border-color: $rpl-card-border-color !default;
   $rpl-card-promo-border: 1px solid $rpl-card-promo-border-color !default;
-  $rpl-card-promo-border-radius: 4px !default;
+  $rpl-card-promo-border-radius: $rpl-card-border-radius !default;
   $rpl-card-promo-no-image-border: rpl_gradient('decorative_gradient') !default;
   $rpl-card-promo-no-image-border-height: rem(8px) !default;
   $rpl-card-promo-no-image-padding-top: rem(89px) !default;
@@ -142,7 +157,7 @@ export default {
 
       #{$root}__title {
         color: $rpl-card-promo-link-color-hover;
-        text-decoration: underline;
+        text-decoration: $rpl-card-promo-title-text-decoration;
       }
     }
 
@@ -214,12 +229,12 @@ export default {
     &__content {
       padding: $rpl-card-promo-content-padding;
 
-      #{$root}--no-image & {
+      #{$root}--noimage & {
         padding-top: $rpl-card-promo-no-image-padding-top;
       }
     }
 
-    &--no-image {
+    &--noimage {
       background-image: $rpl-card-promo-no-image-border;
       background-size: 100% $rpl-card-promo-no-image-border-height;
       background-repeat: no-repeat;

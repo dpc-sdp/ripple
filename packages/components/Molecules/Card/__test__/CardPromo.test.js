@@ -1,11 +1,11 @@
 import { shallowMount } from '@vue/test-utils'
-import CardNav from '../CardNav'
+import CardPromo from '../CardPromo'
 
-describe('CardNav', () => {
+describe('CardPromo', () => {
   it('returns status icon data properly.', () => {
-    const wrapper = shallowMount(CardNav, {
+    const wrapper = shallowMount(CardPromo, {
       propsData: {
-        title: 'Navigation card V2',
+        title: 'Promo card',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
         tag: 'Event',
@@ -36,20 +36,22 @@ describe('CardNav', () => {
   })
 
   it('trimmed Title to expected limit', () => {
-    const wrapper = shallowMount(CardNav, {
+    const wrapper = shallowMount(CardPromo, {
       propsData: {
-        title: 'Navigation card V2 that is more than 150 characters Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident'
+        title: 'Promo card that is more than 150 characters Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident',
+        link: { text: 'Read more', url: '#' }
       }
     })
 
-    expect(wrapper.vm.trimmedTitle).toEqual('Navigation card V2 that is more than 150 characters Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paria...')
+    expect(wrapper.vm.trimmedTitle).toEqual('Promo card that is more than 150 characters Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Exc...')
     expect(wrapper.vm.trimmedTitle).toHaveLength(150 + 3)
   })
 
   it('trimmed Summary to expected limit', () => {
-    const wrapper = shallowMount(CardNav, {
+    const wrapper = shallowMount(CardPromo, {
       propsData: {
-        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        link: { text: 'Read more', url: '#' }
       }
     })
 
@@ -58,7 +60,7 @@ describe('CardNav', () => {
   })
 
   it('trimmed Summary to expected limit when there is an image', () => {
-    const wrapper = shallowMount(CardNav, {
+    const wrapper = shallowMount(CardPromo, {
       propsData: {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image: {
@@ -69,7 +71,8 @@ describe('CardNav', () => {
           },
           width: 304,
           height: 199
-        }
+        },
+        link: { text: 'Read more', url: '#' }
       }
     })
 
@@ -78,11 +81,12 @@ describe('CardNav', () => {
   })
 
   it('formats the date correctly', () => {
-    const wrapper = shallowMount(CardNav, {
+    const wrapper = shallowMount(CardPromo, {
       propsData: {
-        title: 'Navigation card V2',
+        title: 'Promo card',
         dateStart: '2020-11-10T23:45:00',
-        dateEnd: '2020-11-11T00:15:00'
+        dateEnd: '2020-11-11T00:15:00',
+        link: { text: 'Read more', url: '#' }
       }
     })
 
@@ -93,21 +97,21 @@ describe('CardNav', () => {
   })
 
   it('generates css modifiers based on display style props value', () => {
-    const wrapper = shallowMount(CardNav, {
+    const wrapper = shallowMount(CardPromo, {
       propsData: {
-        title: 'Nav card',
+        title: 'Promo card',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
         tag: 'Event',
         author: 'John Doe',
         status: 'closed',
-        displayStyle: 'featured'
+        displayStyle: 'profile'
       }
     })
 
-    expect(wrapper.vm.modifiers).toEqual(['rpl-card-nav', 'rpl-card-nav--featured'])
+    expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo--profile'])
 
     wrapper.setProps({ displayStyle: 'noImage' })
-    expect(wrapper.vm.modifiers).toEqual(['rpl-card-nav', 'rpl-card-nav--noimage'])
+    expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo--noimage'])
   })
 })

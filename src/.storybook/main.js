@@ -12,7 +12,6 @@ module.exports = {
   ],
   logLevel: 'debug',
   addons: [
-    '@storybook/addon-knobs',
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
     '@storybook/addon-backgrounds',

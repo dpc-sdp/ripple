@@ -1,8 +1,7 @@
-import { Meta, Canvas, Story, ArgsTable, Source, Description } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, ArgsTable, Description } from '@storybook/addon-docs/blocks';
 import RplHeroBannerCta from './HeroBannerCta.vue'
-import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs'
 
-<Meta title="Organisms/Banners/Hero Banner CTA" component={ RplHeroBannerCta } decorators={ [withKnobs] } />
+<Meta title="Organisms/Banners/Hero Banner CTA" />
 
 # Hero Banner CTA
 
@@ -13,42 +12,44 @@ import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs
 <ArgsTable of={ RplHeroBannerCta } />
 
 ## Hero Banner CTA
+
+export const TemplateCta = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplHeroBannerCta },
+  template: `
+    <rpl-hero-banner-cta
+      :title="title"
+      :introText="introText"
+      :theme="theme"
+      :linkPrimary="linkPrimary"
+      :ctaText="ctaText"
+      :linkSecondary="linkSecondary"
+    />
+  `
+});
+
 <Canvas>
-  <Story name="Hero Banner CTA" height="600px">
-    {
-      {
-        components: { RplHeroBannerCta },
-        template: `
-          <rpl-hero-banner-cta
-            :title="title"
-            :introText="introText"
-            :theme="theme"
-            :linkPrimary="linkPrimary"
-            :ctaText="ctaText"
-            :linkSecondary="linkSecondary"
-          />
-        `,
-        props: {
-          title: {
-            default: text('Title', 'This is display copy that wraps 2 lines')
-          },
-          introText: {
-            default: text('Intro Text', 'This is supplementary intro text that can also wrap over a couple of lines.')
-          },
-          theme: {
-            default: select('Theme', { dark: 'dark', light: 'light' }, 'light')
-          },
-          linkPrimary: {
-            default: () => object('linkPrimary', { text: 'Call to action', url: '#' })
-          },
-          linkSecondary: {
-            default: () => object('linkSecondary', { text: 'Subscribe for tips to prepare', url: '#' })
-          },
-          ctaText: {
-            default: text('ctaText', 'Not ready yet?')
-          }
+  <Story
+    name="Hero Banner CTA"
+    height="600px"
+    argTypes={{
+      theme: {
+        control: {
+          type: 'select',
+          options: ['dark', 'light']
         }
       }
-    }
+    }}
+    args={{
+      title: 'This is display copy that wraps 2 lines',
+      introText: 'This is supplementary intro text that can also wrap over a couple of lines.',
+      linkPrimary: { text: 'Call to action', url: '#' },
+      linkSecondary: { text: 'Subscribe for tips to prepare', url: '#' },
+      ctaText: 'Not ready yet?',
+      moreLink: { text: 'See more', url: '#' },
+      theme: 'light',
+    }}
+  >
+    {TemplateCta.bind({})}
   </Story>
 </Canvas>

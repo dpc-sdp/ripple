@@ -1,8 +1,7 @@
-import { Meta, Canvas, Story, ArgsTable, Source, Description } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs/blocks';
 import RplHeroBanner from './HeroBanner.vue'
-import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs'
 
-<Meta title="Organisms/Banners/Hero Banner" component={ RplHeroBanner } decorators={ [withKnobs] } />
+<Meta title="Organisms/Banners/Hero Banner"  />
 
 # Hero Banner
 
@@ -13,58 +12,53 @@ import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs
 <ArgsTable of={ RplHeroBanner } />
 
 ## Hero Banner
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplHeroBanner },
+  template: `
+    <rpl-hero-banner
+      :title="title" :introText="introText"
+      :linkHeading="linkHeading" :links="links"
+      :moreLink="moreLink"
+      :theme="theme"
+      :showLinks="showLinks"
+      :logo="logo"
+      :backgroundGraphic="backgroundGraphic"
+      class="rpl-site-constrain--on-all"
+    />
+  `
+});
+
 <Canvas>
-  <Story name="Hero Banner" height="600px">
-    {
-      {
-        components: { RplHeroBanner },
-        template: `
-          <rpl-hero-banner
-            :title="title" :introText="introText"
-            :linkHeading="linkHeading" :links="links"
-            :moreLink="moreLink"
-            :theme="theme"
-            :showLinks="showLinks"
-            :logo="logo"
-            :backgroundGraphic="backgroundGraphic"
-            class="rpl-site-constrain--on-all"
-          />
-        `,
-        props: {
-          title: {
-            default: text('Title', 'This is display copy that wraps 2 lines')
-          },
-          introText: {
-            default: text('Intro Text', 'This is supplementary intro text that can also wrap over a couple of lines.')
-          },
-          linkHeading: {
-            default: text('Link Heading', 'Want to know more about...')
-          },
-          links: {
-            default: () => object('Links', [
-              { text: 'First journey based link', url: '#' },
-              { text: 'Secondary journey based link', url: '#' },
-              { text: 'Third link goes here', url: '#' },
-              { text: 'Fourth journey based link', url: '#' }
-            ])
-          },
-          moreLink: {
-            default: () => object('More Link', { text: 'See more', url: '#' })
-          },
-          theme: {
-            default: select('Theme', { dark: 'dark', light: 'light' }, 'light')
-          },
-          showLinks: {
-            default: boolean('Show Links', true)
-          },
-          logo: {
-            default: text('Logo', '/herologo.png')
-          },
-          backgroundGraphic: {
-            default: text('Background Graphic', '/bggraphiclower.png')
-          }
+  <Story
+    name="Hero Banner"
+    height="600px"
+    argTypes={{
+      theme: {
+        control: {
+          type: 'select',
+          options: ['dark', 'light']
         }
       }
-    }
+    }}
+    args={{
+      title: 'This is display copy that wraps 2 lines',
+      introText: 'This is supplementary intro text that can also wrap over a couple of lines.',
+      linkHeading: 'Want to know more about...',
+      links: [
+        { text: 'First journey based link', url: '#' },
+        { text: 'Secondary journey based link', url: '#' },
+        { text: 'Third link goes here', url: '#' },
+        { text: 'Fourth journey based link', url: '#' }
+      ],
+      moreLink: { text: 'See more', url: '#' },
+      theme: 'light',
+      showLinks: true,
+      logo: '/herologo.png',
+      backgroundGraphic: '/bggraphiclower.png'
+    }}
+  >
+    {Template.bind({})}
   </Story>
 </Canvas>

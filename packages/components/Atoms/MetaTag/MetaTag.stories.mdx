@@ -3,7 +3,13 @@ import RplMetaTag from './index.vue'
 
 <Meta title="Atoms/MetaTag" />
 
-# MetaTag
+# Installation
+```
+yarn add @dpc-sdp/ripple-meta-tag
+```
+
+# Usage
+A link component to represent tags.
 
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -13,9 +19,9 @@ export const Template = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="Link"
+    name='MetaTag'
     args={{
-      linkText: 'Metatag',
+      linkText: 'This is a content tag',
       linkUrl: '#',
       theme: "light",
     }}

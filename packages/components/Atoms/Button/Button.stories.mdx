@@ -6,15 +6,19 @@ import RplButton from '@dpc-sdp/ripple-button'
   component={RplButton}
 />
 
-# Button
+# Installation
+```
+yarn add @dpc-sdp/ripple-button
+```
 
+# Usage
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplButton },
   template: '<rpl-button :theme="theme" :href="href" :disabled="disabled">{{label}}</rpl-button>',
 });
 
-## Primary
+## Basic example
 
 <Canvas>
   <Story
@@ -28,11 +32,6 @@ export const Template = (args, { argTypes }) => ({
   >
     {Template.bind({})}
   </Story>
-</Canvas>
-
-## Secondary
-
-<Canvas>
   <Story
     name="Secondary"
     args={{
@@ -44,11 +43,6 @@ export const Template = (args, { argTypes }) => ({
   >
     {Template.bind({})}
   </Story>
-</Canvas>
-
-## Disabled
-
-<Canvas>
   <Story
     name="Disabled"
     args={{

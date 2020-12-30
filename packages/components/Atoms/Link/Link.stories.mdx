@@ -4,10 +4,15 @@ import RplTextLink from './TextLink.vue'
 
 <Meta title="Atoms/Link" />
 
-# Link
+# Installation
+```
+yarn add @dpc-sdp/ripple-link
+```
 
+# Usage
+Text links are used when a link needs to be emphasised but its appearance in a set means they require less visual prominence than a button. Links with icons are typically used in hero banners while links without icons are used in sidebar navigation components.
 
-## Link
+## Text link
 
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -17,7 +22,7 @@ export const Template = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="Link"
+    name="Text link"
     args={{
       href: '#',
       target: '',
@@ -30,7 +35,7 @@ export const Template = (args, { argTypes }) => ({
 
 <ArgsTable of={ RplLink } />
 
-## Text link
+## Text link with icon
 
 export const TemplateTextLink = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -51,7 +56,7 @@ export const TemplateTextLink = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="Text icon"
+    name="Text link with icon"
     args={{
       url: '#',
       text: 'Text Link',

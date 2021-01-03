@@ -1,6 +1,5 @@
 import coreComponents from './../config/tide.load-components'
 import logger from './logger'
-
 // The order of loading dynamic components config is custom module > custom root > core modules > core.
 const loadComponent = (name, dynamicComponentsConfig) => {
   let component = null

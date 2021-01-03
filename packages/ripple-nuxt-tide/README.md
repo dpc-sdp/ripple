@@ -33,10 +33,15 @@ You Can move some setting value into your env variables.
       password: 'yourPass' // Basic auth credential for Tide API.
     },
     site: 4, // Mandatory, should be your own site ID in Tide.
+    proxyTimeout: 60000, // Optional. Proxy request timeout. Default to 60s.
+    tideTimeout: 10000, // Optional. Tide API request timeout. Default to 10s.
+    tideListingTimeout: 30000, // Optional. Tide API listing request timeout. Default to 30s.
     // Tide core modules, 1 for enable, 0 for disable.
     // Should match the Tide backend modules.
     modules: {
+      // Core features
       site: 1,
+      preview: 1,
       // Content types
       page: 1,
       landingPage: 1,
@@ -50,12 +55,7 @@ You Can move some setting value into your env variables.
       webform: 1,
       search: 1,
       monsido: 1,
-      authenticatedContent: 1,
-      alert: 1,
-      gtm: 1
-    },
-    gtm: {
-      id: 'Your-GTM-id' // Optional if you enabled gtm module above
+      alert: 1
     },
     search: {},
     // For devOps to set custom cache purge regex patterns if needs

@@ -118,4 +118,27 @@ const truncateText = (text, stop = 150, clamp) => {
   return ''
 }
 
-export { isRelativeUrl, isExternalUrl, isAnchorLink, getAnchorLinkName, formatMoney, isClient, truncateText, decodeSpecialCharacters }
+const capitalize = (str) => typeof str === 'string' && str.length > 0 ? `${str.charAt(0).toUpperCase() + str.slice(1)}` : ''
+
+// Client side only
+const isIPadPro = () => {
+  // No god way to tell iPad Pro, this may will not work after years.
+  // https://stackoverflow.com/a/58017456/1212791
+  if (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2) {
+    return true
+  }
+  return false
+}
+
+export {
+  capitalize,
+  decodeSpecialCharacters,
+  formatMoney,
+  getAnchorLinkName,
+  isAnchorLink,
+  isClient,
+  isExternalUrl,
+  isIPadPro,
+  isRelativeUrl,
+  truncateText
+}

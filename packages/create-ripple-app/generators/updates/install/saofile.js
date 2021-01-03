@@ -27,6 +27,14 @@ module.exports = {
         }
       }
     ]
+
+    // Regenerate lock to get latest deps for the project, also avoid possible version conflicts
+    if (results.reinstall !== 'false' && results.reinstall !== false) {
+      actions.push({
+        type: 'remove',
+        files: `package-lock.json`
+      })
+    }
     return actions
   },
   async completed () {

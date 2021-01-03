@@ -1,6 +1,6 @@
 {
   "name": "ripple-app",
-  "version": "1.18.0",
+  "version": "1.19.1",
   "description": "Example Vue.js app(Not Nuxt.js) for showing how to use Ripple",
   "private": true,
   "scripts": {
@@ -14,28 +14,28 @@
     "test:dev": "cross-env NODE_ENV=test start-server-and-test serve http://localhost:3000 cy:open"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.18.0",
-    "@dpc-sdp/ripple-card": "1.18.0",
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "@dpc-sdp/ripple-button": "1.19.1",
+    "@dpc-sdp/ripple-card": "1.19.1",
+    "core-js": "^3.8.1",
+    "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@dpc-sdp/ripple-test-tools": "1.18.0",
+    "@dpc-sdp/ripple-test-tools": "1.19.1",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.1.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
-    "sass-resources-loader": "^2.0.1",
-    "start-server-and-test": "^1.7.11",
+    "sass-resources-loader": "^2.1.1",
+    "start-server-and-test": "^1.11.6",
     "svg-sprite-loader": "^4.1.6",
     "svgo": "^1.2.2",
     "svgo-loader": "^2.2.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,

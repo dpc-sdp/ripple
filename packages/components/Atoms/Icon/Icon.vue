@@ -1,7 +1,7 @@
 <!-- credits to https://github.com/Justineo/vue-awesome/blob/master/src/components/Icon.vue -->
 <template>
-  <svg v-if="icon" :class="iconClass" :style="iconStyle" :viewBox="box" aria-hidden="true" overflow="visible">
-    <template v-if="iconPropsSVG">
+  <svg v-if="icon || legacyIcon" :class="iconClass" :style="iconStyle" :viewBox="box" aria-hidden="true" overflow="visible">
+    <template v-if="legacyIcon">
       <!-- Use both xlink:href and href for browser support https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/ -->
       <use :xlink:href="'#' + iconPrefix + symbol" :href="'#' + iconPrefix + symbol"></use>
     </template>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+// TODO remove this import along with `legacyIcon`
 import { getIconProps } from './icon-library'
 let icons = {}
 
@@ -40,7 +41,7 @@ export default {
   },
   data: function () {
     return {
-      iconProperties: getIconProps(),
+      iconProperties: getIconProps(), // TODO remove this prop along with `legacyIcon`
       iconPrefix: 'rpl_icon_',
       sizes: {
         's': 0.5,
@@ -52,21 +53,28 @@ export default {
     }
   },
   computed: {
-    // TODO this is to support custom icons using svg, must be deleted when clients have converted
-    iconPropsSVG () {
-      return (this.symbol && this.iconProperties[this.iconPrefix + this.symbol] !== undefined)
+    // This is to support previous version using svg format
+    // TODO Delete any `legacyIcon` traces once changes have been rolled out to dependent websites
+    legacyIcon () {
+      return (this.symbol && this.iconProperties[`${this.iconPrefix + this.symbol}`] !== undefined)
     },
     iconClass () {
-      if (!this.icon) return ''
+      if (!this.icon && !this.legacyIcon) return ''
 
       let rtn = `rpl-icon rpl-icon--${this.symbol}`
       return this.color ? `${rtn} rpl-icon--color_${this.color}` : rtn
     },
     iconStyle () {
-      if (!this.icon) return ''
+      if (!this.icon && !this.legacyIcon) return ''
 
-      const width = this.icon.width
-      const height = this.icon.height
+      let width = this.icon ? this.icon.width ? this.icon.width : null : null
+      let height = this.icon ? this.icon.height ? this.icon.height : null : null
+      if (this.legacyIcon) {
+        let legacyIcon = this.iconProperties[`${this.iconPrefix + this.symbol}`]
+        width = legacyIcon.width
+        height = legacyIcon.height
+      }
+
       let size = (this.sizes[this.size] === undefined) ? parseFloat(this.size) : this.sizes[this.size]
       size = isNaN(size) ? 1 : size
 

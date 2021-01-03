@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-global",
-  "version": "1.18.0",
+  "version": "1.19.1",
   "description": "The core styles and utilities used by all ripple components. Includes sets of colours, fonts, breakpoints.",
   "license": "Apache-2.0",
   "main": "./index.js",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "masonry-layout": "^4.2.1",
-    "moment": "^2.22.1",
+    "moment": "^2.29.1",
     "object-fit-images": "^3.2.3",
     "vue-focus": "^2.1.0"
   },

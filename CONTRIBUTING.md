@@ -1,60 +1,102 @@
 # Contributing to Ripple
 
-## Development Guide
-
-### Prerequisites
+## Prerequisites
 
 Please have the *latest* stable versions of the following on your machine
 
 - node
-- npm
+- yarn
 
-### Local environment setup
+## Local environment setup
+
+### Ripple component library
 
 We are using [Storybook](https://storybook.js.org/) as development environment
 for UI components. It allows you to browse a component library, view the
 different states of each component, and interactively develop and test components.
 
-Without Docker and Bay, you can start the server as below. But we recommend you
-to use [Docker](#work-in-docker) which provide docker container enviorment.
-
 ``` bash
 # install dependencies
-npm install
+yarn
 
 # Start the storybook server
-npm start
+yarn start:storybook
 ```
 
-#### Lint code
+### Tide integration
+
+Apart from Ripple component library, we have several packages used for Nuxt.js app and Tide integration.
+
+You can use our example app for the work. The example application requires a working [Tide](https://github.com/dpc-sdp/tide) Drupal installation to connect to.
+
+Ensure a populated `.env` exists within the `/examples/vic-gov-au/` directory.
+You can use `/examples/vic-gov-au/example.env` as a template.
+
+```bash
+# install dependencies
+yarn
+
+# Start the storybook server
+yarn start:example
+
+```
+
+## Test
+
+### Lint code
 
 ``` bash
-# Boolean check if code conforms to linting rules - uses sass-lint, eslint & markdownlint
-npm run lint
+yarn lint
 ```
 
-#### Test
+### Unit Test
+
+#### Storybook testing
+
+Add all components into storybook.
+
+Run `yarn test:unit` to test [Storyshots](https://www.npmjs.com/package/@storybook/addon-storyshots).
+
+New storytest will be added automatically at first time.
+Update storyshots tests if you need by `yarn test:unit -u`.
 
 ``` bash
-# We uses Jest for unit test and snapshots test
-npm test
+# We use Jest for unit test and snapshots test
+yarn test:unit
 ```
 
-Before commit changes, run test first. If new Ripple components changed, we
-should update snapshots by `npm test -- -u`. Then add it in commit.
+### Unit testing
 
-#### Documentation
+Unit tests are important. They help us secure our processes and work flows, ensuring that the most critical parts of our projects are protected from accidental mistakes or oversights in our development. We use both Jest and Vue testing utility called [vue-test-utils](https://vue-test-utils.vuejs.org/).
+
+### End to end testing
+
+[Cypress](https://www.cypress.io/) end to end testing is used for testing our Tide integration.
+
+Most of the tests are maintained in `ripple-test-tools` package.
 
 ``` bash
-# Generate README.md for all modules in `./packages/` directory
-npm run docs
+yarn test:e2e
 ```
 
-#### Updating ripple depdendencies
+## Release
+
+We use [lerna](https://github.com/lerna/lerna) to manage packages in this monorepo. The details are documented internally.
+
+## Documentation
+
+``` bash
+# Update docs automatically
+cd src && yarn docs
+```
+
+**Note: there is a issue in generate storybook link for mdx stories, will be fixed after MDX docs migration**
+
+### Updating ripple dependencies
 
 ``` bash
 # Update all ripple dependencies (./package.json & ./packages/**/package.json)
-npm run package-dependencies
+cd src && yarn package-dependencies
 ```
 
 This script requires:
@@ -62,115 +104,55 @@ This script requires:
 - Each ripple component package to have a `package.json` file with `name`
 - The root directory to have a `lerna.json` file with `version`
 
-#### Create new packages
+### Create new packages
 
 ``` bash
 # Generate a new package in the `./packages/**/` directory
-npm run new-package "[Name]" "[Description]" "[Atoms / Molecules / Organisms]"
+cd src && yarn new-package "[Name]" "[Description]" "[Atoms / Molecules / Organisms]"
 ```
 
 Example: Creating a new package 'My Package' in the Organism folder:
 
 ``` bash
-npm run new-package "My Package" "A demonstration package." "Organisms"
+cd src && yarn new-package "My Package" "A demonstration package." "Organisms"
 ```
 
 After creating a new package:
 
-- Generate the readme using `npm run docs`.
-- Update `package.json` by using `npm run package-dependencies`.
-
-A `demoData.js` entry will need to be manually included.
-
-### Work in Docker
-
-We recommend you work in our Docker environment.
-
-1. Install Docker
-   - Install [Homebrew](https://brew.sh/)
-
-   ```bash
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   ```
-
-   - Install docker `brew cask install docker`
-   (You can also install it manually if you prefer - [https://www.docker.com/docker-mac](https://www.docker.com/docker-mac))
-2. Start docker and you should be able to run `docker ps`
-3. Checkout project repo and confirm the path is in docker's file sharing
-    config - [https://docs.docker.com/docker-for-mac/#file-sharing](https://docs.docker.com/docker-for-mac/#file-sharing)
-4. Make sure that `node`, `npm` & `pygmy` are installed
-   - Install pygmy `gem install pygmy` (you might need sudo for this depending
-     on your ruby configuration)
-   - If you haven't installed `node` yet. Recommand to install `node` & `npm`
-     by [`nvm`](https://github.com/creationix/nvm)
-5. Make sure you don't have anything running on port 80 on the host machine
-   (like a web server) then go to the project root run `pygmy up`
-6. Run `npm run bay:start`
-7. Once build has completed, you can run `npm run bay:logs -- --follow` to view
-   the real-time logs.
-8. If you want to ssh into the container, use `docker-compose exec ripple sh`
-
-_If any steps fail you're safe to rerun from any point, starting again from the
-beginning will just reconfirm the changes._
-
-Local URL -- [http://ripple.docker.amazee.io/](http://ripple.docker.amazee.io/)
-
-#### Available workflow commands
-
-- `npm run bay:start` - build and start local development environment.
-- `npm run bay:stop` - stop all Bay containers.
-- `npm run bay:rebuild-full` - rebuild and start local development environment.
-- `npm run bay:destroy` - stop and remove all Bay containers.
-- `npm run bay:logs` - get logs from all running Bay containers.
-- `npm run bay:cli` - run a command in `node` container.
-   Example: `npm run bay:cli -- ls -al`.
-- `npm run bay:pull` - pull latest Bay containers.
-- `npm run bay:test` - Run tests.
-
-#### Logs
-
-Using the npm run helper script you can get logs from any running container.
-
-`npm run bay:logs`
-
-To continue streaming logs, use `--follow`.
-`npm run bay:logs -- --follow`
-
-You can also filter the output to show only logs from a particular service.
-For example `npm run bay:logs -- ripple` will show the log output from the node container.
-The full list of services can be found in the `docker-compose.yml`
-
-#### SSHing into Ripple container
-
-`docker-compose exec ripple sh`
+- Generate the readme using `yarn docs`.
+- Update `package.json` by using `yarn package-dependencies`.
 
 ## Directory Structure
 
-### The `.storybook` Directory
+### The `packages` Directory
 
-Storybook configuration directory
-
-### The `docs` Directory
-
-Documents
+This directory contains our packages. `components` subfolder contains all Ripple components.
 
 ### The `src` Directory
 
-This directory contains custom components for storybook site use.
+This directory contains storybook site app code.
 
-### The `packages` Directory
+### The `examples` Directory
 
-This directory contains Ripple components packages.
+This directory contains example code for demo how to use Ripple.
 
-### The `static` Directory
+### The `scripts` Directory
 
-**Assets for Ripple component should not be added in here.**
+This directory contains scripts for project maintaining purpose.
 
-This directory contains static files for our storybook site. For example, images
-used for demo purpose.
+## Coding standards
 
-Then you can use the image in any `story.js` by path like `'/logo.svg'`.
+### CSS
 
-### The `storybook-static` Directory
+When we write css for Ripple component, a `rpl` prefix is needed.
+Use [BEM](http://getbem.com/introduction/) methodology to name css class.
 
-Auto generated by `build-storybook` for static app deployment.
+- **Component class name:**  .rpl-[component-name]
+- **Element class name:**  .rpl-[component-name]__[element-name]
+- **Modifier class name:**  .rpl-[component-name]--[modifier-name]
+
+Formatting rules is defined in `.sass-lint.yml`.
+
+### Javascript
+
+ESLint configuration is in `.eslintrc.js`.

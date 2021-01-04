@@ -8,7 +8,7 @@
     "start": "start-storybook -p 6006 -s ./static",
     "build-storybook": "cross-env NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public",
     "test:unit": "cross-env NODE_ENV=test jest --colors",
-    "docs": "node ./scripts/generate-readme/generate-readme.js",
+    "docs": "node ./scripts/generate-readme/generate-readme.js && node ./scripts/generate-package-list",
     "new-component": "node ./scripts/generate-component/generate-component.js",
     "package-dependencies": "node ./scripts/generate-dependencies/generate-dependencies.js"
   },

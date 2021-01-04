@@ -31,7 +31,7 @@
       </div>
       <rpl-row row-gutter v-if="pager">
         <slot name="pagination">
-          <rpl-col cols="full" :colsBp="{ m: 6, l: 4, xxxl: 3 }">
+          <rpl-col cols="full" :colsBp="pagerColsBp">
             <rpl-pagination
               :totalSteps="pager.totalSteps"
               :initialStep="pager.initialStep"
@@ -87,7 +87,13 @@ export default {
       default: 'Search isn\'t working right now, please try again later.'
     },
     count: Number,
-    loading: Boolean
+    loading: Boolean,
+    pagerColsBp: {
+      type: Object,
+      default () {
+        return { m: 6, l: 4, xxxl: 3 }
+      }
+    }
   },
   computed: {
     range () {

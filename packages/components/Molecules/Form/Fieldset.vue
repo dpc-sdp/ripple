@@ -19,6 +19,8 @@ export default {
 $rpl-fieldset-col-padding: $rpl-space-3;
 $rpl-fieldset-legend-margin: 0 0 $rpl-space-4 $rpl-space-3;
 $rpl-fieldset-margin: $rpl-space-4 0;
+$rpl-fieldset-legend-color: rpl-color('extra_dark_neutral') !default;
+$rpl-fieldset-legend-ruleset: ('m', 1.2em, 'bold') !default;
 
 .rpl-fieldset {
   $root: &;
@@ -26,8 +28,9 @@ $rpl-fieldset-margin: $rpl-space-4 0;
   legend {
     display: flex;
     flex: 0 1 100%;
-    @include rpl_typography_ruleset(('m', 1.2em, 'bold'));
+    @include rpl_typography_ruleset($rpl-fieldset-legend-ruleset);
     margin: $rpl-fieldset-legend-margin;
+    color: $rpl-fieldset-legend-color;
   }
 
   &__inner {

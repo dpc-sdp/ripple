@@ -69,11 +69,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -156,11 +156,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -243,11 +243,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -330,11 +330,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -417,11 +417,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -504,11 +504,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -591,11 +591,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -678,11 +678,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -765,11 +765,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -852,11 +852,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -939,11 +939,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -1026,11 +1026,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -1113,11 +1113,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -1200,11 +1200,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -1287,11 +1287,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -1374,11 +1374,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -1461,11 +1461,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->
@@ -1548,11 +1548,11 @@ exports[`RippleStoryshots Molecules/Search/SearchResultsLayout With Cards 1`] = 
               </span>
             </p>
              
-            <p
+            <div
               class="rpl-card-profile__summary"
             >
               Journalist, comedian, feminist and fierce disability activist.
-            </p>
+            </div>
           </div>
            
           <!---->

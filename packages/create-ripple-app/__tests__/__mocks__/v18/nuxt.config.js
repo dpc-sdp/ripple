@@ -68,12 +68,7 @@ export default {
       search: 1,
       authenticatedContent: 1,
       alert: 1,
-      gtm: 1,
       site: 1
-    },
-    gtm: {
-      // Set Google Tag Manager ID here
-      id: process.env.GTM_ID
     },
     search: {
       service: process.env.SEARCH_SERVICE,

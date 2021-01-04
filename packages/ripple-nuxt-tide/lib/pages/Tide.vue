@@ -226,11 +226,7 @@ export default {
       return false
     },
     siteSectionName () {
-      let sectionName = ''
-      if (this.page.appSection) {
-        sectionName = this.page.appSection.name ? this.page.appSection.name : ''
-      }
-      return sectionName
+      return this.page.appSection?.name
     }
   },
   async asyncData (context) {

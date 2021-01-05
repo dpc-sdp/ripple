@@ -5,11 +5,7 @@ const resolve = (dir) => {
 }
 
 module.exports = {
-  stories: [
-    '../../packages/components/**/stories.js',
-    '../../packages/components/**/*.stories.js',
-    '../../packages/components/**/*.stories.mdx'
-  ],
+  stories: [resolve('../packages/components/**/*.stories.mdx')],
   logLevel: 'debug',
   addons: [
     '@storybook/addon-a11y',

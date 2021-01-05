@@ -76,7 +76,7 @@ export default {
       },
       header: {
         logo: _store.state.tide.siteData.siteLogo,
-        breakpoint: 992,
+        breakpoint: 1200,
         links: _store.state.tide.siteData.hierarchicalMenus.menuMain,
         sticky: true
       },

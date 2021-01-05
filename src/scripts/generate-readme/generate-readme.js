@@ -267,16 +267,21 @@ const tags = {
     }),
     generate: (packageJSON, directory) => {
       let storybookParams = []
-      let storyFile = fs.readFileSync(directory + 'stories.js', 'utf8')
-      let stories = getStoryOutline(storyFile)
-      stories.forEach(story => {
-        story.add.forEach(add => {
-          storybookParams.push(add)
+      try {
+        let storyFile = fs.readFileSync(directory + 'stories.js', 'utf8')
+        let stories = getStoryOutline(storyFile)
+        stories.forEach(story => {
+          story.add.forEach(add => {
+            storybookParams.push(add)
+          })
         })
-      })
-      return stripHtmlComments(tags.usageandtests.twig.render({
-        storybookParams: storybookParams
-      }))
+        return stripHtmlComments(tags.usageandtests.twig.render({
+          storybookParams: storybookParams
+        }))
+      } catch (e) {
+        // TODO: Update this function after we migrated all stories to mdx in https://github.com/dpc-sdp/ripple/pull/844.
+        console.error(new Error('Failed to generate "Usage and Tests" doc for ' + directory))
+      }
     }
   },
   license: {

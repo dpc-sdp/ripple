@@ -41,6 +41,11 @@ module.exports = {
     message: 'Enter auth password',
     default: ''
   },
+  oauthclientid: {
+    name: 'oauthclientid',
+    message: 'Enter backend content OAuth client id',
+    default: ``
+  },
   gtmtoken: {
     name: 'gtmtoken',
     message: 'Enter Google Tag Manager Token',

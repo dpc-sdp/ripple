@@ -28,27 +28,9 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
             <div
               class="rpl-site-header__logo-container-inner"
             >
-              <button
-                aria-expanded="false"
-                class="rpl-site-header__btn rpl-site-header__btn--menu"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="rpl-icon rpl-icon--hamburger rpl-icon--color_white"
-                  overflow="visible"
-                  style="width: 18px; height: 14px;"
-                  viewBox="0 0 18 14"
-                >
-                  <path
-                    d="M0 1a1 1 0 011-1h8a1 1 0 110 2H1a1 1 0 01-1-1zM0 5a1 1 0 011-1h16a1 1 0 110 2H1a1 1 0 01-1-1zM0 9a1 1 0 011-1h12a1 1 0 110 2H1a1 1 0 01-1-1zM0 13a1 1 0 011-1h16a1 1 0 110 2H1a1 1 0 01-1-1z"
-                  />
-                   
-                </svg>
-                 
-                <span>
-                  Menu
-                </span>
-              </button>
+              <!---->
+               
+              <!---->
                
               <div
                 class="rpl-site-header__title rpl-site-header__logo-container--vic-logo-primary rpl-site-header__logo-container--vic-logo-primary--cobrand"
@@ -68,6 +50,10 @@ exports[`RippleStoryshots Organisms/SiteHeader Site Header 1`] = `
                   </span>
                 </a>
               </div>
+               
+              <div
+                class="rpl-site-header__divider rpl-site-header__divider--cobrand rpl-site-header__divider--011"
+              />
                
               <div
                 class="rpl-site-header__title"

@@ -10,7 +10,7 @@
         </div>
         <div class="rpl-intro-banner__main">
           <h2 v-if="title" class="rpl-intro-banner__title"><span>{{ title }}</span></h2>
-          <p v-if="introText" class="rpl-intro-banner__description" v-html="introText"></p>
+          <div v-if="introText" class="rpl-intro-banner__description" v-html="introText"></div>
         </div>
       </div>
       <div class="rpl-intro-banner__right" v-if="showLinks">
@@ -203,6 +203,7 @@ export default {
       @include rpl_typography_ruleset($rpl-intro-banner-description-typography-ruleset);
       @include rpl_text_color($rpl-intro-banner-description-text-color);
       margin-top: $rpl-space;
+      margin-bottom: $rpl-space;
 
       @include rpl_breakpoint(s) {
         margin-top: $rpl-space-2;

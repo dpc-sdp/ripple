@@ -2,8 +2,8 @@
   <div class="app-error">
     <h1 class="rpl-visually-hidden">Oops</h1>
     <img class="app-error-img" alt="oops" title="oops graphic" :src="errorMsg.img">
-    <p class="app-error-intro" v-html="errorMsg.intro"></p>
-    <p class="app-error-main" v-html="errorMsg.main"></p>
+    <div class="app-error-intro" v-html="errorMsg.intro"></div>
+    <div class="app-error-main" v-html="errorMsg.main"></div>
 
     <rpl-button class="app-error-cta" theme="primary" :href="errorMsg.cta.url" >{{errorMsg.cta.text}}</rpl-button>
   </div>

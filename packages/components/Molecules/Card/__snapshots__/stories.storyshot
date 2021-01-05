@@ -2357,11 +2357,11 @@ exports[`RippleStoryshots Molecules/Card/Card Profile Default 1`] = `
         </span>
       </p>
        
-      <p
+      <div
         class="rpl-card-profile__summary"
       >
         Journalist, comedian, feminist and fierce disability activist.
-      </p>
+      </div>
     </div>
      
     <!---->

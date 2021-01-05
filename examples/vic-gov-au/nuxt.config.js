@@ -49,7 +49,8 @@ export default {
     ['@nuxtjs/robots', {
       UserAgent: '*',
       Disallow: '/'
-    }]
+    }],
+    '@nuxtjs/gtm'
   ],
   /*
   ** Build
@@ -97,6 +98,15 @@ export default {
       ]
     }
   },
+  gtm: {
+    // Enable below two lines to debug in dev mode
+    // enabled: true,
+    // debug: true,
+    id: process.env.GTM_ID,
+    pageTracking: true,
+    pageViewEventName: 'routeChange',
+    noscript: false
+  },
   /*
   ** styleResources
   * Override the path to the theme customisation scss
@@ -123,7 +133,7 @@ export default {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     },
-    site: 4,
+    site: '4',
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {
       site: 1,
@@ -143,12 +153,8 @@ export default {
       webform: 1,
       search: 1,
       authenticatedContent: 1,
-      alert: 1,
-      gtm: 1
-    },
-    gtm: {
-      // Set Google Tag Manager ID here
-      id: process.env.GTM_ID
+      preview: 1,
+      alert: 1
     },
     search: {
       service: process.env.SEARCH_SERVICE,

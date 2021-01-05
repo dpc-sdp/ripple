@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/create-ripple-app",
-  "version": "1.16.0",
+  "version": "1.19.3",
   "description": "Create a ripple app in seconds!",
   "bin": {
     "create-ripple-app": "cli.js"
@@ -13,10 +13,10 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "compare-versions": "^3.5.1",
+    "compare-versions": "^3.6.0",
     "jscodeshift": "^0.6.4",
-    "minimist": "^1.2.0",
-    "sao": "^1.6.1",
+    "minimist": "^1.2.5",
+    "sao": "^1.7.1",
     "validate-npm-package-name": "^3.0.0"
   },
   "license": "MIT"

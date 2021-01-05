@@ -1,0 +1,7 @@
+- entity: share_link_token
+  token: a483c5da-99e1-41a3-8335-2dbd2648be65
+  uid: 1
+  status: 1
+  nid: 90911
+  expiry: 2147483647
+  name: "Share Landing Page \"1-FE-share-links-1\" (90911) by sdp.devs"

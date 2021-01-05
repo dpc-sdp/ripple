@@ -361,7 +361,7 @@ storiesOf('Molecules/Card/Card Event', module)
         default: text('Date Start', '2018-07-10T09:00:00.000+10:00')
       },
       dateEnd: {
-        default: text('Date Start', '2018-07-11T09:00:00.000+10:00')
+        default: text('Date End', '2018-07-11T09:00:00.000+10:00')
       },
       location: {
         default: text('Location', 'South Yarra')

@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils'
 import CardPromo from '../CardPromo'
 
 describe('CardPromo', () => {
-  it('returns status icon data properly.', () => {
+  it('returns status icon data properly.', async () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
         title: 'Promo card',
@@ -19,19 +19,19 @@ describe('CardPromo', () => {
       color: 'danger'
     })
 
-    wrapper.setProps({ status: 'open' })
+    await wrapper.setProps({ status: 'open' })
     expect(wrapper.vm.statusIcon).toEqual({
       symbol: 'success',
       color: 'success'
     })
 
-    wrapper.setProps({ status: 'anything' })
+    await wrapper.setProps({ status: 'anything' })
     expect(wrapper.vm.statusIcon).toEqual({
       symbol: 'success',
       color: 'success'
     })
 
-    wrapper.setProps({ status: '' })
+    await wrapper.setProps({ status: '' })
     expect(wrapper.vm.statusIcon).toBeUndefined()
   })
 

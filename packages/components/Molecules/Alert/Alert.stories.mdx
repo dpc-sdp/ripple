@@ -5,6 +5,7 @@ import RplAlertBase from './AlertBase.vue'
 <Meta title="Molecules/Alert" />
 
 # Alert
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/Alert/README.md) for more information about how to install and setup the component.
 
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -17,7 +18,7 @@ export const Template = (args, { argTypes }) => ({
   template: '<rpl-alert :title="title" :type="type" :link="link" :id="alertId" @rplAlertClose="close" />'
 });
 
-## Alert
+## Basic example
 
 <Canvas>
   <Story

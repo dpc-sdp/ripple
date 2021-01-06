@@ -24,7 +24,7 @@ describe('RplTextIcon', () => {
         color: 'primary',
         placement: 'after',
         size: 'm',
-        text: 'Lorem ipsum dolor sit amet '
+        text: '    Lorem ipsum dolor sit amet '
       }
     })
 
@@ -38,7 +38,7 @@ describe('RplTextIcon', () => {
         color: 'primary',
         placement: 'after',
         size: 'm',
-        text: 'Lorem ipsum dolor sit amet '
+        text: '   Lorem ipsum dolor sit amet '
       }
     })
 
@@ -52,15 +52,15 @@ describe('RplTextIcon', () => {
         color: 'primary',
         placement: 'after',
         size: 'm',
-        text: 'Lorem ipsum dolor sit amet '
+        text: '   Lorem ipsum dolor sit amet  '
       }
     })
 
-    expect(wrapper.vm.textLastWord).toEqual(' amet ')
+    expect(wrapper.vm.textLastWord).toEqual('amet')
 
     // Text without trailing space
     wrapper.setProps({ text: 'Lorem ipsum dolor sit amet' })
-    expect(wrapper.vm.textLastWord).toEqual(' amet')
+    expect(wrapper.vm.textLastWord).toEqual('amet')
   })
 
   it('returns text without the first word correctly', () => {
@@ -70,11 +70,11 @@ describe('RplTextIcon', () => {
         color: 'primary',
         placement: 'after',
         size: 'm',
-        text: ' Lorem ipsum dolor sit amet '
+        text: '   Lorem ipsum dolor sit amet  '
       }
     })
 
-    expect(wrapper.vm.textWithoutFirstWord).toEqual(' ipsum dolor sit amet ')
+    expect(wrapper.vm.textWithoutFirstWord).toEqual('ipsum dolor sit amet')
 
     // Test text without trailing spaces
     wrapper.setProps({ text: 'Lorem ipsum dolor sit amet' })
@@ -88,15 +88,29 @@ describe('RplTextIcon', () => {
         color: 'primary',
         placement: 'after',
         size: 'm',
-        text: ' Lorem ipsum dolor sit amet '
+        text: '   Lorem ipsum dolor sit amet   '
       }
     })
 
-    expect(wrapper.vm.textFirstWord).toEqual(' Lorem')
+    expect(wrapper.vm.textFirstWord).toEqual('Lorem')
 
     // Test text without trailing spaces
     wrapper.setProps({ text: 'Lorem ipsum dolor sit amet' })
-    expect(wrapper.vm.textFirstWord).toEqual('Lorem ')
+    expect(wrapper.vm.textFirstWord).toEqual('Lorem')
+  })
+
+  it('splits text and convert to array properly', () => {
+    const wrapper = shallowMount(RplTextIcon, {
+      propsData: {
+        symbol: 'search',
+        color: 'secondary',
+        placement: 'before',
+        text: '    Lorem ipsum dolor sit amet '
+      }
+    })
+
+    expect(wrapper.vm.textWordCount).toEqual(5)
+    expect(wrapper.vm.textArray).toEqual(['Lorem', 'ipsum', 'dolor', 'sit', 'amet'])
   })
 
   it('returns icon props accordingly', () => {

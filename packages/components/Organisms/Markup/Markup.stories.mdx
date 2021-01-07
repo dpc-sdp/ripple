@@ -4,30 +4,18 @@ import RplMarkup from './Markup.vue'
 <Meta title="Organisms/Markup" component={ RplMarkup } />
 
 # Markup
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Organisms/Markup/README.md) for more information about how to install and setup the component.
 
-## Installation
+## Basic example
 
-```bash
-npm install @dpc-sdp/ripple-markup --save
-```
-
-## Import
-
-```javascript
-import { RplMarkup } from '@dpc-sdp/ripple-markup'
-```
-
-## Usage
 ````html
 <rpl-markup
   :html="html"
 />
 ````
 
-## Props
 <ArgsTable of={RplMarkup} />
 
-## Default
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplMarkup },

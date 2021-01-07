@@ -34,11 +34,11 @@ export default {
   name: 'RplButton',
   props: {
     /**
-     * The URL destination of button.
+     * The URL destination of when button is clicked.
      */
     href: String,
     /**
-     * Theme of button e.g. primary, secondary.
+     * Button theme or colour styling e.g. primary, secondary.
      */
     theme: String,
     /**

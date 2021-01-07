@@ -9,7 +9,10 @@ import { RplCardProfile } from '@dpc-sdp/ripple-card'
 
 <Meta title="Molecules/Search" />
 
-## Search form
+## Search
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/DescriptionList/README.md) for more information about how to install and setup the component.
+
+## Basic example
 
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -113,8 +116,6 @@ export const Template = (args, { argTypes }) => ({
 
 <ArgsTable of={RplSearchForm} />
 
-## Search result
-
 export const TemplateSearch = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplSearchResult },
@@ -159,8 +160,6 @@ export const TemplateSearch = (args, { argTypes }) => ({
 </Canvas>
 
 <ArgsTable of={RplSearchResult} />
-
-## Search result wrapped in RplSearchResultsLayout
 
 export const getItems = (item, count) => {
   const items = []
@@ -230,8 +229,6 @@ export const TemplateSearchLayout = (args, { argTypes }) => ({
   </Story>
 </Canvas>
 
-## Search results wrapped in RplSearchResultsLayout with RplCardProfile content
-
 export const TemplateSearchLayoutWithCards = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplSearchResultsLayout, RplCol, RplCardProfile },
@@ -280,8 +277,6 @@ export const TemplateSearchLayoutWithCards = (args, { argTypes }) => ({
     {TemplateSearchLayoutWithCards.bind({})}
   </Story>
 </Canvas>
-
-## Search result wrapped in RplSearchResultsLayout with RplSearchResultsTable content
 
 export const TemplateSearchLayoutWithTable = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -337,8 +332,6 @@ export const TemplateSearchLayoutWithTable = (args, { argTypes }) => ({
     {TemplateSearchLayoutWithTable.bind({})}
   </Story>
 </Canvas>
-
-## Demo search results table
 
 export const TemplateSearchResultTableCustomContent = (args, { argTypes }) => ({
   props: Object.keys(argTypes),

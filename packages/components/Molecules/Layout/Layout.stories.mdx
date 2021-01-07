@@ -5,7 +5,11 @@ import SSiteLayout from './../../../../src/storybook-components/SiteLayout.vue'
 
 <Meta title="Molecules/Layout" />
 
-## Base layout
+# Layout
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/Layout/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplBaseLayout },
@@ -33,7 +37,6 @@ export const Template = (args, { argTypes }) => ({
 
 <ArgsTable of={RplBaseLayout} />
 
-## Site layout
 export const TemplateSiteLayout = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { SSiteLayout },
@@ -62,7 +65,6 @@ export const TemplateSiteLayout = (args, { argTypes }) => ({
 
 <ArgsTable of={SSiteLayout} />
 
-## Page layout
 export const TemplatePageLayout = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplPageLayout },

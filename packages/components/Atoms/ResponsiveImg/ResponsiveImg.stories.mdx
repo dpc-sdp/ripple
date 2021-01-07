@@ -4,7 +4,9 @@ import RplResponsiveImg from './ResponsiveImg.vue'
 <Meta title="Atoms/ResponsiveImg" />
 
 # ResponsiveImg
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Atoms/ResponsiveImg/README.md) for more information about how to install and setup the component.
 
+## Basic example
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplResponsiveImg },
@@ -13,7 +15,7 @@ export const Template = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="Default"
+    name="ResponsiveImg"
     args={{
       src: 'https://images.unsplash.com/photo-1591302418462-eb55463b49d6',
       focalPoint: { x:0, y:0},

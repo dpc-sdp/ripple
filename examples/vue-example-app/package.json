@@ -21,9 +21,9 @@
   },
   "devDependencies": {
     "@dpc-sdp/ripple-test-tools": "1.19.3",
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
+    "@vue/cli-plugin-babel": "^4.5.10",
+    "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-service": "^4.5.10",
     "babel-eslint": "^10.1.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
@@ -32,9 +32,6 @@
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^2.1.1",
     "start-server-and-test": "^1.11.6",
-    "svg-sprite-loader": "^4.1.6",
-    "svgo": "^1.2.2",
-    "svgo-loader": "^2.2.0",
     "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {

@@ -69,7 +69,7 @@
     "@storybook/vue": "^5.3.20",
     "axe-core": "^3.2.2",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.1",
+    "babel-loader": "^8.2.2",
     "babel-preset-vue": "^2.0.2",
     "eslint-loader": "^2.1.2",
     "file-loader": "^4.0.0",

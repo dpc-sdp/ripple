@@ -13,7 +13,7 @@ const isRelativeUrl = (url) => {
     return false
   }
 
-  var reg = new RegExp('^(?!(?:[a-z]+:)?//)', 'i')
+  const reg = new RegExp('^(?!(?:[a-z]+:)?//)', 'i')
   return reg.test(url)
 }
 

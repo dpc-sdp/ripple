@@ -298,9 +298,9 @@ module.exports = class TideAdmin {
     const previewLink =
       testData.moderationState === 'draft'
         ? await page.$eval('.node-revision-preview-links a', el => {
-          const url = el.getAttribute('href')
-          return url.substr(url.indexOf('/preview/'))
-        })
+            const url = el.getAttribute('href')
+            return url.substr(url.indexOf('/preview/'))
+          })
         : null
 
     // Cleanup

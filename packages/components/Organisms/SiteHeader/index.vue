@@ -220,7 +220,7 @@ export default {
       }
     },
     windowResize: function (e) {
-      var w = window.innerWidth || document.documentElement.clientWidth
+      const w = window.innerWidth || document.documentElement.clientWidth
       if (!isIPadPro() && w >= this.breakpoint && (this.menuWideEnabled || this.menuWideEnabled === null)) {
         // Desktop.
         this.menuWideEnabled = false

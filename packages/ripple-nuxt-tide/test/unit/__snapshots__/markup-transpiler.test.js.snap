@@ -2,10 +2,10 @@
 
 exports[`Markup transpiler should able transpile html into vue template with plugins 1`] = `
 "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<rpl-text-link url=\\"http://google.com\\" theme=\\"primary\\" text=\\"&lt;&gt;&amp;&apos;&quot;©. ½ € 中文\\"></rpl-text-link>
+<rpl-text-link :url=\\"linkData0.href\\" theme=\\"primary\\" :text=\\"linkData0.text\\"></rpl-text-link>
 <h4>Sort out your&apos;&gt;&lt;&amp;&apos;&quot;s finances</h4>
 
-<p><rpl-text-link url=\\"https://www.test.dev/test\\" theme=\\"primary\\" text=\\"Here is a irregular white space\\"></rpl-text-link> Another irregular white space.</p>
+<p><rpl-text-link :url=\\"linkData1.href\\" theme=\\"primary\\" :text=\\"linkData1.text\\"></rpl-text-link> Another irregular white space.</p>
 <p> </p>
 <img src=\\"https://test.dev/test.jpeg\\" title=\\"&quot;Needles, Knots &amp; Threads&quot;- an Exhibition of Embroidery &amp; Quilting\\">
 <p> </p>
@@ -14,7 +14,7 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 <h2 id=\\"this-is-a-heading-2\\">This is a heading 2</h2>
 
 <!-- pluginLinks -->
-<rpl-text-link url=\\"/test\\" theme=\\"primary\\" text=\\"A test link &lt;&amp;&apos;&quot;\\"></rpl-text-link>
+<rpl-text-link :url=\\"linkData2.href\\" theme=\\"primary\\" :text=\\"linkData2.text\\"></rpl-text-link>
 
 <!-- pluginIframe -->
 <div class=\\"rpl-markup__iframe-container rpl-markup__iframe-container--default\\"><iframe src=\\"https://ripple.sdp.vic.gov.au\\"></iframe></div>

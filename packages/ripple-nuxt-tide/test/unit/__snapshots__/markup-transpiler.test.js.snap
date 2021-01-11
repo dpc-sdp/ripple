@@ -2,19 +2,19 @@
 
 exports[`Markup transpiler should able transpile html into vue template with plugins 1`] = `
 "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<rpl-text-link url=\\"http://google.com\\" theme=\\"primary\\" text=\\"<>&amp;'&quot;©. ½ € 中文\\"></rpl-text-link>
-<h4>Sort out your'&gt;&lt;&amp;'\\"s finances</h4>
+<rpl-text-link :url=\\"linkData0.href\\" theme=\\"primary\\" :text=\\"linkData0.text\\"></rpl-text-link>
+<h4>Sort out your&apos;&gt;&lt;&amp;&apos;&quot;s finances</h4>
 
-<p><rpl-text-link url=\\"https://www.test.dev/test\\" theme=\\"primary\\" text=\\"Here is a&nbsp;irregular white space\\"></rpl-text-link>&nbsp;Another irregular white space.</p>
-<p>&nbsp;</p>
+<p><rpl-text-link :url=\\"linkData1.href\\" theme=\\"primary\\" :text=\\"linkData1.text\\"></rpl-text-link> Another irregular white space.</p>
+<p> </p>
 <img src=\\"https://test.dev/test.jpeg\\" title=\\"&quot;Needles, Knots &amp; Threads&quot;- an Exhibition of Embroidery &amp; Quilting\\">
-<p>&nbsp;</p>
+<p> </p>
 
 <!-- parseForLinks -->
 <h2 id=\\"this-is-a-heading-2\\">This is a heading 2</h2>
 
 <!-- pluginLinks -->
-<rpl-text-link url=\\"/test\\" theme=\\"primary\\" text=\\"A test link <&amp;'&quot;\\"></rpl-text-link>
+<rpl-text-link :url=\\"linkData2.href\\" theme=\\"primary\\" :text=\\"linkData2.text\\"></rpl-text-link>
 
 <!-- pluginIframe -->
 <div class=\\"rpl-markup__iframe-container rpl-markup__iframe-container--default\\"><iframe src=\\"https://ripple.sdp.vic.gov.au\\"></iframe></div>
@@ -32,9 +32,9 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 </tbody></table></div>
 
 <!-- pluginEmbeddedMediaVideo -->
-<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/Xb4ElZqit8k?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"link\\" :display-transcript=\\"true\\" :media-link=\\"embeddedMediaVideoData0.mediaLink\\" transcript=\\"Some video caption text <&amp;'&quot;\\"></rpl-embedded-video>
+<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/Xb4ElZqit8k?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"link\\" :display-transcript=\\"true\\" :media-link=\\"embeddedMediaVideoData0.mediaLink\\" transcript=\\"Some video caption text &lt;&amp;&apos;&quot;\\"></rpl-embedded-video>
 
-<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"link\\" :display-transcript=\\"true\\" :media-link=\\"embeddedMediaVideoData1.mediaLink\\" transcript=\\"Some video caption text <&amp;'&quot;\\"></rpl-embedded-video>
+<rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"link\\" :display-transcript=\\"true\\" :media-link=\\"embeddedMediaVideoData1.mediaLink\\" transcript=\\"Some video caption text &lt;&amp;&apos;&quot;\\"></rpl-embedded-video>
 
 <rpl-embedded-video width=\\"854\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" class=\\"rpl-markup__embedded-video\\" variant=\\"full\\" :display-transcript=\\"true\\"></rpl-embedded-video>
 
@@ -54,20 +54,20 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 <article class=\\"embedded-entity embedded-entity--media embedded-entity--media--image\\">
   <article class=\\"media media--type-image media--view-mode-embedded\\">
     <div class=\\"field field--name-field-media-image field--type-image field--label-hidden field__item\\">
-      <img src=\\"https://test.dev/sites/default/files/2018-06/call-to-action.jpg\\" width=\\"275\\" height=\\"183\\" alt=\\"\\" title=\\"A dummy call to action image (title)\\">
+      <img src=\\"https://test.dev/sites/default/files/2018-06/call-to-action.jpg\\" width=\\"275\\" height=\\"183\\" alt title=\\"A dummy call to action image (title)\\">
     </div>
   </article>
 </article>
 
 <!-- pluginEmbeddedDocument -->
-<rpl-document-link name=\\"test zip\\" extension=\\"zip\\" filesize=\\"787.53 KB\\" url=\\"/sites/default/files/2018-12/Screen%20Shot%202018-12-05%20at%2010.17.01%20am.zip\\" caption=\\"\\"></rpl-document-link>
-<rpl-document-link name=\\"docx\\" extension=\\"docx\\" filesize=\\"60.17 KB\\" url=\\"/sites/default/files/2018-12/180629SSP%20User%20Research%20%26%20Testing%20Playbook%20Final.docx\\" caption=\\"\\"></rpl-document-link>
-<rpl-document-link name=\\"xls\\" extension=\\"xlsx\\" filesize=\\"93 KB\\" url=\\"/sites/default/files/2018-12/list_one.xls\\" caption=\\"\\"></rpl-document-link>
-<rpl-document-link name=\\"pptx\\" extension=\\"ppt\\" filesize=\\"404.19 KB\\" url=\\"/sites/default/files/2018-12/samplepptx.pptx\\" caption=\\"\\"></rpl-document-link>
-<rpl-document-link name=\\"csv\\" extension=\\"csv\\" filesize=\\"545 bytes\\" url=\\"/sites/default/files/2018-12/C2ImportCalEventSample.csv\\" caption=\\"\\"></rpl-document-link>
-<rpl-document-link name=\\"doc\\" extension=\\"doc\\" filesize=\\"19 KB\\" url=\\"/sites/default/files/2018-12/TestWordDoc.doc\\" caption=\\"\\"></rpl-document-link>
-<rpl-document-link name=\\"xls\\" extension=\\"xlsx\\" filesize=\\"16 KB\\" url=\\"/sites/default/files/2018-12/tests-example.xls\\" caption=\\"\\"></rpl-document-link>
-<rpl-document-link name=\\"Text doc\\" extension=\\"txt\\" filesize=\\"374 bytes\\" url=\\"/sites/default/files/2018-12/Copy.txt\\" caption=\\"\\"></rpl-document-link>
+<rpl-document-link name=\\"test zip\\" extension=\\"zip\\" filesize=\\"787.53 KB\\" url=\\"/sites/default/files/2018-12/Screen%20Shot%202018-12-05%20at%2010.17.01%20am.zip\\" caption></rpl-document-link>
+<rpl-document-link name=\\"docx\\" extension=\\"docx\\" filesize=\\"60.17 KB\\" url=\\"/sites/default/files/2018-12/180629SSP%20User%20Research%20%26%20Testing%20Playbook%20Final.docx\\" caption></rpl-document-link>
+<rpl-document-link name=\\"xls\\" extension=\\"xlsx\\" filesize=\\"93 KB\\" url=\\"/sites/default/files/2018-12/list_one.xls\\" caption></rpl-document-link>
+<rpl-document-link name=\\"pptx\\" extension=\\"ppt\\" filesize=\\"404.19 KB\\" url=\\"/sites/default/files/2018-12/samplepptx.pptx\\" caption></rpl-document-link>
+<rpl-document-link name=\\"csv\\" extension=\\"csv\\" filesize=\\"545 bytes\\" url=\\"/sites/default/files/2018-12/C2ImportCalEventSample.csv\\" caption></rpl-document-link>
+<rpl-document-link name=\\"doc\\" extension=\\"doc\\" filesize=\\"19 KB\\" url=\\"/sites/default/files/2018-12/TestWordDoc.doc\\" caption></rpl-document-link>
+<rpl-document-link name=\\"xls\\" extension=\\"xlsx\\" filesize=\\"16 KB\\" url=\\"/sites/default/files/2018-12/tests-example.xls\\" caption></rpl-document-link>
+<rpl-document-link name=\\"Text doc\\" extension=\\"txt\\" filesize=\\"374 bytes\\" url=\\"/sites/default/files/2018-12/Copy.txt\\" caption></rpl-document-link>
 <rpl-document-link name=\\"ICS as Doc\\" extension=\\"ics\\" filesize=\\"24.28 KB\\" url=\\"/sites/default/files/2019-02/AAA10am%20to%201015am%20on%20weekdays%20%28AEDT%29%20_0.ics\\" caption=\\"Caption\\"></rpl-document-link>
 
 
@@ -79,19 +79,19 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 
 exports[`Markup transpiler should get same HTML with no plugins 1`] = `
 "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<a href=\\"http://google.com\\">&lt;&gt;&amp;'\\"©. ½ € 中文</a>
-<h4>Sort out your'&gt;&lt;&amp;'\\"s finances</h4>
+<a href=\\"http://google.com\\">&lt;&gt;&amp;&apos;&quot;©. ½ € 中文</a>
+<h4>Sort out your&apos;&gt;&lt;&amp;&apos;&quot;s finances</h4>
 
-<p><a href=\\"https://www.test.dev/test\\">Here is a&nbsp;irregular white space</a>&nbsp;Another irregular white space.</p>
-<p>&nbsp;</p>
+<p><a href=\\"https://www.test.dev/test\\">Here is a irregular white space</a> Another irregular white space.</p>
+<p> </p>
 <img src=\\"https://test.dev/test.jpeg\\" title=\\"&quot;Needles, Knots &amp; Threads&quot;- an Exhibition of Embroidery &amp; Quilting\\">
-<p>&nbsp;</p>
+<p> </p>
 
 <!-- parseForLinks -->
 <h2>This is a heading 2</h2>
 
 <!-- pluginLinks -->
-<a href=\\"/test\\" title=\\"test-link\\">A test link &lt;&amp;'\\"</a>
+<a href=\\"/test\\" title=\\"test-link\\">A test link &lt;&amp;&apos;&quot;</a>
 
 <!-- pluginIframe -->
 <iframe src=\\"https://ripple.sdp.vic.gov.au\\"></iframe>
@@ -122,7 +122,7 @@ exports[`Markup transpiler should get same HTML with no plugins 1`] = `
       </div>
     </article>
   </div>
-  <figcaption>Some video caption text &lt;&amp;'\\"</figcaption>
+  <figcaption>Some video caption text &lt;&amp;&apos;&quot;</figcaption>
 </figure>
 
 <figure role=\\"group\\" class=\\"caption caption-div embedded-entity embedded-entity--media embedded-entity--media--embedded-video\\">
@@ -138,7 +138,7 @@ exports[`Markup transpiler should get same HTML with no plugins 1`] = `
       </div>
     </article>
   </div>
-  <figcaption>Some video caption text &lt;&amp;'\\"</figcaption>
+  <figcaption>Some video caption text &lt;&amp;&apos;&quot;</figcaption>
 </figure>
 
 <figure role=\\"group\\" class=\\"caption caption-div embedded-entity embedded-entity--media embedded-entity--media--embedded-video\\">
@@ -169,7 +169,7 @@ exports[`Markup transpiler should get same HTML with no plugins 1`] = `
 <article class=\\"embedded-entity embedded-entity--media embedded-entity--media--image\\">
   <article class=\\"media media--type-image media--view-mode-embedded\\">
     <div class=\\"field field--name-field-media-image field--type-image field--label-hidden field__item\\">
-      <img src=\\"https://test.dev/sites/default/files/2018-06/call-to-action.jpg\\" width=\\"275\\" height=\\"183\\" alt=\\"\\" title=\\"A dummy call to action image (title)\\">
+      <img src=\\"https://test.dev/sites/default/files/2018-06/call-to-action.jpg\\" width=\\"275\\" height=\\"183\\" alt title=\\"A dummy call to action image (title)\\">
     </div>
   </article>
 </article>

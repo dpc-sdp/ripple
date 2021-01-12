@@ -20,7 +20,7 @@ export default function ({ $axios, app, res, isDev }) {
       code = error.response.status
     }
 
-    let responseUrl = error.request?.path || error.request?.responseURL || error.config?.url
+    let responseUrl = error.request?.path || error.request?.responseURL || error.config?.url || ''
 
     // Check what kind of request it is.
     const routeRequest = responseUrl.includes('/route?')

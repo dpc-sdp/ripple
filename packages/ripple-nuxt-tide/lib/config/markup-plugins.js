@@ -165,22 +165,30 @@ ${transcript ? 'transcript="' + _escapeQuotes(transcript) + '"' : ''}
 }
 
 const pluginLinks = function () {
+  const linkData = {}
   this.find('a').map((i, el) => {
+    // Component data
+    const data = {}
+    const dataName = `linkData${i}`
     const $a = this.find(el)
-    const href = $a.attr('href')
-    const text = $a.text()
+    data.target = $a.attr('target')
+    data.href = $a.attr('href')
+    data.text = $a.text()
 
-    const target = $a.attr('target')
+    // Add each video component data into return result.
+    linkData[dataName] = data
     let theme = 'primary'
     let a
-    if (target) {
-      a = `<rpl-text-link url="${href}" theme="${theme}" target="${target}" text="${_escapeQuotes(text)}"></rpl-text-link>`
+    if (data.target) {
+      a = `<rpl-text-link :url="${dataName}.href" theme="${theme}" :target="${dataName}.target" :text="${dataName}.text"></rpl-text-link>`
     } else {
-      a = `<rpl-text-link url="${href}" theme="${theme}" text="${_escapeQuotes(text)}"></rpl-text-link>`
+      a = `<rpl-text-link :url="${dataName}.href" theme="${theme}" :text="${dataName}.text"></rpl-text-link>`
     }
 
     return $a.replaceWith(a)
   })
+  // Return data
+  return linkData
 }
 
 export default [

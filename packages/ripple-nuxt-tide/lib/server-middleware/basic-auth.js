@@ -9,7 +9,7 @@ module.exports = function (req, res, next) {
   if (!credentials || credentials.name !== authUser || credentials.pass !== authPass) {
     res.statusCode = 401
     res.setHeader('WWW-Authenticate', 'Basic realm="Access the site"')
-    res.end('Access denied')
+    return res.end('Access denied')
   }
   next()
 }

@@ -78,8 +78,7 @@ const nuxtTide = function (moduleOptions) {
   })
 
   if (process.env.BASIC_AUTH === '1') {
-    const basicAuth = require('./core/basic-auth.js')
-    this.addServerMiddleware(basicAuth)
+    this.addServerMiddleware(require('./server-middleware/basic-auth.js'))
   }
 
   if (options.searchApi) {

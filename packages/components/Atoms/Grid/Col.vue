@@ -15,9 +15,24 @@ export default {
       type: String,
       default: 'full'
     },
-    'colsBp': Object,
-    'pull': Object,
-    'push': Object
+    'colsBp': {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    'pull': {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    'push': {
+      type: Object,
+      default () {
+        return {}
+      }
+    }
   },
   components: {
     RplDevError

@@ -25,8 +25,18 @@ export default {
   name: 'RplMarkup',
   props: {
     'html': String,
-    'plugins': { type: Array },
-    'options': { type: Object }
+    'plugins': {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    'options': {
+      type: Object,
+      default () {
+        return {}
+      }
+    }
   },
   computed: {
     getTemplate () {

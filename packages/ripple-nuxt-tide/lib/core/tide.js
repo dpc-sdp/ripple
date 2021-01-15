@@ -105,7 +105,11 @@ export const tide = (axios, site, config) => ({
   async getSitesData (params = {}, headersConfig = {}) {
     try {
       const sites = await this.get('taxonomy_term/sites', params, '', headersConfig)
-      return this.getAllPaginatedData(sites)
+      const sitesData = await this.getAllPaginatedData(sites)
+      if (sitesData instanceof Error) {
+        throw sitesData
+      }
+      return sitesData
     } catch (error) {
       const errMsg = 'Failed to get sites data from Tide API.  It can be a operation error or configuration error if it\'s the first time to setup this app.'
       if (process.server) {
@@ -267,7 +271,11 @@ export const tide = (axios, site, config) => ({
 
     try {
       const menu = await this.get('menu_link_content/menu_link_content', params, '', headersConfig)
-      return this.getAllPaginatedData(menu, false, headersConfig)
+      const menuData = await this.getAllPaginatedData(menu, false, headersConfig)
+      if (menuData instanceof Error) {
+        throw menuData
+      }
+      return menuData
     } catch (error) {
       const errMsg = 'Failed to get menu from Tide API.'
       if (process.server) {
@@ -277,7 +285,13 @@ export const tide = (axios, site, config) => ({
     }
   },
 
-  // Used for get paginated response data
+  /**
+   * Used for get paginated response data
+   * @param {*} response
+   * @param {*} parse
+   * @param {*} headersConfig
+   * @returns {Object} a response data with all JSON:API pages or an instance of Error
+   */
   getAllPaginatedData: async function (response, parse = true, headersConfig = {}) {
     let data = parse ? jsonapiParse.parse(response).data : response.data
 
@@ -293,6 +307,7 @@ export const tide = (axios, site, config) => ({
         data = data.concat(nextData)
       } catch (error) {
         logger.error('Failed to get next page data', { error, label: 'Tide' })
+        return new Error(error)
       }
     }
     return data
@@ -446,7 +461,11 @@ export const tide = (axios, site, config) => ({
       const headersConfig = { axiosTimeout: config.tideListingTimeout }
       const response = await this.get(`${entityType}/${bundle}`, params, '', headersConfig)
       if (allPages) {
-        return this.getAllPaginatedData(response)
+        const allPagesData = await this.getAllPaginatedData(response)
+        if (allPagesData instanceof Error) {
+          throw allPagesData
+        }
+        return allPagesData
       } else {
         return jsonapiParse.parse(response).data
       }

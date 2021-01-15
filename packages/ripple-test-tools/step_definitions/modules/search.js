@@ -100,7 +100,13 @@ Given(`a request is made to the search endpoint with the following:`, dataTable 
   const from = options.from ? `&from=${options.from}` : ''
   const size = options.size ? `&size=${options.size}` : ''
   cy.log(options)
-  cy.request(`${Cypress.env('SEARCH_ENDPOINT')}?${query}${from}${size}`).as('request')
+  cy.request({
+    url: `${Cypress.env('SEARCH_ENDPOINT')}?${query}${from}${size}`,
+    auth: {
+      username: Cypress.env('SEARCH_AUTH_USERNAME'),
+      password: Cypress.env('SEARCH_AUTH_PASSWORD')
+    }
+  }).as('request')
 })
 
 Then(`the search request should have a valid response`, () => {

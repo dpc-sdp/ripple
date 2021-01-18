@@ -4,8 +4,8 @@
       <rpl-responsive-img class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-nav__content">
-      <div v-if="formattedDate || tag || status" class="rpl-card-nav__meta">
-        <div v-if="tag" class="rpl-card-nav__tag" >{{ tag }}</div>
+      <div v-if="formattedDate || status || contentTypeTopicLabel" class="rpl-card-nav__meta">
+        <div v-if="contentTypeTopicLabel" class="rpl-card-nav__topic-content-type" >{{ contentTypeTopicLabel }}</div>
         <div v-if="status" class="rpl-card-nav__status" :class="`rpl-card-nav__status--${this.status.toLowerCase()}`">
           <rpl-icon v-if="statusIcon" class="rpl-card-nav__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
           <span>{{ status }}</span>
@@ -35,15 +35,54 @@ export default {
     RplIcon
   },
   props: {
-    title: String,
-    image: Object,
-    summary: String,
-    link: Object,
-    tag: String,
-    dateStart: String,
-    dateEnd: String,
-    author: String,
-    status: String,
+    title: {
+      type: String,
+      default: ''
+    },
+    image: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    summary: {
+      type: String,
+      default: ''
+    },
+    link: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    topic: {
+      type: String,
+      default: ''
+    },
+    contentType: {
+      type: String,
+      default: ''
+    },
+    showTopic: {
+      type: Boolean,
+      default: false
+    },
+    dateStart: {
+      type: String,
+      default: ''
+    },
+    dateEnd: {
+      type: String,
+      default: ''
+    },
+    author: {
+      type: String,
+      default: ''
+    },
+    status: {
+      type: String,
+      default: ''
+    },
     displayStyle: {
       type: String,
       default: 'noImage',
@@ -92,8 +131,8 @@ $rpl-card-nav-title-margin: 0 0 rem(12px) !default;
 $rpl-card-nav-summary-ruleset: $rpl-card-summary-ruleset !default;
 $rpl-card-nav-summary-color: $nav-card-text-color !default;
 $rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
-$rpl-card-nav-tag-color: $nav-card-text-color !default;
-$rpl-card-nav-tag-background-color: rpl_color('mid_neutral_2') !default;
+$rpl-card-nav-topic-color: $nav-card-text-color !default;
+$rpl-card-nav-topic-background-color: rpl_color('mid_neutral_2') !default;
 $rpl-card-nav-meta-padding: $rpl-space $rpl-space-2 !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;
@@ -243,16 +282,19 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
   }
 
   &__date,
-  &__tag {
+  &__topic-content-type {
     @include rpl_typography_ruleset($rpl-card-nav-meta-ruleset);
     display: inline;
     padding: $rpl-card-nav-meta-padding;
   }
 
-  &__tag {
-    color: $rpl-card-nav-tag-color;
-    background-color: $rpl-card-nav-tag-background-color;
+  &__topic-content-type {
+    color: $rpl-card-nav-topic-color;
+    background-color: $rpl-card-nav-topic-background-color;
 
+    &::first-letter {
+      text-transform: capitalize;
+    }
   }
 
   &__date {

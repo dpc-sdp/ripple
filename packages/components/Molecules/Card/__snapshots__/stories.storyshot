@@ -1916,6 +1916,7 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Event 1`] = `
   class="rpl-link rpl-card-nav rpl-card-nav--thumbnail"
   data-print-url="#"
   href="#"
+  tag="Event"
 >
   <div
     class="rpl-card-nav__image-wrapper"
@@ -1938,11 +1939,7 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Event 1`] = `
     <div
       class="rpl-card-nav__meta"
     >
-      <div
-        class="rpl-card-nav__tag"
-      >
-        Event
-      </div>
+      <!---->
        
       <div
         class="rpl-card-nav__status rpl-card-nav__status--open"
@@ -2003,6 +2000,7 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Featured 1`] = `
   class="rpl-link rpl-card-nav rpl-card-nav--featured"
   data-print-url="#"
   href="#"
+  tag="News"
 >
   <div
     class="rpl-card-nav__image-wrapper"
@@ -2025,11 +2023,7 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Featured 1`] = `
     <div
       class="rpl-card-nav__meta"
     >
-      <div
-        class="rpl-card-nav__tag"
-      >
-        News
-      </div>
+      <!---->
        
       <!---->
        
@@ -2071,8 +2065,13 @@ exports[`RippleStoryshots Molecules/Card/Card Nav No image 1`] = `
   class="rpl-link rpl-card-nav rpl-card-nav--noimage"
   data-print-url="#"
   href="#"
+  tag="Event"
 >
-  <!---->
+  <div
+    class="rpl-card-nav__image-wrapper"
+  >
+    <!---->
+  </div>
    
   <div
     class="rpl-card-nav__content"
@@ -2080,11 +2079,7 @@ exports[`RippleStoryshots Molecules/Card/Card Nav No image 1`] = `
     <div
       class="rpl-card-nav__meta"
     >
-      <div
-        class="rpl-card-nav__tag"
-      >
-        Event
-      </div>
+      <!---->
        
       <!---->
        
@@ -2126,6 +2121,7 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Thumbnail 1`] = `
   class="rpl-link rpl-card-nav rpl-card-nav--thumbnail"
   data-print-url="#"
   href="#"
+  tag="Event"
 >
   <div
     class="rpl-card-nav__image-wrapper"
@@ -2148,11 +2144,7 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Thumbnail 1`] = `
     <div
       class="rpl-card-nav__meta"
     >
-      <div
-        class="rpl-card-nav__tag"
-      >
-        Event
-      </div>
+      <!---->
        
       <!---->
        
@@ -2414,13 +2406,13 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Event 1`] = `
       <div
         class="rpl-card-promo__meta"
       >
+        <!---->
+         
         <div
-          class="rpl-card-promo__tag"
+          class="rpl-card-promo__topic-content-type"
         >
           Event
         </div>
-         
-        <!---->
          
         <div
           class="rpl-card-promo__status rpl-card-promo__status--open"
@@ -2487,7 +2479,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promo No image 1`] = `
         <!---->
          
         <div
-          class="rpl-card-promo__topic"
+          class="rpl-card-promo__topic-content-type"
         >
           Arts, Culture and Humanities
         </div>
@@ -2542,13 +2534,13 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Profile 1`] = `
       <div
         class="rpl-card-promo__meta"
       >
+        <!---->
+         
         <div
-          class="rpl-card-promo__tag"
+          class="rpl-card-promo__topic-content-type"
         >
           Profile
         </div>
-         
-        <!---->
          
         <!---->
          
@@ -2600,13 +2592,13 @@ exports[`RippleStoryshots Molecules/Card/Card Promo With image 1`] = `
       <div
         class="rpl-card-promo__meta"
       >
-        <!---->
-         
         <div
-          class="rpl-card-promo__topic"
+          class="rpl-card-promo__tag"
         >
           Arts, Culture and Humanities
         </div>
+         
+        <!---->
          
         <!---->
          

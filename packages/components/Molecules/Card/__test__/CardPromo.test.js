@@ -8,7 +8,8 @@ describe('CardPromo', () => {
         title: 'Promo card',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
-        tag: 'Event',
+        tag: 'ARTS, CULTURE AND HERITAGE',
+        topic: 'Event',
         author: 'John Doe',
         status: 'closed'
       }
@@ -102,7 +103,7 @@ describe('CardPromo', () => {
         title: 'Promo card',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
-        tag: 'Event',
+        topic: 'Event',
         author: 'John Doe',
         status: 'closed',
         displayStyle: 'profile'
@@ -113,5 +114,24 @@ describe('CardPromo', () => {
 
     wrapper.setProps({ displayStyle: 'noImage' })
     expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo--noimage'])
+  })
+
+  it('returns topic or content type based on showTopic flag', () => {
+    const wrapper = shallowMount(CardPromo, {
+      propsData: {
+        title: 'Promo card',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { text: 'Read more', url: '#' },
+        author: 'John Doe',
+        contentType: 'Profile: Women\'s Honour Roll',
+        showTopic: true,
+        topic: 'Anything under the sun'
+      }
+    })
+
+    expect(wrapper.vm.contentTypeTopicLabel).toEqual('Anything under the sun')
+
+    wrapper.setProps({ showTopic: null })
+    expect(wrapper.vm.contentTypeTopicLabel).toEqual('Profile')
   })
 })

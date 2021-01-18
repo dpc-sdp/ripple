@@ -570,7 +570,7 @@ storiesOf('Molecules/Card/Card Promo', module)
   .addDecorator(withKnobs)
   .add('With image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :tag="tag" :topic="topic" :date-start="dateStart" :date-end="dateEnd" />`,
+    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :tag="tag" :show-topic="showTopic" :topic="topic" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       image: {
         default: object('Image', {
@@ -587,7 +587,7 @@ storiesOf('Molecules/Card/Card Promo', module)
         default: text('Title', 'First promo card')
       },
       tag: {
-        default: text('Tag', '')
+        default: text('Tag', 'Arts, Culture and Humanities')
       },
       dateStart: {
         default: () => text('Date start', '2020-11-10T09:00:00.000+10:00')
@@ -596,7 +596,10 @@ storiesOf('Molecules/Card/Card Promo', module)
         default: () => text('Date end', '')
       },
       topic: {
-        default: text('Topic', 'Arts, Culture and Humanities')
+        default: text('Topic', '')
+      },
+      showTopic: {
+        default: boolean('showTopic', false)
       },
       summary: {
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
@@ -608,13 +611,19 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('Event', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :image="image" :link="link" :tag="tag" :status="status" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :image="image" :link="link" :show-topic="showTopic" :topic="topic" :content-type="contentType" :status="status" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
       },
-      tag: {
-        default: text('Tag', 'Event')
+      topic: {
+        default: text('Topic', 'Anything event')
+      },
+      showTopic: {
+        default: boolean('showTopic', false)
+      },
+      contentType: {
+        default: text('contentType', 'Event')
       },
       image: {
         default: object('Image', {})
@@ -641,13 +650,13 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('No image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :topic="topic" :date-start="dateStart" :date-end="dateEnd" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :topic="topic" :show-topic="showTopic" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
       },
-      tag: {
-        default: text('Tag', '')
+      showTopic: {
+        default: boolean('showTopic', true)
       },
       topic: {
         default: text('Topic', 'Arts, Culture and Humanities')
@@ -668,13 +677,10 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('Profile', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :tag="tag" :image="image" :topic="topic" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :image="image" :topic="topic" :show-topic="showTopic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
-      },
-      tag: {
-        default: text('Tag', 'Profile')
       },
       image: {
         default: object('Image', {
@@ -689,6 +695,12 @@ storiesOf('Molecules/Card/Card Promo', module)
       },
       topic: {
         default: text('Topic', '')
+      },
+      showTopic: {
+        default: boolean('showTopic', false)
+      },
+      contentType: {
+        default: text('contentType', 'Profile: Australia Day Ambassador')
       },
       dateStart: {
         default: () => text('Date start', '2020-11-10T09:00:00.000+10:00')

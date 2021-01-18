@@ -44,6 +44,29 @@ const card = {
       }
 
       return formatted
+    },
+    contentTypeTopicLabel () {
+      if (this.showTopic && this.topic) {
+        return this.topic
+      }
+
+      if (this.contentType) {
+        const validContentTypes = [
+          'event',
+          'grant',
+          'news',
+          'publication',
+          'profile: aboriginal honour roll',
+          'profile: australia day ambassador',
+          'profile: victorian design review panel',
+          'profile: women\'s honour roll'
+        ]
+
+        if (validContentTypes.includes(this.contentType.toLowerCase())) {
+          let contentType = this.contentType.split(' ')
+          return contentType[0].replace(':', '')
+        }
+      }
     }
   }
 }

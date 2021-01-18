@@ -6,8 +6,8 @@
     <div class="rpl-card-promo__content">
       <div v-if="formattedDate || status || contentTypeTopicLabel || tag" class="rpl-card-promo__meta">
         <slot name="meta">
-          <div class="rpl-card-promo__tag" v-if="tag" >{{ tag }}</div>
           <div class="rpl-card-promo__topic-content-type" v-if="contentTypeTopicLabel" >{{ contentTypeTopicLabel }}</div>
+          <div class="rpl-card-promo__tag" v-if="tag" >{{ tag }}</div>
           <slot name="status">
             <div class="rpl-card-promo__status" :class="`rpl-card-promo__status--${this.status.toLowerCase()}`" v-if="status" >
               <rpl-icon class="rpl-card-promo__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />

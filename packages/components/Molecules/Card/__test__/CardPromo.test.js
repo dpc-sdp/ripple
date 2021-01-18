@@ -8,8 +8,7 @@ describe('CardPromo', () => {
         title: 'Promo card',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
-        tag: 'ARTS, CULTURE AND HERITAGE',
-        topic: 'Event',
+        topic: 'ARTS, CULTURE AND HERITAGE',
         author: 'John Doe',
         status: 'closed'
       }

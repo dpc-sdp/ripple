@@ -76,7 +76,7 @@ storiesOf('Molecules/Card/Card Nav', module)
         })
       },
       topic: {
-        default: () => text('Topic', 'Anything')
+        default: () => text('Topic', '')
       },
       showTopic: {
         default: boolean('Show topic', false)
@@ -127,7 +127,16 @@ storiesOf('Molecules/Card/Card Nav', module)
         default: () => boolean('Show topic', true)
       },
       contentType: {
-        default: () => text('Content type', '')
+        default: () => select('Content type', [
+          'Event',
+          'Grant',
+          'News',
+          'Publication',
+          'Profile: Aboriginal Honour Roll',
+          'Profile: Australia Day Ambassador',
+          'Profile: Victorian Design Review Panel',
+          'Profile: Women\'s Honour Roll'
+        ], '')
       },
       dateStart: {
         default: text('Date start', '2020-03-23T09:00:00.000+10:00')
@@ -171,7 +180,16 @@ storiesOf('Molecules/Card/Card Nav', module)
         default: () => boolean('Show topic', true)
       },
       contentType: {
-        default: () => text('Content type', '')
+        default: () => select('Content type', [
+          'Event',
+          'Grant',
+          'News',
+          'Publication',
+          'Profile: Aboriginal Honour Roll',
+          'Profile: Australia Day Ambassador',
+          'Profile: Victorian Design Review Panel',
+          'Profile: Women\'s Honour Roll'
+        ], '')
       },
       dateStart: {
         default: text('Date start', '2021-03-23T09:00:00.000+10:00')
@@ -221,7 +239,16 @@ storiesOf('Molecules/Card/Card Nav', module)
         default: () => boolean('Show topic', true)
       },
       contentType: {
-        default: () => text('Content type', '')
+        default: () => select('Content type', [
+          'Event',
+          'Grant',
+          'News',
+          'Publication',
+          'Profile: Aboriginal Honour Roll',
+          'Profile: Australia Day Ambassador',
+          'Profile: Victorian Design Review Panel',
+          'Profile: Women\'s Honour Roll'
+        ], '')
       },
       dateStart: {
         default: text('Date start', '2020-03-23T09:00:00.000+10:00')
@@ -603,7 +630,7 @@ storiesOf('Molecules/Card/Card Promo', module)
   .addDecorator(withKnobs)
   .add('With image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :tag="tag" :show-topic="showTopic" :topic="topic" :date-start="dateStart" :date-end="dateEnd" />`,
+    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :show-topic="showTopic" :topic="topic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       image: {
         default: object('Image', {
@@ -619,14 +646,23 @@ storiesOf('Molecules/Card/Card Promo', module)
       title: {
         default: text('Title', 'First promo card')
       },
-      tag: {
-        default: text('Tag', 'Arts, Culture and Humanities')
-      },
       dateStart: {
         default: () => text('Date start', '2020-11-10T09:00:00.000+10:00')
       },
       dateEnd: {
         default: () => text('Date end', '')
+      },
+      contentType: {
+        default: () => select('Content type', [
+          'Event',
+          'Grant',
+          'News',
+          'Publication',
+          'Profile: Aboriginal Honour Roll',
+          'Profile: Australia Day Ambassador',
+          'Profile: Victorian Design Review Panel',
+          'Profile: Women\'s Honour Roll'
+        ], 'News')
       },
       topic: {
         default: text('Topic', '')
@@ -692,7 +728,7 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('No image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :topic="topic" :show-topic="showTopic" :date-start="dateStart" :date-end="dateEnd" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :topic="topic" :show-topic="showTopic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
@@ -701,7 +737,19 @@ storiesOf('Molecules/Card/Card Promo', module)
         default: boolean('showTopic', true)
       },
       topic: {
-        default: text('Topic', 'Publication')
+        default: text('Topic', 'ARTS, CULTURE AND HERITAGE')
+      },
+      contentType: {
+        default: () => select('Content type', [
+          'Event',
+          'Grant',
+          'News',
+          'Publication',
+          'Profile: Aboriginal Honour Roll',
+          'Profile: Australia Day Ambassador',
+          'Profile: Victorian Design Review Panel',
+          'Profile: Women\'s Honour Roll'
+        ], '')
       },
       dateStart: {
         default: () => text('Date start', '2020-11-10T09:00:00.000+10:00')
@@ -766,7 +814,7 @@ storiesOf('Molecules/Card/Card Promo', module)
         default: () => object('Link', { text: 'Read more', url: '#' })
       },
       displayStyle: {
-        default: () => object('Display style', 'profile')
+        default: () => text('Display style', 'profile')
       }
     }
   }))

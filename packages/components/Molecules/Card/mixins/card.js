@@ -45,28 +45,32 @@ const card = {
 
       return formatted
     },
-    contentTypeTopicLabel () {
-      if (this.showTopic && this.topic) {
-        return this.topic
+    contentTypeLabel () {
+      if (this.showTopic || !this.contentType || (!this.showTopic && !this.contentType)) return ''
+
+      const validContentTypes = [
+        'event',
+        'grant',
+        'news',
+        'publication',
+        'profile: aboriginal honour roll',
+        'profile: australia day ambassador',
+        'profile: victorian design review panel',
+        'profile: women\'s honour roll'
+      ]
+
+      let contentTypeLabel = ''
+      if (validContentTypes.includes(this.contentType.toLowerCase())) {
+        let contentType = this.contentType.split(' ')
+        contentTypeLabel = contentType[0].replace(':', '')
       }
 
-      if (this.contentType) {
-        const validContentTypes = [
-          'event',
-          'grant',
-          'news',
-          'publication',
-          'profile: aboriginal honour roll',
-          'profile: australia day ambassador',
-          'profile: victorian design review panel',
-          'profile: women\'s honour roll'
-        ]
+      return contentTypeLabel
+    },
+    topicLabel () {
+      if (!this.showTopic || !this.topic || (this.showTopic && !this.topic)) return ''
 
-        if (validContentTypes.includes(this.contentType.toLowerCase())) {
-          let contentType = this.contentType.split(' ')
-          return contentType[0].replace(':', '')
-        }
-      }
+      return this.topic
     }
   }
 }

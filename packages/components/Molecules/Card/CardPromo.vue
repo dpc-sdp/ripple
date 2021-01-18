@@ -4,10 +4,10 @@
       <rpl-responsive-img v-if="image" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </slot>
     <div class="rpl-card-promo__content">
-      <div v-if="formattedDate || status || contentTypeTopicLabel || tag" class="rpl-card-promo__meta">
+      <div v-if="formattedDate || status || contentTypeLabel || topicLabel" class="rpl-card-promo__meta">
         <slot name="meta">
-          <div class="rpl-card-promo__topic-content-type" v-if="contentTypeTopicLabel" >{{ contentTypeTopicLabel }}</div>
-          <div class="rpl-card-promo__tag" v-if="tag" >{{ tag }}</div>
+          <div class="rpl-card-promo__content-type" v-if="contentTypeLabel" >{{ contentTypeLabel }}</div>
+          <div class="rpl-card-promo__topic" v-if="topicLabel" >{{ topicLabel }}</div>
           <slot name="status">
             <div class="rpl-card-promo__status" :class="`rpl-card-promo__status--${this.status.toLowerCase()}`" v-if="status" >
               <rpl-icon class="rpl-card-promo__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
@@ -66,10 +66,6 @@ export default {
       type: String,
       default: ''
     },
-    tag: {
-      type: String,
-      default: ''
-    },
     contentType: {
       type: String,
       default: ''
@@ -119,9 +115,9 @@ export default {
   $rpl-card-promo-meta-ruleset: $rpl-card-meta-ruleset !default;
   $rpl-card-promo-meta-text-color: $rpl-card-meta-text-color !default;
   $rpl-card-promo-date-padding: $rpl-space $rpl-space-2 !default;
-  $rpl-card-promo-topic-bg-color: rpl_color('light_neutral') !default;
-  $rpl-card-promo-topic-color: $nav-card-text-color !default;
-  $rpl-card-promo-tag-padding: $rpl-space $rpl-space-2;
+  $rpl-card-promo-content-type-bg-color: rpl_color('light_neutral') !default;
+  $rpl-card-promo-content-type-color: $nav-card-text-color !default;
+  $rpl-card-promo-meta-padding: $rpl-space $rpl-space-2;
   $rpl-card-promo-link-color: $nav-card-text-color !default;
   $rpl-card-promo-link-color-hover: $rpl-card-link-hover-color !default;
   $rpl-card-promo-title-ruleset: $rpl-card-title-ruleset !default;
@@ -193,20 +189,20 @@ export default {
       padding: $rpl-card-promo-date-padding;
     }
 
-    &__tag {
+    &__topic {
       @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
       display: inline-block;
       color: $rpl-card-promo-meta-text-color;;
       text-transform: uppercase;
-      padding: $rpl-card-promo-tag-padding;
+      padding: $rpl-card-promo-meta-padding;
     }
 
-    &__topic-content-type {
+    &__content-type {
       @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
       display: inline-block;
-      color: $rpl-card-promo-topic-color;
-      background-color: $rpl-card-promo-topic-bg-color;
-      padding: $rpl-card-promo-tag-padding;
+      color: $rpl-card-promo-content-type-color;
+      background-color: $rpl-card-promo-content-type-bg-color;
+      padding: $rpl-card-promo-meta-padding;
 
       &::first-letter {
         text-transform: capitalize;

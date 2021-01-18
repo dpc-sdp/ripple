@@ -4,8 +4,9 @@
       <rpl-responsive-img class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-nav__content">
-      <div v-if="formattedDate || status || contentTypeTopicLabel" class="rpl-card-nav__meta">
-        <div v-if="contentTypeTopicLabel" class="rpl-card-nav__topic-content-type" >{{ contentTypeTopicLabel }}</div>
+      <div v-if="formattedDate || status || contentTypeLabel || topicLabel" class="rpl-card-nav__meta">
+        <div v-if="contentTypeLabel" class="rpl-card-nav__content-type" >{{ contentTypeLabel }}</div>
+        <div v-if="topicLabel" class="rpl-card-nav__topic" >{{ topicLabel }}</div>
         <div v-if="status" class="rpl-card-nav__status" :class="`rpl-card-nav__status--${this.status.toLowerCase()}`">
           <rpl-icon v-if="statusIcon" class="rpl-card-nav__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
           <span>{{ status }}</span>
@@ -282,13 +283,15 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
   }
 
   &__date,
-  &__topic-content-type {
+  &__content-type,
+  &__topic {
     @include rpl_typography_ruleset($rpl-card-nav-meta-ruleset);
     display: inline;
     padding: $rpl-card-nav-meta-padding;
   }
 
-  &__topic-content-type {
+  &__content-type,
+  &__topic {
     color: $rpl-card-nav-topic-color;
     background-color: $rpl-card-nav-topic-background-color;
 

@@ -14,7 +14,7 @@ const defaults = {
   dynamicComponents: [], // Dynamic components importing for Tide mapping.
   middleware: [],
   markupPlugins: [],
-  proxyTimeout: 60000,
+  proxyTimeout: 30000,
   tideTimeout: 10000,
   tideListingTimeout: 30000,
   searchTemplates: {},

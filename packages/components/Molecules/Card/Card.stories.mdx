@@ -102,8 +102,8 @@ export const TemplateCardContent = (args, { argTypes }) => ({
           x: '290',
           y: '170'
         },
-        width: '580',
-        height: '340'
+        width: 580,
+        height: 340
       },
       border: true,
       type: 'default',
@@ -122,7 +122,7 @@ export const TemplateCardContent = (args, { argTypes }) => ({
 export const TemplateCardPromo = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplCardPromo },
-  template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :tag="tag" :topic="topic" :date="date" :status="status" :variation="variation" />`
+  template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :topic="topic" :date="date" :status="status" />`
 });
 
 <Canvas>
@@ -140,6 +140,8 @@ export const TemplateCardPromo = (args, { argTypes }) => ({
         width: 580,
         height: 340
       },
+      date: {},
+      status: '',
       topic: 'Arts, Culture and Humanities',
       summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     }}
@@ -163,7 +165,8 @@ export const TemplateCardPromo = (args, { argTypes }) => ({
         width: 580,
         height: 340
       },
-      tag: 'Event',
+      topic: 'Event',
+      status: '',
       date: { from: new Date('02 July 2020'), to: new Date('25 September 2020') },
       summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     }}
@@ -186,7 +189,7 @@ export const TemplateCardPromo = (args, { argTypes }) => ({
     args={{
       title: 'Card promo title',
       link: { text: 'Read more', url: '#' },
-      tag: 'Grant',
+      topic: 'Grant',
       status: 'Open',
       summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     }}

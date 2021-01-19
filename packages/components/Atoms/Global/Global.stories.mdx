@@ -48,36 +48,34 @@ export const TemplateFonts = (args, { argTypes }) => ({
   template: '<s-fonts :size="size" :lineHeight="lineHeight" :weight="weight" :text="text" :background="background" />',
 });
 
-<Canvas>
-  <Story
-    name="Fonts"
-    argTypes={
-      {
-        size: {
-          control: {
-            type: 'select',
-            options: ['tera', 'xgiga', 'giga', 'mega', 'xl', 'l', 'm', 's', 'xs', 'xxs']
-          }
-        },
-        weight: {
-          control: {
-            type: 'select',
-            options: ['regular', 'medium', 'semibold', 'bold']
-          }
+<Story
+  name="Fonts"
+  argTypes={
+    {
+      size: {
+        control: {
+          type: 'select',
+          options: ['tera', 'xgiga', 'giga', 'mega', 'xl', 'l', 'm', 's', 'xs', 'xxs']
+        }
+      },
+      weight: {
+        control: {
+          type: 'select',
+          options: ['regular', 'medium', 'semibold', 'bold']
         }
       }
     }
-    args={{
-      size: 'tera',
-      lineHeight: "1.1em",
-      weight: 'bold',
-      background: false,
-      text: "The quick brown fox jumps over the lazy dog"
-    }}
-  >
-    {TemplateFonts.bind({})}
-  </Story>
-</Canvas>
+  }
+  args={{
+    size: 'tera',
+    lineHeight: "1.1em",
+    weight: 'bold',
+    background: false,
+    text: "The quick brown fox jumps over the lazy dog"
+  }}
+>
+  {TemplateFonts.bind({})}
+</Story>
 
 <ArgsTable story="Fonts" />
 

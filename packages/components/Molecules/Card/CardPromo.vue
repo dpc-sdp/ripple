@@ -1,7 +1,7 @@
 <template>
   <rpl-link v-if="link" :class="['rpl-card-promo', modifiers]" :href="link.url">
     <slot name="image">
-      <rpl-responsive-img v-if="image" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
+      <rpl-responsive-img v-if="image && displayStyle !== 'noImage'" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </slot>
     <div class="rpl-card-promo__content">
       <div v-if="formattedDate || status || contentTypeLabel || topicLabel" class="rpl-card-promo__meta">
@@ -117,7 +117,8 @@ export default {
   $rpl-card-promo-date-padding: $rpl-space $rpl-space-2 !default;
   $rpl-card-promo-content-type-bg-color: rpl_color('light_neutral') !default;
   $rpl-card-promo-content-type-color: $nav-card-text-color !default;
-  $rpl-card-promo-meta-padding: $rpl-space $rpl-space-2;
+  $rpl-card-nav-topic-padding: $rpl-space 0 !default;
+  $rpl-card-promo-meta-padding: $rpl-space $rpl-space-2 !default;
   $rpl-card-promo-link-color: $nav-card-text-color !default;
   $rpl-card-promo-link-color-hover: $rpl-card-link-hover-color !default;
   $rpl-card-promo-title-ruleset: $rpl-card-title-ruleset !default;
@@ -192,17 +193,19 @@ export default {
       padding: $rpl-card-promo-date-padding;
     }
 
-    &__topic {
-      @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
-      display: inline-block;
-      color: $rpl-card-promo-meta-text-color;;
-      text-transform: uppercase;
-      padding: $rpl-card-promo-meta-padding;
-    }
-
+    &__topic,
     &__content-type {
       @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
       display: inline-block;
+    }
+
+    &__topic {
+      color: $rpl-card-promo-meta-text-color;;
+      text-transform: uppercase;
+      padding: $rpl-card-nav-topic-padding;;
+    }
+
+    &__content-type {
       color: $rpl-card-promo-content-type-color;
       background-color: $rpl-card-promo-content-type-bg-color;
       padding: $rpl-card-promo-meta-padding;

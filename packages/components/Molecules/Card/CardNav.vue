@@ -1,7 +1,7 @@
 <template>
   <rpl-link v-if="link" :class="modifiers" :href="link.url" :innerWrap="false">
     <div v-if="image" class="rpl-card-nav__image-wrapper">
-      <rpl-responsive-img class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
+      <rpl-responsive-img v-if="image && displayStyle !== 'noImage'" class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-nav__content">
       <div v-if="formattedDate || status || contentTypeLabel || topicLabel" class="rpl-card-nav__meta">
@@ -135,6 +135,7 @@ $rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
 $rpl-card-nav-topic-color: $nav-card-text-color !default;
 $rpl-card-nav-topic-background-color: rpl_color('mid_neutral_2') !default;
 $rpl-card-nav-meta-padding: $rpl-space $rpl-space-2 !default;
+$rpl-card-nav-topic-padding: $rpl-space 0 !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;
 $rpl-card-nav-date-text-color: $rpl-card-meta-text-color !default;
@@ -287,7 +288,6 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
   &__topic {
     @include rpl_typography_ruleset($rpl-card-nav-meta-ruleset);
     display: inline;
-    padding: $rpl-card-nav-meta-padding;
   }
 
   &__content-type,
@@ -298,6 +298,14 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
     &::first-letter {
       text-transform: capitalize;
     }
+  }
+
+  &__content-type {
+    padding: $rpl-card-nav-meta-padding;
+  }
+
+  &__topic {
+    padding: $rpl-card-nav-topic-padding;
   }
 
   &__date {

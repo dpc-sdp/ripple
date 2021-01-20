@@ -2580,7 +2580,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Profile 1`] = `
       <p
         class="rpl-card-promo__summary"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, qui...
       </p>
        
     </div>
@@ -2631,7 +2631,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promo With image 1`] = `
       <p
         class="rpl-card-promo__summary"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </p>
        
     </div>

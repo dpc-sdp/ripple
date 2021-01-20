@@ -274,7 +274,7 @@ module.exports = {
           'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
           'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
           'author': ['field_paragraph_link', 'internal_node_fields', 'author'],
-          'showTopic': 'field_customise',
+          'showMeta': 'field_customise',
           'displayStyle': 'field_nav_card_display_style'
         },
         cols: {
@@ -310,7 +310,7 @@ module.exports = {
           'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
           'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
           'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
-          'showTopic': 'field_customise',
+          'showMeta': 'field_customise',
           'displayStyle': 'field_promo_card_display_style'
         },
         cols: cardColsSetting

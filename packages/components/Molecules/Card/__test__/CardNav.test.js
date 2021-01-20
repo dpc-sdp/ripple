@@ -111,7 +111,7 @@ describe('CardNav', () => {
     expect(wrapper.vm.modifiers).toEqual(['rpl-card-nav', 'rpl-card-nav--noimage'])
   })
 
-  it('returns content type label when it has value and showTopic flag is false', () => {
+  it('returns content type label when it has valid value and showMeta flag is true', () => {
     const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Nav card',
@@ -120,7 +120,7 @@ describe('CardNav', () => {
         author: 'John Doe',
         status: 'closed',
         contentType: 'Profile: Women\'s Honour Roll',
-        showTopic: false,
+        showMeta: true,
         topic: 'Anything under the sun'
       }
     })
@@ -131,7 +131,7 @@ describe('CardNav', () => {
     expect(wrapper.vm.contentTypeLabel).toEqual('')
   })
 
-  it('returns topic label when it has value and showTopic flag is true', () => {
+  it('returns topic label when it has value and showMeta flag is true', () => {
     const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Nav card',
@@ -139,8 +139,8 @@ describe('CardNav', () => {
         link: { text: 'Read more', url: '#' },
         author: 'John Doe',
         status: 'closed',
-        contentType: 'Profile: Women\'s Honour Roll',
-        showTopic: true,
+        contentType: 'Profile: invalid content type',
+        showMeta: true,
         topic: 'Anything under the sun'
       }
     })

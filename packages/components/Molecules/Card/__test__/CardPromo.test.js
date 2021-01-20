@@ -35,19 +35,7 @@ describe('CardPromo', () => {
     expect(wrapper.vm.statusIcon).toBeUndefined()
   })
 
-  it('trimmed Title to expected limit', () => {
-    const wrapper = shallowMount(CardPromo, {
-      propsData: {
-        title: 'Promo card that is more than 150 characters Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident',
-        link: { text: 'Read more', url: '#' }
-      }
-    })
-
-    expect(wrapper.vm.trimmedTitle).toEqual('Promo card that is more than 150 characters Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Exc...')
-    expect(wrapper.vm.trimmedTitle).toHaveLength(150 + 3)
-  })
-
-  it('trimmed Summary to expected limit', () => {
+  it('trimmed Summary to hard limit 300', () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -59,7 +47,7 @@ describe('CardPromo', () => {
     expect(wrapper.vm.trimmedSummary).toHaveLength(300 + 3)
   })
 
-  it('trimmed Summary to expected limit when there is an image', () => {
+  it('trimmed Summary to expected limit when display style is profile', () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -72,12 +60,13 @@ describe('CardPromo', () => {
           width: 304,
           height: 199
         },
-        link: { text: 'Read more', url: '#' }
+        link: { text: 'Read more', url: '#' },
+        displayStyle: 'profile'
       }
     })
 
-    expect(wrapper.vm.trimmedSummary).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a...')
-    expect(wrapper.vm.trimmedSummary).toHaveLength(200 + 3)
+    expect(wrapper.vm.trimmedSummary).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, q...')
+    expect(wrapper.vm.trimmedSummary).toHaveLength(150 + 3)
   })
 
   it('formats the date correctly', () => {
@@ -115,7 +104,7 @@ describe('CardPromo', () => {
     expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo--noimage'])
   })
 
-  it('returns content type label when it has value and showTopic flag is false', () => {
+  it('returns content type label when it is valid and showMeta is true', () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
         title: 'Promo card',
@@ -123,7 +112,7 @@ describe('CardPromo', () => {
         link: { text: 'Read more', url: '#' },
         author: 'John Doe',
         contentType: 'Profile: Women\'s Honour Roll',
-        showTopic: false,
+        showMeta: true,
         topic: 'Anything under the sun'
       }
     })
@@ -134,15 +123,15 @@ describe('CardPromo', () => {
     expect(wrapper.vm.contentTypeLabel).toEqual('')
   })
 
-  it('returns topic label when it has value and showTopic flag is true', () => {
+  it('returns topic label when content type is not valid and showMeta flag is true', () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
         title: 'Promo card',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
         author: 'John Doe',
-        contentType: 'Profile: Women\'s Honour Roll',
-        showTopic: true,
+        contentType: 'Profile: anything here',
+        showMeta: true,
         topic: 'Anything under the sun'
       }
     })

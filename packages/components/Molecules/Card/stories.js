@@ -53,7 +53,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   .addDecorator(withKnobs)
   .add('Thumbnail', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-topic="showTopic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :image="image" :author="author" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :image="image" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -78,8 +78,8 @@ storiesOf('Molecules/Card/Card Nav', module)
       topic: {
         default: () => text('Topic', '')
       },
-      showTopic: {
-        default: boolean('Show topic', false)
+      showMeta: {
+        default: boolean('Show meta', true)
       },
       contentType: {
         default: () => select('Content type', [
@@ -109,7 +109,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   }))
   .add('No image', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-topic="showTopic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :author="author" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :author="author" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -123,8 +123,8 @@ storiesOf('Molecules/Card/Card Nav', module)
       topic: {
         default: () => text('Topic', 'ARTS, CULTURE AND HERITAGE')
       },
-      showTopic: {
-        default: () => boolean('Show topic', true)
+      showMeta: {
+        default: () => boolean('Show meta', true)
       },
       contentType: {
         default: () => select('Content type', [
@@ -151,7 +151,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   }))
   .add('Event', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-topic="showTopic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :image="image" :status="status" :author="author" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :image="image" :status="status" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -176,8 +176,8 @@ storiesOf('Molecules/Card/Card Nav', module)
       topic: {
         default: () => text('Topic', 'ARTS, CULTURE AND HERITAGE')
       },
-      showTopic: {
-        default: () => boolean('Show topic', true)
+      showMeta: {
+        default: () => boolean('Show meta', true)
       },
       contentType: {
         default: () => select('Content type', [
@@ -210,7 +210,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   }))
   .add('Featured', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-topic="showTopic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :author="author" :image="image" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :author="author" :image="image" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -235,8 +235,8 @@ storiesOf('Molecules/Card/Card Nav', module)
       topic: {
         default: () => text('Topic', 'ARTS, CULTURE AND HERITAGE')
       },
-      showTopic: {
-        default: () => boolean('Show topic', true)
+      showMeta: {
+        default: () => boolean('Show meta', true)
       },
       contentType: {
         default: () => select('Content type', [
@@ -630,7 +630,7 @@ storiesOf('Molecules/Card/Card Promo', module)
   .addDecorator(withKnobs)
   .add('With image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :show-topic="showTopic" :topic="topic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
+    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :show-meta="showMeta" :topic="topic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       image: {
         default: object('Image', {
@@ -667,8 +667,8 @@ storiesOf('Molecules/Card/Card Promo', module)
       topic: {
         default: text('Topic', '')
       },
-      showTopic: {
-        default: boolean('Show topic', false)
+      showMeta: {
+        default: boolean('Show meta', true)
       },
       summary: {
         default: text('Summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
@@ -680,7 +680,7 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('Event', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :image="image" :link="link" :show-topic="showTopic" :topic="topic" :content-type="contentType" :status="status" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :image="image" :link="link" :show-meta="showMeta" :topic="topic" :content-type="contentType" :status="status" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
@@ -688,8 +688,8 @@ storiesOf('Molecules/Card/Card Promo', module)
       topic: {
         default: text('Topic', 'Anything event')
       },
-      showTopic: {
-        default: boolean('Show topic', false)
+      showMeta: {
+        default: boolean('Show meta', true)
       },
       contentType: {
         default: () => select('Content type', [
@@ -728,13 +728,13 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('No image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :topic="topic" :show-topic="showTopic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
       },
-      showTopic: {
-        default: boolean('showTopic', true)
+      showMeta: {
+        default: boolean('Show Meta', true)
       },
       topic: {
         default: text('Topic', 'ARTS, CULTURE AND HERITAGE')
@@ -767,7 +767,7 @@ storiesOf('Molecules/Card/Card Promo', module)
   }))
   .add('Profile', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :image="image" :topic="topic" :show-topic="showTopic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :image="image" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
@@ -786,8 +786,8 @@ storiesOf('Molecules/Card/Card Promo', module)
       topic: {
         default: text('Topic', '')
       },
-      showTopic: {
-        default: boolean('Show topic', false)
+      showMeta: {
+        default: boolean('Show meta', true)
       },
       contentType: {
         default: () => select('Content type', [

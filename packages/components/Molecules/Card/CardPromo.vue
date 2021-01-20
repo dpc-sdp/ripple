@@ -3,11 +3,11 @@
     <slot name="image">
       <rpl-responsive-img v-if="image && displayStyle !== 'noImage'" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </slot>
-    <div class="rpl-card-promo__content">
-      <div v-if="formattedDate || status || contentTypeLabel || topicLabel" class="rpl-card-promo__meta">
+    <div class="rpl-card-promo__content" v-cloak>
+      <div v-if="showMeta" class="rpl-card-promo__meta">
         <slot name="meta">
-          <div class="rpl-card-promo__content-type" v-if="contentTypeLabel" >{{ contentTypeLabel }}</div>
-          <div class="rpl-card-promo__topic" v-if="topicLabel" >{{ topicLabel }}</div>
+          <div class="rpl-card-promo__content-type" v-if="contentTypeLabel">{{ contentTypeLabel }}</div>
+          <div class="rpl-card-promo__topic" v-if="topicLabel">{{ topicLabel }}</div>
           <slot name="status">
             <div class="rpl-card-promo__status" :class="`rpl-card-promo__status--${this.status.toLowerCase()}`" v-if="status" >
               <rpl-icon class="rpl-card-promo__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
@@ -33,6 +33,7 @@ import RplLink from '@dpc-sdp/ripple-link'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import card from '@dpc-sdp/ripple-card/mixins/card'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers'
 
 export default {
   name: 'RplCardPromo',
@@ -74,7 +75,7 @@ export default {
       type: String,
       default: ''
     },
-    showTopic: {
+    showMeta: {
       type: Boolean,
       default: false
     },
@@ -100,6 +101,14 @@ export default {
       modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
 
       return modifiers
+    },
+    trimmedSummary () {
+      let summaryLength = 300
+      if (this.image && Object.keys(this.image).length && this.displayStyle === 'profile') {
+        summaryLength = 150
+      }
+
+      return this.summary ? truncateText(this.summary, summaryLength) : ''
     }
   }
 }
@@ -111,29 +120,31 @@ export default {
   @import "scss/card";
   $rpl-card-promotion-bg-color: $rpl-card-background !default;
   $rpl-card-promo-min-height: rem(400px) !default;
-  $rpl-card-promo-meta-margin: 0 0 $rpl-space-3 0 !default;
+  $rpl-card-promo-meta-margin: 0 0 rem(19px) 0 !default;
   $rpl-card-promo-meta-ruleset: $rpl-card-meta-ruleset !default;
+  $rpl-card-promo-content-type-ruleset: ('xs', .875em, 'medium') !default;
   $rpl-card-promo-meta-text-color: $rpl-card-meta-text-color !default;
   $rpl-card-promo-date-padding: $rpl-space $rpl-space-2 !default;
   $rpl-card-promo-content-type-bg-color: rpl_color('light_neutral') !default;
   $rpl-card-promo-content-type-color: $nav-card-text-color !default;
-  $rpl-card-nav-topic-padding: $rpl-space 0 !default;
+  $rpl-card-nav-topic-padding: $rpl-space $rpl-space $rpl-space 0 !default;
   $rpl-card-promo-meta-padding: $rpl-space $rpl-space-2 !default;
   $rpl-card-promo-link-color: $nav-card-text-color !default;
   $rpl-card-promo-link-color-hover: $rpl-card-link-hover-color !default;
   $rpl-card-promo-title-ruleset: $rpl-card-title-ruleset !default;
   $rpl-card-promo-title-text-color: $nav-card-text-color !default;
   $rpl-card-promo-title-text-decoration: $rpl-card-title-text-decoration !default;
-  $rpl-card-promo-title-margin: 0 0 $rpl-space-3 0 !default;
+  $rpl-card-promo-title-margin: 0 0 rem(9px) 0 !default;
   $rpl-card-promo-summary-ruleset: $rpl-card-summary-ruleset !default;
   $rpl-card-promo-summary-text-color: $nav-card-text-color !default;
-  $rpl-card-promo-content-padding: $rpl-space-4 !default;
+  $rpl-card-promo-content-padding: ($rpl-space * 5) !default;
   $rpl-card-promo-border-color: $rpl-card-border-color !default;
   $rpl-card-promo-border: 1px solid $rpl-card-promo-border-color !default;
   $rpl-card-promo-border-radius: $rpl-card-border-radius !default;
   $rpl-card-promo-no-image-border: rpl_gradient('decorative_gradient') !default;
   $rpl-card-promo-no-image-border-height: rem(8px) !default;
-  $rpl-card-promo-no-image-padding-top: rem(89px) !default;
+  $rpl-card-promo-no-image-padding-top: rem(96px) !default;
+  $rpl-card-promo-thumbnail-padding-top: rem(27px) !default;
   $rpl-card-promo-profile-image-margin-top: rem(56px) !default;
   $rpl-card-promo-profile-image-size: rem(148px) !default;
   $rpl-card-promo-img-height: (
@@ -193,19 +204,17 @@ export default {
       padding: $rpl-card-promo-date-padding;
     }
 
-    &__topic,
-    &__content-type {
+    &__topic {
       @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
       display: inline-block;
-    }
-
-    &__topic {
       color: $rpl-card-promo-meta-text-color;;
       text-transform: uppercase;
       padding: $rpl-card-nav-topic-padding;;
     }
 
     &__content-type {
+      @include rpl_typography_ruleset($rpl-card-promo-content-type-ruleset);
+      display: inline-block;
       color: $rpl-card-promo-content-type-color;
       background-color: $rpl-card-promo-content-type-bg-color;
       padding: $rpl-card-promo-meta-padding;
@@ -251,6 +260,10 @@ export default {
 
       #{$root}--noimage & {
         padding-top: $rpl-card-promo-no-image-padding-top;
+      }
+
+      #{$root}--thumbnail & {
+        padding-top: $rpl-card-promo-thumbnail-padding-top;
       }
     }
 

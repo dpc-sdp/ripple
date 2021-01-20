@@ -4,7 +4,7 @@
       <rpl-responsive-img v-if="image && displayStyle !== 'noImage'" class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-nav__content">
-      <div v-if="formattedDate || status || contentTypeLabel || topicLabel" class="rpl-card-nav__meta">
+      <div v-if="showMeta" class="rpl-card-nav__meta">
         <div v-if="contentTypeLabel" class="rpl-card-nav__content-type" >{{ contentTypeLabel }}</div>
         <div v-if="topicLabel" class="rpl-card-nav__topic" >{{ topicLabel }}</div>
         <div v-if="status" class="rpl-card-nav__status" :class="`rpl-card-nav__status--${this.status.toLowerCase()}`">
@@ -26,6 +26,7 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import card from '@dpc-sdp/ripple-card/mixins/card'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers'
 
 export default {
   name: 'RplCardNav',
@@ -64,7 +65,7 @@ export default {
       type: String,
       default: ''
     },
-    showTopic: {
+    showMeta: {
       type: Boolean,
       default: false
     },
@@ -107,6 +108,14 @@ export default {
       modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
 
       return modifiers
+    },
+    trimmedSummary () {
+      let summaryLength = 300
+      if (this.image && Object.keys(this.image).length) {
+        summaryLength = 200
+      }
+
+      return this.summary ? truncateText(this.summary, summaryLength) : ''
     }
   }
 }
@@ -123,8 +132,8 @@ $rpl-card-nav-border: 1px solid $rpl-card-nav-border-color !default;
 $rpl-card-nav-border-radius: $rpl-card-border-radius !default;
 $rpl-card-nav-content-padding-xs: $rpl-card-vertical-padding $rpl-component-padding-xs !default;
 $rpl-card-nav-content-padding-s: $rpl-card-vertical-padding $rpl-component-padding-s !default;
-$rpl-card-nav-inline-padding-m: ($rpl-space * 8) ($rpl-space * 8) !default;
-$rpl-card-nav-title-ruleset:  $rpl-card-title-ruleset !default;
+$rpl-card-nav-inline-padding-m: ($rpl-space * 8) !default;
+$rpl-card-nav-title-ruleset: ('xl', 1.5em, 'bold') !default;
 $rpl-card-nav-title-text-color: $nav-card-text-color !default;
 $rpl-card-nav-title-hover-color: $rpl-card-link-hover-color !default;
 $rpl-card-nav-title-text-decoration: $rpl-card-title-text-decoration !default;
@@ -135,9 +144,9 @@ $rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
 $rpl-card-nav-topic-color: $nav-card-text-color !default;
 $rpl-card-nav-topic-background-color: rpl_color('mid_neutral_2') !default;
 $rpl-card-nav-meta-padding: $rpl-space $rpl-space-2 !default;
-$rpl-card-nav-topic-padding: $rpl-space 0 !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;
+$rpl-card-nav-content-type-ruleset: ('xs', .875em, 'medium') !default;
 $rpl-card-nav-date-text-color: $rpl-card-meta-text-color !default;
 $rpl-card-nav-img-width: (
   'm': rem(280px),
@@ -156,8 +165,7 @@ $rpl-card-nav-author-font-size: rem(14px) !default;
 $rpl-card-nav-featured-title-bg-color: rpl-color('primary') !default;
 $rpl-card-nav-featured-title-bg-color-hover: rpl-color('secondary') !default;
 $rpl-card-nav-featured-title-ruleset: (
-  'xs': ('mega', 1.3em, 'bold', true),
-  's': ('giga', 1.6em, 'bold', true)
+  's': ('mega', 1.75em, 'bold', true)
 ) !default;
 $rpl-card-nav-featured-content-padding: 2rem !default;
 $rpl-card-nav-featured-meta-margin-bottom: rem(14px) !default;
@@ -283,29 +291,22 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
     margin: $rpl-card-nav-meta-margin;
   }
 
-  &__date,
-  &__content-type,
-  &__topic {
+  &__date {
     @include rpl_typography_ruleset($rpl-card-nav-meta-ruleset);
     display: inline;
   }
 
   &__content-type,
   &__topic {
+    @include rpl_typography_ruleset($rpl-card-nav-content-type-ruleset);
+    display: inline;
     color: $rpl-card-nav-topic-color;
     background-color: $rpl-card-nav-topic-background-color;
+    padding: $rpl-card-nav-meta-padding;
 
     &::first-letter {
       text-transform: capitalize;
     }
-  }
-
-  &__content-type {
-    padding: $rpl-card-nav-meta-padding;
-  }
-
-  &__topic {
-    padding: $rpl-card-nav-topic-padding;
   }
 
   &__date {

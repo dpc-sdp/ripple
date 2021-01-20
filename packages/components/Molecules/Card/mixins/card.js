@@ -28,13 +28,6 @@ const card = {
       const titleLength = 150
       return this.title ? truncateText(this.title, titleLength) : ''
     },
-    trimmedSummary () {
-      let summaryLength = 300
-      if (this.image && Object.keys(this.image).length) {
-        summaryLength = 200
-      }
-      return this.summary ? truncateText(this.summary, summaryLength) : ''
-    },
     formattedDate () {
       if (!this.dateStart && !this.dateEnd) return ''
 
@@ -45,9 +38,7 @@ const card = {
 
       return formatted
     },
-    contentTypeLabel () {
-      if (this.showTopic || !this.contentType || (!this.showTopic && !this.contentType)) return ''
-
+    isValidContentType () {
       const validContentTypes = [
         'event',
         'grant',
@@ -59,18 +50,22 @@ const card = {
         'profile: women\'s honour roll'
       ]
 
-      let contentTypeLabel = ''
-      if (validContentTypes.includes(this.contentType.toLowerCase())) {
+      return validContentTypes.includes(this.contentType?.toLowerCase())
+    },
+    contentTypeLabel () {
+      if (this.showMeta && this.isValidContentType === true && this.contentType) {
         let contentType = this.contentType.split(' ')
-        contentTypeLabel = contentType[0].replace(':', '')
+        return contentType[0].replace(':', '')
       }
 
-      return contentTypeLabel
+      return ''
     },
     topicLabel () {
-      if (!this.showTopic || !this.topic || (this.showTopic && !this.topic)) return ''
+      if (this.showMeta && this.isValidContentType === false && this.topic) {
+        return this.topic
+      }
 
-      return this.topic
+      return ''
     }
   }
 }

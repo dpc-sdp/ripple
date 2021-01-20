@@ -335,6 +335,38 @@ describe('tide', () => {
     expect(data).toEqual([1, 2, 3, 4, 5, 6, 7, 8])
   })
 
+  test('should handle paginated data response error', async () => {
+    mockAxios.$get = jest.fn((url) => {
+      switch (url) {
+        case '/api/v1/test/?p2':
+          return Promise.resolve({
+            'data': [4, 5, 6],
+            'links': {
+              'self': 'https://mockAPI/api/v1/test/?p2',
+              'next': 'https://mockAPI/api/v1/test/?p3',
+              'last': 'https://mockAPI/api/v1/test/?p3'
+            }
+          })
+
+        case '/api/v1/test/?p3' :
+          return Promise.reject(new Error('something bad happened'))
+      }
+    })
+
+    const response = {
+      'data': [1, 2, 3],
+      'links': {
+        'self': 'https://mockAPI/api/v1/test/?p1',
+        'next': 'https://mockAPI/api/v1/test/?p2',
+        'last': 'https://mockAPI/api/v1/test/?p3'
+      }
+    }
+
+    expect.assertions(1)
+    const data = await tideApi.getAllPaginatedData(response, false)
+    expect(data).toBeInstanceOf(Error)
+  })
+
   test('should get tide module enabled status', () => {
     const profileStatus = tideApi.isModuleEnabled('profile')
     expect(profileStatus).toBe(true)

@@ -309,6 +309,7 @@ $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
     border-left: $callout-wrapper-border-left;
     border-color: $callout-wrapper-border-color;
     background-color: $callout-wrapper-background-color;
+    max-width: $rpl-content-max-width;
 
     ul {
       padding-left: $callout-wrapper-list-padding-left;

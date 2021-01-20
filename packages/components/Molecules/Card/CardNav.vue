@@ -138,7 +138,7 @@ $rpl-card-nav-title-text-color: $nav-card-text-color !default;
 $rpl-card-nav-title-hover-color: $rpl-card-link-hover-color !default;
 $rpl-card-nav-title-text-decoration: $rpl-card-title-text-decoration !default;
 $rpl-card-nav-title-margin: 0 0 rem(12px) !default;
-$rpl-card-nav-summary-ruleset: $rpl-card-summary-ruleset !default;
+$rpl-card-nav-summary-ruleset: ('s', 1.5em, 'regular') !default;
 $rpl-card-nav-summary-color: $nav-card-text-color !default;
 $rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
 $rpl-card-nav-topic-color: $nav-card-text-color !default;

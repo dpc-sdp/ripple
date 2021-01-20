@@ -135,7 +135,7 @@ export default {
   $rpl-card-promo-title-text-color: $nav-card-text-color !default;
   $rpl-card-promo-title-text-decoration: $rpl-card-title-text-decoration !default;
   $rpl-card-promo-title-margin: 0 0 rem(9px) 0 !default;
-  $rpl-card-promo-summary-ruleset: $rpl-card-summary-ruleset !default;
+  $rpl-card-promo-summary-ruleset: ('xs', 1.25em, 'regular') !default;
   $rpl-card-promo-summary-text-color: $nav-card-text-color !default;
   $rpl-card-promo-content-padding: ($rpl-space * 5) !default;
   $rpl-card-promo-border-color: $rpl-card-border-color !default;

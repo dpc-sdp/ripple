@@ -137,6 +137,7 @@ export default {
     'l': rem(232px),
     'xl': rem(200px)
   ) !default;
+  $rpl-card-promo-max-width: rem(336px);
 
   .rpl-card-promo {
     $root: &;
@@ -147,6 +148,8 @@ export default {
     border: $rpl-card-promo-border;
     border-radius: $rpl-card-promo-border-radius;
     background-color: $rpl-card-promotion-bg-color;
+    max-width: $rpl-card-promo-max-width;
+
     &:hover,
     &:focus {
       @include rpl_dropshadow;

@@ -313,10 +313,7 @@ module.exports = {
           'showTopic': 'field_customise',
           'displayStyle': 'field_promo_card_display_style'
         },
-        cols: {
-          wide: { l: 6 },
-          narrow: {}
-        }
+        cols: cardColsSetting
       },
 
       'paragraph--card_event': {

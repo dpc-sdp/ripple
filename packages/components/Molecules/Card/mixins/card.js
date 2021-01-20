@@ -50,7 +50,10 @@ const card = {
         'profile: women\'s honour roll'
       ]
 
-      return validContentTypes.includes(this.contentType?.toLowerCase())
+      if (this.contentType && validContentTypes.includes(this.contentType.toLowerCase())) {
+        return true
+      }
+      return false
     },
     contentTypeLabel () {
       if (this.showMeta && this.isValidContentType === true && this.contentType) {

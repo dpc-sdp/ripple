@@ -2597,14 +2597,7 @@ exports[`RippleStoryshots Molecules/Card/Card Promo With image 1`] = `
   <span
     class="rpl-link__inner"
   >
-    <img
-      alt=""
-      class="rpl-responsive-image rpl-card-promo__image rpl-responsive-image--fit-cover"
-      height="340"
-      src="https://images.unsplash.com/photo-1602699121297-81f2312fa4e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
-      style="object-position: 50.00% 50.00%; font-family: 'object-fit: cover; object-position: 50.00% 50.00%;';"
-      width="580"
-    />
+    <!---->
      
     <div
       class="rpl-card-promo__content"

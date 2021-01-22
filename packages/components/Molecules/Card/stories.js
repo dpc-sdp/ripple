@@ -53,7 +53,7 @@ storiesOf('Molecules/Card/Card Nav', module)
   .addDecorator(withKnobs)
   .add('Thumbnail', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :image="image" :author="author" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :is-grant-on-going="isGrantOngoing" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :image="image" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -104,12 +104,15 @@ storiesOf('Molecules/Card/Card Nav', module)
       },
       displayStyle: {
         default: text('Display style', 'thumbnail')
+      },
+      isGrantOngoing: {
+        default: () => select('Is grant ongoing?', ['0', '1'])
       }
     }
   }))
   .add('No image', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :author="author" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :is-grant-on-going="isGrantOngoing" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :author="author" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -146,12 +149,15 @@ storiesOf('Molecules/Card/Card Nav', module)
       },
       author: {
         default: text('Author', 'John Doe')
+      },
+      isGrantOngoing: {
+        default: () => select('Is grant ongoing?', ['0', '1'])
       }
     }
   }))
   .add('Event', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :image="image" :status="status" :author="author" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :image="image" :is-grant-on-going="isGrantOngoing" :author="author" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -205,12 +211,15 @@ storiesOf('Molecules/Card/Card Nav', module)
       },
       displayStyle: {
         default: text('Display style', 'thumbnail')
+      },
+      isGrantOngoing: {
+        default: select('Is grant ongoing?', ['0', '1'])
       }
     }
   }))
   .add('Featured', () => ({
     components: { RplCardNav },
-    template: `<rpl-card-nav :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :author="author" :image="image" :display-style="displayStyle" />`,
+    template: `<rpl-card-nav :title="title" :summary="summary" :is-grant-on-going="isGrantOngoing" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :author="author" :image="image" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'Navigation card V2')
@@ -261,6 +270,9 @@ storiesOf('Molecules/Card/Card Nav', module)
       },
       displayStyle: {
         default: text('Display Style', 'featured')
+      },
+      isGrantOngoing: {
+        default: () => select('Is grant ongoing?', ['0', '1'])
       }
     }
   }))
@@ -630,7 +642,7 @@ storiesOf('Molecules/Card/Card Promo', module)
   .addDecorator(withKnobs)
   .add('With image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :show-meta="showMeta" :topic="topic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
+    template: `<rpl-card-promo :title="title" :image="image" :is-grant-on-going="isGrantOngoing" :summary="summary" :link="link" :show-meta="showMeta" :topic="topic" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       image: {
         default: object('Image', {
@@ -675,12 +687,15 @@ storiesOf('Molecules/Card/Card Promo', module)
       },
       link: {
         default: () => object('Link', { text: 'Read more', url: '#' })
+      },
+      isGrantOngoing: {
+        default: () => select('Is grant ongoing?', ['0', '1'])
       }
     }
   }))
   .add('Event', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :image="image" :link="link" :show-meta="showMeta" :topic="topic" :content-type="contentType" :status="status" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :image="image" :link="link" :show-meta="showMeta" :topic="topic" :content-type="contentType" :is-grant-on-going="isGrantOngoing" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
@@ -723,12 +738,15 @@ storiesOf('Molecules/Card/Card Promo', module)
       },
       displayStyle: {
         default: () => text('Display style', 'Noimage')
+      },
+      isGrantOngoing: {
+        default: () => select('Is grant ongoing?', ['0', '1'])
       }
     }
   }))
   .add('No image', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :is-grant-on-going="isGrantOngoing" :link="link" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
@@ -762,12 +780,15 @@ storiesOf('Molecules/Card/Card Promo', module)
       },
       link: {
         default: () => object('Link', { text: 'Read more', url: '#' })
+      },
+      isGrantOngoing: {
+        default: () => select('Is grant ongoing?', ['0', '1'])
       }
     }
   }))
   .add('Profile', () => ({
     components: { RplCardPromo },
-    template: `<rpl-card-promo :title="title" :summary="summary" :link="link" :image="image" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
+    template: `<rpl-card-promo :title="title" :summary="summary" :is-grant-on-going="isGrantOngoing" :link="link" :image="image" :topic="topic" :show-meta="showMeta" :content-type="contentType" :date-start="dateStart" :date-end="dateEnd" :display-style="displayStyle" />`,
     props: {
       title: {
         default: text('Title', 'First promo card')
@@ -815,6 +836,9 @@ storiesOf('Molecules/Card/Card Promo', module)
       },
       displayStyle: {
         default: () => text('Display style', 'profile')
+      },
+      isGrantOngoing: {
+        default: () => select('Is grant ongoing?', ['0', '1'])
       }
     }
   }))

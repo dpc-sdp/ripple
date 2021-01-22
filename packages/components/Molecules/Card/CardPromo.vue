@@ -9,12 +9,12 @@
           <div class="rpl-card-promo__content-type" v-if="contentTypeLabel">{{ contentTypeLabel }}</div>
           <div class="rpl-card-promo__topic" v-if="topicLabel">{{ topicLabel }}</div>
           <slot name="status">
-            <div class="rpl-card-promo__status" :class="`rpl-card-promo__status--${this.status.toLowerCase()}`" v-if="status" >
-              <rpl-icon class="rpl-card-promo__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
-              <span>{{status}}</span>
+            <div v-if="grantStatusData" class="rpl-card-promo__status">
+              <rpl-icon class="rpl-card-promo__status-icon" :symbol="grantStatusData.symbol" :color="grantStatusData.color" size="s" />
+              <span>{{ grantStatusData.label }}</span>
             </div>
           </slot>
-          <div class="rpl-card-promo__date" v-if="formattedDate">{{ formattedDate }}</div>
+          <div class="rpl-card-promo__date" v-if="formattedDate && !grantStatusData">{{ formattedDate }}</div>
         </slot>
       </div>
       <slot name="content">
@@ -87,6 +87,10 @@ export default {
       type: String,
       default: 'noImage',
       validator: val => ['noImage', 'thumbnail', 'profile'].includes(val)
+    },
+    isGrantOnGoing: {
+      type: String,
+      default: ''
     }
   },
   components: {
@@ -253,6 +257,7 @@ export default {
       @include rpl_breakpoint('m') {
         margin: 0;
       }
+      width: 100%;
     }
 
     &__content {

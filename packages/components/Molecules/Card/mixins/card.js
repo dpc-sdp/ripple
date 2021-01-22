@@ -1,28 +1,55 @@
 import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers'
+import grantStatus from '@dpc-sdp/ripple-grants/grants-status'
 
 const card = {
-  computed: {
-    statusIcon () {
-      if (!this.status) return
-
-      switch (this.status.toLowerCase()) {
-        case 'closed':
+  data () {
+    return {
+      statusTerms: {
+        open: {
+          label: 'Open',
+          symbol: 'success',
+          color: 'success'
+        },
+        closed: {
+          label: 'Closed',
+          symbol: 'cross_circle',
+          color: 'danger'
+        },
+        ongoing: {
+          label: 'Ongoing',
+          symbol: 'success',
+          color: 'success'
+        },
+        openingSoon: (startdate) => {
           return {
-            symbol: 'cross_circle',
-            color: 'danger'
-          }
-        case 'open':
-        case 'ongoing':
-          return {
+            label: `Opening on ${startdate}`,
             symbol: 'success',
             color: 'success'
           }
-        default:
+        },
+        closingSoon: (end, now) => {
+          const daysRemaining = parseInt(end.diff(now, 'days'))
+          let label = `Open, closing today`
+          if (daysRemaining > 1) {
+            label = `Open, closing in ${daysRemaining} days`
+          } else if (daysRemaining === 1) {
+            label = `Open, closing in ${daysRemaining} day`
+          }
           return {
+            label: label,
             symbol: 'success',
             color: 'success'
           }
+        }
       }
+    }
+  },
+  computed: {
+    grantStatusData () {
+      if (this.isGrantOnGoing === '1') {
+        return this.statusTerms.ongoing
+      }
+      return grantStatus(this.dateStart, this.dateEnd, false, this.statusTerms)
     },
     trimmedTitle () {
       const titleLength = 150

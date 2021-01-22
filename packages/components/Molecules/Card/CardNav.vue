@@ -7,15 +7,15 @@
       <div v-if="showMeta" class="rpl-card-nav__meta">
         <div v-if="contentTypeLabel" class="rpl-card-nav__content-type" >{{ contentTypeLabel }}</div>
         <div v-if="topicLabel" class="rpl-card-nav__topic" >{{ topicLabel }}</div>
-        <div v-if="status" class="rpl-card-nav__status" :class="`rpl-card-nav__status--${this.status.toLowerCase()}`">
-          <rpl-icon v-if="statusIcon" class="rpl-card-nav__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
-          <span>{{ status }}</span>
+        <div v-if="grantStatusData" class="rpl-card-nav__status">
+          <rpl-icon class="rpl-card-nav__status-icon" :symbol="grantStatusData.symbol" :color="grantStatusData.color" size="s" />
+          <span>{{ grantStatusData.label }}</span>
         </div>
-        <div v-if="formattedDate" class="rpl-card-nav__date">{{ formattedDate }}</div>
+        <div v-if="formattedDate && !grantStatusData" class="rpl-card-nav__date">{{ formattedDate }}</div>
       </div>
       <h2 v-if="title" class="rpl-card-nav__title"><span>{{ trimmedTitle }}</span></h2>
       <p v-if="summary" class="rpl-card-nav__summary">{{ trimmedSummary }}</p>
-      <p v-if="author" class="rpl-card-nav__author"><strong>Author:</strong> {{ author }}</p>
+      <p v-if="authors && authors.length > 0" class="rpl-card-nav__author"><strong>Author:</strong> {{ authors.join(', ') }}</p>
     </div>
   </rpl-link>
 </template>
@@ -77,9 +77,11 @@ export default {
       type: String,
       default: ''
     },
-    author: {
-      type: String,
-      default: ''
+    authors: {
+      type: Array,
+      default () {
+        return []
+      }
     },
     status: {
       type: String,
@@ -89,6 +91,10 @@ export default {
       type: String,
       default: 'noImage',
       validator: val => ['noImage', 'thumbnail', 'featured'].includes(val)
+    },
+    isGrantOnGoing: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -267,6 +273,7 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
   &__summary {
     @include rpl_typography_ruleset($rpl-card-nav-summary-ruleset);
     margin: 0;
+    width: 100%;
   }
 
   &__author {

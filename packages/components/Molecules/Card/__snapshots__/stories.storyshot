@@ -1913,6 +1913,7 @@ exports[`RippleStoryshots Molecules/Card/Card Keydates Default 1`] = `
 
 exports[`RippleStoryshots Molecules/Card/Card Nav Event 1`] = `
 <a
+  author="John Doe"
   class="rpl-link rpl-card-nav rpl-card-nav--thumbnail"
   data-print-url="#"
   href="#"
@@ -1947,31 +1948,27 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Event 1`] = `
       </div>
        
       <div
-        class="rpl-card-nav__status rpl-card-nav__status--open"
+        class="rpl-card-nav__status"
       >
         <svg
           aria-hidden="true"
-          class="rpl-card-nav__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+          class="rpl-card-nav__status-icon rpl-icon rpl-icon--cross_circle rpl-icon--color_danger"
           overflow="visible"
-          style="width: 10px; height: 10px;"
-          viewBox="0 0 20 20"
+          style="width: 12px; height: 12px;"
+          viewBox="0 0 24 24"
         >
           <path
-            d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+            d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm5.884 15.15a.581.581 0 010 .823l-1.916 1.91a.581.581 0 01-.823 0L12 14.71l-3.15 3.174a.581.581 0 01-.823 0l-1.91-1.916a.581.581 0 010-.823L9.29 12 6.116 8.85a.581.581 0 010-.823l1.916-1.916a.581.581 0 01.823 0L12 9.291l3.15-3.175a.581.581 0 01.823 0l1.916 1.916a.581.581 0 010 .823L14.709 12l3.175 3.15z"
           />
            
         </svg>
          
         <span>
-          open
+          Closed
         </span>
       </div>
        
-      <div
-        class="rpl-card-nav__date"
-      >
-        23 March 2021
-      </div>
+      <!---->
     </div>
      
     <h2
@@ -1988,20 +1985,14 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Event 1`] = `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
     </p>
      
-    <p
-      class="rpl-card-nav__author"
-    >
-      <strong>
-        Author:
-      </strong>
-       John Doe
-    </p>
+    <!---->
   </div>
 </a>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Nav Featured 1`] = `
 <a
+  author="John Doe"
   class="rpl-link rpl-card-nav rpl-card-nav--featured"
   data-print-url="#"
   href="#"
@@ -2035,13 +2026,28 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Featured 1`] = `
         ARTS, CULTURE AND HERITAGE
       </div>
        
-      <!---->
-       
       <div
-        class="rpl-card-nav__date"
+        class="rpl-card-nav__status"
       >
-        23 March 2020
+        <svg
+          aria-hidden="true"
+          class="rpl-card-nav__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+          overflow="visible"
+          style="width: 10px; height: 10px;"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+          />
+           
+        </svg>
+         
+        <span>
+          Ongoing
+        </span>
       </div>
+       
+      <!---->
     </div>
      
     <h2
@@ -2058,20 +2064,14 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Featured 1`] = `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
     </p>
      
-    <p
-      class="rpl-card-nav__author"
-    >
-      <strong>
-        Author:
-      </strong>
-       John Doe
-    </p>
+    <!---->
   </div>
 </a>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Nav No image 1`] = `
 <a
+  author="John Doe"
   class="rpl-link rpl-card-nav rpl-card-nav--noimage"
   data-print-url="#"
   href="#"
@@ -2096,13 +2096,28 @@ exports[`RippleStoryshots Molecules/Card/Card Nav No image 1`] = `
         ARTS, CULTURE AND HERITAGE
       </div>
        
-      <!---->
-       
       <div
-        class="rpl-card-nav__date"
+        class="rpl-card-nav__status"
       >
-        23 March 2020
+        <svg
+          aria-hidden="true"
+          class="rpl-card-nav__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+          overflow="visible"
+          style="width: 10px; height: 10px;"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+          />
+           
+        </svg>
+         
+        <span>
+          Ongoing
+        </span>
       </div>
+       
+      <!---->
     </div>
      
     <h2
@@ -2119,20 +2134,14 @@ exports[`RippleStoryshots Molecules/Card/Card Nav No image 1`] = `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </p>
      
-    <p
-      class="rpl-card-nav__author"
-    >
-      <strong>
-        Author:
-      </strong>
-       John Doe
-    </p>
+    <!---->
   </div>
 </a>
 `;
 
 exports[`RippleStoryshots Molecules/Card/Card Nav Thumbnail 1`] = `
 <a
+  author="John Doe"
   class="rpl-link rpl-card-nav rpl-card-nav--thumbnail"
   data-print-url="#"
   href="#"
@@ -2166,13 +2175,28 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Thumbnail 1`] = `
        
       <!---->
        
-      <!---->
-       
       <div
-        class="rpl-card-nav__date"
+        class="rpl-card-nav__status"
       >
-        23 March 2020
+        <svg
+          aria-hidden="true"
+          class="rpl-card-nav__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+          overflow="visible"
+          style="width: 10px; height: 10px;"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+          />
+           
+        </svg>
+         
+        <span>
+          Ongoing
+        </span>
       </div>
+       
+      <!---->
     </div>
      
     <h2
@@ -2189,14 +2213,7 @@ exports[`RippleStoryshots Molecules/Card/Card Nav Thumbnail 1`] = `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali...
     </p>
      
-    <p
-      class="rpl-card-nav__author"
-    >
-      <strong>
-        Author:
-      </strong>
-       John Doe
-    </p>
+    <!---->
   </div>
 </a>
 `;
@@ -2435,31 +2452,27 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Event 1`] = `
         <!---->
          
         <div
-          class="rpl-card-promo__status rpl-card-promo__status--open"
+          class="rpl-card-promo__status"
         >
           <svg
             aria-hidden="true"
-            class="rpl-card-promo__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+            class="rpl-card-promo__status-icon rpl-icon rpl-icon--cross_circle rpl-icon--color_danger"
             overflow="visible"
-            style="width: 10px; height: 10px;"
-            viewBox="0 0 20 20"
+            style="width: 12px; height: 12px;"
+            viewBox="0 0 24 24"
           >
             <path
-              d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+              d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm5.884 15.15a.581.581 0 010 .823l-1.916 1.91a.581.581 0 01-.823 0L12 14.71l-3.15 3.174a.581.581 0 01-.823 0l-1.91-1.916a.581.581 0 010-.823L9.29 12 6.116 8.85a.581.581 0 010-.823l1.916-1.916a.581.581 0 01.823 0L12 9.291l3.15-3.175a.581.581 0 01.823 0l1.916 1.916a.581.581 0 010 .823L14.709 12l3.175 3.15z"
             />
              
           </svg>
            
           <span>
-            open
+            Closed
           </span>
         </div>
          
-        <div
-          class="rpl-card-promo__date"
-        >
-          10 to 15 November
-        </div>
+        <!---->
       </div>
        
       <h2
@@ -2504,13 +2517,28 @@ exports[`RippleStoryshots Molecules/Card/Card Promo No image 1`] = `
           ARTS, CULTURE AND HERITAGE
         </div>
          
-        <!---->
-         
         <div
-          class="rpl-card-promo__date"
+          class="rpl-card-promo__status"
         >
-          10 November 2020
+          <svg
+            aria-hidden="true"
+            class="rpl-card-promo__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+            overflow="visible"
+            style="width: 10px; height: 10px;"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+            />
+             
+          </svg>
+           
+          <span>
+            Ongoing
+          </span>
         </div>
+         
+        <!---->
       </div>
        
       <h2
@@ -2562,13 +2590,28 @@ exports[`RippleStoryshots Molecules/Card/Card Promo Profile 1`] = `
          
         <!---->
          
-        <!---->
-         
         <div
-          class="rpl-card-promo__date"
+          class="rpl-card-promo__status"
         >
-          10 November 2020
+          <svg
+            aria-hidden="true"
+            class="rpl-card-promo__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+            overflow="visible"
+            style="width: 10px; height: 10px;"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+            />
+             
+          </svg>
+           
+          <span>
+            Ongoing
+          </span>
         </div>
+         
+        <!---->
       </div>
        
       <h2
@@ -2613,13 +2656,28 @@ exports[`RippleStoryshots Molecules/Card/Card Promo With image 1`] = `
          
         <!---->
          
-        <!---->
-         
         <div
-          class="rpl-card-promo__date"
+          class="rpl-card-promo__status"
         >
-          10 November 2020
+          <svg
+            aria-hidden="true"
+            class="rpl-card-promo__status-icon rpl-icon rpl-icon--success rpl-icon--color_success"
+            overflow="visible"
+            style="width: 10px; height: 10px;"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm2.583-14.385l-3.744 5.99-1.607-1.607a1.308 1.308 0 00-1.849 1.85l2.77 2.769a1.308 1.308 0 002.033-.232L14.8 7.001a1.308 1.308 0 10-2.218-1.386h.001z"
+            />
+             
+          </svg>
+           
+          <span>
+            Ongoing
+          </span>
         </div>
+         
+        <!---->
       </div>
        
       <h2

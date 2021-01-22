@@ -273,9 +273,10 @@ module.exports = {
           'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
           'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
           'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
-          'author': ['field_paragraph_link', 'internal_node_fields', 'author'],
+          'authors': ['field_paragraph_link', 'internal_node_fields', 'publication_authors'],
           'showMeta': 'field_customise',
-          'displayStyle': 'field_nav_card_display_style'
+          'displayStyle': 'field_nav_card_display_style',
+          'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
         },
         cols: {
           wide: { l: 6 },
@@ -311,7 +312,8 @@ module.exports = {
           'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
           'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
           'showMeta': 'field_customise',
-          'displayStyle': 'field_promo_card_display_style'
+          'displayStyle': 'field_promo_card_display_style',
+          'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
         },
         cols: cardColsSetting
       },

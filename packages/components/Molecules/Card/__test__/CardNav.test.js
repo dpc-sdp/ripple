@@ -1,40 +1,8 @@
 import { shallowMount } from '@vue/test-utils'
 import CardNav from '../CardNav'
+import moment from 'moment'
 
 describe('CardNav', () => {
-  it('returns status icon data properly.', async () => {
-    const wrapper = shallowMount(CardNav, {
-      propsData: {
-        title: 'Navigation card V2',
-        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        link: { text: 'Read more', url: '#' },
-        topic: 'Event',
-        author: 'John Doe',
-        status: 'closed'
-      }
-    })
-
-    expect(wrapper.vm.statusIcon).toEqual({
-      symbol: 'cross_circle',
-      color: 'danger'
-    })
-
-    await wrapper.setProps({ status: 'open' })
-    expect(wrapper.vm.statusIcon).toEqual({
-      symbol: 'success',
-      color: 'success'
-    })
-
-    await wrapper.setProps({ status: 'anything' })
-    expect(wrapper.vm.statusIcon).toEqual({
-      symbol: 'success',
-      color: 'success'
-    })
-
-    await wrapper.setProps({ status: '' })
-    expect(wrapper.vm.statusIcon).toBeUndefined()
-  })
-
   it('trimmed Title to expected limit', () => {
     const wrapper = shallowMount(CardNav, {
       propsData: {
@@ -99,7 +67,7 @@ describe('CardNav', () => {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
         topic: 'Event',
-        author: 'John Doe',
+        authors: ['John Doe'],
         status: 'closed',
         displayStyle: 'featured'
       }
@@ -117,7 +85,7 @@ describe('CardNav', () => {
         title: 'Nav card',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
-        author: 'John Doe',
+        authors: ['John Doe'],
         status: 'closed',
         contentType: 'Profile: Women\'s Honour Roll',
         showMeta: true,
@@ -137,7 +105,7 @@ describe('CardNav', () => {
         title: 'Nav card',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
-        author: 'John Doe',
+        authors: ['John Doe'],
         status: 'closed',
         contentType: 'Profile: invalid content type',
         showMeta: true,
@@ -149,5 +117,68 @@ describe('CardNav', () => {
 
     wrapper.setProps({ topic: null })
     expect(wrapper.vm.topicLabel).toEqual('')
+  })
+
+  it('calculates grant status to open if date today is between grant dates and ongoing is false', () => {
+    const wrapper = shallowMount(CardNav, {
+      propsData: {
+        title: 'Nav card',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { text: 'Read more', url: '#' },
+        authors: ['John Doe'],
+        status: 'closed',
+        contentType: 'Profile: invalid content type',
+        showMeta: true,
+        topic: 'Anything under the sun',
+        isGrantOnGoing: '0',
+        dateEnd: moment().add(7, 'days'),
+        dateStart: moment()
+
+      }
+    })
+
+    expect(wrapper.vm.grantStatusData).toEqual(wrapper.vm.statusTerms.open)
+  })
+
+  it('calculates grant status to close if date today is past the grant dates and ongoing is false', () => {
+    const wrapper = shallowMount(CardNav, {
+      propsData: {
+        title: 'Nav card',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { text: 'Read more', url: '#' },
+        authors: ['John Doe'],
+        status: 'closed',
+        contentType: 'Profile: invalid content type',
+        showMeta: true,
+        topic: 'Anything under the sun',
+        isGrantOnGoing: '0',
+        dateEnd: moment().subtract(2, 'days'),
+        dateStart: moment().subtract(7, 'days')
+
+      }
+    })
+
+    expect(wrapper.vm.grantStatusData).toEqual(wrapper.vm.statusTerms.closed)
+  })
+
+  it('calculates grant status to ongoing if ongoing field is true regardless of dates', () => {
+    const wrapper = shallowMount(CardNav, {
+      propsData: {
+        title: 'Nav card',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { text: 'Read more', url: '#' },
+        authors: ['John Doe'],
+        status: 'closed',
+        contentType: 'Profile: invalid content type',
+        showMeta: true,
+        topic: 'Anything under the sun',
+        isGrantOnGoing: '1',
+        dateEnd: moment().subtract(2, 'days'),
+        dateStart: moment().subtract(7, 'days')
+
+      }
+    })
+
+    expect(wrapper.vm.grantStatusData).toEqual(wrapper.vm.statusTerms.ongoing)
   })
 })

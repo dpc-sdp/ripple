@@ -207,10 +207,11 @@ export const tide = (axios, site, config) => ({
           throw new Error('Empty data returns from Tide API.')
         }
       } catch (error) {
-        if (process.server) {
+        // Ignore auth session expiration error in error log
+        if (process.server && error.name !== 'ExpiredAuthSessionError') {
           logger.error('Failed to get site data for site id "%s".', siteId, { error, label: 'Tide' })
         }
-        return new Error('Could not get site data. Please check your site id and Tide site setting.')
+        return error
       }
     }
 

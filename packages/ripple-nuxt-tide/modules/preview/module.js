@@ -33,7 +33,7 @@ module.exports = function () {
         token: {
           property: 'access_token',
           type: 'Bearer',
-          maxAge: 300,
+          maxAge: 86400,
           name: 'X-OAuth2-Authorization'
         },
         refreshToken: {
@@ -49,14 +49,9 @@ module.exports = function () {
     resetOnError: true,
     localStorage: false,
     rewriteRedirects: true,
-    redirect: redirect
+    redirect: redirect,
+    plugins: [ path.resolve(__dirname, 'templates/plugin.js') ]
   }])
-
-  this.addPlugin({
-    src: path.resolve(__dirname, 'templates/plugin.js'),
-    fileName: 'tide-preview.js',
-    options: { ...options, site: this.options.tide.site }
-  })
 
   this.extendRoutes((routes, resolve) => {
     routes.push({

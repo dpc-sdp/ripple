@@ -93,9 +93,18 @@ export default ({ app, req, store , route }, inject) => {
         },
         async setSiteData ({ commit }, { requestId = null } = {}) {
           const headersConfig = { requestId }
-          const siteData = await app.$tide.getSiteData(headersConfig)
+          let siteData = await app.$tide.getSiteData(headersConfig)
           if (siteData instanceof Error) {
-            throw siteData
+            // If got a Nuxt auth session expire error, try again.
+            // As Nuxt auth should reset auth on error, retry should pass.
+            if (siteData.name === 'ExpiredAuthSessionError') {
+              siteData = await app.$tide.getSiteData(headersConfig)
+              if (siteData instanceof Error) {
+                throw siteData
+              }
+            } else {
+              throw siteData
+            }
           }
           siteData.lastFetched = Date.now()
           commit('setSiteData', siteData)

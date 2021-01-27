@@ -44,9 +44,10 @@ WORKDIR /app/examples/vic-gov-au/
 
 # force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
 RUN  . /home/.bashrc \
-    && yarn run build --modern=client \
-    # For JIRA commit script work.
-    && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
+    && yarn run build --modern=client
+
+# For JIRA commit script work.
+RUN apk --update add curl
 
 ENV HOST 0.0.0.0
 EXPOSE 3000

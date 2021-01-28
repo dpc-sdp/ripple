@@ -1,0 +1,61 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplCampaignSecondary from './index.vue'
+
+<Meta title="Organisms/CampaignSecondary" />
+
+# Campaign secondary
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Organisms/CampaignSecondary/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCampaignSecondary },
+  template: '<rpl-campaign-secondary :title="title" :summary="summary" :link="link" :image="image" :video="video" />'
+});
+
+<Canvas>
+  <Story
+    name="With image"
+    args={{
+      title: 'Secondary campaign with image',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
+      link: { text: 'Call to action', url: '#' },
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+         x: '290',
+         y: '170'
+        },
+        width: '580',
+        height: '340'
+      },
+      video: null
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+export const TemplateWVideo = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCampaignSecondary },
+  template: '<rpl-campaign-secondary :title="title" :summary="summary" :link="link" :image="image" :video="video" />'
+});
+
+<Canvas>
+  <Story
+    name="With video"
+    args={{
+      title: 'Secondary campaign with video',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporar incident  incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
+      link: { text: 'Call to action', url: '#' },
+      image: null,
+      video: { src: 'https://www.youtube.com/embed/bSlnfyGTiss', mediaLink: { text: 'View transcript', url: '#' } }
+    }}
+  >
+    {TemplateWVideo.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplCampaignSecondary} />

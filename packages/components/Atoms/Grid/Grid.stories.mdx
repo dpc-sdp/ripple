@@ -1,0 +1,238 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import RplContainer from './Container.vue'
+import RplRow from './Row.vue'
+import RplCol from './Col.vue'
+
+<Meta title="Atoms/Grid"/>
+
+# Grid
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Atoms/Grid/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+Ripple default grid setting is 12 columns layout with 24px gutter between each cols.
+
+```
+$rpl-grid: (
+  columns: 12,
+  gutter: rem(24px),
+  row_gutter: $rpl-row-gutter
+) !default;
+```
+
+A basic example of three columns.
+
+<Canvas>
+  <Story name="basic">
+    {{
+      components: {RplContainer, RplRow, RplCol},
+      template: `
+  <RplContainer class="demo-grid">
+    <rpl-row>
+      <rpl-col cols=4>One of three columns</rpl-col>
+      <rpl-col cols=4>One of three columns</rpl-col>
+      <rpl-col cols=4>One of three columns</rpl-col>
+    </rpl-row>
+  </RplContainer>`,
+    }}
+  </Story>
+</Canvas>
+
+## Multiple rows
+
+Keep adding `rpl-col` will auto wrap.
+
+<Canvas>
+  <Story name="multiple rows">
+    {{
+      components: {RplContainer, RplRow, RplCol},
+      template: `
+  <RplContainer class="demo-grid">
+    <rpl-row>
+      <rpl-col cols=4>One of three columns</rpl-col>
+      <rpl-col cols=4>One of three columns</rpl-col>
+      <rpl-col cols=4>One of three columns</rpl-col>
+      <rpl-col cols=3>One of four columns</rpl-col>
+      <rpl-col cols=3>One of four columns</rpl-col>
+      <rpl-col cols=3>One of four columns</rpl-col>
+      <rpl-col cols=3>One of four columns</rpl-col>
+      <rpl-col cols=6>One of two columns</rpl-col>
+      <rpl-col cols=6>One of two columns</rpl-col>
+    </rpl-row>
+  </RplContainer>`,
+    }}
+  </Story>
+</Canvas>
+
+## Responsive grid
+
+Use `colsBp` on `rpl-col` to make them responsive.
+
+Our css are mobile first, `cols` prop is the default style. `cols="full"` means the `rpl-col` will be fullwidth by default, and can be overriden by `colsBp` setting.
+
+A example of `colsBp` value:
+```
+:colsBp="{
+  m: 6, // In "m" breakpoint, this col will take 6 units(The default layout is 12 columns, so 6 unit means 6/12 = 1/2 of full width)
+  l: 3 // In "l" breakpoint and above, this col will take 3 units(3/12 = 1/4 of fullwidth)
+}
+```
+Check Ripple [breakpoints](https://ripple.sdp.vic.gov.au/?path=/story/atoms-global--breakpoints) to find out all breakpoints.
+
+<Canvas>
+  <Story name="responsive" height="300px">
+    {{
+      components: {RplContainer, RplRow, RplCol},
+      template: `
+  <RplContainer class="demo-grid">
+    <rpl-row>
+      <rpl-col cols="full" :colsBp="{m: 6, l: 3}">
+        One of four columns in large+<br/>
+        One of two columns in medium<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 6, l: 3}">
+        One of four columns in large+<br/>
+        One of two columns in medium<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 6, l: 3}">
+        One of four columns in large+<br/>
+        One of two columns in medium<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 6, l: 3}">
+        One of four columns in large+<br/>
+        One of two columns in medium<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 4}">
+        One of three columns in medium+<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 4}">
+        One of three columns in medium+<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 4}">
+        One of three columns in medium+ <br/>
+        Full width on mobile
+      </rpl-col>
+    </rpl-row>
+  </RplContainer>`,
+    }}
+  </Story>
+</Canvas>
+
+## With row gutter
+
+On `rpl-row` add `rowGutter` prop to add row gutter.
+
+<Canvas>
+  <Story name="row gutter" height="300px">
+    {{
+      components: {RplContainer, RplRow, RplCol},
+      template: `
+  <RplContainer class="demo-grid">
+    <rpl-row rowGutter>
+      <rpl-col cols="full" :colsBp="{m: 6, l: 3}">
+        One of four columns in large+<br/>
+        One of two columns in medium<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 6, l: 3}">
+        One of four columns in large+<br/>
+        One of two columns in medium<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 6, l: 3}">
+        One of four columns in large+<br/>
+        One of two columns in medium<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 6, l: 3}">
+        One of four columns in large+<br/>
+        One of two columns in medium<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 4}">
+        One of three columns in medium+<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 4}">
+        One of three columns in medium+<br/>
+        Full width on mobile
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 4}">
+        One of three columns in medium+ <br/>
+        Full width on mobile
+      </rpl-col>
+    </rpl-row>
+  </RplContainer>`,
+    }}
+  </Story>
+</Canvas>
+
+## Nested grid
+<Canvas>
+  <Story name="nested" height="300px">
+    {{
+      components: {RplContainer, RplRow, RplCol},
+      template: `
+  <RplContainer class="demo-grid">
+    <rpl-row>
+      <rpl-col cols="full" :colsBp="{m: 8}">
+        <rpl-row>
+          <rpl-col cols="full" :colsBp="{m: 4}">
+            One of three columns in medium+<br/>
+            Full width on mobile
+          </rpl-col>
+          <rpl-col cols="full" :colsBp="{m: 4}">
+            One of three columns in medium+<br/>
+            Full width on mobile
+          </rpl-col>
+          <rpl-col cols="full" :colsBp="{m: 4}">
+            One of three columns in medium+ <br/>
+            Full width on mobile
+          </rpl-col>
+        </rpl-row>
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 4}">Sidebar</rpl-col>
+    </rpl-row>
+  </RplContainer>`,
+    }}
+  </Story>
+</Canvas>
+
+## Push and pull
+
+This is kind of deprecated old feature which is not in use in our project.
+For reordering columns, please use Flexbox ordering [Ordering Flex Items
+](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items) instead of this push & pull. As our grid is based on Flexbox.
+
+<Canvas>
+  <Story name="push and pull">
+    {{
+      components: {RplContainer, RplRow, RplCol},
+      template: `
+  <RplContainer class="demo-grid">
+    <rpl-row>
+      <rpl-col cols="full" :colsBp="{m: 3}"">
+        First element
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 3}" :push="{m: 3}">
+        Second element, pushed right to 3 units
+      </rpl-col>
+    </rpl-row>
+    <rpl-row>
+      <rpl-col cols="full" :colsBp="{m: 6}" :push="{m: 6}">
+        First element(be pushed to right)
+      </rpl-col>
+      <rpl-col cols="full" :colsBp="{m: 6}" :pull="{m: 6}">
+        Second element(be pulled to left)
+      </rpl-col>
+    </rpl-row>
+  </RplContainer>`,
+    }}
+  </Story>
+</Canvas>

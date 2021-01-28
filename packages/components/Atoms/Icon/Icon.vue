@@ -27,15 +27,17 @@ let icons = {}
 export default {
   props: {
     /**
-     * See the Icon Library page for options.
+     * See the Icon library page for options.
      */
     'symbol': String,
     /**
-     * Any named color in Global/Colors.
+     * Colour of the icon defined in in Global/Colors e.g. primary, secondary, dark_neutral.
+     * @values primary, secondary, dark_neutral, etc
      */
     'color': String,
     /**
-     * One of [s, m, l, xl, xxl]
+     * Icon size [s, m, l, xl, xxl].
+     * @values s, m, l, xl, xxl
      */
     'size': String
   },

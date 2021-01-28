@@ -1,0 +1,103 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplBaseLayout from './BaseLayout.vue'
+import RplPageLayout from './PageLayout.vue'
+import SSiteLayout from './../../../../src/storybook-components/SiteLayout.vue'
+
+<Meta title="Molecules/Layout" />
+
+# Layout
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/Layout/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplBaseLayout },
+  template: `
+    <rpl-base-layout>
+      <template slot="header">{{ headerSlot }}</template>
+      <p>{{ contentSlot }}</p>
+      <template slot="footer">{{ footerSlot }}</template>
+    </rpl-base-layout>
+  `
+});
+
+<Canvas>
+  <Story
+    name="Base layout"
+    args={{
+      headerSlot: 'Site header',
+      contentSlot: 'This is page content',
+      footerSlot: 'Site footer'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplBaseLayout} />
+
+export const TemplateSiteLayout = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SSiteLayout },
+  template: `<s-site-layout :sidebar="sidebar" :cardCols="cardCols" :cardColsWithSidebar="cardColsWithSidebar"></s-site-layout>`
+});
+
+<Canvas>
+  <Story
+    name="Site layout"
+    args={{
+      cardCols: {
+        m: 6,
+        l: 4,
+        xxxl: 3
+      },
+      cardColsWithSidebar: {
+        m: 6,
+        xxxl: 4
+      },
+      sidebar: false
+    }}
+  >
+    {TemplateSiteLayout.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={SSiteLayout} />
+
+export const TemplatePageLayout = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplPageLayout },
+  template: `
+    <rpl-page-layout :sidebar="sidebar" :columns="columns">
+      <template slot="aboveContent">{{ aboveContentSlot }}</template>
+      <p>{{ contentSlot }}</p>
+      <template slot="sidebar">{{ sidebarContentSlot }}</template>
+      <template slot="belowContent">{{ belowContentSlot }}</template>
+    </rpl-page-layout>
+  `
+});
+
+<Canvas>
+  <Story
+    name="Page layout"
+    args={{
+      aboveContentSlot: 'Above content',
+      contentSlot: 'This is page content',
+      belowContentSlot: 'Below content',
+      sidebarContentSlot: 'This is sidebar content',
+      sidebar: false,
+      columns: {
+        main: { l: 8 },
+        sidebar: {
+          colsBp: { l: 3 },
+          push: { l: 1 }
+        }
+      }
+    }}
+  >
+    {TemplatePageLayout.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplPageLayout} />

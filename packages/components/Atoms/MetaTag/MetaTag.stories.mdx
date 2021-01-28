@@ -1,0 +1,32 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplMetaTag from './index.vue'
+
+<Meta title="Atoms/MetaTag" />
+
+# MetaTag
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Atoms/MetaTag/README.md) for more information about how to install and setup the component.
+
+## Basic example
+A link component to represent tags.
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplMetaTag },
+  template: '<rpl-meta-tag :linkText="linkText" :linkUrl="linkUrl" :theme="theme" />',
+});
+
+<Canvas>
+  <Story
+    name='MetaTag'
+    args={{
+      linkText: 'This is a content tag',
+      linkUrl: '#',
+      theme: "light",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplMetaTag } />
+

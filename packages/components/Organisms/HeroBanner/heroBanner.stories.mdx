@@ -1,70 +1,190 @@
-import { Meta, Canvas, Story, ArgsTable, Source, Description } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs/blocks';
 import RplHeroBanner from './HeroBanner.vue'
-import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs'
+import RplHeroBannerCta from './HeroBannerCta.vue'
+import RplIntroBanner from './IntroBanner.vue'
 
-<Meta title="Organisms/Banners/Hero Banner" component={ RplHeroBanner } decorators={ [withKnobs] } />
+<Meta title="Organisms/Banners"  />
 
 # Hero Banner
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Organisms/HeroBanner/README.md) for more information about how to install and setup the component.
 
-<Description of={ RplHeroBanner } type='docgen' />
+## Basic example
 
-## Props
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplHeroBanner },
+  template: `
+    <rpl-hero-banner
+      :title="title" :introText="introText"
+      :linkHeading="linkHeading" :links="links"
+      :moreLink="moreLink"
+      :theme="theme"
+      :showLinks="showLinks"
+      :logo="logo"
+      :backgroundGraphic="backgroundGraphic"
+      class="rpl-site-constrain--on-all"
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="Hero Banner"
+    height="600px"
+    argTypes={{
+      theme: {
+        control: {
+          type: 'select',
+          options: ['dark', 'light']
+        }
+      }
+    }}
+    args={{
+      title: 'This is display copy that wraps 2 lines',
+      introText: 'This is supplementary intro text that can also wrap over a couple of lines.',
+      linkHeading: 'Want to know more about...',
+      links: [
+        { text: 'First journey based link', url: '#' },
+        { text: 'Secondary journey based link', url: '#' },
+        { text: 'Third link goes here', url: '#' },
+        { text: 'Fourth journey based link', url: '#' }
+      ],
+      moreLink: { text: 'See more', url: '#' },
+      theme: 'light',
+      showLinks: true,
+      logo: '/herologo.png',
+      backgroundGraphic: '/bggraphiclower.png'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
 
 <ArgsTable of={ RplHeroBanner } />
 
-## Hero Banner
+## Hero banner CTA
+
+export const TemplateCta = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplHeroBannerCta },
+  template: `
+    <rpl-hero-banner-cta
+      :title="title"
+      :introText="introText"
+      :theme="theme"
+      :linkPrimary="linkPrimary"
+      :ctaText="ctaText"
+      :linkSecondary="linkSecondary"
+    />
+  `
+});
+
 <Canvas>
-  <Story name="Hero Banner" height="600px">
-    {
-      {
-        components: { RplHeroBanner },
-        template: `
-          <rpl-hero-banner
-            :title="title" :introText="introText"
-            :linkHeading="linkHeading" :links="links"
-            :moreLink="moreLink"
-            :theme="theme"
-            :showLinks="showLinks"
-            :logo="logo"
-            :backgroundGraphic="backgroundGraphic"
-            class="rpl-site-constrain--on-all"
-          />
-        `,
-        props: {
-          title: {
-            default: text('Title', 'This is display copy that wraps 2 lines')
-          },
-          introText: {
-            default: text('Intro Text', 'This is supplementary intro text that can also wrap over a couple of lines.')
-          },
-          linkHeading: {
-            default: text('Link Heading', 'Want to know more about...')
-          },
-          links: {
-            default: () => object('Links', [
-              { text: 'First journey based link', url: '#' },
-              { text: 'Secondary journey based link', url: '#' },
-              { text: 'Third link goes here', url: '#' },
-              { text: 'Fourth journey based link', url: '#' }
-            ])
-          },
-          moreLink: {
-            default: () => object('More Link', { text: 'See more', url: '#' })
-          },
-          theme: {
-            default: select('Theme', { dark: 'dark', light: 'light' }, 'light')
-          },
-          showLinks: {
-            default: boolean('Show Links', true)
-          },
-          logo: {
-            default: text('Logo', '/herologo.png')
-          },
-          backgroundGraphic: {
-            default: text('Background Graphic', '/bggraphiclower.png')
-          }
+  <Story
+    name="Hero Banner CTA"
+    height="600px"
+    argTypes={{
+      theme: {
+        control: {
+          type: 'select',
+          options: ['dark', 'light']
         }
       }
-    }
+    }}
+    args={{
+      title: 'This is display copy that wraps 2 lines',
+      introText: 'This is supplementary intro text that can also wrap over a couple of lines.',
+      linkPrimary: { text: 'Call to action', url: '#' },
+      linkSecondary: { text: 'Subscribe for tips to prepare', url: '#' },
+      ctaText: 'Not ready yet?',
+      moreLink: { text: 'See more', url: '#' },
+      theme: 'light',
+    }}
+  >
+    {TemplateCta.bind({})}
   </Story>
 </Canvas>
+
+<ArgsTable of={ RplHeroBannerCta } />
+
+## Intro Banner with links
+
+export const TemplateBannerWithLinks = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplIntroBanner },
+  template: `
+    <rpl-intro-banner
+      :title="title"
+      :introText="introText"
+      :linkHeading="linkHeading"
+      :links="links"
+      :showLinks="showLinks"
+      class="rpl-site-constrain--on-all"
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="Intro Banner with links"
+    height="600px"
+    args= {{
+      title: 'Intro Banner with links',
+      introText: 'From the largest collection of Kelly Gang armour in Australia to forensic evidence from some of Melbourne\'s most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.',
+      linkHeading: '',
+      links: [
+        { text: 'Plan your visit', url: '#' },
+        { text: 'Collections', url: '#' },
+        { text: 'School Programs', url: '#' },
+        { text: 'Group Bookings', url: '#' }
+      ],
+      showLinks: true
+    }}
+  >
+    {TemplateBannerWithLinks.bind({})}
+  </Story>
+</Canvas>
+
+## Intro Banner with buttons and icon
+
+export const TemplateBannerWithButtons = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplIntroBanner },
+  template: `
+    <rpl-intro-banner
+      :title="title"
+      :introText="introText"
+      :linkHeading="linkHeading"
+      :links="links"
+      :showLinks="showLinks"
+      :linksType="linksType"
+      :icon="icon"
+      class="rpl-site-constrain--on-all"
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="Intro Banner with buttons and icon"
+    height="600px"
+    args={{
+      title: 'Intro Banner with buttons and icon',
+      icon: 'alert_information',
+      introText: '<p>From the <strong>largest collection</strong> of Kelly Gang armour in Australia to forensic evidence from some of Melbourne\'s most notorious crimes, the Victoria Police Museum presents visitors with an intriguing insight into the social history of policing and crime.</p>',
+      linkHeading: 'Add a link heading here',
+      linksType: 'button',
+      links: [
+        { text: 'Plan your visit', url: '#' },
+        { text: 'Collections', url: '#' },
+        { text: 'School Programs', url: '#' },
+        { text: 'Group Bookings', url: '#' }
+      ],
+      showLinks: true
+    }}
+  >
+    {TemplateBannerWithButtons.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplIntroBanner } />

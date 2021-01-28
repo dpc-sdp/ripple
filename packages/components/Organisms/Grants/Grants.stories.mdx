@@ -1,0 +1,65 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplGrantsOverview from './GrantsOverview.vue'
+
+<Meta title="Organisms/Grants" />
+
+# Grants
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Organisms/Grants/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplGrantsOverview },
+  template: '<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startdate" :enddate="enddate" :description="description" :link="link" :listing="listing" />'
+});
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      title: 'Program Overview',
+      description: '<p>This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit. <article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>',
+      funding: { from: 10000, to: 30000 },
+      audience: 'individuals, organisations, local council',
+      startdate: '2020-10-10T09:00:00.000+10:00',
+      enddate: '2020-12-10T09:00:00.000+10:00',
+      link: { text: 'Apply Now', url: '#' },
+      listing: false,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+export const TemplateOpenStatus = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplGrantsOverview },
+  data () {
+    const customDate = new Date();
+    const customEndDate = customDate.setDate(customDate.getDate() + 3).toString();
+    return {
+      startDate: customDate.toString(),
+      endDate: customEndDate
+    }
+  },
+  template: '<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startDate" :enddate="endDate" :description="description" :link="link" :listing="listing" />'
+});
+
+<Canvas>
+  <Story
+    name="Open - Countdown displayed"
+    args={{
+      title: 'Program Overview',
+      description: '<p>This is a description of the grant. Omnis facilis omnis. Quia cumque eius mollitia iusto corporis suscipit aliquid qui et. Ut cumque molestiae qui aperiam totam. Vel consequatur ut at aut ipsum. Quia qui corporis totam ut. Veniam beatae praesentium recusandae.Dolorem praesentium quo molestiae beatae. Eaque natus animi omnis aliquam voluptatibus vel odit voluptatum. Sint et omnis est porro corrupti recusandae. Rem doloribus nam quia est iste. Temporibus velit qui odio et molestiae iure nam magnam. Sit et possimus neque quasi et. Quae necessitatibus debitis cumque libero natus quidem. Architecto nulla est doloremque. Ut excepturi voluptatem. Doloribus dolorem voluptates aut eos vitae ut tenetur enim suscipit. <article class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="https://nginx-php-content-vic-develop.lagoon.vicsdp.amazee.io/sites/default/files/2018-10/Detailed%20Guide%20on%20the%20mandatory%20IR%20management%20criteria.docx" aria-label=" Detailed Guide on the mandatory IR management criteria  File type: Word. Size: 75.22 KB." class="x-office-document tide-external-link" target="_blank"><span class="file--title"> Detailed Guide on the mandatory IR management criteria </span><span class="file--type">Word</span><span class="file--size">75.22 KB</span></a></span></div></article></article> <p>A paragraph of <strong>text</strong> with a <a href="https://vic.gov.au">link</a>.</p>',
+      funding: { from: 10000, to: 30000 },
+      audience: 'individuals, organisations, local council',
+      link: { text: 'Apply Now', url: '#' },
+      listing: false,
+    }}
+  >
+    {TemplateOpenStatus.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplGrantsOverview} />

@@ -1,4 +1,3 @@
-import { configure } from '@storybook/vue'
 import Vue from 'vue'
 
 // Apply our Ripple global styles on storybook
@@ -17,17 +16,10 @@ export const parameters = {
     manual: true,
   },
   docs: {
-    // Set a smaller default height.
-    iframeHeight: '60px',
     // Disable Docs globally for now until we got time to update them.
     // We are still able to add Docs in component level.
     // https://github.com/storybookjs/storybook/blob/next/addons/docs/docs/docspage.md#replacing-docspage
     page: null,
-    // We'd better to use inline stories to replace iframe.
-    // However multi stories with same knob name in one docs page will be overridden.
-    // We need to migrate knobs to control in v6.
-    // https://github.com/storybookjs/storybook/blob/next/addons/controls/README.md#how-do-i-migrate-from-addon-knobs
-    // inlineStories: true
   },
   backgrounds: {
     default: 'light',
@@ -35,10 +27,10 @@ export const parameters = {
       { name: 'light', value: '#edfafc' }
     ],
   },
-  knobs: {
-    // To allow knob text type to support v-html prop.
-    escapeHTML: false,
-  }
+  options: {
+    storySort: (a, b) =>
+      a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+  },
 }
 
 // Install Ripple Global plugin

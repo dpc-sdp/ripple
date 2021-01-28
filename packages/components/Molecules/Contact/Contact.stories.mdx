@@ -1,0 +1,71 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplContact from './index.vue'
+
+<Meta title="Molecules/Contact" />
+
+# Contact
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/Contact/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplContact },
+  template: `
+    <rpl-contact
+      :title="title"
+      :name="name"
+      :department="department"
+      :postal="postal"
+      :address="address"
+      :phone="phone"
+      :email="email"
+      :social="social"
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="Contact"
+    args={{
+      title: 'Need additional help?',
+      name: 'First Last Name (Job Title)',
+      department: 'Department name',
+      postal: 'PO Box 123, Suburb VIC 3421',
+      address: '13 Street Name, Suburb VIC 3056',
+      phone: [
+        { number: '03 9876 6754' },
+        { number: '0400 000 000', title: 'Mob' }
+      ],
+      email: 'emailaddress@vic.gov.au',
+      social: [
+        {
+          icon: 'facebook',
+          title: 'Name of Facebook Page',
+          url: 'https://www.facebook.com'
+        },
+        {
+          icon: 'twitter',
+          title: 'Name of Twitter account',
+          url: 'https://www.twitter.com'
+        },
+        {
+          icon: 'linkedin',
+          title: 'Name of LinkedIn profile',
+          url: 'https://www.linkedin.com'
+        },
+        {
+          icon: 'instagram',
+          title: 'Name of Instagram account',
+          url: 'https://www.intagram.com'
+        }
+      ]
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplContact} />
+

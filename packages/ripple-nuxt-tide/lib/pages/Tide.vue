@@ -53,7 +53,7 @@
 
       <template slot="belowContent">
         <component class="rpl-site-constrain--on-all" v-if="campaignSecondary" :is="campaignSecondary.component" v-bind="campaignSecondary.data"></component>
-        <component :is="contentRating" class="rpl-site-constrain--on-all"></component>
+        <component :is="contentRating" :siteSectionName="siteSectionName" class="rpl-site-constrain--on-all"></component>
       </template>
 
     </rpl-page-layout>
@@ -224,6 +224,9 @@ export default {
         return () => import('@dpc-sdp/ripple-nuxt-tide/modules/webform/components/TideContentRating')
       }
       return false
+    },
+    siteSectionName () {
+      return this.page.appSection?.name
     }
   },
   async asyncData (context) {

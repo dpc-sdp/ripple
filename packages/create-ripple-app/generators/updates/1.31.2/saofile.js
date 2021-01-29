@@ -18,7 +18,7 @@ module.exports = {
     return actions
   },
   async completed () {
-    console.log('SDP 1.32.0:')
+    console.log('SDP 1.31.2:')
     console.log('[SDPA-4937] Upgrade nuxt')
   }
 }

@@ -20,7 +20,7 @@
     "svgo-loader": "^2.1.0"
   },
   "peerDependencies": {
-    "nuxt": "^2.10.2",
+    "nuxt": "^2.14.12",
     "webpack-node-externals": "^1.6.0"
   }
 }

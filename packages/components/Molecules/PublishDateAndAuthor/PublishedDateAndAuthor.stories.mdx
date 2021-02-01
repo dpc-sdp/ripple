@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplPublishDateAndAuthor from './index.vue'
+
+<Meta title="Molecules/PublishDateAndAuthor" />
+
+# PublishDateAndAuthor
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/PublishDateAndAuthor/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplPublishDateAndAuthor },
+  template: `
+    <rpl-publish-date-and-author
+    :date="date"
+    :location="location"
+    :author="author"
+    :locale="locale"
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="PublishDateAndAuthor"
+    args={{
+      date: '2018-04-22T11:00:00.000+10:00',
+      location: 'Melbourne, Australia',
+      author: 'John Doe',
+      locale: 'en-au'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplPublishDateAndAuthor} />
+

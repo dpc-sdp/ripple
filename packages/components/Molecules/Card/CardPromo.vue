@@ -1,7 +1,7 @@
 <template>
   <rpl-link class="rpl-card-promo" :class="modifiers" :href="link.url">
     <slot name="image">
-      <rpl-responsive-img class="rpl-card-promo__image" v-bind="computedImg" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
+      <rpl-responsive-img v-if="image" class="rpl-card-promo__image" v-bind="computedImg" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
     </slot>
     <div class="rpl-card-promo__content">
       <div class="rpl-card-promo__meta">

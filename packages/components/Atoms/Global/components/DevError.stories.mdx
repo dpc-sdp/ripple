@@ -1,0 +1,56 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import RplDevError from './DevError.vue'
+
+<Meta title="Atoms/Global/Dev error"/>
+
+# Docs for dev error
+
+This is a component not for end users. It shows errors to devs or testers in Ripple dev mode only.
+
+It will render a error message if the `isDev` in `rplOptions` is set to `true`.
+For more about `rplOptions` and `isDev`, check out [@dpc-sdp/ripple-global Docs](https://github.com/dpc-sdp/ripple/tree/develop/packages/components/Atoms/Global#rploptions).
+
+<Canvas>
+  <Story name="Dev error in dev mode">
+    {{
+      components: {RplDevError},
+      template: '<rpl-dev-error :errors="errors" />',
+      data() {
+        return {
+          errors: ['Something wrong', 'Another error']
+        }
+      },
+      created () {
+        // You shouldn't set `isDev` in created and destoryed as here.
+        // This is just for demo purpose.
+        // You should set it in Ripple global plugins.
+        this.rplOptions.isDev = true
+      },
+      destroyed () {
+        // This is just for demo purpose.
+        // You should set it in Ripple global plugins.
+        this.rplOptions.isDev = false
+      }
+    }}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Dev error in dev mode" />
+
+It will not be rendered if `rplOptions.isDev` is set to `false`( by default).
+
+<Canvas>
+  <Story name="Dev error in none dev mode">
+    {{
+      components: { RplDevError },
+      template: '<rpl-dev-error :errors="errors" />',
+      data () {
+        return {
+          errors: ['Something wrong', 'Another error']
+        }
+      }
+    }}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Dev error in none dev mode" />

@@ -1,0 +1,84 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplAlert from './Alert.vue'
+import RplAlertBase from './AlertBase.vue'
+
+<Meta title="Molecules/Alert" />
+
+# Alert
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/Alert/README.md) for more information about how to install and setup the component.
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  methods: {
+    close (alertId) {
+      console.log(`Alert has an ID of "${alertId}"`)
+    }
+  },
+  components: { RplAlert },
+  template: '<rpl-alert :title="title" :type="type" :link="link" :id="alertId" @rplAlertClose="close" />'
+});
+
+## Basic example
+
+<Canvas>
+  <Story
+    name="Alert"
+    argTypes={{
+      type: {
+        control: {
+          type: 'select',
+          options: {
+            'Emergency': 'Emergency',
+            'Fire': 'Fire',
+            'Flood': 'Flood',
+            'Medical': 'Medical',
+            'Lightning': 'Lightning',
+            'Pollution': 'Pollution',
+            'Heat wave': 'Heat wave',
+            'Traffic': 'Traffic'
+          }
+        }
+      }
+    }}
+    args={{
+      title: 'This is an emergency alert.',
+      type: 'Emergency',
+      link: { text: 'Find out more', url: '#' },
+      alertId: 'test_id'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplAlert} />
+
+export const TemplateAlertBase = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplAlertBase },
+  template: `
+    <rpl-alert-base :iconSymbol="iconSymbol" :backgroundColor="backgroundColor" :textColor="textColor" :iconColor="iconColor" :closeIconColor="closeIconColor">
+      <div v-html="content"></div>
+    </rpl-alert-base>
+  `
+});
+
+## Alert base
+
+<Canvas>
+  <Story
+    name="Alert base"
+    args={{
+      content: 'Draft only and not yet published',
+      iconSymbol: 'alert_information',
+      iconColor: 'white',
+      closeIconColor: 'white',
+      backgroundColor: 'dark_neutral',
+      textColor: 'white'
+    }}
+  >
+    {TemplateAlertBase.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplAlertBase} />

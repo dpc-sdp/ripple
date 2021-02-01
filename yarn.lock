@@ -2788,10 +2788,10 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@ljharb/eslint-config@^13.1.1":
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/@ljharb/eslint-config/-/eslint-config-13.1.1.tgz#8945082f1a2de45cdc869100750e528a916d6ea4"
-  integrity sha512-KtyhdsqeJ/DBLXUoTCfF07T7c5OXYgocz8AUSKOLmphXCavAXw/Qka5GLrXNv8ttFye+VrEl4Qfa8EvGEDYD+A==
+"@ljharb/eslint-config@^17.0.0":
+  version "17.5.0"
+  resolved "https://registry.yarnpkg.com/@ljharb/eslint-config/-/eslint-config-17.5.0.tgz#ce8b8117051bdcf493de3281cbac370275f72bde"
+  integrity sha512-fo0S/lze5RlMfzUvNvXtG+HmKksYvW9j+AoGtaO1miY2+QNUprRBSBhyVLj1gx/LrDbkQ1ezxRMPCMLZJNrNJg==
 
 "@mdx-js/loader@^1.5.1":
   version "1.6.21"

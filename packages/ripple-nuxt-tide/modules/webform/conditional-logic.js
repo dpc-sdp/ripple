@@ -14,8 +14,8 @@ import { logger } from './../../lib/core'
  */
 function testField (field, data) {
   for (const state in field.states) {
-    const Fieldtype = field.inputType ? field.inputType.toString() : null
-    const test = prepareTest(field.states[state], data, Fieldtype)
+    const fieldType = field.inputType ? field.inputType.toString() : null
+    const test = prepareTest(field.states[state], data, fieldType)
     const isPass = performTest(test)
 
     // Apply state

@@ -14,7 +14,8 @@ import { logger } from './../../lib/core'
  */
 function testField (field, data) {
   for (const state in field.states) {
-    const test = prepareTest(field.states[state], data)
+    const Fieldtype = field.inputType ? field.inputType.toString() : null
+    const test = prepareTest(field.states[state], data, Fieldtype)
     const isPass = performTest(test)
 
     // Apply state
@@ -62,7 +63,7 @@ function testField (field, data) {
  * @param {Object} rulesObject webform rules object
  * @param {Object} data form data
  */
-function prepareTest (rulesObject, data) {
+function prepareTest (rulesObject, data, fieldType) {
   const rulesType = Array.isArray(rulesObject) ? 'array' : typeof rulesObject
   let operator = 'and'
   let rules = []
@@ -91,8 +92,7 @@ function prepareTest (rulesObject, data) {
       logger.warn('Form: %s rules variable is not supported.', rulesType, { label: 'Webform' })
       break
   }
-
-  return { operator, rules }
+  return { operator, rules, fieldType }
 }
 
 /**
@@ -115,7 +115,7 @@ function convertSelectorToRule (ruleObject, selector, data) {
  * @param {Object} test
  */
 function performTest (test) {
-  const results = test.rules.map(rule => performTriggerCheck(rule))
+  const results = test.rules.map(rule => performTriggerCheck(rule, test.fieldType))
   return performOperatorCheck(test.operator, results)
 }
 
@@ -126,14 +126,14 @@ function performTest (test) {
  * - collapsed
  * @param {Object} rule
  */
-function performTriggerCheck (rule) {
+function performTriggerCheck (rule, fieldType) {
   let result = true
   switch (rule.triggerName) {
     case 'empty':
       result = (rule.modelValue == null || rule.modelValue === '')
       break
     case 'filled':
-      result = (rule.modelValue != null && rule.modelValue.length > 0)
+      result = (rule.modelValue && rule.modelValue != null) ? (rule.modelValue && rule.modelValue != null) : false
       break
     case 'checked':
       // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
@@ -147,19 +147,38 @@ function performTriggerCheck (rule) {
       if (typeof rule.triggerValue === 'string') {
         // value
         result = (rule.modelValue === rule.triggerValue)
+        if (rule.modelValue && fieldType != null && fieldType === 'number') {
+          const intTargetValue = parseFloat(rule.modelValue)
+          const intTriggerValue = parseFloat(rule.triggerValue)
+          result = (intTargetValue === intTriggerValue)
+        }
       } else if (rule.triggerValue['pattern']) {
         // pattern
         if (rule.modelValue) {
-          const matches = rule.modelValue.match(new RegExp(rule.triggerValue['pattern']))
-          result = (matches && matches.length > 0)
+          if (fieldType != null && fieldType === 'number') {
+            const regEx = new RegExp(rule.triggerValue['pattern'])
+            const matches = regEx.exec(rule.modelValue)
+            result = (matches && matches.length > 0)
+          } else {
+            const matches = rule.modelValue.match(new RegExp(rule.triggerValue['pattern']))
+            result = (matches && matches.length > 0)
+          }
         } else {
           result = false
         }
       } else if (rule.triggerValue['!pattern']) {
         // not pattern
         if (rule.modelValue) {
-          const matches = rule.modelValue.match(new RegExp(rule.triggerValue['!pattern']))
-          result = (!matches || matches.length === 0)
+          if (fieldType != null && fieldType === 'number') {
+            const regEx = new RegExp(rule.triggerValue['!pattern'])
+            const matches = regEx.exec(rule.modelValue)
+            result = (!matches || matches.length === 0)
+          } else {
+            const matches = rule.modelValue.match(new RegExp(rule.triggerValue['!pattern']))
+            result = (!matches || matches.length === 0)
+          }
+        } else {
+          result = false
         }
       } else if (rule.triggerValue['less']) {
         // less

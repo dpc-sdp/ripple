@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`RippleStoryshots Organisms/UpdatedDate Updated Date 1`] = `
-<p
-  class="rpl-updated-date"
->
-  Reviewed 10 July 2018
-</p>
-`;

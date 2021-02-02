@@ -1,0 +1,40 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplResponsiveImg from './ResponsiveImg.vue'
+
+<Meta title="Atoms/ResponsiveImg" />
+
+# ResponsiveImg
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Atoms/ResponsiveImg/README.md) for more information about how to install and setup the component.
+
+## Basic example
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplResponsiveImg },
+  template: '<rpl-responsive-img :src="src" :alt="alt" :focalPoint="focalPoint" :srcSet="srcSet" :sizes="sizes" :height="height" :width="width" :fit="fit" />'
+});
+
+<Canvas>
+  <Story
+    name="ResponsiveImg"
+    args={{
+      src: 'https://images.unsplash.com/photo-1591302418462-eb55463b49d6',
+      focalPoint: { x:0, y:0},
+      srcSet: [
+        { size: 'xs', height: 300, width: 575 },
+        { size: 's', height: 600, width: 768 },
+        { size: 'm', height: 600, width: 992 },
+        { size: 'xxl', height: 600, width: 1600 }
+      ],
+      sizes: '100vw',
+      alt: '',
+      height: 300,
+      width: 575,
+      fit: 'cover'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplResponsiveImg } />
+

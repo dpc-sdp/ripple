@@ -1,0 +1,81 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplPublicationDownloadPrint from './PublicationDownloadPrint.vue'
+import RplPublicationAuthorInformation from './PublicationAuthorInformation.vue'
+
+<Meta title="Organisms/Publication" />
+
+# Publication
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Organisms/Publication/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplPublicationDownloadPrint },
+  methods: {
+    print() {
+      console.log('publicationPrint triggered')
+    },
+    download() {
+      console.log('publicationDownload triggered')
+    }
+  },
+  template: `<rpl-publication-download-print :links="links" :printPage="printPage" :printLink="printLink" @publicationPrint="print" @publicationDownload="download" />`
+});
+
+<Canvas>
+  <Story
+    name="Publication download print"
+    args={{
+      links: [
+        {
+          name: 'Short title of a document',
+          url: '#',
+          extension: 'pdf',
+          filesize: '1.2 mb'
+        }, {
+          name: 'External document link',
+          url: 'https://www.google.com',
+          extension: 'pdf',
+          filesize: '1.2 mb'
+        }
+      ],
+      printPage: false,
+      printLink: {
+        href: '/printall',
+        text: 'Print full document'
+      }
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplPublicationDownloadPrint} />
+
+export const TemplateAuthorInfo = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplPublicationAuthorInformation },
+  template: `<rpl-publication-author-information
+    :date="date"
+    :copyright="copyright"
+    :author="author"
+    :locale="locale"
+  />`
+});
+
+<Canvas>
+  <Story
+    name="Publication author information"
+    args={{
+      author: ['Department of Premier and Cabinet'],
+      date: '2018-03-23T09:00:00.000+10:00',
+      copyright: 'This is licensed under a Creative Commons Attribution 4.0 International licence. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+      locale: 'en-au'
+    }}
+  >
+    {TemplateAuthorInfo.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplPublicationAuthorInformation} />

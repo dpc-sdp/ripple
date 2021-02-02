@@ -19,7 +19,6 @@ import RplLink from '@dpc-sdp/ripple-link'
 export default {
   name: 'RplBreadcrumbs',
   props: {
-    title: String,
     crumbs: Array
   },
   components: {

@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplDocumentLink from './DocumentLink.vue'
+
+<Meta title="Molecules/DocumentLink" />
+
+# DocumentLink
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/DocumentLink/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplDocumentLink },
+  template: `<rpl-document-link :name="name" :caption="caption" :url="url" :extension="extension" :filesize="filesize" />`
+});
+
+<Canvas>
+  <Story
+    name="DocumentLink"
+    args={{
+      name: 'This is the name of the document',
+      caption: 'This is a longer description of the document above.',
+      url: 'https://www.google.com',
+      extension: 'pdf',
+      filesize: '1.4 mb'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplDocumentLink} />
+

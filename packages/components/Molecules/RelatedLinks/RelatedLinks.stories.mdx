@@ -1,0 +1,35 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplRelatedLinks from './index.vue'
+
+<Meta title="Molecules/RelatedLinks" />
+
+# RelatedLinks
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/RelatedLinks/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplRelatedLinks },
+  template: `<rpl-related-links :title="title" :links="links" />`
+});
+
+<Canvas>
+  <Story
+    name="RelatedLinks"
+    args={{
+      title: 'Related links',
+      links: [
+        { text: 'Link to external content', url: 'http://www.google.com' },
+        { text: 'Second link it goes right here', url: '#' },
+        { text: 'Third link to extra content', url: '#' },
+        { text: 'This is a long link to extra content', url: '#' }
+      ]
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplRelatedLinks} />
+

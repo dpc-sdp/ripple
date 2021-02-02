@@ -14,8 +14,7 @@ import { logger } from './../../lib/core'
  */
 function testField (field, data) {
   for (const state in field.states) {
-    const fieldType = field.inputType ? field.inputType.toString() : null
-    const test = prepareTest(field.states[state], data, fieldType)
+    const test = prepareTest(field.states[state], data)
     const isPass = performTest(test)
 
     // Apply state
@@ -63,7 +62,7 @@ function testField (field, data) {
  * @param {Object} rulesObject webform rules object
  * @param {Object} data form data
  */
-function prepareTest (rulesObject, data, fieldType) {
+function prepareTest (rulesObject, data) {
   const rulesType = Array.isArray(rulesObject) ? 'array' : typeof rulesObject
   let operator = 'and'
   let rules = []
@@ -92,7 +91,7 @@ function prepareTest (rulesObject, data, fieldType) {
       logger.warn('Form: %s rules variable is not supported.', rulesType, { label: 'Webform' })
       break
   }
-  return { operator, rules, fieldType }
+  return { operator, rules }
 }
 
 /**
@@ -115,7 +114,7 @@ function convertSelectorToRule (ruleObject, selector, data) {
  * @param {Object} test
  */
 function performTest (test) {
-  const results = test.rules.map(rule => performTriggerCheck(rule, test.fieldType))
+  const results = test.rules.map(rule => performTriggerCheck(rule))
   return performOperatorCheck(test.operator, results)
 }
 
@@ -126,14 +125,14 @@ function performTest (test) {
  * - collapsed
  * @param {Object} rule
  */
-function performTriggerCheck (rule, fieldType) {
+function performTriggerCheck (rule) {
   let result = true
   switch (rule.triggerName) {
     case 'empty':
       result = (rule.modelValue == null || rule.modelValue === '')
       break
     case 'filled':
-      result = (rule.modelValue && rule.modelValue != null) ? (rule.modelValue && rule.modelValue != null) : false
+      result = !(rule.modelValue == null || rule.modelValue === '')
       break
     case 'checked':
       // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
@@ -147,7 +146,7 @@ function performTriggerCheck (rule, fieldType) {
       if (typeof rule.triggerValue === 'string') {
         // value
         result = (rule.modelValue === rule.triggerValue)
-        if (rule.modelValue && fieldType != null && fieldType === 'number') {
+        if (rule.modelValue && typeof rule.modelValue === 'number') {
           const intTargetValue = parseFloat(rule.modelValue)
           const intTriggerValue = parseFloat(rule.triggerValue)
           result = (intTargetValue === intTriggerValue)
@@ -155,7 +154,7 @@ function performTriggerCheck (rule, fieldType) {
       } else if (rule.triggerValue['pattern']) {
         // pattern
         if (rule.modelValue) {
-          if (fieldType != null && fieldType === 'number') {
+          if (typeof rule.modelValue === 'number') {
             const regEx = new RegExp(rule.triggerValue['pattern'])
             const matches = regEx.exec(rule.modelValue)
             result = (matches && matches.length > 0)
@@ -169,7 +168,7 @@ function performTriggerCheck (rule, fieldType) {
       } else if (rule.triggerValue['!pattern']) {
         // not pattern
         if (rule.modelValue) {
-          if (fieldType != null && fieldType === 'number') {
+          if (typeof rule.modelValue === 'number') {
             const regEx = new RegExp(rule.triggerValue['!pattern'])
             const matches = regEx.exec(rule.modelValue)
             result = (!matches || matches.length === 0)

@@ -1,0 +1,73 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplLink from './Link.vue'
+import RplTextLink from './TextLink.vue'
+
+<Meta title="Atoms/Link" />
+
+# Link
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Atoms/Link/README.md) for more information about how to install and setup the component.
+
+## Text link
+Text links are used when a link needs to be emphasised but its appearance in a set means they require less visual prominence than a button. Links with icons are typically used in hero banners while links without icons are used in sidebar navigation components.
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplLink },
+  template: '<rpl-link :href="href" :target="target">{{ content }}</rpl-link>',
+});
+
+<Canvas>
+  <Story
+    name="Text link"
+    args={{
+      href: '#',
+      target: '',
+      content: "Ripple Link",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplLink } />
+
+## Text link with icon
+
+export const TemplateTextLink = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplTextLink },
+  template: `<rpl-text-link
+    :url="url"
+    :text="text"
+    :iconSymbol="iconSymbol"
+    :iconColor="iconColor"
+    :iconPlacement="iconPlacement"
+    :iconSize="iconSize"
+    :underline="underline"
+    :theme="theme"
+    :size="size"
+    :emphasis="emphasis"
+  />`,
+});
+
+<Canvas>
+  <Story
+    name="Text link with icon"
+    args={{
+      url: '#',
+      text: 'Text Link',
+      iconSymbol: "arrow_right_primary",
+      iconColor: "primary",
+      iconSize: "m",
+      iconPlacement: "after",
+      theme: 'light',
+      size: 'small',
+      underline: false,
+      emphasis: false
+    }}
+  >
+    {TemplateTextLink.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplTextLink } />

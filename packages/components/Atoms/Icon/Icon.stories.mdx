@@ -1,0 +1,217 @@
+import { Meta, Canvas, Story, ArgsTable, Description } from '@storybook/addon-docs/blocks';
+import RplIcon from '@dpc-sdp/ripple-icon'
+import RplTextIcon from './TextIcon.vue'
+import SIcons from './../../../../src/storybook-components/Icons.vue'
+import './icons/index.js'
+import './../../../../src/static/custom_icons/rpl_icon_custom_icon.js'
+
+<Meta title="Atoms/Icon" />
+
+# Icon
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Atoms/Icon/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+<Description of={RplIcon} />
+
+export const TemplateIcon = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplIcon },
+  template: '<rpl-icon :symbol="symbol" :color="color" :size="size" />',
+});
+
+<Canvas>
+  <Story
+    name="Icon"
+    args={{
+      symbol: 'home',
+      color: 'primary',
+      size: "xl",
+    }}
+  >
+    {TemplateIcon.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplIcon } />
+
+## Custom icon
+Register icon e.g. in `rpl_icon_custom_icon.js`
+
+```js
+import Icon from '@dpc-sdp/ripple-icon'
+
+Icon.register({
+  'custom_icon': {
+    width: 45,
+    height: 48,
+    paths: [
+      {
+        d: 'M29.9984 17.8347C28.5236 17.8347 27.331 19.04 27.331 20.5007C27.331 21.9614 28.5236 23.1668 29.9984 23.1668C30.9635 23.1668 31.8147 22.6416 32.2821 21.8622L33.9179 22.8424L44.5091 0H0L7.04343 15.1928H10.3272L13.0225 21.0054L15.7166 15.1928H19.0077L14.0772 25.828H11.9739L22.2539 48L32.7713 25.3161C31.9552 25.7881 31.0083 26.0591 29.9984 26.0591C26.82 26.0591 24.2954 23.663 24.2954 20.5007C24.2954 17.3385 26.82 14.9423 29.9984 14.9423C32.0278 14.9423 33.8005 16.0339 34.7655 17.6507L32.2821 19.1392C31.8147 18.3744 30.9635 17.8347 29.9984 17.8347ZM19.9025 25.828H22.9417V15.1928H19.9025V25.828Z',
+        'fill': 'inherit',
+        'fill-rule': 'evenodd',
+        'clip-rule': 'evenodd'
+      }
+    ]
+  }
+})
+```
+
+<Canvas>
+  <Story
+    name="Custom icon"
+    args={{
+      symbol: 'custom_icon',
+      color: 'black',
+      size: "m",
+    }}
+  >
+    {TemplateIcon.bind({})}
+  </Story>
+</Canvas>
+
+## Text icon
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplTextIcon },
+  template: '<rpl-text-icon :symbol="symbol" :color="color" :size="size" :text="text" :placement="placement" />',
+});
+
+<Canvas>
+  <Story
+    name="Text icon"
+    args={{
+      symbol: 'search',
+      color: 'primary',
+      size: "m",
+      text: 'Search',
+      placement: 'after'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ RplTextIcon } />
+
+export const TemplateLibrary = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SIcons },
+  template: '<s-icons :icons="icons" :color="color" :size="size" :stroke="stroke" />',
+});
+
+## Icon library
+
+Icons should not be used for illustrative or graphical purposes. Use functional icons sparingly to help quickly communicate key interactions and vital information (e.g. in the Contact us sidebar component).
+
+<Story
+  name="Icon library"
+  argTypes={{
+    icons: { table: { disable: true } }
+  }}
+  args={{
+    icons: [
+      'accessible',
+      'addition',
+      'ai',
+      'alert_fire',
+      'alert_flood',
+      'alert_high_temperature',
+      'alert_information',
+      'alert_lightning',
+      'alert_medical',
+      'alert_smoke',
+      'alert_transport',
+      'arrow_down_primary',
+      'arrow_down_tertiary',
+      'arrow_left_primary',
+      'arrow_left_secondary',
+      'arrow_right_primary',
+      'arrow_right_primary_s',
+      'arrow_right_secondary',
+      'arrow_up_primary',
+      'attach',
+      'blank_solid',
+      'browser',
+      'calendar',
+      'child_friendly',
+      'close',
+      'cross_circle',
+      'csv',
+      'doc',
+      'document',
+      'document_transparent',
+      'docx',
+      'dollar_negative',
+      'dot',
+      'dotm',
+      'dotx',
+      'down',
+      'download',
+      'email_solid',
+      'email_transparent',
+      'enlarge_screen',
+      'eps',
+      'external_link',
+      'facebook',
+      'free',
+      'fullscreen',
+      'hamburger',
+      'help',
+      'home',
+      'ics',
+      'indd',
+      'instagram',
+      'left',
+      'link',
+      'link_65',
+      'link_90',
+      'linkedin',
+      'list_indent',
+      'loading_star',
+      'lock',
+      'map_marker',
+      'menu_home',
+      'microphone',
+      'pause',
+      'pdf',
+      'phone_number',
+      'play',
+      'ppt',
+      'pptx',
+      'print',
+      'right',
+      'search',
+      'senior',
+      'share',
+      'share_alternative',
+      'star',
+      'stop',
+      'success',
+      'table',
+      'tick',
+      'tif',
+      'trash',
+      'twitter',
+      'txt',
+      'up',
+      'upload',
+      'user',
+      'view',
+      'webinar',
+      'xls',
+      'xlsm',
+      'xlsx',
+      'youtube_channel',
+      'zip',
+      'zoom_in',
+      'zoom_out'
+    ],
+    color: 'primary',
+    size: "m",
+    stroke: false,
+  }}
+>
+  {TemplateLibrary.bind({})}
+</Story>

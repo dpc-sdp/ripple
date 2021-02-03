@@ -18,7 +18,7 @@ import SPrintPage from './PrintPage.vue'
 import {
   withKnobs,
   boolean
-} from '@storybook/addon-knobs/vue'
+} from '@storybook/addon-knobs'
 
 import { demoDataLocked } from './_data/demoData.js'
 

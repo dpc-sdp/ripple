@@ -1,0 +1,57 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplButton from '@dpc-sdp/ripple-button'
+
+<Meta
+  title="Atoms/Button"
+  component={RplButton}
+/>
+
+# Button
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Atoms/Button/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplButton },
+  template: '<rpl-button :theme="theme" :href="href" :disabled="disabled">{{label}}</rpl-button>',
+});
+
+<Canvas>
+  <Story
+    name="Primary"
+    args={{
+      theme: 'primary',
+      href: 'https://example.com',
+      disabled: false,
+      label: 'Primary button',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Secondary"
+    args={{
+      theme: 'secondary',
+      href: 'https://example.com',
+      disabled: false,
+      label: 'Secondary button',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Disabled"
+    args={{
+      theme: '',
+      href: '',
+      disabled: true,
+      label: 'Disabled button',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplButton} />
+

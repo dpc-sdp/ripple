@@ -1,0 +1,132 @@
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
+import SColors from './../../../../src/storybook-components/Colors.vue'
+import SFonts from './../../../../src/storybook-components/Fonts.vue'
+import STypography from './../../../../src/storybook-components/Typography.vue'
+import SBreakpoints from './../../../../src/storybook-components/Breakpoints.vue'
+
+<Meta title="Atoms/Global" />
+
+# Global
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Atoms/Global/README.md) for more information about how to install and setup the component.
+
+export const TemplateColors = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SColors },
+  template: '<s-colors :colors="colors" :gradients="gradients"/>',
+});
+
+<!--  Colors -->
+<Story
+  name="Colors"
+  args={{
+    colors: [
+      'primary',
+      'dark_primary',
+      'secondary',
+      'extra_dark_neutral',
+      'dark_neutral',
+      'mid_neutral_1',
+      'mid_neutral_2',
+      'light_neutral',
+      'danger',
+      'warning',
+      'success',
+      'white'
+    ],
+    gradients: ['primary_gradient', 'decorative_gradient']
+  }}
+>
+  {TemplateColors.bind({})}
+</Story>
+
+<ArgsTable story="Colors" />
+
+<!--  Fonts -->
+export const TemplateFonts = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SFonts },
+  template: '<s-fonts :size="size" :lineHeight="lineHeight" :weight="weight" :text="text" :background="background" />',
+});
+
+<Story
+  name="Fonts"
+  argTypes={
+    {
+      size: {
+        control: {
+          type: 'select',
+          options: ['tera', 'xgiga', 'giga', 'mega', 'xl', 'l', 'm', 's', 'xs', 'xxs']
+        }
+      },
+      weight: {
+        control: {
+          type: 'select',
+          options: ['regular', 'medium', 'semibold', 'bold']
+        }
+      }
+    }
+  }
+  args={{
+    size: 'tera',
+    lineHeight: "1.1em",
+    weight: 'bold',
+    background: false,
+    text: "The quick brown fox jumps over the lazy dog"
+  }}
+>
+  {TemplateFonts.bind({})}
+</Story>
+
+<ArgsTable story="Fonts" />
+
+<!-- Typography -->
+export const TemplateTypography = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { STypography },
+  template: '<s-typography :samples="samples" :text="text" :paragraph="paragraph"/>'
+});
+
+<Story
+  name="Typography"
+  args={{
+    samples: [
+     'display_l',
+     'display_m',
+     'display_s',
+     'supporting_l',
+     'supporting_m',
+     'supporting_s',
+     'heading_l',
+     'heading_m',
+     'heading_s',
+     'heading_xs',
+     'body_large',
+     'body_default',
+     'body_small',
+     'copy_extra_small'
+    ],
+    text: 'The quick brown fox jumps over the lazy dog',
+    paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. A vitae quod nobis earum saepe inventore rerum dicta voluptatem ullam iste rem deleniti odit culpa tempora dolor animi, non, amet ducimus.'
+  }}
+>
+  {TemplateTypography.bind({})}
+</Story>
+
+<ArgsTable story="Typography" />
+
+<!-- Breakpoints -->
+export const TemplateBreakpoints = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SBreakpoints },
+  template: '<s-breakpoints :breakpoints="breakpoints"/>',
+});
+<Story
+  name="Breakpoints"
+  args={{
+    breakpoints: ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']
+  }}
+>
+  {TemplateBreakpoints.bind({})}
+</Story>
+
+<ArgsTable story="Breakpoints" />

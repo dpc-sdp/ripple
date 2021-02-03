@@ -134,25 +134,25 @@ describe('tide helpers', () => {
           hid: 'description',
           content: 'Test description'
         },
-        { name: 'og:title', hid: 'og:title', content: 'Test title' },
+        { property: 'og:title', hid: 'og:title', content: 'Test title' },
         {
-          name: 'og:description',
+          property: 'og:description',
           hid: 'og:description',
           content: 'Test description'
         },
-        { name: 'og:type', hid: 'og:type', content: 'website' },
+        { property: 'og:type', hid: 'og:type', content: 'website' },
         {
-          name: 'og:url',
+          property: 'og:url',
           hid: 'og:url',
           content: 'https://www.vic.gov.au'
         },
         {
-          name: 'og:image',
+          property: 'og:image',
           hid: 'og:image',
           content: 'https://www.vic.gov.au/Melbourne-tram.jpg'
         },
         {
-          name: 'og:image:alt',
+          property: 'og:image:alt',
           hid: 'og:image:alt',
           content: 'Demo: Melbourne tram'
         },

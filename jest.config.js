@@ -14,7 +14,7 @@ module.exports = {
     '^.+\\.md?$': 'markdown-loader-jest'
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(@dpc-sdp*|ol|ol-ext|storybook-addon-vue-info|@storybook*)/)'
+    'node_modules/(?!(@dpc-sdp*|ol|ol-ext|@storybook*)/)'
   ],
   moduleNameMapper: {
     // @TODO storybook storyshots fails with MDX.

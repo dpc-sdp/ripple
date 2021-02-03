@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplWhatsNext from './index.vue'
+
+<Meta title="Molecules/WhatsNext" />
+
+# WhatsNext
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/WhatsNext/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplWhatsNext },
+  template: `<rpl-whats-next :title="title" :links="links" />`
+});
+
+<Canvas>
+  <Story
+    name="WhatsNext"
+    args={{
+      title: 'What\'s next?',
+      links: [
+        { text: 'Link to external content', url: 'http://www.google.com' },
+        { text: 'Second link to extra content', url: '#' },
+        { text: 'Third link goes here', url: '#' },
+        { text: 'Link to additional content', url: '#' },
+        { text: 'Second link to extra content', url: '#' },
+        { text: 'This is another link', url: '#' }
+      ]
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplWhatsNext} />
+

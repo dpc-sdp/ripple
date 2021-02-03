@@ -1,0 +1,236 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import RplCardContent from './CardContent.vue'
+import RplCardBox from './CardBox.vue'
+import RplCardPromo from './CardPromo.vue'
+
+<Meta title="Molecules/Card" />
+
+# Card
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/Card/README.md) for more information about how to install and setup the component.
+
+## Card box
+
+export const TemplateCardBox = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCardBox },
+  template: `<rpl-card-box :cards="cards" />`
+});
+
+<Canvas>
+  <Story
+    name="Card box"
+    args={{
+      cards: [
+        {
+          name: 'rpl-card-emergency-contact',
+          data: {
+            title: 'Emergency Assistance',
+            subtitle: 'Urgent',
+            summary: 'Dial 000 for police, fire & ambulance',
+            link: { text: 'Call 0000', url: 'tel:+0000' }
+          }
+          },
+          {
+            name: 'rpl-card-emergency-contact',
+            data: {
+              title: 'Police Assistance Line',
+              subtitle: 'Urgent',
+              summary: 'Dial 000 for police, fire & ambulance',
+              link: { text: 'Call 000', url: 'tel:000' }
+            }
+          },
+          {
+            name: 'rpl-card-emergency-contact',
+            data: {
+              title: 'Police Assistance Line',
+              subtitle: 'Urgent',
+              summary: 'Dial 000 for police, fire & ambulance',
+              link: { text: 'Internal link', url: '/home' }
+            }
+          },
+          {
+            name: 'rpl-card-emergency-contact',
+            data: {
+              title: 'Police Assistance Line',
+              subtitle: null,
+              summary: 'Dial 000 for police, fire & ambulance',
+              link: { text: 'External link', url: 'http://google.com' }
+            }
+          }
+      ]
+    }}
+  >
+    {TemplateCardBox.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplCardBox} />
+
+## Card content
+
+export const TemplateCardContent = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCardContent },
+  created () {
+    // This is just for demo purpose.
+    // You should set it in Ripple global plugins.
+    this.rplOptions.imgQueryString = false
+  },
+  template: `
+    <rpl-card-content :link="link" :image="image" :border="border" :type="type" :center="center">
+      <div v-html="content"></div>
+    </rpl-card-content>
+  `
+});
+
+<Canvas>
+  <Story
+    name="Card content"
+    argTypes={{
+      type: {
+        control: {
+          type: 'select',
+          options: ['default', 'simple', 'inline']
+        }
+      }
+    }}
+    args={{
+      link: { text: 'Read more', url: '#' },
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+          x: '290',
+          y: '170'
+        },
+        width: 580,
+        height: 340
+      },
+      border: true,
+      type: 'default',
+      center: false,
+      content: '<h2>Custom Content</h2><p>Lorem ipsum dolor sit amet.</p>'
+    }}
+  >
+    {TemplateCardContent.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplCardContent} />
+
+## Card promo
+
+export const TemplateCardPromo = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCardPromo },
+  template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :topic="topic" :date="date" :status="status" />`
+});
+
+<Canvas>
+  <Story
+    name="Card promo with image"
+    args={{
+      title: 'Card promo title',
+      link: { text: 'Read more', url: '#' },
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+          x: '290',
+          y: '170'
+        },
+        width: 580,
+        height: 340
+      },
+      date: {},
+      status: '',
+      topic: 'Arts, Culture and Humanities',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }}
+  >
+    {TemplateCardPromo.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Card promo event"
+    args={{
+      title: 'Card promo title',
+      link: { text: 'Read more', url: '#' },
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+          x: '290',
+          y: '170'
+        },
+        width: 580,
+        height: 340
+      },
+      topic: 'Event',
+      status: '',
+      date: { from: new Date('02 July 2020'), to: new Date('25 September 2020') },
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }}
+  >
+    {TemplateCardPromo.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Card promo grant"
+    argTypes={{
+      status: {
+        control: {
+          type: 'select',
+          options: ['Open', 'Closed', 'Ongoing']
+        }
+      }
+    }}
+    args={{
+      title: 'Card promo title',
+      link: { text: 'Read more', url: '#' },
+      image: null,
+      date: null,
+      topic: 'Grant',
+      status: 'Open',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }}
+  >
+    {TemplateCardPromo.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Card promo profile"
+    argTypes={{
+      status: {
+        control: {
+          type: 'select',
+          options: ['Open', 'Closed', 'Ongoing']
+        }
+      }
+    }}
+    args={{
+      title: 'Card promo title',
+      link: { text: 'Read more', url: '#' },
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+          x: '290',
+          y: '170'
+        },
+        width: 580,
+        height: 340
+      },
+      date: '02 July 2020',
+      topic: 'Profile',
+      variation: 'profile',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }}
+  >
+    {TemplateCardPromo.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplCardPromo} />

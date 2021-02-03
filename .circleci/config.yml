@@ -13,14 +13,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v4-deps-{{ checksum "yarn.lock" }}
-            - v4-deps-{{ .Branch }}
-            - v4-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: v4-deps-{{ checksum "yarn.lock" }}
+          key: v5-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - packages/ripple-nuxt-tide/node_modules
@@ -60,9 +60,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v4-deps-{{ checksum "yarn.lock" }}
-            - v4-deps-{{ .Branch }}
-            - v4-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js
@@ -105,9 +105,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v4-deps-{{ checksum "yarn.lock" }}
-            - v4-deps-{{ .Branch }}
-            - v4-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: run lighthouse audit
           command: yarn test:audit
@@ -141,9 +141,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v4-deps-{{ checksum "yarn.lock" }}
-            - v4-deps-{{ .Branch }}
-            - v4-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: run full e2e test
           command: yarn test:e2e-vic
@@ -173,9 +173,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v4-deps-{{ checksum "yarn.lock" }}
-            - v4-deps-{{ .Branch }}
-            - v4-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: build example nuxt app
           command: cd examples/basic-examples && yarn build:default
@@ -205,9 +205,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v4-deps-{{ checksum "yarn.lock" }}
-            - v4-deps-{{ .Branch }}
-            - v4-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
@@ -235,9 +235,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v4-deps-{{ checksum "yarn.lock" }}
-            - v4-deps-{{ .Branch }}
-            - v4-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: Set NPM_TOKEN
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc

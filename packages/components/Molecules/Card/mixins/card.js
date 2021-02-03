@@ -41,7 +41,21 @@ const card = {
             color: 'success'
           }
         }
-      }
+      },
+      srcSet: [
+        { size: 'xs', height: 534, width: 764 },
+        { size: 's', height: 200, width: 764 },
+        { size: 'm', height: 232, width: 448 },
+        { size: 'l', height: 232, width: 333 }
+      ]
+    }
+  },
+  methods: {
+    modifiers (classPrefix = '') {
+      const modifiers = []
+      modifiers.push(`${classPrefix}--${this.displayStyle.toLowerCase()}`)
+
+      return modifiers
     }
   },
   computed: {
@@ -81,6 +95,9 @@ const card = {
         return true
       }
       return false
+    },
+    isContentTypeGrant () {
+      return (this.isValidContentType && this.contentType.toLowerCase() === 'grant')
     },
     contentTypeLabel () {
       if (this.showMeta && this.isValidContentType === true && this.contentType) {

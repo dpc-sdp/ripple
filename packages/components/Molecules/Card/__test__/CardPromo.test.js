@@ -61,15 +61,14 @@ describe('CardPromo', () => {
         link: { text: 'Read more', url: '#' },
         topic: 'Event',
         author: 'John Doe',
-        status: 'closed',
         displayStyle: 'profile'
       }
     })
 
-    expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo--profile'])
+    expect(wrapper.vm.classModifiers).toEqual(['rpl-card-promo--profile'])
 
     wrapper.setProps({ displayStyle: 'noImage' })
-    expect(wrapper.vm.modifiers).toEqual(['rpl-card-promo--noimage'])
+    expect(wrapper.vm.classModifiers).toEqual(['rpl-card-promo--noimage'])
   })
 
   it('returns content type label when it is valid and showMeta is true', () => {

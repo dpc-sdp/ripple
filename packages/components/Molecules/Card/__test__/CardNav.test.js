@@ -68,15 +68,14 @@ describe('CardNav', () => {
         link: { text: 'Read more', url: '#' },
         topic: 'Event',
         authors: ['John Doe'],
-        status: 'closed',
         displayStyle: 'featured'
       }
     })
 
-    expect(wrapper.vm.modifiers).toEqual(['rpl-card-nav', 'rpl-card-nav--featured'])
+    expect(wrapper.vm.classModifiers).toEqual(['rpl-card-nav--featured'])
 
     wrapper.setProps({ displayStyle: 'noImage' })
-    expect(wrapper.vm.modifiers).toEqual(['rpl-card-nav', 'rpl-card-nav--noimage'])
+    expect(wrapper.vm.classModifiers).toEqual(['rpl-card-nav--noimage'])
   })
 
   it('returns content type label when it has valid value and showMeta flag is true', () => {
@@ -86,7 +85,6 @@ describe('CardNav', () => {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
         authors: ['John Doe'],
-        status: 'closed',
         contentType: 'Profile: Women\'s Honour Roll',
         showMeta: true,
         topic: 'Anything under the sun'
@@ -106,7 +104,6 @@ describe('CardNav', () => {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
         authors: ['John Doe'],
-        status: 'closed',
         contentType: 'Profile: invalid content type',
         showMeta: true,
         topic: 'Anything under the sun'
@@ -126,7 +123,6 @@ describe('CardNav', () => {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
         authors: ['John Doe'],
-        status: 'closed',
         contentType: 'Profile: invalid content type',
         showMeta: true,
         topic: 'Anything under the sun',
@@ -147,7 +143,6 @@ describe('CardNav', () => {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
         authors: ['John Doe'],
-        status: 'closed',
         contentType: 'Profile: invalid content type',
         showMeta: true,
         topic: 'Anything under the sun',
@@ -168,7 +163,6 @@ describe('CardNav', () => {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         link: { text: 'Read more', url: '#' },
         authors: ['John Doe'],
-        status: 'closed',
         contentType: 'Profile: invalid content type',
         showMeta: true,
         topic: 'Anything under the sun',

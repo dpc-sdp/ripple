@@ -1,17 +1,17 @@
 <template>
-  <rpl-link v-if="link" :class="modifiers" :href="link.url" :innerWrap="false">
-    <div v-if="image" class="rpl-card-nav__image-wrapper">
-      <rpl-responsive-img v-if="image && displayStyle !== 'noImage'" class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
+  <rpl-link v-if="link" :class="['rpl-card-nav', classModifiers]" :href="link.url" :innerWrap="false">
+    <div v-if="image && displayStyle !== 'noImage'" class="rpl-card-nav__image-wrapper">
+      <rpl-responsive-img class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-nav__content">
       <div v-if="showMeta" class="rpl-card-nav__meta">
         <div v-if="contentTypeLabel" class="rpl-card-nav__content-type" >{{ contentTypeLabel }}</div>
         <div v-if="topicLabel" class="rpl-card-nav__topic" >{{ topicLabel }}</div>
-        <div v-if="grantStatusData" class="rpl-card-nav__status">
+        <div v-if="isContentTypeGrant && grantStatusData" class="rpl-card-nav__status">
           <rpl-icon class="rpl-card-nav__status-icon" :symbol="grantStatusData.symbol" :color="grantStatusData.color" size="s" />
           <span>{{ grantStatusData.label }}</span>
         </div>
-        <div v-if="formattedDate && !grantStatusData" class="rpl-card-nav__date">{{ formattedDate }}</div>
+        <div v-if="formattedDate && !isContentTypeGrant" class="rpl-card-nav__date">{{ formattedDate }}</div>
       </div>
       <h2 v-if="title" class="rpl-card-nav__title"><span>{{ trimmedTitle }}</span></h2>
       <p v-if="summary" class="rpl-card-nav__summary">{{ trimmedSummary }}</p>
@@ -83,10 +83,6 @@ export default {
         return []
       }
     },
-    status: {
-      type: String,
-      default: ''
-    },
     displayStyle: {
       type: String,
       default: 'noImage',
@@ -97,23 +93,9 @@ export default {
       default: ''
     }
   },
-  data () {
-    return {
-      srcSet: [
-        { size: 'xs', height: 534, width: 764 },
-        { size: 's', height: 200, width: 764 },
-        { size: 'm', height: 232, width: 448 },
-        { size: 'l', height: 232, width: 333 }
-      ]
-    }
-  },
   computed: {
-    modifiers () {
-      const prefix = 'rpl-card-nav'
-      const modifiers = [ prefix ]
-      modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
-
-      return modifiers
+    classModifiers () {
+      return this.modifiers('rpl-card-nav')
     },
     trimmedSummary () {
       let summaryLength = 300

@@ -1,28 +1,18 @@
 <template>
-  <rpl-link v-if="link" :class="['rpl-card-promo', modifiers]" :href="link.url">
-    <slot name="image">
-      <rpl-responsive-img v-if="image && displayStyle !== 'noImage'" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="[{ size: 'xs', height: 534, width: 764  }, { size: 's', height: 200, width: 764  }, {  size: 'm', height: 232, width: 448 }, {  size: 'l', height: 232, width: 333 }]" />
-    </slot>
+  <rpl-link v-if="link" :class="['rpl-card-promo', classModifiers]" :href="link.url">
+    <rpl-responsive-img v-if="image && displayStyle !== 'noImage'" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="srcSet" />
     <div class="rpl-card-promo__content" v-cloak>
       <div v-if="showMeta" class="rpl-card-promo__meta">
-        <slot name="meta">
-          <div class="rpl-card-promo__content-type" v-if="contentTypeLabel">{{ contentTypeLabel }}</div>
-          <div class="rpl-card-promo__topic" v-if="topicLabel">{{ topicLabel }}</div>
-          <slot name="status">
-            <div v-if="grantStatusData" class="rpl-card-promo__status">
-              <rpl-icon class="rpl-card-promo__status-icon" :symbol="grantStatusData.symbol" :color="grantStatusData.color" size="s" />
-              <span>{{ grantStatusData.label }}</span>
-            </div>
-          </slot>
-          <div class="rpl-card-promo__date" v-if="formattedDate && !grantStatusData">{{ formattedDate }}</div>
-        </slot>
+        <div class="rpl-card-promo__content-type" v-if="contentTypeLabel">{{ contentTypeLabel }}</div>
+        <div class="rpl-card-promo__topic" v-if="topicLabel">{{ topicLabel }}</div>
+        <div v-if="isContentTypeGrant && grantStatusData" class="rpl-card-promo__status">
+          <rpl-icon class="rpl-card-promo__status-icon" :symbol="grantStatusData.symbol" :color="grantStatusData.color" size="s" />
+          <span>{{ grantStatusData.label }}</span>
+        </div>
+        <div class="rpl-card-promo__date" v-if="formattedDate && !isContentTypeGrant">{{ formattedDate }}</div>
       </div>
-      <slot name="content">
-        <h2 class="rpl-card-promo__title" v-if="title">{{ trimmedTitle }}</h2>
-        <p class="rpl-card-promo__summary" v-if="summary" >{{ trimmedSummary }}</p>
-      </slot>
-      <slot name="footer">
-      </slot>
+      <h2 class="rpl-card-promo__title" v-if="title">{{ trimmedTitle }}</h2>
+      <p class="rpl-card-promo__summary" v-if="summary" >{{ trimmedSummary }}</p>
     </div>
   </rpl-link>
 </template>
@@ -38,6 +28,11 @@ import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers'
 export default {
   name: 'RplCardPromo',
   mixins: [formatdate, card],
+  components: {
+    RplResponsiveImg,
+    RplIcon,
+    RplLink
+  },
   props: {
     title: {
       type: String,
@@ -79,10 +74,6 @@ export default {
       type: Boolean,
       default: false
     },
-    status: {
-      type: String,
-      default: ''
-    },
     displayStyle: {
       type: String,
       default: 'noImage',
@@ -93,18 +84,9 @@ export default {
       default: ''
     }
   },
-  components: {
-    RplResponsiveImg,
-    RplIcon,
-    RplLink
-  },
   computed: {
-    modifiers () {
-      const prefix = 'rpl-card-promo'
-      const modifiers = []
-      modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
-
-      return modifiers
+    classModifiers () {
+      return this.modifiers('rpl-card-promo')
     },
     trimmedSummary () {
       let summaryLength = 300

@@ -161,6 +161,7 @@ export default {
       index: process.env.SEARCH_INDEX,
       url: 'https://' + process.env.SEARCH_HASH + '.' + process.env.SEARCH_URL,
       log: process.env.SEARCH_LOG,
+      apiVersion: process.env.SEARCH_API_VERSION || '6.5',
       auth: {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD

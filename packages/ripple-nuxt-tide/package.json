@@ -60,7 +60,7 @@
     "cookies": "^0.7.3",
     "cuid": "^2.1.8",
     "elastic-builder": "^2.9.0",
-    "elasticsearch": "^15.4.1",
+    "elasticsearch": "^16.7.2",
     "js-cookie": "^2.2.0",
     "jsonapi-parse": "^2.0.0",
     "jwt-decode": "^2.2.0",

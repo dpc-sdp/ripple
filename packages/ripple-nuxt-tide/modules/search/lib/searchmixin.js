@@ -76,7 +76,7 @@ const searchMixin = {
         }
         this.searchResults = results
         this.pager.totalSteps = response.totalSteps
-        this.count = response.hits.total
+        this.count = response.hits.total.hasOwnProperty('value') ? response.hits.total.value : response.hits.total
         this.noResultsCopy = this.count === 0 ? this.noResultsMsg(queryString) : ''
       } catch (error) {
         const msg = 'Search isn\'t working right now, please try again later.'

@@ -214,7 +214,15 @@ export const TemplateCardPromo = (args, { argTypes }) => ({
     args={{
       title: 'Card promo title',
       link: { text: 'Read more', url: '#' },
-      image: 'https://placehold.it/580x340',
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+          x: '290',
+          y: '170'
+        },
+        width: 580,
+        height: 340
+      },
       date: '02 July 2020',
       topic: 'Profile',
       variation: 'profile',

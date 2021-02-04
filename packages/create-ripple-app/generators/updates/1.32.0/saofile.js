@@ -1,5 +1,6 @@
 const common = require('./../../common')
 const templateDir = './../../../template'
+const jscodeshift = require('jscodeshift')
 
 module.exports = {
   ...common,
@@ -23,8 +24,60 @@ module.exports = {
           data.devDependencies['eslint-plugin-promise'] = `^4.2.1`
           data.devDependencies['eslint-plugin-standard'] = `^5.0.0`
           data.devDependencies['eslint-plugin-vue'] = `^7.5.0`
+          // Delete babel-eslint as this is now replaced with @babel/eslint-parser
           delete data.devDependencies['babel-eslint']
           return data
+        }
+      },
+      {
+        type: 'modify',
+        files: '.eslintrc.js',
+        handler (data) {
+          const j = jscodeshift
+
+          // Update eslint parser from babel-eslint to @babel/eslint-parser
+          let result = j(data)
+            .find(j.Literal)
+            .filter(path => path.node.value === 'babel-eslint')
+            .forEach(path => {
+              j(path).replaceWith(j.literal('@babel/eslint-parser'))
+            }).toSource({ quote: 'single' })
+
+          // Add new rules
+          const rulesData = j(result).find(j.Property, { key: { name: 'rules' } })
+          const n = rulesData.length
+
+          if (n) {
+            const newRules = `// TODO enable the rules to achieve lint standard consistency towards projects
+'array-bracket-spacing': 'off',
+'array-callback-return': 'off',
+'dot-notation': 'off',
+'jest/expect-expect': 'off',
+'jest/no-standalone-expect': 'off',
+'jest/no-try-expect': 'off',
+'jest/no-conditional-expect': 'off',
+'lines-between-class-members': 'off',
+'multiline-ternary': 'off',
+'no-case-declarations': 'off',
+'no-prototype-builtins': 'off',
+'node/no-deprecated-api': 'off',
+'prefer-const': 'off',
+'prefer-regex-literals': 'off',
+'quotes': ['off', 'single', { 'allowTemplateLiterals': true }],
+'quote-props': 'off',
+'vue/no-mutating-props': 'off',
+'vue/no-unused-components': 'off',
+'vue/no-use-v-if-with-v-for': 'off',
+'vue/return-in-computed-property': 'off',
+'no-trailing-spaces': 'off',
+'object-curly-spacing': 'off',
+'no-var': 'off'`
+            result = rulesData.find(j.ObjectExpression).forEach(p => {
+              p.get('properties').push(newRules)
+            })
+          }
+
+          return result ? result.toSource({ quote: 'single' }) : false
         }
       }
     ]

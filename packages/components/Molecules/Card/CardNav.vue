@@ -121,12 +121,18 @@ $rpl-card-nav-border-radius: $rpl-card-border-radius !default;
 $rpl-card-nav-content-padding-xs: $rpl-card-vertical-padding $rpl-component-padding-xs !default;
 $rpl-card-nav-content-padding-s: $rpl-card-vertical-padding $rpl-component-padding-s !default;
 $rpl-card-nav-inline-padding-m: ($rpl-space * 8) !default;
-$rpl-card-nav-title-ruleset: ('xl', 1.5em, 'bold') !default;
+$rpl-card-nav-title-ruleset: (
+  'xs': ('l', 1.5em, 'bold'),
+  's': ('xl', 1.75em, 'bold')
+) !default;
 $rpl-card-nav-title-text-color: $nav-card-text-color !default;
 $rpl-card-nav-title-hover-color: $rpl-card-link-hover-color !default;
 $rpl-card-nav-title-text-decoration: $rpl-card-title-text-decoration !default;
 $rpl-card-nav-title-margin: 0 0 rem(12px) !default;
-$rpl-card-nav-summary-ruleset: ('s', 1.5em, 'regular') !default;
+$rpl-card-nav-summary-ruleset: (
+  'xs': ('xs', 1.25em, 'regular'),
+  's': ('s', 1.5em, 'regular')
+) !default;
 $rpl-card-nav-summary-color: $nav-card-text-color !default;
 $rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
 $rpl-card-nav-topic-color: $nav-card-text-color !default;
@@ -134,22 +140,15 @@ $rpl-card-nav-topic-background-color: rpl_color('mid_neutral_2') !default;
 $rpl-card-nav-meta-padding: $rpl-space $rpl-space-2 !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;
-$rpl-card-nav-content-type-ruleset: ('xs', .875em, 'medium') !default;
+$rpl-card-nav-content-type-ruleset: (
+  'xs': ('xs', .875em, 'medium'),
+  's': ('xs', 1em, 'medium')
+) !default;
 $rpl-card-nav-date-text-color: $rpl-card-meta-text-color !default;
-$rpl-card-nav-img-width: (
-  'm': rem(280px),
-  'l': rem(153px),
-  'xxl': rem(213px),
-  'xxxl': rem(294px)
-) !default;
-$rpl-card-nav-img-height: (
-  'xs': rem(161px),
-  'l': rem(159px),
-  'xxl': rem(194px)
-) !default;
 $rpl-card-nav-img-wrapper-padding-xs: $rpl-component-padding-xs $rpl-component-padding-xs 0 !default;
 $rpl-card-nav-img-wrapper-padding-m: 0 rem(25px) 0 0 !default;
 $rpl-card-nav-author-font-size: rem(14px) !default;
+$rpl-card-nav-featured-title-color: rpl-color('white') !default;
 $rpl-card-nav-featured-title-bg-color: rpl-color('primary') !default;
 $rpl-card-nav-featured-title-bg-color-hover: rpl-color('secondary') !default;
 $rpl-card-nav-featured-title-ruleset: (
@@ -164,13 +163,29 @@ $rpl-card-nav-featured-img-height: (
   'xxl': rem(355px)
 ) !default;
 $rpl-card-nav-featured-max-width: (
-  'xs': rem(320px),
+  'xs': rem(420px),
+  'm':  rem(768px),
   'l': rem(488px),
   'xxl': rem(608px)
 ) !default;
-$rpl-card-nav-thumbnail-max-width: rem(818px) !default;
-$rpl-card-nav-noimage-max-width: rem(607px) !default;
-
+$rpl-card-nav-thumbnail-max-width: (
+  'xs': rem(420px),
+  'm': rem(213px),
+  'l': rem(153px),
+  'xxl': rem(213px),
+  'xxxl': rem(294px)
+) !default;
+$rpl-card-nav-thumbnail-img-height: (
+  'xs': rem(161px),
+  'm': rem(194px),
+  'l': rem(159px),
+  'xxl': rem(194px)
+) !default;
+$rpl-card-nav-thumbnail-padding: 20px 20px 0px 20px;
+$rpl-card-nav-noimage-max-width: (
+  'xs':  rem(768px),
+  'l': rem(607px)
+) !default;
 .rpl-card-nav {
   $root: &;
   position: relative;
@@ -201,23 +216,6 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
     #{$root}__title {
       color:  $rpl-card-nav-title-hover-color;
       text-decoration: $rpl-card-nav-title-text-decoration;
-    }
-  }
-
-  &__image-wrapper {
-    padding: $rpl-card-nav-img-wrapper-padding-xs;
-    @include rpl_breakpoint('m') {
-      padding: $rpl-card-nav-img-wrapper-padding-m;
-    }
-    @each $bp, $width in $rpl-card-nav-img-width {
-      @include rpl_breakpoint($bp) {
-        max-width: $width;
-      }
-    }
-    @each $bp, $height in $rpl-card-nav-img-height {
-      @include rpl_breakpoint($bp) {
-        max-height: $height;
-      }
     }
   }
 
@@ -304,22 +302,40 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
   }
 
   &--thumbnail {
-    max-width: $rpl-card-nav-thumbnail-max-width;
+    #{$root}__image-wrapper {
+      @each $bp, $max-width in $rpl-card-nav-thumbnail-max-width {
+        @include rpl_breakpoint($bp) {
+          max-width: $max-width;
+        }
+      }
+      @each $bp, $height in $rpl-card-nav-thumbnail-img-height {
+        @include rpl_breakpoint($bp) {
+          max-height: $height;
+        }
+      }
+
+      padding: $rpl-card-nav-img-wrapper-padding-xs;
+      @include rpl_breakpoint('m') {
+        padding: $rpl-card-nav-img-wrapper-padding-m;
+      }
+    }
+
+    #{$root}__content, #{$root}__image-wrapper, #{$root}__image {
+      width: 100%;
+    }
   }
 
   &--noimage {
-    max-width: $rpl-card-nav-noimage-max-width;
+    @each $bp, $max-width in $rpl-card-nav-noimage-max-width {
+      @include rpl_breakpoint($bp) {
+        max-width: $max-width;
+      }
+    }
   }
 
   &--featured {
     padding: 0;
     flex-wrap: wrap;
-
-    @each $bp, $max-width in $rpl-card-nav-featured-max-width {
-      @include rpl_breakpoint($bp) {
-        max-width: $max-width;
-      }
-    }
 
     &:hover,
     &:focus {
@@ -332,8 +348,13 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
     }
 
     #{$root}__image-wrapper {
-      max-width: 608px;
       padding: 0;
+      @each $bp, $max-width in $rpl-card-nav-featured-max-width {
+        @include rpl_breakpoint($bp) {
+          max-width: $max-width;
+        }
+      }
+
       @each $bp, $height in $rpl-card-nav-featured-img-height {
         @include rpl_breakpoint($bp) {
           max-height: $height;
@@ -364,7 +385,9 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
 
       span {
         background-color: $rpl-card-nav-featured-title-bg-color;
+        color: $rpl-card-nav-featured-title-color;
         line-height: 1.5em;
+        padding: 0 9px;
       }
     }
 

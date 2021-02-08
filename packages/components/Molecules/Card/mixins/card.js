@@ -85,10 +85,12 @@ const card = {
         'grant',
         'news',
         'publication',
+        'publication page',
         'profile: aboriginal honour roll',
         'profile: australia day ambassador',
         'profile: victorian design review panel',
-        'profile: women\'s honour roll'
+        'profile: women\'s honour roll',
+        'recommendation - family violence'
       ]
 
       if (this.contentType && validContentTypes.includes(this.contentType.toLowerCase())) {

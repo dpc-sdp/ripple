@@ -3029,11 +3029,6 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@ljharb/eslint-config@^13.1.1":
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/@ljharb/eslint-config/-/eslint-config-13.1.1.tgz#8945082f1a2de45cdc869100750e528a916d6ea4"
-  integrity sha512-KtyhdsqeJ/DBLXUoTCfF07T7c5OXYgocz8AUSKOLmphXCavAXw/Qka5GLrXNv8ttFye+VrEl4Qfa8EvGEDYD+A==
-
 "@mdx-js/loader@^1.6.19":
   version "1.6.22"
   resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-1.6.22.tgz#d9e8fe7f8185ff13c9c8639c048b123e30d322c4"

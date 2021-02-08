@@ -27,7 +27,7 @@ npm install @dpc-sdp/ripple-site-footer --save
 ## Import
 
 ```js
-import { RplSiteFooter, RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
+import { RplSiteFooter, RplAccessibility, RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 ```
 
 --------------------------------------------------------------------------------
@@ -35,6 +35,8 @@ import { RplSiteFooter, RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 ## Usage and Tests
 
 See [Storybook/Organisms/SiteFooter/Site footer](https://ripple.sdp.vic.gov.au/?path=/story/organisms-sitefooter--site-footer).
+
+See [Storybook/Organisms/SiteFooter/Accessibility](https://ripple.sdp.vic.gov.au/?path=/story/organisms-sitefooter--accessibility).
 
 See [Storybook/Organisms/SiteFooter/Acknowledgement](https://ripple.sdp.vic.gov.au/?path=/story/organisms-sitefooter--acknowledgement).
 

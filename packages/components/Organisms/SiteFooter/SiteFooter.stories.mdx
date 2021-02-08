@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import { RplSiteFooter, RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
+import { RplSiteFooter, RplAccessibility, RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 
 <Meta title="Organisms/SiteFooter" />
 
@@ -16,6 +16,7 @@ export const Template = (args, { argTypes }) => ({
       :nav="nav"
       :links="links"
       :copyright="copyright"
+      :accessibility="accessibility"
       :acknowledgement="acknowledgement"
       :caption="caption"
       :logos="logos"
@@ -182,6 +183,7 @@ export const Template = (args, { argTypes }) => ({
         }
       ],
       copyright: '© Copyright State Government of Victoria',
+      accessibility: {},
       acknowledgement: 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.',
       caption: 'Image credit: This caption is used to describe the image in the hero banner above.',
       logos: [
@@ -219,6 +221,32 @@ export const TemplateAcknowledgement = (args, { argTypes }) => ({
   components: { RplAcknowledgement },
   template: `<rpl-acknowledgement :text="text" />`
 });
+
+export const TemplateAccessibility = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplAccessibility },
+  template: `<rpl-accessibility :title="title" :template="template" :links="links" />`
+});
+
+<Canvas>
+  <Story
+    name="Accessibility"
+    args={{
+      title: 'Deaf, hearing or speech impaired?',
+      template: 'Please contact the National Relay Service on: <a class="rpl-accessibility__links" href=%phoneLink%>%phoneText%</a> or <a class="rpl-accessibility__links" href=%websiteLink%>%websiteText%</a>',
+      links: {
+        '%phoneLink%': 'tel:133677',
+        '%phoneText%': '133 677',
+        '%websiteLink%': 'http://www.relayservice.gov.au',
+        '%websiteText%': 'www.relayservice.gov.au'
+      }
+    }}
+  >
+    {TemplateAccessibility.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplAccessibility} />
 
 <Canvas>
   <Story

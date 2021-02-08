@@ -2,6 +2,8 @@
   <div class="rpl-site-footer">
     <div class="rpl-site-footer__main">
       <rpl-footer-navigation :nav="nav"></rpl-footer-navigation>
+      <rpl-accessibility v-if="accessibility" class="rpl-site-footer__accessibility" :title="accessibility.title"
+        :template="accessibility.template" :links="accessibility.links" />
       <rpl-acknowledgement class="rpl-site-footer__acknowledgement" :text="acknowledgement" />
       <div v-if="caption" class="rpl-site-footer__caption">{{ caption }}</div>
     </div>
@@ -19,6 +21,7 @@
 </template>
 
 <script>
+import RplAccessibility from './Accessibility'
 import RplAcknowledgement from './Acknowledgement'
 import RplLinksAndCopyright from './LinksAndCopyright'
 import RplFooterNavigation from './FooterNavigation'
@@ -35,6 +38,7 @@ const vicLogo = {
 export default {
   name: 'RplSiteFooter',
   components: {
+    RplAccessibility,
     RplAcknowledgement,
     RplLinksAndCopyright,
     RplFooterNavigation,
@@ -44,6 +48,7 @@ export default {
     nav: Array,
     links: Array,
     copyright: String,
+    accessibility: Object,
     acknowledgement: String,
     caption: String,
     logos: Array

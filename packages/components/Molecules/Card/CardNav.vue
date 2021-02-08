@@ -3,7 +3,7 @@
     <div v-if="image && displayStyle !== 'noImage'" class="rpl-card-nav__image-wrapper">
       <rpl-responsive-img class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
     </div>
-    <div class="rpl-card-nav__content">
+    <div class="rpl-card-nav__content" v-cloak>
       <div v-if="showMeta" class="rpl-card-nav__meta">
         <div v-if="contentTypeLabel" class="rpl-card-nav__content-type" >{{ contentTypeLabel }}</div>
         <div v-if="topicLabel" class="rpl-card-nav__topic" >{{ topicLabel }}</div>
@@ -137,14 +137,11 @@ $rpl-card-nav-summary-color: $nav-card-text-color !default;
 $rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
 $rpl-card-nav-topic-color: $nav-card-text-color !default;
 $rpl-card-nav-topic-background-color: rpl_color('mid_neutral_2') !default;
-$rpl-card-nav-meta-padding: $rpl-space $rpl-space-2 !default;
+$rpl-card-nav-meta-padding: $rpl-card-meta-padding !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;
 $rpl-card-nav-content-type-margin: rem(14px) !default;
-$rpl-card-nav-content-type-ruleset: (
-  'xs': ('xs', .875em, 'medium'),
-  's': ('xs', 1em, 'medium')
-) !default;
+$rpl-card-nav-content-type-ruleset: $rpl-card-content-type-ruleset !default;
 $rpl-card-nav-date-text-color: $rpl-card-meta-text-color !default;
 $rpl-card-nav-img-wrapper-padding-xs: $rpl-component-padding-xs $rpl-component-padding-xs 0 !default;
 $rpl-card-nav-img-wrapper-padding-m: 0 rem(25px) 0 0 !default;

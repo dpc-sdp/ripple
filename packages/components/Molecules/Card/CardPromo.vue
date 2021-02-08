@@ -108,30 +108,31 @@ export default {
   $rpl-card-promo-min-height: rem(400px) !default;
   $rpl-card-promo-meta-margin: 0 0 rem(19px) 0 !default;
   $rpl-card-promo-meta-ruleset: $rpl-card-meta-ruleset !default;
-  $rpl-card-promo-content-type-ruleset: ('xs', .875em, 'medium') !default;
+  $rpl-card-promo-content-type-ruleset: $rpl-card-content-type-ruleset !default;
   $rpl-card-promo-meta-text-color: $rpl-card-meta-text-color !default;
   $rpl-card-promo-date-padding: $rpl-space $rpl-space-2 !default;
   $rpl-card-promo-content-type-bg-color: rpl_color('light_neutral') !default;
   $rpl-card-promo-content-type-color: $nav-card-text-color !default;
   $rpl-card-nav-topic-padding: $rpl-space $rpl-space $rpl-space 0 !default;
-  $rpl-card-promo-meta-padding: $rpl-space $rpl-space-2 !default;
+  $rpl-card-promo-meta-padding: $rpl-card-meta-padding !default;
   $rpl-card-promo-link-color: $nav-card-text-color !default;
   $rpl-card-promo-link-color-hover: $rpl-card-link-hover-color !default;
   $rpl-card-promo-title-ruleset: $rpl-card-title-ruleset !default;
   $rpl-card-promo-title-text-color: $nav-card-text-color !default;
   $rpl-card-promo-title-text-decoration: $rpl-card-title-text-decoration !default;
   $rpl-card-promo-title-margin: 0 0 rem(9px) 0 !default;
-  $rpl-card-promo-summary-ruleset: ('xs', 1.25em, 'regular') !default;
+  $rpl-card-promo-summary-ruleset: ('xs', 1.5em, 'regular') !default;
   $rpl-card-promo-summary-text-color: $nav-card-text-color !default;
-  $rpl-card-promo-content-padding: ($rpl-space * 5) !default;
+  $rpl-card-promo-content-padding: 0 ($rpl-space * 5) ($rpl-space * 5) ($rpl-space * 5) !default;
   $rpl-card-promo-border-color: $rpl-card-border-color !default;
   $rpl-card-promo-border: 1px solid $rpl-card-promo-border-color !default;
   $rpl-card-promo-border-radius: $rpl-card-border-radius !default;
   $rpl-card-promo-no-image-border: rpl_gradient('decorative_gradient') !default;
   $rpl-card-promo-no-image-border-height: rem(8px) !default;
   $rpl-card-promo-no-image-padding-top: rem(96px) !default;
-  $rpl-card-promo-thumbnail-padding-top: rem(27px) !default;
+  $rpl-card-promo-thumbnail-padding-bottom: ($rpl-space * 4) !default;
   $rpl-card-promo-profile-image-margin-top: rem(56px) !default;
+  $rpl-card-promo-profile-image-margin-bottom: ($rpl-space * 5) !default;
   $rpl-card-promo-profile-image-size: rem(148px) !default;
   $rpl-card-promo-img-height: (
     'xs': rem(300px),
@@ -139,7 +140,6 @@ export default {
     'l': rem(232px),
     'xl': rem(200px)
   ) !default;
-  $rpl-card-promo-max-width: rem(336px);
 
   .rpl-card-promo {
     $root: &;
@@ -150,7 +150,6 @@ export default {
     border: $rpl-card-promo-border;
     border-radius: $rpl-card-promo-border-radius;
     background-color: $rpl-card-promotion-bg-color;
-    max-width: $rpl-card-promo-max-width;
 
     &:hover,
     &:focus {
@@ -248,16 +247,18 @@ export default {
       #{$root}--noimage & {
         padding-top: $rpl-card-promo-no-image-padding-top;
       }
-
-      #{$root}--thumbnail & {
-        padding-top: $rpl-card-promo-thumbnail-padding-top;
-      }
     }
 
     &--noimage {
       background-image: $rpl-card-promo-no-image-border;
       background-size: 100% $rpl-card-promo-no-image-border-height;
       background-repeat: no-repeat;
+    }
+
+    &--thumbnail {
+      #{$root}__image {
+        padding-bottom: $rpl-card-promo-thumbnail-padding-bottom;
+      }
     }
 
     &--profile {
@@ -270,6 +271,7 @@ export default {
       }
 
       #{$root}__image {
+        margin-bottom: $rpl-card-promo-profile-image-margin-bottom;
         margin-top: $rpl-card-promo-profile-image-margin-top;
         margin-left: auto;
         margin-right: auto;

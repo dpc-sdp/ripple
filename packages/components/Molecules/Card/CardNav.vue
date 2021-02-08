@@ -123,7 +123,7 @@ $rpl-card-nav-content-padding-s: $rpl-card-vertical-padding $rpl-component-paddi
 $rpl-card-nav-inline-padding-m: ($rpl-space * 8) !default;
 $rpl-card-nav-title-ruleset: (
   'xs': ('l', 1.5em, 'bold'),
-  's': ('xl', 1.75em, 'bold')
+  's': ('xl', 1.5em, 'bold')
 ) !default;
 $rpl-card-nav-title-text-color: $nav-card-text-color !default;
 $rpl-card-nav-title-hover-color: $rpl-card-link-hover-color !default;
@@ -140,6 +140,7 @@ $rpl-card-nav-topic-background-color: rpl_color('mid_neutral_2') !default;
 $rpl-card-nav-meta-padding: $rpl-space $rpl-space-2 !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;
+$rpl-card-nav-content-type-margin: rem(14px) !default;
 $rpl-card-nav-content-type-ruleset: (
   'xs': ('xs', .875em, 'medium'),
   's': ('xs', 1em, 'medium')
@@ -169,7 +170,11 @@ $rpl-card-nav-featured-max-width: (
   'xxl': rem(608px)
 ) !default;
 $rpl-card-nav-thumbnail-max-width: (
-  'xs': rem(420px),
+  'xxl': rem(607px),
+  'xxxl': rem(818px)
+) !default;
+$rpl-card-nav-thumbnail-image-max-width: (
+  'xs': rem(767px),
   'm': rem(213px),
   'l': rem(153px),
   'xxl': rem(213px),
@@ -278,9 +283,15 @@ $rpl-card-nav-noimage-max-width: (
     margin: $rpl-card-nav-meta-margin;
   }
 
+  &__content-type {
+    margin-right: $rpl-card-nav-content-type-margin;
+  }
+
   &__date {
     @include rpl_typography_ruleset($rpl-card-nav-meta-ruleset);
     display: inline;
+    color: $rpl-card-nav-date-text-color;
+    text-transform: uppercase;
   }
 
   &__content-type,
@@ -296,14 +307,15 @@ $rpl-card-nav-noimage-max-width: (
     }
   }
 
-  &__date {
-    color: $rpl-card-nav-date-text-color;
-    text-transform: uppercase;
-  }
-
   &--thumbnail {
+    @each $bp, $max-width in $rpl-card-nav-thumbnail-max-width {
+      @include rpl_breakpoint($bp) {
+        max-width: $max-width;
+      }
+    }
+
     #{$root}__image-wrapper {
-      @each $bp, $max-width in $rpl-card-nav-thumbnail-max-width {
+      @each $bp, $max-width in $rpl-card-nav-thumbnail-image-max-width {
         @include rpl_breakpoint($bp) {
           max-width: $max-width;
         }
@@ -336,6 +348,11 @@ $rpl-card-nav-noimage-max-width: (
   &--featured {
     padding: 0;
     flex-wrap: wrap;
+    @each $bp, $max-width in $rpl-card-nav-featured-max-width {
+      @include rpl_breakpoint($bp) {
+        max-width: $max-width;
+      }
+    }
 
     &:hover,
     &:focus {
@@ -349,11 +366,6 @@ $rpl-card-nav-noimage-max-width: (
 
     #{$root}__image-wrapper {
       padding: 0;
-      @each $bp, $max-width in $rpl-card-nav-featured-max-width {
-        @include rpl_breakpoint($bp) {
-          max-width: $max-width;
-        }
-      }
 
       @each $bp, $height in $rpl-card-nav-featured-img-height {
         @include rpl_breakpoint($bp) {

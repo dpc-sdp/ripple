@@ -35,23 +35,28 @@ module.exports = {
         handler (data) {
           const j = jscodeshift
 
-          // Update eslint parser from babel-eslint to @babel/eslint-parser
-          let result = j(data)
-            .find(j.Literal)
-            .filter(path => path.node.value === 'babel-eslint')
-            .forEach(path => {
-              j(path).replaceWith(j.literal('@babel/eslint-parser'))
-            }).toSource({ quote: 'single' })
+          return j(data).find(j.Property).forEach(prop => {
+            // Update eslint parser from babel-eslint to @babel/eslint-parser
+            if (prop.value.value.value === 'babel-eslint') {
+              prop.value.value.value = '@babel/eslint-parser'
+            }
 
-          // Add new rules
-          const rulesData = j(result).find(j.Property, { key: { name: 'rules' } })
-          const n = rulesData.length
+            // Disable babel configFile
+            if (prop.value.key.name === 'parserOptions') {
+              prop.value.value.properties.push(j.property(
+                'init',
+                j.identifier('requireConfigFile'),
+                j.literal(false)
+              ))
+            }
 
-          if (n) {
-            const newRules = `// TODO enable the rules to achieve lint standard consistency towards projects
+            // Add eslint rules
+            if (prop.value.key.name === 'rules') {
+              const newRules = `// TODO enable the rules to achieve lint standard consistency towards projects
 'array-bracket-spacing': 'off',
 'array-callback-return': 'off',
 'dot-notation': 'off',
+'func-call-spacing': 'off',
 'jest/expect-expect': 'off',
 'jest/no-standalone-expect': 'off',
 'jest/no-try-expect': 'off',
@@ -72,12 +77,9 @@ module.exports = {
 'no-trailing-spaces': 'off',
 'object-curly-spacing': 'off',
 'no-var': 'off'`
-            result = rulesData.find(j.ObjectExpression).forEach(p => {
-              p.get('properties').push(newRules)
-            })
-          }
-
-          return result ? result.toSource({ quote: 'single' }) : false
+              prop.value.value.properties.push(newRules)
+            }
+          }).toSource({ quote: 'single' })
         }
       }
     ]

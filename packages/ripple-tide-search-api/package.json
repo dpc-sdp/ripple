@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",
-    "@babel/node": "^7.12.6",
+    "@babel/node": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "@elastic/elasticsearch-mock": "^0.3.0",
     "dotenv": "^8.2.0",

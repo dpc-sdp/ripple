@@ -133,9 +133,9 @@ $rpl-card-nav-content-padding-s: $rpl-card-vertical-padding $rpl-component-paddi
 $rpl-card-nav-inline-padding-m: ($rpl-space * 8) !default;
 $rpl-card-nav-title-ruleset: (
   'xs': ('l', 1.5em, 'bold'),
-  's': ('xl', 1.5em, 'bold')
+  's': ('xl', 1.25em, 'bold')
 ) !default;
-$rpl-card-nav-title-text-color: $nav-card-text-color !default;
+$rpl-card-nav-title-text-color: $rpl-card-text-color !default;
 $rpl-card-nav-title-hover-color: $rpl-card-link-hover-color !default;
 $rpl-card-nav-title-text-decoration: $rpl-card-title-text-decoration !default;
 $rpl-card-nav-title-margin: 0 0 rem(12px) !default;
@@ -143,13 +143,15 @@ $rpl-card-nav-summary-ruleset: (
   'xs': ('xs', 1.25em, 'regular'),
   's': ('s', 1.5em, 'regular')
 ) !default;
-$rpl-card-nav-summary-color: $nav-card-text-color !default;
+$rpl-card-nav-summary-color: $rpl-card-text-color !default;
 $rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
-$rpl-card-nav-topic-color: $nav-card-text-color !default;
+$rpl-card-nav-topic-color: $rpl-card-text-color !default;
+$rpl-card-nav-topic-padding: $rpl-space $rpl-space $rpl-space 0 !default;
 $rpl-card-nav-topic-background-color: rpl_color('mid_neutral_2') !default;
 $rpl-card-nav-meta-padding: $rpl-card-meta-padding !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;
+$rpl-card-nav-meta-text-color: $rpl-card-meta-text-color !default;
 $rpl-card-nav-content-type-margin: rem(14px) !default;
 $rpl-card-nav-content-type-ruleset: $rpl-card-content-type-ruleset !default;
 $rpl-card-nav-date-text-color: $rpl-card-meta-text-color !default;
@@ -162,7 +164,8 @@ $rpl-card-nav-featured-title-bg-color-hover: rpl-color('secondary') !default;
 $rpl-card-nav-featured-title-ruleset: (
   's': ('mega', 1.75em, 'bold', true)
 ) !default;
-$rpl-card-nav-featured-content-padding: 2rem !default;
+$rpl-card-nav-featured-content-padding-m: 2rem !default;
+$rpl-card-nav-featured-content-padding: 2rem 1.25rem !default;
 $rpl-card-nav-featured-meta-margin-bottom: rem(14px) !default;
 $rpl-card-nav-featured-meta-margin-bottom-m: rem(18px) !default;
 $rpl-card-nav-featured-img-height: (
@@ -171,12 +174,11 @@ $rpl-card-nav-featured-img-height: (
   'xxl': rem(355px)
 ) !default;
 $rpl-card-nav-featured-max-width: (
-  'xs': rem(420px),
-  'm':  rem(768px),
-  'l': rem(488px),
-  'xxl': rem(608px)
+  'xs': rem(768px),
+  'l': rem(608px)
 ) !default;
 $rpl-card-nav-thumbnail-max-width: (
+  'm': rem(768px),
   'xxl': rem(607px),
   'xxxl': rem(818px)
 ) !default;
@@ -290,10 +292,6 @@ $rpl-card-nav-noimage-max-width: (
     margin: $rpl-card-nav-meta-margin;
   }
 
-  &__content-type {
-    margin-right: $rpl-card-nav-content-type-margin;
-  }
-
   &__date,
   &__year,
   &__fv-status {
@@ -303,17 +301,25 @@ $rpl-card-nav-noimage-max-width: (
     text-transform: uppercase;
   }
 
-  &__content-type,
-  &__topic {
+  &__content-type {
     @include rpl_typography_ruleset($rpl-card-nav-content-type-ruleset);
     display: inline;
     color: $rpl-card-nav-topic-color;
     background-color: $rpl-card-nav-topic-background-color;
     padding: $rpl-card-nav-meta-padding;
+    margin-right: $rpl-card-nav-content-type-margin;
 
     &::first-letter {
       text-transform: capitalize;
     }
+  }
+
+  &__topic {
+    @include rpl_typography_ruleset($rpl-card-nav-meta-ruleset);
+    display: inline-block;
+    color: $rpl-card-nav-meta-text-color;
+    text-transform: uppercase;
+    padding: $rpl-card-nav-topic-padding;
   }
 
   &--thumbnail {
@@ -389,6 +395,10 @@ $rpl-card-nav-noimage-max-width: (
 
     #{$root}__content {
       padding: $rpl-card-nav-featured-content-padding;
+
+      @include rpl_breakpoint('m') {
+        padding: $rpl-card-nav-featured-content-padding-m;
+      }
     }
 
     #{$root}__image {
@@ -409,6 +419,10 @@ $rpl-card-nav-noimage-max-width: (
         color: $rpl-card-nav-featured-title-color;
         line-height: 1.5em;
         padding: 0 9px;
+        @supports (box-decoration-break: clone) or (-webkit-box-decoration-break: clone) {
+          -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+        }
       }
     }
 

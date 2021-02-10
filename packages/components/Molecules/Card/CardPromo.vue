@@ -122,17 +122,17 @@ export default {
   $rpl-card-promo-meta-text-color: $rpl-card-meta-text-color !default;
   $rpl-card-promo-date-padding: $rpl-space $rpl-space-2 !default;
   $rpl-card-promo-content-type-bg-color: rpl_color('light_neutral') !default;
-  $rpl-card-promo-content-type-color: $nav-card-text-color !default;
-  $rpl-card-nav-topic-padding: $rpl-space $rpl-space $rpl-space 0 !default;
+  $rpl-card-promo-content-type-color: $rpl-card-text-color !default;
+  $rpl-card-promo-topic-padding: $rpl-space $rpl-space $rpl-space 0 !default;
   $rpl-card-promo-meta-padding: $rpl-card-meta-padding !default;
-  $rpl-card-promo-link-color: $nav-card-text-color !default;
+  $rpl-card-promo-link-color: $rpl-card-text-color !default;
   $rpl-card-promo-link-color-hover: $rpl-card-link-hover-color !default;
   $rpl-card-promo-title-ruleset: $rpl-card-title-ruleset !default;
-  $rpl-card-promo-title-text-color: $nav-card-text-color !default;
+  $rpl-card-promo-title-text-color: $rpl-card-text-color !default;
   $rpl-card-promo-title-text-decoration: $rpl-card-title-text-decoration !default;
   $rpl-card-promo-title-margin: 0 0 rem(9px) 0 !default;
   $rpl-card-promo-summary-ruleset: ('xs', 1.5em, 'regular') !default;
-  $rpl-card-promo-summary-text-color: $nav-card-text-color !default;
+  $rpl-card-promo-summary-text-color: $rpl-card-text-color !default;
   $rpl-card-promo-content-padding: 0 ($rpl-space * 5) ($rpl-space * 5) ($rpl-space * 5) !default;
   $rpl-card-promo-border-color: $rpl-card-border-color !default;
   $rpl-card-promo-border: 1px solid $rpl-card-promo-border-color !default;
@@ -201,9 +201,9 @@ export default {
     &__topic {
       @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
       display: inline-block;
-      color: $rpl-card-promo-meta-text-color;;
+      color: $rpl-card-promo-meta-text-color;
       text-transform: uppercase;
-      padding: $rpl-card-nav-topic-padding;;
+      padding: $rpl-card-promo-topic-padding;
     }
 
     &__content-type {

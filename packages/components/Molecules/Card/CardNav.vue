@@ -132,7 +132,7 @@ $rpl-card-nav-content-padding-xs: $rpl-card-vertical-padding $rpl-component-padd
 $rpl-card-nav-content-padding-s: $rpl-card-vertical-padding $rpl-component-padding-s !default;
 $rpl-card-nav-inline-padding-m: ($rpl-space * 8) !default;
 $rpl-card-nav-title-ruleset: (
-  'xs': ('l', 1.5em, 'bold'),
+  'xs': ('l', 1.25em, 'bold'),
   's': ('xl', 1.25em, 'bold')
 ) !default;
 $rpl-card-nav-title-text-color: $rpl-card-text-color !default;
@@ -164,8 +164,8 @@ $rpl-card-nav-featured-title-bg-color-hover: rpl-color('secondary') !default;
 $rpl-card-nav-featured-title-ruleset: (
   's': ('mega', 1.75em, 'bold', true)
 ) !default;
-$rpl-card-nav-featured-content-padding-m: 2rem !default;
-$rpl-card-nav-featured-content-padding: 2rem 1.25rem !default;
+$rpl-card-nav-featured-content-padding-m: ($rpl-space-4 * 2) !default;
+$rpl-card-nav-featured-content-padding: ($rpl-space * 5) !default;
 $rpl-card-nav-featured-meta-margin-bottom: rem(14px) !default;
 $rpl-card-nav-featured-meta-margin-bottom-m: rem(18px) !default;
 $rpl-card-nav-featured-img-height: (

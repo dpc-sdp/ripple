@@ -2,9 +2,9 @@
   <rpl-link v-if="link" :class="['rpl-card-promo', classModifiers]" :href="link.url">
     <rpl-responsive-img v-if="image && displayStyle !== 'noImage'" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="srcSet" />
     <div class="rpl-card-promo__content" v-cloak>
-      <div v-if="showMeta" class="rpl-card-promo__meta">
-        <div class="rpl-card-promo__content-type" v-if="contentTypeLabel">{{ contentTypeLabel }}</div>
-        <div class="rpl-card-promo__topic" v-if="topicLabel">{{ topicLabel }}</div>
+      <div v-if="showMeta && isMetaInfoNotEmpty" class="rpl-card-promo__meta">
+        <div v-if="contentTypeLabel" class="rpl-card-promo__content-type">{{ contentTypeLabel }}</div>
+        <div v-if="topicLabel" class="rpl-card-promo__topic">{{ topicLabel }}</div>
         <div v-if="isContentTypeGrant && grantStatusData" class="rpl-card-promo__status">
           <rpl-icon class="rpl-card-promo__status-icon" :symbol="grantStatusData.symbol" :color="grantStatusData.color" size="s" />
           <span>{{ grantStatusData.label }}</span>
@@ -96,7 +96,12 @@ export default {
   },
   computed: {
     classModifiers () {
-      return this.modifiers('rpl-card-promo')
+      // if thumbnail or profile don't have image, fallback to noimage styling
+      const classPrefix = 'rpl-card-promo'
+      if (!this.image) {
+        return `${classPrefix}--noimage`
+      }
+      return this.modifiers(classPrefix)
     },
     trimmedSummary () {
       let summaryLength = 300
@@ -155,11 +160,14 @@ export default {
     $root: &;
     display: flex;
     height: 100%;
-    min-height: $rpl-card-promo-min-height;
     flex-direction: column;
     border: $rpl-card-promo-border;
     border-radius: $rpl-card-promo-border-radius;
     background-color: $rpl-card-promotion-bg-color;
+
+    @include rpl_breakpoint('m') {
+      min-height: $rpl-card-promo-min-height;
+    }
 
     &:hover,
     &:focus {

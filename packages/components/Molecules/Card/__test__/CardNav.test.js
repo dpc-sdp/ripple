@@ -72,10 +72,10 @@ describe('CardNav', () => {
       }
     })
 
-    expect(wrapper.vm.classModifiers).toEqual(['rpl-card-nav--featured'])
+    expect(wrapper.vm.classModifiers).toEqual('rpl-card-nav--featured')
 
     wrapper.setProps({ displayStyle: 'noImage' })
-    expect(wrapper.vm.classModifiers).toEqual(['rpl-card-nav--noimage'])
+    expect(wrapper.vm.classModifiers).toEqual('rpl-card-nav--noimage')
   })
 
   it('returns content type label when it has valid value and showMeta flag is true', () => {

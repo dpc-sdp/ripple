@@ -4,7 +4,7 @@
       <rpl-responsive-img class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-nav__content" v-cloak>
-      <div v-if="showMeta" class="rpl-card-nav__meta">
+      <div v-if="showMeta && isMetaInfoNotEmpty" class="rpl-card-nav__meta">
         <div v-if="contentTypeLabel" class="rpl-card-nav__content-type" >{{ contentTypeLabel }}</div>
         <div v-if="topicLabel" class="rpl-card-nav__topic" >{{ topicLabel }}</div>
         <div v-if="isContentTypeGrant && grantStatusData" class="rpl-card-nav__status">

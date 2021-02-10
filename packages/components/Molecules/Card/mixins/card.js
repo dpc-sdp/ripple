@@ -51,11 +51,8 @@ const card = {
     }
   },
   methods: {
-    modifiers (classPrefix = '') {
-      const modifiers = []
-      modifiers.push(`${classPrefix}--${this.displayStyle.toLowerCase()}`)
-
-      return modifiers
+    modifiers (classPrefix = 'rpl-card') {
+      return `${classPrefix}--${this.displayStyle.toLowerCase()}`
     }
   },
   computed: {
@@ -106,15 +103,16 @@ const card = {
         let contentType = this.contentType.split(' ')
         return contentType[0].replace(':', '')
       }
-
       return ''
     },
     topicLabel () {
       if (this.showMeta && this.isValidContentType === false && this.topic) {
         return this.topic
       }
-
       return ''
+    },
+    isMetaInfoNotEmpty () {
+      return (this.contentTypeLabel || this.topicLabel || (this.grantStatusData && this.isContentTypeGrant) || this.fvRecommendationStatus || this.formattedDate || this.inductionYear)
     }
   }
 }

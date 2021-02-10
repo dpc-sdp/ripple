@@ -61,14 +61,26 @@ describe('CardPromo', () => {
         link: { text: 'Read more', url: '#' },
         topic: 'Event',
         author: 'John Doe',
-        displayStyle: 'profile'
+        displayStyle: 'profile',
+        image: {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: 304,
+          height: 199
+        }
       }
     })
 
-    expect(wrapper.vm.classModifiers).toEqual(['rpl-card-promo--profile'])
+    expect(wrapper.vm.classModifiers).toEqual('rpl-card-promo--profile')
+
+    wrapper.setProps({ image: null })
+    expect(wrapper.vm.classModifiers).toEqual('rpl-card-promo--noimage')
 
     wrapper.setProps({ displayStyle: 'noImage' })
-    expect(wrapper.vm.classModifiers).toEqual(['rpl-card-promo--noimage'])
+    expect(wrapper.vm.classModifiers).toEqual('rpl-card-promo--noimage')
   })
 
   it('returns content type label when it is valid and showMeta is true', () => {

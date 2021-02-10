@@ -270,8 +270,9 @@ module.exports = {
           'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
           'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
           'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
-          'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
           'authors': ['field_paragraph_link', 'internal_node_fields', 'publication_authors'],
+          'fvRecommendationStatus': ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
+          'inductionYear': ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
           'showMeta': 'field_customise',
           'displayStyle': 'field_nav_card_display_style',
           'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
@@ -308,7 +309,8 @@ module.exports = {
           'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
           'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
           'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
-          'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
+          'fvRecommendationStatus': ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
+          'inductionYear': ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
           'showMeta': 'field_customise',
           'displayStyle': 'field_promo_card_display_style',
           'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']

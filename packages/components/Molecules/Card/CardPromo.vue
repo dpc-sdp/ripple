@@ -9,7 +9,9 @@
           <rpl-icon class="rpl-card-promo__status-icon" :symbol="grantStatusData.symbol" :color="grantStatusData.color" size="s" />
           <span>{{ grantStatusData.label }}</span>
         </div>
-        <div class="rpl-card-promo__date" v-if="formattedDate && !isContentTypeGrant">{{ formattedDate }}</div>
+        <div v-if="fvRecommendationStatus && !isContentTypeGrant" class="rpl-card-promo__fv-status">{{ fvRecommendationStatus }}</div>
+        <div v-if="formattedDate && !isContentTypeGrant" class="rpl-card-promo__date">{{ formattedDate }}</div>
+        <div v-if="inductionYear && !isContentTypeGrant" class="rpl-card-promo__year">{{ inductionYear }}</div>
       </div>
       <h2 class="rpl-card-promo__title" v-if="title">{{ trimmedTitle }}</h2>
       <p class="rpl-card-promo__summary" v-if="summary" >{{ trimmedSummary }}</p>
@@ -80,6 +82,14 @@ export default {
       validator: val => ['noImage', 'thumbnail', 'profile'].includes(val)
     },
     isGrantOnGoing: {
+      type: String,
+      default: ''
+    },
+    inductionYear: {
+      type: String,
+      default: ''
+    },
+    fvRecommendationStatus: {
       type: String,
       default: ''
     }
@@ -178,14 +188,13 @@ export default {
       margin: $rpl-card-promo-meta-margin;
     }
 
-    &__date {
+    &__date,
+    &__year,
+    &__fv-status {
       @include rpl_typography_ruleset($rpl-card-promo-meta-ruleset);
       display: inline;
       color: $rpl-card-promo-meta-text-color;
       text-transform: uppercase;
-    }
-
-    &__date {
       padding: $rpl-card-promo-date-padding;
     }
 

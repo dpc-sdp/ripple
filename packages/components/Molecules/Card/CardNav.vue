@@ -11,7 +11,9 @@
           <rpl-icon class="rpl-card-nav__status-icon" :symbol="grantStatusData.symbol" :color="grantStatusData.color" size="s" />
           <span>{{ grantStatusData.label }}</span>
         </div>
+        <div v-if="fvRecommendationStatus && !isContentTypeGrant" class="rpl-card-nav__fv-status">{{ fvRecommendationStatus }}</div>
         <div v-if="formattedDate && !isContentTypeGrant" class="rpl-card-nav__date">{{ formattedDate }}</div>
+        <div v-if="inductionYear && !isContentTypeGrant" class="rpl-card-nav__year">{{ inductionYear }}</div>
       </div>
       <h2 v-if="title" class="rpl-card-nav__title"><span>{{ trimmedTitle }}</span></h2>
       <p v-if="summary" class="rpl-card-nav__summary">{{ trimmedSummary }}</p>
@@ -89,6 +91,14 @@ export default {
       validator: val => ['noImage', 'thumbnail', 'featured'].includes(val)
     },
     isGrantOnGoing: {
+      type: String,
+      default: ''
+    },
+    inductionYear: {
+      type: String,
+      default: ''
+    },
+    fvRecommendationStatus: {
       type: String,
       default: ''
     }
@@ -284,7 +294,9 @@ $rpl-card-nav-noimage-max-width: (
     margin-right: $rpl-card-nav-content-type-margin;
   }
 
-  &__date {
+  &__date,
+  &__year,
+  &__fv-status {
     @include rpl_typography_ruleset($rpl-card-nav-meta-ruleset);
     display: inline;
     color: $rpl-card-nav-date-text-color;

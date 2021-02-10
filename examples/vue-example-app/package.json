@@ -20,8 +20,8 @@
     "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.12.1",
-    "@babel/eslint-plugin": "^7.12.1",
+    "@babel/eslint-parser": "^7.12.13",
+    "@babel/eslint-plugin": "^7.12.13",
     "@dpc-sdp/ripple-test-tools": "1.19.8",
     "@vue/babel-preset-app": "^4.5.11",
     "@vue/cli-plugin-babel": "^4.5.11",

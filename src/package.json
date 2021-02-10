@@ -60,8 +60,8 @@
     "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.12.1",
-    "@babel/eslint-plugin": "^7.12.1",
+    "@babel/eslint-parser": "^7.12.13",
+    "@babel/eslint-plugin": "^7.12.13",
     "@storybook/addon-a11y": "^6.1.15",
     "@storybook/addon-backgrounds": "^6.1.15",
     "@storybook/addon-controls": "^6.1.15",

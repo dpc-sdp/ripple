@@ -33,8 +33,8 @@
     "run-script-os": "^1.1.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.12.1",
-    "@babel/eslint-plugin": "^7.12.1",
+    "@babel/eslint-parser": "^7.12.13",
+    "@babel/eslint-plugin": "^7.12.13",
     "@dpc-sdp/ripple-test-tools": "1.19.8",
     "babel-plugin-lodash": "^3.3.2",
     "cross-env": "^7.0.3",

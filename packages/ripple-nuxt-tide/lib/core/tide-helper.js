@@ -124,12 +124,12 @@ export const getPageHeadConfig = ({
     meta: [
       { name: 'description', hid: 'description', content: description },
       // Open Graph
-      { name: 'og:title', hid: 'og:title', content: title },
-      { name: 'og:description', hid: 'og:description', content: description },
-      { name: 'og:type', hid: 'og:type', content: 'website' },
-      { name: 'og:url', hid: 'og:url', content: url },
-      { name: 'og:image', hid: 'og:image', content: image },
-      { name: 'og:image:alt', hid: 'og:image:alt', content: imageAlt },
+      { property: 'og:title', hid: 'og:title', content: title },
+      { property: 'og:description', hid: 'og:description', content: description },
+      { property: 'og:type', hid: 'og:type', content: 'website' },
+      { property: 'og:url', hid: 'og:url', content: url },
+      { property: 'og:image', hid: 'og:image', content: image },
+      { property: 'og:image:alt', hid: 'og:image:alt', content: imageAlt },
       // Twitter Card
       { name: 'twitter:card', hid: 'twitter:card', content: 'summary' },
       { name: 'twitter:site', hid: 'twitter:site', content: url },

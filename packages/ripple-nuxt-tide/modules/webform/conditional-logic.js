@@ -132,7 +132,7 @@ function performTriggerCheck (rule) {
       result = (rule.modelValue == null || rule.modelValue === '')
       break
     case 'filled':
-      result = !(rule.modelValue == null || rule.modelValue === '')
+      result = (typeof rule.modelValue === 'number') ? !isNaN(rule.modelValue) : !(rule.modelValue == null || rule.modelValue === '')
       break
     case 'checked':
       // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.

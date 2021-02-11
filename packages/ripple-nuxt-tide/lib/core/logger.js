@@ -95,8 +95,8 @@ if (!process.client) {
   // TODO: We may not need to log to ES for pr branch.
   if (process.env.LAGOON_GIT_SAFE_BRANCH) {
     logger.add(new LogstashTransport({
-      host: 'application-logs.lagoon.svc',
-      port: 5140,
+      host: process.env.LAGOON_LOG_HOST || 'application-logs.lagoon.svc.cluster.local',
+      port: process.env.LAGOON_LOG_PORT || 5140,
       handleExceptions: true,
       format: format.combine(
         lagoonFormat(),

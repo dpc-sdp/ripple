@@ -1,20 +1,23 @@
 <template>
-  <rpl-link v-if="link" :class="modifiers" :href="link.url" :innerWrap="false">
-    <div v-if="image" class="rpl-card-nav__image-wrapper">
+  <rpl-link v-if="link" :class="['rpl-card-nav', classModifiers]" :href="link.url" :innerWrap="false">
+    <div v-if="image && displayStyle !== 'noImage'" class="rpl-card-nav__image-wrapper">
       <rpl-responsive-img class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
     </div>
-    <div class="rpl-card-nav__content">
-      <div v-if="formattedDate || tag || status" class="rpl-card-nav__meta">
-        <div v-if="tag" class="rpl-card-nav__tag" >{{ tag }}</div>
-        <div v-if="status" class="rpl-card-nav__status" :class="`rpl-card-nav__status--${this.status.toLowerCase()}`">
-          <rpl-icon v-if="statusIcon" class="rpl-card-nav__status-icon" :symbol="statusIcon.symbol" :color="statusIcon.color" size="s" />
-          <span>{{ status }}</span>
+    <div class="rpl-card-nav__content" v-cloak>
+      <div v-if="showMeta && isMetaInfoNotEmpty" class="rpl-card-nav__meta">
+        <div v-if="contentTypeLabel" class="rpl-card-nav__content-type" >{{ contentTypeLabel }}</div>
+        <div v-if="topicLabel" class="rpl-card-nav__topic" >{{ topicLabel }}</div>
+        <div v-if="isContentTypeGrant && grantStatusData" class="rpl-card-nav__status">
+          <rpl-icon class="rpl-card-nav__status-icon" :symbol="grantStatusData.symbol" :color="grantStatusData.color" size="s" />
+          <span>{{ grantStatusData.label }}</span>
         </div>
-        <div v-if="formattedDate" class="rpl-card-nav__date">{{ formattedDate }}</div>
+        <div v-if="fvRecommendationStatus && !isContentTypeGrant" class="rpl-card-nav__fv-status">{{ fvRecommendationStatus }}</div>
+        <div v-if="formattedDate && !isContentTypeGrant" class="rpl-card-nav__date">{{ formattedDate }}</div>
+        <div v-if="inductionYear && !isContentTypeGrant" class="rpl-card-nav__year">{{ inductionYear }}</div>
       </div>
       <h2 v-if="title" class="rpl-card-nav__title"><span>{{ trimmedTitle }}</span></h2>
       <p v-if="summary" class="rpl-card-nav__summary">{{ trimmedSummary }}</p>
-      <p v-if="author" class="rpl-card-nav__author"><strong>Author:</strong> {{ author }}</p>
+      <p v-if="authors && authors.length > 0" class="rpl-card-nav__author"><strong>Author:</strong> {{ authors.join(', ') }}</p>
     </div>
   </rpl-link>
 </template>
@@ -25,6 +28,7 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import card from '@dpc-sdp/ripple-card/mixins/card'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers'
 
 export default {
   name: 'RplCardNav',
@@ -35,38 +39,81 @@ export default {
     RplIcon
   },
   props: {
-    title: String,
-    image: Object,
-    summary: String,
-    link: Object,
-    tag: String,
-    dateStart: String,
-    dateEnd: String,
-    author: String,
-    status: String,
+    title: {
+      type: String,
+      default: ''
+    },
+    image: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    summary: {
+      type: String,
+      default: ''
+    },
+    link: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    topic: {
+      type: String,
+      default: ''
+    },
+    contentType: {
+      type: String,
+      default: ''
+    },
+    showMeta: {
+      type: Boolean,
+      default: false
+    },
+    dateStart: {
+      type: String,
+      default: ''
+    },
+    dateEnd: {
+      type: String,
+      default: ''
+    },
+    authors: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
     displayStyle: {
       type: String,
       default: 'noImage',
       validator: val => ['noImage', 'thumbnail', 'featured'].includes(val)
-    }
-  },
-  data () {
-    return {
-      srcSet: [
-        { size: 'xs', height: 534, width: 764 },
-        { size: 's', height: 200, width: 764 },
-        { size: 'm', height: 232, width: 448 },
-        { size: 'l', height: 232, width: 333 }
-      ]
+    },
+    isGrantOnGoing: {
+      type: String,
+      default: ''
+    },
+    inductionYear: {
+      type: String,
+      default: ''
+    },
+    fvRecommendationStatus: {
+      type: String,
+      default: ''
     }
   },
   computed: {
-    modifiers () {
-      const prefix = 'rpl-card-nav'
-      const modifiers = [ prefix ]
-      modifiers.push(`${prefix}--${this.displayStyle.toLowerCase()}`)
+    classModifiers () {
+      return this.modifiers('rpl-card-nav')
+    },
+    trimmedSummary () {
+      let summaryLength = 300
+      if (this.image && Object.keys(this.image).length) {
+        summaryLength = 200
+      }
 
-      return modifiers
+      return this.summary ? truncateText(this.summary, summaryLength) : ''
     }
   }
 }
@@ -83,42 +130,42 @@ $rpl-card-nav-border: 1px solid $rpl-card-nav-border-color !default;
 $rpl-card-nav-border-radius: $rpl-card-border-radius !default;
 $rpl-card-nav-content-padding-xs: $rpl-card-vertical-padding $rpl-component-padding-xs !default;
 $rpl-card-nav-content-padding-s: $rpl-card-vertical-padding $rpl-component-padding-s !default;
-$rpl-card-nav-inline-padding-m: ($rpl-space * 8) ($rpl-space * 8) !default;
-$rpl-card-nav-title-ruleset:  $rpl-card-title-ruleset !default;
-$rpl-card-nav-title-text-color: $nav-card-text-color !default;
+$rpl-card-nav-inline-padding-m: ($rpl-space * 8) !default;
+$rpl-card-nav-title-ruleset: (
+  'xs': ('l', 1.25em, 'bold'),
+  's': ('xl', 1.25em, 'bold')
+) !default;
+$rpl-card-nav-title-text-color: $rpl-card-text-color !default;
 $rpl-card-nav-title-hover-color: $rpl-card-link-hover-color !default;
 $rpl-card-nav-title-text-decoration: $rpl-card-title-text-decoration !default;
 $rpl-card-nav-title-margin: 0 0 rem(12px) !default;
-$rpl-card-nav-summary-ruleset: $rpl-card-summary-ruleset !default;
-$rpl-card-nav-summary-color: $nav-card-text-color !default;
+$rpl-card-nav-summary-ruleset: (
+  'xs': ('xs', 1.25em, 'regular'),
+  's': ('s', 1.5em, 'regular')
+) !default;
+$rpl-card-nav-summary-color: $rpl-card-text-color !default;
 $rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
-$rpl-card-nav-tag-color: $nav-card-text-color !default;
-$rpl-card-nav-tag-background-color: rpl_color('mid_neutral_2') !default;
-$rpl-card-nav-meta-padding: $rpl-space $rpl-space-2 !default;
+$rpl-card-nav-topic-color: $rpl-card-text-color !default;
+$rpl-card-nav-topic-padding: $rpl-space $rpl-space $rpl-space 0 !default;
+$rpl-card-nav-topic-background-color: $rpl-card-meta-background !default;
+$rpl-card-nav-meta-padding: $rpl-card-meta-padding !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;
+$rpl-card-nav-meta-text-color: $rpl-card-meta-text-color !default;
+$rpl-card-nav-content-type-margin: rem(14px) !default;
+$rpl-card-nav-content-type-ruleset: $rpl-card-content-type-ruleset !default;
 $rpl-card-nav-date-text-color: $rpl-card-meta-text-color !default;
-$rpl-card-nav-img-width: (
-  'm': rem(280px),
-  'l': rem(153px),
-  'xxl': rem(213px),
-  'xxxl': rem(294px)
-) !default;
-$rpl-card-nav-img-height: (
-  'xs': rem(161px),
-  'l': rem(159px),
-  'xxl': rem(194px)
-) !default;
 $rpl-card-nav-img-wrapper-padding-xs: $rpl-component-padding-xs $rpl-component-padding-xs 0 !default;
 $rpl-card-nav-img-wrapper-padding-m: 0 rem(25px) 0 0 !default;
 $rpl-card-nav-author-font-size: rem(14px) !default;
+$rpl-card-nav-featured-title-color: rpl-color('white') !default;
 $rpl-card-nav-featured-title-bg-color: rpl-color('primary') !default;
 $rpl-card-nav-featured-title-bg-color-hover: rpl-color('secondary') !default;
 $rpl-card-nav-featured-title-ruleset: (
-  'xs': ('mega', 1.3em, 'bold', true),
-  's': ('giga', 1.6em, 'bold', true)
+  's': ('mega', 1.75em, 'bold', true)
 ) !default;
-$rpl-card-nav-featured-content-padding: 2rem !default;
+$rpl-card-nav-featured-content-padding-m: ($rpl-space-4 * 2) !default;
+$rpl-card-nav-featured-content-padding: ($rpl-space * 5) !default;
 $rpl-card-nav-featured-meta-margin-bottom: rem(14px) !default;
 $rpl-card-nav-featured-meta-margin-bottom-m: rem(18px) !default;
 $rpl-card-nav-featured-img-height: (
@@ -127,13 +174,32 @@ $rpl-card-nav-featured-img-height: (
   'xxl': rem(355px)
 ) !default;
 $rpl-card-nav-featured-max-width: (
-  'xs': rem(320px),
-  'l': rem(488px),
-  'xxl': rem(608px)
+  'xs': rem(768px),
+  'l': rem(608px)
 ) !default;
-$rpl-card-nav-thumbnail-max-width: rem(818px) !default;
-$rpl-card-nav-noimage-max-width: rem(607px) !default;
-
+$rpl-card-nav-thumbnail-max-width: (
+  'm': rem(768px),
+  'xxl': rem(607px),
+  'xxxl': rem(818px)
+) !default;
+$rpl-card-nav-thumbnail-image-max-width: (
+  'xs': rem(767px),
+  'm': rem(213px),
+  'l': rem(153px),
+  'xxl': rem(213px),
+  'xxxl': rem(294px)
+) !default;
+$rpl-card-nav-thumbnail-img-height: (
+  'xs': rem(161px),
+  'm': rem(194px),
+  'l': rem(159px),
+  'xxl': rem(194px)
+) !default;
+$rpl-card-nav-thumbnail-padding: 20px 20px 0px 20px;
+$rpl-card-nav-noimage-max-width: (
+  'xs':  rem(768px),
+  'l': rem(607px)
+) !default;
 .rpl-card-nav {
   $root: &;
   position: relative;
@@ -164,23 +230,6 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
     #{$root}__title {
       color:  $rpl-card-nav-title-hover-color;
       text-decoration: $rpl-card-nav-title-text-decoration;
-    }
-  }
-
-  &__image-wrapper {
-    padding: $rpl-card-nav-img-wrapper-padding-xs;
-    @include rpl_breakpoint('m') {
-      padding: $rpl-card-nav-img-wrapper-padding-m;
-    }
-    @each $bp, $width in $rpl-card-nav-img-width {
-      @include rpl_breakpoint($bp) {
-        max-width: $width;
-      }
-    }
-    @each $bp, $height in $rpl-card-nav-img-height {
-      @include rpl_breakpoint($bp) {
-        max-height: $height;
-      }
     }
   }
 
@@ -218,6 +267,7 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
   &__summary {
     @include rpl_typography_ruleset($rpl-card-nav-summary-ruleset);
     margin: 0;
+    width: 100%;
   }
 
   &__author {
@@ -243,35 +293,76 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
   }
 
   &__date,
-  &__tag {
+  &__year,
+  &__fv-status {
     @include rpl_typography_ruleset($rpl-card-nav-meta-ruleset);
     display: inline;
-    padding: $rpl-card-nav-meta-padding;
-  }
-
-  &__tag {
-    color: $rpl-card-nav-tag-color;
-    background-color: $rpl-card-nav-tag-background-color;
-
-  }
-
-  &__date {
     color: $rpl-card-nav-date-text-color;
     text-transform: uppercase;
   }
 
+  &__content-type {
+    @include rpl_typography_ruleset($rpl-card-nav-content-type-ruleset);
+    display: inline;
+    color: $rpl-card-nav-topic-color;
+    background-color: $rpl-card-nav-topic-background-color;
+    padding: $rpl-card-nav-meta-padding;
+    margin-right: $rpl-card-nav-content-type-margin;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &__topic {
+    @include rpl_typography_ruleset($rpl-card-nav-meta-ruleset);
+    display: inline-block;
+    color: $rpl-card-nav-meta-text-color;
+    text-transform: uppercase;
+    padding: $rpl-card-nav-topic-padding;
+  }
+
   &--thumbnail {
-    max-width: $rpl-card-nav-thumbnail-max-width;
+    @each $bp, $max-width in $rpl-card-nav-thumbnail-max-width {
+      @include rpl_breakpoint($bp) {
+        max-width: $max-width;
+      }
+    }
+
+    #{$root}__image-wrapper {
+      @each $bp, $max-width in $rpl-card-nav-thumbnail-image-max-width {
+        @include rpl_breakpoint($bp) {
+          max-width: $max-width;
+        }
+      }
+      @each $bp, $height in $rpl-card-nav-thumbnail-img-height {
+        @include rpl_breakpoint($bp) {
+          max-height: $height;
+        }
+      }
+
+      padding: $rpl-card-nav-img-wrapper-padding-xs;
+      @include rpl_breakpoint('m') {
+        padding: $rpl-card-nav-img-wrapper-padding-m;
+      }
+    }
+
+    #{$root}__content, #{$root}__image-wrapper, #{$root}__image {
+      width: 100%;
+    }
   }
 
   &--noimage {
-    max-width: $rpl-card-nav-noimage-max-width;
+    @each $bp, $max-width in $rpl-card-nav-noimage-max-width {
+      @include rpl_breakpoint($bp) {
+        max-width: $max-width;
+      }
+    }
   }
 
   &--featured {
     padding: 0;
     flex-wrap: wrap;
-
     @each $bp, $max-width in $rpl-card-nav-featured-max-width {
       @include rpl_breakpoint($bp) {
         max-width: $max-width;
@@ -289,8 +380,8 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
     }
 
     #{$root}__image-wrapper {
-      max-width: 608px;
       padding: 0;
+
       @each $bp, $height in $rpl-card-nav-featured-img-height {
         @include rpl_breakpoint($bp) {
           max-height: $height;
@@ -304,6 +395,10 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
 
     #{$root}__content {
       padding: $rpl-card-nav-featured-content-padding;
+
+      @include rpl_breakpoint('m') {
+        padding: $rpl-card-nav-featured-content-padding-m;
+      }
     }
 
     #{$root}__image {
@@ -321,7 +416,13 @@ $rpl-card-nav-noimage-max-width: rem(607px) !default;
 
       span {
         background-color: $rpl-card-nav-featured-title-bg-color;
+        color: $rpl-card-nav-featured-title-color;
         line-height: 1.5em;
+        padding: 0 9px;
+        @supports (box-decoration-break: clone) or (-webkit-box-decoration-break: clone) {
+          -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+        }
       }
     }
 

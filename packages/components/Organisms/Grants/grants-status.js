@@ -70,4 +70,7 @@ export default function calcStatus (startDate, endDate, displaySoon = true, stat
       }
     }
   }
+
+  // displays status as "Ongoing" if there is no start or end date
+  return statusTerms.ongoing
 }

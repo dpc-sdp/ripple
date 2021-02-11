@@ -30,8 +30,6 @@ module.exports = {
       'field_landing_page_component.field_timeline.field_paragraph_media.field_media_image',
       'field_landing_page_component.field_paragraph_accordion',
       'field_landing_page_component.field_paragraph_keydates',
-      'field_landing_page_component.field_paragraph_reference.field_topic',
-      'field_landing_page_component.field_paragraph_reference.field_featured_image.field_media_image',
       'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image',
       'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_event_details',
       'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_topic',
@@ -270,10 +268,14 @@ module.exports = {
           },
           'dateStart': ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
           'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
-          'tag': ['field_paragraph_link', 'internal_node_fields', 'topic'],
-          'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
-          'author': ['field_paragraph_link', 'internal_node_fields', 'author'],
-          'displayStyle': 'field_nav_card_display_style'
+          'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
+          'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
+          'authors': ['field_paragraph_link', 'internal_node_fields', 'publication_authors'],
+          'fvRecommendationStatus': ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
+          'inductionYear': ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
+          'showMeta': 'field_customise',
+          'displayStyle': 'field_nav_card_display_style',
+          'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
         },
         cols: {
           wide: { l: 6 },
@@ -305,10 +307,13 @@ module.exports = {
           },
           'dateStart': ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
           'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
-          'tag': ['field_paragraph_link', 'internal_node_fields', 'tag'],
           'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
-          'status': ['field_paragraph_link', 'internal_node_fields', 'status'],
-          'displayStyle': 'field_promo_card_display_style'
+          'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
+          'fvRecommendationStatus': ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
+          'inductionYear': ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
+          'showMeta': 'field_customise',
+          'displayStyle': 'field_promo_card_display_style',
+          'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
         },
         cols: cardColsSetting
       },

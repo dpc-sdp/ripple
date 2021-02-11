@@ -147,7 +147,7 @@ $rpl-card-nav-summary-color: $rpl-card-text-color !default;
 $rpl-card-nav-link-color-hover: $rpl-card-link-hover-color !default;
 $rpl-card-nav-topic-color: $rpl-card-text-color !default;
 $rpl-card-nav-topic-padding: $rpl-space $rpl-space $rpl-space 0 !default;
-$rpl-card-nav-topic-background-color: rpl_color('mid_neutral_2') !default;
+$rpl-card-nav-topic-background-color: $rpl-card-meta-background !default;
 $rpl-card-nav-meta-padding: $rpl-card-meta-padding !default;
 $rpl-card-nav-meta-margin: 0 0 $rpl-space-3 0 !default;
 $rpl-card-nav-meta-ruleset: $rpl-card-meta-ruleset !default;

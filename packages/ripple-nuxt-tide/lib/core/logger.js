@@ -53,9 +53,9 @@ const errorPrint = format(info => {
 const lagoonFormat = format(info => {
   const LAGOON_LOGS_DEFAULT_SAFE_BRANCH = 'safe_branch_unset'
   const LAGOON_LOGS_DEFAULT_LAGOON_PROJECT = 'project_unset'
-  const openshiftProject = process.env.LAGOON_PROJECT || LAGOON_LOGS_DEFAULT_LAGOON_PROJECT
+  const k8sNamespace = process.env.LAGOON_PROJECT || LAGOON_LOGS_DEFAULT_LAGOON_PROJECT
   const gitBranch = process.env.LAGOON_GIT_SAFE_BRANCH || LAGOON_LOGS_DEFAULT_SAFE_BRANCH
-  const type = [openshiftProject, gitBranch]
+  const type = [k8sNamespace, gitBranch]
   info.type = type.join('-')
   return info
 })

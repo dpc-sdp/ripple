@@ -61,11 +61,9 @@ const lagoonFormat = format(info => {
 })
 
 // Set up level based on env settings.
-let logLevel = 'info'
+let logLevel = process.env.LOG_LEVEL || 'warn'
 if (process.env.TIDE_DEBUG === '1') {
   logLevel = 'debug'
-} else if (process.env.NODE_ENV === 'test' || process.env.TEST) {
-  logLevel = 'warn'
 }
 
 let logger = createLogger({

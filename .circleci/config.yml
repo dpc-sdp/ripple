@@ -245,12 +245,34 @@ jobs:
           name: Lerna publish
           command: yarn publish --dist-tag dev --yes
 
+  storybook:
+    docker:
+      - image: circleci/node:14.15.5-browsers
+        environment:
+          TERM: xterm
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
+      - run:
+          name: run UI test
+          command: cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE
+
 workflows:
   version: 2
   commit:
     jobs:
       - build:
           context: Ripple
+      - storybook:
+          context: Ripple
+          requires:
+            - build
       - test:
           context: Ripple
           requires:

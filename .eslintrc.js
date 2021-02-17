@@ -4,7 +4,8 @@ module.exports = {
   root: true,
   parserOptions: {
     parser: '@babel/eslint-parser',
-    allowImportExportEverywhere: true
+    allowImportExportEverywhere: true,
+    requireConfigFile: false
   },
   env: {
     browser: true,

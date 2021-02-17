@@ -57,6 +57,8 @@ export const TemplateOpenStatus = (args, { argTypes }) => ({
       link: { text: 'Apply Now', url: '#' },
       listing: false,
     }}
+    // disables Chromatic for dynamic countdown
+    parameters={chromatic: { disable: true }}
   >
     {TemplateOpenStatus.bind({})}
   </Story>

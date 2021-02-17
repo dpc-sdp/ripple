@@ -240,6 +240,11 @@ export default {
       width: 100%;
     }
 
+    &__title, &__summary {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
     &__content {
       padding: $rpl-card-promo-content-padding;
 

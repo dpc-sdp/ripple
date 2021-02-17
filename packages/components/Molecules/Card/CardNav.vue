@@ -248,6 +248,17 @@ $rpl-card-nav-noimage-max-width: (
     margin: $rpl-card-nav-title-margin;
   }
 
+  &__summary {
+    @include rpl_typography_ruleset($rpl-card-nav-summary-ruleset);
+    margin: 0;
+    width: 100%;
+  }
+
+  &__title, &__summary {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
   &__status {
     display: inline-flex;
     align-items: center;
@@ -262,12 +273,6 @@ $rpl-card-nav-noimage-max-width: (
     &-icon {
       position: absolute;
     }
-  }
-
-  &__summary {
-    @include rpl_typography_ruleset($rpl-card-nav-summary-ruleset);
-    margin: 0;
-    width: 100%;
   }
 
   &__author {

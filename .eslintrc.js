@@ -31,26 +31,23 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // TODO enable the rules to achieve lint standard consistency towards projects
-    'array-bracket-spacing': 'off',
     'array-callback-return': 'off',
     'dot-notation': 'off',
     'jest/expect-expect': 'off',
     'jest/no-standalone-expect': 'off',
     'jest/no-try-expect': 'off',
     'jest/no-conditional-expect': 'off',
-    'lines-between-class-members': 'off',
     'multiline-ternary': 'off',
     'no-case-declarations': 'off',
     'no-prototype-builtins': 'off',
     'node/no-deprecated-api': 'off',
     'prefer-const': 'off',
     'prefer-regex-literals': 'off',
-    'quotes': ['off', 'single', { 'allowTemplateLiterals': true }],
+    quotes: ['off', 'single', { allowTemplateLiterals: true }],
     'quote-props': 'off',
     'vue/no-mutating-props': 'off',
     'vue/no-unused-components': 'off',
     'vue/no-use-v-if-with-v-for': 'off',
-    'vue/return-in-computed-property': 'off',
-    'no-var': 'off'
+    'vue/return-in-computed-property': 'off'
   }
 }

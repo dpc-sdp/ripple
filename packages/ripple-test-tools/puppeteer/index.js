@@ -62,6 +62,7 @@ module.exports = class TideAdmin {
       await this.close()
     }
   }
+
   async setSelectVal (sel, val) {
     this.page.evaluate(
       data => {
@@ -70,6 +71,7 @@ module.exports = class TideAdmin {
       { sel, val }
     )
   }
+
   /**
    * Creates a node from a YAML upload
    * @param {*} testData

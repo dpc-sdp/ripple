@@ -86,7 +86,7 @@ export default {
   },
   methods: {
     getComputedFilters () {
-      let filterValues = this.tideSearch.getFiltersValues(this.searchForm.filterForm)
+      const filterValues = this.tideSearch.getFiltersValues(this.searchForm.filterForm)
       // Test date filter based on start / end fields.
       if (filterValues.field_event_date_end_value) {
         const setFilterDate = moment(filterValues.field_event_date_end_value.values)

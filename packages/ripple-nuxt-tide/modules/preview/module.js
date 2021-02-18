@@ -50,7 +50,7 @@ module.exports = function () {
     localStorage: false,
     rewriteRedirects: true,
     redirect: redirect,
-    plugins: [ path.resolve(__dirname, 'templates/plugin.js') ]
+    plugins: [path.resolve(__dirname, 'templates/plugin.js')]
   }])
 
   this.extendRoutes((routes, resolve) => {

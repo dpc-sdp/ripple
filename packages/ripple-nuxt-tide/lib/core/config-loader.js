@@ -18,12 +18,12 @@ const customConfigs = {
   customConfig: {
     filename: 'tide.config',
     type: Object,
-    groups: [ configGroups.customRoot ]
+    groups: [configGroups.customRoot]
   },
   customFilters: {
     filename: 'mapping-filters',
     type: Object,
-    groups: [ configGroups.customRoot ]
+    groups: [configGroups.customRoot]
   },
   extendConfigs: {
     filename: 'tide.config',

@@ -6,7 +6,7 @@ import cheerio from 'cheerio'
 // NOTE: Any HTML encoded entities in original HTML will be kept as it is.
 const cheerioHtml = cheerio.prototype.html
 cheerio.prototype.html = function wrappedHtml () {
-  var result = cheerioHtml.apply(this, arguments)
+  let result = cheerioHtml.apply(this, arguments)
 
   if (typeof result === 'string') {
     result = result.replace(/&#x([0-9a-f]{1,6});/ig, function (entity, code) {

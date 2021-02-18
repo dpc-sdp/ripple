@@ -27,7 +27,7 @@ export default {
       this.$emit('close')
     },
     keyNav (event) {
-      var key = event.which || event.keyCode
+      const key = event.which || event.keyCode
       switch (key) {
         case 27:
           this.closeModal()

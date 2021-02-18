@@ -40,11 +40,10 @@
 <script>
 
 import { RplDivider } from '@dpc-sdp/ripple-global'
-import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
-import { RplSearchForm, RplSearchResultsLayout, RplSearchResultsTable, RplSearchResult } from '@dpc-sdp/ripple-search'
+import { RplSearchForm, RplSearchResultsLayout, RplSearchResult } from '@dpc-sdp/ripple-search'
 
 // Layout.
-import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import formData from './../lib/formData.js'
 import { searchMixin, getSearch } from './../index'
@@ -53,14 +52,11 @@ export default {
   name: 'TideSearch',
   components: {
     RplDivider,
-    RplBreadcrumbs,
     RplSearchForm,
     RplSearchResultsLayout,
-    RplSearchResultsTable,
     RplSearchResult,
     // Layout.
     RplPageLayout,
-    RplRow,
     RplCol
   },
   mixins: [searchMixin],

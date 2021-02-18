@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import RplIcon from '@dpc-sdp/ripple-icon'
 import RplMetaTag from '@dpc-sdp/ripple-meta-tag'
 import { RplSearchForm } from '@dpc-sdp/ripple-search'
 import RplQuickExit from '@dpc-sdp/ripple-layout/QuickExit'
@@ -31,7 +30,6 @@ export default {
     terms: Array
   },
   components: {
-    RplIcon,
     RplMetaTag,
     RplSearchForm,
     RplQuickExit

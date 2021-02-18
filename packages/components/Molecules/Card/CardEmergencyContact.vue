@@ -24,7 +24,7 @@
 
 <script>
 import RplLink from '@dpc-sdp/ripple-link'
-import { RplTextIcon, RplIcon } from '@dpc-sdp/ripple-icon'
+import { RplIcon } from '@dpc-sdp/ripple-icon'
 import { isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
@@ -37,8 +37,7 @@ export default {
   },
   components: {
     RplLink,
-    RplIcon,
-    RplTextIcon
+    RplIcon
   },
   computed: {
     iconSymbol () {

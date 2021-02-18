@@ -54,7 +54,7 @@ import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 import RplButton from '@dpc-sdp/ripple-button'
 import RplIcon from '@dpc-sdp/ripple-icon'
-import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { RplRow } from '@dpc-sdp/ripple-grid'
 
 /**
  * Introduction Banner provides supplementary information.
@@ -101,8 +101,7 @@ export default {
     RplTextLink,
     RplButton,
     RplIcon,
-    RplRow,
-    RplCol
+    RplRow
   },
   computed: {
     textLinkSize () {

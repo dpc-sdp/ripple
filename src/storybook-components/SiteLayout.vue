@@ -77,13 +77,12 @@
 
 <script>
 import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
-import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 export default {
   components: {
     RplBaseLayout,
     RplPageLayout,
-    RplContainer,
     RplRow,
     RplCol
   },

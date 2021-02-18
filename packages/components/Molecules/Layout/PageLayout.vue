@@ -45,12 +45,12 @@
 
 <script>
 import RplQuickExit from './QuickExit'
-import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplSiteHeaderEventBus } from '@dpc-sdp/ripple-site-header'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
-  components: { RplContainer, RplRow, RplCol, RplQuickExit, RplResponsiveImg },
+  components: { RplRow, RplCol, RplQuickExit, RplResponsiveImg },
   props: {
     'sidebar': Boolean,
     'columns': {

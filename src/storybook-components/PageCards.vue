@@ -58,22 +58,16 @@
 // This is a page for demo the hero banner graphics for the landing page component.
 
 import { RplBaseLayout, RplPageLayout } from '@dpc-sdp/ripple-layout'
-import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
 
 // Cards
 import {
-  RplCardImageNavigation,
-  RplCardNavigation,
-  RplCardNavigationFeatured,
   RplCardPromotion,
   RplCardKeydates,
-  RplCardEvent,
   RplCardCta,
-  RplCardEmergencyContact,
-  RplCardBox,
   RplCardHonourRoll
 } from '@dpc-sdp/ripple-card'
 
@@ -83,7 +77,6 @@ export default {
     // Layout
     RplBaseLayout,
     RplPageLayout,
-    RplContainer,
     RplRow,
     RplCol,
     RplSiteHeader,
@@ -91,15 +84,9 @@ export default {
     RplHeroBanner,
 
     // Card
-    RplCardImageNavigation,
-    RplCardNavigation,
-    RplCardNavigationFeatured,
     RplCardPromotion,
     RplCardKeydates,
-    RplCardEvent,
     RplCardCta,
-    RplCardEmergencyContact,
-    RplCardBox,
     RplCardHonourRoll
   },
   props: {

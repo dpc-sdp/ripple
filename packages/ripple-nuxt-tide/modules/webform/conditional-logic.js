@@ -91,7 +91,6 @@ function prepareTest (rulesObject, data) {
       logger.warn('Form: %s rules variable is not supported.', rulesType, { label: 'Webform' })
       break
   }
-
   return { operator, rules }
 }
 
@@ -133,7 +132,7 @@ function performTriggerCheck (rule) {
       result = (rule.modelValue == null || rule.modelValue === '')
       break
     case 'filled':
-      result = (rule.modelValue != null && rule.modelValue.length > 0)
+      result = (typeof rule.modelValue === 'number') ? !isNaN(rule.modelValue) : !(rule.modelValue == null || rule.modelValue === '')
       break
     case 'checked':
       // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
@@ -147,19 +146,38 @@ function performTriggerCheck (rule) {
       if (typeof rule.triggerValue === 'string') {
         // value
         result = (rule.modelValue === rule.triggerValue)
+        if (rule.modelValue && typeof rule.modelValue === 'number') {
+          const intTargetValue = parseFloat(rule.modelValue)
+          const intTriggerValue = parseFloat(rule.triggerValue)
+          result = (intTargetValue === intTriggerValue)
+        }
       } else if (rule.triggerValue['pattern']) {
         // pattern
         if (rule.modelValue) {
-          const matches = rule.modelValue.match(new RegExp(rule.triggerValue['pattern']))
-          result = (matches && matches.length > 0)
+          if (typeof rule.modelValue === 'number') {
+            const regEx = new RegExp(rule.triggerValue['pattern'])
+            const matches = regEx.exec(rule.modelValue)
+            result = (matches && matches.length > 0)
+          } else {
+            const matches = rule.modelValue.match(new RegExp(rule.triggerValue['pattern']))
+            result = (matches && matches.length > 0)
+          }
         } else {
           result = false
         }
       } else if (rule.triggerValue['!pattern']) {
         // not pattern
         if (rule.modelValue) {
-          const matches = rule.modelValue.match(new RegExp(rule.triggerValue['!pattern']))
-          result = (!matches || matches.length === 0)
+          if (typeof rule.modelValue === 'number') {
+            const regEx = new RegExp(rule.triggerValue['!pattern'])
+            const matches = regEx.exec(rule.modelValue)
+            result = (!matches || matches.length === 0)
+          } else {
+            const matches = rule.modelValue.match(new RegExp(rule.triggerValue['!pattern']))
+            result = (!matches || matches.length === 0)
+          }
+        } else {
+          result = false
         }
       } else if (rule.triggerValue['less']) {
         // less

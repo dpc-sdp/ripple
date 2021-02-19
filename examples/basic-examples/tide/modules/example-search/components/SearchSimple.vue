@@ -30,7 +30,6 @@ import { RplDivider } from '@dpc-sdp/ripple-global'
 import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
 
 // Layout.
-import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import formData from './formdata-simple.js'
 import { searchMixin, getSearch } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
@@ -43,9 +42,7 @@ export default {
     RplSearchResults,
 
     // Layout.
-    RplPageLayout,
-    RplRow,
-    RplCol
+    RplPageLayout
   },
   mixins: [searchMixin],
   async asyncData ({ app, route }) {

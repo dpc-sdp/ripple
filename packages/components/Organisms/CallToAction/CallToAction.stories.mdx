@@ -1,0 +1,53 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplCallToAction from './index.vue'
+
+<Meta title="Organisms/CallToAction" />
+
+# Call to action
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Organisms/CallToAction/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCallToAction },
+  template: '<div class="rpl-content"><rpl-call-to-action :title="title" :summary="summary" :link="link" :image="image" /></div>'
+});
+
+<Canvas>
+  <Story
+    name="Call to action"
+    args={{
+      title: 'Card prompting an action',
+      link: { text: 'Call to action', url: '#' },
+      summary: '<p>Sed ut <b>perspiciatis</b> unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><p>Nemo enim ipsam voluptatem.</p>',
+      image: { src: 'http://placehold.it/336x249', alt: '' }
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Without side bar
+
+export const TemplateSideBar = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCallToAction },
+  template: '<div class="rpl-content"><rpl-call-to-action class="rpl-call-to-action--without-sidebar" :title="title" :summary="summary" :link="link" :image="image" /></div>'
+});
+
+<Canvas>
+  <Story
+    name="Without sidebar"
+    args={{
+      title: 'Card prompting an action',
+      link: { text: 'Call to action', url: '#' },
+      summary: '<p>Sed ut <b>perspiciatis</b> unde omnis iste natus error sit voluptatem accusantium dolore que laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><p>Nemo enim ipsam voluptatem.</p>',
+      image: { src: 'http://placehold.it/336x249', alt: '' }
+    }}
+  >
+    {TemplateSideBar.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplCallToAction} />

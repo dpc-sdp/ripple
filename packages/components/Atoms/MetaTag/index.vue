@@ -18,8 +18,17 @@ export default {
     RplLink
   },
   props: {
+    /**
+     * Tag text.
+     */
     linkText: String,
+    /**
+     * Meta tag URL.
+     */
     linkUrl: String,
+    /**
+     * Meta tag theme.
+     */
     theme: String
   },
   computed: {

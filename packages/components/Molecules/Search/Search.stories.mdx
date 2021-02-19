@@ -1,0 +1,423 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import RplSearchForm from './SearchForm.vue'
+import RplSearchResultsLayout from './SearchResultsLayout'
+import RplSearchResultsTable from './SearchResultsTable'
+import RplSearchResult from './SearchResult.vue'
+
+import { RplCol } from '@dpc-sdp/ripple-grid'
+import { RplCardProfile } from '@dpc-sdp/ripple-card'
+
+<Meta title="Molecules/Search" />
+
+## Search
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/DescriptionList/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSearchForm },
+  methods: {
+    searchEvent (searchKeywords) {
+      console.log('Search triggered. Keywords: ' + searchKeywords)
+    }
+  },
+  template: `
+    <rpl-search-form
+      :title="title"
+      :subtitle="subtitle"
+      :searchPlaceholder="searchPlaceholder"
+      :prefillSearchTerm="prefillSearchTerm"
+      :searchInputLabel="searchInputLabel"
+      :buttonLabel="buttonLabel"
+      :buttonHiddenLabel="buttonHiddenLabel"
+      :autoFocus="autoFocus"
+      :textSearch="textSearch"
+      :expandFilters="expandFilters"
+      :filterForm="filterForm"
+      :filterText="filterText"
+      :theme="theme"
+      :type="type"
+      :allowBlank="allowBlank"
+      @search="searchEvent"
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="Search form"
+    argTypes={{
+      theme: {
+        control: {
+          type: 'select',
+          options: ['light', 'dark', 'solid']
+        }
+      },
+      type: {
+        control: {
+          type: 'select',
+          options: ['two-cols', 'default']
+        }
+      },
+      aboveFilters: {
+        control: {
+          type: 'text'
+        }
+      }
+    }}
+    args={{
+      title: 'Search results',
+      subtitle: '',
+      searchPlaceholder: 'Enter keywords',
+      prefillSearchTerm: 'What is covid?',
+      searchInputLabel: 'Search for',
+      buttonLabel: 'Search',
+      buttonHiddenLabel: true,
+      autoFocus: false,
+      textSearch: true,
+      expandFilters: false,
+      filterForm: {
+        tideId: 'tide_search_form',
+        model: {
+          topic: []
+        },
+        schema: {
+          fields: [
+            {
+              type: 'rplselect',
+              label: 'Select a topic',
+              model: 'topic',
+              values: [{ id: 'topic_a', name: 'Topic A' }, { id: 'topic_b', name: 'Topic B' }, { id: 'topic_c', name: 'Topic C' }, { id: 'topic_d', name: 'Topic D' }],
+              placeholder: 'Select a topic'
+            },
+            {
+              type: 'rplsubmitloader',
+              buttonText: 'Apply change',
+              loading: false
+            }
+          ]
+        },
+        formOptions: {
+          validateAfterLoad: true,
+          validateAfterChanged: true
+        },
+        formState: {}
+      },
+      filterText: 'Refine text',
+      theme: 'light',
+      type: 'default',
+      allowBlank: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplSearchForm} />
+
+export const TemplateSearch = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSearchResult },
+  template: `
+    <rpl-search-result
+      :title="title"
+      :link="link"
+      :date="date"
+      :description="description"
+      :tags="tags"
+      :locale="locale"
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="Search result"
+    args={{
+      title: 'Schools private policy',
+      link: {
+        linkText: 'www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx',
+        linkUrl: '//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx'
+      },
+      date: '2018-07-10T09:00:00.000+10:00',
+      description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem',
+      tags: [
+        {
+          linkText: 'This is a content tag',
+          linkUrl: '#'
+        },
+        {
+          linkText: 'This is another content tag',
+          linkUrl: '#'
+        }
+      ],
+      locale: 'en-au'
+    }}
+  >
+    {TemplateSearch.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplSearchResult} />
+
+export const getItems = (item, count) => {
+  const items = []
+  for (let index = 0; index < count; index++) {
+    items.push(item)
+  }
+return items
+}
+
+export const TemplateSearchLayout = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSearchResultsLayout, RplCol, RplSearchResult },
+  computed: {
+      searchResults() {
+        return getItems({
+          title: 'Schools private policy',
+          link: {
+            linkText: 'www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx',
+            linkUrl: '//www.education.vic.gov.au/Pages/schoolsprivacypolicy.aspx'
+          },
+          date: '2018-07-10T09:00:00.000+10:00',
+          description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem',
+          tags: [
+            {
+              linkText: 'This is a content tag',
+              linkUrl: '#'
+            },
+            {
+              linkText: 'This is a content tag',
+              linkUrl: '#'
+            }
+          ],
+          locale: 'en-au'
+        }, 9)
+      }
+  },
+  template: `
+    <rpl-search-results-layout :searchResults="searchResults" :pager="pagination" :count=9 :perPage=3>
+      <template v-slot:results="scoped">
+        <rpl-col cols="full" v-for="(result, i) in scoped.searchResults" :key="i + '-result'">
+          <rpl-search-result
+            :title="result.title"
+            :link="result.link"
+            :date="result.date"
+            :description="result.description"
+            :tags="result.tags"
+            :locale="result.locale"
+        />
+        </rpl-col>
+      </template>
+    </rpl-search-results-layout>
+  `
+});
+
+<Canvas>
+  <Story
+    name="Search results layout"
+    args={{
+      pagination: {
+        totalSteps: 3,
+        initialStep: 1,
+        stepsAround: 2
+      }
+    }}
+  >
+    {TemplateSearchLayout.bind({})}
+  </Story>
+</Canvas>
+
+export const TemplateSearchLayoutWithCards = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSearchResultsLayout, RplCol, RplCardProfile },
+  computed: {
+      searchResults() {
+        return getItems({
+          name: 'Stella Young',
+          inductionYear: '2017',
+          category: 'Local Champion',
+          lifespan: '1982 - 2014',
+          summary: 'Journalist, comedian, feminist and fierce disability activist.',
+          link: { text: "Read Stella's profile", url: '#' },
+          image: 'https://placehold.it/148x148'
+        }, 9)
+      }
+  },
+  template: `
+    <rpl-search-results-layout :searchResults="searchResults" :pager="pagination" :count="9" :perPage="3">
+      <template v-slot:results="scoped">
+        <rpl-col :colsBp="{ m: 6, l: 4, xxxl: 3 }" v-for="(result, i) in scoped.searchResults" :key="i + '-result'">
+          <rpl-card-profile
+            :name="result.name"
+            :inductionYear="result.inductionYear"
+            :lifespan="result.lifespan"
+            :summary="result.summary"
+            :link="result.link"
+            :image="result.image"
+          />
+        </rpl-col>
+      </template>
+    </rpl-search-results-layout>
+  `
+});
+
+<Canvas>
+  <Story
+    name="Search results layout with card"
+    args={{
+      pagination: {
+        totalSteps: 3,
+        initialStep: 1,
+        stepsAround: 2
+      }
+    }}
+  >
+    {TemplateSearchLayoutWithCards.bind({})}
+  </Story>
+</Canvas>
+
+export const TemplateSearchLayoutWithTable = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSearchResultsLayout, RplCol, RplSearchResultsTable },
+  computed: {
+    searchResults() {
+      return getItems({
+        title: 'test',
+        category: 'test cat',
+        year: '2020'
+      }, 9)
+    }
+  },
+  template: `
+    <rpl-search-results-layout :searchResults="searchResults" :pager="pagination" :responseSize=3 :count="9" :perPage=3>
+      <template v-slot:results="scoped">
+        <rpl-col cols="full">
+          <rpl-search-results-table :columnConfig="columnConfig" :items="scoped.searchResults"></rpl-search-results-table>
+        </rpl-col>
+      </template>
+    </rpl-search-results-layout>
+  `
+});
+
+<Canvas>
+  <Story
+    name="Search results layout table"
+    args={{
+      pagination: {
+        totalSteps: 3,
+        initialStep: 1,
+        stepsAround: 2
+      },
+      columnConfig: [
+        {
+          label: 'Title',
+          colspan: 2,
+          key: 'title'
+        },
+        {
+          label: 'Category',
+          colspan: 1,
+          key: 'category'
+        },
+        {
+          label: 'Year',
+          colspan: 1,
+          key: 'year'
+        }
+      ]
+    }}
+  >
+    {TemplateSearchLayoutWithTable.bind({})}
+  </Story>
+</Canvas>
+
+export const TemplateSearchResultTableCustomContent = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSearchResultsLayout, RplCol, RplSearchResultsTable },
+  computed: {
+    searchResults() {
+      return getItems({
+        title: 'test',
+        category: 'test cat',
+        year: '2020'
+      }, 40)
+    }
+  },
+  template: `<rpl-search-results-table :columnConfig="columnConfig" :items="items"></rpl-search-results-table>`
+});
+
+<Canvas>
+  <Story
+    name="Search results table custom content"
+    args={{
+      columnConfig: [
+        {
+          label: 'Title',
+          colspan: 2,
+          component: () =>
+            import(/* webpackChunkName: 'rpl-text-link' */ '@dpc-sdp/ripple-link').then(
+              m => m.RplTextLink
+            ),
+          key: 'title'
+          },
+        {
+          label: 'Category',
+          component: () =>
+            import(/* webpackChunkName: 'rpl-meta-tag' */ '@dpc-sdp/ripple-meta-tag'),
+          colspan: 1,
+          key: 'category'
+        },
+        {
+          label: 'Number',
+          colspan: 1,
+          key: 'number'
+        },
+        {
+          label: 'Year',
+          colspan: 1,
+          key: 'year'
+        }
+      ],
+      items: [
+        {
+          title: {
+            text: 'test with meta tag number',
+            url: 'www.google.com'
+          },
+          category: {
+            linkText: '123'
+          },
+          year: '1983-04-10'
+        },
+        {
+          title: {
+            text: 'Transport (Compliance and Miscellaneous) Act 1983',
+            url: 'www.google.com'
+          },
+          number: 533,
+          year: '2018'
+        },
+        {
+          title: {
+            text: 'Crimes Act 1958',
+            url: 'www.google.com'
+          },
+          number: 203,
+          year: '2006'
+        },
+        {
+          title: {
+            text: 'Disability Act 2006',
+            url: 'www.google.com'
+          },
+          number: 29,
+          year: '2008'
+        }
+      ]
+    }}
+  >
+    {TemplateSearchResultTableCustomContent.bind({})}
+  </Story>
+</Canvas>

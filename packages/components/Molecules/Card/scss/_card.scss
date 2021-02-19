@@ -1,2 +1,17 @@
 $rpl-card-vertical-padding: ($rpl-space * 5) !default;
 $rpl-card-horizontal-padding-m: ($rpl-space * 5) !default;
+$rpl-card-text-color: rpl_color('extra_dark_neutral') !default;
+$rpl-card-meta-text-color: rpl_color('dark_neutral') !default;
+$rpl-card-meta-ruleset: ('xxs', .75em, 'medium') !default;
+$rpl-card-meta-padding: .16rem $rpl-space-2 !default;
+$rpl-card-meta-background: rpl_color('mid_neutral_2') !default;
+$rpl-card-title-ruleset: ('l', 1.2em, 'bold') !default;
+$rpl-card-title-text-decoration: underline !default;
+$rpl-card-background: rpl_color('white') !default;
+$rpl-card-border-color: rpl_color('mid_neutral_1') !default;
+$rpl-card-border-radius: rem(4px) !default;
+$rpl-card-link-hover-color: rpl_color('primary') !default;
+$rpl-card-content-type-ruleset: (
+  'xs': ('xs', .875em, 'medium'),
+  's': ('xs', 1em, 'medium')
+) !default;

@@ -11,9 +11,11 @@
 
 <script>
 import RplCardContent from './CardContent.vue'
+import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
 export default {
   name: 'RplCardNavigation',
+  mixins: [deprecate],
   components: {
     RplCardContent
   },
@@ -21,6 +23,9 @@ export default {
     title: String,
     summary: String,
     link: Object
+  },
+  mounted () {
+    this.deprecatedWarn('"rpl-card-navigation" is deprecated, please import "rpl-card-nav" from @dpc-sdp/ripple-card-nav instead')
   }
 }
 </script>

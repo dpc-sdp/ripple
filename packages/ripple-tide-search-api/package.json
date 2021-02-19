@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-search-api",
-  "version": "1.19.3",
+  "version": "1.19.8",
   "description": "Ripple API endpoints for Tide search provider",
   "license": "Apache-2.0",
   "contributors": [
@@ -23,9 +23,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/node": "^7.12.6",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/core": "^7.12.13",
+    "@babel/node": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
     "@elastic/elasticsearch-mock": "^0.3.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.6"

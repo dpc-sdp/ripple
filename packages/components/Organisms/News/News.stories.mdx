@@ -1,0 +1,111 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplFeaturedNews from './FeaturedNews.vue'
+import RplNewsListing from './NewsListing.vue'
+
+<Meta title="Organisms/News" />
+
+# News
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Organisms/News/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplFeaturedNews },
+  template: '<rpl-featured-news :list="list" />'
+});
+
+<Canvas>
+  <Story
+    name="Featured news"
+    args={{
+      list: [
+        {
+          image: 'https://placehold.it/818x497',
+          date: '2018-03-23T09:00:00.000+10:00',
+          topic: 'Community',
+          title: 'This heading could wrap over two lines',
+          summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
+          link: { text: 'Call to action', url: '#' }
+        },
+        {
+          image: 'https://placehold.it/818x497',
+          date: '2018-03-23T09:00:00.000+10:00',
+          topic: 'Community',
+          title: 'This heading could wrap over two lines',
+          summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
+          link: { text: 'Call to action', url: '#' }
+        },
+        {
+          image: 'https://placehold.it/818x497',
+          date: '2018-03-23T09:00:00.000+10:00',
+          topic: 'Community',
+          title: 'This heading could wrap over two lines',
+          summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat.',
+          link: { text: 'Call to action', url: '#' }
+        }
+      ]
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplFeaturedNews} />
+
+export const TemplateNewListing = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplNewsListing },
+  template: '<rpl-news-listing :title="title" :list="list" />'
+});
+
+<Canvas>
+  <Story
+    name="News listing"
+    args={{
+      title: 'New listing',
+      list: [
+        {
+          date: '2018-03-26T09:00:00.000+10:00',
+          tag: 'Event',
+          title: 'Australian Indigenous Tourism Conference',
+          url: '#'
+        },
+        {
+          date: '2018-03-25T09:00:00.000+10:00',
+          tag: 'Community',
+          title: 'Respect Women: Call it Out',
+          url: '#'
+        },
+        {
+          date: '2018-03-24T09:00:00.000+10:00',
+          tag: 'Arts & Culture',
+          title: 'NGV Triennial',
+          url: '#'
+        },
+        {
+          date: '2018-02-22T09:00:00.000+10:00',
+          tag: 'Sports',
+          title: 'The World Games Facilities Fund',
+          url: '#'
+        },
+        {
+          date: '2018-02-21T09:00:00.000+10:00',
+          tag: 'Law & Justice',
+          title: 'Access to Justice Review',
+          url: '#'
+        },
+        {
+          date: '2018-02-19T09:00:00.000+10:00',
+          tag: 'Family Violence',
+          title: 'New Bendigo Refuge for Families Escaping Family Violence',
+          url: '#'
+        }
+      ]
+    }}
+  >
+    {TemplateNewListing.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplNewsListing} />

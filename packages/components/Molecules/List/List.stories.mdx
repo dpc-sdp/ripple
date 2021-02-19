@@ -1,0 +1,68 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplList from './index.vue'
+
+<Meta title="Molecules/List" />
+
+# List
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/List/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplList },
+  template: `<rpl-list :title="title" :size="size" :iconScale="iconScale" :iconColor="iconColor" :list="list" :link="link" />`
+});
+
+<Canvas>
+  <Story
+    name="List"
+    argTypes={{
+      size: {
+        control: {
+          type: 'select',
+          options: { normal: 'normal', large: 'large' }
+        }
+      }
+    }}
+    args={{
+      title: 'My List',
+      size: 'normal',
+      iconScale: 1,
+      iconColor: 'primary',
+      list: [
+        {
+          symbol: 'calendar',
+          size: 'normal',
+          text: '26 January 2019 - 29 January 2019'
+        }, {
+          symbol: 'map_marker',
+          color: 'danger',
+          size: '1.2',
+          text: 'Level 10,  101 Collins Street, Melbourne'
+        }, {
+          symbol: 'help',
+          size: '0.8',
+          text: '$30 - $50'
+        }, {
+          symbol: 'star',
+          color: 'success',
+          link: 'https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/',
+          text: 'https://www.palacecinemas.com.au/festivals/volvo-scn-film-festival/'
+        }, {
+          symbol: 'addition',
+          text: 'Accessible venue'
+        }, {
+          symbol: 'addition',
+          text: 'Child friendly'
+        }
+      ],
+      link: ''
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplList} />
+

@@ -44,10 +44,10 @@ export default {
       const webpack = require('webpack')
       const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
       config.plugins.push(new LodashModuleReplacementPlugin({
-        'caching': true,
-        'collections': true,
-        'paths': true,
-        'shorthands': true
+        caching: true,
+        collections: true,
+        paths: true,
+        shorthands: true
       }))
       // Load moment 'en-au' locale only for performance.
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack

@@ -27,13 +27,11 @@ module.exports = {
     ],
 
     landingPage: [
-      'field_landing_page_component.field_paragraph_reference.field_event_details',
       'field_landing_page_component.field_paragraph_cta_card_event',
       'field_landing_page_component.field_paragraph_cta_card_event.field_paragraph_media',
       'field_landing_page_component.field_paragraph_cta_card_event.field_paragraph_media.field_media_image'
     ],
     publicationPage: [
-      'field_landing_page_component.field_paragraph_reference.field_event_details',
       'field_landing_page_component.field_paragraph_cta_card_event',
       'field_landing_page_component.field_paragraph_cta_card_event.field_paragraph_media',
       'field_landing_page_component.field_paragraph_cta_card_event.field_paragraph_media.field_media_image'

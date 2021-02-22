@@ -42,6 +42,7 @@ export default {
       if (this.page.field_event_details) {
         return this.$tideMapping.filter(this.page.field_event_details[0].field_paragraph_link, ['paragraphLink']) || null
       }
+      return null
     },
     eventList () {
       // Hardcode here to use single event only, as disucssed with BA. Will support multiple events later.

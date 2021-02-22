@@ -47,9 +47,8 @@ export default {
         if (isExternalUrl(this.href, this.rplOptions.hostname)) {
           return '_blank'
         }
-      } else {
-        return this.target.length > 0 ? this.target : false
       }
+      return this.target.length > 0 ? this.target : false
     }
   },
   methods: {

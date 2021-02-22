@@ -62,6 +62,7 @@ export default {
         const copyright = this.page.field_license_type ? this.page.field_license_type.description : ''
         return (author || date || copyright) ? { author, date, copyright } : null
       }
+      return null
     },
     chapters () {
       if (this.page.type === 'node--publication' && this.page.publication_children) {
@@ -82,6 +83,7 @@ export default {
           })
         }
       }
+      return null
     },
     publicationPagination () {
       if (this.page.type === 'node--publication_page') {
@@ -100,6 +102,7 @@ export default {
         }
         return pagination
       }
+      return null
     }
   }
 

@@ -47,7 +47,6 @@ module.exports = {
     'quote-props': 'off',
     'vue/no-mutating-props': 'off',
     'vue/no-unused-components': 'off',
-    'vue/no-use-v-if-with-v-for': 'off',
-    'vue/return-in-computed-property': 'off'
+    'vue/no-use-v-if-with-v-for': 'off'
   }
 }

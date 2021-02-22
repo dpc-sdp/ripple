@@ -86,6 +86,7 @@ export default {
           })) : []
         }
       }
+      return null
     },
     supportingDocuments () {
       if (this.page.field_node_documents && this.page.field_node_documents.length > 0) {

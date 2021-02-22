@@ -111,6 +111,7 @@ export default {
       if (this.config) {
         return get(this.config, ['display', 'type'], 'grid')
       }
+      return ''
     },
     minResults () {
       return get(this.config, ['results', 'min'], 1)
@@ -143,6 +144,7 @@ export default {
       if (!this.hasResults && this.config.results.min_not_met === 'no_results_message') {
         return this.config.results.no_results_message || 'There are currently no results'
       }
+      return ''
     }
   }
 }

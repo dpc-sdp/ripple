@@ -88,6 +88,7 @@ export default {
       if (!this.heroBackgroundImage) {
         return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
       }
+      return null
     },
     bannerImage () {
       if (this.heroBackgroundImage) {
@@ -102,6 +103,7 @@ export default {
           sizes: '100vw'
         }
       }
+      return {}
     }
   },
   mounted () {

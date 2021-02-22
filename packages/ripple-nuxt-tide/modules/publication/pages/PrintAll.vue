@@ -110,6 +110,7 @@ export default {
         const copyright = this.publication.field_license_type ? this.publication.field_license_type.description : ''
         return (author || date || copyright) ? { author, date, copyright } : null
       }
+      return null
     },
     updatedDate () {
       return {

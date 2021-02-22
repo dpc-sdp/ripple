@@ -15,10 +15,11 @@
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import cardtrimfield from './mixins/cardtrimfield'
 import RplCardContent from './CardContent.vue'
+import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
 export default {
   name: 'RplCardPromotion',
-  mixins: [formatdate, cardtrimfield],
+  mixins: [formatdate, cardtrimfield, deprecate],
   props: {
     image: [String, Object],
     date: String,
@@ -36,6 +37,9 @@ export default {
       trimFieldSelector: '.rpl-card-promotion__summary',
       trimFieldRefreshOnFonts: true
     }
+  },
+  mounted () {
+    this.deprecatedWarn('"rpl-card-promotion" is deprecated, please import "rpl-card-promo" from @dpc-sdp/ripple-card-promo instead')
   },
   methods: {
     getTrimFieldMaxHeightOffset: function (card) {

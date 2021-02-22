@@ -80,6 +80,8 @@ export default {
 
   .rpl-checkbox {
     position: relative;
+    text-indent: rem(-33px);
+    padding-left: rem(33px);
 
     input[type="checkbox"] {
       position: absolute;

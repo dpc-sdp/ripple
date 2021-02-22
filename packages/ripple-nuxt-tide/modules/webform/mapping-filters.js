@@ -129,6 +129,7 @@ module.exports = {
         case 'number':
           field.type = 'input'
           field.inputType = 'number'
+          field.validator.push('number')
           if (element['#max']) {
             field.max = element['#max']
           }

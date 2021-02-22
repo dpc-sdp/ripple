@@ -4,5 +4,10 @@
     ":preserveSemverRanges",
     "group:allNonMajor"
   ],
-  "prConcurrentLimit": 3
+  "prConcurrentLimit": 3,
+  "packageRules": [
+    {
+      "excludePackageNames": ["cheerio"]
+    }
+  ]
 }

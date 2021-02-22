@@ -16,6 +16,7 @@
 </template>
 
 <script>
+/* eslint vue/no-unused-components: 0 */
 import Vue from 'vue'
 import RplFormAlert from './formAlert'
 import RplFieldset from './Fieldset'

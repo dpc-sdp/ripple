@@ -45,7 +45,6 @@ module.exports = {
     'prefer-regex-literals': 'off',
     quotes: ['off', 'single', { allowTemplateLiterals: true }],
     'quote-props': 'off',
-    'vue/no-mutating-props': 'off',
-    'vue/no-unused-components': 'off'
+    'vue/no-mutating-props': 'off'
   }
 }

@@ -37,7 +37,7 @@ module.exports = {
     'jest/no-standalone-expect': 'off',
     'jest/no-try-expect': 'off',
     'jest/no-conditional-expect': 'off',
-    'multiline-ternary': 'off',
+    'multiline-ternary': ['error', 'never'],
     'no-case-declarations': 'off',
     'no-prototype-builtins': 'off',
     'node/no-deprecated-api': 'off',

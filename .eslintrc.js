@@ -46,7 +46,6 @@ module.exports = {
     quotes: ['off', 'single', { allowTemplateLiterals: true }],
     'quote-props': 'off',
     'vue/no-mutating-props': 'off',
-    'vue/no-unused-components': 'off',
-    'vue/no-use-v-if-with-v-for': 'off'
+    'vue/no-unused-components': 'off'
   }
 }

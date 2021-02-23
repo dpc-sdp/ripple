@@ -175,12 +175,12 @@ $rpl-card-nav-featured-img-height: (
 ) !default;
 $rpl-card-nav-featured-max-width: (
   'xs': rem(768px),
-  'l': rem(608px)
+  'xxl': rem(1056px)
 ) !default;
 $rpl-card-nav-thumbnail-max-width: (
-  'm': rem(768px),
-  'xxl': rem(607px),
-  'xxxl': rem(818px)
+  'xs': rem(768px),
+  'l': rem(818px),
+  'xxl': rem(1056px)
 ) !default;
 $rpl-card-nav-thumbnail-image-max-width: (
   'xs': rem(767px),
@@ -198,7 +198,8 @@ $rpl-card-nav-thumbnail-img-height: (
 $rpl-card-nav-thumbnail-padding: 20px 20px 0px 20px;
 $rpl-card-nav-noimage-max-width: (
   'xs':  rem(768px),
-  'l': rem(607px)
+  'l': rem(607px),
+  'xxl': rem(1056px)
 ) !default;
 .rpl-card-nav {
   $root: &;

@@ -140,7 +140,7 @@ $rpl-card-nav-title-hover-color: $rpl-card-link-hover-color !default;
 $rpl-card-nav-title-text-decoration: $rpl-card-title-text-decoration !default;
 $rpl-card-nav-title-margin: 0 0 rem(12px) !default;
 $rpl-card-nav-summary-ruleset: (
-  'xs': ('xs', 1.25em, 'regular'),
+  'xs': ('xs', 1.4em, 'regular'),
   's': ('s', 1.5em, 'regular')
 ) !default;
 $rpl-card-nav-summary-color: $rpl-card-text-color !default;

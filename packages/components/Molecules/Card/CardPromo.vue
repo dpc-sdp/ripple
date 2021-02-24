@@ -282,6 +282,11 @@ export default {
         align-items: center;
         justify-items: center;
         text-align: center;
+        max-width: none;
+
+        #{$root}__title, #{$root}__summary {
+          max-width: $rpl-content-max-width;
+        }
       }
 
       #{$root}__image {

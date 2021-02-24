@@ -278,6 +278,7 @@ $rpl-card-nav-noimage-max-width: (
     color: $rpl-card-nav-summary-color;
     box-sizing: border-box;
     padding: $rpl-card-nav-content-padding-xs;
+    max-width: $rpl-content-max-width;
 
     @include rpl_breakpoint('s') {
       padding: $rpl-card-nav-content-padding-s;

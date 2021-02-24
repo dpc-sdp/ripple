@@ -247,6 +247,7 @@ export default {
 
     &__content {
       padding: $rpl-card-promo-content-padding;
+      max-width: $rpl-content-max-width;
 
       #{$root}--noimage & {
         padding-top: $rpl-card-promo-no-image-padding-top;

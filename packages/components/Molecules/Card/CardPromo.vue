@@ -247,6 +247,7 @@ export default {
 
     &__content {
       padding: $rpl-card-promo-content-padding;
+      max-width: $rpl-content-max-width;
 
       #{$root}--noimage & {
         padding-top: $rpl-card-promo-no-image-padding-top;
@@ -281,6 +282,11 @@ export default {
         align-items: center;
         justify-items: center;
         text-align: center;
+        max-width: none;
+
+        #{$root}__title, #{$root}__summary {
+          max-width: $rpl-content-max-width;
+        }
       }
 
       #{$root}__image {

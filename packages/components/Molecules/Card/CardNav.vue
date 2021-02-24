@@ -140,7 +140,7 @@ $rpl-card-nav-title-hover-color: $rpl-card-link-hover-color !default;
 $rpl-card-nav-title-text-decoration: $rpl-card-title-text-decoration !default;
 $rpl-card-nav-title-margin: 0 0 rem(12px) !default;
 $rpl-card-nav-summary-ruleset: (
-  'xs': ('xs', 1.25em, 'regular'),
+  'xs': ('xs', 1.4em, 'regular'),
   's': ('s', 1.5em, 'regular')
 ) !default;
 $rpl-card-nav-summary-color: $rpl-card-text-color !default;
@@ -170,35 +170,29 @@ $rpl-card-nav-featured-meta-margin-bottom: rem(14px) !default;
 $rpl-card-nav-featured-meta-margin-bottom-m: rem(18px) !default;
 $rpl-card-nav-featured-img-height: (
   'xs': rem(200px),
-  'l': rem(285px),
-  'xxl': rem(355px)
+  'l': rem(355px)
 ) !default;
 $rpl-card-nav-featured-max-width: (
   'xs': rem(768px),
-  'l': rem(608px)
+  'l': rem(1056px)
 ) !default;
 $rpl-card-nav-thumbnail-max-width: (
-  'm': rem(768px),
-  'xxl': rem(607px),
-  'xxxl': rem(818px)
+  'xs': rem(768px),
+  'l': rem(1056px)
 ) !default;
 $rpl-card-nav-thumbnail-image-max-width: (
   'xs': rem(767px),
   'm': rem(213px),
-  'l': rem(153px),
-  'xxl': rem(213px),
-  'xxxl': rem(294px)
+  'l': rem(294px)
 ) !default;
 $rpl-card-nav-thumbnail-img-height: (
   'xs': rem(161px),
-  'm': rem(194px),
-  'l': rem(159px),
-  'xxl': rem(194px)
+  'm': rem(194px)
 ) !default;
 $rpl-card-nav-thumbnail-padding: 20px 20px 0px 20px;
 $rpl-card-nav-noimage-max-width: (
   'xs':  rem(768px),
-  'l': rem(607px)
+  'l': rem(1056px)
 ) !default;
 .rpl-card-nav {
   $root: &;
@@ -284,6 +278,7 @@ $rpl-card-nav-noimage-max-width: (
     color: $rpl-card-nav-summary-color;
     box-sizing: border-box;
     padding: $rpl-card-nav-content-padding-xs;
+    max-width: $rpl-content-max-width;
 
     @include rpl_breakpoint('s') {
       padding: $rpl-card-nav-content-padding-s;

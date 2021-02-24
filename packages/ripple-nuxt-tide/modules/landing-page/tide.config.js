@@ -276,10 +276,6 @@ module.exports = {
           'showMeta': 'field_customise',
           'displayStyle': 'field_nav_card_display_style',
           'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
-        },
-        cols: {
-          wide: { l: 6 },
-          narrow: {}
         }
       },
 

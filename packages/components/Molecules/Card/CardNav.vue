@@ -170,36 +170,29 @@ $rpl-card-nav-featured-meta-margin-bottom: rem(14px) !default;
 $rpl-card-nav-featured-meta-margin-bottom-m: rem(18px) !default;
 $rpl-card-nav-featured-img-height: (
   'xs': rem(200px),
-  'l': rem(285px),
-  'xxl': rem(355px)
+  'l': rem(355px)
 ) !default;
 $rpl-card-nav-featured-max-width: (
   'xs': rem(768px),
-  'xxl': rem(1056px)
+  'l': rem(1056px)
 ) !default;
 $rpl-card-nav-thumbnail-max-width: (
   'xs': rem(768px),
-  'l': rem(818px),
-  'xxl': rem(1056px)
+  'l': rem(1056px)
 ) !default;
 $rpl-card-nav-thumbnail-image-max-width: (
   'xs': rem(767px),
   'm': rem(213px),
-  'l': rem(153px),
-  'xxl': rem(213px),
-  'xxxl': rem(294px)
+  'l': rem(294px)
 ) !default;
 $rpl-card-nav-thumbnail-img-height: (
   'xs': rem(161px),
-  'm': rem(194px),
-  'l': rem(159px),
-  'xxl': rem(194px)
+  'm': rem(194px)
 ) !default;
 $rpl-card-nav-thumbnail-padding: 20px 20px 0px 20px;
 $rpl-card-nav-noimage-max-width: (
   'xs':  rem(768px),
-  'l': rem(607px),
-  'xxl': rem(1056px)
+  'l': rem(1056px)
 ) !default;
 .rpl-card-nav {
   $root: &;

@@ -43,10 +43,13 @@ export const TemplateOpenStatus = (args, { argTypes }) => ({
       endDate: customEndDate
     }
   },
-  // disables Chromatic for dynamic countdown
-  parameters: {chromatic: { disable: true }},
   template: `<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startDate" :enddate="endDate" :description="description" :link="link" :listing="listing" />`
 });
+export const GrantsOpeningOn = TemplateOpenStatus.bind({});
+GrantsOpeningOn.parameters = {
+  // disables Chromatic on a story level
+  chromatic: { disable: true },
+};
 
 <Canvas>
   <Story
@@ -60,7 +63,7 @@ export const TemplateOpenStatus = (args, { argTypes }) => ({
       listing: false,
     }}
   >
-    {TemplateOpenStatus.bind({})}
+    {GrantsOpeningOn}
   </Story>
 </Canvas>
 

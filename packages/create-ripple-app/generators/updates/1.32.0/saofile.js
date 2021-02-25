@@ -11,7 +11,7 @@ module.exports = {
         type: 'modify',
         files: 'package.json',
         handler (data) {
-          data.dependencies['nuxt'] = `2.14.12`
+          data.dependencies['nuxt'] = `2.15.2`
           data.devDependencies['@babel/eslint-parser'] = `^7.12.13`
           data.devDependencies['@babel/eslint-plugin'] = `^7.12.13`
           data.devDependencies['cross-env'] = `^7.0.3`

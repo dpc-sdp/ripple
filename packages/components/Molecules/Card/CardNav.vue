@@ -1,7 +1,7 @@
 <template>
   <rpl-link v-if="link" :class="['rpl-card-nav', classModifiers]" :href="link.url" :innerWrap="false">
-    <div v-if="image && displayStyle !== 'noImage'" class="rpl-card-nav__image-wrapper">
-      <rpl-responsive-img class="rpl-card-nav__image" v-bind="image" alt="" :srcSet="srcSet" />
+    <div v-if="computedImg && displayStyle !== 'noImage'" class="rpl-card-nav__image-wrapper">
+      <rpl-responsive-img class="rpl-card-nav__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     </div>
     <div class="rpl-card-nav__content" v-cloak>
       <div v-if="showMeta && isMetaInfoNotEmpty" class="rpl-card-nav__meta">
@@ -44,7 +44,7 @@ export default {
       default: ''
     },
     image: {
-      type: Object,
+      type: [Object, String],
       default () {
         return {}
       }

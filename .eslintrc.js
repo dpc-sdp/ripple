@@ -33,7 +33,6 @@ module.exports = {
     // TODO enable the rules to achieve lint standard consistency towards projects
     'array-callback-return': 'off',
     'dot-notation': 'off',
-    'jest/no-standalone-expect': 'off',
     'jest/no-try-expect': 'off',
     'jest/no-conditional-expect': 'off',
     'multiline-ternary': ['error', 'never'],

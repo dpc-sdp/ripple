@@ -113,6 +113,10 @@ const card = {
     },
     isMetaInfoNotEmpty () {
       return (this.contentTypeLabel || this.topicLabel || (this.grantStatusData && this.isContentTypeGrant) || this.fvRecommendationStatus || this.formattedDate || this.inductionYear)
+    },
+    computedImg () {
+      if (!this.image) return ''
+      return typeof this.image === 'string' ? { src: this.image } : this.image
     }
   }
 }

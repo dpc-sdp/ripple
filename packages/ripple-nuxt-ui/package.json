@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-nuxt-ui",
-  "version": "1.19.8",
+  "version": "1.20.3",
   "description": "The Nuxt module for adding Ripple pattern library.",
   "license": "Apache-2.0",
   "contributors": [
@@ -10,8 +10,8 @@
   ],
   "main": "lib/module.js",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.19.8",
-    "@dpc-sdp/ripple-icon": "1.19.8",
+    "@dpc-sdp/ripple-global": "1.20.3",
+    "@dpc-sdp/ripple-icon": "1.20.3",
     "@nuxtjs/style-resources": "^0.1.2",
     "app-root-path": "^2.2.1",
     "qs": "^6.9.4",
@@ -20,7 +20,7 @@
     "svgo-loader": "^2.1.0"
   },
   "peerDependencies": {
-    "nuxt": "^2.14.12",
+    "nuxt": "^2.15.2",
     "webpack-node-externals": "^1.6.0"
   }
 }

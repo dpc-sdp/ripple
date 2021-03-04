@@ -126,6 +126,8 @@ export default {
             uuid: item.uuid,
             data: {
               ...item,
+              displayStyle: 'thumbnail',
+              showMeta: true,
               link: {
                 url,
                 text: ''

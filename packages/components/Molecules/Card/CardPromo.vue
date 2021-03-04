@@ -1,6 +1,6 @@
 <template>
   <rpl-link v-if="link" :class="['rpl-card-promo', classModifiers]" :href="link.url">
-    <rpl-responsive-img v-if="image && displayStyle !== 'noImage'" class="rpl-card-promo__image" v-bind="image" alt="" :srcSet="srcSet" />
+    <rpl-responsive-img v-if="computedImg && displayStyle !== 'noImage'" class="rpl-card-promo__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     <div class="rpl-card-promo__content" v-cloak>
       <div v-if="showMeta && isMetaInfoNotEmpty" class="rpl-card-promo__meta">
         <div v-if="contentTypeLabel" class="rpl-card-promo__content-type">{{ contentTypeLabel }}</div>
@@ -51,7 +51,7 @@ export default {
       default: ''
     },
     image: {
-      type: Object,
+      type: [Object, String],
       default () {
         return {}
       }
@@ -247,6 +247,7 @@ export default {
 
     &__content {
       padding: $rpl-card-promo-content-padding;
+      max-width: $rpl-content-max-width;
 
       #{$root}--noimage & {
         padding-top: $rpl-card-promo-no-image-padding-top;
@@ -281,6 +282,11 @@ export default {
         align-items: center;
         justify-items: center;
         text-align: center;
+        max-width: none;
+
+        #{$root}__title, #{$root}__summary {
+          max-width: $rpl-content-max-width;
+        }
       }
 
       #{$root}__image {

@@ -177,4 +177,37 @@ describe('CardPromo', () => {
 
     expect(wrapper.vm.grantStatusData).toEqual(wrapper.vm.statusTerms.ongoing)
   })
+
+  it('formats image so it\'s compatible with responsive-img component', async () => {
+    const wrapper = shallowMount(CardPromo, {
+      propsData: {
+        title: 'Promo card',
+        image: {
+          src: 'https://placehold.it/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: 304,
+          height: 199
+        }
+      }
+    })
+
+    expect(wrapper.vm.computedImg).toEqual({
+      src: 'https://placehold.it/304x199',
+      focalPoint: {
+        x: '152',
+        y: '100'
+      },
+      width: 304,
+      height: 199
+    })
+
+    await wrapper.setProps({ image: 'http://example.com/test.jpg' })
+    expect(wrapper.vm.computedImg).toEqual({ src: 'http://example.com/test.jpg' })
+
+    await wrapper.setProps({ image: '' })
+    expect(wrapper.vm.computedImg).toEqual('')
+  })
 })

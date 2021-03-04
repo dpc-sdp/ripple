@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-try-expect */
 import { Mapping, tide } from '../../lib/core'
 
 // Mock Tide API and testFetcher

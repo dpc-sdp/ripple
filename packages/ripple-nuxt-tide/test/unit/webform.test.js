@@ -34,6 +34,7 @@ function performTest (state, conditions, model) {
   return field
 }
 
+/* eslint jest/expect-expect: 0 */
 function testAllStates (trigger, valMatchTrigger, valNotMatchTrigger) {
   expect(performTriggerTest('required', trigger, valMatchTrigger)).toHaveProperty('required', true)
   expect(performTriggerTest('required', trigger, valNotMatchTrigger)).toHaveProperty('required', false)

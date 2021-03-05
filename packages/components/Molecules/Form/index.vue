@@ -115,8 +115,10 @@ export default {
         const model = this.formData.model[key]
         if (typeof model === 'object' && !Array.isArray(model) && model !== null) {
           // nested objects need to be initalized back to an empty object to work
+          // eslint-disable-next-line vue/no-mutating-props
           this.formData.model[key] = {}
         } else {
+          // eslint-disable-next-line vue/no-mutating-props
           this.formData.model[key] = null
         }
       }

@@ -76,6 +76,7 @@ export default {
       const res = await this.postForm(formId, formData)
 
       if (res) {
+        // eslint-disable-next-line vue/no-mutating-props
         this.formData.formState = {
           response: {
             status: 'success',
@@ -85,6 +86,7 @@ export default {
         // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
         this.vicPolRedirect()
       } else {
+        // eslint-disable-next-line vue/no-mutating-props
         this.formData.formState = {
           response: {
             status: 'danger',

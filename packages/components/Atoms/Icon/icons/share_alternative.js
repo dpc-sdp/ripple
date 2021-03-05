@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'share_alternative': {
+  share_alternative: {
     width: 16,
     height: 14,
     paths: [

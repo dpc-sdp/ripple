@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'instagram': {
+  instagram: {
     width: 16,
     height: 17,
     paths: [

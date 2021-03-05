@@ -208,7 +208,7 @@ module.exports = {
           field.values = Object.keys(options).map((key) => {
             return {
               id: key,
-              'name': options[key]
+              name: options[key]
             }
           })
 
@@ -249,7 +249,7 @@ module.exports = {
           field.values = terms.map((term) => {
             return {
               id: term.drupal_internal__tid.toString(),
-              'name': term.name
+              name: term.name
             }
           })
           break
@@ -451,7 +451,7 @@ module.exports = {
       if (group.hasOwnProperty('fields') && group.fields.length > 0) {
         data.schema.groups.push(group)
       } else if (!group.hasOwnProperty('fields') && field.type !== null) {
-        data.schema.groups.push({ 'fields': [field] })
+        data.schema.groups.push({ fields: [field] })
       } else {
         const logger = require('@dpc-sdp/ripple-nuxt-tide/lib/core').logger
         if (process.server) {

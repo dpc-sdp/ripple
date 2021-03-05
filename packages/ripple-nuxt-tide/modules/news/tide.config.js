@@ -20,7 +20,7 @@ module.exports = {
       'paragraph--featured_news': {
         component: 'rpl-featured-news',
         props: {
-          'list': {
+          list: {
             field: ['field_paragraph_news_reference'],
             filters: ['featuredNews']
           }
@@ -30,8 +30,8 @@ module.exports = {
       'paragraph--news_listing': {
         component: 'rpl-news-listing',
         props: {
-          'title': 'field_paragraph_title',
-          'list': {
+          title: 'field_paragraph_title',
+          list: {
             field: ['field_paragraph_topic'],
             filters: ['newsListing']
           }

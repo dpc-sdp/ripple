@@ -23,8 +23,8 @@ export default {
     RplForm
   },
   props: {
-    'formData': Object,
-    'title': String
+    formData: Object,
+    title: String
   },
   mixins: [webform],
   data () {

@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'accessible': {
+  accessible: {
     width: 10,
     height: 10,
     paths: [

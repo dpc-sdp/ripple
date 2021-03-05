@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'ppt': {
+  ppt: {
     width: 21,
     height: 20,
     paths: [

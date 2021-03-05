@@ -65,10 +65,10 @@ export default ({
     }
 
     agg.body.aggregations[aggName] = {
-      'terms': {
-        'field': fieldMap.fieldName,
-        'order': {
-          '_key': 'asc'
+      terms: {
+        field: fieldMap.fieldName,
+        order: {
+          _key: 'asc'
         }
       }
     }

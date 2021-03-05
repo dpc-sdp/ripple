@@ -29,28 +29,28 @@ export default {
     /**
      * See the Icon library page for options.
      */
-    'symbol': String,
+    symbol: String,
     /**
      * Colour of the icon defined in in Global/Colors e.g. primary, secondary, dark_neutral.
      * @values primary, secondary, dark_neutral, etc
      */
-    'color': String,
+    color: String,
     /**
      * Icon size [s, m, l, xl, xxl].
      * @values s, m, l, xl, xxl
      */
-    'size': String
+    size: String
   },
   data: function () {
     return {
       iconProperties: getIconProps(), // TODO remove this prop along with `legacyIcon`
       iconPrefix: 'rpl_icon_',
       sizes: {
-        's': 0.5,
-        'm': 1,
-        'l': 1.5,
-        'xl': 2,
-        'xxl': 2.5
+        s: 0.5,
+        m: 1,
+        l: 1.5,
+        xl: 2,
+        xxl: 2.5
       }
     }
   },

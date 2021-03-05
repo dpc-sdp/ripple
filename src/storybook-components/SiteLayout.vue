@@ -87,10 +87,10 @@ export default {
     RplCol
   },
   props: {
-    'sidebar': Boolean,
-    'cardCols': Object,
-    'cardColsWithSidebar': Object,
-    'defaultCols': {}
+    sidebar: Boolean,
+    cardCols: Object,
+    cardColsWithSidebar: Object,
+    defaultCols: {}
   }
 }
 </script>

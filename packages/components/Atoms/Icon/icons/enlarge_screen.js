@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'enlarge_screen': {
+  enlarge_screen: {
     width: 30,
     height: 30,
     paths: [

@@ -4,7 +4,7 @@ function performTriggerTest (state, trigger, modelValue = '') {
   let model = modelValue
   if (typeof modelValue.model === 'undefined') {
     model = {
-      model: { 'field_a': modelValue }
+      model: { field_a: modelValue }
     }
   }
   return performTest(state, trigger, model)

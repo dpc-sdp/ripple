@@ -12,14 +12,14 @@ describe('CardKeydates', () => {
         title: 'Key calendar dates',
         keydates: [
           {
-            'date': '3 April',
-            'title': '2019 Premiers Sustainability Awards.',
-            'description': '33 finalists have been announced across 11 categories in the 2019 Premiers Sustainability Awards from a record number of entries. Winners will be announced at the awards ceremony 10 October.'
+            date: '3 April',
+            title: '2019 Premiers Sustainability Awards.',
+            description: '33 finalists have been announced across 11 categories in the 2019 Premiers Sustainability Awards from a record number of entries. Winners will be announced at the awards ceremony 10 October.'
           }
         ],
         link: {
-          'text': 'Read more',
-          'url': 'http://www.google.com'
+          text: 'Read more',
+          url: 'http://www.google.com'
         }
       },
       mocks: {
@@ -44,19 +44,19 @@ describe('CardKeydates', () => {
         title: 'Key calendar dates',
         keydates: [
           {
-            'date': '3 April',
-            'title': 'Term two starts',
-            'description': 'Its back to the classroom as school start term two on the 16th April.'
+            date: '3 April',
+            title: 'Term two starts',
+            description: 'Its back to the classroom as school start term two on the 16th April.'
           },
           {
-            'date': '23 April',
-            'title': 'ANZAC Day',
-            'description': 'National day of remembrance to commemorate the ANZACs.'
+            date: '23 April',
+            title: 'ANZAC Day',
+            description: 'National day of remembrance to commemorate the ANZACs.'
           }
         ],
         link: {
-          'text': 'Read more',
-          'url': 'http://www.google.com'
+          text: 'Read more',
+          url: 'http://www.google.com'
         }
       },
       mocks: {
@@ -83,19 +83,19 @@ describe('CardKeydates', () => {
         title: 'Key calendar dates',
         keydates: [
           {
-            'date': '3 April',
-            'title': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-            'description': 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat'
+            date: '3 April',
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+            description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat'
           },
           {
-            'date': '23 April',
-            'title': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-            'description': 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat'
+            date: '23 April',
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+            description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat'
           }
         ],
         link: {
-          'text': 'Read more',
-          'url': 'http://www.google.com'
+          text: 'Read more',
+          url: 'http://www.google.com'
         }
       },
       mocks: {
@@ -120,19 +120,19 @@ describe('CardKeydates', () => {
         title: 'Key calendar dates',
         keydates: [
           {
-            'date': '3 April',
-            'title': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-            'description': 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'
+            date: '3 April',
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+            description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'
           },
           {
-            'date': '23 April',
-            'title': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-            'description': 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'
+            date: '23 April',
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+            description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'
           }
         ],
         link: {
-          'text': 'Read more',
-          'url': 'http://www.google.com'
+          text: 'Read more',
+          url: 'http://www.google.com'
         }
       },
       mocks: {

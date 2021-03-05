@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'xlsx': {
+  xlsx: {
     width: 20,
     height: 20,
     paths: [

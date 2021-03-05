@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'child_friendly': {
+  child_friendly: {
     width: 10,
     height: 12,
     paths: [

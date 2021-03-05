@@ -5,23 +5,23 @@ module.exports = {
     requestMapping,
     responseMapping: {
       ...responseMapping,
-      'fv_recommendation': {
+      fv_recommendation: {
         ...defaultMapping,
         tag: () => 'Recommendation'
       },
-      'aboriginal_honour_roll': {
+      aboriginal_honour_roll: {
         ...defaultMapping,
         ...profileMapping
       },
-      'sr_profile': {
+      sr_profile: {
         ...defaultMapping,
         ...profileMapping
       },
-      'vada_profile': {
+      vada_profile: {
         ...defaultMapping,
         ...profileMapping
       },
-      'vdrp_profile': {
+      vdrp_profile: {
         ...defaultMapping,
         ...profileMapping
       }

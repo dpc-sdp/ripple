@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'twitter': {
+  twitter: {
     width: 16,
     height: 13,
     paths: [

@@ -77,7 +77,7 @@ export default {
     RplForm
   },
   props: {
-    'redirect': String
+    redirect: String
   },
   data () {
     return {

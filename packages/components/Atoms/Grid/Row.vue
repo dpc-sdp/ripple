@@ -7,7 +7,7 @@
 <script>
 export default {
   props: {
-    'rowGutter': Boolean
+    rowGutter: Boolean
   }
 }
 </script>

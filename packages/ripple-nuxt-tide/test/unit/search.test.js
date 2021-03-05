@@ -11,9 +11,9 @@ describe('search filters', () => {
             field_filter_string_to_string: 'Set Filter A',
             field_filter_string_to_array: 'Set Filter A',
             field_filter_array_to_array: ['Set Filter A', 'Set Filter B'],
-            field_filter_object_string_to_string: { 'values': 'Set Filter A' },
-            field_filter_object_string_to_array: { 'values': 'Set Filter A' },
-            field_filter_object_array_to_array: { 'values': ['Set Filter A', 'Set Filter B'] }
+            field_filter_object_string_to_string: { values: 'Set Filter A' },
+            field_filter_object_string_to_array: { values: 'Set Filter A' },
+            field_filter_object_array_to_array: { values: ['Set Filter A', 'Set Filter B'] }
           }
         }
       }

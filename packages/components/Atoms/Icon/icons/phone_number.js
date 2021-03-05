@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'phone_number': {
+  phone_number: {
     width: 14,
     height: 14,
     paths: [

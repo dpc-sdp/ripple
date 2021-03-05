@@ -216,13 +216,13 @@ export default {
     }
   },
   watch: {
-    'menu': function (newVal, oldVal) {
+    menu: function (newVal, oldVal) {
       this.menuItemOpen = this.prepareOpenStates()
     },
-    'layout': function (newVal, oldVal) {
+    layout: function (newVal, oldVal) {
       this.isVerticalLayout = (this.layout === 'vertical')
     },
-    'open': function (newVal, oldVal) {
+    open: function (newVal, oldVal) {
       if (!newVal) {
         this.closeAllItems()
       }

@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'cross_circle': {
+  cross_circle: {
     width: 24,
     height: 24,
     paths: [

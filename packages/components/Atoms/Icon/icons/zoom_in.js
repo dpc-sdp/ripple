@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'zoom_in': {
+  zoom_in: {
     width: 17,
     height: 16,
     paths: [

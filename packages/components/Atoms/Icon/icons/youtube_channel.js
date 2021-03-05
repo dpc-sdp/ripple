@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'youtube_channel': {
+  youtube_channel: {
     width: 16,
     height: 12,
     paths: [

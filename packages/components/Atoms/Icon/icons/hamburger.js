@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'hamburger': {
+  hamburger: {
     width: 18,
     height: 14,
     paths: [

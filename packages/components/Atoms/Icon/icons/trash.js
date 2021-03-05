@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'trash': {
+  trash: {
     width: 14,
     height: 18,
     paths: [

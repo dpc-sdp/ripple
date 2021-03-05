@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'arrow_down_tertiary': {
+  arrow_down_tertiary: {
     width: 15,
     height: 9,
     paths: [

@@ -14,8 +14,8 @@ module.exports = {
       'paragraph--embedded_webform': {
         component: 'tide-form',
         props: {
-          'title': 'field_paragraph_title',
-          'formData': {
+          title: 'field_paragraph_title',
+          formData: {
             field: 'field_paragraph_webform',
             filters: ['webform']
           }

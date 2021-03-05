@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'print': {
+  print: {
     width: 24,
     height: 24,
     paths: [

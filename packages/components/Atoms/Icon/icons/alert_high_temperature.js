@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'alert_high_temperature': {
+  alert_high_temperature: {
     width: 20,
     height: 20,
     paths: [

@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'loading_star': {
+  loading_star: {
     width: 20,
     height: 20,
     paths: [

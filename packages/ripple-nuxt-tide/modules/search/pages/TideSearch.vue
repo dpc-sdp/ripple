@@ -96,8 +96,8 @@ export default {
           'url'
         ],
         exclude: {
-          'type': 'grant',
-          'field': 'field_node_link'
+          type: 'grant',
+          field: 'field_node_link'
         }
       }
     }

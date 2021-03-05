@@ -28,7 +28,7 @@ const tideConfig = {
   mapping: {
     // Mapping config for individual Tide fields.
     tideField: {
-      'heroBanner': {
+      heroBanner: {
         component: 'rpl-hero-banner',
         props: {
           title: 'pageTitle',
@@ -95,7 +95,7 @@ const tideConfig = {
             field: 'field_block_cta',
             filters: ['paragraphCta']
           },
-          'image': {
+          image: {
             field: ['field_block_image', 'field_media_image'],
             filters: ['cardImage']
           }
@@ -111,7 +111,7 @@ const tideConfig = {
             field: 'field_block_cta',
             filters: ['paragraphCta']
           },
-          'image': {
+          image: {
             field: ['field_block_image', 'field_media_image'],
             filters: ['cardImage']
           },

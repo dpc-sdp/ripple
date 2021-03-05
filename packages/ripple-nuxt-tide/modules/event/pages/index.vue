@@ -92,12 +92,12 @@ export default {
       // This is made by following design & Tide implementation, icons have to be hardcoded here.
       // If edior changed/added term, the icon won't work.
       const requirementIcons = {
-        'default': { name: 'star', size: 1 },
+        default: { name: 'star', size: 1 },
         'Accessible venue': { name: 'accessible', size: 1.3 },
         'Child friendly': { name: 'child_friendly', size: 1.3 },
         'Free admission': { name: 'free', size: 1.3 },
         'Online webinar': { name: 'webinar', size: 1.2 },
-        'Seniors': { name: 'senior', size: 1.3 }
+        Seniors: { name: 'senior', size: 1.3 }
       }
 
       const requirements = eventDetails.field_event_requirements || []

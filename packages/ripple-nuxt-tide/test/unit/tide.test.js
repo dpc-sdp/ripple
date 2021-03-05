@@ -302,31 +302,31 @@ describe('tide', () => {
       switch (url) {
         case '/api/v1/test/?p2':
           return Promise.resolve({
-            'data': [4, 5, 6],
-            'links': {
-              'self': 'https://mockAPI/api/v1/test/?p2',
-              'next': 'https://mockAPI/api/v1/test/?p3',
-              'last': 'https://mockAPI/api/v1/test/?p3'
+            data: [4, 5, 6],
+            links: {
+              self: 'https://mockAPI/api/v1/test/?p2',
+              next: 'https://mockAPI/api/v1/test/?p3',
+              last: 'https://mockAPI/api/v1/test/?p3'
             }
           })
 
         case '/api/v1/test/?p3' :
           return Promise.resolve({
-            'data': [7, 8],
-            'links': {
-              'self': 'https://mockAPI/api/v1/test/?p3',
-              'last': 'https://mockAPI/api/v1/test/?p3'
+            data: [7, 8],
+            links: {
+              self: 'https://mockAPI/api/v1/test/?p3',
+              last: 'https://mockAPI/api/v1/test/?p3'
             }
           })
       }
     })
 
     const response = {
-      'data': [1, 2, 3],
-      'links': {
-        'self': 'https://mockAPI/api/v1/test/?p1',
-        'next': 'https://mockAPI/api/v1/test/?p2',
-        'last': 'https://mockAPI/api/v1/test/?p3'
+      data: [1, 2, 3],
+      links: {
+        self: 'https://mockAPI/api/v1/test/?p1',
+        next: 'https://mockAPI/api/v1/test/?p2',
+        last: 'https://mockAPI/api/v1/test/?p3'
       }
     }
 
@@ -340,11 +340,11 @@ describe('tide', () => {
       switch (url) {
         case '/api/v1/test/?p2':
           return Promise.resolve({
-            'data': [4, 5, 6],
-            'links': {
-              'self': 'https://mockAPI/api/v1/test/?p2',
-              'next': 'https://mockAPI/api/v1/test/?p3',
-              'last': 'https://mockAPI/api/v1/test/?p3'
+            data: [4, 5, 6],
+            links: {
+              self: 'https://mockAPI/api/v1/test/?p2',
+              next: 'https://mockAPI/api/v1/test/?p3',
+              last: 'https://mockAPI/api/v1/test/?p3'
             }
           })
 
@@ -354,11 +354,11 @@ describe('tide', () => {
     })
 
     const response = {
-      'data': [1, 2, 3],
-      'links': {
-        'self': 'https://mockAPI/api/v1/test/?p1',
-        'next': 'https://mockAPI/api/v1/test/?p2',
-        'last': 'https://mockAPI/api/v1/test/?p3'
+      data: [1, 2, 3],
+      links: {
+        self: 'https://mockAPI/api/v1/test/?p1',
+        next: 'https://mockAPI/api/v1/test/?p2',
+        last: 'https://mockAPI/api/v1/test/?p3'
       }
     }
 

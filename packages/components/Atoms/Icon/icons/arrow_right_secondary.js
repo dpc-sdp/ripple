@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'arrow_right_secondary': {
+  arrow_right_secondary: {
     width: 12,
     height: 22,
     paths: [

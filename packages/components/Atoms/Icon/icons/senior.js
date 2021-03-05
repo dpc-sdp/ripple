@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'senior': {
+  senior: {
     width: 9,
     height: 12,
     paths: [

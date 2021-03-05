@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'blank_solid': {
+  blank_solid: {
     width: 14,
     height: 21,
     paths: [

@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'alert_smoke': {
+  alert_smoke: {
     width: 20,
     height: 20,
     paths: [

@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'calendar': {
+  calendar: {
     width: 18,
     height: 18,
     paths: [

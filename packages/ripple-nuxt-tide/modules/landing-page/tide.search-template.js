@@ -94,15 +94,15 @@ export const responseMapping = {
     ...defaultMapping,
     tag
   },
-  'landing_page': {
+  landing_page: {
     ...defaultMapping,
     topic
   },
-  'page': {
+  page: {
     ...defaultMapping,
     topic
   },
-  'profile': {
+  profile: {
     ...defaultMapping,
     ...profileMapping
   },

@@ -45,21 +45,21 @@ module.exports = {
       'paragraph--introduction_banner': {
         component: 'rpl-intro-banner',
         props: {
-          'title': 'field_paragraph_title',
-          'introText': ['field_paragraph_body', 'processed'],
-          'linkHeading': 'field_call_to_action_title',
-          'links': {
+          title: 'field_paragraph_title',
+          introText: ['field_paragraph_body', 'processed'],
+          linkHeading: 'field_call_to_action_title',
+          links: {
             field: 'field_paragraph_links',
             filters: ['paragraphKeyJourneyLinks']
           },
-          'showLinks': {
+          showLinks: {
             value: true
           },
-          'linksType': {
+          linksType: {
             field: 'field_banner_display_type',
             filters: ['introBannerLinkTypes']
           },
-          'icon': {
+          icon: {
             field: 'field_banner_type',
             filters: ['introBannerTypeToIcon']
           }
@@ -69,13 +69,13 @@ module.exports = {
       'paragraph--embedded_search_form': {
         component: 'rpl-search-form',
         props: {
-          'searchPlaceholder': {
+          searchPlaceholder: {
             filters: ['embeddedSearchPlaceholder']
           },
-          'type': 'field_paragraph_search_block',
-          'searchTarget': 'field_paragraph_search_url',
-          'linkTarget': 'field_paragraph_search_target',
-          'theme': {
+          type: 'field_paragraph_search_block',
+          searchTarget: 'field_paragraph_search_url',
+          linkTarget: 'field_paragraph_search_target',
+          theme: {
             filters: ['embeddedSearchTheme']
           }
         },
@@ -88,20 +88,20 @@ module.exports = {
       'paragraph--basic_text': {
         component: 'rpl-markup',
         props: {
-          'html': ['field_paragraph_body', 'processed']
+          html: ['field_paragraph_body', 'processed']
         }
       },
 
       'paragraph--accordion': {
         component: 'rpl-accordion',
         props: {
-          'title': 'field_paragraph_title',
-          'type': ['field_paragraph_accordion_style'],
-          'accordions': {
+          title: 'field_paragraph_title',
+          type: ['field_paragraph_accordion_style'],
+          accordions: {
             field: 'field_paragraph_accordion',
             filters: ['accordionContent']
           },
-          'single': {
+          single: {
             value: false
           }
         }
@@ -110,9 +110,9 @@ module.exports = {
       'paragraph--card_navigation': {
         component: 'rpl-card-navigation',
         props: {
-          'title': 'field_paragraph_title',
-          'summary': ['field_paragraph_summary'],
-          'link': {
+          title: 'field_paragraph_title',
+          summary: ['field_paragraph_summary'],
+          link: {
             field: 'field_paragraph_link',
             filters: ['paragraphLink']
           }
@@ -126,12 +126,12 @@ module.exports = {
       'paragraph--card_navigation_auto': {
         component: 'rpl-card-navigation',
         props: {
-          'title': ['field_paragraph_reference', 'title'],
-          'summary': {
+          title: ['field_paragraph_reference', 'title'],
+          summary: {
             field: 'field_paragraph_reference',
             filters: ['autoCardSummary']
           },
-          'link': {
+          link: {
             // To send the item itself into filters by not using 'field'.
             filters: ['autoCardLink']
           }
@@ -145,13 +145,13 @@ module.exports = {
       'paragraph--card_navigation_featured': {
         component: 'rpl-card-navigation-featured',
         props: {
-          'title': 'field_paragraph_title',
-          'summary': ['field_paragraph_summary'],
-          'url': [
+          title: 'field_paragraph_title',
+          summary: ['field_paragraph_summary'],
+          url: [
             ['field_paragraph_link', 'url'],
             ['field_paragraph_link', 'uri']
           ],
-          'image': {
+          image: {
             field: ['field_paragraph_media', 'field_media_image'],
             filters: ['cardImage']
           }
@@ -161,13 +161,13 @@ module.exports = {
       'paragraph--card_navigation_featured_auto': {
         component: 'rpl-card-navigation-featured',
         props: {
-          'title': ['field_paragraph_reference', 'title'],
-          'summary': {
+          title: ['field_paragraph_reference', 'title'],
+          summary: {
             field: 'field_paragraph_reference',
             filters: ['autoCardSummary']
           },
-          'url': ['field_paragraph_reference', 'path', 'url'],
-          'image': {
+          url: ['field_paragraph_reference', 'path', 'url'],
+          image: {
             field: ['field_paragraph_reference'],
             filters: ['cardAutoImage']
           }
@@ -177,14 +177,14 @@ module.exports = {
       'paragraph--card_keydates': {
         component: 'rpl-card-keydates',
         props: {
-          'title': {
+          title: {
             value: 'Key calendar dates'
           },
-          'keydates': {
+          keydates: {
             field: 'field_paragraph_keydates',
             filters: ['paragraphKeydates']
           },
-          'link': {
+          link: {
             field: 'field_paragraph_cta',
             filters: ['paragraphCta']
           }
@@ -201,16 +201,16 @@ module.exports = {
             case: 'banner',
             component: 'rpl-call-to-action',
             props: {
-              'title': 'field_paragraph_title',
-              'summary': {
+              title: 'field_paragraph_title',
+              summary: {
                 field: 'field_paragraph_body',
                 filters: ['formattedTextDecode']
               },
-              'link': {
+              link: {
                 field: 'field_paragraph_cta',
                 filters: ['paragraphCta']
               },
-              'image': {
+              image: {
                 field: ['field_paragraph_media', 'field_media_image'],
                 filters: ['cardImage']
               }
@@ -225,16 +225,16 @@ module.exports = {
             case: 'card',
             component: 'rpl-card-cta',
             props: {
-              'title': 'field_paragraph_title',
-              'summary': {
+              title: 'field_paragraph_title',
+              summary: {
                 field: 'field_paragraph_body',
                 filters: ['formattedTextDecode']
               },
-              'link': {
+              link: {
                 field: 'field_paragraph_cta',
                 filters: ['paragraphCta']
               },
-              'image': {
+              image: {
                 field: ['field_paragraph_media', 'field_media_image'],
                 filters: ['cardImage']
               }
@@ -247,69 +247,69 @@ module.exports = {
       'paragraph--navigation_card': {
         component: 'rpl-card-nav',
         props: {
-          'title': [
+          title: [
             ['field_paragraph_link', 'internal_node_fields', 'title'],
             ['field_paragraph_title']
           ],
-          'summary': [
+          summary: [
             ['field_paragraph_link', 'internal_node_fields', 'summary'],
             ['field_paragraph_summary']
           ],
-          'image': {
+          image: {
             field: [
               ['field_paragraph_link', 'image'],
               ['field_paragraph_media', 'field_media_image']
             ],
             filters: ['cardImage']
           },
-          'link': {
+          link: {
             field: 'field_paragraph_link',
             filters: ['paragraphLink']
           },
-          'dateStart': ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
-          'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
-          'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
-          'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
-          'authors': ['field_paragraph_link', 'internal_node_fields', 'publication_authors'],
-          'fvRecommendationStatus': ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
-          'inductionYear': ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
-          'showMeta': 'field_customise',
-          'displayStyle': 'field_nav_card_display_style',
-          'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
+          dateStart: ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
+          dateEnd: ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
+          contentType: ['field_paragraph_link', 'internal_node_fields', 'node_type'],
+          topic: ['field_paragraph_link', 'internal_node_fields', 'topic'],
+          authors: ['field_paragraph_link', 'internal_node_fields', 'publication_authors'],
+          fvRecommendationStatus: ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
+          inductionYear: ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
+          showMeta: 'field_customise',
+          displayStyle: 'field_nav_card_display_style',
+          isGrantOnGoing: ['field_paragraph_link', 'internal_node_fields', 'ongoing']
         }
       },
 
       'paragraph--promotion_card': {
         component: 'rpl-card-promo',
         props: {
-          'title': [
+          title: [
             ['field_paragraph_link', 'internal_node_fields', 'title'],
             ['field_paragraph_title']
           ],
-          'summary': [
+          summary: [
             ['field_paragraph_link', 'internal_node_fields', 'summary'],
             ['field_paragraph_summary']
           ],
-          'image': {
+          image: {
             field: [
               ['field_paragraph_link', 'image'],
               ['field_paragraph_media', 'field_media_image']
             ],
             filters: ['cardImage']
           },
-          'link': {
+          link: {
             field: 'field_paragraph_link',
             filters: ['paragraphLink']
           },
-          'dateStart': ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
-          'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
-          'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
-          'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
-          'fvRecommendationStatus': ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
-          'inductionYear': ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
-          'showMeta': 'field_customise',
-          'displayStyle': 'field_promo_card_display_style',
-          'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
+          dateStart: ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
+          dateEnd: ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
+          topic: ['field_paragraph_link', 'internal_node_fields', 'topic'],
+          contentType: ['field_paragraph_link', 'internal_node_fields', 'node_type'],
+          fvRecommendationStatus: ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
+          inductionYear: ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
+          showMeta: 'field_customise',
+          displayStyle: 'field_promo_card_display_style',
+          isGrantOnGoing: ['field_paragraph_link', 'internal_node_fields', 'ongoing']
         },
         cols: cardColsSetting
       },
@@ -317,16 +317,16 @@ module.exports = {
       'paragraph--card_event': {
         component: 'rpl-card-event',
         props: {
-          'image': {
+          image: {
             field: ['field_paragraph_media', 'field_media_image'],
             filters: ['cardImage']
           },
-          'dateStart': ['field_paragraph_date_range', 'value'],
-          'dateEnd': ['field_paragraph_date_range', 'end_value'],
-          'location': ['field_paragraph_location', 'locality'],
-          'title': 'field_paragraph_title',
-          'summary': ['field_paragraph_summary'],
-          'link': {
+          dateStart: ['field_paragraph_date_range', 'value'],
+          dateEnd: ['field_paragraph_date_range', 'end_value'],
+          location: ['field_paragraph_location', 'locality'],
+          title: 'field_paragraph_title',
+          summary: ['field_paragraph_summary'],
+          link: {
             field: 'field_paragraph_cta',
             filters: ['paragraphCta']
           }
@@ -337,15 +337,15 @@ module.exports = {
       'paragraph--card_promotion': {
         component: 'rpl-card-promotion',
         props: {
-          'image': {
+          image: {
             field: ['field_paragraph_media', 'field_media_image'],
             filters: ['cardImage']
           },
-          'date': 'field_paragraph_date',
-          'topic': ['field_paragraph_topic', 0, 'name'],
-          'title': 'field_paragraph_title',
-          'summary': ['field_paragraph_summary'],
-          'link': {
+          date: 'field_paragraph_date',
+          topic: ['field_paragraph_topic', 0, 'name'],
+          title: 'field_paragraph_title',
+          summary: ['field_paragraph_summary'],
+          link: {
             field: 'field_paragraph_link',
             filters: ['paragraphCta']
           }
@@ -356,24 +356,24 @@ module.exports = {
       'paragraph--card_promotion_auto': {
         component: 'rpl-card-promotion',
         props: {
-          'image': {
+          image: {
             field: ['field_paragraph_reference'],
             filters: ['cardAutoImage']
           },
-          'date': [
+          date: [
             ['field_paragraph_reference', 'field_paragraph_date'],
             // News specific date field.
             ['field_paragraph_reference', 'field_news_date']
           ],
-          'topic': {
+          topic: {
             filters: ['autoCardTopic']
           },
-          'title': ['field_paragraph_reference', 'title'],
-          'summary': {
+          title: ['field_paragraph_reference', 'title'],
+          summary: {
             field: 'field_paragraph_reference',
             filters: ['autoCardSummary']
           },
-          'link': {
+          link: {
             // To send the item itself into filters by not using 'field'.
             filters: ['autoCardLink']
           }
@@ -385,11 +385,11 @@ module.exports = {
         component: 'rpl-image-gallery',
         ssr: false,
         props: {
-          'galleryData': {
+          galleryData: {
             field: ['field_paragraph_media_gallery', 'field_gallery_media'],
             filters: ['galleryContent']
           },
-          'enlargeText': 'Click to enlarge'
+          enlargeText: 'Click to enlarge'
         }
       },
 
@@ -397,8 +397,8 @@ module.exports = {
         component: 'rpl-card-carousel',
         ssr: false,
         props: {
-          'title': 'field_paragraph_title',
-          'cards': {
+          title: 'field_paragraph_title',
+          cards: {
             filters: ['cardCarousel']
           }
         },
@@ -409,8 +409,8 @@ module.exports = {
         component: 'rpl-timeline',
         ssr: false,
         props: {
-          'title': 'field_paragraph_title',
-          'list': {
+          title: 'field_paragraph_title',
+          list: {
             field: ['field_timeline'],
             filters: ['timelineList']
           }
@@ -420,21 +420,21 @@ module.exports = {
       'paragraph--user_authentication_block': {
         component: 'tide-login',
         props: {
-          'redirect': ['field_next_page', 'url'] // @TODO update fieldname to match contentapi final structure
+          redirect: ['field_next_page', 'url'] // @TODO update fieldname to match contentapi final structure
         }
       },
 
       'paragraph--complex_image': {
         component: 'rpl-complex-image',
         props: {
-          'title': 'field_complex_image_title',
-          'source': 'field_complex_image_source',
-          'html': ['field_complex_image_data', 'processed'],
-          'fullscreen': 'field_complex_image_full_label',
-          'download': 'field_complex_image_dl_label',
-          'expand': 'field_complex_image_data_label',
-          'expandTitle': 'field_complex_image_title',
-          'image': {
+          title: 'field_complex_image_title',
+          source: 'field_complex_image_source',
+          html: ['field_complex_image_data', 'processed'],
+          fullscreen: 'field_complex_image_full_label',
+          download: 'field_complex_image_dl_label',
+          expand: 'field_complex_image_data_label',
+          expandTitle: 'field_complex_image_title',
+          image: {
             field: 'field_complex_image_media',
             filters: ['paragraphCtaImage']
           }
@@ -458,7 +458,7 @@ module.exports = {
       'paragraph--form_embed_openforms': {
         component: 'tide-open-form',
         props: {
-          'formLink': ['field_form_link', 'uri']
+          formLink: ['field_form_link', 'uri']
         }
       }
 

@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'external_link': {
+  external_link: {
     width: 14,
     height: 14,
     paths: [

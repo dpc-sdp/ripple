@@ -37,7 +37,6 @@ module.exports = {
     'node/no-deprecated-api': 'warn',
     'prefer-const': 'off',
     quotes: ['off', 'single', { allowTemplateLiterals: true }],
-    'quote-props': 'off',
     'vue/no-mutating-props': 'off'
   }
 }

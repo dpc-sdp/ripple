@@ -52,8 +52,8 @@ import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 export default {
   components: { RplRow, RplCol, RplQuickExit, RplResponsiveImg },
   props: {
-    'sidebar': Boolean,
-    'columns': {
+    sidebar: Boolean,
+    columns: {
       type: Object,
       default () {
         return {
@@ -65,11 +65,11 @@ export default {
         }
       }
     },
-    'quickExit': { type: Boolean, default: null },
-    'backgroundColor': String,
-    'heroBackgroundImage': Object,
-    'backgroundGraphic': String,
-    'withSearch': Boolean
+    quickExit: { type: Boolean, default: null },
+    backgroundColor: String,
+    heroBackgroundImage: Object,
+    backgroundGraphic: String,
+    withSearch: Boolean
   },
   data () {
     return {

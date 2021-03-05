@@ -130,7 +130,7 @@ export const tide = (axios, site, config) => ({
       }
       return sitesDomainMap
     }
-
+    // eslint-disable-next-line
     sites.map((item) => {
       if (item.field_site_domains) {
         domain = item.field_site_domains.valueOf().split('\r\n', 1)

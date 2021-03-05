@@ -73,6 +73,7 @@ export default {
           if (bp.width && this.bps[bp.size] !== 0) {
             return `(max-width: ${this.bps[bp.size]}px) ${bp.width}px`
           }
+          return ''
         }).filter(bp => bp).join(', ') + ', 100vw'
       }
       return ''

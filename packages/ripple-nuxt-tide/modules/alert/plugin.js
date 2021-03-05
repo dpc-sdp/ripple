@@ -23,6 +23,7 @@ export default function ({ app, store }) {
       },
       getters: {
         getAlerts: state => {
+          // eslint-disable-next-line
           return state.ids.map(id => {
             const siteId = get(store, 'state.tide.siteData.drupal_internal__tid')
             const siteSectionId = get(store, 'state.tideSite.siteSection', siteId)
@@ -39,6 +40,7 @@ export default function ({ app, store }) {
               // if it doesn't exist or if it has been updated
               if (!state.ids.includes(alert.id) || (state.alerts[alert.id].changed !== alert.changed)) {
                 const link = get(alert, 'field_call_to_action', {})
+                // eslint-disable-next-line
                 const sites = get(alert, 'field_node_site', []).map(site => {
                   if (site.drupal_internal__tid) {
                     return site.drupal_internal__tid

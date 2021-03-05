@@ -158,6 +158,7 @@ export default {
     getFooterLogos (siteData) {
       let logos = []
       if (typeof siteData.field_site_footer_logos !== 'undefined') {
+        // eslint-disable-next-line
         siteData.field_site_footer_logos.map(logo => {
           const logoLink = this.$tideMapping.filter(logo.field_paragraph_cta, ['paragraphCta'])
           logos.push({

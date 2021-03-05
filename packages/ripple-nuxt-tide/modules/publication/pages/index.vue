@@ -67,6 +67,7 @@ export default {
     chapters () {
       if (this.page.type === 'node--publication' && this.page.publication_children) {
         if (this.page.publication_children.length > 0) {
+          // eslint-disable-next-line
           return this.page.publication_children.map(item => {
             const menuItem = item.meta
             if (menuItem) {

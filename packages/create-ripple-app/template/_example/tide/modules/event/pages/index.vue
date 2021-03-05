@@ -100,6 +100,7 @@ export default {
       }
 
       const requirements = eventDetails.field_event_requirements || []
+      // eslint-disable-next-line
       requirements.map(requirement => {
         list.push({
           symbol: requirementIcons[requirement.name] ? requirementIcons[requirement.name].name : requirementIcons.default.name,

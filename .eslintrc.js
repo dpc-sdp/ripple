@@ -31,7 +31,6 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // TODO enable the rules to achieve lint standard consistency towards projects
-    'array-callback-return': 'off',
     'dot-notation': 'off',
     'multiline-ternary': ['error', 'never'],
     'no-case-declarations': 'off',

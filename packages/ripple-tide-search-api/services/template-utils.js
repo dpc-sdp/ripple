@@ -2,6 +2,7 @@ import get from 'lodash.get'
 
 export const getTermsFilter = (params) => {
   if (params.filters) {
+    // eslint-disable-next-line
     return Object.keys(params.filters).map(key => {
       const values = params.filters[key] && params.filters[key] && params.filters[key].values
       if (values && !Array.isArray(values)) {

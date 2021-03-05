@@ -35,7 +35,7 @@
     "build:storybook": "cd src && yarn build-storybook",
     "build:vic-gov-au": "cd examples/vic-gov-au && yarn run build --modern=client",
     "lint": "sass-lint && yarn lint:es",
-    "lint:es": "eslint --ext .js,.vue . --max-warnings 0",
+    "lint:es": "eslint --ext .js,.vue . --max-warnings 2",
     "lint:fix": "eslint --ext .js,.vue . --fix",
     "bay:start": "docker-compose up -d",
     "bay:rebuild-full": "docker-compose up -d --build --force-recreate",

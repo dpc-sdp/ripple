@@ -34,9 +34,8 @@ module.exports = {
     'dot-notation': 'off',
     'multiline-ternary': ['error', 'never'],
     'no-prototype-builtins': 'off',
-    'node/no-deprecated-api': 'off',
+    'node/no-deprecated-api': 'warn',
     'prefer-const': 'off',
-    'prefer-regex-literals': 'off',
     quotes: ['off', 'single', { allowTemplateLiterals: true }],
     'quote-props': 'off',
     'vue/no-mutating-props': 'off'

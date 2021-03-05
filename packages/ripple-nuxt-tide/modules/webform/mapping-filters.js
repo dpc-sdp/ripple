@@ -156,7 +156,7 @@ module.exports = {
           if (defaultValue) data.model[eName] = defaultValue
           break
 
-        case 'radios':
+        case 'radios': {
           field.type = 'radios'
           const fields = element['#options']
           field.values = []
@@ -170,7 +170,7 @@ module.exports = {
             }
           }
           break
-
+        }
         case 'textarea':
           field.type = 'textArea'
 
@@ -201,7 +201,7 @@ module.exports = {
           if (defaultValue) data.model[eName] = defaultValue
           break
 
-        case 'select':
+        case 'select': {
           field.type = 'rplselect'
           // TODO: Add multiple select support.
           const options = element['#options']
@@ -218,8 +218,8 @@ module.exports = {
 
           if (defaultValue) data.model[eName] = defaultValue
           break
-
-        case 'webform_term_select':
+        }
+        case 'webform_term_select': {
           field.type = 'rplselect'
           if (element['#multiple']) {
             field.multiselect = true
@@ -253,7 +253,7 @@ module.exports = {
             }
           })
           break
-
+        }
         case 'label':
           field.type = 'label'
           break
@@ -279,7 +279,7 @@ module.exports = {
           field.type = 'rpldivider'
           break
 
-        case 'address':
+        case 'address': {
           data.model[eName] = {}
           group.fields = []
           group.legend = element['#title'] ? element['#title'] : null
@@ -403,7 +403,7 @@ module.exports = {
             }
           )
           break
-
+        }
         case 'date':
           field.type = 'rpldatepicker'
           break

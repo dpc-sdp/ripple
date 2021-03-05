@@ -104,7 +104,7 @@ module.exports = {
   cardCarousel: async (carousel, { mapping }) => {
     let cards = []
     switch (carousel.field_paragraph_latest_items) {
-      case null:
+      case null: {
         const items = carousel.field_paragraph_items
         items.map(async item => {
           try {
@@ -119,7 +119,8 @@ module.exports = {
         })
 
         break
-      case 'news':
+      }
+      case 'news': {
         // TODO: handle this hook code in better way
         if (typeof mapping.mappingFilters.latestNewsCards === 'function') {
           try {
@@ -133,7 +134,8 @@ module.exports = {
           }
         }
         break
-      case 'event':
+      }
+      case 'event': {
         // TODO: handle this hook code in better way
         if (typeof mapping.mappingFilters.eventLatestEvents === 'function') {
           try {
@@ -146,6 +148,7 @@ module.exports = {
           }
         }
         break
+      }
     }
     return cards
   },

@@ -33,7 +33,6 @@ module.exports = {
     // TODO enable the rules to achieve lint standard consistency towards projects
     'dot-notation': 'off',
     'multiline-ternary': ['error', 'never'],
-    'no-case-declarations': 'off',
     'no-prototype-builtins': 'off',
     'node/no-deprecated-api': 'off',
     'prefer-const': 'off',

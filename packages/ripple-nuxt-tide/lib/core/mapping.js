@@ -144,7 +144,7 @@ export class Mapping {
     switch (type) {
       // In future, any type has different mapping can be added here.
       // case 'typeA':
-      default:
+      default: {
         let itemConfig = this.mappingConfig[type][item.type]
 
         // If it's one to multiple mode, we switch to the right one based on expression.
@@ -170,6 +170,7 @@ export class Mapping {
           class: this[_getClass](itemConfig),
           ssr: this[_isSSR](itemConfig)
         }
+      }
     }
   }
 

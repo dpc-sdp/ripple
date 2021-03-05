@@ -360,7 +360,7 @@ export const tide = (axios, site, config) => ({
     // However, custom entity type is not supported, must be added in here.
     switch (pathData.entity_type) {
       // media entity
-      case 'media':
+      case 'media': {
         switch (pathData.bundle) {
           case 'embedded_video':
             include = tideIncludeConfig.mediaBase
@@ -372,7 +372,8 @@ export const tide = (axios, site, config) => ({
             break
         }
         break
-      case 'taxonomy_term':
+      }
+      case 'taxonomy_term': {
         switch (pathData.bundle) {
           case 'tags':
           case 'topic':
@@ -381,7 +382,8 @@ export const tide = (axios, site, config) => ({
         }
         break
       // node entity
-      default:
+      }
+      default: {
         // Convert Tide bundle name to camelcase.
         // https://stackoverflow.com/a/6661012/1212791
         const bundleName = pathData.bundle.replace(/_([a-z])/g, function (g) { return g[1].toUpperCase() })
@@ -398,6 +400,7 @@ export const tide = (axios, site, config) => ({
             return new Error(`Unrecognized entity bundle "${bundleName}".`)
           }
         }
+      }
     }
     // remove undefined includes
     let params = { include: include.filter(i => i).join(',') }

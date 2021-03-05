@@ -19,7 +19,7 @@ function testField (field, data) {
 
     // Apply state
     switch (state) {
-      case 'required':
+      case 'required': {
         field.required = isPass
         // Remove 'required' from validator array.
         const idxRequired = field.validator.indexOf('required')
@@ -29,25 +29,25 @@ function testField (field, data) {
           field.validator.splice(idxRequired, 1)
         }
         break
-
+      }
       case 'disabled':
         field.disabled = isPass
         break
 
-      case 'enabled':
+      case 'enabled': {
         const enable = isPass
         field.disabled = !enable
         break
-
+      }
       case 'visible':
         field.visible = isPass
         break
 
-      case 'invisible':
+      case 'invisible': {
         const invisible = isPass
         field.visible = !invisible
         break
-
+      }
       default:
         logger.warn('Form: State "%s" is not supported.', state, { label: 'Webform' })
         break
@@ -209,7 +209,7 @@ function performTriggerCheck (rule) {
 function performOperatorCheck (operator, results) {
   let isPass = false
   switch (operator) {
-    case 'and':
+    case 'and': {
       let andCount = 0
       // All must be true
       for (let i = 0; i < results.length; i++) {
@@ -219,6 +219,7 @@ function performOperatorCheck (operator, results) {
       }
       isPass = (andCount === results.length)
       break
+    }
     case 'or':
       // Any can be true
       for (let i = 0; i < results.length; i++) {
@@ -228,7 +229,7 @@ function performOperatorCheck (operator, results) {
         }
       }
       break
-    case 'xor':
+    case 'xor': {
       let xorCount = 0
       // Only one must be true
       for (let i = 0; i < results.length; i++) {
@@ -238,6 +239,7 @@ function performOperatorCheck (operator, results) {
       }
       isPass = (xorCount === 1)
       break
+    }
     default:
       logger.warn('Form: Operator %s not supported.', operator, { label: 'Webform' })
       break

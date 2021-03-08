@@ -34,7 +34,6 @@ module.exports = {
     'dot-notation': 'off',
     'multiline-ternary': ['error', 'never'],
     'no-prototype-builtins': 'off',
-    'node/no-deprecated-api': 'warn',
     'prefer-const': 'off',
     quotes: ['off', 'single', { allowTemplateLiterals: true }]
   }

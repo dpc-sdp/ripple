@@ -103,7 +103,9 @@ export default {
           sizes: '100vw'
         }
       }
-      return {}
+      return {
+        src: ''
+      }
     }
   },
   mounted () {

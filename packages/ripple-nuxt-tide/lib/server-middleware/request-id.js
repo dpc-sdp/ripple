@@ -1,6 +1,5 @@
 // Log server connection
 import { generateId } from './../core/tide-helper'
-import logger from '../core/logger'
 const { URL } = require('url')
 
 module.exports = function (req, res, next) {

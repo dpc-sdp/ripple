@@ -11,7 +11,6 @@ module.exports = function (req, res, next) {
     reqUrl = new URL({ toString: () => req.url })
   } catch (e) {
     reqUrl = ''
-    logger.warn('Error in parsing URL: ', e, { label: 'Request log' })
   }
   const reqPath = reqUrl.pathname ? decodeURI(reqUrl.pathname) : ''
   if (reqPath.includes('/api/v')) {

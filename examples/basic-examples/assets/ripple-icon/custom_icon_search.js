@@ -1,7 +1,7 @@
 import Icon from '@dpc-sdp/ripple-icon/Icon.vue'
 
 Icon.register({
-  'search': {
+  search: {
     width: 10,
     height: 10,
     paths: [

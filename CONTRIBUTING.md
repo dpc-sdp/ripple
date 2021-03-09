@@ -65,6 +65,16 @@ Update storyshots tests if you need by `yarn test:unit -u`.
 yarn test:unit
 ```
 
+**Storyshots is temporarily removed due to a open issue in storybook project.**
+
+Chromatic is the tool for visual testing, it's running in CircleCI for pull request.
+
+If you want to run it in local:
+
+``` bash
+cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE
+```
+
 ### Unit testing
 
 Unit tests are important. They help us secure our processes and work flows, ensuring that the most critical parts of our projects are protected from accidental mistakes or oversights in our development. We use both Jest and Vue testing utility called [vue-test-utils](https://vue-test-utils.vuejs.org/).

@@ -7,7 +7,7 @@
   "prConcurrentLimit": 3,
   "packageRules": [
     {
-      "excludePackageNames": ["cheerio"]
+      "ignoreDeps": ["cheerio"]
     }
   ]
 }

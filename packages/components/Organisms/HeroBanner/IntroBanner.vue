@@ -134,6 +134,7 @@ export default {
     's': ('top': ($rpl-space * 20), 'bottom': ($rpl-space * 8)),
   ) !default;
   $rpl-intro-banner-icon-spacing: 53px;
+  $rpl-intro-banner-description-link-color: rpl-color('primary') !default;
 
   .rpl-intro-banner {
     $root: &;
@@ -216,6 +217,16 @@ export default {
       ul {
         padding-left: 0;
         margin-left: rem(17px);
+      }
+
+      a {
+        color: $rpl-intro-banner-description-link-color;
+        text-decoration: none;
+      }
+
+      a:focus,
+      a:hover {
+        text-decoration: underline;
       }
     }
 

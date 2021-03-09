@@ -9,7 +9,7 @@ module.exports = {
       // You can do:
       // - Map to your own component.
       // - Use your own filters to process the Tide field data.
-      'heroBanner': {
+      heroBanner: {
         component: 'rpl-hero-banner',
         props: {
           title: {

@@ -251,10 +251,6 @@ Then(`the event card titled {string} should contain the following:`, (title, dat
     })
   })
 })
-// card CTA
-Then(`the card CTA component should exist`, () => {
-  cy.get('.rpl-card-cta, .rpl-call-to-action').should('exist')
-})
 // card keydates
 Then(`the card keydates component should exist`, () => {
   cy.get('.rpl-card-keydates').should('exist')
@@ -380,6 +376,14 @@ Then(`the navigation card titled {string} should contain the following:`, (title
       })
     })
   })
+})
+// card promo
+Then(`the card promo component should exist`, () => {
+  cy.get('.rpl-card-promo').should('exist')
+})
+// card nav
+Then(`the card nav component should exist`, () => {
+  cy.get('.rpl-card-nav').should('exist')
 })
 // card carousel
 Then(`the card carousel component should exist`, () => {

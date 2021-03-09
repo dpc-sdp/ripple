@@ -38,7 +38,7 @@ export const getMappedData = async (mapping, resource) => {
   if (!mapping || !resource) { throw new Error('Error: Unable to retrive data from mapping' + mapping) }
   const data = {}
   for (const key in mapping) {
-    if (mapping.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(mapping, key)) {
       const resolver = mapping[key]
       if (typeof resolver === 'string' || Array.isArray(resolver)) {
         data[key] = this.utils.get(resource, resolver)
@@ -55,7 +55,7 @@ export const getMappedData = async (mapping, resource) => {
 }
 
 export const responseMappingByType = async (mappingConfig, item) => {
-  if (item && item.hasOwnProperty('type') && item.type.length > 0) {
+  if (item && Object.prototype.hasOwnProperty.call(item, 'type') && item.type.length > 0) {
     const mapping = mappingConfig[item.type[0]] || mappingConfig['default']
     if (!mapping || !item) { throw new Error('Error: Unable to retrive ' + item.type[0] + ' mapping') }
     const data = {}

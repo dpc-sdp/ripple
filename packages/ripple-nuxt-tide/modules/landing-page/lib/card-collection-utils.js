@@ -60,7 +60,7 @@ export const getSiteDomainUrl = (url, currentSite, domains) => {
       const path = url.substring(url.indexOf('/', 2))
       if (siteId === currentSite) {
         return path
-      } else if (domains.hasOwnProperty(currentSite)) {
+      } else if (Object.prototype.hasOwnProperty.call(domains, currentSite)) {
         return '//' + domains[siteId] + path
       }
     }

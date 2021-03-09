@@ -165,7 +165,7 @@ module.exports = {
           }
 
           for (let key in fields) {
-            if (fields.hasOwnProperty(key)) {
+            if (Object.prototype.hasOwnProperty.call(fields, key)) {
               field.values.push({ name: fields[key], value: key })
             }
           }
@@ -448,9 +448,9 @@ module.exports = {
 
       // Only mapped type will be rendered.
       // Single fields get wrapped in groups, this should be updated when vfg v3 is stable with field type group functionality https://github.com/vue-generators/vue-form-generator/pull/484
-      if (group.hasOwnProperty('fields') && group.fields.length > 0) {
+      if (Object.prototype.hasOwnProperty.call(group, 'fields') && group.fields.length > 0) {
         data.schema.groups.push(group)
-      } else if (!group.hasOwnProperty('fields') && field.type !== null) {
+      } else if (!Object.prototype.hasOwnProperty.call(group, 'fields') && field.type !== null) {
         data.schema.groups.push({ fields: [field] })
       } else {
         const logger = require('@dpc-sdp/ripple-nuxt-tide/lib/core').logger

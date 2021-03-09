@@ -62,7 +62,7 @@ export default {
   },
   computed: {
     isResponsive () {
-      return this.rplOptions.imgQueryString || this.srcSet.some(bp => bp.hasOwnProperty('src'))
+      return this.rplOptions.imgQueryString || this.srcSet.some(bp => Object.prototype.hasOwnProperty.call(bp, 'src'))
     },
     calcSizes () {
       if (this.sizes) {

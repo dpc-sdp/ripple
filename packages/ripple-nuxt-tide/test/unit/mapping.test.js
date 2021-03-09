@@ -139,7 +139,7 @@ describe('mapping', () => {
       },
       d: {
         da: {
-          // daa property is undefinded.
+          // daa property is undefined.
           dab: 'value d'
         }
       },

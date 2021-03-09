@@ -176,7 +176,7 @@ export class Mapping {
 
   [_getValFromFieldArray] (fieldArray, item) {
     for (const field of fieldArray) {
-      if (item !== null && typeof item === 'object' && item.hasOwnProperty(field)) {
+      if (item !== null && typeof item === 'object' && Object.prototype.hasOwnProperty.call(item, field)) {
         item = item[field]
       } else {
         return null

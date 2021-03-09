@@ -17,7 +17,7 @@ module.exports = {
     'plugin:vue/essential',
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard',
-    "plugin:jest/recommended"
+    'plugin:jest/recommended'
   ],
   // required to lint *.vue files
   plugins: [
@@ -30,10 +30,13 @@ module.exports = {
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // TODO enable the rules to achieve lint standard consistency towards projects
+    // disable converting single item array to use dot-notation
     'dot-notation': 'off',
+    // allow ternary operator in single line
     'multiline-ternary': ['error', 'never'],
+    // currently being disabled as it's complaining on for loop
     'prefer-const': 'off',
+    // we should use single quote for consistency, also allowing backticks
     quotes: ['off', 'single', { allowTemplateLiterals: true }]
   }
 }

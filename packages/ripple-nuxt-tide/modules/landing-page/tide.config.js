@@ -36,7 +36,8 @@ module.exports = {
       'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_featured_image.field_media_image',
       'field_landing_page_component.field_paragraph_items.field_paragraph_keydates',
       'field_landing_page_component.field_paragraph_items.field_paragraph_media.field_media_image',
-      'field_landing_page_component.field_complex_image_media.field_media_image'
+      'field_landing_page_component.field_complex_image_media.field_media_image',
+      'field_landing_page_component.field_props'
     ]
   },
 
@@ -459,6 +460,18 @@ module.exports = {
         component: 'tide-open-form',
         props: {
           'formLink': ['field_form_link', 'uri']
+        }
+      },
+
+      'paragraph--custom_component': {
+        component: 'tide-custom-component',
+        props: {
+          compName: 'field_name',
+          compProps: {
+            field: 'field_props',
+            filters: ['compProps']
+          },
+          compSlotText: 'field_text_slot'
         }
       }
 

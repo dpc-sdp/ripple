@@ -201,6 +201,28 @@ module.exports = {
       default:
         return null
     }
+  },
+
+  /**
+   * Convert Tide field_props value to Vue component props data
+   */
+  compProps: (fieldProps) => {
+    let props = {}
+    fieldProps.forEach(prop => {
+      let value
+      try {
+        // Try to parse JSON string first,
+        // this will allow us to take Array or Object value from CMS.
+        // @TODO: however, this is untested and not encourage to use for now.
+        value = JSON.parse(prop.field_prop_value)
+      } catch {
+        // If not JSON, use the string value directly.
+        // String `true` and `false` will be used as bool type.
+        value = prop.field_prop_value
+      }
+      props[prop.field_prop_name] = value
+    })
+    return props
   }
 
 }

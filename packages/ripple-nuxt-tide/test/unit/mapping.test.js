@@ -101,6 +101,18 @@ describe('mapping', () => {
                 }
               }
             ]
+          },
+
+          testConstantValue: {
+            component: 'rpl-test-component',
+            props: {
+              a: {
+                value: 'This is a constant value'
+              },
+              b: {
+                value: 'This is another constant value'
+              }
+            }
           }
         }
       }
@@ -328,6 +340,31 @@ describe('mapping', () => {
       cols: {},
       ssr: true
     }
+
+    const result = await mapping.get(item, 'testField')
+    expect(result).toEqual(components)
+  })
+
+  test('should be able to get constant value', async () => {
+    const mapping = new Mapping(config, tideApi)
+    expect.assertions(1)
+
+    const item = [{
+      type: 'testConstantValue'
+    }]
+
+    const components = [{
+      name: 'rpl-test-component',
+      data: {
+        // Sometimes you need a constant value. Like some value that is always fixed.
+        a: 'This is a constant value',
+        b: 'This is another constant value'
+      },
+      class: [],
+      childCols: null,
+      cols: {},
+      ssr: true
+    }]
 
     const result = await mapping.get(item, 'testField')
     expect(result).toEqual(components)

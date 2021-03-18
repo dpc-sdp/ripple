@@ -2,6 +2,7 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import RplCardContent from './CardContent.vue'
 import RplCardBox from './CardBox.vue'
 import RplCardPromo from './CardPromo.vue'
+import RplCardNav from './CardNav.vue'
 
 <Meta title="Molecules/Card" />
 
@@ -18,7 +19,7 @@ export const TemplateCardBox = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="Card box"
+    name="Box"
     args={{
       cards: [
         {
@@ -85,7 +86,7 @@ export const TemplateCardContent = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="Card content"
+    name="Content"
     argTypes={{
       type: {
         control: {
@@ -122,12 +123,57 @@ export const TemplateCardContent = (args, { argTypes }) => ({
 export const TemplateCardPromo = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplCardPromo },
-  template: `<rpl-card-promo :title="title" :image="image" :summary="summary" :link="link" :topic="topic" :date="date" :status="status" />`
+  template: `
+    <rpl-card-promo
+      :title='title'
+      :image='image'
+      :summary='summary'
+      :link='link'
+      :topic='topic'
+      :date-start='dateStart'
+      :date-end='dateEnd'
+      :content-type='contentType'
+      :show-meta='showMeta'
+      :display-style='displayStyle'
+      :is-grant-on-going='isGrantOnGoing' />`
 });
+
+export const cardPromoNavArgTypes = {
+  contentType: {
+    control: {
+      type: 'select',
+      options: [
+        'Event',
+        'Grant',
+        'News',
+        'Publication',
+        'Profile: Aboriginal Honour Roll',
+        'Profile: Australia Day Ambassador',
+        'Profile: Victorian Design Review Panel',
+        'Profile: Women\'s Honour Roll'
+      ],
+      default: 'event'
+    },
+  },
+  displayStyle: {
+    control: {
+      type: 'select',
+      options: ['noImage', 'thumbnail', 'profile']
+    }
+  },
+  isGrantOnGoing: {
+    control: {
+      type: 'select',
+      options: ['0', '1'],
+      default: '0'
+    }
+  }
+}
 
 <Canvas>
   <Story
-    name="Card promo with image"
+    name="Promo no image"
+    argTypes={cardPromoNavArgTypes}
     args={{
       title: 'Card promo title',
       link: { text: 'Read more', url: '#' },
@@ -140,8 +186,11 @@ export const TemplateCardPromo = (args, { argTypes }) => ({
         width: 580,
         height: 340
       },
-      date: {},
-      status: '',
+      dateStart: 'Sun, 21 Feb 2021 03:38:51 GMT',
+      dateEnd: 'Wed, 03 Mar 2021 03:38:51 GMT',
+      showMeta: true,
+      displayStyle: 'noImage',
+      contentType: 'Event',
       topic: 'Arts, Culture and Humanities',
       summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     }}
@@ -152,7 +201,8 @@ export const TemplateCardPromo = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="Card promo event"
+    name="Promo thumbnail"
+    argTypes={cardPromoNavArgTypes}
     args={{
       title: 'Card promo title',
       link: { text: 'Read more', url: '#' },
@@ -165,9 +215,12 @@ export const TemplateCardPromo = (args, { argTypes }) => ({
         width: 580,
         height: 340
       },
-      topic: 'Event',
-      status: '',
-      date: { from: new Date('02 July 2020'), to: new Date('25 September 2020') },
+      dateStart: 'Sun, 21 Feb 2021 03:38:51 GMT',
+      dateEnd: 'Wed, 03 Mar 2021 03:38:51 GMT',
+      showMeta: true,
+      displayStyle: 'thumbnail',
+      contentType: 'Grant',
+      topic: 'Arts, Culture and Humanities',
       summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     }}
   >
@@ -177,47 +230,26 @@ export const TemplateCardPromo = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="Card promo grant"
-    argTypes={{
-      status: {
-        control: {
-          type: 'select',
-          options: ['Open', 'Closed', 'Ongoing']
-        }
-      }
-    }}
+    name="Promo profile"
+    argTypes={cardPromoNavArgTypes}
     args={{
       title: 'Card promo title',
       link: { text: 'Read more', url: '#' },
-      image: null,
-      date: null,
-      topic: 'Grant',
-      status: 'Open',
-      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    }}
-  >
-    {TemplateCardPromo.bind({})}
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story
-    name="Card promo profile"
-    argTypes={{
-      status: {
-        control: {
-          type: 'select',
-          options: ['Open', 'Closed', 'Ongoing']
-        }
-      }
-    }}
-    args={{
-      title: 'Card promo title',
-      link: { text: 'Read more', url: '#' },
-      image: 'https://placehold.it/580x340',
-      date: '02 July 2020',
-      topic: 'Profile',
-      variation: 'profile',
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+          x: '290',
+          y: '170'
+        },
+        width: 580,
+        height: 340
+      },
+      dateStart: 'Sun, 21 Feb 2021 03:38:51 GMT',
+      dateEnd: '',
+      showMeta: true,
+      displayStyle: 'profile',
+      contentType: 'Profile: Aboriginal Honour Roll',
+      topic: 'Arts, Culture and Humanities',
       summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     }}
   >
@@ -226,3 +258,112 @@ export const TemplateCardPromo = (args, { argTypes }) => ({
 </Canvas>
 
 <ArgsTable of={RplCardPromo} />
+
+## Card nav
+
+export const TemplateCardNav = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCardNav },
+  template: `
+    <rpl-card-nav
+      :title='title'
+      :image='image'
+      :summary='summary'
+      :link='link'
+      :topic='topic'
+      :date-start='dateStart'
+      :date-end='dateEnd'
+      :content-type='contentType'
+      :show-meta='showMeta'
+      :display-style='displayStyle'
+      :is-grant-on-going='isGrantOnGoing' />`
+});
+
+<Canvas>
+  <Story
+    name="Nav no image"
+    argTypes={cardPromoNavArgTypes}
+    args={{
+      title: 'Card nav title',
+      link: { text: 'Read more', url: '#' },
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+          x: '290',
+          y: '170'
+        },
+        width: 580,
+        height: 340
+      },
+      dateStart: 'Sun, 21 Feb 2021 03:38:51 GMT',
+      dateEnd: 'Wed, 03 Mar 2021 03:38:51 GMT',
+      showMeta: true,
+      displayStyle: 'noImage',
+      contentType: 'Event',
+      topic: 'Arts, Culture and Humanities',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }}
+  >
+    {TemplateCardNav.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Nav thumbnail"
+    argTypes={cardPromoNavArgTypes}
+    args={{
+      title: 'Card nav title',
+      link: { text: 'Read more', url: '#' },
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+          x: '290',
+          y: '170'
+        },
+        width: 580,
+        height: 340
+      },
+      dateStart: 'Sun, 21 Feb 2021 03:38:51 GMT',
+      dateEnd: 'Wed, 03 Mar 2021 03:38:51 GMT',
+      showMeta: true,
+      displayStyle: 'thumbnail',
+      contentType: 'Grant',
+      topic: 'Arts, Culture and Humanities',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }}
+  >
+    {TemplateCardNav.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Nav featured"
+    argTypes={cardPromoNavArgTypes}
+    args={{
+      title: 'Card nav title',
+      link: { text: 'Read more', url: '#' },
+      image: {
+        src: 'https://placehold.it/580x340',
+        focalPoint: {
+          x: '290',
+          y: '170'
+        },
+        width: 580,
+        height: 340
+      },
+      dateStart: 'Sun, 21 Feb 2021 03:38:51 GMT',
+      dateEnd: '',
+      showMeta: true,
+      displayStyle: 'featured',
+      contentType: 'Profile: Aboriginal Honour Roll',
+      topic: 'Arts, Culture and Humanities',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }}
+  >
+    {TemplateCardNav.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplCardNav} />

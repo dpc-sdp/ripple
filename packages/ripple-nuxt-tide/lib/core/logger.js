@@ -95,9 +95,7 @@ const logstash = new LogstashTransport({
 let logger = createLogger({
   level: logLevel,
   format: format.combine(
-    format.timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss'
-    }),
+    format.timestamp(),
     format.splat()
   ),
   defaultMeta: { service: 'ripple-tide' },

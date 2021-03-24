@@ -57,7 +57,7 @@ const errorPrint = format(info => {
   return info
 })
 
-const console = new transports.Console({
+const consoleLog = new transports.Console({
   format: format.combine(
     format(info => {
       info.level = ` ${info.level.toUpperCase()} `
@@ -65,29 +65,6 @@ const console = new transports.Console({
     })(),
     format.colorize(),
     printFormat
-  )
-})
-
-// Create the Lagoon Logstash transport.
-// Add lagoon required meta.
-const lagoonFormat = format(info => {
-  const LAGOON_LOGS_DEFAULT_SAFE_BRANCH = 'safe_branch_unset'
-  const LAGOON_LOGS_DEFAULT_LAGOON_PROJECT = 'project_unset'
-  const k8sNamespace = process.env.LAGOON_PROJECT || LAGOON_LOGS_DEFAULT_LAGOON_PROJECT
-  const gitBranch = process.env.LAGOON_GIT_SAFE_BRANCH || LAGOON_LOGS_DEFAULT_SAFE_BRANCH
-  const type = [k8sNamespace, gitBranch]
-  info.type = type.join('-')
-  return info
-})
-
-const logstash = new LogstashTransport({
-  host: process.env.LAGOON_LOG_HOST || 'application-logs.lagoon.svc.cluster.local',
-  port: process.env.LAGOON_LOG_PORT || 5140,
-  handleExceptions: true,
-  format: format.combine(
-    lagoonFormat(),
-    errorPrint(),
-    format.json()
   )
 })
 
@@ -100,14 +77,36 @@ let logger = createLogger({
   ),
   defaultMeta: { service: 'ripple-tide' },
   transports: [
-    console
+    consoleLog
   ]
 })
 
 // Use Logstash transport in Lagoon server instead of console
 if (process.env.LAGOON_GIT_SAFE_BRANCH && !process.client) {
+  // Create the Lagoon Logstash transport.
+  // Add lagoon required meta.
+  const lagoonFormat = format(info => {
+    const LAGOON_LOGS_DEFAULT_SAFE_BRANCH = 'safe_branch_unset'
+    const LAGOON_LOGS_DEFAULT_LAGOON_PROJECT = 'project_unset'
+    const k8sNamespace = process.env.LAGOON_PROJECT || LAGOON_LOGS_DEFAULT_LAGOON_PROJECT
+    const gitBranch = process.env.LAGOON_GIT_SAFE_BRANCH || LAGOON_LOGS_DEFAULT_SAFE_BRANCH
+    const type = [k8sNamespace, gitBranch]
+    info.type = type.join('-')
+    return info
+  })
+
+  const logstash = new LogstashTransport({
+    host: process.env.LAGOON_LOG_HOST || 'application-logs.lagoon.svc.cluster.local',
+    port: process.env.LAGOON_LOG_PORT || 5140,
+    handleExceptions: true,
+    format: format.combine(
+      lagoonFormat(),
+      errorPrint(),
+      format.json()
+    )
+  })
   logger.add(logstash)
-  logger.remove(console)
+  logger.remove(consoleLog)
 }
 
 //

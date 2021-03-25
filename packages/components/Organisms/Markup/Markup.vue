@@ -1,6 +1,6 @@
 <template>
   <!-- Keep app-wysiwyg class here for backward compatibility, as some project may use that class for custom style -->
-  <div class="rpl-markup tide-wysiwyg app-wysiwyg">
+  <div v-if="html" class="rpl-markup tide-wysiwyg app-wysiwyg">
     <!-- Use dynamic component to render string template in runtime -->
     <component :is="{ template: getTemplate.html, data: () => getTemplate.data }" />
   </div>
@@ -92,7 +92,7 @@ $responsive-iframe-padding-bottom: 56.25% !default;
 $responsive-iframe-padding-top: $rpl-space-4 !default;
 
 $callout-wrapper-border-color: rpl_color('secondary') !default;
-$callout-wrapper-background-color: rpl_color('light_secondary') !default;
+$callout-wrapper-background-color: tint(rpl_color('secondary'), 90%) !default;
 $callout-wrapper-border-left: rem(4px) solid !default;
 $callout-wrapper-list-padding-left: ($rpl-space * 6) !default;
 $callout-wrapper-padding: ($rpl-space-3) ($rpl-space * 6) ($rpl-space * 6) ($rpl-space * 6) !default;
@@ -116,12 +116,20 @@ $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
   }
 
   &__inner {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
     > h2:first-child {
       margin-top: 0;
     }
 
     p, h2, h3, h4, h5, h6 {
       max-width: $rpl-content-max-width;
+    }
+
+    b,
+    strong {
+      @include rpl_typography_font('s', 1.5em, 'semibold');
     }
   }
 
@@ -301,6 +309,7 @@ $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
     border-left: $callout-wrapper-border-left;
     border-color: $callout-wrapper-border-color;
     background-color: $callout-wrapper-background-color;
+    max-width: $rpl-content-max-width;
 
     ul {
       padding-left: $callout-wrapper-list-padding-left;

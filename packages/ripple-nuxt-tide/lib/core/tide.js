@@ -21,7 +21,7 @@ export const tide = (axios, site, config) => ({
    * @param {String} resource Resource type e.g. <entity type>/<bundle>
    * @param {Object} params Object to convert to QueryString. Passed in URL.
    * @param {String} id Resource UUID
-   * @param {Object} headersConfig Tide API request headers config object:{ authToken: '', requestId: '' }
+   * @param {Object} headersConfig Tide API request headers config object:{ authToken: '', requestId: '', shareLinkToken: '' }
    */
   get: async function (resource, params = {}, id = '', headersConfig = {}) {
     const siteParam = 'site=' + site
@@ -41,12 +41,7 @@ export const tide = (axios, site, config) => ({
   // Build the axios config for Tide GET request
   _axiosConfig: function (headersConfig) {
     // axios config
-    let axiosTimeout = 10000
-
-    // Give more time in Circle CI test
-    if (process.env.NODE_ENV === 'test' || process.env.TEST) {
-      axiosTimeout = 9000
-    }
+    let axiosTimeout = headersConfig.axiosTimeout || config.tideTimeout
 
     const axiosConfig = {
       auth: config.auth,
@@ -71,15 +66,19 @@ export const tide = (axios, site, config) => ({
     if (headersConfig.requestId) {
       axiosConfig.headers['X-Request-Id'] = headersConfig.requestId
     }
+
+    if (headersConfig.shareLinkToken) {
+      axiosConfig.headers['X-Share-Link-Token'] = headersConfig.shareLinkToken
+    }
+
     return axiosConfig
   },
 
-  post: async function (url, data = {}) {
+  post: async function (url, data = {}, headersConfig = {}) {
     // axios config
     const axiosConfig = {
-      baseUrl: config.baseUrl,
       auth: config.auth,
-      timeout: 9000,
+      timeout: headersConfig.axiosTimeout || config.tideTimeout,
       headers: {
         'Content-Type': 'application/vnd.api+json;charset=UTF-8',
         [RPL_HEADER.REQ_LOCATION]: 'tide',
@@ -106,7 +105,11 @@ export const tide = (axios, site, config) => ({
   async getSitesData (params = {}, headersConfig = {}) {
     try {
       const sites = await this.get('taxonomy_term/sites', params, '', headersConfig)
-      return this.getAllPaginatedData(sites)
+      const sitesData = await this.getAllPaginatedData(sites)
+      if (sitesData instanceof Error) {
+        throw sitesData
+      }
+      return sitesData
     } catch (error) {
       const errMsg = 'Failed to get sites data from Tide API.  It can be a operation error or configuration error if it\'s the first time to setup this app.'
       if (process.server) {
@@ -204,10 +207,11 @@ export const tide = (axios, site, config) => ({
           throw new Error('Empty data returns from Tide API.')
         }
       } catch (error) {
-        if (process.server) {
+        // Ignore auth session expiration error in error log
+        if (process.server && error.name !== 'ExpiredAuthSessionError') {
           logger.error('Failed to get site data for site id "%s".', siteId, { error, label: 'Tide' })
         }
-        return new Error('Could not get site data. Please check your site id and Tide site setting.')
+        return error
       }
     }
 
@@ -268,7 +272,11 @@ export const tide = (axios, site, config) => ({
 
     try {
       const menu = await this.get('menu_link_content/menu_link_content', params, '', headersConfig)
-      return this.getAllPaginatedData(menu, false, headersConfig)
+      const menuData = await this.getAllPaginatedData(menu, false, headersConfig)
+      if (menuData instanceof Error) {
+        throw menuData
+      }
+      return menuData
     } catch (error) {
       const errMsg = 'Failed to get menu from Tide API.'
       if (process.server) {
@@ -278,7 +286,13 @@ export const tide = (axios, site, config) => ({
     }
   },
 
-  // Used for get paginated response data
+  /**
+   * Used for get paginated response data
+   * @param {*} response
+   * @param {*} parse
+   * @param {*} headersConfig
+   * @returns {Object} a response data with all JSON:API pages or an instance of Error
+   */
   getAllPaginatedData: async function (response, parse = true, headersConfig = {}) {
     let data = parse ? jsonapiParse.parse(response).data : response.data
 
@@ -294,6 +308,7 @@ export const tide = (axios, site, config) => ({
         data = data.concat(nextData)
       } catch (error) {
         logger.error('Failed to get next page data', { error, label: 'Tide' })
+        return new Error(error)
       }
     }
     return data
@@ -420,29 +435,6 @@ export const tide = (axios, site, config) => ({
     return pageData
   },
 
-  getPreviewPage: async function (contentType, uuid, revisionId, section, params, headersConfig) {
-    if (revisionId === 'latest') {
-      params.resourceVersion = 'rel:working-copy'
-    } else {
-      params.resourceVersion = `id:${revisionId}`
-    }
-
-    const pathData = {
-      entity_type: 'node',
-      bundle: contentType,
-      uuid: uuid
-    }
-    const entity = await this.getEntityByPathData(pathData, params, headersConfig)
-    if (entity instanceof Error) {
-      throw entity
-    }
-    const pageData = jsonapiParse.parse(entity).data
-
-    // Append the site section to page data
-    pageData.section = (section && section !== site) ? section : null
-    return pageData
-  },
-
   getContentList: async function (bundle, filtering, includes, pagination, sorting, config) {
     return this.getEntityList('node', bundle, filtering, includes, pagination, sorting, config)
   },
@@ -466,9 +458,15 @@ export const tide = (axios, site, config) => ({
       params.sort = sorting
     }
     try {
-      const response = await this.get(`${entityType}/${bundle}`, params)
+      // Give more time for list response, normally it's slow
+      const headersConfig = { axiosTimeout: config.tideListingTimeout }
+      const response = await this.get(`${entityType}/${bundle}`, params, '', headersConfig)
       if (allPages) {
-        return this.getAllPaginatedData(response)
+        const allPagesData = await this.getAllPaginatedData(response)
+        if (allPagesData instanceof Error) {
+          throw allPagesData
+        }
+        return allPagesData
       } else {
         return jsonapiParse.parse(response).data
       }

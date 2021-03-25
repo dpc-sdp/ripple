@@ -52,7 +52,8 @@ import { RplAlertBase } from '@dpc-sdp/ripple-alert'
 import { RplBaseLayout } from '@dpc-sdp/ripple-layout'
 import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
-import { clientClearToken, isAuthenticated, isPreview } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { clientClearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
+import { isPreviewPath, isShareLinkPath } from '@dpc-sdp/ripple-nuxt-tide/lib/core/path'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
 
@@ -75,7 +76,7 @@ export default {
       },
       header: {
         logo: _store.state.tide.siteData.siteLogo,
-        breakpoint: 992,
+        breakpoint: 1200,
         links: _store.state.tide.siteData.hierarchicalMenus.menuMain,
         sticky: true
       },
@@ -96,10 +97,15 @@ export default {
       return false
     },
     preview () {
-      if (this.$tide.isModuleEnabled('authenticatedContent')) {
-        return isPreview(this.$store)
+      const isPreviewModuleEnabled = this.$tide.isModuleEnabled('preview')
+      let isDraftAlertVisible = false
+      if (isPreviewModuleEnabled) {
+        isDraftAlertVisible = isPreviewPath(this.$route.path) && this.$auth.loggedIn
       }
-      return false
+      if (!isDraftAlertVisible && isPreviewModuleEnabled) {
+        isDraftAlertVisible = isShareLinkPath(this.$route.path)
+      }
+      return isDraftAlertVisible
     },
     footerCaption () {
       return this.$store.state.tide.pageData ? this.$store.state.tide.pageData.imageCaption : null
@@ -166,8 +172,6 @@ export default {
     }
   },
   created () {
-    // Set ripple quickexit option by tide site settings
-    this.rplOptions.quickexit = this.$store.state.tide.siteData.field_site_show_exit_site
     this.rplOptions.origin = this.$store.state.tide.protocol + '//' + this.$store.state.tide.host
     // Set RplMarkup plugins globally
     this.rplOptions.rplMarkup = {

@@ -30,8 +30,6 @@ module.exports = {
       'field_landing_page_component.field_timeline.field_paragraph_media.field_media_image',
       'field_landing_page_component.field_paragraph_accordion',
       'field_landing_page_component.field_paragraph_keydates',
-      'field_landing_page_component.field_paragraph_reference.field_topic',
-      'field_landing_page_component.field_paragraph_reference.field_featured_image.field_media_image',
       'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image',
       'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_event_details',
       'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_topic',
@@ -246,6 +244,76 @@ module.exports = {
         ]
       },
 
+      'paragraph--navigation_card': {
+        component: 'rpl-card-nav',
+        props: {
+          'title': [
+            ['field_paragraph_link', 'internal_node_fields', 'title'],
+            ['field_paragraph_title']
+          ],
+          'summary': [
+            ['field_paragraph_link', 'internal_node_fields', 'summary'],
+            ['field_paragraph_summary']
+          ],
+          'image': {
+            field: [
+              ['field_paragraph_link', 'image'],
+              ['field_paragraph_media', 'field_media_image']
+            ],
+            filters: ['cardImage']
+          },
+          'link': {
+            field: 'field_paragraph_link',
+            filters: ['paragraphLink']
+          },
+          'dateStart': ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
+          'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
+          'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
+          'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
+          'authors': ['field_paragraph_link', 'internal_node_fields', 'publication_authors'],
+          'fvRecommendationStatus': ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
+          'inductionYear': ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
+          'showMeta': 'field_customise',
+          'displayStyle': 'field_nav_card_display_style',
+          'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
+        }
+      },
+
+      'paragraph--promotion_card': {
+        component: 'rpl-card-promo',
+        props: {
+          'title': [
+            ['field_paragraph_link', 'internal_node_fields', 'title'],
+            ['field_paragraph_title']
+          ],
+          'summary': [
+            ['field_paragraph_link', 'internal_node_fields', 'summary'],
+            ['field_paragraph_summary']
+          ],
+          'image': {
+            field: [
+              ['field_paragraph_link', 'image'],
+              ['field_paragraph_media', 'field_media_image']
+            ],
+            filters: ['cardImage']
+          },
+          'link': {
+            field: 'field_paragraph_link',
+            filters: ['paragraphLink']
+          },
+          'dateStart': ['field_paragraph_link', 'internal_node_fields', 'date', 'value'],
+          'dateEnd': ['field_paragraph_link', 'internal_node_fields', 'date', 'end_value'],
+          'topic': ['field_paragraph_link', 'internal_node_fields', 'topic'],
+          'contentType': ['field_paragraph_link', 'internal_node_fields', 'node_type'],
+          'fvRecommendationStatus': ['field_paragraph_link', 'internal_node_fields', 'fv_recommendation_status'],
+          'inductionYear': ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
+          'showMeta': 'field_customise',
+          'displayStyle': 'field_promo_card_display_style',
+          'isGrantOnGoing': ['field_paragraph_link', 'internal_node_fields', 'ongoing']
+        },
+        cols: cardColsSetting
+      },
+
       'paragraph--card_event': {
         component: 'rpl-card-event',
         props: {
@@ -371,6 +439,20 @@ module.exports = {
             filters: ['paragraphCtaImage']
           }
         }
+      },
+
+      'paragraph--automated_card_listing': {
+        component: 'automated-card-listing',
+        props: {
+          title: 'field_paragraph_title',
+          cardCtaText: 'field_paragraph_cta_text',
+          config: ['field_paragraph_auto_listing'],
+          ctaLink: {
+            field: 'field_paragraph_cta',
+            filters: ['paragraphCta']
+          }
+        },
+        childCols: cardColsSetting
       },
 
       'paragraph--form_embed_openforms': {

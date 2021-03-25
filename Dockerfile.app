@@ -13,10 +13,17 @@ COPY --from=builder /app/. /app/
 ARG LAGOON_GIT_BRANCH
 ENV LAGOON_GIT_BRANCH ${LAGOON_GIT_BRANCH}
 
+ARG CONTENT_API_SERVER
+ENV CONTENT_API_SERVER ${CONTENT_API_SERVER}
 ARG CONTENT_API_AUTH_PASS
 ENV CONTENT_API_AUTH_PASS ${CONTENT_API_AUTH_PASS}
 ARG CONTENT_API_AUTH_USER
 ENV CONTENT_API_AUTH_USER ${CONTENT_API_AUTH_USER}
+ARG CONTENT_API_OAUTH_CLIENT_ID
+ARG GTM_ID
+ARG DISPLAY_ERROR
+ARG BASIC_AUTH
+ARG TIDE_DEBUG
 
 ARG SEARCH_HASH
 ENV SEARCH_HASH ${SEARCH_HASH}
@@ -37,10 +44,10 @@ WORKDIR /app/examples/vic-gov-au/
 
 # force it to load the environment variable during build time. Otherwise it cannot read $LAGOON_GIT_BRANCH.
 RUN  . /home/.bashrc \
-    && yarn run build --modern=client \
-    && chmod -R 755 ~/.config \
-    # For JIRA commit script work.
-    && if [ $LAGOON_GIT_BRANCH != "production" ] ; then apk --update add curl;  fi
+    && yarn run build --modern=client
+
+# For JIRA commit script work.
+RUN apk --update add curl
 
 ENV HOST 0.0.0.0
 EXPOSE 3000

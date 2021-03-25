@@ -4,7 +4,10 @@ import tideBreadCrumbs from './../middleware/breadcrumbs.js'
 import tideMisc from './../middleware/misc.js'
 import tideBanners from './../middleware/banners.js'
 import tidePageHead from './../middleware/page-head.js'
-import { tideAuthenticatedContent, tidePreview } from './../../modules/authenticated-content/lib/middleware'
+import { tideAuthenticatedContent } from './../../modules/authenticated-content/lib/middleware'
+import { tidePreview, tideShare } from '../../modules/preview/lib/helpers'
+import { isPreviewPath, isShareLinkPath } from './path'
+import { getSiteSectionData } from './utils/site-section.js'
 
 // Fetch page data from Tide API by current path
 /**
@@ -24,17 +27,18 @@ export default async function (context, pageData) {
 
   try {
     let response = null
-    // If preview, get preview page data.
-    // Otherwise get page data by path.
-    const previewResponse = await tidePreview(context, pageData, authToken, headersConfig)
-    if (previewResponse === false) {
-      response = await context.app.$tide.getPageByPath(context.route.path, tideParams, headersConfig)
+    const isPreviewModuleEnabled = context.app.$tide.isModuleEnabled('preview')
+
+    if (isPreviewModuleEnabled && isShareLinkPath(context.route.path)) {
+      response = await tideShare(context, headersConfig)
+    } else if (isPreviewModuleEnabled && isPreviewPath(context.route.path)) {
+      response = await tidePreview(context, headersConfig)
     } else {
-      response = previewResponse
+      response = await context.app.$tide.getPageByPath(context.route.path, tideParams, headersConfig)
     }
 
     // If redirect required, redirect.
-    if (response.redirect_url) {
+    if (response && response.redirect_url) {
       return context.redirect(response.status_code, response.redirect_url)
     }
 
@@ -68,6 +72,11 @@ export default async function (context, pageData) {
 
   if (pageData.tidePage) {
     pageData.tidePage.appPageTitle = pageData.tidePage.title
+
+    // Get site section data
+    if (pageData.tidePage.section && pageData.tidePage.field_node_site) {
+      pageData.tidePage.appSection = getSiteSectionData(pageData.tidePage.section, pageData.tidePage.field_node_site)
+    }
 
     // Preprocess data
     // A list of async tasks to run concurrently.

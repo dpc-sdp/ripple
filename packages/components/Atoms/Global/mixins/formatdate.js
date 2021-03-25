@@ -4,6 +4,7 @@ const formatdate = {
   props: {
     locale: { default: 'en-au', type: String },
     rangeDivider: { default: ' to ', type: String }
+
   },
   methods: {
     formatDate: function (date, format) {
@@ -11,7 +12,7 @@ const formatdate = {
       moment.locale(this.locale)
       return moment(date).format(format)
     },
-    formatDateRange: function (dateStart, dateEnd) {
+    formatDateRange: function (dateStart, dateEnd, format = { day: 'DD', month: 'MMMM', year: 'YYYY' }) {
       moment.locale(this.locale)
       let rtn = ''
       const start = moment(dateStart)
@@ -19,11 +20,11 @@ const formatdate = {
       if (start.isSame(end, 'day')) {
         rtn = this.formatDate(start)
       } else if (start.isSame(end, 'month')) {
-        rtn = `${start.format('DD')}${this.rangeDivider}${end.format('DD MMMM')}`
+        rtn = `${start.format(`${format.day}`)}${this.rangeDivider}${end.format(`${format.day} ${format.month}`)}`
       } else if (start.isSame(end, 'year')) {
-        rtn = `${start.format('DD MMMM')}${this.rangeDivider}${end.format('DD MMMM YYYY')}`
+        rtn = `${start.format(`${format.day} ${format.month}`)}${this.rangeDivider}${end.format(`${format.day} ${format.month} ${format.year}`)}`
       } else {
-        rtn = `${start.format('DD MMMM YYYY')}${this.rangeDivider}${end.format('DD MMMM YYYY')}`
+        rtn = `${start.format(`${format.day} ${format.month} ${format.year}`)}${this.rangeDivider}${end.format(`${format.day} ${format.month} ${format.year}`)}`
       }
       return rtn
     }

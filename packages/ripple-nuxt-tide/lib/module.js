@@ -1,20 +1,29 @@
 import defaults from './config/defaults'
 import * as configLoader from './core/config-loader'
 import { RPL_HEADER } from './config/constants'
+import tideSearchApiMiddleware from '@dpc-sdp/ripple-tide-search-api'
+import logger from './core/logger'
+
 const path = require('path')
 
 const nuxtTide = function (moduleOptions) {
   const options = Object.assign(defaults, this.options.tide, moduleOptions)
 
+  if (!(options.baseUrl)) {
+    logger.error('Env var "CONTENT_API_SERVER" is not defined', { label: 'Tide' })
+    throw new Error('Env var "CONTENT_API_SERVER" is not defined')
+  } else {
+    logger.info('"CONTENT_API_SERVER" is "%s"', options.baseUrl, { label: 'Tide' })
+  }
   configLoader.build(options, this)
 
   this.options.proxy = {
     ...this.options.proxy,
     '/api/v1/': {
       target: options.baseUrl,
-      // Set the proxy timeout for requesting to Tide API as 9 seconds.
-      // POST request to Tide normally need more than 5 seconds to get response.
-      proxyTimeout: 10000,
+      // Set the proxy timeout for requesting to Tide API as 60 seconds.
+      // However requests should set smaller timeout by using axios timeout setting.
+      proxyTimeout: options.proxyTimeout,
       onProxyRes (proxyRes, req, res) {
         // Set headers as devOps required
         proxyRes.headers[RPL_HEADER.APP_TYPE] = 'tide'
@@ -24,6 +33,9 @@ const nuxtTide = function (moduleOptions) {
         if (req.headers && req.headers['section-io-id']) {
           proxyReq.removeHeader('section-io-id')
         }
+      },
+      onError (err, req, res) {
+        logger.error('Proxy server error', { error: err, label: 'NuxtTide' })
       }
     },
     '/sites/default/files/': {
@@ -57,9 +69,26 @@ const nuxtTide = function (moduleOptions) {
     options: { cachePurgePattern: options.cachePurgePattern }
   })
 
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/page.js'),
+    fileName: 'tide-page.js'
+  })
+
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/polyfill.js'),
+    mode: 'client'
+  })
+
   if (process.env.BASIC_AUTH === '1') {
-    const basicAuth = require('./core/basic-auth.js')
-    this.addServerMiddleware(basicAuth)
+    this.addServerMiddleware(require('./server-middleware/basic-auth.js'))
+  }
+
+  if (options.searchApi) {
+    this.addServerMiddleware(tideSearchApiMiddleware({
+      templates: options.searchTemplates,
+      tide: options,
+      ...options.searchApi
+    }))
   }
 
   this.addModule('@dpc-sdp/ripple-nuxt-ui', true)
@@ -127,6 +156,13 @@ const nuxtTide = function (moduleOptions) {
   this.options.build.transpile.push(/winston-transport/)
   this.options.build.transpile.push(/winston-logstash-transport/)
   this.options.build.transpile.push(/logform/)
+  this.options.build.transpile.push(/is-stream/)
+  this.options.build.transpile.push(/async/)
+
+  // transpile auth modules
+  this.options.build.transpile.push(/@nuxtjs\/auth-next/)
+  this.options.build.transpile.push(/nanoid/)
+
   // To support transpile unknown type of source code
   // https://babeljs.io/docs/en/options#sourcetype
   // https://github.com/webpack/webpack/issues/4039#issuecomment-498033015

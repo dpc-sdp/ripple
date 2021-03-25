@@ -1,6 +1,9 @@
 <template>
   <div class="rpl-accordion">
     <h2 class="rpl-accordion__title-top" :id="titleId" v-if="title">{{ title }}</h2>
+    <div class="rpl-accordion__collapse">
+      <button class="rpl-accordion__collapse-btn" @click="closeOpenAll">{{ closeOpenLabel }}</button>
+    </div>
     <ol class="rpl-accordion__list" v-if="type === 'numbered'">
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
         <h2 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
@@ -10,17 +13,13 @@
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
         </h2>
-        <transition
-          name="accordion"
-          @enter="start"
-          @after-enter="end"
-          @before-leave="start"
-          @after-leave="end"
+        <div
+          class="rpl-accordion__content"
+          :id="accordionId(index)"
+          :ref="accordionId(index)"
         >
-          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)" :id="accordionId(index)">
-            <rpl-markup class="rpl-accordion__content-inner"  :html="accordion.content" />
-          </div>
-        </transition>
+          <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
+        </div>
       </li>
     </ol>
     <ul class="rpl-accordion__list" v-else>
@@ -31,17 +30,13 @@
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
         </h2>
-        <transition
-          name="accordion"
-          @enter="start"
-          @after-enter="end"
-          @before-leave="start"
-          @after-leave="end"
+        <div
+          class="rpl-accordion__content"
+          :id="accordionId(index)"
+          :ref="accordionId(index)"
         >
-          <div class="rpl-accordion__content" v-show="accordionIsOpen(index)" :id="accordionId(index)">
-            <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
-          </div>
-        </transition>
+          <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
+        </div>
       </li>
     </ul>
   </div>
@@ -69,7 +64,14 @@ export default {
   mixins: [uniqueid],
   data: function () {
     return {
-      itemOpen: {}
+      itemOpen: {},
+      isCollapsed: false,
+      closeOpenLabel: 'Open all'
+    }
+  },
+  mounted () {
+    for (const index in this.accordions) {
+      Vue.set(this.itemOpen, index, false)
     }
   },
   computed: {
@@ -77,34 +79,95 @@ export default {
       if (this.title) {
         return getAnchorLinkName(this.title)
       }
+    },
+    isAllItemOpen () {
+      for (const index in this.itemOpen) {
+        if (!this.itemOpen[index]) {
+          return false
+        }
+      }
+
+      return true
     }
   },
   methods: {
     accordionClick: function (index) {
-      if (this.itemOpen[index] === undefined) {
-        Vue.set(this.itemOpen, index, false)
-      }
       if (this.single) {
         let strIndex = index.toString()
         for (let item in this.itemOpen) {
           if (item !== strIndex) {
+            this.collapseContent(item)
             Vue.set(this.itemOpen, item, false)
           }
         }
       }
+
+      this.toggleContent(index)
       Vue.set(this.itemOpen, index, !this.itemOpen[index])
+      this.isCollapsed = this.isAllItemOpen
     },
-    start (el) {
-      el.style.height = el.scrollHeight + 'px'
-    },
-    end (el) {
-      el.style.height = ''
+    closeOpenAll () {
+      this.isCollapsed = !this.isCollapsed
+
+      for (let item in this.itemOpen) {
+        Vue.set(this.itemOpen, item, this.isCollapsed)
+        if (this.isCollapsed) {
+          this.expandContent(item)
+        } else {
+          this.collapseContent(item)
+        }
+      }
     },
     accordionIsOpen: function (index) {
       return (this.itemOpen[index] === undefined) ? false : this.itemOpen[index]
     },
     accordionId (index) {
       return `rpl-accordion-${this.getIdFromLocalRegistry(index)}`
+    },
+    expandContent (index) {
+      const ref = this.accordionId(index)
+      const section = this.$refs[ref]
+      if (section[0]) {
+        // Set fixed height for transition
+        section[0].style.height = section[0].scrollHeight + 'px'
+        section[0].style.visibility = 'visible'
+        setTimeout(function () {
+          // Remove the fixed height after transition so it can be responsive
+          section[0].style.height = 'auto'
+        }, 500)
+      } else {
+        throw new Error('Something is wrong while getting the height of the referred content')
+      }
+    },
+    collapseContent (index) {
+      const ref = this.accordionId(index)
+      const section = this.$refs[ref]
+      if (section[0]) {
+        // Set fixed height for transition
+        section[0].style.height = section[0].scrollHeight + 'px'
+        setTimeout(function () {
+          section[0].style.height = ''
+          section[0].style.visibility = ''
+        }, 1)
+      } else {
+        throw new Error('Something is wrong while getting the height of the referred content')
+      }
+    },
+    toggleContent (index) {
+      if (this.itemOpen[index]) {
+        this.collapseContent(index)
+      } else {
+        this.expandContent(index)
+      }
+    }
+  },
+  watch: {
+    isCollapsed (val) {
+      if (val) {
+        this.closeOpenLabel = 'Close all'
+      } else {
+        this.closeOpenLabel = 'Open all'
+      }
     }
   }
 }
@@ -147,8 +210,27 @@ export default {
   $rpl-accordion-button-number-margin: 0 ($rpl-space * 5) 0 0 !default;
   $rpl-accordion-content-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-accordion-content-inner-padding: 0 0 rem(57px) !default;
+  $rpl-accordion-collapse-padding: rem(10px) 0 !default;
+  $rpl-accordion-collapse-color: rpl_color('primary') !default;
 
   .rpl-accordion {
+    &__collapse {
+      text-align: right;
+      padding: $rpl-accordion-collapse-padding;
+    }
+
+    &__collapse-btn {
+      text-decoration: none;
+      color: $rpl-accordion-collapse-color;
+      background: none;
+      border: none;
+      @include rpl_typography_font('xs', 1em, 'bold');
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     &__title-top {
       margin-top: 0;
       // TODO: Lines below should be removed on merging of SDPA-1810.
@@ -258,6 +340,13 @@ export default {
       @include rpl_typography_ruleset($rpl-accordion-content-ruleset);
       @include rpl_text_color($rpl-accordion-content-text-color);
       box-sizing: border-box;
+      // Firefox has issue to render some iframe inside container which has display:none
+      // https://bugzilla.mozilla.org/show_bug.cgi?id=941146
+      visibility: hidden;
+      overflow:auto;
+      height: 0;
+      transition: height .5s, visibility .5s;
+
       @each $bp, $val in $rpl-accordion-content-padding {
         @include rpl_breakpoint($bp) {
           padding: $val;
@@ -267,17 +356,6 @@ export default {
       @media print {
         display: block !important;
         padding: 0 ($rpl-space * 5);
-      }
-
-      &.accordion-enter-active,
-      &.accordion-leave-active {
-        transition: height .5s;
-        overflow: hidden;
-      }
-
-      &.accordion-enter,
-      &.accordion-leave-to {
-        height: 0 !important;
       }
     }
 

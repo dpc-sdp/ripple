@@ -34,7 +34,10 @@ const isAnchorLink = (url) => {
 }
 
 const getAnchorLinkName = (str) => {
-  return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[^a-zA-Z0-9\s]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
+  // Anchorlink should support any unicode characters.
+  // But as anchorlink need to be used in URL, we strip out some special characters.
+  // https://developers.google.com/maps/documentation/urls/url-encoding
+  return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[_.~"<>%|'!*();:@&=+$,/?%#[\]{}\n`^\\]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
 }
 
 const formatMoney = (value) => {
@@ -115,4 +118,27 @@ const truncateText = (text, stop = 150, clamp) => {
   return ''
 }
 
-export { isRelativeUrl, isExternalUrl, isAnchorLink, getAnchorLinkName, formatMoney, isClient, truncateText, decodeSpecialCharacters }
+const capitalize = (str) => typeof str === 'string' && str.length > 0 ? `${str.charAt(0).toUpperCase() + str.slice(1)}` : ''
+
+// Client side only
+const isIPadPro = () => {
+  // No god way to tell iPad Pro, this may will not work after years.
+  // https://stackoverflow.com/a/58017456/1212791
+  if (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2) {
+    return true
+  }
+  return false
+}
+
+export {
+  capitalize,
+  decodeSpecialCharacters,
+  formatMoney,
+  getAnchorLinkName,
+  isAnchorLink,
+  isClient,
+  isExternalUrl,
+  isIPadPro,
+  isRelativeUrl,
+  truncateText
+}

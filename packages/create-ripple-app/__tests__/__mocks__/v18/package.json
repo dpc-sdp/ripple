@@ -24,13 +24,14 @@
   "dependencies": {
     "@dpc-sdp/ripple-nuxt-tide": "^1.3.0",
     "dotenv": "^5.0.1",
-    "nuxt": "2.10.2",
+    "nuxt": "2.15.2",
     "run-script-os": "^1.0.7"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.12.13",
+    "@babel/eslint-plugin": "^7.12.13",
     "@dpc-sdp/ripple-test-tools": "^1.3.0",
     "axe-core": "^3.3.2",
-    "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",

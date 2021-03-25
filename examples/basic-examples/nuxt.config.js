@@ -44,10 +44,10 @@ export default {
       const webpack = require('webpack')
       const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
       config.plugins.push(new LodashModuleReplacementPlugin({
-        'caching': true,
-        'collections': true,
-        'paths': true,
-        'shorthands': true
+        caching: true,
+        collections: true,
+        paths: true,
+        shorthands: true
       }))
       // Load moment 'en-au' locale only for performance.
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
@@ -66,7 +66,8 @@ export default {
   ripple: {
     card: {
       trimFieldfonts: ['Oswald']
-    }
+    },
+    customIcon: true
   },
   tide: {
     baseUrl: process.env.CONTENT_API_SERVER,
@@ -84,10 +85,6 @@ export default {
       search: 1,
       alert: 1,
       site: 1
-    },
-    gtm: {
-      // Set Google Tag Manager ID here
-      id: process.env.GTM_ID
     },
     search: {
       service: process.env.SEARCH_SERVICE,

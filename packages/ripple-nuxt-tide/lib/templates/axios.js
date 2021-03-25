@@ -1,6 +1,6 @@
 import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
-export default function ({ $axios, app, res }) {
+export default function ({ $axios, app, res, isDev }) {
 
   $axios.onRequest(config => {
     // Log all axios' requests
@@ -20,14 +20,23 @@ export default function ({ $axios, app, res }) {
       code = error.response.status
     }
 
-    const responseUrl = error.request.path || error.request.responseURL || error.config.url
+    let responseUrl = error.request?.path || error.request?.responseURL || error.config?.url || ''
 
     // Check what kind of request it is.
     const routeRequest = responseUrl.includes('/route?')
     const authPreviewRequest = responseUrl.includes('&current_version=') || responseUrl.includes('&resourceVersion=')
+    const shareRequest = responseUrl.includes('/share_link/')
 
-    // Set http status code if a route or preview request failed.
-    if (routeRequest || authPreviewRequest) {
+    // Axios use 'ECONNABORTED' for error timeout.
+    // https://github.com/axios/axios/issues/1543
+    if (code === 'ECONNABORTED') {
+      if (process.server || isDev) {
+        logger.error("Request timeout: '%s'", responseUrl, {label: 'Axios'})
+      }
+    }
+
+    // Set http status code if a route, preview or share request failed.
+    if (routeRequest || authPreviewRequest || shareRequest) {
       // We hide 403 and show it as 404
       code = code === 403 ? 404 : code
 

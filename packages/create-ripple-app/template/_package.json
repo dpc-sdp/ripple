@@ -32,27 +32,29 @@
   "dependencies": {
     "@dpc-sdp/ripple-nuxt-tide": "<%= version %>",
     "@nuxtjs/robots": "^2.0.0",
+    "@nuxtjs/gtm": "^2.4.0",
     "dotenv": "^5.0.1",
-    "nuxt": "2.10.2",
-    "run-script-os": "^1.0.7"
+    "nuxt": "2.15.2",
+    "run-script-os": "^1.1.3"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.12.13",
+    "@babel/eslint-plugin": "^7.12.13",
     <%_ if ((e2e === true) || (smoke === true)) { _%>
     "@dpc-sdp/ripple-test-tools": "<%= version %>",
     <%_ } _%>
-    "babel-eslint": "^10.0.1",
     "babel-plugin-lodash": "^3.3.2",
     "cross-env": "^5.2.0",
     <%_ if ((e2e === true) || (smoke === true)) { _%>
-    "cypress": "^4.1.0",	
-    "cypress-axe": "^0.5.3",	
+    "cypress": "^4.1.0",
+    "cypress-axe": "^0.5.3",
     "cypress-cucumber-preprocessor": "^2.0.1",
     <%_ } _%>
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.4.0",
@@ -66,9 +68,9 @@
     "node-sass": "^4.11.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
-    "sass-resources-loader": "^2.0.0",
+    "sass-resources-loader": "^2.1.1",
     <%_ if ((e2e === true) || (smoke === true)) { _%>
-    "start-server-and-test": "^1.7.11",
+    "start-server-and-test": "^1.11.6",
     <%_ } _%>
     <%_ if (unit === true) { _%>
     "vue-jest": "^3.0.4",

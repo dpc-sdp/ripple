@@ -1,12 +1,12 @@
 <template>
   <span v-if="text && symbol && placement === 'before'">
-    <span v-if="textWordCount > 1" class="rpl-text-icon__group"><rpl-icon v-bind="iconProps" />{{ textFirstWord }}</span>
+    <span v-if="textWordCount > 1" class="rpl-text-icon__group"><rpl-icon v-bind="iconProps" />{{ textFirstWord }} </span>
     <span v-if="textWordCount > 1">{{ textWithoutFirstWord }}</span>
     <span v-else class="rpl-text-icon__group"><rpl-icon v-bind="iconProps" />{{ text }}</span>
   </span>
   <span v-else-if="text && symbol && placement === 'after'">
     <span v-if="textWordCount > 1">{{ textWithoutLastWord }}</span>
-    <span v-if="textWordCount > 1" class="rpl-text-icon__group">{{ textLastWord }}<rpl-icon v-bind="iconProps" /></span>
+    <span v-if="textWordCount > 1" class="rpl-text-icon__group"> {{ textLastWord }}<rpl-icon v-bind="iconProps" /></span>
     <span v-else class="rpl-text-icon__group">{{ text }}<rpl-icon v-bind="iconProps" /></span>
   </span>
   <span v-else-if="text">{{ text }}</span>
@@ -35,20 +35,26 @@ export default {
     trimmedText: function () {
       return this.text.trim()
     },
+    textArray () {
+      return this.trimmedText.split(' ')
+    },
     textWordCount: function () {
-      return (this.text.match(/[.*]|[^ \r\n]+/gi) || []).length
+      return this.textArray.length
     },
     textWithoutLastWord: function () {
-      return this.text.substr(0, this.trimmedText.lastIndexOf(' '))
+      const textWithoutLastWord = this.textArray.slice(0, this.textWordCount - 1)
+
+      return textWithoutLastWord.join(' ')
     },
     textLastWord: function () {
-      return this.text.substr(this.trimmedText.lastIndexOf(' '))
+      return this.textArray[this.textWordCount - 1]
     },
     textWithoutFirstWord: function () {
-      return this.text.substr(this.trimmedText.indexOf(' ') + 1)
+      const textWithoutFirstWord = this.textArray.slice(1)
+      return textWithoutFirstWord.join(' ')
     },
     textFirstWord: function () {
-      return this.text.substr(0, (this.trimmedText.indexOf(' ') + 1))
+      return this.textArray[0]
     },
     iconProps: function () {
       return {

@@ -53,7 +53,7 @@
 
       <template slot="belowContent">
         <component class="rpl-site-constrain--on-all" v-if="campaignSecondary" :is="campaignSecondary.component" v-bind="campaignSecondary.data"></component>
-        <component :is="contentRating" class="rpl-site-constrain--on-all"></component>
+        <component :is="contentRating" :siteSectionName="siteSectionName" class="rpl-site-constrain--on-all"></component>
       </template>
 
     </rpl-page-layout>
@@ -77,6 +77,9 @@ import RplUpdatedDate from '@dpc-sdp/ripple-updated-date'
 import { RplHeroBanner, RplIntroBanner } from '@dpc-sdp/ripple-hero-banner'
 import { RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 
+// Mixin.
+import dataLayer from '@dpc-sdp/ripple-nuxt-tide/lib/mixins/data-layer'
+
 import { anchorUtils } from '@dpc-sdp/ripple-nuxt-tide/lib/core/anchorlinks.js'
 import { getAnchorLinkName, isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
@@ -96,6 +99,7 @@ export default {
     RplCol
   },
   name: 'TidePage',
+  mixins: [dataLayer],
   data () {
     return {
       page: null,
@@ -220,6 +224,9 @@ export default {
         return () => import('@dpc-sdp/ripple-nuxt-tide/modules/webform/components/TideContentRating')
       }
       return false
+    },
+    siteSectionName () {
+      return this.page.appSection?.name
     }
   },
   async asyncData (context) {

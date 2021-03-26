@@ -9,7 +9,7 @@ module.exports = function (req, res, next) {
   const reqUrl = url.parse(req.url)
   const reqPath = decodeURI(reqUrl.pathname)
   if (reqPath.includes('/api/v')) {
-    logger.info('Proxy %s request to %s, res status code: %s.', method, process.env.CONTENT_API_SERVER + reqPath, status, { label: 'Connect', requestQuery: reqUrl.query, requestId: req.headers['x-request-id'] })
+    logger.debug('Proxy %s request to %s, res status code: %s.', method, process.env.CONTENT_API_SERVER + reqPath, status, { label: 'Connect', requestQuery: reqUrl.query, requestId: req.headers['x-request-id'] })
   } else {
     logger.info('Server got request: %s %s %s', status, method, reqPath, { label: 'Connect', requestQuery: reqUrl.query, requestId: req.requestId })
   }

@@ -87,6 +87,7 @@ export default {
   $rpl-campaign-primary-caption-ruleset: ('xxs', 1.17em, 'medium') !default;
   $rpl-campaign-primary-caption-margin-xs: ($rpl-space * 5) 0 0 !default;
   $rpl-campaign-primary-caption-margin-s: ($rpl-space * 12) 0 0 !default;
+  $rpl-campaign-primary-summary-link-color: rpl-color('primary') !default;
 
   .rpl-campaign-primary {
     @include rpl_site_constrain;
@@ -176,6 +177,13 @@ export default {
 
       @include rpl_breakpoint('s') {
         margin: $rpl-campaign-primary-summary-margin-s;
+      }
+      a {
+        color: $rpl-campaign-primary-summary-link-color;
+        text-decoration: none;
+        &:focus, &:hover {
+          text-decoration: underline;
+        }
       }
     }
 

@@ -58,27 +58,29 @@ export default {
 
     // format items for column oriented format
     if (this.isRowOriented !== true) {
-      console.table(this.items)
       this.responsiveData(this.items)
     }
   },
   methods: {
     responsiveData ([...items]) {
-      const itemsCopy = items.map(item => item)
       this.responsiveHeaders = items.map(item => item.slice(0, 1)[0])
 
       let formattedRows = []
-      for (let i = 0; i < itemsCopy.length; i++) {
-        let newRows = []
-        itemsCopy.forEach((item) => {
-          newRows.push(item)
-        })
+      for (let i = 0; i < items.length; i++) {
+        // remove the headers
+        let itemsRows = items.map(item => item.slice(1))
 
+        let newRows = []
+        itemsRows.map((item) => {
+          let firstEl = item.splice(i, 1)
+          if (firstEl && firstEl[0]) {
+            newRows.push(firstEl[0])
+          }
+        })
         if (newRows.length) {
           formattedRows.push(newRows)
         }
       }
-
       this.responsiveItems = formattedRows
     },
     tableData ([...items]) {
@@ -146,10 +148,10 @@ $data-search-table-link-ruleset: ('s', 1em, 'bold');
 
   &__responsive {
     @include rpl_breakpoint('xs') {
-      visibility: visible;
+      display: block;
     }
     @include rpl_breakpoint('m') {
-      visibility: hidden;
+      display: none;
     }
   }
 

@@ -13,7 +13,6 @@ export const Template = (args, { argTypes }) => ({
   components: { RplEmbeddedVideo },
   template: `
     <rpl-embedded-video
-      className="chromatic-ignore"
       :width="width"
       :height="height"
       :src="src"
@@ -24,11 +23,6 @@ export const Template = (args, { argTypes }) => ({
     />
   `
 });
-
-export const embeddedVideoTemplate = Template.bind({});
-embeddedVideoTemplate.parameters = {
-  chromatic: { disable: true },
-};
 
 <Canvas>
   <Story
@@ -56,7 +50,7 @@ embeddedVideoTemplate.parameters = {
       displayTranscript: false
     }}
   >
-    {embeddedVideoTemplate}
+    {Template.bind({})}
   </Story>
 </Canvas>
 

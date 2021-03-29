@@ -46,11 +46,6 @@ export const TemplateOpenStatus = (args, { argTypes }) => ({
   template: `<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startDate" :enddate="endDate" :description="description" :link="link" :listing="listing" />`
 });
 
-export const GrantsOpeningOn = TemplateOpenStatus.bind({});
-GrantsOpeningOn.parameters = {
-  chromatic: { disable: true },
-};
-
 <Canvas>
   <Story
     name="Open - Countdown displayed"
@@ -63,7 +58,7 @@ GrantsOpeningOn.parameters = {
       listing: false,
     }}
   >
-    {GrantsOpeningOn}
+    {TemplateOpenStatus.bind({})}
   </Story>
 </Canvas>
 

@@ -131,12 +131,6 @@ export const Template = (args, { argTypes }) => ({
 
 ## Embedded video
 
-export const TemplateChromaticIgnored = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { RplMarkup },
-  template: '<rpl-markup :html="html" data-chromatic="ignore" />'
-});
-
 <Canvas>
   <Story
     name="Embedded video"
@@ -185,7 +179,7 @@ export const TemplateChromaticIgnored = (args, { argTypes }) => ({
       `
     }}
   >
-    {TemplateChromaticIgnored.bind({})}
+    {Template.bind({})}
   </Story>
 </Canvas>
 

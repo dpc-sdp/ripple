@@ -8,7 +8,7 @@ Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/c
 
 ## Basic example
 
-const Template = (args, { argTypes }) => ({
+export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplEmbeddedVideo },
   template: `
@@ -24,9 +24,9 @@ const Template = (args, { argTypes }) => ({
     />
   `
 });
-export const embeddedVideo = Template.bind({});
-embeddedVideo.parameters = {
-  // disables Chromatic on a story level
+
+export const embeddedVideoTemplate = Template.bind({});
+embeddedVideoTemplate.parameters = {
   chromatic: { disable: true },
 };
 
@@ -56,7 +56,7 @@ embeddedVideo.parameters = {
       displayTranscript: false
     }}
   >
-    {embeddedVideo}
+    {embeddedVideoTemplate}
   </Story>
 </Canvas>
 

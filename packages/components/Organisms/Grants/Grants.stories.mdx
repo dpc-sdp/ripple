@@ -32,7 +32,7 @@ export const Template = (args, { argTypes }) => ({
   </Story>
 </Canvas>
 
-const TemplateOpenStatus = (args, { argTypes }) => ({
+export const TemplateOpenStatus = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplGrantsOverview },
   data () {
@@ -45,9 +45,9 @@ const TemplateOpenStatus = (args, { argTypes }) => ({
   },
   template: `<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startDate" :enddate="endDate" :description="description" :link="link" :listing="listing" />`
 });
+
 export const GrantsOpeningOn = TemplateOpenStatus.bind({});
 GrantsOpeningOn.parameters = {
-  // disables Chromatic on a story level
   chromatic: { disable: true },
 };
 

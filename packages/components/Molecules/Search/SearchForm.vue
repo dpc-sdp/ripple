@@ -24,7 +24,7 @@
       <span v-if="filterCount > 0">( {{ filterCount }} )</span>
     </button>
     <div v-if="showFilters" class="rpl-search-form__filters">
-      <rpl-form :formData="filterForm" :submitHandler="submitSearch"></rpl-form>
+      <rpl-form :formData="filterForm" :submitHandler="submitSearch" :submitFormOnClear="true"></rpl-form>
     </div>
   </div>
 </template>

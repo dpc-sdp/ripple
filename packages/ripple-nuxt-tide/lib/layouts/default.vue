@@ -67,7 +67,7 @@ export default {
   data () {
     let _store = this.$store
     return {
-      nav: _store.state.tide.siteData.hierarchicalMenus.menuMain,
+      nav: _store.state.tide.siteData.hierarchicalMenus.menuMain || [],
       footer: {
         links: _store.state.tide.siteData.hierarchicalMenus.menuFooter,
         copyright: _store.state.tide.siteData.field_site_footer_text ? _store.state.tide.siteData.field_site_footer_text.processed : null,
@@ -77,7 +77,7 @@ export default {
       header: {
         logo: _store.state.tide.siteData.siteLogo,
         breakpoint: 1200,
-        links: _store.state.tide.siteData.hierarchicalMenus.menuMain,
+        links: _store.state.tide.siteData.hierarchicalMenus.menuMain || [],
         sticky: true
       },
       announcerTitle: ''

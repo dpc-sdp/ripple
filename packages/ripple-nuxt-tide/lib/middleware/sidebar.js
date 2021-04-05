@@ -75,7 +75,7 @@ const tideSideBar = async (context, pageData, headersConfig) => {
       }
     } else {
       // Section navigation component will only use the main menu.
-      const addSectionNavMenu = siteSectionData.hierarchicalMenus.menuMain
+      const addSectionNavMenu = siteSectionData.hierarchicalMenus.menuMain || []
       // save alerts if site section has them
       if (context.app.$tide.isModuleEnabled('alert')) {
         if (siteSectionData.site_alerts && siteSectionData.site_alerts.length > 0) {

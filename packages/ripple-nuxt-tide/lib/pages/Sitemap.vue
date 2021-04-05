@@ -37,7 +37,7 @@ export default {
     this.$store.dispatch('tide/setPageHead', { title: pageTitle })
     return {
       pageTitle: pageTitle,
-      menu: this.$store.state.tide.siteData.hierarchicalMenus.menuMain
+      menu: this.$store.state.tide.siteData.hierarchicalMenus.menuMain || []
     }
   },
   computed: {

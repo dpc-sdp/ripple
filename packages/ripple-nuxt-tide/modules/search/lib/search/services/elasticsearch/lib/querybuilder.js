@@ -101,7 +101,7 @@ export default ({
         esb.boolQuery().mustNot(esb.boolQuery().must(excludes))
       ])
     } else {
-      esbResult = esb.boolQuery().must(esb.multiMatchQuery(fields, queryString))
+      esbResult = esb.boolQuery().should(esb.matchPhraseQuery('title', queryString).boost(2)).must(esb.multiMatchQuery(fields, queryString))
     }
 
     if (Object.keys(filters).length > 0) {

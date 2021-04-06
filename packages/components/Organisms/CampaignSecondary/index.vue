@@ -68,6 +68,7 @@ export default {
   $rpl-campaign-secondary-summary-margin-xs: $rpl-space-3 0 ($rpl-space * 5) !default;
   $rpl-campaign-secondary-summary-margin-s: ($rpl-space * 4) 0 ($rpl-space * 6) !default;
   $rpl-campaign-secondary-summary-margin-m: $rpl-space-3 0 ($rpl-space * 6) !default;
+  $rpl-campaign-secondary-summary-link-color: rpl-color('primary') !default;
   $rpl-campaign-primary-content-padding-xs: 0 $rpl-component-padding-xs !default;
   $rpl-campaign-secondary-content-padding-s: 0 !default;
   $rpl-campaign-secondary-border-radius: rem(4px);
@@ -171,6 +172,13 @@ export default {
       }
       @include rpl_breakpoint('m') {
         margin: $rpl-campaign-secondary-summary-margin-m;
+      }
+      a {
+        color: $rpl-campaign-secondary-summary-link-color;
+        text-decoration: none;
+        &:focus, &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

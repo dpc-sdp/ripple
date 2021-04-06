@@ -38,7 +38,9 @@ export default {
     },
     items: {
       type: [Array, Object],
-      required: true
+      default () {
+        return []
+      }
     }
   },
   data () {

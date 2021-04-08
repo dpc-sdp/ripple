@@ -5,26 +5,30 @@ describe('DataTable', () => {
   it('assigns props accordingly', () => {
     const wrapper = shallowMount(DataTable, {
       propsData: {
-        title: 'Data table demo title'
+        caption: 'Data table demo title'
       }
     })
 
-    expect(wrapper.vm.title).toEqual('Data table demo title')
+    expect(wrapper.vm.caption).toEqual('Data table demo title')
     expect(wrapper.vm.isRowOriented).toBe(true)
-    expect(wrapper.vm.items).toEqual([])
+    expect(wrapper.vm.items).toEqual({})
+
+    wrapper.setProps({ items: {} })
+    expect(wrapper.vm.items).toEqual({})
   })
 
   it('assigns header and items for row oriented layout', () => {
     const wrapper = shallowMount(DataTable, {
       propsData: {
-        title: 'Data table demo title',
-        items: [
-          ['Band', 'Singer', 'Inception', 'Label'],
-          ['Napalm Death', 'Barney Greenway', '1981', 'Century Media'],
-          ['Carcass', 'Jeff Walker', '1985', 'Earache'],
-          ['Extreme Noise Terror', 'Dean Jones', '1985', 'Candlelight'],
-          ['Discordance Axis', 'Jon Chang', '1992', 'Hydrahead']
-        ]
+        caption: 'Data table demo title',
+        items: {
+          0: ['Band', 'Singer', 'Inception', 'Label'],
+          1: ['Napalm Death', 'Barney Greenway', '1981', 'Century Media'],
+          2: ['Carcass', 'Jeff Walker', '1985', 'Earache'],
+          3: ['Extreme Noise Terror', 'Dean Jones', '1985', 'Candlelight'],
+          4: ['Discordance Axis', 'Jon Chang', '1992', 'Hydrahead'],
+          caption: 'table caption'
+        }
       }
     })
 
@@ -40,14 +44,14 @@ describe('DataTable', () => {
   it('assigns header and items for column oriented layout', () => {
     const wrapper = shallowMount(DataTable, {
       propsData: {
-        title: 'Data table demo title',
+        caption: 'Data table demo title',
         isRowOriented: false,
-        items: [
-          ['Band', 'Maroon 5', 'U2', 'Paramore'],
-          ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe'],
-          ['Inception', '2000', '1985', '2004'],
-          ['Label', 'Century Media', 'Candlelight', 'Century Media']
-        ]
+        items: {
+          0: ['Band', 'Maroon 5', 'U2', 'Paramore'],
+          1: ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe'],
+          2: ['Inception', '2000', '1985', '2004'],
+          3: ['Label', 'Century Media', 'Candlelight', 'Century Media']
+        }
       }
     })
 

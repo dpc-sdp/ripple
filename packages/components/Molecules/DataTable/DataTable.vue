@@ -1,6 +1,6 @@
 <template>
   <div class="rpl-data-table">
-    <div class="rpl-data-table__title">{{ title }}</div>
+    <div v-if="caption" class="rpl-data-table__caption">{{ caption }}</div>
     <!-- Desktop display -->
     <table v-if="headers || rows" class="rpl-data-table__table">
       <thead v-if="headers">
@@ -13,13 +13,13 @@
       </tbody>
     </table>
     <!-- Mobile display -->
-    <div class="rpl-data-table__responsive">
-      <dl v-for="(item, i) in responsiveItems" class="rpl-data-table__responsive-data" :key="`item${i}`">
-        <template v-for="(header, j) in responsiveHeaders">
+    <div class="rpl-data-table__mobile-layout">
+      <div v-for="(item, i) in responsiveItems" class="rpl-data-table__dl-container" :key="`item${i}`">
+        <dl v-for="(header, j) in responsiveHeaders" :key="`header${j}${i}`">
           <dt :key="`dt${i}${j}`">{{ header }}</dt>
           <dd :key="`dd${i}${j}`">{{ item[j] }}</dd>
-        </template>
-      </dl>
+        </dl>
+      </div>
     </div>
   </div>
 </template>
@@ -28,7 +28,7 @@
 export default {
   name: 'RplDataTable',
   props: {
-    title: {
+    caption: {
       type: String,
       default: ''
     },
@@ -37,10 +37,8 @@ export default {
       default: true
     },
     items: {
-      type: [Array, Object],
-      default () {
-        return []
-      }
+      type: Object,
+      default: () => ({})
     }
   },
   data () {
@@ -52,15 +50,19 @@ export default {
     }
   },
   mounted () {
-    if (!this.items) return
+    if (!Object.values(this.items).length) return
+    // remove caption value from object
+    if (this.items.hasOwnProperty('caption')) {
+      delete this.items.caption
+    }
 
-    this.tableData(this.items)
+    this.tableData(Object.values(this.items))
     this.responsiveHeaders = this.headers
     this.responsiveItems = this.rows
 
     // format items for column oriented format
     if (this.isRowOriented !== true) {
-      this.responsiveData(this.items)
+      this.responsiveData(Object.values(this.items))
     }
   },
   methods: {
@@ -99,11 +101,25 @@ export default {
 
 $data-table-stripe-color: rpl-color('light_neutral') !default;
 $data-table-border: 1px solid rpl-color('mid_neutral_1') !default;
-$data-table-header-ruleset: ('s', 1em, 'bold');
-$data-table-padding: $rpl-space-3 0;
-$data-search-table-link-ruleset: ('s', 1em, 'bold');
+$data-table-header-ruleset: ('s', 1em, 'bold') !default;
+$data-table-padding: $rpl-space-4 !default;
+$data-table-background-color: rpl-color('white') !default;
+$data-table-stripe-color: rpl-color('light_neutral') !default;
+$data-table-border: 1px solid rpl-color('mid_neutral_1') !default;
 
 .rpl-data-table {
+  border: $data-table-border;
+  border-radius: rem(4px);
+  background-color: $data-table-background-color;
+  overflow: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
+
+  &__caption {
+    text-align: left;
+    padding: $data-table-padding;
+    vertical-align: top;
+  }
 
   &__table {
     @include rpl_breakpoint('xs') {
@@ -112,33 +128,32 @@ $data-search-table-link-ruleset: ('s', 1em, 'bold');
     @include rpl_breakpoint('m') {
       display: table;
     }
-    overflow: auto;
-    -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
+
     border-collapse: collapse;
     width: 100%;
-    @include rpl_text_color(rpl_color('extra_dark_neutral'));
 
     thead {
-      position: relative;
       tr {
-        background-color: white;
-        th {
-          text-align: left;
-        }
+        background-color: $data-table-stripe-color;
       }
     }
 
     tbody {
       tr {
-        border-bottom: $data-table-border;
-        border-top: $data-table-border;
-        display: table-row;
+        background-color: $data-table-background-color;
+        &:nth-child(even) {
+          background-color: $data-table-stripe-color;
+        }
       }
     }
 
     th {
       @include rpl_typography_ruleset($data-table-header-ruleset);
       text-align: left;
+    }
+
+    td:first-child {
+      @include rpl_typography_ruleset($data-table-header-ruleset);
     }
 
     th,
@@ -148,7 +163,7 @@ $data-search-table-link-ruleset: ('s', 1em, 'bold');
     }
   }
 
-  &__responsive {
+  &__mobile-layout {
     @include rpl_breakpoint('xs') {
       display: block;
     }
@@ -157,20 +172,30 @@ $data-search-table-link-ruleset: ('s', 1em, 'bold');
     }
   }
 
-  &__responsive-data {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+  &__dl-container {
+    &:nth-child(odd) dl {
+      background-color: $data-table-stripe-color;
+    }
 
-    &:nth-child(odd) {
-      background-color: #eee;
+    dl {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: $data-table-padding;
+      border-top: $data-table-border;
+      margin: 0;
+
+      dt {
+        @include rpl_typography_ruleset($data-table-header-ruleset);
+      }
+    }
+
+    dl > * {
+      flex: 0 0 50%;
+      margin: 0;
     }
   }
 
-  &__responsive-data>* {
-    flex: 0 0 50%;
-    margin: 0;
-  }
 }
 
 </style>

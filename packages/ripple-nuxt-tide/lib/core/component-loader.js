@@ -89,6 +89,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'rpl-image-gallery' */ '@dpc-sdp/ripple-image-gallery').then(m => m.RplImageGallery)
     case 'rpl-accordion':
       return () => import(/* webpackChunkName: 'rpl-accordion' */ '@dpc-sdp/ripple-accordion')
+    case 'rpl-data-table':
+      return () => import(/* webpackChunkName: 'rpl-data-table' */ '@dpc-sdp/ripple-data-table')
     case 'tide-login':
       return () => import(/* webpackChunkName: 'tide-login' */ '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/components/TideLogin')
     default:

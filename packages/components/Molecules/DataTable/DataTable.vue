@@ -50,6 +50,7 @@ export default {
     }
   },
   mounted () {
+    this.$forceUpdate()
     if (!Object.values(this.items).length) return
     // remove caption value from object
     if (this.items.hasOwnProperty('caption')) {
@@ -67,23 +68,22 @@ export default {
   },
   methods: {
     responsiveData ([...items]) {
-      this.responsiveHeaders = items.map(item => item.slice(0, 1)[0])
+      const headers = items.map(item => Array.isArray(item) ? item.slice(0, 1)[0] : item)
+      this.responsiveHeaders = headers
 
+      // convert rows to columns
       let formattedRows = []
-      for (let i = 0; i < items.length; i++) {
-        // remove the headers
-        let itemsRows = items.map(item => item.slice(1))
+      let itemsRows = items.map(item => item.slice(1)) // remove the headers
 
+      for (let i = 0; i < itemsRows[0].length; i++) {
         let newRows = []
         itemsRows.map((item) => {
-          let firstEl = item.splice(i, 1)
-          if (firstEl && firstEl[0]) {
-            newRows.push(firstEl[0])
+          let rowValue = item.slice(i, i + 1)
+          if (rowValue && rowValue[0]) {
+            newRows.push(rowValue[0])
           }
         })
-        if (newRows.length) {
-          formattedRows.push(newRows)
-        }
+        formattedRows.push(newRows)
       }
       this.responsiveItems = formattedRows
     },

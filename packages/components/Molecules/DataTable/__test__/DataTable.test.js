@@ -47,19 +47,20 @@ describe('DataTable', () => {
         caption: 'Data table demo title',
         isRowOriented: false,
         items: {
-          0: ['Band', 'Maroon 5', 'U2', 'Paramore'],
-          1: ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe'],
-          2: ['Inception', '2000', '1985', '2004'],
-          3: ['Label', 'Century Media', 'Candlelight', 'Century Media']
+          0: ['Band', 'Maroon 5', 'U2', 'Paramore', 'The Weekend', 'Coldplay'],
+          1: ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe', 'Some guy', 'Another guy'],
+          2: ['Inception', '2000', '1985', '2004', '2017', '1997']
         }
       }
     })
 
-    expect(wrapper.vm.responsiveHeaders).toEqual(['Band', 'Singer', 'Inception', 'Label'])
+    expect(wrapper.vm.responsiveHeaders).toEqual(['Band', 'Singer', 'Inception'])
     expect(wrapper.vm.responsiveItems).toEqual([
-      ['Maroon 5', 'Adam Levine', '2000', 'Century Media'],
-      ['U2', 'John Doe', '1985', 'Candlelight'],
-      ['Paramore', 'Jane Doe', '2004', 'Century Media']
+      ['Maroon 5', 'Adam Levine', '2000'],
+      ['U2', 'John Doe', '1985'],
+      ['Paramore', 'Jane Doe', '2004'],
+      ['The Weekend', 'Some guy', '2017'],
+      ['Coldplay', 'Another guy', '1997']
     ])
   })
 })

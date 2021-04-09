@@ -23,6 +23,7 @@
     "@dpc-sdp/ripple-campaign-secondary": "1.20.3",
     "@dpc-sdp/ripple-card": "1.20.3",
     "@dpc-sdp/ripple-contact": "1.20.3",
+    "@dpc-sdp/ripple-data-table": "1.20.3",
     "@dpc-sdp/ripple-description-list": "1.20.3",
     "@dpc-sdp/ripple-document-link": "1.20.3",
     "@dpc-sdp/ripple-embedded-video": "1.20.3",

@@ -75,6 +75,9 @@ If you want to run it in local:
 cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE
 ```
 
+Some story need to display dynamic content like date element. It will fail the visual test.
+To ignore them, check: https://www.chromatic.com/docs/ignoring-elements#ignore-dom-elements.
+
 ### Unit testing
 
 Unit tests are important. They help us secure our processes and work flows, ensuring that the most critical parts of our projects are protected from accidental mistakes or oversights in our development. We use both Jest and Vue testing utility called [vue-test-utils](https://vue-test-utils.vuejs.org/).

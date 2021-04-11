@@ -127,7 +127,7 @@ export default {
       }
     },
     async onSubmit (event) {
-      event.preventDefault()
+      if (event) event.preventDefault()
       // call validation manually
       if (this.validateOnSubmit) {
         this.$refs.vfg.validate()

@@ -11,24 +11,20 @@ describe('DataTable', () => {
 
     expect(wrapper.vm.caption).toEqual('Data table demo title')
     expect(wrapper.vm.isRowOriented).toBe(true)
-    expect(wrapper.vm.items).toEqual({})
-
-    wrapper.setProps({ items: {} })
-    expect(wrapper.vm.items).toEqual({})
+    expect(wrapper.vm.items).toEqual([])
   })
 
   it('assigns header and items for row oriented layout', () => {
     const wrapper = shallowMount(DataTable, {
       propsData: {
         caption: 'Data table demo title',
-        items: {
-          0: ['Band', 'Singer', 'Inception', 'Label'],
-          1: ['Napalm Death', 'Barney Greenway', '1981', 'Century Media'],
-          2: ['Carcass', 'Jeff Walker', '1985', 'Earache'],
-          3: ['Extreme Noise Terror', 'Dean Jones', '1985', 'Candlelight'],
-          4: ['Discordance Axis', 'Jon Chang', '1992', 'Hydrahead'],
-          caption: 'table caption'
-        }
+        items: [
+          ['Band', 'Singer', 'Inception', 'Label'],
+          ['Napalm Death', 'Barney Greenway', '1981', 'Century Media'],
+          ['Carcass', 'Jeff Walker', '1985', 'Earache'],
+          ['Extreme Noise Terror', 'Dean Jones', '1985', 'Candlelight'],
+          ['Discordance Axis', 'Jon Chang', '1992', 'Hydrahead'],
+        ]
       }
     })
 
@@ -46,11 +42,11 @@ describe('DataTable', () => {
       propsData: {
         caption: 'Data table demo title',
         isRowOriented: false,
-        items: {
-          0: ['Band', 'Maroon 5', 'U2', 'Paramore', 'The Weekend', 'Coldplay'],
-          1: ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe', 'Some guy', 'Another guy'],
-          2: ['Inception', '2000', '1985', '2004', '2017', '1997']
-        }
+        items: [
+          ['Band', 'Maroon 5', 'U2', 'Paramore', 'The Weekend', 'Coldplay'],
+          ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe', 'Some guy', 'Another guy'],
+          ['Inception', '2000', '1985', '2004', '2017', '1997']
+        ]
       }
     })
 

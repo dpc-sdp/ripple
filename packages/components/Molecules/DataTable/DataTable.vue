@@ -37,8 +37,8 @@ export default {
       default: true
     },
     items: {
-      type: Object,
-      default: () => ({})
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -51,19 +51,15 @@ export default {
   },
   mounted () {
     this.$forceUpdate()
-    if (!Object.values(this.items).length) return
-    // remove caption value from object
-    if (this.items.hasOwnProperty('caption')) {
-      delete this.items.caption
-    }
+    if (!this.items.length) return
 
-    this.tableData(Object.values(this.items))
+    this.tableData(this.items)
     this.responsiveHeaders = this.headers
     this.responsiveItems = this.rows
 
     // format items for column oriented format
     if (this.isRowOriented !== true) {
-      this.responsiveData(Object.values(this.items))
+      this.responsiveData(this.items)
     }
   },
   methods: {

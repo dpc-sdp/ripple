@@ -467,7 +467,10 @@ module.exports = {
         props: {
           caption: ['field_data_table_content', 'caption'],
           isRowOriented: ['field_row_oriented_table'],
-          items: ['field_data_table_content', 'value']
+          items: {
+            field: ['field_data_table_content', 'value'],
+            filters: ['dataTableStructure']
+          }
         }
       }
 

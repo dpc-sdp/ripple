@@ -11,8 +11,9 @@ export const TemplateDataTable = (args, { argTypes }) => ({
   components: { RplDataTable },
   template: `
     <rpl-data-table
+      :caption='caption'
       is-row-oriented
-      :items="items"
+      :items='items'
     />
   `
 });
@@ -23,13 +24,14 @@ export const TemplateDataTable = (args, { argTypes }) => ({
   <Story
     name="RowOriented"
     args={{
-      items: {
-        0: ['Band', 'Singer', 'Inception', 'Label'],
-        1: ['Napalm Death', 'Barney Greenway', '1981', 'Century Media'],
-        2: ['Carcass', 'Jeff Walker', '1985', 'Earache'],
-        3: ['Extreme Noise Terror', 'Dean Jones', '1985', 'Candlelight'],
-        4: ['Discordance Axis', 'Jon Chang', '1992', 'Hydrahead']
-      }
+      caption: 'This is a row oriented table.',
+      items: [
+        ['Band', 'Singer', 'Inception', 'Label'],
+        ['Napalm Death', 'Barney Greenway', '1981', 'Century Media'],
+        ['Carcass', 'Jeff Walker', '1985', 'Earache'],
+        ['Extreme Noise Terror', 'Dean Jones', '1985', 'Candlelight'],
+        ['Discordance Axis', 'Jon Chang', '1992', 'Hydrahead']
+      ]
     }}
   >
     {TemplateDataTable.bind({})}
@@ -43,8 +45,9 @@ export const TemplateDataTableColOriented = (args, { argTypes }) => ({
   components: { RplDataTable },
   template: `
     <rpl-data-table
+      :caption='caption'
       v-bind:is-row-oriented="false"
-      :items="items"
+      :items='items'
     />
   `
 });
@@ -53,12 +56,13 @@ export const TemplateDataTableColOriented = (args, { argTypes }) => ({
   <Story
     name="ColOriented"
     args={{
-      items: {
-        0: ['Band', 'Maroon 5', 'U2', 'Paramore'],
-        1: ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe'],
-        2: ['Inception', '2000', '1985', '2004'],
-        3: ['Label', 'Century Media', 'Candlelight', 'Century Media'],
-      }
+      caption: 'This is a column oriented table. Resize to mobile layout.',
+      items: [
+        ['Band', 'Maroon 5', 'U2', 'Paramore'],
+        ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe'],
+        ['Inception', '2000', '1985', '2004'],
+        ['Label', 'Century Media', 'Candlelight', 'Century Media'],
+      ]
     }}
   >
     {TemplateDataTableColOriented.bind({})}

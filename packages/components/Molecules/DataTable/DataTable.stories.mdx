@@ -18,19 +18,18 @@ export const TemplateDataTable = (args, { argTypes }) => ({
   `
 });
 
-## Row oriented
+## Fixed row header
 
 <Canvas>
   <Story
-    name="RowOriented"
+    name="FixedRowHeader"
     args={{
-      caption: 'This is a row oriented table.',
+      caption: 'When viewed on mobile, each column will be assigned to its corresponding header which is in first row.',
       items: [
-        ['Band', 'Singer', 'Inception', 'Label'],
-        ['Napalm Death', 'Barney Greenway', '1981', 'Century Media'],
-        ['Carcass', 'Jeff Walker', '1985', 'Earache'],
-        ['Extreme Noise Terror', 'Dean Jones', '1985', 'Candlelight'],
-        ['Discordance Axis', 'Jon Chang', '1992', 'Hydrahead']
+        ['Fruit', 'Vegetable', 'Elements'],
+        ['Apple', 'Potato', 'Zinc'],
+        ['Orange', 'Broccoli', 'Copper'],
+        ['Banana', 'Pumpkin', 'Iron']
       ]
     }}
   >
@@ -38,7 +37,7 @@ export const TemplateDataTable = (args, { argTypes }) => ({
   </Story>
 </Canvas>
 
-## Column oriented
+## Fixed column header
 
 export const TemplateDataTableColOriented = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -54,18 +53,49 @@ export const TemplateDataTableColOriented = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="ColOriented"
+    name="FixedColumnHeader"
     args={{
-      caption: 'This is a column oriented table. Resize to mobile layout.',
+      caption: 'When viewed on mobile, first columns will be the fixed title for the following row columns.',
       items: [
-        ['Band', 'Maroon 5', 'U2', 'Paramore'],
-        ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe'],
-        ['Inception', '2000', '1985', '2004'],
-        ['Label', 'Century Media', 'Candlelight', 'Century Media'],
+        ['Fruit', 'Apple', 'Orange', 'Banana'],
+        ['Vegetable', 'Potato', 'Broccoli', 'Pumpkin'],
+        ['Elements', 'Zinc', 'Copper', 'Iron'],
       ]
     }}
   >
     {TemplateDataTableColOriented.bind({})}
+  </Story>
+</Canvas>
+
+## Stackable columns
+
+export const TemplateDataTableStackable = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplDataTable },
+  template: `
+    <rpl-data-table
+      :caption='caption'
+      :is-stackable-columns="isStackableColumns"
+      :items='items'
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="StackableColumns"
+    args={{
+      caption: 'On mobile layout, each columns will be stack up together as one set.',
+      isStackableColumns: true,
+      items: [
+        ['Fruit', 'Vegetable', 'Elements'],
+        ['Apple', 'Potato', 'Zinc'],
+        ['Orange', 'Broccoli', 'Copper'],
+        ['Banana', 'Pumpkin', 'Iron']
+      ]
+    }}
+  >
+    {TemplateDataTableStackable.bind({})}
   </Story>
 </Canvas>
 

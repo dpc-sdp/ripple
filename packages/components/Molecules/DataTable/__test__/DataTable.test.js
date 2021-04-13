@@ -59,4 +59,40 @@ describe('DataTable', () => {
       ['Coldplay', 'Another guy', '1997']
     ])
   })
+
+  it('converts columns to rows for single column mobile layout', () => {
+    const wrapper = shallowMount(DataTable, {
+      propsData: {
+        caption: 'Data table demo title',
+        isStackableColumns: true,
+        items: [
+          ['Fruit', 'Vegetable', 'Elements'],
+          ['Apple', 'Potato', 'Zinc'],
+          ['Orange', 'Broccoli', 'Copper'],
+          ['Banana', 'Pumpkin', 'Iron']
+        ]
+      }
+    })
+
+    expect(wrapper.vm.stackableColumns).toEqual([
+      [
+        'Fruit',
+        'Apple',
+        'Orange',
+        'Banana'
+      ],
+      [
+        'Vegetable',
+        'Potato',
+        'Broccoli',
+        'Pumpkin'
+      ],
+      [
+        'Elements',
+        'Zinc',
+        'Copper',
+        'Iron'
+      ]
+    ])
+  })
 })

@@ -1,32 +1,20 @@
 <template>
   <div class="rpl-data-table">
     <!-- Desktop display -->
-    <table
-      v-if="headers || rows"
+    <rpl-table
+      :headers="headers"
+      :rows="rows"
       class="rpl-data-table__table"
       v-bind:class="{ 'rpl-data-table__table--col-header': isFirstColHeader, 'rpl-data-table__table--row-header': isFirstRowHeader }"
-    >
-      <thead v-if="headers">
-        <tr><th v-for="(header, index) in headers" :key="`header${index}`" v-html="header" /></tr>
-      </thead>
-      <tbody v-if="rows">
-        <tr v-for="(row, index) in rows" :key="`row${index}`">
-          <td v-for="(col, index) in row" :key="`col${index}`" v-html="col" />
-        </tr>
-      </tbody>
-    </table>
-
+    />
     <!-- Mobile display -->
     <div class="rpl-data-table__mobile-layout">
-      <table v-if="isStackableColumns" class="rpl-data-table--single-column" v-bind:class="{ 'rpl-data-table--single-column--row-header': isFirstRowHeader}">
-        <tbody v-if="stackableColumns">
-          <template v-for="(row, index) in stackableColumns">
-            <tr :key="`stackablerow${index}`">
-              <td v-for="(col, index) in row" :key="`stackablecol${index}`" v-html="col" />
-            </tr>
-          </template>
-        </tbody>
-      </table>
+      <rpl-table
+        v-if="isStackableColumns"
+        :rows="stackableColumns"
+        class="rpl-data-table__single-column"
+        v-bind:class="{ 'rpl-data-table__single-column--row-header': isFirstRowHeader}"
+      />
       <template v-else>
         <div
           v-for="(item, i) in responsiveItems"
@@ -45,6 +33,7 @@
 </template>
 
 <script>
+import RplTable from './Table'
 /**
  * ## Data table has different mobile layout variations.
  *
@@ -62,6 +51,9 @@
  */
 export default {
   name: 'RplDataTable',
+  components: {
+    RplTable
+  },
   props: {
     isRowOriented: {
       type: Boolean,
@@ -169,12 +161,10 @@ export default {
 
 $data-table-stripe-color: rpl-color('light_neutral') !default;
 $data-table-border: 1px solid rpl-color('mid_neutral_1') !default;
-$data-table-header-ruleset: ('s', 1em, 'bold') !default;
-$data-table-regular-header-ruleset: ('s', 1em, 'regular') !default;
+$data-table-header-ruleset: ('s', 1.5em, 'bold') !default;
+$data-table-regular-header-ruleset: ('s', 1.5em, 'regular') !default;
 $data-table-padding: $rpl-space-4 !default;
 $data-table-background-color: rpl-color('white') !default;
-$data-table-stripe-color: rpl-color('light_neutral') !default;
-$data-table-border: 1px solid rpl-color('mid_neutral_1') !default;
 $data-table-link-color: rpl-color('primary') !default;
 
 .rpl-data-table {
@@ -194,12 +184,6 @@ $data-table-link-color: rpl-color('primary') !default;
     }
   }
 
-  &__caption {
-    text-align: left;
-    padding: $data-table-padding;
-    vertical-align: top;
-  }
-
   &__table {
     @include rpl_breakpoint('xs') {
       display: none;
@@ -208,32 +192,8 @@ $data-table-link-color: rpl-color('primary') !default;
       display: table;
     }
 
-    border-collapse: collapse;
-    width: 100%;
-
-    thead {
-      tr {
-        background-color: $data-table-stripe-color;
-      }
-    }
-
-    tbody {
-      tr {
-        background-color: $data-table-background-color;
-        &:nth-child(even) {
-          background-color: $data-table-stripe-color;
-        }
-      }
-    }
-
     th {
       @include rpl_typography_ruleset($data-table-regular-header-ruleset);
-      text-align: left;
-    }
-
-    th,
-    td {
-      padding: $data-table-padding;
     }
 
     &--row-header {
@@ -250,9 +210,7 @@ $data-table-link-color: rpl-color('primary') !default;
     }
   }
 
-  &--single-column {
-    border-collapse: collapse;
-    width: 100%;
+  &__single-column {
     tbody, tr, td {
       display: block;
       text-align: left;
@@ -266,8 +224,11 @@ $data-table-link-color: rpl-color('primary') !default;
       }
     }
 
+    tbody tr:first-child td:first-child {
+      border-top: none;
+    }
+
     td {
-      padding: $data-table-padding;
       border-top: $data-table-border;
     }
 

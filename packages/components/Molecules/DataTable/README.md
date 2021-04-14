@@ -18,6 +18,7 @@ npm install @dpc-sdp/ripple-data-table --save
 ```shell
 @dpc-sdp/ripple-contact
 ├── @dpc-sdp/ripple-global
+├── @dpc-sdp/ripple-table
 ```
 
 --------------------------------------------------------------------------------

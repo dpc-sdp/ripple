@@ -1,8 +1,11 @@
 <template>
   <div class="rpl-data-table">
-    <div v-if="caption" class="rpl-data-table__caption">{{ caption }}</div>
     <!-- Desktop display -->
-    <table v-if="headers || rows" class="rpl-data-table__table" v-bind:class="{ 'rpl-data-table__table--col-oriented': !isRowOriented }">
+    <table
+      v-if="headers || rows"
+      class="rpl-data-table__table"
+      v-bind:class="{ 'rpl-data-table__table--col-header': isFirstColHeader, 'rpl-data-table__table--row-header': isFirstRowHeader }"
+    >
       <thead v-if="headers">
         <tr><th v-for="(header, index) in headers" :key="`header${index}`" v-html="header" /></tr>
       </thead>
@@ -15,7 +18,7 @@
 
     <!-- Mobile display -->
     <div class="rpl-data-table__mobile-layout">
-      <table v-if="isStackableColumns" class="rpl-data-table--single-column">
+      <table v-if="isStackableColumns" class="rpl-data-table--single-column" v-bind:class="{ 'rpl-data-table--single-column--row-header': isFirstRowHeader}">
         <tbody v-if="stackableColumns">
           <template v-for="(row, index) in stackableColumns">
             <tr :key="`stackablerow${index}`">
@@ -25,7 +28,12 @@
         </tbody>
       </table>
       <template v-else>
-        <div v-for="(item, i) in responsiveItems" class="rpl-data-table__dl-container" :key="`item${i}`">
+        <div
+          v-for="(item, i) in responsiveItems"
+          class="rpl-data-table__dl-container"
+          v-bind:class="{ 'rpl-data-table__dl-container--col-header': isFirstColHeader, 'rpl-data-table__dl-container--row-header': isFirstRowHeader }"
+          :key="`item${i}`"
+        >
           <dl v-for="(header, j) in responsiveHeaders" :key="`header${j}${i}`">
             <dt :key="`dt${i}${j}`" v-html="header" />
             <dd :key="`dd${i}${j}`" v-html="item[j]" />
@@ -37,18 +45,33 @@
 </template>
 
 <script>
+/**
+ * ## Data table has different mobile layout variations.
+ *
+ * ### 1. Row oriented
+ * When viewed on mobile:
+ *
+ * * If ‘use first row as header’ is selected, then display as double column
+ * * If ‘use first row as header’ is not selected, then display as single column
+ *
+ * ### 2. Column oriented
+ * When viewed on mobile:
+ *
+ * * If ‘use first column as header’ is selected, then display as double column
+ * * If ‘use first column as header’ is not selected, then display as single column
+ */
 export default {
   name: 'RplDataTable',
   props: {
-    caption: {
-      type: String,
-      default: ''
-    },
     isRowOriented: {
       type: Boolean,
       default: true
     },
-    isStackableColumns: {
+    isFirstRowHeader: {
+      type: Boolean,
+      default: false
+    },
+    isFirstColHeader: {
       type: Boolean,
       default: false
     },
@@ -63,6 +86,7 @@ export default {
       rows: [],
       responsiveItems: [],
       responsiveHeaders: [],
+      isStackableColumns: false,
       stackableColumns: []
     }
   },
@@ -74,13 +98,19 @@ export default {
     this.responsiveHeaders = this.headers
     this.responsiveItems = this.rows
 
-    // format items for column oriented format
-    if (this.isRowOriented !== true) {
-      this.responsiveData(this.items)
+    if (this.isRowOriented && this.isFirstRowHeader !== true) {
+      this.isStackableColumns = true
+      this.stackableColumns = [...this.items]
     }
 
-    if (this.isStackableColumns === true) {
+    if (this.isRowOriented === false && this.isFirstColHeader !== true) {
+      this.isStackableColumns = true
       this.formatStackableColumns(this.items)
+    }
+
+    // restructure items for column oriented format
+    if (this.isRowOriented !== true) {
+      this.responsiveData(this.items)
     }
   },
   methods: {
@@ -140,7 +170,7 @@ export default {
 $data-table-stripe-color: rpl-color('light_neutral') !default;
 $data-table-border: 1px solid rpl-color('mid_neutral_1') !default;
 $data-table-header-ruleset: ('s', 1em, 'bold') !default;
-$data-table-col-oriented-header-ruleset: ('s', 1em, 'regular') !default;
+$data-table-regular-header-ruleset: ('s', 1em, 'regular') !default;
 $data-table-padding: $rpl-space-4 !default;
 $data-table-background-color: rpl-color('white') !default;
 $data-table-stripe-color: rpl-color('light_neutral') !default;
@@ -197,7 +227,7 @@ $data-table-link-color: rpl-color('primary') !default;
     }
 
     th {
-      @include rpl_typography_ruleset($data-table-header-ruleset);
+      @include rpl_typography_ruleset($data-table-regular-header-ruleset);
       text-align: left;
     }
 
@@ -206,14 +236,16 @@ $data-table-link-color: rpl-color('primary') !default;
       padding: $data-table-padding;
     }
 
-    &--col-oriented {
+    &--row-header {
+      th {
+        @include rpl_typography_ruleset($data-table-header-ruleset);
+      }
+    }
+
+    &--col-header {
       th:first-child,
       td:first-child {
         @include rpl_typography_ruleset($data-table-header-ruleset);
-      }
-
-      th {
-        @include rpl_typography_ruleset($data-table-col-oriented-header-ruleset);
       }
     }
   }
@@ -237,8 +269,10 @@ $data-table-link-color: rpl-color('primary') !default;
     td {
       padding: $data-table-padding;
       border-top: $data-table-border;
+    }
 
-      &:first-child {
+    &--row-header {
+      td:first-child {
         @include rpl_typography_ruleset($data-table-header-ruleset);
       }
     }
@@ -256,6 +290,10 @@ $data-table-link-color: rpl-color('primary') !default;
   &__dl-container {
     &:nth-child(odd) dl {
       background-color: $data-table-stripe-color;
+    }
+
+    &--row-header dl:first-child {
+      @include rpl_typography_ruleset($data-table-header-ruleset);
     }
 
     dl {

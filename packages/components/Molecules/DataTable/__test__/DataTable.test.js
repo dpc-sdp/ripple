@@ -2,69 +2,21 @@ import { shallowMount } from '@vue/test-utils'
 import DataTable from '../DataTable'
 
 describe('DataTable', () => {
-  it('assigns props accordingly', () => {
-    const wrapper = shallowMount(DataTable, {
-      propsData: {
-        caption: 'Data table demo title'
-      }
-    })
+  it('assigns default value to props accordingly', () => {
+    const wrapper = shallowMount(DataTable)
 
-    expect(wrapper.vm.caption).toEqual('Data table demo title')
     expect(wrapper.vm.isRowOriented).toBe(true)
+    expect(wrapper.vm.isFirstColHeader).toBe(false)
+    expect(wrapper.vm.isFirstRowHeader).toBe(false)
     expect(wrapper.vm.items).toEqual([])
   })
 
-  it('assigns header and items for row oriented layout', () => {
+  it('assigns items properly for row oriented two column mobile layout', () => {
     const wrapper = shallowMount(DataTable, {
       propsData: {
-        caption: 'Data table demo title',
-        items: [
-          ['Band', 'Singer', 'Inception', 'Label'],
-          ['Napalm Death', 'Barney Greenway', '1981', 'Century Media'],
-          ['Carcass', 'Jeff Walker', '1985', 'Earache'],
-          ['Extreme Noise Terror', 'Dean Jones', '1985', 'Candlelight'],
-          ['Discordance Axis', 'Jon Chang', '1992', 'Hydrahead']
-        ]
-      }
-    })
-
-    expect(wrapper.vm.headers).toEqual(['Band', 'Singer', 'Inception', 'Label'])
-    expect(wrapper.vm.rows).toEqual([
-      ['Napalm Death', 'Barney Greenway', '1981', 'Century Media'],
-      ['Carcass', 'Jeff Walker', '1985', 'Earache'],
-      ['Extreme Noise Terror', 'Dean Jones', '1985', 'Candlelight'],
-      ['Discordance Axis', 'Jon Chang', '1992', 'Hydrahead']
-    ])
-  })
-
-  it('assigns header and items for column oriented layout', () => {
-    const wrapper = shallowMount(DataTable, {
-      propsData: {
-        caption: 'Data table demo title',
-        isRowOriented: false,
-        items: [
-          ['Band', 'Maroon 5', 'U2', 'Paramore', 'The Weekend', 'Coldplay'],
-          ['Singer', 'Adam Levine', 'John Doe', 'Jane Doe', 'Some guy', 'Another guy'],
-          ['Inception', '2000', '1985', '2004', '2017', '1997']
-        ]
-      }
-    })
-
-    expect(wrapper.vm.responsiveHeaders).toEqual(['Band', 'Singer', 'Inception'])
-    expect(wrapper.vm.responsiveItems).toEqual([
-      ['Maroon 5', 'Adam Levine', '2000'],
-      ['U2', 'John Doe', '1985'],
-      ['Paramore', 'Jane Doe', '2004'],
-      ['The Weekend', 'Some guy', '2017'],
-      ['Coldplay', 'Another guy', '1997']
-    ])
-  })
-
-  it('converts columns to rows for single column mobile layout', () => {
-    const wrapper = shallowMount(DataTable, {
-      propsData: {
-        caption: 'Data table demo title',
-        isStackableColumns: true,
+        isRowOriented: true,
+        isFirstRowHeader: true,
+        isFirstColHeader: false,
         items: [
           ['Fruit', 'Vegetable', 'Elements'],
           ['Apple', 'Potato', 'Zinc'],
@@ -74,25 +26,116 @@ describe('DataTable', () => {
       }
     })
 
+    const expectedHeader = ['Fruit', 'Vegetable', 'Elements']
+    const expectedItems = [
+      ['Apple', 'Potato', 'Zinc'],
+      ['Orange', 'Broccoli', 'Copper'],
+      ['Banana', 'Pumpkin', 'Iron']
+    ]
+
+    expect(wrapper.vm.isStackableColumns).toBe(false)
+    expect(wrapper.vm.stackableColumns).toEqual([])
+    // Desktop
+    expect(wrapper.vm.headers).toEqual(expectedHeader)
+    expect(wrapper.vm.rows).toEqual(expectedItems)
+    // Responsive - all row oriented layout table doesn't need to be restructured
+    expect(wrapper.vm.responsiveHeaders).toEqual(expectedHeader)
+    expect(wrapper.vm.responsiveItems).toEqual(expectedItems)
+  })
+
+  it('assigns items properly for row oriented single column mobile layout', () => {
+    const wrapper = shallowMount(DataTable, {
+      propsData: {
+        isRowOriented: true,
+        isFirstRowHeader: false,
+        isFirstColHeader: false,
+        items: [
+          ['Identify opportunities', '2-4 weeks', '$20,000-$25,000'],
+          ['Co-design solutions', '8-10 weeks', '$60,000-$80,000'],
+          ['Design and test a potential solution', '12 weeks', '$100,000-$150,000']
+        ]
+      }
+    })
+
+    expect(wrapper.vm.isStackableColumns).toBe(true)
+    // Desktop
+    expect(wrapper.vm.headers).toEqual(['Identify opportunities', '2-4 weeks', '$20,000-$25,000'])
+    expect(wrapper.vm.rows).toEqual([
+      ['Co-design solutions', '8-10 weeks', '$60,000-$80,000'],
+      ['Design and test a potential solution', '12 weeks', '$100,000-$150,000']
+    ])
+
+    // Responsive - all row oriented layout table doesn't need to be restructured
     expect(wrapper.vm.stackableColumns).toEqual([
-      [
-        'Fruit',
-        'Apple',
-        'Orange',
-        'Banana'
-      ],
-      [
-        'Vegetable',
-        'Potato',
-        'Broccoli',
-        'Pumpkin'
-      ],
-      [
-        'Elements',
-        'Zinc',
-        'Copper',
-        'Iron'
-      ]
+      ['Identify opportunities', '2-4 weeks', '$20,000-$25,000'],
+      ['Co-design solutions', '8-10 weeks', '$60,000-$80,000'],
+      ['Design and test a potential solution', '12 weeks', '$100,000-$150,000']
+    ])
+  })
+
+  it('assigns items properly for column oriented two column mobile layout', () => {
+    const wrapper = shallowMount(DataTable, {
+      propsData: {
+        isRowOriented: false,
+        isFirstRowHeader: true,
+        isFirstColHeader: true,
+        items: [
+          ['', 'Vegetable', 'Fruit'],
+          ['Red', 'Tomato', 'Strawberry'],
+          ['Yellow', 'Squash', 'Banana'],
+          ['Green', 'Spinach', 'Kiwi fruit']
+        ]
+      }
+    })
+
+    const expectedHeader = ['', 'Vegetable', 'Fruit']
+    const expectedItems = [
+      ['Red', 'Tomato', 'Strawberry'],
+      ['Yellow', 'Squash', 'Banana'],
+      ['Green', 'Spinach', 'Kiwi fruit']
+    ]
+
+    expect(wrapper.vm.isStackableColumns).toBe(false)
+    expect(wrapper.vm.stackableColumns).toEqual([])
+    // Desktop
+    expect(wrapper.vm.headers).toEqual(expectedHeader)
+    expect(wrapper.vm.rows).toEqual(expectedItems)
+    // Responsive - all row will be converted to column
+    expect(wrapper.vm.responsiveHeaders).toEqual(['', 'Red', 'Yellow', 'Green'])
+    expect(wrapper.vm.responsiveItems).toEqual([
+      ['Vegetable', 'Tomato', 'Squash', 'Spinach'],
+      ['Fruit', 'Strawberry', 'Banana', 'Kiwi fruit']
+    ])
+  })
+
+  it('assigns items properly for column oriented single column mobile layout', () => {
+    const wrapper = shallowMount(DataTable, {
+      propsData: {
+        isRowOriented: false,
+        isFirstRowHeader: true,
+        isFirstColHeader: false,
+        items: [
+          ['Fruit', 'Vegetable', 'Elements'],
+          ['Apple', 'Potato', 'Zinc'],
+          ['Orange', 'Broccoli', 'Copper'],
+          ['Banana', 'Pumpkin', 'Iron']
+        ]
+      }
+    })
+
+    expect(wrapper.vm.isStackableColumns).toBe(true)
+    // Desktop
+    expect(wrapper.vm.headers).toEqual(['Fruit', 'Vegetable', 'Elements'])
+    expect(wrapper.vm.rows).toEqual([
+      ['Apple', 'Potato', 'Zinc'],
+      ['Orange', 'Broccoli', 'Copper'],
+      ['Banana', 'Pumpkin', 'Iron']
+    ])
+    // Responsive - all row will be converted to column
+    expect(wrapper.vm.stackableColumns).toEqual([
+      ['Fruit', 'Apple', 'Orange', 'Banana'],
+      ['Vegetable', 'Potato', 'Broccoli', 'Pumpkin'],
+      ['Elements', 'Zinc', 'Copper', 'Iron']
     ])
   })
 })

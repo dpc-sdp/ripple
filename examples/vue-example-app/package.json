@@ -16,6 +16,8 @@
   "dependencies": {
     "@dpc-sdp/ripple-button": "1.20.3",
     "@dpc-sdp/ripple-card": "1.20.3",
+    "@dpc-sdp/ripple-markup": "1.20.3",
+    "@dpc-sdp/ripple-accordion": "1.20.3",
     "core-js": "^3.8.1",
     "vue": "^2.6.12"
   },

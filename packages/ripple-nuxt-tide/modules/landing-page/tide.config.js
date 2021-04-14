@@ -466,7 +466,9 @@ module.exports = {
         component: 'rpl-data-table',
         props: {
           caption: ['field_data_table_content', 'caption'],
-          isRowOriented: ['field_row_oriented_table'],
+          isRowOriented: ['field_table_orientation'],
+          isFirstRowHeader: ['field_first_row_table_header'],
+          isFirstColHeader: ['field_first_column_table_header'],
           items: {
             field: ['field_data_table_content', 'value'],
             filters: ['dataTableStructure']

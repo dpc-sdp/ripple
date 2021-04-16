@@ -68,7 +68,7 @@ $rpl-table-background-color: rpl-color('white') !default;
   th,
   td {
     padding: $rpl-table-padding;
-    @include rpl_breakpoint('xs') {
+    @include rpl_breakpoint_between('xs', 's') {
       font-size: $data-table-font-size-xs;
       line-height: $data-table-line-height-xs;
     }

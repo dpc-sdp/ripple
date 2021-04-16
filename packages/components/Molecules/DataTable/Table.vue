@@ -32,7 +32,6 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
 $rpl-table-stripe-color: rpl-color('light_neutral') !default;
-$rpl-table-header-ruleset: ('s', 1.5em, 'bold') !default;
 $data-table-regular-header-ruleset: ('s', 1.5em, 'regular') !default;
 $data-table-font-size-xs: rem(14px) !default;
 $data-table-line-height-xs: 1.4em !default;
@@ -59,7 +58,6 @@ $rpl-table-background-color: rpl-color('white') !default;
   }
 
   th {
-    @include rpl_typography_ruleset($rpl-table-header-ruleset);
     text-align: left;
   }
 

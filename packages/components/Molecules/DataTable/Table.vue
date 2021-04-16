@@ -34,6 +34,8 @@ export default {
 $rpl-table-stripe-color: rpl-color('light_neutral') !default;
 $rpl-table-header-ruleset: ('s', 1.5em, 'bold') !default;
 $data-table-regular-header-ruleset: ('s', 1.5em, 'regular') !default;
+$data-table-font-size-xs: rem(14px) !default;
+$data-table-line-height-xs: 1.4em !default;
 $rpl-table-padding: $rpl-space-4 !default;
 $rpl-table-background-color: rpl-color('white') !default;
 
@@ -68,6 +70,10 @@ $rpl-table-background-color: rpl-color('white') !default;
   th,
   td {
     padding: $rpl-table-padding;
+    @include rpl_breakpoint('xs') {
+      font-size: $data-table-font-size-xs;
+      line-height: $data-table-line-height-xs;
+    }
   }
 }
 </style>

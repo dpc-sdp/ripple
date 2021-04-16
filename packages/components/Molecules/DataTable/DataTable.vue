@@ -162,6 +162,8 @@ export default {
 $data-table-stripe-color: rpl-color('light_neutral') !default;
 $data-table-border: 1px solid rpl-color('mid_neutral_1') !default;
 $data-table-header-ruleset: ('s', 1.5em, 'bold') !default;
+$data-table-dt-dl-font-size-xs: rem(14px) !default;
+$data-table-dt-dl-line-height-xs: 1.4em !default;
 $data-table-regular-header-ruleset: ('s', 1.5em, 'regular') !default;
 $data-table-padding: $rpl-space-4 !default;
 $data-table-background-color: rpl-color('white') !default;
@@ -267,6 +269,13 @@ $data-table-link-color: rpl-color('primary') !default;
 
       dt {
         @include rpl_typography_ruleset($data-table-header-ruleset);
+      }
+      dt,
+      dd {
+        @include rpl_breakpoint('xs') {
+          font-size: $data-table-dt-dl-font-size-xs;
+          line-height: $data-table-dt-dl-line-height-xs;
+        }
       }
     }
 

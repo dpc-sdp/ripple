@@ -161,6 +161,7 @@ const nuxtTide = function (moduleOptions) {
 
   // transpile auth modules
   this.options.build.transpile.push(/@nuxtjs\/auth-next/)
+  this.options.build.transpile.push(/requrl/)
   this.options.build.transpile.push(/nanoid/)
 
   // To support transpile unknown type of source code

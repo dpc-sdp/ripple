@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-search-api",
-  "version": "1.20.3",
+  "version": "1.21.2",
   "description": "Ripple API endpoints for Tide search provider",
   "license": "Apache-2.0",
   "contributors": [

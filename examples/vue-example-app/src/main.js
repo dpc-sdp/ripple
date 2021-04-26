@@ -6,6 +6,7 @@ import RplGlobal from '@dpc-sdp/ripple-global'
 const rplOptions = {
   // Your custom options
   // https://github.com/dpc-sdp/ripple/tree/develop/packages/components/Atoms/Global#rploptions
+  rplMarkup: { plugins: [] }
 }
 Vue.use(RplGlobal, rplOptions)
 

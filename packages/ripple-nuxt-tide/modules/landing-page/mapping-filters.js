@@ -201,6 +201,16 @@ module.exports = {
       default:
         return null
     }
+  },
+
+  dataTableStructure: (data) => {
+    if (typeof data !== 'object' || !Object.values(data).length) return []
+    // remove caption value from object
+    if (data.hasOwnProperty('caption')) {
+      delete data.caption
+    }
+
+    return Object.values(data)
   }
 
 }

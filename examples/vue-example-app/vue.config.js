@@ -1,5 +1,14 @@
 // vue.config.js
 module.exports = {
+  // To use Ripple Markup or relevant components like Ripple Accordion
+  configureWebpack: {
+    resolve: {
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js'
+      }
+    }
+  },
+
   // Put postcss config here for working with our Ripple monorepo(yarn workspace).
   css: {
     loaderOptions: {

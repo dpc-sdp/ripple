@@ -1,0 +1,127 @@
+import { Meta, Description, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplDataTable from './DataTable.vue'
+
+<Meta title="Molecules/DataTable" />
+
+# DataTable
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/DataTable/README.md) for more information about how to install and setup the component.
+
+<Description of={RplDataTable} />
+
+export const TemplateDataTable = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplDataTable },
+  template: `
+    <rpl-data-table
+      is-row-oriented
+      :is-first-row-header="isFirstRowHeader"
+      :is-first-col-header="isFirstColHeader"
+      :items='items'
+    />
+  `
+});
+
+## Row oriented
+
+<Canvas>
+  <Story
+    name="RowOriented"
+    args={{
+      isFirstRowHeader: true,
+      isFirstColHeader: false,
+      items: [
+        ['Fruit', 'Vegetable', 'Elements'],
+        ['Apple', 'Potato', 'Zinc'],
+        ['Orange', 'Broccoli', 'Copper'],
+        ['Banana', 'Pumpkin', 'Iron']
+      ]
+    }}
+  >
+    {TemplateDataTable.bind({})}
+  </Story>
+</Canvas>
+
+## Row oriented - mobile layout
+
+<Canvas>
+  <Story
+    name="RowOrientedMobileLayout"
+    parameters={{
+      viewport: {
+        defaultViewport: 'mobile2'
+      }
+    }}
+    args={{
+      isFirstRowHeader: false,
+      isFirstColHeader: true,
+      items: [
+        ['Identify opportunities', '2-4 weeks', '$20,000-$25,000'],
+        ['Co-design solutions', '8-10 weeks', '$60,000-$80,000'],
+        ['Design and test a potential solution', '12 weeks', '$100,000-$150,000']
+      ]
+    }}
+  >
+    {TemplateDataTable.bind({})}
+  </Story>
+</Canvas>
+
+## Column oriented
+
+export const TemplateDataTableColOriented = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplDataTable },
+  template: `
+    <rpl-data-table
+      v-bind:is-row-oriented="false"
+      :is-first-row-header="isFirstRowHeader"
+      :is-first-col-header="isFirstColHeader"
+      :items='items'
+    />
+  `
+});
+
+<Canvas>
+  <Story
+    name="ColumnOriented"
+    args={{
+      isFirstRowHeader: true,
+      isFirstColHeader: true,
+      items: [
+        ['', 'Vegetable', 'Fruit'],
+        ['Red', 'Tomato', 'Strawberry'],
+        ['Yellow', 'Squash', 'Banana'],
+        ['Green', 'Spinach', 'Kiwi fruit']
+      ]
+    }}
+  >
+    {TemplateDataTableColOriented.bind({})}
+  </Story>
+</Canvas>
+
+## Column oriented - mobile layout
+
+<Canvas>
+  <Story
+    name="ColumnOrientedMobileLayout"
+    parameters={{
+      viewport: {
+        defaultViewport: 'mobile2'
+      }
+    }}
+    args={{
+      isFirstRowHeader: true,
+      isFirstColHeader: false,
+      items: [
+        ['Fruit', 'Vegetable', 'Elements'],
+        ['Apple', 'Potato', 'Zinc'],
+        ['Orange', 'Broccoli', 'Copper'],
+        ['Banana', 'Pumpkin', 'Iron']
+      ]
+    }}
+  >
+    {TemplateDataTableColOriented.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplDataTable} />
+

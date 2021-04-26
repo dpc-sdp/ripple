@@ -15,6 +15,7 @@
     "@dpc-sdp/ripple-campaign-secondary": "1.20.3",
     "@dpc-sdp/ripple-card": "1.20.3",
     "@dpc-sdp/ripple-contact": "1.20.3",
+    "@dpc-sdp/ripple-data-table": "1.20.3",
     "@dpc-sdp/ripple-document-link": "1.20.3",
     "@dpc-sdp/ripple-embedded-video": "1.20.3",
     "@dpc-sdp/ripple-event": "1.20.3",
@@ -50,14 +51,14 @@
     "@dpc-sdp/ripple-timeline": "1.20.3",
     "@dpc-sdp/ripple-updated-date": "1.20.3",
     "@dpc-sdp/ripple-whats-next": "1.20.3",
-    "@nuxtjs/auth-next": "5.0.0-1602966760.822bc05",
+    "@nuxtjs/auth-next": "5.0.0-1618502945.2770f1f",
     "@nuxtjs/axios": "^5.12.3",
     "@nuxtjs/proxy": "^1.2.4",
     "basic-auth": "^2.0.0",
     "cheerio": "1.0.0-rc.2",
     "connect-logger": "^0.0.1",
     "cookieparser": "^0.1.0",
-    "cookies": "^0.7.3",
+    "cookies": "^0.8.0",
     "cuid": "^2.1.8",
     "elastic-builder": "^2.9.0",
     "elasticsearch": "^15.4.1",
@@ -65,7 +66,7 @@
     "jsonapi-parse": "^2.0.0",
     "jwt-decode": "^2.2.0",
     "mime-types": "^2.1.27",
-    "moment-timezone": "0.5.32",
+    "moment-timezone": "0.5.33",
     "qs": "^6.9.4",
     "serialize-javascript": "^3.1.0",
     "vuex-persistedstate": "^2.5.4",
@@ -77,6 +78,6 @@
   },
   "devDependencies": {
     "mockdate": "^2.0.3",
-    "vuex-mock-store": "^0.0.7"
+    "vuex-mock-store": "^0.0.8"
   }
 }

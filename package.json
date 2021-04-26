@@ -86,7 +86,7 @@
     "sass-lint": "^1.12.1",
     "start-server-and-test": "^1.11.6",
     "vue-jest": "^3.0.4",
-    "vuex-mock-store": "^0.0.7"
+    "vuex-mock-store": "^0.0.8"
   },
   "browserslist": [
     "> 1%",

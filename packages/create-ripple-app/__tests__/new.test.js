@@ -37,7 +37,7 @@ describe('Test new project generator', () => {
       unit: false,
       examples: false,
       searchhash: '',
-      searchurl: 'elasticdev.sdp.vic.gov.au',
+      searchurl: 'elastic.sdp2.sdp.vic.gov.au',
       searchindex: '',
       searchusername: '',
       searchpassword: '',

@@ -107,7 +107,7 @@ module.exports = {
     name: 'searchurl',
     type: 'string',
     message: 'Elasticsearch URL',
-    default: 'elasticdev.sdp.vic.gov.au',
+    default: 'elastic.sdp2.sdp.vic.gov.au',
     store: true
   },
   searchindex: {

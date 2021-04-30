@@ -36,7 +36,7 @@ You can use `/examples/vic-gov-au/example.env` as a template.
 # install dependencies
 yarn
 
-# Start the storybook server
+# Start the example site server
 yarn start:example
 
 ```

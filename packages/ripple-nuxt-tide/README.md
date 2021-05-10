@@ -82,6 +82,10 @@ We recommend you to create modules to modularize your custom work.
 
 Please check the docs for creating custom Tide module https://github.com/dpc-sdp/ripple/tree/develop/examples/basic-examples/tide/modules/README.md.
 
+### Tide modules
+
+Tide modules are functions that are called sequentially when booting Nuxt. See docs in https://github.com/dpc-sdp/ripple/blob/master/examples/basic-examples/tide/modules/README.md
+
 ### Custom theming
 
 Theme customisations are possible and allow you to modify the default style of

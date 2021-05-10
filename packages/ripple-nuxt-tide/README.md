@@ -75,16 +75,12 @@ customization requirement.
 
 We have code examples for how to customize your Ripple project. We strongly recommend developers have a look at https://github.com/dpc-sdp/ripple/tree/develop/examples/basic-examples first.
 
-### Tide Configs
+### Tide Configs & Tide modules
 
 To apply custom work, you need to have `tide` dir in your Nuxt project root.
-We recommend you to create modules to modularize your custom work.
+We recommend you to create modules to modularize your custom work. Tide modules are functions that are called sequentially when booting Nuxt.
 
-Please check the docs for creating custom Tide module https://github.com/dpc-sdp/ripple/tree/develop/examples/basic-examples/tide/modules/README.md.
-
-### Tide modules
-
-Tide modules are functions that are called sequentially when booting Nuxt. See docs in https://github.com/dpc-sdp/ripple/blob/master/examples/basic-examples/tide/modules/README.md
+Please check the docs for creating custom Tide module https://github.com/dpc-sdp/ripple/blob/master/examples/basic-examples/tide/modules/README.md.
 
 ### Custom theming
 

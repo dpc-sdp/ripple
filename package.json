@@ -47,7 +47,8 @@
     "bay:pull": "docker image ls --format \"{{.Repository}}:{{.Tag}}\" | grep amazeeio | grep -v none | xargs -n1 docker pull | cat",
     "docs:storybook": "cd src/ && yarn run docs",
     "new-component:storybook": "cd src/ && yarn run new-component",
-    "package-dependencies:storybook": "cd src/ && yarn run package-dependencies"
+    "package-dependencies:storybook": "cd src/ && yarn run package-dependencies",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",
@@ -83,6 +84,7 @@
     "lerna": "^3.22.1",
     "markdown-loader-jest": "^0.1.1",
     "mockdate": "^2.0.3",
+    "patch-package": "^6.4.7",
     "sass-lint": "^1.12.1",
     "start-server-and-test": "^1.11.6",
     "vue-jest": "^3.0.4",

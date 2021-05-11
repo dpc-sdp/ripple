@@ -26,7 +26,7 @@ In your project `tide/tide.config.js`, add site specific custom config as below:
 ```Javascript
 const tideConfig = {
   nodeModules: [
-    ['vue-i18n'],
+    ['@other-org/custom-tide-module'],
     ['@other-org/custom-tide-module-with-configs', { optionA: 'my value', optionB: 'other value' }]
   ]
 }

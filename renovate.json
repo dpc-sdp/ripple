@@ -5,9 +5,5 @@
     "group:allNonMajor"
   ],
   "prConcurrentLimit": 3,
-  "packageRules": [
-    {
-      "ignoreDeps": ["cheerio"]
-    }
-  ]
+  "ignoreDeps": ["cheerio"]
 }

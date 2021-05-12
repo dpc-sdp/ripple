@@ -4,7 +4,7 @@ const { Then } = require('cypress-cucumber-preprocessor/steps')
 
 Then('should verify the lighthouse scores', (dataTable) => {
   if (!dataTable) {
-    cy.audit()
+    cy.lighthouse()
   } else {
     const thresholdsTable = dataTable.rawTable.slice(1)
     const thresholds = {}
@@ -13,7 +13,7 @@ Then('should verify the lighthouse scores', (dataTable) => {
       const threshold = expected[1]
       thresholds[metric] = threshold
     })
-    cy.audit(thresholds)
+    cy.lighthouse(thresholds)
   }
 })
 

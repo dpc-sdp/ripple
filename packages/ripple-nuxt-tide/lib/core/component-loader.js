@@ -18,6 +18,9 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       } else if (pathMiddle.includes('./../../modules/')) {
         pathMiddle = pathMiddle.replace('./../../modules/', '')
         cmpsConfig = require(`./../../modules/${pathMiddle}tide.load-components`).default
+      } else if (pathMiddle.includes('/node_modules/')) {
+        pathMiddle = pathMiddle.replace('~/node_modules/', '')
+        cmpsConfig = require(`~/node_modules/${pathMiddle}tide.load-components`).default
       }
 
       if (cmpsConfig && cmpsConfig[name]) {
@@ -89,6 +92,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'rpl-image-gallery' */ '@dpc-sdp/ripple-image-gallery').then(m => m.RplImageGallery)
     case 'rpl-accordion':
       return () => import(/* webpackChunkName: 'rpl-accordion' */ '@dpc-sdp/ripple-accordion')
+    case 'rpl-data-table':
+      return () => import(/* webpackChunkName: 'rpl-data-table' */ '@dpc-sdp/ripple-data-table')
     case 'tide-login':
       return () => import(/* webpackChunkName: 'tide-login' */ '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/components/TideLogin')
     default:

@@ -460,6 +460,20 @@ module.exports = {
         props: {
           formLink: ['field_form_link', 'uri']
         }
+      },
+
+      'paragraph--data_table': {
+        component: 'rpl-data-table',
+        props: {
+          caption: ['field_data_table_content', 'caption'],
+          isRowOriented: ['field_table_orientation'],
+          isFirstRowHeader: ['field_first_row_table_header'],
+          isFirstColHeader: ['field_first_column_table_header'],
+          items: {
+            field: ['field_data_table_content', 'value'],
+            filters: ['dataTableStructure']
+          }
+        }
       }
 
     }

@@ -2,7 +2,9 @@ module.exports = {
   include: {
     news: [
       'field_location',
-      'field_node_department'
+      'field_node_department',
+      'field_landing_page_contact.field_paragraph_phones',
+      'field_landing_page_contact.field_paragraph_social_media'
     ],
 
     landingPage: [

@@ -19,6 +19,19 @@ const tideConfig = {
 module.exports = tideConfig
 ```
 
+## Register NPM package to Tide
+
+In your project `tide/tide.config.js`, add site specific custom config as below:
+
+```Javascript
+const tideConfig = {
+  nodeModules: [
+    ['@other-org/custom-tide-module'],
+    ['@other-org/custom-tide-module-with-configs', { optionA: 'my value', optionB: 'other value' }]
+  ]
+}
+```
+
 ## Write a basic Module
 
 ### Module name

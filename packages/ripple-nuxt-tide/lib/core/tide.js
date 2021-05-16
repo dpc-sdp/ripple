@@ -161,6 +161,16 @@ export const tide = (axios, site, config) => ({
     if (typeof moduleConfig === 'object' && moduleConfig !== null) {
       return moduleConfig
     }
+
+    const customModules = (config.customConfig && config.customConfig.modules) || []
+    const nodeModules = (config.customConfig && config.customConfig.nodeModules) || []
+    const modules = customModules.concat(nodeModules)
+    if (modules.length > 0) {
+      const module = modules.find(item => item[0] === moduleName)
+      if (typeof module[1] === 'object' && module[1] !== null) {
+        return module[1]
+      }
+    }
     return {}
   },
 

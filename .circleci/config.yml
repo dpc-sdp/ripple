@@ -58,6 +58,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
+      - restore_cache:
+          keys:
+            - v7-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js
@@ -98,6 +101,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
+      - restore_cache:
+          keys:
+            - v7-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run lighthouse audit
           command: yarn test:audit
@@ -129,6 +135,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
+      - restore_cache:
+          keys:
+            - v7-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run full e2e test
           command: yarn test:e2e-vic
@@ -156,6 +165,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
+      - restore_cache:
+          keys:
+            - v7-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: build example nuxt app
           command: cd examples/basic-examples && yarn build:default
@@ -183,6 +195,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
+      - restore_cache:
+          keys:
+            - v7-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
@@ -197,23 +212,6 @@ jobs:
           path: examples/vue-example-app/test/e2e/videos
       - store_artifacts:
           path: examples/vue-example-app/test/e2e/screenshots
-
-  prerelease:
-    # NOT ENABLED YET - needs further testing
-    docker:
-      - image: cypress/base:10
-        environment:
-          TERM: xterm
-    working_directory: ~/app
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Set NPM_TOKEN
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run:
-          name: Lerna publish
-          command: yarn publish --dist-tag dev --yes
 
   storybook:
     docker:

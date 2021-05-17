@@ -5007,10 +5007,10 @@
   resolved "https://registry.yarnpkg.com/@nuxtjs/robots/-/robots-2.4.2.tgz#9a96c91abb70e39b414eec502ef1cf7d5ef0235e"
   integrity sha512-BW3qhvxlPBKlMkZHtARFPeliFraiZHS28G3j4qgRbSfOBtHC0yDX3Dnq1LkQMzAbPfbw6A1L3sdjgBVZZnfFAw==
 
-"@nuxtjs/style-resources@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/style-resources/-/style-resources-0.1.2.tgz#6d90637611d3a445158224c34e42ec5769e13aaa"
-  integrity sha512-hF4kxO3ETHnJlscBOHM/UKasMwrdlODb+y6mv9mnsyn1Ujvp7kMqOmUmhKcemDexXEzpc5eniIOOq+Nul8JAKA==
+"@nuxtjs/style-resources@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/style-resources/-/style-resources-1.0.0.tgz#7c4d6be19d7f7cc5d687d689f2ab16c0b94773a1"
+  integrity sha512-tDRcC/pm8B0Kpxtzb/1/HOBkv3/kPD+2FiCiUBGMB7YriRud9OUPw1pnYCsAH9ftwpMJS4k4XOyUY8FCTk6OxA==
   dependencies:
     consola "^2.4.0"
     glob-all "^3.1.0"

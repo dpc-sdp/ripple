@@ -18,7 +18,7 @@ jobs:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: v8-deps--{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - src/node_modules
@@ -31,7 +31,6 @@ jobs:
             - examples/basic-examples/node_modules
             - examples/vue-example-app/node_modules
             - ~/.cache
-            - /.cache
       - run:
           name: build vic-gov-au nuxt app
           command: cd examples/vic-gov-au && yarn build:default

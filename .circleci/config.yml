@@ -13,20 +13,20 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v6-deps-{{ checksum "yarn.lock" }}
-            - v6-deps-{{ .Branch }}
-            - v6-deps
+            - v7-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: v6-deps-{{ checksum "yarn.lock" }}
+          key: v7-deps--{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
+            - src/node_modules
             - packages/ripple-nuxt-tide/node_modules
             - packages/ripple-nuxt-ui/node_modules
             - packages/ripple-create-app/node_modules
             - packages/ripple-test-tools/node_modules
+            - packages/ripple-tide-search-api
             - examples/vic-gov-au/node_modules
             - examples/basic-examples/node_modules
             - examples/vue-example-app/node_modules
@@ -58,11 +58,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          keys:
-            - v6-deps-{{ checksum "yarn.lock" }}
-            - v6-deps-{{ .Branch }}
-            - v6-deps
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js
@@ -103,11 +98,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          keys:
-            - v6-deps-{{ checksum "yarn.lock" }}
-            - v6-deps-{{ .Branch }}
-            - v6-deps
       - run:
           name: run lighthouse audit
           command: yarn test:audit
@@ -139,11 +129,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          keys:
-            - v6-deps-{{ checksum "yarn.lock" }}
-            - v6-deps-{{ .Branch }}
-            - v6-deps
       - run:
           name: run full e2e test
           command: yarn test:e2e-vic
@@ -171,11 +156,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          keys:
-            - v6-deps-{{ checksum "yarn.lock" }}
-            - v6-deps-{{ .Branch }}
-            - v6-deps
       - run:
           name: build example nuxt app
           command: cd examples/basic-examples && yarn build:default
@@ -203,11 +183,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          keys:
-            - v6-deps-{{ checksum "yarn.lock" }}
-            - v6-deps-{{ .Branch }}
-            - v6-deps
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
@@ -233,11 +208,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          keys:
-            - v6-deps-{{ checksum "yarn.lock" }}
-            - v6-deps-{{ .Branch }}
-            - v6-deps
       - run:
           name: Set NPM_TOKEN
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
@@ -254,11 +224,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          keys:
-            - v6-deps-{{ checksum "yarn.lock" }}
-            - v6-deps-{{ .Branch }}
-            - v6-deps
       - run:
           name: run UI test
           command: cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE

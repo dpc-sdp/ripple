@@ -91,7 +91,7 @@ jobs:
 
   audit:
     docker:
-      - image: cypress/browsers:node12.0.0-chrome73
+      - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -125,7 +125,7 @@ jobs:
   e2e-vic-gov:
     # This runs the full suite of e2e tests
     docker:
-      - image: cypress/browsers:node12.0.0-chrome73
+      - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
           TERM: xterm
           TZ: "Australia/Melbourne"
@@ -158,7 +158,7 @@ jobs:
   e2e-example:
     # This runs the full suite of e2e tests
     docker:
-      - image: cypress/browsers:node12.0.0-chrome73
+      - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
           TERM: xterm
     working_directory: ~/app
@@ -188,7 +188,7 @@ jobs:
 
   e2e-vue-example-app:
     docker:
-      - image: cypress/browsers:node12.0.0-chrome73
+      - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
           TERM: xterm
     working_directory: ~/app
@@ -232,10 +232,10 @@ workflows:
     jobs:
       - build:
           context: Ripple
-      # - storybook:
-      #     context: Ripple
-      #     requires:
-      #       - build
+      - storybook:
+          context: Ripple
+          requires:
+            - build
       - test:
           context: Ripple
           requires:
@@ -267,17 +267,6 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-      #  Release prerelease DEV tag to NPM on successful tests passing
-      # - prerelease:
-      #     requires:
-      #       - build
-      #       - test
-      #       - e2e-example
-      #       - e2e-vic-gov
-      #     filters:
-      #       branches:
-      #         only:
-      #           - release/*
 
   # Run full regression test at midnight UTC on develop branch
   nightly:

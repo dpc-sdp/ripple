@@ -13,12 +13,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
       - save_cache:
-          key: v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache
       - run:
@@ -50,7 +50,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js
@@ -93,7 +93,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run lighthouse audit
           command: yarn test:audit
@@ -127,7 +127,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run full e2e test
           command: yarn test:e2e-vic
@@ -157,7 +157,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: build example nuxt app
           command: cd examples/basic-examples && yarn build:default
@@ -187,7 +187,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke

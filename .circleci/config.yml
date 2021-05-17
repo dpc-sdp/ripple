@@ -16,20 +16,10 @@ jobs:
             - v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
       - save_cache:
           key: v8-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules
-            - src/node_modules
-            - packages/ripple-nuxt-tide/node_modules
-            - packages/ripple-nuxt-ui/node_modules
-            - packages/ripple-create-app/node_modules
-            - packages/ripple-test-tools/node_modules
-            - packages/ripple-tide-search-api
-            - examples/vic-gov-au/node_modules
-            - examples/basic-examples/node_modules
-            - examples/vue-example-app/node_modules
             - ~/.cache
       - run:
           name: build vic-gov-au nuxt app

@@ -53,7 +53,7 @@
     "@dpc-sdp/ripple-whats-next": "1.21.2",
     "@nuxtjs/auth-next": "^5.0.0-1620155494.96c1b50",
     "@nuxtjs/axios": "^5.13.1",
-    "@nuxtjs/proxy": "^1.2.4",
+    "@nuxtjs/proxy": "^2.0.0",
     "basic-auth": "^2.0.0",
     "cheerio": "1.0.0-rc.2",
     "connect-logger": "^0.0.1",

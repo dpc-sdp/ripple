@@ -7,6 +7,10 @@
   <span v-else-if="text && symbol && placement === 'after'">
     <span v-if="textWordCount > 1">{{ textWithoutLastWord }}</span>
     <span v-if="textWordCount > 1" class="rpl-text-icon__group"> {{ textLastWord }}<rpl-icon v-bind="iconProps" /></span>
+    <span v-if="textWordCount === 1 && textIsAbsoluteUrl">
+      <div class="rpl-text-icon__absolute-url">{{ text }}</div>
+      <div class="rpl-text-icon__icon"><rpl-icon v-bind="iconProps" /></div>
+    </span>
     <span v-else class="rpl-text-icon__group">{{ text }}<rpl-icon v-bind="iconProps" /></span>
   </span>
   <span v-else-if="text">{{ text }}</span>
@@ -14,6 +18,7 @@
 
 <script>
 import RplIcon from './Icon.vue'
+import { isAbsoluteUrl } from "@dpc-sdp/ripple-global/utils/helpers"
 
 /**
  * Text Icon allows user to display text with an icon that can be placed before or after.
@@ -63,6 +68,9 @@ export default {
         size: this.size,
         class: `rpl-text-icon--${this.placement}`
       }
+    },
+    textIsAbsoluteUrl: function () {
+      return isAbsoluteUrl(this.text)
     }
   }
 }
@@ -85,6 +93,19 @@ export default {
 
     &--after {
       margin: $rpl-text-link-after-margin;
+    }
+
+    &__absolute-url {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__icon {
+      display: block;
+      float: right;
+      margin: -22px -13px 0px 0px;
     }
   }
 </style>

@@ -226,37 +226,37 @@ workflows:
           context: Ripple
           requires:
             - build
-      - test:
-          context: Ripple
-          requires:
-            - build
-      - audit:
-          context: Ripple
-          requires:
-            - build
+      # - test:
+      #     context: Ripple
+      #     requires:
+      #       - build
+      # - audit:
+      #     context: Ripple
+      #     requires:
+      #       - build
       # Run regression tests on release branches
-      - e2e-vic-gov:
-          context: Ripple
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
-      - e2e-example:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
-      - e2e-vue-example-app:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
+      # - e2e-vic-gov:
+      #     context: Ripple
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only:
+      #           - /^release\/.*/
+      # - e2e-example:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only:
+      #           - /^release\/.*/
+      # - e2e-vue-example-app:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only:
+      #           - /^release\/.*/
 
   # Run full regression test at midnight UTC on develop branch
   nightly:

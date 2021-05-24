@@ -58,17 +58,17 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $rpl-list-title-normal-ruleset: ('l', 1.2em, 'bold') !default;
+  $rpl-list-title-normal-ruleset: ('m', 1.2em, 'bold') !default;
   $rpl-list-title-large-ruleset: ('mega', 1em, 'bold') !default;
   $rpl-list-title-normal-margin: 0 0 $rpl-space-4 !default;
   $rpl-list-title-large-margin: 0 0 $rpl-space-4 !default;
   $rpl-list-title-color: rpl_color('extra_dark_neutral') !default;
   $rpl-list-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-list-link-color: rpl_color('extra_dark_neutral') !default;
-  $rpl-list-text-padding: 0 0 $rpl-space-3 !default;
+  $rpl-list-text-padding: 0 0 $rpl-space-4 !default;
   $rpl-list-icon-normal-padding: 0 $rpl-space-2 $rpl-space-3 0 !default;
   $rpl-list-icon-large-padding: 0 $rpl-space-3 $rpl-space-3 0 !default;
-  $rpl-list-text-normal-ruleset: ('xs', 1.14em, 'medium') !default;
+  $rpl-list-text-normal-ruleset: ('s', 1.14em, 'medium') !default;
   $rpl-list-text-large-ruleset: ('s', 1.5em, 'bold') !default;
 
   .rpl-list {

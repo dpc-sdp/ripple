@@ -63,7 +63,7 @@ export default {
         }
       ]
 
-      if (address.length > 0) {
+      if (address && address.length > 0) {
         list.push({
           symbol: 'map_marker',
           size: '1',

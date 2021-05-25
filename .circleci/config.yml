@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cypress/base:12.19.0
+      - image: cypress/base:14.16.0
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -13,23 +13,13 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v5-deps-{{ checksum "yarn.lock" }}
-            - v5-deps-{{ .Branch }}
-            - v5-deps
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
       - save_cache:
-          key: v5-deps-{{ checksum "yarn.lock" }}
+          key: v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules
-            - packages/ripple-nuxt-tide/node_modules
-            - packages/ripple-nuxt-ui/node_modules
-            - packages/ripple-create-app/node_modules
-            - packages/ripple-test-tools/node_modules
-            - examples/vic-gov-au/node_modules
-            - examples/basic-examples/node_modules
-            - examples/vue-example-app/node_modules
             - ~/.cache
       - run:
           name: build vic-gov-au nuxt app
@@ -40,7 +30,7 @@ jobs:
 
   warm-up:
     docker:
-      - image: cypress/base:12.19.0
+      - image: cypress/base:14.16.0
     steps:
       - run:
           name: wake up dev backend
@@ -48,7 +38,7 @@ jobs:
 
   test:
     docker:
-      - image: cypress/base:12.19.0
+      - image: cypress/base:14.16.0
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -60,9 +50,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v5-deps-{{ checksum "yarn.lock" }}
-            - v5-deps-{{ .Branch }}
-            - v5-deps
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js
@@ -93,7 +81,7 @@ jobs:
 
   audit:
     docker:
-      - image: cypress/browsers:node12.0.0-chrome73
+      - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -105,9 +93,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v5-deps-{{ checksum "yarn.lock" }}
-            - v5-deps-{{ .Branch }}
-            - v5-deps
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run lighthouse audit
           command: yarn test:audit
@@ -129,7 +115,7 @@ jobs:
   e2e-vic-gov:
     # This runs the full suite of e2e tests
     docker:
-      - image: cypress/browsers:node12.0.0-chrome73
+      - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
           TERM: xterm
           TZ: "Australia/Melbourne"
@@ -141,9 +127,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v5-deps-{{ checksum "yarn.lock" }}
-            - v5-deps-{{ .Branch }}
-            - v5-deps
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run full e2e test
           command: yarn test:e2e-vic
@@ -164,7 +148,7 @@ jobs:
   e2e-example:
     # This runs the full suite of e2e tests
     docker:
-      - image: cypress/browsers:node12.0.0-chrome73
+      - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
           TERM: xterm
     working_directory: ~/app
@@ -173,9 +157,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v5-deps-{{ checksum "yarn.lock" }}
-            - v5-deps-{{ .Branch }}
-            - v5-deps
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: build example nuxt app
           command: cd examples/basic-examples && yarn build:default
@@ -196,7 +178,7 @@ jobs:
 
   e2e-vue-example-app:
     docker:
-      - image: cypress/browsers:node12.0.0-chrome73
+      - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
           TERM: xterm
     working_directory: ~/app
@@ -205,9 +187,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v5-deps-{{ checksum "yarn.lock" }}
-            - v5-deps-{{ .Branch }}
-            - v5-deps
+            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
@@ -223,27 +203,18 @@ jobs:
       - store_artifacts:
           path: examples/vue-example-app/test/e2e/screenshots
 
-  prerelease:
-    # NOT ENABLED YET - needs further testing
+  storybook:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:14.16.0
         environment:
           TERM: xterm
     working_directory: ~/app
     steps:
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          keys:
-            - v5-deps-{{ checksum "yarn.lock" }}
-            - v5-deps-{{ .Branch }}
-            - v5-deps
       - run:
-          name: Set NPM_TOKEN
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run:
-          name: Lerna publish
-          command: yarn publish --dist-tag dev --yes
+          name: run UI test
+          command: cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE
 
 workflows:
   version: 2
@@ -251,6 +222,10 @@ workflows:
     jobs:
       - build:
           context: Ripple
+      - storybook:
+          context: Ripple
+          requires:
+            - build
       - test:
           context: Ripple
           requires:
@@ -282,17 +257,6 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-      #  Release prerelease DEV tag to NPM on successful tests passing
-      # - prerelease:
-      #     requires:
-      #       - build
-      #       - test
-      #       - e2e-example
-      #       - e2e-vic-gov
-      #     filters:
-      #       branches:
-      #         only:
-      #           - release/*
 
   # Run full regression test at midnight UTC on develop branch
   nightly:

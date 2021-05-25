@@ -36,7 +36,7 @@ You can use `/examples/vic-gov-au/example.env` as a template.
 # install dependencies
 yarn
 
-# Start the storybook server
+# Start the example site server
 yarn start:example
 
 ```
@@ -64,6 +64,19 @@ Update storyshots tests if you need by `yarn test:unit -u`.
 # We use Jest for unit test and snapshots test
 yarn test:unit
 ```
+
+**Storyshots is temporarily removed due to a open issue in storybook project.**
+
+Chromatic is the tool for visual testing, it's running in CircleCI for pull request.
+
+If you want to run it in local:
+
+``` bash
+cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE
+```
+
+Some story need to display dynamic content like date element. It will fail the visual test.
+To ignore them, check: https://www.chromatic.com/docs/ignoring-elements#ignore-dom-elements.
 
 ### Unit testing
 

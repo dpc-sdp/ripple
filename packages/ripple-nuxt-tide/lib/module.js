@@ -10,8 +10,10 @@ const nuxtTide = function (moduleOptions) {
   const options = Object.assign(defaults, this.options.tide, moduleOptions)
 
   if (!(options.baseUrl)) {
-    logger.error('Base URL is not defined', { label: 'NuxtTide' })
-    throw new Error('Base URL is not defined')
+    logger.error('Env var "CONTENT_API_SERVER" is not defined', { label: 'Tide' })
+    throw new Error('Env var "CONTENT_API_SERVER" is not defined')
+  } else {
+    logger.info('"CONTENT_API_SERVER" is "%s"', options.baseUrl, { label: 'Tide' })
   }
   configLoader.build(options, this)
 
@@ -159,6 +161,7 @@ const nuxtTide = function (moduleOptions) {
 
   // transpile auth modules
   this.options.build.transpile.push(/@nuxtjs\/auth-next/)
+  this.options.build.transpile.push(/requrl/)
   this.options.build.transpile.push(/nanoid/)
 
   // To support transpile unknown type of source code

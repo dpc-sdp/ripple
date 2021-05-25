@@ -13,7 +13,7 @@ Two Ripple components installed just for demo how to install them.
 Install below dev dependencies in your Vue project to make icon work.
 
 ```
-npm install sass-resources-loader svgo svgo-loader svg-sprite-loader --save-dev
+npm install sass-resources-loader --save-dev
 ```
 
 ### Webpack configs
@@ -24,7 +24,7 @@ Check [/vue.config.js](/vue.config.js) for more details.
 
 ### Using Ripple components
 
-Chceck [/src/App.vue](/src/App.vue) and [/src/components/HelloRipple.vue](/src/components/HelloRipple.vue) for more details.
+Check [/src/App.vue](/src/App.vue) and [/src/components/HelloRipple.vue](/src/components/HelloRipple.vue) for more details.
 
 ### Install Ripple plugin
 

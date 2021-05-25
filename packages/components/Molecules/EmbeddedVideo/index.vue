@@ -1,7 +1,15 @@
 <template>
   <div class="rpl-embedded-video">
     <div class="rpl-embedded-video-iframe-container">
-      <iframe class="rpl-embedded-video-frame" :width="width" :height="height" :src="src" allowfullscreen></iframe>
+      <iframe
+        class="rpl-embedded-video-frame"
+        :width="width"
+        :height="height"
+        :src="src"
+        allowfullscreen
+        data-chromatic="ignore"
+      >
+      </iframe>
     </div>
     <div v-if="variant === 'link'" class="rpl-embed-video__link" >
       <rpl-icon symbol="view" color="primary" />

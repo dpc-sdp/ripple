@@ -2,7 +2,7 @@ Feature: Demo Page
 
    Demo landing page with all components
 
-  Background: 
+  Background:
     Given I visit the page "/demo-landing-page"
 
   @smoke
@@ -24,9 +24,10 @@ Feature: Demo Page
     And the featured news list component should exist
     And the featured card navigation component should exist
     And the card event component should exist
-    And the card CTA component should exist
     # And the card keydates component should exist
     And the card promotion component should exist
+    And the card promo component should exist
+    And the card nav component should exist
     And the card carousel component should exist
     And the accordion component should exist
     And the news listing component should exist
@@ -41,7 +42,7 @@ Feature: Demo Page
   Scenario: There are no audit issue
     And should verify the lighthouse scores
       | metric            | threshold |
-      | performance       | 65        |
+      | performance       | 50        |
 
 # Need to fix existing errors or work out ruleset to skip
   # Scenario: There are no accessibility errors

@@ -8,10 +8,10 @@ If you are using `@dpc-sdp/ripple-nuxt-tide`, you don't need any setup as `@dpc-
 has built in setup already. For setup `@dpc-sdp/ripple-nuxt-tide`,
 go to [packages/ripple-nuxt-tide doc](/packages/ripple-nuxt-tide/README.md).
 
-### Option 1. Using `create-nuxt-app` (Working in progress)
+### Option 1. Using `create-nuxt-app` (Work in progress)
 
 To get started quickly, we has created scaffolding tool [create-ripple-app](/packages/create-ripple-app).
-But this setup option is working in progress at this stage and will be available
+But this setup option is a work in progress at this stage and will be available
 soon.
 
 ### Option 2. Adding to existing Nuxt project

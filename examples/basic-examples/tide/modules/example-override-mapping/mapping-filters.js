@@ -26,7 +26,7 @@ module.exports = {
   // Use your own filter like above is the safer way.
   paragraphKeyJourneyLinks: function (fieldParagraphLinks) {
     if (typeof fieldParagraphLinks !== 'undefined' && fieldParagraphLinks !== null) {
-      let rtn = []
+      const rtn = []
       fieldParagraphLinks.forEach(item => {
         rtn.push({
           url: item.url || item.uri,

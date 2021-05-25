@@ -18,6 +18,9 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       } else if (pathMiddle.includes('./../../modules/')) {
         pathMiddle = pathMiddle.replace('./../../modules/', '')
         cmpsConfig = require(`./../../modules/${pathMiddle}tide.load-components`).default
+      } else if (pathMiddle.includes('/node_modules/')) {
+        pathMiddle = pathMiddle.replace('~/node_modules/', '')
+        cmpsConfig = require(`~/node_modules/${pathMiddle}tide.load-components`).default
       }
 
       if (cmpsConfig && cmpsConfig[name]) {
@@ -53,6 +56,10 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'rpl-card-keydates' */ '@dpc-sdp/ripple-card').then(m => m.RplCardKeydates)
     case 'rpl-card-navigation':
       return () => import(/* webpackChunkName: 'rpl-card-navigation' */ '@dpc-sdp/ripple-card').then(m => m.RplCardNavigation)
+    case 'rpl-card-nav':
+      return () => import(/* webpackChunkName: 'rpl-card-nav' */ '@dpc-sdp/ripple-card').then(m => m.RplCardNav)
+    case 'rpl-card-promo':
+      return () => import(/* webpackChunkName: 'rpl-card-promo' */ '@dpc-sdp/ripple-card').then(m => m.RplCardPromo)
     case 'rpl-card-navigation-featured':
       return () => import(/* webpackChunkName: 'rpl-card-navigation-featured' */ '@dpc-sdp/ripple-card').then(m => m.RplCardNavigationFeatured)
     case 'rpl-campaign-primary':
@@ -85,6 +92,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'rpl-image-gallery' */ '@dpc-sdp/ripple-image-gallery').then(m => m.RplImageGallery)
     case 'rpl-accordion':
       return () => import(/* webpackChunkName: 'rpl-accordion' */ '@dpc-sdp/ripple-accordion')
+    case 'rpl-data-table':
+      return () => import(/* webpackChunkName: 'rpl-data-table' */ '@dpc-sdp/ripple-data-table')
     case 'tide-login':
       return () => import(/* webpackChunkName: 'tide-login' */ '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/components/TideLogin')
     default:

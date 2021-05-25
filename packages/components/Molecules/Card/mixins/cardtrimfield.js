@@ -28,11 +28,11 @@ const cardtrimfield = {
       // Set the max height of a summary field.
       if (typeof window !== 'undefined' && this.$el && this.$el.querySelector && this.$breakpoint.m) {
         // Elements
-        let card = this.$el
-        let summary = card.querySelector(this.trimFieldSelector)
+        const card = this.$el
+        const summary = card.querySelector(this.trimFieldSelector)
         if (summary) {
           // Properties
-          let summaryLineHeight = parseFloat(window.getComputedStyle(summary, null).getPropertyValue('line-height'))
+          const summaryLineHeight = parseFloat(window.getComputedStyle(summary, null).getPropertyValue('line-height'))
           let summaryAllowedHeight = this.getTrimFieldMaxHeightOffset(card) - summary.offsetTop
           summaryAllowedHeight = summaryLineHeight * Math.floor(summaryAllowedHeight / summaryLineHeight)
           // Set Max Height
@@ -65,7 +65,7 @@ const cardtrimfield = {
       this.$nextTick(() => {
         if (typeof window !== 'undefined') {
           this.setTrimFieldMaxHeight()
-          window.addEventListener('resize', this.setTrimFieldMaxHeight, { 'passive': true })
+          window.addEventListener('resize', this.setTrimFieldMaxHeight, { passive: true })
         }
       })
     }

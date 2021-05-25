@@ -1,6 +1,13 @@
 <template>
   <div class="rpl-grants-overview">
-    <rpl-list class="rpl-grants-overview__list" size="large" v-if="title || list" :title="title" :link="!!listing && link && link.url ? link.url : null" :list="list" />
+    <rpl-list
+      class="rpl-grants-overview__list"
+      size="large" v-if="title || list"
+      :title="title"
+      :link="!!listing && link && link.url ? link.url : null"
+      :list="list"
+      data-chromatic="ignore"
+    />
     <rpl-markup class="rpl-grants-overview__description" v-if="description" :html="description"></rpl-markup>
     <rpl-button class="rpl-grants-overview__cta" v-if="!listing && link" :href="link.url" theme="primary">{{ link.text }}</rpl-button>
   </div>

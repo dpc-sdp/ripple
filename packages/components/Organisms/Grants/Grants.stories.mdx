@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import RplGrantsOverview from './GrantsOverview.vue'
 
 <Meta title="Organisms/Grants" />
@@ -11,7 +11,7 @@ Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/c
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplGrantsOverview },
-  template: '<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startdate" :enddate="enddate" :description="description" :link="link" :listing="listing" />'
+  template: `<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startdate" :enddate="enddate" :description="description" :link="link" :listing="listing" />`
 });
 
 <Canvas>
@@ -43,7 +43,7 @@ export const TemplateOpenStatus = (args, { argTypes }) => ({
       endDate: customEndDate
     }
   },
-  template: '<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startDate" :enddate="endDate" :description="description" :link="link" :listing="listing" />'
+  template: `<rpl-grants-overview :title="title" :funding="funding" :audience="audience" :startdate="startDate" :enddate="endDate" :description="description" :link="link" :listing="listing" />`
 });
 
 <Canvas>

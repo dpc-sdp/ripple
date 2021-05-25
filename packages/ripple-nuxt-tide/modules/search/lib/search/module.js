@@ -72,7 +72,7 @@ export default (config, router, site) => ({
       filters: filters
     }, totalhits, from, options.responseSize, options.filterFromURI)
 
-    if (hits.hits.total > options.responseSize) {
+    if (totalhits > options.responseSize) {
       hits.totalSteps = Math.ceil(Number(totalhits) / options.responseSize)
     } else {
       hits.totalSteps = Math.floor(Number(totalhits) / options.responseSize)

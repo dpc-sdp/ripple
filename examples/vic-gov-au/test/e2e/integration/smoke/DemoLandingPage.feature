@@ -42,7 +42,7 @@ Feature: Demo Page
   Scenario: There are no audit issue
     And should verify the lighthouse scores
       | metric            | threshold |
-      | performance       | 65        |
+      | performance       | 50        |
 
 # Need to fix existing errors or work out ruleset to skip
   # Scenario: There are no accessibility errors

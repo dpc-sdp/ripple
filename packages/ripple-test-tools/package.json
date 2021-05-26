@@ -13,7 +13,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "axe-core": "^3.5.2",
+    "axe-core": "^4.0.0",
     "cucumber-junit-convert": "^1.1.0",
     "cypress": "^4.1.0",
     "cypress-audit": "^0.3.0",

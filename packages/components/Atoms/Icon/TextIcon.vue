@@ -5,11 +5,9 @@
     <span v-else class="rpl-text-icon__group"><rpl-icon v-bind="iconProps" />{{ text }}</span>
   </span>
   <span v-else-if="text && symbol && placement === 'after'">
-    <span v-if="textWordCount > 1">
-      <span>{{ textWithoutLastWord }}</span>
-      <span class="rpl-text-icon__group"> {{ textLastWord }}<rpl-icon v-bind="iconProps" /></span>
-    </span>
-    <span v-else-if="textWordCount === 1 && textIsAbsoluteUrl" class="rpl-text-icon__url-icon">
+    <span v-if="textWordCount > 1">{{ textWithoutLastWord }}</span>
+    <span v-if="textWordCount > 1" class="rpl-text-icon__group"> {{ textLastWord }}<rpl-icon v-bind="iconProps" /></span>
+    <span v-if="textWordCount === 1 && textIsAbsoluteUrl">
       <div class="rpl-text-icon__absolute-url">{{ text }}</div>
       <div class="rpl-text-icon__icon"><rpl-icon v-bind="iconProps" /></div>
     </span>
@@ -97,10 +95,6 @@ export default {
       margin: $rpl-text-link-after-margin;
     }
 
-    &__url-icon {
-      display: flex;
-    }
-
     &__absolute-url {
       display: block;
       white-space: nowrap;
@@ -111,6 +105,7 @@ export default {
     &__icon {
       display: block;
       float: right;
+      margin: -22px -13px 0px 0px;
     }
   }
 </style>

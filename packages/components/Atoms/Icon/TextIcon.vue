@@ -1,13 +1,7 @@
 <template>
   <span v-if="text && symbol && placement === 'before'">
-    <span v-if="textWordCount > 1">
-      <span class="rpl-text-icon__group"><rpl-icon v-bind="iconProps" />{{ textFirstWord }} </span>
-      <span>{{ textWithoutFirstWord }}</span>
-    </span>
-    <span v-else-if="textWordCount === 1 && textIsAbsoluteUrl" class="rpl-text-icon__url-icon">
-      <span><rpl-icon v-bind="iconProps" /></span>
-      <span class="rpl-text-icon__absolute-url">{{ text }}</span>
-    </span>
+    <span v-if="textWordCount > 1" class="rpl-text-icon__group"><rpl-icon v-bind="iconProps" />{{ textFirstWord }} </span>
+    <span v-if="textWordCount > 1">{{ textWithoutFirstWord }}</span>
     <span v-else class="rpl-text-icon__group"><rpl-icon v-bind="iconProps" />{{ text }}</span>
   </span>
   <span v-else-if="text && symbol && placement === 'after'">

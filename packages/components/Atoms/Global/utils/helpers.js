@@ -17,11 +17,6 @@ const isRelativeUrl = (url) => {
   return reg.test(url)
 }
 
-const isAbsoluteUrl = (url) => {
-  const pat = /^https?:\/\//i
-  return pat.test(url)
-}
-
 const isExternalUrl = (url, hostname) => {
   if (isRelativeUrl(url)) {
     return false
@@ -145,6 +140,5 @@ export {
   isExternalUrl,
   isIPadPro,
   isRelativeUrl,
-  isAbsoluteUrl,
   truncateText
 }

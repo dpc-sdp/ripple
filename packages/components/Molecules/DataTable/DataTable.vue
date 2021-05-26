@@ -122,6 +122,7 @@ export default {
           if (rowValue && rowValue[0]) {
             newRows.push(rowValue[0])
           }
+          return newRows
         })
         formattedRows.push(newRows)
       }
@@ -139,6 +140,7 @@ export default {
           if (rowValue && rowValue[0]) {
             newRows.push(rowValue[0])
           }
+          return newRows
         })
         if (newRows.length) {
           formattedRows.push(newRows)

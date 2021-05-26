@@ -209,7 +209,7 @@ module.exports = {
   dataTableStructure: (data) => {
     if (typeof data !== 'object' || !Object.values(data).length) return []
     // remove caption value from object
-    if (data.hasOwnProperty('caption')) {
+    if (Object.prototype.hasOwnProperty.call(data, 'caption')) {
       delete data.caption
     }
 

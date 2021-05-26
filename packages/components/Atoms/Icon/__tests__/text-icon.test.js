@@ -130,32 +130,4 @@ describe('RplTextIcon', () => {
       class: 'rpl-text-icon--before'
     })
   })
-
-  it('checks if text is absolute URL', () => {
-    const wrapper = shallowMount(RplTextIcon, {
-      propsData: {
-        symbol: 'search',
-        color: 'primary',
-        placement: 'after',
-        size: 'm',
-        text: 'https://www.vic.gov.au/'
-      }
-    })
-
-    expect(wrapper.vm.textIsAbsoluteUrl).toBe(true)
-  })
-
-  it('checks if text is not absolute URL', () => {
-    const wrapper = shallowMount(RplTextIcon, {
-      propsData: {
-        symbol: 'search',
-        color: 'primary',
-        placement: 'after',
-        size: 'm',
-        text: 'vic.gov.au/'
-      }
-    })
-
-    expect(wrapper.vm.textIsAbsoluteUrl).toBe(false)
-  })
 })

@@ -38,7 +38,7 @@ quotes: ['off', 'single', { allowTemplateLiterals: true }]`
     return actions
   },
   async completed () {
-    console.log('SDP 1.33.0:')
+    console.log('SDP 1.34.0:')
     console.log('Enable eslint rules')
   }
 }

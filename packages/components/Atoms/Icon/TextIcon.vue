@@ -76,7 +76,7 @@ export default {
 
   .rpl-text-icon {
     &__group {
-      white-space: nowrap;
+      white-space: normal;
     }
 
     &--before {

@@ -27,7 +27,7 @@
     "@babel/node": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "@elastic/elasticsearch-mock": "^0.3.0",
-    "dotenv": "^8.2.0",
+    "dotenv": "^9.0.0",
     "nodemon": "^2.0.6"
   }
 }

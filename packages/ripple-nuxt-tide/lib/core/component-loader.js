@@ -18,6 +18,9 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       } else if (pathMiddle.includes('./../../modules/')) {
         pathMiddle = pathMiddle.replace('./../../modules/', '')
         cmpsConfig = require(`./../../modules/${pathMiddle}tide.load-components`).default
+      } else if (pathMiddle.includes('/node_modules/')) {
+        pathMiddle = pathMiddle.replace('~/node_modules/', '')
+        cmpsConfig = require(`~/node_modules/${pathMiddle}tide.load-components`).default
       }
 
       if (cmpsConfig && cmpsConfig[name]) {

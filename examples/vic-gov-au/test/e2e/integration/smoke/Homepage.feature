@@ -17,7 +17,7 @@ Feature: Home Page
   Scenario: There are no audit issue
     And should verify the lighthouse scores
       | metric            | threshold |
-      | performance       | 70        |
+      | performance       | 50        |
       | best-practices    | 79        |
       | seo               | 85        |
 

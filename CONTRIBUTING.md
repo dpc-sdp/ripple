@@ -121,13 +121,13 @@ This script requires:
 
 ``` bash
 # Generate a new package in the `./packages/**/` directory
-cd src && yarn new-package "[Name]" "[Description]" "[Atoms / Molecules / Organisms]"
+cd src && yarn new-component "[Name]" "[Description]" "[Atoms / Molecules / Organisms]"
 ```
 
 Example: Creating a new package 'My Package' in the Organism folder:
 
 ``` bash
-cd src && yarn new-package "My Package" "A demonstration package." "Organisms"
+cd src && yarn new-component "My Package" "A demonstration package." "Organisms"
 ```
 
 After creating a new package:

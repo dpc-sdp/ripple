@@ -1,0 +1,16 @@
+{
+  "name": "@dpc-sdp/ripple-print-this",
+  "version": "1.21.2",
+  "description": "A component to print current page, recommended for sidebar.",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Molecules/PrintThis",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-global": "1.21.2",
+    "@dpc-sdp/ripple-icon": "1.21.2"
+  }
+}

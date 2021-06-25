@@ -44,6 +44,7 @@
     "@dpc-sdp/ripple-meta-tag": "1.21.2",
     "@dpc-sdp/ripple-news": "1.21.2",
     "@dpc-sdp/ripple-pagination": "1.21.2",
+    "@dpc-sdp/ripple-print-this": "1.21.2",
     "@dpc-sdp/ripple-profile": "1.21.2",
     "@dpc-sdp/ripple-publication": "1.21.2",
     "@dpc-sdp/ripple-publish-date-and-author": "1.21.2",

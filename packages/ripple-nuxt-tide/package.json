@@ -55,7 +55,7 @@
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/proxy": "^2.0.0",
     "basic-auth": "^2.0.0",
-    "cheerio": "1.0.0-rc.2",
+    "cheerio": "^1.0.0-rc.10",
     "connect-logger": "^0.0.1",
     "cookieparser": "^0.1.0",
     "cookies": "^0.8.0",

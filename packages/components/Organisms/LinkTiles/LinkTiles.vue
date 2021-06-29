@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
@@ -69,7 +69,7 @@ export default {
       flex-wrap: wrap;
     }
 
-    .rpl-link-tiles__list {
+    &__list {
       list-style: none;
       padding: 0;
       margin-bottom: $rpl-space-2 * 3;
@@ -80,48 +80,21 @@ export default {
         margin-top: $rpl-space-2 * 3;
         margin-bottom: $rpl-space-4;
       }
+
+      &-item {
+        display: inline-flex;
+        background-color: $rpl-link-tiles-item-background-color;
+        margin-right: $rpl-space-2;
+        margin-bottom: $rpl-space-2;
+      }
     }
 
-    .rpl-link-tiles__list-item {
-      display: inline-flex;
-      background-color: $rpl-link-tiles-item-background-color;
-      margin-right: $rpl-space-2;
-      margin-bottom: $rpl-space-2;
-    }
-
-    .rpl-link-tiles__title {
+    &__title {
       @include rpl_typography_ruleset($rpl-link-tiles-title-ruleset);
       @include rpl_text_color($rpl-link-tiles-text-color);
     }
 
-    .rpl-link-tiles__link-icon {
-      height: rem(32px);
-      width: rem(32px);
-      margin-right: $rpl-space-2 * 3;
-    }
-
-    .rpl-link-tiles__primary-cta {
-      position: relative;
-      @include rpl_typography_ruleset($rpl-link-tiles-tile-text-ruleset);
-      @include rpl_text_color($rpl-link-tiles-text-color);
-      text-decoration: none;
-
-      &:after {
-        content: '';
-        position: absolute;
-        height: 2px;
-        width: 100%;
-        left: 0;
-        bottom: -$rpl-space;
-        background-color: $rpl-link-tiles-primary-cta-border-color;
-      }
-
-      &:hover {
-        @include rpl_text_color($rpl-link-tiles-text-hover-color);
-      }
-    }
-
-    .rpl-link-tiles__link {
+    &__link {
       display: flex;
       align-items: center;
       border: $rpl-link-tiles-link-border;
@@ -147,6 +120,33 @@ export default {
 
       @include rpl_breakpoint(m) {
         padding: $rpl-space-3 ($rpl-space * 5);
+      }
+
+      &-icon {
+        height: rem(32px);
+        width: rem(32px);
+        margin-right: $rpl-space-2 * 3;
+      }
+    }
+
+    &__primary-cta {
+      position: relative;
+      @include rpl_typography_ruleset($rpl-link-tiles-tile-text-ruleset);
+      @include rpl_text_color($rpl-link-tiles-text-color);
+      text-decoration: none;
+
+      &:after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        left: 0;
+        bottom: -$rpl-space;
+        background-color: $rpl-link-tiles-primary-cta-border-color;
+      }
+
+      &:hover {
+        @include rpl_text_color($rpl-link-tiles-text-hover-color);
       }
     }
 

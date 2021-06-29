@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-card-compact-grid">
     <h2 v-if="title" class="rpl-card-compact__title">{{ title }}</h2>
-    <rpl-row row-gutter class="rpl-card-compact__cards">
+    <rpl-row v-if="cards && cards.length" row-gutter class="rpl-card-compact__cards">
       <rpl-col catchChildError v-for="(card, index) in cards" :key="index" cols="full" :colsBp="cardColsSetting" class="rpl-card-compact__card-col">
         <rpl-card-compact
           class="rpl-card-compact__card"

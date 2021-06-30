@@ -20,7 +20,9 @@ export default {
   },
   methods: {
     printClick () {
-      if (isClient()) {
+      if (document.queryCommandSupported('print')) {
+        document.execCommand('print', false, null)
+      } else if (isClient()) {
         window.print()
       }
     }

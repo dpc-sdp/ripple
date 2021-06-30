@@ -230,10 +230,6 @@ workflows:
           context: Ripple
           requires:
             - build
-      - audit:
-          context: Ripple
-          requires:
-            - build
       # Run regression tests on release branches
       - e2e-vic-gov:
           context: Ripple

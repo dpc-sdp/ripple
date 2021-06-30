@@ -214,7 +214,7 @@ jobs:
           at: ~/app
       - run:
           name: run UI test
-          command: cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE
+          command: cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE --exit-zero-on-changes
 
 workflows:
   version: 2
@@ -227,10 +227,6 @@ workflows:
           requires:
             - build
       - test:
-          context: Ripple
-          requires:
-            - build
-      - audit:
           context: Ripple
           requires:
             - build

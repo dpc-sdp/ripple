@@ -1,0 +1,199 @@
+import { Meta, Description, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplComplexDataTable from './ComplexDataTable.vue'
+import { RplDescriptionListIcon } from '@dpc-sdp/ripple-description-list'
+import Vue from 'vue'
+const exampleItalicCmp = Vue.component('make-italic', {
+  template: `<div style="font-style: italic;" class="is-italic"><slot></slot></div>`
+});
+const exampleShowMoreCmp = Vue.component('show-more', {
+  template: `
+    <button>
+      Show more {{$props}}
+    </button>
+  `
+});
+const exampleHiddenRowData = [
+      [
+        {
+          items: [
+            {
+              heading: 'Open for bookings',
+              content: `
+                Monday – Friday 8am-7:30pm
+                Saturday – Sunday 9am-3:30pm`
+            },
+            {
+              heading: 'Open for walkins',
+              content: `
+                Monday – Friday 8am-7:30pm
+                Saturday – Sunday 9am-3:30pm`
+            },
+            {
+              heading: 'Getting there',
+              content: `
+                613 Main Road, Golden Point, Ballarat Enter the car park from Burdeu Street (at 525 Main Road) and follow signage to the clinic.Parking is also available at Zagames (639 Main Rd, Golden Point VIC 3350).
+              `
+            }
+          ]
+        }
+      ]
+    ]
+const exampleItems = [
+  ['Coburg', 'Mercure Hotel and Convention Centre', 'Bookings accepted for all ages', 'Walk ins accepted for all ages', 'Est. wait time', exampleHiddenRowData
+  ],
+  ['Coburg', 'Mercure Hotel and Convention Centre', 'Bookings accepted for all ages', 'Walk ins accepted for all ages', 'Est. wait time', exampleHiddenRowData],
+  ['Coburg', 'Mercure Hotel and Convention Centre', 'Bookings accepted for all ages', 'Walk ins accepted for all ages', 'Est. wait time'],
+  ['Coburg', 'Mercure Hotel and Convention Centre', 'Bookings accepted for all ages', 'Walk ins accepted for all ages', 'Est. wait time'],
+]
+
+<Meta title="Molecules/DataTable/Complex" />
+
+# ComplexDataTable
+
+Follows pattern from https://fuschia-stretch.glitch.me for accessible row expanding
+
+<Description of={RplComplexDataTable} />
+
+export const TemplateAccordionTable = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplComplexDataTable, RplDescriptionListIcon },
+  template: `
+    <rpl-complex-data-table
+      is-row-oriented
+      v-bind="$props"
+    >
+      <template v-slot:hiddenContentCell="hiddenContentProps" >
+        <rpl-description-list-icon v-bind="hiddenContentProps.coldata" />
+      </template>
+    </rpl-complex-data-table>
+  `
+});
+
+export const TemplateAccordionTableWithShowMore = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplComplexDataTable, RplDescriptionListIcon },
+  template: `
+    <rpl-complex-data-table
+      is-row-oriented
+      v-bind="$props"
+    >
+      <template v-slot:showmore="showMoreProps">
+        <button>
+          Show {{ showMoreProps.isRowExpanded ? 'less' : 'more'}} info please
+        </button>
+      </template>
+      <template v-slot:hiddenContentCell="hiddenContentProps" >
+        <rpl-description-list-icon v-bind="hiddenContentProps.coldata" />
+      </template>
+    </rpl-complex-data-table>
+  `
+});
+
+## With custom moreinfo component
+
+<Canvas>
+  <Story
+    name="With accordion rows"
+    args={{
+      caption: 'A table with expandable rows',
+      columns: [
+        'Suburb',
+        'Location',
+        'Bookings',
+        'Walk ins',
+        'Est. wait time',
+        ''
+      ],
+      zebraStripes: true,
+      rowHeaders: true,
+      items: exampleItems
+    }}
+  >
+    {TemplateAccordionTable.bind({})}
+  </Story>
+</Canvas>
+
+## Mobile view
+<Canvas>
+  <Story
+    name="Mobile"
+    parameters={{
+      viewport: {
+        defaultViewport: 'mobile2'
+      }
+    }}    
+    args={{
+      columns: [
+        'Suburb',
+        'Location',
+        'Bookings',
+        'Walk ins',
+        'Est. wait time',
+        ''
+      ],
+      zebraStripes: true,
+      rowHeaders: true,
+      items: exampleItems
+    }}
+  >
+    {TemplateAccordionTable.bind({})}
+  </Story>
+</Canvas>
+
+## With custom Show more component
+
+<Canvas>
+  <Story
+    name="With custom show more"
+    args={{
+      columns: [
+        'Suburb',
+        'Location',
+        'Bookings',
+        'Walk ins',
+        'Est. wait time',
+        ''
+      ],
+      zebraStripes: true,
+      rowHeaders: true,
+      items: exampleItems
+    }}
+  >
+    {TemplateAccordionTableWithShowMore.bind({})}
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story
+    name="With simple data set"
+    args={{
+      rowHeaders: false,
+      columns: ['Fruit', 'Vegetable', 'Elements'], 
+      items: [
+        ['Apple', 'Potato', 'Zinc'],
+        ['Orange', 'Broccoli', 'Copper'],
+        ['Banana', 'Pumpkin', 'Iron']
+      ]
+    }}
+  >
+    {TemplateAccordionTable.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Passing cell render component"
+    args={{
+      rowHeaders: false,
+      columns: ['Fruit', 'Vegetable', { label: 'Elements', component: exampleItalicCmp }], 
+      items: [
+        ['Apple', 'Potato', 'Zinc'],
+        ['Orange', 'Broccoli', 'Copper'],
+        ['Banana', 'Pumpkin', 'Iron']
+      ]
+    }}
+  >
+    {TemplateAccordionTable.bind({})}
+  </Story>
+</Canvas>

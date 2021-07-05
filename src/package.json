@@ -45,6 +45,7 @@
     "@dpc-sdp/ripple-news": "1.22.0",
     "@dpc-sdp/ripple-pagination": "1.22.0",
     "@dpc-sdp/ripple-profile": "1.22.0",
+    "@dpc-sdp/ripple-print-this": "1.22.0",
     "@dpc-sdp/ripple-publication": "1.22.0",
     "@dpc-sdp/ripple-publish-date-and-author": "1.22.0",
     "@dpc-sdp/ripple-related-links": "1.22.0",

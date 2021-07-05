@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplPrintThis from './index'
+
+<Meta title="Molecules/PrintThis" />
+
+# PrintThis
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/PrintThis/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplPrintThis },
+  template: ` <rpl-print-this :label="label" />`
+});
+
+<Canvas>
+  <Story
+    name="PrintThis"
+    args={{
+      label: 'Print this page'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplPrintThis} />
+

@@ -12,6 +12,8 @@ import RplCardBox from './CardBox.vue'
 import RplCardHonourRoll from './CardHonourRoll.vue'
 import RplCardProfile from './CardProfile.vue'
 import RplCardCarousel from './CardCarousel.vue'
+import RplCardCompact from './CardCompact.vue'
+import RplCardCompactGrid from './CardCompactGrid.vue'
 
 export { RplCardPromo }
 export { RplCardNav }
@@ -27,4 +29,6 @@ export { RplCardBox }
 export { RplCardHonourRoll }
 export { RplCardProfile }
 export { RplCardCarousel }
+export { RplCardCompact }
+export { RplCardCompactGrid }
 export default RplCardNavigation

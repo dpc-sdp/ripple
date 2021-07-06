@@ -2,7 +2,6 @@ import { shallowMount } from '@vue/test-utils'
 import CardNav from '../CardNav'
 import dayjs from 'dayjs'
 
-
 describe('CardNav', () => {
   it('trimmed Title to expected limit', () => {
     const wrapper = shallowMount(CardNav, {

@@ -41,7 +41,7 @@ import formData from './../formdata.js'
 import { searchMixin, getSearch } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
 
 // Setting Australia/Melbourne timezone
-import moment from 'moment-timezone'
+import timeZone from 'dayjs-ext/plugin/timeZone'
 
 export default {
   name: 'EventSearch',
@@ -101,15 +101,15 @@ export default {
       let filterValues = this.tideSearch.getFiltersValues(this.searchForm.filterForm)
       // Test date filter based on start / end fields.
       if (filterValues.field_event_date_start_value) {
-        const setFilterDate = moment(filterValues.field_event_date_start_value.values)
+        const setFilterDate = timeZone(filterValues.field_event_date_start_value.values)
         filterValues.field_event_date_start_value.values = setFilterDate.startOf('day').toISOString()
       }
 
       if (filterValues.field_event_date_end_value) {
-        const setFilterDate = moment(filterValues.field_event_date_end_value.values)
+        const setFilterDate = timeZone(filterValues.field_event_date_end_value.values)
         filterValues.field_event_date_end_value.values = setFilterDate.startOf('day').toISOString()
       } else {
-        const vic = moment.tz.setDefault('Australia/Melbourne')
+        const vic = timeZone.tz.setDefault('Australia/Melbourne')
         const today = vic().startOf('day').toISOString()
         filterValues['field_event_date_end_value'] = {
           operator: 'gte',

@@ -1,4 +1,4 @@
-import moment from 'moment'
+import dayjs from 'dayjs'
 import formatdateMixin from '@dpc-sdp/ripple-global/mixins/formatdate'
 const formatDate = formatdateMixin.methods.formatDate
 
@@ -24,9 +24,9 @@ export default function calcStatus (startDate, endDate, displaySoon = true, stat
   }
 
   if (startDate || endDate) {
-    const now = moment()
-    const start = startDate ? moment(startDate) : null
-    const end = endDate ? moment(endDate) : null
+    const now = dayjs()
+    const start = startDate ? dayjs(startDate) : null
+    const end = endDate ? dayjs(endDate) : null
 
     if (start) {
       if (now.isAfter(start)) {
@@ -48,7 +48,7 @@ export default function calcStatus (startDate, endDate, displaySoon = true, stat
       }
 
       // displays status as "Opening on startdate" when current date is within one month of startdate
-      if (now.isBetween(moment(start).subtract(1, 'months'), start)) {
+      if (now.isBetween(dayjs(start).subtract(1, 'months'), start)) {
         if (!displaySoon) {
           return statusTerms.openingSoon()
         }

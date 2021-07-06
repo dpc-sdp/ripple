@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import CardPromo from '../CardPromo'
-import moment from 'moment'
+import dayjs from 'dayjs'
 
 describe('CardPromo', () => {
   it('trimmed Summary to hard limit 300', () => {
@@ -10,7 +10,6 @@ describe('CardPromo', () => {
         link: { text: 'Read more', url: '#' }
       }
     })
-
     expect(wrapper.vm.trimmedSummary).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu...')
     expect(wrapper.vm.trimmedSummary).toHaveLength(300 + 3)
   })
@@ -132,14 +131,12 @@ describe('CardPromo', () => {
         showMeta: true,
         topic: 'Anything under the sun',
         isGrantOnGoing: '0',
-        dateEnd: moment().add(7, 'days'),
-        dateStart: moment()
+        dateEnd: dayjs().add(7, 'days').format(),
+        dateStart: dayjs()
       }
     })
-
     expect(wrapper.vm.grantStatusData).toEqual(wrapper.vm.statusTerms.open)
   })
-
   it('calculates grant status to close if date today is past the grant dates and ongoing is false', () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
@@ -151,8 +148,8 @@ describe('CardPromo', () => {
         showMeta: true,
         topic: 'Anything under the sun',
         isGrantOnGoing: '0',
-        dateEnd: moment().subtract(2, 'days'),
-        dateStart: moment().subtract(7, 'days')
+        dateEnd: dayjs().subtract(2, 'day'),
+        dateStart: dayjs().subtract(7, 'day')
       }
     })
 
@@ -170,8 +167,8 @@ describe('CardPromo', () => {
         showMeta: true,
         topic: 'Anything under the sun',
         isGrantOnGoing: '1',
-        dateEnd: moment().subtract(2, 'days'),
-        dateStart: moment().subtract(7, 'days')
+        dateEnd: dayjs().subtract(2, 'day'),
+        dateStart: dayjs().subtract(7, 'day')
       }
     })
 

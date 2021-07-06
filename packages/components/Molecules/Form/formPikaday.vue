@@ -19,8 +19,8 @@
 
 <script>
 import defaults from 'lodash/defaults'
-import moment from 'moment'
 import RplIcon from '@dpc-sdp/ripple-icon'
+import dayjs from 'dayjs'
 
 export default {
   props: {
@@ -49,7 +49,7 @@ export default {
       }
     })
     return {
-      displayVal: this.value ? moment(this.value).format(pickerOptions.format) : '',
+      displayVal: this.value ? dayjs(this.value).format(pickerOptions.format) : '',
       picker: null,
       pickerOptions: pickerOptions
     }

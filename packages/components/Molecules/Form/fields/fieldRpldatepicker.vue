@@ -36,7 +36,7 @@
 
 <script>
 import { abstractField, dateFieldHelper } from 'vue-form-generator'
-import moment from 'moment'
+import dayjs from 'dayjs'
 import pikaday from '../formPikaday.vue'
 
 export default {
@@ -50,10 +50,10 @@ export default {
       let endValue = ''
       if (this.value) {
         if (this.value[0]) {
-          startValue = moment(this.value[0]).format()
+          startValue = dayjs(this.value[0]).format()
         }
         if (this.value[1]) {
-          endValue = moment(this.value[1]).format()
+          endValue = dayjs(this.value[1]).format()
         }
       }
       return {
@@ -89,14 +89,14 @@ export default {
     // Range Methods
     startChange (val) {
       const hasVal = !!val
-      const pikadate = hasVal ? moment(val) : null
+      const pikadate = hasVal ? dayjs(val) : null
       this.returnStart = hasVal ? pikadate.format() : ''
       this.startRange(hasVal ? pikadate.toDate() : null)
       this.rangeUpdateDate()
     },
     endChange (val) {
       const hasVal = !!val
-      const pikadate = hasVal ? moment(val) : null
+      const pikadate = hasVal ? dayjs(val) : null
       this.returnEnd = hasVal ? pikadate.format() : ''
       this.endRange(hasVal ? pikadate.toDate() : null)
       this.rangeUpdateDate()
@@ -119,8 +119,8 @@ export default {
     },
     initRanges () {
       if (this.startPicker && this.endPicker) {
-        this.startRange(moment(this.modelStart).toDate())
-        this.endRange(moment(this.modelEnd).toDate())
+        this.startRange(dayjs(this.modelStart).toDate())
+        this.endRange(dayjs(this.modelEnd).toDate())
       }
     },
     rangeUpdateDate () {
@@ -128,7 +128,7 @@ export default {
     },
     // Single Methods
     singleUpdateDate (val) {
-      this.value = val ? moment(val).format() : null
+      this.value = val ? dayjs(val).format() : null
     },
     ...dateFieldHelper
   }

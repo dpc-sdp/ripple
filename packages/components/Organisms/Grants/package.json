@@ -15,6 +15,7 @@
     "@dpc-sdp/ripple-list": "1.22.0",
     "@dpc-sdp/ripple-markup": "1.22.0",
     "@dpc-sdp/ripple-meta-tag": "1.22.0",
+    "dayjs": "^1.10.5",
     "moment": "^2.29.1"
   }
 }

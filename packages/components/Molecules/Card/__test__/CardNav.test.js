@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import CardNav from '../CardNav'
-import moment from 'moment'
+import dayjs from 'dayjs'
+
 
 describe('CardNav', () => {
   it('trimmed Title to expected limit', () => {
@@ -127,12 +128,11 @@ describe('CardNav', () => {
         showMeta: true,
         topic: 'Anything under the sun',
         isGrantOnGoing: '0',
-        dateEnd: moment().add(7, 'days'),
-        dateStart: moment()
+        dateEnd: dayjs().add(7, 'days').format(),
+        dateStart: dayjs()
 
       }
     })
-
     expect(wrapper.vm.grantStatusData).toEqual(wrapper.vm.statusTerms.open)
   })
 
@@ -147,8 +147,8 @@ describe('CardNav', () => {
         showMeta: true,
         topic: 'Anything under the sun',
         isGrantOnGoing: '0',
-        dateEnd: moment().subtract(2, 'days'),
-        dateStart: moment().subtract(7, 'days')
+        dateEnd: dayjs().subtract(2, 'days'),
+        dateStart: dayjs().subtract(7, 'days')
 
       }
     })
@@ -167,8 +167,8 @@ describe('CardNav', () => {
         showMeta: true,
         topic: 'Anything under the sun',
         isGrantOnGoing: '1',
-        dateEnd: moment().subtract(2, 'days'),
-        dateStart: moment().subtract(7, 'days')
+        dateEnd: dayjs().subtract(2, 'days'),
+        dateStart: dayjs().subtract(7, 'days')
 
       }
     })

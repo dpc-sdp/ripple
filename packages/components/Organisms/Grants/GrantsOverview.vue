@@ -14,13 +14,12 @@
 </template>
 
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
 import RplButton from '@dpc-sdp/ripple-button'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplList from '@dpc-sdp/ripple-list'
 import { formatMoney } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
-
 export default {
   name: 'RplGrantsOverview',
   components: {
@@ -77,9 +76,9 @@ export default {
     },
     calcStatus (startDate, endDate, terms = this.statusTerms) {
       if (startDate || endDate) {
-        const now = moment()
-        const start = startDate ? moment(startDate) : null
-        const end = endDate ? moment(endDate) : null
+        const now = dayjs()
+        const start = startDate ? dayjs(startDate) : null
+        const end = endDate ? dayjs(endDate) : null
 
         if (start) {
           if (now.isAfter(start)) {
@@ -96,8 +95,10 @@ export default {
               return terms.ongoing
             }
           }
+          var isBetween = require('dayjs/plugin/isBetween')
+          dayjs.extend(isBetween)
           // displays status as "Opening on startdate" when current date is within one month of startdate
-          if (now.isBetween(moment(start).subtract(1, 'months'), start)) {
+          if (now.isBetween(dayjs(start).subtract(1, 'months'), start)) {
             return terms.openingSoon(this.formatDate(startDate))
           }
           // displays status as "Closed" when current date is more than one month of startdate

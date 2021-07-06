@@ -1,4 +1,4 @@
-import moment from 'moment'
+import dayjs from "dayjs"
 
 const formatdate = {
   props: {
@@ -9,14 +9,14 @@ const formatdate = {
   methods: {
     formatDate: function (date, format) {
       format = (format === undefined) ? 'DD MMMM' : format
-      moment.locale(this.locale)
-      return moment(date).format(format)
+      dayjs.locale(this.locale)
+      return dayjs(date).format(format)
     },
     formatDateRange: function (dateStart, dateEnd, format = { day: 'DD', month: 'MMMM', year: 'YYYY' }) {
-      moment.locale(this.locale)
+      dayjs.locale(this.locale)
       let rtn = ''
-      const start = moment(dateStart)
-      const end = moment(dateEnd)
+      const start = dayjs(dateStart)
+      const end = dayjs(dateEnd)
       if (start.isSame(end, 'day')) {
         rtn = this.formatDate(start)
       } else if (start.isSame(end, 'month')) {

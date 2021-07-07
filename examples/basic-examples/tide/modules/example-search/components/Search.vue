@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
 
 import { RplDivider } from '@dpc-sdp/ripple-global'
 import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
@@ -89,7 +89,7 @@ export default {
       let filterValues = this.tideSearch.getFiltersValues(this.searchForm.filterForm)
       // Test date filter based on start / end fields.
       if (filterValues.field_event_date_end_value) {
-        const setFilterDate = moment(filterValues.field_event_date_end_value.values)
+        const setFilterDate = dayjs(filterValues.field_event_date_end_value.values)
         filterValues.field_event_date_end_value.values = setFilterDate.startOf('day').toISOString()
         filterValues['field_event_date_start_value'] = {
           operator: 'lte',

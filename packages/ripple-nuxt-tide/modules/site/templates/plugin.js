@@ -1,5 +1,5 @@
 import get from 'lodash/get'
-import moment from 'moment'
+import dayjs from 'dayjs'
 
 export default ({ app, store }) => {
   const options = <%= JSON.stringify(options) %>
@@ -43,8 +43,8 @@ export default ({ app, store }) => {
       const fetchInterval = 1 // interval in minutes to refetch
       const lastFetched = get(store, 'state.tide.siteData.lastFetched')
       if (lastFetched) {
-        const lastFetchedTime = moment(lastFetched)
-        const now = moment()
+        const lastFetchedTime = dayjs(lastFetched)
+        const now = dayjs()
         if (now.diff(lastFetchedTime, 'minutes') >= fetchInterval) {
           store.dispatch('tide/setSiteData')
         }

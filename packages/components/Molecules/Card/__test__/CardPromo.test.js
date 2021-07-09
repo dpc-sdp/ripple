@@ -46,7 +46,7 @@ describe('CardPromo', () => {
       }
     })
 
-     expect(wrapper.vm.formattedDate).toEqual('10 to 11 November')
+    expect(wrapper.vm.formattedDate).toEqual('10 to 11 November')
 
     await wrapper.setProps({ dateEnd: null })
     expect(wrapper.vm.formattedDate).toEqual('10 November 2020')

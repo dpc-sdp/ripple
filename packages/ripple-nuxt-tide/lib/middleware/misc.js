@@ -5,8 +5,8 @@ import { metatagConverter, pathToClass } from './../core/tide-helper'
 export default (context, pageData) => {
   if (pageData.tidePage) {
     // meta tag
-    let metatag = pageData.tidePage.hasOwnProperty('metatag_normalized') ? pageData.tidePage.metatag_normalized : pageData.tidePage.metatag
-    pageData.tidePage.appMetatag = metatagConverter(metatag)
+    const metaKey = pageData.tidePage.hasOwnProperty('metatag_normalized') ? 'metatag_normalized' : 'metatag'
+    pageData.tidePage.appMetatag = metatagConverter(pageData.tidePage[metaKey])
 
     // Homepage
     if (context.route.path === '/') {

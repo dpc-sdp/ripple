@@ -12,7 +12,6 @@
   "dependencies": {
     "dayjs": "^1.10.5",
     "masonry-layout": "^4.2.1",
-    "moment": "^2.29.1",
     "object-fit-images": "^3.2.3",
     "vue-focus": "^2.1.0"
   },

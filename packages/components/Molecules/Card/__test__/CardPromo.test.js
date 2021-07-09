@@ -36,7 +36,7 @@ describe('CardPromo', () => {
     expect(wrapper.vm.trimmedSummary).toHaveLength(150 + 3)
   })
 
-  it('formats the date correctly', () => {
+  it('formats the date correctly', async () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
         title: 'Promo card',
@@ -46,13 +46,13 @@ describe('CardPromo', () => {
       }
     })
 
-    expect(wrapper.vm.formattedDate).toEqual('10 to 11 November')
+     expect(wrapper.vm.formattedDate).toEqual('10 to 11 November')
 
-    wrapper.setProps({ dateEnd: null })
+    await wrapper.setProps({ dateEnd: null })
     expect(wrapper.vm.formattedDate).toEqual('10 November 2020')
   })
 
-  it('generates css modifiers based on display style props value', () => {
+  it('generates css modifiers based on display style props value', async () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
         title: 'Promo card',
@@ -75,14 +75,14 @@ describe('CardPromo', () => {
 
     expect(wrapper.vm.classModifiers).toEqual('rpl-card-promo--profile')
 
-    wrapper.setProps({ image: null })
+    await wrapper.setProps({ image: null })
     expect(wrapper.vm.classModifiers).toEqual('rpl-card-promo--noimage')
 
     wrapper.setProps({ displayStyle: 'noImage' })
     expect(wrapper.vm.classModifiers).toEqual('rpl-card-promo--noimage')
   })
 
-  it('returns content type label when it is valid and showMeta is true', () => {
+  it('returns content type label when it is valid and showMeta is true', async () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
         title: 'Promo card',
@@ -97,11 +97,11 @@ describe('CardPromo', () => {
 
     expect(wrapper.vm.contentTypeLabel).toEqual('Profile')
 
-    wrapper.setProps({ contentType: '' })
+    await wrapper.setProps({ contentType: '' })
     expect(wrapper.vm.contentTypeLabel).toEqual('')
   })
 
-  it('returns topic label when content type is not valid and showMeta flag is true', () => {
+  it('returns topic label when content type is not valid and showMeta flag is true', async () => {
     const wrapper = shallowMount(CardPromo, {
       propsData: {
         title: 'Promo card',
@@ -116,7 +116,7 @@ describe('CardPromo', () => {
 
     expect(wrapper.vm.topicLabel).toEqual('Anything under the sun')
 
-    wrapper.setProps({ topic: '' })
+    await wrapper.setProps({ topic: '' })
     expect(wrapper.vm.topicLabel).toEqual('')
   })
 

@@ -45,7 +45,7 @@ describe('CardNav', () => {
     expect(wrapper.vm.trimmedSummary).toHaveLength(200 + 3)
   })
 
-  it('formats the date correctly', () => {
+  it('formats the date correctly', async () => {
     const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Navigation card V2',
@@ -56,11 +56,11 @@ describe('CardNav', () => {
 
     expect(wrapper.vm.formattedDate).toEqual('10 to 11 November')
 
-    wrapper.setProps({ dateEnd: null })
+    await wrapper.setProps({ dateEnd: null })
     expect(wrapper.vm.formattedDate).toEqual('10 November 2020')
   })
 
-  it('generates css modifiers based on display style props value', () => {
+  it('generates css modifiers based on display style props value', async () => {
     const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Nav card',
@@ -74,11 +74,11 @@ describe('CardNav', () => {
 
     expect(wrapper.vm.classModifiers).toEqual('rpl-card-nav--featured')
 
-    wrapper.setProps({ displayStyle: 'noImage' })
+    await wrapper.setProps({ displayStyle: 'noImage' })
     expect(wrapper.vm.classModifiers).toEqual('rpl-card-nav--noimage')
   })
 
-  it('returns content type label when it has valid value and showMeta flag is true', () => {
+  it('returns content type label when it has valid value and showMeta flag is true', async () => {
     const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Nav card',
@@ -93,11 +93,11 @@ describe('CardNav', () => {
 
     expect(wrapper.vm.contentTypeLabel).toEqual('Profile')
 
-    wrapper.setProps({ contentType: null })
+    await wrapper.setProps({ contentType: null })
     expect(wrapper.vm.contentTypeLabel).toEqual('')
   })
 
-  it('returns topic label when it has value and showMeta flag is true', () => {
+  it('returns topic label when it has value and showMeta flag is true', async () => {
     const wrapper = shallowMount(CardNav, {
       propsData: {
         title: 'Nav card',
@@ -112,7 +112,7 @@ describe('CardNav', () => {
 
     expect(wrapper.vm.topicLabel).toEqual('Anything under the sun')
 
-    wrapper.setProps({ topic: null })
+    await wrapper.setProps({ topic: null })
     expect(wrapper.vm.topicLabel).toEqual('')
   })
 

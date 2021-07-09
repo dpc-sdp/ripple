@@ -3,7 +3,7 @@ import RplIcon from './../Icon'
 import './../icons/index.js'
 
 describe('RplIcon', () => {
-  it('returns the correct icon class based on icon name provided', () => {
+  it('returns the correct icon class based on icon name provided', async () => {
     const wrapper = shallowMount(RplIcon, {
       propsData: {
         'symbol': 'search',
@@ -13,7 +13,7 @@ describe('RplIcon', () => {
     })
     expect(wrapper.vm.iconClass).toEqual('rpl-icon rpl-icon--search rpl-icon--color_primary')
 
-    wrapper.setProps({
+    await wrapper.setProps({
       'symbol': ''
     })
     expect(wrapper.vm.iconClass).toEqual('')

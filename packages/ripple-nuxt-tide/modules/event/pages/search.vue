@@ -27,7 +27,6 @@
     />
   </rpl-page-layout>
 </template>
-
 <script>
 import { RplDivider } from '@dpc-sdp/ripple-global'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
@@ -100,6 +99,7 @@ export default {
     getComputedFilters () {
       let filterValues = this.tideSearch.getFiltersValues(this.searchForm.filterForm)
       // Test date filter based on start / end fields.
+
       if (filterValues.field_event_date_start_value) {
         const setFilterDate = timeZone(filterValues.field_event_date_start_value.values)
         filterValues.field_event_date_start_value.values = setFilterDate.startOf('day').toISOString()

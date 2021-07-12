@@ -1,0 +1,100 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplSelect from './Select.vue'
+
+<Meta title="Molecules/Form/Select" />
+
+# Form
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/Form/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const TemplateSelect = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplSelect },
+  template: `<rpl-select :values="values" :config="config" :state="state" :disabled="disabled" :selectedCharLength="selectedCharLength"></rpl-select>`
+});
+
+<Canvas>
+  <Story
+    name="Single"
+    args={{
+      config: {
+        multiselect: false,
+        placeholder: 'Select',
+        showitems: 4,
+        fieldId: 'select',
+        label: ''
+      },
+      values: [
+        { id: 'vic', name: 'Vic' },
+        { id: 'nsw', name: 'New South Wales' },
+        { id: 'wa', name: 'Western Australia' },
+        { id: 'ql', name: 'Queensland' }
+      ],
+      state: '',
+      disabled: false
+    }}
+  >
+    {TemplateSelect.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{
+      config: {
+        multiselect: false,
+        placeholder: 'Select',
+        showitems: 4,
+        fieldId: 'select',
+        label: ''
+      },
+      values: [
+        { id: 'vic', name: 'Vic' },
+        { id: 'nsw', name: 'New South Wales' },
+        { id: 'wa', name: 'Western Australia' },
+        { id: 'ql', name: 'Queensland' }
+      ],
+      state: '',
+      disabled: true
+    }}
+  >
+    {TemplateSelect.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Multi select"
+    args={{
+      config: {
+        multiselect: true,
+        placeholder: 'Select',
+        showitems: 2,
+        fieldId: 'select',
+        label: ''
+      },
+      selectedCharLength: 20,
+      values: [
+        { id: '1', name: 'Drive through clinic' },
+        { id: '2', name: 'Walk-in clinic' },
+        { id: '3', name: 'Hospital' },
+        { id: '4', name: 'Pathology clinic' },
+        { id: '5', name: 'Open now' },
+        { id: '6', name: 'Allows bookings' },
+        { id: '7', name: 'No GP referral required' },
+        { id: '8', name: 'Testing registration form site' },
+        { id: '9', name: 'Testing registration form site 1' },
+        { id: '10', name: 'Testing registration form site 2' },
+        { id: '11', name: 'Testing registration form site 3' },
+      ],
+      state: '',
+      disabled: false
+    }}
+  >
+    {TemplateSelect.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplSelect} />

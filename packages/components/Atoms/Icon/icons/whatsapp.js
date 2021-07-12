@@ -1,7 +1,7 @@
 import Icon from '../Icon'
 
 Icon.register({
-  'whatsapp': {
+  whatsapp: {
     width: 14,
     height: 14,
     paths: [

@@ -39,7 +39,7 @@ import { breadcrumbs as getBreadcrumbs } from '@dpc-sdp/ripple-nuxt-tide/lib/cor
 import formData from './../formdata.js'
 import { searchMixin, getSearch } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
 // Setting Australia/Melbourne timezone
-
+import dayjs from dayjs
 import timeZone from 'dayjs-ext/plugin/timeZone'
 dayjs.extend(timeZone)
 

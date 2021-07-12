@@ -141,9 +141,9 @@ export default {
     },
     selectedText () {
       if (this.selectedTitles && this.selectedTitles.join('; ').length < this.selectedCharLength) {
-        return this.selectedTitles.map(itm => truncateText(itm, this.selectedCharLength - 1)).join('; ')
+        return this.selectedTitles.map(itm => truncateText(itm, this.selectedCharLength - 1), ' ...').join('; ')
       } else {
-        return truncateText(this.selectedTitles[0], this.selectedCharLength - 1)
+        return truncateText(this.selectedTitles[0], this.selectedCharLength - 1, ' ...')
       }
     }
   },

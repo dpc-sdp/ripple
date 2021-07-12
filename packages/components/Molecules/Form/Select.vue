@@ -433,8 +433,7 @@ $rpl-select-checkbox-margin: 0;
     }
 
     &-label {
-      position: relative;
-      top: $rpl-space / 2;
+      padding-top: 2px;
     }
   }
 

@@ -104,7 +104,7 @@ export default {
         filterValues.field_event_date_start_value.values = setFilterDate.startOf('day').toISOString()
       }
       if (filterValues.field_event_date_end_value) {
-        const setFilterDate = dajs(filterValues.field_event_date_end_value.values)
+        const setFilterDate = dayjs(filterValues.field_event_date_end_value.values)
         filterValues.field_event_date_end_value.values = setFilterDate.startOf('day').toISOString()
       } else {
         const vic = dayjs.tz.setDefault('Australia/Melbourne')

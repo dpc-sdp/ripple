@@ -321,7 +321,7 @@ export default {
 @import "./scss/form";
 
 $rpl-select-inner-padding: $rpl-space-4;
-$rpl-select-dropdown-height: 18rem !default; /* 7 items */
+$rpl-select-dropdown-height: 16.75rem !default; /* 7 items */
 $rpl-select-focus-bg-color: rpl-color("secondary") !default;
 $rpl-select-focus-color: rpl-color("white") !default;
 $rpl-select-selected-bg-color: rpl-color("primary") !default;
@@ -331,6 +331,7 @@ $rpl-select-icon-w: rem(12px) !important !default;
 $rpl-select-active-border: 1px solid rpl-color('primary') !default;
 $rpl-select-disabled-bg-color: #fafafc !default;
 $rpl-select-disabled-color: rpl-color('mid_neutral_1') !default;
+$rpl-select-checkbox-margin: 0;
 
 .rpl-select {
   $root: &;
@@ -339,6 +340,7 @@ $rpl-select-disabled-color: rpl-color('mid_neutral_1') !default;
     position: relative;
     cursor: default;
     @include rpl_form_text_element;
+    @include rpl_form_text;
     &-icon {
       position: absolute;
       top: 0;
@@ -399,7 +401,7 @@ $rpl-select-disabled-color: rpl-color('mid_neutral_1') !default;
   &__listitem {
     padding: $rpl-space-3 $rpl-form-element-padding-m-horizontal;
     background: $rpl-form-element-bg-color;
-
+    @include rpl_form_text;
     &:not(#{$root}__listitem--selected):not(#{$root}__listitem--focussed) {
       &:nth-child(odd) {
         background-color: rpl-color("white");
@@ -430,7 +432,7 @@ $rpl-select-disabled-color: rpl-color('mid_neutral_1') !default;
 
   &__checkbox {
     float: left;
-    margin-right: 1rem;
+    margin-right: $rpl-select-checkbox-margin;
   }
   &--disabled {
     #{$root}__trigger {

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { RplGrantsOverview } from './../index'
 const MockDate = require('mockdate')
-
+console.log('today')
 describe('RplGrantsOverview', () => {
   const defaultProps = {
     title: '',

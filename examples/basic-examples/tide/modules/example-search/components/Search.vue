@@ -29,7 +29,6 @@ import dayjs from 'dayjs'
 
 import { RplDivider } from '@dpc-sdp/ripple-global'
 import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
-
 // Layout.
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import formData from './formdata.js'

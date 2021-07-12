@@ -67,7 +67,6 @@
     "jsonapi-parse": "^2.0.0",
     "jwt-decode": "^2.2.0",
     "mime-types": "^2.1.27",
-    "moment-timezone": "0.5.33",
     "qs": "^6.9.4",
     "serialize-javascript": "^3.1.0",
     "vuex-persistedstate": "^2.5.4",

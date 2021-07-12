@@ -74,9 +74,12 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/form";
 
-  $rpl-checkbox-box-border: 1px solid $rpl-form-radio-border-color !default;
+  $rpl-checkbox-box-border-width: rem(1px) !default;
+  $rpl-checkbox-box-border: $rpl-checkbox-box-border-width solid $rpl-form-radio-border-color !default;
   $rpl-checkbox-box-border-focus: 1px solid rpl-color('primary') !default;
   $rpl-checkbox-box-border-radius: rem(4px);
+  $rpl-checkbox-box-size: rem(20px);
+  $rpl-checkbox-box-bg-color: rpl-color('light_neutral');
 
   .rpl-checkbox {
     position: relative;
@@ -88,8 +91,6 @@ export default {
       top: 1px;
       left: 1px;
       opacity: 0;
-      width: $rpl-space * 5;
-      height: $rpl-space * 5;
 
       &:focus {
         & + .rpl-checkbox__box {
@@ -108,9 +109,9 @@ export default {
       vertical-align: middle;
       border: $rpl-checkbox-box-border;
       border-radius: $rpl-checkbox-box-border-radius;
-      background-color: rpl-color('light_neutral');
-      width: $rpl-space * 5;
-      height: $rpl-space * 5;
+      background-color: $rpl-checkbox-box-bg-color;
+      width: $rpl-checkbox-box-size - $rpl-checkbox-box-border-width * 2;
+      height: $rpl-checkbox-box-size - $rpl-checkbox-box-border-width * 2;
       position: relative;
 
       .rpl-icon {

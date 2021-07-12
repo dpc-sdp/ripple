@@ -319,9 +319,8 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 @import "./scss/form";
-
-$rpl-select-inner-padding: $rpl-space-4;
-$rpl-select-dropdown-height: 16.75rem !default; /* 7 items */
+$rpl-select-item-height: rem(42px) !default;
+$rpl-select-dropdown-height: $rpl-select-item-height * 7 !default; /* 7 items */
 $rpl-select-focus-bg-color: rpl-color("secondary") !default;
 $rpl-select-focus-color: rpl-color("white") !default;
 $rpl-select-selected-bg-color: rpl-color("primary") !default;
@@ -399,9 +398,18 @@ $rpl-select-checkbox-margin: 0;
   }
 
   &__listitem {
-    padding: $rpl-space-3 $rpl-form-element-padding-m-horizontal;
+    display: flex;
+    align-items: center;
+    padding-left: $rpl-form-element-padding-s-horizontal;
+    padding-right: $rpl-form-element-padding-s-horizontal;
+    @include rpl_breakpoint(m) {
+      padding-left: $rpl-form-element-padding-m-horizontal;
+      padding-right: $rpl-form-element-padding-m-horizontal;
+    }
+    height: $rpl-select-item-height;
     background: $rpl-form-element-bg-color;
     @include rpl_form_text;
+    cursor: default;
     &:not(#{$root}__listitem--selected):not(#{$root}__listitem--focussed) {
       &:nth-child(odd) {
         background-color: rpl-color("white");

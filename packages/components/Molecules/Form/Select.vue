@@ -384,11 +384,11 @@ $rpl-select-disabled-color: rpl-color('mid_neutral_1') !default;
     border-top-right-radius: 0;
     max-height: $rpl-select-dropdown-height;
     overflow-y: auto;
+    /* Always display scrollbar */
     &::-webkit-scrollbar {
       appearance: none;
       width: 10px;
     }
-
     &::-webkit-scrollbar-thumb {
       border-radius: 5px;
       background-color: rpl-color('mid_neutral_1');

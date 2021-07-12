@@ -17,7 +17,7 @@
       >
         <template v-if="selectedText">
           <span >{{selectedText}}</span>
-          <template v-if="config.multiselect">
+          <template v-if="config.multiselect && selectedTitles.join('; ').length > selectedCharLength">
             <span class="rpl-select__label-count" v-if="selectedItems.length > 1">+ {{selectedItems.length - 1}} more</span>
             <span class="rpl-select__label-visually-hidden"> selected</span>
           </template>

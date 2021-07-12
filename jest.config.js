@@ -5,7 +5,7 @@ module.exports = {
   testMatch: ['**/unit/**/*.test.js', '**/*.test.js'],
   moduleFileExtensions: ['js', 'json', 'vue'],
   setupFiles: ['<rootDir>/.jest/register-context.js', 'jest-canvas-mock'],
-  setupFilesAfterEnv: ['<rootDir>/.jest/moment.js'],
+ // setupFilesAfterEnv: ['<rootDir>/.jest/moment.js'],
   transform: {
     '^.+\\.mdx?$': '@storybook/addon-docs/jest-transform-mdx',
     '^.+\\.stories\\.js|^.+\\.mdx?$': '@storybook/addon-storyshots/injectFileName',

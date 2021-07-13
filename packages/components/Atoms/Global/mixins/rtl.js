@@ -5,10 +5,10 @@
 const rtl = {
   methods: {
     isRtl () {
-      if (this.rplOptions.siteRtl === true) {
+      if (this.rplOptions?.siteRtl === true) {
         return true
       } else {
-        return this.rplOptions.contentRtl
+        return this.rplOptions?.contentRtl
       }
     }
   }

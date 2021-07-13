@@ -1,6 +1,8 @@
 import dayjs from 'dayjs'
 import formatdateMixin from '@dpc-sdp/ripple-global/mixins/formatdate'
 const formatDate = formatdateMixin.methods.formatDate
+import isBetween from 'dayjs/plugin/isBetween'
+dayjs.extend(isBetween)
 
 export const defaultStatusTerms = {
   open: 'Open',

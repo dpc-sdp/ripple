@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { RplGrantsOverview } from './../index'
 const MockDate = require('mockdate')
+
 describe('RplGrantsOverview', () => {
   const defaultProps = {
     title: '',
@@ -26,7 +27,7 @@ describe('RplGrantsOverview', () => {
     MockDate.set('2019-04-13T06:19:17+00:00')
 
     const wrapper = mount(RplGrantsOverview, {
-      propsData: {x
+      propsData: {
         ...defaultProps,
         startdate: '2019-04-10T06:19:17+00:00',
         enddate: '2019-04-12T06:19:17+00:00'

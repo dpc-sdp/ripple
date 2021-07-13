@@ -20,6 +20,9 @@ import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplList from '@dpc-sdp/ripple-list'
 import { formatMoney } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
+import isBetween from 'dayjs/plugin/isBetween'
+
+dayjs.extend(isBetween)
 export default {
   name: 'RplGrantsOverview',
   components: {
@@ -79,7 +82,6 @@ export default {
         const now = dayjs()
         const start = startDate ? dayjs(startDate) : null
         const end = endDate ? dayjs(endDate) : null
-
         if (start) {
           if (now.isAfter(start)) {
             if (end) {
@@ -95,9 +97,8 @@ export default {
               return terms.ongoing
             }
           }
-          var isBetween = require('dayjs/plugin/isBetween')
-          dayjs.extend(isBetween)
-          // displays status as "Opening on startdate" when current date is within one month of startdate
+
+          // displays status as "Opening on startdate" when current date is within one month of startdate]
           if (now.isBetween(dayjs(start).subtract(1, 'months'), start)) {
             return terms.openingSoon(this.formatDate(startDate))
           }
@@ -159,6 +160,8 @@ export default {
     }
   }
 }
+
+
 </script>
 
 <style lang="scss">

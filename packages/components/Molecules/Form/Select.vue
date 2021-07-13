@@ -177,6 +177,9 @@ export default {
       if (this.isOpen) {
         this.onClickOutside(this.close)
         this.$nextTick(function () {
+          if (this.selectedItems.length === 0) {
+            this.focusItem(this.options[0])
+          }
           this.$refs.listbox && this.$refs.listbox.focus()
         })
       } else {
@@ -318,8 +321,10 @@ export default {
 @import "./scss/form";
 $rpl-select-item-height: rem(42px) !default;
 $rpl-select-dropdown-height: $rpl-select-item-height * 7 !default; /* 7 items */
-$rpl-select-focus-bg-color: rpl-color("secondary") !default;
+$rpl-select-focus-bg-color: rpl-color("primary") !default;
 $rpl-select-focus-color: rpl-color("white") !default;
+$rpl-select-hover-bg-color: rpl-color("primary") !default;
+$rpl-select-hover-color: rpl-color("white") !default;
 $rpl-select-selected-bg-color: rpl-color("primary") !default;
 $rpl-select-selected-color: rpl-color("white") !default;
 $rpl-select-icon-h: rem(7.5px) !important !default;
@@ -412,8 +417,8 @@ $rpl-select-checkbox-margin: 0;
         background-color: rpl-color("white");
       }
       &:hover {
-        background-color: $rpl-select-focus-bg-color;
-        color: $rpl-select-focus-color;
+        background-color: $rpl-select-hover-bg-color;
+        color: $rpl-select-hover-color;
       }
     }
 

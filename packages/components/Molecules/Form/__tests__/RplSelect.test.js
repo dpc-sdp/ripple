@@ -222,19 +222,19 @@ describe('RplSelect', () => {
         }
       })
 
-      await wrapper.find('.rpl-select__trigger').trigger('click') // Focuses on first element Topic A
+      await wrapper.find('.rpl-select__trigger').trigger('click')
       expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
       await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+      await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
+      expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic B')
       await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
       expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic C')
       await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
       expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic D')
-      await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
-      expect(wrapper.find('.rpl-select__listitem--focussed').text()).toContain('Topic e')
       await wrapper.find('.rpl-select__listitem--focussed').trigger('click')
       expect(wrapper.find('.rpl-select__listitem--focussed').find('.rpl-select__checkbox').exists()).toBeTruthy()
 
-      expect(wrapper.find('.rpl-select__trigger').text()).toContain('Topic e')
+      expect(wrapper.find('.rpl-select__trigger').text()).toContain('Topic D')
     })
   })
 })

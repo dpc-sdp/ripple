@@ -177,9 +177,6 @@ export default {
       if (this.isOpen) {
         this.onClickOutside(this.close)
         this.$nextTick(function () {
-          if (this.selectedItems.length === 0) {
-            this.focusItem(this.options[0])
-          }
           this.$refs.listbox && this.$refs.listbox.focus()
         })
       } else {

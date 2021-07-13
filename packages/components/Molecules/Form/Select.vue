@@ -29,7 +29,7 @@
         <div
           class="rpl-select__listbox"
           ref="listbox"
-          tabindex="-1"
+          tabindex="0"
           :aria-multiselectable="config.multiselect && 'true'"
           :aria-activedescendant="activedescendant"
           aria-label="Select items"

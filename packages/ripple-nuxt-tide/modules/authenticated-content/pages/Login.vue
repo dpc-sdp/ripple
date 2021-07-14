@@ -11,7 +11,6 @@
 <script>
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
-import RplForm from '@dpc-sdp/ripple-form'
 import TideLogin from '../components/TideLogin'
 import { isAuthenticated } from '../lib/authenticate'
 
@@ -19,7 +18,6 @@ export default {
   components: {
     RplCol,
     RplRow,
-    RplForm,
     RplPageLayout,
     TideLogin
   },

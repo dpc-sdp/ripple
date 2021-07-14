@@ -21,29 +21,21 @@
 </template>
 
 <script>
-import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import RplHeroBanner from '@dpc-sdp/ripple-hero-banner'
-import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
-import { RplDivider } from '@dpc-sdp/ripple-global'
+import { RplSearchResults } from '@dpc-sdp/ripple-search'
 
 // Layout.
-import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import searchMixin from './../lib/searchmixin.js'
 
 export default {
   name: 'TideTopicTagSearch',
   components: {
-    RplDivider,
     RplHeroBanner,
-    RplBreadcrumbs,
-    RplSearchForm,
     RplSearchResults,
 
     // Layout.
-    RplPageLayout,
-    RplRow,
-    RplCol
+    RplPageLayout
   },
   mixins: [searchMixin],
   async asyncData ({ app, route, store }) {

@@ -43,18 +43,18 @@ module.exports = {
       'paragraph--card_event_auto': {
         component: 'rpl-card-event',
         props: {
-          'image': [
+          image: [
             ['field_paragraph_reference', 'field_featured_image', 'field_media_image', 'url'],
             ['field_paragraph_reference', 'field_media_image', 'url']
           ],
-          'dateStart': ['field_paragraph_reference', 'field_event_details', 0, 'field_paragraph_date_range', 'value'],
-          'dateEnd': ['field_paragraph_reference', 'field_event_details', 0, 'field_paragraph_date_range', 'end_value'],
-          'location': ['field_paragraph_reference', 'field_event_details', 0, 'field_paragraph_location', 'locality'],
-          'title': ['field_paragraph_reference', 'title'],
-          'summary': [
+          dateStart: ['field_paragraph_reference', 'field_event_details', 0, 'field_paragraph_date_range', 'value'],
+          dateEnd: ['field_paragraph_reference', 'field_event_details', 0, 'field_paragraph_date_range', 'end_value'],
+          location: ['field_paragraph_reference', 'field_event_details', 0, 'field_paragraph_location', 'locality'],
+          title: ['field_paragraph_reference', 'title'],
+          summary: [
             ['field_paragraph_reference', 'field_landing_page_summary']
           ],
-          'link': {
+          link: {
             filters: ['autoCardLink']
           }
         },
@@ -64,16 +64,16 @@ module.exports = {
       'paragraph--latest_events': {
         component: 'rpl-latest-events',
         props: {
-          'title': 'field_paragraph_title',
-          'events': {
+          title: 'field_paragraph_title',
+          events: {
             fetcher: fetchers.latestEvents,
             filters: ['eventLatestEvents']
           },
-          'cta': {
+          cta: {
             field: 'field_paragraph_cta_card_event',
             filters: ['eventCtaCard']
           },
-          'link': {
+          link: {
             value: {
               text: 'See all events',
               url: '/whatson'

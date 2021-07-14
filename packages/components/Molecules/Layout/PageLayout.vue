@@ -45,15 +45,15 @@
 
 <script>
 import RplQuickExit from './QuickExit'
-import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplSiteHeaderEventBus } from '@dpc-sdp/ripple-site-header'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
-  components: { RplContainer, RplRow, RplCol, RplQuickExit, RplResponsiveImg },
+  components: { RplRow, RplCol, RplQuickExit, RplResponsiveImg },
   props: {
-    'sidebar': Boolean,
-    'columns': {
+    sidebar: Boolean,
+    columns: {
       type: Object,
       default () {
         return {
@@ -65,11 +65,11 @@ export default {
         }
       }
     },
-    'quickExit': { type: Boolean, default: null },
-    'backgroundColor': String,
-    'heroBackgroundImage': Object,
-    'backgroundGraphic': String,
-    'withSearch': Boolean
+    quickExit: { type: Boolean, default: null },
+    backgroundColor: String,
+    heroBackgroundImage: Object,
+    backgroundGraphic: String,
+    withSearch: Boolean
   },
   data () {
     return {
@@ -88,6 +88,7 @@ export default {
       if (!this.heroBackgroundImage) {
         return this.backgroundGraphic ? { 'background-image': `url(${this.backgroundGraphic})` } : null
       }
+      return null
     },
     bannerImage () {
       if (this.heroBackgroundImage) {
@@ -101,6 +102,9 @@ export default {
           ],
           sizes: '100vw'
         }
+      }
+      return {
+        src: ''
       }
     }
   },

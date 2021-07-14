@@ -62,10 +62,12 @@ export default {
         const copyright = this.page.field_license_type ? this.page.field_license_type.description : ''
         return (author || date || copyright) ? { author, date, copyright } : null
       }
+      return null
     },
     chapters () {
       if (this.page.type === 'node--publication' && this.page.publication_children) {
         if (this.page.publication_children.length > 0) {
+          // eslint-disable-next-line
           return this.page.publication_children.map(item => {
             const menuItem = item.meta
             if (menuItem) {
@@ -82,6 +84,7 @@ export default {
           })
         }
       }
+      return null
     },
     publicationPagination () {
       if (this.page.type === 'node--publication_page') {
@@ -100,6 +103,7 @@ export default {
         }
         return pagination
       }
+      return null
     }
   }
 

@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'down': {
+  down: {
     width: 8,
     height: 5,
     paths: [

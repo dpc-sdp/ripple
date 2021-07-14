@@ -10,19 +10,17 @@
 </template>
 
 <script>
-import RplLink from '@dpc-sdp/ripple-link'
 import RplButton from '@dpc-sdp/ripple-button'
 
 export default {
   name: 'AppError',
   components: {
-    RplLink,
     RplButton
   },
   data () {
     return {
       defaultErrMsg: {
-        '404': {
+        404: {
           img: '/img/oops-banner.svg',
           intro: `This is the 404 error message.<br>Sorry, we couldn't find the page you were looking for.`,
           main: `Have a look at the web address to make sure it was typed correctly. We may also have deleted this page.

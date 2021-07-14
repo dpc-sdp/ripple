@@ -7,12 +7,12 @@ describe('RplAccordion', () => {
       propsData: {
         accordions: [
           {
-            'title': 'Accordion Item',
-            'content': '<p>Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.</p>'
+            title: 'Accordion Item',
+            content: '<p>Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.</p>'
           },
           {
-            'title': 'Accordion Item',
-            'content': '<p>Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.</p>'
+            title: 'Accordion Item',
+            content: '<p>Lorem ipsum dolor sit amet, consectet adipiscing elit, seddo eiusmod tempore incididunt ut labore et dolore.</p>'
           }
         ]
       }

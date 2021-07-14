@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'webinar': {
+  webinar: {
     width: 12,
     height: 8,
     paths: [

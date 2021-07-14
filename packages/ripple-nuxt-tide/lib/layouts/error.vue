@@ -7,15 +7,11 @@
 <script>
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import AppError from '../components/AppError'
-import RplLink from '@dpc-sdp/ripple-link'
-import RplButton from '@dpc-sdp/ripple-button'
 
 export default {
   components: {
     RplPageLayout,
-    AppError,
-    RplLink,
-    RplButton
+    AppError
   },
   props: ['error'],
   computed: {

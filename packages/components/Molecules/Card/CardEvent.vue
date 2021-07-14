@@ -58,6 +58,7 @@ export default {
       } else if (this.dateStart && this.dateEnd) {
         return this.formatDateRange(this.dateStart, this.dateEnd)
       }
+      return null
     }
   }
 }

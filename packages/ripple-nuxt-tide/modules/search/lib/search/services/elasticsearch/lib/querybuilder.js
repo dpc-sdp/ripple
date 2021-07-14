@@ -37,6 +37,7 @@ const addFilter = function (esbResult, filter, filterName) {
       break
     case 'term':
       if (Array.isArray(filter.values)) {
+        // eslint-disable-next-line
         const filterVals = filter.values.map((item) => {
           // Check that filter fields aren't empty string.
           // If it's a boolean value, should be ignored in the check.

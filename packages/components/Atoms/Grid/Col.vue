@@ -11,13 +11,13 @@ import { RplDevError } from '@dpc-sdp/ripple-global'
 
 export default {
   props: {
-    'cols': {
+    cols: {
       type: String,
       default: 'full'
     },
-    'colsBp': Object,
-    'pull': Object,
-    'push': Object
+    colsBp: Object,
+    pull: Object,
+    push: Object
   },
   components: {
     RplDevError

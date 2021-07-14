@@ -62,7 +62,7 @@ export default {
   },
   computed: {
     isResponsive () {
-      return this.rplOptions.imgQueryString || this.srcSet.some(bp => bp.hasOwnProperty('src'))
+      return this.rplOptions.imgQueryString || this.srcSet.some(bp => Object.prototype.hasOwnProperty.call(bp, 'src'))
     },
     calcSizes () {
       if (this.sizes) {
@@ -73,17 +73,19 @@ export default {
           if (bp.width && this.bps[bp.size] !== 0) {
             return `(max-width: ${this.bps[bp.size]}px) ${bp.width}px`
           }
+          return ''
         }).filter(bp => bp).join(', ') + ', 100vw'
       }
+      return ''
     },
     calcFocalPoint () {
-      if (this.focalPoint && this.height && this.width) {
-        // default value is 0 0, we set this to the middle instead
-        const focalPoint = this.focalPoint.x === 0 && this.focalPoint.y === 0 ? '50% 50%' : `${getPercentage(this.focalPoint.x, this.width)}% ${getPercentage(this.focalPoint.y, this.height)}%`
-        return {
-          [`object-position`]: focalPoint,
-          [`font-family`]: `'object-fit: cover; object-position: ${focalPoint};'`
-        }
+      if (!this.focalPoint || !this.height || !this.width) return ''
+
+      // default value is 0 0, we set this to the middle instead
+      const focalPoint = this.focalPoint.x === 0 && this.focalPoint.y === 0 ? '50% 50%' : `${getPercentage(this.focalPoint.x, this.width)}% ${getPercentage(this.focalPoint.y, this.height)}%`
+      return {
+        [`object-position`]: focalPoint,
+        [`font-family`]: `'object-fit: cover; object-position: ${focalPoint};'`
       }
     },
     calcSrcSet () {
@@ -93,6 +95,7 @@ export default {
       if (Array.isArray(this.srcSet) && this.isResponsive) {
         return this.srcSet.map(bp => `${bp.src || this.src}${this.queryString(bp)} ${bp.width || this.bps[bp.size]}w`).join(', ')
       }
+      return ''
     },
     bps () {
       if (this.breakpointsSmallToLarge) {
@@ -101,6 +104,7 @@ export default {
           return obj
         }, {})
       }
+      return []
     }
   }
 }

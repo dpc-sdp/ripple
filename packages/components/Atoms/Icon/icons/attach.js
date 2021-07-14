@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'attach': {
+  attach: {
     width: 12,
     height: 20,
     paths: [

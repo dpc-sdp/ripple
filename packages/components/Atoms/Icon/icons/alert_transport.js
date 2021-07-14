@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'alert_transport': {
+  alert_transport: {
     width: 20,
     height: 20,
     paths: [

@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'link_65': {
+  link_65: {
     width: 17,
     height: 22,
     paths: [

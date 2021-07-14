@@ -14,7 +14,7 @@ describe('RplOptionButton', () => {
       }
     })
     expect(wrapper.isVueInstance()).toBeTruthy()
-    const alphabet = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ]
+    const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     wrapper.findAll('.rpl-option-button__label').wrappers.forEach((item, idx) => {
       expect(item.text()).toBe(alphabet[idx])
     })

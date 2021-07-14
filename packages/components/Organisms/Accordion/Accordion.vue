@@ -79,6 +79,7 @@ export default {
       if (this.title) {
         return getAnchorLinkName(this.title)
       }
+      return ''
     },
     isAllItemOpen () {
       for (const index in this.itemOpen) {

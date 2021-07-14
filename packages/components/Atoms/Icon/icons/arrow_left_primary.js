@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'arrow_left_primary': {
+  arrow_left_primary: {
     width: 13,
     height: 12,
     paths: [

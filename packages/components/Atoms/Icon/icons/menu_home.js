@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'menu_home': {
+  menu_home: {
     width: 16,
     height: 13,
     paths: [

@@ -24,9 +24,9 @@ Vue.component('rpl-text-link', RplTextLink)
 export default {
   name: 'RplMarkup',
   props: {
-    'html': String,
-    'plugins': { type: Array },
-    'options': { type: Object }
+    html: String,
+    plugins: { type: Array },
+    options: { type: Object }
   },
   computed: {
     getTemplate () {

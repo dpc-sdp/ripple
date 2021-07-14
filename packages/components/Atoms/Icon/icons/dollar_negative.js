@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'dollar_negative': {
+  dollar_negative: {
     width: 12,
     height: 12,
     paths: [

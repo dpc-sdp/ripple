@@ -78,6 +78,7 @@ export default {
       } else if (this.title) {
         return `View ${this.title} in full screen`
       }
+      return ''
     },
     downloadLabel () {
       if (this.download) {
@@ -85,6 +86,7 @@ export default {
       } else if (this.title) {
         return `Download ${this.title}`
       }
+      return ''
     },
     expandLabel () {
       if (this.expand) {
@@ -92,6 +94,7 @@ export default {
       } else if (this.title) {
         return `View ${this.title} in table format`
       }
+      return ''
     },
     expandTitleLabel () {
       if (this.expandTitle) {
@@ -99,6 +102,7 @@ export default {
       } else if (this.title) {
         return this.title
       }
+      return ''
     },
     downloadFilename () {
       const name = this.image.src

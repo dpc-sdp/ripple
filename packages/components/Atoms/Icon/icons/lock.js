@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'lock': {
+  lock: {
     width: 16,
     height: 16,
     paths: [

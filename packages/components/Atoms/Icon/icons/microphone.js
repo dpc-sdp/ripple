@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'microphone': {
+  microphone: {
     width: 10,
     height: 19,
     paths: [

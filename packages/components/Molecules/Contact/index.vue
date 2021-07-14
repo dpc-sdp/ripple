@@ -35,11 +35,11 @@ export default {
   data: function () {
     return {
       socialIconScale: {
-        'facebook': '1',
-        'instagram': '0.81',
-        'linkedin': '0.81',
-        'twitter': '0.81',
-        'youtube': '0.81'
+        facebook: '1',
+        instagram: '0.81',
+        linkedin: '0.81',
+        twitter: '0.81',
+        youtube: '0.81'
       }
     }
   },

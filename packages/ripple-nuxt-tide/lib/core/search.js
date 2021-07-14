@@ -21,7 +21,7 @@ export default class TideSearchApi {
         responseType: 'json',
         responseEncoding: 'utf8',
         headers: {
-          'TIDE_API_HEADER': 'elastic',
+          TIDE_API_HEADER: 'elastic',
           'Content-Type': 'application/json'
         },
         paramsSerializer: function (params) {

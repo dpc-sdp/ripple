@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'email_solid': {
+  email_solid: {
     width: 20,
     height: 15,
     paths: [

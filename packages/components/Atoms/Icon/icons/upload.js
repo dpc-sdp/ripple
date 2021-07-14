@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'upload': {
+  upload: {
     width: 13,
     height: 17,
     paths: [

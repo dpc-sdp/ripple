@@ -81,7 +81,7 @@ export default {
     },
     mapSearchResults (source) {
       const site = this.$store.state.tide.siteData.drupal_internal__tid
-      let date = source.changed ? source.changed[0] : source.created[0]
+      const date = source.changed ? source.changed[0] : source.created[0]
       return {
         title: source.title ? source.title[0] : '',
         link: source.url && this.getLink(source.url, site, source.field_node_primary_site, this.$store.state.tideSite.sitesDomainMap, { text: 'linkText', url: 'linkUrl' }, 'See event details'),

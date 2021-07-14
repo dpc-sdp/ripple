@@ -76,7 +76,7 @@
 <script>
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
-import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { RplRow } from '@dpc-sdp/ripple-grid'
 
 /**
  * Hero banners - Compulsory component for every page, providing introduction and context.
@@ -100,8 +100,7 @@ export default {
   },
   components: {
     RplTextLink,
-    RplRow,
-    RplCol
+    RplRow
   },
   computed: {
     heroBannerStyles () {

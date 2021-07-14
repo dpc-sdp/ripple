@@ -91,14 +91,16 @@ export default {
       const mousePercentage = (cursorPosition - sliderLeft) / sliderWidth
       const newVal = Math.floor((mousePercentage * this.absoluteUpper) / this.step) * this.step
       switch (this.setFor) {
-        case 'lower':
+        case 'lower': {
           let newLowerVal = newVal > this.upperValue ? this.upperValue : newVal
           this.lowerValue = newLowerVal < this.absoluteLower ? this.absoluteLower : newLowerVal
           break
-        case 'upper':
+        }
+        case 'upper': {
           let newUpperVal = newVal < this.lowerValue ? this.lowerValue : newVal
           this.upperValue = newUpperVal > this.absoluteUpper ? this.absoluteUpper : newUpperVal
           break
+        }
       }
       this.updateValue(this.setFor)
     },

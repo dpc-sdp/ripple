@@ -17,7 +17,7 @@ module.exports = {
     'plugin:vue/essential',
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard',
-    "plugin:jest/recommended"
+    'plugin:jest/recommended'
   ],
   // required to lint *.vue files
   plugins: [
@@ -30,27 +30,13 @@ module.exports = {
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // TODO enable the rules to achieve lint standard consistency towards projects
-    'array-bracket-spacing': 'off',
-    'array-callback-return': 'off',
+    // disable converting single item array to use dot-notation
     'dot-notation': 'off',
-    'jest/expect-expect': 'off',
-    'jest/no-standalone-expect': 'off',
-    'jest/no-try-expect': 'off',
-    'jest/no-conditional-expect': 'off',
-    'lines-between-class-members': 'off',
-    'multiline-ternary': 'off',
-    'no-case-declarations': 'off',
-    'no-prototype-builtins': 'off',
-    'node/no-deprecated-api': 'off',
+    // allow ternary operator in single line
+    'multiline-ternary': ['error', 'never'],
+    // currently being disabled as it's complaining on for loop
     'prefer-const': 'off',
-    'prefer-regex-literals': 'off',
-    'quotes': ['off', 'single', { 'allowTemplateLiterals': true }],
-    'quote-props': 'off',
-    'vue/no-mutating-props': 'off',
-    'vue/no-unused-components': 'off',
-    'vue/no-use-v-if-with-v-for': 'off',
-    'vue/return-in-computed-property': 'off',
-    'no-var': 'off'
+    // we should use single quote for consistency, also allowing backticks
+    quotes: ['off', 'single', { allowTemplateLiterals: true }]
   }
 }

@@ -21,7 +21,7 @@ const loader = (pluginConfig = []) => {
         }
 
         if (Array.isArray(morePlugins) && morePlugins.length > 0) {
-          plugins = [ ...plugins, ...morePlugins ]
+          plugins = [...plugins, ...morePlugins]
         }
       } catch (error) {
         if (process.server) {

@@ -24,27 +24,27 @@ export default {
   data () {
     return {
       types: {
-        'Emergency': {
+        Emergency: {
           backgroundColor: 'danger',
           iconSymbol: 'alert_information'
         },
-        'Fire': {
+        Fire: {
           backgroundColor: 'danger',
           iconSymbol: 'alert_fire'
         },
-        'Flood': {
+        Flood: {
           backgroundColor: 'danger',
           iconSymbol: 'alert_flood'
         },
-        'Medical': {
+        Medical: {
           backgroundColor: 'danger',
           iconSymbol: 'alert_medical'
         },
-        'Lightning': {
+        Lightning: {
           backgroundColor: 'warning',
           iconSymbol: 'alert_lightning'
         },
-        'Pollution': {
+        Pollution: {
           backgroundColor: 'warning',
           iconSymbol: 'alert_smoke'
         },
@@ -52,7 +52,7 @@ export default {
           backgroundColor: 'warning',
           iconSymbol: 'alert_high_temperature'
         },
-        'Traffic': {
+        Traffic: {
           backgroundColor: 'dark_neutral',
           iconSymbol: 'alert_transport'
         }

@@ -130,6 +130,7 @@ export default {
       if (this.config.multiselect) {
         return this.focussed && this.createUniqueId(this.focussed)
       }
+      return false
     },
     selectedItems () {
       return this.options.filter(opt => opt.selected)

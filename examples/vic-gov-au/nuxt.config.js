@@ -67,10 +67,10 @@ export default {
       const webpack = require('webpack')
       const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
       config.plugins.push(new LodashModuleReplacementPlugin({
-        'caching': true,
-        'collections': true,
-        'paths': true,
-        'shorthands': true
+        caching: true,
+        collections: true,
+        paths: true,
+        shorthands: true
         // 'cloning': true,
         // 'currying': true,
         // 'exotics': true,

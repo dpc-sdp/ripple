@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'alert_fire': {
+  alert_fire: {
     width: 20,
     height: 20,
     paths: [

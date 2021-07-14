@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'email_transparent': {
+  email_transparent: {
     width: 20,
     height: 15,
     paths: [

@@ -40,8 +40,8 @@ const breakpoint = {
     $breakpoint () {
       const result = {
         // For custom breakpoint logic.
-        'width': this.clientWidth,
-        'height': this.clientHeight
+        width: this.clientWidth,
+        height: this.clientHeight
       }
       // Define breakpoints.
       this.breakpointsSmallToLarge.forEach(bp => {
@@ -62,7 +62,7 @@ const breakpoint = {
     this.$nextTick(() => {
       if (typeof window !== 'undefined') {
         this._updateDimensions()
-        window.addEventListener('resize', this._updateDimensions, { 'passive': true })
+        window.addEventListener('resize', this._updateDimensions, { passive: true })
       }
     })
   },

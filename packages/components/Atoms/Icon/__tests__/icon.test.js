@@ -6,15 +6,15 @@ describe('RplIcon', () => {
   it('returns the correct icon class based on icon name provided', () => {
     const wrapper = shallowMount(RplIcon, {
       propsData: {
-        'symbol': 'search',
-        'color': 'primary',
-        'size': 'm'
+        symbol: 'search',
+        color: 'primary',
+        size: 'm'
       }
     })
     expect(wrapper.vm.iconClass).toEqual('rpl-icon rpl-icon--search rpl-icon--color_primary')
 
     wrapper.setProps({
-      'symbol': ''
+      symbol: ''
     })
     expect(wrapper.vm.iconClass).toEqual('')
   })
@@ -22,9 +22,9 @@ describe('RplIcon', () => {
   it('returns the correct icon style', () => {
     const wrapper = shallowMount(RplIcon, {
       propsData: {
-        'symbol': 'search',
-        'color': 'primary',
-        'size': 'm'
+        symbol: 'search',
+        color: 'primary',
+        size: 'm'
       }
     })
     expect(wrapper.vm.iconStyle).toEqual('width: 16px; height: 16px')
@@ -33,9 +33,9 @@ describe('RplIcon', () => {
   it('builds the correct icon object', () => {
     const wrapper = shallowMount(RplIcon, {
       propsData: {
-        'symbol': 'search',
-        'color': 'primary',
-        'size': 'm'
+        symbol: 'search',
+        color: 'primary',
+        size: 'm'
       }
     })
 
@@ -55,9 +55,9 @@ describe('RplIcon', () => {
   it('builds icon view box correctly', () => {
     const wrapper = shallowMount(RplIcon, {
       propsData: {
-        'symbol': 'search',
-        'color': 'primary',
-        'size': 'm'
+        symbol: 'search',
+        color: 'primary',
+        size: 'm'
       }
     })
     expect(wrapper.vm.box).toEqual('0 0 16 16')

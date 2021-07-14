@@ -13,7 +13,8 @@ const isRelativeUrl = (url) => {
     return false
   }
 
-  var reg = new RegExp('^(?!(?:[a-z]+:)?//)', 'i')
+  // eslint-disable-next-line
+  const reg = new RegExp('^(?!(?:[a-z]+:)?//)', 'i')
   return reg.test(url)
 }
 

@@ -156,7 +156,7 @@ module.exports = {
           if (defaultValue) data.model[eName] = defaultValue
           break
 
-        case 'radios':
+        case 'radios': {
           field.type = 'radios'
           const fields = element['#options']
           field.values = []
@@ -165,12 +165,12 @@ module.exports = {
           }
 
           for (let key in fields) {
-            if (fields.hasOwnProperty(key)) {
+            if (Object.prototype.hasOwnProperty.call(fields, key)) {
               field.values.push({ name: fields[key], value: key })
             }
           }
           break
-
+        }
         case 'textarea':
           field.type = 'textArea'
 
@@ -201,14 +201,14 @@ module.exports = {
           if (defaultValue) data.model[eName] = defaultValue
           break
 
-        case 'select':
+        case 'select': {
           field.type = 'rplselect'
           // TODO: Add multiple select support.
           const options = element['#options']
           field.values = Object.keys(options).map((key) => {
             return {
               id: key,
-              'name': options[key]
+              name: options[key]
             }
           })
 
@@ -218,8 +218,8 @@ module.exports = {
 
           if (defaultValue) data.model[eName] = defaultValue
           break
-
-        case 'webform_term_select':
+        }
+        case 'webform_term_select': {
           field.type = 'rplselect'
           if (element['#multiple']) {
             field.multiselect = true
@@ -249,11 +249,11 @@ module.exports = {
           field.values = terms.map((term) => {
             return {
               id: term.drupal_internal__tid.toString(),
-              'name': term.name
+              name: term.name
             }
           })
           break
-
+        }
         case 'label':
           field.type = 'label'
           break
@@ -279,7 +279,7 @@ module.exports = {
           field.type = 'rpldivider'
           break
 
-        case 'address':
+        case 'address': {
           data.model[eName] = {}
           group.fields = []
           group.legend = element['#title'] ? element['#title'] : null
@@ -403,7 +403,7 @@ module.exports = {
             }
           )
           break
-
+        }
         case 'date':
           field.type = 'rpldatepicker'
           break
@@ -448,10 +448,10 @@ module.exports = {
 
       // Only mapped type will be rendered.
       // Single fields get wrapped in groups, this should be updated when vfg v3 is stable with field type group functionality https://github.com/vue-generators/vue-form-generator/pull/484
-      if (group.hasOwnProperty('fields') && group.fields.length > 0) {
+      if (Object.prototype.hasOwnProperty.call(group, 'fields') && group.fields.length > 0) {
         data.schema.groups.push(group)
-      } else if (!group.hasOwnProperty('fields') && field.type !== null) {
-        data.schema.groups.push({ 'fields': [field] })
+      } else if (!Object.prototype.hasOwnProperty.call(group, 'fields') && field.type !== null) {
+        data.schema.groups.push({ fields: [field] })
       } else {
         const logger = require('@dpc-sdp/ripple-nuxt-tide/lib/core').logger
         if (process.server) {

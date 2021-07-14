@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'alert_lightning': {
+  alert_lightning: {
     width: 20,
     height: 20,
     paths: [

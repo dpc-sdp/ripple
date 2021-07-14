@@ -5,7 +5,7 @@ module.exports = {
     requestMapping,
     responseMapping: {
       ...responseMapping,
-      'fv_recommendation': {
+      fv_recommendation: {
         ...defaultMapping,
         tag: () => 'Recommendation'
       }

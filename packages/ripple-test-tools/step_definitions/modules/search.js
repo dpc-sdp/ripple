@@ -1,4 +1,5 @@
 /* eslint-disable jest/valid-expect */
+/* eslint jest/no-standalone-expect: "off" */
 /* global cy, Cypress */
 
 const { Then, Given, When } = require('cypress-cucumber-preprocessor/steps')

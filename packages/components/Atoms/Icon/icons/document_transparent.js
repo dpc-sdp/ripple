@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'document_transparent': {
+  document_transparent: {
     width: 15,
     height: 20,
     paths: [

@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'table': {
+  table: {
     width: 14,
     height: 13,
     paths: [

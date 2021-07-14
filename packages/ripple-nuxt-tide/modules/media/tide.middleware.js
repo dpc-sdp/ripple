@@ -10,7 +10,7 @@ export default {
     }
 
     switch (pageData.tidePage.type) {
-      case 'media--embedded_video':
+      case 'media--embedded_video': {
         pageData.tideLayout.sidebar = true
         const title = pageData.tidePage.name
         pageData.tidePage.appPageTitle = title
@@ -31,6 +31,7 @@ export default {
         }
         context.store.dispatch('tide/setPageHead', getPageHeadConfig(headData))
         break
+      }
     }
   }
 }

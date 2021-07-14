@@ -24,14 +24,14 @@
 import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
-import DocumentLink from '@dpc-sdp/ripple-document-link'
+import RplDocumentLink from '@dpc-sdp/ripple-document-link'
 
 export default {
   name: 'RplPublicationDownloadPrint',
   components: {
     RplIcon,
     RplLink,
-    DocumentLink
+    RplDocumentLink
   },
   props: {
     links: Array,

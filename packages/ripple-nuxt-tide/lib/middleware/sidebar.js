@@ -46,9 +46,7 @@ const tideSideBar = async (context, pageData, headersConfig) => {
       .map(link => {
         return {
           text: link.field_paragraph_link.title,
-          url: link.field_paragraph_link.url
-            ? link.field_paragraph_link.url
-            : link.field_paragraph_link.uri
+          url: link.field_paragraph_link.url ? link.field_paragraph_link.url : link.field_paragraph_link.uri
         }
       })
 

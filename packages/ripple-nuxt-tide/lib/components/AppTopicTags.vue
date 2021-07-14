@@ -7,13 +7,10 @@
 </template>
 
 <script>
-import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplMetaTag from '@dpc-sdp/ripple-meta-tag'
 
 export default {
   components: {
-    RplRow,
-    RplCol,
     RplMetaTag
   },
   props: {

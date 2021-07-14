@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'linkedin': {
+  linkedin: {
     width: 14,
     height: 14,
     paths: [

@@ -29,9 +29,6 @@ module.exports = {
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'quotes': ['off', 'single', { 'allowTemplateLiterals': true }],
-    'quote-props': 'off',
-    'dot-notation': 'off',
-    'prefer-const': 'off'
+    quotes: ['error', 'single', { allowTemplateLiterals: true }]
   }
 }

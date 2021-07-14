@@ -1,3 +1,5 @@
+/* eslint-disable jest/no-try-expect */
+/* eslint-disable jest/no-conditional-expect */
 import { Mapping, tide } from '../../lib/core'
 
 // Mock Tide API and testFetcher
@@ -137,7 +139,7 @@ describe('mapping', () => {
       },
       d: {
         da: {
-          // daa property is undefinded.
+          // daa property is undefined.
           dab: 'value d'
         }
       },

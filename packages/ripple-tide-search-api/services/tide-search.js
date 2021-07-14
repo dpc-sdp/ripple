@@ -52,8 +52,8 @@ export default class SearchApi {
   }
 
   async getQuery (templateName, params) {
-    if (this.templates.hasOwnProperty(templateName)) {
-      if (this.templates[templateName].hasOwnProperty('requestMapping')) {
+    if (Object.prototype.hasOwnProperty.call(this.templates, templateName)) {
+      if (Object.prototype.hasOwnProperty.call(this.templates[templateName], 'requestMapping')) {
         if (this.templates[templateName].requestMapping.constructor.name === 'AsyncFunction') {
           const response = await this.templates[templateName].requestMapping(params)
           return response
@@ -75,9 +75,9 @@ export default class SearchApi {
       for (let i = 0; i < res.hits.hits.length; i++) {
         const hit = res.hits.hits[i]._source
         let result = res.hits.hits[i]
-        if (this.templates.hasOwnProperty(templateName)) {
+        if (Object.prototype.hasOwnProperty.call(this.templates, templateName)) {
           const template = this.templates[templateName]
-          if (template.hasOwnProperty('responseMapping')) {
+          if (Object.prototype.hasOwnProperty.call(template, 'responseMapping')) {
             if (template.responseMapping.constructor.name === 'AsyncFunction') {
               result = await template.responseMapping(hit)
             } else if (typeof template.responseMapping === 'function') {
@@ -115,7 +115,7 @@ export default class SearchApi {
         headers,
         id: reqHeaders.tide_search_request_id
       }
-      if (this.templates.hasOwnProperty(template)) {
+      if (Object.prototype.hasOwnProperty.call(this.templates, template)) {
         const searchQuery = await this.getQuery(template, params)
         const { body, statusCode } = await this.search(searchQuery, reqConfig)
 

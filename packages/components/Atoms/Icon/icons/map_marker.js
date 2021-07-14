@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'map_marker': {
+  map_marker: {
     width: 12,
     height: 16,
     paths: [

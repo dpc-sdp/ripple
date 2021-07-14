@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'facebook': {
+  facebook: {
     width: 8,
     height: 16,
     paths: [

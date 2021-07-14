@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'list_indent': {
+  list_indent: {
     width: 20,
     height: 18,
     paths: [

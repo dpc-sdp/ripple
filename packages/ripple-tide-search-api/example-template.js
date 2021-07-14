@@ -5,7 +5,7 @@ module.exports = {
       let filters = params.filters ? getTermsFilter(params) : []
       const sort = []
 
-      if ((!params.filters || !params.filters.hasOwnProperty('field_node_site')) && params.site) {
+      if ((!params.filters || !Object.prototype.hasOwnProperty.call(params.filters, 'field_node_site')) && params.site) {
         filters.push({
           term: {
             field_node_site: params.site

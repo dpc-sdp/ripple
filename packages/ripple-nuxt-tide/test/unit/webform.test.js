@@ -4,7 +4,7 @@ function performTriggerTest (state, trigger, modelValue = '') {
   let model = modelValue
   if (typeof modelValue.model === 'undefined') {
     model = {
-      model: { 'field_a': modelValue }
+      model: { field_a: modelValue }
     }
   }
   return performTest(state, trigger, model)
@@ -34,6 +34,7 @@ function performTest (state, conditions, model) {
   return field
 }
 
+/* eslint jest/expect-expect: 0 */
 function testAllStates (trigger, valMatchTrigger, valNotMatchTrigger) {
   expect(performTriggerTest('required', trigger, valMatchTrigger)).toHaveProperty('required', true)
   expect(performTriggerTest('required', trigger, valNotMatchTrigger)).toHaveProperty('required', false)

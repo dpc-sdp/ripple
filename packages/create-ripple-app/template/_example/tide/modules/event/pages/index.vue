@@ -41,6 +41,7 @@ export default {
       if (this.page.field_event_details) {
         return this.$tideMapping.filter(this.page.field_event_details[0].field_paragraph_link, ['paragraphLink']) || null
       }
+      return null
     },
     eventList () {
       // Hardcode here to use single event only, as disucssed with BA. Will support multiple events later.
@@ -90,15 +91,16 @@ export default {
       // This is made by following design & Tide implementation, icons have to be hardcoded here.
       // If edior changed/added term, the icon won't work.
       const requirementIcons = {
-        'default': { name: 'star', size: 1 },
+        default: { name: 'star', size: 1 },
         'Accessible venue': { name: 'accessible', size: 1.3 },
         'Child friendly': { name: 'child_friendly', size: 1.3 },
         'Free admission': { name: 'free', size: 1.3 },
         'Online webinar': { name: 'webinar', size: 1.2 },
-        'Seniors': { name: 'senior', size: 1.3 }
+        Seniors: { name: 'senior', size: 1.3 }
       }
 
       const requirements = eventDetails.field_event_requirements || []
+      // eslint-disable-next-line
       requirements.map(requirement => {
         list.push({
           symbol: requirementIcons[requirement.name] ? requirementIcons[requirement.name].name : requirementIcons.default.name,

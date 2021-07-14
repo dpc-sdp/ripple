@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'eps': {
+  eps: {
     width: 20,
     height: 20,
     paths: [

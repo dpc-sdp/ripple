@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'alert_flood': {
+  alert_flood: {
     width: 20,
     height: 20,
     paths: [

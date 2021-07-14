@@ -146,7 +146,7 @@ export default {
           break
         case 'news':
           path = '/search'
-          filters = { 'type': 'news' }
+          filters = { type: 'news' }
           break
         default:
           path = '/search'

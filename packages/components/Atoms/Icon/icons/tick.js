@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'tick': {
+  tick: {
     width: 11,
     height: 11,
     paths: [

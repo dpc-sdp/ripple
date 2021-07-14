@@ -1,7 +1,7 @@
 import Icon from '../Icon.vue'
 
 Icon.register({
-  'arrow_down_primary': {
+  arrow_down_primary: {
     width: 12,
     height: 13,
     paths: [

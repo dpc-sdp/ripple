@@ -21,7 +21,6 @@ Feature: Demo Page
     And the intro banner component should exist
     And the campaign primary banner component should exist
     And the body markup component should exist
-    And the featured news list component should exist
     And the featured card navigation component should exist
     And the card event component should exist
     # And the card keydates component should exist

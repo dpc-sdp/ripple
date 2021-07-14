@@ -3,6 +3,8 @@ import RplCardContent from './CardContent.vue'
 import RplCardBox from './CardBox.vue'
 import RplCardPromo from './CardPromo.vue'
 import RplCardNav from './CardNav.vue'
+import RplCardCompact from './CardCompact.vue'
+import RplCardCompactGrid from './CardCompactGrid.vue'
 
 <Meta title="Molecules/Card" />
 
@@ -367,3 +369,78 @@ export const TemplateCardNav = (args, { argTypes }) => ({
 </Canvas>
 
 <ArgsTable of={RplCardNav} />
+
+## Card compact
+
+export const TemplateCardCompact = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCardCompact },
+  template: `
+    <rpl-card-compact
+      :title='title'
+      :image='image'
+      :summary='summary'
+      :link='link'
+    />`
+});
+
+<Canvas>
+  <Story
+    name="Compact"
+    args={{
+      title: 'Card compact title',
+      link: { text: 'Read more', url: '#' },
+      image: 'https://via.placeholder.com/150',
+      summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }}
+  >
+    {TemplateCardCompact.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplCardCompact} />
+
+## Card compact grid
+
+export const TemplateCardCompactGrid = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplCardCompactGrid },
+  template: `
+    <rpl-card-compact-grid
+      :title='title'
+      :cards='cards'
+    />`
+});
+
+<Canvas>
+  <Story
+    name="Compact Grid"
+    args={{
+      title: 'Card compact grid title',
+      cards: [
+        {
+          title: 'Card compact one',
+          link: { text: 'Read more', url: '#' },
+          image: 'https://via.placeholder.com/150',
+          summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam.'
+        },
+        {
+          title: 'Card compact two',
+          link: { text: 'Read more', url: '#' },
+          image: 'https://via.placeholder.com/150',
+          summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam.'
+        },
+        {
+          title: 'Card compact three',
+          link: { text: 'Read more', url: '#' },
+          image: 'https://via.placeholder.com/150',
+          summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam.'
+        }
+      ]
+    }}
+  >
+    {TemplateCardCompactGrid.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplCardCompactGrid} />

@@ -7,6 +7,7 @@
         <div class="rpl-document-link__meta">
           <span v-if="extension" class="rpl-document-link__type">{{extension}}</span>
           <span v-if="filesize" class="rpl-document-link__size" :class="{'rpl-document-link__size--seperator': extension && filesize}">{{filesize}}</span>
+          <span class="rpl-document-link__last-updated">{{lastUpdated}}</span>
         </div>
       </div>
     </a>
@@ -26,7 +27,8 @@ export default {
     caption: String,
     url: String,
     extension: String,
-    filesize: String
+    filesize: String,
+    updated: String
   },
   computed: {
     nameDecoded: function () {
@@ -62,6 +64,36 @@ export default {
     },
     isExternalLink () {
       return isExternalUrl(this.url, this.rplOptions.hostname)
+    },
+    lastUpdated: function () {
+      let lastUpdated = ''
+      const today = new Date()
+      const yesterday = new Date(today.setDate(today.getDate() - 1))
+      if (this.updated && this.updated !== 'undefined') {
+        // const unixDate = new Date(parseInt(this.updated) * 1000)
+        const unixDate = new Date(1626249321 * 1000)
+        if (unixDate === today) {
+          lastUpdated = 'Today at ' + unixDate.toLocaleString('en-US', { hour: 'numeric', hour12: true })
+        } else if (unixDate === yesterday) {
+          lastUpdated = 'Yesterday at ' + unixDate.toLocaleString('en-US', { hour: 'numeric', hour12: true })
+        } else {
+          lastUpdated = unixDate.getDay() + ' ' + unixDate.toLocaleString('en-us', { month: 'long' }) + ' ' + unixDate.getUTCFullYear()
+        }
+        console.log(today.toLocaleString('en-US', { hour: 'numeric', hour12: true }))
+        // console.log(today.setHours(0, 0, 0, 0))
+        // console.log(unixDate.setHours(0, 0, 0, 0))
+        // console.log(yesterday.setHours(0, 0, 0, 0))
+        // console.log(today.getDate())
+        // console.log(unixDate.getDate())
+        // console.log(unixDate.toLocaleString('en-us', { month: 'long' }))
+        // console.log(unixDate.getUTCFullYear())
+        // if (unixDate === today) {
+        //   console.log(unixDate.getHours())
+        // } else {
+        //   console.log(unixDate.getDate() + unixDate.getMonth() + unixDate.getFullYear())
+        // }
+      }
+      return lastUpdated
     }
   }
 }

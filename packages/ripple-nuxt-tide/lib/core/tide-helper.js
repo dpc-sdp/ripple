@@ -96,6 +96,7 @@ export const stringToClass = (str) => {
  * @param {string} pageHead.title - Page title.
  * @param {string} pageHead.description - Page description.
  * @param {string} pageHead.url - Page url.
+ * @param {string} pageHead.keywords - Page keywords.
  * @param {string} pageHead.image - Social sharing image.
  * @param {string} pageHead.imageAlt - Social sharing image alt text.
  * @param {string} pageHead.siteSectionName - Page site section name.
@@ -108,6 +109,7 @@ export const getPageHeadConfig = ({
   title,
   description,
   url,
+  keywords,
   image,
   imageAlt,
   imageTwitter,
@@ -139,7 +141,9 @@ export const getPageHeadConfig = ({
       { name: 'twitter:image:alt', hid: 'twitter:image:alt', content: imageTwitterAlt },
       // Custom page meta
       { name: 'sitesection', content: siteSectionName },
-      { name: 'content-type', content: pageType && pageType.replace('node--', '') }
+      { name: 'content-type', content: pageType && pageType.replace('node--', '') },
+      // Keywords
+      { name: 'keywords', hid: 'keywords', content: keywords }
     ]
   }
   if (robotsMeta) {

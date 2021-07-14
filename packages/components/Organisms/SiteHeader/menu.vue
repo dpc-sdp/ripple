@@ -142,6 +142,10 @@ export default {
       return menuItemOpen
     },
     menuLinkClick: function (index) {
+      if (this.isVerticalLayout) {
+        this.menuEl = document.querySelector('.rpl-menu__inner')
+        this.menuEl.scrollIntoView()
+      }
       this.closeAllItems()
       this.menuItemOpen[index] = true
       if (this.isRoot) {

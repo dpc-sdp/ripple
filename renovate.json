@@ -4,6 +4,5 @@
     ":preserveSemverRanges",
     "group:allNonMajor"
   ],
-  "prConcurrentLimit": 3,
-  "ignoreDeps": ["cheerio"]
+  "prConcurrentLimit": 3
 }

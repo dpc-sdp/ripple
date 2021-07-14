@@ -11,20 +11,91 @@ Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/c
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplShareThis },
-  template: ` <rpl-share-this :title="title" :url="url" :label="label" :enabled="enabled" />`
+  template: ` <rpl-share-this :title="title" :url="url" :label="label" />`
 });
 
 <Canvas>
   <Story
-    name="ShareThis"
+    name="Default"
     args={{
       title: 'Share this',
-      label: '',
-      url: 'https://app-vic-gov-au-develop.lagoon.vicsdp.amazee.io/',
-      enabled: { twitter: true, facebook: true, linkedin: true }
+      label: 'Share this page on social networks',
+      url: 'https://app-vic-gov-au-develop.lagoon.vicsdp.amazee.io/'
     }}
   >
     {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplShareThis} />
+
+## Email example
+Most networks can use the shared page's meta tags to retrieve relevant information. However, emails need to be provided (custom) subject and body.
+
+export const EmailTemplate = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplShareThis },
+  template: ` <rpl-share-this
+              :title="title"
+              :url="url"
+              :emailSubject="emailSubject"
+              :emailBody="emailBody" />`
+});
+
+<Canvas>
+  <Story
+    name="Custom email"
+    args={{
+      title: 'Share this',
+      url: 'https://app-vic-gov-au-develop.lagoon.vicsdp.amazee.io/',
+      emailSubject: 'Email subject example',
+      emailBody: 'I thought you might find this page interesting.'
+    }}
+  >
+    {EmailTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplShareThis} />
+
+## Custom network example
+Note: Any new icons will need to be registered in [ripple-icon](https://www.npmjs.com/package/@dpc-sdp/ripple-icon)
+
+export const CustomNetworkTemplate = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplShareThis },
+  template: ` <rpl-share-this :title="title" :url="url" :networks="networks" />`
+});
+
+<Canvas>
+  <Story
+    name="Custom network"
+    args={{
+      title: 'Share this',
+      url: 'https://app-vic-gov-au-develop.lagoon.vicsdp.amazee.io/',
+      networks: [
+        {
+          name: 'twitter',
+          label: 'Twitter',
+          iconName: 'twitter',
+          iconSize: '0.81'
+        },
+        {
+          name: 'facebook',
+          label: 'Facebook',
+          iconName: 'facebook',
+          iconSize: '1'
+        },
+        {
+          name: 'whatsapp',
+          label: 'WhatsApp',
+          iconName: 'whatsapp',
+          iconSize: '0.90'
+        }
+      ]
+    }}
+  >
+    {CustomNetworkTemplate.bind({})}
   </Story>
 </Canvas>
 

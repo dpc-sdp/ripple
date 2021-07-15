@@ -32,16 +32,16 @@
 import { RplDivider } from '@dpc-sdp/ripple-global'
 import RplBreadcrumbs from '@dpc-sdp/ripple-breadcrumbs'
 import { RplSearchForm, RplSearchResults } from '@dpc-sdp/ripple-search'
-
 // Layout.
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplPageLayout } from '@dpc-sdp/ripple-layout'
 import { breadcrumbs as getBreadcrumbs } from '@dpc-sdp/ripple-nuxt-tide/lib/core/breadcrumbs'
 import formData from './../formdata.js'
 import { searchMixin, getSearch } from '@dpc-sdp/ripple-nuxt-tide/modules/search'
-
 // Setting Australia/Melbourne timezone
-import moment from 'moment-timezone'
+import dayjs from 'dayjs'
+import timeZone from 'dayjs-ext/plugin/timeZone'
+dayjs.extend(timeZone)
 
 export default {
   name: 'EventSearch',
@@ -50,7 +50,6 @@ export default {
     RplBreadcrumbs,
     RplSearchForm,
     RplSearchResults,
-
     // Layout.
     RplPageLayout,
     RplRow,
@@ -101,15 +100,14 @@ export default {
       let filterValues = this.tideSearch.getFiltersValues(this.searchForm.filterForm)
       // Test date filter based on start / end fields.
       if (filterValues.field_event_date_start_value) {
-        const setFilterDate = moment(filterValues.field_event_date_start_value.values)
+        const setFilterDate = dayjs(filterValues.field_event_date_start_value.values)
         filterValues.field_event_date_start_value.values = setFilterDate.startOf('day').toISOString()
       }
-
       if (filterValues.field_event_date_end_value) {
-        const setFilterDate = moment(filterValues.field_event_date_end_value.values)
+        const setFilterDate = dayjs(filterValues.field_event_date_end_value.values)
         filterValues.field_event_date_end_value.values = setFilterDate.startOf('day').toISOString()
       } else {
-        const vic = moment.tz.setDefault('Australia/Melbourne')
+        const vic = dayjs.tz.setDefault('Australia/Melbourne')
         const today = vic().startOf('day').toISOString()
         filterValues['field_event_date_end_value'] = {
           operator: 'gte',

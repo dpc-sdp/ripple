@@ -34,14 +34,14 @@ describe('SearchForm', () => {
     expect(wrapper.vm.searchFormClass).toEqual([])
   })
 
-  it('adds classes to form when a valid theme is assigned', () => {
+  it('adds classes to form when a valid theme is assigned', async () => {
     const wrapper = shallowMount(SearchForm)
 
-    wrapper.setProps({ theme: 'solid' })
+    await wrapper.setProps({ theme: 'solid' })
     expect(wrapper.vm.searchFormClass).toEqual(['rpl-search-form--solid'])
   })
 
-  it('returns total number of form filters correctly', () => {
+  it('returns total number of form filters correctly', async () => {
     const wrapper = shallowMount(SearchForm, {
       propsData: {
         filterForm: {}
@@ -50,7 +50,7 @@ describe('SearchForm', () => {
 
     expect(wrapper.vm.filterCount).toEqual(0)
 
-    wrapper.setProps({
+    await wrapper.setProps({
       filterForm: {
         model: {
           testOne: 'test',

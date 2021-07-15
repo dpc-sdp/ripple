@@ -1,5 +1,5 @@
 import esb from 'elastic-builder'
-import moment from 'moment'
+import dayjs from 'dayjs'
 
 /**
  * Add filters.
@@ -31,7 +31,7 @@ const addFilter = function (esbResult, filter, filterName) {
   let operator = filter.operator
   switch (filter.type) {
     case 'date':
-      if (moment(filter.values).isValid() || filter.values === 'now') {
+      if (dayjs(filter.values).isValid() || filter.values === 'now') {
         esbResult = esbResult.filter(esb.rangeQuery(filterName)[operator](filter.values))
       }
       break

@@ -12,7 +12,7 @@
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.22.0",
     "@dpc-sdp/ripple-icon": "1.22.0",
-    "moment": "^2.29.1",
+    "dayjs": "^1.10.5",
     "pikaday": "^1.8.2",
     "vue-form-generator": "^2.2.2",
     "vue-multiselect": "^2.1.3",

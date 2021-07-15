@@ -1,3 +1,5 @@
+import { isWebPSupported } from "@dpc-sdp/ripple-global/utils/helpers"
+
 const tideBanners = async (context, pageData) => {
   const mapping = context.app.$tideMapping
 
@@ -34,7 +36,11 @@ const tideBanners = async (context, pageData) => {
   // Add bottom graphic.
   if (!hasImageBanner && !pageData.tidePage.field_landing_page_c_primary) {
     const hasBottomImage = (pageData.tidePage.field_bottom_graphical_image && pageData.tidePage.field_bottom_graphical_image.field_media_image)
-    heroBanner.backgroundGraphic = (hasBottomImage) ? pageData.tidePage.field_bottom_graphical_image.field_media_image.url : '/img/header-pattern-bottom.png'
+    heroBanner.backgroundGraphic = (hasBottomImage)
+      ? pageData.tidePage.field_bottom_graphical_image.field_media_image.url
+      : isWebPSupported
+        ? '/img/header-pattern-bottom.webp'
+        : '/img/header-pattern-bottom.png'
   }
 
   pageData.tidePage.appHeroBanner = await mapping.get(heroBanner)

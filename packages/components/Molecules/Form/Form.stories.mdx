@@ -1,47 +1,11 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import RplForm from './index.vue'
-import RplSelect from './Select.vue'
 import RplCheckbox from './Checkbox.vue'
 
 <Meta title="Molecules/Form" />
 
 # Form
 Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/Form/README.md) for more information about how to install and setup the component.
-
-## Basic example
-
-export const TemplateSelect = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { RplSelect },
-  template: `<rpl-select :values="values" :config="config" :state="state" :disabled="disabled"></rpl-select>`
-});
-
-<Canvas>
-  <Story
-    name="Select"
-    args={{
-      config: {
-        multiselect: false,
-        placeholder: 'Select',
-        showitems: 4,
-        fieldId: 'select',
-        label: ''
-      },
-      values: [
-        { id: 'vic', name: 'Vic' },
-        { id: 'nsw', name: 'New South Wales' },
-        { id: 'wa', name: 'Western Australia' },
-        { id: 'ql', name: 'Queensland' }
-      ],
-      state: '',
-      disabled: false
-    }}
-  >
-    {TemplateSelect.bind({})}
-  </Story>
-</Canvas>
-
-<ArgsTable of={RplSelect} />
 
 export const TemplateCheckbox = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -279,6 +243,7 @@ export const formData = {
         label: 'Single-select drop down',
         hint: 'Implemented using rplSelect',
         placeholder: 'Select a single topic',
+        disabled: false,
         values: [{ id: 'topic_a', name: 'Topic A' }, { id: 'topic_b', name: 'Topic B' }, { id: 'topic_c', name: 'Topic C' }, { id: 'topic_d', name: 'Topic D' }, { id: 'topic_e', name: 'Topic e' }, { id: 'topic_f', name: 'Topic f' }, { id: 'topic_g', name: 'Topic g' }, { id: 'topic_h', name: 'Topic h' }]
       },
       {

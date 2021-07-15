@@ -81,7 +81,7 @@ import { RplAcknowledgement } from '@dpc-sdp/ripple-site-footer'
 import dataLayer from '@dpc-sdp/ripple-nuxt-tide/lib/mixins/data-layer'
 
 import { anchorUtils } from '@dpc-sdp/ripple-nuxt-tide/lib/core/anchorlinks.js'
-import { getAnchorLinkName, isExternalUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { getAnchorLinkName, isExternalUrl, isWebPSupported } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 
@@ -193,7 +193,7 @@ export default {
       if (this.page.field_graphical_image && this.page.field_graphical_image.field_media_image) {
         return this.page.field_graphical_image.field_media_image.url
       } else {
-        return '/img/header-pattern-shape.png'
+        return isWebPSupported ? '/img/header-pattern-shape.webp' : '/img/header-pattern-shape.png'
       }
     },
     acknowledgement () {

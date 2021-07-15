@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-accordion">
+  <div class="rpl-accordion" :class="{'rpl-accordion--rtl': isRtl()}">
     <h2 class="rpl-accordion__title-top" :id="titleId" v-if="title">{{ title }}</h2>
     <div class="rpl-accordion__collapse">
       <button class="rpl-accordion__collapse-btn" @click="closeOpenAll">{{ closeOpenLabel }}</button>
@@ -48,6 +48,7 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import Vue from 'vue'
 import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
 
 export default {
   name: 'RplAccordion',
@@ -61,7 +62,7 @@ export default {
     RplIcon,
     RplMarkup
   },
-  mixins: [uniqueid],
+  mixins: [uniqueid, rtl],
   data: function () {
     return {
       itemOpen: {},
@@ -208,6 +209,7 @@ export default {
   $rpl-accordion-button-text-color-expanded: rpl_color('secondary') !default;
   $rpl-accordion-button-number-text-color: rpl_color('dark_neutral_1') !default;
   $rpl-accordion-button-number-margin: 0 ($rpl-space * 5) 0 0 !default;
+  $rpl-accordion-button-number-margin-rtl: 0 0 0 ($rpl-space * 5) !default;
   $rpl-accordion-content-text-color: rpl_color('extra_dark_neutral') !default;
   $rpl-accordion-content-inner-padding: 0 0 rem(57px) !default;
   $rpl-accordion-collapse-padding: rem(10px) 0 !default;
@@ -383,6 +385,27 @@ export default {
           transform: rotate(0deg);
         }
       }
+    }
+
+    &--rtl {
+      .rpl-accordion {
+        &__icon {
+          margin-left: 0;
+          margin-right: auto;
+        }
+
+        &__list-item {
+            &::before {
+              left: auto;
+              right: 0;
+            }
+        }
+
+        &__title-number {
+          margin: $rpl-accordion-button-number-margin-rtl;
+        }
+      }
+
     }
   }
 

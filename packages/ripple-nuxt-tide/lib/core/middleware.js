@@ -4,6 +4,7 @@ import tideBreadCrumbs from './../middleware/breadcrumbs.js'
 import tideMisc from './../middleware/misc.js'
 import tideBanners from './../middleware/banners.js'
 import tidePageHead from './../middleware/page-head.js'
+import tideLanguages from './../middleware/languages.js'
 import { tideAuthenticatedContent } from './../../modules/authenticated-content/lib/middleware'
 import { tidePreview, tideShare } from '../../modules/preview/lib/helpers'
 import { isPreviewPath, isShareLinkPath } from './path'
@@ -130,6 +131,7 @@ export default async function (context, pageData) {
   tideMisc(context, pageData)
   tideBreadCrumbs(context, pageData)
   tidePageHead(context, pageData)
+  tideLanguages(context, pageData)
 
   return pageData
 }

@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cypress/base:14.16.0
+      - image: cypress/base:14.17.0
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -30,7 +30,7 @@ jobs:
 
   warm-up:
     docker:
-      - image: cypress/base:14.16.0
+      - image: cypress/base:14.17.0
     steps:
       - run:
           name: wake up dev backend
@@ -38,7 +38,7 @@ jobs:
 
   test:
     docker:
-      - image: cypress/base:14.16.0
+      - image: cypress/base:14.17.0
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -205,7 +205,7 @@ jobs:
 
   storybook:
     docker:
-      - image: cypress/base:14.16.0
+      - image: cypress/base:14.17.0
         environment:
           TERM: xterm
     working_directory: ~/app

@@ -15,6 +15,6 @@
     "@dpc-sdp/ripple-embedded-video": "1.22.0",
     "@dpc-sdp/ripple-global": "1.22.0",
     "@dpc-sdp/ripple-link": "1.22.0",
-    "cheerio": "1.0.0-rc.2"
+    "cheerio": "1.0.0-rc.10"
   }
 }

@@ -72,14 +72,17 @@ export default {
       if (this.updated && this.updated !== 'undefined') {
         // const unixDate = new Date(parseInt(this.updated) * 1000)
         const unixDate = new Date(1626249321 * 1000)
-        if (unixDate === today) {
+        if (unixDate.setHours(0, 0, 0, 0) === today.setHours(0, 0, 0, 0)) {
           lastUpdated = 'Today at ' + unixDate.toLocaleString('en-US', { hour: 'numeric', hour12: true })
-        } else if (unixDate === yesterday) {
+        } else if (unixDate.setHours(0, 0, 0, 0) === yesterday.setHours(0, 0, 0, 0)) {
           lastUpdated = 'Yesterday at ' + unixDate.toLocaleString('en-US', { hour: 'numeric', hour12: true })
         } else {
+          console.log('I am here')
+          console.log(unixDate.getUTCDate())
           lastUpdated = unixDate.getDay() + ' ' + unixDate.toLocaleString('en-us', { month: 'long' }) + ' ' + unixDate.getUTCFullYear()
         }
-        console.log(today.toLocaleString('en-US', { hour: 'numeric', hour12: true }))
+        console.log(lastUpdated)
+        // console.log(today.toLocaleString('en-US', { hour: 'numeric', hour12: true }))
         // console.log(today.setHours(0, 0, 0, 0))
         // console.log(unixDate.setHours(0, 0, 0, 0))
         // console.log(yesterday.setHours(0, 0, 0, 0))

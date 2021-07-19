@@ -37,7 +37,6 @@ export default {
 
       if (plugins && plugins.length > 0) {
         const template = markupTranspiler(html, plugins, options)
-        //console.log(template)
         return {
           html: template.html,
           data: template.data

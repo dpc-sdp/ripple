@@ -34,7 +34,6 @@ const markupTranspiler = (html, plugins = {}, options = {}) => {
     for (const [index, plugin] of plugins.entries()) {
       $.prototype[`plugin${index}`] = plugin
       const data = $body[`plugin${index}`]()
-      //console.log(data)
       if (data) {
         markupData = { ...markupData, ...data }
       }

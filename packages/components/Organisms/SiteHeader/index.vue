@@ -17,7 +17,7 @@
               <button
                 v-if="showMenuBtn()"
                 class="rpl-site-header__btn rpl-site-header__btn--menu"
-                aria-label="Left Align"
+                aria-label="Menu"
                 :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
                 :aria-expanded="(menuState === 'opened').toString()"
                 @click="menuToggle()"

@@ -24,8 +24,7 @@ export default {
       required: true
     },
     alt: {
-      type: String,
-      default: 'testing'
+      type: String
     },
     srcSet: {
       type: [String, Array]

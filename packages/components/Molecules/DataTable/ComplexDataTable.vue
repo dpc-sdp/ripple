@@ -8,7 +8,7 @@
     </thead>
     <tbody v-if="rows">
       <template v-for="(row, rowIdx) in rows">
-        <tr role="row" class="rpl-complex-data-table__row" :class="{ 'rpl-complex-data-table__row-open': isRowExpanded(rowIdx), 'rpl-complex-data-table__row-alt': zebraStripes && rowIdx%2 !== 0 }" :key="getRowId(rowIdx)" :id="getRowId(rowIdx)">
+        <tr role="row" class="rpl-complex-data-table__row" :class="{ 'rpl-complex-data-table__row-open': isRowExpanded(rowIdx), 'rpl-complex-data-table__row-alt': getZebraOrder(rowIdx) }" :key="getRowId(rowIdx)" :id="getRowId(rowIdx)">
           <template v-for="(col, colIdx) in columns">
             <component :is="rowHeaders ? 'th' : 'td'" v-if="colIdx === 0" :scope="rowHeaders ? 'rowgroup' : undefined" :id="`row-${rowIdx}-header`" :key="`row${rowIdx}-col${colIdx}`" :rowspan="isRowExpanded(rowIdx) ? getExpandableRows(row).length + 1 : 1" >
               <span aria-hidden="true" class="rpl-complex-data-table__label">{{col}}</span>
@@ -24,9 +24,9 @@
               <button class="rpl-complex-data-table__show-more-btn" @click="toggleExpandRow(rowIdx)" :aria-controls="getHiddenRowIds(rowIdx)" :aria-expanded="isRowExpanded(rowIdx)">
                 <slot name="showmore" :isRowExpanded="isRowExpanded(rowIdx)">
                     <span class="rpl-complex-data-table__show-more-btn-inner">
-                      Show
-                      <span v-if="isRowExpanded(rowIdx)"> less</span>
-                      <span v-else> more</span>
+                      <span v-if="isRowExpanded(rowIdx)"> Less</span>
+                      <span v-else> More</span>
+                      <span> info</span>
                       <rpl-icon aria-hidden="true" :symbol="isRowExpanded(rowIdx) ? 'up' : 'down'" color="primary" size="l" />
                     </span>
                 </slot>
@@ -35,7 +35,7 @@
           </template>
         </tr>
         <slot name="hiddenContentRows" v-bind:hiddenRows="getExpandableRows(row)" v-for="(hiddenRow, hiddenRowIdx) in getExpandableRows(row)" >
-          <tr role="row" class="rpl-complex-data-table__row rpl-complex-data-table__hidden-row" :class="{ 'rpl-complex-data-table__hidden-row--expanded': isRowExpanded(rowIdx), 'rpl-complex-data-table__row-alt': zebraStripes && rowIdx%2 !== 0 }" v-show="isRowExpanded(rowIdx)" :key="getHiddenRowId(rowIdx, hiddenRowIdx)" :id="getHiddenRowId(rowIdx, hiddenRowIdx)">
+          <tr role="row" class="rpl-complex-data-table__row rpl-complex-data-table__hidden-row" :class="{ 'rpl-complex-data-table__hidden-row--expanded': isRowExpanded(rowIdx), 'rpl-complex-data-table__row-alt': getZebraOrder(rowIdx) }" v-show="isRowExpanded(rowIdx)" :key="getHiddenRowId(rowIdx, hiddenRowIdx)" :id="getHiddenRowId(rowIdx, hiddenRowIdx)">
             <td role="cell" headers="th-1"  rowspan="1" :colspan="columns.length" v-for="(col, colIdx) in hiddenRow" :key="`row${rowIdx}-hidden-${hiddenRowIdx}-col${colIdx}`">
               <div class="rpl-complex-data-table__hidden-row-content">
                 <slot v-bind:coldata="col" :aria-label="`${row[0]} more info`" name="hiddenContentCell">
@@ -73,8 +73,8 @@ export default {
       default: false
     },
     zebraStripes: {
-      type: Boolean,
-      default: false
+      type: [String, Boolean],
+      default: 'even'
     },
     caption: {
       type: String
@@ -132,6 +132,13 @@ export default {
     },
     getHiddenRowId (rowIdx, hiddenRowIdx) {
       return `${this.getRowId(rowIdx)}-hidden-${hiddenRowIdx + 1}`
+    },
+    getZebraOrder (rowIdx) {
+      if (this.zebraStripes === 'even') {
+        return this.zebraStripes && rowIdx % 2 === 0
+      } else if (this.zebraStripes === 'odd') {
+        return this.zebraStripes && rowIdx % 2 !== 0
+      }
     }
   },
   computed: {
@@ -146,9 +153,41 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
+@mixin rpl_btn_reset() {
+  /* https://gist.github.com/MoOx/9137295 */
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  text-align: inherit;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+
+  /* Remove excess padding and border in Firefox 4+ */
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
 $rpl-complex-data-table-body-color: rpl_color('extra_dark_neutral');
 $rpl-complex-data-table-regular-header-ruleset: ('xs', 1.5em, 'regular') !default;
 $rpl-complex-data-table-bold-header-ruleset: ('xs', 1.5em, 'bold') !default;
+$rpl-complex-data-table-row-label-max-width: rem(140px);
 $rpl-complex-data-table-row-label-ruleset: (
   'xs': ('s', 1.5em, 'bold'),
   'l': ('s', 1.5em, 'bold'),
@@ -164,7 +203,8 @@ $rpl-complex-data-table-line-height-xs: 1.4em !default;
 $rpl-complex-data-table-cell-padding: $rpl-space-3 !default;
 $rpl-complex-data-table-row-color: rpl-color('white') !default;
 $rpl-complex-data-table-row-alt-color: rpl-color('light_neutral') !default;
-$rpl-complex-data-table-row-border: 1px solid rpl-color('mid_neutral_1') !default;
+$rpl-complex-data-table-row-border: 0 !default;
+$rpl-complex-data-table-body-border: 1px solid rpl-color('mid_neutral_1') !default;
 $rpl-complex-data-table-bp: 'l';
 .rpl-complex-data-table {
   $root: &;
@@ -187,6 +227,9 @@ $rpl-complex-data-table-bp: 'l';
       padding-right: $rpl-complex-data-table-show-more-btn-icon-size;
       right: -$rpl-complex-data-table-show-more-btn-icon-size;
       top: calc(50% - #{$rpl-complex-data-table-show-more-btn-icon-size} / 3);
+    }
+    @include rpl_breakpoint_down($rpl-complex-data-table-bp) {
+      margin-left: auto;
     }
   }
 
@@ -239,6 +282,8 @@ $rpl-complex-data-table-bp: 'l';
   }
 
   tbody {
+    border-top: $rpl-complex-data-table-body-border;
+    border-bottom: $rpl-complex-data-table-body-border;
     tr {
       display: flex;
       flex-direction: column;
@@ -259,6 +304,9 @@ $rpl-complex-data-table-bp: 'l';
     th {
       text-align: left;
       @include rpl_typography_ruleset($rpl-complex-data-table-row-label-ruleset);
+      @include rpl_breakpoint($rpl-complex-data-table-bp) {
+        max-width: $rpl-complex-data-table-row-label-max-width;
+      }
     }
   }
   &__row {

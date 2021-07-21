@@ -104,7 +104,31 @@ export const TemplateAccordionTableWithShowMore = (args, { argTypes }) => ({
         'Est. wait time',
         ''
       ],
-      zebraStripes: true,
+      zebraStripes: 'even',
+      rowHeaders: true,
+      items: exampleItems
+    }}
+  >
+    {TemplateAccordionTable.bind({})}
+  </Story>
+</Canvas>
+
+## With alternate zebraStripes
+
+<Canvas>
+  <Story
+    name="With alternate zebraStripes"
+    args={{
+      caption: 'A table with expandable rows',
+      columns: [
+        'Suburb',
+        'Location',
+        'Bookings',
+        'Walk ins',
+        'Est. wait time',
+        ''
+      ],
+      zebraStripes: 'odd',
       rowHeaders: true,
       items: exampleItems
     }}
@@ -131,7 +155,7 @@ export const TemplateAccordionTableWithShowMore = (args, { argTypes }) => ({
         'Est. wait time',
         ''
       ],
-      zebraStripes: true,
+      zebraStripes: 'even',
       rowHeaders: true,
       items: exampleItems
     }}
@@ -154,7 +178,7 @@ export const TemplateAccordionTableWithShowMore = (args, { argTypes }) => ({
         'Est. wait time',
         ''
       ],
-      zebraStripes: true,
+      zebraStripes: 'even',
       rowHeaders: true,
       items: exampleItems
     }}

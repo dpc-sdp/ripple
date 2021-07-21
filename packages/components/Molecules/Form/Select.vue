@@ -1,13 +1,6 @@
 <template>
-  <div class="rpl-select" :class="{'rpl-select--open' : isOpen}">
-    <div v-if="!$breakpoint.s" class="rpl-select__native">
-      <select :id="config.fieldId" :disabled="disabled" :name="config.inputName" :multiple="config.multiselect" v-model="value" @change="onChange($event)">
-        <option v-if="!config.multiselect" disabled value="">{{config.placeholder || 'Select'}}</option>
-        <option :value="option.id" v-for="(option) in options" :key="option.id">{{option.name}}</option>
-      </select>
-      <rpl-icon v-if="!config.multiselect" class="rpl-select__trigger-icon" symbol="down" color="primary" />
-    </div>
-    <div class="rpl-select__inner" v-else>
+  <div class="rpl-select" :class="{'rpl-select--open' : isOpen, 'rpl-select--disabled': disabled }">
+    <div class="rpl-select__inner">
       <div
         class="rpl-select__trigger"
         tabindex="0"
@@ -16,29 +9,35 @@
         :aria-expanded="isOpen ? 'true' : false"
         role="button"
         ref="trigger"
+        :id="`${config.fieldId}-rpl-select-value`"
         @click="toggleOpen"
         @keyup.space.prevent="toggleOpen"
         @keyup.enter.prevent="toggleOpen"
+        @keyup.down.prevent="toggleOpen"
       >
-        <template v-if="selectedTitles">
-          <span :id="`${config.fieldId}-rpl-select-value`">{{selectedTitles}}</span>
-          <span class="rpl-select__label-count" v-if="selectedItems.length > config.showitems">+ {{selectedItems.length - 1}} more</span>
-          <span class="rpl-select__label-visually-hidden"> Selected</span>
+        <template v-if="selectedText">
+          <span >{{selectedText}}</span>
+          <template v-if="config.multiselect && selectedTitles.join('; ').length >= selectedCharLength">
+            <span class="rpl-select__label-count" v-if="selectedItems.length > 1">+ {{selectedItems.length - 1}} more</span>
+            <span class="rpl-select__label-visually-hidden"> selected</span>
+          </template>
         </template>
         <span v-else :id="`${config.fieldId}-rpl-select-trigger`">{{config.placeholder || 'Select'}}</span>
-        <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary" />
+        <rpl-icon class="rpl-select__trigger-icon" symbol="down" color="primary"  />
       </div>
       <div class="rpl-select__dropdown" v-show="isOpen">
         <div
           class="rpl-select__listbox"
           ref="listbox"
-          tabindex="-1"
+          tabindex="0"
           :aria-multiselectable="config.multiselect && 'true'"
           :aria-activedescendant="activedescendant"
+          aria-label="Select items"
           role="listbox"
           @keyup.enter.prevent="toggleOpen"
           @keydown.up="handleKeys"
           @keydown.down="handleKeys"
+          @keydown.tab="close"
           @keyup.esc="close"
         >
           <div
@@ -66,12 +65,12 @@
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplCheckbox from './Checkbox.vue'
-import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import clickoutside from '@dpc-sdp/ripple-global/mixins/clickoutside'
+import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers'
 
 export default {
   name: 'RplSelect',
-  mixins: [breakpoint, clickoutside],
+  mixins: [clickoutside],
   components: {
     RplIcon,
     RplCheckbox
@@ -90,7 +89,6 @@ export default {
         return {
           multiselect: false,
           placeholder: 'Select',
-          showitems: 4,
           fieldId: 'select',
           inputName: null,
           label: ''
@@ -108,6 +106,10 @@ export default {
     },
     disabled: {
       type: Boolean
+    },
+    selectedCharLength: {
+      type: Number,
+      default: 20
     }
   },
   computed: {
@@ -135,24 +137,18 @@ export default {
       return this.options.filter(opt => opt.selected)
     },
     selectedTitles () {
-      return this.selectedItems
-        .slice(0, this.selectedItems.length > this.config.showitems ? 1 : this.selectedItems.length)
-        .sort((a, b) => {
-          const nameA = a.name.toLowerCase()
-          const nameB = b.name.toLowerCase()
-          if (nameA < nameB) {
-            return -1
-          }
-          if (nameA > nameB) {
-            return 1
-          }
-          return 0
-        })
-        .map(itm => itm.name)
-        .join(', ')
+      return this.selectedItems.map(itm => itm.name)
+    },
+    selectedText () {
+      if (this.selectedTitles && this.selectedTitles.join('; ').length < this.selectedCharLength) {
+        return this.selectedTitles.map(itm => truncateText(itm, this.selectedCharLength - 1), ' ...').join('; ')
+      } else {
+        return truncateText(this.selectedTitles[0], this.selectedCharLength - 1, ' ...')
+      }
     }
   },
   methods: {
+    truncateText,
     isAriaSelected (item) {
       if (this.multiselet) {
         if (item.selected) {
@@ -182,11 +178,7 @@ export default {
         this.onClickOutside(this.close)
         this.$nextTick(function () {
           if (this.selectedItems.length === 0) {
-            if (this.config.multiselect) {
-              this.focusItem(this.options[0])
-            } else {
-              this.selectItem(this.options[0])
-            }
+            this.focusItem(this.options[0])
           }
           this.$refs.listbox && this.$refs.listbox.focus()
         })
@@ -327,44 +319,29 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 @import "./scss/form";
-
-$rpl-select-inner-padding: $rpl-space-4;
-$rpl-select-dropdown-height: 18.5rem !default; /* 7 items */
-$rpl-select-focus-bg-color: rpl-color("secondary") !default;
+$rpl-select-item-height: rem(42px) !default;
+$rpl-select-dropdown-height: $rpl-select-item-height * 7 !default;
+$rpl-select-focus-bg-color: rpl-color("primary") !default;
 $rpl-select-focus-color: rpl-color("white") !default;
+$rpl-select-hover-bg-color: rpl-color("primary") !default;
+$rpl-select-hover-color: rpl-color("white") !default;
 $rpl-select-selected-bg-color: rpl-color("primary") !default;
 $rpl-select-selected-color: rpl-color("white") !default;
+$rpl-select-icon-h: rem(7.5px) !important !default;
+$rpl-select-icon-w: rem(12px) !important !default;
+$rpl-select-active-border: 1px solid rpl-color('primary') !default;
+$rpl-select-disabled-bg-color: #fafafc !default;
+$rpl-select-disabled-color: rpl-color('mid_neutral_1') !default;
+$rpl-select-checkbox-margin: 0 !default;
 
 .rpl-select {
   $root: &;
 
-  &__native {
-    position: relative;
-    @include rpl-breakpoint("s") {
-      @include rpl_visually_hidden;
-    }
-    select {
-      @include rpl_form_text_element;
-      width: 100%;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-    }
-  }
-
-  &__inner {
-    display: none;
-    @include rpl_form_text_element;
-    @include rpl-breakpoint("s") {
-      padding: 0;
-      display: block;
-    }
-  }
-
   &__trigger {
-    padding: $rpl-form-element-padding-m;
     position: relative;
-
+    cursor: default;
+    @include rpl_form_text_element;
+    @include rpl_form_text;
     &-icon {
       position: absolute;
       top: 0;
@@ -372,12 +349,12 @@ $rpl-select-selected-color: rpl-color("white") !default;
       right: 1rem;
       margin: auto;
       transition: transform .25s;
-
+      height: $rpl-select-icon-h;
+      width: $rpl-select-icon-w;
       #{$root}--open & {
         transform: rotate(-180deg);
       }
     }
-
   }
   &__label-count {
     color: rpl-color('primary');
@@ -391,7 +368,8 @@ $rpl-select-selected-color: rpl-color("white") !default;
     top: 0;
     background-color: $rpl-form-element-bg-color;
     position: relative;
-    width: 100%;
+    width: calc(100% - 2px);
+    margin: auto;
   }
 
   &__listbox {
@@ -408,20 +386,39 @@ $rpl-select-selected-color: rpl-color("white") !default;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     max-height: $rpl-select-dropdown-height;
-    overflow-y: scroll;
+    overflow-y: auto;
+    /* Always display scrollbar */
+    &::-webkit-scrollbar {
+      appearance: none;
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rpl-color('mid_neutral_1');
+      box-shadow: 0 0 1px rgba(255,255,255,.5);
+    }
   }
 
   &__listitem {
-    padding: $rpl-space-3 $rpl-form-element-padding-m-horizontal;
+    display: flex;
+    align-items: center;
+    padding-left: $rpl-form-element-padding-s-horizontal;
+    padding-right: $rpl-form-element-padding-s-horizontal;
+    @include rpl_breakpoint(m) {
+      padding-left: $rpl-form-element-padding-m-horizontal;
+      padding-right: $rpl-form-element-padding-m-horizontal;
+    }
+    height: $rpl-select-item-height;
     background: $rpl-form-element-bg-color;
-
+    @include rpl_form_text;
+    cursor: default;
     &:not(#{$root}__listitem--selected):not(#{$root}__listitem--focussed) {
       &:nth-child(odd) {
         background-color: rpl-color("white");
       }
       &:hover {
-        background-color: $rpl-select-focus-bg-color;
-        color: $rpl-select-focus-color;
+        background-color: $rpl-select-hover-bg-color;
+        color: $rpl-select-hover-color;
       }
     }
 
@@ -438,14 +435,35 @@ $rpl-select-selected-color: rpl-color("white") !default;
     }
 
     &-label {
-      position: relative;
-      top: $rpl-space / 2;
+      padding-top: 2px;
     }
   }
 
   &__checkbox {
     float: left;
-    margin-right: 1rem;
+    margin-right: $rpl-select-checkbox-margin;
+  }
+  &--disabled {
+    #{$root}__trigger {
+      cursor: not-allowed;
+      pointer-events: none;
+      background-color: $rpl-select-disabled-bg-color;
+      color: $rpl-select-disabled-color;
+      &-icon {
+        fill: $rpl-select-disabled-color;
+      }
+    }
+  }
+  &--open {
+    #{$root}__trigger {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border: $rpl-select-active-border;
+    }
+    #{$root}__listbox {
+      border: $rpl-select-active-border;
+      border-top: none;
+    }
   }
 }
 </style>

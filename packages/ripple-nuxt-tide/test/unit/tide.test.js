@@ -122,7 +122,8 @@ describe('tide helpers', () => {
       imageTwitterAlt: 'Demo: Twitter Melbourne tram',
       siteSectionName: '',
       pageType: 'landing_page',
-      robotsMeta: 'noindex'
+      robotsMeta: 'noindex',
+      keywords: 'keyword1,keyword2'
     }
 
     const result = {
@@ -184,6 +185,7 @@ describe('tide helpers', () => {
         },
         { name: 'sitesection', content: '' },
         { name: 'content-type', content: 'landing_page' },
+        { name: 'keywords', hid: 'keywords', content: 'keyword1,keyword2' },
         { name: 'robots', content: 'noindex' }
       ]
     }

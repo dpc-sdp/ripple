@@ -11,6 +11,7 @@ const tidePageHead = (context, pageData) => {
     // Set details.
     const title = pageData.tidePage.appMetatag.title || pageData.tidePage.appPageTitle || ''
     const description = pageData.tidePage.appMetatag.description || pageData.tidePage.field_news_intro_text || pageData.tidePage.field_landing_page_intro_text || pageData.tidePage.field_page_intro_text || pageData.tidePage.field_landing_page_summary || ''
+    const keywords = pageData.tidePage.appMetatag.keywords || ''
     const url = context.store.state.tide.currentUrl || ''
     const siteSection = pageData.tidePage.section && pageData.tidePage.field_node_site && pageData.tidePage.field_node_site.find(site => site.drupal_internal__tid === parseInt(pageData.tidePage.section, 10))
 
@@ -33,6 +34,7 @@ const tidePageHead = (context, pageData) => {
       title,
       description,
       url,
+      keywords,
       siteSectionName: siteSection ? siteSection.name : '',
       image,
       imageAlt,

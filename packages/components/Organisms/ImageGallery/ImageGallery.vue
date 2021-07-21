@@ -1,8 +1,8 @@
 <template>
   <div class="rpl-image-gallery">
-    <button class="rpl-image-gallery__enlarge" @click="openModal()" :aria-label="enlargeText">
+    <div class="rpl-image-gallery__enlarge" @click="openModal()" :aria-label="enlargeText">
       <rpl-icon symbol="enlarge_screen" color="primary" />
-    </button>
+    </div>
     <carousel
       v-if="showCarousel"
       :perPage="1"

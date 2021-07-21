@@ -77,9 +77,9 @@ export default {
   $rpl-checkbox-box-border-width: rem(1px) !default;
   $rpl-checkbox-box-border: $rpl-checkbox-box-border-width solid $rpl-form-radio-border-color !default;
   $rpl-checkbox-box-border-focus: 1px solid rpl-color('primary') !default;
-  $rpl-checkbox-box-border-radius: rem(4px);
-  $rpl-checkbox-box-size: rem(20px);
-  $rpl-checkbox-box-bg-color: rpl-color('light_neutral');
+  $rpl-checkbox-box-border-radius: rem(4px) !default;
+  $rpl-checkbox-box-size: rem(20px) !default;
+  $rpl-checkbox-box-bg-color: rpl-color('light_neutral') !default;
 
   .rpl-checkbox {
     position: relative;

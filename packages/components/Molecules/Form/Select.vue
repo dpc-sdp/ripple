@@ -320,7 +320,7 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/tools";
 @import "./scss/form";
 $rpl-select-item-height: rem(42px) !default;
-$rpl-select-dropdown-height: $rpl-select-item-height * 7 !default; /* 7 items */
+$rpl-select-dropdown-height: $rpl-select-item-height * 7 !default;
 $rpl-select-focus-bg-color: rpl-color("primary") !default;
 $rpl-select-focus-color: rpl-color("white") !default;
 $rpl-select-hover-bg-color: rpl-color("primary") !default;
@@ -332,7 +332,7 @@ $rpl-select-icon-w: rem(12px) !important !default;
 $rpl-select-active-border: 1px solid rpl-color('primary') !default;
 $rpl-select-disabled-bg-color: #fafafc !default;
 $rpl-select-disabled-color: rpl-color('mid_neutral_1') !default;
-$rpl-select-checkbox-margin: 0;
+$rpl-select-checkbox-margin: 0 !default;
 
 .rpl-select {
   $root: &;

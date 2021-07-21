@@ -9,7 +9,7 @@
         <h2 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
           <button @click="accordionClick(index)" class="rpl-accordion__button" :class="{'rpl-accordion__button--expanded': accordionIsOpen(index)}" :aria-expanded="accordionIsOpen(index).toString()" :aria-controls="accordionId(index)">
             <span aria-hidden="true" class="rpl-accordion__title-number">{{ (index + 1) }}</span>
-            <span>{{ accordion.title }}</span>
+            <span :class="{'rpl-accordion__button-text--rtl': isRtl()}">{{ accordion.title }}</span>
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
         </h2>
@@ -26,7 +26,7 @@
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
         <h2 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
           <button @click="accordionClick(index)" class="rpl-accordion__button" :class="{'rpl-accordion__button--expanded': accordionIsOpen(index)}" :aria-expanded="accordionIsOpen(index).toString()" :aria-controls="accordionId(index)">
-            <span class="rpl-accordion__button-text">{{ accordion.title }}</span>
+            <span class="rpl-accordion__button-text" :class="{'rpl-accordion__button-text--rtl': isRtl()}">{{ accordion.title }}</span>
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
         </h2>
@@ -326,6 +326,9 @@ export default {
         @include rpl_breakpoint($bp) {
           padding: $val;
         }
+      }
+      &--rtl {
+        text-align: right;
       }
     }
 

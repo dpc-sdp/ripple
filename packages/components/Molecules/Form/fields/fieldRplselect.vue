@@ -3,6 +3,7 @@
     :config="config"
     :values="schema.values"
     :state="value"
+    :disabled="disabled"
     @rpl-select-update="onUpdate"
   />
 </template>

@@ -17,7 +17,7 @@
 
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
-import { isExternalUrl, decodeSpecialCharacters } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { isExternalUrl, decodeSpecialCharacters, epochToDateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 
 export default {
   name: 'RplDocumentLink',
@@ -66,37 +66,11 @@ export default {
       return isExternalUrl(this.url, this.rplOptions.hostname)
     },
     lastUpdated: function () {
-      let lastUpdated = ''
-      const today = new Date()
-      const yesterday = new Date(today.setDate(today.getDate() - 1))
       if (this.updated && this.updated !== 'undefined') {
-        // const unixDate = new Date(parseInt(this.updated) * 1000)
-        const unixDate = new Date(1626249321 * 1000)
-        if (unixDate.setHours(0, 0, 0, 0) === today.setHours(0, 0, 0, 0)) {
-          lastUpdated = 'Today at ' + unixDate.toLocaleString('en-US', { hour: 'numeric', hour12: true })
-        } else if (unixDate.setHours(0, 0, 0, 0) === yesterday.setHours(0, 0, 0, 0)) {
-          lastUpdated = 'Yesterday at ' + unixDate.toLocaleString('en-US', { hour: 'numeric', hour12: true })
-        } else {
-          console.log('I am here')
-          console.log(unixDate.getUTCDate())
-          lastUpdated = unixDate.getDay() + ' ' + unixDate.toLocaleString('en-us', { month: 'long' }) + ' ' + unixDate.getUTCFullYear()
-        }
-        console.log(lastUpdated)
-        // console.log(today.toLocaleString('en-US', { hour: 'numeric', hour12: true }))
-        // console.log(today.setHours(0, 0, 0, 0))
-        // console.log(unixDate.setHours(0, 0, 0, 0))
-        // console.log(yesterday.setHours(0, 0, 0, 0))
-        // console.log(today.getDate())
-        // console.log(unixDate.getDate())
-        // console.log(unixDate.toLocaleString('en-us', { month: 'long' }))
-        // console.log(unixDate.getUTCFullYear())
-        // if (unixDate === today) {
-        //   console.log(unixDate.getHours())
-        // } else {
-        //   console.log(unixDate.getDate() + unixDate.getMonth() + unixDate.getFullYear())
-        // }
-      }
-      return lastUpdated
+        const updatedText = '| Updated: '
+        const updatedDate = epochToDateText(this.updated)
+        return (updatedDate.length > 0) ? updatedText + updatedDate : ''
+      } else return ''
     }
   }
 }

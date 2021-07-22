@@ -17,7 +17,8 @@
 
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
-import { isExternalUrl, decodeSpecialCharacters, epochToDateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { isExternalUrl, decodeSpecialCharacters } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { epochToDateText } from '@dpc-sdp/ripple-global/utils/dateHelpers.js'
 
 export default {
   name: 'RplDocumentLink',

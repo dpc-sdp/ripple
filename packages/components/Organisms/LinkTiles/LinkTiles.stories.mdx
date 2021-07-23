@@ -1,0 +1,74 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplLinkTiles from './LinkTiles.vue'
+
+<Meta title="Organisms/Link tiles" />
+
+# Link tiles
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Organisms/LinkTiles/README.md) for more information about how to install and setup the component.
+
+## Row view example
+
+export const RowTemplate = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplLinkTiles },
+  template: `<rpl-link-tiles :title="title" :primaryCta="primaryCta" :links="links" />`
+});
+
+<Canvas>
+  <Story
+    name="Row view"
+    args={{
+      title: 'Languages',
+      primaryCta: { text: 'View all languages', url: '#' },
+      links: [
+        { text: 'عربي / Arabic', url: '#' },
+        { text: '中文 / Chinese', url: '#' },
+        { text: 'Türkçe / Turkish', url: '#' },
+        { text: 'Việt-ngữ / Vietnamese', url: '#' }
+      ]
+    }}
+  >
+    {RowTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplLinkTiles} />
+
+## Grid view example
+
+export const GridTemplate = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplLinkTiles },
+  template: `<rpl-link-tiles
+            :title="title"
+            :primaryCta="primaryCta"
+            :links="links"
+            :hideIcons="hideIcons"
+            :gridView="gridView"
+            :sidebar="sidebar" />`
+});
+
+<Canvas>
+  <Story
+    name="Grid view"
+    args={{
+      title: 'Information about',
+      primaryCta: { text: 'View all languages', url: '#' },
+      links: [
+        { text: 'COVID-19 Coronavirus', url: '#', image: 'http://via.placeholder.com/64x64' },
+        { text: 'Character references', url: '#', image: 'http://via.placeholder.com/64x64' },
+        { text: 'Family violence', url: '#', image: 'http://via.placeholder.com/64x64' },
+        { text: 'Driving offences', url: '#', image: 'http://via.placeholder.com/64x64' },
+        { text: 'Divorce', url: '#', image: 'http://via.placeholder.com/64x64' },
+        { text: 'Housing and tenancy', url: '#', image: 'http://via.placeholder.com/64x64' }
+      ],
+      hideIcons: false,
+      gridView: true,
+      sidebar: false
+    }}
+  >
+    {GridTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplLinkTiles} />

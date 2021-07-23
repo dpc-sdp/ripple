@@ -153,37 +153,6 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
-@mixin rpl_btn_reset() {
-  /* https://gist.github.com/MoOx/9137295 */
-  border: none;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  overflow: visible;
-  text-align: inherit;
-  background: transparent;
-
-  /* inherit font & color from ancestor */
-  color: inherit;
-  font: inherit;
-
-  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-  line-height: normal;
-
-  /* Corrects font smoothing for webkit */
-  -webkit-font-smoothing: inherit;
-  -moz-osx-font-smoothing: inherit;
-
-  /* Corrects inability to style clickable `input` types in iOS */
-  -webkit-appearance: none;
-
-  /* Remove excess padding and border in Firefox 4+ */
-  &::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-  }
-}
-
 $rpl-complex-data-table-body-color: rpl_color('extra_dark_neutral');
 $rpl-complex-data-table-regular-header-ruleset: ('xs', 1.5em, 'regular') !default;
 $rpl-complex-data-table-bold-header-ruleset: ('xs', 1.5em, 'bold') !default;

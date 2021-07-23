@@ -1,25 +1,26 @@
 <template>
   <div class="rpl-share-this">
     <h2 v-if="title" class="rpl-share-this__title" id="rpl-share-this__title">{{ title }}</h2>
-    <social-sharing :url="url" inline-template networkTag="button">
-      <ul class="rpl-share-this__list" :aria-label="label || 'Social networks'">
-        <li v-if="$parent.en.twitter">
-          <network network="twitter" class="rpl-share-this__social rpl-share-this__button">
-            <span class="rpl-share-this__icon"><rpl-icon symbol="twitter" color="primary" /></span>Twitter
+    <social-sharing :url="url" inline-template networkTag="a">
+      <ul class="rpl-share-this__list" :aria-label="$parent.en.label">
+        <li v-for="network in $parent.en.networks" :key="network.name">
+          <network :network="network.name" class="rpl-share-this__social rpl-share-this__button">
+            <span class="rpl-share-this__icon">
+                <rpl-icon :symbol="network.iconName" color="primary" :size="network.iconSize"/>
+            </span>
+            {{network.label}}
             <span class="rpl-share-this__hint">, opens a new window</span>
           </network>
         </li>
-        <li v-if="$parent.en.facebook">
-          <network network="facebook" class="rpl-share-this__social rpl-share-this__button">
-            <span class="rpl-share-this__icon"><rpl-icon symbol="facebook" color="primary" /></span>Facebook
+        <li v-if="$parent.en.emailEnabled">
+          <rpl-link :href="$parent.en.emailUrl" :innerWrap="false"
+                    class="rpl-share-this__social rpl-share-this__button">
+            <span class="rpl-share-this__icon">
+                <rpl-icon symbol="email_solid" color="primary" size="0.65"/>
+            </span>
+            Email
             <span class="rpl-share-this__hint">, opens a new window</span>
-          </network>
-        </li>
-        <li v-if="$parent.en.linkedin">
-          <network network="linkedin" class="rpl-share-this__social rpl-share-this__button">
-            <span class="rpl-share-this__icon"><rpl-icon symbol="linkedin" color="primary" /></span>LinkedIn
-            <span class="rpl-share-this__hint">, opens a new window</span>
-          </network>
+          </rpl-link>
         </li>
       </ul>
     </social-sharing>
@@ -29,10 +30,12 @@
 <script>
 import Vue from 'vue'
 import RplIcon from '@dpc-sdp/ripple-icon'
+import RplLink from '@dpc-sdp/ripple-link'
 import SocialSharing from 'vue-social-sharing'
 
 // Need to register as global component so it can be used inside vue-social-sharing.
 Vue.component('rpl-icon', RplIcon)
+Vue.component('rpl-link', RplLink)
 
 export default {
   name: 'RplShareThis',
@@ -40,38 +43,44 @@ export default {
     url: String,
     title: String,
     label: String,
-    enabled: {
-      type: Object,
-      default: function () {
-        return {
-          twitter: true,
-          facebook: true,
-          linkedin: true
+    networks: {
+      type: Array,
+      default: () => [
+        {
+          name: 'twitter',
+          label: 'Twitter',
+          iconName: 'twitter',
+          iconSize: '0.81'
+        },
+        {
+          name: 'facebook',
+          label: 'Facebook',
+          iconName: 'facebook',
+          iconSize: '1'
+        },
+        {
+          name: 'linkedin',
+          label: 'LinkedIn',
+          iconName: 'linkedin',
+          iconSize: '0.81'
         }
-      }
-    }
+      ]
+    },
+    emailSubject: String,
+    emailBody: String
   },
   components: {
     SocialSharing
-  },
-  data: function () {
-    return {
-      socialIconScale: {
-        'facebook': '1',
-        'instagram': '0.81',
-        'linkedin': '0.81',
-        'twitter': '0.81'
-      }
-    }
   },
   computed: {
     // vue-social-sharing requires to use computed props to pass dynamic data.
     // https://github.com/nicolasbeauvais/vue-social-sharing/issues/83
     en () {
       return {
-        twitter: this.enabled.twitter,
-        facebook: this.enabled.facebook,
-        linkedin: this.enabled.linkedin
+        label: this.label || 'Social networks',
+        networks: this.networks || [],
+        emailEnabled: Boolean(this.emailSubject || this.emailBody),
+        emailUrl: `mailto:?subject=${this.emailSubject}&body=${this.emailBody}%0D%0A %0D%0A${this.url}`
       }
     }
   }

@@ -5,7 +5,7 @@
         <rpl-icon aria-hidden="true" v-if="item.icon" class="rpl-description-list-icon__icon" :symbol="item.icon" color="primary" size="m" />
         {{item.heading}}
       </dt>
-      <dd>
+      <dd class="rpl-description-list-icon__content">
         <rpl-markup :html="item.content" />
       </dd>
     </div>
@@ -38,6 +38,7 @@ $rpl-description-list-icon-content-ruleset: ('xs', 1.5em, 'regular') !default;
 $rpl-description-list-item-margin: $rpl-space-4 !default;
 
 .rpl-description-list-icon {
+  $root: &;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -48,6 +49,9 @@ $rpl-description-list-item-margin: $rpl-space-4 !default;
     margin: $rpl-description-list-item-margin 0;
     &:first-child {
       margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
   &__icon {
@@ -68,6 +72,10 @@ $rpl-description-list-item-margin: $rpl-space-4 !default;
     .rpl-markup__inner {
       &:first-child {
         margin-top: 0;
+      }
+      #{$root}__content-item {
+        margin-top: 0;
+        margin-bottom: 0;
       }
     }
   }

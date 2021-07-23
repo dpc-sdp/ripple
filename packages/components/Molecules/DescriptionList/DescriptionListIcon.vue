@@ -35,7 +35,7 @@ export default {
 $rpl-description-list-icon-max-width: rem(485px);
 $rpl-description-list-icon-header-ruleset: ('xs', 1.5em, 'bold') !default;
 $rpl-description-list-icon-content-ruleset: ('xs', 1.5em, 'regular') !default;
-$rpl-description-list-item-margin: $rpl-space-3 * 2 !default;
+$rpl-description-list-item-margin: $rpl-space-4 !default;
 
 .rpl-description-list-icon {
   list-style: none;

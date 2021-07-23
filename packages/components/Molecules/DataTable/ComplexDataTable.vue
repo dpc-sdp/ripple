@@ -36,7 +36,7 @@
         </tr>
         <slot name="hiddenContentRows" v-bind:hiddenRows="getExpandableRows(row)" v-for="(hiddenRow, hiddenRowIdx) in getExpandableRows(row)" >
           <tr role="row" class="rpl-complex-data-table__row rpl-complex-data-table__hidden-row" :class="{ 'rpl-complex-data-table__hidden-row--expanded': isRowExpanded(rowIdx), 'rpl-complex-data-table__row-alt': getZebraOrder(rowIdx) }" v-show="isRowExpanded(rowIdx)" :key="getHiddenRowId(rowIdx, hiddenRowIdx)" :id="getHiddenRowId(rowIdx, hiddenRowIdx)">
-            <td role="cell" headers="th-1"  rowspan="1" :colspan="columns.length" v-for="(col, colIdx) in hiddenRow" :key="`row${rowIdx}-hidden-${hiddenRowIdx}-col${colIdx}`">
+            <td role="cell" headers="th-1"  rowspan="1" :colspan="columns.length - 1" v-for="(col, colIdx) in hiddenRow" :key="`row${rowIdx}-hidden-${hiddenRowIdx}-col${colIdx}`">
               <div class="rpl-complex-data-table__hidden-row-content">
                 <slot v-bind:coldata="col" :aria-label="`${row[0]} more info`" name="hiddenContentCell">
                   <span v-html="col" />
@@ -189,9 +189,10 @@ $rpl-complex-data-table-regular-header-ruleset: ('xs', 1.5em, 'regular') !defaul
 $rpl-complex-data-table-bold-header-ruleset: ('xs', 1.5em, 'bold') !default;
 $rpl-complex-data-table-row-label-max-width: rem(140px);
 $rpl-complex-data-table-row-label-ruleset: (
-  'xs': ('s', 1.5em, 'bold'),
+  'xs': ('l', 1.2em, 'bold'),
   'l': ('s', 1.5em, 'bold'),
 ) !default;
+
 $rpl-complex-data-table-label-header-ruleset: (
   'xs': ('xs', 1.5em, 'bold')
 ) !default;
@@ -201,6 +202,7 @@ $rpl-complex-data-table-show-more-btn-icon-size: rem(14px) !default;
 $rpl-complex-data-table-font-size-xs: rem(14px) !default;
 $rpl-complex-data-table-line-height-xs: 1.4em !default;
 $rpl-complex-data-table-cell-padding: $rpl-space-3 !default;
+$rpl-complex-data-table-cell-padding-mobile: $rpl-space-2 !default;
 $rpl-complex-data-table-row-color: rpl-color('white') !default;
 $rpl-complex-data-table-row-alt-color: rpl-color('light_neutral') !default;
 $rpl-complex-data-table-row-border: 0 !default;
@@ -210,6 +212,10 @@ $rpl-complex-data-table-bp: 'l';
   $root: &;
   border-collapse: collapse;
   width: 100%;
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* fix for table column width in ie11 https://stackoverflow.com/a/25201990 */
+    table-layout: fixed;
+  }
 
   &__show-more-btn {
     @include rpl_btn_reset;
@@ -230,6 +236,8 @@ $rpl-complex-data-table-bp: 'l';
     }
     @include rpl_breakpoint_down($rpl-complex-data-table-bp) {
       margin-left: auto;
+      margin-right: $rpl-space-4;
+      margin-bottom: rem(24px);
     }
   }
 
@@ -263,11 +271,14 @@ $rpl-complex-data-table-bp: 'l';
 
   th,
   td {
-    padding: $rpl-complex-data-table-cell-padding;
+    padding: $rpl-complex-data-table-cell-padding-mobile;
     color: $rpl-complex-data-table-body-color;
     @include rpl_breakpoint_between('xs', 's') {
       font-size: $rpl-complex-data-table-font-size-xs;
       line-height: $rpl-complex-data-table-line-height-xs;
+    }
+    @include rpl_breakpoint($rpl-complex-data-table-bp) {
+      padding: $rpl-complex-data-table-cell-padding;
     }
   }
 

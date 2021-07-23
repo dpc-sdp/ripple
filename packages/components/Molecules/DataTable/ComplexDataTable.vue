@@ -23,12 +23,12 @@
             <td role="cell" :key="`row${rowIdx}-col${colIdx + 1}`" :rowspan="1" v-if="Array.isArray(row[colIdx])">
               <button class="rpl-complex-data-table__show-more-btn" @click="toggleExpandRow(rowIdx)" :aria-controls="getHiddenRowIds(rowIdx)" :aria-expanded="isRowExpanded(rowIdx)">
                 <slot name="showmore" :isRowExpanded="isRowExpanded(rowIdx)">
-                    <span class="rpl-complex-data-table__show-more-btn-inner">
-                      <span v-if="isRowExpanded(rowIdx)"> Less</span>
-                      <span v-else> More</span>
-                      <span> info</span>
-                      <rpl-icon aria-hidden="true" :symbol="isRowExpanded(rowIdx) ? 'up' : 'down'" color="primary" size="l" />
-                    </span>
+                  <span class="rpl-complex-data-table__show-more-btn-inner">
+                    <span v-if="isRowExpanded(rowIdx)"> Less</span>
+                    <span v-else> More</span>
+                    <span> info</span>
+                    <rpl-icon aria-hidden="true" :symbol="isRowExpanded(rowIdx) ? 'up' : 'down'" color="primary" size="l" />
+                  </span>
                 </slot>
               </button>
             </td>
@@ -207,7 +207,6 @@ $rpl-complex-data-table-bp: 'l';
     }
     @include rpl_breakpoint_down($rpl-complex-data-table-bp) {
       margin-left: auto;
-      margin-right: $rpl-space-4;
     }
   }
 

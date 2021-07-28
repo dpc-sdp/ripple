@@ -152,10 +152,6 @@ Then(`the order number {int} wysiwyg content contains fixture {string}`, (order,
   })
 })
 
-// featured news list
-Then(`the featured news list component should exist`, () => {
-  cy.get('.rpl-featured-news-list').should('exist')
-})
 // featured card navigation
 Then(`the featured card navigation component should exist`, () => {
   cy.get('.rpl-card-navigation-featured').should('exist')
@@ -505,28 +501,6 @@ Then('there should be the following news listing components:', (dataTable) => {
   })
 })
 
-// featured news listing
-Then(`the featured news listing component should have the following items:`, (dataTable) => {
-  const column = {}
-  dataTable.rawTable[0].forEach((col, index) => { column[col] = index })
-  const table = dataTable.rawTable.slice(1)
-  cy.get('.rpl-featured-news-list .rpl-featured-news-list__item').then(newsItems => {
-    table.forEach((row, index) => {
-      if (column.date !== undefined) {
-        expect(newsItems[index]).to.contain.text(row[column.date])
-      }
-      if (column.tag !== undefined) {
-        expect(newsItems[index]).to.contain.text(row[column.tag])
-      }
-      if (column.title !== undefined) {
-        expect(newsItems[index]).to.contain.text(row[column.title])
-      }
-      if (column.link !== undefined) {
-        cy.wrap(newsItems[index]).find('a').should('have.attr', 'href', row[column.link])
-      }
-    })
-  })
-})
 // timeline
 Then(`the timeline component should exist`, () => {
   cy.get('.rpl-timeline').should('exist')

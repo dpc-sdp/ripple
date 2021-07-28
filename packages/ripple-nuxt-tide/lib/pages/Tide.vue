@@ -53,6 +53,17 @@
 
       <template slot="belowContent">
         <component class="rpl-site-constrain--on-all" v-if="campaignSecondary" :is="campaignSecondary.component" v-bind="campaignSecondary.data"></component>
+        <template v-if="belowContentComponents">
+          <template v-for="belowContentComponent in belowContentComponents">
+            <component
+              :is="belowContentComponent.component"
+              v-bind="belowContentComponent.data"
+              :class="belowContentComponent.class"
+              :key="belowContentComponent.id"
+              v-if="belowContentComponent && belowContentComponent.component"
+            ></component>
+          </template>
+        </template>
         <component :is="contentRating" :siteSectionName="siteSectionName" class="rpl-site-constrain--on-all"></component>
       </template>
 
@@ -127,6 +138,18 @@ export default {
     if (this.page.section) {
       this.$store.commit('tideSite/setSiteSection', parseInt(this.page.section, 10))
     }
+
+    this.rplOptions.contentRtl = false
+    if (this.page && this.page.appRTL) {
+      this.rplOptions.contentRtl = true
+    }
+  },
+  head () {
+    if (this.page && this.page.appHeadLinks) {
+      return {
+        link: this.page.appHeadLinks
+      }
+    }
   },
   methods: {
     searchFunc (searchInput, componentData) {
@@ -186,6 +209,12 @@ export default {
           }
         })
         return anchors
+      }
+      return []
+    },
+    belowContentComponents () {
+      if (this.page.appBelowContentComponents && this.page.appBelowContentComponents.length > 0) {
+        return this.$tide.getDynamicComponents(this.page.appBelowContentComponents, this.page.sidebar)
       }
       return []
     },

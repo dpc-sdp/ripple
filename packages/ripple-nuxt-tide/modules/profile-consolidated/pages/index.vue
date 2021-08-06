@@ -22,7 +22,6 @@ import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import AppTopicTags from '../../../lib/components/AppTopicTags'
 import jsonapiParse from 'jsonapi-parse'
-import { include } from '../../publication/tide.config'
 
 export default {
   components: {

@@ -401,3 +401,38 @@ A set of classes can be used to control the table column widths
     {Template.bind({})}
   </Story>
 </Canvas>
+
+## Multi language
+
+<Canvas>
+  <Story
+    name="Multi language"
+    args={{
+      html: `
+        <h2>ধারা ১ (Bengali):&nbsp;</h2>
+        <div class="rpl-markup tide-wysiwyg app-wysiwyg">
+          <div class="rpl-markup__inner">
+            <div class="callout-wrapper">
+              ধারা ১ সমস্ত মানুষ স্বাধীনভাবে সমান মর্যাদা এবং অধিকার নিয়ে জন্মগ্রহণ করে। তাঁদের বিবেক এবং বুদ্ধি আছে; সুতরাং সকলেরই একে অপরের প্রতি ভ্রাতৃত্বসুলভ মনোভাব নিয়ে আচরণ করা উচিত।
+            </div>
+          </div>
+        </div>
+        <h2>Điều 27 (Vietnamese):&nbsp;</h2>
+        <div class="rpl-markup tide-wysiwyg app-wysiwyg">
+          <div class="rpl-markup__inner">
+            <div class="callout-wrapper">
+              <div>
+                1) Mọi người đều có quyền tự do tham gia vào đời sống văn hoá của cộng đồng, được thưởng thức nghệ thuật và chia xẻ những thành tựu và lợi ích của tiến bộ khoa học.
+              </div>
+              <div>
+                2) Mọi người đều có quyền được bảo hộ đối với những quyền lợi về vật chất và tinh thần xuất phát từ công trình khoa học, văn học và nhgệ thuật mà người đó là tác giả.
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

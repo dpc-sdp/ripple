@@ -1,5 +1,5 @@
 <template>
-  <figure class="rpl-document-link">
+  <figure class="rpl-document-link" :class="{'rpl-document-link--rtl': isRtl()}">
     <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="isExternalLink ? false : ''" :target="isExternalLink ? '_blank' : false">
       <rpl-icon class="rpl-document-link__icon" :symbol="icon" color="primary" size="l" />
       <div class="rpl-document-link__info">
@@ -19,10 +19,12 @@
 import RplIcon from '@dpc-sdp/ripple-icon'
 import { isExternalUrl, decodeSpecialCharacters } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import { epochToDateText } from '@dpc-sdp/ripple-global/utils/dateHelpers.js'
+import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
 
 export default {
   name: 'RplDocumentLink',
   components: { RplIcon },
+  mixins: [rtl],
   props: {
     name: String,
     caption: String,
@@ -146,6 +148,13 @@ export default {
       @include rpl_typography('body_small');
       @include rpl_text_color($rpl-document-link-caption-color);
       margin-top: $rpl-document-link-caption-margin-top;
+    }
+
+    &--rtl {
+      .rpl-document-link__info {
+        margin-left: 0;
+        margin-right: rem(11px);
+      }
     }
   }
 </style>

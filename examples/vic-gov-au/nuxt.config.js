@@ -154,7 +154,8 @@ export default {
       search: 1,
       authenticatedContent: 1,
       preview: 1,
-      alert: 1
+      alert: 1,
+      profileConsolidated: 1
     },
     search: {
       service: process.env.SEARCH_SERVICE,

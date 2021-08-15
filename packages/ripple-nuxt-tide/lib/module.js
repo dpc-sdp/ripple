@@ -5,6 +5,7 @@ import tideSearchApiMiddleware from '@dpc-sdp/ripple-tide-search-api'
 import logger from './core/logger'
 
 const path = require('path')
+const fs = require('fs')
 
 const nuxtTide = function (moduleOptions) {
   const options = Object.assign(defaults, this.options.tide, moduleOptions)
@@ -99,6 +100,16 @@ const nuxtTide = function (moduleOptions) {
     fileName: './request-id.js'
   })
   this.options.router.middleware.push('request-id')
+
+  // Content Collection
+  const customCCPath = path.resolve('tide/tide.content-collection.js')
+  this.addPlugin({
+    src: path.resolve(__dirname, 'templates/content-collection.js'),
+    fileName: 'tide-content-collection.js',
+    options: {
+      useCustomPath: fs.existsSync(customCCPath)
+    }
+  })
 
   // https://toor.co/blog/nuxtjs-smooth-scrolling-with-hash-links/
   this.options.router.scrollBehavior = async (to, from, savedPosition) => {

@@ -136,6 +136,32 @@ export default class SearchApi {
     }
   }
 
+  async searchByDSL(reqBody, reqHeaders = {}) {
+    try {
+      const headers = this.getHeaders(reqHeaders)
+      const reqConfig = {
+        headers,
+        id: reqHeaders.tide_search_request_id
+      }
+      const searchQuery = reqBody
+      const { body, statusCode } = await this.search(searchQuery, reqConfig)
+
+      if (body && statusCode === 200) {
+        const results = await this.mapResults(body, template)
+        return results
+      }
+      throw this.handleError(`Error fetching search data`, statusCode, { searchQuery })
+    } catch (error) {
+      return {
+        error: true,
+        status: error.statusCode,
+        message: `${error.message}`,
+        meta: error.meta
+      }
+    }
+
+  }
+
   getAggregationsByFields (aggParams) {
     if (aggParams) {
       let aggFields = aggParams

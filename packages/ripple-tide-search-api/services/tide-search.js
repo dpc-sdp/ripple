@@ -65,7 +65,7 @@ export default class SearchApi {
     }
   }
 
-  async mapResults (res, templateName) {
+  async mapResults (res, templateName = null) {
     const returnData = {
       total: res.hits.total,
       results: [],
@@ -75,7 +75,7 @@ export default class SearchApi {
       for (let i = 0; i < res.hits.hits.length; i++) {
         const hit = res.hits.hits[i]._source
         let result = res.hits.hits[i]
-        if (this.templates.hasOwnProperty(templateName)) {
+        if (templateName && this.templates.hasOwnProperty(templateName)) {
           const template = this.templates[templateName]
           if (template.hasOwnProperty('responseMapping')) {
             if (template.responseMapping.constructor.name === 'AsyncFunction') {
@@ -115,6 +115,7 @@ export default class SearchApi {
         headers,
         id: reqHeaders.tide_search_request_id
       }
+
       if (this.templates.hasOwnProperty(template)) {
         const searchQuery = await this.getQuery(template, params)
         const { body, statusCode } = await this.search(searchQuery, reqConfig)
@@ -144,10 +145,10 @@ export default class SearchApi {
         id: reqHeaders.tide_search_request_id
       }
       const searchQuery = reqBody
-      const { body, statusCode } = await this.search(searchQuery, reqConfig)
 
+      const { body, statusCode } = await this.search(searchQuery, reqConfig)
       if (body && statusCode === 200) {
-        const results = await this.mapResults(body, template)
+        const results = await this.mapResults(body)
         return results
       }
       throw this.handleError(`Error fetching search data`, statusCode, { searchQuery })
@@ -159,7 +160,6 @@ export default class SearchApi {
         meta: error.meta
       }
     }
-
   }
 
   getAggregationsByFields (aggParams) {

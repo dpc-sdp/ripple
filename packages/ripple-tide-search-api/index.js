@@ -9,6 +9,7 @@ export default function appHandler (config) {
   app.use(express.json())
   app.use(cacheAgeMiddleware(config))
   router.route('/:template').get(searchController(config))
+  router.route('/dsl').post(searchController(config))
   app.use(apiRoot, router)
   return app
 }

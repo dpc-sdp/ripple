@@ -48,7 +48,7 @@ const pluginEmbeddedDocument = function () {
     const fileName = el.find(titleSelector).text()
     const fileSize = el.find(fileSizeSelector).text()
     const caption = el.find('figcaption').text()
-    const updated = el.attr('data-last-updated')
+    const updated = (el.attr('data-last-updated') && el.attr('data-last-updated') !== 'undefined') ? el.attr('data-last-updated') : el.find('div').attr('data-last-updated')
 
     let fileType = ''
     const fileTypeClasses = el.find('.file').attr('class')

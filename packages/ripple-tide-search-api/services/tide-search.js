@@ -137,7 +137,7 @@ export default class SearchApi {
     }
   }
 
-  async searchByDSL(reqBody, reqHeaders = {}) {
+  async searchByDSL (reqBody, reqHeaders = {}) {
     try {
       const headers = this.getHeaders(reqHeaders)
       const reqConfig = {

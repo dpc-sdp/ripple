@@ -1,0 +1,43 @@
+{
+  "name": "@dpc-sdp/ripple-tide-api",
+  "version": "1.23.1",
+  "description": "Ripple API endpoints for Tide backend",
+  "license": "Apache-2.0",
+  "type": "module",
+  "contributors": [
+    {
+      "name": "Dylan Kelly <dylan.kelly@dpc.vic.gov.au>"
+    }
+  ],
+  "scripts": {
+    "start": "nodemon --exec babel-node server.js",
+    "debug": "nodemon --inspect --exec babel-node server.js"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "ajv": "^6.0.0",
+    "ajv-openapi": "^2.0.0",
+    "app-root-path": "^3.0.0",
+    "axios": "^0.21.1",
+    "axios-retry": "^3.1.9",
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "cuid": "^2.1.8",
+    "express": "^4.17.1",
+    "express-openapi-validator": "^4.12.4",
+    "mockttp": "^1.0.2",
+    "js-yaml": "^4.0.0",
+    "jsonapi-parse": "^2.0.0",
+    "lodash.get": "^4.4.2",
+    "qs": "^6.10.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "dotenv": "^9.0.0",
+    "nodemon": "^2.0.6",
+    "@babel/preset-env": "^7.12.11",
+    "swagger-ui-express": "^4.1.4"
+  }
+}

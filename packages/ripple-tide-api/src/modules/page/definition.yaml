@@ -1,0 +1,20 @@
+type: object
+title: page
+description: Basic page content type
+required:
+  - type
+allOf:
+  - $ref: '#/components/schemas/TidePage'
+properties:
+  type:
+    type: string
+    enum:
+      - page
+  body:
+    type: string
+    nullable: true
+  image:
+    type: object
+    properties:
+      url:
+        type: string

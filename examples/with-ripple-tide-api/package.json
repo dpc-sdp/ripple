@@ -1,0 +1,35 @@
+{
+  "name": "with-ripple-tide-api-example",
+  "version": "1.23.1",
+  "description": "Example site for showing how to use @dpc-sdp/ripple-tide-api",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --watch ./tide-api --exec \"nuxt\"",
+    "dev-debug": "BASIC_AUTH=0 node --inspect node_modules/.bin/nuxt",
+    "build": "run-script-os",
+    "build:default": "nuxt build --modern=client",
+    "build:win32": "nuxt build --modern=client",
+    "start": "run-script-os",
+    "start:default": "nuxt start --modern=client",
+    "start:win32": "nuxt start --modern=client",
+    "start:build": "nuxt build --modern=client && nuxt start --modern=client"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-tide-api": "1.23.1",
+    "@nuxt/typescript-runtime": "^2.1.0",
+    "dotenv": "^5.0.1",
+    "nuxt": "2.15.2",
+    "run-script-os": "^1.1.3"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
+    "nodemon": "^2.0.12"
+  },
+  "browserslist": [
+    "> 1%",
+    "IE 11",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

@@ -1,0 +1,22 @@
+type: object
+title: embedded_video
+description: Basic page content type
+required:
+  - type
+  - video
+properties:
+  type:
+    type: string
+    enum:
+      - embedded_video
+  title:
+    type: string
+  nid:
+    type: number
+  video:
+    type: object
+    properties:
+      src:
+        type: string
+  transcript:
+    type: string

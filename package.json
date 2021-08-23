@@ -8,6 +8,7 @@
       "packages/components/**/*",
       "packages/ripple-nuxt-tide",
       "packages/ripple-nuxt-ui",
+      "packages/ripple-tide-api",
       "packages/ripple-tide-search-api",
       "packages/create-ripple-app",
       "packages/ripple-test-tools",
@@ -48,7 +49,9 @@
     "docs:storybook": "cd src/ && yarn run docs",
     "new-component:storybook": "cd src/ && yarn run new-component",
     "package-dependencies:storybook": "cd src/ && yarn run package-dependencies",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "dev:api": "cd packages/ripple-tide-api && yarn dev",
+    "dev:nuxt-ts": "cd examples/with-ripple-tide-api && yarn dev"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",

@@ -3,7 +3,7 @@ module.exports = {
   testURL: 'http://localhost',
   collectCoverage: true,
   testMatch: ['**/unit/**/*.test.js', '**/*.test.js'],
-  moduleFileExtensions: ['js', 'json', 'vue'],
+  moduleFileExtensions: ['js', 'json', 'vue', 'scss'],
   setupFiles: ['<rootDir>/.jest/register-context.js', 'jest-canvas-mock'],
   setupFilesAfterEnv: ['<rootDir>/.jest/moment.js'],
   transform: {
@@ -21,6 +21,6 @@ module.exports = {
     // Add it to filemock until they fix it. https://github.com/storybookjs/storybook/issues/7223#issuecomment-506912633
     '\\.(mdx|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$':
       '<rootDir>/__mocks__/fileMock.js',
-    '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js'
+    '\\.(css|scss)$': 'identity-obj-proxy'
   }
 }

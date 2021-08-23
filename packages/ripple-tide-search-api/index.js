@@ -7,6 +7,7 @@ export default function appHandler (config) {
   const apiRoot = `/${config.apiBase || 'search-api'}/${config.apiVersion || 'v2'}`
   app.use(express.json())
   router.route('/:template').get(searchController(config))
+  router.route('/dsl').post(searchController(config))
   app.use(apiRoot, router)
   return app
 }

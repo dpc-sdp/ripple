@@ -7,6 +7,7 @@
         <div class="rpl-document-link__meta">
           <span v-if="extension" class="rpl-document-link__type">{{extension}}</span>
           <span v-if="filesize" class="rpl-document-link__size" :class="{'rpl-document-link__size--seperator': extension && filesize}">{{filesize}}</span>
+          <span class="rpl-document-link__last-updated">{{lastUpdated}}</span>
         </div>
       </div>
     </a>
@@ -17,6 +18,7 @@
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
 import { isExternalUrl, decodeSpecialCharacters } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { epochToDateText } from '@dpc-sdp/ripple-global/utils/dateHelpers.js'
 import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
 
 export default {
@@ -28,7 +30,8 @@ export default {
     caption: String,
     url: String,
     extension: String,
-    filesize: String
+    filesize: String,
+    updated: String
   },
   computed: {
     nameDecoded: function () {
@@ -64,6 +67,13 @@ export default {
     },
     isExternalLink () {
       return isExternalUrl(this.url, this.rplOptions.hostname)
+    },
+    lastUpdated: function () {
+      if (this.updated && this.updated !== 'undefined') {
+        const updatedText = '| Updated: '
+        const updatedDate = epochToDateText(this.updated)
+        return (updatedDate.length > 0) ? updatedText + updatedDate : ''
+      } else return ''
     }
   }
 }

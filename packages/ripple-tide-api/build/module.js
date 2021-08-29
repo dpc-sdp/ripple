@@ -15,12 +15,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.meta = void 0;
 const create_server_1 = __importDefault(require("./create-server"));
 const load_config_1 = require("./load-config");
+const path = require('path');
 const TideApiModule = function (moduleOptions) {
     return __awaiter(this, void 0, void 0, function* () {
         const modules = yield load_config_1.getModulesFromConfig(moduleOptions);
         const siteMapping = yield load_config_1.getSiteConfig(moduleOptions);
         const conf = Object.assign(Object.assign({}, moduleOptions), { modules,
             siteMapping });
+        this.extendRoutes((routes, resolve) => {
+            routes.push({
+                // Extends routes to add tide page wildcard route, routes added under /pages will still take precedence
+                name: 'tide-page',
+                path: '*',
+                component: resolve(__dirname, './../components/tide.vue')
+            });
+        });
+        this.addPlugin({
+            src: path.resolve(__dirname, './../plugins/tide-api.js'),
+            fileName: 'tide-api.js',
+            options: Object.assign(Object.assign({}, moduleOptions), { modules })
+        });
+        this.requireModule(['@nuxtjs/axios', {
+                debug: false,
+                // Using proxy for Tide request https://axios.nuxtjs.org/options#proxy
+                // proxy: true
+            }]);
         this.addServerMiddleware(create_server_1.default(conf));
     });
 };

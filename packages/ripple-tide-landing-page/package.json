@@ -1,0 +1,19 @@
+{
+  "name": "@dpc-sdp/ripple-tide-landing-page",
+  "version": "1.23.1",
+  "description": "Landing page content type",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "type": "module",
+  "peerDependencies": {
+    "@dpc-sdp/ripple-tide-api": "^1.23.1",
+    "@dpc-sdp/ripple-markup": "^1.23.1",
+    "@dpc-sdp/ripple-meta-tag": "^1.23.1",
+    "@dpc-sdp/ripple-grid": "^1.23.1",
+    "@dpc-sdp/ripple-anchor-links": "^1.23.1",
+    "@dpc-sdp/ripple-layout": "^1.23.1",
+    "@dpc-sdp/ripple-breadcrumbs": "^1.23.1",
+    "@dpc-sdp/ripple-updated-date": "^1.23.1",
+    "@dpc-sdp/ripple-hero-banner": "^1.23.1"
+  }
+}

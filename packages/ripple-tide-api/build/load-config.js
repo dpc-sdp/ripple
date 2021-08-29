@@ -31,23 +31,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSiteConfig = exports.getModulesFromConfig = exports.loadMapping = void 0;
+exports.getSiteConfig = exports.getModulesFromConfig = exports.getModulePaths = exports.loadMapping = void 0;
 const js_yaml_1 = __importDefault(require("js-yaml"));
 const appRoot = require('app-root-path');
 const path = require('path');
 const fs = require('fs');
 const loadMapping = (filePath) => __awaiter(void 0, void 0, void 0, function* () {
+    const folderPath = filePath.replace('index.js', '');
     try {
-        if (fs.existsSync(filePath)) {
-            const mappingConfig = yield Promise.resolve().then(() => __importStar(require(filePath))).then(m => m.default);
+        if (fs.existsSync(folderPath)) {
+            const mappingConfig = yield Promise.resolve().then(() => __importStar(require(folderPath))).then(m => m.default);
             // Each module can define a YAML OpenAPI 3 spec
-            if (fs.existsSync(filePath + '/definition.yaml')) {
-                const schema = js_yaml_1.default.load(fs.readFileSync(path.join(filePath, './definition.yaml'), 'utf-8'));
+            if (fs.existsSync(folderPath + '/definition.yaml')) {
+                const schema = js_yaml_1.default.load(fs.readFileSync(path.join(folderPath, './definition.yaml'), 'utf-8'));
                 mappingConfig.schema = schema;
             }
             // Add top level components for use with $ref
-            if (fs.existsSync(filePath + '/components-definition.yaml')) {
-                const schemaComponents = js_yaml_1.default.load(fs.readFileSync(path.join(filePath, './components-definition.yaml'), 'utf-8'));
+            if (fs.existsSync(folderPath + '/components-definition.yaml')) {
+                const schemaComponents = js_yaml_1.default.load(fs.readFileSync(path.join(folderPath, './components-definition.yaml'), 'utf-8'));
                 mappingConfig.schemaComponents = schemaComponents;
             }
             return mappingConfig;
@@ -58,31 +59,32 @@ const loadMapping = (filePath) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.loadMapping = loadMapping;
+const getModulePaths = (config) => {
+    const returnObj = {};
+    Object
+        .keys(config.modules)
+        .forEach(key => {
+        returnObj[key] = require.resolve(config.modules[key]).replace('index.js', '');
+    });
+    return returnObj;
+};
+exports.getModulePaths = getModulePaths;
 const getModulesFromConfig = (config) => __awaiter(void 0, void 0, void 0, function* () {
     if (config.modules) {
         const modules = Object.keys(config.modules);
         const modulesToLoad = {};
         for (let i = 0; i < modules.length; i++) {
             const type = modules[i];
-            let modulePath;
             switch (typeof config.modules[type]) {
-                case 'boolean':
-                    modulePath = path.join(__dirname, `./src/modules/${type}`);
-                    break;
                 case 'string':
-                    modulePath = appRoot.path + config.modules[type];
+                    const modulePath = require.resolve(config.modules[type]);
+                    modulesToLoad[type] = yield exports.loadMapping(modulePath);
                     break;
                 case 'object':
-                    throw new Error(`Object modules are currently unsupported. Check ${type} module config.`);
+                    modulesToLoad[type] = config.modules[type];
+                    break;
                 default:
                     throw new Error(`ERROR: Unable to load module - ${type}`);
-            }
-            const mapping = yield exports.loadMapping(modulePath);
-            if (mapping) {
-                modulesToLoad[type] = mapping;
-            }
-            else {
-                throw new Error(`ERROR: Unable to load module - ${type}`);
             }
         }
         return modulesToLoad;

@@ -1,5 +1,4 @@
 import { fieldMappingUtils as utils } from '@dpc-sdp/ripple-tide-api'
-
 export default {
   mapping: {
     name: 'name',

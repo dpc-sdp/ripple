@@ -4,21 +4,22 @@ const path = require('path')
 const fs = require('fs')
 
 export const loadMapping = async filePath => {
+  const folderPath = filePath.replace('index.js', '')
   try {
-    if (fs.existsSync(filePath)) {
-      const mappingConfig = await import(filePath).then(m => m.default)
+    if (fs.existsSync(folderPath)) {
+      const mappingConfig = await import(folderPath).then(m => m.default)
       // Each module can define a YAML OpenAPI 3 spec
-      if (fs.existsSync(filePath + '/definition.yaml')) {
+      if (fs.existsSync(folderPath + '/definition.yaml')) {
         const schema = jsYaml.load(
-          fs.readFileSync(path.join(filePath, './definition.yaml'), 'utf-8')
+          fs.readFileSync(path.join(folderPath, './definition.yaml'), 'utf-8')
         )
         mappingConfig.schema = schema
       }
       // Add top level components for use with $ref
-      if (fs.existsSync(filePath + '/components-definition.yaml')) {
+      if (fs.existsSync(folderPath + '/components-definition.yaml')) {
         const schemaComponents = jsYaml.load(
           fs.readFileSync(
-            path.join(filePath, './components-definition.yaml'),
+            path.join(folderPath, './components-definition.yaml'),
             'utf-8'
           )
         )
@@ -31,35 +32,34 @@ export const loadMapping = async filePath => {
   }
 }
 
+export const getModulePaths = (config) => {
+  const returnObj = {}
+  Object
+    .keys(config.modules)
+    .forEach(key => {
+      returnObj[key] = require.resolve(config.modules[key]).replace('index.js', '')
+    })
+  return returnObj
+}
+
 export const getModulesFromConfig = async config => {
   if (config.modules) {
     const modules = Object.keys(config.modules)
     const modulesToLoad = {}
     for (let i = 0; i < modules.length; i++) {
       const type = modules[i]
-      let modulePath
       switch (typeof config.modules[type]) {
-        case 'boolean':
-          modulePath = path.join(__dirname, `./src/modules/${type}`)
-          break
         case 'string':
-          modulePath = appRoot.path + config.modules[type]
+          const modulePath = require.resolve(config.modules[type])
+          modulesToLoad[type] = await loadMapping(modulePath)
           break
         case 'object':
-          throw new Error(
-            `Object modules are currently unsupported. Check ${type} module config.`
-          )
+          modulesToLoad[type] = config.modules[type]
+          break
         default:
           throw new Error(`ERROR: Unable to load module - ${type}`)
       }
-      const mapping = await loadMapping(modulePath)
-      if (mapping) {
-        modulesToLoad[type] = mapping
-      } else {
-        throw new Error(`ERROR: Unable to load module - ${type}`)
-      }
     }
-
     return modulesToLoad
   }
 }
@@ -69,3 +69,5 @@ export const getSiteConfig = async config => {
     return loadMapping(appRoot.path + config.siteMapping)
   }
 }
+
+

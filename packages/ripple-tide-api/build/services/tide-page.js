@@ -25,7 +25,10 @@ class TidePage extends tide_api_1.default {
             const routeUrl = `/route?site=${site}&path=${path}`;
             return this.client
                 .get(routeUrl)
-                .then(response => this.utils.get(response, 'data.attributes'));
+                .then(response => this.utils.get(response, 'data.attributes'))
+                .catch(error => {
+                return Promise.reject(this.handleError(`Error: ${error.response.status} `, error.response.status));
+            });
         });
     }
     getPageByPath(path, config = { params: {} }) {

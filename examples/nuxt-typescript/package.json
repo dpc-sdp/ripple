@@ -15,7 +15,9 @@
     "start:build": "nuxt build --modern=client && nuxt start --modern=client"
   },
   "dependencies": {
+    "@dpc-sdp/ripple-nuxt": "1.23.1",
     "@dpc-sdp/ripple-tide-api": "1.23.1",
+    "@dpc-sdp/ripple-tide-landing-page": "1.23.1",
     "@nuxt/typescript-runtime": "^2.1.0",
     "dotenv": "^5.0.1",
     "nuxt": "2.15.2",

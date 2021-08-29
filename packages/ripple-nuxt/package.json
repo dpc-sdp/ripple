@@ -1,0 +1,21 @@
+{
+  "name": "@dpc-sdp/ripple-nuxt",
+  "version": "1.23.1",
+  "description": "Ripple nuxt distribution. Opinionated framework for scaffolding nuxt sites for SDP.",
+  "license": "Apache-2.0",
+  "main": "module.js",
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "@dpc-sdp/ripple-global": "1.23.1",
+    "@dpc-sdp/ripple-button": "1.23.1",
+    "@dpc-sdp/ripple-layout": "1.23.1"
+  },
+  "peerDependencies": {
+    "nuxt": "^2.15.2",
+    "@dpc-sdp/ripple-tide-api": "^1.23.1"
+  },
+  "devDependencies": {
+
+  }
+}

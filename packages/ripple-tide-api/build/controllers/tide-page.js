@@ -36,8 +36,9 @@ exports.default = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     catch (error) {
         res.status(error.status || 500).json({
-            error,
-            message: 'Error'
+            error: true,
+            debug: error.debug ? error.debug : undefined,
+            message: error.message || 'Error'
         });
     }
 });

@@ -2,6 +2,7 @@ import { fieldMappingUtils as utils } from '@dpc-sdp/ripple-tide-api'
 import componentMapping from './component-mapping'
 
 export default {
+  component: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-landing-page/index.vue'),
   mapping: {
     title: 'title',
     summary: 'field_landing_page_summary',

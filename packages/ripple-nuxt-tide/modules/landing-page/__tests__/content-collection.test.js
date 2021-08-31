@@ -2,12 +2,12 @@ const ContentCollection = require('..//lib/content-collection.js')
 
 describe('Content collection', () => {
   test('should have a title', () => {
-    const cc = new ContentCollection({ title: 'Test' })
+    const cc = new ContentCollection({ title: 'Test' }, (dsl) => {})
     expect(cc.getTitle()).toEqual('Test')
   })
 
   test('should have a description', () => {
-    const cc = new ContentCollection({ description: 'Test' })
+    const cc = new ContentCollection({ description: 'Test' }, (dsl) => {})
     expect(cc.getDescription()).toEqual('Test')
   })
 
@@ -17,7 +17,7 @@ describe('Content collection', () => {
         "text": "View all",
         "url": "/search"
       }
-    })
+    }, (dsl) => {})
     expect(cc.getCTA()).toEqual({ text: 'View all', url: '/search' })
   })
 
@@ -28,8 +28,8 @@ describe('Content collection', () => {
           "query": ['Data']
         }
       }
-    })
-    expect(cc.getSearchQuery()).toEqual({ query: ['Data'] })
+    }, (dsl) => {})
+    expect(cc.getDSL()).toEqual({ query: ['Data'] })
   })
 
   test('should return ES DSL query for Content Types', () => {
@@ -37,11 +37,12 @@ describe('Content collection', () => {
       "internal": {
         "contentTypes": ["landing_page"]
       }
-    })
-    expect(cc.getSearchQuery()).toEqual({
+    }, (dsl) => {})
+    expect(cc.getDSL()).toEqual({
       query: {
         bool: {
           filter: [
+            { terms: { field_node_site: [ '4' ] } },
             { terms: { type: [ 'landing_page' ] } }
           ]
         }
@@ -54,8 +55,15 @@ describe('Content collection', () => {
       "internal": {
         "sort": [ { "field": "title", "direction": "asc" } ]
       }
-    })
-    expect(cc.getSearchQuery()).toEqual({
+    }, (dsl) => {})
+    expect(cc.getDSL()).toEqual({
+      query: {
+        bool: {
+          filter: [
+            { terms: { field_node_site: [ '4' ] } }
+          ]
+        }
+      },
       sort: [
         { title: 'asc' }
       ]

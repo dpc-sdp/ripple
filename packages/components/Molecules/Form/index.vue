@@ -68,10 +68,13 @@ export default {
     submitFormOnClear: { type: Boolean, default: false },
     scrollToMessage: { type: Boolean, default: true },
     validateOnSubmit: { type: Boolean, default: true },
-    fullWidth: { type: Boolean, default: true }
+    fullWidth: { type: Boolean, default: true },
+    listenForClearForm: { type: Boolean, default: true }
   },
   mounted () {
-    RplFormEventBus.$on('clearform', this.clearForm)
+    if (this.listenForClearForm) {
+      RplFormEventBus.$on('clearform', this.clearForm)
+    }
 
     // TODO: We should abstract all future custom validators to a separate file and import them here.
     VueFormGenerator.validators.rplWordCount = function (value, field) {

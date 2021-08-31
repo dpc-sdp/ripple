@@ -274,7 +274,6 @@ module.exports = class ContentCollection {
     // advanced filters
     const advancedFilters = this.getSimpleDSLExposedAdvancedFilters(state)
 
-
     const body = {
       query: {
         bool: {

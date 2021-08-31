@@ -148,8 +148,7 @@ export default class SearchApi {
 
       const { body, statusCode } = await this.search(searchQuery, reqConfig)
       if (body && statusCode === 200) {
-        const results = await this.mapResults(body)
-        return results
+        return body
       }
       throw this.handleError(`Error fetching search data`, statusCode, { searchQuery })
     } catch (error) {

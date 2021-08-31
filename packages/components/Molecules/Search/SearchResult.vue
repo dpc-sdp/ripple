@@ -8,7 +8,7 @@
       <span class="rpl-search-result__date">{{ formatDate(date, 'MMM D, YYYY') }}</span>
       <span>{{ description }}</span>
     </p>
-    <ul class="rpl-search-result__terms">
+    <ul class="rpl-search-result__terms" v-if="tags">
       <li class="rpl-search-result__term" v-for="(tag, index) in tags" :key="index">
         <rpl-meta-tag :linkText="tag.linkText" :linkUrl="tag.linkUrl" />
       </li>

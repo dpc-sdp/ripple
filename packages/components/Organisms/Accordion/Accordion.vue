@@ -133,8 +133,10 @@ export default {
         section[0].style.height = section[0].scrollHeight + 'px'
         section[0].style.visibility = 'visible'
         setTimeout(function () {
-          // Remove the fixed height after transition so it can be responsive
-          section[0].style.height = 'auto'
+          // Only expands if itemOpen is true
+          if (this.itemOpen[index]) {
+            section[0].style.height = 'auto'
+          }
         }, 500)
       } else {
         throw new Error('Something is wrong while getting the height of the referred content')

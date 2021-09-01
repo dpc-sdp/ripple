@@ -101,8 +101,9 @@ $callout-wrapper-list-padding-left: ($rpl-space * 6) !default;
 $callout-wrapper-padding: ($rpl-space-3) ($rpl-space * 6) ($rpl-space * 6) ($rpl-space * 6) !default;
 $callout-wrapper-padding-rtl: ($rpl-space * 6) ($rpl-space * 6) ($rpl-space-3) ($rpl-space * 6) !default;
 $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
-$list-line-height: $rpl-space * 5 !default;
-$padding-for-li: rem(11px) !default;
+$unordered-list-line-height: $rpl-space * 5 !default;
+$unordered-list-padding-bottom: rem(11px) !default;
+$no-padding: 0;
 
 .rpl-markup {
   @include rpl_text_color($rpl-markup-text-color);
@@ -123,15 +124,15 @@ $padding-for-li: rem(11px) !default;
 
   ul li,
   ol li {
-    line-height: $list-line-height;
-    padding-bottom: $padding-for-li;
+    line-height: $unordered-list-line-height;
+    padding-bottom: $unordered-list-padding-bottom;
     &:last-child {
-      padding-bottom: 0;
+      padding-bottom: $no-padding;
     }
     > ul li,
     > ol li {
       &:first-child {
-        padding-top: $padding-for-li;;
+        padding-top: $unordered-list-padding-bottom;;
       }
 
     }

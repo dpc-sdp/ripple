@@ -73,6 +73,8 @@ export default {
 
   $rpl-text-link-before-margin: auto $rpl-space auto auto !default;
   $rpl-text-link-after-margin: auto auto auto $rpl-space !default;
+  $rpl-text-link-before-margin-rtl: auto auto auto $rpl-space-2 !default;
+  $rpl-text-link-after-margin-rtl: auto $rpl-space-2 auto auto !default;
 
   .rpl-text-icon {
     &__group {
@@ -85,6 +87,18 @@ export default {
 
     &--after {
       margin: $rpl-text-link-after-margin;
+    }
+  }
+
+  [dir="rtl"] {
+    .rpl-text-icon {
+      &--before {
+        margin: $rpl-text-link-before-margin-rtl;
+      }
+
+      &--after {
+        margin: $rpl-text-link-after-margin-rtl;
+      }
     }
   }
 </style>

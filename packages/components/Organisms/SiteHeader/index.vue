@@ -17,6 +17,7 @@
               <button
                 v-if="showMenuBtn()"
                 class="rpl-site-header__btn rpl-site-header__btn--menu"
+                aria-label="Menu"
                 :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
                 :aria-expanded="(menuState === 'opened').toString()"
                 @click="menuToggle()"
@@ -106,13 +107,50 @@ import RplSiteHeaderEventBus from './RplSiteHeaderEventBus'
 export default {
   name: 'RplSiteHeader',
   props: {
+    /**
+     *  An object that describes the logo. It contains `{ alt: string, url: string, image: string }`,
+     *  where:
+     *
+     *  - `alt` is the alt text
+     *  - `url` is the navigation link when the logo is clicked
+     *  - `image` is the image source
+     */
     logo: Object,
+    /**
+     * An array of LinkDescription objects:
+     *
+     * ```
+     * {
+     *   url: string,
+     *   text: string,
+     *   target?: string,
+     *   children: LinkDescription[]
+     * }
+     * ```
+     *
+     * - `url` is the link
+     * - `text` is the display text,
+     * - `target` is used for the `target` attribute
+     * - `children` describes any submenus in the same format
+     */
     links: Array,
     breakpoint: Number,
     searchTerms: Array,
+    /**
+     * Whether to keep the header at the top on scroll
+     */
     sticky: Boolean,
+    /**
+     * Whether to hide the header on scroll
+     */
     hideOnScroll: { default: true, type: Boolean },
+    /**
+     * Whether to show a search button that opens the search widget
+     */
     showSearch: { default: false, type: Boolean },
+    /**
+     * Whether to show the logout button. Note: this button is part of the authenticated content module, which is now deprecated
+     */
     showLogout: { default: false, type: Boolean }
   },
   components: {

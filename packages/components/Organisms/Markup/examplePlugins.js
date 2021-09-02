@@ -44,6 +44,8 @@ const pluginEmbeddedDocument = function () {
     const fileName = el.find(titleSelector).text()
     const fileSize = el.find(fileSizeSelector).text()
     const caption = el.find('figcaption').text()
+    const updated = (el.attr('data-last-updated') && el.attr('data-last-updated') !== 'undefined') ? el.attr('data-last-updated') : el.find('div').attr('data-last-updated')
+
     let fileType = ''
     const fileTypeClasses = el.find('.file').attr('class')
 
@@ -91,7 +93,7 @@ const pluginEmbeddedDocument = function () {
     }
 
     if (url && fileName && fileSize && fileType) {
-      const documentlink = `<rpl-document-link name="${_escapeQuotes(fileName)}" extension="${fileType}" filesize="${fileSize}" url="${url}" caption="${_escapeQuotes(caption)}"></rpl-document-link>`
+      const documentlink = `<rpl-document-link name="${_escapeQuotes(fileName)}" extension="${fileType}" filesize="${fileSize}" url="${url}" caption="${_escapeQuotes(caption)}" updated="${updated}"></rpl-document-link>`
       return el.replaceWith(documentlink)
     }
     return el

@@ -154,6 +154,7 @@ const searchMixin = {
     }
   },
   async created () {
+    this.rplOptions.contentRtl = false
     // Set the site domain map for generating search result link url
     if (this.$store.state.tideSite.sitesDomainMap === null) {
       const domains = await this.$tide.getSitesDomainMap()

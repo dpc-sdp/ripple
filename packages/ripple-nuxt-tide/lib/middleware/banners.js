@@ -27,7 +27,8 @@ const tideBanners = async (context, pageData) => {
       src: mediaImage.url,
       focalPoint: mediaImage.meta.focal_point,
       width: mediaImage.meta.width,
-      height: mediaImage.meta.height
+      height: mediaImage.meta.height,
+      alt: mediaImage.meta.alt || ''
     }
   }
 

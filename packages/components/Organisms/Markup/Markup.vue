@@ -102,8 +102,6 @@ $callout-wrapper-padding: ($rpl-space-3) ($rpl-space * 6) ($rpl-space * 6) ($rpl
 $callout-wrapper-padding-rtl: ($rpl-space * 6) ($rpl-space * 6) ($rpl-space-3) ($rpl-space * 6) !default;
 $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
 
-$list-line-height: $rpl-space * 7 !default;
-
 .rpl-markup {
   @include rpl_text_color($rpl-markup-text-color);
 
@@ -119,11 +117,6 @@ $list-line-height: $rpl-space * 7 !default;
         list-style-type: square;
       }
     }
-  }
-
-  ul li,
-  ol li {
-    line-height: $list-line-height;
   }
 
   &__inner {

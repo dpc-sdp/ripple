@@ -102,6 +102,7 @@ export const Template = (args, { argTypes }) => ({
   </Story>
 </Canvas>
 
+
 ## Button
 
 <Canvas>
@@ -109,31 +110,6 @@ export const Template = (args, { argTypes }) => ({
     name="Button"
     args={{
       html: `<a href="http://www.google.com" class="button">go to google</a>`
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
-## Unordered list
-
-<Canvas>
-  <Story
-    name="Unordered list"
-    args={{
-      html: `
-        <ul>
-          <li>first item</li>
-          <li>second item
-            <ol>
-              <li>second item first subitem</li>
-              <li>second item second subitem berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net.</li>
-              <li>second item third subitem</li>
-            </ol>
-          </li>
-          <li>third item</li>
-        </ul>
-      `
     }}
   >
     {Template.bind({})}

@@ -114,6 +114,7 @@ export default {
       scrollOnNextLoad: false,
       scrollOnPaginationChange: false,
       scrollOffset: dataManager.getScrollToResultsOffsetHeight(),
+      pageChangeFocusSelector: dataManager.pageChangeFocusSelector(),
       exposedFilterFormData: dataManager.getExposedFilterForm(),
       exposedControlFormData: dataManager.getExposedControlForm(),
       exposedControlModels: dataManager.getExposedControlModelNames(),
@@ -190,9 +191,11 @@ export default {
             window.scrollTo({
               top: (scrollToEl.offsetTop - this.scrollOffset)
             })
-            const firstLinkEl = scrollToEl.querySelector('a')
-            if (firstLinkEl) {
-              firstLinkEl.focus()
+            if (this.pageChangeFocusSelector) {
+              const firstLinkEl = scrollToEl.querySelector(this.pageChangeFocusSelector)
+              if (firstLinkEl) {
+                firstLinkEl.focus()
+              }
             }
           })
         }

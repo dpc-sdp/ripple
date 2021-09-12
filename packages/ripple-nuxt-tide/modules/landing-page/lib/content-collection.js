@@ -36,7 +36,8 @@ module.exports = class ContentCollection {
       DisplayPaginationComponentColumns: cardColsSetting,
       ItemsToLoad: 12,
       scrollToResults: true,
-      scrollToResultsOffsetHeight: 102
+      scrollToResultsOffsetHeight: 102,
+      pageChangeFocusSelector: 'a'
     }
     if (!this.searchClient) {
       throw Error('Content Collection Error: A search client function is required.')
@@ -289,6 +290,10 @@ module.exports = class ContentCollection {
 
   getScrollToResultsOffsetHeight () {
     return this.getDefault('scrollToResultsOffsetHeight')
+  }
+
+  pageChangeFocusSelector () {
+    return this.getDefault('pageChangeFocusSelector')
   }
 
   // ---------------------------------------------------------------------------

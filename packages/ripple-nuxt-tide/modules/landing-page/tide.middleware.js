@@ -146,7 +146,7 @@ export default {
                   type: 'field',
                   values: [
                     { "name": "12", "value": 12 },
-                    { "name": "24", "value": 24 },
+                    { "name": "24", "value": 24 }
                   ]
                 },
                 pagination: {

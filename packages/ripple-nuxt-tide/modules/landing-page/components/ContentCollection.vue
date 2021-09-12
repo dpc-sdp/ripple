@@ -71,7 +71,6 @@ import { RplLink } from '@dpc-sdp/ripple-link'
 import { RplForm } from '@dpc-sdp/ripple-form'
 import { RplCol } from '@dpc-sdp/ripple-grid'
 import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
-import ContentCollection from '../lib/content-collection.js'
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import { RplSearchResultsLayout, RplSearchResult } from '@dpc-sdp/ripple-search'
 import { RplCardPromo } from '@dpc-sdp/ripple-card'
@@ -101,7 +100,7 @@ export default {
   },
   data () {
     const searchEndpoint = this.searchEndpoint.bind(this)
-    const dataManager = new ContentCollection(this.schema, searchEndpoint, this.environment)
+    const dataManager = new this.$tideContentCollection(this.schema, searchEndpoint, this.environment)
     return {
       dataManager,
       defaultState: dataManager.getDefaultState(),

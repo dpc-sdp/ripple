@@ -145,9 +145,8 @@ export default {
                 itemsToLoad: {
                   type: 'field',
                   values: [
-                    { "name": "3", "value": 3 },
-                    { "name": "6", "value": 6 },
-                    { "name": "12", "value": 12 }
+                    { "name": "12", "value": 12 },
+                    { "name": "24", "value": 24 },
                   ]
                 },
                 pagination: {
@@ -155,7 +154,7 @@ export default {
                 }
               },
               resultComponent: {
-                type: 'basic-card'
+                type: 'card'
               }
             }
           }
@@ -174,9 +173,18 @@ export default {
         if (pageData.tidePage.drupal_internal__nid) {
           environment.currentPage = pageData.tidePage.drupal_internal__nid
         }
-        contentCollections.forEach(collection => {
+        for (var i = 0; i < contentCollections.length; i++) {
+          const collection = contentCollections[i]
           collection.data.environment = environment
-        })
+          if (collection.data.schema) {
+            const dataManager = new context.app.$tideContentCollection(collection.data.schema, (dsl) => {
+              return context.app.$tideSearchApi.searchByPost(dsl)
+            }, environment)
+            const state = context.route.query
+            const response = await dataManager.getResults(state)
+            collection.data.preloadSearchResponse = response
+          }
+        }
       }
     }
   }

@@ -1,5 +1,6 @@
 // const moment = require('dayjs')
 const moment = require('moment')
+const { cardColsSetting } = require('@dpc-sdp/ripple-nuxt-tide/lib/config/layout.config.js')
 
 /**
  * ContentCollection
@@ -30,9 +31,12 @@ module.exports = class ContentCollection {
       ExposedFilterKeywordModel: 'q',
       ExposedFilterKeywordType: 'phrase_prefix',
       ExposedFilterKeywordDefaultFields: ['title', 'body', 'summary_processed', 'field_landing_page_summary', 'field_paragraph_summary', 'field_page_intro_text', 'field_paragraph_body'],
-      DisplayResultComponentColumns: { m: 6, l: 4, xxxl: 3 },
-      DisplayPaginationComponentColumns: { m: 6, l: 4, xxxl: 3 },
-      ItemsToLoad: 10
+      DisplayResultComponentCardStyle: 'noImage',
+      DisplayResultComponentColumns: cardColsSetting,
+      DisplayPaginationComponentColumns: cardColsSetting,
+      ItemsToLoad: 12,
+      scrollToResults: true,
+      scrollToResultsOffsetHeight: 102
     }
     if (!this.searchClient) {
       throw Error('Content Collection Error: A search client function is required.')
@@ -92,14 +96,18 @@ module.exports = class ContentCollection {
     return JSON.parse(JSON.stringify(obj))
   }
 
-  stripEmptyArray (obj) {
+  stripEmptyValues (obj) {
     Object.keys(obj).forEach(key => {
-      if (Array.isArray(obj[key])) {
+      if (obj[key] === null) {
+        delete obj[key]
+      } else if (obj[key] === '') {
+        delete obj[key]
+      } else if (Array.isArray(obj[key])) {
         if (obj[key].length === 0) {
           delete obj[key]
         }
       } else if (typeof obj[key] === 'object') {
-        this.stripEmptyArray(obj[key])
+        this.stripEmptyValues(obj[key])
       }
     })
   }
@@ -115,6 +123,34 @@ module.exports = class ContentCollection {
         to[key] = this.getNewValue(from[key])
       }
     })
+  }
+
+  getDiffObject (state, standard) {
+    const returnState = {}
+    Object.keys(state).forEach(key => {
+      if (state[key] !== standard[key]) {
+        returnState[key] = state[key]
+      }
+    })
+    this.stripEmptyValues(returnState)
+    return returnState
+  }
+
+  getTypeCorrectedQuery (query, defaultState) {
+    // Correct the type on state key if it's a string, but should be an array.
+    const returnQuery = {}
+    Object.keys(query).forEach(key => {
+      if (Array.isArray(defaultState[key]) && !Array.isArray(query[key])) {
+        returnQuery[key] = [query[key]]
+      } else {
+        returnQuery[key] = query[key]
+      }
+    })
+    return returnQuery
+  }
+
+  getIdName (value) {
+    return value.toString()
   }
 
   getDefault (key) {
@@ -176,6 +212,10 @@ module.exports = class ContentCollection {
     return this.config?.interface?.display?.options?.itemsToLoad
   }
 
+  getDisplayResultComponent () {
+    return this.config?.interface?.display?.resultComponent
+  }
+
   getDisplayResultComponentType () {
     return this.config?.interface?.display?.resultComponent?.type
   }
@@ -184,16 +224,17 @@ module.exports = class ContentCollection {
     return this.config?.interface?.display?.options?.pagination
   }
 
+  getKeepState () {
+    return this.config?.interface?.keepState
+  }
+
   // ---------------------------------------------------------------------------
   // Additional Getter Methods
   // ---------------------------------------------------------------------------
   getDisplayResultComponentName () {
     let returnName = null
     switch (this.getDisplayResultComponentType()) {
-      case 'search-result':
-        returnName = 'rpl-search-result'
-        break
-      case 'basic-card':
+      case 'card':
       default:
         returnName = 'rpl-card-promo'
         break
@@ -204,8 +245,9 @@ module.exports = class ContentCollection {
   getDisplayResultComponentColumns () {
     let returnColumn = null
     switch (this.getDisplayResultComponentType()) {
-      case 'basic-card':
-        returnColumn = this.getDefault('DisplayResultComponentColumns')
+      case 'card':
+        const columnSettings = this.getDefault('DisplayResultComponentColumns')
+        returnColumn = this.envConfig?.sidebar ? columnSettings.narrow : columnSettings.wide
         break
     }
     return returnColumn
@@ -224,7 +266,8 @@ module.exports = class ContentCollection {
   }
 
   getDisplayPaginationComponentColumns () {
-    return this.getDefault('DisplayPaginationComponentColumns')
+    const columnSettings = this.getDefault('DisplayPaginationComponentColumns')
+    return this.envConfig?.sidebar ? columnSettings.narrow : columnSettings.wide
   }
 
   getDisplayPaginationData () {
@@ -238,6 +281,14 @@ module.exports = class ContentCollection {
       }
     }
     return returnPagination
+  }
+
+  getScrollToResults () {
+    return this.getDefault('scrollToResults')
+  }
+
+  getScrollToResultsOffsetHeight () {
+    return this.getDefault('scrollToResultsOffsetHeight')
   }
 
   // ---------------------------------------------------------------------------
@@ -256,6 +307,8 @@ module.exports = class ContentCollection {
   }
 
   getSimpleDSL (state) {
+    // TODO - I feel this function is getting too big.
+    // I think there might be some way we can simplify it.
     const siteId = this.envConfig.siteId
     // contentIds
     const contentIdFilters = this.getSimpleDSLContentIds()
@@ -264,6 +317,7 @@ module.exports = class ContentCollection {
     // contentFields
     const contentFieldFilters = this.getSimpleDSLContentFields()
     // includeCurrentPage
+    const currentPageFilter = this.getSimpleDSLCurrentPageFilter()
     // excludeIds
     // dateFilter
     const dateRangeFilters = this.getSimpleDSLDateRange()
@@ -288,6 +342,10 @@ module.exports = class ContentCollection {
 
     if (exposedKeyword) {
       body.query.bool.must.push(exposedKeyword)
+    }
+
+    if (currentPageFilter) {
+      body.query.bool.must_not.push(currentPageFilter)
     }
 
     if (advancedFilters) {
@@ -333,9 +391,21 @@ module.exports = class ContentCollection {
       body.sort = sortFilters
     }
 
-    this.stripEmptyArray(body)
+    this.stripEmptyValues(body)
 
     return body
+  }
+
+  getSimpleDSLCurrentPageFilter () {
+    let returnStatement = null
+    const includeCurrentPage = this.config?.internal?.includeCurrentPage
+    const excludeId = this.envConfig?.currentPage
+    if (!includeCurrentPage && excludeId) {
+      returnStatement = {
+        match: { nid: excludeId }
+      }
+    }
+    return returnStatement
   }
 
   getSimpleDSLExposedKeyword (state) {
@@ -633,7 +703,6 @@ module.exports = class ContentCollection {
   // ---------------------------------------------------------------------------
   // Exposed Control Methods
   // ---------------------------------------------------------------------------
-
   getExposedControlModelNames () {
     return this.getExposedControlFields().map(control => control.model)
   }
@@ -657,7 +726,7 @@ module.exports = class ContentCollection {
     })
 
     if (fields.length > 0) {
-      // TODO - Health Specific
+      // TODO - this to be optional when forms gets auto-submit support.
       fields.push({
         type: 'rplsubmitloader',
         buttonText: 'Go',
@@ -684,7 +753,7 @@ module.exports = class ContentCollection {
     if (field) {
       returnValues = field.values.map(item => {
         return {
-          id: item.name.toString(), // TODO - Consider using a URI friendly name?
+          id: this.getIdName(item.name),
           name: item.name,
           value: item.value
         }
@@ -787,19 +856,17 @@ module.exports = class ContentCollection {
   // Search Query Methods
   // ---------------------------------------------------------------------------
   async getResults (state) {
-    const esRequest = {
-      from: this.getStartingItem(state),
-      size: this.getItemsToLoad(state),
-      _source: [],
-      ...this.getDSL(state)
+    let returnResults = null
+    const request = this.getSearchRequest(state)
+    const results = await this.searchClient(request)
+    if (results) {
+      returnResults = {
+        hits: results.hits.hits.map(this.mapResult.bind(this)),
+        total: results.hits.total,
+        aggregations: results.aggregations
+      }
     }
-    const results = await this.searchClient(esRequest)
-    // TODO - Add some hardening around this to prevent errors.
-    return {
-      hits: results.hits.hits.map(this.mapResult.bind(this)),
-      total: results.hits.total,
-      aggregations: results.aggregations
-    }
+    return returnResults
   }
 
   // ---------------------------------------------------------------------------
@@ -811,21 +878,16 @@ module.exports = class ContentCollection {
     const link = this.getLocalisedLink(_source.url)
 
     switch (this.getDisplayResultComponentType()) {
-      case 'search-result':
-        mappedResult = {
-          title: _source.title?.[0],
-          link: { linkText: link, linkUrl: link },
-          date: _source.created?.[0],
-          description: _source.field_landing_page_summary?.[0]
-        }
-        break
       case 'card':
       default:
+        const style = this.getDisplayResultComponent()?.style
         mappedResult = {
           title: _source.title?.[0],
           link: { text: link, url: link },
           dateStart: _source.created?.[0],
-          summary: _source.field_landing_page_summary?.[0]
+          summary: _source.field_landing_page_summary?.[0],
+          image: _source.field_media_image_absolute_path?.[0],
+          displayStyle: style || this.getDefault('DisplayResultComponentCardStyle')
         }
         break
     }
@@ -833,8 +895,53 @@ module.exports = class ContentCollection {
   }
 
   // ---------------------------------------------------------------------------
+  // Aggregation Methods
+  // ---------------------------------------------------------------------------
+  updateFiltersFromAggregation (aggregations, formData, state, disableFieldCallback) {
+    Object.keys(aggregations).forEach(model => {
+      formData.schema.groups.forEach(group => {
+        group.fields.forEach(field => {
+          if (field.model === model) {
+            let values = this.getAggregatedFilterValues(aggregations[model].buckets, state[model])
+            field.values = values
+            const disableField = (values.length === 0)
+            disableFieldCallback(field, disableField)
+          }
+        })
+      })
+    })
+  }
+
+  getAggregatedFilterValues (buckets, stateValue) {
+    let returnValues = []
+    if (buckets.length > 0) {
+      // Has Aggregations
+      returnValues = buckets.map(({ key, doc_count: count }) => {
+        return { id: key, name: `${key} (${count})` }
+      })
+    } else {
+      // No result aggregations - return state value
+      if (stateValue && Array.isArray(stateValue)) {
+        returnValues = stateValue.map(item => {
+          return { id: item, name: `${item} (0)` }
+        })
+      }
+    }
+    return returnValues
+  }
+
+  // ---------------------------------------------------------------------------
   // Search Result Data Methods
   // ---------------------------------------------------------------------------
+  getSearchRequest (state) {
+    return {
+      from: this.getStartingItem(state),
+      size: this.getItemsToLoad(state),
+      _source: [],
+      ...this.getDSL(state)
+    }
+  }
+
   getInitialControlValue (internal, display, displayValues) {
     let returnValue = internal
     if (display) {
@@ -877,8 +984,8 @@ module.exports = class ContentCollection {
   getResultCountRange (state, count) {
     let returnCountRange = false
     if (count && count > 0) {
-      const initialStep = state[this.getPaginationModelName()]
-      const itemsPerPage = state[this.getItemsPerPageModelName()]
+      const initialStep = state[this.getPaginationModelName()] || 1
+      const itemsPerPage = this.getItemsToLoad(state)
       const from = initialStep < 2 ? 1 : (itemsPerPage * (initialStep - 1)) + 1
       const byPage = itemsPerPage * initialStep
       const total = (byPage > count) ? count : byPage
@@ -888,10 +995,15 @@ module.exports = class ContentCollection {
   }
 
   getProcessedResultsCount (state, count) {
-    let text = this.getDisplayResultCountText()
-    const range = this.getResultCountRange(state, count)
-    text = text.replace('{range}', range)
-    text = text.replace('{count}', count)
+    let text = null
+    if (count > 0) {
+      text = this.getDisplayResultCountText()
+      if (text) {
+        const range = this.getResultCountRange(state, count)
+        text = text.replace('{range}', range)
+        text = text.replace('{count}', count)
+      }
+    }
     return text
   }
 

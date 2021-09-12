@@ -168,6 +168,12 @@ export default {
       if (contentCollections.length > 0) {
         await initializeSitesDomainMap(context)
         const environment = getDomainLinkVariables(context, pageData)
+        if (pageData.tideLayout.sidebar) {
+          environment.sidebar = pageData.tideLayout.sidebar
+        }
+        if (pageData.tidePage.drupal_internal__nid) {
+          environment.currentPage = pageData.tidePage.drupal_internal__nid
+        }
         contentCollections.forEach(collection => {
           collection.data.environment = environment
         })

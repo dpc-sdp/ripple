@@ -16,11 +16,12 @@
       :formData="exposedFilterFormData"
       :submitHandler="exposedFilterFormSubmit"
     />
-    <hr v-if="exposedFilterFormData" />
+    <rpl-divider v-if="exposedFilterFormData" />
     <!-- Search Results -->
     <rpl-search-results-layout
+      ref="search-results"
       :searchResults="results"
-      :errorMsg="errorText"
+      :error="error"
       :noResultsMsg="noResultsText"
       :loading="resultsLoading"
     >
@@ -60,6 +61,7 @@
         </rpl-col>
       </template>
     </rpl-search-results-layout>
+    <div v-if="isInteractive" class="rpl-visually-hidden" aria-live="polite">{{ announcerText }}</div>
   </div>
 </template>
 
@@ -73,7 +75,7 @@ import ContentCollection from '../lib/content-collection.js'
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import { RplSearchResultsLayout, RplSearchResult } from '@dpc-sdp/ripple-search'
 import { RplCardPromo } from '@dpc-sdp/ripple-card'
-// TODO - We need to figure out how custom result components can be loaded.
+import { RplDivider } from '@dpc-sdp/ripple-global'
 
 export default {
   name: 'AppContentCollection',
@@ -82,6 +84,7 @@ export default {
     RplLink,
     RplForm,
     RplCol,
+    RplDivider,
     RplSearchResultsLayout,
     RplSearchResult,
     RplCardPromo,
@@ -107,11 +110,17 @@ export default {
       resultTotal: null,
       resultCount: null,
       resultsLoading: false,
+      error: null,
+      announcerText: '',
+      scrollOnNextLoad: false,
+      scrollOnPaginationChange: false,
+      scrollOffset: dataManager.getScrollToResultsOffsetHeight(),
       exposedFilterFormData: dataManager.getExposedFilterForm(),
       exposedControlFormData: dataManager.getExposedControlForm(),
       exposedControlModels: dataManager.getExposedControlModelNames(),
       exposedFilterModels: dataManager.getExposedFilterModelNames(),
-      paginationData: dataManager.getDisplayPaginationData()
+      paginationData: dataManager.getDisplayPaginationData(),
+      useRouter: dataManager.getKeepState()
     }
   },
   computed: {
@@ -147,6 +156,9 @@ export default {
     },
     paginationModelName () {
       return this.dataManager.getPaginationModelName()
+    },
+    isInteractive () {
+      return (!!this.exposedFilterFormData || !!this.exposedControlFormData || !!this.paginationData)
     }
   },
   methods: {
@@ -155,39 +167,49 @@ export default {
     },
     async getResults () {
       this.resultsLoading = true
+      this.announcerText = ''
       const response = await this.dataManager.getResults(this.state)
-      this.updatePropertiesBasedOnSearchResponse(response)
-      this.resultsLoading = false
-    },
-    updatePropertiesBasedOnSearchResponse (response) {
-      if (this.exposedFilterFormData && response.aggregations) {
-        this.updateExposedFilterFormAggregations(response.aggregations)
+      if (response) {
+        this.error = null
+        this.updateInterfaceFromSearchResponse(response)
+        this.announcerText = response.total > 0 ? this.resultCount : this.noResultsText
+      } else {
+        this.error = { message: this.errorText }
+        this.announcerText = this.errorText
       }
+      this.resultsLoading = false
+      if (this.scrollOnNextLoad) {
+        this.scrollOnNextLoad = false
+        this.moveToTopOfResults()
+      }
+    },
+    moveToTopOfResults () {
+      if (this.scrollOnPaginationChange) {
+        const scrollToEl = this.$refs['search-results']?.$el
+        if (scrollToEl) {
+          this.$nextTick(() => {
+            window.scrollTo({
+              top: (scrollToEl.offsetTop - this.scrollOffset)
+            })
+            const firstLinkEl = scrollToEl.querySelector('a')
+            if (firstLinkEl) {
+              firstLinkEl.focus()
+            }
+          })
+        }
+      }
+    },
+    updateInterfaceFromSearchResponse (response) {
       this.results = response.hits
       this.resultCount = this.dataManager.getProcessedResultsCount(this.state, response.total)
+      if (this.exposedFilterFormData && response.aggregations) {
+        this.dataManager.updateFiltersFromAggregation(response.aggregations, this.exposedFilterFormData, this.state, (field, isDisabled) => {
+          Vue.set(field, 'disabled', isDisabled)
+        })
+      }
       if (this.paginationData) {
         this.paginationData.totalSteps = this.dataManager.getPaginationTotalSteps(this.state, response.total)
       }
-    },
-    updateExposedFilterFormAggregations (responseAggregations) {
-      // TODO - Some of this needs to be in the CC class, some here.
-      Object.keys(responseAggregations).forEach(model => {
-        this.exposedFilterFormData.schema.groups.forEach(group => {
-          group.fields.forEach(field => {
-            if (field.model === model) {
-              const buckets = responseAggregations[model].buckets
-              if (buckets.length > 0) {
-                field.values = buckets.map(({ key, doc_count: count }) => ({ id: key, name: `${key} (${count})` }))
-                Vue.set(field, 'disabled', false)
-              } else {
-                this.state[model] = this.defaultState[model]
-                field.values = this.state[model]
-                Vue.set(field, 'disabled', true)
-              }
-            }
-          })
-        })
-      })
     },
     syncTo (from, to, allowed) {
       return this.dataManager.syncObject(from, to, allowed)
@@ -201,6 +223,7 @@ export default {
       }
     },
     paginationChange (value) {
+      this.scrollOnNextLoad = true
       this.syncTo({ page: value }, this.state)
       this.updateQuery()
     },
@@ -215,13 +238,16 @@ export default {
       this.updateQuery()
     },
     updateQuery () {
-      const query = {}
-      // TODO - Take into account the default state.
-      this.syncTo(this.state, query)
-      this.$router.replace({ query })
+      const query = this.dataManager.getDiffObject(this.state, this.defaultState)
+      if (this.useRouter) {
+        this.$router.replace({ query })
+      } else {
+        this.syncQueryState(query)
+        this.getResults()
+      }
     },
     syncQueryState (query) {
-      this.syncTo(query, this.state)
+      this.syncTo(this.dataManager.getTypeCorrectedQuery(query, this.defaultState), this.state)
       if (this.exposedFilterFormData) {
         this.syncTo(this.state, this.exposedFilterFormData.model, this.exposedFilterModels)
       }
@@ -229,6 +255,9 @@ export default {
         this.syncTo(this.state, this.exposedControlFormData.model, this.exposedControlModels)
       }
       this.setPaginationFromState()
+    },
+    initializeScrollOnPageChange () {
+      this.scrollOnPaginationChange = this.dataManager.getScrollToResults()
     }
   },
   watch: {
@@ -238,14 +267,17 @@ export default {
     }
   },
   created () {
-    this.syncQueryState(this.$route.query)
+    if (this.useRouter) {
+      this.syncQueryState(this.$route.query)
+    }
     if (this.preloadSearchResponse) {
-      this.updatePropertiesBasedOnSearchResponse(this.preloadSearchResponse)
+      this.updateInterfaceFromSearchResponse(this.preloadSearchResponse)
+      this.initializeScrollOnPageChange()
     }
   },
   mounted () {
     if (!this.preloadSearchResponse) {
-      this.getResults()
+      this.getResults().then(this.initializeScrollOnPageChange.bind(this))
     }
   }
 }
@@ -256,6 +288,10 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
 $app-content-collection-form-gutter: .75rem;
+$rpl-search-form-button-width: rem(28px) !default;
+$rpl-search-form-show-filters-ruleset: ('s', .87em, 'bold') !default;
+$rpl-search-form-search-button-text: $rpl-search-form-show-filters-ruleset !default;
+$rpl-search-form-search-button-text-color: rpl-color('primary') !default;
 
 .app-content-collection {
   &__header {
@@ -274,7 +310,8 @@ $app-content-collection-form-gutter: .75rem;
       &-right {
         .rpl-link {
           white-space: nowrap;
-          display: inline
+          display: inline;
+          margin-left: $rpl-component-gutter-l;
         }
       }
     }
@@ -283,9 +320,8 @@ $app-content-collection-form-gutter: .75rem;
         white-space: nowrap;
         margin-bottom: $rpl-component-gutter-l;
         display: inline-block;
-        @include rpl-breakpoint('m') {
-          margin-left: $rpl-component-gutter-l;
-        }
+        color: rpl-color('primary');
+        @include rpl-typography-font('s', 1.2rem, 'semibold');
       }
     }
   }
@@ -354,38 +390,74 @@ $app-content-collection-form-gutter: .75rem;
     margin-left: $rpl-component-gutter-l
   }
 
-  .rpl-search-results-layout__sort {
-    .rpl-form {
-      .form-group {
-        margin-left: $app-content-collection-form-gutter;
-        margin-right: $app-content-collection-form-gutter;
-        width: 100%;
-        @include rpl-breakpoint('m') {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          width: auto;
-          margin-right: 0;
-          label:not(.rpl-option-button__label) {
-            margin-bottom: 0;
-            margin-right: $rpl-space-3;
-          }
-          .rpl-select__trigger {
-            padding-right: $rpl-component-gutter-l * 2;
-          }
+  // Search form styles
+  .rpl-search-form {
+    $root: &;
+    &__btn {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      @include rpl_print_hidden;
+
+      @at-root {
+        #{$root}--dark #{$root}__btn {
+          @include rpl_focus_dark;
         }
       }
-    }
-    .app-content-collection__form-inline + .app-content-collection__form-inline {
-      @include rpl-breakpoint('m') {
-        margin-left: $rpl-component-gutter-l;
-        margin-right: 0;
+
+      span {
+        @include rpl_typography_ruleset($rpl-search-form-search-button-text);
+        color: $rpl-search-form-search-button-text-color;
+        margin-right: $rpl-space-2;
+      }
+
+      svg {
+        width: $rpl-search-form-button-width;
+        height: $rpl-search-form-button-width;
       }
     }
   }
 
-  .rpl-search-results-layout__header {
-    display: block;
+  // Search results layout
+  .rpl-search-results-layout {
+    &__info {
+      @include rpl-typography-font('s', 1.2rem, 'medium');
+    }
+    &__sort {
+      .rpl-form {
+        .form-group {
+          margin-left: $app-content-collection-form-gutter;
+          margin-right: $app-content-collection-form-gutter;
+          width: 100%;
+          @include rpl-breakpoint('m') {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: auto;
+            margin-right: 0;
+            label:not(.rpl-option-button__label) {
+              margin-bottom: 0;
+              margin-right: $rpl-space-3;
+            }
+            .rpl-select__trigger {
+              padding-right: $rpl-component-gutter-l * 2;
+            }
+          }
+        }
+      }
+      .app-content-collection__form-inline + .app-content-collection__form-inline {
+        @include rpl-breakpoint('m') {
+          margin-left: $rpl-component-gutter-l;
+          margin-right: 0;
+        }
+      }
+    }
+    &__header {
+      display: block;
+    }
   }
 
   .rpl-clearform {

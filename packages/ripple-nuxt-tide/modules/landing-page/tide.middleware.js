@@ -18,8 +18,7 @@ function getDomainLinkVariables (context, pageData) {
   const tideSite = context.store.state.tideSite
   const siteId = tideSite.siteId.toString()
   const domains = tideSite.sitesDomainMap
-  const primarySiteId = pageData.tidePage?.field_node_primary_site?.drupal_internal__tid?.toString()
-  return { siteId, primarySiteId, domains }
+  return { siteId, domains }
 }
 
 export default {

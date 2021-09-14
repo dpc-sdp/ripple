@@ -17,6 +17,8 @@ module.exports = class ContentCollection {
     this.envConfig = environment
     this.defaults = {
       EnvironmentSiteId: '4',
+      ResultItemFieldNameUrl: 'url',
+      ResultItemFieldNamePrimarySite: 'field_node_primary_site',
       ExposedFilterKeywordLabel: 'Search by keyword',
       ExposedFilterKeywordPlaceholder: 'Enter keywords',
       ExposedFilterSubmitLabel: 'Filter results',
@@ -47,7 +49,6 @@ module.exports = class ContentCollection {
       const siteId = this.getDefault('EnvironmentSiteId')
       this.envConfig = {
         siteId: siteId,
-        primarySiteId: siteId,
         domains: { [siteId]: '' }
       }
     }
@@ -72,7 +73,7 @@ module.exports = class ContentCollection {
       if (site in siteIds) {
         domain = domains[site]
         path = siteIds[site]
-      } else {
+      } else if (primarySite) {
         domain = domains[primarySite]
         path = '//' + domain + siteIds[primarySite]
       }
@@ -80,17 +81,24 @@ module.exports = class ContentCollection {
     return { domain, path }
   }
 
-  getLocalisedLink (urls) {
+  getLocalisedLink (urls, primarySiteId) {
     let returnPath = null
     if (urls?.length > 0) {
       const cfg = this.envConfig
-      if (cfg.siteId && cfg.primarySiteId && cfg.domains) {
-        returnPath = this.getLocalDomainURL(urls, cfg.siteId, cfg.primarySiteId, cfg.domains).path
+      if (cfg.siteId && cfg.domains) {
+        returnPath = this.getLocalDomainURL(urls, cfg.siteId, primarySiteId, cfg.domains).path
       } else {
         returnPath = urls[0]
       }
     }
     return returnPath
+  }
+
+  getLocalisedLinkFromSource (source, urlField, primarySiteField) {
+    const url = urlField || this.getDefault('ResultItemFieldNameUrl')
+    const primarySite = primarySiteField || this.getDefault('ResultItemFieldNamePrimarySite')
+    const link = this.getLocalisedLink(source[url], source[primarySite])
+    return { text: link, url: link }
   }
 
   cloneObject (obj) {
@@ -493,9 +501,9 @@ module.exports = class ContentCollection {
   getSimpleDSLSort (state) {
     let filters = []
     let sortValue = null
-    const stateSortId = this.getStateValue(state, 'ExposedControlSortModel')
-    if (stateSortId) {
-      sortValue = this.getSortValueFromId(stateSortId)
+    const stateValue = this.getStateValue(state, 'ExposedControlSortModel')
+    if (stateValue) {
+      sortValue = this.getFieldValueFromId(stateValue, this.getExposedSortValues())
     } else {
       sortValue = this.getInternalSort()
     }
@@ -775,18 +783,6 @@ module.exports = class ContentCollection {
     return this.getExposedControlValues(this.getDisplayItemsToLoad())
   }
 
-  getSortValueFromId (option) {
-    let returnSortValue = null
-    const sortValues = this.getExposedSortValues()
-    if (sortValues) {
-      const idx = sortValues.findIndex(val => val.id === option)
-      if (idx >= 0) {
-        returnSortValue = sortValues[idx].value
-      }
-    }
-    return returnSortValue
-  }
-
   getExposedFieldDefaultValue (options) {
     // Returns the first item as default value
     let returnDefaultValue = ''
@@ -880,7 +876,6 @@ module.exports = class ContentCollection {
   mapResult (item) {
     let mappedResult = null
     const _source = item._source
-    const link = this.getLocalisedLink(_source.url)
 
     switch (this.getDisplayResultComponentType()) {
       case 'card':
@@ -888,7 +883,7 @@ module.exports = class ContentCollection {
         const style = this.getDisplayResultComponent()?.style
         mappedResult = {
           title: _source.title?.[0],
-          link: { text: link, url: link },
+          link: this.getLocalisedLinkFromSource(_source),
           dateStart: _source.created?.[0],
           summary: _source.field_landing_page_summary?.[0],
           image: _source.field_media_image_absolute_path?.[0],
@@ -968,11 +963,24 @@ module.exports = class ContentCollection {
     return this.getInitialControlValue(initial, this.getDisplayItemsToLoad(), this.getExposedItemsToLoadValues())
   }
 
+  getFieldValueFromId (id, fieldValues) {
+    let returnValue = null
+    if (fieldValues) {
+      for (let i = 0; i < fieldValues.length; i++) {
+        if (fieldValues[i].id === id) {
+          returnValue = fieldValues[i].value
+          break
+        }
+      }
+    }
+    return returnValue
+  }
+
   getItemsToLoad (state) {
     let loadCount = this.getInitialItemsToLoad()
-    const model = this.getItemsPerPageModelName()
-    if (state[model]) {
-      loadCount = state[model]
+    const stateValue = this.getStateValue(state, 'ExposedControlItemsPerPageModel')
+    if (stateValue) {
+      loadCount = this.getFieldValueFromId(stateValue, this.getExposedItemsToLoadValues())
     }
     return loadCount
   }

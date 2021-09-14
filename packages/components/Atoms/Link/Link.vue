@@ -58,7 +58,9 @@ export default {
     },
     routeLinkClick: function () {
       // Triggering an active link will reload the page.
-      if (this.href === window.location.pathname) {
+      const qIndex = this.href.indexOf('?')
+      const path = (qIndex >= 0) ? this.href.substring(0, qIndex) : this.href
+      if (path === window.location.pathname) {
         window.location.href = this.href
       }
       if (this.isNuxtLink) {

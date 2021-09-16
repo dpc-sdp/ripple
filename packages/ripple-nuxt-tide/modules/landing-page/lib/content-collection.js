@@ -98,7 +98,7 @@ module.exports = class ContentCollection {
     const url = urlField || this.getDefault('ResultItemFieldNameUrl')
     const primarySite = primarySiteField || this.getDefault('ResultItemFieldNamePrimarySite')
     const link = this.getLocalisedLink(source[url], source[primarySite])
-    return { text: link, url: link }
+    return link
   }
 
   cloneObject (obj) {
@@ -243,6 +243,9 @@ module.exports = class ContentCollection {
   getDisplayResultComponentName () {
     let returnName = null
     switch (this.getDisplayResultComponentType()) {
+      case 'search-result':
+        returnName = 'rpl-search-result'
+        break
       case 'card':
       default:
         returnName = 'rpl-card-promo'
@@ -876,14 +879,23 @@ module.exports = class ContentCollection {
   mapResult (item) {
     let mappedResult = null
     const _source = item._source
+    const link = this.getLocalisedLinkFromSource(_source)
 
     switch (this.getDisplayResultComponentType()) {
+      case 'search-result':
+        mappedResult = {
+          title: _source.title?.[0],
+          link: { linkText: link, linkUrl: link },
+          date: _source.created?.[0],
+          description: _source.field_landing_page_summary?.[0]
+        }
+        break
       case 'card':
       default:
         const style = this.getDisplayResultComponent()?.style
         mappedResult = {
           title: _source.title?.[0],
-          link: this.getLocalisedLinkFromSource(_source),
+          link: { text: link, url: link },
           dateStart: _source.created?.[0],
           summary: _source.field_landing_page_summary?.[0],
           image: _source.field_media_image_absolute_path?.[0],

@@ -315,7 +315,7 @@ module.exports = class ContentCollection {
     if (this.config?.internal?.custom) {
       // Return Custom DSL if available.
       returnDSL = this.config.internal.custom
-    } else if (this.config?.internal) {
+    } else {
       // Generate and return the simplified DSL.
       returnDSL = this.getSimpleDSL(state)
     }

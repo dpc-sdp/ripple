@@ -109,7 +109,7 @@ export const responseMapping = {
   default: defaultMapping
 }
 
-export default {
+module.exports = {
   cards: {
     requestMapping,
     responseMapping

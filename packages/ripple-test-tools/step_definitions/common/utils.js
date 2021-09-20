@@ -18,7 +18,7 @@ Given(`the current date is today`, () => {
 Then('it has no detectable a11y violations on load', () => {
   // Test the page at initial load
   cy.injectAxe()
-  cy.checkA11y({
+  cy.checkA11y(null, {
     runOnly: {
       type: 'tag',
       values: ['wcag2a', 'wcag2aa']

@@ -46,9 +46,20 @@ export default {
       }
     },
     publishDateAndAuthor () {
+      const hasLocation = (val) => Array.isArray(val) && val.length > 0 && val[0].hasOwnProperty('name')
+
+      let locationsArray = this.page.field_location.map(loc => loc.name)
+      let locationsTemp = ""
+      if (locationsArray.length > 1) { // more than 1 location
+        locationsTemp = locationsTemp + locationsArray.slice(0, -1).join(', ') + ', and ' + locationsArray.slice(-1)
+      } else if (locationsArray.length === 1) { // 1 location
+        locationsTemp = locationsArray[0]
+      }
+      const locations = locationsTemp
+
       return {
         date: this.page.field_news_date,
-        location: this.page.field_location ? this.page.field_location.name : null,
+        location: hasLocation(this.page.field_location) ? locations : null,
         author: this.page.field_node_department ? this.page.field_node_department.name : null
       }
     }

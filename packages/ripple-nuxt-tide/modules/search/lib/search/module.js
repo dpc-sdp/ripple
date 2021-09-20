@@ -208,7 +208,11 @@ export default (config, router, site) => ({
         filters[key] = {
           type: field.filter && field.filter.type,
           operator: field.filter && field.filter.operator,
-          values: value
+          values: value,
+          // Add geoQuery based keys.
+          lat: field.filter && field.filter.lat,
+          lon: field.filter && field.filter.lon,
+          distance: field.filter && field.filter.distance
         }
       }
     }

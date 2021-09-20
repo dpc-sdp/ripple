@@ -101,6 +101,9 @@ $callout-wrapper-list-padding-left: ($rpl-space * 6) !default;
 $callout-wrapper-padding: ($rpl-space-3) ($rpl-space * 6) ($rpl-space * 6) ($rpl-space * 6) !default;
 $callout-wrapper-padding-rtl: ($rpl-space * 6) ($rpl-space * 6) ($rpl-space-3) ($rpl-space * 6) !default;
 $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
+$unordered-list-line-height: $rpl-space * 5 !default;
+$unordered-list-padding-bottom: rem(11px) !default;
+$no-padding: 0;
 
 .rpl-markup {
   @include rpl_text_color($rpl-markup-text-color);
@@ -116,6 +119,22 @@ $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
       ul {
         list-style-type: square;
       }
+    }
+  }
+
+  ul li,
+  ol li {
+    line-height: $unordered-list-line-height;
+    padding-bottom: $unordered-list-padding-bottom;
+    &:last-child {
+      padding-bottom: $no-padding;
+    }
+    > ul li,
+    > ol li {
+      &:first-child {
+        padding-top: $unordered-list-padding-bottom;;
+      }
+
     }
   }
 

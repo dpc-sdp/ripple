@@ -7,6 +7,9 @@ export const searchController = (config) => {
       if (req.params.template) {
         const response = await tideSearchApi.searchByTemplate(req.params.template, req.query, req.headers)
         if (response && !response.error) {
+          if (config.cacheAge) {
+            res.set('Cache-control', `public, max-age=${config.cacheAge}`)
+          }
           return res.status(200).json(response)
         } else {
           return res.status(response.status).json(response)

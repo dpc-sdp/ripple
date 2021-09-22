@@ -131,6 +131,13 @@ export default {
       // call validation manually
       if (this.validateOnSubmit) {
         this.$refs.vfg.validate()
+
+        // Add the field label to generic required messages for accessibility.
+        this.$refs.vfg.errors.map((item) => {
+          if (item.field.validator === 'required' && item.field.label && item.error === 'This field is required!') {
+            item.error = item.error.replace("This field", item.field.label)
+          }
+        })
       }
 
       // Run custom submit callback if no error in validation

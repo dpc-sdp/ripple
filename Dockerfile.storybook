@@ -1,4 +1,4 @@
-FROM amazeeio/node:10-builder as builder
+FROM amazeeio/node:16-builder as builder
 
 COPY packages/components /app/packages/components
 COPY src /app/src
@@ -7,7 +7,7 @@ RUN yarn install
 WORKDIR /app/src
 RUN yarn run build-storybook
 
-FROM amazeeio/node:10
+FROM amazeeio/node:16
 COPY --from=builder /app/src/public /app
 
 ARG LAGOON_GIT_BRANCH

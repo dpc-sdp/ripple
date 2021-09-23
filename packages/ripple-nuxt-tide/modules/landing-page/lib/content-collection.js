@@ -33,6 +33,8 @@ module.exports = class ContentCollection {
       ExposedFilterKeywordModel: 'q',
       ExposedFilterKeywordType: 'phrase_prefix',
       ExposedFilterKeywordDefaultFields: ['title', 'body', 'summary_processed', 'field_landing_page_summary', 'field_paragraph_summary', 'field_page_intro_text', 'field_paragraph_body'],
+      ExposedFilterAggregationOrder: 'asc',
+      ExposedFilterAggregationSize: 30,
       DisplayResultComponentCardStyle: 'noImage',
       DisplayResultComponentColumns: cardColsSetting,
       DisplayPaginationComponentColumns: cardColsSetting,
@@ -451,26 +453,46 @@ module.exports = class ContentCollection {
       filterFields.forEach(group => {
         const model = group.options.model
         const value = state[model]
-        if (Array.isArray(value)) {
-          if (value.length > 0) {
-            filters.push({ 'terms': { [model]: value } })
-          }
-        } else if (value) {
-          filters.push({ 'terms': { [model]: [value] } })
+        const esField = group['elasticsearch-field'] || model
+        const fieldData = this.getSimpleDSLExposedAdvancedFiltersField(group, esField, value)
+        if (fieldData?.filter) {
+          filters.push(fieldData.filter)
         }
-        // Check for aggs
-        if (group['elasticsearch-aggregation']) {
+        if (fieldData?.agg) {
           if (!aggs) {
             aggs = {}
           }
-          aggs[model] = {
-            terms: { field: model, order: { _key: 'asc' }, size: 30 }
-          }
+          aggs[model] = fieldData.agg
         }
       })
       returnStatement = { filters, aggs }
     }
     return returnStatement
+  }
+
+  getSimpleDSLExposedAdvancedFiltersField (field, esField, stateValue) {
+    let returnESField = null
+    switch (field.type) {
+      case 'basic':
+        let filter = null
+        let agg = null
+        if (Array.isArray(stateValue)) {
+          if (stateValue.length > 0) {
+            filter = { 'terms': { [esField]: stateValue } }
+          }
+        } else if (stateValue) {
+          filter = { 'terms': { [esField]: [stateValue] } }
+        }
+        // Check for aggregation fields
+        if (field['elasticsearch-aggregation']) {
+          let order = field['elasticsearch-aggregation-order'] || this.getDefault('ExposedFilterAggregationOrder')
+          let size = field['elasticsearch-aggregation-size'] || this.getDefault('ExposedFilterAggregationSize')
+          agg = { terms: { field: esField, order: { _key: order }, size } }
+        }
+        returnESField = { filter, agg }
+        break
+    }
+    return returnESField
   }
 
   getSimpleDSLContentIds () {

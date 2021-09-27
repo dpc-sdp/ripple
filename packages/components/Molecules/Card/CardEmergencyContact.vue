@@ -2,7 +2,7 @@
   <div class="rpl-card-emergency">
     <div class="rpl-card-emergency__content">
       <div class="rpl-card-emergency__subtitle" v-if="subtitle"><span>{{ subtitle }}</span></div>
-      <h2 class="rpl-card-emergency__title" v-if="title">{{ title }}</h2>
+      <h2 class="rpl-card-emergency__title" v-if="title" :id="id">{{ title }}</h2>
       <p class="rpl-card-emergency__summary" v-if="summary">{{ summary }}</p>
     </div>
     <div class="rpl-card-emergency__cta" v-if="link">
@@ -12,6 +12,7 @@
         :href="filterLink"
         :innerWrap="false"
         v-if="link"
+        :ariaLabelledBy="id"
       >
         <rpl-icon :symbol="iconSymbol" color="primary" size="1.05"/>
         <span class="rpl-card-emergency__cta-link-text" v-if="link.text">
@@ -39,6 +40,14 @@ export default {
     RplLink,
     RplIcon,
     RplTextIcon
+  },
+  data () {
+    return {
+      id: null
+    }
+  },
+  mounted () {
+    this.id = 'card-title-' + Math.random().toString(36).substr(2, 9)
   },
   computed: {
     iconSymbol () {

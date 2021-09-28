@@ -336,7 +336,6 @@ $rpl-search-form-search-button-text-color: rpl-color('primary') !default;
 
   &__search-result {
     width: 100%;
-    padding-bottom: 0 !important;
   }
 
   &__form-wrap {

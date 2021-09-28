@@ -28,7 +28,7 @@ export default {
     href: String,
     target: { type: String, default: '' },
     innerWrap: { type: Boolean, default: true },
-    ariaLabelledBy: { type: String, default: '' }
+    ariaLabelledBy: String
   },
   directives: {
     focus

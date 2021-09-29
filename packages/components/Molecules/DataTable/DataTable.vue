@@ -19,7 +19,7 @@
         <div
           v-for="(item, i) in responsiveItems"
           class="rpl-data-table__dl-container"
-          v-bind:class="{ 'rpl-data-table__dl-container--col-header': isFirstColHeader, 'rpl-data-table__dl-container--row-header': (isRowOriented && isFirstRowHeader && !isFirstColHeader) ? false : isFirstRowHeader }"
+          v-bind:class="{ 'rpl-data-table__dl-container--col-header': isFirstColHeader, 'rpl-data-table__dl-container--row-header': useRowHeaderClass }"
           :key="`item${i}`"
         >
           <dl v-for="(header, j) in responsiveHeaders" :key="`header${j}${i}`">
@@ -79,7 +79,8 @@ export default {
       responsiveItems: [],
       responsiveHeaders: [],
       isStackableColumns: false,
-      stackableColumns: []
+      stackableColumns: [],
+      useRowHeaderClass: false
     }
   },
   mounted () {
@@ -104,6 +105,16 @@ export default {
     if (this.isRowOriented !== true) {
       this.responsiveData(this.items)
     }
+
+    /* When viewed on mobile
+     * If the first row of table is a the row header
+     * And the first column of the table is not a header
+     * And the table is row oriented
+     * Then the right column of the stackable columns contains header elements
+     */
+    this.useRowHeaderClass = (this.isRowOriented && this.isFirstRowHeader && !this.isFirstColHeader)
+      ? false
+      : this.isFirstRowHeader
   },
   methods: {
     responsiveData ([...items]) {

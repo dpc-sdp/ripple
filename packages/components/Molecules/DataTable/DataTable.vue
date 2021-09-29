@@ -111,7 +111,7 @@ export default {
      * If the first row of table is a the row header
      * And the first column of the table is not a header
      * And the table is row oriented
-     * Then the right column of the stackable columns contains header elements
+     * Then the right column of the stackable columns cannot be a header element
      */
     this.useRowHeaderClass = (this.isRowOriented && this.isFirstRowHeader && !this.isFirstColHeader)
       ? false

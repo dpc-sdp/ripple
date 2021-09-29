@@ -1,5 +1,5 @@
 <template>
-  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget" :data-print-url="printUrl" :aria-labelledby="ariaLabelledBy">
+  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget" :data-print-url="printUrl">
     <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </span>
@@ -7,7 +7,7 @@
       <slot></slot>
     </template>
   </a>
-  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick" :data-print-url="printUrl" :aria-labelledby="ariaLabelledBy">
+  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick" :data-print-url="printUrl">
     <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </span>
@@ -27,8 +27,7 @@ export default {
   props: {
     href: String,
     target: { type: String, default: '' },
-    innerWrap: { type: Boolean, default: true },
-    ariaLabelledBy: String
+    innerWrap: { type: Boolean, default: true }
   },
   directives: {
     focus

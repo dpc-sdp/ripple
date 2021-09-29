@@ -13,7 +13,7 @@
         v-if="isStackableColumns"
         :rows="stackableColumns"
         class="rpl-data-table__single-column"
-        v-bind:class="{ 'rpl-data-table__single-column--row-header': ( isRowOriented &&  isFirstColHeader ) ? true : isFirstRowHeader}"
+        v-bind:class="{ 'rpl-data-table__single-column--row-header': useColHeaderClass }"
       />
       <template v-else>
         <div
@@ -80,7 +80,8 @@ export default {
       responsiveHeaders: [],
       isStackableColumns: false,
       stackableColumns: [],
-      useRowHeaderClass: false
+      useRowHeaderClass: false,
+      useColHeaderClass: false
     }
   },
   mounted () {
@@ -114,6 +115,16 @@ export default {
      */
     this.useRowHeaderClass = (this.isRowOriented && this.isFirstRowHeader && !this.isFirstColHeader)
       ? false
+      : this.isFirstRowHeader
+
+    /* When viewed on mobile
+     * And the first column of the table is a header
+     * And the first row of the table is not a header
+     * And the table is row oriented
+     * Then the single column tables first row is a header
+     */
+    this.useColHeaderClass = (this.isRowOriented && this.isFirstColHeader && !this.isFirstRowHeader)
+      ? true
       : this.isFirstRowHeader
   },
   methods: {

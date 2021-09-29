@@ -13,13 +13,13 @@
         v-if="isStackableColumns"
         :rows="stackableColumns"
         class="rpl-data-table__single-column"
-        v-bind:class="{ 'rpl-data-table__single-column--row-header': isFirstRowHeader}"
+        v-bind:class="{ 'rpl-data-table__single-column--row-header': ( isRowOriented &&  isFirstColHeader ) ? true : isFirstRowHeader}"
       />
       <template v-else>
         <div
           v-for="(item, i) in responsiveItems"
           class="rpl-data-table__dl-container"
-          v-bind:class="{ 'rpl-data-table__dl-container--col-header': isFirstColHeader, 'rpl-data-table__dl-container--row-header': isFirstRowHeader }"
+          v-bind:class="{ 'rpl-data-table__dl-container--col-header': isFirstColHeader, 'rpl-data-table__dl-container--row-header': (isRowOriented && isFirstRowHeader && !isFirstColHeader) ? false : isFirstRowHeader }"
           :key="`item${i}`"
         >
           <dl v-for="(header, j) in responsiveHeaders" :key="`header${j}${i}`">

@@ -13,7 +13,7 @@
         v-if="isStackableColumns"
         :rows="stackableColumns"
         class="rpl-data-table__single-column"
-        v-bind:class="{ 'rpl-data-table__single-column--row-header': useColHeaderClass }"
+        v-bind:class="{ 'rpl-data-table__single-column--row-header': useSingleColRowHeaderClass }"
       />
       <template v-else>
         <div
@@ -79,9 +79,7 @@ export default {
       responsiveItems: [],
       responsiveHeaders: [],
       isStackableColumns: false,
-      stackableColumns: [],
-      useRowHeaderClass: false,
-      useColHeaderClass: false
+      stackableColumns: []
     }
   },
   mounted () {
@@ -106,26 +104,6 @@ export default {
     if (this.isRowOriented !== true) {
       this.responsiveData(this.items)
     }
-
-    /* When viewed on mobile
-     * If the first row of table is a the row header
-     * And the first column of the table is not a header
-     * And the table is row oriented
-     * Then the right column of the stackable columns cannot be a header element
-     */
-    this.useRowHeaderClass = (this.isRowOriented && this.isFirstRowHeader && !this.isFirstColHeader)
-      ? false
-      : this.isFirstRowHeader
-
-    /* When viewed on mobile
-     * And the first column of the table is a header
-     * And the first row of the table is not a header
-     * And the table is row oriented
-     * Then the single column tables first row is a header
-     */
-    this.useColHeaderClass = (this.isRowOriented && this.isFirstColHeader && !this.isFirstRowHeader)
-      ? true
-      : this.isFirstRowHeader
   },
   methods: {
     responsiveData ([...items]) {
@@ -172,6 +150,26 @@ export default {
     tableData ([...items]) {
       this.headers = items.shift()
       this.rows = items
+    }
+  },
+  computed: {
+    // When viewed on mobile
+    useRowHeaderClass () {
+      if (
+        (!this.isRowOriented && this.isFirstColHeader && this.isFirstRowHeader) ||
+        (this.isRowOriented && this.isFirstColHeader && this.isFirstRowHeader)
+      ) {
+        return true
+      }
+    },
+    // When viewed on mobile
+    useSingleColRowHeaderClass () {
+      if (
+        (!this.isRowOriented && !this.isFirstColHeader && this.isFirstRowHeader) ||
+        (this.isRowOriented && this.isFirstColHeader && !this.isFirstRowHeader)
+      ) {
+        return true
+      }
     }
   }
 }

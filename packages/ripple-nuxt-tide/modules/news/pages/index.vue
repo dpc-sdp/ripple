@@ -48,18 +48,20 @@ export default {
     publishDateAndAuthor () {
       const hasLocation = (val) => Array.isArray(val) && val.length > 0 && val[0].hasOwnProperty('name')
 
-      let locationsArray = this.page.field_location.map(loc => loc.name)
-      let locationsTemp = ""
-      if (locationsArray.length > 1) { // more than 1 location
-        locationsTemp = locationsTemp + locationsArray.slice(0, -1).join(', ') + ', and ' + locationsArray.slice(-1)
-      } else if (locationsArray.length === 1) { // 1 location
-        locationsTemp = locationsArray[0]
+      const locationsArray = this.page.field_location.map(loc => loc.name)
+      const getLocations = () => {
+        if (locationsArray.length > 1) { // more than 1 location
+          return locationsArray.slice(0, -1).join(', ') + ', and ' + locationsArray.slice(-1)
+        } else if (locationsArray.length === 1) { // 1 location
+          return locationsArray[0]
+        } else {
+          return null
+        }
       }
-      const locations = locationsTemp
 
       return {
         date: this.page.field_news_date,
-        location: hasLocation(this.page.field_location) ? locations : null,
+        location: hasLocation(this.page.field_location) ? getLocations() : null,
         author: this.page.field_node_department ? this.page.field_node_department.name : null
       }
     }

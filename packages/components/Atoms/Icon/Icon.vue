@@ -1,7 +1,7 @@
 <!-- credits to https://github.com/Justineo/vue-awesome/blob/master/src/components/Icon.vue -->
 <template>
-  <svg v-if="icon || legacyIcon" :class="iconClass" :style="iconStyle" :viewBox="box" :aria-hidden="ariaHidden" overflow="visible">
-    <title v-if="iconText">{{iconText}}</title>
+  <svg v-if="icon || legacyIcon" :class="iconClass" :style="iconStyle" :viewBox="box" :aria-hidden="iconAttribute[0]" overflow="visible">
+    <title v-if="iconAttribute[1]">{{iconAttribute[1]}}</title>
     <template v-if="legacyIcon">
       <!-- Use both xlink:href and href for browser support https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/ -->
       <use :xlink:href="'#' + iconPrefix + symbol" :href="'#' + iconPrefix + symbol"></use>
@@ -88,20 +88,12 @@ export default {
 
       return icons[this.symbol]
     },
-    iconText () {
-      if (!this.icon && !this.legacyIcon) return ''
+    iconAttribute () {
+      if (!this.icon && !this.legacyIcon) return ['true', '']
       if (this.symbol === 'external_link') {
-        return 'External Link'
+        return ['false', 'External Link']
       } else {
-        return ''
-      }
-    },
-    ariaHidden () {
-      if (!this.icon && !this.legacyIcon) return 'TRUE'
-      if (this.symbol === 'external_link') {
-        return 'FALSE'
-      } else {
-        return 'TRUE'
+        return ['true', '']
       }
     },
     box () {

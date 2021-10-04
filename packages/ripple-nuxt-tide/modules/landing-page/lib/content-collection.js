@@ -1014,7 +1014,10 @@ module.exports = class ContentCollection {
     let loadCount = this.getInitialItemsToLoad()
     const stateValue = this.getStateValue(state, 'ExposedControlItemsPerPageModel')
     if (stateValue) {
-      loadCount = this.getFieldValueFromId(stateValue, this.getExposedItemsToLoadValues())
+      const fieldValue = this.getFieldValueFromId(stateValue, this.getExposedItemsToLoadValues())
+      if (fieldValue) {
+        loadCount = fieldValue
+      }
     }
     return loadCount
   }

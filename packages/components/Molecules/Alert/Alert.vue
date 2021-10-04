@@ -1,13 +1,14 @@
 <template>
-  <rpl-alert-base role="alert" class="rpl-alert" closeText="Dismiss alert" :data-alert-type="type" :backgroundColor="typeProp('backgroundColor')" :iconSymbol="typeProp('iconSymbol')" @rplAlertClose="close()">
-    <span v-if="title" class="rpl-alert__title">{{ title }}</span>
-    <rpl-text-link v-if="link" class="rpl-alert__link" :text="link.text" :url="link.url" iconSymbol="right" iconColor="white" theme="dark" />
+  <rpl-alert-base role="alert" class="rpl-alert" closeText="Dismiss alert" :data-alert-type="type" :backgroundColor="typeProp('backgroundColor')" :iconSymbol="typeProp('iconSymbol')" @rplAlertClose="close()" aria-live="assertive">
+    <span v-if="title" class="rpl-alert__title" :id="id">{{ title }}</span>
+    <rpl-text-link v-if="link" class="rpl-alert__link" :text="link.text" :url="link.url" iconSymbol="right" iconColor="white" theme="dark" :aria-labelledby="id" />
   </rpl-alert-base>
 </template>
 
 <script>
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 import RplAlertBase from './AlertBase.vue'
+import uniqueid from '@dpc-sdp/ripple-global/mixins/uniqueid'
 
 export default {
   name: 'RplAlert',
@@ -21,6 +22,7 @@ export default {
     RplTextLink,
     RplAlertBase
   },
+  mixins: [uniqueid],
   data () {
     return {
       types: {
@@ -55,9 +57,13 @@ export default {
         'Traffic': {
           backgroundColor: 'dark_neutral',
           iconSymbol: 'alert_transport'
-        }
+        },
+        id: null
       }
     }
+  },
+  mounted () {
+    this.id = `alert-title-${this.getIdFromLocalRegistry()}`
   },
   methods: {
     close () {

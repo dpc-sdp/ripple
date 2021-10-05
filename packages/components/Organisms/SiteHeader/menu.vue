@@ -230,7 +230,7 @@ export default {
     'open': function (newVal, oldVal) {
       if (!newVal) {
         for (let key in this.menuItemOpen) {
-          if (this.menuItemOpen[key]) {
+          if (this.menuItemOpen[key] && this.isRoot) {
             this.$refs['menu-link'][key].focus()
           }
         }

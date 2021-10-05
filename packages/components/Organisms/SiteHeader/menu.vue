@@ -59,6 +59,7 @@
                 :target="list.target"
                 @focus="onItemFocus"
                 :innerWrap="false"
+                ref="menu-link"
               >
                 {{ list.text }}
               </rpl-link>

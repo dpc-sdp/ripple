@@ -424,9 +424,6 @@ $rpl-search-form-search-button-text-color: rpl-color('primary') !default;
 
   // Search results layout
   .rpl-search-results-layout {
-    &__info {
-      @include rpl-typography-font('s', 1.2rem, 'medium');
-    }
     &__sort {
       .rpl-form {
         .form-group {
@@ -455,9 +452,18 @@ $rpl-search-form-search-button-text-color: rpl-color('primary') !default;
           margin-right: 0;
         }
       }
+
+      .app-content-collection__form-wrap {
+        justify-content: flex-end;
+      }
     }
     &__header {
-      display: block;
+      flex-direction: row;
+      vertical-align: top;
+    }
+    &__info {
+      margin-top: $rpl-space-4;
+      align-self: start;
     }
   }
 

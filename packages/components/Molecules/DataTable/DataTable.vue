@@ -13,13 +13,13 @@
         v-if="isStackableColumns"
         :rows="stackableColumns"
         class="rpl-data-table__single-column"
-        v-bind:class="{ 'rpl-data-table__single-column--row-header': isFirstRowHeader}"
+        v-bind:class="{ 'rpl-data-table__single-column--row-header': useSingleColRowHeaderClass }"
       />
       <template v-else>
         <div
           v-for="(item, i) in responsiveItems"
           class="rpl-data-table__dl-container"
-          v-bind:class="{ 'rpl-data-table__dl-container--col-header': isFirstColHeader, 'rpl-data-table__dl-container--row-header': isFirstRowHeader }"
+          v-bind:class="{ 'rpl-data-table__dl-container--col-header': isFirstColHeader, 'rpl-data-table__dl-container--row-header': useRowHeaderClass }"
           :key="`item${i}`"
         >
           <dl v-for="(header, j) in responsiveHeaders" :key="`header${j}${i}`">
@@ -150,6 +150,26 @@ export default {
     tableData ([...items]) {
       this.headers = items.shift()
       this.rows = items
+    }
+  },
+  computed: {
+    // When viewed on mobile
+    useRowHeaderClass () {
+      if (
+        (!this.isRowOriented && this.isFirstColHeader && this.isFirstRowHeader) ||
+        (this.isRowOriented && this.isFirstColHeader && this.isFirstRowHeader)
+      ) {
+        return true
+      }
+    },
+    // When viewed on mobile
+    useSingleColRowHeaderClass () {
+      if (
+        (!this.isRowOriented && !this.isFirstColHeader && this.isFirstRowHeader) ||
+        (this.isRowOriented && this.isFirstColHeader && !this.isFirstRowHeader)
+      ) {
+        return true
+      }
     }
   }
 }

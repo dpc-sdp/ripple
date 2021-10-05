@@ -24,7 +24,7 @@ module.exports = class ContentCollection {
       ExposedFilterSubmitLabel: 'Filter results',
       ExposedFilterClearFormLabel: 'Clear search filters',
       ExposedControlSortModel: 'sort',
-      ExposedControlSortLabel: 'Sort',
+      ExposedControlSortLabel: 'Sort by',
       ExposedControlSortPlaceholder: 'Select a value',
       ExposedControlItemsPerPageModel: 'items_per_page',
       ExposedControlItemsPerPageLabel: 'Items per page',

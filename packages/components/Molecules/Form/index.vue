@@ -103,6 +103,11 @@ export default {
       return ['More than ' + field.max + ' selections are not allowed']
     }
   },
+  destroyed () {
+    if (this.listenForClearForm) {
+      RplFormEventBus.$off('clearform', this.clearForm)
+    }
+  },
   methods: {
 
     hideForm () {

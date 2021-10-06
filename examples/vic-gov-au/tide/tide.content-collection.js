@@ -8,6 +8,6 @@ export default class CustomContentCollection extends ContentCollection {
 
   // Overrides the default and adds custom to the start
   getTitle () {
-    return 'Custom ' + this.config.title
+    return this.config.title
   }
 }

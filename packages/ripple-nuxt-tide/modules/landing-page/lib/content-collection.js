@@ -19,6 +19,8 @@ module.exports = class ContentCollection {
       EnvironmentSiteId: '4',
       ResultItemFieldNameUrl: 'url',
       ResultItemFieldNamePrimarySite: 'field_node_primary_site',
+      SkipToResultLink: true,
+      SkipToResultLinkLabel: 'Skip to results',
       ExposedFilterKeywordLabel: 'Search by keyword',
       ExposedFilterKeywordPlaceholder: 'Enter keywords',
       ExposedFilterSubmitLabel: 'Filter results',
@@ -239,11 +241,12 @@ module.exports = class ContentCollection {
     return this.config?.interface?.keepState
   }
 
+  getSkipToResultLinkLabel () {
+    return this.config?.interface?.SkipToResultLinkLabel || this.getDefault('SkipToResultLinkLabel')
+  }
+
   getSkipToResultLink () {
-    const skipToResultLink = this.config?.interface?.skipToResultLink
-    const hasFilters = this.config?.interface?.keyword || this.config?.interface?.filters
-    const showSkipLink = skipToResultLink !== undefined ? skipToResultLink : true
-    return showSkipLink && hasFilters
+    return this.config?.interface?.skipToResultLink === undefined ? this.getDefault('SkipToResultLink') : this.config?.interface?.skipToResultLink
   }
 
   getSkipToResultLinkID () {

@@ -6,7 +6,7 @@
         <h2 v-if="title" class="app-content-collection__heading">{{ title }}</h2>
         <p v-if="description">{{ description }}</p>
         <div class="app-content-collection__skip-link rpl-skip-link ">
-          <a v-if="showSkipToResultLink" class="app-content-collection__skip-link__link rpl-skip-link__link" :href="getSkipToResultLinkAnchor">Skip to results</a>
+          <a v-if="showSkipToResultLink" class="app-content-collection__skip-link__link rpl-skip-link__link" :href="getSkipToResultLinkAnchor">{{ skipToResultLinkLabel }}</a>
         </div>
       </div>
       <div class="app-content-collection__header-right">
@@ -172,7 +172,10 @@ export default {
       return (!!this.exposedFilterFormData || !!this.exposedControlFormData || !!this.paginationData)
     },
     showSkipToResultLink () {
-      return this.dataManager.getSkipToResultLink()
+      return !!this.exposedFilterFormData && this.dataManager.getSkipToResultLink()
+    },
+    skipToResultLinkLabel () {
+      return this.dataManager.getSkipToResultLinkLabel()
     },
     getSkipToResultLinkID () {
       return this.dataManager.getSkipToResultLinkID()
@@ -331,6 +334,8 @@ $app-content-collection-link-ruleset: ('s', 1em, 'bold') !default;
 $app-content-collection-link-border-radius: 0 0 rem(4px) 0 !default;
 
 .app-content-collection {
+  position: relative;
+
   &__header {
     @include rpl-breakpoint('m') {
       display: flex;

@@ -876,10 +876,10 @@ module.exports = class ContentCollection {
             returnSubmitForm = true
           }
         }
-        break;
+        break
       case 'controlForm':
         returnSubmitForm = true
-        break;
+        break
     }
     return returnSubmitForm
   }

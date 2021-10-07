@@ -60,7 +60,7 @@ export default {
         },
         {
           name: 'linkedin',
-          label: 'Linkedin',
+          label: 'LinkedIn',
           iconName: 'linkedin',
           iconSize: '0.81'
         }

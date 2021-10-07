@@ -1,6 +1,6 @@
 <template>
   <div class="rpl-publish-date-and-author">
-    <div class="rpl-publish-date-and-author__date-location" v-if="date">{{ formatDate(date, 'DD/MM/YY H.mma') }}<span v-if="location"> {{ location_prefix }} {{ location }}</span></div>
+    <div class="rpl-publish-date-and-author__date-location" v-if="date">{{ formatDate(date, 'dddd D MMMM YYYY h:mma') }}<span v-if="location"> {{ location_prefix }} {{ location }}</span></div>
     <div class="rpl-publish-date-and-author__author" v-if="author">{{ author_prefix }} {{ author }}</div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <main class="rpl-page" :class="{'rpl-page--with-search': withSearch }">
+  <main class="rpl-page" :class="{'rpl-page--with-search': withSearch, 'rpl-page--rtl': isRtl() }">
     <div class="rpl-above-content" :style="bgGraphic">
       <div class="rpl-page-header" :class="{'rpl-page-header--with-image': bannerImage }">
         <RplResponsiveImg v-if="bannerImage" class="rpl-page-header__picture" v-bind="bannerImage" />
@@ -8,7 +8,7 @@
             <slot name="breadcrumbs"></slot>
             <rpl-quick-exit v-if="quickexit && !menuopen" menuOffsetSelector=".rpl-above-content__inner" />
           </div>
-          <div class="rpl-above-content__below">
+          <div class="rpl-above-content__below" :dir="isRtl() ? 'rtl' : null">
             <slot name="aboveContent"></slot>
           </div>
         </div>
@@ -21,7 +21,7 @@
     <section id="rpl-main-content" class="rpl-content" :class="{'rpl-content--with-sidebar': sidebar, 'rpl-content--grey': bgGrey}">
       <div class="rpl-site-constrain--on-all">
         <rpl-row>
-          <rpl-col cols="full" :colsBp="mainCols" class="rpl-main">
+          <rpl-col cols="full" :colsBp="mainCols" class="rpl-main" :dir="isRtl() ? 'rtl' : null">
             <slot></slot>
           </rpl-col>
           <rpl-col
@@ -48,9 +48,11 @@ import RplQuickExit from './QuickExit'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplSiteHeaderEventBus } from '@dpc-sdp/ripple-site-header'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
+import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
 
 export default {
   components: { RplContainer, RplRow, RplCol, RplQuickExit, RplResponsiveImg },
+  mixins: [rtl],
   props: {
     'sidebar': Boolean,
     'columns': {

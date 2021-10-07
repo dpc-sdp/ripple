@@ -1,5 +1,5 @@
 <template>
-  <div v-if="(links.length)" class="rpl-anchor-links">
+  <div v-if="(links.length)" class="rpl-anchor-links" :class="{'rpl-anchor-links--rtl': isRtl()}">
     <div class="rpl-anchor-links__row">
       <h2 class="rpl-anchor-links__title">{{ title }}</h2>
     </div>
@@ -17,9 +17,11 @@
 <script>
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
+import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
 
 export default {
   name: 'RplAnchorLinks',
+  mixins: [rtl],
   props: {
     title: String,
     links: Array
@@ -123,6 +125,28 @@ export default {
           margin-right: $rpl-anchor-links-item-indent-icon-marign-right;
         }
       }
+    }
+
+    &--rtl {
+     padding-right: $rpl-anchor-links-left-padding-xs;
+     border-right: $rpl-anchor-links-border;
+     border-left: 0;
+
+     @include rpl_print {
+       border-right: 0;
+     }
+
+     @include rpl_breakpoint('s') {
+       padding-right: $rpl-anchor-links-left-padding-s;
+     }
+
+     @include rpl_breakpoint('l') {
+       padding-left: 0;
+     }
+
+     @include rpl_breakpoint('xl') {
+       padding-right: $rpl-anchor-links-left-padding-xl;
+     }
     }
   }
 </style>

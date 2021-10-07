@@ -1,5 +1,5 @@
 <template>
-  <figure class="rpl-document-link">
+  <figure class="rpl-document-link" :class="{'rpl-document-link--rtl': isRtl()}">
     <a class="rpl-document-link__link" :aria-label="`${name} File type: ${extension}. Size: ${filesize}`" :href="url" :download="isExternalLink ? false : ''" :target="isExternalLink ? '_blank' : false">
       <rpl-icon class="rpl-document-link__icon" :symbol="icon" color="primary" size="l" />
       <div class="rpl-document-link__info">
@@ -7,6 +7,7 @@
         <div class="rpl-document-link__meta">
           <span v-if="extension" class="rpl-document-link__type">{{extension}}</span>
           <span v-if="filesize" class="rpl-document-link__size" :class="{'rpl-document-link__size--seperator': extension && filesize}">{{filesize}}</span>
+          <span class="rpl-document-link__last-updated">{{lastUpdated}}</span>
         </div>
       </div>
     </a>
@@ -17,16 +18,20 @@
 <script>
 import RplIcon from '@dpc-sdp/ripple-icon'
 import { isExternalUrl, decodeSpecialCharacters } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { epochToDateText } from '@dpc-sdp/ripple-global/utils/dateHelpers.js'
+import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
 
 export default {
   name: 'RplDocumentLink',
   components: { RplIcon },
+  mixins: [rtl],
   props: {
     name: String,
     caption: String,
     url: String,
     extension: String,
-    filesize: String
+    filesize: String,
+    updated: String
   },
   computed: {
     nameDecoded: function () {
@@ -62,6 +67,13 @@ export default {
     },
     isExternalLink () {
       return isExternalUrl(this.url, this.rplOptions.hostname)
+    },
+    lastUpdated: function () {
+      if (this.updated && this.updated !== 'undefined') {
+        const updatedText = '| Updated: '
+        const updatedDate = epochToDateText(this.updated)
+        return (updatedDate.length > 0) ? updatedText + updatedDate : ''
+      } else return ''
     }
   }
 }
@@ -136,6 +148,13 @@ export default {
       @include rpl_typography('body_small');
       @include rpl_text_color($rpl-document-link-caption-color);
       margin-top: $rpl-document-link-caption-margin-top;
+    }
+
+    &--rtl {
+      .rpl-document-link__info {
+        margin-left: 0;
+        margin-right: rem(11px);
+      }
     }
   }
 </style>

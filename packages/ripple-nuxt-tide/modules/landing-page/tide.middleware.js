@@ -79,7 +79,8 @@ export default {
             const dataManager = new context.app.$tideContentCollection(collection.data.schema, (dsl) => {
               return context.app.$tideSearchApi.searchByPost(dsl)
             }, environment)
-            const state = context.route.query
+            const state = dataManager.getDefaultState()
+            dataManager.syncObject(dataManager.getTypeCorrectedQuery(context.route.query, state), state)
             const response = await dataManager.getResults(state)
             collection.data.preloadSearchResponse = response
           }

@@ -51,7 +51,7 @@ export default {
     filterText: { type: String, default: 'Refine search' },
     theme: String,
     type: { type: String, default: 'default' },
-    allowBlank: { type: Boolean, default: false }
+    allowBlank: { type: Boolean, default: true }
   },
   components: {
     RplForm,

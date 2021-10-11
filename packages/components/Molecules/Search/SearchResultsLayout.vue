@@ -5,7 +5,7 @@
     </div>
     <template v-else>
       <div class="rpl-search-results-layout__header">
-        <div class="rpl-search-results-layout__info" v-if="range && count" aria-live="assertive">
+        <div class="rpl-search-results-layout__info" v-if="range && count" aria-live="polite">
           <slot name="count">
             Displaying {{ range }} of {{ count }} results
           </slot>
@@ -26,7 +26,7 @@
           </rpl-col>
         </slot>
       </rpl-row>
-      <div v-if="searchResults.length === 0 && !loading" class="rpl-search-results-layout__no-results-msg" aria-live="assertive">
+      <div v-if="searchResults.length === 0 && !loading" class="rpl-search-results-layout__no-results-msg" aria-live="polite">
         <slot name="noresults"><p> {{ noResultsMsg }} </p></slot>
       </div>
       <rpl-row row-gutter v-if="pager">

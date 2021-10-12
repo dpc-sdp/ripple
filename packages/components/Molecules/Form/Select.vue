@@ -5,7 +5,7 @@
         class="rpl-select__trigger"
         tabindex="0"
         aria-haspopup="listbox"
-        :aria-labelledby="`${config.fieldId}-rpl-select-trigger ${config.fieldId}-rpl-select-value`"
+        :aria-label="labeledText"
         :aria-expanded="isOpen ? 'true' : false"
         role="button"
         ref="trigger"
@@ -144,6 +144,13 @@ export default {
         return this.selectedTitles.map(itm => truncateText(itm, this.selectedCharLength - 1), ' ...').join('; ')
       } else {
         return truncateText(this.selectedTitles[0], this.selectedCharLength - 1, ' ...')
+      }
+    },
+    labeledText () {
+      if (this.config.placeholder === undefined || this.config.placeholder === '' || this.config.placeholder === 'Select') {
+        return this.config.label
+      } else {
+        return this.config.placeholder
       }
     }
   },

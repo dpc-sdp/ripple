@@ -36,6 +36,7 @@ export default {
           component.data.initialResults = response.results
           component.data.total = response.total
           component.data.sidebar = pageData.tideLayout.sidebar
+          component.data.config.results.min_not_met = 'no_results_message'
         })
       }
     }

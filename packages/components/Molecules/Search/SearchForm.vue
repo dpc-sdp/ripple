@@ -88,6 +88,7 @@ export default {
     },
     submitSearch: function () {
       if (this.allowBlank || (!this.allowBlank && this.searchInput)) {
+        this.searchInput = (typeof this.searchInput === 'undefined') ? '' : this.searchInput
         this.$emit('search', this.searchInput)
       }
     },

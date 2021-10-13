@@ -43,4 +43,33 @@ export default class TideSearchApi {
       return false
     }
   }
+
+  async searchByPost (data) {
+    try {
+      const config = {
+        method: 'post',
+        baseURL: this.baseUrl,
+        url: '/dsl',
+        responseType: 'json',
+        responseEncoding: 'utf8',
+        headers: {
+          'TIDE_API_HEADER': 'elastic',
+          'Content-Type': 'application/json'
+        },
+        data
+      }
+      const response = await this.client(config)
+
+      if (process.env.SEARCH_LOG === 'trace') {
+        logger.debug('Search API req URL:', axios.getUri(config), { label: 'Tide' })
+      }
+
+      if (response.data) {
+        return response.data
+      }
+    } catch (e) {
+      logger.error('Search API error', e, { label: 'TideSearch' })
+      return false
+    }
+  }
 }

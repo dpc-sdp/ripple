@@ -60,15 +60,15 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 </article>
 
 <!-- pluginEmbeddedDocument -->
-<rpl-document-link name=\\"test zip\\" extension=\\"zip\\" filesize=\\"787.53 KB\\" url=\\"/sites/default/files/2018-12/Screen%20Shot%202018-12-05%20at%2010.17.01%20am.zip\\" caption></rpl-document-link>
-<rpl-document-link name=\\"docx\\" extension=\\"docx\\" filesize=\\"60.17 KB\\" url=\\"/sites/default/files/2018-12/180629SSP%20User%20Research%20%26%20Testing%20Playbook%20Final.docx\\" caption></rpl-document-link>
-<rpl-document-link name=\\"xls\\" extension=\\"xlsx\\" filesize=\\"93 KB\\" url=\\"/sites/default/files/2018-12/list_one.xls\\" caption></rpl-document-link>
-<rpl-document-link name=\\"pptx\\" extension=\\"ppt\\" filesize=\\"404.19 KB\\" url=\\"/sites/default/files/2018-12/samplepptx.pptx\\" caption></rpl-document-link>
-<rpl-document-link name=\\"csv\\" extension=\\"csv\\" filesize=\\"545 bytes\\" url=\\"/sites/default/files/2018-12/C2ImportCalEventSample.csv\\" caption></rpl-document-link>
-<rpl-document-link name=\\"doc\\" extension=\\"doc\\" filesize=\\"19 KB\\" url=\\"/sites/default/files/2018-12/TestWordDoc.doc\\" caption></rpl-document-link>
-<rpl-document-link name=\\"xls\\" extension=\\"xlsx\\" filesize=\\"16 KB\\" url=\\"/sites/default/files/2018-12/tests-example.xls\\" caption></rpl-document-link>
-<rpl-document-link name=\\"Text doc\\" extension=\\"txt\\" filesize=\\"374 bytes\\" url=\\"/sites/default/files/2018-12/Copy.txt\\" caption></rpl-document-link>
-<rpl-document-link name=\\"ICS as Doc\\" extension=\\"ics\\" filesize=\\"24.28 KB\\" url=\\"/sites/default/files/2019-02/AAA10am%20to%201015am%20on%20weekdays%20%28AEDT%29%20_0.ics\\" caption=\\"Caption\\"></rpl-document-link>
+<rpl-document-link name=\\"test zip\\" extension=\\"zip\\" filesize=\\"787.53 KB\\" url=\\"/sites/default/files/2018-12/Screen%20Shot%202018-12-05%20at%2010.17.01%20am.zip\\" caption updated=\\"undefined\\"></rpl-document-link>
+<rpl-document-link name=\\"docx\\" extension=\\"docx\\" filesize=\\"60.17 KB\\" url=\\"/sites/default/files/2018-12/180629SSP%20User%20Research%20%26%20Testing%20Playbook%20Final.docx\\" caption updated=\\"undefined\\"></rpl-document-link>
+<rpl-document-link name=\\"xls\\" extension=\\"xlsx\\" filesize=\\"93 KB\\" url=\\"/sites/default/files/2018-12/list_one.xls\\" caption updated=\\"undefined\\"></rpl-document-link>
+<rpl-document-link name=\\"pptx\\" extension=\\"ppt\\" filesize=\\"404.19 KB\\" url=\\"/sites/default/files/2018-12/samplepptx.pptx\\" caption updated=\\"undefined\\"></rpl-document-link>
+<rpl-document-link name=\\"csv\\" extension=\\"csv\\" filesize=\\"545 bytes\\" url=\\"/sites/default/files/2018-12/C2ImportCalEventSample.csv\\" caption updated=\\"undefined\\"></rpl-document-link>
+<rpl-document-link name=\\"doc\\" extension=\\"doc\\" filesize=\\"19 KB\\" url=\\"/sites/default/files/2018-12/TestWordDoc.doc\\" caption updated=\\"undefined\\"></rpl-document-link>
+<rpl-document-link name=\\"xls\\" extension=\\"xlsx\\" filesize=\\"16 KB\\" url=\\"/sites/default/files/2018-12/tests-example.xls\\" caption updated=\\"undefined\\"></rpl-document-link>
+<rpl-document-link name=\\"Text doc\\" extension=\\"txt\\" filesize=\\"374 bytes\\" url=\\"/sites/default/files/2018-12/Copy.txt\\" caption updated=\\"undefined\\"></rpl-document-link>
+<rpl-document-link name=\\"ICS as Doc\\" extension=\\"ics\\" filesize=\\"24.28 KB\\" url=\\"/sites/default/files/2019-02/AAA10am%20to%201015am%20on%20weekdays%20%28AEDT%29%20_0.ics\\" caption=\\"Caption\\" updated=\\"undefined\\"></rpl-document-link>
 
 
 <!-- Callout -->

@@ -66,6 +66,14 @@ const addFilter = function (esbResult, filter, filterName) {
     case 'integer':
       esbResult = esbResult.filter(esb.rangeQuery(filterName)[operator](filter.values))
       break
+    // Implement geoDistanceQuery.
+    // For more information: https://elastic-builder.js.org/docs/#geodistancequery
+    case 'geo_distance':
+      let distance = filter.distance
+      let lat = filter.lat
+      let lon = filter.lon
+      esbResult = esbResult.filter(esb.geoDistanceQuery(filterName, esb.geoPoint().lat(lat).lon(lon)).distance(distance))
+      break
     default:
   }
 }
@@ -126,6 +134,14 @@ export default ({
   },
 
   setSort: function (body, sort) {
+    // Set geoDistance sorting.
+    // For more information: https://elastic-builder.js.org/docs/#sortgeodistance
+    if (sort.type === 'geo_sort') {
+      return body.sort(esb.sort(sort.field, sort.order)
+        .geoDistance(sort.geo_distance)
+        .unit(sort.unit)
+        .distanceType(sort.distance_type))
+    }
     return body.sort(esb.sort(sort.field, sort.order))
   }
 })

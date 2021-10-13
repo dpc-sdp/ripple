@@ -8,6 +8,7 @@
         :src="src"
         allowfullscreen
         data-chromatic="ignore"
+        :title="title"
       >
       </iframe>
     </div>
@@ -26,6 +27,7 @@ import RplIcon from '@dpc-sdp/ripple-icon'
 export default {
   name: 'RplEmbeddedVideo',
   props: {
+    title: String,
     width: String,
     height: String,
     src: String,

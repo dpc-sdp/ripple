@@ -7,6 +7,7 @@
         'rpl-site-header--open': menuContentOpen,
         'rpl-site-header--sticky': stickyActive,
       }"
+      @keydown.esc="closeModalMenu()"
     >
       <div class="rpl-site-header__inner">
         <!-- Top Bar -->
@@ -17,6 +18,7 @@
               <button
                 v-if="showMenuBtn()"
                 class="rpl-site-header__btn rpl-site-header__btn--menu"
+                aria-label="Menu"
                 :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
                 :aria-expanded="(menuState === 'opened').toString()"
                 @click="menuToggle()"
@@ -234,6 +236,12 @@ export default {
       this.menuContentOpen = !(this.menuContentOpen && this.menuState === 'opened')
       this.searchState = 'closed'
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
+    },
+    closeModalMenu: function () {
+      if (this.menuContentOpen & this.menuState === 'opened') {
+        this.menuContentOpen = false
+        this.menuState = 'closed'
+      }
     },
     showMenuBtn: function () {
       const menuLinkCount = (Array.isArray(this.links) && this.links.length > 0)

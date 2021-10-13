@@ -11,6 +11,7 @@
       ref="vfg"
       :tag="formData.tag"
       v-show="hideForm()"
+      @model-updated="onModelChange"
     />
   </form>
 </template>
@@ -63,15 +64,24 @@ export default {
     title: String,
     formData: Object,
     submitHandler: Function,
+    fieldChangeHandler: Function,
     hideAfterSuccess: Boolean,
     clearFormOnSuccess: { type: Boolean, default: false },
     submitFormOnClear: { type: Boolean, default: false },
     scrollToMessage: { type: Boolean, default: true },
     validateOnSubmit: { type: Boolean, default: true },
-    fullWidth: { type: Boolean, default: true }
+    fullWidth: { type: Boolean, default: true },
+    listenForClearForm: { type: Boolean, default: true }
+  },
+  data () {
+    return {
+      isClearingForm: false
+    }
   },
   mounted () {
-    RplFormEventBus.$on('clearform', this.clearForm)
+    if (this.listenForClearForm) {
+      RplFormEventBus.$on('clearform', this.clearForm)
+    }
 
     // TODO: We should abstract all future custom validators to a separate file and import them here.
     VueFormGenerator.validators.rplWordCount = function (value, field) {
@@ -100,8 +110,17 @@ export default {
       return ['More than ' + field.max + ' selections are not allowed']
     }
   },
+  destroyed () {
+    if (this.listenForClearForm) {
+      RplFormEventBus.$off('clearform', this.clearForm)
+    }
+  },
   methods: {
-
+    onModelChange (value, model) {
+      if (this.fieldChangeHandler && !this.isClearingForm) {
+        this.fieldChangeHandler(value, model)
+      }
+    },
     hideForm () {
       if (this.formData.formState.response) {
         return !(this.hideAfterSuccess && this.formData.formState.response.status === 'success')
@@ -110,6 +129,7 @@ export default {
       }
     },
     clearForm () {
+      this.isClearingForm = true
       for (let key in this.formData.model) {
         const model = this.formData.model[key]
         if (typeof model === 'object' && !Array.isArray(model) && model !== null) {
@@ -125,6 +145,9 @@ export default {
       if (this.submitFormOnClear) {
         this.onSubmit()
       }
+      this.$nextTick(() => {
+        this.isClearingForm = false
+      })
     },
     async onSubmit (event) {
       if (event) event.preventDefault()

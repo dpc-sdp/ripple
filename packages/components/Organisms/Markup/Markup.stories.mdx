@@ -116,6 +116,31 @@ export const Template = (args, { argTypes }) => ({
   </Story>
 </Canvas>
 
+## Unordered list
+
+<Canvas>
+  <Story
+    name="Unordered list"
+    args={{
+      html: `
+        <ul>
+          <li>first item</li>
+          <li>second item
+            <ol>
+              <li>second item first subitem</li>
+              <li>second item second subitem berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net.</li>
+              <li>second item third subitem</li>
+            </ol>
+          </li>
+          <li>third item</li>
+        </ul>
+      `
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ## Iframe
 
 <Canvas>

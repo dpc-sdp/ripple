@@ -101,7 +101,7 @@ $rpl-form-shadow: 0 2px 4px 0 rgba(0, 0, 0, .08) !default;
     }
 
     &:focus {
-      border-color: rpl-color('primary');
+      border: solid 3px rpl-color('primary'); // Stronger border for accessibility.
     }
   }
 }

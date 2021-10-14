@@ -60,6 +60,7 @@
                 @focus="onItemFocus"
                 :innerWrap="false"
                 ref="menu-link"
+                :aria-role="(isRoot) ? 'menuitem' : 'menu'"
               >
                 {{ list.text }}
               </rpl-link>
@@ -71,6 +72,8 @@
                 @focus="onItemFocus"
                 :aria-expanded="menuItemOpen[index].toString()"
                 ref="menu-link"
+                :aria-role="(isRoot) ? 'menuitem' : 'menu'"
+                :aria-haspopup="(isRoot) ? true : false"
               >
                 <span>{{ list.text }}</span>
                 <rpl-icon :symbol="menuParentIcon(index)" color="white" />

@@ -139,7 +139,9 @@ export default {
       site: 1,
       // Content types
       page: 1,
-      landingPage: 1,
+      landingPage: {
+        contentCollection: true
+      },
       event: 1,
       news: 1,
       grant: 1,

@@ -1,6 +1,26 @@
 import { getQueryParams } from './lib/card-collection-utils'
-
 import get from 'lodash.get'
+
+/**
+ * Set the site domain map for generating search result link url
+ */
+async function initializeSitesDomainMap (context) {
+  if (!context.store.state.tideSite.sitesDomainMap) {
+    const domains = await context.app.$tide.getSitesDomainMap()
+    context.store.commit('tideSite/setSitesDomainMap', domains)
+  }
+}
+
+/**
+ * Get the require site parameters to resolve domain links.
+ */
+function getDomainLinkVariables (context, pageData) {
+  const tideSite = context.store.state.tideSite
+  const siteId = tideSite.siteId.toString()
+  const domains = tideSite.sitesDomainMap
+  return { siteId, domains }
+}
+
 export default {
   cardCollection: async (context, pageData) => {
     if (pageData.tidePage) {
@@ -37,6 +57,34 @@ export default {
           component.data.total = response.total
           component.data.sidebar = pageData.tideLayout.sidebar
         })
+      }
+    }
+  },
+  contentCollection: async (context, pageData) => {
+    if (pageData.tidePage) {
+      const contentCollections = pageData.tidePage.appDComponents.filter(comp => comp.name === 'content-collection')
+      if (contentCollections.length > 0) {
+        await initializeSitesDomainMap(context)
+        const environment = getDomainLinkVariables(context, pageData)
+        if (pageData.tideLayout.sidebar) {
+          environment.sidebar = pageData.tideLayout.sidebar
+        }
+        if (pageData.tidePage.drupal_internal__nid) {
+          environment.currentPage = pageData.tidePage.drupal_internal__nid
+        }
+        for (var i = 0; i < contentCollections.length; i++) {
+          const collection = contentCollections[i]
+          collection.data.environment = environment
+          if (collection.data.schema) {
+            const dataManager = new context.app.$tideContentCollection(collection.data.schema, (dsl) => {
+              return context.app.$tideSearchApi.searchByPost(dsl)
+            }, environment)
+            const state = dataManager.getDefaultState()
+            dataManager.syncObject(dataManager.getTypeCorrectedQuery(context.route.query, state), state)
+            const response = await dataManager.getResults(state)
+            collection.data.preloadSearchResponse = response
+          }
+        }
       }
     }
   }

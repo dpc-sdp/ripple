@@ -5,7 +5,7 @@
     </div>
     <template v-else>
       <div class="rpl-search-results-layout__header">
-        <div class="rpl-search-results-layout__info" v-if="range && count" aria-live="polite">
+        <div class="rpl-search-results-layout__info" v-if="(range && count) || !!$slots.count" aria-live="polite">
           <slot name="count">
             Displaying {{ range }} of {{ count }} results
           </slot>

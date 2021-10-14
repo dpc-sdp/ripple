@@ -71,6 +71,7 @@
     "serialize-javascript": "^3.1.0",
     "vuex-persistedstate": "^2.5.4",
     "winston": "3.3.3",
+    "logform": "2.2.0",
     "winston-logstash-transport": "^2.0.0"
   },
   "peerDependencies": {

@@ -59,6 +59,7 @@
                 :target="list.target"
                 @focus="onItemFocus"
                 :innerWrap="false"
+                ref="menu-link"
               >
                 {{ list.text }}
               </rpl-link>
@@ -69,6 +70,7 @@
                 @click="menuLinkClick(index)"
                 @focus="onItemFocus"
                 :aria-expanded="menuItemOpen[index].toString()"
+                ref="menu-link"
               >
                 <span>{{ list.text }}</span>
                 <rpl-icon :symbol="menuParentIcon(index)" color="white" />
@@ -228,6 +230,11 @@ export default {
     },
     'open': function (newVal, oldVal) {
       if (!newVal) {
+        for (let key in this.menuItemOpen) {
+          if (this.menuItemOpen[key] && this.isRoot) {
+            this.$refs['menu-link'][key].focus()
+          }
+        }
         this.closeAllItems()
       }
     },

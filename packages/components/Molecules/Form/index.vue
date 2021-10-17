@@ -83,6 +83,13 @@ export default {
       RplFormEventBus.$on('clearform', this.clearForm)
     }
 
+    // VueFormGenerator.validators.required = null
+
+    VueFormGenerator.validators.rplRequired = function(value, field) {
+      console.log(field)
+      return 'NEW MSG ';
+    }
+
     // TODO: We should abstract all future custom validators to a separate file and import them here.
     VueFormGenerator.validators.rplWordCount = function (value, field) {
       let wordCount = value ? value.trim().split(/\s+/).length : 0
@@ -109,6 +116,8 @@ export default {
       }
       return ['More than ' + field.max + ' selections are not allowed']
     }
+
+    console.log(VueFormGenerator.validators)
   },
   destroyed () {
     if (this.listenForClearForm) {
@@ -156,11 +165,11 @@ export default {
         this.$refs.vfg.validate()
 
         // Add the field label to generic required messages for accessibility.
-        this.$refs.vfg.errors.map((item) => {
-          if (item.field.validator === 'required' && item.field.label && item.error === 'This field is required!') {
-            item.error = item.error.replace("This field", item.field.label)
-          }
-        })
+        // this.$refs.vfg.errors.map((item) => {
+        //   if (item.field.validator === 'required' && item.field.label && item.error === 'This field is required!') {
+        //     item.error = item.error.replace("This field", item.field.label)
+        //   }
+        // })
       }
 
       // Run custom submit callback if no error in validation

@@ -1,5 +1,5 @@
 <template>
-  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget" :data-print-url="printUrl">
+  <a v-if="!isNuxtLink" @focus="onFocus" class="rpl-link" :href="href" :target="linkTarget" :data-print-url="printUrl" :aria-label="`${linkTarget === '_blank' ? 'opens in new tab' : ''}`">
     <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </span>

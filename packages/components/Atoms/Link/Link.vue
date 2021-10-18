@@ -56,10 +56,12 @@ export default {
     onFocus: function (e) {
       this.$emit('focus', e)
     },
-    routeLinkClick: function (e) {
+    routeLinkClick: function () {
       // Triggering an active link will reload the page.
-      if (e.target.classList.contains('nuxt-link-active')) {
-        window.location.href = e.target.attributes.href.value
+      const qIndex = this.href.indexOf('?')
+      const path = (qIndex >= 0) ? this.href.substring(0, qIndex) : this.href
+      if (path === window.location.pathname) {
+        window.location.href = this.href
       }
       if (this.isNuxtLink) {
         RplLinkEventBus.$emit('navigate', 'route changed')

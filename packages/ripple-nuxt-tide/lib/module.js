@@ -102,14 +102,16 @@ const nuxtTide = function (moduleOptions) {
   this.options.router.middleware.push('request-id')
 
   // Content Collection
-  const customCCPath = path.resolve('tide/tide.content-collection.js')
-  this.addPlugin({
-    src: path.resolve(__dirname, 'templates/content-collection.js'),
-    fileName: 'tide-content-collection.js',
-    options: {
-      useCustomPath: fs.existsSync(customCCPath)
-    }
-  })
+  if (options.modules?.landingPage?.contentCollection) {
+    const customCCPath = path.resolve('tide/tide.content-collection.js')
+    this.addPlugin({
+      src: path.resolve(__dirname, 'templates/content-collection.js'),
+      fileName: 'tide-content-collection.js',
+      options: {
+        useCustomPath: fs.existsSync(customCCPath)
+      }
+    })
+  }
 
   // https://toor.co/blog/nuxtjs-smooth-scrolling-with-hash-links/
   this.options.router.scrollBehavior = async (to, from, savedPosition) => {

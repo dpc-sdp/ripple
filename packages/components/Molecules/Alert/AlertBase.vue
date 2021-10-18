@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-alert-base" :class="baseBackgroundColor" v-if="visible">
+  <div class="rpl-alert-base" :class="baseBackgroundColor" v-if="visible" aria-live="assertive">
     <rpl-icon class="rpl-alert-base__icon" :symbol="iconSymbol" :color="iconColor" />
     <div class="rpl-alert-base__content" :class="baseTextColor">
       <slot></slot>

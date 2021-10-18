@@ -61,7 +61,7 @@ export default {
     }
   },
   contentCollection: async (context, pageData) => {
-    if (pageData.tidePage) {
+    if (pageData.tidePage && pageData.tidePage.appDComponents) {
       const contentCollections = pageData.tidePage.appDComponents.filter(comp => comp.name === 'content-collection')
       if (contentCollections.length > 0) {
         await initializeSitesDomainMap(context)

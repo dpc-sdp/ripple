@@ -1,7 +1,6 @@
 import ContentCollection from '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/lib/content-collection'
-const fs = require('fs')
 
-export default ({ app, req, store , route }, inject) => {
+export default async ({ app, req, store , route }, inject) => {
   // We need to serialize functions, so use `serialize` instead of `JSON.stringify`.
   // https://github.com/nuxt-community/modules/issues/170
   // https://www.npmjs.com/package/serialize-javascript
@@ -10,7 +9,7 @@ export default ({ app, req, store , route }, inject) => {
   let contentCollectionClass = ContentCollection
 
   if (options.useCustomPath) {
-    contentCollectionClass = require('../tide/tide.content-collection.js').default
+    contentCollectionClass = await import(/* webpackMode: "lazy" */ '../tide/tide.content-collection.js').then(m => m.default)
   }
 
   inject('tideContentCollection', contentCollectionClass)

@@ -101,6 +101,10 @@ export default {
     list-style: none;
     display: block;
 
+    [aria-current="page"] {
+      text-decoration: underline;
+    }
+
     &.section-enter-active,
     &.section-leave-active {
       @include rpl-section-menu-active-left-border;

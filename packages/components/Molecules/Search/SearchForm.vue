@@ -51,7 +51,7 @@ export default {
     filterText: { type: String, default: 'Refine search' },
     theme: String,
     type: { type: String, default: 'default' },
-    allowBlank: { type: Boolean, default: false }
+    allowBlank: { type: Boolean, default: true }
   },
   components: {
     RplForm,
@@ -88,6 +88,7 @@ export default {
     },
     submitSearch: function () {
       if (this.allowBlank || (!this.allowBlank && this.searchInput)) {
+        this.searchInput = (typeof this.searchInput === 'undefined') ? '' : this.searchInput
         this.$emit('search', this.searchInput)
       }
     },

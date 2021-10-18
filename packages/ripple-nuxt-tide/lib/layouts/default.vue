@@ -152,7 +152,9 @@ export default {
       if (this.$route.path !== '/search') {
         searchPageRedirect(this.$router, '/search', searchInput)
       } else {
-        window.location.href = `/search?q=${searchInput}`
+        // If search input is empty then do not add query string.
+        const searchPath = (searchInput === '') ? '/search' : `/search?q=${searchInput}`
+        window.location.href = searchPath
       }
     },
     getFooterLogos (siteData) {

@@ -46,23 +46,6 @@ describe('RplSelect', () => {
     }
   }
 
-  it('has native select on mobile', () => {
-    wrapper = mount(RplSelect, {
-      propsData: {
-        ...basePropsData
-      },
-      computed: {
-        $breakpoint () {
-          return {
-            s: false
-          }
-        }
-      }
-    })
-    expect(wrapper.isVueInstance()).toBeTruthy()
-    expect(wrapper.find('.rpl-select__native').isVisible()).toBeTruthy()
-  })
-
   it('opens on click', async () => {
     wrapper = mount(RplSelect, {
       ...baseConfig
@@ -104,20 +87,6 @@ describe('RplSelect', () => {
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeFalsy()
   })
 
-  test('Selects first item when opened', async () => {
-    wrapper = mount(RplSelect, {
-      ...baseConfig
-    })
-    await wrapper.find('.rpl-select__trigger').trigger('keyup.enter')
-    expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
-
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.find('#single-select-drop-down__topic__005fa').classes()).toContain('rpl-select__listitem--selected')
-      expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic A')
-      expect(wrapper.find('.rpl-select__listitem--selected').attributes('aria-selected')).toBeUndefined()
-    })
-  })
-
   test('navigates to next item when press down arrow', async () => {
     wrapper = mount(RplSelect, {
       ...baseConfig,
@@ -148,7 +117,7 @@ describe('RplSelect', () => {
     await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
     await wrapper.find('.rpl-select__listbox').trigger('keydown.up')
     expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
-    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic C')
+    expect(wrapper.find('.rpl-select__listitem--selected').text()).toEqual('Topic B')
   })
 
   it('initialises value from state prop', () => {
@@ -200,7 +169,26 @@ describe('RplSelect', () => {
         attachToDocument: true
       })
 
-      expect(wrapper.find('#multi-select-drop-down-rpl-select-value').text()).toContain('Topic A, Topic B')
+      expect(wrapper.find('#multi-select-drop-down-rpl-select-value').text()).toContain('Topic A; Topic B')
+      wrapper.destroy()
+    })
+
+    it('Doesnt show long values', () => {
+      wrapper = mount(RplSelect, {
+        ...baseConfig,
+        propsData: {
+          ...baseConfig.propsData,
+          config: {
+            ...baseConfig.propsData.config,
+            fieldId: 'multi-select-drop-down',
+            multiselect: true
+          },
+          state: ['topic_a', 'topic_b', 'topic_c']
+        },
+        attachToDocument: true
+      })
+
+      expect(wrapper.find('#multi-select-drop-down-rpl-select-value').text()).toContain('Topic A + 2 more')
       wrapper.destroy()
     })
 
@@ -234,7 +222,7 @@ describe('RplSelect', () => {
         }
       })
 
-      await wrapper.find('.rpl-select__trigger').trigger('click') // Focuses on first element Topic A
+      await wrapper.find('.rpl-select__trigger').trigger('click')
       expect(wrapper.find('.rpl-select__dropdown').isVisible()).toBeTruthy()
       await wrapper.find('.rpl-select__listbox').trigger('keydown.down')
       await wrapper.find('.rpl-select__listbox').trigger('keydown.down')

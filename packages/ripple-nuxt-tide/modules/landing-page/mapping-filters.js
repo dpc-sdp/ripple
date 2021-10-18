@@ -54,7 +54,6 @@ module.exports = {
 
   autoCardSummary: (card, { mapping }) => {
     return mapping.parseField([
-      ['body', 'summary'],
       ['field_landing_page_summary']
     ], card)
   },

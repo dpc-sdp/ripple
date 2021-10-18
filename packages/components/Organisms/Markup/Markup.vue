@@ -1,6 +1,6 @@
 <template>
   <!-- Keep app-wysiwyg class here for backward compatibility, as some project may use that class for custom style -->
-  <div v-if="html" class="rpl-markup tide-wysiwyg app-wysiwyg">
+  <div v-if="html" class="rpl-markup tide-wysiwyg app-wysiwyg" :class="{'rpl-markup--rtl': isRtl()}">
     <!-- Use dynamic component to render string template in runtime -->
     <component :is="{ template: getTemplate.html, data: () => getTemplate.data }" />
   </div>
@@ -15,6 +15,7 @@ import RplButton from '@dpc-sdp/ripple-button'
 import RplDocumentLink from '@dpc-sdp/ripple-document-link'
 import RplEmbeddedVideo from '@dpc-sdp/ripple-embedded-video'
 import { RplTextLink } from '@dpc-sdp/ripple-link'
+import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
 
 Vue.component('rpl-button', RplButton)
 Vue.component('rpl-document-link', RplDocumentLink)
@@ -23,6 +24,7 @@ Vue.component('rpl-text-link', RplTextLink)
 
 export default {
   name: 'RplMarkup',
+  mixins: [rtl],
   props: {
     'html': String,
     'plugins': { type: Array },
@@ -64,6 +66,7 @@ $callout-text-color: rpl_color('extra_dark_neutral') !default;
 $callout-author-ruleset: (rem(20px), 1.2em, 'medium') !default;
 $callout-mark-border: rem(4px) solid rpl_color('mid_neutral_2') !default;
 $callout-padding: 0 0 0 ($rpl-space * 6) !default;
+$callout-padding-rtl: 0 ($rpl-space * 6) 0 0 !default;
 $callout-margin: ($rpl-space * 7) 0 !default;
 
 $quotation-padding-xs: 0 0 0 ($rpl-space * 6) !default;
@@ -96,7 +99,11 @@ $callout-wrapper-background-color: tint(rpl_color('secondary'), 90%) !default;
 $callout-wrapper-border-left: rem(4px) solid !default;
 $callout-wrapper-list-padding-left: ($rpl-space * 6) !default;
 $callout-wrapper-padding: ($rpl-space-3) ($rpl-space * 6) ($rpl-space * 6) ($rpl-space * 6) !default;
+$callout-wrapper-padding-rtl: ($rpl-space * 6) ($rpl-space * 6) ($rpl-space-3) ($rpl-space * 6) !default;
 $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
+$unordered-list-line-height: $rpl-space * 5 !default;
+$unordered-list-padding-bottom: rem(11px) !default;
+$no-padding: 0;
 
 .rpl-markup {
   @include rpl_text_color($rpl-markup-text-color);
@@ -112,6 +119,22 @@ $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
       ul {
         list-style-type: square;
       }
+    }
+  }
+
+  ul li,
+  ol li {
+    line-height: $unordered-list-line-height;
+    padding-bottom: $unordered-list-padding-bottom;
+    &:last-child {
+      padding-bottom: $no-padding;
+    }
+    > ul li,
+    > ol li {
+      &:first-child {
+        padding-top: $unordered-list-padding-bottom;;
+      }
+
     }
   }
 
@@ -317,6 +340,27 @@ $callout-wrapper-heading-margin: ($rpl-space * 5) 0 !default;
 
     h2, h3 {
       margin: $callout-wrapper-heading-margin;
+    }
+  }
+
+  &--rtl {
+    .rpl-markup__callout,
+    .wysiwyg-callout {
+      border-left: 0;
+      border-right: $callout-mark-border;
+      padding: $callout-padding-rtl;
+    }
+    +
+    .rpl-markup__callout-wrapper,
+    .callout-wrapper {
+      border-left: 0;
+      border-right: $callout-wrapper-border-left;
+      border-color: $callout-wrapper-border-color;
+      padding: $callout-wrapper-padding-rtl;
+      +
+        ul {
+          padding-right: $callout-wrapper-list-padding-left;
+        }
     }
   }
 

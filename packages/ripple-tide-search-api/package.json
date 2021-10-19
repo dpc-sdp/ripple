@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-search-api",
-  "version": "1.23.1",
+  "version": "1.24.4",
   "description": "Ripple API endpoints for Tide search provider",
   "license": "Apache-2.0",
   "contributors": [
@@ -14,7 +14,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@elastic/elasticsearch": "^7.10.0",
+    "@elastic/elasticsearch": "7.13.0",
     "express": "^4.17.1",
     "lodash.get": "^4.4.2",
     "qs": "^6.9.4"

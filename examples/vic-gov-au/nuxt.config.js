@@ -133,13 +133,15 @@ export default {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     },
-    site: '4',
+    site: 4,
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {
       site: 1,
       // Content types
       page: 1,
-      landingPage: 1,
+      landingPage: {
+        contentCollection: true
+      },
       event: 1,
       news: 1,
       grant: 1,

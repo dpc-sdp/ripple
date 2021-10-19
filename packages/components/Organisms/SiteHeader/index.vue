@@ -7,6 +7,7 @@
         'rpl-site-header--open': menuContentOpen,
         'rpl-site-header--sticky': stickyActive,
       }"
+      @keydown.esc="closeModalMenu()"
     >
       <div class="rpl-site-header__inner">
         <!-- Top Bar -->
@@ -50,6 +51,10 @@
               'rpl-site-header__menu-container--vertical': (menuLayout === 'vertical')
             }"
           >
+            <rpl-skip-link
+              title="Skip main navigation"
+              href="#search-container"
+            />
             <div class="rpl-site-header__menu">
               <rpl-menu
                 :menu="links"
@@ -60,7 +65,7 @@
               />
             </div>
           </div>
-          <div class="rpl-site-header__btn-container">
+          <div id="search-container" class="rpl-site-header__btn-container">
             <!-- Logout button -->
             <button
               v-if="showLogout"
@@ -103,6 +108,7 @@ import Trap from 'vue-focus-lock'
 import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.png'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import RplSiteHeaderEventBus from './RplSiteHeaderEventBus'
+import RplSkipLink from '@dpc-sdp/ripple-layout/SkipLink.vue'
 
 export default {
   name: 'RplSiteHeader',
@@ -158,7 +164,8 @@ export default {
     RplIcon,
     RplLink,
     RplMenu,
-    RplSearch
+    RplSearch,
+    RplSkipLink
   },
   data: function () {
     return {
@@ -235,6 +242,12 @@ export default {
       this.menuContentOpen = !(this.menuContentOpen && this.menuState === 'opened')
       this.searchState = 'closed'
       this.menuState = this.menuContentOpen ? 'opened' : 'closed'
+    },
+    closeModalMenu: function () {
+      if (this.menuContentOpen & this.menuState === 'opened') {
+        this.menuContentOpen = false
+        this.menuState = 'closed'
+      }
     },
     showMenuBtn: function () {
       const menuLinkCount = (Array.isArray(this.links) && this.links.length > 0)

@@ -8,14 +8,13 @@
     </template>
     <span v-if="linkTarget === '_blank'" class="rpl-visually-hidden">, opens a new window</span>
   </a>
-  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" :target="linkTarget" @click.native="routeLinkClick" :data-print-url="printUrl">
+  <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick" :data-print-url="printUrl">
     <span v-if="innerWrap" class="rpl-link__inner">
       <slot></slot>
     </span>
     <template v-else>
       <slot></slot>
     </template>
-    <span v-if="linkTarget === '_blank'" class="rpl-visually-hidden">, opens a new window</span>
   </nuxt-link>
 </template>
 

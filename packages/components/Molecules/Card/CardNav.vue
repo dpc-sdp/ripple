@@ -1,5 +1,5 @@
 <template>
-  <rpl-link v-if="link" :class="['rpl-card-nav', classModifiers]" :href="link.url" :innerWrap="false">
+  <rpl-link v-if="link" :class="['rpl-card-nav', classModifiers]" :href="link.url" :innerWrap="false" :aria-label="trimmedTitle + ', ' + formattedDate">
     <div v-if="computedImg && displayStyle !== 'noImage'" class="rpl-card-nav__image-wrapper">
       <rpl-responsive-img class="rpl-card-nav__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     </div>

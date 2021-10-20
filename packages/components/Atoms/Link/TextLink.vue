@@ -1,5 +1,5 @@
 <template>
-  <rpl-link v-if="url !== null" class="rpl-text-link" :class="{ 'rpl-text-link--underline': underline, 'rpl-text-link--dark': (theme === 'dark') }" :href="url" :target="target" :innerWrap="innerWrap">
+  <rpl-link v-if="url !== null" class="rpl-text-link" :class="{ 'rpl-text-link--underline': underline, 'rpl-text-link--dark': (theme === 'dark') }" :href="url" :innerWrap="innerWrap">
     <rpl-text-label :theme="theme" :size="size" :underline="underline" :emphasis="emphasis">
       <rpl-text-icon :text="textDecoded" :symbol="iconSymbolFinal" :color="iconColor" :placement="iconPlacement" :size="iconSize" />
     </rpl-text-label>
@@ -21,7 +21,6 @@ export default {
     iconSize: { default: 'm', type: String },
     text: { default: null, type: String },
     url: { default: null, type: String },
-    target: { default: '', type: String },
     innerWrap: { default: true, type: Boolean },
     underline: { default: false, type: Boolean },
     theme: { default: 'light', type: String },

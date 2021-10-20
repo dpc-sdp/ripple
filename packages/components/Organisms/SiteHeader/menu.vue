@@ -29,7 +29,7 @@
             </button>
             <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url" :target="parent.target" :innerWrap="false">{{ parent.text }}</rpl-link>
           </div>
-          <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
+          <ul :id="isRoot ? 'rpl-primary-menu' : `sub-menu-${menuId}`" class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }" :role="isRoot ? 'menubar' : 'menu'">
             <li
               v-if="isRoot && isVerticalLayout"
               class="rpl-menu__item"
@@ -60,7 +60,7 @@
                 @focus="onItemFocus"
                 :innerWrap="false"
                 ref="menu-link"
-                :aria-role="(isRoot) ? 'menuitem' : 'menu'"
+                role="menuitem"
               >
                 {{ list.text }}
               </rpl-link>
@@ -72,8 +72,9 @@
                 @focus="onItemFocus"
                 :aria-expanded="menuItemOpen[index].toString()"
                 ref="menu-link"
-                :aria-role="(isRoot) ? 'menuitem' : 'menu'"
+                role="menuitem"
                 :aria-haspopup="(isRoot) ? true : false"
+                :aria-controls="`sub-menu-${getIdFromLocalRegistry(index)}`"
               >
                 <span>{{ list.text }}</span>
                 <rpl-icon :symbol="menuParentIcon(index)" color="white" />
@@ -91,6 +92,7 @@
                 @focused="onInnerItemFocus(index, $event)"
                 @menuchange="onInnerMenuChange"
                 @back="onInnerMenuBack"
+                :menuId="getIdFromLocalRegistry(index)"
               ></rpl-menu>
             </li>
           </ul>
@@ -106,6 +108,7 @@ import { focus } from 'vue-focus'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import RplLink from '@dpc-sdp/ripple-link'
 import RplQuickExit from '@dpc-sdp/ripple-layout/QuickExit.vue'
+import uniqueid from '@dpc-sdp/ripple-global/mixins/uniqueid'
 
 export default {
   name: 'RplMenu',
@@ -117,7 +120,8 @@ export default {
     title: String,
     backTitle: String,
     sharedControl: Object,
-    parent: Object
+    parent: Object,
+    menuId: Number
   },
   directives: {
     focus
@@ -127,6 +131,7 @@ export default {
     RplLink,
     RplQuickExit
   },
+  mixins: [uniqueid],
   data: function () {
     return {
       menuItemOpen: this.prepareOpenStates(),

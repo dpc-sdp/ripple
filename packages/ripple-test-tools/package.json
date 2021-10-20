@@ -17,7 +17,7 @@
     "cucumber-junit-convert": "^1.1.0",
     "cypress": "^4.1.0",
     "cypress-audit": "^0.3.0",
-    "cypress-axe": "^0.12.0",
+    "cypress-axe": "^0.13.0",
     "cypress-cucumber-preprocessor": "^2.0.1",
     "cypress-plugin-snapshots": "^1.4.4",
     "glob": "^7.1.6",

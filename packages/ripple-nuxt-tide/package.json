@@ -65,7 +65,7 @@
     "js-cookie": "^2.2.0",
     "jsonapi-parse": "^2.0.0",
     "jwt-decode": "^2.2.0",
-    "logform": "2.2.0",
+    "logform": "2.3.0",
     "mime-types": "^2.1.27",
     "moment-timezone": "0.5.33",
     "qs": "^6.9.4",

@@ -162,7 +162,11 @@ export default (config, router, site) => ({
   },
   setFilterOptions: async function (fieldMap = {}, index = config.index) {
     const client = await service.getClient(config)
-    return service.api.getUniqueVals(client, fieldMap, index)
+    let options = await service.api.getUniqueVals(client, fieldMap, index)
+    options = options.map(option => {
+      return { 'id': option, 'name': option }
+    })
+    return options
   },
   updateFilterOptions: function (filterForm, aggregations) {
     for (let filter of this.getFormFields(filterForm)) {

@@ -25,24 +25,26 @@ export default {
             {
               fields: [
                 {
-                  type: 'rplchecklist',
+                  type: 'rplselect',
                   label: 'View those relevant to',
                   model: 'field_audience_name',
                   styleClasses: ['form-group--col-two'],
                   values: audienceValues,
                   placeholder: 'Individuals and organisation types',
+                  multiselect: true,
                   filter: {
                     type: 'term',
                     operator: ''
                   }
                 },
                 {
-                  type: 'rplchecklist',
+                  type: 'rplselect',
                   label: 'Grant or program topic',
                   model: 'field_topic_name',
                   styleClasses: ['form-group--col-two'],
                   values: grantTopicValues,
                   placeholder: 'Please select',
+                  multiselect: true,
                   filter: {
                     type: 'term',
                     operator: ''
@@ -53,12 +55,13 @@ export default {
             {
               fields: [
                 {
-                  type: 'rplchecklist',
+                  type: 'rplselect',
                   label: 'Status',
                   model: 'field_status',
                   styleClasses: ['form-group--col-two'],
                   values: ['Open', 'Closed', 'Ongoing', 'Opening soon'],
                   placeholder: 'Select for opened, closed or upcoming grants',
+                  multiselect: true,
                   filter: {
                     type: 'date',
                     operator: '',

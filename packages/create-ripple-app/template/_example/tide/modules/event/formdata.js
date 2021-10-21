@@ -26,11 +26,12 @@ export default {
             {
               fields: [
                 {
-                  type: 'rplchecklist',
+                  type: 'rplselect',
                   styleClasses: ['form-group--col-two'],
                   label: 'Select an event category',
                   model: 'field_event_category_name',
                   values: eventCategoryValues,
+                  multiselect: true,
                   placeholder: 'Select a topic',
                   // TODO: Update 'filter' key to 'query' to make purpose clearer.
                   filter: {
@@ -72,13 +73,14 @@ export default {
                   }
                 },
                 {
-                  type: 'rplchecklist',
+                  type: 'rplselect',
                   label: 'Event requirements',
                   styleClasses: ['form-group--col-two'],
                   model: 'field_event_details_event_requirements_name',
                   // TODO: There are no values for this field how can we programmactically hide a field in this instance.
                   values: eventNameValues,
                   placeholder: 'Please select',
+                  multiselect: true,
                   filter: {
                     type: 'term',
                     operator: ''

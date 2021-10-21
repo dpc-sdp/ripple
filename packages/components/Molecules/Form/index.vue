@@ -83,6 +83,16 @@ export default {
       RplFormEventBus.$on('clearform', this.clearForm)
     }
 
+    // Just include the field labels in the required messages while still using the native 'required' validator for minimum impact.
+    VueFormGenerator.validators.rplRequired = function (value, field) {
+      if (value === null || value === '') {
+        if (field.required) {
+          VueFormGenerator.validators.resources.fieldIsRequired = field.label + ' is required.'
+        }
+      }
+      return []
+    }
+
     // TODO: We should abstract all future custom validators to a separate file and import them here.
     VueFormGenerator.validators.rplWordCount = function (value, field) {
       let wordCount = value ? value.trim().split(/\s+/).length : 0

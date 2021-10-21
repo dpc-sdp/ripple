@@ -75,6 +75,7 @@ module.exports = {
 
       if (element['#required']) {
         field.required = true
+        field.validator.push('rplRequired')
         field.validator.push('required')
       } else {
         field.required = false

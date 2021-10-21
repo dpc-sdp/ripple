@@ -83,12 +83,19 @@ export default {
       RplFormEventBus.$on('clearform', this.clearForm)
     }
 
-    // VueFormGenerator.validators.required = null
+    // VueFormGenerator.validators.required = function () {} 
 
-    VueFormGenerator.validators.rplRequired = function(value, field) {
-      console.log(field)
-      return 'NEW MSG ';
-    }
+    VueFormGenerator.validators.rplRequired = function (value, field) {
+      // console.log(field.label)
+      if (value === null || value === '') {
+        if (field.required) {
+          VueFormGenerator.validators.resources.fieldIsRequired = field.label + ' is required.'
+        } 
+      }
+      return [];
+	  }
+
+    
 
     // TODO: We should abstract all future custom validators to a separate file and import them here.
     VueFormGenerator.validators.rplWordCount = function (value, field) {
@@ -117,7 +124,7 @@ export default {
       return ['More than ' + field.max + ' selections are not allowed']
     }
 
-    console.log(VueFormGenerator.validators)
+    // console.log(VueFormGenerator.validators)
   },
   destroyed () {
     if (this.listenForClearForm) {

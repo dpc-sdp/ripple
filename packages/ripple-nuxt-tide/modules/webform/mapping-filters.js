@@ -52,7 +52,8 @@ module.exports = {
         type: null,
         model: eName,
         validator: [],
-        styleClasses: ['tide-webform-field']
+        styleClasses: ['tide-webform-field'],
+        requiredError: null
       }
 
       const group = {}
@@ -79,6 +80,12 @@ module.exports = {
         field.validator.push('required')
       } else {
         field.required = false
+      }
+
+      if (element['#required_error']) {
+        field.requiredError = element['#required_error']
+      } else {
+        field.requiredError = null
       }
 
       if (element['#states']) {
@@ -440,7 +447,8 @@ module.exports = {
               label: null,
               inlineLabel: element['#title'] ? element['#title'] : null,
               required: element['#required'],
-              validator: element['#required'] ? ['required'] : [],
+              validator: element['#required'] ? ['rplRequired', 'required'] : [],
+              requiredError: element['#required_error'] ? element['#required_error'] : null,
               model: eName
             }
           )

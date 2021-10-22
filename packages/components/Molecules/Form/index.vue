@@ -85,8 +85,10 @@ export default {
 
     // Just include the field labels in the required messages while still using the native 'required' validator for minimum impact.
     VueFormGenerator.validators.rplRequired = function (value, field) {
-      if (value === null || value === '') {
-        if (field.required) {
+      if ((value === null || value === '') && field.required) {
+        if (field.requiredError) {
+          VueFormGenerator.validators.resources.fieldIsRequired = field.requiredError
+        } else {
           VueFormGenerator.validators.resources.fieldIsRequired = field.label + ' is required.'
         }
       }

@@ -4,7 +4,7 @@ const elastic = function (config) {
   const options = {
     host: config.url,
     log: config.log,
-    apiVersion: '6.5'
+    apiVersion: config.apiVersion
   }
 
   if (Object.keys(config.auth).length > 0 && (config.auth.username && config.auth.password)) {

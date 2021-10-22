@@ -66,8 +66,9 @@ export default class SearchApi {
   }
 
   async mapResults (res, templateName = null) {
+    const totalhits = res.hits.total.hasOwnProperty('value') ? res.hits.total.value : res.hits.total
     const returnData = {
-      total: res.hits.total,
+      total: totalhits,
       results: [],
       aggregations: res.aggregations
     }

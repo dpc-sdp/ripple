@@ -13,6 +13,14 @@
       v-show="hideForm()"
       @model-updated="onModelChange"
     />
+    <div v-if="errorList" role="alert" aria-live="assertive" class="rpl-form__sr-only">
+      <p>The following errors occurred:</p>
+      <ul>
+        <li v-for="item in errorList" :key="item.field.model">
+          {{ item.error }}
+        </li>
+      </ul>
+    </div>
   </form>
 </template>
 
@@ -75,7 +83,8 @@ export default {
   },
   data () {
     return {
-      isClearingForm: false
+      isClearingForm: false,
+      errorList: null
     }
   },
   mounted () {
@@ -154,6 +163,9 @@ export default {
       // call validation manually
       if (this.validateOnSubmit) {
         this.$refs.vfg.validate()
+
+        // Provide all errors in one visually hidden area for screenreaders.
+        this.errorList = this.$refs.vfg.errors
       }
 
       // Run custom submit callback if no error in validation
@@ -325,6 +337,14 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
 
   &--full-width {
     max-width: 100%;
+  }
+
+  &__sr-only {
+    @include rpl_visually_hidden;
+    ul {
+      // Avoid screenreader reading out "bullet".
+      list-style-type: none;
+    }
   }
 }
 

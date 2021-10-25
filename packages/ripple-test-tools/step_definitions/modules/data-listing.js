@@ -5,6 +5,10 @@
 require('@dpc-sdp/ripple-test-tools/step_definitions')
 const { Given, Before, Then } = require('cypress-cucumber-preprocessor/steps')
 
+const cmp = {
+  root: '.rpl-data-listing'
+}
+
 Before({ tags: '@mockserver' }, async () => {
   cy.task('startMockServer')
 })
@@ -33,5 +37,13 @@ Given(
 )
 
 Then(`the data listing component should exist`, () => {
-  cy.get('.ch-data-listing').should('exist')
+  cy.get(cmp.root).should('exist')
+})
+
+Then(`the data listing component count should display {string}`, (expected) => {
+  cy.get(`${cmp.root} .rpl-search-results-layout__info`, { timeout: 6000 }).should('contain', expected)
+})
+
+Then(`the data listing component sort label should be {string}`, (expected) => {
+  cy.get(`${cmp.root}__sort label`).should('contain', expected)
 })

@@ -1,15 +1,15 @@
 <template>
-<div class="ch-data-listing">
-  <rpl-form v-if="searchForm" :formData="searchForm" class="ch-data-listing__form" :submitHandler="onSearchSubmit" :submitFormOnClear="true" :scrollToMessage="false"></rpl-form>
-  <rpl-tabs class="ch-data-listing__tabs" v-if="enableMap" :tabs="tabs" :activeTab="activeTab" @rpl-tab-switch="switchTab" />
+<div class="rpl-data-listing">
+  <rpl-form v-if="searchForm" :formData="searchForm" class="rpl-data-listing__form" :submitHandler="onSearchSubmit" :submitFormOnClear="true" :scrollToMessage="false"></rpl-form>
+  <rpl-tabs class="rpl-data-listing__tabs" v-if="enableMap" :tabs="tabs" :activeTab="activeTab" @rpl-tab-switch="switchTab" />
   <keep-alive>
     <slot name="map" :mapData="mapData" v-if="enableMap && (!hasTabs || activeTab === 'map')">
     </slot>
     <slot name="table" :tableData="tableData" v-if="enableTable && (!hasTabs || activeTab === 'list')">
       <rpl-search-results-loading v-if="loading" />
-      <rpl-search-results-layout v-else ref="searchresults" class="ch-data-listing__results" key="vaccination-locations" :searchResults="tableData.results" :count="parseInt(tableData.total)">
+      <rpl-search-results-layout v-else ref="searchresults" class="rpl-data-listing__results" key="vaccination-locations" :searchResults="tableData.results" :count="parseInt(tableData.total)">
         <template slot="noresults">
-          <div class="ch-data-listing__no-results">
+          <div class="rpl-data-listing__no-results">
             <slot name="noresults">
               <h3>No results found that match your search criteria. </h3>
               <p>Please clear your search filters and try again.</p>
@@ -22,16 +22,16 @@
           </slot>
         </template>
         <template slot="sort" v-if="sortValues && sortValues.length > 0">
-          <div v-if="total > 0" class="ch-data-listing__sort">
+          <div v-if="total > 0" class="rpl-data-listing__sort">
             <label for="ch-sort-select">
               <span class="rpl-form-label">Sort by:</span>
             </label>
-            <rpl-select ref="sortselect" id="ch-sort-select" class="ch-data-listing__sort-select" :values="sortValues" :state="sort" @rpl-select-update="sortUpdate"/>
+            <rpl-select ref="sortselect" id="ch-sort-select" class="rpl-data-listing__sort-select" :values="sortValues" :state="sort" @rpl-select-update="sortUpdate"/>
           </div>
         </template>
         <template v-slot:results="resultsProps">
           <rpl-complex-data-table
-            class="ch-data-listing__results-table"
+            class="rpl-data-listing__results-table"
             ref="search-results-table"
             :items="resultsProps.searchResults"
             :columns="columns"
@@ -49,7 +49,7 @@
             <rpl-pagination
               ref="pagination"
               v-if="pageCount > 1"
-              class="ch-data-listing__pagination"
+              class="rpl-data-listing__pagination"
               :totalSteps="pageCount"
               :initialStep="page"
               :stepsAround="2"
@@ -510,20 +510,20 @@ export default {
     padding: 0;
   }
 }
-$ch-data-listing-header-spacing-s: rem(20px);
-$ch-data-listing-header-spacing-l: rem(40px);
+$rpl-data-listing-header-spacing-s: rem(20px);
+$rpl-data-listing-header-spacing-l: rem(40px);
 $ch-form-element-spacing: $rpl-space-4;
 $ch-form-padding-mob: rem(20px);
 $ch-form-padding-desk: $rpl-space-4;
-$ch-data-listing-sort-width: rem(280px);
-.ch-data-listing {
+$rpl-data-listing-sort-width: rem(280px);
+.rpl-data-listing {
   &__results {
     padding: 0;
   }
   .rpl-search-results-layout__header {
-    margin: $ch-data-listing-header-spacing-s 0;
+    margin: $rpl-data-listing-header-spacing-s 0;
     @include rpl_breakpoint('l') {
-      margin: $ch-data-listing-header-spacing-l 0;
+      margin: $rpl-data-listing-header-spacing-l 0;
     }
   }
 
@@ -531,7 +531,7 @@ $ch-data-listing-sort-width: rem(280px);
     p {
       margin: 0;
       @include rpl_breakpoint_down('m') {
-        margin-bottom: $ch-data-listing-header-spacing-s;
+        margin-bottom: $rpl-data-listing-header-spacing-s;
       }
     }
   }
@@ -552,7 +552,7 @@ $ch-data-listing-sort-width: rem(280px);
       @include rpl_typography_ruleset(('xs', 1em, 'regular'));
       width: 100%;
       @include rpl_breakpoint('m') {
-        width: $ch-data-listing-sort-width;
+        width: $rpl-data-listing-sort-width;
       }
     }
     label {

@@ -1,6 +1,6 @@
 const cucumber = require('cypress-cucumber-preprocessor').default
 const rippleTasks = require('@dpc-sdp/ripple-test-tools/tasks')
-const { lighthouse, prepareAudit } = require('cypress-audit')
+const { prepareAudit } = require('cypress-audit')
 // Environment variables that need exposing to cypress go here - use the example site .env file
 require('dotenv').config()
 
@@ -27,35 +27,6 @@ module.exports = (on, config) => {
   // Cypress audit
   on('before:browser:launch', (browser = {}, launchOptions) => {
     prepareAudit(launchOptions)
-  })
-
-  on('task', {
-    // mockserver
-    async startMockServer () {
-      const port = 3001
-      try {
-        if (mockServer.url) {
-          await mockServer.stop()
-          await mockServer.start(port)
-          return mockServer.url
-        }
-      } catch (error) {
-        await mockServer.start(port)
-        return mockServer.url
-      }
-    },
-    async setMockRoute ({ route, status, response }) {
-      const endpointMock = await mockServer.get(route).thenJson(status, response)
-      return endpointMock
-    },
-    async setMockRouteWithQuery ({ route, status, response, query }) {
-      const endpointMock = await mockServer.get(route).withExactQuery(query).thenJson(status, response)
-      return endpointMock
-    }
-  })
-
-  on('task', {
-    lighthouse: lighthouse()
   })
 
   return config

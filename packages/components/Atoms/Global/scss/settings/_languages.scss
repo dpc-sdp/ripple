@@ -1,0 +1,159 @@
+/**
+ * this is just hack for multilingual fonts, need a discovery for best solution.
+*/
+
+@mixin lang_font($font-family) {
+  .rpl-hero-banner,
+  .rpl-main {
+    div,
+    span,
+    p {
+      font-family: #{$font-family} !important;
+      font-weight: 400;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: #{$font-family} !important;
+      font-weight: 700;
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+// Lang code specific font family
+$rpl-langs: (
+  'ar': ('Noto Kufi Arabic', 'sans-serif'),
+  'fa': ('Noto Naskh Arabic', 'sans-serif'),
+  'ur': ('NafeesRegular', 'sans-serif'),
+  'cld': ('Noto Naskh Arabic', 'sans-serif'),
+  'nus': ('Arial', 'sans-serif'),
+  'din': ('Arial', 'sans-serif'),
+  'hi': ('Noto Sans Devanagari', 'sans-serif'),
+  'ta': ('Noto Sans Tamil', 'sans-serif'),
+  'bn': ('Noto Sans Bengali', 'sans-serif'),
+  'el': ('Roboto', 'sans-serif'),
+  'my': ('Noto Sans Myanmar', 'sans-serif'),
+  // part 2
+  'ach': ('Arial', 'sans-serif'),
+  'aii': ('Noto Sans Syriac Eastern', 'sans-serif'),
+  'am': ('Noto Sans Ethiopic', 'sans-serif'),
+  'zh-Hans': ('Noto Sans SC', 'sans-serif'),
+  'zh-Hant': ('Noto Sans TC', 'sans-serif'),
+  'prs': ('Noto Naskh Arabic', 'sans-serif'),
+  'ps': ('Noto Naskh Arabic', 'sans-serif'),
+  'gu': ('Noto Sans Gujarati', 'sans-serif'),
+  'haz': ('Noto Naskh Arabic', 'sans-serif'),
+  'ja': ('Noto Sans JP', 'sans-serif'),
+  'kar': ('Padauk', 'sans-serif'),
+  'km': ('Noto Sans Khmer', 'sans-serif'),
+  'ko': ('Noto Sans KR', 'sans-serif'),
+  'mk': ('Noto Sans', 'sans-serif'),
+  'ne': ('Cambay', 'sans-serif'),
+  'pa': ('Noto Sans Gurmukhi', 'sans-serif'),
+  'ru': ('Roboto', 'sans-serif'),
+  'sr': ('Roboto', 'sans-serif'),
+  'si': ('Noto Sans Sinhala', 'sans-serif'),
+  'th': ('Noto Sans Thai', 'sans-serif'),
+  'ti': ('Noto Sans Ethiopic', 'sans-serif'),
+  'vi': ('Roboto', 'sans-serif')
+);
+
+// Generate css for each lang code
+@each $lang, $font in $rpl-langs {
+  .rpl-lang--#{$lang} {
+    @include lang_font($font)
+  }
+}
+
+// Adjust the line height for particular lang.
+// We may need more specific for different viewport but not now.
+.rpl-lang--ar,
+.rpl-lang--fa,
+.rpl-lang--cld {
+  h1,
+  h2,
+  h3 {
+    line-height: 1.4em;
+
+    span {
+      line-height: 1.4em;
+    }
+  }
+}
+
+.rpl-lang--ur,
+.rpl-lang--bn,
+.rpl-lang--ta,
+.rpl-lang--my {
+  div,
+  span,
+  p,
+  .wysiwyg-callout {
+    line-height: 2em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.8em;
+
+    span {
+      line-height: 1.8em;
+    }
+  }
+}
+
+.rpl-lang--zh-Hans,
+.rpl-lang--zh-Hant,
+.rpl-lang--ja,
+.rpl-lang--km,
+.rpl-lang--ko,
+.rpl-lang--mk,
+.rpl-lang--ne,
+.rpl-lang--pa,
+.rpl-lang--si,
+.rpl-lang--th,
+.rpl-lang--kar {
+  div,
+  span,
+  p,
+  .wysiwyg-callout {
+    line-height: 1.8em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.5em;
+
+    span {
+      line-height: 1.5em;
+    }
+  }
+}
+
+.rpl-lang--bn,
+.rpl-lang--el,
+.rpl-lang--hi {
+  h1 {
+    line-height: 1.4em;
+
+    span {
+      line-height: 1.4em;
+    }
+  }
+}

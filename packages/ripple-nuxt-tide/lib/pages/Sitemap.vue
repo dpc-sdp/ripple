@@ -32,6 +32,9 @@ export default {
     RplBreadcrumbs,
     RplSitemap
   },
+  created () {
+    this.rplOptions.contentRtl = false
+  },
   data () {
     const pageTitle = 'Site map'
     this.$store.dispatch('tide/setPageHead', { title: pageTitle })

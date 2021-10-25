@@ -65,9 +65,10 @@ export default class SearchApi {
     }
   }
 
-  async mapResults (res, templateName) {
+  async mapResults (res, templateName = null) {
+    const totalhits = res.hits.total.hasOwnProperty('value') ? res.hits.total.value : res.hits.total
     const returnData = {
-      total: res.hits.total,
+      total: totalhits,
       results: [],
       aggregations: res.aggregations
     }
@@ -75,7 +76,7 @@ export default class SearchApi {
       for (let i = 0; i < res.hits.hits.length; i++) {
         const hit = res.hits.hits[i]._source
         let result = res.hits.hits[i]
-        if (this.templates.hasOwnProperty(templateName)) {
+        if (templateName && this.templates.hasOwnProperty(templateName)) {
           const template = this.templates[templateName]
           if (template.hasOwnProperty('responseMapping')) {
             if (template.responseMapping.constructor.name === 'AsyncFunction') {
@@ -115,6 +116,7 @@ export default class SearchApi {
         headers,
         id: reqHeaders.tide_search_request_id
       }
+
       if (this.templates.hasOwnProperty(template)) {
         const searchQuery = await this.getQuery(template, params)
         const { body, statusCode } = await this.search(searchQuery, reqConfig)
@@ -126,6 +128,30 @@ export default class SearchApi {
         throw this.handleError(`Error fetching search data`, statusCode, { searchQuery })
       }
       throw this.handleError(`Could not find the template ${template}`, 404)
+    } catch (error) {
+      return {
+        error: true,
+        status: error.statusCode,
+        message: `${error.message}`,
+        meta: error.meta
+      }
+    }
+  }
+
+  async searchByDSL (reqBody, reqHeaders = {}) {
+    try {
+      const headers = this.getHeaders(reqHeaders)
+      const reqConfig = {
+        headers,
+        id: reqHeaders.tide_search_request_id
+      }
+      const searchQuery = reqBody
+
+      const { body, statusCode } = await this.search(searchQuery, reqConfig)
+      if (body && statusCode === 200) {
+        return body
+      }
+      throw this.handleError(`Error fetching search data`, statusCode, { searchQuery })
     } catch (error) {
       return {
         error: true,

@@ -9,7 +9,7 @@ export default {
   name: 'RplSkipLink',
   props: {
     title: { type: String, default: 'Skip to main content' },
-    href: { type: String, default: '#rpl-main-content' },
+    href: { type: String, default: '#rpl-main' },
     show: { type: Boolean, default: false }
   }
 }

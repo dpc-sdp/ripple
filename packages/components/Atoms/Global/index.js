@@ -13,7 +13,9 @@ const RplGlobal = {
       quickexiturl: 'https://www.google.com',
       viclogo: true,
       viclogoFooter: true,
-      externalLinksInNewWindow: false // (Bool) Whether links open in new window by default
+      externalLinksInNewWindow: false, // (Bool) Whether links open in new window by default
+      siteRtl: false,
+      contentRtl: false
     }
 
     const mergedOptions = Object.assign({}, rplOptions, options)

@@ -133,13 +133,15 @@ export default {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     },
-    site: '4',
+    site: 4,
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {
       site: 1,
       // Content types
       page: 1,
-      landingPage: 1,
+      landingPage: {
+        contentCollection: true
+      },
       event: 1,
       news: 1,
       grant: 1,
@@ -161,6 +163,7 @@ export default {
       index: process.env.SEARCH_INDEX,
       url: 'https://' + process.env.SEARCH_HASH + '.' + process.env.SEARCH_URL,
       log: process.env.SEARCH_LOG,
+      apiVersion: process.env.SEARCH_API_VERSION || '6.5',
       auth: {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD

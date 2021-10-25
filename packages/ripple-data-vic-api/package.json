@@ -1,0 +1,21 @@
+{
+    "name": "@dpc-sdp/ripple-data-vic-api",
+    "version": "1.23.1",
+    "description": "Nuxt server middleware and vue components for rendering data driven components using data sets from data.vic.gov.au",
+    "license": "Apache-2.0",
+    "maintainers": [
+      {
+        "name": "Dylan Kelly <dylan.kelly@dpc.vic.gov.au>"
+      }
+    ],
+    "main": "src/index.js",
+    "dependencies": {
+      "express": "^4.17.1",
+      "axios": "^0.23.0",
+      "qs": "^6.9.4"
+    },
+    "publishConfig": {
+      "access": "public"
+    }
+  }
+  

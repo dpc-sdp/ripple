@@ -24,7 +24,7 @@ export default class ApiClient {
     })
     this.logLevel = this.config.logLevel
     this.debug = this.config.logLevel === 'development'
-    
+
     this.logger = logger
     this.utils = {
       jsonapiParse,

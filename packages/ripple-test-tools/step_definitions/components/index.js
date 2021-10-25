@@ -5,6 +5,10 @@ const { When, Then, Given } = require('cypress-cucumber-preprocessor/steps')
 
 // Layout common elements
 
+Then(`the {string} component should exist`, selector => {
+  cy.get(`.${selector}`).should('exist')
+})
+
 // Breadcrumbs
 Then(`the breadcrumbs should exist`, () => {
   cy.get('.rpl-breadcrumbs').should('be.visible')

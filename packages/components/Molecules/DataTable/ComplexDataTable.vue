@@ -3,14 +3,17 @@
     <caption v-if="caption" class="rpl-complex-data-table__caption">{{caption}}</caption>
     <thead>
       <tr role="row">
-        <th role="columnheader" scope="col" v-for="(header, hdrIdx) in columns" :key="`th-${hdrIdx}`" :id="`th-${hdrIdx + 1}`">{{getColumnLabel(header)}}</th>
+        <template v-for="(header, hdrIdx) in columns">
+          <th v-if="header.key !== '__moreInfo'" :key="`th-${hdrIdx}`" role="columnheader" scope="col"  :id="`th-${hdrIdx + 1}`">{{getColumnLabel(header)}}</th>
+          <td v-if="header.key === '__moreInfo'" :key="`th-${hdrIdx}`"></td>
+        </template>
       </tr>
     </thead>
     <tbody v-if="rows">
       <template v-for="(row, rowIdx) in rows">
         <tr role="row" class="rpl-complex-data-table__row" :class="{ 'rpl-complex-data-table__row-open': isRowExpanded(rowIdx), 'rpl-complex-data-table__row-alt': getZebraOrder(rowIdx) }" :key="getRowId(rowIdx)" :id="getRowId(rowIdx)">
           <template v-for="(col, colIdx) in columns">
-            <component :is="rowHeaders ? 'th' : 'td'" v-if="colIdx === 0" :scope="rowHeaders ? 'rowgroup' : undefined" :id="`row-${rowIdx}-header`" :key="`row${rowIdx}-col${colIdx}`" :rowspan="isRowExpanded(rowIdx) ? getExpandableRows(row).length + 1 : 1" >
+            <component :is="rowHeaders ? 'th' : 'td'" v-if="colIdx === 0" :scope="rowHeaders ? 'rowgroup' : undefined" :id="`row-${rowIdx}-header`" :key="`row${getRowKey(rowIdx)}-col${colIdx}`" :rowspan="isRowExpanded(rowIdx) ? getExpandableRows(row).length + 1 : 1" >
               <span aria-hidden="true" class="rpl-complex-data-table__label">{{col}}</span>
               <component v-if="columns && columns[colIdx] && columns[colIdx].hasOwnProperty('component')" :is="columns[colIdx].component" v-bind="row[colIdx]"></component>
               <span v-else v-html="row[colIdx]" />
@@ -20,17 +23,15 @@
               <component v-if="columns && columns[colIdx] && columns[colIdx].hasOwnProperty('component')" class="rpl-complex-data-table__value" :is="columns[colIdx].component" v-bind="row[colIdx]">{{row[colIdx]}}</component>
               <span class="rpl-complex-data-table__value" v-else v-html="row[colIdx]" />
             </td>
-            <td role="cell" :key="`row${rowIdx}-col${colIdx + 1}`" :rowspan="1" v-if="Array.isArray(row[colIdx])">
-              <button class="rpl-complex-data-table__show-more-btn" @click="toggleExpandRow(rowIdx)" :aria-controls="getHiddenRowIds(rowIdx)" :aria-expanded="isRowExpanded(rowIdx)">
-                <slot name="showmore" :isRowExpanded="isRowExpanded(rowIdx)">
-                  <span class="rpl-complex-data-table__show-more-btn-inner">
-                    <span v-if="isRowExpanded(rowIdx)"> Less</span>
-                    <span v-else> More</span>
-                    <span> info</span>
-                    <rpl-icon aria-hidden="true" :symbol="isRowExpanded(rowIdx) ? 'up' : 'down'" color="primary" size="l" />
-                  </span>
-                </slot>
-              </button>
+            <td role="cell" :key="`row${getRowKey(rowIdx)}-col${colIdx + 1}`" :rowspan="1" v-if="Array.isArray(row[colIdx])">
+              <rpl-expander
+                class="rpl-complex-data-table__show-more-btn"
+                :aria-label="`Click to show ${isRowExpanded(rowIdx) ? 'Less' : 'More'} info for ${row[0]}`"
+                :title="`${isRowExpanded(rowIdx) ? 'Less' : 'More'} info`"
+                :aria-controls="getHiddenRowIds(rowIdx)"
+                :aria-expanded="isRowExpanded(rowIdx)"
+                :expanded="isRowExpanded(rowIdx)"
+                @expanded="toggleExpandRow(rowIdx)" />
             </td>
           </template>
         </tr>
@@ -51,12 +52,14 @@
 </template>
 
 <script>
+import { RplExpander } from '@dpc-sdp/ripple-data-table'
 import uniqueid from '@dpc-sdp/ripple-global/mixins/uniqueid'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 export default {
   name: 'rpl-complex-data-table',
   mixins: [uniqueid],
   components: {
+    RplExpander,
     RplIcon
   },
   props: {
@@ -86,6 +89,12 @@ export default {
     }
   },
   methods: {
+    collapseAllRows () {
+      this.expandedRows = []
+    },
+    getRowKey (rowIdx) {
+      return `${this.rows[rowIdx][0]}-${rowIdx}`
+    },
     getColumnLabel (col) {
       if (typeof col === 'string') {
         return col
@@ -107,16 +116,18 @@ export default {
       }
     },
     isRowExpanded (rowIdx) {
-      if (this.expandedRows.includes(rowIdx)) {
+      if (this.expandedRows.includes(this.getRowKey(rowIdx))) {
         return true
       }
       return false
     },
     toggleExpandRow (rowIdx) {
       if (this.isRowExpanded(rowIdx)) {
-        this.expandedRows = this.expandedRows.filter(itm => itm !== rowIdx)
+        this.expandedRows = this.expandedRows.filter(itm => itm !== this.getRowKey(rowIdx))
+        this.$emit('collapse-row', rowIdx)
       } else {
-        this.expandedRows.push(rowIdx)
+        this.expandedRows.push(this.getRowKey(rowIdx))
+        this.$emit('expand-row', rowIdx)
       }
     },
     getHiddenRowIds (rowIdx) {
@@ -189,24 +200,13 @@ $rpl-complex-data-table-bp: 'l';
   }
 
   &__show-more-btn {
-    @include rpl_btn_reset;
-    color: $rpl-complex-data-table-show-more-btn-color;
-    @include rpl_typography_ruleset($rpl-complex-data-table-show-more-btn-typography);
-    cursor: pointer;
-    width: max-content;
-    &-inner {
-      display: inline-block;
-      position: relative;
-      padding-right: $rpl-complex-data-table-show-more-btn-icon-size + $rpl-space;
-    }
-    .rpl-icon {
-      position: absolute;
-      padding-right: $rpl-complex-data-table-show-more-btn-icon-size;
-      right: -$rpl-complex-data-table-show-more-btn-icon-size;
-      top: calc(50% - #{$rpl-complex-data-table-show-more-btn-icon-size} / 3);
-    }
     @include rpl_breakpoint_down($rpl-complex-data-table-bp) {
       margin-left: auto;
+    }
+    @include rpl_breakpoint($rpl-complex-data-table-bp) {
+      .expander {
+        justify-content: flex-end;
+      }
     }
   }
 

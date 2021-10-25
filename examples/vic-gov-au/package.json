@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env BASIC_AUTH=0 nuxt",
+    "dev-debug": "BASIC_AUTH=0 node --inspect node_modules/.bin/nuxt",
     "build": "run-script-os",
     "build:default": "nuxt build --modern=client",
     "build:win32": "nuxt build --modern=client",
@@ -26,6 +27,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-nuxt-tide": "1.24.4",
+    "@dpc-sdp/ripple-data-vic-api": "^1.24.4",
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",

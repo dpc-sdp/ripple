@@ -55,10 +55,12 @@ export default {
       logLevel: ['development', 'test'].includes(process.env.NODE_ENV) ? 'development' : 'production',
       baseUrl: process.env.NODE_ENV === 'test' ? 'http://localhost:3001/mockdatavicapi' : process.env.DATAVIC_CKAN_SERVER + '/api',
       version: '3',
+      apiKey: process.env.CKAN_API_KEY,
       resources: {
         'buyingcode': {
-          id: '5b8527f2-46e7-4649-9ad9-8780231a0bc3',
-          middleware: []
+          id: '0cf2ea00-0fa2-45e3-952f-99c2277c1fe8',
+          middleware: [],
+          auth: true
         }
       }
     }]

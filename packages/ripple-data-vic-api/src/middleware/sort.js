@@ -3,7 +3,7 @@ export const sortByField = (results, field, order = 'asc') => {
     return results.sort((aObj, bObj) => {
       const a = aObj[field]
       const b = bObj[field]
-      return (a === null) - (b === null) || a.toString().localeCompare(b.toString(), undefined, {numeric: true})
+      return (a === null) - (b === null) || a.toString().localeCompare(b.toString(), undefined, { numeric: true })
     })
   }
   return results

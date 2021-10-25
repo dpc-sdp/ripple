@@ -17,8 +17,8 @@ export default class CkanDataStoreApi extends ApiClient {
     const resource = this.resources[name]
     const hasMiddleware = resource && resource.hasOwnProperty('middleware') && Array.isArray(resource.middleware) && resource.middleware.length > 0
     const headers = {}
-    if (resource.auth && this.config.ckan.apiKey) {
-      headers.Authorization = this.config.ckan.apiKey
+    if (resource.auth && this.config.apiKey) {
+      headers.Authorization = this.config.apiKey
     }
 
     let params = {}
@@ -45,7 +45,7 @@ export default class CkanDataStoreApi extends ApiClient {
         }
       }
     } catch (error) {
-      throw new ApiError({ message: 'Error fetching ckan data', status: 500 }, error) 
+      throw new ApiError({ message: 'Error fetching ckan data', status: 500 }, error)
     }
   }
 }

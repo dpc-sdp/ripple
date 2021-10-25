@@ -14,7 +14,7 @@ export const getAggregationsForField = (results, fields) => {
             return self.indexOf(itm) === pos
           })
           .sort((a, b) => {
-            return (a === null) - (b === null) || a.toString().localeCompare(b.toString(), undefined, {numeric: true})
+            return (a === null) - (b === null) || a.toString().localeCompare(b.toString(), undefined, { numeric: true })
           })
       }
     })

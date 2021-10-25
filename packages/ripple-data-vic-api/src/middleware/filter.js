@@ -24,6 +24,6 @@ export default function (ctx, next) {
   } catch (error) {
     console.error(error)
   }
-  
+
   next()
 }

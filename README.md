@@ -48,7 +48,7 @@
 
 Ripple is the presentation layer for building websites on the DPC [Single Digital Presence](https://www.singledigitalpresence.vic.gov.au/) platform.
 
-It includes :
+It includes:
 
 <table>
   <thead>

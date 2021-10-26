@@ -80,7 +80,7 @@
     "file-loader": "^6.0.0",
     "glob-fs": "^0.1.7",
     "jest-vue-preprocessor": "^1.5.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^6.0.1",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
     "svg-sprite-loader": "^3.7.3",

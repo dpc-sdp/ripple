@@ -258,7 +258,7 @@ describe('mapping', () => {
     try {
       await mapping.get(item, 'groupTypeNotMapped')
     } catch (e) {
-      expect(e).toEqual(new TypeError(`Cannot read property 'testItem' of undefined`))
+      expect(e).toEqual(TypeError(`Cannot read properties of undefined (reading 'testItem')`))
     }
   })
 

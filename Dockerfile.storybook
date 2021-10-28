@@ -7,8 +7,7 @@ RUN yarn install
 WORKDIR /app/src
 RUN yarn run build-storybook
 
-ARG BAY_IMAGE_VERSION
-FROM singledigital/ripple-node:${BAY_IMAGE_VERSION}
+FROM amazeeio/node:14
 COPY --from=builder /app/src/public /app
 
 ARG LAGOON_GIT_BRANCH

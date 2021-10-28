@@ -67,7 +67,7 @@
     "husky": "^3.0.0",
     "node-sass": "^6.0.1",
     "sass-lint": "^1.12.1",
-    "sass-loader": "^6.0.7",
+    "sass-loader": "^10.2.0",
     "sass-resources-loader": "^2.1.1",
     <%_ if ((e2e === true) || (smoke === true)) { _%>
     "start-server-and-test": "^1.11.6",

@@ -1,7 +1,7 @@
 <template>
   <rpl-page-layout class="app-main" :sidebar="false">
     <div>
-      <h1>Fair Jobs Code Pre-Assessment Certificate Register</h1>
+      <h1>Example data listing page</h1>
       <p>Instructional copy goes here</p>
       <RplDataListing v-bind="dataProps" />
     </div>

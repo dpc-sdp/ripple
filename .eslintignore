@@ -12,7 +12,8 @@ packages/ripple-nuxt-ui/**/templates/*
 packages/create-ripple-app/template/nuxt/*
 
 # ignore storybook files
-src/scripts
+/src/scripts
+/src/public
 storybook-static/
 
 # Nuxt folders

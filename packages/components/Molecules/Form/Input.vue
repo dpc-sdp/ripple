@@ -1,9 +1,7 @@
 <template>
   <div class="form-control" :class="computedClasses">
-    <component class="rpl-form-input__btn rpl-form-input__btn-before" v-if="showBeforeIcon" :is="icon.before.onClick ? 'button' : 'div'" :type="icon.before.onClick ? 'button' : undefined" @click.prevent="handleIconClick('before')">
-      <span v-if="icon.before.onClick && icon.before.label" class="rpl-visually-hidden">{{icon.before.label}}</span>
+    <component class="rpl-form-input__btn rpl-form-input__btn-before" v-if="showBeforeIcon" :is="icon.before.onClick ? 'button' : 'div'" @click.prevent="handleIconClick('before')">
       <rpl-icon
-        role="presentation"
         class="rpl-form-input__icon rpl-form-input__icon-before"
         v-bind="icon.before"
       />
@@ -18,10 +16,8 @@
       :placeholder="placeholder"
       :readonly="readonly"
     />
-    <component class="rpl-form-input__btn rpl-form-input__btn-after" v-if="showAfterIcon" :is="icon.after.onClick ? 'button' : 'div'" :type="icon.after.onClick ? 'button' : undefined" @click.prevent="handleIconClick('after')">
-      <span v-if="icon.after.onClick && icon.after.label" class="rpl-visually-hidden">{{icon.after.label}}</span>
+    <component class="rpl-form-input__btn rpl-form-input__btn-after" v-if="showAfterIcon" :is="icon.after.onClick ? 'button' : 'div'" @click.prevent="handleIconClick('after')">
       <rpl-icon
-        role="presentation"
         class="rpl-form-input__icon rpl-form-input__icon-after"
         v-bind="icon.after"
       />

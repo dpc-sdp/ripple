@@ -1,0 +1,9 @@
+# Temporary files.
+node_modules
+.nuxt
+dist
+.DS_Store
+
+#Env files
+.env
+

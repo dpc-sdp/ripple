@@ -3,6 +3,7 @@
     <rpl-list
       v-if="title || list"
       :title="title"
+      :description="description"
       :list="list"
     >
       <p slot="above-list" class="rpl-contact__contact-details">
@@ -21,12 +22,14 @@ export default {
   name: 'RplContact',
   props: {
     title: String,
+    description: String,
     name: String,
     department: String,
     postal: String,
     address: String,
     phone: Array,
     email: String,
+    website: Object,
     social: Array
   },
   components: {
@@ -71,6 +74,14 @@ export default {
           link: `mailto:${this.email}`,
           size: 0.65,
           text: this.email
+        })
+      }
+      if (this.website) {
+        _list.push({
+          symbol: 'browser',
+          link: this.website.url,
+          size: 0.65,
+          text: this.website.text
         })
       }
       if (this.social && this.social.length > 0) {
@@ -125,6 +136,10 @@ export default {
       @include rpl_typography_ruleset($rpl-contact-title-ruleset);
       @include rpl_text_color($rpl-contact-title-color);
       margin: $rpl-contact-title-margin;
+    }
+
+    .rpl-list__description {
+      @include rpl_typography_ruleset($rpl-contact-list-ruleset);
     }
 
     .rpl-list__list-item {

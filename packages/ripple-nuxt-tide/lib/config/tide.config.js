@@ -127,6 +127,7 @@ const tideConfig = {
         props: {
           title: 'field_paragraph_title',
           name: 'field_paragraph_name',
+          description: 'field_paragraph_short_desc',
           department: 'field_paragraph_department_name',
           postal: {
             field: ['field_paragraph_postal_address'],
@@ -141,6 +142,10 @@ const tideConfig = {
             filters: ['paragraphPhones']
           },
           email: 'field_paragraph_email',
+          website: {
+            field: ['field_paragraph_website'],
+            filters: ['paragraphLink']
+          },
           social: {
             field: ['field_paragraph_social_media'],
             filters: ['paragraphSocial']

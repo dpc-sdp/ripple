@@ -10,6 +10,7 @@
       <rpl-text-link v-if="link" :url="link" :text="title" class="rpl-list__title-inner" />
       <span v-else class="rpl-list__title-inner">{{ title }}</span>
     </h2>
+    <div v-if="description" class="rpl-list__description">{{ description }}</div>
     <slot name="above-list"></slot>
     <div v-if="list" class="rpl-list__list">
       <div v-for="(item, index) in list" :key="`${index}-${item.id}`" :data-tid="testId(item)" class="rpl-list__list-item">
@@ -31,6 +32,7 @@ export default {
   name: 'RplList',
   props: {
     title: String,
+    description: String,
     link: String,
     size: { type: String, default: 'normal' },
     iconScale: { type: Number, default: 1 },

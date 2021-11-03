@@ -14,12 +14,14 @@ export const Template = (args, { argTypes }) => ({
   template: `
     <rpl-contact
       :title="title"
+      :description="description"
       :name="name"
       :department="department"
       :postal="postal"
       :address="address"
       :phone="phone"
       :email="email"
+      :website="website"
       :social="social"
     />
   `
@@ -30,6 +32,7 @@ export const Template = (args, { argTypes }) => ({
     name="Contact"
     args={{
       title: 'Need additional help?',
+      description: 'Description for contact',
       name: 'First Last Name (Job Title)',
       department: 'Department name',
       postal: 'PO Box 123, Suburb VIC 3421',
@@ -39,6 +42,10 @@ export const Template = (args, { argTypes }) => ({
         { number: '0400 000 000', title: 'Mob' }
       ],
       email: 'emailaddress@vic.gov.au',
+      website: {
+        'text': 'Web address',
+        'url': 'https://vic.gov.au'
+      },
       social: [
         {
           icon: 'facebook',

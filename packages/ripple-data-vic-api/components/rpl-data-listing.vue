@@ -16,7 +16,7 @@
             </slot>
           </div>
         </template>
-        <template slot="count" v-if="total > 0">
+        <template slot="count" v-if="tableData.total > 0">
           <slot name="count" :total="tableData.total" :range="range">
             <p>{{countMsg(range, tableData.total)}}</p>
           </slot>

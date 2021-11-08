@@ -31,7 +31,8 @@ const defaults = {
     publication: 0,
     authenticatedContent: 0,
     preview: 0,
-    alert: 0
+    alert: 0,
+    sideBarLinks: 0
   },
   search: {
     service: '',

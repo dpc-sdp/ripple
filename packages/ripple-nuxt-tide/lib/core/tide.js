@@ -98,7 +98,8 @@ export const tide = (axios, site, config) => ({
   getMenuFields: function () {
     return {
       menuMain: 'field_site_main_menu',
-      menuFooter: 'field_site_footer_menu'
+      menuFooter: 'field_site_footer_menu',
+      menuMainFooter: 'field_site_footer_main_menu'
     }
   },
 

@@ -41,7 +41,10 @@ export default {
             key,
             promise: context.app.$tideSearchApi.search('/cards', {
               site: context.store.state.tideSite.siteId,
-              ...getQueryParams(component.data.config)
+              ...getQueryParams({
+                ...component.data.config,
+                perPage: component.data.perPage
+              })
             })
           })
         }

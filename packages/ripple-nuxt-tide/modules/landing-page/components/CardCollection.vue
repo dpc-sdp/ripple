@@ -45,6 +45,10 @@ export default {
     config: Object,
     initialResults: Array,
     total: Number,
+    perPage: {
+      type: Number,
+      default: 9
+    },
     sidebar: {
       type: Boolean,
       default: false
@@ -86,7 +90,8 @@ export default {
       const response = await this.$tideSearchApi.search('/cards', {
         ...params,
         site: this.$store.state.tideSite.siteId,
-        page: this.page
+        page: this.page,
+        limit: this.perPage
       })
       this.results = response.results
     }
@@ -103,9 +108,6 @@ export default {
   computed: {
     totalSteps () {
       return Math.ceil(Number(this.total) / this.perPage)
-    },
-    perPage () {
-      return get(this.config, ['display', 'items'], 9)
     },
     displayType () {
       if (this.config) {

@@ -447,6 +447,7 @@ module.exports = {
           title: 'field_paragraph_title',
           cardCtaText: 'field_paragraph_cta_text',
           config: ['field_paragraph_auto_listing'],
+          perPage: ['field_listings_per_page'],
           ctaLink: {
             field: 'field_paragraph_cta',
             filters: ['paragraphCta']

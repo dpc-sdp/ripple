@@ -11,13 +11,17 @@ Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/c
 export const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplSitemap },
-  template: `<rpl-sitemap :menu="menu" />`
+  template: `<rpl-sitemap :menu="menu" :toc="toc" />`
 });
 
 <Canvas>
   <Story
     name="Sitemap"
     args={{
+      toc: {
+        show: true,
+        title: 'Jump to'
+      },
       menu: [
         {
           text: 'Your services',

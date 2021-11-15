@@ -1,5 +1,3 @@
-const fs = require('fs')
-const path = require('path')
 const common = require('./../../common')
 const templateDir = './../../../template'
 const log = require('./../../../logger')

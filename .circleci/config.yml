@@ -99,10 +99,6 @@ jobs:
       - run:
           name: run full integration test
           command: yarn test:integration-vic
-      - run:
-          name: prepare cucumber test report
-          command: yarn test:report
-          when: always
       - store_artifacts:
           path: test-results
       - store_test_results:

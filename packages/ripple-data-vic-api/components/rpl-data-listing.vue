@@ -313,7 +313,6 @@ export default {
         const BASE_URL = ''
         try {
           const { data, status } = await this.$axios.get(`${BASE_URL}/ckan-api/v1/resource/${this.dataSet}`, { params })
-          console.log('data', data, status)
           if (status === 200 && data && data.total > 0 && data.results && Array.isArray(data.results)) {
             this.total = data.total
             this.results = data.results

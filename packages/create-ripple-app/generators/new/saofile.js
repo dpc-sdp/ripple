@@ -55,7 +55,7 @@ module.exports = {
       })
     }
 
-    if (results.smoke || results.e2e) {
+    if (results.integration) {
       actions.push(
         {
           type: 'add',
@@ -65,26 +65,11 @@ module.exports = {
       )
     }
 
-    if (results.smoke) {
+    if (results.integration) {
       actions.push({
         type: 'add',
         files: ['**'],
         templateDir: `${templateDir}/_tests/_smoke`
-      })
-    }
-    if (results.e2e) {
-      // only add tests for enabled modules
-      results.modules.forEach(tideModule => {
-        const hasTests = fs.existsSync(path.resolve(__dirname, `${templateDir}/_tests/_modules/test/e2e/integration/core-modules/${tideModule}`))
-        if (hasTests) {
-          actions.push(
-            {
-              type: 'add',
-              files: [`./test/e2e/integration/core-modules/${tideModule}/**`, `./test/e2e/fixtures/${tideModule}/**`],
-              templateDir: `${templateDir}/_tests/_modules`
-            }
-          )
-        }
       })
     }
 

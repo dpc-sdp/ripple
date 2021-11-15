@@ -39,7 +39,7 @@ Provide as many screenshots as required to make reviewers understand what was ch
 <!-- All PR's should implement unit tests if possible -->
 <!-- Please describe how you tested your changes. -->
 <!-- Have you created new tests or updated existing ones? -->
-<!-- e.g. unit | storybook | e2e | none -->
+<!-- e.g. unit | storybook | integration | none -->
 
 ## Types of changes
 

@@ -27,15 +27,14 @@ module.exports = {
 
           data.scripts['cy:run'] = `cypress run -b chrome -e TAGS='not @skip or @smoke' --record --parallel --group $CIRCLE_JOB`
           data.scripts['cy:run-local'] = `cypress run -b chrome -e TAGS='not @skip or @smoke'`
-          data.scripts['test:e2e-local'] = `cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-local`
-          data.scripts['test:e2e'] = `cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start http://localhost:3000 cy:run`
+          data.scripts['test:integration'] = `cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start http://localhost:3000 cy:run`
           data.scripts['test:smoke'] = `cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start http://localhost:3000 cy:run-smoke`
 
           if (data['cypress-cucumber-preprocessor']) {
-            data['cypress-cucumber-preprocessor'].step_definitions = 'test/e2e/integration/'
+            data['cypress-cucumber-preprocessor'].step_definitions = 'test/integration/features'
             data['cypress-cucumber-preprocessor'].cucumberJson = {
               generate: true,
-              outputFolder: 'test/e2e/results/cucumber',
+              outputFolder: 'test/integration/results/cucumber',
               filePrefix: results.name + '-'
             }
           }
@@ -55,7 +54,7 @@ module.exports = {
       }
     ]
 
-    if (results.smoke || results.e2e) {
+    if (results.smoke || results.integration) {
       actions.push(
         {
           type: 'add',
@@ -72,22 +71,6 @@ module.exports = {
         files: ['**'],
         transform: true,
         templateDir: `${templateDir}/_tests/_smoke`
-      })
-    }
-    if (results.e2e) {
-      // only add tests for enabled modules
-      results.modules.forEach(tideModule => {
-        const hasTests = fs.existsSync(path.resolve(__dirname, `${templateDir}/_tests/_modules/test/e2e/integration/modules/${tideModule}`))
-        if (hasTests) {
-          actions.push(
-            {
-              type: 'add',
-              files: [`./test/e2e/integration/modules/${tideModule}/**`, `./test/e2e/fixtures/modules/${tideModule}/**`],
-              transform: true,
-              templateDir: `${templateDir}/_tests/_modules`
-            }
-          )
-        }
       })
     }
 

@@ -2,7 +2,12 @@
 <template>
   <rpl-input
     v-model="value"
-    v-bind="schema"
+    :disabled="schema.disabled"
+    :max="schema.max"
+    :placeholder="schema.placeholder"
+    :readonly="schema.readonly"
+    :icon="schema.icon"
+    :identifier="getFieldID(schema)"
   />
 </template>
 <script>

@@ -1,0 +1,472 @@
+:root {
+    --ripple-primary: #0052c2;
+    --ripple-secondary: #0095ec;
+}
+
+@font-face {
+    font-family: "VIC-Regular";
+    src: url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Regular.woff?raw=true") format('woff2'),
+    url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Regular.woff?raw=true") format('woff');
+}
+
+@font-face {
+    font-family: "VIC-Bold";
+    src: url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Bold.woff2?raw=true") format('woff2'),
+    url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Bold.woff?raw=true") format('woff');
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: #011a3c;
+    margin: 0px;
+}
+
+h1 {
+    font-size: 2em !important;
+    margin: 0.67em 0 !important;
+}
+
+h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3em !important;
+}
+
+h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.2em !important;
+}
+
+h4 {
+    font-size: 1.25rem !important;
+    line-height: 1.2em !important;
+}
+
+h5 {
+    font-size: 1rem !important;
+    line-height: 1.5em !important;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 16px !important;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none !important;
+    color: #0052c2 !important;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
+
+ul {
+    list-style-type: disc;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+    line-height: 1.5em !important;
+}
+
+img {
+    border-style: none;
+}
+
+fieldset {
+    padding: 0.35em 0.75em 0.625em 0;
+}
+
+legend {
+    box-sizing: border-box; /* 1 */
+    color: inherit; /* 2 */
+    display: table; /* 1 */
+    max-width: 100%; /* 1 */
+    padding: 0; /* 3 */
+    white-space: normal; /* 1 */
+    margin-bottom: .75rem;
+}
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+.of-colour-primary {
+    color: var(--ripple-primary);
+}
+
+.of-colour-secondary {
+    color: var(--ripple-secondary);
+}
+
+input[type='text'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='search'],
+input[type='tel'],
+input[type='color'],
+input:not([type]),
+textarea {
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    font-size: 14px !important;
+    color: rgb(1, 26, 60) !important;
+    background-color: #f6f6f9 !important;
+    border: 1px solid #d7dbe0 !important;
+    border-radius: .25rem !important;
+    box-sizing: border-box !important;
+    color: #011a3c !important;
+    height: auto !important;
+    padding: 1rem 1.25rem !important;
+    margin-top: .75rem;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    font-size: 1rem !important;
+    line-height: 1em;
+    font-weight: 400;
+}
+
+input[type="text"]:focus,
+input[type='password']:focus,
+input[type='datetime']:focus,
+input[type='datetime-local']:focus,
+input[type='date']:focus,
+input[type='month']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+input[type='number']:focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='color']:focus,
+input:not([type]):focus,
+textarea:focus {
+    box-shadow: none !important;
+    padding: 1rem 1.25rem !important;
+    border: 2px solid #0052c2 !important;
+}
+
+input[type="radio"]:checked + label:before {
+    border: 2px solid #0095ec;
+}
+
+input[type="radio"]:checked + label:after {
+    border: 10px solid #0095ec;
+    background-color: #0095ec;
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+}
+
+input[type="radio"]:not(:checked) + label:before {
+    border: 1px solid #5a5a5a;
+}
+
+input[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
+    padding-left: 30px;
+}
+
+input[type="radio"]:focus + label:before {
+    box-shadow: none;
+}
+
+input[type="checkbox"] + label {
+    padding-left: 30px;
+}
+
+input[type="checkbox"] + label:after {
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+    display: inline-block;
+    border: 1px solid #546a7c;
+    border-radius: .25rem;
+    background-color: #f6f6f9;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+input[type="checkbox"]:checked + label:before {
+    border-color: #0052c2 !important;
+    height: 11px;
+    top: 1px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
+}
+
+input[type="checkbox"]:checked + label:after {
+    border-color: #0052c2 !important;
+    background-color: #fff;
+}
+
+input[type="checkbox"]:focus + label:after {
+    box-shadow: 0 0 0 0px #0052c2;
+    border: 1px solid #0052c2;
+}
+
+table {
+    line-height: 1.5em;
+    font-size: 1rem !important;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    background-color: #f6f6f9;
+    border-bottom: 0;
+}
+
+table [type="checkbox"]:checked + label:before {
+    left: 1px;
+}
+
+table td {
+    padding: 1rem !important;
+}
+
+table tr {
+    border-bottom: 0 !important;
+}
+
+@media screen and (min-width: 768px) {
+    textarea {
+        height: 4.6875rem !important;
+    }
+}
+
+button {
+    border: 1px solid transparent !important;
+    border-radius: .25rem !important;
+    box-shadow: 0 0 0 0 transparent !important;
+}
+
+button.of-colour-primary {
+    color: #fff !important;
+    background-color: #0052c2 !important;
+}
+
+button.of-colour-secondary {
+    color: #fff !important;
+    background-color: #0095ec !important;
+}
+
+button.of-colour-primary:hover {
+    background-color: #0095ec !important;
+}
+
+button.of-colour-secondary:hover {
+    background-color: #0052c2 !important;
+}
+
+button .inner-border {
+    border-color: transparent !important;
+    opacity: 0;
+}
+
+select {
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    appearance: none;
+    background-color: #f6f6f9 !important;
+    border: 1px solid #d7dbe0 !important;
+    border-radius: .25rem !important;
+    padding: 1rem 1.25rem !important;
+    height: 50px;
+    /* needed */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* SVG background image */
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%230052c2'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
+    background-size: 12px;
+    background-position: calc(100% - 20px) center;
+    background-repeat: no-repeat;
+    margin-top: .75rem;
+}
+
+select option {
+    padding: 1rem 0;
+}
+
+select:focus {
+    box-shadow: none !important;
+    padding: 1rem 1.25rem !important;
+    border: 2px solid #0052c2 !important;
+}
+
+select option:hover {
+    background-color: #488f8f;
+}
+
+fieldset legend {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif";
+    font-size: 1rem;
+    line-height: 1em;
+    font-weight: 400;
+    color: #011a3c;
+}
+
+/* Customised adjustments */
+.of-form-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 606px;
+}
+
+.of-display-body {
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 0px transparent;
+}
+
+.of-display-body .of-sectionbox {
+    padding: 20px 0;
+}
+
+.of-rank-item {
+    margin: 1.5rem 0;
+}
+
+button.use-current-location {
+    color: #fff !important;
+    background-color: #0052c2 !important;
+    height: 47px;
+}
+
+button.use-current-location:hover {
+    background-color: #0095ec !important;
+}
+
+button.use-current-location .material-icons {
+    color: #fff;
+}
+
+button.datebutton {
+    background-color: transparent;
+    margin: 3px -12px;
+    width: auto;
+    height: auto;
+}
+
+button.datebutton:hover {
+    outline: none !important;
+}
+
+button.datebutton i {
+    color: #0052c2;
+    font-size: 55px; /* for the icon to be the same height with text field */
+    margin-top: .75rem;
+}
+
+button.of-file-upload-button {
+    margin-top: .75rem;
+}
+
+.of-section-element span.isrequired {
+    background: none !important;
+    font-size: 14px;
+    color: #af272f;
+    font-weight: normal;
+    margin: 0;
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+}
+
+span.of-validation-error, li.of-validation-error {
+    color: #af272f;
+}
+
+.of-section-element label{
+    font-size: 14px;
+    line-height: 1em;
+    font-weight: normal;
+}
+
+.of-section-element span.isrequired:before {
+    content: '(';
+}
+
+.of-section-element span.isrequired:after {
+    content: ')';
+}
+
+fieldset .of-checkable-item {
+    padding: .75rem 1.25rem;
+}
+
+/* to make it look like Ripple form */
+.of-section-element label {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif";
+    font-size: 1rem;
+    line-height: 1em;
+    font-weight: 400;
+    color: #011a3c;
+}
+
+.of-checkable-item label {
+    font-family: inherit;
+    font-weight: normal;
+}
+
+.of-section-element label.rank-label {
+    font-family: inherit;
+    font-weight: normal;
+    padding-top: 1.5rem;
+}
+
+.tablesaw-wrapper .tablesaw-cell-label {
+    font-weight: bold;
+}
+
+.tablesaw-wrapper .tablesaw-cell-content {
+    font-weight: bold;
+}
+
+.use-location-container .use-current-location {
+    background-color: var(--ripple-secondary) !important;
+}
+
+.use-location-container .use-current-location:hover {
+    background-color: var(--ripple-primary) !important;
+}
+
+.of-date-container .material-icons {
+    font-size: xx-large !important;
+    padding-left: 1rem;
+}
+
+.picker__day {
+    white-space: nowrap !important;
+    color: black !important;
+}
+
+.picker__day--selected {
+    min-width: 20px !important;
+}

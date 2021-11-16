@@ -77,6 +77,7 @@ export const formData = {
   model: {
     hidden: '',
     text: null,
+    rpltext: '',
     email: '',
     tel: '',
     number: '',
@@ -141,12 +142,24 @@ export const formData = {
         model: 'number'
       },
       {
-        type: 'input',
+        type: 'rplinput',
         inputType: 'text',
-        label: 'Text - With search icon',
-        styleClasses: ['rpl-form__prepend-icon', 'rpl-form__prepend-icon--search'],
+        label: 'Search field',
         placeholder: 'Enter search term...',
-        model: 'text'
+        icon: {
+          before: {
+            symbol: 'search',
+            color: 'primary'
+          },
+          after: {
+            symbol: 'close',
+            color: 'extra_dark_neutral',
+            hideOnDirty: true,
+            label: 'clear search term',
+            onClick: () => formData.model.rpltext = ''
+          }
+        },
+        model: 'rpltext'
       },
       {
         type: 'radios',

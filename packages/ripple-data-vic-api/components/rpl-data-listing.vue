@@ -16,7 +16,7 @@
             </slot>
           </div>
         </template>
-        <template slot="count" v-if="total > 0">
+        <template slot="count" v-if="tableData.total > 0">
           <slot name="count" :total="tableData.total" :range="range">
             <p>{{countMsg(range, tableData.total)}}</p>
           </slot>
@@ -71,7 +71,7 @@ import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 import RplSelect from '@dpc-sdp/ripple-form/Select'
 import RplPagination from '@dpc-sdp/ripple-pagination'
-import RplTabs from './../../components/Molecules/Tabs/Tabs.vue'
+import RplTabs from '@dpc-sdp/ripple-tabs'
 import { RplComplexDataTable, RplSearchResultsLoading } from '@dpc-sdp/ripple-data-table'
 import RplDescriptionListIcon from '@dpc-sdp/ripple-description-list'
 import { getResultsFromMiddleware } from '@dpc-sdp/ripple-data-vic-api/src/middleware'

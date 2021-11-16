@@ -4,7 +4,9 @@
     <ol v-if="list" class="rpl-timeline__list" ref="list">
       <li v-for="(item, index) in list" :key="index" class="rpl-timeline__list-item" :class="{
         'rpl-timeline__list-item--with-image' : item.image,
-        'rpl-timeline__list-item--multi' : (list.length > 1)
+        'rpl-timeline__list-item--multi' : (list.length > 1),
+        'rpl-timeline__list-item--current' : item.current,
+        'rpl-timeline__list-item--active' : index < list.map(x => x.current).lastIndexOf(true)
       }">
         <img v-if="item.image" :src="item.image" alt="" class="rpl-timeline__item-image" ref="image" />
         <h3 v-if="item.title" class="rpl-timeline__item-title">
@@ -65,17 +67,19 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
   $rpl-timeline-image-dimension: rem(88px) !default;
-  $rpl-timeline-image-margin: 0 0 0 ($rpl-space * -1) !default;
+  $rpl-timeline-image-margin: 0 0 ($rpl-space * 2) ($rpl-space * -1) !default;
   $rpl-timeline-point-top: $rpl-space-3 !default;
   $rpl-timeline-point-with-image-top: $rpl-timeline-image-dimension / 2 !default;
-  $rpl-timeline-point-width: ($rpl-space * 5) !default;
+  $rpl-timeline-point-width: ($rpl-space * 4) !default;
   $rpl-timeline-point-with-image-width: ($rpl-space * 7) !default;
-  $rpl-timeline-point-thickness: 1px !default;
+  $rpl-timeline-point-thickness: 4px !default;
   $rpl-timeline-point-color: rpl-color('mid_neutral_1') !default;
   $rpl-timeline-sidebar-size: $rpl-timeline-point-thickness !default;
   $rpl-timeline-sidebar-color: $rpl-timeline-point-color !default;
+  $rpl-timeline-active-color: rpl-color('danger') !default;
   $rpl-timeline-sidebar-gutter-width: ($rpl-space * 8) !default;
-  $rpl-timeline-list-item-padding: 0 0 rem(18px) $rpl-timeline-sidebar-gutter-width !default;
+  $rpl-timeline-item-title-height: rem(12px) !default;
+  $rpl-timeline-list-item-padding: 0 0 (rem(18px) + $rpl-timeline-item-title-height) $rpl-timeline-sidebar-gutter-width !default;
   $rpl-timeline-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-timeline-item-title-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-timeline-item-title-text-link-color: rpl-color('primary') !default;
@@ -97,7 +101,7 @@ export default {
     &__list {
       position: relative;
       list-style: none;
-      padding: 0;
+      padding: $rpl-timeline-item-title-height 0 0;
       margin: 0;
     }
 
@@ -131,7 +135,7 @@ export default {
         }
 
         &:first-child, &:last-child {
-          border-left: 0;
+          border-left-color: transparent;
 
           &::after {
             content: '';
@@ -140,17 +144,23 @@ export default {
             width: $rpl-timeline-sidebar-size;
             top: $rpl-timeline-point-top;
             bottom: 0;
-            left: 0;
+            left: -$rpl-timeline-point-thickness;
             position: absolute;
 
             @include rpl_print_hidden;
           }
         }
 
+        &:first-child {
+          &::before {
+            left: 0;
+          }
+        }
+
         &:last-child {
           &::after {
-            bottom: calc(100% - #{$rpl-timeline-point-top});
-            top: 0;
+            height: $rpl-timeline-point-thickness;
+            width: calc(#{$rpl-timeline-point-thickness} + #{$rpl-timeline-point-width});
           }
         }
 
@@ -168,9 +178,59 @@ export default {
 
           &:last-child {
             &::after {
-              bottom: calc(100% - #{$rpl-timeline-point-with-image-top});
+              top: 0;
+              height: calc(#{$rpl-timeline-image-dimension} / 2 + #{$rpl-timeline-sidebar-size});
+              width: $rpl-timeline-sidebar-size;
             }
           }
+        }
+      }
+
+      &--active.rpl-timeline__list-item--multi {
+        border-left-color: $rpl-timeline-active-color;
+
+        &:first-child, &:last-child {
+          border-left-color: transparent;
+        }
+
+        &::after, &::before {
+          background-color: $rpl-timeline-active-color;
+        }
+      }
+
+      &--current.rpl-timeline__list-item--multi {
+        &::before {
+          background-color: $rpl-timeline-active-color;
+        }
+
+        &::after {
+          content: '';
+          display: inline-block;
+          background-color: $rpl-timeline-active-color;
+          width: $rpl-timeline-sidebar-size;
+          top: 0;
+          height: calc(#{$rpl-timeline-item-title-height} + #{$rpl-timeline-sidebar-size});
+          left: -$rpl-timeline-sidebar-size;
+          position: absolute;
+
+          @include rpl_print_hidden;
+        }
+
+        &:first-child {
+          &::before {
+            left: -$rpl-timeline-sidebar-size;
+            width: calc(#{$rpl-timeline-sidebar-size} + #{$rpl-timeline-point-width});
+          }
+
+          &::after {
+            background-color: $rpl-timeline-sidebar-color;
+            top: calc(#{$rpl-timeline-item-title-height} + #{$rpl-timeline-sidebar-size});
+            height: 100%;
+          }
+        }
+
+        .rpl-timeline__item-title {
+          color: $rpl-timeline-active-color;
         }
       }
     }
@@ -191,10 +251,11 @@ export default {
     &__item-title {
       @include rpl_typography_ruleset($rpl-timeline-item-title-ruleset);
       @include rpl_text_color($rpl-timeline-item-title-text-color);
-      margin: 0;
+      margin: -$rpl-timeline-item-title-height 0 0;
 
       .rpl-link {
-        @include rpl_text_color($rpl-timeline-item-title-text-link-color);
+        @include rpl_text_color($rpl-timeline-item-title-text-color);
+        text-decoration: underline;
       }
     }
 

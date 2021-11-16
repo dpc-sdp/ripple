@@ -1,8 +1,24 @@
+/* 
+    Custom properties 
+    -----------------
+    These can be overridden to control the colours of the theme.
+*/
 :root {
     --ripple-primary: #0052c2;
     --ripple-secondary: #0095ec;
 }
 
+
+/* Unsure where these belong */
+.of-colour-primary {
+    color: var(--ripple-primary);
+}
+
+.of-colour-secondary {
+    color: var(--ripple-secondary);
+}
+
+/* Fonts */
 @font-face {
     font-family: "VIC-Regular";
     src: url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Regular.woff?raw=true") format('woff2'),
@@ -15,6 +31,8 @@
     url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Bold.woff?raw=true") format('woff');
 }
 
+
+/* Page level styles */
 html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
@@ -29,6 +47,8 @@ body {
     margin: 0px;
 }
 
+
+/* Headings */
 h1 {
     font-size: 2em !important;
     margin: 0.67em 0 !important;
@@ -53,6 +73,9 @@ h5 {
     font-size: 1rem !important;
     line-height: 1.5em !important;
 }
+
+
+/* Text elements */
 p {
     display: block;
     margin-block-start: 1em;
@@ -62,6 +85,13 @@ p {
     font-size: 16px !important;
 }
 
+b,
+strong {
+    font-weight: bolder;
+}
+
+
+/* Links */
 a {
     background-color: transparent;
     text-decoration: none !important;
@@ -72,6 +102,8 @@ a:hover {
     text-decoration: underline !important;
 }
 
+
+/* Lists */
 ul {
     list-style-type: disc;
     display: block;
@@ -86,10 +118,14 @@ li {
     line-height: 1.5em !important;
 }
 
+
+/* Images */
 img {
     border-style: none;
 }
 
+
+/* Fieldset and legend */
 fieldset {
     padding: 0.35em 0.75em 0.625em 0;
 }
@@ -104,19 +140,16 @@ legend {
     margin-bottom: .75rem;
 }
 
-b,
-strong {
-    font-weight: bolder;
+fieldset legend {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif";
+    font-size: 1rem;
+    line-height: 1em;
+    font-weight: 400;
+    color: #011a3c;
 }
 
-.of-colour-primary {
-    color: var(--ripple-primary);
-}
 
-.of-colour-secondary {
-    color: var(--ripple-secondary);
-}
-
+/* Text inputs */
 input[type='text'],
 input[type='password'],
 input[type='datetime'],
@@ -146,14 +179,6 @@ textarea {
     margin-top: .75rem;
 }
 
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
-    font-size: 1rem !important;
-    line-height: 1em;
-    font-weight: 400;
-}
-
 input[type="text"]:focus,
 input[type='password']:focus,
 input[type='datetime']:focus,
@@ -175,6 +200,24 @@ textarea:focus {
     border: 2px solid #0052c2 !important;
 }
 
+@media screen and (min-width: 768px) {
+    textarea {
+        height: 4.6875rem !important;
+    }
+}
+
+
+/* Radio & Checkbox combined styles */
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    font-size: 1rem !important;
+    line-height: 1em;
+    font-weight: 400;
+}
+
+
+/* Radio */
 input[type="radio"]:checked + label:before {
     border: 2px solid #0095ec;
 }
@@ -198,6 +241,8 @@ input[type="radio"]:focus + label:before {
     box-shadow: none;
 }
 
+
+/* Checkbox */
 input[type="checkbox"] + label {
     padding-left: 30px;
 }
@@ -233,6 +278,8 @@ input[type="checkbox"]:focus + label:after {
     border: 1px solid #0052c2;
 }
 
+
+/* Tables */
 table {
     line-height: 1.5em;
     font-size: 1rem !important;
@@ -246,10 +293,6 @@ thead {
     border-bottom: 0;
 }
 
-table [type="checkbox"]:checked + label:before {
-    left: 1px;
-}
-
 table td {
     padding: 1rem !important;
 }
@@ -258,12 +301,12 @@ table tr {
     border-bottom: 0 !important;
 }
 
-@media screen and (min-width: 768px) {
-    textarea {
-        height: 4.6875rem !important;
-    }
+table [type="checkbox"]:checked + label:before {
+    left: 1px;
 }
 
+
+/* Buttons */
 button {
     border: 1px solid transparent !important;
     border-radius: .25rem !important;
@@ -293,6 +336,8 @@ button .inner-border {
     opacity: 0;
 }
 
+
+/* Select dropdowns */
 select {
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
     appearance: none;
@@ -325,14 +370,6 @@ select:focus {
 
 select option:hover {
     background-color: #488f8f;
-}
-
-fieldset legend {
-    font-family: VIC-Bold,Arial,Helvetica,"sans-serif";
-    font-size: 1rem;
-    line-height: 1em;
-    font-weight: 400;
-    color: #011a3c;
 }
 
 /* Customised adjustments */

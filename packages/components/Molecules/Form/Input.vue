@@ -11,7 +11,7 @@
     <input
       type="text"
       class="rpl-form-input__input"
-      id="tests"
+      :id="identifier"
       v-model="computedValue"
       :disabled="disabled"
       :maxlength="max"
@@ -45,7 +45,8 @@ export default {
     readonly: Boolean,
     icon: {
       type: Object
-    }
+    },
+    identifier: String
   },
   methods: {
     handleIconClick (pos) {

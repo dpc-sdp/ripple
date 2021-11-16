@@ -112,16 +112,19 @@ export default {
       }
 
       .rpl-link {
+        $primary-hover-color: rpl-color('secondary');
         .rpl-text-label {
           color: rpl-color('white');
 
           &:hover {
-            color: rpl-color('secondary');
+            color: $primary-hover-color;
           }
         }
-        &:focus, &:focus-visible, &:active {
+        &:hover, &:focus, &:focus-visible, &:active {
+          color: $primary-hover-color;
+
           .rpl-text-label {
-            color: rpl-color('secondary');
+            color: $primary-hover-color;
           }
         }
       }
@@ -141,7 +144,7 @@ export default {
             border-bottom-color: rpl-color('mid_neutral_1');
           }
         }
-        &:hover, &:focus, &:focus-visible {
+        &:hover, &:focus, &:focus-visible, &:active {
           .rpl-text-label {
              &--small--underline {
               border-bottom-color: rpl-color('primary');
@@ -165,7 +168,7 @@ export default {
             border-bottom-color: rpl-color('mid_neutral_1');
           }
         }
-        &:hover, &:focus, &:focus-visible {
+        &:hover, &:focus, &:focus-visible, &:active {
           .rpl-text-label {
             &--small--underline {
               border-bottom-color: rpl-color('primary');

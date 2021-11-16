@@ -10,10 +10,10 @@
     "build:win32": "nuxt build --modern=client",
     "cy:open": "cypress open",
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
-    "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
+    "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/integration/integration/smoke/*'",
     "test:dev": "cross-env TEST=1 start-server-and-test dev http://localhost:3000 cy:open",
     "test:smoke": "cross-env TEST=1 start-server-and-test start:build http://localhost:3000 cy:run-smoke",
-    "test:e2e": "cross-env TEST=1 start-server-and-test start:build http://localhost:3000 cy:run",
+    "test:integration": "cross-env TEST=1 start-server-and-test start:build http://localhost:3000 cy:run",
     "test:unit": "cross-env NODE_ENV=test jest",
     "start": "run-script-os",
     "start:default": "nuxt start --modern=client",
@@ -63,7 +63,7 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
-    "step_definitions": "test/e2e/integration/",
+    "step_definitions": "test/integration/features",
     "cucumberJson": {
       "generate": true,
       "outputFolder": "./../../test-results/cucumber",

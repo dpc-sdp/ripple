@@ -245,7 +245,7 @@ export default {
 
         &:first-child {
           &::after {
-            height: 100%;          
+            height: 100%;
             top: calc(#{$rpl-timeline-point-with-image-top} + #{$rpl-timeline-sidebar-size});
           }
         }

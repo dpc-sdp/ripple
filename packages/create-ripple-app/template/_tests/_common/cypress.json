@@ -1,11 +1,11 @@
 {
   "baseUrl": "http://localhost:3000",
-  "fixturesFolder": "test/e2e/fixtures",
-  "integrationFolder": "test/e2e/integration",
-  "pluginsFile": "test/e2e/plugins/index.js",
-  "screenshotsFolder": "test/e2e/screenshots",
-  "supportFile": "test/e2e/support/index.js",
-  "videosFolder": "test/e2e/videos",
+  "fixturesFolder": "test/integration/fixtures",
+  "integrationFolder": "test/integration/features",
+  "pluginsFile": "test/integration/plugins/index.js",
+  "screenshotsFolder": "test/integration/screenshots",
+  "supportFile": "test/integration/support/index.js",
+  "videosFolder": "test/integration/videos",
   "ignoreTestFiles": [
     "*.js",
     "*.md"

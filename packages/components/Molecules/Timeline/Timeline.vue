@@ -66,20 +66,22 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
+  $rpl-timeline-active-color: rpl-color('primary') !default;
+
   $rpl-timeline-image-dimension: rem(88px) !default;
-  $rpl-timeline-image-margin: 0 0 ($rpl-space * 2) ($rpl-space * -1) !default;
+  $rpl-timeline-image-margin: 0 0 ($rpl-space * 3) 0 !default;
   $rpl-timeline-point-top: $rpl-space-3 !default;
   $rpl-timeline-point-with-image-top: $rpl-timeline-image-dimension / 2 !default;
-  $rpl-timeline-point-width: ($rpl-space * 4) !default;
-  $rpl-timeline-point-with-image-width: ($rpl-space * 7) !default;
+  $rpl-timeline-point-width: ($rpl-space * 5) !default;
+  $rpl-timeline-point-with-image-width: ($rpl-space * 5) !default;
   $rpl-timeline-point-thickness: 4px !default;
   $rpl-timeline-point-color: rpl-color('mid_neutral_1') !default;
   $rpl-timeline-sidebar-size: $rpl-timeline-point-thickness !default;
   $rpl-timeline-sidebar-color: $rpl-timeline-point-color !default;
-  $rpl-timeline-active-color: rpl-color('danger') !default;
   $rpl-timeline-sidebar-gutter-width: ($rpl-space * 8) !default;
   $rpl-timeline-item-title-height: rem(12px) !default;
   $rpl-timeline-list-item-padding: 0 0 (rem(18px) + $rpl-timeline-item-title-height) $rpl-timeline-sidebar-gutter-width !default;
+  $rpl-timeline-list-item-min-height: ($rpl-timeline-item-title-height * 4) + rem(4px) !default;
   $rpl-timeline-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-timeline-item-title-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-timeline-item-title-text-link-color: rpl-color('primary') !default;
@@ -107,6 +109,7 @@ export default {
 
     &__list-item {
       $list-item: &;
+      min-height: $rpl-timeline-list-item-min-height;
       position: relative;
       padding: $rpl-timeline-list-item-padding;
 
@@ -207,9 +210,9 @@ export default {
           content: '';
           display: inline-block;
           background-color: $rpl-timeline-active-color;
+          height: calc(#{$rpl-timeline-item-title-height} + #{$rpl-timeline-sidebar-size});
           width: $rpl-timeline-sidebar-size;
           top: 0;
-          height: calc(#{$rpl-timeline-item-title-height} + #{$rpl-timeline-sidebar-size});
           left: -$rpl-timeline-sidebar-size;
           position: absolute;
 
@@ -219,18 +222,32 @@ export default {
         &:first-child {
           &::before {
             left: -$rpl-timeline-sidebar-size;
-            width: calc(#{$rpl-timeline-sidebar-size} + #{$rpl-timeline-point-width});
+            width: calc(#{$rpl-timeline-point-width} + #{$rpl-timeline-sidebar-size});
           }
 
           &::after {
             background-color: $rpl-timeline-sidebar-color;
-            top: calc(#{$rpl-timeline-item-title-height} + #{$rpl-timeline-sidebar-size});
             height: 100%;
+            top: calc(#{$rpl-timeline-item-title-height} + #{$rpl-timeline-sidebar-size});
           }
         }
 
-        .rpl-timeline__item-title {
+        .rpl-timeline__item-title,
+        .rpl-link {
           color: $rpl-timeline-active-color;
+        }
+      }
+
+      &--current.rpl-timeline__list-item--multi.rpl-timeline__list-item--with-image {
+        &::after {
+          height: calc(#{$rpl-timeline-point-with-image-top} + #{$rpl-timeline-sidebar-size});
+        }
+
+        &:first-child {
+          &::after {
+            height: 100%;          
+            top: calc(#{$rpl-timeline-point-with-image-top} + #{$rpl-timeline-sidebar-size});
+          }
         }
       }
     }

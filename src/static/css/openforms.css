@@ -95,7 +95,7 @@ strong {
 a {
     background-color: transparent;
     text-decoration: none !important;
-    color: #0052c2 !important;
+    color: var(--ripple-primary) !important;
 }
 
 a:hover {
@@ -197,7 +197,7 @@ input:not([type]):focus,
 textarea:focus {
     box-shadow: none !important;
     padding: 1rem 1.25rem !important;
-    border: 2px solid #0052c2 !important;
+    border: 2px solid var(--ripple-primary) !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -262,20 +262,20 @@ input[type="checkbox"] + label:after {
 }
 
 input[type="checkbox"]:checked + label:before {
-    border-color: #0052c2 !important;
+    border-color: var(--ripple-primary) !important;
     height: 11px;
     top: 1px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
 }
 
 input[type="checkbox"]:checked + label:after {
-    border-color: #0052c2 !important;
+    border-color: var(--ripple-primary) !important;
     background-color: #fff;
 }
 
 input[type="checkbox"]:focus + label:after {
-    box-shadow: 0 0 0 0px #0052c2;
-    border: 1px solid #0052c2;
+    box-shadow: 0 0 0 0px var(--ripple-primary);
+    border: 1px solid var(--ripple-primary);
 }
 
 
@@ -315,7 +315,7 @@ button {
 
 button.of-colour-primary {
     color: #fff !important;
-    background-color: #0052c2 !important;
+    background-color: var(--ripple-primary) !important;
 }
 
 button.of-colour-secondary {
@@ -328,7 +328,7 @@ button.of-colour-primary:hover {
 }
 
 button.of-colour-secondary:hover {
-    background-color: #0052c2 !important;
+    background-color: var(--ripple-primary) !important;
 }
 
 button .inner-border {
@@ -365,7 +365,7 @@ select option {
 select:focus {
     box-shadow: none !important;
     padding: 1rem 1.25rem !important;
-    border: 2px solid #0052c2 !important;
+    border: 2px solid var(--ripple-primary) !important;
 }
 
 select option:hover {
@@ -394,7 +394,7 @@ select option:hover {
 
 button.use-current-location {
     color: #fff !important;
-    background-color: #0052c2 !important;
+    background-color: var(--ripple-primary) !important;
     height: 47px;
 }
 
@@ -418,7 +418,7 @@ button.datebutton:hover {
 }
 
 button.datebutton i {
-    color: #0052c2;
+    color: var(--ripple-primary);
     font-size: 55px; /* for the icon to be the same height with text field */
     margin-top: .75rem;
 }

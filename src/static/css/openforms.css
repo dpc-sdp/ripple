@@ -320,15 +320,23 @@ button.of-colour-primary {
 
 button.of-colour-secondary {
     color: #fff !important;
-    background-color: #0095ec !important;
+    background-color: var(--ripple-secondary) !important;
 }
 
 button.of-colour-primary:hover {
-    background-color: #0095ec !important;
+    background-color: var(--ripple-secondary) !important;
 }
 
 button.of-colour-secondary:hover {
     background-color: var(--ripple-primary) !important;
+}
+
+button.of-colour-primary:focus {
+    border: 2px solid var(--ripple-primary) !important;
+}
+
+button.of-colour-secondary:focus {
+    border: 2px solid var(--ripple-primary) !important;
 }
 
 button .inner-border {

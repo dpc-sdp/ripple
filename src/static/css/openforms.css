@@ -219,12 +219,12 @@ input[type="radio"] + label {
 
 /* Radio */
 input[type="radio"]:checked + label:before {
-    border: 2px solid #0095ec;
+    border: 2px solid var(--ripple-secondary);
 }
 
 input[type="radio"]:checked + label:after {
-    border: 10px solid #0095ec;
-    background-color: #0095ec;
+    border: 10px solid var(--ripple-secondary);
+    background-color: var(--ripple-secondary);
     -webkit-transform: scale(0.3);
     transform: scale(0.3);
 }
@@ -239,6 +239,7 @@ input[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
 
 input[type="radio"]:focus + label:before {
     box-shadow: none;
+    outline: 2px solid var(--ripple-primary) !important;
 }
 
 

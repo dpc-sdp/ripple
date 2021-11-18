@@ -69,7 +69,7 @@ export default {
   $rpl-timeline-active-color: rpl-color('primary') !default;
 
   $rpl-timeline-image-dimension: rem(88px) !default;
-  $rpl-timeline-image-margin: 0 0 ($rpl-space * 3) 0 !default;
+  $rpl-timeline-image-margin: 0 0 ($rpl-space * 2) 0 !default;
   $rpl-timeline-point-top: $rpl-space-3 !default;
   $rpl-timeline-point-with-image-top: $rpl-timeline-image-dimension / 2 !default;
   $rpl-timeline-point-width: ($rpl-space * 5) !default;
@@ -87,7 +87,7 @@ export default {
   $rpl-timeline-item-title-text-link-color: rpl-color('primary') !default;
   $rpl-timeline-item-subtitle-ruleset: ('s', 1.5em, 'medium') !default;
   $rpl-timeline-item-description-ruleset: ('s', 1.5em, 'regular') !default;
-  $rpl-timeline-item-description-margin: $rpl-space-3 0 $rpl-space 0 !default;
+  $rpl-timeline-item-description-margin: $rpl-space-2 0 $rpl-space-2 0 !default;
   $rpl-timeline-item-description-text-margin-top: rem(6px) !default;
   $rpl-timeline-item-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-timeline-item-subtitle-text-color: rpl-color('extra_dark_neutral') !default;

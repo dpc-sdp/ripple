@@ -408,7 +408,7 @@ button.use-current-location {
 }
 
 button.use-current-location:hover {
-    background-color: #0095ec !important;
+    background-color: var(--ripple-secondary) !important;
 }
 
 button.use-current-location .material-icons {

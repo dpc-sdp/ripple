@@ -72,8 +72,8 @@ export default {
   $rpl-timeline-image-margin: 0 0 ($rpl-space / 2) 0 !default;
   $rpl-timeline-point-top: $rpl-space-3 !default;
   $rpl-timeline-point-with-image-top: $rpl-timeline-image-dimension / 2 !default;
-  $rpl-timeline-point-width: ($rpl-space * 5) !default;
-  $rpl-timeline-point-with-image-width: ($rpl-space * 5) !default;
+  $rpl-timeline-point-width: ($rpl-space * 4) !default;
+  $rpl-timeline-point-with-image-width: ($rpl-space * 4) !default;
   $rpl-timeline-point-thickness: 4px !default;
   $rpl-timeline-point-color: rpl-color('mid_neutral_1') !default;
   $rpl-timeline-sidebar-size: $rpl-timeline-point-thickness !default;

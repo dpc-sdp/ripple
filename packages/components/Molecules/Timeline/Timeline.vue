@@ -174,6 +174,8 @@ export default {
           }
 
           &:first-child {
+            margin-top: -$rpl-timeline-item-title-height;
+
             &::after {
               top: $rpl-timeline-point-with-image-top;
             }

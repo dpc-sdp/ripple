@@ -273,6 +273,11 @@ export default {
       .rpl-link {
         @include rpl_text_color($rpl-timeline-item-title-text-color);
         text-decoration: underline;
+
+        &:hover {
+          @include rpl_text_color($rpl-timeline-active-color);
+          text-decoration: none;
+        }
       }
     }
 

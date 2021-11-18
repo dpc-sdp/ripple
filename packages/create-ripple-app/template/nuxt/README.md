@@ -8,10 +8,15 @@
 
 ## Prerequisites
 
-Please have the *latest* stable versions of the following on your machine
-
-- node
+- node 
 - <%= pm %>
+
+_Note:_ Please ensure you are using the version of node specified in the package.json engines key. We recommend using [NVM](https://github.com/nvm-sh/nvm) for managing node version by running the following:
+
+```shell
+# Run nvm install from the project folder.
+nvm install
+```
 
 ## Local environment setup
 

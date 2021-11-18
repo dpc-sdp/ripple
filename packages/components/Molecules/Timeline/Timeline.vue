@@ -98,6 +98,7 @@ export default {
 
     &__title {
       @include rpl_text_color($rpl-timeline-title-text-color);
+      margin: rem(24px) 0;
     }
 
     &__list {

@@ -69,7 +69,7 @@ export default {
   $rpl-timeline-active-color: rpl-color('primary') !default;
 
   $rpl-timeline-image-dimension: rem(88px) !default;
-  $rpl-timeline-image-margin: 0 0 ($rpl-space * 2) 0 !default;
+  $rpl-timeline-image-margin: 0 0 ($rpl-space / 2) 0 !default;
   $rpl-timeline-point-top: $rpl-space-3 !default;
   $rpl-timeline-point-with-image-top: $rpl-timeline-image-dimension / 2 !default;
   $rpl-timeline-point-width: ($rpl-space * 5) !default;
@@ -169,6 +169,10 @@ export default {
         }
 
         &#{$list-item}--with-image {
+          .rpl-timeline__item-title {
+            margin-top: 0;
+          }
+
           &::before {
             top: calc(#{$rpl-timeline-point-with-image-top} - (#{$rpl-timeline-point-thickness}/2));
             width: $rpl-timeline-point-with-image-width;

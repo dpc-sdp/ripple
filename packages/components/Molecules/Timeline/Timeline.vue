@@ -80,7 +80,7 @@ export default {
   $rpl-timeline-sidebar-color: $rpl-timeline-point-color !default;
   $rpl-timeline-sidebar-gutter-width: ($rpl-space * 7) !default;
   $rpl-timeline-item-title-height: rem(12px) !default;
-  $rpl-timeline-list-item-padding: 0 0 (rem(18px) + $rpl-timeline-item-title-height) $rpl-timeline-sidebar-gutter-width !default;
+  $rpl-timeline-list-item-padding: 0 0 (rem(12px) + $rpl-timeline-item-title-height) $rpl-timeline-sidebar-gutter-width !default;
   $rpl-timeline-list-item-min-height: ($rpl-timeline-item-title-height * 4) + rem(4px) !default;
   $rpl-timeline-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-timeline-item-title-ruleset: ('l', 1.2em, 'bold') !default;

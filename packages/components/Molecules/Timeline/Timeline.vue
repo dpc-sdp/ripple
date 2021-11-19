@@ -295,7 +295,7 @@ export default {
     &__item-subtitle {
       @include rpl_typography_ruleset($rpl-timeline-item-subtitle-ruleset);
       @include rpl_text_color($rpl-timeline-item-subtitle-text-color);
-      margin: 0 0 $rpl-space 0;
+      margin: 0 0 $rpl-space-2 0;
     }
 
     &__item-description {

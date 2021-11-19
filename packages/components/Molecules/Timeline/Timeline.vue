@@ -81,7 +81,7 @@ export default {
   $rpl-timeline-sidebar-gutter-width: ($rpl-space * 7) !default;
   $rpl-timeline-item-title-height: rem(12px) !default;
   $rpl-timeline-list-item-padding: 0 0 ($rpl-timeline-item-title-height * 2) $rpl-timeline-sidebar-gutter-width !default;
-  $rpl-timeline-list-item-min-height: ($rpl-timeline-item-title-height * 5) + rem($rpl-timeline-point-thickness * 1.5) !default;
+  $rpl-timeline-list-item-min-height: ($rpl-timeline-item-title-height * 5) - rem($rpl-timeline-point-thickness) !default;
   $rpl-timeline-title-text-color: rpl-color('extra_dark_neutral') !default;
   $rpl-timeline-item-title-ruleset: ('l', 1.2em, 'bold') !default;
   $rpl-timeline-item-title-text-link-color: rpl-color('primary') !default;
@@ -169,6 +169,8 @@ export default {
         }
 
         &#{$list-item}--with-image {
+          margin-top: -$rpl-timeline-item-title-height;
+
           .rpl-timeline__item-title {
             margin-top: 0;
           }

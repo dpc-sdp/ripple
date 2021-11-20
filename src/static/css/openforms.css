@@ -1,22 +1,20 @@
 /* 
-    Custom properties 
-    -----------------
+    Theme variables & styles 
+    ------------------------
     These can be overridden to control the colours of the theme.
+    Due to limitations of not having control over the markup 
+    some theme elements need to be manually styled.
 */
 :root {
     --ripple-primary: #0052c2;
     --ripple-secondary: #0095ec;
 }
 
-
-/* Unsure where these belong */
-.of-colour-primary {
-    color: var(--ripple-primary);
+select {
+   background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 -256 1792 1792'%3E%3Cg transform='matrix(1 0 0 -1 68.339 1133.6)'%3E%3Cpath fill='%230052C2' d='m1611 832q0-53-37-90l-651-651q-38-38-91-38-54 0-90 38l-651 651q-38 36-38 90 0 53 38 91l74 75q39 37 91 37 53 0 90-37l486-486 486 486q37 37 90 37 52 0 91-37l75-75q37-39 37-91z' /%3E%3C/g%3E%3C/svg%3E"); 
 }
+/* End of theme variables */
 
-.of-colour-secondary {
-    color: var(--ripple-secondary);
-}
 
 /* Fonts */
 @font-face {
@@ -339,8 +337,7 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    /* SVG background image */
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%230052c2'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
+    /* SVG background image is styled at the top of this file */
     background-size: 12px;
     background-position: calc(100% - 20px) center;
     background-repeat: no-repeat;
@@ -352,9 +349,9 @@ select option {
 }
 
 select:focus {
-    box-shadow: none !important;
     padding: 1rem 1.25rem !important;
-    border: 2px solid var(--ripple-primary) !important;
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
 }
 
 select option:hover {
@@ -449,6 +446,14 @@ fieldset .of-checkable-item {
 }
 
 /* to make it look like Ripple form */
+.of-colour-primary {
+    color: var(--ripple-primary);
+}
+
+.of-colour-secondary {
+    color: var(--ripple-secondary);
+}
+
 .of-section-element label {
     font-family: VIC-Bold,Arial,Helvetica,"sans-serif";
     font-size: 1rem;

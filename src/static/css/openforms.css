@@ -196,7 +196,8 @@ input:not([type]):focus,
 textarea:focus {
     box-shadow: none !important;
     padding: 1rem 1.25rem !important;
-    border: 2px solid var(--ripple-primary) !important;
+    border-color: transparent !important;
+    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -390,6 +391,7 @@ select option:hover {
 .of-display-body {
     background-color: transparent;
     box-shadow: 0px 0px 0px 0px transparent;
+    padding-left: 1px;
 }
 
 .of-display-body .of-sectionbox {

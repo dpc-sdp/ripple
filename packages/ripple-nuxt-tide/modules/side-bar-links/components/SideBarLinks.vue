@@ -121,7 +121,7 @@ export default {
           }
         }
         &:hover, &:focus, &:focus-visible, &:active {
-          color: $primary-hover-color;
+          color: $primary-hover-color !important;
 
           .rpl-text-label {
             color: $primary-hover-color;
@@ -136,7 +136,7 @@ export default {
         color: rpl-color('extra_dark_neutral');
       }
 
-      .rpl-link {
+      .rpl-text-link {
         .rpl-text-label {
           color: rpl-color('primary');
 
@@ -144,13 +144,21 @@ export default {
             border-bottom-color: rpl-color('mid_neutral_1');
           }
         }
+
         &:hover, &:focus, &:focus-visible, &:active {
           .rpl-text-label {
-             &--small--underline {
+            &--small--underline {
+              color: rpl-color('primary');
               border-bottom-color: rpl-color('primary');
             }
           }
         }
+      }
+
+      // To fix cross browser consistency in Safari and IE.
+      .rpl-text-link:hover .rpl-text-label--small--underline {
+        color: rpl-color('primary');
+        border-bottom-color: rpl-color('primary') !important;
       }
     }
 
@@ -160,7 +168,7 @@ export default {
         color: rpl-color('dark_neutral');
       }
 
-      .rpl-link {
+      .rpl-text-link {
         .rpl-text-label {
           color: rpl-color('dark_primary');
 
@@ -175,6 +183,12 @@ export default {
             }
           }
         }
+      }
+
+      // To fix cross browser consistency in Safari and IE.
+      .rpl-text-link:hover .rpl-text-label--small--underline {
+        color: rpl-color('dark_primary');
+        border-bottom-color: rpl-color('primary') !important;
       }
     }
   }

@@ -8,6 +8,10 @@
 :root {
     --ripple-primary: #0052c2;
     --ripple-secondary: #0095ec;
+    --ripple-danger: #af272f;
+    --ripple-extra-dark-neutral: #011a3c;
+    --ripple-mid-neutral-1: #d7dbe0;
+    --ripple-light-neutral: #f6f6f9;
 }
 
 select {
@@ -16,11 +20,18 @@ select {
 /* End of theme variables */
 
 
+
 /* Fonts */
 @font-face {
     font-family: "VIC-Regular";
-    src: url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Regular.woff?raw=true") format('woff2'),
+    src: url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Regular.woff2?raw=true") format('woff2'),
     url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Regular.woff?raw=true") format('woff');
+}
+
+@font-face {
+    font-family: "VIC-Medium";
+    src: url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Medium.woff2?raw=true") format('woff2'),
+    url("https://raw.githubusercontent.com/dpc-sdp/ripple/master/packages/components/Atoms/Global/assets/fonts/VIC-Medium.woff?raw=true") format('woff');
 }
 
 @font-face {
@@ -41,7 +52,7 @@ body {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: #011a3c;
+    color: var(--ripple-extra-dark-neutral);
     margin: 0px;
 }
 
@@ -105,7 +116,7 @@ img {
 
 /* Fieldset and legend */
 fieldset {
-    padding: 0.35em 0.75em 0.625em 0;
+
 }
 
 legend {
@@ -120,12 +131,22 @@ legend {
 
 fieldset legend {
     font-family: VIC-Bold,Arial,Helvetica,"sans-serif";
-    font-size: 1rem;
     line-height: 1em;
     font-weight: 400;
-    color: #011a3c;
+    color: var(--ripple-extra-dark-neutral);
 }
 
+.of-element-description,
+.of-element-description p {
+    font-size: 14px !important;
+    line-height: 16px;
+}
+
+
+/* Sections */
+.of-all-section-container {
+    background-color: transparent;
+}
 
 /* Text inputs */
 input[type='text'],
@@ -147,11 +168,11 @@ textarea {
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
     font-size: 14px !important;
     color: rgb(1, 26, 60) !important;
-    background-color: #f6f6f9 !important;
-    border: 1px solid #d7dbe0 !important;
+    background-color: var(--ripple-light-neutral) !important;
+    border: 1px solid var(--ripple-mid-neutral-1) !important;
     border-radius: .25rem !important;
     box-sizing: border-box !important;
-    color: #011a3c !important;
+    color: var(--ripple-extra-dark-neutral) !important;
     padding: 1rem 1.25rem !important;
     margin-top: .75rem;
 }
@@ -235,7 +256,7 @@ input[type="checkbox"] + label:after {
     display: inline-block;
     border: 1px solid #546a7c;
     border-radius: .25rem;
-    background-color: #f6f6f9;
+    background-color: var(--ripple-light-neutral);
     width: 1.25rem;
     height: 1.25rem;
 }
@@ -268,7 +289,7 @@ thead {
     display: table-header-group;
     vertical-align: middle;
     border-color: inherit;
-    background-color: #f6f6f9;
+    background-color: var(--ripple-light-neutral);
     border-bottom: 0;
 }
 
@@ -287,19 +308,29 @@ table [type="checkbox"]:checked + label:before {
 
 /* Buttons */
 button {
+    font-size: 16px !important;
     border: 1px solid transparent !important;
     border-radius: .25rem !important;
     box-shadow: 0 0 0 0 transparent !important;
 }
 
 button.of-colour-primary {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
+    font-weight: 400;
     color: #fff !important;
     background-color: var(--ripple-primary) !important;
 }
 
 button.of-colour-secondary {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
+    font-weight: 400;
     color: #fff !important;
     background-color: var(--ripple-secondary) !important;
+}
+
+button.of-colour-primary-border {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
+    font-weight: 400;
 }
 
 button.of-colour-primary:hover {
@@ -328,8 +359,8 @@ button .inner-border {
 select {
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
     appearance: none;
-    background-color: #f6f6f9 !important;
-    border: 1px solid #d7dbe0 !important;
+    background-color: var(--ripple-light-neutral) !important;
+    border: 1px solid var(--ripple-mid-neutral-1) !important;
     border-radius: .25rem !important;
     padding: 1rem 1.25rem !important;
     height: 50px;
@@ -357,6 +388,14 @@ select:focus {
 select option:hover {
     background-color: #488f8f;
 }
+
+
+/* Image and video */
+.image-container,
+.video-container {
+    margin-top: 0.75rem;
+}
+
 
 /* Customised adjustments */
 .of-form-container {
@@ -410,25 +449,31 @@ button.datebutton i {
     margin-top: .75rem;
 }
 
-button.of-file-upload-button {
+button.of-file-upload-button,
+button.of-file-upload-button:active {
     margin-top: .75rem;
+    margin-bottom: 15px;
 }
 
 .of-section-element span.isrequired {
     background: none !important;
     font-size: 14px;
-    color: #af272f;
+    color: var(--ripple-danger);
     font-weight: normal;
     margin: 0;
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
 }
 
-span.of-validation-error, li.of-validation-error {
-    color: #af272f;
+span.of-validation-error,
+li.of-validation-error {
+    font-family: VIC-Medium,Arial,Helvetica,"sans-serif";
+    font-size: 14px !important;
+    line-height: 14px !important;
+    color: var(--ripple-danger);
 }
 
 .of-section-element label{
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1em;
     font-weight: normal;
 }
@@ -456,10 +501,9 @@ fieldset .of-checkable-item {
 
 .of-section-element label {
     font-family: VIC-Bold,Arial,Helvetica,"sans-serif";
-    font-size: 1rem;
     line-height: 1em;
     font-weight: 400;
-    color: #011a3c;
+    color: var(--ripple-extra-dark-neutral);
 }
 
 .of-checkable-item label {

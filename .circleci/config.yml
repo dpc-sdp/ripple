@@ -1,14 +1,36 @@
 version: 2.1
 
+parameters:
+  e2e:
+    type: boolean
+    default: false
+  e2e_be_url:
+    type: string
+    default: ''
+  e2e_fe_url:
+    type: string
+    default: ''
+  e2e_project:
+    type: string
+    default: ''
+
+defaults: &defaults
+  docker:
+    - image: cypress/browsers:node14.7.0-chrome84
+      environment:
+        CIRCLE_TEST_REPORTS: test-results
+        TZ: "Australia/Melbourne"
+      auth:
+        username: $DOCKERHUB_USERNAME
+        password: $DOCKERHUB_PASSWORD
+  working_directory: ~/app
+
+orbs:
+  sdp-test: dpc-sdp/sdp-test@1
+
 jobs:
   build:
-    docker:
-      - image: cypress/base:14.16.0
-        environment:
-          TERM: xterm
-          CIRCLE_TEST_REPORTS: test-results
-          TZ: "Australia/Melbourne"
-    working_directory: ~/app
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
@@ -28,23 +50,8 @@ jobs:
           root: ~/app
           paths: .
 
-  warm-up:
-    docker:
-      - image: cypress/base:14.16.0
-    steps:
-      - run:
-          name: wake up dev backend
-          command: curl https://develop.content.vic.gov.au/ --max-time 1000
-
   test:
-    docker:
-      - image: cypress/base:14.16.0
-        environment:
-          TERM: xterm
-          CIRCLE_TEST_REPORTS: test-results
-          TZ: "Australia/Melbourne"
-
-    working_directory: ~/app
+    <<: *defaults
     steps:
       - attach_workspace:
           at: ~/app
@@ -61,12 +68,6 @@ jobs:
           command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: test-results/unit/
-      - run:
-          name: run smoke test
-          command: yarn test:smoke
-      - run:
-          name: prepare cucumber test report
-          command: yarn test:report
       - persist_to_workspace:
           root: ~/app
           paths: .
@@ -75,52 +76,15 @@ jobs:
       - store_artifacts:
           path: test-results
       - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/videos
+          path: examples/vic-gov-au/test/integration/videos
       - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/screenshots
+          path: examples/vic-gov-au/test/integration/screenshots
 
-  audit:
-    docker:
-      - image: cypress/browsers:node14.16.0-chrome89-ff86
-        environment:
-          TERM: xterm
-          CIRCLE_TEST_REPORTS: test-results
-          TZ: "Australia/Melbourne"
 
-    working_directory: ~/app
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - restore_cache:
-          keys:
-            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: run lighthouse audit
-          command: yarn test:audit
-      - run:
-          name: prepare cucumber test report
-          command: yarn test:report
-      - persist_to_workspace:
-          root: ~/app
-          paths: .
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: test-results
-      - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/videos
-      - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/screenshots
 
-  e2e-vic-gov:
-    # This runs the full suite of e2e tests
-    docker:
-      - image: cypress/browsers:node14.16.0-chrome89-ff86
-        environment:
-          TERM: xterm
-          TZ: "Australia/Melbourne"
-
-    working_directory: ~/app
+  integration-vic-gov:
+    # Integration tests confirm FE components are working correctly without testing BE
+    <<: *defaults
     parallelism: 2
     steps:
       - attach_workspace:
@@ -129,24 +93,20 @@ jobs:
           keys:
             - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
-          name: run full e2e test
-          command: yarn test:e2e-vic
-      - run:
-          name: prepare cucumber test report
-          command: yarn test:report
-          when: always
+          name: run full integration test
+          command: yarn test:integration-vic
       - store_artifacts:
           path: test-results
       - store_test_results:
           path: test-results
       - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/videos
+          path: examples/vic-gov-au/test/integration/videos
       - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/screenshots
+          path: examples/vic-gov-au/test/integration/screenshots
 
 
-  e2e-example:
-    # This runs the full suite of e2e tests
+  integration-example:
+    # This runs the full suite of integration tests on example nuxt tide app
     docker:
       - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
@@ -162,21 +122,19 @@ jobs:
           name: build example nuxt app
           command: cd examples/basic-examples && yarn build:default
       - run:
-          name: run full e2e test
-          command: yarn test:e2e-example
-      - run:
-          name: prepare cucumber test report
-          command: yarn test:report
+          name: run full integration test
+          command: yarn test:integration-example
       - store_test_results:
           path: test-results
       - store_artifacts:
           path: test-results
       - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/videos
+          path: examples/vic-gov-au/test/integration/videos
       - store_artifacts:
-          path: examples/vic-gov-au/test/e2e/screenshots
+          path: examples/vic-gov-au/test/integration/screenshots
 
-  e2e-vue-example-app:
+  integration-vue-example-app:
+  # This runs the full suite of integration tests on example vue example app
     docker:
       - image: cypress/browsers:node14.16.0-chrome89-ff86
         environment:
@@ -191,17 +149,14 @@ jobs:
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
-      - run:
-          name: prepare cucumber test report
-          command: yarn test:report
       - store_test_results:
           path: test-results
       - store_artifacts:
           path: test-results
       - store_artifacts:
-          path: examples/vue-example-app/test/e2e/videos
+          path: examples/vue-example-app/test/integration/videos
       - store_artifacts:
-          path: examples/vue-example-app/test/e2e/screenshots
+          path: examples/vue-example-app/test/integration/screenshots
 
   storybook:
     docker:
@@ -219,6 +174,8 @@ jobs:
 workflows:
   version: 2
   commit:
+    when:
+      not: << pipeline.parameters.e2e >>  
     jobs:
       - build:
           context: Ripple
@@ -231,7 +188,7 @@ workflows:
           requires:
             - build
       # Run regression tests on release branches
-      - e2e-vic-gov:
+      - integration-vic-gov:
           context: Ripple
           requires:
             - build
@@ -239,14 +196,14 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-      - e2e-example:
+      - integration-example:
           requires:
             - build
           filters:
             branches:
               only:
                 - /^release\/.*/
-      - e2e-vue-example-app:
+      - integration-vue-example-app:
           requires:
             - build
           filters:
@@ -254,34 +211,28 @@ workflows:
               only:
                 - /^release\/.*/
 
-  # Run full regression test at midnight UTC on develop branch
-  nightly:
-    triggers:
-      - schedule:
-          cron: "30 14 * * *"
-          filters:
-            branches:
-              only:
-                - develop
-    jobs:
-      - warm-up
-      - build:
-          context: Ripple
-      - test:
-          context: Ripple
-          requires:
-            - build
-      - audit:
-          context: Ripple
-          requires:
-            - build
-      - e2e-vic-gov:
-          context: Ripple
-          requires:
-            - build
-      - e2e-example:
-          requires:
-            - build
-      - e2e-vue-example-app:
-          requires:
-            - build
+  # nightwatch:
+  #   when: << pipeline.parameters.e2e >>
+  #   jobs:
+  #     - sdp-test/smoke:
+  #         filters:
+  #           branches:
+  #             only:
+  #               - /master|^release\/.*|^hotfix\/.*/
+  #         context:
+  #           - e2e-test
+  #         be_url: << pipeline.parameters.e2e_be_url >>
+  #         fe_url: << pipeline.parameters.e2e_fe_url >>
+  #         project: << pipeline.parameters.e2e_project >>
+  #     - sdp-test/e2e:
+  #         filters:
+  #           branches:
+  #             only:
+  #               - /master|^release\/.*|^hotfix\/.*/
+  #         requires:
+  #           - sdp-test/smoke
+  #         context:
+  #           - e2e-test
+  #         be_url: << pipeline.parameters.e2e_be_url >>
+  #         fe_url: << pipeline.parameters.e2e_fe_url >>
+  #         project: << pipeline.parameters.e2e_project >>

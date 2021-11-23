@@ -134,6 +134,7 @@ fieldset legend {
     line-height: 1em;
     font-weight: 400;
     color: var(--ripple-extra-dark-neutral);
+    float: none !important;
 }
 
 .of-element-description,
@@ -218,11 +219,11 @@ input[type="radio"] + label {
 
 /* Radio */
 input[type="radio"]:checked + label:before {
-    border: 2px solid var(--ripple-secondary);
+    border: 1px solid var(--ripple-secondary);
 }
 
 input[type="radio"]:checked + label:after {
-    border: 10px solid var(--ripple-secondary);
+    border: 1px solid var(--ripple-secondary);
     background-color: var(--ripple-secondary);
     -webkit-transform: scale(0.3);
     transform: scale(0.3);
@@ -233,12 +234,12 @@ input[type="radio"]:not(:checked) + label:before {
 }
 
 input[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
-    padding-left: 30px;
+    padding-left: 28px;
 }
 
 input[type="radio"]:focus + label:before {
     box-shadow: none;
-    outline: 2px solid var(--ripple-primary) !important;
+    border-color: var(--ripple-primary);
 }
 
 
@@ -251,20 +252,21 @@ input[type="checkbox"] + label:after {
     content: '';
     left: 0;
     position: absolute;
-    top: 0px;
+    top: -4px;
     z-index: 0;
     display: inline-block;
     border: 1px solid #546a7c;
     border-radius: .25rem;
     background-color: var(--ripple-light-neutral);
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 22px;
+    height: 22px;
 }
 
 input[type="checkbox"]:checked + label:before {
     border-color: var(--ripple-primary) !important;
     height: 11px;
-    top: 1px;
+    top: -1px;
+    left: 3px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
 }
 
@@ -486,8 +488,12 @@ li.of-validation-error {
     content: ')';
 }
 
-fieldset .of-checkable-item {
-    padding: .75rem 1.25rem;
+fieldset .of-checkable-item:first-of-type {
+    margin-top: 2px;
+}
+
+fieldset .of-checkable-item:last-of-type {
+    margin-bottom: 0;
 }
 
 /* to make it look like Ripple form */

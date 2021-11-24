@@ -141,6 +141,8 @@ jobs:
           TERM: xterm
     working_directory: ~/app
     steps:
+      - attach_workspace:
+          at: ~/app      
       - restore_cache:
           keys:
             - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}

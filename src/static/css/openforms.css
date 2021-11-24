@@ -21,6 +21,10 @@ select {
 .datebutton {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' aria-hidden='true' overflow='visible' style='width: 18px; height: 18px;'%3E%3Cpath d='M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z' clip-rule='evenodd' fill-rule='evenodd' fill='%230052C2'%3E%3C/path%3E%3C/svg%3E");
 }
+
+.dropmessage {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='16' viewBox='0 0 24 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000000' d='M19.35 6.04C18.67 2.59 15.64 0 12 0C9.11 0 6.6 1.64 5.35 4.04C2.34 4.36 0 6.91 0 10C0 13.31 2.69 16 6 16H19C21.76 16 24 13.76 24 11C24 8.36 21.95 6.22 19.35 6.04ZM17 9L12 14L7 9H10V5H14V9H17Z'/%3E%3C/svg%3E%0A");
+}
 /* End of theme variables */
 
 
@@ -466,6 +470,36 @@ select option:hover {
 
 .of-signature-option .of-file-upload-button {
     margin-top: 0;
+}
+
+/* File upload */
+.dropzone {
+    border: 1px dashed var(--ripple-mid-neutral-1) !important;
+    border-radius: 4px !important;
+    padding-bottom: 29px;
+    color: var(--ripple-extra-dark-neutral);
+}
+
+.dropmessage {
+    display: block;
+    padding-top: 45px;
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    font-size: 14px;
+    line-height: 16px;
+    /* SVG background image is styled at the top of this file */
+    background-size: 24px;
+    background-position: 50% 14px;
+    background-repeat: no-repeat;
+}
+
+.dropmessage .material-icons {
+    display: none;
+}
+
+.dz-message .demo {
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    font-size: 14px;
+    line-height: 16px;
 }
 
 

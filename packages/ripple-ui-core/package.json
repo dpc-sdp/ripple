@@ -1,23 +1,21 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "version": "0.0.0",
-  "description": "Ripple core UI styles",
-  "keywords": [
-    "design-system",
-    "sdp",
-    "vicgov"
-  ],
-  "author": "Dylan Kelly <dylan.kelly@dpc.vic.gov.au>",
-  "homepage": "https://www.singledigitalpresence.vic.gov.au",
-  "license": "ISC",
-  "main": "index.js",
-  "files": [
-    "components"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
+  "main": "src/index",
   "scripts": {
-    "test:unit": "echo 'unit tests not setup yet'" 
+    "dev": "vite",
+    "build": "yarn clean && vue-tsc --noEmit && vite build",
+    "watch": "yarn clean && vue-tsc --noEmit && vite build --watch",
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.16"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.3",
+    "typescript": "^4.4.3",
+    "vite": "^2.6.4",
+    "vue-tsc": "^0.3.0"
   }
 }

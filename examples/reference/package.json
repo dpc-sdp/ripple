@@ -1,11 +1,16 @@
 {
   "private": true,
-  "name": "ripple-nuxt-reference",
+  "name": "example-reference",
   "version": "0.0.0",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
+    "compile": "tsc --build",
     "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-tide-api": "0.0.0",
+    "@dpc-sdp/ripple-ui-core": "0.0.0"
   },
   "devDependencies": {
     "nuxt3": "latest"

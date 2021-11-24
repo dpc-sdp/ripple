@@ -1,18 +1,34 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "examples/*",
-      "docs"
-    ]
+  "workspaces": [
+    "packages/*",
+    "examples/*",
+    "docs"
+  ],
+  "scripts": {
+    "example": "wrap () { yarn workspace example-\"$*\" dev | cat; }; wrap",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "dev": "concurrently \"yarn example reference\" \"yarn storybook\" \"yarn workspace @dpc-sdp/ripple-tide-api watch:build\"",
+    "clean": "git clean -dfx && git reset --hard && yarn"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/vue3": "^6.3.12",
+    "babel-loader": "^8.2.3",
     "lerna": "^4.0.0",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "vue-loader": "^16.8.3"
   },
   "engines": {
-    "node":  "^14.16.0 || ^16.11.0 || ^17.0.0"
+    "node": "^14.16.0 || ^16.11.0 || ^17.0.0"
+  },
+  "dependencies": {
+    "concurrently": "^6.4.0",
+    "rimraf": "^3.0.2"
   }
 }

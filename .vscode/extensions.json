@@ -1,3 +1,9 @@
 {
-  "recommendations": ["johnsoncodehk.volar"]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "eamodio.gitlens",
+    "streetsidesoftware.code-spell-checker",
+    "johnsoncodehk.volar"
+  ]
 }

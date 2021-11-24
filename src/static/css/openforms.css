@@ -1,3 +1,4 @@
+
 /* 
     Theme variables & styles 
     ------------------------
@@ -372,13 +373,22 @@ button .inner-border {
     opacity: 0;
 }
 
+.of-nav-btn {
+    margin-bottom: 16px !important;
+    min-height: 50px !important;
+}
+
 .of-nav-btn:active {
     margin-top: 0;
     margin-bottom: 5px;
 }
 
-.of-nav-btn {
-    margin-bottom: 24px !important;
+.of-nav-btn .overlay {
+    padding: 10px 20px;
+}
+
+.of-nav-prev {
+    padding: 10px 20px;
 }
 
 

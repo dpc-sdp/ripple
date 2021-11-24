@@ -19,11 +19,21 @@ select {
 }
 
 .datebutton {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' aria-hidden='true' overflow='visible' style='width: 18px; height: 18px;'%3E%3Cpath d='M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z' clip-rule='evenodd' fill-rule='evenodd' fill='%230052C2'%3E%3C/path%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' aria-hidden='true' overflow='visible' style='width: 18px; height: 18px;'%3E%3Cpath fill='%230052C2' d='M2 16h14V5H2v11zM17 2h-2v-.99C15 .452 14.553 0 14 0c-.553 0-1 .452-1 1.01V2H5v-.99C5 .452 4.553 0 4 0c-.553 0-1 .452-1 1.01V2H1a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V3a1 1 0 00-1-1zm-7 12.021h4v-4h-4v4z' clip-rule='evenodd' fill-rule='evenodd' %3E%3C/path%3E%3C/svg%3E");
 }
 
 .dropmessage {
-    background-image: url("data:image/svg+xml,%3Csvg width='24' height='16' viewBox='0 0 24 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000000' d='M19.35 6.04C18.67 2.59 15.64 0 12 0C9.11 0 6.6 1.64 5.35 4.04C2.34 4.36 0 6.91 0 10C0 13.31 2.69 16 6 16H19C21.76 16 24 13.76 24 11C24 8.36 21.95 6.22 19.35 6.04ZM17 9L12 14L7 9H10V5H14V9H17Z'/%3E%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='16' viewBox='0 0 24 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000000' d='M19.35 6.04C18.67 2.59 15.64 0 12 0C9.11 0 6.6 1.64 5.35 4.04C2.34 4.36 0 6.91 0 10C0 13.31 2.69 16 6 16H19C21.76 16 24 13.76 24 11C24 8.36 21.95 6.22 19.35 6.04ZM17 9L12 14L7 9H10V5H14V9H17Z'/%3E%3C/svg%3E%0A");
+}
+
+.picker__nav--prev,
+.picker__nav--prev:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='9' height='10' viewBox='0 0 9 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%230052C2' d='M8.5 0L8.5 10L0.5 5L8.5 0Z'/%3E%3C/svg%3E%0A");
+}
+
+.picker__nav--next,
+.picker__nav--next:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='9' height='10' viewBox='0 0 9 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%230052C2' d='M0.5 10V0L8.5 5L0.5 10Z'/%3E%3C/svg%3E%0A");
 }
 /* End of theme variables */
 
@@ -314,11 +324,220 @@ button.datebutton {
     background-repeat: no-repeat;
 }
 
+button.datebutton:hover {
+    cursor: pointer;
+}
+
 .of-date-container .material-icons {
     /* Hide the default icon */
     display: none;
 }
 
+.picker__input--active {
+    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
+}
+
+
+/* Date picker dropdown */
+.picker {
+    margin-top: 1px;
+}
+
+.picker__holder {
+    max-height: none !important;
+    width: 282px;
+    border: solid 1px var(--ripple-primary);
+    border-radius: 4px;
+}
+
+.picker__box {
+    padding: 20px 20px 17px 20px;
+}
+
+.picker__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding: 0 8px;
+}
+
+.picker__nav--prev {
+    order: 0;
+}
+
+.picker__select--month {
+    order: 1;
+}
+
+.picker__select--year {
+    order: 2;
+}
+
+.picker__nav--next {
+    order: 3;
+}
+
+.picker__nav--next,
+.picker__nav--next:hover,
+.picker__nav--prev,
+.picker__nav--prev:hover {
+    position: static;
+    padding: 0;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    /* SVG background image is styled at the top of this file */
+    background-size: 10px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.picker__nav--next:before,
+.picker__nav--prev:before {
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+.picker__nav--next:hover,
+.picker__nav--prev:hover {
+    background-color: transparent;
+}
+
+.picker__select--month {
+    width: 85px;
+}
+
+.picker__select--year {
+    width: 45px;
+}
+
+.picker__select--year,
+.picker__select--month {
+    height: 25px;
+    padding: 1px 0 0 0 !important;
+    background-image: none;
+    background-color: white !important;
+    border: 0 !important;
+    text-align: center;
+    margin-top: 0;
+}
+
+.picker__select--year:focus,
+.picker__select--month:focus {
+    padding: 1px 0 0 0 !important;
+    border: 0 !important;
+}
+
+.picker__select--year:focus-visible,
+.picker__select--month:focus-visible {
+    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
+    outline: 0;
+}
+
+.picker__table {
+    font-size: 14px !important;
+    line-height: 16px !important;
+    color: var(--ripple-extra-dark-neutral);
+    margin: 0 !important;
+}
+
+.picker__table td {
+    padding: 0 !important;
+}
+
+.picker__table thead {
+    background-color: transparent !important;
+}
+
+.picker__weekday {
+    padding: 0;
+    color: var(--ripple-extra-dark-neutral);
+    font-size: 0;
+    line-height: 0;
+}
+
+.picker__weekday:before {
+    display: inline;
+    font-size: 14px;
+    line-height: 18px;
+    width: 34px;
+}
+
+.picker__weekday[title="Sunday"]:before {
+    content: 'S';
+}
+
+.picker__weekday[title="Monday"]:before {
+    content: 'M';
+}
+
+.picker__weekday[title="Tuesday"]:before {
+    content: 'T';
+}
+
+.picker__weekday[title="Wednesday"]:before {
+    content: 'W';
+}
+
+.picker__weekday[title="Thursday"]:before {
+    content: 'T';
+}
+
+.picker__weekday[title="Friday"]:before {
+    content: 'F';
+}
+
+.picker__weekday[title="Saturday"]:before {
+    content: 'S';
+}
+
+.picker__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+}
+
+.picker__day:hover {
+    background-color: var(--ripple-mid-neutral-1);
+    color: var(--ripple-extra-dark-neutral);
+}
+
+.picker--focused .picker__day--highlighted,
+.picker__day--infocus {
+    background-color: transparent;
+    border: 0;
+}
+
+.picker__day--today,
+.picker--focused .picker__day--highlighted.picker__day--today {
+    color: var(--ripple-secondary);
+}
+
+.picker__day--today:hover {
+    background-color: var(--ripple-mid-neutral-1) !important;
+        color: var(--ripple-secondary) !important;
+}
+
+.picker__day--today:before {
+    display: none;
+}
+
+.picker__day--selected {
+    border-radius: 50%;
+    border: 0;
+    background: linear-gradient(0deg, var(--ripple-secondary) 0%, var(--ripple-primary) 100%) !important;
+    color: white !important;
+}
+
+.picker__footer {
+    display: none;
+}
 
 /* Tables */
 table {

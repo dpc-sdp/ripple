@@ -456,13 +456,6 @@ select option:hover {
 }
 
 
-/* Image and video */
-.image-container,
-.video-container {
-    margin-top: 0.75rem;
-}
-
-
 /* Signature */
 .of-signature-methods {
     margin-top: 0.75rem;

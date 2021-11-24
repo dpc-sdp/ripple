@@ -141,11 +141,12 @@ jobs:
           TERM: xterm
     working_directory: ~/app
     steps:
-      - attach_workspace:
-          at: ~/app
       - restore_cache:
           keys:
             - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: build example nuxt app
+          command: cd examples/vue-example-app && yarn build      
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke

@@ -24,7 +24,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.12.13",
     "@babel/eslint-plugin": "^7.12.13",
-    "@dpc-sdp/ripple-test-tools": "1.24.4",
+    "@dpc-sdp/ripple-test-tools": "^1.26.0",
     "@vue/babel-preset-app": "^4.5.11",
     "@vue/cli-plugin-babel": "^4.5.11",
     "@vue/cli-plugin-eslint": "^4.5.11",

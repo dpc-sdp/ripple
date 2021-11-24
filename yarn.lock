@@ -3203,6 +3203,22 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
+"@dpc-sdp/ripple-test-tools@^1.26.0":
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-test-tools/-/ripple-test-tools-1.26.0.tgz#c77a8f5abeeed60e1e339dbc310bbe7a78e6b53a"
+  integrity sha512-KpmD2PZVfFwBhJMR5d4D1GBiIZdA3N0RxRWy2H0IKvGGJIW0A5d0x4dp5fxd2QXzeG3Emyt8NVadZtaw65Y8/w==
+  dependencies:
+    axe-core "^4.0.0"
+    cucumber-junit-convert "^1.1.0"
+    cypress "^4.1.0"
+    cypress-audit "^0.3.0"
+    cypress-axe "^0.12.0"
+    cypress-cucumber-preprocessor "^2.0.1"
+    cypress-plugin-snapshots "^1.4.4"
+    glob "^7.1.6"
+    js-yaml "^3.14.0"
+    moment "^2.29.1"
+
 "@elastic/elasticsearch-mock@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@elastic/elasticsearch-mock/-/elasticsearch-mock-0.3.0.tgz#6b1d8448aad3ca20f760fa01c0206b733c9c1e54"

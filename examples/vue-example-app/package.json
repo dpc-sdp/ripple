@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint",
     "cy:open": "cypress open",
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
-    "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
+    "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/integration/features/smoke/*'",
     "test:smoke": "cross-env TEST=1 start-server-and-test serve http://localhost:3000 cy:run-smoke",
     "test:dev": "cross-env NODE_ENV=test start-server-and-test serve http://localhost:3000 cy:open"
   },

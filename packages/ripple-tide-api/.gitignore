@@ -1,0 +1,6 @@
+.nyc_output
+build
+test
+src/**.js
+coverage
+*.log

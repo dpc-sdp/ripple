@@ -205,6 +205,24 @@ textarea {
     padding: 1.05rem 1.25rem 1rem 1.25rem !important;
 }
 
+input[type='text'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='search'],
+input[type='tel'],
+input[type='color'],
+input:not([type]) {
+    height: 50px;
+}
+
 input[type="text"]:focus,
 input[type='password']:focus,
 input[type='datetime']:focus,
@@ -234,6 +252,26 @@ textarea:focus {
 }
 
 
+/* Rank */
+.of-rank-item {
+    display: flex;
+    align-items: center;
+}
+
+.of-input-rank {
+    width: 85px;
+}
+
+.of-section-element label.rank-label {
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    padding-top: 0;
+    margin-bottom: 0 !important;
+}
+
+
 /* Radio & Checkbox combined styles */
 input[type="checkbox"] + label,
 input[type="radio"] + label {
@@ -247,6 +285,7 @@ input[type="radio"] + label {
 /* Radio */
 input[type="radio"]:checked + label:before {
     border: 1px solid var(--ripple-secondary);
+    background-color: var(--ripple-light-neutral);
 }
 
 input[type="radio"]:checked + label:after {
@@ -258,6 +297,7 @@ input[type="radio"]:checked + label:after {
 
 input[type="radio"]:not(:checked) + label:before {
     border: 1px solid #5a5a5a;
+    background-color: var(--ripple-light-neutral);
 }
 
 input[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
@@ -284,7 +324,7 @@ input[type="checkbox"] + label:after {
     display: inline-block;
     border: 1px solid #546a7c;
     border-radius: .25rem;
-    background-color: var(--ripple-light-neutral);
+    background-color: white;
     width: 22px;
     height: 22px;
 }
@@ -298,7 +338,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 input[type="checkbox"]:checked + label:after {
-    background-color: #fff;
+    background-color: var(--ripple-light-neutral);
 }
 
 input[type="checkbox"]:focus + label:after {
@@ -340,7 +380,14 @@ button.datebutton:hover {
 
 /* Date picker dropdown */
 .picker {
+    height: 0;
+    overflow: hidden;
     margin-top: 1px;
+}
+
+.picker--opened {
+    height: auto !important;
+    overflow: visible !important;
 }
 
 .picker__holder {
@@ -823,12 +870,6 @@ fieldset .of-checkable-item:last-of-type {
 .of-checkable-item label {
     font-family: inherit;
     font-weight: normal;
-}
-
-.of-section-element label.rank-label {
-    font-family: inherit;
-    font-weight: normal;
-    padding-top: 1.5rem;
 }
 
 .tablesaw-wrapper .tablesaw-cell-label {

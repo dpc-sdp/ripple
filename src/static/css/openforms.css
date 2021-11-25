@@ -347,6 +347,16 @@ input[type="checkbox"]:focus + label:after {
 }
 
 
+/* Checkbox and radio matrix */
+.of-section-element .tablesaw-cell-content label {
+    margin-bottom: 0 !important;
+}
+
+.tablesaw-cell-content input[type="checkbox"] + label:after {
+    top: 0;
+}
+
+
 /* Date input */
 .of-date-container {
     padding-right: 0;

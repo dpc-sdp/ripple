@@ -198,10 +198,10 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-      - integration-vue-example-app:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
+      # - integration-vue-example-app:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only:
+      #           - /^release\/.*/

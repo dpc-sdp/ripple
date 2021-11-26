@@ -341,6 +341,11 @@ textarea.of-validation-error {
     margin-bottom: 12px;
 }
 
+.of-rank-item:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 .of-input-rank {
     width: 85px;
 }

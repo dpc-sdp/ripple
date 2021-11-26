@@ -16,7 +16,7 @@ export const Template = (args, { argTypes }) => ({
 
 <Canvas>
   <Story
-    name="Timeline"
+    name="Default"
     args={{
       title: 'Timeline Heading',
       list: [
@@ -47,6 +47,30 @@ export const Template = (args, { argTypes }) => ({
           title: 'Timeline item 5 with link',
           url: 'https://www.google.com',
           description: 'Contains an image, title, external URL and description.'
+        }
+      ],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="WithProgress"
+    args={{
+      title: 'Timeline Heading',
+      list: [
+        {
+          title: 'Start',
+          subtitle: 'Q2, 2018'
+        }, {
+          title: 'Planning'
+        }, {
+          title: 'Design',
+          current: true
+        }, {
+          title: 'Construction'
+        }, {
+          title: 'Finish',
+          subtitle: 'Q1, 2021'
         }
       ],
     }}

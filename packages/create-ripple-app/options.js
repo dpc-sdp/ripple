@@ -72,14 +72,8 @@ module.exports = {
     type: 'list',
     default: 'yarn'
   },
-  e2e: {
-    name: 'e2e',
-    message: 'Add E2E tests?',
-    type: 'confirm',
-    default: true
-  },
-  smoke: {
-    name: 'smoke',
+  integration: {
+    name: 'integration',
     message: 'Add Integration tests?',
     type: 'confirm',
     default: true
@@ -134,14 +128,14 @@ module.exports = {
   adminuser: {
     name: 'adminuser',
     type: 'string',
-    message: 'Drupal user name for E2E automation',
+    message: 'Drupal user name for test automation',
     default: '',
     store: true
   },
   adminpass: {
     name: 'adminpass',
     type: 'string',
-    message: 'Drupal user pass for E2E automation',
+    message: 'Drupal user pass for test automation',
     default: '',
     store: true
   }

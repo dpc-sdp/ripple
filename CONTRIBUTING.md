@@ -77,8 +77,6 @@ Update storyshots tests if you need by `yarn test:unit -u`.
 yarn test:unit
 ```
 
-**Storyshots is temporarily removed due to a open issue in storybook project.**
-
 Chromatic is the tool for visual testing, it's running in CircleCI for pull request.
 
 If you want to run it in local:

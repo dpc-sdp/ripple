@@ -1,7 +1,7 @@
 <template>
   <rpl-alert-base role="alert" class="rpl-alert" closeText="Dismiss alert" :data-alert-type="type" :backgroundColor="typeProp('backgroundColor')" :iconSymbol="typeProp('iconSymbol')" @rplAlertClose="close()" aria-live="assertive">
-    <span v-if="title" class="rpl-alert__title" :id="id">{{ title }}</span>
-    <rpl-text-link v-if="link" class="rpl-alert__link" :text="link.text" :url="link.url" iconSymbol="right" iconColor="white" theme="dark" :aria-labelledby="id" />
+    <span v-if="title" class="rpl-alert__title" :id="identifier">{{ title }}</span>
+    <rpl-text-link v-if="link" class="rpl-alert__link" :text="link.text" :url="link.url" iconSymbol="right" iconColor="white" theme="dark" :aria-labelledby="identifier" />
   </rpl-alert-base>
 </template>
 
@@ -62,8 +62,10 @@ export default {
       }
     }
   },
-  mounted () {
-    this.id = `alert-title-${this.getIdFromLocalRegistry()}`
+  computed: {
+    identifier () {
+      return `alert-title-${this.getIdFromLocalRegistry()}`
+    }
   },
   methods: {
     close () {

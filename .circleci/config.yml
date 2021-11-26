@@ -142,10 +142,13 @@ jobs:
     working_directory: ~/app
     steps:
       - attach_workspace:
-          at: ~/app
+          at: ~/app      
       - restore_cache:
           keys:
             - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: build example nuxt app
+          command: cd examples/vue-example-app && yarn build      
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
@@ -188,14 +191,6 @@ workflows:
           requires:
             - build
       # Run regression tests on release branches
-      - integration-vic-gov:
-          context: Ripple
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
       - integration-example:
           requires:
             - build
@@ -203,36 +198,10 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-      - integration-vue-example-app:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
-
-  # nightwatch:
-  #   when: << pipeline.parameters.e2e >>
-  #   jobs:
-  #     - sdp-test/smoke:
-  #         filters:
-  #           branches:
-  #             only:
-  #               - /master|^release\/.*|^hotfix\/.*/
-  #         context:
-  #           - e2e-test
-  #         be_url: << pipeline.parameters.e2e_be_url >>
-  #         fe_url: << pipeline.parameters.e2e_fe_url >>
-  #         project: << pipeline.parameters.e2e_project >>
-  #     - sdp-test/e2e:
-  #         filters:
-  #           branches:
-  #             only:
-  #               - /master|^release\/.*|^hotfix\/.*/
-  #         requires:
-  #           - sdp-test/smoke
-  #         context:
-  #           - e2e-test
-  #         be_url: << pipeline.parameters.e2e_be_url >>
-  #         fe_url: << pipeline.parameters.e2e_fe_url >>
-  #         project: << pipeline.parameters.e2e_project >>
+      # - integration-vue-example-app:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only:
+      #           - /^release\/.*/

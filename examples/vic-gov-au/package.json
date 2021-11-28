@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/example-vic-gov-au",
-  "version": "1.24.4",
+  "version": "1.26.1",
   "description": "Reference nuxt site using Ripple front end and connecting to Tide backend",
   "private": true,
   "scripts": {
@@ -9,15 +9,9 @@
     "build:default": "nuxt build --modern=client",
     "build:win32": "nuxt build --modern=client",
     "cy:open": "cypress open",
-    "cy:run": "cypress run -b chrome -e TAGS='not @skip or @smoke'",
-    "cy:run-record": "cypress run -b chrome -e TAGS='not @skip or @smoke' --record --parallel --group $CIRCLE_JOB",
-    "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
-    "cy:run-audit": "cypress run --headless -b chrome -e TAGS='@audit' --spec 'test/e2e/integration/smoke/*'",
+    "cy:run": "cypress run -b chrome -e TAGS='not @skip or @smoke' --record --parallel --group $CIRCLE_JOB",
     "test:dev": "cross-env SEARCH_API_BASE_URL=http://localhost:3001 NODE_ENV=test start-server-and-test dev http://localhost:3000 cy:open",
-    "test:smoke": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-smoke",
-    "test:audit": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-audit",
-    "test:e2e": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run-record",
-    "test:e2e-local": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run",
+    "test:integration": "cross-env TEST=1 start-server-and-test start http://localhost:3000 cy:run",
     "test:unit": "cross-env BASIC_AUTH=0 NODE_ENV=test jest",
     "start": "run-script-os",
     "start:default": "nuxt start --modern=client",
@@ -25,7 +19,7 @@
     "start:build": "nuxt build --modern=client && nuxt start --modern=client"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt-tide": "1.24.4",
+    "@dpc-sdp/ripple-nuxt-tide": "1.26.1",
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
@@ -35,7 +29,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.12.13",
     "@babel/eslint-plugin": "^7.12.13",
-    "@dpc-sdp/ripple-test-tools": "1.24.4",
+    "@dpc-sdp/ripple-test-tools": "1.26.1",
     "babel-plugin-lodash": "^3.3.2",
     "cross-env": "^7.0.3",
     "eslint": "^7.19.0",
@@ -50,16 +44,15 @@
     "eslint-plugin-vue": "^7.5.0",
     "lodash-webpack-plugin": "^0.11.5",
     "mockttp": "^1.0.3",
-    "node-sass": "^4.11.0",
     "sass-lint": "^1.12.1",
-    "sass-loader": "^6.0.7",
+    "sass-loader": "^10.2.0",
     "sass-resources-loader": "^2.1.1",
     "start-server-and-test": "^1.11.6",
     "vue-jest": "^3.0.4"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
-    "step_definitions": "test/e2e/integration/",
+    "step_definitions": "test/integration/features",
     "cucumberJson": {
       "generate": true,
       "outputFolder": "./../../test-results/cucumber",

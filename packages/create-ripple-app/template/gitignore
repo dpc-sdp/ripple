@@ -10,6 +10,6 @@ dist
 
 # tests
 coverage
-/test/e2e/videos
-/test/e2e/screenshots
-/test/e2e/results
+/test/integration/videos
+/test/integration/screenshots
+/test/integration/results

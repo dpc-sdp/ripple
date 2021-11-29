@@ -6,6 +6,7 @@
         :width="width"
         :height="height"
         :src="src"
+        allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
         mozallowfullscreen
         webkitallowfullscreen

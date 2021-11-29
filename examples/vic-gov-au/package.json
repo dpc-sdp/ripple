@@ -20,7 +20,7 @@
     "start:build": "nuxt build --modern=client && nuxt start --modern=client"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-data-vic-api": "1.24.5-alpha.6",
+    "@dpc-sdp/ripple-data-vic-api": "1.27.0",
     "@dpc-sdp/ripple-nuxt-tide": "1.27.0",
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/robots": "^2.0.0",

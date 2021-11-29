@@ -8,8 +8,6 @@
         :src="src"
         allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
-        mozallowfullscreen
-        webkitallowfullscreen
         data-chromatic="ignore"
         :title="title"
       >

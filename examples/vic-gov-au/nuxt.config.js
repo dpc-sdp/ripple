@@ -50,7 +50,20 @@ export default {
       UserAgent: '*',
       Disallow: '/'
     }],
-    '@nuxtjs/gtm'
+    '@nuxtjs/gtm',
+    ['@dpc-sdp/ripple-data-vic-api', {
+      logLevel: ['development', 'test'].includes(process.env.NODE_ENV) ? 'development' : 'production',
+      baseUrl: process.env.NODE_ENV === 'test' ? 'http://localhost:3001/mockdatavicapi/' : process.env.DATAVIC_CKAN_SERVER + '/api',
+      version: '3',
+      apiKey: process.env.CKAN_API_KEY,
+      resources: {
+        'buyingcode': {
+          id: '0cf2ea00-0fa2-45e3-952f-99c2277c1fe8',
+          middleware: [],
+          auth: true
+        }
+      }
+    }]
   ],
   /*
   ** Build

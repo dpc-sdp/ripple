@@ -7,6 +7,8 @@
         :height="height"
         :src="src"
         allowfullscreen
+        mozallowfullscreen
+        webkitallowfullscreen
         data-chromatic="ignore"
         :title="title"
       >

@@ -22,6 +22,7 @@
     "cypress-plugin-snapshots": "^1.4.4",
     "glob": "^7.1.6",
     "js-yaml": "^3.14.0",
+    "mockttp": "^2.0.1",
     "moment": "^2.29.1"
   },
   "publishConfig": {

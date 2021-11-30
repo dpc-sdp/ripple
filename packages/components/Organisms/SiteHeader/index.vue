@@ -51,10 +51,6 @@
               'rpl-site-header__menu-container--vertical': (menuLayout === 'vertical')
             }"
           >
-            <rpl-skip-link
-              title="Skip main navigation"
-              href="#search-container"
-            />
             <div class="rpl-site-header__menu">
               <rpl-menu
                 :menu="links"

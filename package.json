@@ -22,7 +22,7 @@
   "scripts": {
     "publish": "lerna publish",
     "start:storybook": "cd src && yarn start",
-    "start:example": "cd examples/vic-gov-au/ && yarn run dev",
+    "start:example": "yarn workspace @dpc-sdp/example-vic-gov-au dev",
     "start:build-example": "cd examples/vic-gov-au/ && nuxt build --modern=client && nuxt start --modern=client",
     "test:integration": "yarn test:integration-example && yarn test:integration-vic",
     "test:integration-vic": "cd examples/vic-gov-au/ && yarn test:integration",

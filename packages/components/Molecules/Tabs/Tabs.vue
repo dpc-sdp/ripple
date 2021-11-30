@@ -37,10 +37,11 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
-$rpl-tabs-tab-ruleset: ('s', 1em, 'regular');
-$rpl-tabs-tab-active-ruleset: ('s', 1em, 'bold');
-$rpl-tabs-tab-active-color: rpl-color('primary');
-$rpl-tabs-divider-border: 1px solid rpl-color('light_neutral');
+$rpl-tabs-tab-ruleset: ('s', 1em, 'regular') !default;
+$rpl-tabs-tab-active-ruleset: ('s', 1em, 'bold') !default;
+$rpl-tabs-tab-active-color: rpl-color('primary') !default;
+$rpl-tabs-tab-inactive-color: rpl-color('extra_dark_neutral') !default;
+$rpl-tabs-divider-border: 1px solid rpl-color('light_neutral') !default;
 
 .rpl-tabs {
   border-bottom: $rpl-tabs-divider-border;

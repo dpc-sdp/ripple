@@ -807,6 +807,7 @@ button .inner-border {
 /* Select dropdowns */
 select {
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    font-size: 14px !important;
     appearance: none;
     background-color: var(--ripple-light-neutral) !important;
     border: 1px solid var(--ripple-mid-neutral-1) !important;

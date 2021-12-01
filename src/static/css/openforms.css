@@ -240,6 +240,13 @@ fieldset legend {
 }
 
 
+/* Progress bar */
+.of-display-progress {
+    padding: 0;
+    margin: 24px 0;
+}
+
+
 /* Text inputs */
 input[type='text'],
 input[type='password'],

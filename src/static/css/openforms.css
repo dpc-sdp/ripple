@@ -265,7 +265,7 @@ textarea {
     border-radius: .25rem !important;
     box-sizing: border-box !important;
     color: var(--ripple-extra-dark-neutral) !important;
-    padding: 1.05rem 1.25rem 1rem 1.25rem !important;
+    padding: 1rem 1.25rem !important;
 }
 
 input[type='text'],

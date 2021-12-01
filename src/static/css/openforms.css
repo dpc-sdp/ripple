@@ -266,6 +266,7 @@ input:not([type]),
 textarea {
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
     font-size: 14px !important;
+    line-height: 16px !important;
     color: rgb(1, 26, 60) !important;
     background-color: var(--ripple-light-neutral) !important;
     border: 1px solid var(--ripple-mid-neutral-1) !important;

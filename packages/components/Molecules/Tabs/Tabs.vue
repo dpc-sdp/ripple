@@ -66,7 +66,7 @@ $rpl-tabs-divider-border: 1px solid rpl-color('light_neutral') !default;
 
     &-icon {
       margin-left: $rpl-space;
-      fill: currentColor !important;
+      fill: currentColor;
     }
     &:focus {
       outline-width: 1px;

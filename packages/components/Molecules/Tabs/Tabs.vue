@@ -52,10 +52,10 @@ $rpl-tabs-divider-border: 1px solid rpl-color('light_neutral') !default;
     @include rpl_btn_reset();
     cursor: pointer;
     padding: $rpl-space-3 $rpl-space-4 $rpl-space-2 $rpl-space-4;
-    border-bottom: $rpl-space solid white;
+    border-bottom: $rpl-space solid transparent;
     border-top-left-radius: $rpl-space;
     border-top-right-radius: $rpl-space;
-    color: rpl-color('extra_dark_neutral');
+    color: $rpl-tabs-tab-inactive-color;
     text-align: center;
 
     @include rpl_typography_ruleset($rpl-tabs-tab-ruleset);
@@ -66,6 +66,7 @@ $rpl-tabs-divider-border: 1px solid rpl-color('light_neutral') !default;
 
     &-icon {
       margin-left: $rpl-space;
+      fill: currentColor;
     }
     &:focus {
       outline-width: 1px;

@@ -459,16 +459,13 @@ input[type="checkbox"]:focus + label:after {
     margin-bottom: 0 !important;
 }
 
-.tablesaw-cell-content input[type="checkbox"] + label:after {
-    top: 0;
-}
-
 .tablesaw-wrapper .tablesaw-cell-label {
     font-weight: bold;
 }
 
 .tablesaw-wrapper .tablesaw-cell-content {
     font-weight: bold;
+    overflow: visible;
 }
 
 
@@ -735,10 +732,6 @@ table td {
 
 table tr {
     border-bottom: 0 !important;
-}
-
-table [type="checkbox"]:checked + label:before {
-    left: 1px;
 }
 
 

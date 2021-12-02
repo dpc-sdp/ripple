@@ -199,7 +199,7 @@ fieldset legend {
     font-weight: 400;
     color: var(--ripple-extra-dark-neutral);
     float: none !important;
-    margin: 0 0 10px 0 !important;
+    margin: 0 0 12px 0 !important;
 }
 
 .of-element-description {

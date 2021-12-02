@@ -680,8 +680,8 @@ button.datebutton:hover {
 }
 
 .picker__day:hover {
-    background-color: var(--ripple-mid-neutral-1);
-    color: var(--ripple-extra-dark-neutral);
+    background-color: transparent;
+    color: var(--ripple-primary);
 }
 
 .picker--focused .picker__day--highlighted,
@@ -696,8 +696,8 @@ button.datebutton:hover {
 }
 
 .picker__day--today:hover {
-    background-color: var(--ripple-mid-neutral-1) !important;
-        color: var(--ripple-secondary) !important;
+    background-color: transparent !important;
+    color: var(--ripple-primary) !important;
 }
 
 .picker__day--today:before {

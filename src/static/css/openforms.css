@@ -385,16 +385,26 @@ fieldset .of-checkable-item:last-of-type {
 
 
 /* Radio */
+input[type="radio"]+label:before,
+input[type="radio"]+label:after {
+    transition: none !important;
+    transform: none !important;
+}
+
 input[type="radio"]:checked + label:before {
     border: 1px solid var(--ripple-secondary);
     background-color: var(--ripple-light-neutral);
 }
 
 input[type="radio"]:checked + label:after {
-    border: 1px solid var(--ripple-secondary);
+    border: none;
     background-color: var(--ripple-secondary);
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
+    width: 6px;
+    height: 6px;
+    -webkit-transform: none;
+    transform: none;
+    left: 7px;
+    top: 7px;
 }
 
 input[type="radio"]:not(:checked) + label:before {
@@ -404,6 +414,7 @@ input[type="radio"]:not(:checked) + label:before {
 
 input[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
     padding-left: 28px;
+    transition: none !important;
 }
 
 input[type="radio"]:focus + label:before {
@@ -419,6 +430,7 @@ input[type="checkbox"] + label {
 
 input[type="checkbox"] + label:before {
     transition: none !important;
+    transform: none !important;
 }
 
 input[type="checkbox"] + label:after {
@@ -433,6 +445,8 @@ input[type="checkbox"] + label:after {
     background-color: white;
     width: 22px;
     height: 22px;
+    transition: none;
+    transform: none !important;
 }
 
 input[type="checkbox"]:checked + label:before {

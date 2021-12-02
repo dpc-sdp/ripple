@@ -1,6 +1,7 @@
 // Note: for add obj type prop in template, please use ` instead of ' otherwise it won't work.
 // e.g <component-obj-prop :author="{name: `Veronica`, company: `Veridian Dynamics`}"></component-obj-prop>
 import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import CodepointMap from '@dpc-sdp/ripple-global/utils/codepoint.map.json'
 
 // Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
 const _escapeQuotes = (text) => {
@@ -164,6 +165,16 @@ const pluginLinks = function () {
   })
 }
 
+const pluginReplaceUnicodeWhitespace = function () {
+  // Match text nodes only
+  this.find('*').map((i, n) => n.children).filter((i, n) => n.type === 'text').map((i, node) => {
+    // Iterate through mapping and replace raw codepoint with entity
+    CodepointMap.map(({ codepoint, entity }) => {
+      node.data = node.data.replace(String.fromCodePoint(codepoint), entity)
+    })
+  })
+}
+
 export default [
   parseForLinks,
   pluginButton,
@@ -171,5 +182,6 @@ export default [
   pluginEmbeddedMediaVideo,
   pluginIframe,
   pluginLinks,
+  pluginReplaceUnicodeWhitespace,
   pluginTables
 ]

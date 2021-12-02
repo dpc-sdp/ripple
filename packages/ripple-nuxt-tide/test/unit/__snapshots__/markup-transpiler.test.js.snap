@@ -5,10 +5,11 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 <rpl-text-link :url=\\"linkData0.href\\" theme=\\"primary\\" :text=\\"linkData0.text\\"></rpl-text-link>
 <h4>Sort out your&apos;&gt;&lt;&amp;&apos;&quot;s finances</h4>
 
-<p><rpl-text-link :url=\\"linkData1.href\\" theme=\\"primary\\" :text=\\"linkData1.text\\"></rpl-text-link> Another irregular white space.</p>
-<p> </p>
+<p><rpl-text-link :url=\\"linkData1.href\\" theme=\\"primary\\" :text=\\"linkData1.text\\"></rpl-text-link> Another irregular white space.</p>
+<p> </p>
+<p>Single line demonstrating a mixture of <em>inline markup</em> and the <b>19</b> different unicode codepoints that can be used for spaces.</p>
 <img src=\\"https://test.dev/test.jpeg\\" title=\\"&quot;Needles, Knots &amp; Threads&quot;- an Exhibition of Embroidery &amp; Quilting\\">
-<p> </p>
+<p> </p>
 
 <!-- parseForLinks -->
 <h2 id=\\"this-is-a-heading-2\\">This is a heading 2</h2>
@@ -84,6 +85,7 @@ exports[`Markup transpiler should get same HTML with no plugins 1`] = `
 
 <p><a href=\\"https://www.test.dev/test\\">Here is a irregular white space</a> Another irregular white space.</p>
 <p> </p>
+<p>Single line demonstrating a mixture of <em>inline markup</em> and the <b>19</b> different unicode​codepoints that can﻿be used for spaces.</p>
 <img src=\\"https://test.dev/test.jpeg\\" title=\\"&quot;Needles, Knots &amp; Threads&quot;- an Exhibition of Embroidery &amp; Quilting\\">
 <p> </p>
 
@@ -237,7 +239,7 @@ exports[`Markup transpiler should get same HTML with no plugins 1`] = `
       <div class=\\"field field--name-field-media-file field--type-file field--label-hidden field__item\\">
         <span class=\\"file file--mime-text-calendar file--text\\">
           <a aria-label=\\"ICS as Doc File type: Text. Size: 24.28 KB.\\" class=\\"text\\" href=\\"https://test.dev/sites/default/files/2019-02/AAA10am%20to%201015am%20on%20weekdays%20%28AEDT%29%20_0.ics\\"><span class=\\"file--title\\">ICS as Doc</span><span class=\\"file--type\\">Text</span><span class=\\"file--size\\">24.28 KB</span></a></span>
-      </div>  
+      </div>
     </article>
   </article>
   <figcaption>Caption</figcaption>

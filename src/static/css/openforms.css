@@ -900,6 +900,7 @@ select option:hover {
 button.of-file-upload-button,
 button.of-file-upload-button:active {
     margin-bottom: 15px;
+    margin-top: 0;
 }
 
 .dropzone {

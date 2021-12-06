@@ -847,10 +847,11 @@ button .inner-border {
 
 /* Select dropdowns */
 select {
+    appearance: none;
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
     font-size: 14px !important;
     line-height: 16px !important;
-    appearance: none;
+    color: var(--ripple-extra-dark-neutral);
     background-color: var(--ripple-light-neutral) !important;
     border: 1px solid var(--ripple-mid-neutral-1) !important;
     border-radius: .25rem !important;

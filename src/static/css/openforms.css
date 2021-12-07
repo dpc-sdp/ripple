@@ -499,6 +499,19 @@ input[type="checkbox"]:focus + label:after {
     overflow: visible;
 }
 
+.tablesaw-wrapper input[type="radio"]:not(:checked) + label, 
+.tablesaw-wrapper input[type="radio"]:checked + label {
+    margin-left: -10px;
+}
+
+.tablesaw-wrapper input[type="radio"]:checked + label:after {
+    left: 15px;
+}
+
+.tablesaw-wrapper td {
+    padding: 1rem 0 !important;
+}
+
 
 /* Date input */
 .of-date-container {
@@ -742,6 +755,7 @@ button.datebutton:hover {
 .picker__footer {
     display: none;
 }
+
 
 /* Tables */
 table {

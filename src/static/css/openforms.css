@@ -373,6 +373,16 @@ textarea.of-validation-error {
 
 
 /* Radio & Checkbox combined styles */
+.of-element-description + .of-validation-error + .of-checkable-item:first-of-type,
+.of-element-description + .of-checkable-item:first-of-type {
+    margin-top: 10px;
+}
+
+legend + .of-validation-error + .of-checkable-item:first-of-type,
+legend + .of-checkable-item:first-of-type {
+    margin-top: -1px;
+}
+
 input[type="checkbox"] + label,
 input[type="radio"] + label {
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif";

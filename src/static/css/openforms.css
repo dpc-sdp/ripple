@@ -985,6 +985,7 @@ button.use-current-location .material-icons {
 /* Error modal - part of location component */
 .swal2-modal {
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif" !important;
+    padding: 32px !important;
 }
 
 .swal2-title {
@@ -1004,6 +1005,7 @@ button.use-current-location .material-icons {
     border-radius: 0;
     width: 32px;
     height: 32px;
+    margin-top: 0 !important;
     margin-bottom: 16px !important;
     /* SVG background image is styled at the top of this file */
     background-size: 32px;

@@ -186,10 +186,6 @@ img {
 
 
 /* Fieldset and legend */
-fieldset {
-
-}
-
 legend {
     box-sizing: border-box; /* 1 */
     display: table; /* 1 */

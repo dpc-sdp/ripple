@@ -57,6 +57,11 @@ input[type="checkbox"]:checked + label:before {
     background-image: url("data:image/svg+xml,%3Csvg width='24' height='16' viewBox='0 0 24 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000000' d='M19.35 6.04C18.67 2.59 15.64 0 12 0C9.11 0 6.6 1.64 5.35 4.04C2.34 4.36 0 6.91 0 10C0 13.31 2.69 16 6 16H19C21.76 16 24 13.76 24 11C24 8.36 21.95 6.22 19.35 6.04ZM17 9L12 14L7 9H10V5H14V9H17Z'/%3E%3C/svg%3E%0A");
 }
 
+/* Error modal icon */
+.swal2-error {
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23AF272F' fill-rule='evenodd' clip-rule='evenodd' d='M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM23.5814 11.4514L19.0327 16L23.5814 20.5486C24.1395 21.1073 24.1395 22.0123 23.5814 22.5705L22.5705 23.5814C22.0123 24.1395 21.1068 24.1395 20.5486 23.5814L16 19.0327L11.4514 23.5814C10.8932 24.1395 9.98773 24.1395 9.42955 23.5814L8.41864 22.5705C7.86045 22.0118 7.86045 21.1068 8.41864 20.5486L12.9673 16L8.41864 11.4514C7.86045 10.8927 7.86045 9.98773 8.41864 9.42955L9.42955 8.41864C9.98818 7.86045 10.8932 7.86045 11.4514 8.41864L16 12.9673L20.5486 8.41864C21.1073 7.86045 22.0123 7.86045 22.5705 8.41864L23.5814 9.42955C24.1395 9.98818 24.1395 10.8932 23.5814 11.4514Z'/%3E%3C/svg%3E%0A");
+}
+
 
 /* Theme variables - END */
 
@@ -974,6 +979,58 @@ button.use-current-location:hover {
 
 button.use-current-location .material-icons {
     color: #fff;
+}
+
+
+/* Error modal - part of location component */
+.swal2-modal {
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif" !important;
+}
+
+.swal2-title {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
+    font-weight: 400 !important;
+    font-size: 28px !important;
+    line-height: 1.3em !important;
+}
+
+.swal2-content {
+    font-size: 16px !important;
+}
+
+.swal2-error {
+    border: 0 !important;
+    background-color: transparent;
+    border-radius: 0;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 16px !important;
+    /* SVG background image is styled at the top of this file */
+    background-size: 32px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.swal2-x-mark {
+    display: none !important;
+}
+
+.swal2-buttonswrapper button {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
+    font-weight: 400;
+    color: #fff !important;
+    background-color: var(--ripple-primary) !important;
+    margin-top: 6px !important;
+}
+
+.swal2-buttonswrapper button:hover {
+    background-color: var(--ripple-secondary) !important;
+}
+
+.swal2-buttonswrapper button:focus {
+    background-color: var(--ripple-secondary) !important;
+    border: 0 !important;
+    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
 }
 
 

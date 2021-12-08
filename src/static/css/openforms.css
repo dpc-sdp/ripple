@@ -802,6 +802,7 @@ button {
     border: 0 !important;
     border-radius: .25rem !important;
     box-shadow: 0 0 0 0 transparent !important;
+    transition: none !important;
 }
 
 button.of-colour-primary,
@@ -821,7 +822,7 @@ button.of-colour-primary:focus,
 button.of-colour-primary-border:focus {
     background-color: var(--ripple-primary) !important;
     border: 0 !important;
-    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
+    box-shadow: 0 0 0 2px var(--ripple-secondary) !important;
 }
 
 button.of-colour-secondary {

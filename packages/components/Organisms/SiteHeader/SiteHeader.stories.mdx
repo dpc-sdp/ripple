@@ -41,29 +41,6 @@ export const Template = (args, { argTypes }) => ({
           url: '#',
           children: [
             { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            { text: 'Sub child A', url: '#' },
-            {
-              text: 'Sub child B',
-              url: '#',
-              children: [
-                { text: 'Sub child I', url: '#' },
-                { text: 'Sub child II', url: '#' },
-                { text: 'Sub child III', url: '#' }
-              ]
-            },
             {
               text: 'Test Path 2',
               url: '#',
@@ -75,7 +52,15 @@ export const Template = (args, { argTypes }) => ({
                   children: [
                     { text: 'Sub child X', url: '#' },
                     { text: 'Sub child Y', url: '#' },
-                    { text: 'Sub child Z', url: '#' }
+                    { 
+                      text: 'Sub child Z', 
+                      url: '#',
+                      children: [
+                        { text: 'Level 4 item I', url: '#' },
+                        { text: 'Level 4 item II', url: '#' },
+                        { text: 'Level 4 item III', url: '#' }
+                      ]
+                    }
                   ]
                 },
                 { text: 'Sub child VI', url: '#' },
@@ -106,6 +91,29 @@ export const Template = (args, { argTypes }) => ({
                 { text: 'Sub child XI', url: '#' },
                 { text: 'Sub child XII', url: '#' },
                 { text: 'Sub child Last', url: '#' }
+              ]
+            },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            { text: 'Sub child A', url: '#' },
+            {
+              text: 'Sub child B',
+              url: '#',
+              children: [
+                { text: 'Sub child I', url: '#' },
+                { text: 'Sub child II', url: '#' },
+                { text: 'Sub child III', url: '#' }
               ]
             }
           ]

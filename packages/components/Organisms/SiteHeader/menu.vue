@@ -52,8 +52,12 @@
               }"
               class="rpl-menu__item"
             >
+              <!--
+                If there are no children, or we have reached the menu depth of 3
+                display menu item as a link.
+              -->
               <rpl-link
-                v-if="!list.children"
+                v-if="!list.children || (depth && depth == 3)"
                 class="rpl-menu__item-link"
                 :href="list.url"
                 :target="list.target"
@@ -63,6 +67,9 @@
               >
                 {{ list.text }}
               </rpl-link>
+              <!--
+                Else display menu item as a button.
+              -->
               <button
                 v-else
                 class="rpl-menu__item-link"
@@ -75,8 +82,13 @@
                 <span>{{ list.text }}</span>
                 <rpl-icon :symbol="menuParentIcon(index)" color="white" />
               </button>
+
+              <!--
+                Show a menu for any children of the open menu, unless we have
+                reached the max depth of 3.
+              -->
               <rpl-menu
-                v-if="list.children"
+                v-if="list.children && (!depth || depth < 3)"
                 :menu="list.children"
                 :depth="depth ? depth + 1 : 1"
                 :open="menuItemOpen[index]"

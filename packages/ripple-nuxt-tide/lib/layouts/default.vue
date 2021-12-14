@@ -34,6 +34,7 @@
       <rpl-site-footer
         :nav="nav"
         :links="footer.links"
+        :socialLinks="footer.socialLinks"
         :copyright="footer.copyright"
         :acknowledgement="footer.acknowledgement"
         :caption="footerCaption"
@@ -70,6 +71,7 @@ export default {
       nav: _store.state.tide.siteData.hierarchicalMenus.menuMain,
       footer: {
         links: _store.state.tide.siteData.hierarchicalMenus.menuFooter,
+        socialLinks: this.getSocialLinks(_store.state.tide.siteData.field_site_social_links),
         copyright: _store.state.tide.siteData.field_site_footer_text ? _store.state.tide.siteData.field_site_footer_text.processed : null,
         acknowledgement: _store.state.tide.siteData.field_acknowledgement_to_country ? _store.state.tide.siteData.field_acknowledgement_to_country : null,
         logos: this.getFooterLogos(_store.state.tide.siteData)
@@ -172,6 +174,98 @@ export default {
 
       return logos
     }
+  },
+  /**
+    @function
+    @param siteData sociallinks being pulled from the siteData object
+    @returns cleaned version of socialLinks w/ correct icons populated from url matching
+  **/
+  getSocialLinks (siteData) {
+    // TODO: Replace iconList const with sitedata urls instead
+    const iconList = [
+      {
+        "provider_name": "Flickr",
+        "provider_url": "https://www.flickr.com/",
+        "provider_icon": "flickr",
+        "matcher_schemes": [
+          "http://flickr.com/",
+          "https://flickr.com/",
+          "http://flic.kr/",
+          "https://flic.kr/"
+        ]
+      },
+      {
+        "provider_name": "Twitter",
+        "provider_url": "https://twitter.com/",
+        "provider_icon": "twitter",
+        "matcher_schemes": [
+          "http://twitter.com",
+          "https://twitter.com"
+        ]
+      },
+      {
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "provider_icon": "youtube_channel",
+        "matcher_schemes": [
+          "https://youtube.com/",
+          "https://youtu.be/"
+        ]
+      }
+    ]
+
+    // TODO: Replace socialLinks w/ siteData
+    const socialLinks = [
+      {
+        url: "https://youtu.be/example",
+        text: "Example Youtube"
+      },
+      {
+        url: "https://twitter.com/example",
+        text: "Example Twitter"
+      },
+      {
+        url: "https://facebook.com/example",
+        text: "Example Facebook"
+      },
+      {
+        url: "https://test.com/example",
+        text: "Example Other"
+      }
+    ]
+
+    /*
+      This pattern searches for a URL using Protocol, Hostname and the TLD as params.
+      It includes a valid character only optional wildcard for subdomain, and a true
+      wildcard for anything following the TLD.
+    */
+    const pattern = (protocol, hostname, tld) => RegExp(`^${protocol}//[a-z, A-Z, 0-9]*.?${hostname}.${tld}(/)?.*`)
+    const defaultIcon = 'external_link'
+
+    return socialLinks.map(link => {
+      let
+        matches,
+        url,
+        urlFragments,
+        regex
+
+      // Filters the icon list for matches against the link url
+      // We reverse the array so we don't have to deal with potential subdomains, we already
+      // wildcard match them anyway and its hard to identify subdomains in an unclean url
+      matches = iconList.filter(icon => (
+        icon.matcher_schemes.some(scheme => {
+          url = new URL(scheme)
+          urlFragments = url.hostname.split('.').reverse()
+          regex = pattern(url.protocol, urlFragments[1], urlFragments[0])
+
+          return regex.test(link.url)
+        })
+      ))
+
+      link.icon = matches.length ? matches[0].provider_icon : defaultIcon
+
+      return link
+    })
   },
   created () {
     this.rplOptions.origin = this.$store.state.tide.protocol + '//' + this.$store.state.tide.host

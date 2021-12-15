@@ -17,7 +17,7 @@
     </template>
     <!-- nav length is used to tie social links to the accordion logic -->
     <rpl-footer-social-links
-      v-if="socialLinks"
+      v-if="socialLinks && socialLinks.children && socialLinks.children.length"
       :links="socialLinks"
       :navIndex="nav.length"
       :visibleItemIndex="visibleItemIndex"

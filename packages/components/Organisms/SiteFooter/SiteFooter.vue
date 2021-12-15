@@ -43,7 +43,7 @@ export default {
   props: {
     nav: Array,
     links: Array,
-    socialLinks: Array,
+    socialLinks: Object,
     copyright: String,
     acknowledgement: String,
     caption: String,

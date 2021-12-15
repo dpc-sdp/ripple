@@ -8,7 +8,7 @@
         <ul class="rpl-footer-nav__submenu-item rpl-footer-nav__submenu-item--socials" v-if="links.children" v-show="(!minimize || visibleItemIndex == navIndex)">
           <li v-for="(socialLink, sIndex) in links.children" :key="sIndex">
             <rpl-icon :symbol="socialLink.icon" color="white" size="m" v-if="(socialLink.icon)" />
-            <rpl-link :href="socialLink.url" :target="socialLink.target">{{ socialLink.text }}</rpl-link>
+            <rpl-link :href="socialLink.uri" :target="socialLink.target">{{ socialLink.title }}</rpl-link>
           </li>
         </ul>
       </transition>

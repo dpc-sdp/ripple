@@ -30,5 +30,10 @@
   },
   "peerDependencies": {
     "puppeteer": "^1.20.0"
+  },
+  "resolutions": {
+    "cypress-plugin-snapshots/**/socket.io-client/socket.io-parser": "^3.3.2",
+    "**/cacheable-request/normalize-url": "^4.5.1",
+    "**/xmlhttprequest-ssl": "^1.6.2"
   }
 }

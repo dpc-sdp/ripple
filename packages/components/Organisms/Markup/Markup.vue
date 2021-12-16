@@ -205,7 +205,6 @@ $no-padding: 0;
 
       @include rpl_breakpoint('m') {
         max-width: 100%;
-        max-height: rem(400px);
       }
 
       @include rpl_print_margin('m');

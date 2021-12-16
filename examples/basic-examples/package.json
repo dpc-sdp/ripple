@@ -61,6 +61,9 @@
     "start-server-and-test": "^1.11.6",
     "vue-jest": "^3.0.4"
   },
+  "resolutions": {
+    "nuxt/@nuxt/webpack/terser-webpack-plugin/cacache/tar": "^6.1.9"
+  },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "step_definitions": "test/integration/features",

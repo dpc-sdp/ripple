@@ -57,6 +57,7 @@ import { clientClearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/mod
 import { isPreviewPath, isShareLinkPath } from '@dpc-sdp/ripple-nuxt-tide/lib/core/path'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
+import Providers from '@deloitte-drupal-au/ripple-social-channels'
 
 export default {
   components: {
@@ -180,29 +181,7 @@ export default {
       @returns cleaned version of socialLinks w/ correct icons populated from url schemas
     **/
     getSocialLinks (siteData) {
-      // TODO: Replace iconList const with icons package from BED
-      const iconList = [
-        {
-          "provider_name": "Twitter",
-          "provider_url": "https://twitter.com/",
-          "provider_icon": "twitter",
-          "matcher_schemes": [
-            "https://*.twitter.com/*",
-            "https://twitter.com/*"
-          ]
-        },
-        {
-          "provider_name": "YouTube",
-          "provider_url": "https://www.youtube.com/",
-          "provider_icon": "youtube_channel",
-          "matcher_schemes": [
-            "https://*.youtube.com/*",
-            "https://youtube.com/*",
-            "https://*.youtu.be/*",
-            "https://youtu.be/*"
-          ]
-        }
-      ]
+      if (!siteData.field_site_social_links) { return null }
 
       const defaultIcon = 'external_link'
       const socialLinks = {
@@ -216,7 +195,7 @@ export default {
         regex
 
       socialLinks.children = siteData.field_site_social_links.map(link => {
-        let matches = iconList.filter(icon => (
+        let matches = Providers.filter(icon => (
           icon.matcher_schemes.some(scheme => {
             escapedUrl = scheme.replace(new RegExp('[-+!<=:?./^$|#,]', 'g'), '\\$&')
             wildcardedUrl = '^' + escapedUrl.replace(new RegExp('\\*', 'g'), '(.*)') + '$'

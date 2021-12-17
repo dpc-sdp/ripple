@@ -5,7 +5,6 @@
   "license": "Apache-2.0",
   "main": "lib/module.js",
   "dependencies": {
-    "@deloitte-drupal-au/ripple-social-channels": "https://github.com/DeloitteDigitalAPAC/ripple-social-channels",
     "@dpc-sdp/ripple-accordion": "1.27.2",
     "@dpc-sdp/ripple-alert": "1.27.2",
     "@dpc-sdp/ripple-anchor-links": "1.27.2",
@@ -48,6 +47,7 @@
     "@dpc-sdp/ripple-site-header": "1.27.2",
     "@dpc-sdp/ripple-site-section-navigation": "1.27.2",
     "@dpc-sdp/ripple-sitemap": "1.27.2",
+    "@dpc-sdp/ripple-social-providers": "https://github.com/DeloitteDigitalAPAC/ripple-social-channels",
     "@dpc-sdp/ripple-tabs": "1.27.2",
     "@dpc-sdp/ripple-tide-search-api": "1.27.2",
     "@dpc-sdp/ripple-timeline": "1.27.2",

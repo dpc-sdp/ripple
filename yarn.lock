@@ -3203,9 +3203,9 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
-"@deloitte-drupal-au/ripple-social-channels@https://github.com/DeloitteDigitalAPAC/ripple-social-channels":
+"@dpc-sdp/ripple-social-providers@https://github.com/DeloitteDigitalAPAC/ripple-social-channels":
   version "0.0.1"
-  resolved "https://github.com/DeloitteDigitalAPAC/ripple-social-channels#259e0aa03e9f6c0bbb344718bcc4e20f8018237c"
+  resolved "https://github.com/DeloitteDigitalAPAC/ripple-social-channels#f771ce0d6fdc83b744e3865897e0ad775f9d32c4"
 
 "@elastic/elasticsearch-mock@^0.3.0":
   version "0.3.0"

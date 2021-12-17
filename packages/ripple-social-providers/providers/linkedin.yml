@@ -1,0 +1,13 @@
+---
+- provider_name: LinkedIn
+  provider_url: https://www.linkedin.com/
+  provider_icon: linkedin
+  matcher_schemes:
+  - https://www.linkedin.com/*
+  - https://linkedin.com/*
+  example_urls:
+  - https://www.linkedin.com/company/department-of-premier-and-cabinet-vic-/
+  - https://www.linkedin.com/school/university-of-melbourne/
+  - https://www.linkedin.com/in/person/
+  - https://linkedin.com/in/person/
+...

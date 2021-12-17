@@ -1,0 +1,14 @@
+---
+- provider_name: Telephone
+  provider_url: https://tools.ietf.org/html/rfc3966
+  provider_icon: phone_number
+  matcher_schemes:
+  - tel:*
+  example_urls:
+  - tel:+1-201-555-0123
+  - tel:7042;phone-context=example.com
+  - tel:863-1234;phone-context=+1-914-555
+  notes: |
+    See the RFC-3966 Section 6 Examples
+    https://tools.ietf.org/html/rfc3966#section-6
+...

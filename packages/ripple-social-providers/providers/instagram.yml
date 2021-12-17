@@ -1,0 +1,13 @@
+---
+- provider_name: Instagram
+  provider_url: https://www.instagram.com/
+  provider_icon: instagram
+  matcher_schemes:
+  - https://instagram.com/*
+  - https://www.instagram.com/*
+  - https://instagr.am/*
+  - https://www.instagr.am/*
+  example_urls:
+  - https://www.instagram.com/shrineofremembrance/
+  - https://instagr.am/shrineofremembrance/
+...

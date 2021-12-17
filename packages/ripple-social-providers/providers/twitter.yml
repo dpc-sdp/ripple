@@ -1,0 +1,12 @@
+---
+- provider_name: Twitter
+  provider_url: http://www.twitter.com/
+  provider_icon: twitter
+  matcher_schemes:
+  - https://twitter.com/*
+  - https://*.twitter.com/*
+  example_urls:
+  - https://twitter.com/VicGovAu
+  - https://twitter.com/VicGovAu?ref_src=twsrc%5Etfw
+  - https://www.twitter.com/VicGovAu
+...

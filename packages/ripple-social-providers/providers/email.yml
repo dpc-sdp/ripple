@@ -1,0 +1,10 @@
+---
+- provider_name: Email
+  provider_url: https://www.ietf.org/rfc/rfc2368.txt
+  provider_icon: email_transparent
+  matcher_schemes:
+  - mailto:*
+  example_urls:
+  - mailto:no-reply@example.com
+  - mailto:no-reply@example.com?subject=example
+...

@@ -1,0 +1,32 @@
+{
+  "name": "@dpc-sdp/ripple-social-providers",
+  "description": "A static providers list for matching URLs of social media channels supported by Ripple.",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "contributors": [
+    {
+      "name": "Deloitte Digital (Australia)",
+      "email": "drupal@deloitte.com.au",
+      "url": "https://deloittedigital.com.au"
+    }
+  ],
+  "main": "providers.json",
+  "files": [
+    "providers.*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./build.js providers/*.yml > providers.json",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "social",
+    "channels",
+    "json",
+    "providers",
+    "list"
+  ],
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

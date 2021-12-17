@@ -1,0 +1,14 @@
+---
+- provider_name: YouTube
+  provider_url: https://www.youtube.com/
+  provider_icon: youtube_channel
+  matcher_schemes:
+  - https://*.youtube.com/*
+  - https://youtube.com/*
+  - https://youtu.be/*
+  example_urls:
+  - https://www.youtube.com/vicgovdh
+  - https://youtube.com/vicgovdh
+  - https://youtu.be/PIxSshffw1w
+  - https://m.youtube.com/watch?v=PIxSshffw1w
+...

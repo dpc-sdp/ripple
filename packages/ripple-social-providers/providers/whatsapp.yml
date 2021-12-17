@@ -1,0 +1,14 @@
+---
+- provider_name: WhatsApp
+  provider_url: https://www.whatsapp.com/
+  provider_icon: whatsapp
+  matcher_schemes:
+  - https://api.whatsapp.com/send*
+  - https://wa.me/*
+  example_urls:
+  - https://api.whatsapp.com/send?phone=15551234567&text=urlencodedtext
+  - https://wa.me/15551234567
+  notes: |
+    See the FAQ below for details on hyperlinks to WhatsApp phone numbers
+    https://faq.whatsapp.com/general/chats/how-to-use-click-to-chat
+...

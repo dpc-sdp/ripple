@@ -1,0 +1,14 @@
+---
+- provider_name: Flickr
+  provider_url: https://www.flickr.com/
+  provider_icon: flickr
+  matcher_schemes:
+  - https://flickr.com/*
+  - https://*.flickr.com/*
+  - https://flic.kr/*
+  example_urls:
+  - https://flickr.com/people/97763294@N07/
+  - https://flickr.com/photos/97763294@N07/albums
+  - https://flickr.com/photos/97763294@N07/albums/72157634240753611
+  - https://flic.kr/s/aHsjGeDr1P
+...

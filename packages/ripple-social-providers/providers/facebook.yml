@@ -1,0 +1,9 @@
+---
+- provider_name: Facebook
+  provider_url: https://www.facebook.com/
+  provider_icon: facebook
+  matcher_schemes:
+  - https://www.facebook.com/*
+  example_urls:
+  - https://www.facebook.com/VictoriaTogether/
+...

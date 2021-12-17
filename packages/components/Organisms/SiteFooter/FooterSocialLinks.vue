@@ -1,7 +1,7 @@
 <template>
   <li v-if="links" class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent">
     <h2 class="rpl-footer-nav__heading" @click="toggle(links, navIndex, $event)">
-        <rpl-link :href="links.url" :target="links.target">{{ links.title }}</rpl-link>
+        {{ links.title }}
         <rpl-icon :symbol="visibleItemIndex == navIndex ? 'up' : 'down'" color="white" size="m" v-if="(minimize && links.children)" />
       </h2>
       <transition name="rpl-accordion">

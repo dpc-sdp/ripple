@@ -206,8 +206,7 @@ export default {
 
       const defaultIcon = 'external_link'
       const socialLinks = {
-        title: 'Example Title',
-        url: '#',
+        title: 'Connect with us',
         children: []
       }
 

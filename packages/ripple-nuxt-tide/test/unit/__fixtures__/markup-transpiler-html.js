@@ -5,6 +5,7 @@ const html = `
 <a href="http://google.com">&lt;&gt;&amp;'"©. ½ € 中文</a>
 <h4>Sort out your'><&'"s finances</h4>\n\n<p><a href="https://www.test.dev/test">Here is a irregular white space</a> Another irregular white space.</p>
 <p>&nbsp;</p>
+<p>Single line demonstrating a mixture of <em>inline markup</em> and the <b>19</b> different unicode​codepoints that can﻿be used for spaces.</p>
 <img src="https://test.dev/test.jpeg" title="&quot;Needles, Knots &amp; Threads&quot;- an Exhibition of Embroidery &amp; Quilting">
 <p>&nbsp;</p>
 
@@ -280,7 +281,7 @@ const html = `
       <div class="field field--name-field-media-file field--type-file field--label-hidden field__item">
         <span class="file file--mime-text-calendar file--text">
           <a aria-label="ICS as Doc File type: Text. Size: 24.28 KB." class="text" href="https://test.dev/sites/default/files/2019-02/AAA10am%20to%201015am%20on%20weekdays%20%28AEDT%29%20_0.ics"><span class="file--title">ICS as Doc</span><span class="file--type">Text</span><span class="file--size">24.28 KB</span></a></span>
-      </div>  
+      </div>
     </article>
   </article>
   <figcaption>Caption</figcaption>

@@ -81,5 +81,9 @@
   "devDependencies": {
     "mockdate": "^2.0.3",
     "vuex-mock-store": "^0.0.8"
+  },
+  "resolutions": {
+    "@nuxtjs/axios/axios": "^0.21.2",
+    "**/yargs/y18n": "^4.0.1"
   }
 }

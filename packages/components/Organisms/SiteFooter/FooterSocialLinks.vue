@@ -1,17 +1,17 @@
 <template>
   <li v-if="links" class="rpl-footer-nav__menu-item rpl-footer-nav__menu-item--parent">
     <h2 class="rpl-footer-nav__heading" @click="toggle(links, navIndex, $event)">
-        {{ links.title }}
-        <rpl-icon :symbol="visibleItemIndex == navIndex ? 'up' : 'down'" color="white" size="m" v-if="(minimize && links.children)" />
-      </h2>
-      <transition name="rpl-accordion">
-        <ul class="rpl-footer-nav__submenu-item rpl-footer-nav__submenu-item--socials" v-if="links.children" v-show="(!minimize || visibleItemIndex == navIndex)">
-          <li v-for="(socialLink, sIndex) in links.children" :key="sIndex">
-            <rpl-icon :symbol="socialLink.icon" color="white" size="m" v-if="(socialLink.icon)" />
-            <rpl-link :href="socialLink.uri" :target="socialLink.target">{{ socialLink.title }}</rpl-link>
-          </li>
-        </ul>
-      </transition>
+      {{ links.title }}
+      <rpl-icon :symbol="visibleItemIndex == navIndex ? 'up' : 'down'" color="white" size="m" v-if="(minimize && links.children)" />
+    </h2>
+    <transition name="rpl-accordion">
+      <ul class="rpl-footer-nav__submenu-item rpl-footer-nav__submenu-item--socials" v-if="links.children" v-show="(!minimize || visibleItemIndex == navIndex)">
+        <li v-for="(socialLink, sIndex) in links.children" :key="sIndex">
+          <rpl-icon :symbol="socialLink.icon" color="white" size="m" v-if="(socialLink.icon)" />
+          <rpl-link :href="socialLink.uri" :target="socialLink.target">{{ socialLink.title }}</rpl-link>
+        </li>
+      </ul>
+    </transition>
   </li>
 </template>
 

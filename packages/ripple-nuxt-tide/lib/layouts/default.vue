@@ -55,9 +55,9 @@ import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import { clientClearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 import { isPreviewPath, isShareLinkPath } from '@dpc-sdp/ripple-nuxt-tide/lib/core/path'
+import { RPL_SOCIAL_LINK_MAPPING } from '@dpc-sdp/ripple-nuxt-tide/lib/config/constants'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
-import Providers from '@deloitte-drupal-au/ripple-social-channels'
 
 export default {
   components: {
@@ -195,7 +195,7 @@ export default {
         regex
 
       socialLinks.children = siteData.field_site_social_links.map(link => {
-        let matches = Providers.filter(icon => (
+        let matches = RPL_SOCIAL_LINK_MAPPING.filter(icon => (
           icon.matcher_schemes.some(scheme => {
             escapedUrl = scheme.replace(new RegExp('[-+!<=:?./^$|#,]', 'g'), '\\$&')
             wildcardedUrl = '^' + escapedUrl.replace(new RegExp('\\*', 'g'), '(.*)') + '$'

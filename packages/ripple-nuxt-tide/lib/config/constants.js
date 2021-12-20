@@ -28,7 +28,7 @@ export const RPL_SOCIAL_LINK_MAPPING = [
   {
     provider_name: "YouTube",
     provider_url: "https://www.youtube.com/",
-    provider_icon: "youtube",
+    provider_icon: "youtube_channel",
     matcher_schemes: [
       "https://*.youtube.com/*",
       "https://youtube.com/*",

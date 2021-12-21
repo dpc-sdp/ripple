@@ -11,12 +11,12 @@ describe('SearchForm', () => {
     expect(wrapper.emitted().search[0]).toEqual(['test keyword'])
   })
 
-  it('doesn\'t emit search event when there is no search input', () => {
+  it('does emit search event when there is no search input', () => {
     const wrapper = shallowMount(SearchForm)
     wrapper.setData({ searchInput: '' })
 
     wrapper.vm.submitSearch()
-    expect(wrapper.emitted().search).toBeUndefined()
+    expect(wrapper.emitted().search).toEqual([[""]])
   })
 
   it('clears form input when triggered', () => {

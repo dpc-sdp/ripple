@@ -64,15 +64,18 @@ export default (config, router, site) => ({
 
     const hits = await service.api.search(client, index, queryString, filters, filterFields, options.qFields, options.sFields, from, options.responseSize, sort, options.exclude)
 
+    // https://www.elastic.co/guide/en/elasticsearch/reference/7.10/breaking-changes-7.0.html#hits-total-now-object-search-response
+    const totalhits = hits.hits.total.hasOwnProperty('value') ? hits.hits.total.value : hits.hits.total
+
     this.updateLocParams({
       q: queryString,
       filters: filters
-    }, hits.hits.total, from, options.responseSize, options.filterFromURI)
+    }, totalhits, from, options.responseSize, options.filterFromURI)
 
-    if (hits.hits.total > options.responseSize) {
-      hits.totalSteps = Math.ceil(Number(hits.hits.total) / options.responseSize)
+    if (totalhits > options.responseSize) {
+      hits.totalSteps = Math.ceil(Number(totalhits) / options.responseSize)
     } else {
-      hits.totalSteps = Math.floor(Number(hits.hits.total) / options.responseSize)
+      hits.totalSteps = Math.floor(Number(totalhits) / options.responseSize)
     }
     return hits
   },
@@ -208,7 +211,11 @@ export default (config, router, site) => ({
         filters[key] = {
           type: field.filter && field.filter.type,
           operator: field.filter && field.filter.operator,
-          values: value
+          values: value,
+          // Add geoQuery based keys.
+          lat: field.filter && field.filter.lat,
+          lon: field.filter && field.filter.lon,
+          distance: field.filter && field.filter.distance
         }
       }
     }

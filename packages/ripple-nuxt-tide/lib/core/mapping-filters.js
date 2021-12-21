@@ -33,7 +33,8 @@ export default {
       src: mediaImage.url,
       focalPoint: focalPoint,
       width: parseInt(imageWidth),
-      height: parseInt(imageHeight)
+      height: parseInt(imageHeight),
+      alt: mediaImage.meta.alt || ''
     }
   },
 

@@ -1,15 +1,17 @@
 <template>
-  <div id="rpl-skip-link" class="rpl-skip-link">
+  <div :id="`rpl-skip-link-${this.getIdFromLocalRegistry()}`" class="rpl-skip-link">
     <a class="rpl-skip-link__link" :class="{ 'rpl-skip-link__link--show' : show }" :href="href">{{ title }}</a>
   </div>
 </template>
 
 <script>
+import uniqueid from '@dpc-sdp/ripple-global/mixins/uniqueid'
 export default {
   name: 'RplSkipLink',
+  mixins: [uniqueid],
   props: {
     title: { type: String, default: 'Skip to main content' },
-    href: { type: String, default: '#rpl-main-content' },
+    href: { type: String, default: '#rpl-main' },
     show: { type: Boolean, default: false }
   }
 }

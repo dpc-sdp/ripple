@@ -10,7 +10,7 @@
         :mouseDrag="false"
         :paginationEnabled="false"
       >
-        <slide v-for="(item, index) in cards" :key="index" class="rpl-card-carousel__slide">
+        <slide v-for="(item, index) in cards" :key="index" class="rpl-card-carousel__slide" aria-hidden="false" :tabindex="index">
           <div class="rpl-card-carousel__slide-wrap">
             <component :is="item.name" v-bind="item.data" :trimFieldEventBus="isTrimmed(item.name) ? eventBus : null" :trimFieldUpdateOnResize="false" data-tid="carousel-card"></component>
           </div>
@@ -48,8 +48,6 @@ export default {
   props: {
     title: String,
     cards: Array,
-    previousLabel: { type: String, default: 'Go to previous slide' },
-    nextLabel: { type: String, default: 'Go to next slide' },
     childColsBp: { type: Object, default: () => ({ l: 4, m: 6 }) },
     totalGridColumns: { type: Number, default: 12 },
     catchChildError: {
@@ -74,6 +72,8 @@ export default {
       observer: null,
       lastCarouselInnerFlexBasis: null,
       showCarousel: false,
+      previousLabel: `Go to previous slide of ${this.title}`,
+      nextLabel: `Go to next slide of ${this.title}`,
       // Define which cards use cardtrimfield. These will be given the eventBus
       // object and their resize will be invoked on carousel size changes.
       trimmedCards: [

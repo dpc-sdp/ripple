@@ -8,7 +8,7 @@
             <slot name="breadcrumbs"></slot>
             <rpl-quick-exit v-if="quickexit && !menuopen" menuOffsetSelector=".rpl-above-content__inner" />
           </div>
-          <div class="rpl-above-content__below" :dir="isRtl() ? 'rtl' : null">
+          <div id="rpl-main" class="rpl-above-content__below" :dir="isRtl() ? 'rtl' : null">
             <slot name="aboveContent"></slot>
           </div>
         </div>

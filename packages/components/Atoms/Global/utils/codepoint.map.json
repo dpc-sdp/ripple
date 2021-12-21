@@ -1,0 +1,18 @@
+[
+    { "codepoint": "0x00A0", "entity": " " },
+    { "codepoint": "0x2000", "entity": " " },
+    { "codepoint": "0x2001", "entity": " " },
+    { "codepoint": "0x2002", "entity": " " },
+    { "codepoint": "0x2003", "entity": " " },
+    { "codepoint": "0x2004", "entity": " " },
+    { "codepoint": "0x2005", "entity": " " },
+    { "codepoint": "0x2006", "entity": " " },
+    { "codepoint": "0x2007", "entity": " " },
+    { "codepoint": "0x2008", "entity": " " },
+    { "codepoint": "0x2009", "entity": " " },
+    { "codepoint": "0x200A", "entity": " " },
+    { "codepoint": "0x200B", "entity": " " },
+    { "codepoint": "0x202F", "entity": " " },
+    { "codepoint": "0x205F", "entity": " " },
+    { "codepoint": "0xFEFF", "entity": " " }
+]

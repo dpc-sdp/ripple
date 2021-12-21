@@ -13,7 +13,7 @@ Two Ripple components installed just for demo how to install them.
 Install below dev dependencies in your Vue project to make icon work.
 
 ```
-npm install sass-resources-loader --save-dev
+npm install sass-resources-loader sass sass-loader@^10 --save-dev
 ```
 
 ### Webpack configs

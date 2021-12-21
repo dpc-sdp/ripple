@@ -1,11 +1,12 @@
 <template>
   <div class="rpl-select" :class="{'rpl-select--open' : isOpen, 'rpl-select--disabled': disabled }">
+    <span class="rpl-select__label-visually-hidden" :id="`${config.fieldId}-rpl-select-label`">{{config.label}}</span>
     <div class="rpl-select__inner">
       <div
         class="rpl-select__trigger"
         tabindex="0"
         aria-haspopup="listbox"
-        :aria-labelledby="`${config.fieldId}-rpl-select-trigger ${config.fieldId}-rpl-select-value`"
+        :aria-labelledby="`${config.fieldId}-rpl-select-trigger ${config.fieldId}-rpl-select-value  ${config.fieldId}-rpl-select-label`"
         :aria-expanded="isOpen ? 'true' : false"
         role="button"
         ref="trigger"

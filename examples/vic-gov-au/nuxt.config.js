@@ -50,7 +50,20 @@ export default {
       UserAgent: '*',
       Disallow: '/'
     }],
-    '@nuxtjs/gtm'
+    '@nuxtjs/gtm',
+    ['@dpc-sdp/ripple-data-vic-api', {
+      logLevel: ['development', 'test'].includes(process.env.NODE_ENV) ? 'development' : 'production',
+      baseUrl: process.env.NODE_ENV === 'test' ? 'http://localhost:3001/mockdatavicapi/' : process.env.DATAVIC_CKAN_SERVER + '/api',
+      version: '3',
+      apiKey: process.env.CKAN_API_KEY,
+      resources: {
+        'buyingcode': {
+          id: '0cf2ea00-0fa2-45e3-952f-99c2277c1fe8',
+          middleware: [],
+          auth: true
+        }
+      }
+    }]
   ],
   /*
   ** Build
@@ -133,13 +146,15 @@ export default {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     },
-    site: '4',
+    site: 4,
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {
       site: 1,
       // Content types
       page: 1,
-      landingPage: 1,
+      landingPage: {
+        contentCollection: true
+      },
       event: 1,
       news: 1,
       grant: 1,
@@ -161,6 +176,7 @@ export default {
       index: process.env.SEARCH_INDEX,
       url: 'https://' + process.env.SEARCH_HASH + '.' + process.env.SEARCH_URL,
       log: process.env.SEARCH_LOG,
+      apiVersion: process.env.SEARCH_API_VERSION || '6.5',
       auth: {
         username: process.env.SEARCH_AUTH_USERNAME,
         password: process.env.SEARCH_AUTH_PASSWORD

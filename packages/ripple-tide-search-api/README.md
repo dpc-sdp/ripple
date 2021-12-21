@@ -28,4 +28,39 @@ example: {
   }
 }
 ```
+
+## Search with DSL via POST request
+To run searches using custom ElasticSearch DSL, you can run a `POST` request to  `/search-api/v2/dsl`. Send the `POST` request with the body containing `JSON` of the DSL.
+
+### Example Search with DSL via POST request
+#### Headers
+```
+Content-Type: application/json; charset=utf-8
+```
+#### Body
+```
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "type": "health_alert"
+          }
+        },
+        {
+          "match": {
+            "field_node_site": "4"
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    {
+      "field_news_date": "desc"
+    }
+  ]
+}
+```
 */

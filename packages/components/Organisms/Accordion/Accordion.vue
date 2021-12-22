@@ -87,7 +87,6 @@ export default {
           return false
         }
       }
-
       return true
     }
   },
@@ -102,7 +101,6 @@ export default {
           }
         }
       }
-
       this.toggleContent(index)
       Vue.set(this.itemOpen, index, !this.itemOpen[index])
       this.isCollapsed = this.isAllItemOpen
@@ -134,7 +132,7 @@ export default {
         section[0].style.visibility = 'visible'
         setTimeout(function () {
           // Only expands if itemOpen is true
-          if (this.itemOpen[index]) {
+          if (this.itemOpen && this.itemOpen[index]) {
             section[0].style.height = 'auto'
           }
         }, 500)

@@ -45,33 +45,21 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
 .rpl-footer-nav__submenu-item {
-  /*
-    This looks weird, but it's just doubling up the selector
-    because the styles for this mollecule get loaded before
-    the main footer styles and have reduced specificity.
-  */
-  &--socials#{&} {
-    > li {
+  &--socials > li {
+    .rpl-link {
       display: flex;
       flex-flow: row nowrap;
+      justify-content: flex-start;
       align-items: center;
-      position: relative;
+    }
 
-      .rpl-link {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
-      }
+    svg {
+      position: absolute;
+    }
 
-      svg {
-        position: absolute;
-      }
-
-      .rpl-link__inner {
-        margin-left: $rpl-space-2;
-        padding-left: $rpl-space-4;
-      }
+    .rpl-link__inner {
+      margin-left: $rpl-space-2;
+      padding-left: $rpl-space-4;
     }
   }
 }

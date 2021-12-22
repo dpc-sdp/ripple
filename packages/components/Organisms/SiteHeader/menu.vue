@@ -18,6 +18,7 @@
         <rpl-quick-exit class="rpl-menu__quickexit"  v-if="rplOptions.quickexit && open && ((!isVerticalLayout && depth === 1) || isVerticalLayout)" />
         <div class="rpl-menu__column">
           <div class="rpl-menu__header">
+            <!-- Back button -->
             <button
               v-if="!isRoot && isVerticalLayout"
               class="rpl-menu__back"
@@ -27,21 +28,50 @@
               <rpl-icon symbol="left" color="white" />
               <span class="rpl-visually-hidden">Close {{ title }} and return to </span><span>{{ backTitle }}</span>
             </button>
-            <rpl-link v-if="showMenuHeading && parent" class="rpl-menu__heading" :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }" :href="parent.url" :target="parent.target" :innerWrap="false">{{ parent.text }}</rpl-link>
+
+            <!-- Menu heading -->
+            <rpl-link
+              v-if="showMenuHeading && parent"
+              class="rpl-menu__heading"
+              :class="{ 'rpl-menu__heading--horizontal-sub' : (!isVerticalLayout && depth > 1) }"
+              :href="parent.url"
+              :target="parent.target"
+              :innerWrap="false">
+                {{ parent.text }}
+            </rpl-link>
           </div>
+
           <ul class="rpl-menu__items" :class="{ 'rpl-menu__items--root': isRoot }">
+            <!-- Home button -->
             <li
               v-if="isRoot && isVerticalLayout"
               class="rpl-menu__item"
             >
               <rpl-link
-                class="rpl-menu__item-link rpl-menu__item-link--home"
+                class="rpl-menu__item-link  rpl-menu__item-link--home"
                 href="/"
                 :innerWrap="false"
               >
                 <span><rpl-icon symbol="menu_home" color="white" /></span>Home
               </rpl-link>
             </li>
+
+            <!-- Parent link -->
+            <li
+              v-if="showParentLink"
+              class="rpl-menu__item"
+            >
+              <rpl-link
+                class="rpl-menu__item-link  rpl-menu__item-link--parent"
+                :href="parent.url"
+                :target="parent.target"
+                :innerWrap="false"
+              >
+                {{ parent.text }}
+              </rpl-link>
+            </li>
+
+            <!-- Menu items -->
             <li
               v-for="(list, index) in menu"
               :key="index"
@@ -218,7 +248,10 @@ export default {
   },
   computed: {
     showMenuHeading: function () {
-      return (!this.isRoot && this.isVerticalLayout) || (!this.isVerticalLayout && this.depth >= 1)
+      return !this.isVerticalLayout && this.depth === 1
+    },
+    showParentLink: function () {
+      return (this.isVerticalLayout && this.parent) || (this.depth > 1 && this.parent)
     }
   },
   watch: {
@@ -252,7 +285,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "scss/site_header";
 
-  $rpl-menu-vertical-root-margin: ($rpl-space * 10) auto auto !default;
+  $rpl-menu-vertical-root-margin: ($rpl-space * 6) auto auto !default;
   $rpl-menu-vertical-root-padding-xl: auto $rpl-space-4 auto 0 !default;
   $rpl-menu-vertical-heading-margin: ($rpl-space * 6) auto $rpl-space-3 auto !default;
   $rpl-menu-vertical-items-padding: 0 ($rpl-space * 6) !default;
@@ -380,12 +413,13 @@ export default {
 
     .rpl-menu__back {
       @include rpl_typography_font('xs', 1em, 'bold');
+      @include rpl_focus_dark;
+      padding: 1rem 0;
+      margin-bottom: .5rem;
       color: $rpl-menu-vertical-back-color;
       background-color: transparent;
       border: 0;
-      padding: 0;
       cursor: pointer;
-      @include rpl_focus_dark;
 
       .rpl-icon {
         margin: $rpl-menu-vertical-back-icon-margin;
@@ -394,6 +428,8 @@ export default {
     .rpl-menu__item-link {
       &.rpl-menu__item-link--home {
         @include rpl_typography_ruleset($rpl-menu-item-link-home-ruleset);
+        margin-bottom: .5rem;
+
         span {
           margin-right: 0;
         }
@@ -567,7 +603,27 @@ export default {
     }
   }
 
-  .rpl-menu--vertical,
+  .rpl-menu--vertical {
+    .rpl-menu__items--root > .rpl-menu__item {
+      &:nth-of-type(2) {
+        border-top: 0;
+      }
+    }
+
+    .rpl-menu__item {
+      border-top: $rpl-menu-item-border;
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &.rpl-menu__item--after-active,
+      &.rpl-menu__item--active {
+        border-top-color: transparent;
+      }
+    }
+  }
+
   .rpl-menu--horizontal-floating-wrapper,
   .rpl-menu--horizontal .rpl-menu--subs {
     .rpl-menu__item {
@@ -582,6 +638,11 @@ export default {
         border-top-color: transparent;
       }
     }
+  }
+
+  .rpl-menu--vertical,
+  .rpl-menu--horizontal-floating-wrapper,
+  .rpl-menu--horizontal .rpl-menu--subs {
     .rpl-menu__item-link {
       @include rpl_typography_ruleset($rpl-menu-item-link-ruleset);
       font-weight: 400;

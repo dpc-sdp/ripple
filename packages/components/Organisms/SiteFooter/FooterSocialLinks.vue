@@ -7,8 +7,12 @@
     <transition name="rpl-accordion">
       <ul class="rpl-footer-nav__submenu-item rpl-footer-nav__submenu-item--socials" v-if="links.children" v-show="(!minimize || visibleItemIndex == navIndex)">
         <li v-for="(socialLink, sIndex) in links.children" :key="sIndex">
-          <rpl-icon :symbol="socialLink.icon" color="white" size="m" v-if="(socialLink.icon)" />
-          <rpl-link :href="socialLink.uri" :target="socialLink.target">{{ socialLink.title }}</rpl-link>
+          <rpl-link :href="socialLink.uri" :innerWrap=false>
+            <rpl-icon :symbol="socialLink.icon" color="white" size="m" v-if="(socialLink.icon)" />
+            <span class="rpl-link__inner">
+              {{ socialLink.title }}
+            </span>
+          </rpl-link>
         </li>
       </ul>
     </transition>
@@ -53,11 +57,18 @@ export default {
       align-items: center;
       position: relative;
 
+      .rpl-link {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
       svg {
         position: absolute;
       }
 
-      a {
+      .rpl-link__inner {
         margin-left: $rpl-space-2;
         padding-left: $rpl-space-4;
       }

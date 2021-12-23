@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import RplMarkup from './Markup.vue'
+import unicodeSpacesMarkup from './unicode-spaces.md'
 
 <Meta title="Organisms/Markup" component={ RplMarkup } />
 
@@ -457,6 +458,17 @@ A set of classes can be used to control the table column widths
         </div>
       `
     }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Unicode spaces
+
+<Canvas>
+  <Story
+    name="Unicode spaces"
+    args={{ html: unicodeSpacesMarkup }}
   >
     {Template.bind({})}
   </Story>

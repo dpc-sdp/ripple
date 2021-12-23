@@ -22,6 +22,7 @@
                 :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
                 :aria-expanded="(menuState === 'opened').toString()"
                 @click="menuToggle()"
+                :title="menuButton[menuState].text"
               >
                 <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
                 <span>{{ menuButton[menuState].text }}</span>

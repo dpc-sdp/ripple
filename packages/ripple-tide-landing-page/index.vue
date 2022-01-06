@@ -17,7 +17,7 @@
       </template>
 
       <template slot="aboveContentTwo">
-        <page-components v-if="page.headerComponents" :componentMapping="page.headerComponents" />
+        <page-components v-if="page.headerComponents" :componentMapping="page.headerComponents" :gutter="false" />
       </template>
 
       <rpl-row row-gutter class="app-content tide-content tide-content--landing-page">

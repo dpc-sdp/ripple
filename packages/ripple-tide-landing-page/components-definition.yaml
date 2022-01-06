@@ -1,0 +1,237 @@
+vt-card-collection:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - vt-card-collection
+    props:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Card collection title
+        cardCtaText:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+          example: Card collection description
+        config:
+          type: object
+        individualCards:
+          type: array
+          items:
+            type: string
+vt-markup:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - vt-markup
+    props:
+      type: object
+      properties:
+        html:
+          type: string
+          example: <p>test</p>
+vt-category-list:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - vt-category-list
+    props:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            type: object
+            properties:
+              image:
+                allOf:
+                  - $ref: '#/components/schemas/responsiveImage'
+              label:
+                type: string
+              link:
+                type: string
+vt-call-to-action:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - vt-call-to-action
+    props:
+      type: object
+      properties:
+        body:
+          type: string
+        cta:
+          type: object
+        image:
+          allOf:
+            - $ref: '#/components/schemas/responsiveImage'
+        orientation:
+          type: string
+vt-partner-details:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - vt-partner-details
+    props:
+      type: object
+      properties:
+        summary:
+          type: string
+        logo:
+          type: object
+        partnerLink:
+          type: object
+        relatedLinks:
+          type: array
+          items:
+            type: object
+vt-header-home:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - vt-header-home
+    props:
+      type: object
+      properties:
+        title:
+          type: string
+        summary:
+          type: string
+        eventTitle:
+          type: string
+        image:
+          allOf:
+            - $ref: '#/components/schemas/responsiveImage'
+        date:
+          type: object
+          properties:
+            value:
+              type: string
+            end_value:
+              type: string
+        link:
+          type: string
+        cta:
+          type: string
+        theme:
+          type: string
+vt-image-gallery:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - vt-image-gallery
+    props:
+      type: object
+      properties:
+        slides:
+          type: array
+          items:
+            type: object
+            properties:
+              image:
+                type: object
+              title:
+                type: string
+        title:
+          type: string
+vt-accordion:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - vt-accordion
+    props:
+      type: object
+      properties:
+        panels:
+          type: array
+          items:
+            type: object
+            properties:
+              content:
+                type: string
+              title:
+                type: string
+        title:
+          type: string
+        listType:
+          type: string
+          enum:
+            - ol
+            - ul
+responsiveImage:
+  type: object
+  required:
+    - src
+  properties:
+    src:
+      type: string
+    alt:
+      type: string
+    title:
+      type: string
+    width:
+      type: number
+    height:
+      type: number
+    focalPoint:
+      type: object
+      properties:
+        x:
+          type: number
+        y:
+          type: number
+landingPageComponent:
+  type: array
+  title: landingPageComponent
+  items:
+    oneOf:
+      - $ref: '#/components/schemas/vt-card-collection'
+      - $ref: '#/components/schemas/vt-markup'
+      - $ref: '#/components/schemas/vt-call-to-action'
+      - $ref: '#/components/schemas/vt-category-list'
+      - $ref: '#/components/schemas/vt-partner-details'
+      - $ref: '#/components/schemas/vt-image-gallery'
+      - $ref: '#/components/schemas/vt-accordion'

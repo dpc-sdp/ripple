@@ -1,6 +1,6 @@
 <template>
   <div class="rpl-components" v-if="componentMapping && componentMapping.length > 0">
-    <rpl-row row-gutter>
+    <rpl-row :row-gutter="gutter">
       <rpl-col
         cols="full"
         v-for="cmp in mappedComponents"
@@ -33,6 +33,10 @@ export default {
   props: {
     componentMapping: {
       type: Array
+    },
+    gutter: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {

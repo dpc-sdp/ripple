@@ -1,7 +1,7 @@
 import get from 'lodash.get'
 import { fieldMappingUtils as utils } from '@dpc-sdp/ripple-tide-api'
 
-const { getField, getImageFromField, getLinkFromField, getBody } = utils
+const { getField, getImageFromField, getLinkFromField, getBody, getBodyFromField } = utils
 const cols = {
   m: 6,
   l: 4,
@@ -104,6 +104,20 @@ export default {
             return 'alert_information'
           default:
             return null
+        }
+      }
+    }
+  }),
+  'block_content--campaign': (field) => ({
+    component: 'rpl-campaign-primary',
+    props: {
+      title: getField(field, 'field_block_title'),
+      summary: getBodyFromField(field, ['body', 'processed']),
+      link: getLinkFromField(field, 'field_block_cta'),
+      image: getImageFromField(field, 'field_block_image'),
+      caption: () => {
+        if (field.field_block_image && field.field_show_c_primary_caption) {
+          return field.field_block_image.field_media_caption
         }
       }
     }

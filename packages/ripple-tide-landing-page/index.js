@@ -1,4 +1,4 @@
-import { getField, getLinkFromField, getLandingPageComponents, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
+import { getLinkFromField, getLandingPageComponents, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import componentMapping from './component-mapping'
 import bodyComponents from './component-loader'
 
@@ -12,9 +12,25 @@ export default {
     backgroundColor: 'field_landing_page_bg_colour',
     acknowledgement: 'field_show_ack_of_country',
     heroBackgroundImage: (src) => getImageFromField(src, 'field_landing_page_hero_image'),
-    heroBannerLinks: (src) => getField(src, ['field_landing_page_key_journeys', 'field_paragraph_links'], []).map(l => getLinkFromField(l)),
-    headerComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_header', componentMapping, this) },
-    bodyComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_component', componentMapping, this) }
+    heroBannerLinks: (src) => src.field_landing_page_key_journeys?.field_paragraph_links?.map(l => getLinkFromField(l)),
+    headerComponents: async function (src) {
+      const components = []
+      const headerComponents = await getLandingPageComponents(src, 'field_landing_page_header', componentMapping, this)
+      if (headerComponents.length > 0) {
+        components.push(...headerComponents)
+      }
+      // campaign primary
+      if (src.field_landing_page_c_primary) {
+        const campaignPrimary = componentMapping['block_content--campaign']?.call(this, src.field_landing_page_c_primary)
+        components.push(campaignPrimary)
+      }
+      return components
+    },
+    bodyComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_component', componentMapping, this) },
+    sidebarComponents: (src) => {
+
+    },
+    showLastUpdated: () => true
   },
   includes: [
     'field_featured_image',
@@ -26,6 +42,7 @@ export default {
     'field_landing_page_hero_image.field_media_image',
     'field_landing_page_hero_banner',
     'field_landing_page_c_primary.field_block_image.field_media_image',
+    'field_landing_page_c_primary',
     'field_landing_page_c_secondary.field_block_image.field_media_image',
     'field_landing_page_c_secondary.field_block_embedded_video',
     'field_landing_page_key_journeys',

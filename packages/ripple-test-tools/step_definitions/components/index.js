@@ -114,6 +114,10 @@ Then(`the campaign primary title should be {string}`, title => {
   cy.get('.rpl-campaign-primary__title').should('contain', title)
 })
 
+Then(`the {string} should contain {string}`, (component, text) => {
+  cy.get(`[data-component-name="${component}"]`).should('contain', text)
+})
+
 Then(`the campaign primary banner should contain:`, (dataTable) => {
   const primaryCampaign = dataTable.rawTable.slice(1)
   primaryCampaign.forEach((link, index) => {

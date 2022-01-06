@@ -4,7 +4,7 @@
   "description": "Example site for showing how to use @dpc-sdp/ripple-tide-api",
   "private": true,
   "scripts": {
-    "dev": "nodemon --watch ./tide-api --exec \"nuxt\"",
+    "dev": "nodemon --exec \"nuxt\"",
     "dev-debug": "BASIC_AUTH=0 node --inspect node_modules/.bin/nuxt",
     "build": "run-script-os",
     "build:default": "nuxt build --modern=client",
@@ -28,7 +28,6 @@
     "@dpc-sdp/ripple-test-tools": "^1.23.0",
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
-    "cypress": "^9.2.0",
     "nodemon": "^2.0.12",
     "start-server-and-test": "^1.14.0"
   },

@@ -42,7 +42,7 @@ export const getLinkFromField = (field, path) => {
     url = get(field, `${path}.url`, get(field, `${path}.uri`), false)
   } else {
     text = get(field, 'title', false)
-    url = get(field, 'url', get(field, 'uri'), false)
+    url = get(field, 'url', get(field, 'uri'))
   }
   return { text: url && text === '' ? url : text, url }
 }
@@ -94,10 +94,15 @@ export const getField = (field, path, fallback) => {
   return get(field, path, fallback)
 }
 
+export const getBodyFromField = (field, path, fallback) => {
+  return getBody(getField(field, path, fallback))
+}
+
 export default {
   getImageFromField,
   getLinkFromField,
   getLandingPageComponents,
   getBody,
+  getBodyFromField,
   getField
 }

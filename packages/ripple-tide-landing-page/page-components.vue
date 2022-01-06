@@ -1,25 +1,23 @@
 <template>
-  <div class="vt-components" v-if="componentMapping && componentMapping.length > 0">
+  <div class="rpl-components" v-if="componentMapping && componentMapping.length > 0">
     <rpl-row row-gutter>
-      <template v-for="cmp in mappedComponents">
-        <rpl-col
-          class="vt-component"
-          cols="full"
-          :colsBp="cmp.cols"
-          :key="cmp.id"
-          catchChildError
-        >
-          <component
-            :data-component-name="cmp.name"
-            :data-component-key="`${cmp.name}-${cmp.uuid}`"
-            :class="cmp.class"
-            v-if="cmp && cmp.component"
-            :key="`${cmp.name}-${cmp.uuid}`"
-            :is="cmp.component"
-            v-bind="cmp.data"
-          ></component>
-        </rpl-col>
-      </template>
+      <rpl-col
+        cols="full"
+        v-for="cmp in mappedComponents"
+        :colsBp="cmp.cols"
+        :key="cmp.id"
+        catchChildError
+      >
+        <component
+          :data-component-name="cmp.name"
+          :data-component-key="`${cmp.name}-${cmp.uuid}`"
+          :class="cmp.class"
+          v-if="cmp && cmp.component"
+          :key="`${cmp.name}-${cmp.uuid}`"
+          :is="cmp.component"
+          v-bind="cmp.data"
+        ></component>
+      </rpl-col>
     </rpl-row>
   </div>
 </template>

@@ -4,7 +4,7 @@
     <rpl-page-layout
       :sidebar="hasSidebar"
       :backgroundColor="page.backgroundColor"
-      :heroBackgroundImage="page.heroBackgroundImage"
+      :backgroundGraphic="heroBgGraphic"
       class="app-main"
     >
       <template slot="aboveContent">
@@ -18,12 +18,6 @@
 
       <template slot="aboveContentTwo">
         <page-components v-if="page.headerComponents" :componentMapping="page.headerComponents" />
-        <!-- <template v-if="campaignPrimary && campaignPrimary.component">
-          <component
-            :is="campaignPrimary.component"
-            v-bind="campaignPrimary.data"
-          ></component>
-        </template> -->
       </template>
 
       <rpl-row row-gutter class="app-content tide-content tide-content--landing-page">
@@ -32,7 +26,11 @@
             <rpl-anchor-links title="On this page:" :links="anchorLinks" />
           </rpl-col>
         </template>
+
         <page-components :componentMapping="page.bodyComponents" />
+
+        <rpl-updated-date v-if="page.showLastUpdated" :date="page.changed"></rpl-updated-date>
+
         <rpl-col v-if="page.showTags" cols="full">
           <app-topic-tags :topic="this.page.topic" :tags="this.page.tags" />
         </rpl-col>
@@ -88,6 +86,13 @@ export default {
           links: this.page.heroBannerLinks,
           introText: this.page.summary
         }
+      }
+    },
+    heroBgGraphic () {
+      if (this.page.heroBackgroundImage) {
+        return this.page.heroBackgroundImage
+      } else {
+        return '/img/header-pattern-shape.png'
       }
     }
   }

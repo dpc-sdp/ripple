@@ -4,7 +4,7 @@
   "created": "2018-05-25T16:07:56+10:00",
   "type": "landing_page",
   "nid": 232,
-  "summary": "Managing our flora for all Victorian's",
+  "summary": "Managing our native flora for all Victorian's",
   "showHeroBanner": true,
   "heroBannerLinks": [
     {
@@ -16,11 +16,41 @@
       "url": "/contact-us"
     }
   ],
-  "headerComponents": [],
+  "backgroundColor": "grey",
+  "showLastUpdated": true,
+  "headerComponents": [
+    {
+      "component": "rpl-campaign-primary",
+      "props": {
+        "title": "How good are trees?",
+        "summary": "<p>Bloody great they are! Laboriosam et et atque delectus corrupti saepe. Adipisci debitis quia dolorem aut. Est unde quidem vitae suscipit suscipit distinctio numquam. Officiis placeat accusamus ex fugit vero velit fugit possimus sit. Eos cumque ut voluptate nihil quisquam. Perferendis eius ad enim ipsa doloribus quis eos.</p>",
+        "link": {
+          "text": "Find out more about trees",
+          "url": "https://www.coronavirus.vic.gov.au/coronavirus-covid-19-victoria"
+        },
+        "image": {
+          "src": "/sites/default/files/2021-06/Russell%20Street_Melbourne%20Yarra%20River%20and%20Buildings_feature%20edit.jpg",
+          "alt": "",
+          "title": "",
+          "width": 699,
+          "height": 411,
+          "focalPoint": {
+            "x": 350,
+            "y": 206
+          }
+        }
+      }
+    }
+  ],
   "bodyComponents": [
     {
+      "uuid": "cdbef061-df67-49fa-80d6-8320bc97d07e",
       "component": "rpl-card-promo",
-      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "cols": {
+        "m": 6,
+        "l": 4,
+        "xxxl": 3
+      },
       "props": {
         "title": "Victorian Government grants and programs",
         "summary": "A listing of all Victorian Government grants and assistance programs.",
@@ -30,7 +60,10 @@
           "title": "",
           "width": 818,
           "height": 496,
-          "focalPoint": { "x": 409, "y": 248 }
+          "focalPoint": {
+            "x": 409,
+            "y": 248
+          }
         },
         "link": {
           "text": "https://www.vic.gov.au/grants",
@@ -46,8 +79,13 @@
       }
     },
     {
+      "uuid": "4b590a25-e151-410f-87c1-546c65ba55ec",
       "component": "rpl-card-promo",
-      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "cols": {
+        "m": 6,
+        "l": 4,
+        "xxxl": 3
+      },
       "props": {
         "title": "Prolonged power outage payment",
         "summary": "Recent storms have caused significant damage to homes and vital infrastructure, leaving many Victorians without power. Support is available for those who have been impacted.",
@@ -57,7 +95,10 @@
           "title": "",
           "width": 1024,
           "height": 768,
-          "focalPoint": { "x": 276, "y": 376 }
+          "focalPoint": {
+            "x": 276,
+            "y": 376
+          }
         },
         "link": {
           "text": "https://www.vic.gov.au/prolonged-power-outage-payment",
@@ -73,8 +114,13 @@
       }
     },
     {
+      "uuid": "21bba923-40cc-4399-9d7c-d111709f28b8",
       "component": "rpl-card-promo",
-      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "cols": {
+        "m": 6,
+        "l": 4,
+        "xxxl": 3
+      },
       "props": {
         "title": "Current COVID restrictions",
         "summary": "Details about the current COVIDSafe settings and restrictions in Victoria.",
@@ -84,7 +130,10 @@
           "title": "",
           "width": 818,
           "height": 496,
-          "focalPoint": { "x": 409, "y": 248 }
+          "focalPoint": {
+            "x": 409,
+            "y": 248
+          }
         },
         "link": {
           "text": "https://www.coronavirus.vic.gov.au/coronavirus-covidsafe-settings",
@@ -100,8 +149,13 @@
       }
     },
     {
+      "uuid": "fbf490b8-0288-4498-8999-ce9537b25e8e",
       "component": "rpl-card-promo",
-      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "cols": {
+        "m": 6,
+        "l": 4,
+        "xxxl": 3
+      },
       "props": {
         "title": "Victoria Together",
         "summary": "Explore the unique places, people and stories that make up Victoria through inclusive digital experiences.",
@@ -111,7 +165,10 @@
           "title": "",
           "width": 818,
           "height": 496,
-          "focalPoint": { "x": 172, "y": 213 }
+          "focalPoint": {
+            "x": 172,
+            "y": 213
+          }
         },
         "link": {
           "text": "https://www.together.vic.gov.au/",
@@ -127,8 +184,13 @@
       }
     },
     {
+      "uuid": "edd184d0-faec-4694-9412-0c827e1bb4e7",
       "component": "rpl-card-promo",
-      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "cols": {
+        "m": 6,
+        "l": 4,
+        "xxxl": 3
+      },
       "props": {
         "title": "Thunderstorm asthma",
         "summary": "Grass pollen season is here and can trigger asthma and hay fever symptoms. Be prepared and protect yourself from the risk of thunderstorm asthma.",
@@ -138,7 +200,10 @@
           "title": "",
           "width": 382,
           "height": 232,
-          "focalPoint": { "x": 191, "y": 116 }
+          "focalPoint": {
+            "x": 191,
+            "y": 116
+          }
         },
         "link": {
           "text": "https://www.aboriginalheritagecouncil.vic.gov.au/victorias-current-registered-aboriginal-parties",
@@ -154,8 +219,13 @@
       }
     },
     {
+      "uuid": "01b52f6f-0c22-4981-88a1-52166c1bb552",
       "component": "rpl-card-keydates",
-      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "cols": {
+        "m": 6,
+        "l": 4,
+        "xxxl": 3
+      },
       "props": {
         "title": "",
         "keydates": [
@@ -177,6 +247,7 @@
       }
     },
     {
+      "uuid": "8e64467f-93ec-4cbb-b43c-f07d2a52b29f",
       "component": "rpl-markup",
       "props": {
         "html": "<p>Follow <rpl-text-link icon=\"external\" link=\"https://twitter.com/VicGovAu\">@VicGovAu</rpl-text-link> on Twitter for the latest news and updates.</p>",

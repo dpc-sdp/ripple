@@ -15,7 +15,9 @@
     "@dpc-sdp/ripple-markup": "^1.23.1",
     "@dpc-sdp/ripple-meta-tag": "^1.23.1",
     "@dpc-sdp/ripple-tide-api": "^1.23.1",
-    "@dpc-sdp/ripple-updated-date": "^1.23.1"
+    "@dpc-sdp/ripple-updated-date": "^1.23.1",
+    "@dpc-sdp/ripple-campaign-primary": "1.27.2",
+    "@dpc-sdp/ripple-campaign-secondary": "1.27.2"
   },
   "dependencies": {
     "@dpc-sdp/ripple-card": "^1.27.2"

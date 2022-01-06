@@ -2,7 +2,7 @@ Feature: Home page
 
   As a citizen I want to see current relevant links and events.
 
-
+@focus 
   Scenario: On load - desktop
     Given the mock server has started
     And I am using a "macbook-13" device
@@ -23,7 +23,10 @@ Feature: Home page
     And the menu should have 2 top level items
     And the search button in the site header should have the text "Search"
 
-
+    # Header components
+    And the campaign primary banner component should exist
+    And the "rpl-campaign-primary" should contain "How good are trees?"
+    And the "rpl-campaign-primary" should contain "Bloody great they are! "
 
   Scenario: On load - mobile
     Given the mock server has started

@@ -37,8 +37,8 @@
 
 <script>
 // TODO remove this import along with `legacyIcon`
-import { getIconProps } from "./icon-library";
-let icons = {};
+import { getIconProps } from "./icon-library"
+let icons = {}
 
 /**
  * Icons are designed to represent actions and items.
@@ -60,7 +60,7 @@ export default {
      */
     size: String
   },
-  data: function() {
+  data: function () {
     return {
       iconProperties: getIconProps(), // TODO remove this prop along with `legacyIcon`
       iconPrefix: "rpl_icon_",
@@ -71,108 +71,108 @@ export default {
         xl: 2,
         xxl: 2.5
       }
-    };
+    }
   },
   computed: {
     // This is to support previous version using svg format
     // TODO Delete any `legacyIcon` traces once changes have been rolled out to dependent websites
-    legacyIcon() {
+    legacyIcon () {
       return (
         this.symbol &&
         this.iconProperties[`${this.iconPrefix + this.symbol}`] !== undefined
-      );
+      )
     },
-    iconClass() {
-      if (!this.icon && !this.legacyIcon) return "";
+    iconClass () {
+      if (!this.icon && !this.legacyIcon) return ""
 
-      let rtn = `rpl-icon rpl-icon--${this.symbol}`;
-      return this.color ? `${rtn} rpl-icon--color_${this.color}` : rtn;
+      let rtn = `rpl-icon rpl-icon--${this.symbol}`
+      return this.color ? `${rtn} rpl-icon--color_${this.color}` : rtn
     },
-    iconStyle() {
-      if (!this.icon && !this.legacyIcon) return "";
+    iconStyle () {
+      if (!this.icon && !this.legacyIcon) return ""
 
-      let width = this.icon ? (this.icon.width ? this.icon.width : null) : null;
+      let width = this.icon ? (this.icon.width ? this.icon.width : null) : null
       let height = this.icon
         ? this.icon.height
           ? this.icon.height
           : null
-        : null;
+        : null
       if (this.legacyIcon) {
         let legacyIcon = this.iconProperties[
           `${this.iconPrefix + this.symbol}`
-        ];
-        width = legacyIcon.width;
-        height = legacyIcon.height;
+        ]
+        width = legacyIcon.width
+        height = legacyIcon.height
       }
 
       let size =
         this.sizes[this.size] === undefined
           ? parseFloat(this.size)
-          : this.sizes[this.size];
-      size = isNaN(size) ? 1 : size;
+          : this.sizes[this.size]
+      size = isNaN(size) ? 1 : size
 
-      return `width: ${width * size}px; height: ${height * size}px`;
+      return `width: ${width * size}px; height: ${height * size}px`
     },
-    icon() {
-      if (!this.symbol) return null;
+    icon () {
+      if (!this.symbol) return null
 
-      return icons[this.symbol];
+      return icons[this.symbol]
     },
-    iconAttribute() {
-      if (!this.icon && !this.legacyIcon) return ["true", ""];
+    iconAttribute () {
+      if (!this.icon && !this.legacyIcon) return ["true", ""]
       if (this.symbol === "external_link") {
-        return ["false", "External Link"];
+        return ["false", "External Link"]
       } else {
-        return ["true", ""];
+        return ["true", ""]
       }
     },
-    box() {
-      if (!this.icon) return;
-      return `0 0 ${this.icon.width} ${this.icon.height}`;
+    box () {
+      if (!this.icon) return
+      return `0 0 ${this.icon.width} ${this.icon.height}`
     }
   },
-  register(data) {
+  register (data) {
     for (let name in data) {
-      let icon = data[name];
-      let { paths = [], d, polygons = [], points } = icon;
+      let icon = data[name]
+      let { paths = [], d, polygons = [], points } = icon
       if (d) {
-        paths.push({ d });
+        paths.push({ d })
       }
       if (points) {
-        polygons.push({ points });
+        polygons.push({ points })
       }
       icons[name] = assign({}, icon, {
         paths,
         polygons
-      });
+      })
     }
   },
   icons
-};
+}
 
-function assign(obj, ...sources) {
+function assign (obj, ...sources) {
   sources.forEach(source => {
     for (let key in source) {
       if (Object.prototype.hasOwnProperty.call(source, key)) {
-        obj[key] = source[key];
+        obj[key] = source[key]
       }
     }
-  });
-  return obj;
+  })
+  return obj
 }
 
-const pluginReplaceUnicodeWhitespace = function() {
-  // Match text nodes only
-  this.find("*")
-    .map((i, n) => n.children)
-    .filter((i, n) => n.type === "text")
-    .map((i, node) => {
-      // Iterate through mapping and replace raw codepoint with entity
-      CodepointMap.map(({ codepoint, entity }) => {
-        node.data = node.data.replace(String.fromCodePoint(codepoint), entity);
-      })
-    })
-}
+// const pluginReplaceUnicodeWhitespace = function () {
+//   // Match text nodes only
+//   this.find("*")
+//     .map((i, n) => n.children)
+//     .filter((i, n) => n.type === "text")
+//     .map((i, node) => {
+//       // Iterate through mapping and replace raw codepoint with entity
+//       CodepointMap.map(({ codepoint, entity }) => {
+//         node.data = node.data.replace(String.fromCodePoint(codepoint), entity)
+//       })
+//     })
+// }
 </script>
 
 <style lang="scss">

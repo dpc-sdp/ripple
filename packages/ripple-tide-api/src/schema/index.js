@@ -3,7 +3,7 @@ import jsYaml from 'js-yaml'
 const fs = require('fs')
 const path = require('path')
 
-export default function(config) {
+export default function (config) {
   const definition = jsYaml.load(
     fs.readFileSync(path.join(__dirname, './definition.yaml'), 'utf-8')
   )

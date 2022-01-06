@@ -6,11 +6,11 @@ import defaultPlugins from './default-plugins'
 // We don't want cheerio to encode our vue template, as it will add encoded entities into Vue props.
 // NOTE: Any HTML encoded entities in original HTML will be kept as it is.
 const cheerioHtml = cheerio.prototype.html
-cheerio.prototype.html = function wrappedHtml() {
+cheerio.prototype.html = function wrappedHtml () {
   var result = cheerioHtml.apply(this, arguments)
 
   if (typeof result === 'string') {
-    result = result.replace(/&#x([0-9a-f]{1,6});/gi, function(entity, code) {
+    result = result.replace(/&#x([0-9a-f]{1,6});/gi, function (entity, code) {
       code = parseInt(code, 16)
 
       // don't unescape ascii characters, assuming that all ascii characters

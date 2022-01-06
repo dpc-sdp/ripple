@@ -5,13 +5,13 @@ import get from 'lodash.get'
 
 export default class TideApi extends HttpClient {
   constructor (config) {
+    if (!config) {
+      throw new Error('Error - No configuration specified')
+    }
     super({
       baseUrl: `${config.tide.baseUrl}${config.tide.apiPrefix}`,
       auth: config.tide.auth
     })
-    if (!config) {
-      throw new Error('Error - No configuration specified')
-    }
     this.utils = {
       get
     }

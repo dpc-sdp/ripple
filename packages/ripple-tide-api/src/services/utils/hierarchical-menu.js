@@ -8,7 +8,7 @@
  *
  * @private
  */
-const _filterStructure = function(menus, roots, children) {
+const _filterStructure = function (menus, roots, children) {
   // Find the top level nodes and hash the children based on parent.
   for (let i = 0, len = Object.keys(menus).length; i < len; ++i) {
     const item = menus[i]
@@ -26,7 +26,7 @@ const _filterStructure = function(menus, roots, children) {
  *
  * @private
  */
-const _structureChildren = function(parent, children, i = 0) {
+const _structureChildren = function (parent, children, i = 0) {
   if (children[parent.uuid]) {
     parent.children = children[parent.uuid]
     parent.children.sort(_sortByWeight)
@@ -48,7 +48,7 @@ const _structureChildren = function(parent, children, i = 0) {
  *
  * @private
  */
-const _buildHierarchy = function(menus) {
+const _buildHierarchy = function (menus) {
   const roots = []
   const children = {}
   _filterStructure(menus, roots, children)
@@ -68,7 +68,7 @@ const _buildHierarchy = function(menus) {
  * @return {Object}
  * Hierarchical menu object
  */
-const getHierarchicalMenu = function(menus) {
+const getHierarchicalMenu = function (menus) {
   let hierarchy = {}
   if (Object.keys(menus).length === 0) {
     throw Error('`Get hierarchical menu failed: site menus are empty.')

@@ -13,7 +13,7 @@ export default async function (moduleOptions) {
   const SITEID = this.options.publicRuntimeConfig
 
   this.addPlugin({
-    src: path.resolve(__dirname, './../plugins/tide-api.js'),
+    src: path.resolve(__dirname, './../plugins/tide-api.template.js'),
     fileName: 'tide-api.js',
     options: {
       ...moduleOptions,
@@ -36,7 +36,7 @@ export default async function (moduleOptions) {
       '/sites/default/files/**/*': process.env.CONTENT_API_SERVER,
       '/oauth/token': {
         target: process.env.CONTENT_API_SERVER,
-        onProxyReq(proxyReq, req, res) {
+        onProxyReq (proxyReq, req, res) {
           // As oauth/token is a proxied request, this authorization header
           // for the nuxt site is not valid for the proxied target.
           // Not removing it will present an unauthorizable user prompt.

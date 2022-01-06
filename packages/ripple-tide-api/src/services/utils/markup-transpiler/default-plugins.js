@@ -12,7 +12,7 @@ const _escapeQuotes = text => {
   return text.replace('"', '&quot;')
 }
 
-const pluginButton = function() {
+const pluginButton = function () {
   // Button
   this.find('.button').map((i, el) => {
     const $button = this.find(el)
@@ -30,7 +30,7 @@ const pluginButton = function() {
   })
 }
 
-const pluginTables = function() {
+const pluginTables = function () {
   // Wrap tables with a div.
   this.find('table').map((i, el) => {
     const $table = this.find(el)
@@ -38,7 +38,7 @@ const pluginTables = function() {
   })
 }
 
-const pluginEmbeddedDocument = function() {
+const pluginEmbeddedDocument = function () {
   this.find(
     '.embedded-entity--media--file, .embedded-entity--media--document, .embedded-entity .media--type-document'
   ).map((i, element) => {
@@ -192,7 +192,7 @@ const pluginEmbeddedDocument = function() {
 //   })
 // }
 
-const pluginImage = function() {
+const pluginImage = function () {
   // wrap iframes
   this.find('.embedded-entity--media--image').map((i, el) => {
     const $container = this.find(el)
@@ -208,7 +208,7 @@ const pluginImage = function() {
   })
 }
 
-const pluginIframe = function() {
+const pluginIframe = function () {
   // wrap iframes
   this.find('iframe').map((i, el) => {
     const $iframe = this.find(el)
@@ -218,7 +218,7 @@ const pluginIframe = function() {
   })
 }
 
-const pluginEmbeddedMediaVideo = function() {
+const pluginEmbeddedMediaVideo = function () {
   // wrap iframes
   this.find('.embedded-entity--media--embedded-video').map((i, el) => {
     // Component data
@@ -257,7 +257,7 @@ const pluginEmbeddedMediaVideo = function() {
   })
 }
 
-const pluginLinks = function() {
+const pluginLinks = function () {
   this.find('a').map((i, el) => {
     const $a = this.find(el)
     const href = $a.attr('href')

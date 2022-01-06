@@ -1,4 +1,4 @@
-const appDir = require('app-root-path')
+// const appDir = require('app-root-path')
 
 export default function rippleNuxt (moduleOptions) {
   const path = require('path')
@@ -21,7 +21,7 @@ export default function rippleNuxt (moduleOptions) {
   })
   // Add ripple options
   this.addPlugin({
-    src: path.resolve(__dirname, 'plugins/rpl-options.js'),
+    src: path.resolve(__dirname, 'plugins/rpl-options.template.js'),
     fileName: 'ripple-options.js'
   })
   // Extend build

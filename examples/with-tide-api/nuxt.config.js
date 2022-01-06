@@ -2,7 +2,7 @@ process.env.APP_ROOT_PATH = '.' // Set the example app root path, for this examp
 
 export default {
   privateRuntimeConfig: {
-    API_URL: process.env.API_URL || '/tide-api/v2',
+    API_URL: process.env.API_URL || '/tide-api/v2'
   },
   publicRuntimeConfig: {
     SITEID: '4'

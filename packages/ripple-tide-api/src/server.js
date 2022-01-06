@@ -28,7 +28,7 @@ const app = createRippleTideApiServer({
   },
   auth: {
     username: 'dpc',
-    password: 'dpc',
+    password: 'dpc'
   },
   tide: {
     apiPrefix: 'api/v1',
@@ -44,4 +44,3 @@ const app = createRippleTideApiServer({
 app.listen(PORT, () => {
   console.info(`Service starting at ${SERVER_URL}:${PORT}`)
 })
-\

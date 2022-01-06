@@ -6,16 +6,16 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setHead(state, payload) {
+  setHead (state, payload) {
     state.head = payload
   },
-  setType(state, payload) {
+  setType (state, payload) {
     state.type = payload
   }
 }
 
 export const actions = {
-  async setPageHead({ commit, state, rootState }, { page, path }) {
+  async setPageHead ({ commit, state, rootState }, { page, path }) {
     const head = getpageHead(
       page,
       rootState.site.data,
@@ -26,7 +26,7 @@ export const actions = {
       commit('setHead', head)
     }
   },
-  async setType({ commit, state, rootState }, pageType) {
+  async setType ({ commit, state, rootState }, pageType) {
     if (pageType) {
       commit('setType', pageType)
     }

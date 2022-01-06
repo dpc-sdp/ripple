@@ -20,5 +20,8 @@ storybook-static/
 /examples/**/dist
 /examples/**/.nuxt
 
+# Nuxt plugin templates
+packages/**/*.template.js
+
 # Jest
 coverage

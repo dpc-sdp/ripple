@@ -15,7 +15,7 @@
   >
     <div class="rpl-menu__inner">
       <div class="rpl-menu__inner_root">
-        <rpl-quick-exit class="rpl-menu__quickexit"  v-if="rplOptions.quickexit && open && ((!isVerticalLayout && depth === 1) || isVerticalLayout)" />
+        <rpl-quick-exit class="rpl-menu__quickexit"  v-if="rplOptions && rplOptions.quickexit && open && ((!isVerticalLayout && depth === 1) || isVerticalLayout)" />
         <div class="rpl-menu__column">
           <div class="rpl-menu__header">
             <button

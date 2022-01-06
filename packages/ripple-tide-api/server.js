@@ -4,7 +4,7 @@ const port = 3000
 const app = createRippleTideApiServer({
   apiBase: 'api',
   apiVersion: 'v2',
-  debug: process.env.NODE_ENV === 'development',
+  debug: process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test',
   auth: {
     username: 'dpc',
     password: 'sdp'

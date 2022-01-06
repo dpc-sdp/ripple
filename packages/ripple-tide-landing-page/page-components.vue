@@ -1,5 +1,5 @@
 <template>
-  <div class="vt-components" v-if="components && components.length > 0">
+  <div class="vt-components" v-if="componentMapping && componentMapping.length > 0">
     <rpl-row row-gutter>
       <template v-for="cmp in mappedComponents">
         <rpl-col
@@ -12,6 +12,7 @@
           <component
             :data-component-name="cmp.name"
             :data-component-key="`${cmp.name}-${cmp.uuid}`"
+            :class="cmp.class"
             v-if="cmp && cmp.component"
             :key="`${cmp.name}-${cmp.uuid}`"
             :is="cmp.component"
@@ -25,29 +26,29 @@
 
 <script>
 import { RplCol, RplRow } from '@dpc-sdp/ripple-grid'
-import componentMapping from './component-loader'
+import componentLoader from './component-loader'
 export default {
   components: {
     RplCol,
     RplRow
   },
   props: {
-    components: {
+    componentMapping: {
       type: Array
     }
   },
   computed: {
     mappedComponents () {
-      if (this.components && this.components.length > 0) {
-        return this.components
+      if (this.componentMapping && this.componentMapping.length > 0) {
+        return this.componentMapping
           .map((cmp, index) => {
-            if (cmp && componentMapping.hasOwnProperty(cmp.component)) {
+            if (cmp && componentLoader.hasOwnProperty(cmp.component)) {
               return {
                 uuid: cmp.uuid || index,
                 name: cmp.component,
-                component: componentMapping[cmp.component],
-                classes: cmp.classes,
-                cols: {},
+                component: this.$tideApi.getBodyComponent(cmp.component),
+                class: cmp.class,
+                cols: cmp.cols || {},
                 data: cmp.props
               }
             }

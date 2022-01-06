@@ -1,0 +1,416 @@
+{
+  "name": "vic.gov.au",
+  "socialImages": {
+    "og": {
+      "src": "/sites/default/files/2019-09/600x600px%20Promo%20Card%20VIC.GOV__0.jpg",
+      "alt": "",
+      "title": "",
+      "width": 600,
+      "height": 600,
+      "focalPoint": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "twitter": {
+      "src": "/sites/default/files/2019-09/600x600px%20Promo%20Card%20VIC.GOV__0.jpg",
+      "alt": "",
+      "title": "",
+      "width": 600,
+      "height": 600,
+      "focalPoint": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "menus": {
+    "menuMain": [
+      {
+        "text": "Information and services",
+        "url": "/information-and-services",
+        "uuid": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+        "parent": null,
+        "weight": -50,
+        "children": [
+          {
+            "text": "Coronavirus (COVID-19) information",
+            "url": "https://www.coronavirus.vic.gov.au/coronavirus-covid-19-victoria",
+            "uuid": "b384de04-8faa-4246-adc1-70c8a56b2c22",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -50
+          },
+          {
+            "text": "Grants and programs",
+            "url": "https://www.vic.gov.au/grants",
+            "uuid": "e239b5d2-54f4-4d1e-8ce2-5b5cfc9a2c29",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -49
+          },
+          {
+            "text": "Jobs and careers",
+            "url": "/jobs-and-careers",
+            "uuid": "c0f7058f-26e4-4f12-a75b-683a2cf57b4a",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -48
+          },
+          {
+            "text": "Business and the workplace",
+            "url": "/business-and-workplace",
+            "uuid": "c0a59665-8c76-4420-b632-08771b542f01",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -47
+          },
+          {
+            "text": "Communities",
+            "url": "/communities",
+            "uuid": "52a4072f-8eff-46f8-a8f7-43e6971e5957",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -46
+          },
+          {
+            "text": "Housing and property",
+            "url": "/housing-and-property",
+            "uuid": "c4c7f5d6-b5d4-4e9a-a545-180f672ed1b2",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -45
+          },
+          {
+            "text": "Traffic and transport",
+            "url": "/traffic-and-transport",
+            "uuid": "64406562-cfd6-46b1-86bc-7d490a2b3a3e",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -44
+          },
+          {
+            "text": "Health and social support",
+            "url": "/health-and-social-support",
+            "uuid": "feffe5dd-c414-4616-a23e-277369078f6f",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -43
+          },
+          {
+            "text": "Education",
+            "url": "/education",
+            "uuid": "fa11b19e-4af7-4bc9-87a6-263930e2f4a6",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -42
+          },
+          {
+            "text": "Law and justice",
+            "url": "/law-and-justice",
+            "uuid": "74851ea6-faa4-4491-8795-f1ff234c94b0",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -41
+          },
+          {
+            "text": "Environment, water and energy",
+            "url": "/environment-water-and-energy",
+            "uuid": "8ef474cf-c258-4c25-b899-d9afdc75e644",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -40
+          },
+          {
+            "text": "Arts and sport",
+            "url": "/arts-and-sport",
+            "uuid": "f292c4d9-cb34-449b-9131-c50526aae7c1",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": -39
+          }
+        ]
+      },
+      {
+        "text": "About the VIC Government",
+        "url": "/about-victorian-government",
+        "uuid": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+        "parent": null,
+        "weight": -48,
+        "children": [
+          {
+            "text": "Victorian Government Directory",
+            "url": "/victorian-government-directory",
+            "uuid": "bc59b5ed-d89d-4ecd-99b1-4156cc180d26",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -50
+          },
+          {
+            "text": "The Premier and ministers",
+            "url": "/premier-and-ministers",
+            "uuid": "6510190a-ef70-4806-b626-e9b87c034e83",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -49
+          },
+          {
+            "text": "Departments",
+            "url": "/departments",
+            "uuid": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -48,
+            "children": [
+              {
+                "text": "Department of Premier and Cabinet",
+                "url": "/department-premier-and-cabinet",
+                "uuid": "1eeb0297-9bab-4226-abae-095a6168c8fe",
+                "parent": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+                "weight": -50,
+                "children": [
+                  {
+                    "text": "People and structure of DPC",
+                    "url": "/people-and-structure-dpc",
+                    "uuid": "46c56277-5dee-48b7-bfa8-a77130409368",
+                    "parent": "1eeb0297-9bab-4226-abae-095a6168c8fe",
+                    "weight": -50
+                  },
+                  {
+                    "text": "Jobs and working at DPC",
+                    "url": "/jobs-working-dpc",
+                    "uuid": "319f2f0f-5995-4c04-8648-2cef485fcd59",
+                    "parent": "1eeb0297-9bab-4226-abae-095a6168c8fe",
+                    "weight": -49
+                  },
+                  {
+                    "text": "DPC governance and reporting",
+                    "url": "/dpc-governance-and-reporting",
+                    "uuid": "9c93cc88-6f2b-4984-b03f-9bab74a304bf",
+                    "parent": "1eeb0297-9bab-4226-abae-095a6168c8fe",
+                    "weight": -48
+                  },
+                  {
+                    "text": "Awards, medals and public recognition",
+                    "url": "/awards-medals-recognition",
+                    "uuid": "1cccdf73-bc65-446a-9a33-9a989c6dfe81",
+                    "parent": "1eeb0297-9bab-4226-abae-095a6168c8fe",
+                    "weight": -47
+                  },
+                  {
+                    "text": "Office of the Chief Parliamentary Counsel",
+                    "url": "/office-chief-parliamentary-counsel",
+                    "uuid": "5fbbc713-23cf-43a8-b437-f452c24043ac",
+                    "parent": "1eeb0297-9bab-4226-abae-095a6168c8fe",
+                    "weight": -46
+                  }
+                ]
+              },
+              {
+                "text": "Department of Education and Training",
+                "url": "https://www.education.vic.gov.au/",
+                "uuid": "68775764-9aae-452d-8cfb-96d71a6fa75e",
+                "parent": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+                "weight": -49
+              },
+              {
+                "text": "Department of Environment, Land, Water and Planning",
+                "url": "https://www.delwp.vic.gov.au/",
+                "uuid": "c0b7e0cf-0cbb-484c-9d8f-94e8150acda2",
+                "parent": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+                "weight": -48
+              },
+              {
+                "text": "Department of Families, Fairness and Housing",
+                "url": "/department-families-fairness-and-housing",
+                "uuid": "d6dfdf1d-bc32-41ed-9211-fe1769fdae25",
+                "parent": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+                "weight": -47
+              },
+              {
+                "text": "Department of Health",
+                "url": "/department-health",
+                "uuid": "bd4b5e97-ce51-4017-bfaa-a0c3cac29b29",
+                "parent": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+                "weight": -46
+              },
+              {
+                "text": "Department of Jobs, Precincts and Regions",
+                "url": "https://djpr.vic.gov.au/",
+                "uuid": "424cd288-00a2-4016-8834-f401252bf1ea",
+                "parent": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+                "weight": -44
+              },
+              {
+                "text": "Department of Justice and Community Safety",
+                "url": "http://www.justice.vic.gov.au/",
+                "uuid": "f64b4687-7ff6-4c8e-88d4-02b0d08a888a",
+                "parent": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+                "weight": -43
+              },
+              {
+                "text": "Department of Transport",
+                "url": "https://transport.vic.gov.au/",
+                "uuid": "f6d951fd-9070-4563-a0de-eb645c68b295",
+                "parent": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+                "weight": -42
+              },
+              {
+                "text": "Department of Treasury and Finance",
+                "url": "http://www.dtf.vic.gov.au/",
+                "uuid": "df00912c-b665-4ba6-8b32-050a657f39e4",
+                "parent": "fdd2e9d3-47a7-4311-97a9-2260fa76ddcd",
+                "weight": -41
+              }
+            ]
+          },
+          {
+            "text": "Standards and guidelines",
+            "url": "/standards-and-guidelines",
+            "uuid": "e64c3a0a-954b-4965-b75c-39c1e073320b",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -47,
+            "children": [
+              {
+                "text": "Advertising and government communications",
+                "url": "/advertising-government-communications",
+                "uuid": "ae3e757a-50c1-4204-a2a1-68da430fb049",
+                "parent": "e64c3a0a-954b-4965-b75c-39c1e073320b",
+                "weight": -50
+              },
+              {
+                "text": "Brand Victoria guidelines and logos",
+                "url": "/brand-victoria-guidelines-logos",
+                "uuid": "83703267-ed89-487b-ada2-3d8bce9cc20d",
+                "parent": "e64c3a0a-954b-4965-b75c-39c1e073320b",
+                "weight": -49
+              },
+              {
+                "text": "Cyber security in the Victorian Government",
+                "url": "/cyber-security-victorian-government",
+                "uuid": "252bd22c-5d34-4cb4-8d67-f861663ee536",
+                "parent": "e64c3a0a-954b-4965-b75c-39c1e073320b",
+                "weight": -48
+              },
+              {
+                "text": "Digital guides",
+                "url": "/digital-guides",
+                "uuid": "8a322175-0b2e-49c7-a1bc-b9f4228b3e29",
+                "parent": "e64c3a0a-954b-4965-b75c-39c1e073320b",
+                "weight": -47
+              },
+              {
+                "text": "Digital strategy and transformation",
+                "url": "/digital-strategy-transformation",
+                "uuid": "ffb3ce6a-e8f3-4084-bd49-1a866448852b",
+                "parent": "e64c3a0a-954b-4965-b75c-39c1e073320b",
+                "weight": -46
+              },
+              {
+                "text": "Government events and protocol",
+                "url": "/government-events-and-protocol",
+                "uuid": "f41bbcf7-beea-4f20-9e5a-44f026156a62",
+                "parent": "e64c3a0a-954b-4965-b75c-39c1e073320b",
+                "weight": -45
+              },
+              {
+                "text": "Guidelines for working in government",
+                "url": "/guidelines-working-government",
+                "uuid": "9e23ef6d-f1f0-49ed-bf2b-e06b09cf1f30",
+                "parent": "e64c3a0a-954b-4965-b75c-39c1e073320b",
+                "weight": -44
+              }
+            ]
+          },
+          {
+            "text": "Budget, procurement and funding",
+            "url": "/budget-procurement-and-funding",
+            "uuid": "f3e82b6e-5081-4bcf-bc62-bcdc56354049",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -46
+          },
+          {
+            "text": "Using Victoria's data",
+            "url": "/using-victorias-data",
+            "uuid": "0539d3d9-66dd-4927-b802-f16cac27026d",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -45,
+            "children": [
+              {
+                "text": "Data sharing and open data",
+                "url": "/data-sharing-open-data",
+                "uuid": "21c40339-c9d7-4fc6-8d4a-ec382f163a6b",
+                "parent": "0539d3d9-66dd-4927-b802-f16cac27026d",
+                "weight": -49
+              },
+              {
+                "text": "Using data in Victorian Government",
+                "url": "/using-data-victorian-government",
+                "uuid": "ac6b3653-269c-4974-bf25-f4eb81c9377c",
+                "parent": "0539d3d9-66dd-4927-b802-f16cac27026d",
+                "weight": -48
+              }
+            ]
+          },
+          {
+            "text": "Strategies and policies",
+            "url": "/strategies-and-policies",
+            "uuid": "f826a860-3ba4-443f-b187-8388067d6211",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -44
+          },
+          {
+            "text": "Inquiries and Royal Commissions",
+            "url": "/inquiries-and-royal-commissions",
+            "uuid": "c6c6894b-76a6-4479-9b6c-84e47e2108af",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -43
+          },
+          {
+            "text": "Victoria's free public wi-fi",
+            "url": "/victorias-free-public-wifi",
+            "uuid": "7c1040ef-82c1-429d-a00d-7b9c01d1f6c8",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -42
+          },
+          {
+            "text": "Join a government network",
+            "url": "/join-government-network",
+            "uuid": "aa038180-32e7-4fcc-bc45-a35f765b6c0f",
+            "parent": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+            "weight": -41
+          }
+        ]
+      }
+    ],
+    "menuFooter": [
+      {
+        "text": "Privacy",
+        "url": "/privacy-vicgovau",
+        "uuid": "e19cd790-9bae-4cf2-8153-81b8e4bd46a7",
+        "parent": null,
+        "weight": -50
+      },
+      {
+        "text": "Disclaimer",
+        "url": "/disclaimer",
+        "uuid": "11933bdd-0f20-446d-b6ed-fbc919b18eff",
+        "parent": null,
+        "weight": -49
+      },
+      {
+        "text": "Copyright",
+        "url": "/copyright",
+        "uuid": "47a4bcd2-0955-4fcc-a9c4-179edcf6576f",
+        "parent": null,
+        "weight": -48
+      },
+      {
+        "text": "Accessibility",
+        "url": "/accessibility",
+        "uuid": "32fe23f8-842b-4405-8e0b-3a4f36877bdd",
+        "parent": null,
+        "weight": -47
+      },
+      {
+        "text": "Sitemap",
+        "url": "https://vic.gov.au/sitemap",
+        "uuid": "1eac6d39-3215-457a-8f7c-f6b9cedf61a2",
+        "parent": null,
+        "weight": -46
+      },
+      {
+        "text": "Contact us",
+        "url": "/contact-us",
+        "uuid": "d4a54fd6-20ae-478d-9d8d-63566d06c48d",
+        "parent": null,
+        "weight": -45
+      }
+    ]
+  }
+}

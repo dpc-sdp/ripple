@@ -1,0 +1,188 @@
+{
+  "title": "Department of Trees",
+  "changed": "2021-12-06T09:03:29+11:00",
+  "created": "2018-05-25T16:07:56+10:00",
+  "type": "landing_page",
+  "nid": 232,
+  "summary": "Managing our flora for all Victorian's",
+  "showHeroBanner": true,
+  "heroBannerLinks": [
+    {
+      "text": "All about trees",
+      "url": "/trees"
+    },
+    {
+      "text": "Contact us",
+      "url": "/contact-us"
+    }
+  ],
+  "headerComponents": [],
+  "bodyComponents": [
+    {
+      "component": "rpl-card-promo",
+      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "props": {
+        "title": "Victorian Government grants and programs",
+        "summary": "A listing of all Victorian Government grants and assistance programs.",
+        "image": {
+          "src": "/sites/default/files/2021-03/Grants-and-programs.jpg",
+          "alt": "two people looking at a laptop",
+          "title": "",
+          "width": 818,
+          "height": 496,
+          "focalPoint": { "x": 409, "y": 248 }
+        },
+        "link": {
+          "text": "https://www.vic.gov.au/grants",
+          "url": "https://www.vic.gov.au/grants"
+        },
+        "dateStart": "",
+        "dateEnd": "",
+        "topic": "",
+        "contentType": "",
+        "fvRecommendationStatus": "",
+        "showMeta": false,
+        "displayStyle": "thumbnail"
+      }
+    },
+    {
+      "component": "rpl-card-promo",
+      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "props": {
+        "title": "Prolonged power outage payment",
+        "summary": "Recent storms have caused significant damage to homes and vital infrastructure, leaving many Victorians without power. Support is available for those who have been impacted.",
+        "image": {
+          "src": "/sites/default/files/2021-06/DEWLP-Port-Phillip1.png",
+          "alt": "Power outage - fallen trees in the Dandenongs",
+          "title": "",
+          "width": 1024,
+          "height": 768,
+          "focalPoint": { "x": 276, "y": 376 }
+        },
+        "link": {
+          "text": "https://www.vic.gov.au/prolonged-power-outage-payment",
+          "url": "https://www.vic.gov.au/prolonged-power-outage-payment"
+        },
+        "dateStart": "",
+        "dateEnd": "",
+        "topic": "",
+        "contentType": "",
+        "fvRecommendationStatus": "",
+        "showMeta": false,
+        "displayStyle": "thumbnail"
+      }
+    },
+    {
+      "component": "rpl-card-promo",
+      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "props": {
+        "title": "Current COVID restrictions",
+        "summary": "Details about the current COVIDSafe settings and restrictions in Victoria.",
+        "image": {
+          "src": "/sites/default/files/2021-05/covid-circuit-breaker-may2021-818x496.jpg",
+          "alt": "woman walking along a river wearing a face mask",
+          "title": "",
+          "width": 818,
+          "height": 496,
+          "focalPoint": { "x": 409, "y": 248 }
+        },
+        "link": {
+          "text": "https://www.coronavirus.vic.gov.au/coronavirus-covidsafe-settings",
+          "url": "https://www.coronavirus.vic.gov.au/coronavirus-covidsafe-settings"
+        },
+        "dateStart": "",
+        "dateEnd": "",
+        "topic": "",
+        "contentType": "",
+        "fvRecommendationStatus": "",
+        "showMeta": false,
+        "displayStyle": "thumbnail"
+      }
+    },
+    {
+      "component": "rpl-card-promo",
+      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "props": {
+        "title": "Victoria Together",
+        "summary": "Explore the unique places, people and stories that make up Victoria through inclusive digital experiences.",
+        "image": {
+          "src": "/sites/default/files/2020-09/VT-school-holidays.jpg",
+          "alt": "",
+          "title": "",
+          "width": 818,
+          "height": 496,
+          "focalPoint": { "x": 172, "y": 213 }
+        },
+        "link": {
+          "text": "https://www.together.vic.gov.au/",
+          "url": "https://www.together.vic.gov.au/"
+        },
+        "dateStart": "",
+        "dateEnd": "",
+        "topic": "",
+        "contentType": "",
+        "fvRecommendationStatus": "",
+        "showMeta": true,
+        "displayStyle": "thumbnail"
+      }
+    },
+    {
+      "component": "rpl-card-promo",
+      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "props": {
+        "title": "Thunderstorm asthma",
+        "summary": "Grass pollen season is here and can trigger asthma and hay fever symptoms. Be prepared and protect yourself from the risk of thunderstorm asthma.",
+        "image": {
+          "src": "/sites/default/files/2021-10/thunderstorm-asthma.jpg",
+          "alt": "illustration of pollen in the air",
+          "title": "",
+          "width": 382,
+          "height": 232,
+          "focalPoint": { "x": 191, "y": 116 }
+        },
+        "link": {
+          "text": "https://www.aboriginalheritagecouncil.vic.gov.au/victorias-current-registered-aboriginal-parties",
+          "url": "https://www.aboriginalheritagecouncil.vic.gov.au/victorias-current-registered-aboriginal-parties"
+        },
+        "dateStart": "",
+        "dateEnd": "",
+        "topic": "Arts, culture & heritage",
+        "contentType": "Landing Page",
+        "fvRecommendationStatus": "",
+        "showMeta": false,
+        "displayStyle": "thumbnail"
+      }
+    },
+    {
+      "component": "rpl-card-keydates",
+      "cols": { "m": 6, "l": 4, "xxxl": 3 },
+      "props": {
+        "title": "",
+        "keydates": [
+          {
+            "date": "Saturday 25 December",
+            "title": "Christmas Day",
+            "description": "As Christmas Day falls on a Saturday, an additional public holiday is given on the following Monday."
+          },
+          {
+            "date": "Sunday 26 December",
+            "title": "Boxing Day",
+            "description": "As Boxing Day falls on a Sunday, an additional public holiday is given on the following Tuesday."
+          }
+        ],
+        "link": {
+          "text": "Find all public holidays",
+          "url": "https://www.business.vic.gov.au/victorian-public-holidays-and-daylight-saving/victorian-public-holidays-2021"
+        }
+      }
+    },
+    {
+      "component": "rpl-markup",
+      "props": {
+        "html": "<p>Follow <rpl-text-link icon=\"external\" link=\"https://twitter.com/VicGovAu\">@VicGovAu</rpl-text-link> on Twitter for the latest news and updates.</p>",
+        "plugins": [],
+        "options": {}
+      }
+    }
+  ]
+}

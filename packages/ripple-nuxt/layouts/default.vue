@@ -1,17 +1,10 @@
 <template>
-  <rpl-base-layout :class="{ 'tide-preview-mode': preview }">
+  <rpl-base-layout :class="{ 'tide-preview-mode': isPreview }">
     <template slot="header" v-if="header">
-      <rpl-alert-base class="app-preview" v-if="preview">Draft only and not yet published</rpl-alert-base>
+      <rpl-alert-base class="app-preview" v-if="isPreview">Draft only and not yet published</rpl-alert-base>
       <client-only>
         <component v-if="alerts" :is="alerts" />
-        <rpl-site-header
-          :logo="header.logo"
-          :links="nav"
-          :breakpoint="header.breakpoint"
-          :searchTerms="header.searchTerms"
-          :sticky="header.sticky"
-          :showSearch="true"
-        />
+        <rpl-site-header v-bind="header" :showSearch="true" />
         <template slot="placeholder">
         <!-- [SDPA-2405] this is only SSR and replaced with component above client side -->
           <rpl-site-header
@@ -33,7 +26,6 @@
         :links="footer.links"
         :copyright="footer.copyright"
         :acknowledgement="footer.acknowledgement"
-        :caption="footerCaption"
         :logos="footer.logos"
         />
     </template>
@@ -53,11 +45,43 @@ export default {
     RplSiteHeader,
     RplSiteFooter
   },
+  head () {
+    return this.$store.state.page.head
+  },
   data () {
     return {
-      header: {},
-      footer: {},
-      nav: []
+      alerts: [],
+      isPreview: false
+    }
+  },
+  created () {
+    this.rplOptions.origin = this.$store.state.site?.hostname
+    // Set RplMarkup plugins globally
+    this.rplOptions.rplMarkup = {
+      // plugins: this.$tide.getMarkupPlugins()
+    }
+  },
+  computed: {
+    pageType () {
+      return this.$store.state.page.type || 'unknown'
+    },
+    footer () {
+      return {
+        // acknowledgement: this.$store.state.site.data.acknowledgementToCountry,
+        footerLinks: this.$store.state.site?.data?.menus?.menuFooter,
+        menu: this.$store.state.site?.data?.menus?.menuMain
+      }
+    },
+    nav () {
+      return this.$store.state.site?.data?.menus?.menuMain || []
+    },
+    header () {
+      return {
+        logo: this.$store.state.site?.data?.siteLogo,
+        breakpoint: 1200,
+        links: this.$store.state.site?.data?.menus?.menuMain,
+        sticky: true
+      }
     }
   }
 }

@@ -1,41 +1,37 @@
-import { fieldMappingUtils as utils } from '@dpc-sdp/ripple-tide-api'
+import { getField, getLinkFromField, getLandingPageComponents, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import componentMapping from './component-mapping'
+import bodyComponents from './component-loader'
 
 export default {
-  component: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-landing-page/index.vue'),
+  pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-landing-page/index.vue'),
+  bodyComponents,
   mapping: {
     title: 'title',
     summary: 'field_landing_page_summary',
     showHeroBanner: () => true,
-    headerComponents: async function (src) {
-      // TODO abstract all this into getLandingPageComponents
-      const components = await utils.getLandingPageComponents(
-        src,
-        'field_landing_page_header',
-        componentMapping,
-        this
-      )
-      if (components && Array.isArray(components)) {
-        return components.filter(cmp => cmp)
-      }
-      return []
-    },
-    bodyComponents: async function (src) {
-      const components = await utils.getLandingPageComponents(
-        src,
-        'field_landing_page_component',
-        componentMapping,
-        this
-      )
-      if (components && Array.isArray(components)) {
-        return components.filter(cmp => cmp)
-      }
-      return []
-    }
+    backgroundColor: 'field_landing_page_bg_colour',
+    acknowledgement: 'field_show_ack_of_country',
+    heroBackgroundImage: (src) => getImageFromField(src, 'field_landing_page_hero_image'),
+    heroBannerLinks: (src) => getField(src, ['field_landing_page_key_journeys', 'field_paragraph_links'], []).map(l => getLinkFromField(l)),
+    headerComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_header', componentMapping, this) },
+    bodyComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_component', componentMapping, this) }
   },
   includes: [
     'field_featured_image',
     'field_landing_page_component',
+    'field_whats_next',
+    'field_graphical_image.field_media_image',
+    'field_bottom_graphical_image.field_media_image',
+    'field_landing_page_hero_logo.field_media_image',
+    'field_landing_page_hero_image.field_media_image',
+    'field_landing_page_hero_banner',
+    'field_landing_page_c_primary.field_block_image.field_media_image',
+    'field_landing_page_c_secondary.field_block_image.field_media_image',
+    'field_landing_page_c_secondary.field_block_embedded_video',
+    'field_landing_page_key_journeys',
+    'field_landing_page_contact.field_paragraph_phones',
+    'field_landing_page_contact.field_paragraph_social_media',
+    'field_landing_page_header',
     'field_landing_page_component.field_paragraph_media.field_media_image',
     'field_landing_page_component.field_paragraph_topic',
     'field_landing_page_component.field_timeline.field_paragraph_media.field_media_image',

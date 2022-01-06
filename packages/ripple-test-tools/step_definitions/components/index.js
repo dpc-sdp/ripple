@@ -90,6 +90,15 @@ Then(`the hero banner desciption should be {string}`, (text) => {
   cy.get('.rpl-hero-banner__description').should('contain', text)
 })
 
+Then(`the hero banner should have the following links:`, (dataTable) => {
+  cy.get('.rpl-hero-banner__link-list-item').as('items')
+  dataTable.hashes().forEach((expected, idx) => {
+    cy.get('@items').eq(idx).as('item')
+    cy.get('@item').contains(expected.title).should('exist')
+    cy.get('@item').find('a').should('have.attr', 'href', expected.href)
+  })
+})
+
 // Intro Banner
 Then(`the intro banner component should exist`, () => {
   cy.get('.rpl-intro-banner').should('exist')

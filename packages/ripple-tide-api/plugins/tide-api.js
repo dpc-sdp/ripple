@@ -17,6 +17,7 @@ export class TideApi {
     this.client = config.client
     this.site = config.site
     this.hostname = config.hostname
+    this.logLevel = config.logLevel || 'verbose'
     this.sharelinkHeader = config.shareLinkHeader || 'X-Share-Link-Token'
     this.previewLinkHeader =
       config.previewLinkHeader || 'X-OAuth2-Authorization'
@@ -29,7 +30,7 @@ export class TideApi {
         throw new Error('No route defined')
       }
       this.client.setHeader('x-request-id', cuid())
-
+      
       const requestUrl = new URL(this.baseUrl + route)
       if (requestUrl.searchParams) {
         const searchParams = requestUrl.searchParams
@@ -46,9 +47,8 @@ export class TideApi {
           }
         }
       }
-
       return this.client
-        .get(route, {})
+        .get(this.baseUrl + route, options)
         .then(res => {
           const data = res.data
           const headers = {}
@@ -57,6 +57,9 @@ export class TideApi {
             if (tagsHeader) {
               headers['section-cache-tags'] = tagsHeader
             }
+          }
+          if (this.logLevel === 'verbose') {
+            console.log(this.baseUrl + res.config.url)
           }
           return Promise.resolve({
             data,
@@ -69,9 +72,22 @@ export class TideApi {
   }
 
   getModuleComponent (key) {
-    if (this.modules.hasOwnProperty(key) && this.modules[key].hasOwnProperty('component')) {
-      return this.modules[key].component
+    if (this.modules.hasOwnProperty(key) && this.modules[key].hasOwnProperty('pageComponent')) {
+      return this.modules[key].pageComponent
     }
+  }
+
+  getBodyComponent (key) {
+    // TODO: This just gets the first matching component of any module, perhaps we should prefer the current page type?
+    let match
+    Object.keys(this.modules).find(k => {
+      if (this.modules[k].hasOwnProperty('bodyComponents')) {
+        if (this.modules[k].bodyComponents.hasOwnProperty(key)) {
+          match = this.modules[k].bodyComponents[key]
+        }
+      }
+    })
+    return match
   }
 
   async postWebform (webformId, postData, siteId = 4) {
@@ -108,7 +124,7 @@ export class TideApi {
 
 export default ({ req, env, app, redirect, error: nuxtError, $config: { API_URL } }, inject) => {
   const config = <%= serialize(options) %>
-  console.log('OPTIONS SERIALIZE', config)
+
   app.$axios.setBaseURL(getBaseUrl(req) + API_URL)
   app.$axios.onError(error => {
     // Redirect to login page again if both token and refresh token have expired.
@@ -126,6 +142,7 @@ export default ({ req, env, app, redirect, error: nuxtError, $config: { API_URL 
       if (error.response.status === 404) {
         return Promise.resolve(error.response)
       }
+
       nuxtError({
         statusCode: error.response.status,
         message: error.message
@@ -133,10 +150,12 @@ export default ({ req, env, app, redirect, error: nuxtError, $config: { API_URL 
     }
     return Promise.resolve(false)
   })
+  const hostname = API_URL || getBaseUrl(req)
+  const baseUrl = `${hostname}/tide-api/v2`
 
   const tideApi = new TideApi({
-    hostname: API_URL,
-    baseUrl: getBaseUrl(req),
+    hostname,
+    baseUrl,
     modules: config.modules,
     site: config && config.tide && config.tide.site,
     client: app.$axios

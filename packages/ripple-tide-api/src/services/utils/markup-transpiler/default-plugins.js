@@ -23,9 +23,9 @@ const pluginButton = function() {
     if (buttonHref) {
       attributes.push(`link="${buttonHref}"`)
     }
-    const button = `<vt-button ${attributes.join(
+    const button = `<rpl-button ${attributes.join(
       ' '
-    )}>${buttonText}</vt-button>`
+    )}>${buttonText}</rpl-button>`
     return $button.replaceWith(button)
   })
 }
@@ -34,7 +34,7 @@ const pluginTables = function() {
   // Wrap tables with a div.
   this.find('table').map((i, el) => {
     const $table = this.find(el)
-    return $table.wrap(`<div class="vt-markup__table"></div>`)
+    return $table.wrap(`<div class="rpl-markup__table"></div>`)
   })
 }
 
@@ -139,38 +139,38 @@ const pluginEmbeddedDocument = function() {
       const icon = supportedIcons.indexOf(fileType) >= 0 ? fileType : 'document'
       const isExternalLink = !isRelativeUrl(url)
       let documentlink = `
-      <figure class="vt-markup__document-link">
-        <vt-link class="vt-markup__document-link-link" aria-label="${ariaLabel}" link="${url}" :icon="false" :underline="false" download="${
+      <figure class="rpl-markup__document-link">
+        <rpl-text-link class="rpl-markup__document-link-link" aria-label="${ariaLabel}" link="${url}" :icon="false" :underline="false" download="${
         isExternalLink ? 'false' : ''
       }" target="_blank">
           ${
             icon
-              ? `<svg-icon role="presentation" class="vt-markup__document-link-icon" name="${icon}" width="30px" height="30px"></svg-icon>`
+              ? `<svg-icon role="presentation" class="rpl-markup__document-link-icon" name="${icon}" width="30px" height="30px"></svg-icon>`
               : ''
           }
-          <div class="vt-markup__document-link-info">
-            <span class="vt-markup__document-link-title">${name}</span>
-            <div class="vt-markup__document-link-meta">
+          <div class="rpl-markup__document-link-info">
+            <span class="rpl-markup__document-link-title">${name}</span>
+            <div class="rpl-markup__document-link-meta">
               ${
                 extension
-                  ? `<span class="vt-markup__document-link-type">${extension}</span>`
+                  ? `<span class="rpl-markup__document-link-type">${extension}</span>`
                   : ''
               }
               ${
                 filesize
-                  ? `<span class="vt-markup__document-link-size${
+                  ? `<span class="rpl-markup__document-link-size${
                       extension && filesize
-                        ? ' vt-markup__document-link-size--seperator'
+                        ? ' rpl-markup__document-link-size--seperator'
                         : ''
                     }">${filesize}</span>`
                   : ''
               }
             </div>
           </div>
-        </vt-link>
+        </rpl-text-link>
         ${
           caption
-            ? `<figcaption class="vt-markup__document-link-caption">${_escapeQuotes(
+            ? `<figcaption class="rpl-markup__document-link-caption">${_escapeQuotes(
                 caption
               )}</figcaption>`
             : ''
@@ -202,7 +202,7 @@ const pluginImage = function() {
       const src = $img.attr('src')
       const alt = $img.attr('alt')
       return $container.replaceWith(
-        `<div class="vt-markup__image"><vt-responsive-img src="${src}" alt="${alt}" :height="${height}" fit="contain" :blur="true" :srcset="[375, 696, 696, 1200]" width="818" ></vt-responsive-img></div>`
+        `<div class="rpl-markup__image"><rpl-responsive-img src="${src}" alt="${alt}" :height="${height}" fit="contain" :blur="true" :srcset="[375, 696, 696, 1200]" width="818" ></rpl-responsive-img></div>`
       )
     }
   })
@@ -212,8 +212,8 @@ const pluginIframe = function() {
   // wrap iframes
   this.find('iframe').map((i, el) => {
     const $iframe = this.find(el)
-    if ($iframe.hasClass('vt-markup__embedded-video-frame') !== true) {
-      return $iframe.wrap(`<div class="vt-markup__iframe-container"></div>`)
+    if ($iframe.hasClass('rpl-markup__embedded-video-frame') !== true) {
+      return $iframe.wrap(`<div class="rpl-markup__iframe-container"></div>`)
     }
   })
 }
@@ -237,20 +237,20 @@ const pluginEmbeddedMediaVideo = function() {
     const variant = mediaLink ? 'link' : 'full'
 
     let html = `
-    <div class="vt-markup__embedded-video">
-      <div class="vt-markup__embedded-video-iframe-container">
-        <iframe class="vt-markup__embedded-video-frame" width="${width}" height="${height}" src="${src}" allowfullscreen></iframe>
+    <div class="rpl-markup__embedded-video">
+      <div class="rpl-markup__embedded-video-iframe-container">
+        <iframe class="rpl-markup__embedded-video-frame" width="${width}" height="${height}" src="${src}" allowfullscreen></iframe>
       </div>
     `
     if (variant === 'link') {
       html += `
-      <div class="vt-markup__embedded-video-link">
-        <vt-link link="${mediaLink.url}" :icon="false">${mediaLink.text}</vt-link>
+      <div class="rpl-markup__embedded-video-link">
+        <rpl-text-link link="${mediaLink.url}" :icon="false">${mediaLink.text}</rpl-text-link>
       </div>
       `
     }
     if (variant === 'full' || transcript) {
-      html += `<div class="vt-markup__embedded-video-transcript">${transcript}</div>`
+      html += `<div class="rpl-markup__embedded-video-transcript">${transcript}</div>`
     }
     html += `</div>`
     return element.replaceWith(html)
@@ -273,7 +273,7 @@ const pluginLinks = function() {
     if (target) {
       attributes.push(`target="${target}"`)
     }
-    let a = `<vt-link ${attributes.join(' ')}>${_escapeQuotes(text)}</vt-link>`
+    let a = `<rpl-text-link ${attributes.join(' ')}>${_escapeQuotes(text)}</rpl-text-link>`
     return $a.replaceWith(a)
   })
 }

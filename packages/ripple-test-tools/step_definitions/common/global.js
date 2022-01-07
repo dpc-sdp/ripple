@@ -41,6 +41,10 @@ Then(`the site footer is visible`, () => {
   cy.get('.rpl-site-footer').should('be.visible')
 })
 
+Then(`the body background color should be {string}`, color => {
+  cy.get('.rpl-content').should('have.class', `rpl-content--${color}`)
+})
+
 // Global Notifications (Alerts)
 
 Then(`I should see {int} global notification`, (alertCount) => {

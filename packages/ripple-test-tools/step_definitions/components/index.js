@@ -114,7 +114,7 @@ Then(`the campaign primary title should be {string}`, title => {
   cy.get('.rpl-campaign-primary__title').should('contain', title)
 })
 
-Then(`the {string} should contain {string}`, (component, text) => {
+Then(`the {string} component should contain {string}`, (component, text) => {
   cy.get(`[data-component-name="${component}"]`).should('contain', text)
 })
 

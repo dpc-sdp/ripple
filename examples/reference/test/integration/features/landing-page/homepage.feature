@@ -25,8 +25,12 @@ Feature: Home page
 
     # Header components
     And the campaign primary banner component should exist
-    And the "rpl-campaign-primary" should contain "How good are trees?"
-    And the "rpl-campaign-primary" should contain "Bloody great they are! "
+    And the "rpl-campaign-primary" component should contain "How good are trees?"
+    And the "rpl-campaign-primary" component should contain "Bloody great they are!"
+
+    # Background color
+    And the body background color should be "grey"
+
 
   Scenario: On load - mobile
     Given the mock server has started

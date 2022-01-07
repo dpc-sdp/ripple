@@ -1,5 +1,5 @@
 {
-  "name": "@dpc-sdp/example-vic-gov-au",
+  "name": "reference",
   "version": "1.27.2",
   "description": "Reference nuxt site using Ripple front end and connecting to Tide backend",
   "private": true,

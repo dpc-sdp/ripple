@@ -10,7 +10,7 @@ export default {
   */
   head: {
     titleTemplate: '%s | vic.gov.au',
-    title: 'vic.gov.au',
+    title: 'reference.sdp.vic.gov.au',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

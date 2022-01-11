@@ -11,7 +11,8 @@ module.exports = {
     '^.+\\.stories\\.js|^.+\\.mdx?$': '@storybook/addon-storyshots/injectFileName',
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
     '.*\\.(vue)$': 'vue-jest',
-    '^.+\\.md?$': 'markdown-loader-jest'
+    '^.+\\.md?$': 'markdown-loader-jest',
+    '^.+\\.html?$': 'html-loader-jest'
   },
   transformIgnorePatterns: [
     'node_modules/(?!(@dpc-sdp*|ol|ol-ext|@storybook*)/)'

@@ -108,8 +108,7 @@
     "**/ripple-test-tools/cypress-plugin-snapshots/**/socket.io-client/socket.io-parser": "^3.3.2",
     "**/cacheable-request/normalize-url": "^4.5.1",
     "**/xmlhttprequest-ssl": "^1.6.2",
-    "**/basic-examples/nuxt/@nuxt/webpack/terser-webpack-plugin/cacache/tar": "^6.1.9",
-    "**/css-what": "^5.0.1"
+    "**/basic-examples/nuxt/@nuxt/webpack/terser-webpack-plugin/cacache/tar": "^6.1.9"
   },
   "dependencies": {}
 }

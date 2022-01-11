@@ -7,3 +7,9 @@ Feature: Tide Landing Page API
     Given a request is made to "/tide-api/v2/page?path=/&site=4"
     Then the response code should be 200
     And the response should match Swagger definition
+
+  @contract
+  Scenario: Kitchen sink matches schema
+    Given a request is made to "/tide-api/v2/page?path=/testing-page-analytics&site=4"
+    Then the response code should be 200
+    And the response should match Swagger definition

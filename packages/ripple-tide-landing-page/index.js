@@ -27,9 +27,19 @@ export default {
       return components
     },
     bodyComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_component', componentMapping, this) },
-    sidebarComponents: (src) => {
-
-    },
+    // sidebarComponents: async function (src) {
+    //   const components = []
+    //   const headerComponents = await getLandingPageComponents(src, 'field_landing_page_header', componentMapping, this)
+    //   if (headerComponents.length > 0) {
+    //     components.push(...headerComponents)
+    //   }
+    //   // campaign primary
+    //   if (src.field_landing_page_c_primary) {
+    //     const campaignPrimary = componentMapping['block_content--campaign']?.call(this, src.field_landing_page_c_primary)
+    //     components.push(campaignPrimary)
+    //   }
+    //   return components
+    // },
     showLastUpdated: () => true
   },
   includes: [

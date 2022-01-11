@@ -114,6 +114,10 @@ Then(`the campaign primary title should be {string}`, title => {
   cy.get('.rpl-campaign-primary__title').should('contain', title)
 })
 
+Then(`the campaign primary banner image src should be {string}`, src => {
+  cy.get('.rpl-campaign-primary__image-outer--large image').should('have.attr', 'href', src)
+})
+
 Then(`the {string} component should contain {string}`, (component, text) => {
   cy.get(`[data-component-name="${component}"]`).should('contain', text)
 })
@@ -324,6 +328,25 @@ Then(`the card promotion component should exist`, () => {
 })
 Then(`there should be a promotion card with the title {string}`, (title) => {
   cy.get('.rpl-card-promotion .rpl-card-promotion__title').should('contain', title)
+})
+
+
+
+Then(`there should be the following promotion cards:`, (dataTable) => {
+  dataTable.hashes().forEach((expected, idx) => {
+    cy.get('.rpl-card-promo').eq(idx).as('item')
+    cy.get('@item').should('be.visible')
+    if (expected.title) {
+      cy.get('@item')
+        .find('.rpl-card-promo__title')
+        .invoke('text')
+        .should('equal', expected.title)
+    }
+    if (expected.link) {
+      cy.get('@item')
+        .should('have.attr', 'href', expected.link)
+    }
+  })
 })
 Then(`the promotion card titled {string} should contain the following:`, (title, dataTable) => {
   const column = {}

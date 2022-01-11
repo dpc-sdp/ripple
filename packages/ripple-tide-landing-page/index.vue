@@ -35,6 +35,10 @@
           <app-topic-tags :topic="this.page.topic" :tags="this.page.tags" />
         </rpl-col>
       </rpl-row>
+
+      <template slot="sidebar">
+        <page-components :componentMapping="page.sidebarComponents" />
+      </template>
     </rpl-page-layout>
   </div>
 </template>

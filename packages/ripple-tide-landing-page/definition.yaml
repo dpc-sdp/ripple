@@ -66,3 +66,9 @@ properties:
     description: Configurable Header components
     allOf:
       - $ref: '#/components/schemas/landingPageComponent'
+  sidebarComponents:
+    type: array
+    title:  Sidebar Components
+    description: Configurable sidebar components
+    allOf:
+      - $ref: '#/components/schemas/landingPageComponent'

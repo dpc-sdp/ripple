@@ -125,6 +125,7 @@ rpl-card-promo:
           description: Controls display type
           enum:
             - thumbnail
+            - profile
 rpl-campaign-primary:
   type: object
   required:

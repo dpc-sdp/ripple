@@ -462,6 +462,13 @@ module.exports = {
         }
       },
 
+      'paragraph--content_collection_extended': {
+        component: 'content-collection',
+        props: {
+          'schema': 'field_content_collection_config'
+        }
+      },
+
       'paragraph--form_embed_openforms': {
         component: 'tide-open-form',
         props: {

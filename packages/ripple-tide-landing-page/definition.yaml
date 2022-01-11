@@ -2,10 +2,8 @@ type: object
 title: Landing page
 description: Tide landing page is a flexible content type for creating pages full of content managed components.
 required:
-  - featuredImage
+  - title
   - summary
-  - pageType
-  - headerTheme
   - bodyComponents
   - headerComponents
 allOf:

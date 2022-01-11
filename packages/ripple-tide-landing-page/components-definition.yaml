@@ -43,12 +43,35 @@ rpl-accordion:
           enum:
             - ol
             - ul
+rpl-card-keydates:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - rpl-card-keydates
+    props:
+      type: object
+      properties:
+        keydates: 
+          type: array
+        link:
+          type: object 
+        title:
+          type: string
 rpl-card-promo:
   type: object
   required:
     - component
     - props
   properties:
+    cols:
+      type: object
+    uuid:
+      type: string 
     component:
       type: string
       enum:
@@ -67,7 +90,7 @@ rpl-card-promo:
         image:
           type: object 
         link:
-          type: string
+          type: object
           description: 
           example: 
         dateStart:
@@ -102,6 +125,28 @@ rpl-card-promo:
           description: Controls display type
           enum:
             - thumbnail
+rpl-campaign-primary:
+  type: object
+  required:
+    - component
+    - props
+  properties:
+    component:
+      type: string
+      enum:
+        - rpl-campaign-primary
+    props:
+      type: object
+      properties:
+        title:
+          type: string
+          description: title of campaign
+        image: 
+          type: object
+        link:
+          type: object
+        summary: 
+          type: string
 responsiveImage:
   type: object
   required:
@@ -131,3 +176,6 @@ landingPageComponent:
     oneOf:
       - $ref: '#/components/schemas/rpl-markup'
       - $ref: '#/components/schemas/rpl-accordion'
+      - $ref: '#/components/schemas/rpl-card-promo'
+      - $ref: '#/components/schemas/rpl-card-keydates'
+      - $ref: '#/components/schemas/rpl-campaign-primary'

@@ -13,6 +13,8 @@
   },
   "main": "index.js",
   "dependencies": {
+    "ajv": "^6.12.2",
+    "ajv-openapi": "^2.0.0",
     "axe-core": "^4.0.0",
     "cucumber-junit-convert": "^1.1.0",
     "cypress": "^9.2.0",

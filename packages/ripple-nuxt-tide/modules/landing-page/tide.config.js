@@ -462,7 +462,7 @@ module.exports = {
         }
       },
 
-      'paragraph--content_collection_extended': {
+      'paragraph--content_collection_enhanced': {
         component: 'content-collection',
         props: {
           'schema': 'field_content_collection_config'

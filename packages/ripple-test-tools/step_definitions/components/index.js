@@ -330,8 +330,6 @@ Then(`there should be a promotion card with the title {string}`, (title) => {
   cy.get('.rpl-card-promotion .rpl-card-promotion__title').should('contain', title)
 })
 
-
-
 Then(`there should be the following promotion cards:`, (dataTable) => {
   dataTable.hashes().forEach((expected, idx) => {
     cy.get('.rpl-card-promo').eq(idx).as('item')

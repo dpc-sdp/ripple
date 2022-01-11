@@ -1,10 +1,10 @@
 import { getLinkFromField, getLandingPageComponents, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import componentMapping from './component-mapping'
-import bodyComponents from './component-loader'
+import components from './component-loader'
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-landing-page/index.vue'),
-  bodyComponents,
+  components,
   mapping: {
     title: 'title',
     summary: 'field_landing_page_summary',

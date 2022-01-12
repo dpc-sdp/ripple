@@ -36,8 +36,8 @@
         </rpl-col>
       </rpl-row>
 
-      <template slot="sidebar">
-        <page-components :componentMapping="page.sidebarComponents" />
+      <template slot="sidebar" v-if="page.sidebarComponents">
+        <app-sidebar :sidebarComponents="page.sidebarComponents"></app-sidebar>
       </template>
     </rpl-page-layout>
   </div>

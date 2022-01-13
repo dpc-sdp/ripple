@@ -173,7 +173,7 @@ const pluginReplaceUnicodeWhitespace = function () {
     .map((i, node) => {
       // Iterate through mapping and replace raw codepoint with entity
       codepointMap.map(({ codepoint, entity }) => {
-        node.data = node.data.replace(String.fromCodePoint(codepoint), entity)
+        node.data = node.data.replace(new RegExp(String.fromCodePoint(codepoint), 'g'), entity)
       })
     })
 }

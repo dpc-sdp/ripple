@@ -4,7 +4,7 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 <rpl-text-link :url=\\"linkData0.href\\" theme=\\"primary\\" :text=\\"linkData0.text\\"></rpl-text-link>
 <h4>Sort out your'&gt;&lt;&amp;'\\"s finances</h4>\\\\n\\\\n<p><rpl-text-link :url=\\"linkData1.href\\" theme=\\"primary\\" :text=\\"linkData1.text\\"></rpl-text-link> Another irregular white space.</p>
-<p>  &nbsp; &nbsp;</p>
+<p>     </p>
 <p>Single line demonstrating a mixture of <em>inline markup</em> and the <b>19</b> different unicode codepoints that can be used for spaces.</p>
 <img src=\\"https://test.dev/test.jpeg\\" title=\\"&quot;Needles, Knots &amp; Threads&quot;- an Exhibition of Embroidery &amp; Quilting\\">
 <p> </p>

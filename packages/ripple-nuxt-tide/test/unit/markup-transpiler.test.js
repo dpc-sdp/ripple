@@ -1,6 +1,6 @@
 import markupTranspiler from '@dpc-sdp/ripple-markup/markup-transpiler.js'
 import markupPluginsLoader from '../../lib/core/markup-plugins-loader.js'
-import html from './__fixtures__/markup-transpiler-html.js'
+import html from './__fixtures__/markup-transpiler.html'
 
 describe('Markup transpiler', () => {
   // cheerio.js will convert `&nbsp;` to `&#xA0;` but it is ok, as they are same thing.

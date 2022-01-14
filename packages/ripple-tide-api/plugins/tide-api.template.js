@@ -81,9 +81,9 @@ export class TideApi {
     // TODO: This just gets the first matching component of any module, perhaps we should prefer the current page type?
     let match
     Object.keys(this.modules).find(k => {
-      if (this.modules[k].hasOwnProperty('bodyComponents')) {
-        if (this.modules[k].bodyComponents.hasOwnProperty(key)) {
-          match = this.modules[k].bodyComponents[key]
+      if (this.modules[k].hasOwnProperty('components')) {
+        if (this.modules[k].components.hasOwnProperty(key)) {
+          match = this.modules[k].components[key]
         }
       }
     })

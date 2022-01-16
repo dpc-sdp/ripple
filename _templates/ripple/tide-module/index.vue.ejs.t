@@ -1,3 +1,6 @@
+---
+to: packages/<%= name %>/index.vue
+---
 
 <template>
   <div :class="page.class">

@@ -10,6 +10,7 @@
       "packages/ripple-nuxt-ui",
       "packages/ripple-nuxt",
       "packages/ripple-tide-api",
+      "packages/ripple-tide-grant",
       "packages/ripple-tide-search-api",
       "packages/ripple-tide-landing-page",
       "packages/ripple-data-vic-api",

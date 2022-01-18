@@ -36,7 +36,7 @@ export default class TideApi extends HttpClient {
             const resolveFn = resolver.bind(this)
             data[key] = resolveFn(resource)
           } else if (typeof resolver === 'object') {
-            data[key] = resolver
+            data[key] = await this.getMappedData(resolver, resource)
           }
         }
       } catch (error) {

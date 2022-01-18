@@ -9,8 +9,9 @@
     >
       <template slot="aboveContent">
         <rpl-hero-banner
-          v-if="heroBanner"
-          v-bind="heroBanner"
+          v-if="page.heroBanner && page.heroBanner.visible"
+          v-bind="page.heroBanner"
+          :summary="page.summary"
           class="rpl-site-constrain--on-all"
         />
         <rpl-acknowledgement v-if="page.acknowledgement" :text="$store.state.site.acknowledgement" theme="standalone" />
@@ -71,6 +72,7 @@ export default {
     PageComponents,
     AppTopicTags
   },
+  name: 'landing-page',
   props: {
     page: {
       type: Object
@@ -83,18 +85,9 @@ export default {
     hasSidebar () {
       return false
     },
-    heroBanner () {
-      if (this.page.showHeroBanner) {
-        return {
-          title: this.page.title,
-          links: this.page.heroBannerLinks,
-          introText: this.page.summary
-        }
-      }
-    },
     heroBgGraphic () {
-      if (this.page.heroBackgroundImage) {
-        return this.page.heroBackgroundImage
+      if (this.page.heroBanner?.image) {
+        return this.page.heroBanner.image
       } else {
         return '/img/header-pattern-shape.png'
       }

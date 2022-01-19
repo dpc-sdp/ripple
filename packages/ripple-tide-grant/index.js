@@ -1,10 +1,12 @@
 import mime from 'mime-types'
-import { getField, getLinkFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
+import { getField, getLinkFromField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import components from './component-loader'
 
 // Utils
-const formatAudiences = (audiences) => {
-  const formatAudience = (input) => {
+const extractAudiences = (audiences = []) => {
+  if (audiences.length === 0) return ''
+
+  const audienceStr = [...new Set(audiences)].map(input => {
     const term = typeof input === 'string' ? input : input.name
     if (term) {
       switch (term) {
@@ -16,25 +18,8 @@ const formatAudiences = (audiences) => {
           return term.toLowerCase()
       }
     }
-  }
-  if (audiences && audiences.length > 0) {
-    const audienceStr = [...new Set(audiences)].map(a => formatAudience(a)).join(', ')
-    return `${audienceStr.charAt(0).toUpperCase() + audienceStr.slice(1)}`
-  }
-  return ''
-}
-
-const formattedSize = (fileSize) => {
-  if (fileSize != null) {
-    // https://stackoverflow.com/a/18650828
-    if (typeof fileSize === 'string') return fileSize
-    if (fileSize === 0) return '0 Bytes'
-    const k = 1024
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    const i = Math.floor(Math.log(fileSize) / Math.log(k))
-    return parseFloat((fileSize / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
-  }
-  return ''
+  }).join(', ')
+  return `${audienceStr.charAt(0).toUpperCase() + audienceStr.slice(1)}`
 }
 
 export default {
@@ -42,18 +27,18 @@ export default {
   components,
   mapping: {
     title: 'title',
-    overview: (src) => ({
-      title: getField(src, 'field_overview_title', null),
-      audience: formatAudiences(getField(src, 'field_audience')),
-      funding: getField(src, 'field_node_funding_level', null),
-      startdate: getField(src, 'field_node_dates.value', ''),
-      enddate: getField(src, 'field_node_dates.end_value', ''),
-      description: getField(src, 'field_description.processed', ''),
-      link: getLinkFromField(src, 'field_call_to_action')
-    }),
-    timeline: (src) => ({
-      title: getField(src, 'field_node_timeline.field_paragraph_title'),
-      list: getField(src, 'field_node_timeline.field_timeline').map(timeline => ({
+    overview: {
+      title: 'field_overview_title',
+      audience: (src) => extractAudiences(getField(src, 'field_audience')),
+      funding: 'field_node_funding_level',
+      startdate: 'field_node_dates.value',
+      enddate: 'field_node_dates.end_value',
+      description: 'field_description.processed',
+      link: (src) => getLinkFromField(src, 'field_call_to_action')
+    },
+    timeline: {
+      title: 'field_node_timeline.field_paragraph_title',
+      list: (src) => getField(src, 'field_node_timeline.field_timeline').map(timeline => ({
         title: getField(timeline, 'field_paragraph_title'),
         subtitle: getField(timeline, 'field_paragraph_cta_text'),
         url: timeline.field_paragraph_link ? timeline.field_paragraph_link.origin_url || timeline.field_paragraph_link.uri : null,
@@ -62,19 +47,19 @@ export default {
         dateEnd: getField(timeline, 'field_paragraph_date_range.end_value', null),
         description: getField(timeline, 'field_paragraph_summary')
       }))
-    }),
-    guidelines: (src) => ({
-      title: getField(src, 'field_node_guidelines.field_paragraph_title'),
-      accordions: getField(src, 'field_node_guidelines.field_paragraph_accordion', []).map(acc => ({
+    },
+    guidelines: {
+      title: 'field_node_guidelines.field_paragraph_title',
+      accordions: (src) => getField(src, 'field_node_guidelines.field_paragraph_accordion', []).map(acc => ({
         title: getField(acc, 'field_paragraph_accordion_name'),
         content: getField(acc, 'field_paragraph_accordion_body.processed', '')
       }))
-    }),
+    },
     supportingDocuments: (src) => getField(src, 'field_node_documents').map(doc => ({
       name: doc.name,
       url: doc.field_media_file.url || doc.field_media_file.uri,
       extension: mime.extension(doc.field_media_file.filemime),
-      filesize: formattedSize(doc.field_media_file.filesize),
+      filesize: humanizeFilesize(doc.field_media_file.filesize),
       id: doc.id
     }))
   },

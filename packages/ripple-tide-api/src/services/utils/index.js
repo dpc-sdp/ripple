@@ -98,11 +98,25 @@ export const getBodyFromField = (field, path, fallback) => {
   return getBody(getField(field, path, fallback))
 }
 
+export const humanizeFilesize = (fileSize) => {
+  if (fileSize != null) {
+    // https://stackoverflow.com/a/18650828
+    if (typeof fileSize === 'string') return fileSize
+    if (fileSize === 0) return '0 Bytes'
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    const i = Math.floor(Math.log(fileSize) / Math.log(k))
+    return parseFloat((fileSize / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
+  }
+  return ''
+}
+
 export default {
   getImageFromField,
   getLinkFromField,
   getLandingPageComponents,
   getBody,
   getBodyFromField,
+  humanizeFilesize,
   getField
 }

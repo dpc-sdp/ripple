@@ -1,5 +1,5 @@
-import { getField, getImageFromField, getLandingPageComponents } from '@dpc-sdp/ripple-tide-api/src/services/utils'
-import componentMapping from './component-mapping'
+import { getField, getImageFromField /*, getLandingPageComponents */ } from '@dpc-sdp/ripple-tide-api/src/services/utils'
+// import componentMapping from './component-mapping'
 import components from './component-loader'
 
 export default {
@@ -12,11 +12,12 @@ export default {
       text: 'See event details',
       url: getField(src, 'path.url', null)
     }),
-    image: (src) => getImageFromField(src, 'field_featured_image'),
+    image: (src) => getImageFromField(src, 'field_featured_image'), // Not working properly
     // dateStart: ,
     // dateEnd: ,
-    location: (src) => getField(src, 'field_event_details')
-      .map(eventDetails => getField(eventDetails, 'field_paragraph_location'))
+    location: (src) => src.field_event_details?.field_paragraph_location
+    // location: (src) => getField(src, 'field_event_details')
+    //   .map(eventDetails => getField(eventDetails, 'field_paragraph_location'))
     // bodyComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_component', componentMapping, this) },
   },
   includes: [

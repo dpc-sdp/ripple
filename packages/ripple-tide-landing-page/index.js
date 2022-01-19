@@ -8,11 +8,14 @@ export default {
   mapping: {
     title: 'title',
     summary: 'field_landing_page_summary',
-    showHeroBanner: () => true,
     backgroundColor: 'field_landing_page_bg_colour',
     acknowledgement: 'field_show_ack_of_country',
-    heroBackgroundImage: (src) => getImageFromField(src, 'field_landing_page_hero_image'),
-    heroBannerLinks: (src) => src.field_landing_page_key_journeys?.field_paragraph_links?.map(l => getLinkFromField(l)),
+    heroBanner: {
+      links: (src) => src.field_landing_page_key_journeys?.field_paragraph_links?.map(l => getLinkFromField(l)),
+      title: 'title',
+      image: (src) => getImageFromField(src, 'field_landing_page_hero_image'),
+      visible: () => true
+    },
     headerComponents: async function (src) {
       const components = []
       const headerComponents = await getLandingPageComponents(src, 'field_landing_page_header', componentMapping, this)
@@ -27,19 +30,6 @@ export default {
       return components
     },
     bodyComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_component', componentMapping, this) },
-    // sidebarComponents: async function (src) {
-    //   const components = []
-    //   const headerComponents = await getLandingPageComponents(src, 'field_landing_page_header', componentMapping, this)
-    //   if (headerComponents.length > 0) {
-    //     components.push(...headerComponents)
-    //   }
-    //   // campaign primary
-    //   if (src.field_landing_page_c_primary) {
-    //     const campaignPrimary = componentMapping['block_content--campaign']?.call(this, src.field_landing_page_c_primary)
-    //     components.push(campaignPrimary)
-    //   }
-    //   return components
-    // },
     showLastUpdated: () => true
   },
   includes: [

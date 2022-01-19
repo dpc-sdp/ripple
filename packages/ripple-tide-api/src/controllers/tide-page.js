@@ -25,8 +25,8 @@ export default async (req, res) => {
   } catch (error) {
     res.status(error?.status || 500).json({
       error: true,
-      debug: error.debug ? error.debug : undefined,
-      message: error.message || 'Error'
+      debug: error?.debug,
+      message: error?.message || 'Error'
     })
   }
 }

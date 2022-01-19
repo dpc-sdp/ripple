@@ -1,6 +1,5 @@
 import mime from 'mime-types'
 import { getField, getLinkFromField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api/src/services/utils'
-import components from './component-loader'
 
 // Utils
 const extractAudiences = (audiences = []) => {
@@ -10,12 +9,9 @@ const extractAudiences = (audiences = []) => {
     const term = typeof input === 'string' ? input : input.name
     if (term) {
       switch (term) {
-        case 'Individual':
-          return 'individuals'
-        case 'Business':
-          return 'businesses'
-        default:
-          return term.toLowerCase()
+        case 'Individual': return 'individuals'
+        case 'Business': return 'businesses'
+        default: return term.toLowerCase()
       }
     }
   }).join(', ')
@@ -24,7 +20,6 @@ const extractAudiences = (audiences = []) => {
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-grant/index.vue'),
-  components,
   mapping: {
     title: 'title',
     overview: {

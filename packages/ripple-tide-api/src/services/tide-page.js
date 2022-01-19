@@ -200,7 +200,7 @@ export default class TidePage extends TideApi {
         this.handleError({ message: 'Unable to resolve module - ' + type })
       )
     }
-    return this.getMappedData({ ...defaultMapping.mapping, ...moduleMapping.mapping }, resource)
+    return this.getMappedData({ ...defaultMapping.mapping, ...moduleMapping }, resource)
   }
   getResourceType (type) {
     return type.replace('node--', '')

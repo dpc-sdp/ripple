@@ -1,27 +1,19 @@
 import mime from 'mime-types'
-import { getField, getLinkFromField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api/src/services/utils'
-
-// Utils
-const extractAudiences = (audiences = []) => {
-  if (audiences.length === 0) return ''
-
-  const audienceStr = [...new Set(audiences)].map(input => {
-    const term = typeof input === 'string' ? input : input.name
-    if (term) {
-      switch (term) {
-        case 'Individual': return 'individuals'
-        case 'Business': return 'businesses'
-        default: return term.toLowerCase()
-      }
-    }
-  }).join(', ')
-  return `${audienceStr.charAt(0).toUpperCase() + audienceStr.slice(1)}`
-}
+import { getField, getLinkFromField, getImageFromField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api/src/services/utils'
+import { extractAudiences } from './utils'
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-grant/index.vue'),
   mapping: {
     title: 'title',
+    summary: 'field_landing_page_summary',
+    acknowledgement: () => true,
+    heroBanner: {
+      links: (src) => src.field_landing_page_key_journeys?.field_paragraph_links?.map(l => getLinkFromField(l)),
+      title: 'title',
+      introText: 'field_news_intro_text',
+      image: (src) => getImageFromField(src, 'field_landing_page_hero_image')
+    },
     overview: {
       title: 'field_overview_title',
       audience: (src) => extractAudiences(getField(src, 'field_audience')),
@@ -36,7 +28,8 @@ export default {
       list: (src) => getField(src, 'field_node_timeline.field_timeline').map(timeline => ({
         title: getField(timeline, 'field_paragraph_title'),
         subtitle: getField(timeline, 'field_paragraph_cta_text'),
-        url: timeline.field_paragraph_link ? timeline.field_paragraph_link.origin_url || timeline.field_paragraph_link.uri : null,
+        // url: getLinkFromField(timeline, 'field_paragraph_link'),
+        url: timeline.field_paragraph_link.origin_url || timeline.field_paragraph_link.uri,
         image: timeline.field_paragraph_media && timeline.field_paragraph_media.field_media_image ? timeline.field_paragraph_media.field_media_image.url || timeline.field_paragraph_media.field_media_image.uri : null,
         dateStart: getField(timeline, 'field_paragraph_date_range.value', null),
         dateEnd: getField(timeline, 'field_paragraph_date_range.end_value', null),
@@ -56,7 +49,8 @@ export default {
       extension: mime.extension(doc.field_media_file.filemime),
       filesize: humanizeFilesize(doc.field_media_file.filesize),
       id: doc.id
-    }))
+    })),
+    showLastUpdated: () => true
   },
   includes: [
     'field_audience',

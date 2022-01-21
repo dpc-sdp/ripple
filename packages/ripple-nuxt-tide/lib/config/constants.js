@@ -9,7 +9,7 @@ export const RPL_SOCIAL_LINK_MAPPING = [
   {
     provider_name: "Flickr",
     provider_url: "https://www.flickr.com/",
-    provider_icon: "flickr",
+    provider_icon: "external_link",
     matcher_schemes: [
       "https://flickr.com/*",
       "https://*.flickr.com/*",

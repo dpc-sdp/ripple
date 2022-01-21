@@ -37,8 +37,8 @@ export const RPL_SOCIAL_LINK_MAPPING = [
   },
   {
     provider_name: "Email",
-    provider_url: "https://www.ietf.org/rfc/rfc2368.txt",
-    provider_icon: "email_transparent",
+    provider_url: "",
+    provider_icon: "email_solid",
     matcher_schemes: [
       "mailto:*"
     ]
@@ -73,7 +73,7 @@ export const RPL_SOCIAL_LINK_MAPPING = [
   },
   {
     provider_name: "Telephone",
-    provider_url: "https://tools.ietf.org/html/rfc3966",
+    provider_url: "",
     provider_icon: "phone_number",
     matcher_schemes: [
       "tel:*"

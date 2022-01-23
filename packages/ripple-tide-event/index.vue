@@ -9,8 +9,8 @@
     <rpl-col cols="full">
       <rpl-markup v-if="page.body" :html="page.body.processed"></rpl-markup>
     </rpl-col>
-    <rpl-col cols="full" v-if="cta">
-      <rpl-button :href="cta.url" theme="primary">{{cta.text}}</rpl-button>
+    <rpl-col cols="full" v-if="page.bookLink">
+      <rpl-button :href="page.bookLink.url" theme="primary">{{page.bookLink.title}}</rpl-button>
     </rpl-col>
     <!-- Tags here -->
     <img v-if="atdwTrackingBeacon" :src="atdwTrackingBeacon" width="1" height="1" border="0" />
@@ -38,28 +38,20 @@ export default {
     page: Object
   },
   computed: {
-    cta () {
-      if (this.page.field_event_details) {
-        return this.$tideMapping.filter(this.page.field_event_details[0].field_paragraph_link, ['paragraphLink']) || null
-      }
-    },
     eventList () {
-      // Hardcode here to use single event only, as disucssed with BA. Will support multiple events later.
-      const eventDetails = this.page.eventDetails[0]
-
-      const dateTimeFormat = (eventDetails.field_show_time) ? 'DD MMMM YYYY hh:mm a' : 'DD MMMM YYYY'
-      const date = this.formatDate(eventDetails.field_paragraph_date_range.value, dateTimeFormat)
-      const endDate = eventDetails.field_paragraph_date_range.end_value ? this.formatDate(eventDetails.field_paragraph_date_range.end_value, dateTimeFormat) : ''
-      const dateRange = date + (endDate ? ` - ${endDate}` : '')
-      const address = this.$tideMapping.filter(eventDetails.field_paragraph_location, ['paragraphLocation'])
-      const prices = eventDetails.field_paragraph_event_price_from && eventDetails.field_paragraph_event_price_from + (eventDetails.field_paragraph_event_price_to ? ` - ${eventDetails.field_paragraph_event_price_to}` : '')
-      const bookLink = this.$tideMapping.filter(this.page.field_node_link, ['paragraphLink'])
+      const {
+        date,
+        address,
+        prices,
+        bookLink,
+        requirements
+      } = this.page
 
       let list = [
         {
           symbol: 'calendar',
           size: '0.8',
-          text: dateRange
+          text: date.range
         }
       ]
 
@@ -89,7 +81,7 @@ export default {
       }
 
       // This is made by following design & Tide implementation, icons have to be hardcoded here.
-      // If edior changed/added term, the icon won't work.
+      // If editor changed/added term, the icon won't work.
       const requirementIcons = {
         'default': { name: 'star', size: 1 },
         'Accessible venue': { name: 'accessible', size: 1.3 },
@@ -99,7 +91,6 @@ export default {
         'Seniors': { name: 'senior', size: 1.3 }
       }
 
-      const requirements = eventDetails.field_event_requirements || []
       requirements.map(requirement => {
         list.push({
           symbol: requirementIcons[requirement.name] ? requirementIcons[requirement.name].name : requirementIcons.default.name,

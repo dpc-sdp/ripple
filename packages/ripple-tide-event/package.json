@@ -7,9 +7,7 @@
   "type": "module",
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "^1.27.2",
-    "@dpc-sdp/ripple-tide-landing-page": "^1.27.2"
+    "@dpc-sdp/ripple-tide-landing-page": "^1.27.2",
+    "dayjs": "^1.10.7"
   }
 }
-
-
-

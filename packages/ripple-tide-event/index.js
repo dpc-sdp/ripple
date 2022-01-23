@@ -1,14 +1,6 @@
 import { getField, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import components from './component-loader'
-
-import moment from 'moment'
-
-// Utils
-const formatDate = (date, format) => {
-  format = (format === undefined) ? 'DD MMMM' : format
-  moment.locale('en-au') // TODO: Is there a better place to get this?
-  return moment(date).format(format)
-}
+import { formatDate } from './utils'
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-event/index.vue'),
@@ -39,7 +31,9 @@ export default {
       const to = src.field_event_details[0]?.field_paragraph_event_price_to
 
       return from && from + (to ? ` - ${to}` : '')
-    }
+    },
+    bookLink: (src) => src.field_event_details[0]?.field_paragraph_link,
+    requirements: (src) => src.field_event_details[0]?.field_event_requirements
   },
   includes: [
     'field_landing_page_contact.field_paragraph_phones',

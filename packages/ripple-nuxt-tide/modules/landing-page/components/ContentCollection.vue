@@ -111,13 +111,12 @@ export default {
   },
   data () {
     const searchEndpoint = this.searchEndpoint.bind(this)
-    const dataManager = new this.$tideContentCollection(this.schema, searchEndpoint, this.environment)
+    const dataManager = new ContentCollection(this.schema, searchEndpoint, this.environment)
     return {
       dataManager,
       defaultState: dataManager.getDefaultState(),
       state: dataManager.getDefaultState(),
       results: [],
-      resultTotal: null,
       resultCount: null,
       resultsLoading: false,
       error: null,
@@ -188,6 +187,13 @@ export default {
     searchEndpoint (dsl) {
       return this.$tideSearchApi.searchByPost(dsl)
     },
+    resultTotal (esTotal) {
+      let total = 0
+      if (esTotal) {
+        total = (typeof esTotal === 'object') ? esTotal.value : esTotal
+      }
+      return total
+    },
     async getResults () {
       this.resultsLoading = true
       this.announcerText = ''
@@ -195,7 +201,7 @@ export default {
       if (response) {
         this.error = null
         this.updateInterfaceFromSearchResponse(response)
-        this.announcerText = response.total > 0 ? this.resultCount : this.noResultsText
+        this.announcerText = this.resultTotal(response.total) > 0 ? this.resultCount : this.noResultsText
       } else {
         this.error = { message: this.errorText }
         this.announcerText = this.errorText
@@ -226,14 +232,15 @@ export default {
     },
     updateInterfaceFromSearchResponse (response) {
       this.results = response.hits
-      this.resultCount = this.dataManager.getProcessedResultsCount(this.state, response.total)
+      const responseTotal = this.resultTotal(response.total)
+      this.resultCount = this.dataManager.getProcessedResultsCount(this.state, responseTotal)
       if (this.exposedFilterFormData && response.aggregations) {
         this.dataManager.updateFiltersFromAggregation(response.aggregations, this.exposedFilterFormData, this.state, (field, isDisabled) => {
           Vue.set(field, 'disabled', isDisabled)
         })
       }
       if (this.paginationData) {
-        this.paginationData.totalSteps = this.dataManager.getPaginationTotalSteps(this.state, response.total)
+        this.paginationData.totalSteps = this.dataManager.getPaginationTotalSteps(this.state, responseTotal)
       }
     },
     syncTo (from, to, allowed) {

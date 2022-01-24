@@ -83,7 +83,7 @@ Then(`the hero banner component should exist`, () => {
 })
 
 Then(`the hero banner title should be {string}`, (title) => {
-  cy.get('.rpl-hero-banner__title').should('contain', title)
+  cy.get('.rpl-campaign-primary__title').should('contain', title)
 })
 
 Then(`the hero banner desciption should be {string}`, (text) => {

@@ -1,0 +1,82 @@
+{
+  "title": "TC-9a Grant Simple Test - Date Range",
+  "changed": "2022-01-18T15:40:30+11:00",
+  "created": "2022-01-18T15:40:30+11:00",
+  "type": "grant",
+  "nid": 22402,
+  "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
+  "acknowledgement": true,
+  "heroBanner": {
+    "title": "TC-9a Grant Simple Test - Date Range",
+    "introText": "news intro test"
+  },
+  "overview": {
+    "title": "Overview title",
+    "audience": "Businesses",
+    "funding": {
+    "from": 11326,
+    "to": 26494
+  },
+  "startdate": "2019-04-08T18:00:00+10:00",
+  "enddate": "2019-05-08T20:00:00+10:00",
+  "description": "Description",
+    "link": {
+      "text": "More details",
+      "url": "https://www.google.com"
+    }
+  },
+  "timeline": {
+    "title": "Demo Timeline",
+    "list": [
+      {
+        "title": "Demo Timeline Item",
+        "subtitle": null,
+        "url": "https://www.google.com",
+        "image": "https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+        "dateStart": "2020-01-01T19:00:00+11:00",
+        "dateEnd": "2020-01-01T21:00:00+11:00",
+        "description": "Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus."
+      },
+      {
+        "title": "Demo Timeline Item 2",
+        "subtitle": "Alternative",
+        "url": "https://www.google.com",
+        "image": "https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+        "dateStart": null,
+        "dateEnd": null,
+        "description": "Anim excepteur magna eu aliqua quis velit voluptate sit culpa."
+      }
+    ]
+  },
+  "guidelines": {
+    "title": "Guidelines",
+    "accordions": [
+      {
+        "title": "Eligibility",
+        "content": "Lorem ipsum"
+      },
+      {
+        "title": "Assessment criteria",
+        "content": "Lorem ipsum"
+      },
+      {
+        "title": "Assessment process",
+        "content": "Lorem ipsum"
+      },
+      {
+        "title": "How to apply",
+        "content": "Lorem ipsum"
+      }
+    ]
+  },
+  "supportingDocuments": [
+    {
+      "name": "Demo Sample Document",
+      "url": "https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/sample.docx",
+      "extension": "docx",
+      "filesize": "7.53 KB",
+      "id": "11dede11-10c0-111e1-1100-000000000007"
+    }
+  ],
+  "showLastUpdated": true
+}

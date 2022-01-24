@@ -132,9 +132,16 @@ Then(`the grant guideline section title should be {string}`, (title) => {
 })
 
 Then(`the grant guideline should have the following accordions`, (dataTable) => {
-  const titles = dataTable.rawTable.map(itm => itm[0].replace(/['"]+/g, ''))
-  cy.get('.tide-guidelines .rpl-accordion__list .rpl-accordion__list-item').each(($el) => {
-    const title = $el.find('.rpl-accordion__button-text').text()
-    expect(titles.includes(title)).to.be.true // eslint-disable-line
+  dataTable.hashes().forEach((expected, index) => {
+    cy.get(`.tide-guidelines .rpl-accordion__list .rpl-accordion__list-item`)
+      .eq(index)
+      .as('item')
+
+    if (expected.title) {
+      cy.get('@item').find('.rpl-accordion__button-text').invoke('text').should('equal', expected.title)
+    }
+    if (expected.content) {
+      cy.get('@item').find('.rpl-markup__inner').invoke('text').should('equal', expected.content)
+    }
   })
 })

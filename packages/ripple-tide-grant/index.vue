@@ -16,7 +16,7 @@
           class="rpl-site-constrain--on-all"
           :backgroundGraphic="heroBgGraphic('bottom')"
         />
-        <rpl-acknowledgement v-if="page.acknowledgement" :text="$store.state.site.acknowledgement" theme="standalone" />
+        <rpl-acknowledgement v-if="page.acknowledgement" :text="acknowledgement" theme="standalone" />
       </template>
 
       <div class="tide-content tide-content--grant">
@@ -102,6 +102,9 @@ export default {
           introText: this.page.summary
         }
       }
+    },
+    acknowledgement () {
+      return this.$store.state.site?.data?.acknowledgement ? this.$store.state.site.data.acknowledgement : null
     },
     breadCrumbs () {
       return [

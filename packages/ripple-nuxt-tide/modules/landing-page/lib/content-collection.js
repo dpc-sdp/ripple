@@ -37,6 +37,7 @@ module.exports = class ContentCollection {
       ExposedFilterKeywordDefaultFields: ['title', 'body', 'summary_processed', 'field_landing_page_summary', 'field_paragraph_summary', 'field_page_intro_text', 'field_paragraph_body'],
       ExposedFilterAggregationOrder: 'asc',
       ExposedFilterAggregationSize: 30,
+      DisplayResultComponentType: 'card',
       DisplayResultComponentCardStyle: 'noImage',
       DisplayResultComponentColumns: cardColsSetting,
       DisplayPaginationComponentColumns: cardColsSetting,
@@ -230,7 +231,7 @@ module.exports = class ContentCollection {
   }
 
   getDisplayResultComponentType () {
-    return this.config?.interface?.display?.resultComponent?.type
+    return this.config?.interface?.display?.resultComponent?.type || this.getDefault('DisplayResultComponentType')
   }
 
   getDisplayPagination () {
@@ -264,7 +265,6 @@ module.exports = class ContentCollection {
         returnName = 'rpl-search-result'
         break
       case 'card':
-      default:
         returnName = 'rpl-card-promo'
         break
     }
@@ -940,7 +940,6 @@ module.exports = class ContentCollection {
         }
         break
       case 'card':
-      default:
         const style = this.getDisplayResultComponent()?.style
         mappedResult = {
           title: _source.title?.[0],

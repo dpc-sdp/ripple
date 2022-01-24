@@ -111,7 +111,7 @@ export default {
   },
   data () {
     const searchEndpoint = this.searchEndpoint.bind(this)
-    const dataManager = new ContentCollection(this.schema, searchEndpoint, this.environment)
+    const dataManager = new this.$tideContentCollection(this.schema, searchEndpoint, this.environment)
     return {
       dataManager,
       defaultState: dataManager.getDefaultState(),

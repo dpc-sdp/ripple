@@ -1,5 +1,7 @@
 import { getLinkFromField, getLandingPageComponents, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
-import componentMapping from './component-mapping'
+import bodyComponentMapping from './mapping/body'
+import headerComponentMapping from './mapping/header'
+// import sidebarComponentMapping from './mapping/sidebar'
 import components from './component-loader'
 
 export default {
@@ -18,18 +20,18 @@ export default {
     },
     headerComponents: async function (src) {
       const components = []
-      const headerComponents = await getLandingPageComponents(src, 'field_landing_page_header', componentMapping, this)
+      const headerComponents = await getLandingPageComponents(src, 'field_landing_page_header', headerComponentMapping, this)
       if (headerComponents.length > 0) {
         components.push(...headerComponents)
       }
       // campaign primary
       if (src.field_landing_page_c_primary) {
-        const campaignPrimary = componentMapping['block_content--campaign']?.call(this, src.field_landing_page_c_primary)
+        const campaignPrimary = headerComponentMapping['block_content--campaign']?.call(this, src.field_landing_page_c_primary)
         components.push(campaignPrimary)
       }
       return components
     },
-    bodyComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_component', componentMapping, this) },
+    bodyComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_component', bodyComponentMapping, this) },
     showLastUpdated: () => true
   },
   includes: [

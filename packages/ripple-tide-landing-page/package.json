@@ -18,6 +18,7 @@
     "@dpc-sdp/ripple-updated-date": "^1.27.2",
     "@dpc-sdp/ripple-campaign-primary": "^1.27.2",
     "@dpc-sdp/ripple-campaign-secondary": "^1.27.2",
-    "@dpc-sdp/ripple-card": "^1.27.2"
+    "@dpc-sdp/ripple-card": "^1.27.2",
+    "@dpc-sdp/ripple-timeline": "^1.27.2"
   }
 }

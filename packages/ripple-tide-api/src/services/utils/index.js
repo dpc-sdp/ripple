@@ -95,7 +95,7 @@ export const getField = (field, path, fallback) => {
 }
 
 export const getBodyFromField = (field, path, fallback) => {
-  return getBody(getField(field, path, fallback))
+  return getBody(getField(field, [path, 'processed'], fallback))
 }
 
 export default {

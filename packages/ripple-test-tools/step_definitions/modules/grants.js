@@ -2,13 +2,6 @@
 
 const { Then } = require('cypress-cucumber-preprocessor/steps')
 
-Then(`the grant overview title should match test data`, () => {
-  cy.get('@pageData').then(pageData => {
-    cy.get('.rpl-grants-overview__list .rpl-list__title .rpl-list__title-inner')
-      .should('contain', pageData.grantDetailsOverviewTitle)
-  })
-})
-
 Then(`the grant overview title should be {string}`, (title) => {
   cy.get('.rpl-grants-overview__list .rpl-list__title .rpl-list__title-inner')
     .should('contain', title)
@@ -17,13 +10,6 @@ Then(`the grant overview title should be {string}`, (title) => {
 Then(`the grant overview price should be {string}`, (price) => {
   cy.get('.rpl-grants-overview__list .rpl-list__list-item:nth-child(1) .rpl-list__text')
     .should('contain', price)
-})
-
-Then(`the grant overview description should match test data`, () => {
-  cy.get('@pageData').then(pageData => {
-    cy.get('.rpl-grants-overview__description .rpl-markup__inner')
-      .should('contain', pageData.grantDetailsOverviewDescription.replace(/(\r\n|\n|\r)/gm, ''))
-  })
 })
 
 Then(`the grant overview audience should be {string}`, (audience) => {
@@ -97,20 +83,6 @@ Then(`the page should have the following documents:`, (dataTable) => {
   })
 })
 
-Then(`the timeline item title should match test data`, () => {
-  cy.get('@pageData').then(pageData => {
-    cy.get('.rpl-timeline__item-title')
-      .should('contain', pageData.grantTimelineItem1Title)
-  })
-})
-
-Then(`the timeline item description should match test data`, (title) => {
-  cy.get('@pageData').then(pageData => {
-    cy.get('.rpl-timeline__item-description')
-      .should('contain', pageData.grantTimelineItem1Summary)
-  })
-})
-
 Then(`the timeline item date should be {string}`, (date) => {
   cy.get('.rpl-timeline__item-subtitle').should('contain', date)
 })
@@ -118,13 +90,6 @@ Then(`the timeline item date should be {string}`, (date) => {
 Then(`the grant overview price should be {string}`, (title) => {
   cy.get('.rpl-grants-overview__list .rpl-list__title .rpl-list__title-inner')
     .should('contain', title)
-})
-
-Then(`the timeline title should be set`, () => {
-  cy.get('@pageData').then(pageData => {
-    cy.get('.rpl-timeline__title')
-      .should('contain', pageData.grantTimeline.title)
-  })
 })
 
 Then(`the grant guideline section title should be {string}`, (title) => {
@@ -144,4 +109,13 @@ Then(`the grant guideline should have the following accordions`, (dataTable) => 
       cy.get('@item').find('.rpl-markup__inner').invoke('text').should('equal', expected.content)
     }
   })
+})
+
+Then(`the grant guideline with title {string} opens when clicked`, (title) => {
+  cy.get(`.tide-guidelines .rpl-accordion__list .rpl-accordion__list-item`)
+    .contains(title)
+    .click()
+    .closest('.rpl-accordion__list-item')
+    .find('.rpl-accordion__content')
+    .should('be.visible')
 })

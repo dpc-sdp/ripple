@@ -40,3 +40,4 @@ Feature: Grant
       | Assessment criteria | Lorem ipsum |
       | Assessment process  | Lorem ipsum |
       | How to apply        | Lorem ipsum |
+    And the grant guideline with title "Assessment process" opens when clicked

@@ -47,6 +47,17 @@ export const getLinkFromField = (field, path) => {
   return { text: url && text === '' ? url : text, url }
 }
 
+export const getAddress = (field) => {
+  // TODO: refactor this please for readability
+  const l = field
+  l.al2 = l.address_line2 ? l.address_line2 + ',' : ''
+  const address = `${l.address_line1 ? l.address_line1 + ',' : ''} ${l.al2} ${l.locality}${l.al2 || l.locality ? ', ' : ''}${l.administrative_area} ${l.postal_code}`
+  if (address.length > 3) {
+    return address
+  }
+  return ''
+}
+
 export const getLandingPageComponents = async (
   pageData,
   componentFieldPath,
@@ -101,6 +112,7 @@ export const getBodyFromField = (field, path, fallback) => {
 export default {
   getImageFromField,
   getLinkFromField,
+  getAddress,
   getLandingPageComponents,
   getBody,
   getBodyFromField,

@@ -1,8 +1,6 @@
-import { getLinkFromField, getLandingPageComponents, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
-import bodyComponentMapping from './mapping/body'
-import headerComponentMapping from './mapping/header'
-// import sidebarComponentMapping from './mapping/sidebar'
+import { getLinkFromField, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import components from './component-loader'
+import { getSideBarComponents, getHeaderComponents, getBodyComponents } from './utils'
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-landing-page/index.vue'),
@@ -18,20 +16,9 @@ export default {
       image: (src) => getImageFromField(src, 'field_landing_page_hero_image'),
       visible: () => true
     },
-    headerComponents: async function (src) {
-      const components = []
-      const headerComponents = await getLandingPageComponents(src, 'field_landing_page_header', headerComponentMapping, this)
-      if (headerComponents.length > 0) {
-        components.push(...headerComponents)
-      }
-      // campaign primary
-      if (src.field_landing_page_c_primary) {
-        const campaignPrimary = headerComponentMapping['block_content--campaign']?.call(this, src.field_landing_page_c_primary)
-        components.push(campaignPrimary)
-      }
-      return components
-    },
-    bodyComponents: async function (src) { return await getLandingPageComponents(src, 'field_landing_page_component', bodyComponentMapping, this) },
+    headerComponents: getHeaderComponents,
+    bodyComponents: getBodyComponents,
+    sidebarComponents: getSideBarComponents,
     showLastUpdated: () => true
   },
   includes: [

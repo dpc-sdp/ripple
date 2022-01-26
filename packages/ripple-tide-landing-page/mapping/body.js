@@ -1,4 +1,3 @@
-import get from 'lodash.get'
 import { fieldMappingUtils as utils } from '@dpc-sdp/ripple-tide-api'
 
 const { getField, getImageFromField, getLinkFromField, getBodyFromField } = utils

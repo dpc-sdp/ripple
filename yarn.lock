@@ -3898,14 +3898,6 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
-"@dpc-sdp/ripple-button@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-button/-/ripple-button-1.23.1.tgz#be3d0a7305617dffb432eda921539647840cd030"
-  integrity sha512-7dLRR5ZOkwITtl1ibk+ntuXMlmXddzfSX9qar5nqw5d2ddfdDGroyOs46TV0pVpAoxKj5iZC+3fJMecIV97i8w==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.23.1"
-    "@dpc-sdp/ripple-link" "1.23.1"
-
 "@dpc-sdp/ripple-data-table@1.26.1":
   version "1.26.1"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-data-table/-/ripple-data-table-1.26.1.tgz#8be172c825b4e1691f0a1242e096295702613bf3"
@@ -3937,19 +3929,6 @@
   dependencies:
     "@dpc-sdp/ripple-global" "1.26.1"
 
-"@dpc-sdp/ripple-form@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-form/-/ripple-form-1.23.1.tgz#84fcae4f3c87c7600fe5027b19af126e6b0798af"
-  integrity sha512-jT7v40gYNYk0G/5naFD78pK51EsE3QmMxag0iM+K1Q0uSpEjxZHxhraxjIqLSvvawDdnMTBILptwF1Ou+GoyLA==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.23.1"
-    "@dpc-sdp/ripple-icon" "1.23.1"
-    moment "^2.29.1"
-    pikaday "^1.8.2"
-    vue-form-generator "^2.2.2"
-    vue-multiselect "^2.1.3"
-    vue-scrollto "^2.20.0"
-
 "@dpc-sdp/ripple-form@1.24.5-alpha.6":
   version "1.24.5-alpha.6"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-form/-/ripple-form-1.24.5-alpha.6.tgz#ed5c42183adb0db7d2feeeeff1e8951c3e836e2c"
@@ -3976,16 +3955,6 @@
     vue-multiselect "^2.1.3"
     vue-scrollto "^2.20.0"
 
-"@dpc-sdp/ripple-global@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.23.1.tgz#f692326062f53f2cbaac821b2bc3588902ee6a02"
-  integrity sha512-PpVV90vUWkFL58Aorri7NoEjMFCnQl/dJr5G/3qXb2tfAgRSmslYMWxPaSOiuKr0X8k3uvd1k68cMVjmi/DjAQ==
-  dependencies:
-    masonry-layout "^4.2.1"
-    moment "^2.29.1"
-    object-fit-images "^3.2.3"
-    vue-focus "^2.1.0"
-
 "@dpc-sdp/ripple-global@1.24.5-alpha.6":
   version "1.24.5-alpha.6"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.24.5-alpha.6.tgz#3719312971c0e9c03baf35d64b1205ecb68c8a37"
@@ -4006,22 +3975,10 @@
     object-fit-images "^3.2.3"
     vue-focus "^2.1.0"
 
-"@dpc-sdp/ripple-grid@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grid/-/ripple-grid-1.23.1.tgz#b99a17e1a26f2bfc0a26ef8a66619d13e7d4d5f0"
-  integrity sha512-BV1xYdFXSlgQFJQKDLxPYK8/LT9J/kFnQfjeqR/yiP5TIsu20okn/nSiVYayS34bsOs0z7ypNCSZonrJsBCYrw==
-
 "@dpc-sdp/ripple-grid@1.24.5-alpha.6":
   version "1.24.5-alpha.6"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grid/-/ripple-grid-1.24.5-alpha.6.tgz#86d2c5b2c910204c13bcf98d0b5a4aef6c7baaa6"
   integrity sha512-xFqkSnCJgwfnin/o9RLmEjYqjQGNtp/bA+QvjqPDvpESa8kL6pBWVv0997Y0ORYHBlOF9iKMr9ZMg/LMz3WKnw==
-
-"@dpc-sdp/ripple-icon@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-icon/-/ripple-icon-1.23.1.tgz#6951af551760dffdd195d25615c894c223435e5c"
-  integrity sha512-re4pwHSPwrBpYk3d/OOZmvRBN/GEKacYY2Dfk8ki42jq3HSKLwztB/8s37ILaURjojk637Ap2lM/MWxP9lMcfw==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.23.1"
 
 "@dpc-sdp/ripple-icon@1.24.5-alpha.6":
   version "1.24.5-alpha.6"
@@ -4037,24 +3994,6 @@
   dependencies:
     "@dpc-sdp/ripple-global" "1.26.1"
 
-"@dpc-sdp/ripple-layout@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-layout/-/ripple-layout-1.23.1.tgz#b31fbafb42eb86f0b3375661d6b657ba836e4eb3"
-  integrity sha512-uHYLB7Of+8STRq1o7heI1Hmi/St6GXhbrgt3xhng0Io6eVnEmzs1rEfaxUSJpKQQrSDLJJ7xDD6DshLuOPAIbQ==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.23.1"
-    "@dpc-sdp/ripple-grid" "1.23.1"
-    "@dpc-sdp/ripple-icon" "1.23.1"
-    "@dpc-sdp/ripple-site-header" "1.23.1"
-
-"@dpc-sdp/ripple-link@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-link/-/ripple-link-1.23.1.tgz#bd5f32828d4669a785412d27a9767dfd8aa9ef7d"
-  integrity sha512-Jb4Y1SYsfASUED0iFM2Uhj8iZRyip7bRwOA87Y9yfXHFIWEYSMKkLNvL9aNariAp4E4kYERECXsjgcRpWC83fw==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.23.1"
-    "@dpc-sdp/ripple-icon" "1.23.1"
-
 "@dpc-sdp/ripple-link@1.24.5-alpha.6":
   version "1.24.5-alpha.6"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-link/-/ripple-link-1.24.5-alpha.6.tgz#c7401a74d29c1ec8adcbba405789309ff1458d99"
@@ -4062,14 +4001,6 @@
   dependencies:
     "@dpc-sdp/ripple-global" "1.24.5-alpha.6"
     "@dpc-sdp/ripple-icon" "1.24.5-alpha.6"
-
-"@dpc-sdp/ripple-meta-tag@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-meta-tag/-/ripple-meta-tag-1.23.1.tgz#5e7cde2f44e6a279ec97cb3e14bf8d38e59cfaff"
-  integrity sha512-7EEsx9mgLyQe/+RXI9RNo51Qp6so+ocXcw9+dtMixvGGIX/jtULgcaQ6irdS0pKa0XgR6aSeLCxlZLgazd+4RQ==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.23.1"
-    "@dpc-sdp/ripple-link" "1.23.1"
 
 "@dpc-sdp/ripple-meta-tag@1.24.5-alpha.6":
   version "1.24.5-alpha.6"
@@ -4079,28 +4010,6 @@
     "@dpc-sdp/ripple-global" "1.24.5-alpha.6"
     "@dpc-sdp/ripple-link" "1.24.5-alpha.6"
 
-"@dpc-sdp/ripple-nuxt-ui@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-nuxt-ui/-/ripple-nuxt-ui-1.23.1.tgz#779e5cd4255fc9c17314c99787a31ef56257b50b"
-  integrity sha512-8xpFT9qxJIJoD//PpJBgpiQ9L5vvbYrcYvQyjO1JDDrLmdwZmnp8U0cpGwl7MRcyk13CNPjmc68D2RUGBp/p9g==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.23.1"
-    "@dpc-sdp/ripple-icon" "1.23.1"
-    "@nuxtjs/style-resources" "^1.0.0"
-    app-root-path "^2.2.1"
-    qs "^6.9.4"
-    svg-sprite-loader "^3.7.3"
-    svgo "^1.0.5"
-    svgo-loader "^2.1.0"
-
-"@dpc-sdp/ripple-pagination@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-pagination/-/ripple-pagination-1.23.1.tgz#f4cf889fb614cc62d58dd8227c72ef2cd2e55bd5"
-  integrity sha512-FyTxdySJh3Db+tDeGJ3gBGlGidguKvJ/TdRxW4w5dSxCAimTA50e+9emOn143hkNGasMElCrH8oiJg5hOeL2IQ==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.23.1"
-    "@dpc-sdp/ripple-icon" "1.23.1"
-
 "@dpc-sdp/ripple-pagination@1.24.5-alpha.6":
   version "1.24.5-alpha.6"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-pagination/-/ripple-pagination-1.24.5-alpha.6.tgz#64257804e39a9edf0518384195c190562c47539a"
@@ -4108,20 +4017,6 @@
   dependencies:
     "@dpc-sdp/ripple-global" "1.24.5-alpha.6"
     "@dpc-sdp/ripple-icon" "1.24.5-alpha.6"
-
-"@dpc-sdp/ripple-search@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-search/-/ripple-search-1.23.1.tgz#e3bb93403e5aaf61be6d8d085f40a4e766ec64db"
-  integrity sha512-X/PvczwfdIIYgVWXmuI8pHBChTDLN0Y993mfxXfVKHPU4NsSO8yITsH6hnxGTyd+WXmw7VPeo5V/Vl7YSmqvRg==
-  dependencies:
-    "@dpc-sdp/ripple-form" "1.23.1"
-    "@dpc-sdp/ripple-global" "1.23.1"
-    "@dpc-sdp/ripple-grid" "1.23.1"
-    "@dpc-sdp/ripple-icon" "1.23.1"
-    "@dpc-sdp/ripple-link" "1.23.1"
-    "@dpc-sdp/ripple-meta-tag" "1.23.1"
-    "@dpc-sdp/ripple-pagination" "1.23.1"
-    vue-focus-lock "1.4.1"
 
 "@dpc-sdp/ripple-search@1.24.5-alpha.6":
   version "1.24.5-alpha.6"
@@ -4136,18 +4031,6 @@
     "@dpc-sdp/ripple-meta-tag" "1.24.5-alpha.6"
     "@dpc-sdp/ripple-pagination" "1.24.5-alpha.6"
     vue-focus-lock "1.4.1"
-
-"@dpc-sdp/ripple-site-header@1.23.1":
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-site-header/-/ripple-site-header-1.23.1.tgz#b9cb16bc3fdddb0225b443646b693e53183b6f10"
-  integrity sha512-QAGE91o60WUF2F2ZlZD/3l774i7rLeIitst/7wkyPfyMYews6sHTgZgcyhYa7Lkh2Xy6QZWoMrC45TUpXOCxxQ==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.23.1"
-    "@dpc-sdp/ripple-icon" "1.23.1"
-    "@dpc-sdp/ripple-link" "1.23.1"
-    "@dpc-sdp/ripple-meta-tag" "1.23.1"
-    "@dpc-sdp/ripple-search" "1.23.1"
-    body-scroll-lock "^2.6.1"
 
 "@dpc-sdp/ripple-tabs@1.24.5-alpha.6":
   version "1.24.5-alpha.6"

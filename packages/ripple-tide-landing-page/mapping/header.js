@@ -35,7 +35,7 @@ export default {
     component: 'rpl-campaign-primary',
     props: {
       title: getField(field, 'field_block_title'),
-      summary: getBodyFromField(field, ['body', 'processed']),
+      summary: getBodyFromField(field, 'body'),
       link: getLinkFromField(field, 'field_block_cta'),
       image: getImageFromField(field, 'field_block_image'),
       caption: () => {

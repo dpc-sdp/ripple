@@ -1,4 +1,8 @@
-import { getField, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
+import {
+  getField,
+  getImageFromField,
+  getAddress
+} from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import components from './component-loader'
 import { formatDate } from './utils'
 
@@ -25,7 +29,7 @@ export default {
         range
       }
     },
-    address: (src) => src.field_event_details[0]?.field_paragraph_location,
+    address: (src) => getAddress(src.field_event_details[0]?.field_paragraph_location),
     prices: (src) => {
       const from = src.field_event_details[0]?.field_paragraph_event_price_from
       const to = src.field_event_details[0]?.field_paragraph_event_price_to

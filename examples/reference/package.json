@@ -16,8 +16,8 @@
     "test:dev": "cross-env SEARCH_API_BASE_URL=http://localhost:3001 API_URL=http://localhost:3001 NODE_ENV=test start-server-and-test dev http://localhost:3000 \"cypress open\""
   },
   "dependencies": {
-    "@dpc-sdp/ripple-nuxt": "^1.23.1",
-    "@dpc-sdp/ripple-tide-api": "^1.23.1",
+    "@dpc-sdp/ripple-nuxt": "^1.27.2",
+    "@dpc-sdp/ripple-tide-api": "^1.27.2",
     "@dpc-sdp/ripple-tide-landing-page": "^1.27.2",
     "@dpc-sdp/ripple-tide-event": "1.27.2",
     "@nuxt/typescript-runtime": "^2.1.0",

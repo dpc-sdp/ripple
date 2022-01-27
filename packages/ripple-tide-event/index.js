@@ -25,7 +25,7 @@ export default {
         range
       }
     },
-    location: (src) => src.field_event_details[0]?.field_paragraph_location,
+    address: (src) => src.field_event_details[0]?.field_paragraph_location,
     prices: (src) => {
       const from = src.field_event_details[0]?.field_paragraph_event_price_from
       const to = src.field_event_details[0]?.field_paragraph_event_price_to

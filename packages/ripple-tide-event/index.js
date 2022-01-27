@@ -3,12 +3,10 @@ import {
   getImageFromField,
   getAddress
 } from '@dpc-sdp/ripple-tide-api/src/services/utils'
-import components from './component-loader'
 import { formatDate } from './utils'
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-event/index.vue'),
-  components,
   mapping: {
     title: 'title',
     summary: 'field_landing_page_summary',

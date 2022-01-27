@@ -1,6 +1,7 @@
 import mime from 'mime-types'
 import { getField, getLinkFromField, getImageFromField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import { extractAudiences } from './utils'
+import { getSideBarComponents } from '@dpc-sdp/ripple-tide-landing-page/utils'
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-grant/index.vue'),
@@ -8,11 +9,17 @@ export default {
     title: 'title',
     summary: 'field_landing_page_summary',
     acknowledgement: () => true,
+    breadcrumbs: (src) => [
+      { text: 'Home', url: '/' },
+      { text: getField(src, 'title') }
+    ],
     heroBanner: {
       links: (src) => src.field_landing_page_key_journeys?.field_paragraph_links?.map(l => getLinkFromField(l)),
       title: 'title',
       introText: 'field_news_intro_text',
-      image: (src) => getImageFromField(src, 'field_landing_page_hero_image')
+      image: (src) => getImageFromField(src, 'field_landing_page_hero_image'),
+      imageEnd: '/img/header-pattern-bottom.png',
+      visible: () => true
     },
     overview: {
       title: 'field_overview_title',
@@ -50,6 +57,7 @@ export default {
       filesize: humanizeFilesize(doc.field_media_file.filesize),
       id: doc.id
     })),
+    sidebarComponents: getSideBarComponents,
     showLastUpdated: () => true
   },
   includes: [

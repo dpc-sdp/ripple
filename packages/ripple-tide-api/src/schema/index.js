@@ -1,7 +1,7 @@
 import get from 'lodash.get'
 import jsYaml from 'js-yaml'
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
 
 export default function (config) {
   const definition = jsYaml.load(

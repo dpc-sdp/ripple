@@ -1,7 +1,7 @@
 import jsYaml from 'js-yaml'
-const appRoot = require('app-root-path')
-const path = require('path')
-const fs = require('fs')
+import appRoot from 'app-root-path'
+import path from 'path'
+import fs from 'fs'
 
 export const loadMapping = async filePath => {
   const folderPath = filePath.replace('index.js', '')

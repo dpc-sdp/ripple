@@ -1,0 +1,7 @@
+{
+  "verbose": true,
+  "watch": [
+    "./../../packages/ripple-tide-landing-page"
+  ],
+  "ext": "js json"
+}

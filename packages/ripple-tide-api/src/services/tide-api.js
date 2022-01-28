@@ -1,6 +1,6 @@
-import HttpClient from './http-client'
-import TideApiError from './utils/api-error'
-import Logger from './utils/api-logger'
+import HttpClient from './http-client.js'
+import TideApiError from './utils/api-error.js'
+import Logger from './utils/api-logger.js'
 import get from 'lodash.get'
 
 export default class TideApi extends HttpClient {
@@ -29,7 +29,7 @@ export default class TideApi extends HttpClient {
           const resolver = mapping[key]
           if (typeof resolver === 'string' || Array.isArray(resolver)) {
             data[key] = get(resource, resolver)
-          } else if (resolver.constructor.name === 'AsyncFunction') {
+          } else if (typeof resolver === 'function' && resolver.constructor.name === 'AsyncFunction') {
             const resolveFn = resolver.bind(this)
             data[key] = await resolveFn(resource)
           } else if (typeof resolver === 'function') {

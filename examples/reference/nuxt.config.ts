@@ -1,16 +1,15 @@
+import { defineNuxtConfig } from '@nuxt/bridge'
+import path from 'path'
 process.env.APP_ROOT_PATH = '.' // Set the example app root path, for this example app config only.
 require('dotenv').config()
 
-import { NuxtConfig } from '@nuxt/types'
 
-const SITEID = 4
-
-const config: NuxtConfig = {
+export default defineNuxtConfig({
   privateRuntimeConfig: {
     API_URL: process.env.API_URL,
   },
   publicRuntimeConfig: {
-    SITEID
+    SITEID: 4
   },
   modules: [
     '@dpc-sdp/ripple-nuxt',
@@ -32,8 +31,5 @@ const config: NuxtConfig = {
       },
       validateResponses: false
     }]
-  ],
-  buildModules: ['@nuxt/typescript-build']
-}
-
-export default config
+  ]
+})

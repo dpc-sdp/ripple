@@ -1,5 +1,5 @@
 import get from 'lodash.get'
-import markupTranspiler from './markup-transpiler/index'
+import markupTranspiler from './markup-transpiler/index.js'
 
 export const getImageFromField = (field, path) => {
   let getPath

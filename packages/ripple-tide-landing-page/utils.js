@@ -1,11 +1,13 @@
-import {
+import { fieldMappingUtils } from '@dpc-sdp/ripple-tide-api'
+import headerComponentMapping from './mapping/header.js'
+import bodyComponentMapping from './mapping/body.js'
+
+const {
   getLinkFromField,
   getField,
   getLandingPageComponents,
   getAddress
-} from '@dpc-sdp/ripple-tide-api/src/services/utils'
-import headerComponentMapping from './mapping/header'
-import bodyComponentMapping from './mapping/body'
+} = fieldMappingUtils
 
 export const getBodyComponents = async function (src) {
   return await getLandingPageComponents(

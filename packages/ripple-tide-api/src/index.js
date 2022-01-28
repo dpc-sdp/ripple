@@ -1,9 +1,17 @@
-import rippleTideApiModule from './module'
+import rippleTideApiModule from './module.js'
+import fieldMappingUtils from './services/utils/index.js'
 import createRippleTideApiServer from './create-server'
-import fieldMappingUtils from './services/utils'
+import TidePage from './services/tide-page.js'
+import TideSite from './services/tide-site.js'
+import TideApi from './services/tide-api.js'
 
-export { rippleTideApiModule }
-export { createRippleTideApiServer }
-export { fieldMappingUtils }
+export {
+  createRippleTideApiServer,
+  fieldMappingUtils,
+  rippleTideApiModule,
+  TidePage,
+  TideSite,
+  TideApi
+}
 
 export default rippleTideApiModule

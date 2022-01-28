@@ -1,6 +1,6 @@
 import jsonapiParse from 'jsonapi-parse'
-import TideApi from './tide-api'
-import getHierarchicalMenu from './utils/hierarchical-menu'
+import TideApi from './tide-api.js'
+import getHierarchicalMenu from './utils/hierarchical-menu.js'
 
 export default class TideSite extends TideApi {
   constructor (config) {

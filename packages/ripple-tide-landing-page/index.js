@@ -1,6 +1,7 @@
-import { getLinkFromField, getImageFromField } from '@dpc-sdp/ripple-tide-api/src/services/utils'
-import components from './component-loader'
-import { getSideBarComponents, getHeaderComponents, getBodyComponents } from './utils'
+import { fieldMappingUtils } from '@dpc-sdp/ripple-tide-api'
+import components from './component-loader.js'
+import { getHeaderComponents, getBodyComponents } from './utils'
+const { getLinkFromField, getImageFromField, getSideBarComponents } = fieldMappingUtils
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-landing-page/index.vue'),

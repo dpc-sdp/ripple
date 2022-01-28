@@ -1,6 +1,6 @@
 import jsonapiParse from 'jsonapi-parse'
-import TideApi from './tide-api'
-import defaultMapping from './utils/default-mapping'
+import TideApi from './tide-api.js'
+import defaultMapping from './utils/default-mapping.js'
 
 export default class TidePage extends TideApi {
   constructor (config) {

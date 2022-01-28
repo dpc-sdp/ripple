@@ -1,6 +1,7 @@
 import createRippleTideApiServer from './create-server'
 import { getModulesFromConfig, getSiteConfig } from './load-config'
 const path = require('path')
+
 export default async function (moduleOptions) {
   const modules = await getModulesFromConfig(moduleOptions)
   const siteMapping = await getSiteConfig(moduleOptions)
@@ -20,7 +21,7 @@ export default async function (moduleOptions) {
       modules
     }
   })
-
+  // Proxy images and media only
   this.options.proxy = {
     ...this.options.proxy,
     '/sitemap.xml':
@@ -67,11 +68,6 @@ export default async function (moduleOptions) {
       }
     }
   }])
-
-  // Proxy images and media only
-  this.options.proxy = {
-  }
-
   this.addServerMiddleware(createRippleTideApiServer(conf))
 }
 

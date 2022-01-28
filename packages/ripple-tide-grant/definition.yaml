@@ -4,8 +4,7 @@ description: Tide mappings for Grant content type
 required:
   - title
   - summary
-  - bodyComponents
-  - headerComponents
+  - overview
 allOf:
   - $ref: '#/components/schemas/TidePage'
 properties:
@@ -15,27 +14,169 @@ properties:
       - grant
   title:
     type: string
-    title: Title
     description: Title of page
     example: Find, connect, shape your Victorian Government
-  overview:
-    type: array
-    title: Overview props
-    description: Properties for rpl-grant-overview
   summary:
     type: string
-    title: Summary
     description: Short description of the content of the page. Limited to 200 chars.
     example: "Access grants and services, find out what’s on in Victoria and have your say on government decisions."
-  bodyComponents:
-    title: Body Components
+  acknowledgement:
+    type: boolean
+    title: Display acknowledgement
+    description: Toggle acknowledgement under header on / off
+    nullable: true
+  breadcrumbs:
     type: array
-    description: Landing page components
+    description: Array of breadcrumbs
+    items:
+      type: object
+      properties:
+        text:
+          type: string
+          description: label for Links
+          example: Home
+        url:
+          type: string
+          description: href value for link
+          example: '/'
+  heroBanner:
+    type: object
+    description: Object mapping for RplHeroBanner
+    properties:
+      links:
+        type: array
+      title:
+        type: string
+        description: Title of page
+        example: Find, connect, shape your Victorian Government
+      introText:
+        type: string
+        title: Introductory Text
+        description: Paragraph below hero title
+        example: "Access grants and services, find out what’s on in Victoria and have your say on government decisions."
+      backgroundGraphic:
+        type: string
+        title: Background image
+        description: URL for hero banner background image
+        example: "/img/header-pattern-bottom.png"
+      visible:
+        type: boolean
+        title: Visible?
+        description: Show or hide hero banner
+  overview:
+    type: object
+    description: Object mapping for RplGrantsOverview
+    properties:
+      title:
+        type: string
+        description: Title of Grant
+      audience:
+        type: string
+        enum:
+          - Businesses
+          - Individuals
+      funding:
+        type: object
+        description: Min/max range of funding
+        properties:
+          from:
+            type: number
+          to:
+            type: number
+      startdate:
+        type: date
+        title: Start date
+      enddate:
+        type: date
+        title: End date
+      description:
+        type: string
+        description: Content body of overview
+      link:
+        type: string
+        description: URL for call to action button
+  timeline:
+    type: object
+    description: Collection of mappings for RplTimeline
+    properties:
+      title:
+        type: string
+        description: Heading for timeline section
+      list:
+        type: array
+        items:
+          type: object
+          title:
+            type: string
+            description: Title of timeline event
+          subtitle:
+            type: string
+            description: Alternate text if there is no applicable date
+          url:
+            type: string
+            description: href value for button
+            example: '/'
+          image:
+            type: string
+            description: URL for feature image
+          dateStart:
+            type: date
+            title: Start date
+          dateEnd:
+            type: date
+            title: End date
+          description:
+            type: string
+            description: Content body of timeline event
+  guidelines:
+    type: object
+    description: Collection of mappings for RplAccordion
+    properties:
+      title:
+        type: string
+        title: Guidelines heading
+        description: Heading for guidelines section
+      accordions:
+        type: array
+        items:
+          type: object
+          title:
+            type: string
+            description: Title of accordion
+            example: Eligibility
+          content:
+            type: string
+            description: Content body for accordion
+  supportingDocuments:
+    type: array
+    description: Collection of related file attachments
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Title for document link
+        url:
+          type: string
+          description: href value for document link
+        extension:
+          type: string
+          description: File type
+          example: docx
+        filesize:
+          type: string
+          description: Humanized filesize for display
+          example: '7.53 KB'
+        id:
+          type: string
+          description: File UUID
+  sidebarComponents:
+    type: array
+    title: Sidebar Components
+    description: Configurable sidebar components
     allOf:
       - $ref: '#/components/schemas/landingPageComponent'
-  headerComponents:
-    type: array
-    title:  Header Components
-    description: Configurable Header components
-    allOf:
-      - $ref: '#/components/schemas/landingPageComponent'
+  showLastUpdated:
+    type: boolean
+    title: Show review date
+    description: Show or hide date page was last reviewed

@@ -17,8 +17,7 @@ export default {
       links: (src) => src.field_landing_page_key_journeys?.field_paragraph_links?.map(l => getLinkFromField(l)),
       title: 'title',
       introText: 'field_news_intro_text',
-      image: (src) => getImageFromField(src, 'field_landing_page_hero_image'),
-      imageEnd: '/img/header-pattern-bottom.png',
+      backgroundGraphic: () => '/img/header-pattern-bottom.png',
       visible: () => true
     },
     overview: {

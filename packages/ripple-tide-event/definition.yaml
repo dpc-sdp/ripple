@@ -1,0 +1,117 @@
+type: object
+title: Event
+description: Tide mappings for Event content type
+required:
+  - title
+  - summary
+  - bodyComponents
+  - headerComponents
+allOf:
+  - $ref: '#/components/schemas/TidePage'
+properties:
+  type:
+    type: string
+    enum:
+      - event
+  title:
+    type: string
+    title: Title
+    description: Title of event
+    example: Find, connect, shape your Victorian Government
+  summary:
+    type: string
+    title: Summary
+    description: Short description of the content of the page. Limited to 200 chars.
+    example: Access grants and services, find out what's on in Victoria and have your say on government decisions.
+  link:
+    type: object
+    title: Link
+    description: Link to event details page.
+    properties:
+      text:
+        type: string
+        description: Text shown for the link.
+      url:
+        type: string
+        description: URL that the link goes to.
+  image:
+    type: object
+    title: Image
+    description: Image for event. Limited to 1 image.
+    properties:
+      src:
+        type: string
+        description: Path to the image file.
+      alt:
+        type: string
+        description: Alt text for the image.
+      title:
+        type: string
+        description: Image title.
+      width:
+        type: number
+        description: Image width.
+      height:
+        type: number
+        description: Image height.
+      focalPoint:
+        type: Object
+        description: Focal point of the image, used for responsive designs.
+        properties:
+          x:
+            type: number
+            description: X coordinate of the focal point.
+          y:
+            type: number
+            description: Y coordinate of the focal point.
+
+  date:
+    type: object
+    title: Date
+    description: Date and time of the event.
+    properties:
+      start:
+        type: string
+        description: Event start date and time.
+        example: 26 January 2022 01:30 pm
+      end:
+        type: string
+        description: Event end date and time.
+        example: 26 January 2022 08:45 pm
+      range:
+        type: string
+        description: Shows the start to end times.
+        example: 26 January 2022 01:30 pm - 26 January 2022 08:45 pm
+  address:
+    type: object
+    title: Address
+    description: The location of the event.
+    example: Flagstaff Gardens, Melbourne, VIC 3000
+  prices:
+    type: string
+    title: Prices
+    description: Prices for the event. Should be left empty if the event is free.
+    example: $5 - $10
+  bookLink:
+    type: object
+    title: Book link
+    description: Link to a page where you can make bookings for the event.
+    properties:
+      title:
+        type: string
+        description: Text shown for the booking link.
+        example: Book now.
+      url:
+        type: string
+        description: URL that the booking link goes to.
+  requirements:
+    type: array
+    title: Requirements
+    description: Event requirments, such as Free admission.
+    items:
+      - type: object
+        properties:
+          name:
+            type: string
+            description: A name of the event requirement.
+            example: Free admission

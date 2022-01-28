@@ -16,7 +16,8 @@ const config: NuxtConfig = {
     '@dpc-sdp/ripple-nuxt',
     ['@dpc-sdp/ripple-tide-api', {
       modules: {
-        landing_page: '@dpc-sdp/ripple-tide-landing-page'
+        landing_page: '@dpc-sdp/ripple-tide-landing-page',
+        event: '@dpc-sdp/ripple-tide-event'
       },
       siteMapping: '/tide-api/site',
       debug: process.env.NODE_ENV === 'development',

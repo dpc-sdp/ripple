@@ -6,8 +6,8 @@ Feature: Grant
     Given the mock server has started
     And I am using a "macbook-13" device
     And the endpoint "http://localhost:3001/tide-api/v2/site/4" returns fixture "site/reference" with status 200
-    And the endpoint "http://localhost:3001/tide-api/v2/page" with query "?path=/tc-9a-grant-simple-test-date-range&site=4" returns fixture "grant/sample" with status 200
-    When I visit the page "/tc-9a-grant-simple-test-date-range"
+    And the endpoint "http://localhost:3001/tide-api/v2/page" with query "?path=/tc-9b-grant-page-closed&site=4" returns fixture "grant/sample" with status 200
+    When I visit the page "/tc-9b-grant-page-closed"
 
   Scenario: Page layout
     Then the site footer is visible
@@ -24,8 +24,8 @@ Feature: Grant
     Then the timeline title should be "Demo Timeline"
     And there should be the following timeline items:
       | image                                                                                       | title                | link                   | subtitle    | description                                                                                 |
-      | https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg | Demo Timeline Item   | https://www.google.com | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. |
-      | https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg | Demo Timeline Item 2 | https://www.google.com | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                              |
+      | https://master.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg | Demo Timeline Item   | https://www.google.com | 01 January  | Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. |
+      | https://master.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg | Demo Timeline Item 2 | https://www.google.com | Alternative | Anim excepteur magna eu aliqua quis velit voluptate sit culpa.                              |
 
   Scenario: Documents
     Then the page should have the following documents:

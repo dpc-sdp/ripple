@@ -93,8 +93,15 @@ properties:
         type: string
         description: Content body of overview
       link:
-        type: string
+        type: object
         description: URL for call to action button
+        properties:
+          text:
+            type: string
+            description: Title for overview link
+          url:
+            type: string
+            description: href value for overview link
   timeline:
     type: object
     description: Collection of mappings for RplTimeline

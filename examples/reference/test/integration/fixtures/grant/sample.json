@@ -1,82 +1,102 @@
 {
-  "title": "TC-9a Grant Simple Test - Date Range",
-  "changed": "2022-01-18T15:40:30+11:00",
-  "created": "2022-01-18T15:40:30+11:00",
+  "title": "TC-9b Grant page - Closed",
+  "changed": "2022-01-27T14:36:54+11:00",
+  "created": "2022-01-27T14:36:54+11:00",
   "type": "grant",
-  "nid": 22402,
+  "nid": 22404,
   "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
   "acknowledgement": true,
+  "breadcrumbs": [
+  {
+  "text": "Home",
+  "url": "/"
+  },
+  {
+  "text": "TC-9b Grant page - Closed"
+  }
+  ],
   "heroBanner": {
-    "title": "TC-9a Grant Simple Test - Date Range",
-    "introText": "news intro test"
+  "title": "TC-9b Grant page - Closed",
+  "introText": "news intro test",
+  "backgroundGraphic": "/img/header-pattern-bottom.png",
+  "visible": true
   },
   "overview": {
-    "title": "Overview title",
-    "audience": "Businesses",
-    "funding": {
-    "from": 11326,
-    "to": 26494
+  "title": "Overview title",
+  "audience": "Businesses",
+  "funding": {
+  "from": 11326,
+  "to": 26494
   },
-  "startdate": "2019-04-08T18:00:00+10:00",
-  "enddate": "2019-05-08T20:00:00+10:00",
+  "startdate": "2019-03-09T19:00:00+11:00",
+  "enddate": "2019-04-09T20:00:00+10:00",
   "description": "Description",
-    "link": {
-      "text": "More details",
-      "url": "https://www.google.com"
-    }
+  "link": {
+  "text": "More details",
+  "url": "https://www.google.com"
+  }
   },
   "timeline": {
-    "title": "Demo Timeline",
-    "list": [
-      {
-        "title": "Demo Timeline Item",
-        "subtitle": null,
-        "url": "https://www.google.com",
-        "image": "https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
-        "dateStart": "2020-01-01T19:00:00+11:00",
-        "dateEnd": "2020-01-01T21:00:00+11:00",
-        "description": "Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus."
-      },
-      {
-        "title": "Demo Timeline Item 2",
-        "subtitle": "Alternative",
-        "url": "https://www.google.com",
-        "image": "https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
-        "dateStart": null,
-        "dateEnd": null,
-        "description": "Anim excepteur magna eu aliqua quis velit voluptate sit culpa."
-      }
-    ]
+  "title": "Demo Timeline",
+  "list": [
+  {
+  "title": "Demo Timeline Item",
+  "subtitle": null,
+  "url": "https://www.google.com",
+  "image": "https://master.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+  "dateStart": "2020-01-01T19:00:00+11:00",
+  "dateEnd": "2020-01-01T21:00:00+11:00",
+  "description": "Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus."
+  },
+  {
+  "title": "Demo Timeline Item 2",
+  "subtitle": "Alternative",
+  "url": "https://www.google.com",
+  "image": "https://master.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+  "dateStart": null,
+  "dateEnd": null,
+  "description": "Anim excepteur magna eu aliqua quis velit voluptate sit culpa."
+  }
+  ]
   },
   "guidelines": {
-    "title": "Guidelines",
-    "accordions": [
-      {
-        "title": "Eligibility",
-        "content": "Lorem ipsum"
-      },
-      {
-        "title": "Assessment criteria",
-        "content": "Lorem ipsum"
-      },
-      {
-        "title": "Assessment process",
-        "content": "Lorem ipsum"
-      },
-      {
-        "title": "How to apply",
-        "content": "Lorem ipsum"
-      }
-    ]
+  "title": "Guidelines",
+  "accordions": [
+  {
+  "title": "Eligibility",
+  "content": "Lorem ipsum"
+  },
+  {
+  "title": "Assessment criteria",
+  "content": "Lorem ipsum"
+  },
+  {
+  "title": "Assessment process",
+  "content": "Lorem ipsum"
+  },
+  {
+  "title": "How to apply",
+  "content": "Lorem ipsum"
+  }
+  ]
   },
   "supportingDocuments": [
-    {
-      "name": "Demo Sample Document",
-      "url": "https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/sample.docx",
-      "extension": "docx",
-      "filesize": "7.53 KB",
-      "id": "11dede11-10c0-111e1-1100-000000000007"
-    }
+  {
+  "name": "Demo Sample Document",
+  "url": "https://master.content.vic.gov.au/sites/default/files/tide_demo_content/sample.docx",
+  "extension": "docx",
+  "filesize": "7.53 KB",
+  "id": "11dede11-10c0-111e1-1100-000000000007"
+  }
+  ],
+  "sidebarComponents": [
+  {
+  "component": "rpl-share-this",
+  "props": {
+  "title": "Share this page",
+  "url": ""
+  }
+  }
   ],
   "showLastUpdated": true
 }

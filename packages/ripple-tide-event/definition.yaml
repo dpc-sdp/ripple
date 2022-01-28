@@ -12,26 +12,65 @@ properties:
   type:
     type: string
     enum:
-      - landing_page
+      - event
   title:
     type: string
     title: Title
-    description: Title of page
+    description: Title of event
     example: Find, connect, shape your Victorian Government
   summary:
     type: string
     title: Summary
     description: Short description of the content of the page. Limited to 200 chars.
-    example: "Access grants and services, find out what’s on in Victoria and have your say on government decisions."
-  bodyComponents:
-    title: Body Components
+    example: "Access grants and services, find out what's on in Victoria and have your say on government decisions."
+  link:
+    type: object
+    title: Link
+    description: Link to event details page
+    example:
+      - text
+      - url
+  image:
+    type: object
+    title: Image
+    description: Image for event. Limited to 1 image.
+    example:
+      - src
+      - alt
+      - title
+      - width
+      - height
+      - focalPoint
+  date:
+    type: object
+    title: Date
+    description: Date and time of the event.
+    example:
+      - start
+      - end
+      - range
+  address:
+    type: object
+    title: Address
+    description: The location of the event.
+    example: "Flagstaff Gardens, Melbourne, VIC 3000"
+  prices:
+    type: string
+    title: Prices
+    description: Prices for the event. Should be left empty if the event is free.
+    example: "$5 - $10"
+  bookLink:
+    type: object
+    title: Book link
+    description: Link to a page where you can make bookings for the event.
+    example:
+      - uri
+      - title
+      - options
+      - entity
+      - url
+      - origin_url
+  requirements:
     type: array
-    description: Landing page components
-    allOf:
-      - $ref: '#/components/schemas/landingPageComponent'
-  headerComponents:
-    type: array
-    title:  Header Components
-    description: Configurable Header components
-    allOf:
-      - $ref: '#/components/schemas/landingPageComponent'
+    title: Requirements
+    description: Event requirments, such as Free admission.

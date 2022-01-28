@@ -48,14 +48,15 @@ export const getLinkFromField = (field, path) => {
 }
 
 export const getAddress = (field) => {
-  // TODO: refactor this please for readability
-  const l = field
-  l.al2 = l.address_line2 ? l.address_line2 + ',' : ''
-  const address = `${l.address_line1 ? l.address_line1 + ',' : ''} ${l.al2} ${l.locality}${l.al2 || l.locality ? ', ' : ''}${l.administrative_area} ${l.postal_code}`
-  if (address.length > 3) {
-    return address
-  }
-  return ''
+  // Example output: Flagstaff Gardens, Melbourne, VIC 3000
+  // Deliberate choice to not use template literals here to increase readability
+  const line1 = field.address_line1 ? field.address_line1 + ', ' : ''
+  const line2 = field.address_line2
+  const suburb = field.locality + (line2 || field.locality ? ', ' : '')
+  const stateAndPostcode = field.administrative_area + ' ' + field.postal_code
+  const address = line1 + line2 + suburb + stateAndPostcode
+
+  return address.length > 3 ? address : ''
 }
 
 export const getLandingPageComponents = async (

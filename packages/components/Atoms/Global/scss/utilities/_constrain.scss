@@ -1,9 +1,16 @@
+// TODO: This should be refactored to not be a modifier class, as its not used
+// in tandem with another class. This should probably just be a base class.
 .rpl-site-constrain--on-all {
   @include rpl_site_constrain(all);
 
   // For nested constrain item want to grow to edge.
+  // TODO: This could be simplified using the '&' selector
   .rpl-site-constrain--on-all {
     // sass-lint:disable-block no-important
+    // TODO: Do we really need to use !important here?
+    // TODO: If we are applying the same styles to each breakpoint do we really
+    // need a complicated loop here? Cant we just set them outside of a break
+    // point?
     @each $bp, $width in map-get($rpl-layout, 'site_max_width') {
       @include rpl_breakpoint($bp) {
         padding-left: calc((100vw - #{$width}) / 2) !important;
@@ -14,6 +21,8 @@
 }
 
 // Use this calss if the item is inside sidebar or main content area beside sidebar and you are using `.rpl-edge--below-l`.
+// TODO: This should be refactored to not be a modifier class, as its not used
+// in tandem with another class. This should probably just be a base class.
 .rpl-site-constrain--below-l {
   @include rpl_site_constrain(small);
 }

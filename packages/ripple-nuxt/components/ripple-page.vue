@@ -15,9 +15,7 @@
           <rpl-hero-banner
             v-if="page.heroBanner && page.heroBanner.visible"
             v-bind="page.heroBanner"
-            :summary="page.summary"
             class="rpl-site-constrain--on-all"
-            :backgroundGraphic="page.heroBanner.imageEnd"
           />
           <rpl-acknowledgement
             v-if="page.acknowledgement"

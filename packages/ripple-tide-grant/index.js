@@ -1,5 +1,5 @@
 import mime from 'mime-types'
-import { getField, getLinkFromField, getImageFromField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api/src/services/utils'
+import { getField, getLinkFromField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import { extractAudiences } from './utils'
 import { getSideBarComponents } from '@dpc-sdp/ripple-tide-landing-page/utils'
 

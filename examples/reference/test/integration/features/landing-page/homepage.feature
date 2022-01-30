@@ -2,22 +2,19 @@ Feature: Home page
 
   As a citizen I want to see current relevant links and events.
 
-@focus 
+@focus
   Scenario: On load - desktop
     Given the mock server has started
     And I am using a "macbook-13" device
-    And the endpoint "http://localhost:3001/tide-api/v2/site/4" returns fixture "site/reference" with status 200 
-    And the endpoint "http://localhost:3001/tide-api/v2/page" with query "?path=/&site=4" returns fixture "landing-page/homepage" with status 200 
+    And the endpoint "http://localhost:3001/tide-api/v2/site/4" returns fixture "site/reference" with status 200
+    And the endpoint "http://localhost:3001/tide-api/v2/page" with query "?path=/&site=4" returns fixture "landing-page/homepage" with status 200
     When I visit the page "/"
 
     # Above content
     Then the page title should be "Department of Trees"
     And the breadcrumbs should not exist
-    And the hero banner title should be "Department of Trees"
-    And the hero banner should have the following links:
-      | title           | href        |
-      | All about trees | /trees      |
-      | Contact us      | /contact-us |
+    And the hero banner title should be "How good are trees?"
+
     # Site Menu
     Then the site header is visible
     And the menu should have 2 top level items
@@ -43,7 +40,7 @@ Feature: Home page
       | Current COVID restrictions               | https://www.coronavirus.vic.gov.au/coronavirus-covidsafe-settings                                |
       | Victoria Together                        | https://www.together.vic.gov.au/                                                                 |
       | Thunderstorm asthma                      | https://www.aboriginalheritagecouncil.vic.gov.au/victorias-current-registered-aboriginal-parties |
-    
+
     # Card key dates
     And the "rpl-card-keydates" component should exist
     And the "rpl-card-keydates" component should contain "Christmas Day"
@@ -55,7 +52,7 @@ Feature: Home page
   Scenario: On load - mobile
     Given the mock server has started
     And I am using a "iphone-8" device
-    And the endpoint "http://localhost:3001/tide-api/v2/site/4" returns fixture "site/reference" with status 200 
-    And the endpoint "http://localhost:3001/tide-api/v2/page" with query "?path=/&site=4" returns fixture "landing-page/homepage" with status 200 
-    When I visit the page "/"  
+    And the endpoint "http://localhost:3001/tide-api/v2/site/4" returns fixture "site/reference" with status 200
+    And the endpoint "http://localhost:3001/tide-api/v2/page" with query "?path=/&site=4" returns fixture "landing-page/homepage" with status 200
+    When I visit the page "/"
     Then the search button text in the site header should not be visible

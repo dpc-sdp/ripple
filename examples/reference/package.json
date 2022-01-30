@@ -18,6 +18,7 @@
   "dependencies": {
     "@dpc-sdp/ripple-nuxt": "^1.27.2",
     "@dpc-sdp/ripple-tide-api": "^1.27.2",
+    "@dpc-sdp/ripple-tide-grant": "^1.27.2",
     "@dpc-sdp/ripple-tide-landing-page": "^1.27.2",
     "@dpc-sdp/ripple-tide-event": "1.27.2",
     "@nuxt/typescript-runtime": "^2.1.0",

@@ -12,7 +12,6 @@ export default {
     'field_featured_image.field_media_image',
     'field_node_site.field_site_twitter_image.field_media_image',
     'field_tags',
-    'field_topic',
-    'field_related_links'
+    'field_topic'
   ]
 }

@@ -7,11 +7,14 @@
       class="app-main"
     >
       <slot name="banner">
+        <template slot="breadcrumbs">
+          <rpl-breadcrumbs v-if="!page.appIsHome" :crumbs="page.breadcrumbs" />
+        </template>
+
         <template slot="aboveContent">
           <rpl-hero-banner
             v-if="page.heroBanner && page.heroBanner.visible"
             v-bind="page.heroBanner"
-            :summary="page.summary"
             class="rpl-site-constrain--on-all"
           />
           <rpl-acknowledgement
@@ -50,7 +53,6 @@
           <app-topic-tags :topic="page.topic" :tags="page.tags" />
         </rpl-col>
       </slot>
-
       <template slot="sidebar">
         <slot name="sidebar">
           <page-components

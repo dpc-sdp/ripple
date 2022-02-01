@@ -1,9 +1,6 @@
----
-to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/index.vue
----
-
 <template>
-  <div class="tide-content tide-content--<%= h.changeCase.paramCase(name) %>">
+  <div class="tide-content tide-content--publication">
+    <h2>Publication</h2>
   </div>
 </template>
 
@@ -28,7 +25,7 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/settings";
 @import "~@dpc-sdp/ripple-global/scss/tools";
 
-.tide-content--<%= h.changeCase.paramCase(name) %> {
+.tide-content--publication {
 
 }
 </style>

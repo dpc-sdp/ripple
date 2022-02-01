@@ -3,12 +3,19 @@ const appRoot = require('app-root-path')
 const path = require('path')
 const fs = require('fs')
 
-export const loadMapping = async filePath => {
+export const loadMapping = async (filePath, type) => {
   const folderPath = filePath.replace('index.js', '')
   try {
     if (fs.existsSync(folderPath)) {
-      const mappingConfig = await import(folderPath).then(m => m.default)
-      // Each module can define a YAML OpenAPI 3 spec
+      const configExport = await import(folderPath).then(m => m.default)
+      let mappingConfig
+      // Support multiple content types in mapping
+      if (configExport.hasOwnProperty(type)) {
+        mappingConfig = configExport[type]
+      } else {
+        mappingConfig = configExport
+      }
+      // Each module can define a YAML OpenAPI 3 spec - see https://json-schema.org/understanding-json-schema/ for syntax
       if (fs.existsSync(folderPath + '/definition.yaml')) {
         const schema = jsYaml.load(
           fs.readFileSync(path.join(folderPath, './definition.yaml'), 'utf-8')
@@ -25,10 +32,6 @@ export const loadMapping = async filePath => {
         )
         mappingConfig.schemaComponents = schemaComponents
       }
-      // Modules can register components to load for dynamic components
-      // if (fs.existsSync(folderPath + '/component-loader.js')) {
-      //   const customComponents = await import(folderPath + '/component-loader.js').then(m => m.default)
-      // }
 
       return mappingConfig
     }
@@ -40,26 +43,26 @@ export const loadMapping = async filePath => {
 export const getModulePaths = (config) => {
   const returnObj = {}
   Object
-    .keys(config.modules)
+    .keys(config.contentTypes)
     .forEach(key => {
-      returnObj[key] = require.resolve(config.modules[key]).replace('index.js', '')
+      returnObj[key] = require.resolve(config.contentTypes[key]).replace('index.js', '')
     })
   return returnObj
 }
 
 export const getModulesFromConfig = async config => {
-  if (config.modules) {
-    const modules = Object.keys(config.modules)
+  if (config.contentTypes) {
+    const contentTypes = Object.keys(config.contentTypes)
     const modulesToLoad = {}
-    for (let i = 0; i < modules.length; i++) {
-      const type = modules[i]
-      switch (typeof config.modules[type]) {
+    for (let i = 0; i < contentTypes.length; i++) {
+      const type = contentTypes[i]
+      switch (typeof config.contentTypes[type]) {
         case 'string':
-          const modulePath = require.resolve(config.modules[type])
-          modulesToLoad[type] = await loadMapping(modulePath)
+          const modulePath = require.resolve(config.contentTypes[type])
+          modulesToLoad[type] = await loadMapping(modulePath, type)
           break
         case 'object':
-          modulesToLoad[type] = config.modules[type]
+          modulesToLoad[type] = config.contentTypes[type]
           break
         default:
           throw new Error(`ERROR: Unable to load module - ${type}`)

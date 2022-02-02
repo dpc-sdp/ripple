@@ -24,8 +24,7 @@
   }
 
   .rpl-markup__inner b, 
-  .rpl-markup__inner strong,
-  .rpl-search-result__heading {
+  .rpl-markup__inner strong {
     font-family: #{$font-family} !important;
     font-weight: 700;
   }

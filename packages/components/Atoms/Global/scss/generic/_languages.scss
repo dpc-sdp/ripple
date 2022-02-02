@@ -23,6 +23,13 @@
       }
     }
   }
+
+  .rpl-markup__inner b, 
+  .rpl-markup__inner strong,
+  .rpl-search-result__heading {
+    font-family: #{$font-family} !important;
+    font-weight: 700;
+  }
 }
 
 // Generate css for each lang code

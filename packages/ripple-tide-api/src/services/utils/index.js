@@ -35,19 +35,21 @@ export const getMediaImage = fieldMediaImage => {
 export const getLinkFromField = (field, path) => {
   let url, text
   if (Array.isArray(path)) {
-    text = get(field, [...path, 'title'], false)
+    text = get(field, [...path, 'title'], '')
     url = get(field, [...path, 'url'], get(field, [...path, 'origin_url'], get(field, [...path, 'uri'])), false)
   } else if (typeof path === 'string') {
-    text = get(field, `${path}.title`, false)
+    text = get(field, `${path}.title`, '')
     url = get(field, `${path}.url`, get(field, `${path}.origin_url`, get(field, `${path}.uri`)), false)
   } else {
-    text = get(field, 'title', false)
+    text = get(field, 'title', '')
     url = get(field, 'url', get(field, 'origin_url', get(field, 'uri')))
   }
   return { text: url && text === '' ? url : text, url }
 }
 
 export const getAddress = (field) => {
+  field = (field === null) ? {} : field
+
   // Example output: Flagstaff Gardens, Melbourne, VIC 3000
   // Deliberate choice to not use template literals here to increase readability
   const line1 = field.address_line1 ? field.address_line1 + ', ' : ''

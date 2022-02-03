@@ -61,19 +61,20 @@ export const getSideBarComponents = src => {
       }
     })
   }
-  if (src.field_landing_page_show_contact) {
-    const contact = src.field_landing_page_show_contact?.[0]
-    const location = getField(contact, 'field_paragraph_location', {})
+  if (src.field_landing_page_show_contact && src.field_landing_page_contact &&
+      src.field_landing_page_contact.length > 0) {
+    const contact = src.field_landing_page_contact[0]
+    const location = getField(contact, 'field_paragraph_location', {}) || {}
     sidebar.push({
       component: 'rpl-contact',
       props: {
         title: getField(contact, 'field_paragraph_title', ''),
         name: getField(contact, 'field_paragraph_name', ''),
         department: getField(contact, 'field_paragraph_department_name', ''),
-        postal: location.postal_code,
+        postal: location?.postal_code,
         address: getAddress(location),
         phone: getField(contact, 'field_paragraph_phones', []).map(
-          p => p.number
+          p => p.field_paragraph_phone_number
         )
       }
     })

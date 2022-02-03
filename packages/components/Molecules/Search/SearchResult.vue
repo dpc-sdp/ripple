@@ -75,7 +75,7 @@ export default {
       color: $rpl-search-result-heading-text-color;
       max-width: $rpl-content-max-width;
 
-      // SDPA-5957 - Force font-weight to 700 so that other language headings
+      // SDPA-5957 - Override font-weight to 700 so that other language headings
       // that have glyphs not available in the VIC-Bold font will display as
       // bold. We should not be forcing bold fonts to 400 anyway but this is
       // a site wide issue and is outside of the scope of this fix.

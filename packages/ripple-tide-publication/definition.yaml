@@ -1,10 +1,6 @@
----
-to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/definition.yaml
----
-
 type: object
-title: Tide <%= name %> content type
-description: 'Tide mappings for <%= name %> content type'
+title: Tide publication content type
+description: 'Tide mappings for publication content type'
 required:
   - title
 allOf:
@@ -13,7 +9,7 @@ properties:
   type:
     type: string
     enum:
-      - <%= name %>
+      - publication
   title:
     type: string
     title: Title

@@ -11,6 +11,7 @@ export const extractAudiences = (audiences = []) => {
       }
     }
   }).join(', ')
+
   return `${audienceStr.charAt(0).toUpperCase() + audienceStr.slice(1)}`
 }
 

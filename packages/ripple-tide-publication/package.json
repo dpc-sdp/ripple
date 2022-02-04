@@ -7,11 +7,9 @@
   "type": "module",
   "dependencies": {
     "@dpc-sdp/ripple-embedded-video": "^1.27.2",
+    "@dpc-sdp/ripple-link": "^1.27.2",
     "@dpc-sdp/ripple-markup": "^1.27.2",
     "@dpc-sdp/ripple-tide-api": "^1.27.2",
     "@dpc-sdp/ripple-tide-landing-page": "^1.27.2"
   }
 }
-
-
-

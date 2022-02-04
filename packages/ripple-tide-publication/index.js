@@ -1,13 +1,11 @@
 import { getField, getLinkFromField, getLandingPageComponents } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import { getSideBarComponents } from '@dpc-sdp/ripple-tide-landing-page/utils'
+import components from '@dpc-sdp/ripple-tide-landing-page/component-loader'
 import componentMapping from './component-mapping'
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-publication/index.vue'),
-  components: {
-    'rpl-markup': () => import(/* webpackChunkName: 'rpl-markup' */ '@dpc-sdp/ripple-markup'),
-    'rpl-embedded-video': () => import(/* webpackChunkName: 'rpl-embedded-video */ '@dpc-sdp/ripple-embedded-video')
-  },
+  components: components,
   mapping: {
     title: 'title',
     breadcrumbs: (src) => [
@@ -20,6 +18,7 @@ export default {
       introText: 'field_landing_page_intro_text',
       image: 'field_featured_image.field_media_image.url',
       theme: () => 'dark',
+      showLinks: () => false,
       visible: () => true
     },
     publishingInfo: {

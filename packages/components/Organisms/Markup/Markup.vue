@@ -26,9 +26,10 @@ export default {
   name: 'RplMarkup',
   mixins: [rtl],
   props: {
-    'html': String,
-    'plugins': { type: Array },
-    'options': { type: Object }
+    html: String,
+    plugins: { type: Array },
+    options: { type: Object },
+    data: { type: Object }
   },
   computed: {
     getTemplate () {
@@ -47,7 +48,7 @@ export default {
 
       return {
         html: html,
-        data: {}
+        data: this.data || {}
       }
     }
   }

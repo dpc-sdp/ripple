@@ -4,10 +4,11 @@
 // Then set myPluginData1.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData1, myPluginData2 ... } in your plugin.
 // See a example in `pluginEmbeddedMediaVideo` plugin below.
 
-import { isRelativeUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
+import codepointMap from '@dpc-sdp/ripple-global/utils/codepoint.map.json'
 
 // Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
-const _escapeQuotes = text => {
+const _escapeQuotes = (text) => {
   text = text || ''
   return text.replace('"', '&quot;')
 }
@@ -18,86 +19,74 @@ const pluginButton = function () {
     const $button = this.find(el)
     const buttonHref = $button.attr('href')
     const buttonText = $button.text()
-    const attributes = []
-    attributes.push(`:icon="false"`)
-    if (buttonHref) {
-      attributes.push(`link="${buttonHref}"`)
+    let theme = 'primary'
+    if ($button.hasClass('button--secondary')) {
+      theme = 'secondary'
     }
-    const button = `<rpl-button ${attributes.join(
-      ' '
-    )}>${buttonText}</rpl-button>`
+    const button = `<rpl-button href="${buttonHref}" theme="${theme}">${buttonText}</rpl-button>`
     return $button.replaceWith(button)
   })
 }
 
 const pluginTables = function () {
   // Wrap tables with a div.
+  const wrapperClass = 'rpl-markup__table'
   this.find('table').map((i, el) => {
-    const $table = this.find(el)
-    return $table.wrap(`<div class="rpl-markup__table"></div>`)
+    const table = this.find(el)
+    const markup = `<div class="${wrapperClass}"></div>`
+    return table.wrap(markup)
   })
 }
 
 const pluginEmbeddedDocument = function () {
-  this.find(
-    '.embedded-entity--media--file, .embedded-entity--media--document, .embedded-entity .media--type-document'
-  ).map((i, element) => {
+  this.find('.embedded-entity--media--file, .embedded-entity--media--document, .embedded-entity .media--type-document').map((i, element) => {
     const el = this.find(element)
-    const mediaType = el.hasClass('embedded-entity--media--file')
-      ? 'file'
-      : 'document'
-    const titleSelector =
-      mediaType === 'document' ? '.file--title' : '.field--name-name'
+    const mediaType = el.hasClass('embedded-entity--media--file') ? 'file' : 'document'
+    const titleSelector = mediaType === 'document' ? '.file--title' : '.field--name-name'
     const fileSizeSelector = '.file--size'
 
     let url = el.find('a').attr('href')
     const fileName = el.find(titleSelector).text()
     const fileSize = el.find(fileSizeSelector).text()
     const caption = el.find('figcaption').text()
+    const updated = (el.attr('data-last-updated') && el.attr('data-last-updated') !== 'undefined') ? el.attr('data-last-updated') : el.find('div').attr('data-last-updated')
+
     let fileType = ''
     const fileTypeClasses = el.find('.file').attr('class')
 
-    // TODO - Add other icons for file types. Only PDF correctly displays.
     if (fileTypeClasses) {
-      fileTypeClasses
-        .split(' ')
-        .filter(cls => cls.includes('file--mime') || cls.includes('file--x'))
-        .forEach(mimeType => {
-          if (fileType === '') {
-            switch (mimeType) {
-              case 'file--mime-application-zip':
-                fileType = 'zip'
-                break
-              case 'file--mime-application-msword':
-                fileType = 'doc'
-                break
-              case 'file--mime-application-postscript':
-                fileType = 'eps'
-                break
-              case 'file--x-office-document':
-              case 'file--mime-application-rtf':
-              case 'file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document':
-                fileType = 'docx'
-                break
-              case 'file--x-office-spreadsheet':
-              case 'file--mime-application-vnd-ms-excel':
-                fileType = 'xlsx'
-                break
-              case 'file--mime-text-plain':
-                fileType = 'txt'
-                break
-              case 'file--mime-text-csv':
-                fileType = 'csv'
-                break
-              case 'file--mime-text-calendar':
-                fileType = 'ics'
-                break
-              case 'file--mime-application-pdf':
-                fileType = 'pdf'
-                break
-            }
+      fileTypeClasses.split(' ').filter(cls => cls.includes('file--mime') || cls.includes('file--x')).forEach(mimeType => {
+        if (fileType === '') {
+          switch (mimeType) {
+            case 'file--mime-application-zip':
+              fileType = 'zip'
+              break
+            case 'file--mime-application-msword':
+              fileType = 'doc'
+              break
+            case 'file--mime-application-postscript':
+              fileType = 'eps'
+              break
+            case 'file--x-office-document':
+            case 'file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document':
+              fileType = 'docx'
+              break
+            case 'file--x-office-spreadsheet':
+            case 'file--mime-application-vnd-ms-excel':
+              fileType = 'xlsx'
+              break
+            case 'file--mime-text-plain':
+              fileType = 'txt'
+              break
+            case 'file--mime-text-csv':
+              fileType = 'csv'
+              break
+            case 'file--mime-text-calendar':
+              fileType = 'ics'
+              break
           }
-        })
+        }
+      })
     }
 
     if (url) {
@@ -105,123 +94,48 @@ const pluginEmbeddedDocument = function () {
     }
 
     if (fileType === '') {
-      fileType = el
-        .find('.file--type')
-        .text()
-        .toLowerCase()
+      fileType = el.find('.file--type').text().toLowerCase()
     }
 
     if (url && fileName && fileSize && fileType) {
-      const name = _escapeQuotes(fileName)
-      const extension = fileType
-      const filesize = fileSize
-      const ariaLabel = `${name} File type: ${extension}. Size: ${filesize}`
-      const supportedIcons = [
-        'ai',
-        'csv',
-        'doc',
-        'docx',
-        'dot',
-        'dotm',
-        'dotx',
-        'eps',
-        'ics',
-        'indd',
-        'pdf',
-        'ppt',
-        'pptx',
-        'tif',
-        'txt',
-        'xls',
-        'xlsx',
-        'zip'
-      ]
-      const icon = supportedIcons.indexOf(fileType) >= 0 ? fileType : 'document'
-      const isExternalLink = !isRelativeUrl(url)
-      let documentlink = `
-      <figure class="rpl-markup__document-link">
-        <rpl-text-link class="rpl-markup__document-link-link" aria-label="${ariaLabel}" link="${url}" :icon="false" :underline="false" download="${
-        isExternalLink ? 'false' : ''
-      }" target="_blank">
-          ${
-            icon
-              ? `<svg-icon role="presentation" class="rpl-markup__document-link-icon" name="${icon}" width="30px" height="30px"></svg-icon>`
-              : ''
-          }
-          <div class="rpl-markup__document-link-info">
-            <span class="rpl-markup__document-link-title">${name}</span>
-            <div class="rpl-markup__document-link-meta">
-              ${
-                extension
-                  ? `<span class="rpl-markup__document-link-type">${extension}</span>`
-                  : ''
-              }
-              ${
-                filesize
-                  ? `<span class="rpl-markup__document-link-size${
-                      extension && filesize
-                        ? ' rpl-markup__document-link-size--seperator'
-                        : ''
-                    }">${filesize}</span>`
-                  : ''
-              }
-            </div>
-          </div>
-        </rpl-text-link>
-        ${
-          caption
-            ? `<figcaption class="rpl-markup__document-link-caption">${_escapeQuotes(
-                caption
-              )}</figcaption>`
-            : ''
-        }
-      </figure>
-      `
+      const documentlink = `<rpl-document-link name="${_escapeQuotes(fileName)}" extension="${fileType}" filesize="${fileSize}" url="${url}" caption="${_escapeQuotes(caption)}" updated="${updated}"></rpl-document-link>`
       return el.replaceWith(documentlink)
     }
     return el
   })
 }
 
-// const parseForLinks = function () {
-//   // Give h2 headings an id so they can be linked to
-//   this.find('h2').map((i, element) => {
-//     const el = this.find(element)
-//     const idName = el.text()
-//     return el.attr('id', idName)
-//   })
-// }
-
-const pluginImage = function () {
-  // wrap iframes
-  this.find('.embedded-entity--media--image').map((i, el) => {
-    const $container = this.find(el)
-    if ($container) {
-      const $img = $container.find('img')
-      const height = $img.attr('height')
-      const src = $img.attr('src')
-      const alt = $img.attr('alt')
-      return $container.replaceWith(
-        `<div class="rpl-markup__image"><rpl-responsive-img src="${src}" alt="${alt}" :height="${height}" fit="contain" :blur="true" :srcset="[375, 696, 696, 1200]" width="818" ></rpl-responsive-img></div>`
-      )
-    }
+const parseForLinks = function () {
+  // Give h2 and h3 headings an id so they can be linked to
+  this.find('h2,h3').map((i, element) => {
+    const el = this.find(element)
+    const idName = el.text()
+    return el.attr('id', getAnchorLinkName(idName))
   })
 }
 
 const pluginIframe = function () {
-  // wrap iframes
+  // wrap iFrames
+  const wrapperClasses = ['rpl-markup__iframe-container']
   this.find('iframe').map((i, el) => {
-    const $iframe = this.find(el)
-    if ($iframe.hasClass('rpl-markup__embedded-video-frame') !== true) {
-      return $iframe.wrap(`<div class="rpl-markup__iframe-container"></div>`)
+    const iframe = this.find(el)
+    // If no height setting from CMS, we give it a default height.
+    if (!iframe.attr('height')) {
+      wrapperClasses.push('rpl-markup__iframe-container--default')
     }
+    const markup = `<div class="${wrapperClasses.join(' ')}"></div>`
+    return iframe.wrap(markup)
   })
 }
 
 const pluginEmbeddedMediaVideo = function () {
-  // wrap iframes
+  const embeddedMediaVideoData = {}
+  // wrap iFrames
   this.find('.embedded-entity--media--embedded-video').map((i, el) => {
     // Component data
+    const data = {}
+    const dataName = `embeddedMediaVideoData${i}`
+
     const element = this.find(el)
     const iframe = element.find('iframe')
     const height = iframe.attr('height')
@@ -231,59 +145,75 @@ const pluginEmbeddedMediaVideo = function () {
     const transcript = figcaption ? figcaption.text() : null
     const link = element.find('.field--name-field-media-link a')
     // For Obj type props, using data to pass value to avoid HTML syntax and encoding issue.
-    const mediaLink = link
-      ? { text: link.text(), url: link.attr('href') }
-      : null
-    const variant = mediaLink ? 'link' : 'full'
+    data.mediaLink = link && link.is('a') ? { text: link.text(), url: link.attr('href') } : null
 
-    let html = `
-    <div class="rpl-markup__embedded-video">
-      <div class="rpl-markup__embedded-video-iframe-container">
-        <iframe class="rpl-markup__embedded-video-frame" width="${width}" height="${height}" src="${src}" allowfullscreen></iframe>
-      </div>
-    `
-    if (variant === 'link') {
-      html += `
-      <div class="rpl-markup__embedded-video-link">
-        <rpl-text-link link="${mediaLink.url}" :icon="false">${mediaLink.text}</rpl-text-link>
-      </div>
-      `
-    }
-    if (variant === 'full' || transcript) {
-      html += `<div class="rpl-markup__embedded-video-transcript">${transcript}</div>`
-    }
-    html += `</div>`
-    return element.replaceWith(html)
+    // Add each video component data into return result.
+    embeddedMediaVideoData[dataName] = data
+
+    const RplEmbeddedVideo = `<rpl-embedded-video
+width="${width}"
+height="${height}"
+src="${src}"
+class="rpl-markup__embedded-video"
+variant="${data.mediaLink ? 'link' : 'full'}"
+:display-transcript="true"
+${data.mediaLink ? ':media-link="' + dataName + '.mediaLink"' : ''}
+${transcript ? 'transcript="' + _escapeQuotes(transcript) + '"' : ''}
+/>`
+    return element.replaceWith(RplEmbeddedVideo)
   })
+
+  // Return data
+  return embeddedMediaVideoData
 }
 
 const pluginLinks = function () {
+  const linkData = {}
   this.find('a').map((i, el) => {
+    // Component data
+    const data = {}
+    const dataName = `linkData${i}`
     const $a = this.find(el)
-    const href = $a.attr('href')
-    const isRelative = isRelativeUrl(href)
-    const text = $a.text()
-    const target = $a.attr('target')
+    data.target = $a.attr('target')
+    data.href = $a.attr('href')
+    data.text = $a.text()
 
-    const attributes = []
-    attributes.push(!isRelative ? `icon="external"` : `:icon="false"`)
-    if (href) {
-      attributes.push(`link="${href}"`)
+    // Add each video component data into return result.
+    linkData[dataName] = data
+    let theme = 'primary'
+    let a
+    if (data.target) {
+      a = `<rpl-text-link :url="${dataName}.href" theme="${theme}" :target="${dataName}.target" :text="${dataName}.text"></rpl-text-link>`
+    } else {
+      a = `<rpl-text-link :url="${dataName}.href" theme="${theme}" :text="${dataName}.text"></rpl-text-link>`
     }
-    if (target) {
-      attributes.push(`target="${target}"`)
-    }
-    let a = `<rpl-text-link ${attributes.join(' ')}>${_escapeQuotes(text)}</rpl-text-link>`
+
     return $a.replaceWith(a)
   })
+  // Return data
+  return linkData
+}
+
+const pluginReplaceUnicodeWhitespace = function () {
+  // Match text nodes only
+  this.find('*')
+    .map((i, n) => n.children)
+    .filter((i, n) => n.type === 'text')
+    .map((i, node) => {
+      // Iterate through mapping and replace raw codepoint with entity
+      codepointMap.map(({ codepoint, entity }) => {
+        node.data = node.data.replace(new RegExp(String.fromCodePoint(codepoint), 'g'), entity)
+      })
+    })
 }
 
 export default [
+  parseForLinks,
   pluginButton,
   pluginEmbeddedDocument,
   pluginEmbeddedMediaVideo,
   pluginIframe,
-  pluginImage,
   pluginLinks,
+  pluginReplaceUnicodeWhitespace,
   pluginTables
 ]

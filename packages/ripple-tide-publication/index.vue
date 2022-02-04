@@ -46,3 +46,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.rpl-page .rpl-above-content {
+  background-size: auto;
+}
+</style>

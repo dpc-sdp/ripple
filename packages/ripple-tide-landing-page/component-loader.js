@@ -12,5 +12,7 @@ export default {
   'rpl-timeline': () => import(/* webpackChunkName: 'rpl-timeline' */ '@dpc-sdp/ripple-timeline'),
   'rpl-related-links': () => import(/* webpackChunkName: 'rpl-related-links' */ '@dpc-sdp/ripple-related-links'),
   'rpl-whats-next': () => import(/* webpackChunkName: 'rpl-whats-next' */ '@dpc-sdp/ripple-whats-next'),
-  'rpl-share-this': () => import(/* webpackChunkName: 'rpl-share-this' */ '@dpc-sdp/ripple-share-this')
+  'rpl-share-this': () => import(/* webpackChunkName: 'rpl-share-this' */ '@dpc-sdp/ripple-share-this'),
+  'rpl-text-link': () => import(/* webpackChunkName: 'rpl-link' */ '@dpc-sdp/ripple-link').then(m => m.RplTextLink),
+  'rpl-embedded-video': () => import(/* webpackChunkName: 'rpl-embedded-video */ '@dpc-sdp/ripple-embedded-video')
 }

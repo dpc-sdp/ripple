@@ -56,6 +56,7 @@ import { clientClearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/mod
 import { isPreviewPath, isShareLinkPath } from '@dpc-sdp/ripple-nuxt-tide/lib/core/path'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
+import GridTest from '@dpc-sdp/ripple-nuxt-tide/lib/layouts/grid-test'
 
 export default {
   components: {
@@ -120,6 +121,8 @@ export default {
       this.anchorScrollFix(this.$route.hash)
     }
     RplLinkEventBus.$on('navigate', this.onNavigate)
+
+    GridTest()
   },
   methods: {
     onNavigate () {

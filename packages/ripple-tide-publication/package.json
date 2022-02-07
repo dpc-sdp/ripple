@@ -1,15 +1,11 @@
 {
   "name": "@dpc-sdp/ripple-tide-publication",
   "version": "1.27.2",
-  "description": "Tide mappings for Publication content type",
+  "description": "Tide mappings for publication content type",
   "license": "Apache-2.0",
   "main": "index.js",
   "type": "module",
   "dependencies": {
-    "@dpc-sdp/ripple-embedded-video": "^1.27.2",
-    "@dpc-sdp/ripple-link": "^1.27.2",
-    "@dpc-sdp/ripple-markup": "^1.27.2",
-    "@dpc-sdp/ripple-tide-api": "^1.27.2",
-    "@dpc-sdp/ripple-tide-landing-page": "^1.27.2"
+    "@dpc-sdp/ripple-tide-api": "^1.27.2"
   }
 }

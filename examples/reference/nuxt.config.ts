@@ -15,8 +15,10 @@ const config: NuxtConfig = {
   modules: [
     '@dpc-sdp/ripple-nuxt',
     ['@dpc-sdp/ripple-tide-api', {
-      modules: {
+      contentTypes: {
         landing_page: '@dpc-sdp/ripple-tide-landing-page',
+        publication: '@dpc-sdp/ripple-tide-publication',
+        publication_page: '@dpc-sdp/ripple-tide-publication',
         event: '@dpc-sdp/ripple-tide-event',
         grant: '@dpc-sdp/ripple-tide-grant',
         publication: '@dpc-sdp/ripple-tide-publication'

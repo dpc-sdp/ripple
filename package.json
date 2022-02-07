@@ -3,14 +3,13 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "examples/*",
-    "docs"
+    "examples/*"
   ],
   "scripts": {
     "example": "wrap () { yarn workspace example-\"$*\" dev | cat; }; wrap",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "dev": "concurrently \"yarn example reference\" \"yarn storybook\" \"yarn workspace @dpc-sdp/ripple-tide-api watch:build\"",
+    "storybook:build": "build-storybook",
+    "dev": "concurrently \"yarn workspace @dpc-sdp/ripple-tide-api watch:build\" \"yarn workspace @dpc-sdp/ripple-ui-core watch:build\" \"yarn workspace reference dev\"",
     "clean": "git clean -dfx && git reset --hard && yarn"
   },
   "devDependencies": {
@@ -21,7 +20,9 @@
     "@storybook/vue3": "^6.3.12",
     "babel-loader": "^8.2.3",
     "lerna": "^4.0.0",
+    "storybook-builder-vite": "^0.1.11",
     "typescript": "^4.4.4",
+    "vue-eslint-parser": "^8.0.1",
     "vue-loader": "^16.8.3"
   },
   "engines": {

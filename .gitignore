@@ -5,6 +5,7 @@ dist
 dist-ssr
 .DS_Store
 coverage
+dist-types
 
 # Typescript
 tsconfig.tsbuildinfo

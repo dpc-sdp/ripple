@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- Remove this component to get started! -->
+    <RplButton label="test" theme="primary" />
     <NuxtWelcome />
-    <RplButton label="test" :primary="true" />
   </div>
 </template>
 

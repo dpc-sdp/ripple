@@ -1,2 +1,1 @@
-export * from './lib/async';
-export * from './lib/number';
+export { default as TideApi } from './services/tide-api.js'

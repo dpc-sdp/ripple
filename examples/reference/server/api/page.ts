@@ -1,8 +1,7 @@
-import type { IncomingMessage, ServerResponse } from 'http'
-import { double } from '@dpc-sdp/ripple-tide-api'
+import { TideApi } from '@dpc-sdp/ripple-tide-api'
 
-export default async (req: IncomingMessage, res: ServerResponse) => {
-  return {
-    data: double(2),
-  }
+const tideApi = new TideApi({ site: 4 })
+
+export default (req, res) => {
+  return `test ${tideApi.get('/test')}`
 }

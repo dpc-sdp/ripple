@@ -1,16 +1,18 @@
 {
   "private": true,
-  "name": "example-reference",
+  "name": "reference",
   "version": "0.0.0",
   "scripts": {
-    "dev": "nuxt dev",
-    "build": "nuxt build",
+    "dev": "nuxi dev",
+    "build": "nuxi build",
     "compile": "tsc --build",
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "0.0.0",
-    "@dpc-sdp/ripple-ui-core": "0.0.0"
+    "@dpc-sdp/ripple-ui-core": "0.0.0",
+    "dotenv": "^14.3.2",
+    "std-env": "^3.0.1"
   },
   "devDependencies": {
     "nuxt3": "latest"

@@ -39,3 +39,9 @@ Secondary.args = {
   ...Primary.args,
   theme: 'secondary'
 }
+
+export const Tertiary = Template.bind({})
+Tertiary.args = {
+  ...Primary.args,
+  theme: 'tertiary'
+}

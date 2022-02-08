@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import './button.module.css'
+import './button.css'
 
 defineProps({
   /*
@@ -19,11 +19,7 @@ defineProps({
 </script>
 
 <template>
-  <button
-    type="button"
-    class="test"
-    :className="`rpl-button rpl-button--${theme}`"
-  >
-    I'm a button, my prop is {{ label }} sdfsdf
+  <button type="button" :className="`rpl-button rpl-button--${theme}`">
+    I'm a button, my prop is {{ label }} TESTS
   </button>
 </template>

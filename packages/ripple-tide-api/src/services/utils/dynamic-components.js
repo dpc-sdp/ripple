@@ -27,6 +27,7 @@ export const getHeaderComponents = async src => {
   if (headerComponents.length > 0) {
     components.push(...headerComponents)
   }
+
   // campaign primary
   if (src.field_landing_page_c_primary) {
     const campaignPrimary = headerComponentMapping[
@@ -39,6 +40,7 @@ export const getHeaderComponents = async src => {
 
 export const getSideBarComponents = src => {
   const sidebar = []
+
   if (src.field_show_related_content) {
     sidebar.push({
       component: 'rpl-related-links',
@@ -50,6 +52,7 @@ export const getSideBarComponents = src => {
       }
     })
   }
+
   if (src.field_show_whats_next) {
     sidebar.push({
       component: 'rpl-whats-next',
@@ -61,6 +64,7 @@ export const getSideBarComponents = src => {
       }
     })
   }
+
   if (src.field_landing_page_show_contact && src.field_landing_page_contact &&
       src.field_landing_page_contact.length > 0) {
     const contact = src.field_landing_page_contact[0]
@@ -79,6 +83,7 @@ export const getSideBarComponents = src => {
       }
     })
   }
+
   if (src.field_show_social_sharing) {
     sidebar.push({
       component: 'rpl-share-this',

@@ -1,7 +1,7 @@
 import mime from 'mime-types'
 import { getField, getLinkFromField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api/src/services/utils'
 import { extractAudiences } from './utils'
-import { getSideBarComponents } from '@dpc-sdp/ripple-tide-landing-page/utils'
+import { getSideBarComponents } from '@dpc-sdp/ripple-tide-api/src/services/utils/dynamic-components'
 
 export default {
   pageComponent: () => import(/* webpackMode: "eager" */ '@dpc-sdp/ripple-tide-grant/index.vue'),

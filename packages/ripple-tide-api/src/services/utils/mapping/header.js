@@ -8,7 +8,7 @@ export default {
     class: 'rpl-site-constrain--on-all',
     props: {
       'title': getField(field, 'field_paragraph_title'),
-      'introText': getField(field, ['field_paragraph_body', 'processed'], ''),
+      'introText': getField(field, ['field_paragraph_body', 'processed'], '').html,
       'linkHeading': getField(field, 'field_call_to_action_title'),
       'links': getField(field, 'field_paragraph_links', []).map(l => getLinkFromField(l)),
       'showLinks': true,
@@ -35,7 +35,7 @@ export default {
     component: 'rpl-campaign-primary',
     props: {
       title: getField(field, 'field_block_title'),
-      summary: getBodyFromField(field, 'body'),
+      summary: getBodyFromField(field, 'body').html,
       link: getLinkFromField(field, 'field_block_cta'),
       image: getImageFromField(field, 'field_block_image'),
       caption: () => {

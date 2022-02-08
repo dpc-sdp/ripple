@@ -27,7 +27,7 @@ import { RplPublicationPagination, RplPublicationAuthorInformation } from '@dpc-
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplCardNavigation } from '@dpc-sdp/ripple-card'
 
-import PageComponents from '@dpc-sdp/ripple-tide-landing-page/page-components.vue'
+import PageComponents from '@dpc-sdp/ripple-tide-api/src/services/utils/page-components.vue'
 
 export default {
   components: {
@@ -48,7 +48,8 @@ export default {
 </script>
 
 <style lang="scss">
-.rpl-page .rpl-above-content {
-  background-size: auto;
+.publication .rpl-above-content {
+  background-position: 0 50%;
+  background-size: cover;
 }
 </style>

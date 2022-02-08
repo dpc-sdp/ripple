@@ -1,6 +1,7 @@
 export default {
   'rpl-markup': () => import(/* webpackChunkName: 'rpl-markup' */ '@dpc-sdp/ripple-markup'),
   'rpl-accordion': () => import(/* webpackChunkName: 'rpl-accordion' */ '@dpc-sdp/ripple-accordion'),
+  'rpl-card-nav': () => import(/* webpackChunkName: 'rpl-card' */ '@dpc-sdp/ripple-card').then(m => m.RplCardNav),
   'rpl-card-promo': () => import(/* webpackChunkName: 'rpl-card' */ '@dpc-sdp/ripple-card').then(m => m.RplCardPromo),
   'rpl-card-keydates': () => import(/* webpackChunkName: 'rpl-card' */ '@dpc-sdp/ripple-card').then(m => m.RplCardKeydates),
   'rpl-card-cta': () => import(/* webpackChunkName: 'rpl-card' */ '@dpc-sdp/ripple-card').then(m => m.RplCardCta),
@@ -14,5 +15,6 @@ export default {
   'rpl-whats-next': () => import(/* webpackChunkName: 'rpl-whats-next' */ '@dpc-sdp/ripple-whats-next'),
   'rpl-share-this': () => import(/* webpackChunkName: 'rpl-share-this' */ '@dpc-sdp/ripple-share-this'),
   'rpl-text-link': () => import(/* webpackChunkName: 'rpl-link' */ '@dpc-sdp/ripple-link').then(m => m.RplTextLink),
-  'rpl-embedded-video': () => import(/* webpackChunkName: 'rpl-embedded-video */ '@dpc-sdp/ripple-embedded-video')
+  'rpl-embedded-video': () => import(/* webpackChunkName: 'rpl-embedded-video */ '@dpc-sdp/ripple-embedded-video'),
+  'rpl-complex-image': () => import(/* webpackChunkName: 'rpl-image-gallery */ '@dpc-sdp/ripple-image-gallery').then(m => m.RplComplexImage)
 }

@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import PageComponents from './page-components.vue'
+import PageComponents from '@dpc-sdp/ripple-tide-api/src/services/utils/page-components.vue'
 
 export default {
   components: {

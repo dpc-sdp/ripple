@@ -12,7 +12,7 @@ export default {
     return {
       component: 'rpl-markup',
       props: {
-        html: getBodyFromField(field, 'field_paragraph_body'),
+        ...getBodyFromField(field, 'field_paragraph_body'),
         plugins: [],
         options: {}
       }
@@ -32,7 +32,7 @@ export default {
                   ['field_paragraph_accordion_name'],
                   ''
                 ),
-                content: getBodyFromField(content, 'field_paragraph_accordion_body')
+                content: getBodyFromField(content, 'field_paragraph_accordion_body').html
               }
             }
           }),
@@ -118,6 +118,27 @@ export default {
           description: getBodyFromField(item, ['field_paragraph_body'])
         }
       })
+    }
+  }),
+  'paragraph--complex_image': (field) => ({
+    component: 'rpl-complex-image',
+    props: {
+      title: getField(field, 'field_complex_image_title', ''),
+      source: getField(field, 'field_complex_image_source', ''),
+      html: getBodyFromField(field, 'field_complex_image_data').html,
+      fullscreen: getField(field, 'field_complex_image_full_label', ''),
+      download: getField(field, 'field_complex_image_dl_label', ''),
+      expand: getField(field, 'field_complex_image_data_label', ''),
+      expandTitle: getField(field, 'field_complex_image_title', ''),
+      image: getImageFromField(field, 'field_complex_image_media')
+    }
+  }),
+  'paragraph--navigation_card': (field) => ({
+    component: 'rpl-card-nav',
+    props: {
+      title: getField(field, 'field_paragraph_link.internal_node_fields.title', ''),
+      summary: getField(field, 'field_paragraph_link.internal_node_fields.summary'),
+      link: getLinkFromField(field, 'field_paragraph_link', '')
     }
   })
 }

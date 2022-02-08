@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
+import './button.module.css'
 
 defineProps({
-  /* 
+  /*
   When someone installs and imports our MyButton.vue component form our library,
   Volar should offer "primary" and "secondary" autocompletions for it
   */
   theme: {
-    type: String as PropType<'primary' | 'secondary'>,
+    type: String as PropType<'primary' | 'secondary' | 'tertiary'>,
     default: 'primary'
   },
   label: {
@@ -16,8 +17,13 @@ defineProps({
   }
 })
 </script>
+
 <template>
-  <button type="button" :className="`rpl-button--${theme}`">
+  <button
+    type="button"
+    class="test"
+    :className="`rpl-button rpl-button--${theme}`"
+  >
     I'm a button, my prop is {{ label }} sdfsdf
   </button>
 </template>

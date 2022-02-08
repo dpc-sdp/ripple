@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!-- Remove this component to get started! -->
-    <RplButton label="test" theme="primary" />
+    <RplButton label="tests" :theme="'tertiary'" />
     <NuxtWelcome />
   </div>
 </template>

@@ -15,8 +15,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "yarn clean && vue-tsc --declaration --emitDeclarationOnly && vite build",
-    "watch:build": "yarn clean && vue-tsc --emitDeclarationOnly && vite build --watch",
+    "build": "yarn clean && yarn types && vite build",
+    "types": "vue-tsc --declaration --emitDeclarationOnly",
+    "watch:build": "yarn types && vite build --watch",
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
     "serve": "vite preview"
   },

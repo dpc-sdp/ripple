@@ -16,12 +16,11 @@ const config: NuxtConfig = {
     '@dpc-sdp/ripple-nuxt',
     ['@dpc-sdp/ripple-tide-api', {
       contentTypes: {
-        landing_page: '@dpc-sdp/ripple-tide-landing-page',
-        publication: '@dpc-sdp/ripple-tide-publication',
-        publication_page: '@dpc-sdp/ripple-tide-publication',
         event: '@dpc-sdp/ripple-tide-event',
         grant: '@dpc-sdp/ripple-tide-grant',
-        publication: '@dpc-sdp/ripple-tide-publication'
+        landing_page: '@dpc-sdp/ripple-tide-landing-page',
+        publication: '@dpc-sdp/ripple-tide-publication',
+        publication_page: '@dpc-sdp/ripple-tide-publication'
       },
       siteMapping: '/tide-api/site',
       debug: process.env.NODE_ENV === 'development',

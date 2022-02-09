@@ -704,11 +704,40 @@ module.exports = class ContentCollection {
     switch (schemaField.type) {
       case 'basic':
         const field = this.cloneObject(schemaField.options)
-        field.styleClasses = schemaField.additionalClasses
+        field.styleClasses = this.getExposedFilterFieldClass(schemaField)
         returnFilterField = field
         break
     }
     return returnFilterField
+  }
+
+  getExposedFilterFieldClass (schemaField) {
+    let returnClasses = []
+    if (schemaField.additionalClasses) {
+      returnClasses = returnClasses.concat(schemaField.additionalClasses)
+    }
+    if (this.config.interface.filters?.defaultStyling) {
+      const filterCount = this.config.interface.filters.fields.length
+      let suffix = ''
+      if (this.envConfig?.sidebar) {
+        suffix = (filterCount === 1) ? 'full' : '2'
+      } else {
+        switch (filterCount) {
+          case 1:
+          case 2:
+            suffix = '2'
+            break
+          case 4:
+            suffix = '4'
+            break
+          default:
+            suffix = '3'
+            break
+        }
+      }
+      returnClasses.push(`app-content-collection__form-col-${suffix}`)
+    }
+    return returnClasses
   }
 
   getExposedFilterSubmissionGroup () {

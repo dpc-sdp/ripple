@@ -26,4 +26,3 @@ tsconfig.tsbuildinfo
 *.sublime-workspace
 nbproject
 Thumbs.db
-/.vscode/

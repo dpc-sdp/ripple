@@ -3,9 +3,9 @@ node_modules
 .nuxt
 dist
 dist-ssr
+dist-types
 .DS_Store
 coverage
-dist-types
 
 # Typescript
 tsconfig.tsbuildinfo

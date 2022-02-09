@@ -11,7 +11,7 @@
   "keywords": [],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "watch:build": "tsc -p tsconfig.json -w"
+    "watch": "tsc -p tsconfig.json -w"
   },
   "engines": {
     "node": ">=10"

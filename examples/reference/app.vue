@@ -1,16 +1,10 @@
 <template>
   <div>
-    <RplButton label="tests" :theme="'tertiary'" />
+    <RplButton label="tests" :theme="'primary'" />
+    <RplAccordion
+      title="test"
+      :panels="[{ title: 'test', content: 'asdasdasd', isOpen: true, id: 1 }]"
+    ></RplAccordion>
     <NuxtWelcome />
   </div>
 </template>
-
-<script lang="ts">
-import { RplButton } from '@dpc-sdp/ripple-ui-core'
-
-export default {
-  components: {
-    RplButton
-  }
-}
-</script>

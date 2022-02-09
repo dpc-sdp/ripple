@@ -1,0 +1,5 @@
+.rpl-accordion {
+  &__list-item {
+    border: 1px solid red;
+  }
+}

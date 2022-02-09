@@ -15609,6 +15609,13 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
+vite-dts@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vite-dts/-/vite-dts-1.0.4.tgz#aa5b76940be48515371f38d5504861ee5d73a6d5"
+  integrity sha512-jfRsrBU8vibUS4a/AboDzHdph2/9/dpoMdYgkiD5tb4OXL75wnlzeEZ6D2XoEZNExwnkXqARKAvz7pv5VtUm5g==
+  dependencies:
+    load-json-file "^6.2.0"
+
 vite-plugin-copy@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/vite-plugin-copy/-/vite-plugin-copy-0.1.6.tgz#863ee81f7771b099122d24b954725d8e7e604a80"

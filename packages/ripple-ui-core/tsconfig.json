@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noImplicitAny": false,
-    "outDir": "dist-types",
+    "outDir": "dist",
     "baseUrl": "./",
     "target": "esnext",
     "useDefineForClassFields": true,
@@ -13,13 +13,12 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/components/**/*.vue"
-  ]
+  "include": ["env.d.ts", "src/nuxt.ts"]
 }

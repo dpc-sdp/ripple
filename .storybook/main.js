@@ -7,7 +7,6 @@ module.exports = {
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   async viteFinal(config, { configType }) {
     // customize the Vite config here
-    console.log(config)
     return config
   }
 }

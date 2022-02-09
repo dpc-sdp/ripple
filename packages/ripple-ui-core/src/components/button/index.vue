@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import './button.css'
 
 defineProps({
   /*
@@ -8,7 +7,7 @@ defineProps({
   Volar should offer "primary" and "secondary" autocompletions for it
   */
   theme: {
-    type: String as PropType<'primary' | 'secondary' | 'tertiary'>,
+    type: String as PropType<'primary' | 'secondary'>,
     default: 'primary'
   },
   label: {
@@ -20,6 +19,10 @@ defineProps({
 
 <template>
   <button type="button" :className="`rpl-button rpl-button--${theme}`">
-    I'm a button, my prop is {{ label }} TESTS
+    I'm a button, my label is {{ label }}
   </button>
 </template>
+
+<style>
+@import './button.css';
+</style>

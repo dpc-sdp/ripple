@@ -2,30 +2,36 @@
   "name": "@dpc-sdp/ripple-ui-core",
   "version": "0.0.0",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
-  "main": "./dist/ripple-ui-core.umd.js",
-  "module": "./dist/ripple-ui-core.es.js",
+  "main": "./dist/lib/index.umd.js",
+  "module": "./dist/lib/index.es.js",
   "typings": "./dist-types/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/ripple-ui-core.es.js",
-      "require": "./dist/ripple-ui-core.umd.js"
+    "./nuxt": "./dist/nuxt.js",
+    "./lib": {
+      "export": "./dist/rpl-lib-es.js",
+      "require": "./dist/rpl-lib-umd.js"
+    },
+    "./webcomponents": {
+      "export": "./dist/rpl-wc-es.js",
+      "require": "./dist/rpl-wc-umd.js"
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "yarn clean && yarn types && vite build",
-    "types": "vue-tsc --declaration --emitDeclarationOnly",
-    "watch:build": "yarn types && vite build --watch",
+    "build": "yarn clean && yarn build:types && yarn build:lib && yarn build:wc && cp -R src/components dist",
+    "build:types": "tsc -p tsconfig.json",
+    "build:lib": "vite build",
+    "build:wc": "vite build --config wc.vite.config.ts",
+    "types:check": "vue-tsc --noEmit",
+    "watch": "yarn types && vite build --watch",
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "serve": "vite preview"
+    "preview": "vite preview"
   },
   "dependencies": {
     "vue": "^3.2.16"
-  },
-  "publishConfig": {
-    "main": "./dist/ripple-ui-core.umd.js"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
@@ -33,6 +39,8 @@
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-delete": "^2.0.0",
     "vite": "^2.6.4",
+    "vite-dts": "^1.0.4",
+    "vite-plugin-copy": "^0.1.6",
     "vue-tsc": "^0.31.2"
   }
 }

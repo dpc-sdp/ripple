@@ -8,5 +8,6 @@ export default defineNuxtConfig({
   },
   publicRuntimeConfig: {
     SITEID: 4
-  }
+  },
+  buildModules: ['@dpc-sdp/ripple-ui-core/nuxt']
 })

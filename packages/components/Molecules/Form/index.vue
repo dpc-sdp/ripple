@@ -276,13 +276,17 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
   .radio-list {
     label {
       @include rpl_typography_ruleset($rpl-form-text-ruleset);
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      margin-right: $rpl-space-4;
     }
 
     input[type="radio"]:not(.rpl-option-button__radio) {
       margin-right: $rpl-space-2;
+
+      [dir="rtl"] & {
+        margin-right: 0;
+        margin-left: $rpl-space-2;
+      }
     }
   }
 

@@ -104,7 +104,6 @@ import Trap from 'vue-focus-lock'
 import vicLogoPrimary from '@dpc-sdp/ripple-global/assets/images/logo-primary.png'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import RplSiteHeaderEventBus from './RplSiteHeaderEventBus'
-import RplSkipLink from '@dpc-sdp/ripple-layout/SkipLink.vue'
 
 export default {
   name: 'RplSiteHeader',
@@ -160,8 +159,7 @@ export default {
     RplIcon,
     RplLink,
     RplMenu,
-    RplSearch,
-    RplSkipLink
+    RplSearch
   },
   data: function () {
     return {

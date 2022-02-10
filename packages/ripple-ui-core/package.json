@@ -5,8 +5,8 @@
     "dist",
     "src"
   ],
-  "main": "./dist/lib/index.umd.js",
-  "module": "./dist/lib/index.es.js",
+  "main": "./dist/rpl-lib-umd.js",
+  "module": "./dist/rpl-lib-es.js",
   "typings": "./dist-types/index.d.ts",
   "exports": {
     "./nuxt": "./dist/nuxt.js",
@@ -31,6 +31,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss-nested": "^5.0.6",
     "vue": "^3.2.16"
   },
   "devDependencies": {

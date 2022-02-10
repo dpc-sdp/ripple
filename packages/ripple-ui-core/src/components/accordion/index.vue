@@ -1,5 +1,5 @@
 <script lang="ts">
-type Panel = {
+export type Panel = {
   id: number
   title: string
   isOpen: Boolean

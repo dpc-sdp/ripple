@@ -1,5 +1,9 @@
 .rpl-accordion {
+  border: 1px solid pink;
   &__list-item {
-    border: 1px solid red;
+    border: 1px solid green;
+  }
+  &__button-text {
+    font-weight: bold;
   }
 }

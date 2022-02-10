@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "files": [
     "dist",
-    "src"
+    "src",
+    "./postcssrc.json",
+    "README.md"
   ],
   "main": "./dist/rpl-lib-umd.js",
   "module": "./dist/rpl-lib-es.js",
@@ -21,7 +23,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "yarn clean && yarn build:types && yarn build:lib && yarn build:wc && cp -R src/components dist",
+    "build": "yarn clean && yarn build:types && yarn build:lib && yarn build:wc",
     "build:types": "tsc -p tsconfig.json",
     "build:lib": "vite build",
     "build:wc": "vite build --config wc.vite.config.ts",
@@ -38,8 +40,6 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
     "postcss-nested": "^5.0.6",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-delete": "^2.0.0",
     "vite": "^2.6.4",
     "vite-dts": "^1.0.4",
     "vite-plugin-copy": "^0.1.6",

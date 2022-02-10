@@ -2,7 +2,7 @@
   "compilerOptions": {
     "noImplicitAny": false,
     "outDir": "dist",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",

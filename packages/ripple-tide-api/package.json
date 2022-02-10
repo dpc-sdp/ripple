@@ -21,14 +21,8 @@
   },
   "devDependencies": {
   },
-  "publishConfig": {
-    "access": "public",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
-  },
   "files": [
-    "dist/main",
-    "dist/module",
+    "dist",
     "!**/*.spec.*",
     "!**/*.json",
     "CHANGELOG.md",

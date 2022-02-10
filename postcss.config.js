@@ -1,3 +1,1 @@
-module.exports = {
-  plugins: [require('autoprefixer'), require('postcss-nested')],
-}
+module.exports = require('./packages/ripple-ui-core/.postcssrc.json')

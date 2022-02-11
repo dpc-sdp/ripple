@@ -28,7 +28,7 @@
     "build:lib": "vite build",
     "build:wc": "vite build --config wc.vite.config.ts",
     "types:check": "vue-tsc --noEmit",
-    "watch": "yarn types && vite build --watch",
+    "watch": "yarn build:types && vite build --watch",
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
     "preview": "vite preview"
   },

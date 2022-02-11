@@ -9,7 +9,7 @@
     "example": "wrap () { yarn workspace example-\"$*\" dev | cat; }; wrap",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "dev": "concurrently \"yarn workspace @dpc-sdp/ripple-tide-api watch:build\" \"yarn storybook\" \"yarn workspace reference dev\"",
+    "dev": "concurrently \"yarn workspace @dpc-sdp/ripple-ui-core watch\" \"yarn workspace @dpc-sdp/ripple-tide-api watch\" \"yarn storybook\" \"yarn workspace reference dev\"",
     "clean": "git clean -dfx && git reset --hard && yarn"
   },
   "devDependencies": {

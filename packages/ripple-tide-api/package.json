@@ -10,16 +10,17 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "watch": "tsc -p tsconfig.json -w"
+    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
+    "build": "yarn clean && tsc -p tsconfig.json",
+    "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "engines": {
     "node": ">=10"
   },
   "dependencies": {
-
   },
   "devDependencies": {
+    "rimraf": "^3.0.2"
   },
   "files": [
     "dist",

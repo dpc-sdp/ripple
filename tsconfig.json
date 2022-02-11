@@ -4,16 +4,17 @@
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
     "strict": false,
     "allowJs": true,
     "noUnusedLocals": true,
     "resolveJsonModule": true,
     "baseUrl": "./packages",
     "paths": {
-      "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"],
+      "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"]
       // "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"],
     }
   }

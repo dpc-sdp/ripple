@@ -2,14 +2,11 @@
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": [
-    "packages/*",
-    "examples/*"
-  ],
+  "packages": ["packages/*", "examples/*"],
   "command": {
     "publish": {
-       "conventionalCommits": true,
-       "yes": true
+      "conventionalCommits": true,
+      "yes": true
     }
   }
 }

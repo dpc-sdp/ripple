@@ -1,21 +1,48 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "version": "0.0.0",
-  "main": "src/index",
+  "files": [
+    "dist",
+    "src",
+    "./postcssrc.json",
+    "README.md"
+  ],
+  "main": "./dist/rpl-lib-umd.js",
+  "module": "./dist/rpl-lib-es.js",
+  "typings": "./dist-types/index.d.ts",
+  "exports": {
+    "./nuxt": "./dist/nuxt.js",
+    "./lib": {
+      "export": "./dist/rpl-lib-es.js",
+      "require": "./dist/rpl-lib-umd.js"
+    },
+    "./webcomponents": {
+      "export": "./dist/rpl-wc-es.js",
+      "require": "./dist/rpl-wc-umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
-    "build": "yarn clean && vue-tsc --noEmit && vite build",
-    "watch": "yarn clean && vue-tsc --noEmit && vite build --watch",
-    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
-    "serve": "vite preview"
+    "build": "yarn clean && yarn build:types && yarn build:lib && yarn build:wc",
+    "build:types": "tsc -p tsconfig.json",
+    "build:lib": "vite build",
+    "build:wc": "vite build --config wc.vite.config.ts",
+    "types:check": "vue-tsc --noEmit",
+    "watch": "yarn build:types && vite build --watch",
+    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss-nested": "^5.0.6",
     "vue": "^3.2.16"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
-    "typescript": "^4.4.3",
+    "postcss-nested": "^5.0.6",
     "vite": "^2.6.4",
-    "vue-tsc": "^0.3.0"
+    "vite-dts": "^1.0.4",
+    "vite-plugin-copy": "^0.1.6",
+    "vue-tsc": "^0.31.2"
   }
 }

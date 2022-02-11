@@ -34,6 +34,7 @@
       <rpl-site-footer
         :nav="nav"
         :links="footer.links"
+        :socialLinks="footer.socialLinks"
         :copyright="footer.copyright"
         :acknowledgement="footer.acknowledgement"
         :caption="footerCaption"
@@ -54,6 +55,7 @@ import RplSiteFooter from '@dpc-sdp/ripple-site-footer'
 import RplSiteHeader from '@dpc-sdp/ripple-site-header'
 import { clientClearToken, isAuthenticated } from '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/lib/authenticate'
 import { isPreviewPath, isShareLinkPath } from '@dpc-sdp/ripple-nuxt-tide/lib/core/path'
+import { RPL_SOCIAL_LINK_MAPPING } from '@dpc-sdp/ripple-nuxt-tide/lib/config/constants'
 import { searchPageRedirect } from '@dpc-sdp/ripple-nuxt-tide/modules/search/lib/search/helpers'
 import { RplLinkEventBus } from '@dpc-sdp/ripple-link'
 
@@ -70,6 +72,7 @@ export default {
       nav: _store.state.tide.siteData.hierarchicalMenus.menuMain,
       footer: {
         links: _store.state.tide.siteData.hierarchicalMenus.menuFooter,
+        socialLinks: this.getSocialLinks(_store.state.tide.siteData),
         copyright: _store.state.tide.siteData.field_site_footer_text ? _store.state.tide.siteData.field_site_footer_text.processed : null,
         acknowledgement: _store.state.tide.siteData.field_acknowledgement_to_country ? _store.state.tide.siteData.field_acknowledgement_to_country : null,
         logos: this.getFooterLogos(_store.state.tide.siteData)
@@ -171,6 +174,43 @@ export default {
       }
 
       return logos
+    },
+    /**
+      @function
+      @param siteData sociallinks being pulled from the siteData object
+      @returns cleaned version of socialLinks w/ correct icons populated from url schemas
+    **/
+    getSocialLinks (siteData) {
+      if (!siteData.field_site_social_links) { return null }
+
+      const defaultIcon = 'external_link'
+      const socialLinks = {
+        title: 'Connect with us',
+        children: []
+      }
+
+      let
+        escapedUrl,
+        wildcardedUrl,
+        regex
+
+      socialLinks.children = siteData.field_site_social_links.map(link => {
+        let matches = RPL_SOCIAL_LINK_MAPPING.filter(icon => (
+          icon.matcher_schemes.some(scheme => {
+            escapedUrl = scheme.replace(new RegExp('[-+!<=:?./^$|#,]', 'g'), '\\$&')
+            wildcardedUrl = '^' + escapedUrl.replace(new RegExp('\\*', 'g'), '(.*)') + '$'
+            regex = new RegExp(wildcardedUrl)
+
+            return regex.test(link.uri)
+          })
+        ))
+
+        link.icon = matches.length ? matches[0].provider_icon : defaultIcon
+
+        return link
+      })
+
+      return socialLinks
     }
   },
   created () {

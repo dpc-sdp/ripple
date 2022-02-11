@@ -32,6 +32,7 @@ import fieldRploptionbutton from './fields/fieldRploptionbutton.vue'
 import fieldRplclearform from './fields/fieldRplclearform.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
+import fieldRplhopo from './fields/fieldRplhopo.vue'
 import VueScrollTo from 'vue-scrollto'
 import { RplFormEventBus } from './index.js'
 
@@ -46,6 +47,7 @@ Vue.component('fieldRploptionbutton', fieldRploptionbutton)
 Vue.component('fieldRplclearform', fieldRplclearform)
 Vue.component('fieldRpldivider', fieldRpldivider)
 Vue.component('fieldRplmarkup', fieldRplmarkup)
+Vue.component('fieldRplhopo', fieldRplhopo)
 Vue.component('RplFieldset', RplFieldset)
 
 export default {
@@ -60,6 +62,7 @@ export default {
     fieldRplsubmitloader,
     fieldRploptionbutton,
     fieldRplclearform,
+    fieldRplhopo,
     RplFormAlert,
     RplFieldset
   },

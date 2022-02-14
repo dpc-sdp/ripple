@@ -26,6 +26,7 @@ module.exports = {
           max: 4
         }
       }
-    ]
+    ],
+    'no-prototype-builtins': 'off'
   }
 }

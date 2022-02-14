@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "nuxi dev",
+    "dev:debug": "node --inspect node_modules/.bin/nuxi dev",
     "build": "nuxi build",
     "compile": "tsc --build",
     "start": "node .output/server/index.mjs"

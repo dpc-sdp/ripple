@@ -6,6 +6,9 @@
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "type": "module",
+  "exports": {
+    "./nuxt": "./dist/nuxt.js"
+  },
   "repository": "https://github.com/dylankelly/ripple-tide-api",
   "license": "MIT",
   "keywords": [],
@@ -15,9 +18,15 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "dependencies": {
+    "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+    "axios": "^0.25.0",
+    "h3": "^0.3.9",
+    "jsonapi-parse": "^2.0.1",
+    "lodash.get": "^4.4.2",
+    "qs": "^6.10.3"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
@@ -29,5 +38,6 @@
     "CHANGELOG.md",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "peerDependencies": {}
 }

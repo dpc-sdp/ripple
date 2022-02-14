@@ -1,11 +1,12 @@
 {
-  "version": "independent",
+  "version": "0.0.0",
   "npmClient": "yarn",
+  "exact": true,
   "useWorkspaces": true,
   "packages": ["packages/*", "examples/*"],
   "command": {
     "publish": {
-      "message": "chore(release): publish",
+      "message": "chore(release): publish %s",
       "conventionalCommits": true,
       "yes": true
     }

@@ -5,6 +5,7 @@
   "packages": ["packages/*", "examples/*"],
   "command": {
     "publish": {
+      "message": "chore(release): publish %s",
       "conventionalCommits": true,
       "yes": true
     }

@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "eamodio.gitlens",
     "streetsidesoftware.code-spell-checker",
-    "johnsoncodehk.volar"
+    "johnsoncodehk.volar",
+    "vivaxy.vscode-conventional-commits"
   ]
 }

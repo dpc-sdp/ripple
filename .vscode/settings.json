@@ -4,5 +4,9 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "emmet.includeLanguages": {
     "postcss": "css"
-  }
+  },
+  "conventionalCommits.scopes": [
+    "@dpc-sdp/ripple-tide-api",
+    "@dpc-sdp/ripple-ui-core"
+  ]
 }

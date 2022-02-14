@@ -30,5 +30,6 @@
   "dependencies": {
     "concurrently": "^6.4.0",
     "rimraf": "^3.0.2"
-  }
+  },
+  "version": "0.0.0"
 }

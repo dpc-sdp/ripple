@@ -1,6 +1,5 @@
 <template>
   <div>
-    <test></test>
     <RplButton label="tests" :theme="'secondary'" />
     <RplAccordion title="test" :panels="panels"></RplAccordion>
     <NuxtWelcome />

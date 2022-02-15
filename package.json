@@ -11,10 +11,15 @@
     "storybook:build": "build-storybook",
     "dev": "concurrently \"yarn workspace @dpc-sdp/ripple-ui-core watch\" \"yarn workspace @dpc-sdp/ripple-tide-api watch\" \"yarn storybook\" \"yarn workspace reference dev\"",
     "clean": "git clean -dfx && git reset --hard && yarn",
-    "lint": "eslint . --ext .js, .ts, .vue"
+    "postinstall": "husky install",
+    "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry $NPM_REGISTRY --dist-tag next",
+    "release:prod": "lerna publish --conventional-commits --create-release github",
+    "lint": "eslint . --ext .ts,.vue"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
@@ -23,7 +28,9 @@
     "@typescript-eslint/parser": "^5.12.0",
     "babel-loader": "^8.2.3",
     "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-vue": "^8.4.1",
+    "husky": "^7.0.4",
     "lerna": "^4.0.0",
     "storybook-builder-vite": "^0.1.15",
     "typescript": "^4.4.4",

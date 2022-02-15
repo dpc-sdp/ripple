@@ -14,7 +14,7 @@
     "postinstall": "husky install",
     "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry $NPM_REGISTRY --dist-tag next",
     "release:prod": "lerna publish --conventional-commits --create-release github",
-    "lint": "eslint . --ext .ts,.vue"
+    "lint": "eslint . --ext .ts,.vue && yarn workspace @dpc-sdp/ripple-ui-core stylelint \"**/*.css\""
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

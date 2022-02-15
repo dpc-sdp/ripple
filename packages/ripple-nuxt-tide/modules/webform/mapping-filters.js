@@ -413,6 +413,7 @@ module.exports = {
           group.styleClasses = ['rpl-fieldset--pad']
           group.fields.push({
             // Add a honeypot field to all forms.
+            // Can be made visible/tested by adding `rplhopo-show` to `styleClasses`.
             type: 'rplhopo'
           },
           {

@@ -1,11 +1,9 @@
 <template>
   <rpl-input
     v-model="value"
-    :disabled="schema.disabled"
-    :max="schema.max"
-    :placeholder="schema.placeholder"
-    :readonly="schema.readonly"
-    :icon="schema.icon"
+    :disabled="false"
+    placeholder=""
+    :readonly="false"
     :identifier="getFieldID(schema)"
     autocomplete="off"
     tabindex="-1"

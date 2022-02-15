@@ -75,10 +75,12 @@ export default {
 
       if (formData.honeypot) {
         // If the honeypot field has been filled, add delay and fake a success without further process.
-        setTimeout(() => this.formData.formState = {
-          response: {
-            status: 'success',
-            message: this.formData.messages.success || this.messages.success
+        setTimeout(() => {
+          this.formData.formState = {
+            response: {
+              status: 'other',
+              message: this.formData.messages.success || this.messages.success + ' (HP test)'
+            }
           }
         }, 2000)
       } else {

@@ -10,7 +10,8 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "dev": "concurrently \"yarn workspace @dpc-sdp/ripple-ui-core watch\" \"yarn workspace @dpc-sdp/ripple-tide-api watch\" \"yarn storybook\" \"yarn workspace reference dev\"",
-    "clean": "git clean -dfx && git reset --hard && yarn"
+    "clean": "git clean -dfx && git reset --hard && yarn",
+    "lint": "eslint . --ext .js, .ts, .vue"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

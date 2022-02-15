@@ -1,9 +1,8 @@
+import { getImageFromField } from '@dpc-sdp/ripple-tide-api'
 export default {
   mapping: {
-    /* Name of site */
     name: 'name',
-    /* Logo to use in header */
-    siteLogo: (src): { url: string; meta: string } => {
+    siteLogo: (src) => {
       if (src.field_site_logo) {
         return {
           url: src.field_site_logo.url,
@@ -12,6 +11,27 @@ export default {
       }
     },
     acknowledgement: 'field_prominence_ack_to_country',
+    socialImages: (src) => {
+      const socialImages = {
+        twitter: {},
+        og: {}
+      }
+      if (
+        src.field_site_og_image &&
+        src.field_site_og_image.hasOwnProperty('field_media_image')
+      ) {
+        socialImages.og = getImageFromField(src, ['field_site_og_image'])
+      }
+      if (
+        src.field_site_twitter_image &&
+        src.field_site_twitter_image.hasOwnProperty('field_media_image')
+      ) {
+        socialImages.twitter = getImageFromField(src, [
+          'field_site_twitter_image'
+        ])
+      }
+      return socialImages
+    },
     menus: async function (src) {
       const menuFields = {
         menuMain: 'field_site_main_menu',

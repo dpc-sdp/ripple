@@ -26,7 +26,7 @@ const _filterStructure = function (menus, roots, children) {
  *
  * @private
  */
-const _structureChildren = function (parent, children, i = 0) {
+const _structureChildren = function (parent, children) {
   if (children[parent.uuid]) {
     parent.children = children[parent.uuid]
     parent.children.sort(_sortByWeight)

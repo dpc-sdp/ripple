@@ -7,6 +7,8 @@
     :readonly="schema.readonly"
     :icon="schema.icon"
     :identifier="getFieldID(schema)"
+    autocomplete="off"
+    tabindex="-1"
   />
 </template>
 
@@ -31,8 +33,12 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
   @import "../scss/form";
 
-  .rpl-hopo {
+  .field-rplhopo {
     display: none !important;
+
+    &.rplhopo-show {
+      display: block !important;
+    }
   }
 
 </style>

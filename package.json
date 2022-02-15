@@ -12,7 +12,7 @@
     "dev": "concurrently \"yarn workspace @dpc-sdp/ripple-ui-core watch\" \"yarn workspace @dpc-sdp/ripple-tide-api watch\" \"yarn storybook\" \"yarn workspace reference dev\"",
     "clean": "git clean -dfx && git reset --hard && yarn",
     "postinstall": "husky install",
-    "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry http://localhost:4873/ --dist-tag next",
+    "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry $NPM_REGISTRY --dist-tag next",
     "release:prod": "lerna publish --conventional-commits --create-release github"
   },
   "devDependencies": {

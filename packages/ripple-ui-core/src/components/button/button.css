@@ -4,12 +4,15 @@
 
 .rpl-button {
   border: 4px solid var(--rpl-button-color);
+
   &--primary {
     --rpl-button-color: red;
   }
+
   &--secondary {
     --rpl-button-color: blue;
   }
+
   &--tertiary {
     --rpl-button-color: rebeccapurple;
   }

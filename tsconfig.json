@@ -4,8 +4,8 @@
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "target": "es2017",
-    "module": "commonjs",
+    "target": "es2015",
+    "module": "es2015",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "strict": false,
@@ -13,6 +13,7 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true,
     "baseUrl": "./packages",
+    "types": ["vite/client"],
     "paths": {
       "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"]
       // "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"],

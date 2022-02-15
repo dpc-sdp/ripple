@@ -412,6 +412,10 @@ module.exports = {
           group.fields = []
           group.styleClasses = ['rpl-fieldset--pad']
           group.fields.push({
+            // Add a honeypot field to all forms.
+            type: 'rplhopo'
+          },
+          {
             type: 'rplsubmitloader',
             buttonText: element['#submit__label'] || element['#title'],
             loading: false,

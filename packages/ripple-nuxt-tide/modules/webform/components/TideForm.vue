@@ -73,22 +73,32 @@ export default {
       const formData = this.formData.model
       const formId = this.formData.tideId
 
-      const res = await this.postForm(formId, formData)
-
-      if (res) {
-        this.formData.formState = {
+      if (formData.honeypot) {
+        // If the honeypot field has been filled, add delay and fake a success without further process.
+        setTimeout(() => this.formData.formState = {
           response: {
             status: 'success',
             message: this.formData.messages.success || this.messages.success
           }
-        }
-        // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
-        this.vicPolRedirect()
+        }, 2000)
       } else {
-        this.formData.formState = {
-          response: {
-            status: 'danger',
-            message: this.formData.messages.error || this.messages.error
+        const res = await this.postForm(formId, formData)
+
+        if (res) {
+          this.formData.formState = {
+            response: {
+              status: 'success',
+              message: this.formData.messages.success || this.messages.success
+            }
+          }
+          // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
+          this.vicPolRedirect()
+        } else {
+          this.formData.formState = {
+            response: {
+              status: 'danger',
+              message: this.formData.messages.error || this.messages.error
+            }
           }
         }
       }

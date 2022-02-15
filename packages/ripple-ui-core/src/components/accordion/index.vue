@@ -2,15 +2,15 @@
 export type Panel = {
   id: number
   title: string
-  isOpen: Boolean
-  content: String
+  isOpen: boolean
+  content: string
 }
 </script>
 
 <script setup lang="ts">
 interface Props {
   panels: Panel[]
-  title: String
+  title: string
 }
 const props = defineProps<Props>()
 
@@ -21,6 +21,7 @@ const accordionIsOpen = (idx) => {
   return props.panels[idx].isOpen
 }
 const accordionClick = (idx) => {
+  /* eslint-disable-next-line vue/no-mutating-props */
   props.panels[idx].isOpen = !props.panels[idx].isOpen
 }
 
@@ -31,9 +32,9 @@ const isRtl = () => false
   <div class="rpl-accordion">
     <ul class="rpl-accordion__list">
       <li
-        class="rpl-accordion__list-item"
         v-for="(accordion, index) in panels"
         :key="index"
+        class="rpl-accordion__list-item"
         :class="{
           'rpl-accordion__list-item--expanded': accordionIsOpen(index)
         }"
@@ -43,13 +44,13 @@ const isRtl = () => false
           :class="{ 'rpl-accordion__title--expanded': accordionIsOpen(index) }"
         >
           <button
-            @click="accordionClick(index)"
             class="rpl-accordion__button"
             :class="{
               'rpl-accordion__button--expanded': accordionIsOpen(index)
             }"
             :aria-expanded="accordionIsOpen(index).toString()"
             :aria-controls="accordionId(index)"
+            @click="accordionClick(index)"
           >
             <span
               class="rpl-accordion__button-text"
@@ -59,10 +60,11 @@ const isRtl = () => false
           </button>
         </h2>
         <div
-          class="rpl-accordion__content"
           :id="accordionId(index)"
           :ref="accordionId(index)"
+          class="rpl-accordion__content"
         >
+          <!-- eslint-disable vue/no-v-html -->
           <div
             class="rpl-accordion__content-inner"
             v-html="accordion.content"

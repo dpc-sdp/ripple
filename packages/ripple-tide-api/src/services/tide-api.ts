@@ -4,7 +4,7 @@ export default class TideApi extends HttpClient {
   constructor(config) {
     super(config)
   }
-  get(path: String) {
+  get(path: string) {
     return `${this.siteId} ${path}`
   }
 }

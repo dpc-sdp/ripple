@@ -13,7 +13,8 @@
     "clean": "git clean -dfx && git reset --hard && yarn",
     "postinstall": "husky install",
     "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry $NPM_REGISTRY --dist-tag next",
-    "release:prod": "lerna publish --conventional-commits --create-release github"
+    "release:prod": "lerna publish --conventional-commits --create-release github",
+    "lint": "eslint . --ext .js,.ts,.vue"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -23,8 +24,12 @@
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/vue3": "^6.3.12",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
     "babel-loader": "^8.2.3",
     "husky": "^7.0.4",
+    "eslint": "^8.9.0",
+    "eslint-plugin-vue": "^8.4.1",
     "lerna": "^4.0.0",
     "storybook-builder-vite": "^0.1.15",
     "typescript": "^4.4.4",
@@ -37,5 +42,6 @@
   "dependencies": {
     "concurrently": "^6.4.0",
     "rimraf": "^3.0.2"
-  }
+  },
+  "version": "0.0.0"
 }

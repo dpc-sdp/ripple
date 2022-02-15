@@ -29,9 +29,9 @@ export const getModulesFromConfig = async (config) => {
     const modulesToLoad = {}
     for (let i = 0; i < contentTypes.length; i++) {
       const type = contentTypes[i]
+      const modulePath = path.resolve(config.contentTypes[type])
       switch (typeof config.contentTypes[type]) {
         case 'string':
-          const modulePath = path.resolve(config.contentTypes[type])
           modulesToLoad[type] = await loadMapping(modulePath, type)
           break
         case 'object':

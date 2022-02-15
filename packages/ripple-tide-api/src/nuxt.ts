@@ -1,21 +1,21 @@
 import { defineNuxtModule, addServerMiddleware } from '@nuxt/kit'
-import type { IncomingMessage, ServerResponse } from 'http'
+import type { IncomingMessage } from 'http'
 import type { ModuleOptions } from './types/module'
-import getTideConfig from './utils/config-loader'
 import { createApp, App, useQuery } from 'h3'
-import { TidePageApi } from './index.js'
+import { TidePageApi, TideSiteApi } from './index.js'
 
 const tideHandler = async (options: ModuleOptions): Promise<App> => {
   const app = createApp()
-  const site = options.site
   const tidePageApi = new TidePageApi(options)
+  const tideSiteApi = new TideSiteApi(options)
 
-  app.use('/page', async (req, res) => {
+  app.use('/page', async (req: IncomingMessage) => {
     const query = await useQuery(req)
     return tidePageApi.getPageByPath(`${query.path}`, { params: { site: 4 } })
   })
-  app.use('/site', async (req: IncomingMessage, res: ServerResponse) => {
-    return { site: `${site}` }
+  app.use('/site', async (req: IncomingMessage) => {
+    const query = await useQuery(req)
+    return tideSiteApi.getSiteData(query.id)
   })
 
   return app
@@ -26,7 +26,7 @@ export default defineNuxtModule({
     name: 'ripple-tide-api',
     configKey: 'tide'
   },
-  async setup(options: ModuleOptions, nuxt) {
+  async setup(options: ModuleOptions) {
     console.log('OPTIONS', options)
     addServerMiddleware({
       path: '/api/tide',

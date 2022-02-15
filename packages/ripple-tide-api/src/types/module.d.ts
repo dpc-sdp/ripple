@@ -1,6 +1,7 @@
 export interface RippleTideModule {
-  component: Function
-  mapping: Object
+  component?: function
+  mapping: object
+  includes: array
 }
 
 export interface ModuleOptions {
@@ -13,6 +14,6 @@ export interface ModuleOptions {
     username: string
     password: string
   }
-  contentTypes: String[]
-  siteMapping: String
+  contentTypes: string[]
+  siteMapping: string
 }

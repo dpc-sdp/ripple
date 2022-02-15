@@ -3,7 +3,7 @@ export default {
     /* Name of site */
     name: 'name',
     /* Logo to use in header */
-    siteLogo: (src): { url: String; meta: string } => {
+    siteLogo: (src): { url: string; meta: string } => {
       if (src.field_site_logo) {
         return {
           url: src.field_site_logo.url,

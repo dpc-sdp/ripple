@@ -25,7 +25,6 @@ export default class TidePage extends TideApi {
   }
 
   async getPageByPath(path, config = { params: { site: 4 } }) {
-    console.log('getPageByPath')
     try {
       // if (this.isShareLink(path)) {
       //   return this.getPageFromShareLink(path, config)

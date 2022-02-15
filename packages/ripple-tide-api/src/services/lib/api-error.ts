@@ -1,6 +1,6 @@
 export default class TideApiError extends Error {
-  status: Number
-  debug: Boolean
+  status: number
+  debug: boolean
   date: Date
   constructor({ status = 500, message = 'Error', debug = false }, ...params) {
     super(...params)

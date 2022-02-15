@@ -17,8 +17,7 @@ module.exports = {
   ],
   plugins: ['@typescript-eslint'],
   rules: {
-    // override/add rules settings here, such as:
-    // 'vue/no-unused-vars': 'error'
+    // override/add rules settings here
     'vue/max-attributes-per-line': [
       'error',
       {
@@ -27,6 +26,7 @@ module.exports = {
         }
       }
     ],
-    'no-prototype-builtins': 'off'
+    'no-prototype-builtins': 'off',
+    '@typescript-eslint/no-explicit-any': 'off' // allow explicit any types for now
   }
 }

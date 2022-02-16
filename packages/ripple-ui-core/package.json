@@ -30,20 +30,27 @@
     "types:check": "vue-tsc --noEmit",
     "watch": "yarn build:types && vite build --watch",
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
     "postcss-nested": "^5.0.6",
-    "vue": "^3.2.16"
+    "vue": "^3.2.31"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.9.3",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/vue3": "^6.4.19",
+    "@vitejs/plugin-vue": "^2.2.0",
     "postcss-nested": "^5.0.6",
+    "storybook-builder-vite": "^0.1.15",
     "stylelint": "^14.5.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",
-    "vite": "^2.6.4",
+    "vite": "^2.8.3",
     "vite-dts": "^1.0.4",
     "vite-plugin-copy": "^0.1.6",
     "vue-tsc": "^0.31.2"

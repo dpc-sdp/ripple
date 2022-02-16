@@ -41,6 +41,7 @@ export default {
       margin: $rpl-profile-highlight-image-margin;
       border-radius: $rpl-profile-highlight-image-border-radius;
       @include object_fit_image(cover);
+      flex-shrink: 0;
     }
   }
 </style>

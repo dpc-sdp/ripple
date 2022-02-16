@@ -711,6 +711,20 @@ module.exports = class ContentCollection {
     return returnFilterField
   }
 
+  getExposedFilterFromModelName (model) {
+    let returnFilter = null
+    const filters = this.config?.interface?.filters?.fields
+    if (filters) {
+      for (let i = 0; i < filters.length; i++) {
+        if (filters[i].options.model === model) {
+          returnFilter = filters[i]
+          break
+        }
+      }
+    }
+    return returnFilter
+  }
+
   getExposedFilterSubmissionGroup () {
     let returnSubmissionGroup = null
     const fields = []
@@ -963,7 +977,8 @@ module.exports = class ContentCollection {
       formData.schema.groups.forEach(group => {
         group.fields.forEach(field => {
           if (field.model === model) {
-            let values = this.getAggregatedFilterValues(aggregations[model].buckets, state[model])
+            let dataField = this.getExposedFilterFromModelName(model)
+            let values = this.getAggregatedFilterValues(aggregations[model].buckets, state[model], dataField)
             field.values = values
             const disableField = (values.length === 0)
             disableFieldCallback(field, disableField)
@@ -973,18 +988,19 @@ module.exports = class ContentCollection {
     })
   }
 
-  getAggregatedFilterValues (buckets, stateValue) {
+  getAggregatedFilterValues (buckets, stateValue, dataField) {
     let returnValues = []
+    let hideCount = (dataField['elasticsearch-aggregation-show-count'] === false)
     if (buckets.length > 0) {
       // Has Aggregations
       returnValues = buckets.map(({ key, doc_count: count }) => {
-        return { id: key, name: `${key} (${count})` }
+        return hideCount ? { id: key, name: key } : { id: key, name: `${key} (${count})` }
       })
     } else {
       // No result aggregations - return state value
       if (stateValue && Array.isArray(stateValue)) {
         returnValues = stateValue.map(item => {
-          return { id: item, name: `${item} (0)` }
+          return hideCount ? { id: item, name: item } : { id: item, name: `${item} (0)` }
         })
       }
     }

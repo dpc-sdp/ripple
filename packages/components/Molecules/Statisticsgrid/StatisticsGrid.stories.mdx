@@ -1,0 +1,56 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplStatisticsGrid from './index.vue'
+
+<Meta title="Molecules/StatisticsGrid" component={RplStatisticsGrid} />
+
+# StatisticsGrid
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/StatisticsGrid/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplStatisticsGrid },
+  template: `<rpl-statistics-grid :blocks="blocks" :theme="theme" />`
+});
+
+<Canvas>
+  <Story
+    name="StatisticsGrid"
+    args={{
+      blocks: [
+        {
+          heading: 'H2 Heading + subheading max 40 characters',
+          body: 'P Subheading / XS maximum 44 characters long',
+          theme: 'primary'
+        },
+        {
+          heading: 'Secondary theme',
+          body: 'Body copy maximum 36 characters long',
+          theme: 'secondary'
+        },
+        {
+          heading: 'H2 Heading only  maximum 70 characters. Heading only max 70 characters',
+          theme: 'primary'
+        },
+        {
+          heading: 'Secondary theme',
+          body: 'Body copy maximum 36 characters long',
+          theme: 'secondary'
+        },
+        {
+          heading: 'H2 Heading + subheading max 40 characters',
+          body: 'P Subheading / XS maximum 44 characters long',
+          theme: 'primary'
+        },
+        {
+          heading: 'H2 Heading only  maximum 70 characters. Heading only max 70 characters',
+          theme: 'primary'
+        }      ]
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplStatisticsGrid} />

@@ -4,12 +4,12 @@ import {
   withKnobs
 } from '@storybook/addon-knobs'
 
-import RplStatisticsgrid from './Statisticsgrid.vue'
+import RplStatisticsGrid from './StatisticsGrid.vue'
 
-storiesOf('Molecules/Statisticsgrid', module)
+storiesOf('Molecules/StatisticsGrid', module)
   .addDecorator(withKnobs)
-  .add('Statisticsgrid', () => ({
-    components: { RplStatisticsgrid },
-    template: `<rpl-statisticsgrid />`,
+  .add('StatisticsGrid', () => ({
+    components: { RplStatisticsGrid },
+    template: `<rpl-statistics-grid />`,
     props: {}
   }))

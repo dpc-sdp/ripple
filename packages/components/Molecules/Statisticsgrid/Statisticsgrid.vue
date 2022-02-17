@@ -1,6 +1,6 @@
 <template>
-  <div class="rpl-statisticsgrid">
-    <span>Statisticsgrid</span>
+  <div class="rpl-statistics-grid">
+    <span>StatisticsGrid</span>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 // import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
-  name: 'RplStatisticsgrid',
+  name: 'RplStatisticsGrid',
   props: {
     // ...
   },
@@ -31,7 +31,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  .rpl-statisticsgrid {
+  .rpl-statistics-grid {
     // Add styles
   }
 </style>

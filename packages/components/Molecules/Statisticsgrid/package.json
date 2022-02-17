@@ -1,11 +1,11 @@
 {
-  "name": "@dpc-sdp/ripple-statisticsgrid",
+  "name": "@dpc-sdp/ripple-statistics-grid",
   "version": "1.28.0",
   "description": "Display snapshot of statistical information in a simple panel",
   "license": "Apache-2.0",
   "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
-  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Molecules/Statisticsgrid",
+  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Molecules/StatisticsGrid",
   "publishConfig": {
     "access": "public"
   },

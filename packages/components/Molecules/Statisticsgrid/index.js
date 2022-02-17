@@ -1,4 +1,4 @@
-import RplStatisticsgrid from './Statisticsgrid.vue'
+import RplStatisticsGrid from './StatisticsGrid.vue'
 
-export { RplStatisticsgrid }
-export default RplStatisticsgrid
+export { RplStatisticsGrid }
+export default RplStatisticsGrid

@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/ripple-statisticsgrid
+# @dpc-sdp/ripple-statistics-grid
 
 > Display snapshot of statistical information in a simple panel
 
@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-statisticsgrid --save
+npm install @dpc-sdp/ripple-statistics-grid --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ npm install @dpc-sdp/ripple-statisticsgrid --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-statisticsgrid
+@dpc-sdp/ripple-statistics-grid
 └── @dpc-sdp/ripple-global
 ```
 
@@ -25,14 +25,14 @@ npm install @dpc-sdp/ripple-statisticsgrid --save
 ## Import
 
 ```js
-import { RplStatisticsgrid } from '@dpc-sdp/ripple-statisticsgrid'
+import { RplStatisticsGrid } from '@dpc-sdp/ripple-statistics-grid'
 ```
 
 --------------------------------------------------------------------------------
 
 ## Usage and Tests
 
-See [Storybook/Molecules/Statisticsgrid/Statisticsgrid](https://ripple.sdp.vic.gov.au/?path=/story/molecules-statisticsgrid--statisticsgrid).
+See [Storybook/Molecules/StatisticsGrid/StatisticsGrid](https://ripple.sdp.vic.gov.au/?path=/story/molecules-statisticsgrid--statisticsgrid).
 
 --------------------------------------------------------------------------------
 

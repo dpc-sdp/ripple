@@ -20,8 +20,8 @@ export default {
   },
   mixins: [abstractField],
   mounted () {
-    this.schema.label ??= 'Important email'
-    this.schema.model ??= 'honeypot'
+    this.schema.label = this.schema.label || 'Important email'
+    this.schema.model = this.schema.model || 'honeypot'
   }
 }
 </script>

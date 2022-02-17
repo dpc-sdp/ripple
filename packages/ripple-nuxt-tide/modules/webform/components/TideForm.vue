@@ -79,7 +79,7 @@ export default {
           this.formData.formState = {
             response: {
               status: 'other',
-              message: this.formData.messages.success || this.messages.success + ' (HP test)'
+              message: this.formData.messages.success || this.messages.success
             }
           }
         }, 2000)

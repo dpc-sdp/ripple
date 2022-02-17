@@ -4,15 +4,20 @@
       v-for="(item, index) in blocks"
       :key="`rpl-statistics-block-${index}`"
       :class="`rpl-statistics-grid__block rpl-statistics-grid__block--${item.theme || 'primary'}`">
-      <h2>{{ item.heading }}</h2>
-      <p>{{ item.body }}</p>
+      <div class="rpl-statistics-grid__block-inner">
+        <rpl-markup class="rpl-statistics-grid__block-heading" v-if="item.heading" :html="item.heading"></rpl-markup>
+        <rpl-markup class="rpl-statistics-grid__block-body" v-if="item.body" :html="item.body"></rpl-markup>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import RplMarkup from '@dpc-sdp/ripple-markup'
+
 export default {
   name: 'RplStatisticsGrid',
+  components: { RplMarkup },
   props: {
     blocks: {
       type: Array,
@@ -31,7 +36,7 @@ export default {
   $rpl-statistics-grid-background-secondary: white !default;
   $rpl-statistics-grid-padding: ($rpl-space * 10);
   $rpl-statistics-grid-margin: ($rpl-space * 2);
-  $rpl-statistics-grid-width: 280px;
+  $rpl-statistics-grid-width: 200px;
 
   $rpl-statistics-grid-heading-separation: 8px;
 
@@ -42,21 +47,29 @@ export default {
     gap: $rpl-statistics-grid-margin;
 
     &__block {
-      flex: 0 0 $rpl-statistics-grid-width;
-      align-items: center;
+      $root: &;
 
+      display: flex;
+
+      flex: 0 0 $rpl-statistics-grid-width;
       padding: $rpl-statistics-grid-padding;
+
+      &-inner {
+        align-self: center;
+      }
 
       &--primary {
         background-color: $rpl-statistics-grid-background-primary;
-        color: $rpl-statistics-grid-foreground-primary;
 
-        h2 {
+        #{$root}-heading {
+          @include rpl_typography(heading_l);
           margin-bottom: $rpl-statistics-grid-heading-separation;
+          color: $rpl-statistics-grid-foreground-primary;
         }
 
-        p {
+        #{$root}-body {
           margin-top: $rpl-statistics-grid-heading-separation;
+          color: $rpl-statistics-grid-foreground-primary;
         }
       }
 
@@ -64,11 +77,12 @@ export default {
         background-color: $rpl-statistics-grid-background-secondary;
         text-align: center;
 
-        h2 {
+        #{$root}-heading {
+          @include rpl_typography(heading_l);
           margin-bottom: 0;
         }
 
-        p {
+        #{$root}-body {
           margin-top: 0;
         }
       }

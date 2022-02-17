@@ -10,6 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.28.0"
+    "@dpc-sdp/ripple-global": "1.28.0",
+    "@dpc-sdp/ripple-markup": "1.28.0"
   }
 }

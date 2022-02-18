@@ -210,6 +210,11 @@ module.exports = {
     }
 
     return Object.values(data)
-  }
+  },
+
+  statisticsGrid: (blocks) => blocks.map(b => ({
+    'heading': b.field_statistic_heading,
+    'body': b.field_statistic_body
+  }))
 
 }

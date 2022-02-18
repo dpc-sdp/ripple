@@ -3,7 +3,7 @@
     <div
       v-for="(item, index) in blocks"
       :key="`rpl-statistics-block-${index}`"
-      :class="`rpl-statistics-grid__block rpl-statistics-grid__block--${item.theme || 'primary'}`">
+      :class="`rpl-statistics-grid__block rpl-statistics-grid__block--${theme ? 'primary' : 'secondary'}`">
       <div class="rpl-statistics-grid__block-inner">
         <rpl-markup class="rpl-statistics-grid__block-heading" v-if="item.heading" :html="item.heading"></rpl-markup>
         <rpl-markup class="rpl-statistics-grid__block-body" v-if="item.body" :html="item.body"></rpl-markup>
@@ -19,6 +19,10 @@ export default {
   name: 'RplStatisticsGrid',
   components: { RplMarkup },
   props: {
+    theme: {
+      type: Boolean,
+      default: true
+    },
     blocks: {
       type: Array,
       required: true
@@ -33,12 +37,13 @@ export default {
 
   $rpl-statistics-grid-background-primary: rpl_color('dark_primary') !default;
   $rpl-statistics-grid-foreground-primary: white !default;
+  $rpl-statistics-grid-link-primary: rgb(150, 200, 255) !default;
   $rpl-statistics-grid-background-secondary: white !default;
   $rpl-statistics-grid-padding: ($rpl-space * 10);
   $rpl-statistics-grid-margin: ($rpl-space * 2);
-  $rpl-statistics-grid-width: 200px;
+  $rpl-statistics-grid-width: rem(200px);
 
-  $rpl-statistics-grid-heading-separation: 8px;
+  $rpl-statistics-grid-heading-separation: ($rpl-space * 2);
 
   .rpl-statistics-grid {
     display: flex;
@@ -51,11 +56,16 @@ export default {
 
       display: flex;
 
-      flex: 0 0 $rpl-statistics-grid-width;
+      flex: 1 0 $rpl-statistics-grid-width;
       padding: $rpl-statistics-grid-padding;
 
       &-inner {
         align-self: center;
+        flex-grow: inherit;
+      }
+
+      .rpl-markup a:not(.rpl-button) .rpl-text-label .rpl-text-icon__group {
+        text-decoration: underline;
       }
 
       &--primary {
@@ -70,6 +80,14 @@ export default {
         #{$root}-body {
           margin-top: $rpl-statistics-grid-heading-separation;
           color: $rpl-statistics-grid-foreground-primary;
+        }
+
+        .rpl-markup a:not(.rpl-button) .rpl-text-label {
+          color: $rpl-statistics-grid-link-primary;
+
+          .rpl-icon--color_primary {
+            fill: currentColor;
+          }
         }
       }
 

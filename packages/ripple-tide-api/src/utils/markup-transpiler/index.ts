@@ -1,5 +1,5 @@
 import cheerio from 'cheerio'
-import defaultPlugins from './default-plugins'
+import defaultPlugins from './default-plugins.js'
 
 // This is a hack to cheerio to solve the unwanted encode issue.
 // https://github.com/cheeriojs/cheerio/issues/866#issuecomment-275699121

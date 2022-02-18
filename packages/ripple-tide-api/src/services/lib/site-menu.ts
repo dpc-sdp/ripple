@@ -33,7 +33,7 @@ const _structureChildren = function (parent, children) {
     for (let i = 0, len = parent.children.length; i < len; ++i) {
       parent.children[i].text = children[parent.uuid][i].text
       parent.children[i].url = children[parent.uuid][i].url
-      _structureChildren(parent.children[i], children, i)
+      _structureChildren(parent.children[i], children)
       parent.children.sort(_sortByWeight)
     }
   }

@@ -1,3 +1,9 @@
+<script lang="ts">
+export default {
+  name: 'RplButton'
+}
+</script>
+
 <script setup lang="ts">
 import { PropType } from 'vue'
 
@@ -23,6 +29,4 @@ defineProps({
   </button>
 </template>
 
-<style>
-@import './button.css';
-</style>
+<style src="./button.css" />

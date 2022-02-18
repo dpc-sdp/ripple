@@ -1,24 +1,31 @@
+/// <reference types="cheerio" />
+
 // Note: for add obj type prop in template, please return data instead of set them in template otherwise it won't work properly.
 // e.g You have something like in your plugin: `<component-obj-prop :author="{name: 'Veronica', company: 'Veridian Dynamics'}"></component-obj-prop>`
 // You should make template: `<component-obj-prop :author="myPluginData1.author"></component-obj-prop>`
 // Then set myPluginData1.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData1, myPluginData2 ... } in your plugin.
 // See a example in `pluginEmbeddedMediaVideo` plugin below.
 
-import { isRelativeUrl } from '@dpc-sdp/ripple-global/utils/helpers.js'
+export const isRelativeUrl = (str: string): boolean => {
+  if (str) {
+    return true
+  }
+  return false
+}
 
 // Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
-const _escapeQuotes = (text) => {
+const _escapeQuotes = (text: string) => {
   text = text || ''
   return text.replace('"', '&quot;')
 }
 
-const pluginButton = function () {
+const pluginButton = function (this: any) {
   // Button
-  this.find('.button').map((i, el) => {
+  this.find('.button').map((i: any, el: any) => {
     const $button = this.find(el)
     const buttonHref = $button.attr('href')
     const buttonText = $button.text()
-    const attributes = []
+    const attributes: string[] = []
     attributes.push(`:icon="false"`)
     if (buttonHref) {
       attributes.push(`link="${buttonHref}"`)
@@ -30,18 +37,18 @@ const pluginButton = function () {
   })
 }
 
-const pluginTables = function () {
+const pluginTables = function (this: any) {
   // Wrap tables with a div.
-  this.find('table').map((i, el) => {
+  this.find('table').map((i: any, el: any) => {
     const $table = this.find(el)
     return $table.wrap(`<div class="rpl-markup__table"></div>`)
   })
 }
 
-const pluginEmbeddedDocument = function () {
+const pluginEmbeddedDocument = function (this: any) {
   this.find(
     '.embedded-entity--media--file, .embedded-entity--media--document, .embedded-entity .media--type-document'
-  ).map((i, element) => {
+  ).map((i: any, element: any) => {
     const el = this.find(element)
     const mediaType = el.hasClass('embedded-entity--media--file')
       ? 'file'
@@ -61,8 +68,11 @@ const pluginEmbeddedDocument = function () {
     if (fileTypeClasses) {
       fileTypeClasses
         .split(' ')
-        .filter((cls) => cls.includes('file--mime') || cls.includes('file--x'))
-        .forEach((mimeType) => {
+        .filter(
+          (cls: string | string[]) =>
+            cls.includes('file--mime') || cls.includes('file--x')
+        )
+        .forEach((mimeType: any) => {
           if (fileType === '') {
             switch (mimeType) {
               case 'file--mime-application-zip':
@@ -189,9 +199,9 @@ const pluginEmbeddedDocument = function () {
 //   })
 // }
 
-const pluginImage = function () {
+const pluginImage = function (this: any) {
   // wrap iframes
-  this.find('.embedded-entity--media--image').map((i, el) => {
+  this.find('.embedded-entity--media--image').map((i: any, el: any) => {
     const $container = this.find(el)
     if ($container) {
       const $img = $container.find('img')
@@ -205,9 +215,9 @@ const pluginImage = function () {
   })
 }
 
-const pluginIframe = function () {
+const pluginIframe = function (this: any) {
   // wrap iframes
-  this.find('iframe').map((i, el) => {
+  this.find('iframe').map((i: any, el: any) => {
     const $iframe = this.find(el)
     if ($iframe.hasClass('rpl-markup__embedded-video-frame') !== true) {
       return $iframe.wrap(`<div class="rpl-markup__iframe-container"></div>`)
@@ -215,54 +225,57 @@ const pluginIframe = function () {
   })
 }
 
-const pluginEmbeddedMediaVideo = function () {
+const pluginEmbeddedMediaVideo = function (this: any) {
   // wrap iframes
-  this.find('.embedded-entity--media--embedded-video').map((i, el) => {
-    // Component data
-    const element = this.find(el)
-    const iframe = element.find('iframe')
-    const height = iframe.attr('height')
-    const width = iframe.attr('width')
-    const src = iframe.attr('src')
-    const figcaption = element.find('figcaption')
-    const transcript = figcaption ? figcaption.text() : null
-    const link = element.find('.field--name-field-media-link a')
-    // For Obj type props, using data to pass value to avoid HTML syntax and encoding issue.
-    const mediaLink = link
-      ? { text: link.text(), url: link.attr('href') }
-      : null
-    const variant = mediaLink ? 'link' : 'full'
+  this.find('.embedded-entity--media--embedded-video').map(
+    (i: any, el: any) => {
+      // Component data
+      const element = this.find(el)
+      const iframe = element.find('iframe')
+      const height = iframe.attr('height')
+      const width = iframe.attr('width')
+      const src = iframe.attr('src')
+      const figcaption = element.find('figcaption')
+      const transcript = figcaption ? figcaption.text() : null
+      const link = element.find('.field--name-field-media-link a')
+      // For Obj type props, using data to pass value to avoid HTML syntax and encoding issue.
+      const mediaLink: { text: string; url: string } = {
+        text: link.text() || '',
+        url: link.attr('href') || ''
+      }
+      const variant = mediaLink ? 'link' : 'full'
 
-    let html = `
+      let html = `
     <div class="rpl-markup__embedded-video">
       <div class="rpl-markup__embedded-video-iframe-container">
         <iframe class="rpl-markup__embedded-video-frame" width="${width}" height="${height}" src="${src}" allowfullscreen></iframe>
       </div>
     `
-    if (variant === 'link') {
-      html += `
+      if (variant === 'link') {
+        html += `
       <div class="rpl-markup__embedded-video-link">
         <rpl-text-link link="${mediaLink.url}" :icon="false">${mediaLink.text}</rpl-text-link>
       </div>
       `
+      }
+      if (variant === 'full' || transcript) {
+        html += `<div class="rpl-markup__embedded-video-transcript">${transcript}</div>`
+      }
+      html += `</div>`
+      return element.replaceWith(html)
     }
-    if (variant === 'full' || transcript) {
-      html += `<div class="rpl-markup__embedded-video-transcript">${transcript}</div>`
-    }
-    html += `</div>`
-    return element.replaceWith(html)
-  })
+  )
 }
 
-const pluginLinks = function () {
-  this.find('a').map((i, el) => {
+const pluginLinks = function (this: any) {
+  this.find('a').map((i: any, el: any) => {
     const $a = this.find(el)
     const href = $a.attr('href')
     const isRelative = isRelativeUrl(href)
     const text = $a.text()
     const target = $a.attr('target')
 
-    const attributes = []
+    const attributes: string[] = []
     attributes.push(!isRelative ? `icon="external"` : `:icon="false"`)
     if (href) {
       attributes.push(`link="${href}"`)

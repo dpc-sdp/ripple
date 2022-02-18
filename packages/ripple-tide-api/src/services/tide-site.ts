@@ -31,7 +31,7 @@ export default class TideSite extends TideApi {
     }
     try {
       const response = await this.get(`/taxonomy_term/sites`, { params })
-      if (response) {
+      if (response && response.data.length > 0) {
         const resource = jsonapiParse.parse(response).data[0]
         const siteData = await this.getMappedData(
           this.siteMapping.mapping,
@@ -40,7 +40,6 @@ export default class TideSite extends TideApi {
         return siteData
       }
     } catch (error: any) {
-      console.log(error)
       this.handleError('Error fetching site data' + error.message, 500)
     }
   }

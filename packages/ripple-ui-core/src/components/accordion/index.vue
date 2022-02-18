@@ -1,4 +1,7 @@
 <script lang="ts">
+export default {
+  name: 'RplAccordion'
+}
 export type Panel = {
   id: number
   title: string
@@ -75,6 +78,4 @@ const isRtl = () => false
   </div>
 </template>
 
-<style>
-@import './accordion.css';
-</style>
+<style src="./accordion.css" />

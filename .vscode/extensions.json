@@ -6,6 +6,7 @@
     "streetsidesoftware.code-spell-checker",
     "johnsoncodehk.volar",
     "vivaxy.vscode-conventional-commits",
-    "csstools.postcss"
+    "csstools.postcss",
+    "EditorConfig.EditorConfig"
   ]
 }

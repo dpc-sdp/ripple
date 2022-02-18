@@ -8,7 +8,10 @@ export default defineNuxtConfig({
     API_URL: process.env.API_URL
   },
   publicRuntimeConfig: {
-    SITEID: 4
+    SITEID: 4,
+    contentTypes: {
+      event
+    }
   },
   tide: {
     debug: true,
@@ -24,6 +27,12 @@ export default defineNuxtConfig({
     },
     siteMapping
   },
-  modules: ['@dpc-sdp/ripple-tide-api/nuxt'],
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
+  },
+  modules: ['@dpc-sdp/ripple-tide-api/nuxt', '@blokwise/dynamic'],
   buildModules: ['@dpc-sdp/ripple-ui-core/nuxt']
 })

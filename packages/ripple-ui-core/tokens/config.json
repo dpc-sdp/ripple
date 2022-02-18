@@ -1,0 +1,42 @@
+{
+  "source": ["tokens/tokens.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "files": [
+        {
+          "destination": "public/css/variables.css",
+          "format": "css/variables",
+          "options": {
+            "fileHeader": "rplHeader",
+            "outputReferences": true
+          }
+        }
+      ]
+    },
+    "scss": {
+      "transformGroup": "scss",
+      "files": [
+        {
+          "destination": "public/scss/_variables.scss",
+          "format": "scss/variables",
+          "options": {
+            "fileHeader": "rplHeader"
+          }
+        }
+      ]
+    },
+    "js": {
+      "transformGroup": "js",
+      "files": [
+        {
+          "destination": "public/js/variables.js",
+          "format": "javascript/es6",
+          "options": {
+            "fileHeader": "rplHeader"
+          }
+        }
+      ]
+    }
+  }
+}

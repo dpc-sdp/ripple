@@ -32,7 +32,8 @@
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook",
+    "tokens:update": "./tokens.sh"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
@@ -47,6 +48,7 @@
     "@vitejs/plugin-vue": "^2.2.0",
     "postcss-nested": "^5.0.6",
     "storybook-builder-vite": "^0.1.15",
+    "style-dictionary": "^3.1.1",
     "stylelint": "^14.5.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",

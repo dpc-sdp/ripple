@@ -17,43 +17,53 @@ export const Template = (args, { argTypes }) => ({
 <Canvas>
   <Story
     name="StatisticsGrid"
+    parameters={{
+      backgrounds: {
+        default: 'white',
+        values: [
+          { name: 'white', value: '#ffffff' },
+          { name: 'light-neutral', value: '#f6f6f9' }
+        ]
+      }
+    }}
     args={{
       theme: true,
       blocks: [
         {
-          heading: 'H2 Heading only  maximum 70 characters. Heading only max 70 characters'
+          heading: '1.1',
+          body: 'Body copy'
         },
         {
-          heading: 'H2 Heading + subheading max 40 characters',
-          body: 'P Subheading / XS maximum 44 characters long'
-        },
-        {
-          heading: 'H2 Heading + subheading max 40 characters',
-          body: 'P Subheading / XS maximum 44 characters long'
+          heading: '1.2',
+          body: 'Body copy'
         },
         {
           heading: '2.1',
-          body: 'Body copy maximum 36 characters long'
+          body: 'Body copy'
         },
         {
           heading: '2.2',
-          body: 'Body copy maximum 36 characters long'
-        },
-        {
-          heading: '2.3',
-          body: 'Body copy maximum 36 characters long'
+          body: 'Body copy'
         },
         {
           heading: '3.1',
-          body: 'Body copy maximum 36 <em>characters</em> long <a href="https://google.com">link</a>'
+          body: 'Body copy'
         },
         {
           heading: '3.2',
-          body: 'Body copy maximum 36 characters long'
+          body: 'Body copy'
         },
         {
-          heading: '3.3',
-          body: 'Body copy maximum 36 characters long'
+          heading: '4.1',
+          body: 'Body <em>copy</em> and a <a href="https://google.com">link</a>'
+        },
+        {
+          heading: '4.2',
+          body: 'Body copy'
+        },
+        {
+          heading: '5.1',
+          body: 'Body copy this one should fill the mobile width'
         }
       ]
     }}

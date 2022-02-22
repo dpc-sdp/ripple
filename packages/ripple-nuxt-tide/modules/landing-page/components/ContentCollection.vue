@@ -4,7 +4,7 @@
     <div class="app-content-collection__header">
       <div class="app-content-collection__header-left">
         <h2 v-if="title" class="app-content-collection__heading">{{ title }}</h2>
-        <p v-if="description">{{ description }}</p>
+        <rpl-markup class="app-content-collection__description" v-if="description" :html="description" />
         <div class="app-content-collection__skip-link rpl-skip-link ">
           <a v-if="showSkipToResultLink" class="app-content-collection__skip-link__link rpl-skip-link__link" :href="getSkipToResultLinkAnchor">{{ skipToResultLinkLabel }}</a>
         </div>
@@ -83,6 +83,7 @@ import { RplForm } from '@dpc-sdp/ripple-form'
 import { RplCol } from '@dpc-sdp/ripple-grid'
 import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import RplPagination from '@dpc-sdp/ripple-pagination'
+import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplSearchResultsLayout, RplSearchResult } from '@dpc-sdp/ripple-search'
 import { RplCardPromo } from '@dpc-sdp/ripple-card'
 import { RplDivider } from '@dpc-sdp/ripple-global'
@@ -98,7 +99,8 @@ export default {
     RplSearchResultsLayout,
     RplSearchResult,
     RplCardPromo,
-    RplPagination
+    RplPagination,
+    RplMarkup
   },
   props: {
     schema: Object,
@@ -373,6 +375,11 @@ $app-content-collection-link-border-radius: 0 0 rem(4px) 0 !default;
         @include rpl-typography-font('s', 1.2rem, 'semibold');
       }
     }
+  }
+
+  &__description {
+    margin-top: $rpl-space-4;
+    margin-bottom: $rpl-space-4;
   }
 
   &__heading {

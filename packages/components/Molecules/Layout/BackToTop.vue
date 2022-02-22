@@ -5,7 +5,7 @@
       :class="{ 'rpl-back-to-top__inner--sticky': sticky }"
     >
       <transition name="rpl-back-to-top__fade">
-        <a v-if="show" class="rpl-back-to-top__button" href="#rpl-skip-link-0">
+        <a v-if="show" class="rpl-back-to-top__button" href="#rpl-skip-link">
           <span class="rpl-back-to-top__text">Back to top</span>
           <rpl-icon symbol="arrow_up_primary" color="primary" />
         </a>

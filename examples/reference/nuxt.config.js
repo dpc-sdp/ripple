@@ -10,7 +10,7 @@ export default {
   */
   head: {
     titleTemplate: '%s | vic.gov.au',
-    title: 'vic.gov.au',
+    title: 'reference.sdp.vic.gov.au',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -135,7 +135,10 @@ export default {
   * Configuration for ripple-nuxt-ui
   * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui
   */
-  ripple: {},
+  ripple: {
+    viclogo: false,
+    viclogoFooter: false
+  },
   /*
   * Configuration for ripple-nuxt-tide
   * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
@@ -146,7 +149,7 @@ export default {
       username: process.env.CONTENT_API_AUTH_USER,
       password: process.env.CONTENT_API_AUTH_PASS
     },
-    site: 4,
+    site: 19,
     // Tide submodules, 1 for enable, 0 for disable.
     modules: {
       site: 1,

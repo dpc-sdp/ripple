@@ -44,8 +44,8 @@ jobs:
           paths:
             - ~/.cache
       - run:
-          name: build vic-gov-au nuxt app
-          command: cd examples/vic-gov-au && yarn build:default
+          name: build reference nuxt app
+          command: yarn reference:build
       - persist_to_workspace:
           root: ~/app
           paths: .
@@ -76,13 +76,13 @@ jobs:
       - store_artifacts:
           path: test-results
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/videos
+          path: examples/reference/test/integration/videos
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/screenshots
+          path: examples/reference/test/integration/screenshots
 
 
 
-  integration-vic-gov:
+  reference-integration:
     # Integration tests confirm FE components are working correctly without testing BE
     <<: *defaults
     parallelism: 2
@@ -94,15 +94,15 @@ jobs:
             - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run full integration test
-          command: yarn test:integration-vic
+          command: yarn reference:integration
       - store_artifacts:
           path: test-results
       - store_test_results:
           path: test-results
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/videos
+          path: examples/reference/test/integration/videos
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/screenshots
+          path: examples/reference/test/integration/screenshots
 
 
   integration-example:
@@ -129,9 +129,9 @@ jobs:
       - store_artifacts:
           path: test-results
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/videos
+          path: examples/basic-examples/test/integration/videos
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/screenshots
+          path: examples/basic-examples/test/integration/screenshots
 
   integration-vue-example-app:
   # This runs the full suite of integration tests on example vue example app
@@ -191,7 +191,7 @@ workflows:
           requires:
             - build
       # Run regression tests on release branches
-      - integration-example:
+      - reference-integration:
           requires:
             - build
           filters:

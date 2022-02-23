@@ -17,6 +17,7 @@ $rpl-statistics-grid-margin: ($rpl-space * 2);
     display: flex;
     flex: 1 0 37.5%;
     padding: $rpl-statistics-grid-padding;
+    overflow: hidden;
 
     text-align: center;
 
@@ -30,7 +31,8 @@ $rpl-statistics-grid-margin: ($rpl-space * 2);
 
     &-inner {
       align-self: center;
-      flex-grow: inherit;
+      flex-grow: 0;
+      width: 100%;
     }
 
     .rpl-markup a:not(.rpl-button) .rpl-text-label .rpl-text-icon__group {

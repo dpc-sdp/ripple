@@ -32,57 +32,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/scss/settings";
-  @import "~@dpc-sdp/ripple-global/scss/tools";
-
-  $rpl-statistics-grid-background-primary: rpl_color('light_neutral') !default;
-  $rpl-statistics-grid-background-secondary: white !default;
-  $rpl-statistics-grid-padding: ($rpl-space * 10) ($rpl-space * 4);
-  $rpl-statistics-grid-margin: ($rpl-space * 2);
-
-  .rpl-statistics-grid {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: $rpl-statistics-grid-margin;
-
-    &__block {
-      display: flex;
-      flex-basis: rem(100px);
-      flex-grow: 1;
-      padding: $rpl-statistics-grid-padding;
-
-      text-align: center;
-
-      @include rpl_breakpoint('m') {
-        flex-basis: rem(200px);
-      }
-
-      &-inner {
-        align-self: center;
-        flex-grow: inherit;
-      }
-
-      .rpl-markup a:not(.rpl-button) .rpl-text-label .rpl-text-icon__group {
-        text-decoration: underline;
-      }
-
-      &-heading {
-        @include rpl_typography(heading_l);
-        margin-bottom: 0;
-      }
-
-      &-body {
-        margin-top: 0;
-      }
-
-      &--primary {
-        background-color: $rpl-statistics-grid-background-primary;
-      }
-
-      &--secondary {
-        background-color: $rpl-statistics-grid-background-secondary;
-      }
-    }
-  }
+  @import "statistics-grid.scss";
 </style>

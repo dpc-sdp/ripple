@@ -21,6 +21,7 @@ import Vue from 'vue'
 import RplFormAlert from './formAlert'
 import RplFieldset from './Fieldset'
 import VueFormGenerator from 'vue-form-generator'
+import fieldRplinput from './fields/fieldRplinput.vue'
 import fieldRplselect from './fields/fieldRplselect.vue'
 import fieldRplslider from './fields/fieldRplslider.vue'
 import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
@@ -34,6 +35,7 @@ import fieldRplmarkup from './fields/fieldRplmarkup.vue'
 import VueScrollTo from 'vue-scrollto'
 import { RplFormEventBus } from './index.js'
 
+Vue.component('fieldRplinput', fieldRplinput)
 Vue.component('fieldRplselect', fieldRplselect)
 Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)
@@ -50,6 +52,7 @@ export default {
   name: 'RplForm',
   components: {
     'vue-form-generator': VueFormGenerator.component,
+    fieldRplinput,
     fieldRplselect,
     fieldRplslider,
     fieldRplchecklist,
@@ -223,7 +226,7 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
     &[type='search'],
     &[type='tel'],
     &[type='color'],
-    &:not([type]) {
+    &:not([type]):not(#tests) {
       @include rpl_form_text_element;
     }
 

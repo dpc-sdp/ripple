@@ -11,13 +11,22 @@ $rpl-statistics-grid-margin: ($rpl-space * 2);
   flex-wrap: wrap;
   align-content: flex-start;
   gap: $rpl-statistics-grid-margin;
+  font-size: 1em;
 
   &__block {
     display: flex;
-    flex: 1 1 35%;
+    flex: 1 0 37.5%;
     padding: $rpl-statistics-grid-padding;
 
     text-align: center;
+
+    @include rpl_breakpoint('l') {
+      flex-basis: 25%;
+    }
+
+    @include rpl_breakpoint('xl') {
+      flex-basis: 20%;
+    }
 
     &-inner {
       align-self: center;

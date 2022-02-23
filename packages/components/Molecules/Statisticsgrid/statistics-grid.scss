@@ -5,8 +5,6 @@ $rpl-statistics-grid-background-primary: rpl_color('light_neutral') !default;
 $rpl-statistics-grid-background-secondary: white !default;
 $rpl-statistics-grid-padding: ($rpl-space * 10) ($rpl-space * 4);
 $rpl-statistics-grid-margin: ($rpl-space * 2);
-$rpl-statistics-grid-min-width-mobile: rem(100px);
-$rpl-statistics-grid-min-width-desktop: rem(240px);
 
 .rpl-statistics-grid {
   display: flex;
@@ -16,15 +14,10 @@ $rpl-statistics-grid-min-width-desktop: rem(240px);
 
   &__block {
     display: flex;
-    flex-basis: $rpl-statistics-grid-min-width-mobile;
-    padding: $rpl-statistics-grid-padding;
     flex: 1 1 35%;
+    padding: $rpl-statistics-grid-padding;
 
     text-align: center;
-
-    @include rpl_breakpoint('m') {
-      flex-basis: $rpl-statistics-grid-min-width-desktop;
-    }
 
     &-inner {
       align-self: center;

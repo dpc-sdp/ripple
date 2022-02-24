@@ -2,18 +2,12 @@ module.exports = {
   verbose: true,
   testURL: 'http://localhost',
   collectCoverage: true,
-  testMatch: ['**/unit/**/*.test.js', '**/*.test.js'],
-  moduleFileExtensions: ['js', 'json', 'vue'],
-  setupFiles: ['<rootDir>/.jest/register-context.js', 'jest-canvas-mock'],
+  testMatch: ['**/*.test.js', '**/*.test.ts'],
+  moduleFileExtensions: ['js', 'ts'],
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.mdx?$': '@storybook/addon-docs/jest-transform-mdx',
-    '^.+\\.stories\\.js|^.+\\.mdx?$':
-      '@storybook/addon-storyshots/injectFileName',
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-    '.*\\.(vue)$': 'vue3-jest',
-    '^.+\\.md?$': 'markdown-loader-jest',
-    '^.+\\.html?$': 'html-loader-jest'
+    '^.+\\.ts$': '<rootDir>/node_modules/ts-jest'
   },
   transformIgnorePatterns: ['node_modules/(?!(ripple-*)/)'],
   moduleNameMapper: {

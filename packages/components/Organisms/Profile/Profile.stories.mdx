@@ -55,3 +55,15 @@ export const TemplateHonourRoll = (args, { argTypes }) => ({
 </Canvas>
 
 <ArgsTable of={RplProfileHighlightHonourRoll} />
+
+<Canvas>
+  <Story
+    name="Profile maintain 1:1 image dimensions"
+    args={{
+      image: 'http://via.placeholder.com/480x800',
+      content: `<dl class="rpl-description-list vgso-profile-position"><div class="rpl-description-list__row"><dt class="rpl-description-list__cell rpl-description-list__term">Position:</dt> <dd class="rpl-description-list__cell rpl-description-list__description">Lead Counsel</dd></div></dl> <dl class="rpl-description-list vgso-profile-qualification"><div class="rpl-description-list__row"><dt class="rpl-description-list__cell rpl-description-list__term">Qualification:</dt> <dd class="rpl-description-list__cell rpl-description-list__description">BA, LLB (Hons), Grad Dip Legal Practice</dd></div></dl> <dl class="rpl-description-list vgso-profile-area-of-law"><div class="rpl-description-list__row"><dt class="rpl-description-list__cell rpl-description-list__term">Area of law:</dt> <dd class="rpl-description-list__cell rpl-description-list__description">Workplace relations and occupational health and safety, Civil litigation and dispute resolution (including personal injury), Administrative decision making and review</dd></div></dl>`
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

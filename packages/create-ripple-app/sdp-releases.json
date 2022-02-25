@@ -51,16 +51,16 @@
     "rippleVersion": "1.23.1"
   },
   "1.36.0": {
-    "rippleVersion": "1.24.0"
-  },
-  "1.36.0": {
-    "rippleVersion": "1.24.1"
-  },
-  "1.36.0": {
-    "rippleVersion": "1.24.2"
-  },
-  "1.36.0": {
     "rippleVersion": "1.24.3"
+  },
+  "1.37.0": {
+    "rippleVersion": "1.25.0"
+  },
+  "1.37.1": {
+    "rippleVersion": "1.26.0"
+  },
+  "1.38.0": {
+    "rippleVersion": "1.28.0"
   }
 
 }

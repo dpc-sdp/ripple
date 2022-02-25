@@ -7,6 +7,18 @@ Please have the *latest* stable versions of the following on your machine
 - node
 - yarn
 
+Yarn is a requirement for contributing to Ripple as it uses Yarn specific support for [Workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/)
+
+
+It is recommended to use [Node Version Manager](https://github.com/nvm-sh/nvm#readme) to manage node versions.
+NVM will use the correct version set in `.nvmrc` by running the following:
+
+```shell
+# Run nvm install from the project folder.
+nvm install
+```
+
+
 ## Local environment setup
 
 ### Ripple component library
@@ -64,8 +76,6 @@ Update storyshots tests if you need by `yarn test:unit -u`.
 # We use Jest for unit test and snapshots test
 yarn test:unit
 ```
-
-**Storyshots is temporarily removed due to a open issue in storybook project.**
 
 Chromatic is the tool for visual testing, it's running in CircleCI for pull request.
 

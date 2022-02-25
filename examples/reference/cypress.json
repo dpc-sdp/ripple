@@ -1,0 +1,23 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "fixturesFolder": "test/integration/fixtures",
+  "integrationFolder": "test/integration/features",
+  "pluginsFile": "test/integration/plugins/index.js",
+  "screenshotsFolder": "test/integration/screenshots",
+  "supportFile": "test/integration/support/index.js",
+  "videosFolder": "test/integration/videos",
+  "ignoreTestFiles": [
+    "*.js",
+    "*.md"
+  ],
+  "snapshotFileName": "test/integration/snapshots.js",
+  "projectId": "wtymar",
+  "chromeWebSecurity": false,
+  "$schema": "https://on.cypress.io/cypress.schema.json",
+  "lighthouse": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  }
+}

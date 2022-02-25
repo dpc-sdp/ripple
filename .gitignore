@@ -1,5 +1,3 @@
-.env
-
 # Editor directories and files
 .idea
 .vscode
@@ -16,12 +14,13 @@ storybook-static
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 /src/public
 
 # tests
 coverage
-examples/**/test/e2e/videos
-examples/**/test/e2e/screenshots
+examples/**/test/integration/videos
+examples/**/test/integration/screenshots
 test-results
 
 # temp test fixtures

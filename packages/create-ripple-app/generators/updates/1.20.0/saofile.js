@@ -24,10 +24,9 @@ module.exports = {
             data.devDependencies['babel-core'] = `^7.0.0-bridge.0`
             data.scripts['test:unit'] = 'cross-env BASIC_AUTH=0 NODE_ENV=test jest --passWithNoTests'
           }
-          if (results.e2e === true) {
+          if (results.integration === true) {
             data.scripts['cy:run'] = `cypress run -e TAGS='not @skip or @smoke'`
-            data.scripts['test:e2e'] = 'cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run'
-            data.scripts['test:smoke'] = 'cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run-smoke'
+            data.scripts['test:integration'] = 'cross-env TEST=1 BASIC_AUTH=0 start-server-and-test start:build http://localhost:3000 cy:run'
           }
           // Upgrade nuxt
           data.dependencies['nuxt'] = `2.10.2`

@@ -15,6 +15,15 @@
         </transition>
       </li>
     </template>
+    <!-- nav length is used to tie social links to the accordion logic -->
+    <rpl-footer-social-links
+      v-if="socialLinks && socialLinks.children && socialLinks.children.length"
+      :links="socialLinks"
+      :navIndex="nav.length"
+      :visibleItemIndex="visibleItemIndex"
+      :minimize="minimize"
+      :toggle="toggle"
+    />
   </ul>
 </template>
 
@@ -23,15 +32,18 @@ import { isClient } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import RplLink from '@dpc-sdp/ripple-link'
 import RplIcon from '@dpc-sdp/ripple-icon'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
+import RplFooterSocialLinks from './FooterSocialLinks'
 
 export default {
   mixins: [breakpoint],
   components: {
     RplIcon,
-    RplLink
+    RplLink,
+    RplFooterSocialLinks
   },
   props: {
-    nav: Array
+    nav: Array,
+    socialLinks: Object
   },
   data () {
     return {

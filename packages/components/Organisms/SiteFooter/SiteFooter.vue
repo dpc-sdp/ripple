@@ -1,7 +1,7 @@
 <template>
   <div class="rpl-site-footer">
     <div class="rpl-site-footer__main">
-      <rpl-footer-navigation :nav="nav"></rpl-footer-navigation>
+      <rpl-footer-navigation :nav="nav" :socialLinks="socialLinks" ></rpl-footer-navigation>
       <rpl-acknowledgement class="rpl-site-footer__acknowledgement" :text="acknowledgement" />
       <div v-if="caption" class="rpl-site-footer__caption">{{ caption }}</div>
     </div>
@@ -43,6 +43,7 @@ export default {
   props: {
     nav: Array,
     links: Array,
+    socialLinks: Object,
     copyright: String,
     acknowledgement: String,
     caption: String,

@@ -496,6 +496,7 @@ export default {
       }
 
       img {
+        image-rendering: -webkit-optimize-contrast;
         width: $rpl-site-header-logo-width;
         display: block;
       }

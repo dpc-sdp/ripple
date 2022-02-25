@@ -47,8 +47,8 @@ export default {
   $rpl-sitemap-menu-list-item-level-2-ruleset: ('s', 1.5em, 'medium') !default;
   $rpl-sitemap-menu-list-item-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-sitemap-menu-link-color: rpl-color('extra_dark_neutral') !default;
-  $rpl-sitemap-menu-toc-title-color: rpl-color('secondary') !default;
-  $rpl-sitemap-menu-toc-link-color: rpl-color('secondary') !default;
+  $rpl-sitemap-menu-toc-title-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-sitemap-menu-toc-link-color: rpl-color('extra_dark_neutral') !default;
   $rpl-sitemap-menu-toc-link-underline-color: rpl-color('mid_neutral_1') !default;
 
   .rpl-sitemap-header {
@@ -134,6 +134,10 @@ export default {
           &--small {
             &--underline {
               border-bottom-color: $rpl-sitemap-menu-toc-link-underline-color;
+              &:hover,
+              &:focus {
+                color: inherit;
+              }
             }
           }
         }

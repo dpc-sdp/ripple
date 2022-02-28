@@ -161,7 +161,9 @@ export const Template = (args, { argTypes }) => ({
       sticky: false,
       hideOnScroll: false,
       showSearch: false,
-      showLogout: false
+      showLogout: false,
+      overridePrimaryLogo: false,
+      deoptimizeContrast: false
     }}
   >
     {Template.bind({})}
@@ -180,7 +182,13 @@ export const Template = (args, { argTypes }) => ({
       },
       links: [],
       breakpoint: 992,
-      overridePrimaryLogo: true
+      searchTerms: [],
+      sticky: false,
+      hideOnScroll: false,
+      showSearch: false,
+      showLogout: false,
+      overridePrimaryLogo: true,
+      deoptimizeContrast: false
     }}
   >
     {Template.bind({})}
@@ -199,6 +207,11 @@ export const Template = (args, { argTypes }) => ({
       },
       links: [],
       breakpoint: 992,
+      searchTerms: [],
+      sticky: false,
+      hideOnScroll: false,
+      showSearch: false,
+      showLogout: false,
       overridePrimaryLogo: true,
       deoptimizeContrast: true
     }}

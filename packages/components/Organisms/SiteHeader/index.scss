@@ -292,11 +292,3 @@ $rpl-site-header-menu-divider-height-l: rem(27px) !default;
     }
   }
 }
-
-.rpl-site-header__logo-container--no-fix img {
-  image-rendering: auto;
-}
-
-.rpl-site-header__logo-container--override-primary-logo img {
-  width: rem(68px);
-}

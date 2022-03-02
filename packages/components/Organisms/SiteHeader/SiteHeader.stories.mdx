@@ -21,8 +21,6 @@ export const Template = (args, { argTypes }) => ({
       :hideOnScroll="hideOnScroll"
       :showSearch="showSearch"
       :showLogout="showLogout"
-      :overridePrimaryLogo="overridePrimaryLogo"
-      :deoptimizeContrast="deoptimizeContrast"
     />
   `
 });
@@ -161,59 +159,7 @@ export const Template = (args, { argTypes }) => ({
       sticky: false,
       hideOnScroll: false,
       showSearch: false,
-      showLogout: false,
-      overridePrimaryLogo: false,
-      deoptimizeContrast: false
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story
-    name="Vicpol Primary Logo"
-    height= "170px"
-    args={{
-      logo: {
-        alt: 'vic.gov.au',
-        url: '#',
-        image: '/vicpol.png'
-      },
-      links: [],
-      breakpoint: 992,
-      searchTerms: [],
-      sticky: false,
-      hideOnScroll: false,
-      showSearch: false,
-      showLogout: false,
-      overridePrimaryLogo: true,
-      deoptimizeContrast: false
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story
-    name="Vicpol Primary Logo (blurry)"
-    height= "170px"
-    args={{
-      logo: {
-        alt: 'vic.gov.au',
-        url: '#',
-        image: '/vicpol.png'
-      },
-      links: [],
-      breakpoint: 992,
-      searchTerms: [],
-      sticky: false,
-      hideOnScroll: false,
-      showSearch: false,
-      showLogout: false,
-      overridePrimaryLogo: true,
-      deoptimizeContrast: true
+      showLogout: false
     }}
   >
     {Template.bind({})}

@@ -12,7 +12,7 @@
       <div class="rpl-site-header__inner">
         <!-- Top Bar -->
         <div class="rpl-site-header__top">
-          <div :class="containerClass">
+          <div class="rpl-site-header__logo-container">
             <div class="rpl-site-header__logo-container-inner">
               <!-- Menu Button -->
               <button
@@ -152,15 +152,7 @@ export default {
     /**
      * Whether to show the logout button. Note: this button is part of the authenticated content module, which is now deprecated
      */
-    showLogout: { default: false, type: Boolean },
-    /**
-     * Override primary logo in storybook
-     */
-    overridePrimaryLogo: { default: false, type: Boolean },
-    /**
-     * Don't include CSS fix for blurry downscaled image in chromium browsers in storybook
-     */
-    deoptimizeContrast: { default: false, type: Boolean }
+    showLogout: { default: false, type: Boolean }
   },
   components: {
     Trap,
@@ -326,7 +318,7 @@ export default {
   },
   computed: {
     vicLogoVisible () {
-      return (!this.menuContentOpen && this.rplOptions.viclogo && !this.overridePrimaryLogo)
+      return (!this.menuContentOpen && this.rplOptions.viclogo)
     },
     cobrandVisible () {
       return (!this.menuContentOpen && this.logo)
@@ -336,11 +328,6 @@ export default {
       const hasVic = this.vicLogoVisible ? `1` : `0`
       const hasCobrand = this.cobrandVisible ? `1` : `0`
       return `rpl-site-header__divider--${hasMenu}${hasVic}${hasCobrand}`
-    },
-    containerClass () {
-      const noFix = this.deoptimizeContrast ? ' rpl-site-header__logo-container--no-fix' : ''
-      const overrideLogo = this.overridePrimaryLogo ? ' rpl-site-header__logo-container--override-primary-logo' : ''
-      return `rpl-site-header__logo-container${noFix}${overrideLogo}`
     }
   },
   mounted: function () {

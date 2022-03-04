@@ -2,5 +2,6 @@
   "version": "1.28.0",
   "exact": true,
   "npmClient": "yarn",
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "allowBranch": ["master"]
 }

@@ -18,7 +18,6 @@ $rpl-statistics-grid-margin: ($rpl-space * 2);
     flex: 1 0 27%;
     padding: $rpl-statistics-grid-padding;
     overflow: hidden;
-
     text-align: center;
 
     @include rpl_breakpoint('l') {
@@ -42,7 +41,6 @@ $rpl-statistics-grid-margin: ($rpl-space * 2);
     &-heading {
       @include rpl_typography('heading_l');
       line-height: rem(41px);
-
       margin-bottom: 0;
 
       @include rpl_breakpoint('l') {

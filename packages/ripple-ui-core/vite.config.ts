@@ -2,16 +2,26 @@ import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-dts'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/guide/build.html#library-mode
 export default defineConfig({
   resolve: {
     alias: {
-      '/@': path.resolve(__dirname, './src')
+      '/@': path.resolve(__dirname, './src/assets/icons')
     }
   },
-  plugins: [vue(), dts()],
+  plugins: [
+    vue(),
+    dts(),
+    createSvgIconsPlugin({
+      // Specify the icon folder to be cached
+      iconDirs: [path.resolve(process.cwd(), 'icons')],
+      // Specify symbolId format
+      symbolId: 'icon-[name]',
+    })
+  ],
   build: {
     emptyOutDir: false,
     lib: {

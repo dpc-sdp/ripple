@@ -1,0 +1,90 @@
+/* stylelint-disable custom-property-empty-line-before */
+/* stylelint-disable custom-property-pattern */
+
+/*
+  Version 2:
+  ==========
+  - Brand colour variables are made up just for the example
+  - Much less code, for same result as 1
+  - Still has a block of locally scoped variables specific for this component
+  - Still has some unused / redundant code between variants to support full themeing options, e.g. primary could be themed to be identical to secondary
+  - Overriding:
+    - Write a selector for the target variant and change the appropriate variables
+*/
+
+.rpl-button {
+  /* Local variables */
+  --rpl-button-text-colour: var(--rpl-brand-primary);
+  --rpl-button-text-colour--hover: var(--rpl-brand-primary-10);
+  --rpl-button-text-colour--active: var(--rpl-brand-primary-20);
+
+  --rpl-button-background-colour: var(--rpl-brand-primary);
+  --rpl-button-background-colour--hover: var(--rpl-brand-primary-10);
+  --rpl-button-background-colour--active: var(--rpl-brand-primary-20);
+
+  --rpl-button-border-width: 0.2rem;
+  --rpl-button-border-colour: transparent;
+  --rpl-button-border-colour--hover: transparent;
+  --rpl-button-border-colour--active: transparent;
+
+  /* Base styles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 2rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--rpl-button-text-colour);
+  background-color: var(--rpl-button-background-colour);
+  border-width: var(--rpl-button-border-width);
+  border-style: solid;
+  border-color: var(--rpl-button-border-colour);
+  border-radius: 0.4rem;
+
+  /* States */
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--rpl-button-text-colour--hover);
+    background-color: var(--rpl-button-background-colour--hover);
+    border-color: var(--rpl-button-border-colour--hover);
+  }
+
+  &:active,
+  &:active:hover {
+    cursor: default;
+    color: var(--rpl-button-text-colour--active);
+    background-color: var(--rpl-button-background-colour--active);
+    border-color: var(--rpl-button-border-colour--active);
+  }
+
+  /* Variants */
+  &--secondary {
+    --rpl-button-text-colour: var(--rpl-brand-secondary);
+    --rpl-button-text-colour--hover: var(--rpl-brand-secondary-10);
+    --rpl-button-text-colour--active: var(--rpl-brand-secondary-20);
+
+    --rpl-button-background-colour: transparent;
+    --rpl-button-background-colour--hover: transparent;
+    --rpl-button-background-colour--active: transparent;
+
+    --rpl-button-border-colour: var(--rpl-brand-secondary);
+    --rpl-button-border-colour--hover: var(--rpl-brand-secondary-10);
+    --rpl-button-border-colour--active: var(--rpl-brand-secondary-20);
+  }
+
+  &--tertiary {
+    --rpl-button-text-colour: var(--rpl-brand-tertiary);
+    --rpl-button-text-colour--hover: var(--rpl-brand-tertiary-10);
+    --rpl-button-text-colour--active: var(--rpl-brand-tertiary-20);
+
+    --rpl-button-background-colour: transparent;
+    --rpl-button-background-colour--hover: transparent;
+    --rpl-button-background-colour--active: transparent;
+
+    --rpl-button-border-colour: transparent;
+    --rpl-button-border-colour--hover: transparent;
+    --rpl-button-border-colour--active: transparent;
+  }
+}

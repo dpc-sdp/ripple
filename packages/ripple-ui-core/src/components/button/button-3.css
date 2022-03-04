@@ -1,0 +1,90 @@
+/* stylelint-disable custom-property-empty-line-before */
+/* stylelint-disable custom-property-pattern */
+
+/*
+  Version 3:
+  ==========
+  - Makes use of the dark / light (default / alternate) designs
+  - Assuming dark / light variables would be abstracted to a 'theme' so that the component doesn't need logic depeneding on the theme
+    e.g.:
+      --rpl-theme-foreground: var(--rpl-light-foreground);
+      --rpl-theme-background: var(--rpl-light-background);
+  - Has no locally scoped variables for this component
+    - This means not all styles are setup on the primary variant, e.g. text colour on hover
+      - Reduces out CSS (page weight)
+  - This version disregards themeing outside of branding colours which reduces the complexity significantly
+    - If one of branding changes need to over ride specific things, this can be done using regular CSS rather than configuring variables
+*/
+
+@import './global.css';
+
+.rpl-button {
+  /* Base styles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 2rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--rpl-theme-foreground);
+  background-color: var(--rpl-theme-background);
+  border-width: 0.2rem;
+  border-style: solid;
+  border-color: var(--rpl-theme-background);
+  border-radius: 0.4rem;
+
+  /* States */
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: var(--rpl-theme-background--lighter);
+    border-color: var(--rpl-theme-background--lighter);
+  }
+
+  &:active,
+  &:active:hover {
+    cursor: default;
+    background-color: var(--rpl-theme-background--darker);
+    border-color: var(--rpl-theme-background--darker);
+  }
+
+  /* Variants */
+  &--secondary {
+    color: var(--rpl-theme-background);
+    background-color: transparent;
+    border-color: var(--rpl-theme-background);
+
+    &:hover {
+      color: var(--rpl-theme-background--lighter);
+      background-color: transparent;
+      border-color: var(--rpl-theme-background--lighter);
+    }
+
+    &:active,
+    &:active:hover {
+      color: var(--rpl-theme-background--darker);
+      background-color: transparent;
+      border-color: var(--rpl-theme-background--darker);
+    }
+  }
+
+  &--tertiary {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover {
+      color: var(--rpl-theme-background);
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    &:active,
+    &:active:hover {
+      color: black;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}

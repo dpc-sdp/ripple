@@ -6,11 +6,23 @@ export default {
   component: MyButton,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: {},
+    theme: {
+      control: { type: null },
+      options: ['primary', 'secondary', 'tertiary'],
+      defaultValue: 'primary',
+    },
+    iconPosition: {
+      control: { type: 'select' },
+      options: ['left', 'right'],
+      defaultValue: 'left',
+    },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large']
+      options: ['default', 'large'],
+      defaultValue: 'default'
+    },
+    disabled: {
+      defaultValue: false
     }
   }
 }

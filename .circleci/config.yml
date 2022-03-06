@@ -241,7 +241,9 @@ jobs:
           command: yarn add -D -W github-release-notes
       - run:
           name: Generate release notes and publish to GitHub
-          command: npx gren release --override --token $GITHUB_REPO_TOKEN
+          command: |
+            PACKAGE_VERSION=$(node -pe "require('./lerna.json')['version']")
+            npx gren release --data-source=commits --tags=v$PACKAGE_VERSION --override --token $GITHUB_REPO_TOKEN
 
 workflows:
   version: 2

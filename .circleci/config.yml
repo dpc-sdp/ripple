@@ -184,7 +184,9 @@ jobs:
           at: ~/app
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            git update-index --assume-unchanged .npmrc
       - run:
           name: Publish packages to NPM
           command: npx lerna publish from-package --yes
@@ -200,7 +202,9 @@ jobs:
           at: ~/app
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            git update-index --assume-unchanged .npmrc
       - run:
           name: Publish pre-release packages to NPM
           command: npx lerna publish from-package --canary --yes

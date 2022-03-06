@@ -3,5 +3,5 @@
   "exact": true,
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "allowBranch": ["master"]
+  "allowBranch": ["master", "release/*"]
 }

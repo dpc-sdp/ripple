@@ -1,0 +1,71 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import RplStatisticsGrid from './index.vue'
+
+<Meta title="Molecules/StatisticsGrid" component={RplStatisticsGrid} />
+
+# StatisticsGrid
+Please see the [README](https://github.com/dpc-sdp/ripple/blob/master/packages/components/Molecules/StatisticsGrid/README.md) for more information about how to install and setup the component.
+
+## Basic example
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RplStatisticsGrid },
+  template: `<rpl-statistics-grid :blocks="blocks" :theme="theme" />`
+});
+
+<Canvas>
+  <Story
+    name="StatisticsGrid"
+    parameters={{
+      backgrounds: {
+        default: 'white',
+        values: [
+          { name: 'white', value: '#ffffff' },
+          { name: 'light-neutral', value: '#f6f6f9' }
+        ]
+      }
+    }}
+    args={{
+      theme: true,
+      blocks: [
+        {
+          heading: '1.1 Longer Heading',
+          body: 'Body copy'
+        },
+        {
+          heading: '1.2 Longerlonger Heading',
+          body: 'Body copy'
+        },
+        {
+          heading: '2.2',
+          body: 'Body copy'
+        },
+        {
+          heading: '3.1',
+          body: 'Body copy'
+        },
+        {
+          heading: '3.2',
+          body: 'Body copy'
+        },
+        {
+          heading: '4.1',
+          body: 'Body <em>copy</em> and a <a href="https://google.com">link</a>'
+        },
+        {
+          heading: '4.2',
+          body: 'Body copy'
+        },
+        {
+          heading: '5.1',
+          body: 'Body copy this one should fill the mobile width'
+        }
+      ]
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RplStatisticsGrid} />

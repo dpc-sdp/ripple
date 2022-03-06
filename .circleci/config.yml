@@ -184,10 +184,12 @@ jobs:
           at: ~/app
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            git update-index --assume-unchanged .npmrc
       - run:
           name: Publish packages to NPM
-          command: npx lerna publish from-package --yes
+          command: npx lerna publish from-package --force-publish --yes
 
   # Publish the packages as a pre-release versions to NPM. This should depend on
   # the `build` job.
@@ -200,7 +202,9 @@ jobs:
           at: ~/app
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            git update-index --assume-unchanged .npmrc
       - run:
           name: Publish pre-release packages to NPM
           command: npx lerna publish from-package --canary --yes
@@ -243,7 +247,12 @@ workflows:
   version: 2
   commit:
     when:
-      not: << pipeline.parameters.e2e >>
+      and:
+        - not: << pipeline.parameters.e2e >>
+        - not:
+            matches:
+              pattern: "^master$"
+              value: << pipeline.git.branch >>
     jobs:
       - build:
           context: Ripple
@@ -275,7 +284,9 @@ workflows:
   # publishes the built packages to NPM.
   publish-to-npm:
     when:
-      not: << pipeline.parameters.e2e >>
+      and:
+        - not: << pipeline.parameters.e2e >>
+        - equal: [ master, << pipeline.git.branch >> ]
     jobs:
       - build:
           filters:

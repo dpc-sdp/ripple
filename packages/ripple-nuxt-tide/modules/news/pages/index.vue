@@ -10,6 +10,9 @@
     <rpl-col cols="full">
       <rpl-markup v-if="page.body" :html="page.body.processed"></rpl-markup>
     </rpl-col>
+    <rpl-col v-if="page.field_show_topic_term_and_tags" cols="full">
+      <app-topic-tags :topic="this.page.field_topic" :tags="this.page.field_tags" />
+    </rpl-col>
   </rpl-row>
 </template>
 
@@ -18,6 +21,7 @@ import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplFigure from '@dpc-sdp/ripple-figure'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplPublishDateAndAuthor from '@dpc-sdp/ripple-publish-date-and-author'
+import AppTopicTags from '../../../lib/components/AppTopicTags'
 
 export default {
   components: {
@@ -25,7 +29,8 @@ export default {
     RplCol,
     RplFigure,
     RplPublishDateAndAuthor,
-    RplMarkup
+    RplMarkup,
+    AppTopicTags
   },
   props: {
     page: Object

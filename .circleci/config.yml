@@ -15,15 +15,21 @@ parameters:
     default: ''
 
 defaults: &defaults
-  docker:
-    - image: cypress/browsers:node14.7.0-chrome84
-      environment:
-        CIRCLE_TEST_REPORTS: test-results
-        TZ: "Australia/Melbourne"
-      auth:
-        username: $DOCKERHUB_USERNAME
-        password: $DOCKERHUB_PASSWORD
   working_directory: ~/app
+
+executors:
+  default:
+    docker:
+      - image: circleci/node:14-browsers
+  cypress:
+    docker:
+      - image: cypress/browsers:node14.7.0-chrome84
+        environment:
+          CIRCLE_TEST_REPORTS: test-results
+          TZ: "Australia/Melbourne"
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
 
 orbs:
   sdp-test: dpc-sdp/sdp-test@1
@@ -31,6 +37,7 @@ orbs:
 jobs:
   build:
     <<: *defaults
+    executor: default
     steps:
       - checkout
       - restore_cache:
@@ -44,14 +51,15 @@ jobs:
           paths:
             - ~/.cache
       - run:
-          name: build vic-gov-au nuxt app
-          command: cd examples/vic-gov-au && yarn build:default
+          name: build reference nuxt app
+          command: yarn reference:build
       - persist_to_workspace:
           root: ~/app
           paths: .
 
   test:
     <<: *defaults
+    executor: default
     steps:
       - attach_workspace:
           at: ~/app
@@ -76,15 +84,16 @@ jobs:
       - store_artifacts:
           path: test-results
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/videos
+          path: examples/reference/test/integration/videos
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/screenshots
+          path: examples/reference/test/integration/screenshots
 
 
 
-  integration-vic-gov:
+  reference-integration:
     # Integration tests confirm FE components are working correctly without testing BE
     <<: *defaults
+    executor: cypress
     parallelism: 2
     steps:
       - attach_workspace:
@@ -94,24 +103,21 @@ jobs:
             - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run full integration test
-          command: yarn test:integration-vic
+          command: yarn reference:integration
       - store_artifacts:
           path: test-results
       - store_test_results:
           path: test-results
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/videos
+          path: examples/reference/test/integration/videos
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/screenshots
+          path: examples/reference/test/integration/screenshots
 
 
   integration-example:
     # This runs the full suite of integration tests on example nuxt tide app
-    docker:
-      - image: cypress/browsers:node14.16.0-chrome89-ff86
-        environment:
-          TERM: xterm
-    working_directory: ~/app
+    <<: *defaults
+    executor: cypress
     steps:
       - attach_workspace:
           at: ~/app
@@ -129,26 +135,23 @@ jobs:
       - store_artifacts:
           path: test-results
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/videos
+          path: examples/basic-examples/test/integration/videos
       - store_artifacts:
-          path: examples/vic-gov-au/test/integration/screenshots
+          path: examples/basic-examples/test/integration/screenshots
 
   integration-vue-example-app:
   # This runs the full suite of integration tests on example vue example app
-    docker:
-      - image: cypress/browsers:node14.16.0-chrome89-ff86
-        environment:
-          TERM: xterm
-    working_directory: ~/app
+    <<: *defaults
+    executor: cypress
     steps:
       - attach_workspace:
-          at: ~/app      
+          at: ~/app
       - restore_cache:
           keys:
             - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: build example nuxt app
-          command: cd examples/vue-example-app && yarn build      
+          command: cd examples/vue-example-app && yarn build
       - run:
           name: run smoke test
           command: cd examples/vue-example-app && yarn test:smoke
@@ -162,11 +165,8 @@ jobs:
           path: examples/vue-example-app/test/integration/screenshots
 
   storybook:
-    docker:
-      - image: cypress/base:14.16.0
-        environment:
-          TERM: xterm
-    working_directory: ~/app
+    <<: *defaults
+    executor: default
     steps:
       - attach_workspace:
           at: ~/app
@@ -174,11 +174,87 @@ jobs:
           name: run UI test
           command: cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE --exit-zero-on-changes
 
+  # Publish the packages to NPM. This should depend on the `build` job.
+  create-release:
+    <<: *defaults
+    executor: default
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Authenticate with registry
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            git update-index --assume-unchanged .npmrc
+      - run:
+          name: Publish packages to NPM
+          command: npx lerna publish from-package --force-publish --yes
+
+  # Publish the packages as a pre-release versions to NPM. This should depend on
+  # the `build` job.
+  create-prerelease:
+    executor: default
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Authenticate with registry
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            git update-index --assume-unchanged .npmrc
+      - run:
+          name: Publish pre-release packages to NPM
+          command: npx lerna publish from-package --canary --yes
+
+  # Create a git tag for this release and push to the remote repository.
+  tag-release:
+    executor: default
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Git tag the release with the `lerna.json` version number
+          command: |
+            PACKAGE_VERSION=$(node -pe "require('./lerna.json')['version']")
+            git tag v$PACKAGE_VERSION
+      - run:
+          name: Push git tag to the remote repository
+          command: |
+            PACKAGE_VERSION=$(node -pe "require('./lerna.json')['version']")
+            git push -q https://$GITHUB_REPO_TOKEN@github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git v$PACKAGE_VERSION
+
+  # Create release notes on GitHub using the `github-release-notes` package.
+  create-release-notes:
+    executor: default
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Install github-release-notes package
+          command: yarn add -D -W github-release-notes
+      - run:
+          name: Generate release notes and publish to GitHub
+          command: |
+            PACKAGE_VERSION=$(node -pe "require('./lerna.json')['version']")
+            npx gren release --data-source=commits --tags=v$PACKAGE_VERSION --override --token $GITHUB_REPO_TOKEN
+
 workflows:
   version: 2
   commit:
     when:
-      not: << pipeline.parameters.e2e >>  
+      and:
+        - not: << pipeline.parameters.e2e >>
+        - not:
+            matches:
+              pattern: "^master$"
+              value: << pipeline.git.branch >>
     jobs:
       - build:
           context: Ripple
@@ -191,7 +267,7 @@ workflows:
           requires:
             - build
       # Run regression tests on release branches
-      - integration-example:
+      - reference-integration:
           requires:
             - build
           filters:
@@ -205,3 +281,43 @@ workflows:
       #       branches:
       #         only:
       #           - /^release\/.*/
+
+  # Builds modules, verifies code with the linter, runs unit tests, and
+  # publishes the built packages to NPM.
+  publish-to-npm:
+    when:
+      and:
+        - not: << pipeline.parameters.e2e >>
+        - equal: [ master, << pipeline.git.branch >> ]
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+
+      - test:
+          requires:
+            - build
+
+        # Manual approval step as a final gatekeeper to prevent
+        # possible mistakes!
+      - confirm-release:
+          type: approval
+          requires:
+            - build
+            - test
+
+      - create-release:
+          requires:
+            - confirm-release
+
+      - tag-release:
+          requires:
+            - confirm-release
+            - create-release
+
+      - create-release-notes:
+          requires:
+            - confirm-release
+            - tag-release

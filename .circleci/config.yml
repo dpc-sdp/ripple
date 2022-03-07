@@ -32,7 +32,7 @@ executors:
           password: $DOCKERHUB_PASSWORD
 
 orbs:
-  sdp-test: dpc-sdp/sdp-test@1
+  sdp-test: dpc-sdp/sdp-test@dev:reference-release
 
 jobs:
   build:
@@ -321,3 +321,62 @@ workflows:
           requires:
             - confirm-release
             - tag-release
+
+  nightwatch:
+    when: << pipeline.parameters.e2e >>
+    jobs:
+      - sdp-test/smoke:
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+          context:
+            - e2e-test
+            - e2e-test-open
+          be_url: << pipeline.parameters.e2e_be_url >>
+          fe_url: << pipeline.parameters.e2e_fe_url >>
+          project: << pipeline.parameters.e2e_project >>
+          browser: 'chrome'
+      - sdp-test/e2e:
+          name: sdp-test/e2eChrome
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+          requires:
+            - sdp-test/smoke
+          context:
+            - e2e-test
+            - e2e-test-open
+          be_url: << pipeline.parameters.e2e_be_url >>
+          fe_url: << pipeline.parameters.e2e_fe_url >>
+          project: << pipeline.parameters.e2e_project >>
+          browser: 'chrome'
+      - sdp-test/e2e:
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+          requires:
+            - sdp-test/e2eChrome
+          context:
+            - e2e-test
+            - e2e-test-open
+          be_url: << pipeline.parameters.e2e_be_url >>
+          fe_url: << pipeline.parameters.e2e_fe_url >>
+          project: << pipeline.parameters.e2e_project >>
+          browser: 'androidChrome'
+      - sdp-test/e2e:
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+          requires:
+            - sdp-test/e2eChrome
+          context:
+            - e2e-test
+            - e2e-test-open
+          be_url: << pipeline.parameters.e2e_be_url >>
+          fe_url: << pipeline.parameters.e2e_fe_url >>
+          project: << pipeline.parameters.e2e_project >>
+          browser: 'ie11'

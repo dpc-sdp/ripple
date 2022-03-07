@@ -32,7 +32,7 @@ executors:
           password: $DOCKERHUB_PASSWORD
 
 orbs:
-  sdp-test: dpc-sdp/sdp-test@dev:reference-release
+  sdp-test: dpc-sdp/sdp-test@1
 
 jobs:
   build:

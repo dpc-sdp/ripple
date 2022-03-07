@@ -15,6 +15,6 @@
     "@dpc-sdp/ripple-link": "1.29.1",
     "@dpc-sdp/ripple-meta-tag": "1.29.1",
     "@dpc-sdp/ripple-search": "1.29.1",
-    "body-scroll-lock": "^2.6.1"
+    "body-scroll-lock": "^3.0.0"
   }
 }

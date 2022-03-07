@@ -67,13 +67,13 @@
     "js-cookie": "^2.2.0",
     "jsonapi-parse": "^2.0.0",
     "jwt-decode": "^2.2.0",
-    "logform": "2.2.0",
+    "logform": "2.4.0",
     "mime-types": "^2.1.27",
-    "moment-timezone": "0.5.33",
+    "moment-timezone": "0.5.34",
     "qs": "^6.9.4",
     "serialize-javascript": "^3.1.0",
     "vuex-persistedstate": "^2.5.4",
-    "winston": "3.3.3",
+    "winston": "3.6.0",
     "winston-logstash-transport": "^2.0.0"
   },
   "peerDependencies": {
@@ -84,7 +84,7 @@
     "vuex-mock-store": "^0.0.8"
   },
   "resolutions": {
-    "@nuxtjs/axios/axios": "^0.21.2",
+    "@nuxtjs/axios/axios": "^0.26.0",
     "**/yargs/y18n": "^4.0.1"
   }
 }

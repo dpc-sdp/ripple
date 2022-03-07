@@ -353,6 +353,7 @@ workflows:
           project: << pipeline.parameters.e2e_project >>
           browser: 'chrome'
       - sdp-test/e2e:
+          name: sdp-test/e2eAndroid
           filters:
             branches:
               only:
@@ -367,6 +368,7 @@ workflows:
           project: << pipeline.parameters.e2e_project >>
           browser: 'androidChrome'
       - sdp-test/e2e:
+          name: sdp-test/e2eIE11
           filters:
             branches:
               only:

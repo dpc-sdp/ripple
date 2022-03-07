@@ -42,12 +42,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
       - save_cache:
-          key: v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache
       - run:
@@ -65,7 +65,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js
@@ -100,7 +100,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: run full integration test
           command: yarn reference:integration
@@ -123,7 +123,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: build example nuxt app
           command: cd examples/basic-examples && yarn build:default
@@ -148,7 +148,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v9-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: build example nuxt app
           command: cd examples/vue-example-app && yarn build

@@ -5,8 +5,11 @@ import {
   formatDate
 } from '@dpc-sdp/ripple-tide-api'
 
-export default {
-  pageComponent: '~/tide/event/index.vue',
+import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+
+const tideEventModule: RplTideMapping = {
+  component: '@dpc-sdp/ripple-tide-event/component',
+  schema: '@dpc-sdp/ripple-tide-event/types',
   mapping: {
     title: 'title',
     summary: 'field_landing_page_summary',
@@ -56,3 +59,5 @@ export default {
     'field_audience'
   ]
 }
+
+export default tideEventModule

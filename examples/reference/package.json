@@ -10,13 +10,10 @@
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "@blokwise/dynamic": "^1.5.0",
     "@dpc-sdp/ripple-tide-api": "0.0.0",
+    "@dpc-sdp/ripple-tide-event": "0.0.0",
     "@dpc-sdp/ripple-ui-core": "0.0.0",
-    "add": "^2.0.6",
-    "dotenv": "^16.0.0",
-    "std-env": "^3.0.1",
-    "yarn": "^1.22.17"
+    "dotenv": "^16.0.0"
   },
   "devDependencies": {
     "nuxt3": "latest"

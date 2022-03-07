@@ -1,4 +1,3 @@
-declare const useRoute: any
 declare const useFetch: any
 
 export const useTideSite = async (id) => {

@@ -23,7 +23,7 @@ export type fieldMediaImage = {
   }
 }
 
-export const formatDate = (date, format) => {
+export const formatDate = (date) => {
   // Example output: 26 January 2022 01:30 pm - 26 January 2022 08:45 pm
   //   format = format === undefined ? 'DD MMMM' : format
   //   dayjs.locale('en-au')
@@ -170,5 +170,6 @@ export default {
   getBody,
   getBodyFromField,
   humanizeFilesize,
-  getField
+  getField,
+  formatDate
 }

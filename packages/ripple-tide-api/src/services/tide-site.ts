@@ -1,15 +1,18 @@
 import jsonapiParse from 'jsonapi-parse'
-import TideApi from './tide-api'
+import TideApiBase from './tide-api-base'
 import getHierarchicalMenu from './lib/site-menu'
-import { RippleTideModule } from '../types/module'
+import type { RplTideModuleConfig, RplTideMapping } from './../../types'
 
-export default class TideSite extends TideApi {
+export default class TideSite extends TideApiBase {
   site: string
-  siteMapping: RippleTideModule
-  constructor(config) {
+  siteMapping: RplTideMapping
+  constructor(config: RplTideModuleConfig) {
     super(config)
-    this.site = config.site
-    this.siteMapping = config.siteMapping
+    this.site = config.contentApi.site
+    if (typeof config?.mapping?.site === 'string') {
+      throw new Error('Error loading site mapping')
+    }
+    this.siteMapping = config?.mapping?.site
   }
   async getSiteData(siteid) {
     if (!siteid) {

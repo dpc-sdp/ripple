@@ -1,19 +1,20 @@
 import jsonapiParse from 'jsonapi-parse'
-import TideApi from './tide-api'
+import TideApiBase from './tide-api-base'
 import defaultMapping from './lib/default-mapping'
-import get from 'lodash.get'
-
-export default class TidePage extends TideApi {
+import type { RplTideModuleConfig } from './../../types'
+export default class TidePage extends TideApiBase {
   contentTypes: object
-  constructor(config) {
+  site: string
+  constructor(config: RplTideModuleConfig) {
     super(config)
-    this.contentTypes = config.contentTypes
+    this.site = config.contentApi.site
+    this.contentTypes = config.mapping.content
   }
 
-  async getRouteByPath(path, site = 4) {
+  async getRouteByPath(path: string, site: string = this.site) {
     const routeUrl = `/route?site=${site}&path=${path}`
     return this.get(routeUrl)
-      .then((response) => get(response, 'data.attributes'))
+      .then((response) => response?.data?.attributes)
       .catch((error) => {
         return Promise.reject(
           this.handleError(
@@ -24,7 +25,11 @@ export default class TidePage extends TideApi {
       })
   }
 
-  async getPageByPath(path, config = { params: { site: 4 } }) {
+  async getPageByPath(
+    path: string,
+    siteQuery: string | undefined,
+    config = {}
+  ) {
     try {
       // if (this.isShareLink(path)) {
       //   return this.getPageFromShareLink(path, config)
@@ -32,8 +37,8 @@ export default class TidePage extends TideApi {
       // if (this.isPreviewLink(path)) {
       //   return this.getPageFromPreviewLink(path, config)
       // }
-
-      const route = await this.getRouteByPath(path)
+      const site = siteQuery || this.site
+      const route = await this.getRouteByPath(path, site)
       if (route && !route.error) {
         if (route.hasOwnProperty('redirect_type')) {
           return {
@@ -43,7 +48,8 @@ export default class TidePage extends TideApi {
         }
         const includes = this.getResourceIncludes(route.bundle)
         const params = {
-          ...config.params
+          site,
+          ...config
         }
         if (includes !== '') {
           params['include'] = includes

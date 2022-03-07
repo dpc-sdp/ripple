@@ -2,21 +2,23 @@ import HttpClient from './http-client'
 import TideApiError from './lib/api-error'
 import Logger from './lib/api-logger.js'
 import get from 'lodash.get'
+import type { RplTideModuleConfig } from './../../types'
 
-export default class TideApi extends HttpClient {
+export default class TideApiBase extends HttpClient {
   debug: boolean
   logger: Logger
-  constructor(config) {
+  constructor(config: RplTideModuleConfig) {
     if (!config) {
       throw new Error('Error - No configuration specified')
     }
     super({
-      baseUrl: `${config.baseUrl}${config.apiPrefix}`,
-      auth: config.auth
+      baseUrl: `${config.contentApi.baseUrl}${config.contentApi.apiPrefix}`,
+      auth: config.contentApi.auth
     })
     this.debug = config.debug
     this.logger = new Logger()
   }
+
   async getMappedData(mapping, resource) {
     if (!mapping || !resource) {
       this.handleError(

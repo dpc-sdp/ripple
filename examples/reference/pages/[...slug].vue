@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
 /* eslint-disable no-undef */
-const site = await useTideSite(4)
+const config = useRuntimeConfig()
+const site = await useTideSite(config.SITEID)
 const page = await useTidePage()
 </script>

@@ -1,31 +1,30 @@
 import 'dotenv/config'
 import { defineNuxtConfig } from 'nuxt3'
-import siteMapping from './tide/site'
-import event from './tide/event'
 
 export default defineNuxtConfig({
   privateRuntimeConfig: {
     API_URL: process.env.API_URL
   },
   publicRuntimeConfig: {
-    SITEID: 4,
-    contentTypes: {
-      event
-    }
+    SITEID: 8888
   },
   tide: {
-    debug: true,
-    site: 4,
-    baseUrl: 'https://master.content.vic.gov.au/',
-    apiPrefix: 'api/v1',
-    auth: {
-      username: 'dpc',
-      password: 'sdp'
+    contentApi: {
+      site: '8888',
+      baseUrl: 'https://develop.content.reference.sdp.vic.gov.au/',
+      apiPrefix: 'api/v1',
+      auth: {
+        username: 'dpc',
+        password: 'sdp'
+      }
     },
-    contentTypes: {
-      event
+    mapping: {
+      content: {
+        event: '@dpc-sdp/ripple-tide-event'
+      },
+      site: './tide/site.ts'
     },
-    siteMapping
+    debug: false
   },
   vue: {
     config: {
@@ -33,6 +32,6 @@ export default defineNuxtConfig({
       devtools: true
     }
   },
-  modules: ['@dpc-sdp/ripple-tide-api/nuxt', '@blokwise/dynamic'],
+  modules: ['@dpc-sdp/ripple-tide-api/nuxt'],
   buildModules: ['@dpc-sdp/ripple-ui-core/nuxt']
 })

@@ -1,32 +1,36 @@
 import type { IncomingMessage } from 'http'
-import type { ModuleOptions } from './types/module'
-import { createApp, App, useQuery, createError } from 'h3'
+import { createApp, App, useQuery } from 'h3'
 import { TidePageApi, TideSiteApi } from './index.js'
+import getSchema from './schema/index.js'
+import type { RplTideModuleConfig } from './../types'
 
-const errorHandler = (req) => {
-  throw createError({
-    statusMessage: req.statusMessage || 'Something went wrong!',
-    statusCode: req.statusCode || 500,
-    data: {
-      requestUrl: new URL(req.url, `http://${req.headers.host}`).toString()
-    }
-  })
-}
-
-const tideHandler = async (options: ModuleOptions): Promise<App> => {
+const tideHandler = async (config: RplTideModuleConfig): Promise<App> => {
   const app = createApp()
-  const tidePageApi = new TidePageApi(options)
-  const tideSiteApi = new TideSiteApi(options)
+  const tideSiteApi = new TideSiteApi(config)
+  const tidePageApi = new TidePageApi(config)
+  new TidePageApi(config)
 
   app.use('/page', async (req: IncomingMessage) => {
     const query = await useQuery(req)
-    return tidePageApi.getPageByPath(`${query.path}`, { params: { site: 4 } })
+    if (!query.path || Array.isArray(query.path)) {
+      throw new Error('No path supplied')
+    }
+    if (Array.isArray(query.site)) {
+      throw new Error('Duplicate site values')
+    }
+    return tidePageApi.getPageByPath(query.path, query.site)
   })
+
   app.use('/site', async (req: IncomingMessage) => {
     const query = await useQuery(req)
     return tideSiteApi.getSiteData(query.id)
   })
-  // app.use(errorHandler)
+
+  app.use('/schema', async () => {
+    const schema = await getSchema(config)
+    return schema
+  })
+
   return app
 }
 

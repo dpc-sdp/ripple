@@ -2,30 +2,34 @@
   "name": "@dpc-sdp/ripple-tide-api",
   "version": "0.0.0",
   "description": "Ripple API endpoints for Tide Drupal backend",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./types.d.ts",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
-    "./nuxt": "./dist/nuxt.js"
+    "./nuxt": "./dist/nuxt.js",
+    "./types": "./types.d.ts"
   },
-  "repository": "https://github.com/dylankelly/ripple-tide-api",
   "license": "MIT",
   "keywords": [],
   "scripts": {
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "build": "yarn clean && tsc -p tsconfig.json",
-    "watch": "yarn clean && tsc -p tsconfig.json -w"
+    "build": "yarn clean && tsc -p tsconfig.json && cp ./src/schema/openapi.yml ./dist/schema",
+    "watch": "tsc -p tsconfig.json -w"
   },
   "dependencies": {
     "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
     "axios": "^0.25.0",
     "cheerio": "^1.0.0-rc.10",
     "h3": "^0.3.9",
+    "js-yaml": "^4.1.0",
     "jsonapi-parse": "^2.0.1",
     "lodash.get": "^4.4.2",
-    "qs": "^6.10.3"
+    "pathe": "^0.2.0",
+    "qs": "^6.10.3",
+    "ts-json-schema-generator": "^0.98.0",
+    "typescript-json-schema": "^0.53.0"
   },
   "devDependencies": {
     "@nuxt/schema": "^0.1.0-edge",
@@ -37,6 +41,7 @@
     "dist",
     "!**/*.spec.*",
     "!**/*.json",
+    "types.d.ts",
     "CHANGELOG.md",
     "LICENSE",
     "README.md"

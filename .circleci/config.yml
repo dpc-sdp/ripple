@@ -20,7 +20,7 @@ defaults: &defaults
 executors:
   default:
     docker:
-      - image: circleci/node:14-browsers
+      - image: circleci/node:17-browsers
   cypress:
     docker:
       - image: cypress/browsers:node14.7.0-chrome84

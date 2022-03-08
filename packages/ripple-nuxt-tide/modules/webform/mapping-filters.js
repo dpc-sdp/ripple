@@ -23,7 +23,8 @@ module.exports = {
       },
       formState: {},
       settings: {
-        shouldHideFormAfterSuccess: null
+        shouldHideFormAfterSuccess: null,
+        spamProtect: true
       },
       tag: 'rpl-fieldset',
       // TODO: Below category & redirect_url is used by VicPol only at this moment and the it's not in Tide.
@@ -411,23 +412,19 @@ module.exports = {
         case 'webform_actions':
           group.fields = []
           group.styleClasses = ['rpl-fieldset--pad']
-          group.fields.push({
-            // Add a honeypot field to all forms.
-            // Can be made visible/tested by adding `rplhopo-show` to `styleClasses`.
-            type: 'rplhopo'
-          },
-          {
-            type: 'rplsubmitloader',
-            buttonText: element['#submit__label'] || element['#title'],
-            loading: false,
-            autoUpdate: true,
-            styleClasses: ['form-group--inline']
-          },
-          {
-            type: 'rplclearform',
-            buttonText: 'Clear form',
-            styleClasses: ['form-group--inline']
-          }
+          group.fields.push(
+            {
+              type: 'rplsubmitloader',
+              buttonText: element['#submit__label'] || element['#title'],
+              loading: false,
+              autoUpdate: true,
+              styleClasses: ['form-group--inline']
+            },
+            {
+              type: 'rplclearform',
+              buttonText: 'Clear form',
+              styleClasses: ['form-group--inline']
+            }
           )
           break
 

@@ -68,7 +68,8 @@ export const TemplateForm = (args, { argTypes }) => ({
       :formData="formData"
       :submitHandler="submitHandler"
       :title="title"
-      :fullWidth="fullWidth">
+      :fullWidth="fullWidth"
+      :spamProtect="spamProtect">
     </rpl-form>
   `
 });
@@ -159,12 +160,6 @@ export const formData = {
           }
         },
         model: 'rpltext'
-      },
-      {
-        type: 'rplhopo',
-        label: 'Honeypot',
-        hint: 'A text field hidden via CSS to detect spam bots',
-        styleClasses: ['rplhopo-show']
       },
       {
         type: 'radios',
@@ -380,6 +375,7 @@ export const formData = {
       title: 'Demo form',
       fullWidth: false,
       isNewModel: true,
+      spamProtect: true,
       options: {
         validateAfterChanged: true,
         validateAfterLoad: false

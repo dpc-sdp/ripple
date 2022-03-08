@@ -32,7 +32,6 @@ import fieldRploptionbutton from './fields/fieldRploptionbutton.vue'
 import fieldRplclearform from './fields/fieldRplclearform.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
-import fieldRplhopo from './fields/fieldRplhopo.vue'
 import VueScrollTo from 'vue-scrollto'
 import { RplFormEventBus } from './index.js'
 
@@ -47,7 +46,6 @@ Vue.component('fieldRploptionbutton', fieldRploptionbutton)
 Vue.component('fieldRplclearform', fieldRplclearform)
 Vue.component('fieldRpldivider', fieldRpldivider)
 Vue.component('fieldRplmarkup', fieldRplmarkup)
-Vue.component('fieldRplhopo', fieldRplhopo)
 Vue.component('RplFieldset', RplFieldset)
 
 export default {
@@ -62,7 +60,6 @@ export default {
     fieldRplsubmitloader,
     fieldRploptionbutton,
     fieldRplclearform,
-    fieldRplhopo,
     RplFormAlert,
     RplFieldset
   },
@@ -76,6 +73,7 @@ export default {
     submitFormOnClear: { type: Boolean, default: false },
     scrollToMessage: { type: Boolean, default: true },
     validateOnSubmit: { type: Boolean, default: true },
+    spamProtect: { type: Boolean, default: false },
     fullWidth: { type: Boolean, default: true },
     listenForClearForm: { type: Boolean, default: true }
   },
@@ -87,6 +85,24 @@ export default {
   mounted () {
     if (this.listenForClearForm) {
       RplFormEventBus.$on('clearform', this.clearForm)
+    }
+
+    // If spam protection is enabled, add a honeypot field to the beginning of the form.
+    if (this.spamProtect) {
+      const honeypot = {
+        inputType: 'text',
+        label: 'Important email',
+        model: 'honeypot',
+        type: 'input',
+        autocomplete: 'off',
+        styleClasses: ['rpl-hidden']
+      }
+
+      if (!this.formData.schema.fields) {
+        this.formData.schema.fields = []
+      }
+
+      this.formData.schema.fields.unshift(honeypot)
     }
 
     // TODO: We should abstract all future custom validators to a separate file and import them here.
@@ -162,10 +178,24 @@ export default {
         this.$refs.vfg.validate()
       }
 
-      // Run custom submit callback if no error in validation
       if (this.$refs.vfg.errors.length === 0) {
         RplFormEventBus.$emit('loading', true)
-        await this.submitHandler()
+
+        // Check whether honeypot field is set when spam protection is enabled.
+        if (this.spamProtect && this.formData.model.honeypot) {
+          setTimeout(() => {
+            this.formData.formState = {
+              response: {
+                status: 'success',
+                message: this.$parent.messages?.success || 'Form submitted, thank you.'
+              }
+            }
+          }, 2000)
+        } else {
+          // Run custom submit callback if no error in validation
+          await this.submitHandler()
+        }
+
         if (this.scrollToMessage) {
           VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
         }
@@ -374,6 +404,10 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
 
     .field-wrap {
       order: 3;
+    }
+
+    &.rpl-hidden {
+      display: none !important;
     }
   }
 }

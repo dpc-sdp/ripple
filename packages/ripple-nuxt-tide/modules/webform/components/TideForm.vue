@@ -6,6 +6,7 @@
     :formData="formData"
     :submitHandler="submitForm"
     :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess"
+    :spamProtect="formData.settings.spamProtect"
     :title="title"
     :fullWidth="false"
   >
@@ -72,35 +73,21 @@ export default {
     async submitForm () {
       const formData = this.formData.model
       const formId = this.formData.tideId
-
-      if (formData.honeypot) {
-        // If the honeypot field has been filled, add delay and fake a success without further process.
-        setTimeout(() => {
-          this.formData.formState = {
-            response: {
-              status: 'other',
-              message: this.formData.messages.success || this.messages.success
-            }
+      const res = await this.postForm(formId, formData)
+      if (res) {
+        this.formData.formState = {
+          response: {
+            status: 'success',
+            message: this.formData.messages.success || this.messages.success
           }
-        }, 2000)
+        }
+        // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
+        this.vicPolRedirect()
       } else {
-        const res = await this.postForm(formId, formData)
-
-        if (res) {
-          this.formData.formState = {
-            response: {
-              status: 'success',
-              message: this.formData.messages.success || this.messages.success
-            }
-          }
-          // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
-          this.vicPolRedirect()
-        } else {
-          this.formData.formState = {
-            response: {
-              status: 'danger',
-              message: this.formData.messages.error || this.messages.error
-            }
+        this.formData.formState = {
+          response: {
+            status: 'danger',
+            message: this.formData.messages.error || this.messages.error
           }
         }
       }

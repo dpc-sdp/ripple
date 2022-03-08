@@ -211,17 +211,17 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
     }
   }
   .field-radios {
+
+    label {
+      @include rpl_typography_ruleset($app-content-rating-radio-label-ruleset);
+      display: inline-flex;
+      margin-right: $rpl-space-4;
+    }
+
     @include rpl-breakpoint(s) {
       &.form-group {
         flex-direction: row;
       }
-      label,
-      .field-wrap,
-      .radio-list {
-         @include rpl_typography_ruleset($app-content-rating-radio-label-ruleset);
-        display: inline-flex;
-      }
-
       .field-wrap {
         padding-left: $rpl-space * 5;
       }

@@ -74,7 +74,8 @@ function _extractHostname (url) {
 function _isTelOrEmailUrl (url) {
   const types = [
     'tel:',
-    'mailto:'
+    'mailto:',
+    'sms:'
   ]
 
   for (let type of types) {

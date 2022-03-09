@@ -20,7 +20,7 @@
     ]
   },
   "scripts": {
-    "publish": "lerna publish",
+    "bump-version": "lerna version --no-git-tag-version --no-push",
     "start:storybook": "cd src && yarn start",
     "reference:dev": "yarn workspace reference dev",
     "reference:build": "yarn workspace reference build",

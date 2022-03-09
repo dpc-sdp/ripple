@@ -1,9 +1,5 @@
 # Ripple 2.0
 
-## _The Quickening_
-
-<img src="https://upload.wikimedia.org/wikipedia/en/5/5c/Highlander_II.jpg">
-
 ---
 
 ## Create a new component

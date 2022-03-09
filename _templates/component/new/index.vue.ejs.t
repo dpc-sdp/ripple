@@ -5,10 +5,6 @@ to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/i
 import { PropType } from 'vue'
 
 defineProps({
-  /*
-  When someone installs and imports our MyButton.vue component form our library,
-  Volar should offer "primary" and "secondary" autocompletions for it
-  */
   theme: {
     type: String as PropType<'primary' | 'secondary'>,
     default: 'primary'

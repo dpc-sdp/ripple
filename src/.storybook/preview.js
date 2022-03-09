@@ -8,6 +8,9 @@ import '../storybook-components/scss/story.scss'
 import RplGlobal from '@dpc-sdp/ripple-global'
 import RplMarkupExamplePlugins from '@dpc-sdp/ripple-markup/examplePlugins'
 
+import svgPlaceholder from '../storybook-components/svgPlaceholder'
+window.svgPlaceholder = svgPlaceholder
+
 export const parameters = {
   a11y: {
     element: '#root',
@@ -30,7 +33,7 @@ export const parameters = {
   options: {
     storySort: (a, b) =>
       a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
-  },
+  }
 }
 
 // Install Ripple Global plugin

@@ -19,12 +19,19 @@ defineProps({
   label: {
     type: String,
     required: true
-  }
+  },
+  disabled: Boolean
 })
 </script>
 
 <template>
-  <button type="button" :className="`rpl-button rpl-button--${theme}`">
+  <button
+    type="button"
+    :className="`rpl-button rpl-button--${theme}${
+      disabled ? ' rpl-button--disabled' : ''
+    }`"
+    :disabled="disabled"
+  >
     I'm a button, my label is {{ label }}
   </button>
 </template>

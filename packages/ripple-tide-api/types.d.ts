@@ -1,12 +1,12 @@
-/* eslint-disable @typescript-eslint/ban-types */
 export interface RplTideModuleMappingFunction {
-  [key: string]: (src: object) => any | string | string[] | object
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  [key: string]: Function | string | string[] | object
 }
 
 export interface RplTideMapping {
   component?: string | string[]
   schema?: string
-  mapping: Record<string, (src: object) => any | string | string[] | object>
+  mapping: RplTideModuleMappingFunction
   includes: string[]
 }
 

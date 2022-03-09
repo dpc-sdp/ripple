@@ -405,10 +405,6 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
     .field-wrap {
       order: 3;
     }
-
-    &.rpl-hidden {
-      display: none !important;
-    }
   }
 }
 

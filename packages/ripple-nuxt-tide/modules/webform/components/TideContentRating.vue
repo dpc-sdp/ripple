@@ -212,7 +212,7 @@ $app-content-text-color: rpl-color('dark_neutral') !default;
   }
   .field-radios {
 
-    label {
+    .radio-list label {
       @include rpl_typography_ruleset($app-content-rating-radio-label-ruleset);
       display: inline-flex;
       margin-right: $rpl-space-4;

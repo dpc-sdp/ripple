@@ -207,7 +207,7 @@ jobs:
             git update-index --assume-unchanged .npmrc
       - run:
           name: Publish pre-release packages to NPM
-          command: npx lerna publish from-package --canary --yes
+          command: npx lerna publish from-package --canary --force-publish --no-push --dist-tag dev --yes
 
   # Create a git tag for this release and push to the remote repository.
   tag-release:
@@ -321,3 +321,24 @@ workflows:
           requires:
             - confirm-release
             - tag-release
+  # Publish canary prerelease to NPM for testing on client sites
+  canary-npm-release:
+    when:
+      and:
+        - not: << pipeline.parameters.e2e >>
+        - equal: [ uat, << pipeline.git.branch >> ]
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - uat
+
+      - test:
+          requires:
+            - build
+
+      - create-prerelease
+      - tag-release:
+          requires:
+            - create-prerelease

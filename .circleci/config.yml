@@ -15,6 +15,7 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
+          app-dir: ~/app
       - run:
           name: build reference site
           command: yarn workspace reference build

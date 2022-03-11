@@ -29,9 +29,7 @@ jobs:
           at: ~/app
       - run:
           name: Lint code.
-          command: yarn run lint --format ./node_modules/eslint-junit/index.js
-          environment:
-            ESLINT_JUNIT_OUTPUT: ./test-results/eslint.xml
+          command: yarn run lint
       - run:
           command: yarn run test:unit
           name: Run unit tests

@@ -29,11 +29,10 @@ export default defineConfig({
       name: 'rpl',
       fileName: (f) => `rpl-lib.${f}.js`
     },
-    // outDir: './dist/lib',
     sourcemap: false,
     // Reduce bloat from legacy polyfills.
     target: 'esnext',
-    // Leave minification up to applications.
+    // Leave minification for now whilst we are non prod
     minify: false,
     rollupOptions: {
       external: ['vue'],

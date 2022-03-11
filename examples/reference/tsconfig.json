@@ -1,7 +1,3 @@
 {
-  "extends": "./.nuxt/tsconfig.json",
-  "references": [
-    { "path": "../../packages/ripple-tide-api" },
-    { "path": "../../packages/ripple-ui-core" }
-  ]
+  "extends": "./.nuxt/tsconfig.json"
 }

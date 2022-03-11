@@ -11,6 +11,7 @@
   "module": "./dist/rpl-lib-es.js",
   "typings": "./dist-types/index.d.ts",
   "exports": {
+    ".": "./dist/rpl-lib-es.js",
     "./nuxt": "./dist/nuxt.js",
     "./lib": {
       "export": "./dist/rpl-lib-es.js",

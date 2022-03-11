@@ -6,6 +6,7 @@ defaults: &defaults
   executor:
     name: node/default
     tag: 'lts'
+  working_directory: ~/app
 
 jobs:
   build:

@@ -5,7 +5,7 @@ orbs:
 defaults: &defaults
   executor:
     name: node/default
-    tag: '16'
+    tag: 'lts'
 
 jobs:
   build:
@@ -18,13 +18,13 @@ jobs:
           name: build reference site
           command: yarn workspace reference build
       - persist_to_workspace:
-          root: ~/
-          paths: .
+          root: ~/app
+          paths: [.]
   test:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/
+          at: ~/app
       - run:
           name: Lint code.
           command: yarn run lint --format ./node_modules/eslint-junit/index.js

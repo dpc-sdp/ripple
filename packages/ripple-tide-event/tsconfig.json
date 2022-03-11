@@ -4,7 +4,10 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "noImplicitAny": false,
-    "declaration": false
+    "declaration": false,
+    "paths": {
+      "@dpc-sdp/ripple-tide-api": ["./../ripple-tide-api/dist/index.js"]
+    }
   },
   "include": ["./src"]
 }

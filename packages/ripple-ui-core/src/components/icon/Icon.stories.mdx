@@ -1,0 +1,85 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import RplIcon from './index.vue'
+import style from './storybook-style.css'
+
+<Meta
+  title="Example/Icons"
+  component={RplIcon}
+  argTypes={{
+    name: { table: { disable: true } },
+    core: { table: { disable: true } }
+  }}
+/>
+
+# Core icons
+
+Core icons are delivered through an SVG sprite, capturing all of the most commonly used icons and referenced via `<use>`.
+
+```
+<svg class="rpl-icon rpl-icon--download" aria-hidden="true">
+  <use xlink:href="#rpl-icon--download"></use>
+</svg>
+```
+
+<Canvas>
+  <Story
+    name="Download"
+    decorators={[
+      () => ({
+        template: '<div class="storybook-block"><story /><b>download</b></div>'
+      })
+    ]}
+  >
+    {() => {
+      return {
+        components: { RplIcon },
+        template: `<RplIcon name="download" core="true"></RplIcon>`
+      }
+    }}
+  </Story>
+  <Story
+    name="Home"
+    decorators={[
+      () => ({
+        template: '<div class="storybook-block"><story /><b>home</b></div>'
+      })
+    ]}
+  >
+    {() => {
+      return {
+        components: { RplIcon },
+        template: `<RplIcon name="home" core="true"></RplIcon>`
+      }
+    }}
+  </Story>
+</Canvas>
+
+# Custom icons
+
+Custom icons are rendered directly inline.
+
+```
+<svg class="rpl-icon rpl-icon--facebook" aria-hidden="true">
+  <path>
+    ...
+  </path>
+</svg>
+```
+
+<Canvas>
+  <Story
+    name="Facebook"
+    decorators={[
+      () => ({
+        template: '<div class="storybook-block"><story /><b>facebook</b></div>'
+      })
+    ]}
+  >
+    {() => {
+      return {
+        components: { RplIcon },
+        template: `<RplIcon name="facebook" core="false"></RplIcon>`
+      }
+    }}
+  </Story>
+</Canvas>

@@ -1,4 +1,5 @@
 const { createSvgIconsPlugin } = require('vite-plugin-svg-icons')
+const vueSvgPlugin = require('vite-plugin-vue-svg')
 const path = require('path')
 
 module.exports = {
@@ -10,12 +11,15 @@ module.exports = {
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   async viteFinal(config, { configType }) {
     // customize the Vite config here
-    config.plugins.push(    createSvgIconsPlugin({
-      // Specify the icon folder to be cached
-      iconDirs: [path.resolve(process.cwd(), 'icons')],
-      // Specify symbolId format
-      symbolId: 'icon-[name]',
-    }))
+    config.plugins.push(
+      // SVG sprite sheet for core icons
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons/core')],
+        symbolId: 'rpl-icon--[name]'
+      }),
+      // Pass custom SVG icons as components
+      vueSvgPlugin({ defaultExport: 'component' })
+    )
     return config
   }
 }

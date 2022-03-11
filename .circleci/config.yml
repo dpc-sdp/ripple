@@ -1,0 +1,44 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.0
+
+defaults: &defaults
+  executor:
+    name: node/default
+    tag: '16'
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: build reference site
+          command: yarn workspace reference build
+      - persist_to_workspace:
+          root: ~/
+          paths: .
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Lint code.
+          command: yarn run lint --format ./node_modules/eslint-junit/index.js
+          environment:
+            ESLINT_JUNIT_OUTPUT: ./test-results/eslint.xml
+      - run:
+          command: yarn run test:unit
+          name: Run unit tests
+      - store_test_results:
+          path: test-results
+workflows:
+  commit:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build

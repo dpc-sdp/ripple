@@ -18,7 +18,7 @@ jobs:
           app-dir: ~/app
       - run:
           name: build reference site
-          command: yarn workspace reference build
+          command: yarn run build
       - persist_to_workspace:
           root: ~/app
           paths: [.]

@@ -13,6 +13,7 @@
     "storybook:build": "build-storybook",
     "dev": "concurrently \"yarn workspace @dpc-sdp/ripple-ui-core watch\" \"yarn workspace @dpc-sdp/ripple-tide-api watch\" \"yarn storybook\" \"yarn workspace reference dev\"",
     "clean": "git clean -dfx && git reset --hard && yarn",
+    "build": "lerna run build",
     "postinstall": "husky install",
     "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry $NPM_REGISTRY --dist-tag next",
     "release:prod": "lerna publish --conventional-commits --create-release github",

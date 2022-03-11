@@ -1,0 +1,44 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.0
+
+defaults: &defaults
+  executor:
+    name: node/default
+    tag: 'lts'
+  working_directory: ~/app
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+          app-dir: ~/app
+      - run:
+          name: build reference site
+          command: yarn run build
+      - persist_to_workspace:
+          root: ~/app
+          paths: [.]
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Lint code.
+          command: yarn run lint
+      - run:
+          command: yarn run test:unit
+          name: Run unit tests
+      - store_test_results:
+          path: test-results
+workflows:
+  commit:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build

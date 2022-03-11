@@ -9,7 +9,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./nuxt": "./dist/nuxt.js",
-    "./types": "./types.d.ts"
+    "./types": "./types.d.ts",
+    "./components": "./dist/nuxt/components"
   },
   "license": "MIT",
   "keywords": [],

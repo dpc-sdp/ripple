@@ -46,6 +46,14 @@ export default defineNuxtModule({
   hooks: {
     'autoImports:dirs'(dirs) {
       dirs.push(join(__dirname, './../src/nuxt/composables'))
+    },
+    'components:dirs'(dirs) {
+      // Adds components dir to auto imports
+      console.log('Added Ripple UI components')
+      dirs.push({
+        path: join(__dirname, './../src/nuxt/components'),
+        prefix: 'tide'
+      })
     }
   }
 })

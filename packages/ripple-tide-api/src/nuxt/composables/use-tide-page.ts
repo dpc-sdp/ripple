@@ -1,10 +1,15 @@
-declare const useRoute: any
+import { getBaseUrl } from '../lib/utils'
 declare const useFetch: any
+declare const useNuxtApp: any
 
-export const useTidePage = async () => {
-  const route = useRoute()
-  const { data } = await useFetch(`/api/tide/page?path=${route.path}`, {
-    baseUrl: 'http://localhost:3000'
+export default async function (path: string) {
+  const { ssrContext } = useNuxtApp()
+  const baseURL = getBaseUrl(ssrContext.req)
+  console.log(baseURL)
+  return useFetch(`/page`, {
+    params: {
+      path
+    },
+    baseURL
   })
-  return data
 }

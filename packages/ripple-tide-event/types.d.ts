@@ -18,6 +18,7 @@ export default interface TideEventPage {
   /**
    * @deprecated true
    * @description this is an old field
+   * @example something
    */
   oldfield?: string
   eventType: 'free' | 'paid'

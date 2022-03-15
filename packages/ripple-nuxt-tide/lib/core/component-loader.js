@@ -96,6 +96,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'rpl-data-table' */ '@dpc-sdp/ripple-data-table')
     case 'tide-login':
       return () => import(/* webpackChunkName: 'tide-login' */ '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/components/TideLogin')
+    case 'rpl-statistics-grid':
+      return () => import(/* webpackChunkName: 'rpl-statistics-grid' */ '@dpc-sdp/ripple-statistics-grid')
     default:
       if (coreComponents[name]) {
         return coreComponents[name]

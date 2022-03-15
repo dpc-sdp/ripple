@@ -13,6 +13,7 @@
     --ripple-extra-dark-neutral: #011a3c;
     --ripple-mid-neutral-1: #d7dbe0;
     --ripple-light-neutral: #f6f6f9;
+    --ripple-dark-neutral: #546A7C;
 
     --ripple-validation-bg: 175, 39, 47;
 }
@@ -24,6 +25,11 @@ select {
 
 select.of-validation-error {
    background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 -256 1792 1792'%3E%3Cg transform='matrix(1 0 0 -1 68.339 1133.6)'%3E%3Cpath fill='%23AF272F' d='m1611 832q0-53-37-90l-651-651q-38-38-91-38-54 0-90 38l-651 651q-38 36-38 90 0 53 38 91l74 75q39 37 91 37 53 0 90-37l486-486 486 486q37 37 90 37 52 0 91-37l75-75q37-39 37-91z' /%3E%3C/g%3E%3C/svg%3E"); 
+}
+
+/* Checkbox icon */
+input[type="checkbox"]:checked + label:before {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%230052C2' d='M9.46702 1.01714C9.78899 0.501978 10.4676 0.345371 10.9828 0.667346C11.4979 0.989321 11.6546 1.66795 11.3326 2.18311L5.83269 10.9829C5.45778 11.5828 4.6223 11.6779 4.12211 11.1777L0.822176 7.87782C0.392608 7.44825 0.392608 6.75178 0.822176 6.32221C1.25174 5.89264 1.94821 5.89264 2.37778 6.32221L4.69998 8.64441L9.46702 1.01714Z'/%3E%3C/svg%3E%0A");
 }
 
 /* Date field icons */
@@ -49,6 +55,11 @@ select.of-validation-error {
 /* File upload dropzone icons */
 .dropmessage {
     background-image: url("data:image/svg+xml,%3Csvg width='24' height='16' viewBox='0 0 24 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000000' d='M19.35 6.04C18.67 2.59 15.64 0 12 0C9.11 0 6.6 1.64 5.35 4.04C2.34 4.36 0 6.91 0 10C0 13.31 2.69 16 6 16H19C21.76 16 24 13.76 24 11C24 8.36 21.95 6.22 19.35 6.04ZM17 9L12 14L7 9H10V5H14V9H17Z'/%3E%3C/svg%3E%0A");
+}
+
+/* Error modal icon */
+.swal2-error {
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23AF272F' fill-rule='evenodd' clip-rule='evenodd' d='M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32ZM23.5814 11.4514L19.0327 16L23.5814 20.5486C24.1395 21.1073 24.1395 22.0123 23.5814 22.5705L22.5705 23.5814C22.0123 24.1395 21.1068 24.1395 20.5486 23.5814L16 19.0327L11.4514 23.5814C10.8932 24.1395 9.98773 24.1395 9.42955 23.5814L8.41864 22.5705C7.86045 22.0118 7.86045 21.1068 8.41864 20.5486L12.9673 16L8.41864 11.4514C7.86045 10.8927 7.86045 9.98773 8.41864 9.42955L9.42955 8.41864C9.98818 7.86045 10.8932 7.86045 11.4514 8.41864L16 12.9673L20.5486 8.41864C21.1073 7.86045 22.0123 7.86045 22.5705 8.41864L23.5814 9.42955C24.1395 9.98818 24.1395 10.8932 23.5814 11.4514Z'/%3E%3C/svg%3E%0A");
 }
 
 
@@ -82,8 +93,8 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
-body {
-    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+html body {
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif" !important;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -106,8 +117,10 @@ body {
 
 /* Headings (h3 is the only available heading in the WYSIWYG) */
 h3 {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
     font-size: 1.5rem !important;
     line-height: 1.2em !important;
+    color: var(--ripple-extra-dark-neutral) !important;
 }
 
 
@@ -178,10 +191,6 @@ img {
 
 
 /* Fieldset and legend */
-fieldset {
-
-}
-
 legend {
     box-sizing: border-box; /* 1 */
     display: table; /* 1 */
@@ -197,11 +206,11 @@ fieldset legend {
     font-weight: 400;
     color: var(--ripple-extra-dark-neutral);
     float: none !important;
-    margin: 0 0 10px 0 !important;
+    margin: 0 0 12px 0 !important;
 }
 
 .of-element-description {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .of-element-description p {
@@ -238,6 +247,13 @@ fieldset legend {
 }
 
 
+/* Progress bar */
+.of-display-progress {
+    padding: 0;
+    margin: 24px 0;
+}
+
+
 /* Text inputs */
 input[type='text'],
 input[type='password'],
@@ -255,15 +271,16 @@ input[type='tel'],
 input[type='color'],
 input:not([type]),
 textarea {
-    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif" !important;
     font-size: 14px !important;
+    line-height: 16px !important;
     color: rgb(1, 26, 60) !important;
     background-color: var(--ripple-light-neutral) !important;
     border: 1px solid var(--ripple-mid-neutral-1) !important;
     border-radius: .25rem !important;
     box-sizing: border-box !important;
     color: var(--ripple-extra-dark-neutral) !important;
-    padding: 1.05rem 1.25rem 1rem 1.25rem !important;
+    padding: 1rem 1.25rem !important;
 }
 
 input[type='text'],
@@ -361,6 +378,16 @@ textarea.of-validation-error {
 
 
 /* Radio & Checkbox combined styles */
+.of-element-description + .of-validation-error + .of-checkable-item:first-of-type,
+.of-element-description + .of-checkable-item:first-of-type {
+    margin-top: 10px;
+}
+
+legend + .of-validation-error + .of-checkable-item:first-of-type,
+legend + .of-checkable-item:first-of-type {
+    margin-top: -1px;
+}
+
 input[type="checkbox"] + label,
 input[type="radio"] + label {
     font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
@@ -375,29 +402,45 @@ fieldset .of-checkable-item:last-of-type {
 
 
 /* Radio */
+input[type="radio"]+label:before,
+input[type="radio"]+label:after {
+    transition: none !important;
+    transform: none !important;
+}
+
+input[type="radio"]+label:after {
+    border-color: var(--ripple-dark-neutral) !important;
+}
+
+input[type="radio"]:not(:checked) + label, 
+input[type="radio"]:checked + label {
+    padding-left: 28px;
+    transition: none !important;
+}
+
 input[type="radio"]:checked + label:before {
     border: 1px solid var(--ripple-secondary);
     background-color: var(--ripple-light-neutral);
 }
 
 input[type="radio"]:checked + label:after {
-    border: 1px solid var(--ripple-secondary);
+    border: none;
     background-color: var(--ripple-secondary);
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
+    width: 6px;
+    height: 6px;
+    -webkit-transform: none;
+    transform: none;
+    left: 7px;
+    top: 7px;
 }
 
 input[type="radio"]:not(:checked) + label:before {
-    border: 1px solid #5a5a5a;
+    border: 1px solid var(--ripple-dark-neutral);
     background-color: var(--ripple-light-neutral);
 }
 
-input[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
-    padding-left: 28px;
-}
-
 input[type="radio"]:focus + label:before {
-    box-shadow: none;
+    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
     border-color: var(--ripple-primary);
 }
 
@@ -407,6 +450,11 @@ input[type="checkbox"] + label {
     padding-left: 30px;
 }
 
+input[type="checkbox"] + label:before {
+    transition: none !important;
+    transform: none !important;
+}
+
 input[type="checkbox"] + label:after {
     content: '';
     left: 0;
@@ -414,19 +462,28 @@ input[type="checkbox"] + label:after {
     top: -4px;
     z-index: 0;
     display: inline-block;
-    border: 1px solid #546a7c;
+    border: 1px solid var(--ripple-dark-neutral);
     border-radius: .25rem;
     background-color: white;
     width: 22px;
     height: 22px;
+    transition: none !important;
+    transform: none !important;
 }
 
 input[type="checkbox"]:checked + label:before {
-    border-color: var(--ripple-primary) !important;
+    border: none !important;
     height: 11px;
-    top: -1px;
-    left: 3px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
+    width: 11px;
+    top: 1px;
+    left: 5px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: none !important;
+    transform: none !important;
+    margin-top: 0;
+    border-radius: 0;
 }
 
 input[type="checkbox"]:checked + label:after {
@@ -434,7 +491,7 @@ input[type="checkbox"]:checked + label:after {
 }
 
 input[type="checkbox"]:focus + label:after {
-    box-shadow: none;
+    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
     border: 1px solid var(--ripple-primary);
 }
 
@@ -444,16 +501,26 @@ input[type="checkbox"]:focus + label:after {
     margin-bottom: 0 !important;
 }
 
-.tablesaw-cell-content input[type="checkbox"] + label:after {
-    top: 0;
-}
-
 .tablesaw-wrapper .tablesaw-cell-label {
     font-weight: bold;
 }
 
 .tablesaw-wrapper .tablesaw-cell-content {
     font-weight: bold;
+    overflow: visible;
+}
+
+.tablesaw-wrapper input[type="radio"]:not(:checked) + label, 
+.tablesaw-wrapper input[type="radio"]:checked + label {
+    margin-left: -10px;
+}
+
+.tablesaw-wrapper input[type="radio"]:checked + label:after {
+    left: 15px;
+}
+
+.tablesaw-wrapper td {
+    padding: 1rem 0 !important;
 }
 
 
@@ -489,6 +556,52 @@ button.datebutton:hover {
 
 .picker__input--active {
     box-shadow: 0 0 0 2px var(--ripple-primary) !important;
+}
+
+.tablesaw-stack thead td,
+.tablesaw-stack thead th {
+    position: static !important;
+    font-size: unset !important;
+    overflow: unset !important;
+}
+
+.tablesaw-stack td,
+.tablesaw-stack th,
+.tablesaw-stack thead td,
+.tablesaw-stack thead th {
+    display: table-cell !important;
+    margin: 0 !important;
+}
+
+.tablesaw thead th {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    text-align: center !important;
+}
+
+.tablesaw td {
+    text-align: center !important;
+}
+
+.tablesaw thead tr:first-child th:first-child {
+    visibility: hidden !important;
+    min-width: 150px !important;
+}
+
+.tablesaw tbody td:first-child tr:first-child {
+    visibility: hidden !important;
+    min-width: 150px !important;
+}
+
+.tablesaw-stack td .tablesaw-cell-label,
+.tablesaw-stack th .tablesaw-cell-label {
+    display: none !important;
+}
+
+.tablesaw-stack tbody td, .tablesaw-stack tbody th {
+    clear: left;
+    float: unset !important;
+    width: unset;
 }
 
 
@@ -665,8 +778,8 @@ button.datebutton:hover {
 }
 
 .picker__day:hover {
-    background-color: var(--ripple-mid-neutral-1);
-    color: var(--ripple-extra-dark-neutral);
+    background-color: transparent;
+    color: var(--ripple-primary);
 }
 
 .picker--focused .picker__day--highlighted,
@@ -681,8 +794,8 @@ button.datebutton:hover {
 }
 
 .picker__day--today:hover {
-    background-color: var(--ripple-mid-neutral-1) !important;
-        color: var(--ripple-secondary) !important;
+    background-color: transparent !important;
+    color: var(--ripple-primary) !important;
 }
 
 .picker__day--today:before {
@@ -699,6 +812,7 @@ button.datebutton:hover {
 .picker__footer {
     display: none;
 }
+
 
 /* Tables */
 table {
@@ -722,60 +836,57 @@ table tr {
     border-bottom: 0 !important;
 }
 
-table [type="checkbox"]:checked + label:before {
-    left: 1px;
-}
-
 
 /* Buttons */
+/* 
+    The primary class is using ripple secondary colours and the secondary class is using
+    ripple primary colours. This is because openforms uses the secondary class on what
+    would be seen as the primary CTA. E.g. 'Continue' uses the secondary class.
+ */
 button {
     font-size: 16px !important;
     border: 0 !important;
     border-radius: .25rem !important;
     box-shadow: 0 0 0 0 transparent !important;
+    transition: none !important;
 }
 
-button.of-colour-primary {
+button.of-colour-primary,
+button.of-colour-primary-border {
     font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
     font-weight: 400;
     color: #fff !important;
+    background-color: var(--ripple-secondary) !important;
+}
+
+button.of-colour-primary:hover,
+button.of-colour-primary-border:hover {
     background-color: var(--ripple-primary) !important;
 }
 
-button.of-colour-primary:hover {
-    background-color: var(--ripple-secondary) !important;
-}
-
-button.of-colour-primary:focus {
-    background-color: var(--ripple-secondary) !important;
+button.of-colour-primary:focus,
+button.of-colour-primary-border:focus {
+    background-color: var(--ripple-primary) !important;
     border: 0 !important;
-    box-shadow: 0 0 0 2px #000 !important;
+    box-shadow: 0 0 0 2px var(--ripple-secondary) !important;
 }
 
 button.of-colour-secondary {
     font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
     font-weight: 400;
     color: #fff !important;
-    background-color: var(--ripple-secondary) !important;
+    background-color: var(--ripple-primary) !important;
 }
 
 button.of-colour-secondary:hover {
-    background-color: var(--ripple-primary) !important;
+    background-color: var(--ripple-secondary) !important;
 }
 
 
 button.of-colour-secondary:focus {
-    background-color: var(--ripple-primary) !important;
+    background-color: var(--ripple-secondary) !important;
     border: 0 !important;
-    box-shadow: 0 0 0 2px #000 !important;
-}
-
-button.of-colour-primary-border {
-    opacity: 1 !important;
-    color: #465870 !important;
-    font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
-    font-weight: 400 !important;
-    border: 1px solid #465870 !important;
+    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
 }
 
 button .inner-border {
@@ -801,11 +912,18 @@ button .inner-border {
     padding: 10px 20px;
 }
 
+.nav-prev-disabled {
+    display: none;
+}
+
 
 /* Select dropdowns */
 select {
-    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
     appearance: none;
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif";
+    font-size: 14px !important;
+    line-height: 16px !important;
+    color: var(--ripple-extra-dark-neutral);
     background-color: var(--ripple-light-neutral) !important;
     border: 1px solid var(--ripple-mid-neutral-1) !important;
     border-radius: .25rem !important;
@@ -854,6 +972,7 @@ select option:hover {
 button.of-file-upload-button,
 button.of-file-upload-button:active {
     margin-bottom: 15px;
+    margin-top: 0;
 }
 
 .dropzone {
@@ -888,11 +1007,11 @@ button.of-file-upload-button:active {
 
 /* Location */
 .use-location-container .use-current-location {
-    background-color: var(--ripple-secondary) !important;
+    background-color: var(--ripple-primary) !important;
 }
 
 .use-location-container .use-current-location:hover {
-    background-color: var(--ripple-primary) !important;
+    background-color: var(--ripple-secondary) !important;
 }
 
 button.use-current-location {
@@ -907,6 +1026,60 @@ button.use-current-location:hover {
 
 button.use-current-location .material-icons {
     color: #fff;
+}
+
+
+/* Error modal - part of location component */
+.swal2-modal {
+    font-family: VIC-Regular,Arial,Helvetica,"sans-serif" !important;
+    padding: 32px !important;
+}
+
+.swal2-title {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
+    font-weight: 400 !important;
+    font-size: 28px !important;
+    line-height: 1.3em !important;
+}
+
+.swal2-content {
+    font-size: 16px !important;
+}
+
+.swal2-error {
+    border: 0 !important;
+    background-color: transparent;
+    border-radius: 0;
+    width: 32px;
+    height: 32px;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+    /* SVG background image is styled at the top of this file */
+    background-size: 32px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.swal2-x-mark {
+    display: none !important;
+}
+
+.swal2-buttonswrapper button {
+    font-family: VIC-Bold,Arial,Helvetica,"sans-serif" !important;
+    font-weight: 400;
+    color: #fff !important;
+    background-color: var(--ripple-primary) !important;
+    margin-top: 6px !important;
+}
+
+.swal2-buttonswrapper button:hover {
+    background-color: var(--ripple-secondary) !important;
+}
+
+.swal2-buttonswrapper button:focus {
+    background-color: var(--ripple-secondary) !important;
+    border: 0 !important;
+    box-shadow: 0 0 0 2px var(--ripple-primary) !important;
 }
 
 

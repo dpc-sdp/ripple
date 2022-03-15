@@ -14,7 +14,7 @@ COPY . /app/
 RUN rm /app/src/package.json \
     && yarn install
 
-WORKDIR /app/examples/vic-gov-au/
+WORKDIR /app/examples/reference/
 
 RUN . /home/.bashrc \
     && yarn run build --modern=client

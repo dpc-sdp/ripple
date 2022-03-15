@@ -1,6 +1,10 @@
 {
-  "version": "1.27.2",
+  "version": "1.29.1",
   "exact": true,
   "npmClient": "yarn",
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "allowBranch": [
+    "master",
+    "release/*"
+  ]
 }

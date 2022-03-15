@@ -361,6 +361,8 @@ export default {
       @media print {
         display: block !important;
         padding: 0 ($rpl-space * 5);
+        visibility: visible;
+        height: auto;
       }
     }
 

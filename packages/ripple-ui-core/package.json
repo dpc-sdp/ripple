@@ -34,7 +34,7 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "tokens:update": "./tokens.sh"
+    "tokens:update": "node ./tokens/processor.js"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",

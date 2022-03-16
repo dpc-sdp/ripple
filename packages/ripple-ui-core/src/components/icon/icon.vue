@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineAsyncComponent, computed } from 'vue'
-import COREICONS from './core.json'
+import ids from 'virtual:svg-icons-names'
 
 const props = defineProps({
   name: {
@@ -9,7 +9,7 @@ const props = defineProps({
   }
 })
 
-const core = computed(() => COREICONS.includes(props.name))
+const core = computed(() => ids.includes(`rpl-icon--${props.name}`))
 </script>
 
 <template>

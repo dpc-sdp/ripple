@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
+
 defineProps({
   name: {
     type: String,
@@ -21,7 +23,11 @@ defineProps({
     <use :xlink:href="`#rpl-icon--${name}`" />
   </svg>
   <component
-    :is="import(`../../assets/icons/custom/${name}.svg`)"
+    :is="
+      defineAsyncComponent(() =>
+        import(`../../assets/icons/custom/facebook.svg`)
+      )
+    "
     v-else
     class="rpl-icon"
     :class="`rpl-icon--${name}`"

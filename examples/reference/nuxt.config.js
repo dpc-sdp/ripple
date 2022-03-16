@@ -158,15 +158,10 @@ export default {
       landingPage: {
         contentCollection: true
       },
-      event: {
-        disableEventListing: true
-      },
+      event: 1,
       news: 1,
-      grant: {
-        disableGrantListing: true
-      },
+      grant: 1,
       profile: {
-        disableProfileListing: true,
         route: '/victorian-honour-roll-of-women',
         returnText: 'See all inductees'
       },

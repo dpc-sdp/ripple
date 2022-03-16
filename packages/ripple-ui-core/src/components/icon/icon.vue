@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, computed } from 'vue'
+import COREICONS from './core.json'
 
-defineProps({
+const props = defineProps({
   name: {
     type: String,
     required: true
-  },
-  core: {
-    type: Boolean,
-    default: true
   }
 })
+
+const core = computed(() => COREICONS.includes(props.name))
 </script>
 
 <template>

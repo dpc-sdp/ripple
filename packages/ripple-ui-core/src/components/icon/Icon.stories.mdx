@@ -6,8 +6,7 @@ import style from './storybook-style.css'
   title='Example/Icons'
   component={RplIcon}
   argTypes={{
-    name: { table: { disable: true } },
-    core: { table: { disable: true } }
+    name: { table: { disable: true } }
   }}
 />
 
@@ -33,7 +32,7 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
     {() => {
       return {
         components: { RplIcon },
-        template: `<RplIcon name="download" :core="true"></RplIcon>`
+        template: `<RplIcon name="download"></RplIcon>`
       }
     }}
   </Story>
@@ -48,7 +47,7 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
     {() => {
       return {
         components: { RplIcon },
-        template: `<RplIcon name="home" :core="true"></RplIcon>`
+        template: `<RplIcon name="home"></RplIcon>`
       }
     }}
   </Story>
@@ -78,7 +77,7 @@ Custom icons are rendered directly inline.
     {() => {
       return {
         components: { RplIcon },
-        template: `<RplIcon name="facebook" :core="false"></RplIcon>`
+        template: `<RplIcon name="facebook"></RplIcon>`
       }
     }}
   </Story>

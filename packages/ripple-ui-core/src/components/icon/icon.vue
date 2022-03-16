@@ -25,7 +25,7 @@ defineProps({
   <component
     :is="
       defineAsyncComponent(() =>
-        import(`../../assets/icons/custom/facebook.svg`)
+        import(`../../assets/icons/custom/${name}.svg`)
       )
     "
     v-else

@@ -1,19 +1,26 @@
-:root {
-  --rpl-button-color: black;
-}
-
 .rpl-button {
-  border: 4px solid var(--rpl-button-color);
+  padding: var(--rpl-space-14) var(--rpl-space-20);
+  border: 0;
+  border-radius: var(--rpl-border-radius);
+  font-family: var(--rpl-type-body);
 
   &--primary {
-    --rpl-button-color: red;
+    background-color: var(--rpl-color-base-primary);
+    color: var(--rpl-color-type-primary);
+
+    &:hover {
+      background-color: var(--rpl-color-base-primary-alt);
+      color: var(--rpl-color-type-primary-alt);
+    }
   }
 
   &--secondary {
-    --rpl-button-color: blue;
-  }
+    background-color: var(--rpl-color-base-secondary);
+    color: var(--rpl-color-type-secondary);
 
-  &--tertiary {
-    --rpl-button-color: rebeccapurple;
+    &:hover {
+      color: var(--rpl-color-type-secondary-alt);
+      background-color: var(--rpl-color-base-secondary-alt);
+    }
   }
 }

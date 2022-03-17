@@ -13,7 +13,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["vite/client"],
+    "types": ["vite/client", "vite-plugin-svg-icons/client"],
     "paths": {
       "@/*": ["src/*"]
     },

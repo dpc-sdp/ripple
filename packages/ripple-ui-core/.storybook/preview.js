@@ -1,3 +1,5 @@
+import 'virtual:svg-icons-register'
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {

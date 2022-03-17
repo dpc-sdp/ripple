@@ -1,0 +1,12 @@
+diff --git a/node_modules/vite-plugin-svg-icons/dist/index.cjs b/node_modules/vite-plugin-svg-icons/dist/index.cjs
+index 24eb9b3..9d14167 100644
+--- a/node_modules/vite-plugin-svg-icons/dist/index.cjs
++++ b/node_modules/vite-plugin-svg-icons/dist/index.cjs
+@@ -115,6 +115,7 @@ async function createModuleCode(cache, svgoOptions, options) {
+              svgDom.id = '${options.customDomId}';
+              svgDom.setAttribute('xmlns','${XMLNS}');
+              svgDom.setAttribute('xmlns:link','${XMLNS_LINK}');
++             svgDom.setAttribute('aria-hidden',true);
+            }
+            svgDom.innerHTML = ${JSON.stringify(html)};
+            ${domInject(options.inject)}

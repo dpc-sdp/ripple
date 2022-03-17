@@ -13,7 +13,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["vite/client"],
+    "types": ["vite/client", "vite-plugin-svg-icons/client"],
     "paths": {
       "@/*": ["src/*"]
     },
@@ -21,5 +21,5 @@
     "skipLibCheck": true,
     "declaration": true
   },
-  "include": ["env.d.ts", "src/nuxt.ts"]
+  "include": ["env.d.ts", "src/nuxt.ts", "src/tokens/index.ts"]
 }

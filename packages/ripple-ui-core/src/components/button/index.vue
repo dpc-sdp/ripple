@@ -1,7 +1,13 @@
+<script lang="ts">
+export default {
+  name: 'RplButton'
+}
+</script>
+
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
 // TODO: Make this component path nicer rather than climbing up directories
-import Icon from '../icon/index.vue'
+// import Icon from '../icon/index.vue'
 
 const props = defineProps({
   /*
@@ -61,6 +67,4 @@ const directionClass = computed(() => {
   </button>
 </template>
 
-<style>
-@import './button-4.css';
-</style>
+<style src="./button.css" />

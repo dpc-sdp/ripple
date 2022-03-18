@@ -1,4 +1,75 @@
 .rpl-button {
+  /* Base styles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 2rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--rpl-theme-foreground);
+  background-color: var(--rpl-theme-background);
+  border-width: 0.2rem;
+  border-style: solid;
+  border-color: var(--rpl-theme-background);
+  border-radius: 0.4rem;
+
+  /* States */
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: var(--rpl-theme-background-lighter);
+    border-color: var(--rpl-theme-background-lighter);
+  }
+
+  &:active,
+  &:active:hover {
+    cursor: default;
+    background-color: var(--rpl-theme-background-darker);
+    border-color: var(--rpl-theme-background-darker);
+  }
+
+  /* Variants */
+  &--secondary {
+    color: var(--rpl-theme-background);
+    background-color: transparent;
+    border-color: var(--rpl-theme-background);
+
+    &:hover {
+      color: var(--rpl-theme-background-lighter);
+      background-color: transparent;
+      border-color: var(--rpl-theme-background-lighter);
+    }
+
+    &:active,
+    &:active:hover {
+      color: var(--rpl-theme-background-darker);
+      background-color: transparent;
+      border-color: var(--rpl-theme-background-darker);
+    }
+  }
+
+  &--tertiary {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover {
+      color: var(--rpl-theme-background);
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    &:active,
+    &:active:hover {
+      color: black;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}
+
+/* .rpl-button {
   padding: var(--rpl-space-14) var(--rpl-space-20);
   border: 0;
   border-radius: var(--rpl-border-radius);
@@ -23,4 +94,4 @@
       background-color: var(--rpl-color-base-secondary-alt);
     }
   }
-}
+} */

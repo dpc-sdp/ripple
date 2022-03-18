@@ -82,11 +82,7 @@ export default {
       isClearingForm: false
     }
   },
-  mounted () {
-    if (this.listenForClearForm) {
-      RplFormEventBus.$on('clearform', this.clearForm)
-    }
-
+  beforeMount () {
     // If spam protection is enabled, add a honeypot field to the beginning of the form.
     if (this.spamProtect) {
       const honeypot = {
@@ -103,6 +99,11 @@ export default {
       }
 
       this.formData.schema.fields.unshift(honeypot)
+    }
+  },
+  mounted () {
+    if (this.listenForClearForm) {
+      RplFormEventBus.$on('clearform', this.clearForm)
     }
 
     // TODO: We should abstract all future custom validators to a separate file and import them here.

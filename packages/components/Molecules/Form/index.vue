@@ -82,7 +82,7 @@ export default {
       isClearingForm: false
     }
   },
-  beforeMount () {
+  created () {
     // If spam protection is enabled, add a honeypot field to the beginning of the form.
     if (this.spamProtect) {
       const honeypot = {

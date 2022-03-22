@@ -33,6 +33,7 @@ const isRtl = () => false
 
 <template>
   <div class="rpl-accordion">
+    {{ title }}
     <ul class="rpl-accordion__list">
       <li
         v-for="(accordion, index) in panels"
@@ -67,7 +68,6 @@ const isRtl = () => false
           :ref="accordionId(index)"
           class="rpl-accordion__content"
         >
-          <!-- eslint-disable vue/no-v-html -->
           <div
             class="rpl-accordion__content-inner"
             v-html="accordion.content"

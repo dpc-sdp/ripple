@@ -18,7 +18,7 @@ defineProps({
   },
   label: {
     type: String,
-    required: true
+    required: false
   },
   disabled: Boolean
 })
@@ -32,7 +32,7 @@ defineProps({
     }`"
     :disabled="disabled"
   >
-    I'm a button, my label is {{ label }}
+    <slot> I'm a button, my label is {{ label }} </slot>
   </button>
 </template>
 

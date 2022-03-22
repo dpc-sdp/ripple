@@ -6,8 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
-// TODO: Make this component path nicer rather than climbing up directories
-// import Icon from '../icon/index.vue'
+import Icon from '../icon/icon.vue'
 
 const props = defineProps({
   /*
@@ -41,8 +40,7 @@ const props = defineProps({
 })
 
 const directionClass = computed(() => {
-  console.log('Icon position: ', props.iconPosition)
-  return props.iconPosition === 'left' ? '' : 'rpl-button--reverse'
+  return props.iconPosition === 'left' ? 'rpl-button--reverse' : ''
 })
 </script>
 

@@ -1,8 +1,0 @@
-@import './vars/css/variables.css';
-
-/*
-  1. Reset rem unit to 1rem = 10px
-*/
-html {
-  font-size: 62.5%; /* [1] */
-}

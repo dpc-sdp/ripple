@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
+    "normalize.css": "^8.0.1",
     "postcss-nested": "^5.0.6",
     "vue": "^3.2.31"
   },
@@ -49,8 +50,8 @@
     "@vitejs/plugin-vue": "^2.2.2",
     "@vue/compiler-sfc": "^3.2.31",
     "postcss-nested": "^5.0.6",
-    "style-dictionary": "^3.1.1",
     "storybook-builder-vite": "^0.1.17",
+    "style-dictionary": "^3.1.1",
     "stylelint": "^14.5.3",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",

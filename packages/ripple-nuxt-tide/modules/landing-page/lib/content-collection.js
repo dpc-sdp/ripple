@@ -541,12 +541,18 @@ module.exports = class ContentCollection {
   getSimpleDSLSort (state) {
     let filters = []
     let sortValue = null
-    const stateValue = this.getStateValue(state, 'ExposedControlSortModel')
-    if (stateValue) {
-      sortValue = this.getFieldValueFromId(stateValue, this.getExposedSortValues())
-    } else {
-      sortValue = this.getInternalSort()
+    let internalSort = this.getInternalSort()
+    let displaySort = this.getDisplaySort()
+
+    if (displaySort) {
+      const stateValue = this.getStateValue(state, 'ExposedControlSortModel')
+      if (stateValue) {
+        sortValue = this.getFieldValueFromId(stateValue, this.getExposedSortValues())
+      }
+    } else if (internalSort) {
+      sortValue = internalSort
     }
+
     if (sortValue) {
       filters = sortValue.map(item => ({ [item.field]: item.direction }))
     }

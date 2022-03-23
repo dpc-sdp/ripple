@@ -1,4 +1,5 @@
 <script lang="ts">
+/* eslint-disable vue/no-v-html */
 export default {
   name: 'RplAccordion'
 }

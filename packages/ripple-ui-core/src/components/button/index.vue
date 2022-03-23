@@ -18,7 +18,8 @@ defineProps({
   },
   label: {
     type: String,
-    required: false
+    required: false,
+    default: 'Submit'
   },
   disabled: Boolean
 })

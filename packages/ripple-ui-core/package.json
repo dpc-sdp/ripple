@@ -27,7 +27,8 @@
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook",
+    "tokens:update": "node ./tokens/processor.js"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
@@ -40,7 +41,9 @@
     "@storybook/addon-links": "^6.4.19",
     "@storybook/vue3": "^6.4.19",
     "@vitejs/plugin-vue": "^2.2.2",
+    "@vue/compiler-sfc": "^3.2.31",
     "postcss-nested": "^5.0.6",
+    "style-dictionary": "^3.1.1",
     "storybook-builder-vite": "^0.1.17",
     "stylelint": "^14.5.3",
     "stylelint-config-prettier": "^9.0.3",
@@ -48,6 +51,8 @@
     "vite": "^2.8.4",
     "vite-dts": "^1.0.4",
     "vite-plugin-copy": "^0.1.6",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-vue-svg": "^0.1.0",
     "vue-tsc": "^0.31.2"
   }
 }

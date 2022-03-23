@@ -1,0 +1,41 @@
+{
+  "source": ["tokens/tokens.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "size/pixels",
+        "color/css"
+      ],
+      "prefix": "rpl",
+      "files": [
+        {
+          "destination": "public/vars/css/variables.css",
+          "format": "css/variables",
+          "options": {
+            "fileHeader": "rplHeader",
+            "outputReferences": true
+          }
+        }
+      ]
+    },
+    "js": {
+      "transformGroup": "js",
+      "prefix": "rpl",
+      "transforms": ["attribute/cti", "attribute/color", "name/cti/camel"],
+      "files": [
+        {
+          "destination": "public/vars/js/variables.js",
+          "format": "javascript/es6",
+          "options": {
+            "fileHeader": "rplHeader"
+          }
+        }
+      ]
+    }
+  }
+}

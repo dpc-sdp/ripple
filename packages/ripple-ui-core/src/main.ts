@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import RplEventBusPlugin from '../plugins/eventbus'
+
+createApp(App).use(RplEventBusPlugin).mount('#app')

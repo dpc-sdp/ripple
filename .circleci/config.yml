@@ -17,7 +17,7 @@ jobs:
           pkg-manager: yarn
           app-dir: ~/app
       - run:
-          name: build reference site
+          name: build nuxt app site
           command: yarn run build
       - persist_to_workspace:
           root: ~/app

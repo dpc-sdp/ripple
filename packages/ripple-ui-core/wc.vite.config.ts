@@ -27,12 +27,10 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/web-components.ts'),
       name: 'rpl',
-      fileName: (f) => `rpl-wc-${f}.js`
+      fileName: (f) => `rpl-wc.${f}.js`
     },
     sourcemap: false,
-    // Reduce bloat from legacy polyfills.
     target: 'esnext',
-    // Leave minification up to applications.
     minify: false,
     rollupOptions: {
       external: ['vue'],

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "reference",
+  "name": "nuxt-app",
   "version": "0.0.0",
   "scripts": {
     "dev": "nuxi dev",

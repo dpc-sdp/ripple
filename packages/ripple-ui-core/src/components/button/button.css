@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--rpl-space-2);
   padding: var(--rpl-space-3) var(--rpl-space-5);
   font-family: 'VIC Regular', Arial, Helvetica, sans-serif; /* [2] */
   font-weight: bold;

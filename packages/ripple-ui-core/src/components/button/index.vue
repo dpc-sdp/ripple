@@ -23,7 +23,7 @@ const props = defineProps({
   },
   iconPosition: {
     type: String as PropType<'left' | 'right'>,
-    default: 'left'
+    default: 'right'
   },
   size: {
     type: String as PropType<'default' | 'large'>,

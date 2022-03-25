@@ -11,7 +11,7 @@
     "storybook:ui": "yarn workspace @dpc-sdp/ripple-ui-core start-storybook -p6010 --no-open",
     "storybook:compose": "concurrently \"yarn storybook:ui\" \"start-storybook -p 6006\"",
     "storybook:build": "build-storybook",
-    "dev": "yarn run build && concurrently \"yarn workspace @dpc-sdp/ripple-ui-core watch\" \"yarn workspace @dpc-sdp/ripple-tide-api watch\" \"yarn storybook\" \"yarn workspace reference dev\"",
+    "dev": "yarn run build && concurrently \"yarn workspace @dpc-sdp/ripple-ui-core watch\" \"yarn workspace @dpc-sdp/ripple-tide-api watch\" \"yarn storybook\" \"yarn workspace nuxt-app dev\"",
     "clean": "git clean -dfx && git reset --hard && yarn",
     "build": "lerna run build",
     "postinstall": "patch-package&&husky install",

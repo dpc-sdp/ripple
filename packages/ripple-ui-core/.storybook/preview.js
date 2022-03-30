@@ -1,5 +1,5 @@
 import 'virtual:svg-icons-register'
-import '../src/assets/global.css'
+import '../src/assets/css/global.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

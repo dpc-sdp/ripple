@@ -77,3 +77,13 @@
     }
   }
 }
+
+.rpl-button__icon {
+  display: flex;
+  align-items: center;
+
+  .rpl-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}

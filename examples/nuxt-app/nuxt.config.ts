@@ -1,6 +1,5 @@
 import 'dotenv/config'
 import { defineNuxtConfig } from 'nuxt3'
-import 'virtual:svg-icons-register'
 
 export default defineNuxtConfig({
   privateRuntimeConfig: {

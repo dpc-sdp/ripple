@@ -1,6 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs'
 import RplIcon from './icon.vue'
-import style from './storybook-style.css'
 
 <Meta
   title='Example/Icons'
@@ -21,14 +20,7 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
 ```
 
 <Canvas>
-  <Story
-    name='Download'
-    decorators={[
-      () => ({
-        template: '<div class="storybook-block"><story /><b>download</b></div>'
-      })
-    ]}
-  >
+  <Story name='Download'>
     {() => {
       return {
         components: { RplIcon },
@@ -36,14 +28,7 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
       }
     }}
   </Story>
-  <Story
-    name='Home'
-    decorators={[
-      () => ({
-        template: '<div class="storybook-block"><story /><b>home</b></div>'
-      })
-    ]}
-  >
+  <Story name='Home'>
     {() => {
       return {
         components: { RplIcon },
@@ -66,14 +51,7 @@ Custom icons are rendered directly inline.
 ```
 
 <Canvas>
-  <Story
-    name='Facebook'
-    decorators={[
-      () => ({
-        template: '<div class="storybook-block"><story /><b>facebook</b></div>'
-      })
-    ]}
-  >
+  <Story name='Facebook'>
     {() => {
       return {
         components: { RplIcon },

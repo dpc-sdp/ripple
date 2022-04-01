@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [vue()],
   build: {
     emptyOutDir: false,
+    outDir: 'dist/web-components',
     lib: {
       entry: path.resolve(__dirname, 'src/web-components.ts'),
       name: 'rpl',

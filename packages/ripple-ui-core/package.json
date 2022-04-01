@@ -13,7 +13,7 @@
   "exports": {
     ".": "./dist/rpl-lib.es.js",
     "./nuxt": "./dist/nuxt.js",
-    "./webcomponents": "./dist/rpl-wc.es.js",
+    "./webcomponents": "./dist/web-components/rpl-wc.es.js",
     "./style": "./dist/style.css"
   },
   "scripts": {
@@ -43,7 +43,6 @@
     "@vitejs/plugin-vue": "^2.2.2",
     "@vue/compiler-sfc": "^3.2.31",
     "postcss-nested": "^5.0.6",
-    "rollup-plugin-copy": "^3.4.0",
     "storybook-builder-vite": "^0.1.17",
     "style-dictionary": "^3.1.1",
     "stylelint": "^14.5.3",

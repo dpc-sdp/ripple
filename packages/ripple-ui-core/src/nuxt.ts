@@ -1,5 +1,6 @@
 import { join } from 'pathe'
 import { defineNuxtModule } from '@nuxt/kit'
+import vitePlugins from './vite.plugins'
 
 export default defineNuxtModule({
   hooks: {
@@ -10,6 +11,9 @@ export default defineNuxtModule({
         autoprefixer: {},
         'postcss-nested': {}
       }
+    },
+    'vite:extendConfig'(viteInlineConfig) {
+      viteInlineConfig.plugins.push(vitePlugins)
     },
     'components:dirs'(dirs) {
       // Add ./components dir to the list

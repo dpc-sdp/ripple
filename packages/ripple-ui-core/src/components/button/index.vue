@@ -1,11 +1,11 @@
 <script lang="ts">
-export default {
-  name: 'RplButton'
-}
+export default { name: 'RplButton' }
 </script>
 
 <script setup lang="ts">
 import { PropType } from 'vue'
+import { rplEventBus } from './../../index'
+rplEventBus.register('rpl-button/click')
 
 defineProps({
   /*
@@ -23,6 +23,10 @@ defineProps({
   },
   disabled: Boolean
 })
+
+const onClick = (payload?: any) => {
+  rplEventBus.emit('rpl-button/click', payload)
+}
 </script>
 
 <template>
@@ -32,6 +36,7 @@ defineProps({
       disabled ? ' rpl-button--disabled' : ''
     }`"
     :disabled="disabled"
+    @click="onClick()"
   >
     <slot> I'm a button, my label is {{ label }} </slot>
   </button>

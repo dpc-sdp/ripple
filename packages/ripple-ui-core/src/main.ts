@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import RplEventBusPlugin from '../plugins/eventbus'
+import 'virtual:svg-icons-register'
 
-createApp(App).use(RplEventBusPlugin).mount('#app')
+createApp(App).mount('#app')

@@ -1,26 +1,89 @@
 .rpl-button {
-  padding: var(--rpl-space-14) var(--rpl-space-20);
-  border: 0;
+  /* Base styles
+    1. TODO: Replace this with rem units once tokens are using rems
+    2. TODO: Wire these fonts up into tokens when the designers include them
+  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rpl-space-2);
+  padding: var(--rpl-space-3) var(--rpl-space-5);
+  font-family: 'VIC Regular', Arial, Helvetica, sans-serif; /* [2] */
+  font-weight: bold;
+  font-size: 1.6rem; /* [1] */
+  line-height: 1;
+  color: var(--rpl-color-type-primary);
+  background-color: var(--rpl-color-base-primary);
+  border-width: 0.2rem;
+  border-style: solid;
+  border-color: var(--rpl-color-base-primary);
   border-radius: var(--rpl-border-radius);
-  font-family: var(--rpl-type-body);
 
-  &--primary {
-    background-color: var(--rpl-color-base-primary);
-    color: var(--rpl-color-type-primary);
+  /* States */
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: var(--rpl-color-base-primary-lighter);
+    border-color: var(--rpl-color-base-primary-lighter);
+  }
 
-    &:hover {
-      background-color: var(--rpl-color-base-primary-alt);
-      color: var(--rpl-color-type-primary-alt);
-    }
+  &:active,
+  &:active:hover {
+    cursor: default;
+    background-color: var(--rpl-color-base-primary-darker);
+    border-color: var(--rpl-color-base-primary-darker);
+  }
+
+  /* Variants */
+  &--reverse {
+    flex-direction: row-reverse;
   }
 
   &--secondary {
-    background-color: var(--rpl-color-base-secondary);
-    color: var(--rpl-color-type-secondary);
+    color: var(--rpl-color-base-primary);
+    background-color: transparent;
+    border-color: var(--rpl-color-base-primary);
 
     &:hover {
-      color: var(--rpl-color-type-secondary-alt);
-      background-color: var(--rpl-color-base-secondary-alt);
+      color: var(--rpl-color-base-primary-lighter);
+      background-color: transparent;
+      border-color: var(--rpl-color-base-primary-lighter);
     }
+
+    &:active,
+    &:active:hover {
+      color: var(--rpl-color-base-primary-darker);
+      background-color: transparent;
+      border-color: var(--rpl-color-base-primary-darker);
+    }
+  }
+
+  &--tertiary {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover {
+      color: var(--rpl-color-base-primary);
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    &:active,
+    &:active:hover {
+      color: black;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}
+
+.rpl-button__icon {
+  display: flex;
+  align-items: center;
+
+  .rpl-icon {
+    width: 1.2rem;
+    height: 1.2rem;
   }
 }

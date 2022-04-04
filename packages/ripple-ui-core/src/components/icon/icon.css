@@ -1,9 +1,5 @@
-:root {
-  --primary: #0052c2;
-}
-
 .rpl-icon {
-  fill: var(--primary);
+  fill: currentcolor;
   width: 1.8rem;
   height: 1.8rem;
 }

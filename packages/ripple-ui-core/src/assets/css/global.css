@@ -1,0 +1,9 @@
+/* Vendor imports */
+@import 'normalize.css';
+
+/* Variables */
+@import '/public/vars/css/variables.css';
+
+/* Global styles */
+@import '_fonts.css';
+@import '_reset.css';

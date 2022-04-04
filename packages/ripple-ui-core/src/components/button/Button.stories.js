@@ -1,4 +1,10 @@
 import MyButton from './index.vue'
+import iconNamesRaw from 'virtual:svg-icons-names'
+
+// Build a list of icon names
+let iconNames = iconNamesRaw.map((i) => i.replace('rpl-icon--', ''))
+// Add an empty icon name at the start of the array so that it can be unset by the user
+iconNames.unshift('')
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
@@ -6,12 +12,22 @@ export default {
   component: MyButton,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: {},
+    theme: {
+      control: { type: null },
+      options: ['primary', 'secondary', 'tertiary'],
+    },
+    iconName: {
+      control: { type: 'select' },
+      options: iconNames,
+    },
+    iconPosition: {
+      control: { type: 'select' },
+      options: ['left', 'right'],
+    },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large']
-    }
+      options: ['default', 'large'],
+    },
   }
 }
 

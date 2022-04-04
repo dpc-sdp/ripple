@@ -9,5 +9,5 @@
     "@dpc-sdp/ripple-tide-api",
     "@dpc-sdp/ripple-ui-core"
   ],
-  "cSpell.words": ["nuxt", "vite", "vitejs"]
+  "cSpell.words": ["nuxt", "scripthost", "stylelint", "vite", "vitejs"]
 }

@@ -1,6 +1,3 @@
-// CSS global
-import '../public/assets/css/global.css'
-
 // Components
 export { default as RplAccordion } from './components/accordion/index.vue'
 export { default as RplButton } from './components/button/index.vue'

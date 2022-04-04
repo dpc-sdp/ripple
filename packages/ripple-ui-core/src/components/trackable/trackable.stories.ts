@@ -1,6 +1,3 @@
-// Button.stories.js|jsx|ts|tsx
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import RplButton from './../button/index.vue'
 import { rplEventBus } from './../../index'
 
@@ -9,18 +6,13 @@ rplEventBus.on('rpl-button/click', () => {
 })
 
 export default {
+  title: 'Example/EventBus',
   component: RplButton
 }
-
-export const Template = (args, { argTypes }) => ({
+// TODO: This story is probably irrelevant once we have demonstrated it. We should remove it eventually.
+export const DataLayerDemo = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { RplButton },
   template: `<rpl-button />`,
   argTypes: { onClick: { action: 'clicked' } }
 })
-
-export const WithDataLayer = Template.bind({})
-
-WithDataLayer.args = {
-  label: 'Primary with a really long name'
-}

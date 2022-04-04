@@ -14,7 +14,8 @@
     ".": "./dist/rpl-lib.es.js",
     "./nuxt": "./dist/nuxt.js",
     "./webcomponents": "./dist/web-components/rpl-wc.es.js",
-    "./style": "./dist/style.css"
+    "./style": "./dist/style.css",
+    "./style/global": "./dist/assets/css/global.css"
   },
   "scripts": {
     "dev": "vite",

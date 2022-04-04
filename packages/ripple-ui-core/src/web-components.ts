@@ -1,3 +1,5 @@
+import '../public/assets/css/global.css'
+
 import { defineCustomElement } from 'vue'
 import { default as RplButtonCmp } from './components/button/index.vue'
 import { default as RplIconCmp } from './components/icon/icon.vue'

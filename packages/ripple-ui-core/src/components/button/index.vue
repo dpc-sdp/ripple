@@ -1,12 +1,12 @@
 <script lang="ts">
-export default {
-  name: 'RplButton'
-}
+export default { name: 'RplButton' }
 </script>
 
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
 import Icon from '../icon/icon.vue'
+import { rplEventBus } from './../../index'
+rplEventBus.register('rpl-button/click')
 
 const props = defineProps({
   /*
@@ -43,6 +43,10 @@ const props = defineProps({
 const directionClass = computed(() => {
   return props.iconPosition === 'left' ? 'rpl-button--reverse' : ''
 })
+
+const onClick = (payload?: any) => {
+  rplEventBus.emit('rpl-button/click', payload)
+}
 </script>
 
 <template>
@@ -50,6 +54,7 @@ const directionClass = computed(() => {
     type="button"
     :className="`rpl-button  rpl-button--${theme}  ${directionClass}`"
     :disabled="disabled"
+    @click="onClick()"
   >
     <span
       v-if="label"

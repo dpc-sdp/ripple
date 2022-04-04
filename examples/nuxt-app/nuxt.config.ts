@@ -33,6 +33,5 @@ export default defineNuxtConfig({
     }
   },
   modules: ['@dpc-sdp/ripple-tide-api/nuxt'],
-  buildModules: ['@dpc-sdp/ripple-ui-core/nuxt'],
-  css: ['@dpc-sdp/ripple-ui-core/style/global']
+  buildModules: ['@dpc-sdp/ripple-ui-core/nuxt']
 })

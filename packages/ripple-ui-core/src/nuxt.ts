@@ -4,7 +4,7 @@ import vitePlugins from './vite.plugins'
 
 export default defineNuxtModule({
   hooks: {
-    'build:before'(builder, buildOptions) {
+    'build:before'(_builder, buildOptions) {
       const plugins = buildOptions.postcss.postcssOptions.plugins
       buildOptions.postcss.postcssOptions.plugins = {
         ...plugins,
@@ -23,5 +23,8 @@ export default defineNuxtModule({
         prefix: 'rpl'
       })
     }
+  },
+  setup(_options, nuxt) {
+    nuxt.options.css.push('@dpc-sdp/ripple-ui-core/style/global')
   }
 })

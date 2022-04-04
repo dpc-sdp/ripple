@@ -44,6 +44,7 @@
     "@storybook/vue3": "^6.4.19",
     "@vitejs/plugin-vue": "^2.2.2",
     "@vue/compiler-sfc": "^3.2.31",
+    "chromatic": "^6.5.3",
     "postcss-nested": "^5.0.6",
     "storybook-builder-vite": "^0.1.17",
     "style-dictionary": "^3.1.1",

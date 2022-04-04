@@ -35,10 +35,22 @@ jobs:
           name: Run unit tests
       - store_test_results:
           path: test-results
+
+  chromatic:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+        # Runs the Chromatic CLI
+      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN}
+
 workflows:
   commit:
     jobs:
       - build
       - test:
+          requires:
+            - build
+      - chromatic:
           requires:
             - build

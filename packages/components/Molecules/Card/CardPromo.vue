@@ -142,8 +142,6 @@ export default {
   $rpl-card-promo-border-color: $rpl-card-border-color !default;
   $rpl-card-promo-border: 1px solid $rpl-card-promo-border-color !default;
   $rpl-card-promo-border-radius: $rpl-card-border-radius !default;
-  $rpl-card-promo-no-image-border: rpl_gradient('decorative_gradient') !default;
-  $rpl-card-promo-no-image-border-height: rem(8px) !default;
   $rpl-card-promo-no-image-padding-top: ($rpl-space * 5) !default;
   $rpl-card-promo-thumbnail-padding-top: $rpl-space-4 !default;
   $rpl-card-promo-profile-image-margin-top: rem(56px) !default;

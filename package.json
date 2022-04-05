@@ -9,6 +9,7 @@
     "example": "wrap () { yarn workspace example-\"$*\" dev | cat; }; wrap",
     "storybook": "yarn workspace @dpc-sdp/ripple-ui-core start-storybook -p6006",
     "storybook:ui": "yarn workspace @dpc-sdp/ripple-ui-core start-storybook -p6010 --no-open",
+    "storybook:ui-build": "yarn workspace @dpc-sdp/ripple-ui-core storybook:build",
     "storybook:compose": "concurrently \"yarn storybook:ui\" \"start-storybook -p 6006\"",
     "storybook:build": "build-storybook",
     "dev": "yarn run build && concurrently \"yarn workspace @dpc-sdp/ripple-ui-core watch\" \"yarn workspace @dpc-sdp/ripple-tide-api watch\" \"yarn storybook\" \"yarn workspace nuxt-app dev\"",
@@ -18,7 +19,8 @@
     "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry $NPM_REGISTRY --dist-tag next",
     "release:prod": "lerna publish --conventional-commits --create-release github",
     "lint": "eslint . --ext .ts,.vue && yarn workspace @dpc-sdp/ripple-ui-core stylelint \"**/*.css\"",
-    "test:unit": "jest --colors"
+    "test:unit": "jest --colors",
+    "chromatic": "npx chromatic --build-script-name storybook:ui-build --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

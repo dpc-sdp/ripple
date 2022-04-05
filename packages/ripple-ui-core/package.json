@@ -13,8 +13,9 @@
   "exports": {
     ".": "./dist/rpl-lib.es.js",
     "./nuxt": "./dist/nuxt.js",
-    "./webcomponents": "./dist/rpl-wc.es.js",
-    "./style": "./dist/style.css"
+    "./webcomponents": "./dist/web-components/rpl-wc.es.js",
+    "./style/global": "./dist/assets/css/global.css",
+    "./style/components": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",

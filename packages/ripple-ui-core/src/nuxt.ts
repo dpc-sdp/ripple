@@ -1,13 +1,10 @@
-import path from 'path'
 import { join } from 'pathe'
 import { defineNuxtModule } from '@nuxt/kit'
-
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import vueSvgPlugin from 'vite-plugin-vue-svg'
+import vitePlugins from './vite.plugins'
 
 export default defineNuxtModule({
   hooks: {
-    'build:before'(builder, buildOptions) {
+    'build:before'(_builder, buildOptions) {
       const plugins = buildOptions.postcss.postcssOptions.plugins
       buildOptions.postcss.postcssOptions.plugins = {
         ...plugins,
@@ -16,14 +13,7 @@ export default defineNuxtModule({
       }
     },
     'vite:extendConfig'(viteInlineConfig) {
-      // Add SVG spritesheet plugin config
-      viteInlineConfig.plugins.push(createSvgIconsPlugin({
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons/core')],
-        symbolId: 'rpl-icon--[name]'
-      }))
-
-      // Add SVG custom icon plugin config
-      viteInlineConfig.plugins.push(vueSvgPlugin({ defaultExport: 'component' }))
+      viteInlineConfig.plugins.push(vitePlugins)
     },
     'components:dirs'(dirs) {
       // Add ./components dir to the list
@@ -33,5 +23,8 @@ export default defineNuxtModule({
         prefix: 'rpl'
       })
     }
+  },
+  setup(_options, nuxt) {
+    nuxt.options.css.push('@dpc-sdp/ripple-ui-core/style/global')
   }
 })

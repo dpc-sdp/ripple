@@ -2,7 +2,7 @@
 @import 'normalize.css';
 
 /* Variables */
-@import '/public/vars/css/variables.css';
+@import '_vars.css';
 
 /* Global styles */
 @import '_fonts.css';

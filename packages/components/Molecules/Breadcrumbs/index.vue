@@ -3,9 +3,40 @@
     <div class="rpl-breadcrumbs__row">
       <nav aria-label="breadcrumbs">
         <ul class="rpl-breadcrumbs__items" v-if="crumbs">
-          <li class="rpl-breadcrumbs__item" v-for="(item, index) of crumbs" :key="index">
-            <span class="rpl-breadcrumbs__text" v-if="index == crumbs.length - 1">{{ item.text }}</span>
-            <rpl-link class="rpl-breadcrumbs__link" v-else :href="item.url">{{ item.text }}</rpl-link>
+          <!-- Mobile item -->
+          <li
+            class="rpl-breadcrumbs__item--mobile"
+          >
+            <rpl-link
+              class="rpl-breadcrumbs__link"
+              :href="mobileCrumbUrl"
+            >
+              <rpl-icon symbol="left" size="l"></rpl-icon>
+              <span class="rpl-visually-hidden">Return to</span>
+              {{ mobileCrumbText }}
+            </rpl-link>
+          </li>
+
+          <!-- Desktop items -->
+          <li
+            class="rpl-breadcrumbs__item--desktop"
+            v-for="(item, index) of crumbs"
+            :key="index"
+          >
+            <span
+              class="rpl-breadcrumbs__text"
+              v-if="index == crumbs.length - 1"
+            >
+              {{ item.text }}
+            </span>
+
+            <rpl-link
+              class="rpl-breadcrumbs__link"
+              v-else
+              :href="item.url"
+            >
+              {{ item.text }}
+            </rpl-link>
           </li>
         </ul>
       </nav>
@@ -15,6 +46,7 @@
 
 <script>
 import RplLink from '@dpc-sdp/ripple-link'
+import RplIcon from '@dpc-sdp/ripple-icon'
 
 export default {
   name: 'RplBreadcrumbs',
@@ -22,7 +54,20 @@ export default {
     crumbs: Array
   },
   components: {
-    RplLink
+    RplLink,
+    RplIcon
+  },
+  computed: {
+    mobileCrumbText () {
+      const parentText = this.crumbs[this.crumbs.length - 2]?.text
+
+      return parentText || 'Home'
+    },
+    mobileCrumbUrl () {
+      const parentUrl = this.crumbs[this.crumbs.length - 2]?.url
+
+      return parentUrl || '/'
+    }
   }
 }
 </script>
@@ -44,12 +89,6 @@ export default {
   $rpl-breadcrumbs-items-margin: 0 !default;
 
   .rpl-breadcrumbs {
-    display: none;
-
-    @include rpl_breakpoint('s') {
-      display: block;
-    }
-
     @include rpl_print_hidden;
 
     &__items {
@@ -63,14 +102,33 @@ export default {
       @include rpl_dropshadow;
     }
 
-    &__item {
-      display: inline-block;
+    // Mobile item
+    &__item--mobile {
+      @include rpl_breakpoint('s') {
+        display: none;
+      }
+
+      .rpl-link__inner {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    // Desktop items
+    &__item--desktop {
+      display: none;
       @include rpl_typography_ruleset($rpl-breadcrumbs-text-ruleset);
+
+      @include rpl_breakpoint('s') {
+        display: inline-block;
+      }
+
       &:after {
         content: ' > ';
         padding: $rpl-breadcrumbs-separator-padding;
         color: $rpl-breadcrumbs-separator-color;
       }
+
       &:last-child:after {
         content: '';
         padding: 0;
@@ -80,6 +138,11 @@ export default {
     &__link {
       @include rpl_typography_ruleset($rpl-breadcrumbs-link-ruleset);
       color: $rpl-breadcrumbs-link-color;
+
+      svg {
+        fill: currentColor;
+        margin-right: rem(10px);
+      }
     }
   }
 </style>

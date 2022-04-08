@@ -11,7 +11,7 @@
               class="rpl-breadcrumbs__link"
               :href="mobileCrumbUrl"
             >
-              <rpl-icon symbol="left" size="l"></rpl-icon>
+              <rpl-icon symbol="arrow_down_tertiary" size="m"></rpl-icon>
               <span class="rpl-visually-hidden">Return to</span>
               {{ mobileCrumbText }}
             </rpl-link>
@@ -59,7 +59,12 @@ export default {
   },
   computed: {
     mobileCrumbText () {
-      const parentText = this.crumbs[this.crumbs.length - 2]?.text
+      let parentText = this.crumbs[this.crumbs.length - 2]?.text
+
+      // Truncate the mobile breadcrumb text if it is longer than 25 characters.
+      if (parentText?.length > 25) {
+        parentText = parentText.substring(0, 25) + '...'
+      }
 
       return parentText || 'Home'
     },
@@ -103,6 +108,8 @@ export default {
     }
 
     // Mobile item
+    // 1. The designs use 'down' arrow rotated 90 degrees. Note this
+    // icon is visually different after rotation to the 'left' icon.
     &__item--mobile {
       @include rpl_breakpoint('s') {
         display: none;
@@ -111,6 +118,12 @@ export default {
       .rpl-link__inner {
         display: flex;
         align-items: center;
+      }
+
+      svg {
+        fill: currentColor;
+        margin-right: rem(5px);
+        transform: rotate(90deg) scale(0.8); // [1]
       }
     }
 
@@ -138,11 +151,6 @@ export default {
     &__link {
       @include rpl_typography_ruleset($rpl-breadcrumbs-link-ruleset);
       color: $rpl-breadcrumbs-link-color;
-
-      svg {
-        fill: currentColor;
-        margin-right: rem(10px);
-      }
     }
   }
 </style>

@@ -1,37 +1,25 @@
 <script setup lang="ts">
-import { defineAsyncComponent, computed } from 'vue'
-import iconsNames from 'virtual:svg-icons-names'
-
+/* eslint-disable vue/no-v-html */
+const assetDir = './../../assets/icons/custom/'
+// This is not a mistake - you must have a full path for glob import to work
+const customIcons = import.meta.glob(`./../../assets/icons/custom/*.svg`)
 const props = defineProps({
   name: {
     type: String,
     required: true
   }
 })
-
-const core = computed(() => iconsNames.includes(`rpl-icon--${props.name}`))
+const isCustom = customIcons.hasOwnProperty(`${assetDir}${props.name}.svg`)
+const rawSvg = isCustom
+  ? await customIcons[`${assetDir}${props.name}.svg`]().then((m) => m.default)
+  : false
 </script>
 
 <template>
-  <svg
-    v-if="core"
-    class="rpl-icon"
-    :class="`rpl-icon--${name}`"
-    aria-hidden="true"
-  >
-    <use :xlink:href="`#rpl-icon--${name}`" />
+  <div v-if="isCustom && rawSvg" v-html="rawSvg"></div>
+  <svg v-else class="rpl-icon" :class="`rpl-icon--${name}`" aria-hidden="true">
+    <use :xlink:href="`#${name}`"></use>
   </svg>
-  <component
-    :is="
-      defineAsyncComponent(() =>
-        import(`../../assets/icons/custom/${name}.svg`)
-      )
-    "
-    v-else
-    class="rpl-icon"
-    :class="`rpl-icon--${name}`"
-    aria-hidden="true"
-  />
 </template>
 
 <style>

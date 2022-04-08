@@ -9,7 +9,7 @@ import vitePlugins from './src/vite.plugins'
 export default defineConfig({
   resolve: {
     alias: {
-      '/@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src')
     }
   },
   plugins: [vue(), dts()].concat(vitePlugins),

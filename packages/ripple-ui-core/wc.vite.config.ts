@@ -10,7 +10,7 @@ import vueSvgPlugin from 'vite-plugin-vue-svg'
 export default defineConfig({
   resolve: {
     alias: {
-      '/@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src')
     }
   },
   plugins: [

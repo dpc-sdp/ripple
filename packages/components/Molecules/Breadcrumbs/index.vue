@@ -12,8 +12,8 @@
               :href="mobileCrumbUrl"
             >
               <rpl-icon symbol="arrow_down_tertiary" size="m"></rpl-icon>
-              <span class="rpl-visually-hidden">Return to</span>
-              {{ mobileCrumbText }}
+              <span class="rpl-visually-hidden">Return to {{ mobileCrumbTextLong }}</span>
+              <span aria-hidden="true">{{ mobileCrumbTextShort }}</span>
             </rpl-link>
           </li>
 
@@ -58,15 +58,20 @@ export default {
     RplIcon
   },
   computed: {
-    mobileCrumbText () {
-      let parentText = this.crumbs[this.crumbs.length - 2]?.text
+    mobileCrumbTextLong () {
+      const parentText = this.crumbs[this.crumbs.length - 2]?.text
+
+      return parentText || 'Home'
+    },
+    mobileCrumbTextShort () {
+      let parentText = this.mobileCrumbTextLong
 
       // Truncate the mobile breadcrumb text if it is longer than 25 characters.
       if (parentText?.length > 25) {
         parentText = parentText.substring(0, 25) + '...'
       }
 
-      return parentText || 'Home'
+      return parentText
     },
     mobileCrumbUrl () {
       const parentUrl = this.crumbs[this.crumbs.length - 2]?.url

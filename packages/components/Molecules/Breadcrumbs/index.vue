@@ -89,6 +89,7 @@ export default {
   $rpl-breadcrumbs-background: rpl-color('white') !default;
   $rpl-breadcrumbs-border: 1px solid rpl-color('mid_neutral_1') !default;
   $rpl-breadcrumbs-border-radius: rem(4px) !default;
+  $rpl-breadcrumbs-padding-mobile: ($rpl-space-3) ($rpl-space * 4) !default;
   $rpl-breadcrumbs-padding: ($rpl-space-3) ($rpl-space * 5) !default;
   $rpl-breadcrumbs-link-ruleset: ('xs', 1.4em, 'medium') !default;
   $rpl-breadcrumbs-link-color: mix(rpl_color('primary'), rpl_color('white'), 93%) !default;
@@ -107,9 +108,13 @@ export default {
       background: $rpl-breadcrumbs-background;
       border: $rpl-breadcrumbs-border;
       border-radius: $rpl-breadcrumbs-border-radius;
-      padding: $rpl-breadcrumbs-padding;
+      padding: $rpl-breadcrumbs-padding-mobile;
       margin: $rpl-breadcrumbs-items-margin;
       @include rpl_dropshadow;
+
+      @include rpl_breakpoint('s') {
+        padding: $rpl-breadcrumbs-padding;
+      }
     }
 
     // Mobile item

@@ -2,4 +2,16 @@
   fill: currentcolor;
   width: 32px;
   height: 32px;
+
+  &--theme-core {
+    color: var(--rpl-color-base-primary);
+  }
+
+  &--theme-accent {
+    color: var(--rpl-color-base-secondary);
+  }
+
+  &--theme-neutral {
+    color: var(--rpl-color-neutral-7);
+  }
 }

@@ -1,4 +1,4 @@
-import 'virtual:svg-icons-register'
+import RplIconSprite from './../src/components/icon/sprite.vue'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -9,3 +9,9 @@ export const parameters = {
     }
   }
 }
+export const decorators = [
+  (story) => ({
+    components: { story, RplIconSprite },
+    template: '<div><RplIconSprite /><story /></div>'
+  })
+]

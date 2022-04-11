@@ -1,13 +1,9 @@
-const path = require('path')
-const { createSvgIconsPlugin } = require('vite-plugin-svg-icons')
-const vueSvgPlugin = require('vite-plugin-vue-svg')
+const svgLoader = require('vite-svg-loader')
 
 const vitePlugins = [
-  createSvgIconsPlugin({
-    iconDirs: [path.resolve(process.cwd(), 'src/assets/icons/core')],
-    symbolId: 'rpl-icon--[name]'
-  }),
-  vueSvgPlugin({ defaultExport: 'component' })
+  svgLoader({
+    defaultImport: 'raw'
+  })
 ]
 
 module.exports = {
@@ -19,7 +15,12 @@ module.exports = {
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   async viteFinal(config, { configType }) {
     // customize the Vite config here
-    config.plugins.push(vitePlugins)
+    config.plugins.push(
+      svgLoader({
+        defaultImport: 'raw'
+      })
+    )
+    console.log(config.plugins)
     return config
   }
 }

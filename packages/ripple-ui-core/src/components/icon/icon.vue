@@ -32,13 +32,15 @@ const props = defineProps({
 })
 
 const inSprite = ref(iconsKeys.find((key) => key === props.name))
-const asyncIcon = computed(() =>
-  inSprite.value
-    ? false
-    : defineAsyncComponent(
-        () => import(`./../../assets/icons/custom/${props.name}.svg?component`)
-      )
-)
+const asyncIcon = computed(() => {
+  if (!inSprite.value && typeof window !== 'undefined') {
+    return defineAsyncComponent({
+      loader: () =>
+        import(`./../../assets/icons/custom/${props.name}.svg?component`)
+    })
+  }
+  return false
+})
 const classes = computed(() => [
   `rpl-icon--${props.name}`,
   `rpl-icon--theme-${props.theme}`,

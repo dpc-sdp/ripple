@@ -1,53 +1,67 @@
 <script lang="ts">
-/* eslint-disable vue/no-v-html */
-import { defineComponent, PropType } from 'vue'
-const assetDir = './../../assets/icons/custom/'
-const customIcons = import.meta.glob(`./../../assets/icons/custom/*.svg`)
+export default {
+  name: 'RplIcon'
+}
+export type RplTheme = 'core' | 'accent' | 'neutral'
+export type RplIconSizes = 's' | 'm' | 'l'
+</script>
 
-export default defineComponent({
-  name: 'RplIcon',
-  props: {
-    name: {
-      type: String,
-      required: true
-    },
-    theme: {
-      type: String as PropType<'core' | 'accent' | 'neutral'>,
-      default: 'core'
-    }
+<script setup lang="ts">
+import { PropType, ref, computed, defineAsyncComponent } from 'vue'
+import RplIconSprite from './sprite.vue'
+
+const iconsKeys = RplIconSprite.iconNames
+
+const props = defineProps({
+  name: {
+    type: String,
+    required: true
   },
-  data() {
-    return {
-      customSvg: '',
-      isCustom: false
-    }
+  theme: {
+    type: String as PropType<RplTheme>,
+    default: 'core'
   },
-  async created() {
-    const isCustom = customIcons.hasOwnProperty(`${assetDir}${this.name}.svg`)
-    const rawSvg = isCustom
-      ? await customIcons[`${assetDir}${this.name}.svg`]().then(
-          (m) => m.default
-        )
-      : false
-    this.customSvg = rawSvg
-    this.isCustom = isCustom
+  customIcon: {
+    type: [Object, Boolean],
+    default: false
+  },
+  size: {
+    type: String as PropType<RplIconSizes>,
+    default: 's'
   }
 })
+
+const inSprite = ref(iconsKeys.find((key) => key === props.name))
+const asyncIcon = computed(() =>
+  inSprite.value
+    ? false
+    : defineAsyncComponent(
+        () => import(`./../../assets/icons/custom/${props.name}.svg?component`)
+      )
+)
+const classes = computed(() => [
+  `rpl-icon--${props.name}`,
+  `rpl-icon--theme-${props.theme}`,
+  `rpl-icon--size-${props.size}`
+])
 </script>
 
 <template>
-  <div
-    v-if="isCustom && customSvg"
+  <component
+    :is="customIcon"
+    v-if="!inSprite && customIcon"
     class="rpl-icon"
-    :class="[`rpl-icon--${name}`, `rpl-icon--theme-${theme}`]"
-    v-html="customSvg"
-  ></div>
-  <svg
-    v-else
-    class="rpl-icon"
-    :class="`rpl-icon--theme-${theme}`"
-    aria-hidden="true"
+    :class="classes"
   >
+  </component>
+  <component
+    :is="asyncIcon"
+    v-else-if="!inSprite && asyncIcon"
+    class="rpl-icon"
+    :class="classes"
+  >
+  </component>
+  <svg v-else class="rpl-icon" :class="classes" aria-hidden="true">
     <use :xlink:href="`#${name}`"></use>
   </svg>
 </template>

@@ -1,7 +1,5 @@
 .rpl-icon {
   fill: currentcolor;
-  width: 32px;
-  height: 32px;
 
   &--theme-core {
     color: var(--rpl-color-base-primary);
@@ -13,5 +11,20 @@
 
   &--theme-neutral {
     color: var(--rpl-color-neutral-7);
+  }
+
+  &--size-s {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--size-m {
+    width: 24px;
+    height: 24px;
+  }
+
+  &--size-l {
+    width: 32px;
+    height: 32px;
   }
 }

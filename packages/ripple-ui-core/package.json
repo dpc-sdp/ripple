@@ -32,6 +32,7 @@
     "tokens:update": "node ./tokens/processor.js"
   },
   "dependencies": {
+    "@vueuse/core": "^8.2.5",
     "autoprefixer": "^10.4.2",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",

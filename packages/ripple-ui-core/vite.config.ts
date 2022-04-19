@@ -18,6 +18,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'rpl',
+      formats: ['es'],
       fileName: (f) => `rpl-lib.${f}.js`
     },
     sourcemap: false,

@@ -2,7 +2,35 @@ const svgLoader = require('vite-svg-loader')
 
 const vitePlugins = [
   svgLoader({
-    defaultImport: 'raw'
+    defaultImport: 'raw',
+    svgoConfig: {
+      multipass: true,
+      plugins: [
+        {
+          name: 'preset-default',
+          params: {
+            overrides: {}
+          }
+        },
+        {
+          name: 'removeAttrs',
+          params: {
+            attrs: '(fill|stroke)'
+          }
+        },
+        {
+          name: 'removeAttributesBySelector',
+          params: {
+            selector: '[style*=fill:#]',
+            attributes: 'style'
+          }
+        },
+        {
+          name: 'removeStyleElement',
+          active: true
+        }
+      ]
+    }
   })
 ]
 
@@ -15,12 +43,7 @@ module.exports = {
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   async viteFinal(config, { configType }) {
     // customize the Vite config here
-    config.plugins.push(
-      svgLoader({
-        defaultImport: 'raw'
-      })
-    )
-    console.log(config.plugins)
+    config.plugins.push(...vitePlugins)
     return config
   }
 }

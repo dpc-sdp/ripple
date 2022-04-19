@@ -3,21 +3,24 @@
 import { defineComponent } from 'vue'
 const iconImports = import.meta.glob(`./../../assets/icons/core/*.svg`)
 
-const iconNames = Object.keys(iconImports)
+const iconKeys = Object.keys(iconImports)
+const iconNames = []
 const icons = []
-for (let i = 0; i < iconNames.length; i++) {
-  const rawSvg = await iconImports[`${iconNames[i]}`]().then((m) => m.default)
-  const iconName = `${iconNames[i]}`
+for (let i = 0; i < iconKeys.length; i++) {
+  const rawSvg = await iconImports[`${iconKeys[i]}`]().then((m) => m.default)
+  const iconName = `${iconKeys[i]}`
     .replace('./../../assets/icons/core/', '')
     .replace('.svg', '')
+  iconNames.push(iconName)
   const def = rawSvg
-    .replace('<svg', `<symbol id="${iconName}"`)
+    .replace('<svg', `<symbol fill="currentColor" id="${iconName}"`)
     .replace('</svg>', '</symbol>')
     .replace(/<defs>(.+)<\/defs>/, '')
   icons.push(def)
 }
 export default defineComponent({
   name: 'RplIconSprite',
+  iconNames,
   setup() {
     return {
       icons

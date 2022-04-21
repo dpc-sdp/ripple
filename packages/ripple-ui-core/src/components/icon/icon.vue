@@ -8,9 +8,8 @@ export type RplIconSizes = 's' | 'm' | 'l'
 
 <script setup lang="ts">
 import { PropType, ref, computed, defineAsyncComponent } from 'vue'
-import RplIconSprite from './sprite.vue'
-
-const iconsKeys = RplIconSprite.iconNames
+import iconKeys from './../../assets/icons/sprite.js'
+import customIcons from './../../assets/icons/custom.js'
 
 const props = defineProps({
   name: {
@@ -31,13 +30,10 @@ const props = defineProps({
   }
 })
 
-const inSprite = ref(iconsKeys.find((key) => key === props.name))
+const inSprite = ref(iconKeys.find((key) => key === props.name))
 const asyncIcon = computed(() => {
-  if (!inSprite.value && typeof window !== 'undefined') {
-    return defineAsyncComponent({
-      loader: () =>
-        import(`./../../assets/icons/custom/${props.name}.svg?component`)
-    })
+  if (!inSprite.value) {
+    return defineAsyncComponent(customIcons[props.name])
   }
   return false
 })

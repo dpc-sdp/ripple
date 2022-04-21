@@ -1,10 +1,11 @@
 <template>
   <div>
-    <rpl-icon-sprite />
-    <rpl-icon name="icon-chevron-left"></rpl-icon>
-    <rpl-icon name="icon-browser" theme="accent" size="l"></rpl-icon>
     <TidePage>
-      <template #header> CUSTOM HEADER </template>
+      <template #header>
+        CUSTOM HEADER
+        <rpl-icon name="icon-chevron-left"></rpl-icon>
+        <rpl-icon name="icon-browser" theme="accent" size="l"></rpl-icon>
+      </template>
     </TidePage>
   </div>
 </template>

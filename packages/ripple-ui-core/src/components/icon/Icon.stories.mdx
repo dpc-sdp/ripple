@@ -7,11 +7,9 @@ import {
 } from '@storybook/addon-docs'
 import RplIcon from './icon.vue'
 import CarIcon from './../../assets/icons/custom/icon-car.svg?component'
-import RplIconSprite from './sprite.vue'
-const customIconNames = ['icon-accessible', 'icon-add', 'icon-arrow-down', 'icon-arrow-left', 'icon-arrow-right', 'icon-arrow-up', 'icon-attach', 'icon-browser', 'icon-calendar-lined', 'icon-cancel-circle-filled', 'icon-car', 'icon-check', 'icon-child-lined', 'icon-dollar-circle-filled', 'icon-fire', 'icon-flood', 'icon-free', 'icon-indent', 'icon-instagram', 'icon-lightning', 'icon-link', 'icon-linkedin', 'icon-list', 'icon-loading',
-'icon-log-in-lined', 'icon-mail-lined', 'icon-medical', 'icon-menu', 'icon-microphone', 'icon-pause-circle-lined', 'icon-person', 'icon-play-circle-lined', 'icon-print-lined', 'icon-question-circle-lined', 'icon-search', 'icon-senior', 'icon-share', 'icon-smoke', 'icon-spotify', 'icon-star', 'icon-stop-circle-lined', 'icon-table-lined', 'icon-temperature', 'icon-traffic', 'icon-trash-lined', 'icon-twitter', 'icon-upload',
-'icon-user-circle-filled', 'icon-video', 'icon-view', 'icon-wechat', 'icon-youtube', 'icon-zoom-in', 'icon-zoom-out']
-
+import coreIconNames from './../../assets/icons/sprite.js'
+import customIconImports from './../../assets/icons/custom.js'
+const customIconNames = Object.keys(customIconImports)
 export const SingleTemplate = (args) => ({
   components: { RplIcon },
   setup() {
@@ -23,7 +21,7 @@ export const SingleTemplate = (args) => ({
 export const CoreGalleryTemplate = (args) => ({
   components: { RplIcon },
   setup() {
-    const icons = RplIconSprite.iconNames
+    const icons = coreIconNames
     return { args, icons }
   },
   template: `<ul style="display: flex; flex-wrap: wrap; list-style: none;"><li style="display: flex;
@@ -58,37 +56,42 @@ export const OnDemandGalleryTemplate = (args) => ({
     margin: 0 0.5rem 0.5rem 0.5rem;" v-for="icon in icons"><rpl-icon style="margin: auto;" theme="accent" v-bind="args" :name="icon"></rpl-icon><p style="font-size: 12px; font-family: monospace;">{{icon}}</p></li></ul>`
 })
 
-<Meta title="Example/Icons" />
+<Meta title='Example/Icons' />
 
 # Core Icon Sprite
 
 Core icons are delivered through an SVG sprite, capturing all of the most commonly used icons and referenced via `<use>`. These should be a subset of the icons that are commonly used. Be carefult adding to this folder as these icons will be loaded on every page load, regardless if they are actually rendered on the page.
 
 <Canvas>
-  <Story name="Core Sprite" argTypes={{
-    theme: {
-      control: { type: 'select' },
-      options: ['core', 'accent', 'neutral'],
-      defaultValue: 'core'
-    }
-  }}>
+  <Story
+    name='Core Sprite'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: ['core', 'accent', 'neutral'],
+        defaultValue: 'core'
+      }
+    }}
+  >
     {CoreGalleryTemplate.bind()}
   </Story>
 </Canvas>
-
 
 # On Demand Icons
 
 For icons that are part of the Core Ripple set but arent needed on every page, you can load them on demand and they will be inlined. They are not part of the SVG sprite and will not be loaded via `use`.
 
 <Canvas>
-  <Story name="On demand icons" argTypes={{
-    theme: {
-      control: { type: 'select' },
-      options: ['core', 'accent', 'neutral'],
-      defaultValue: 'core'
-    }
-  }}>
+  <Story
+    name='On demand icons'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: ['core', 'accent', 'neutral'],
+        defaultValue: 'core'
+      }
+    }}
+  >
     {OnDemandGalleryTemplate.bind()}
   </Story>
 </Canvas>
@@ -104,23 +107,26 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
 ```
 
 <Canvas>
-  <Story name="Icon props" argTypes={{
-    theme: {
-      control: { type: 'select' },
-      options: ['core', 'accent', 'neutral'],
-      defaultValue: 'core'
-    },
-    name: {
-      control: { type: 'select' },
-      defaultValue: RplIconSprite.iconNames[0],
-      options: [...RplIconSprite.iconNames, ...customIconNames]
-    },
-    size: {
-      control: { type: 'select' },
-      defaultValue: 's',
-      options: ['s', 'm', 'l']
-    },
-  }}>
+  <Story
+    name='Icon props'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: ['core', 'accent', 'neutral'],
+        defaultValue: 'core'
+      },
+      name: {
+        control: { type: 'select' },
+        defaultValue: coreIconNames[0],
+        options: [...coreIconNames, ...customIconNames]
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 's',
+        options: ['s', 'm', 'l']
+      }
+    }}
+  >
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
@@ -129,21 +135,22 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
 
 Custom icons are rendered directly inline. They are loaded on demand and are not part of the sprite.
 
-
-
 <Canvas>
-  <Story name="Custom icons" argTypes={{
-    theme: {
-      control: { type: 'select' },
-      options: ['core', 'accent', 'neutral'],
-      defaultValue: 'core'
-    },
-    name: {
-      control: { type: 'select' },
-      defaultValue: customIconNames[0],
-      options: customIconNames
-    }
-  }}>
+  <Story
+    name='Custom icons'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: ['core', 'accent', 'neutral'],
+        defaultValue: 'core'
+      },
+      name: {
+        control: { type: 'select' },
+        defaultValue: customIconNames[0],
+        options: customIconNames
+      }
+    }}
+  >
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
@@ -161,7 +168,7 @@ Custom icons can be passed as a prop to facilitate client specific fonts. Simply
 ```
 
 <Canvas>
-  <Story name="Custom icon prop">
+  <Story name='Custom icon prop'>
     {() => {
       return {
         components: { RplIcon },

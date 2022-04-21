@@ -1,4 +1,4 @@
-import RplIconSprite from './../src/components/icon/sprite.vue'
+import IconSprite from './../src/assets/icons/sprite.svg?component'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -11,7 +11,7 @@ export const parameters = {
 }
 export const decorators = [
   (story) => ({
-    components: { story, RplIconSprite },
-    template: '<div><RplIconSprite /><story /></div>'
+    components: { story, IconSprite },
+    template: '<div><IconSprite style="display: none;" /><story /></div>'
   })
 ]

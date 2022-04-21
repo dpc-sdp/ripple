@@ -32,6 +32,11 @@ export default defineNuxtConfig({
       devtools: true
     }
   },
+  vite: {
+    build: {
+      target: 'esnext'
+    }
+  },
   modules: ['@dpc-sdp/ripple-tide-api/nuxt'],
   buildModules: ['@dpc-sdp/ripple-ui-core/nuxt']
 })

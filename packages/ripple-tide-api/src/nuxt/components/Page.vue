@@ -1,5 +1,6 @@
 <template>
   <div>
+    <RplIconSprite />
     <header>
       <slot name="header"> {{ site.name }} </slot>
     </header>

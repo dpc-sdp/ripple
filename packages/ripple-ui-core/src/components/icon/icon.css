@@ -13,18 +13,22 @@
     color: var(--rpl-color-neutral-7);
   }
 
+  /* TODO: Hook these up to variables */
   &--size-s {
     width: 16px;
     height: 16px;
+    padding: 8px;
   }
 
   &--size-m {
     width: 24px;
     height: 24px;
+    padding: 12px;
   }
 
   &--size-l {
     width: 32px;
     height: 32px;
+    padding: 16px;
   }
 }

@@ -99,7 +99,7 @@ export default {
       let classes = ['rpl-card-promo']
 
       // if the option to hide the rainbow stripe is true, add the appropriate class
-      if (this.rplOptions.hidePromoCardRainbow) {
+      if (this.rplOptions?.hidePromoCardRainbow) {
         classes.push('rpl-card-promo--hide-rainbow')
       }
 

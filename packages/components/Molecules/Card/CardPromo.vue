@@ -1,5 +1,5 @@
 <template>
-  <rpl-link v-if="link" :class="['rpl-card-promo', classModifiers]" :href="link.url">
+  <rpl-link v-if="link" :class="classes" :href="link.url">
     <rpl-responsive-img v-if="computedImg && displayStyle !== 'noImage'" class="rpl-card-promo__image" v-bind="computedImg" alt="" :srcSet="srcSet" />
     <div class="rpl-card-promo__content" v-cloak>
       <div v-if="showMeta && isMetaInfoNotEmpty" class="rpl-card-promo__meta">
@@ -95,13 +95,23 @@ export default {
     }
   },
   computed: {
-    classModifiers () {
-      // if thumbnail or profile don't have image, fallback to noimage styling
+    classes () {
+      let classes = ['rpl-card-promo']
+
+      // if the option to hide the rainbow stripe is true, add the appropriate class
+      if (this.rplOptions.hidePromoCardRainbow) {
+        classes.push('rpl-card-promo--hide-rainbow')
+      }
+
+      // if the display type is thumbnail or profile but no image is set, fallback to the noimage styling
       const classPrefix = 'rpl-card-promo'
       if (!this.image) {
-        return `${classPrefix}--noimage`
+        classes.push(`${classPrefix}--noimage`)
+      } else {
+        classes.push(this.modifiers(classPrefix))
       }
-      return this.modifiers(classPrefix)
+
+      return classes
     },
     trimmedSummary () {
       let summaryLength = 300
@@ -145,6 +155,7 @@ export default {
   $rpl-card-promo-no-image-border: rpl_gradient('decorative_gradient') !default;
   $rpl-card-promo-no-image-border-height: rem(8px) !default;
   $rpl-card-promo-no-image-padding-top: ($rpl-space * 6) !default;
+  $rpl-card-promo-hide-rainbow-padding-top: ($rpl-space * 5) !default;
   $rpl-card-promo-thumbnail-padding-top: $rpl-space-4 !default;
   $rpl-card-promo-profile-image-margin-top: rem(56px) !default;
   $rpl-card-promo-profile-image-padding-top: ($rpl-space * 5) !default;
@@ -253,6 +264,10 @@ export default {
         padding-top: $rpl-card-promo-no-image-padding-top;
       }
 
+      #{$root}--noimage#{$root}--hide-rainbow & {
+        padding-top: $rpl-card-promo-hide-rainbow-padding-top;
+      }
+
       #{$root}--thumbnail & {
         padding-top: $rpl-card-promo-thumbnail-padding-top;
       }
@@ -273,6 +288,10 @@ export default {
       background-image: $rpl-card-promo-no-image-border;
       background-size: 100% $rpl-card-promo-no-image-border-height;
       background-repeat: no-repeat;
+    }
+
+    &--noimage#{$root}--hide-rainbow {
+      background-image: none;
     }
 
     &--profile {

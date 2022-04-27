@@ -1,6 +1,7 @@
 ---
-to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/<%= name %>.stories.js
+to: "<%= mdx ? null : `packages/ripple-ui-core/src/components/${name}/${h.changeCase.paramCase(name)}.stories.js` %>"
 ---
+
 
 import <%= name %> from './index.vue'
 
@@ -28,7 +29,7 @@ const Template = (args) => ({
     return { args }
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<<%= h.changeCase.paramCase(name) %> v-bind="args" />'
+  template: '<Rpl<%= h.changeCase.paramCase(name) %> v-bind="args" />'
 })
 
 export const Primary = Template.bind({})

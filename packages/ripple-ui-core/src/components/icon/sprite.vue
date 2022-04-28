@@ -5,9 +5,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
 import svgSprite from './../../assets/icons/sprite.svg?component'
-const props = defineProps({
+defineProps({
   hidden: {
     type: Boolean,
     default: true

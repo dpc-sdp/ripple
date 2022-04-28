@@ -2,14 +2,13 @@
 export default {
   name: 'RplIcon'
 }
-export type RplTheme = 'core' | 'accent' | 'neutral'
-export type RplIconSizes = 's' | 'm' | 'l'
 </script>
 
 <script setup lang="ts">
 import { PropType, ref, computed, defineAsyncComponent } from 'vue'
 import iconKeys from './../../assets/icons/sprite.js'
 import customIcons from './../../assets/icons/custom.js'
+import type { RplTheme, RplIconSizes } from './../../types/ripple'
 
 const props = defineProps({
   name: {
@@ -20,13 +19,13 @@ const props = defineProps({
     type: String as PropType<RplTheme>,
     default: 'core'
   },
-  customIcon: {
-    type: [Object, Boolean],
-    default: false
-  },
   size: {
     type: String as PropType<RplIconSizes>,
     default: 's'
+  },
+  presentational: {
+    type: Boolean,
+    default: true
   }
 })
 
@@ -38,6 +37,7 @@ const asyncIcon = computed(() => {
   return false
 })
 const classes = computed(() => [
+  'rpl-icon',
   `rpl-icon--${props.name}`,
   `rpl-icon--theme-${props.theme}`,
   `rpl-icon--size-${props.size}`
@@ -46,22 +46,14 @@ const classes = computed(() => [
 
 <template>
   <component
-    :is="customIcon"
-    v-if="!inSprite && customIcon"
-    class="rpl-icon"
-    :class="classes"
-  >
-  </component>
-  <component
     :is="asyncIcon"
-    v-else-if="!inSprite && asyncIcon"
-    class="rpl-icon"
+    v-if="name && !inSprite && asyncIcon"
     :class="classes"
-  >
-  </component>
-  <svg v-else class="rpl-icon" :class="classes" aria-hidden="true">
+  />
+  <svg v-else-if="name" :class="classes">
     <use :xlink:href="`#${name}`"></use>
   </svg>
+  <slot v-else :class="classes"></slot>
 </template>
 
 <style>

@@ -24,17 +24,7 @@ export const CoreGalleryTemplate = (args) => ({
     const icons = coreIconNames
     return { args, icons }
   },
-  template: `<ul style="display: flex; flex-wrap: wrap; list-style: none;"><li style="display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box;
-    text-align: center;
-    border: 1px solid #e8ebee;
-    border-radius: 4px;
-    padding: 0.5rem;
-    width: calc(12.5% - 1rem - 2px);
-    margin: 0 0.5rem 0.5rem 0.5rem;" v-for="icon in icons"><rpl-icon style="margin: auto;" theme="accent" v-bind="args" :name="icon"></rpl-icon><p style="font-size: 12px; font-family: monospace;">{{icon}}</p></li></ul>`
+  template: `<ul class="rpl-storybook__icon-list"><li class="rpl-storybook__icon-item" v-for="icon in icons"><rpl-icon style="margin: auto;" theme="accent" v-bind="args" :name="icon"></rpl-icon><p style="font-size: 12px; font-family: monospace;">{{icon}}</p></li></ul>`
 })
 
 export const OnDemandGalleryTemplate = (args) => ({
@@ -43,17 +33,7 @@ export const OnDemandGalleryTemplate = (args) => ({
     const icons = customIconNames
     return { args, icons }
   },
-  template: `<ul style="display: flex; flex-wrap: wrap; list-style: none;"><li style="display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box;
-    text-align: center;
-    border: 1px solid #e8ebee;
-    border-radius: 4px;
-    padding: 0.5rem;
-    width: calc(12.5% - 1rem - 2px);
-    margin: 0 0.5rem 0.5rem 0.5rem;" v-for="icon in icons"><rpl-icon style="margin: auto;" theme="accent" v-bind="args" :name="icon"></rpl-icon><p style="font-size: 12px; font-family: monospace;">{{icon}}</p></li></ul>`
+  template: `<ul  class="rpl-storybook__icon-list"><li class="rpl-storybook__icon-item" v-for="icon in icons"><rpl-icon style="margin: auto;" theme="accent" v-bind="args" :name="icon"></rpl-icon><p style="font-size: 12px; font-family: monospace;">{{icon}}</p></li></ul>`
 })
 
 <Meta title='Example/Icons' />
@@ -70,6 +50,11 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
         control: { type: 'select' },
         options: ['core', 'accent', 'neutral'],
         defaultValue: 'core'
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 'm',
+        options: ['s', 'm', 'l']
       }
     }}
   >
@@ -89,6 +74,11 @@ For icons that are part of the Core Ripple set but arent needed on every page, y
         control: { type: 'select' },
         options: ['core', 'accent', 'neutral'],
         defaultValue: 'core'
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 'm',
+        options: ['s', 'm', 'l']
       }
     }}
   >
@@ -131,33 +121,9 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
   </Story>
 </Canvas>
 
-# Custom icons
+# Custom Icons
 
-Custom icons are rendered directly inline. They are loaded on demand and are not part of the sprite.
-
-<Canvas>
-  <Story
-    name='Custom icons'
-    argTypes={{
-      theme: {
-        control: { type: 'select' },
-        options: ['core', 'accent', 'neutral'],
-        defaultValue: 'core'
-      },
-      name: {
-        control: { type: 'select' },
-        defaultValue: customIconNames[0],
-        options: customIconNames
-      }
-    }}
-  >
-    {SingleTemplate.bind()}
-  </Story>
-</Canvas>
-
-# Icon as prop
-
-Custom icons can be passed as a prop to facilitate client specific fonts. Simply import the SVG component (using Vite SVG Loader ?component query - )
+Custom icons can be imported and passed into a slot to facilitate client specific icons. Simply import the SVG component (using Vite SVG Loader ?component query - )
 
 ```
 <svg class="rpl-icon rpl-icon--facebook" aria-hidden="true">
@@ -168,16 +134,31 @@ Custom icons can be passed as a prop to facilitate client specific fonts. Simply
 ```
 
 <Canvas>
-  <Story name='Custom icon prop'>
-    {() => {
+  <Story
+    name='Custom icon'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: ['core', 'accent', 'neutral'],
+        defaultValue: 'core'
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 's',
+        options: ['s', 'm', 'l']
+      }
+    }}
+  >
+    {(args) => {
       return {
-        components: { RplIcon },
+        components: { RplIcon, CarIcon },
         setup() {
           return {
-            CarIcon
+            CarIcon,
+            args
           }
         },
-        template: `<RplIcon :customIcon="CarIcon"></RplIcon>`
+        template: `<RplIcon v-bind="args"><CarIcon/></RplIcon>`
       }
     }}
   </Story>

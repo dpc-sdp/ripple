@@ -1,4 +1,5 @@
 import IconSprite from './../src/assets/icons/sprite.svg?component'
+import './storybook.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

@@ -432,3 +432,69 @@ export const formData = {
   </Story>
 </Canvas>
 
+export const optBtnFormData = {
+  model: {
+    text: null,
+    title_az: ''
+  },
+  schema: {
+    fields: [
+      {
+        type: 'input',
+        inputType: 'text',
+        label: 'Search',
+        hint: '',
+        placeholder: 'Keyword',
+        model: 'text'
+      },
+      {
+        type: 'rploptionbutton',
+        label: 'Option button default',
+        model: 'title_az',
+        submitOnClick: true
+      }
+    ],
+    groups: [
+      {
+        fields: [
+          {
+            type: 'rplsubmitloader',
+            buttonText: 'Submit (with animation)',
+            loading: false,
+            autoUpdate: true,
+            styleClasses: ['form-group--inline']
+          },
+          {
+            type: 'rplclearform',
+            buttonText: 'Clear search filters',
+            styleClasses: ['form-group--inline']
+          }
+        ]
+      }
+    ]
+  },
+  tag: 'rpl-fieldset',
+  formOptions: {
+    validateAfterLoad: false,
+    validateAfterChanged: false
+  },
+  formState: {}
+};
+
+<Canvas>
+  <Story
+    name="Option button, submit on click"
+    args={{
+      formData: optBtnFormData,
+      title: 'Option button, submit on click',
+      fullWidth: false,
+      isNewModel: true,
+      options: {
+        validateAfterChanged: false,
+        validateAfterLoad: false
+      }
+    }}
+  >
+    {TemplateForm.bind({})}
+  </Story>
+</Canvas>

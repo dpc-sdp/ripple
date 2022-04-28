@@ -1,6 +1,10 @@
 {
   "plugins": {
+    "postcss-normalize": {},
     "autoprefixer": {},
-    "postcss-nested": {}
+    "postcss-nested": {},
+    "postcss-preset-env": {
+      "browsers": ["> 1%", "last 2 versions"]
+    }
   }
 }

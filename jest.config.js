@@ -3,11 +3,13 @@ module.exports = {
   testURL: 'http://localhost',
   collectCoverage: true,
   testMatch: ['**/*.test.js', '**/*.test.ts'],
-  moduleFileExtensions: ['js', 'ts'],
+  moduleFileExtensions: ['js', 'ts', 'vue'],
+  modulePathIgnorePatterns: ['node_modules', '.jest-test-results.json'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-    '^.+\\.ts$': '<rootDir>/node_modules/ts-jest'
+    '^.+\\.ts$': '<rootDir>/node_modules/ts-jest',
+    '.*\\.vue$': '<rootDir>/node_modules/@vue/vue3-jest'
   },
   transformIgnorePatterns: ['node_modules/(?!(ripple-*)/)'],
   moduleNameMapper: {

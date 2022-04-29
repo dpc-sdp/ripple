@@ -9,7 +9,7 @@ import vitePlugins from './src/vite.plugins'
 export default defineConfig({
   resolve: {
     alias: {
-      '/@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src')
     }
   },
   plugins: [vue(), dts()].concat(vitePlugins),
@@ -18,6 +18,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'rpl',
+      formats: ['es'],
       fileName: (f) => `rpl-lib.${f}.js`
     },
     sourcemap: false,

@@ -1,15 +1,92 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import {
+  Canvas,
+  Meta,
+  Story,
+  IconGallery,
+  IconItem
+} from '@storybook/addon-docs'
 import RplIcon from './icon.vue'
+import CarIcon from './../../assets/icons/custom/icon-car.svg?component'
+import coreIconNames from './../../assets/icons/sprite.js'
+import customIconImports from './../../assets/icons/custom.js'
+const customIconNames = Object.keys(customIconImports)
+export const SingleTemplate = (args) => ({
+  components: { RplIcon },
+  setup() {
+    return { args }
+  },
+  template: '<RplIcon v-bind="args" />'
+})
 
-<Meta
-  title='Example/Icons'
-  component={RplIcon}
-  argTypes={{
-    name: { table: { disable: true } }
-  }}
-/>
+export const CoreGalleryTemplate = (args) => ({
+  components: { RplIcon },
+  setup() {
+    const icons = coreIconNames
+    return { args, icons }
+  },
+  template: `<ul class="rpl-storybook__icon-list"><li class="rpl-storybook__icon-item" v-for="icon in icons"><rpl-icon style="margin: auto;" theme="accent" v-bind="args" :name="icon"></rpl-icon><p style="font-size: 12px; font-family: monospace;">{{icon}}</p></li></ul>`
+})
 
-# Core icons
+export const OnDemandGalleryTemplate = (args) => ({
+  components: { RplIcon },
+  setup() {
+    const icons = customIconNames
+    return { args, icons }
+  },
+  template: `<ul  class="rpl-storybook__icon-list"><li class="rpl-storybook__icon-item" v-for="icon in icons"><rpl-icon style="margin: auto;" theme="accent" v-bind="args" :name="icon"></rpl-icon><p style="font-size: 12px; font-family: monospace;">{{icon}}</p></li></ul>`
+})
+
+<Meta title='Example/Icons' />
+
+# Core Icon Sprite
+
+Core icons are delivered through an SVG sprite, capturing all of the most commonly used icons and referenced via `<use>`. These should be a subset of the icons that are commonly used. Be carefult adding to this folder as these icons will be loaded on every page load, regardless if they are actually rendered on the page.
+
+<Canvas>
+  <Story
+    name='Core Sprite'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: ['core', 'accent', 'neutral'],
+        defaultValue: 'core'
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 'm',
+        options: ['s', 'm', 'l']
+      }
+    }}
+  >
+    {CoreGalleryTemplate.bind()}
+  </Story>
+</Canvas>
+
+# On Demand Icons
+
+For icons that are part of the Core Ripple set but arent needed on every page, you can load them on demand and they will be inlined. They are not part of the SVG sprite and will not be loaded via `use`.
+
+<Canvas>
+  <Story
+    name='On demand icons'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: ['core', 'accent', 'neutral'],
+        defaultValue: 'core'
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 'm',
+        options: ['s', 'm', 'l']
+      }
+    }}
+  >
+    {OnDemandGalleryTemplate.bind()}
+  </Story>
+</Canvas>
+
+# Icon props
 
 Core icons are delivered through an SVG sprite, capturing all of the most commonly used icons and referenced via `<use>`.
 
@@ -20,27 +97,33 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
 ```
 
 <Canvas>
-  <Story name='Download'>
-    {() => {
-      return {
-        components: { RplIcon },
-        template: `<RplIcon name="download"></RplIcon>`
+  <Story
+    name='Icon props'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: ['core', 'accent', 'neutral'],
+        defaultValue: 'core'
+      },
+      name: {
+        control: { type: 'select' },
+        defaultValue: coreIconNames[0],
+        options: [...coreIconNames, ...customIconNames]
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 's',
+        options: ['s', 'm', 'l']
       }
     }}
-  </Story>
-  <Story name='Home'>
-    {() => {
-      return {
-        components: { RplIcon },
-        template: `<RplIcon name="home"></RplIcon>`
-      }
-    }}
+  >
+    {SingleTemplate.bind()}
   </Story>
 </Canvas>
 
-# Custom icons
+# Custom Icons
 
-Custom icons are rendered directly inline.
+Custom icons can be imported and passed into a slot to facilitate client specific icons. Simply import the SVG component (using Vite SVG Loader ?component query - )
 
 ```
 <svg class="rpl-icon rpl-icon--facebook" aria-hidden="true">
@@ -51,11 +134,31 @@ Custom icons are rendered directly inline.
 ```
 
 <Canvas>
-  <Story name='Facebook'>
-    {() => {
+  <Story
+    name='Custom icon'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: ['core', 'accent', 'neutral'],
+        defaultValue: 'core'
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 's',
+        options: ['s', 'm', 'l']
+      }
+    }}
+  >
+    {(args) => {
       return {
-        components: { RplIcon },
-        template: `<RplIcon name="facebook"></RplIcon>`
+        components: { RplIcon, CarIcon },
+        setup() {
+          return {
+            CarIcon,
+            args
+          }
+        },
+        template: `<RplIcon v-bind="args"><CarIcon/></RplIcon>`
       }
     }}
   </Story>

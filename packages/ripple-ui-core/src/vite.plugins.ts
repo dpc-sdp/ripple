@@ -1,11 +1,36 @@
-import path from 'path'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import vueSvgPlugin from 'vite-plugin-vue-svg'
-
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import svgLoader from 'vite-svg-loader'
 export default [
-  createSvgIconsPlugin({
-    iconDirs: [path.resolve(process.cwd(), 'src/assets/icons/core')],
-    symbolId: 'rpl-icon--[name]'
-  }),
-  vueSvgPlugin({ defaultExport: 'component' })
+  svgLoader({
+    defaultImport: 'raw',
+    svgoConfig: {
+      multipass: true,
+      plugins: [
+        {
+          name: 'preset-default',
+          params: {
+            overrides: {}
+          }
+        },
+        {
+          name: 'removeAttrs',
+          params: {
+            attrs: '(fill|stroke)'
+          }
+        },
+        {
+          name: 'removeStyleElement',
+          active: true
+        },
+        {
+          name: 'removeAttributesBySelector',
+          // @ts-ignore
+          params: {
+            selector: "[style='fill:#*']",
+            attributes: 'style'
+          }
+        }
+      ]
+    }
+  })
 ]

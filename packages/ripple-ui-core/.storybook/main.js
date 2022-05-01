@@ -38,7 +38,7 @@ module.exports = {
     '../src/components/**/*.stories.mdx',
     '../src/components/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  staticDirs: ['../dist/public'],
+  staticDirs: ['../dist'],
   features: {
     interactionsDebugger: true
   },

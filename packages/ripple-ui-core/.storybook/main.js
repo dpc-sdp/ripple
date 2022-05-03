@@ -33,14 +33,27 @@ const vitePlugins = [
     }
   })
 ]
-
 module.exports = {
   stories: [
     '../src/components/**/*.stories.mdx',
     '../src/components/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  core: { builder: 'storybook-builder-vite' },
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  staticDirs: ['../dist'],
+  features: {
+    interactionsDebugger: true
+  },
+  core: {
+    builder: '@storybook/builder-vite'
+  },
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-jest',
+    '@storybook/addon-a11y',
+    '@storybook/addon-cssresources',
+    'storybook-addon-pseudo-states'
+  ],
+
   async viteFinal(config, { configType }) {
     // customize the Vite config here
     config.plugins.push(...vitePlugins)

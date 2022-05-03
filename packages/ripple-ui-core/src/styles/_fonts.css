@@ -4,8 +4,8 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/VIC-Regular.woff2') format('woff2'),
-       url('/fonts/VIC-Regular.woff') format('woff');
+  src: url('/assets/fonts/VIC-Regular.woff2') format('woff2'),
+    url('/assets/fonts/VIC-Regular.woff') format('woff');
 }
 
 /* VIC Regular - Italic */
@@ -14,8 +14,8 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/VIC-RegularItalic.woff2') format('woff2'),
-       url('/fonts/VIC-RegularItalic.woff') format('woff');
+  src: url('/assets/fonts/VIC-RegularItalic.woff2') format('woff2'),
+    url('/assets/fonts/VIC-RegularItalic.woff') format('woff');
 }
 
 /* VIC Medium */
@@ -24,8 +24,8 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/VIC-Medium.woff2') format('woff2'),
-       url('/fonts/VIC-Medium.woff') format('woff');
+  src: url('/assets/fonts/VIC-Medium.woff2') format('woff2'),
+    url('/assets/fonts/VIC-Medium.woff') format('woff');
 }
 
 /* VIC Medium - Italic */
@@ -34,8 +34,8 @@
   font-style: italic;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/VIC-MediumItalic.woff2') format('woff2'),
-       url('/fonts/VIC-MediumItalic.woff') format('woff');
+  src: url('/assets/fonts/VIC-MediumItalic.woff2') format('woff2'),
+    url('/assets/fonts/VIC-MediumItalic.woff') format('woff');
 }
 
 /* VIC Semibold */
@@ -44,8 +44,8 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/VIC-SemiBold.woff2') format('woff2'),
-       url('/fonts/VIC-SemiBold.woff') format('woff');
+  src: url('/assets/fonts/VIC-SemiBold.woff2') format('woff2'),
+    url('/assets/fonts/VIC-SemiBold.woff') format('woff');
 }
 
 /* VIC Semibold - Italic */
@@ -54,8 +54,8 @@
   font-style: italic;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/VIC-SemiBoldItalic.woff2') format('woff2'),
-       url('/fonts/VIC-SemiBoldItalic.woff') format('woff');
+  src: url('/assets/fonts/VIC-SemiBoldItalic.woff2') format('woff2'),
+    url('/assets/fonts/VIC-SemiBoldItalic.woff') format('woff');
 }
 
 /* VIC Bold */
@@ -64,8 +64,8 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/VIC-Bold.woff2') format('woff2'),
-       url('/fonts/VIC-Bold.woff') format('woff');
+  src: url('/assets/fonts/VIC-Bold.woff2') format('woff2'),
+    url('/assets/fonts/VIC-Bold.woff') format('woff');
 }
 
 /* VIC Bold - Italic */
@@ -74,6 +74,6 @@
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/VIC-BoldItalic.woff2') format('woff2'),
-       url('/fonts/VIC-BoldItalic.woff') format('woff');
+  src: url('/assets/fonts/VIC-BoldItalic.woff2') format('woff2'),
+    url('/assets/fonts/VIC-BoldItalic.woff') format('woff');
 }

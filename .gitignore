@@ -4,6 +4,8 @@ node_modules
 dist
 dist-ssr
 coverage
+.jest-test-results.json
+storybook-static
 
 # Typescript
 tsconfig.tsbuildinfo

@@ -25,6 +25,6 @@ export default defineNuxtModule({
     }
   },
   async setup(_options, nuxt) {
-    nuxt.options.css.push('@dpc-sdp/ripple-ui-core/style/global')
+    nuxt.options.css.push('@dpc-sdp/ripple-ui-core/style')
   }
 })

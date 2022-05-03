@@ -5,11 +5,13 @@ import {
   IconGallery,
   IconItem
 } from '@storybook/addon-docs'
+
 import RplIcon from './icon.vue'
 import CarIcon from './../../assets/icons/custom/icon-car.svg?component'
 import coreIconNames from './../../assets/icons/sprite.js'
 import customIconImports from './../../assets/icons/custom.js'
 const customIconNames = Object.keys(customIconImports)
+
 export const SingleTemplate = (args) => ({
   components: { RplIcon },
   setup() {

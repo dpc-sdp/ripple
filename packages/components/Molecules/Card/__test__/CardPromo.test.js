@@ -74,13 +74,48 @@ describe('CardPromo', () => {
       }
     })
 
-    expect(wrapper.vm.classModifiers).toEqual('rpl-card-promo--profile')
+    expect(wrapper.vm.classes).toEqual(['rpl-card-promo', 'rpl-card-promo--profile'])
 
     wrapper.setProps({ image: null })
-    expect(wrapper.vm.classModifiers).toEqual('rpl-card-promo--noimage')
+    expect(wrapper.vm.classes).toEqual(['rpl-card-promo', 'rpl-card-promo--noimage'])
 
     wrapper.setProps({ displayStyle: 'noImage' })
-    expect(wrapper.vm.classModifiers).toEqual('rpl-card-promo--noimage')
+    expect(wrapper.vm.classes).toEqual(['rpl-card-promo', 'rpl-card-promo--noimage'])
+  })
+
+  it('generates class to hide rainbow stripe if rplOptions has it configured', () => {
+    const wrapper = shallowMount(CardPromo, {
+      propsData: {
+        title: 'Promo card',
+        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        link: { text: 'Read more', url: '#' },
+        topic: 'Event',
+        author: 'John Doe',
+        displayStyle: 'profile',
+        image: {
+          src: 'https://via.placeholder.com/304x199',
+          focalPoint: {
+            x: '152',
+            y: '100'
+          },
+          width: 304,
+          height: 199
+        }
+      },
+      mocks: {
+        rplOptions: {
+          hidePromoCardRainbow: true
+        }
+      }
+    })
+
+    expect(wrapper.vm.classes).toEqual(['rpl-card-promo', 'rpl-card-promo--hide-rainbow', 'rpl-card-promo--profile'])
+
+    wrapper.setProps({ image: null })
+    expect(wrapper.vm.classes).toEqual(['rpl-card-promo', 'rpl-card-promo--hide-rainbow', 'rpl-card-promo--noimage'])
+
+    wrapper.setProps({ displayStyle: 'noImage' })
+    expect(wrapper.vm.classes).toEqual(['rpl-card-promo', 'rpl-card-promo--hide-rainbow', 'rpl-card-promo--noimage'])
   })
 
   it('returns content type label when it is valid and showMeta is true', () => {

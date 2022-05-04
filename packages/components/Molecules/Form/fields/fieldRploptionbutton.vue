@@ -9,6 +9,7 @@
 
 <script>
 import { abstractField } from 'vue-form-generator'
+import { RplFormEventBus } from '@dpc-sdp/ripple-form'
 
 export default {
   name: 'RplOptionButton',
@@ -29,6 +30,9 @@ export default {
     },
     onSelection (item) {
       this.value = item
+      if (this.schema.submitOnClick) {
+        RplFormEventBus.$emit('submitform')
+      }
     },
     isItemChecked (item) {
       return (item === this.value)

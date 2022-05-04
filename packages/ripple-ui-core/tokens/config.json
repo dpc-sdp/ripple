@@ -14,7 +14,7 @@
       "prefix": "rpl",
       "files": [
         {
-          "destination": "public/assets/css/_vars.css",
+          "destination": "src/styles/_vars.css",
           "format": "css/variables",
           "options": {
             "fileHeader": "rplHeader",
@@ -29,7 +29,7 @@
       "transforms": ["attribute/cti", "attribute/color", "name/cti/camel"],
       "files": [
         {
-          "destination": "public/assets/js/_vars.js",
+          "destination": "src/styles/_vars.css",
           "format": "javascript/es6",
           "options": {
             "fileHeader": "rplHeader"

@@ -29,7 +29,7 @@
       "transforms": ["attribute/cti", "attribute/color", "name/cti/camel"],
       "files": [
         {
-          "destination": "src/styles/_vars.css",
+          "destination": "public/assets/js/_vars.js",
           "format": "javascript/es6",
           "options": {
             "fileHeader": "rplHeader"

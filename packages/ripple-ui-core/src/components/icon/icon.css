@@ -2,11 +2,11 @@
   fill: currentcolor;
 
   &--theme-core {
-    color: var(--rpl-color-base-primary);
+    color: var(--rpl-clr-ui-core);
   }
 
   &--theme-accent {
-    color: var(--rpl-color-base-secondary);
+    color: var(--rpl-clr-ui-accent);
   }
 
   &--theme-neutral {

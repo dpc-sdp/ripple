@@ -12,26 +12,26 @@
   font-weight: bold;
   font-size: 1.6rem; /* [1] */
   line-height: 1;
-  color: var(--rpl-color-type-primary);
-  background-color: var(--rpl-color-base-primary);
+  color: var(--rpl-clr-type-reverse-core);
+  background-color: var(--rpl-clr-ui-core);
   border-width: 0.2rem;
   border-style: solid;
-  border-color: var(--rpl-color-base-primary);
+  border-color: var(--rpl-clr-ui-core);
   border-radius: var(--rpl-border-radius);
 
   /* States */
   &:hover {
     cursor: pointer;
     text-decoration: underline;
-    background-color: var(--rpl-color-base-primary-lighter);
-    border-color: var(--rpl-color-base-primary-lighter);
+    background-color: var(--rpl-clr-ui-core-lighter);
+    border-color: var(--rpl-clr-ui-core-lighter);
   }
 
   &:active,
   &:active:hover {
     cursor: default;
-    background-color: var(--rpl-color-base-primary-darker);
-    border-color: var(--rpl-color-base-primary-darker);
+    background-color: var(--rpl-clr-ui-core-darker);
+    border-color: var(--rpl-clr-ui-core-darker);
   }
 
   /* Variants */
@@ -40,40 +40,21 @@
   }
 
   &--secondary {
-    color: var(--rpl-color-base-primary);
+    color: var(--rpl-clr-ui-accent);
     background-color: transparent;
-    border-color: var(--rpl-color-base-primary);
+    border-color: var(--rpl-clr-ui-accent);
 
     &:hover {
-      color: var(--rpl-color-base-primary-lighter);
+      color: var(--rpl-clr-ui-accent-lighter);
       background-color: transparent;
-      border-color: var(--rpl-color-base-primary-lighter);
+      border-color: var(--rpl-clr-ui-accent-lighter);
     }
 
     &:active,
     &:active:hover {
-      color: var(--rpl-color-base-primary-darker);
+      color: var(--rpl-clr-ui-accent-darker);
       background-color: transparent;
-      border-color: var(--rpl-color-base-primary-darker);
-    }
-  }
-
-  &--tertiary {
-    color: black;
-    background-color: transparent;
-    border-color: transparent;
-
-    &:hover {
-      color: var(--rpl-color-base-primary);
-      background-color: transparent;
-      border-color: transparent;
-    }
-
-    &:active,
-    &:active:hover {
-      color: black;
-      background-color: transparent;
-      border-color: transparent;
+      border-color: var(--rpl-clr-ui-accent-darker);
     }
   }
 }

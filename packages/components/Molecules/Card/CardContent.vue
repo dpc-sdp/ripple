@@ -5,6 +5,7 @@
     :class="{
       'rpl-card-content--no-image': !image,
       'rpl-card-content--has-border': (border && !image),
+      'rpl-card-content--hide-rainbow': this.hidePromoCardRainbow,
       'rpl-card-content--center': (center && !image),
       'rpl-card-content--default': (type === 'default'),
       'rpl-card-content--simple': (type === 'simple'),
@@ -58,6 +59,9 @@ export default {
     },
     computedImg () {
       return typeof this.image === 'string' ? { src: this.image } : this.image
+    },
+    hidePromoCardRainbow () {
+      return this.rplOptions?.hidePromoCardRainbow
     }
   },
   created () {
@@ -81,6 +85,7 @@ export default {
   $rpl-card-content-border-height: rem(8px) !default;
   $rpl-card-content-background: rpl_color('white') !default;
   $rpl-card-content-no-image-padding: (rem(56px) - $rpl-card-vertical-padding) 0 0 0 !default;
+  $rpl-card-content-hide-rainbow-padding-top: 0 !default;
   $rpl-card-content-no-image-background-image: rpl_gradient('decorative_gradient') !default;
   $rpl-card-content-default-link-ruleset: ('xs', 1em, 'semibold') !default;
   $rpl-card-content-simple-link-ruleset: (
@@ -160,6 +165,10 @@ export default {
         padding: $rpl-card-content-no-image-padding;
       }
 
+      &#{$root}--no-image#{$root}--hide-rainbow {
+        padding-top: $rpl-card-content-hide-rainbow-padding-top;
+      }
+
       &#{$root}--center {
         @include rpl_breakpoint('m') {
           padding-top: 0;
@@ -180,6 +189,10 @@ export default {
       background-image: $rpl-card-content-no-image-background-image;
       background-size: 100% $rpl-card-content-border-height;
       background-repeat: no-repeat;
+    }
+
+    &--has-border#{$root}--hide-rainbow {
+      background-image: none;
     }
 
     &__image-wrapper {

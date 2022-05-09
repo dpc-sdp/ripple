@@ -1,6 +1,8 @@
 const svgLoader = require('vite-svg-loader')
+const contentLoader = require('@originjs/vite-plugin-content').default
 
 const vitePlugins = [
+  contentLoader(),
   svgLoader({
     defaultImport: 'raw',
     svgoConfig: {
@@ -38,7 +40,7 @@ module.exports = {
     '../src/components/**/*.stories.mdx',
     '../src/components/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  staticDirs: ['../dist'],
+  staticDirs: ['../dist', './assets'],
   features: {
     interactionsDebugger: true
   },

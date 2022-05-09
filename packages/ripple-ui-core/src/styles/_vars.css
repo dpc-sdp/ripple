@@ -6,64 +6,67 @@
  */
 
 :root {
-  --rpl-clr-ui-accent-darker: #00598E;
-  --rpl-clr-ui-accent-lightest: #E6F5FD;
-  --rpl-clr-ui-accent-lighter: #99D5F7;
-  --rpl-clr-ui-accent: #0095EC;
-  --rpl-clr-ui-core-darker: #003174;
-  --rpl-clr-ui-core-lightest: #E6EEF9;
-  --rpl-clr-ui-core-lighter: #99BAE7;
-  --rpl-clr-ui-core: #0052C2;
-  --rpl-clr-semantic-error-4: #80001E;
-  --rpl-clr-semantic-error-3: #AA0028;
-  --rpl-clr-semantic-error-2: #C0002D;
-  --rpl-clr-semantic-error-1: #C0002D;
-  --rpl-clr-semantic-warning-4: #894400;
-  --rpl-clr-semantic-warning-3: #B75B00;
-  --rpl-clr-semantic-warning-2: #CF6700;
-  --rpl-clr-semantic-warning-1: #FEFAF5;
-  --rpl-clr-semantic-success-4: #005E64;
-  --rpl-clr-semantic-success-3: #007D85;
-  --rpl-clr-semantic-success-2: #008D96;
-  --rpl-clr-semantic-success-1: #008D96;
-  --rpl-clr-semantic-info-4: #00447C;
-  --rpl-clr-semantic-info-3: #005BA5;
-  --rpl-clr-semantic-info-2: #0067BA;
-  --rpl-clr-semantic-info-1: #F2F8FD;
-  --rpl-clr-neutral-7: #1A1A1A;
-  --rpl-clr-neutral-6: #333333;
-  --rpl-clr-neutral-5: #666666;
-  --rpl-clr-neutral-4: #999999;
-  --rpl-clr-neutral-3: #CCCCCC;
-  --rpl-clr-neutral-2: #E6E6E6;
-  --rpl-clr-neutral-1: #F5F5F5;
-  --rpl-clr-neutral-0: #FFFFFF;
-  --rpl-type-fonts-body: 'VIC';
-  --rpl-type-fonts-display: 'VIC';
-  --rpl-space-14: 120px;
-  --rpl-space-13: 80px;
-  --rpl-space-12: 64px;
-  --rpl-space-11: 56px;
-  --rpl-space-10: 48px;
-  --rpl-space-9: 40px;
-  --rpl-space-8: 32px;
-  --rpl-space-7: 28px;
-  --rpl-space-6: 24px;
-  --rpl-space-5: 20px;
-  --rpl-space-4: 16px;
-  --rpl-space-3: 12px;
-  --rpl-space-2: 8px;
-  --rpl-space-1: 4px;
-  --rpl-clr-semantic-disabled: var(--rpl-clr-neutral-4);
-  --rpl-clr-type-reverse-accent: var(--rpl-clr-neutral-0);
-  --rpl-clr-type-reverse-core: var(--rpl-clr-neutral-0);
-  --rpl-clr-type-reverse-default: var(--rpl-clr-neutral-0);
-  --rpl-clr-type-accent: var(--rpl-clr-ui-accent);
-  --rpl-clr-type-core: var(--rpl-clr-ui-core);
+  --rpl-space-14: 120px; /* spacing-14 */
+  --rpl-space-13: 80px; /* spacing-13 */
+  --rpl-space-12: 64px; /* spacing-12 */
+  --rpl-space-11: 56px; /* spacing-11 */
+  --rpl-space-10: 48px; /* spacing-10 */
+  --rpl-space-9: 40px; /* spacing-09 */
+  --rpl-space-8: 32px; /* spacing-08 */
+  --rpl-space-7: 28px; /* spacing-07 */
+  --rpl-space-6: 24px; /* spacing-06 */
+  --rpl-space-5: 20px; /* spacing-05 */
+  --rpl-space-4: 16px; /* spacing-04 */
+  --rpl-space-3: 12px; /* spacing-03 */
+  --rpl-space-2: 8px; /* spacing-02 */
+  --rpl-space-1: 4px; /* spacing-01 */
+  --rpl-elevation-2: 0 4px 8px 2px rgba(26, 26, 26, 0.15);
+  --rpl-elevation-1: 0 2px 8px rgba(26, 26, 26, 0.15);
+  --rpl-elevation-0: 0;
+  --rpl-border-solid-4: 4px;
+  --rpl-border-solid-3: 3px;
+  --rpl-border-solid-2: 2px;
+  --rpl-border-solid-1: 1px;
+  --rpl-border-radius-full: 999px;
+  --rpl-border-radius-s: 4px;
+  --rpl-border-radius-none: 0;
+  --rpl-clr-semantic-link-visited: #9F46B1; /* colour-link-visited */
+  --rpl-clr-semantic-link: #005DF1; /* colour-link-default */
+  --rpl-clr-semantic-error: #AA0028; /* colour-error */
+  --rpl-clr-semantic-warning: #B75B00; /* colour-warning */
+  --rpl-clr-semantic-success: #007D85; /* colour-success */
+  --rpl-clr-semantic-info: #005BA5; /* colour-information */
+  --rpl-clr-neutral-7: #1A1A1A; /* colour-neutral-07 */
+  --rpl-clr-neutral-6: #333333; /* colour-neutral-06 */
+  --rpl-clr-neutral-5: #666666; /* colour-neutral-05 */
+  --rpl-clr-neutral-4: #999999; /* colour-neutral-04 */
+  --rpl-clr-neutral-3: #CCCCCC; /* colour-neutral-03 */
+  --rpl-clr-neutral-2: #E6E6E6; /* colour-neutral-02 */
+  --rpl-clr-neutral-1: #F5F5F5; /* colour-neutral-01 */
+  --rpl-clr-neutral-0: #FFFFFF; /* colour-neutral-00 */
+  --rpl-clr-core-accent-2: #E6F5FD; /* colour-accent-02 */
+  --rpl-clr-core-accent: #0095EC; /* colour-accent */
+  --rpl-clr-core-primary-2: #003174; /* colour-primary-02 */
+  --rpl-clr-core-primary: #0052C2; /* colour-primary */
+  --rpl-bp-xl-min: 1200px;
+  --rpl-bp-l-max: 1199px;
+  --rpl-bp-l-min: 992px;
+  --rpl-bp-m-max: 991px;
+  --rpl-bp-m-min: 768px;
+  --rpl-bp-s-max: 767px;
+  --rpl-bp-s-min: 576px;
+  --rpl-bp-xs-max: 575px;
+  --rpl-bp-xs-min: 0px;
+  --rpl-clr-type-link-visited: var(--rpl-clr-semantic-link-visited);
+  --rpl-clr-type-link: var(--rpl-clr-semantic-link);
+  --rpl-clr-type-white: var(--rpl-clr-neutral-0);
+  --rpl-clr-type-accent: var(--rpl-clr-core-accent);
+  --rpl-clr-type-primary: var(--rpl-clr-core-primary);
   --rpl-clr-type-default: var(--rpl-clr-neutral-7);
-  --rpl-type-body-m-font-size: 16px;
-  --rpl-type-body-l-font-size: 18px;
-  --rpl-type-display-m-font-size: 36px;
-  --rpl-type-display-l-font-size: 56px;
-  --rpl-border-radius: var(--rpl-space-1);
+  --rpl-clr-contrast-dark: var(--rpl-clr-neutral-0); /* contrast with colour-dark */
+  --rpl-clr-contrast-white: var(--rpl-clr-core-primary); /* contrast with colour-white */
+  --rpl-clr-contrast-accent: var(--rpl-clr-neutral-0); /* contrast with colour-accent */
+  --rpl-clr-contrast-primary: var(--rpl-clr-neutral-0); /* contrast with colour-primary */
+  --rpl-clr-dark: var(--rpl-clr-neutral-7);
+  --rpl-clr-white: var(--rpl-clr-neutral-0);
 }

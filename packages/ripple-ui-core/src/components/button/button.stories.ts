@@ -1,33 +1,37 @@
 import RplButton from './index.vue'
+import {
+  RplButtonThemes,
+  RplButtonTypes,
+  RplButtonIconPositions
+} from './constants'
+import { RplIconNames } from './../icon/constants.js'
 import { expect } from '@storybook/jest'
 import { within, userEvent } from '@storybook/testing-library'
 import { rplEventBus } from './../../index'
-import { parameters } from '../../../.storybook/preview'
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: RplButton,
   decorators: [],
-  parameters: {
-    cssresources: []
-  },
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
+    type: {
+      control: { type: 'select' },
+      options: RplButtonTypes
+    },
     theme: {
-      control: { type: null },
-      options: ['primary', 'secondary', 'tertiary']
+      control: { type: 'select' },
+      options: RplButtonThemes,
+      defaultValue: 'primary'
     },
     iconName: {
-      control: { type: 'select' }
+      control: { type: 'select' },
+      options: [undefined, ...RplIconNames]
     },
     iconPosition: {
       control: { type: 'select' },
-      options: ['left', 'right']
-    },
-    size: {
-      control: { type: 'select' },
-      options: ['default', 'large']
+      options: RplButtonIconPositions
     },
     onClick: { action: 'clicked' }
   }
@@ -47,13 +51,26 @@ const Template = (args) => ({
 export const Primary = Template.bind({})
 Primary.args = {
   label: 'Button',
+  type: 'filled',
   theme: 'primary'
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
+export const Outlined = Template.bind({})
+Outlined.args = {
   ...Primary.args,
-  theme: 'secondary'
+  type: 'outlined'
+}
+
+export const White = Template.bind({})
+White.args = {
+  ...Primary.args,
+  type: 'white'
+}
+
+export const Elevated = Template.bind({})
+Elevated.args = {
+  ...Primary.args,
+  type: 'elevated'
 }
 
 // Test hover state
@@ -79,19 +96,4 @@ EventBus.play = async ({ canvasElement }) => {
   await userEvent.click(canvas.getByRole('button'))
   await expect(fired).toBeTruthy()
   rplEventBus.off('rpl-button/click', handler)
-}
-
-export const PrimaryTheme1 = Template.bind({})
-PrimaryTheme1.storyName = 'Themed / Primary'
-PrimaryTheme1.args = {
-  ...Primary.args
-}
-
-PrimaryTheme1.parameters = {
-  cssresources: [
-    {
-      ...parameters.cssresources[0],
-      picked: true
-    }
-  ]
 }

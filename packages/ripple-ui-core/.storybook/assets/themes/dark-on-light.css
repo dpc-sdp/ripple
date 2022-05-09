@@ -1,0 +1,17 @@
+/**
+ * Branding theme with dark text on light ui primary
+ */
+
+:root {
+  --rpl-clr-core-accent-2: #e6f5fd; /* colour-accent-02 */
+  --rpl-clr-core-accent: #88dbdf; /* colour-accent */
+  --rpl-clr-core-primary-2: #fef0a7; /* colour-primary-02 */
+  --rpl-clr-core-primary: #fdda24; /* colour-primary */
+  --rpl-clr-primary-contrast: var(--rpl-clr-dark);
+  --rpl-clr-accent-contrast: var(--rpl-clr-dark);
+  --rpl-clr-contrast-white: var(--rpl-clr-dark);
+  --rpl-clr-dark-contrast: var(--rpl-clr-light);
+  --rpl-clr-button-outlined: var(--rpl-clr-dark);
+  --rpl-clr-button-outlined-hover: var(--rpl-clr-dark);
+  --rpl-clr-button-outlined-bdr-hover-color: var(--rpl-clr-core-primary-2);
+}

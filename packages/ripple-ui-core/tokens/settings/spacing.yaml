@@ -1,0 +1,57 @@
+space:
+  1:
+    comment: 'spacing-01'
+    color: '#7B86C0CC'
+    value: 4
+  2:
+    comment: 'spacing-02'
+    color: '#6DA9EFCC'
+    value: 8
+  3:
+    comment: 'spacing-03'
+    color: '#58BBD8CC'
+    value: 12
+  4:
+    comment: 'spacing-04'
+    color: '#6DEEEECC'
+    value: 16
+  5:
+    comment: 'spacing-05'
+    color: '#AEEFC4CC'
+    value: 20
+  6:
+    comment: 'spacing-06'
+    color: '#CDF8ACCC'
+    value: 24
+  7:
+    comment: 'spacing-07'
+    color: '#EFDA73CC'
+    value: 28
+  8:
+    comment: 'spacing-08'
+    color: '#EFBB87CC'
+    value: 32
+  9:
+    comment: 'spacing-09'
+    color: '#F89D9DCC'
+    value: 40
+  10:
+    comment: 'spacing-10'
+    color: '#FC7D84CC'
+    value: 48
+  11:
+    comment: 'spacing-11'
+    color: '#F45FB9CC'
+    value: 56
+  12:
+    comment: 'spacing-12'
+    color: '#D223EFCC'
+    value: 64
+  13:
+    comment: 'spacing-13'
+    color: '#9C73EFCC'
+    value: 80
+  14:
+    comment: 'spacing-14'
+    color: '#9D9DEFCC'
+    value: 120

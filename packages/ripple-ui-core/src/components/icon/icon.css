@@ -2,15 +2,15 @@
   fill: currentcolor;
 
   &--theme-core {
-    color: var(--rpl-clr-ui-core);
+    color: var(--rpl-clr-core-primary);
   }
 
   &--theme-accent {
-    color: var(--rpl-clr-ui-accent);
+    color: var(--rpl-clr-core-accent);
   }
 
   &--theme-neutral {
-    color: var(--rpl-color-neutral-7);
+    color: var(--rpl-clr-neutral-7);
   }
 
   &--size-s {

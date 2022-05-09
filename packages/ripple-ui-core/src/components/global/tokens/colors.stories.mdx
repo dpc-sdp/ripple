@@ -1,0 +1,67 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import sbTokenTable from './../../../../.storybook/components/token-table.vue'
+import sbTokenTableRow from './../../../../.storybook/components/token-row.vue'
+import sbTokenTableCol from './../../../../.storybook/components/token-col.vue'
+import sbTokenTableSwatch from './../../../../.storybook/components/token-swatch.vue'
+import { getColorSwatches, default as rplColors } from './colors'
+
+export const Template = (args) => ({
+  components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+  setup() {
+    return {
+      args
+    }
+  },
+  template: `
+    <sbTokenTable :columns="args.columns" >
+      <sbTokenTableRow v-for="item in args.items" :key="item">
+        <sbTokenTableCol style="margin-right: 20px;">{{item.comment}}</sbTokenTableCol>
+        <sbTokenTableCol ><sbTokenTableSwatch style="margin-right: var(--rpl-space-2);" :size="24" :color="'var('+item.var+')'"></sbTokenTableSwatch>{{item.value}}</sbTokenTableCol>
+        <sbTokenTableCol >{{item.var}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+  `
+});
+
+# Colors
+
+<Meta title='Tokens/Colors' />
+
+<Canvas>
+  <Story
+    name="Core"
+    args={{
+      columns: ['Core'],
+      items: getColorSwatches(rplColors, 'core')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Neutral"
+    args={{
+      columns: ['Neutrals'],
+      items: getColorSwatches(rplColors, 'neutral')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Semantic"
+    args={{
+      columns: ['Semantic'],
+      items: getColorSwatches(rplColors, 'semantic')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Text"
+    args={{
+      columns: ['Text'],
+      items: getColorSwatches(rplColors, 'type')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

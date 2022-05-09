@@ -2,12 +2,15 @@
 export default {
   name: 'RplIcon'
 }
+import coreIconKeys from './../../assets/icons/sprite.js'
+import customIconImports from './../../assets/icons/custom.js'
+export const RplCoreIconNames = coreIconKeys
+export const RplCustomIconNames = Object.keys(customIconImports)
+export const RplIconNames = [...RplCoreIconNames, ...RplCustomIconNames]
 </script>
 
 <script setup lang="ts">
 import { PropType, ref, computed, defineAsyncComponent } from 'vue'
-import iconKeys from './../../assets/icons/sprite.js'
-import customIcons from './../../assets/icons/custom.js'
 import type { RplTheme, RplIconSizes } from './../../types/ripple'
 
 const props = defineProps({
@@ -16,8 +19,8 @@ const props = defineProps({
     required: true
   },
   theme: {
-    type: String as PropType<RplTheme>,
-    default: 'core'
+    type: [String, undefined] as PropType<RplTheme | undefined>,
+    default: undefined
   },
   size: {
     type: String as PropType<RplIconSizes>,
@@ -29,10 +32,10 @@ const props = defineProps({
   }
 })
 
-const inSprite = ref(iconKeys.find((key) => key === props.name))
+const inSprite = ref(RplCoreIconNames.find((key) => key === props.name))
 const asyncIcon = computed(() => {
   if (!inSprite.value) {
-    return defineAsyncComponent(customIcons[props.name])
+    return defineAsyncComponent(RplCustomIconNames[props.name])
   }
   return false
 })

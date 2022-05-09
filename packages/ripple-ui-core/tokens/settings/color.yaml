@@ -1,0 +1,89 @@
+clr:
+  core:
+    primary:
+      comment: 'colour-primary'
+      value: '#0052C2'
+    primary-2:
+      comment: 'colour-primary-02'
+      value: '#003174'
+    accent:
+      comment: 'colour-accent'
+      value: '#0095EC'
+    accent-2:
+      comment: 'colour-accent-02'
+      value: '#E6F5FD'
+  white:
+    value: '{clr.neutral.0}'
+  dark:
+    value: '{clr.neutral.7}'
+  contrast:
+    primary:
+      comment: 'contrast with colour-primary'
+      value: '{clr.neutral.0}'
+    accent:
+      comment: 'contrast with colour-accent'
+      value: '{clr.neutral.0}'
+    white:
+      comment: 'contrast with colour-white'
+      value: '{clr.core.primary}'
+    dark:
+      comment: 'contrast with colour-dark'
+      value: '{clr.neutral.0}'
+  type:
+    default:
+      value: '{clr.neutral.7}'
+    primary:
+      value: '{clr.core.primary}'
+    accent:
+      value: '{clr.core.accent}'
+    white:
+      value: '{clr.neutral.0}'
+    link:
+      value: '{clr.semantic.link}'
+    link-visited:
+      value: '{clr.semantic.link-visited}'
+  neutral:
+    0:
+      comment: 'colour-neutral-00'
+      figma: '123'
+      value: '#FFFFFF'
+    1:
+      comment: 'colour-neutral-01'
+      value: '#F5F5F5'
+    2:
+      comment: 'colour-neutral-02'
+      value: '#E6E6E6'
+    3:
+      comment: 'colour-neutral-03'
+      value: '#CCCCCC'
+    4:
+      comment: 'colour-neutral-04'
+      value: '#999999'
+    5:
+      comment: 'colour-neutral-05'
+      value: '#666666'
+    6:
+      comment: 'colour-neutral-06'
+      value: '#333333'
+    7:
+      comment: 'colour-neutral-07'
+      value: '#1A1A1A'
+  semantic:
+    info:
+      comment: 'colour-information'
+      value: '#005BA5'
+    success:
+      comment: 'colour-success'
+      value: '#007D85'
+    warning:
+      comment: 'colour-warning'
+      value: '#B75B00'
+    error:
+      comment: 'colour-error'
+      value: '#AA0028'
+    link:
+      comment: 'colour-link-default'
+      value: '#005DF1'
+    link-visited:
+      comment: 'colour-link-visited'
+      value: '#9F46B1'

@@ -7,31 +7,46 @@
   align-items: center;
   justify-content: center;
   gap: var(--rpl-space-2);
-  padding: var(--rpl-space-3) var(--rpl-space-5);
+  padding: var(--rpl-space-4) var(--rpl-space-5);
   font-family: 'VIC Regular', Arial, Helvetica, sans-serif; /* [2] */
   font-weight: bold;
   font-size: 1.6rem; /* [1] */
   line-height: 1;
-  color: var(--rpl-clr-type-reverse-core);
-  background-color: var(--rpl-clr-ui-core);
-  border-width: 0.2rem;
-  border-style: solid;
-  border-color: var(--rpl-clr-ui-core);
-  border-radius: var(--rpl-border-radius);
+  box-sizing: border-box;
+  border-radius: var(--rpl-border-radius-s);
 
-  /* States */
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    background-color: var(--rpl-clr-ui-core-lighter);
-    border-color: var(--rpl-clr-ui-core-lighter);
+  &__icon {
+    display: flex;
+    align-items: center;
+
+    .rpl-icon {
+      padding: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
 
-  &:active,
-  &:active:hover {
-    cursor: default;
-    background-color: var(--rpl-clr-ui-core-darker);
-    border-color: var(--rpl-clr-ui-core-darker);
+  &--filled {
+    color: var(--rpl-button-filled-color);
+    background-color: var(--rpl-button-filled-bg-color);
+    border-width: var(--rpl-border-solid-2);
+    border-style: solid;
+    border-color: var(--rpl-button-filled-bg-color);
+
+    /* States */
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      background-color: var(--rpl-button-filled-bg-hover-color);
+      border-color: var(--rpl-button-filled-bg-hover-color);
+    }
+
+    &:active,
+    &:active:hover {
+      cursor: default;
+      background-color: var(--rpl-button-filled-bg-hover-color);
+      border-color: var(--rpl-button-filled-bg-hover-color);
+    }
   }
 
   /* Variants */
@@ -39,32 +54,79 @@
     flex-direction: row-reverse;
   }
 
-  &--secondary {
-    color: var(--rpl-clr-ui-accent);
-    background-color: transparent;
-    border-color: var(--rpl-clr-ui-accent);
+  &--outlined {
+    color: var(--rpl-clr-button-outlined, var(--rpl-button-outlined-color));
+    background-color: var(--rpl-clr-white);
+    border-color: var(--rpl-button-outlined-bdr-color);
+    border-style: solid;
 
     &:hover {
-      color: var(--rpl-clr-ui-accent-lighter);
-      background-color: transparent;
-      border-color: var(--rpl-clr-ui-accent-lighter);
+      color: var(
+        --rpl-clr-button-outlined-hover,
+        var(--rpl-button-outlined-hover-color)
+      );
+      border-color: var(
+        --rpl-clr-button-outlined-bdr-hover-color,
+        var(--rpl-button-outlined-bdr-hover-color)
+      );
     }
 
     &:active,
     &:active:hover {
-      color: var(--rpl-clr-ui-accent-darker);
-      background-color: transparent;
-      border-color: var(--rpl-clr-ui-accent-darker);
+      border-color: var(
+        --rpl-clr-button-outlined-hover,
+        var(--rpl-button-outlined-bdr-hover-color)
+      );
     }
   }
-}
 
-.rpl-button__icon {
-  display: flex;
-  align-items: center;
+  &--white {
+    color: var(--rpl-button-white-clr);
+    background-color: var(--rpl-clr-white);
+    border-color: transparent;
+    text-decoration: none;
 
-  .rpl-icon {
-    width: 1.2rem;
-    height: 1.2rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--elevated {
+    color: var(--rpl-button-white-clr);
+    background-color: var(--rpl-clr-white);
+    border-color: transparent;
+    box-shadow: var(--rpl-elevation-1);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--primary {
+    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-bg-color: var(--rpl-clr-core-primary);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-core-primary-2);
+    --rpl-button-outlined-color: var(--rpl-clr-core-primary);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-core-primary);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-core-primary-2);
+    --rpl-button-outlined-hover-color: var(--rpl-clr-core-primary-2);
+    --rpl-button-white-clr: var(--rpl-clr-core-primary);
+  }
+
+  &--accent {
+    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-bg-color: var(--rpl-clr-core-accent);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-core-accent-2);
+    --rpl-button-outlined-color: var(--rpl-clr-core-accent);
+    --rpl-button-white-clr: var(--rpl-clr-core-accent);
+  }
+
+  &--neutral {
+    --rpl-button-outlined-color: var(--rpl-clr-neutral-7);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-neutral-5);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-neutral-7);
+    --rpl-button-outlined-hover-color: var(--rpl-clr-neutral-7);
+    --rpl-button-white-clr: var(--rpl-clr-core-neutral);
   }
 }

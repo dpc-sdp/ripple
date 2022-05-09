@@ -12,8 +12,14 @@ export const parameters = {
   },
   cssresources: [
     {
-      id: 'Theme Variant 1',
-      code: `<link rel="stylesheet" type="text/css" href="/themes/variant-1.css"></link>`,
+      id: 'Dark on Light',
+      code: `<link rel="stylesheet" type="text/css" href="/themes/dark-on-light.css"></link>`,
+      picked: false,
+      hideCode: true
+    },
+    {
+      id: 'Light on Dark',
+      code: `<link rel="stylesheet" type="text/css" href="/themes/light-on-dark.css"></link>`,
       picked: false,
       hideCode: true
     }

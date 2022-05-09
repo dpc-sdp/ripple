@@ -1,5 +1,5 @@
 {
-  "source": ["tokens/tokens.json"],
+  "source": ["tokens/settings/*.yaml"],
   "platforms": {
     "css": {
       "transformGroup": "css",
@@ -19,20 +19,6 @@
           "options": {
             "fileHeader": "rplHeader",
             "outputReferences": true
-          }
-        }
-      ]
-    },
-    "js": {
-      "transformGroup": "js",
-      "prefix": "rpl",
-      "transforms": ["attribute/cti", "attribute/color", "name/cti/camel"],
-      "files": [
-        {
-          "destination": "public/assets/js/_vars.js",
-          "format": "javascript/es6",
-          "options": {
-            "fileHeader": "rplHeader"
           }
         }
       ]

@@ -18,3 +18,8 @@
   margin: 0.5rem;
   margin-top: 0;
 }
+
+.innerZoomElementWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

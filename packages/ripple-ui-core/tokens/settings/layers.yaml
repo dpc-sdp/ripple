@@ -1,0 +1,24 @@
+border:
+  radius:
+    none:
+      value: '0'
+    s:
+      value: '4px'
+    full:
+      value: '999px'
+  solid:
+    1:
+      value: 1px
+    2:
+      value: 2px
+    3:
+      value: 3px
+    4:
+      value: 4px
+elevation:
+  0:
+    value: '0'
+  1:
+    value: '0 2px 8px rgba(26, 26, 26, 0.15)'
+  2:
+    value: '0 4px 8px 2px rgba(26, 26, 26, 0.15)'

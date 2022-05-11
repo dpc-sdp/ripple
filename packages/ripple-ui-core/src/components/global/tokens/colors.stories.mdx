@@ -25,11 +25,21 @@ export const Template = (args) => ({
 
 # Colors
 
-<Meta title='Base Styles/Colors' parameters={{viewMode: 'docs'}} />
+<Meta
+  title='Base Styles/Colors'
+  parameters={{
+    viewMode: 'docs',
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1916%3A101782',
+    }
+  }}
+/>
 
 ## Core
 
-<Canvas columns={2} withSource={false}>
+<Canvas columns={2}>
   <Story
     name="Primary"
     args={{

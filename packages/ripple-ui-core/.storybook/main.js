@@ -53,7 +53,8 @@ module.exports = {
     '@storybook/addon-jest',
     '@storybook/addon-a11y',
     '@storybook/addon-cssresources',
-    'storybook-addon-pseudo-states'
+    'storybook-addon-pseudo-states',
+    'storybook-addon-designs'
   ],
 
   async viteFinal(config, { configType }) {

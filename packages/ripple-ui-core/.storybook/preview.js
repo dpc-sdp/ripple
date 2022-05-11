@@ -1,5 +1,6 @@
 import IconSprite from './../src/assets/icons/sprite.svg?component'
 import { withCssResources } from '@storybook/addon-cssresources'
+import { withDesign } from 'storybook-addon-designs'
 import './storybook.css'
 
 export const parameters = {
@@ -35,5 +36,6 @@ export const decorators = [
   (story) => ({
     components: { story, IconSprite },
     template: '<div><IconSprite style="display: none;" /><story /></div>'
-  })
+  }),
+  withDesign
 ]

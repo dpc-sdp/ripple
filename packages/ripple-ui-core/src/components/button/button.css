@@ -1,4 +1,6 @@
 .rpl-button {
+  --rpl-button-border-width: var(--rpl-border-width-2);
+
   /* Base styles
     1. TODO: Replace this with rem units once tokens are using rems
     2. TODO: Wire these fonts up into tokens when the designers include them
@@ -15,6 +17,7 @@
   line-height: 1; /* [2] */
   box-sizing: border-box;
   border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-s));
+  border-width: var(--rpl-button-border-width);
 
   &__icon {
     display: flex;
@@ -29,7 +32,6 @@
   &--filled {
     color: var(--rpl-button-filled-color);
     background-color: var(--rpl-button-filled-bg-color);
-    border-width: var(--rpl-border-width-2);
     border-style: solid;
     border-color: var(--rpl-button-filled-bg-color);
 
@@ -60,10 +62,11 @@
   }
 
   &--white {
+    --rpl-button-border-width: var(--rpl-border-width-1);
+
     color: var(--rpl-button-white-clr);
     background-color: var(--rpl-clr-white);
     border-color: var(--rpl-clr-neutral-2);
-    border-width: var(--rpl-border-width-1);
     border-style: solid;
     text-decoration: none;
 
@@ -188,11 +191,23 @@
   }
 
   &:focus {
-    background-color: var(--rpl-clr-semantic-focus);
-    border: 0;
     outline: 0;
+    background-color: var(--rpl-clr-semantic-focus);
     color: var(--rpl-clr-dark);
     border-radius: 0;
-    border-bottom: var(--rpl-border-width-4) solid var(--rpl-clr-dark);
+    border-style: solid;
+    border-color: var(--rpl-clr-semantic-focus);
+    position: relative;
+    box-sizing: border-box;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: calc(var(--rpl-button-border-width) * -1);
+      left: calc(var(--rpl-button-border-width) * -1);
+      height: var(--rpl-border-width-4);
+      width: calc(100% + (var(--rpl-button-border-width) * 2));
+      background-color: var(--rpl-clr-dark);
+    }
   }
 }

@@ -4,6 +4,7 @@ import sbTokenTableRow from './../../../.storybook/components/token-row.vue'
 import sbTokenTableCol from './../../../.storybook/components/token-col.vue'
 import sbTokenTableSwatch from './../../../.storybook/components/token-swatch.vue'
 import { RplCoreIconNames, RplCustomIconNames } from './constants'
+import { RplColorThemes } from './../../lib/constants'
 import RplIcon from './icon.vue'
 
 export const Template = (args) => ({
@@ -25,7 +26,17 @@ export const Template = (args) => ({
 
 # Icons
 
-<Meta title='Base Styles/Icons' parameters={{viewMode: 'docs'}}/>
+<Meta
+  title='Base Styles/Icons'
+  parameters={{viewMode: 'docs'}}
+  argTypes={{
+    theme: {
+      control: { type: 'select' },
+      options: RplColorThemes,
+      defaultValue: 'primary'
+    },
+  }}
+/>
 
 
 <Canvas>

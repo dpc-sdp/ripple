@@ -1,14 +1,14 @@
 ---
-to: "<%= mdx ? null : `packages/ripple-ui-core/src/components/${name}/${h.changeCase.paramCase(name)}.stories.js` %>"
+to: "<%= mdx ? null : `packages/ripple-ui-core/src/components/${h.changeCase.paramCase(name)}/${name}.stories.js` %>"
 ---
 
 
-import <%= name %> from './index.vue'
+import Rpl<%= name %> from './<%= name %>.vue'
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: 'Example/<%= name %>',
-  component: <%= name %>,
+  title: 'Components/<%= h.inflection.humanize(h.inflection.underscore(name)) %>',
+  component: Rpl<%= name %>,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -23,7 +23,7 @@ export default {
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { <%= name %> },
+  components: { Rpl<%= name %> },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args }

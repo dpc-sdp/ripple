@@ -1,5 +1,5 @@
 ---
-to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/index.vue
+to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/<%= name %>.vue
 ---
 <script setup lang="ts">
 import { PropType } from 'vue'
@@ -14,10 +14,10 @@ defineProps({
 
 <template>
   <div :className="`rpl-<%= h.changeCase.paramCase(name) %> rpl-<%= h.changeCase.paramCase(name) %>--${theme}`">
-    TODO: write component rpl-<%= name %>
+    TODO: write component Rpl<%= name %>
   </div>
 </template>
 
 <style>
-@import './index.css';
+@import './<%= h.changeCase.paramCase(name) %>.css';
 </style>

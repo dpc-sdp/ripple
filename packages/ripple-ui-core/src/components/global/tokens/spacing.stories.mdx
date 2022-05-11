@@ -31,10 +31,15 @@ export const SpacingTemplate = (args) => ({
 
 # Spacing
 
-<Meta title='Base Styles/Layout' parameters={{viewMode: 'docs'}}/>
+<Meta title='Base Styles/Layout' parameters={{ viewMode: 'docs'}}/>
 
 <Canvas>
-  <Story name="Spacing">
+  <Story name="Spacing" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1286%3A17241',
+    }
+  }}>
     {SpacingTemplate.bind({})}
   </Story>
 </Canvas>

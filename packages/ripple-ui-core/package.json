@@ -63,6 +63,7 @@
     "postcss-nested": "^5.0.6",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.4.3",
+    "storybook-addon-designs": "^6.2.1",
     "storybook-addon-pseudo-states": "^1.9.0",
     "style-dictionary": "^3.1.1",
     "stylelint": "^14.5.3",

@@ -192,7 +192,7 @@
     border: 0;
     outline: 0;
     color: var(--rpl-clr-dark);
-    border-radius: var(--rpl-border-radius-none);
+    border-radius: 0;
     border-bottom: var(--rpl-border-width-4) solid var(--rpl-clr-dark);
   }
 }

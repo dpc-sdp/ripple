@@ -5,7 +5,7 @@ import {
 } from '@storybook/addon-docs'
 import { expect } from '@storybook/jest';
 import { within, userEvent } from '@storybook/testing-library';
-import RplButton from './index.vue';
+import RplButton from './button.vue';
 import {
   RplButtonThemes,
   RplButtonTypes,
@@ -33,7 +33,7 @@ export const Template = (args) => ({
 });
 
 <Meta
-  title='Components/Button'
+  title='Components/Atoms/Button'
   parameters={{viewMode: 'docs'}}
   component={{RplButton}}
   argTypes={{
@@ -63,8 +63,6 @@ export const Template = (args) => ({
 />
 
 ## Example
-
-
 
 <Story
   name='1. Example'

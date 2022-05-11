@@ -8,11 +8,11 @@ import {
   RplButtonThemes,
   RplButtonIconPositions
 } from './constants'
-import { RplIconNames } from './../icon/constants'
+import { RplIconNames } from '../icon/constants'
 
 import { PropType, computed } from 'vue'
 import RplIcon from '../icon/icon.vue'
-import { rplEventBus } from './../../index'
+import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-button/click')
 
 const props = defineProps({

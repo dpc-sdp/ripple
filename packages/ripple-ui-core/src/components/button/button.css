@@ -9,10 +9,10 @@
   gap: var(--rpl-space-2);
   padding: var(--rpl-space-4) var(--rpl-space-5);
   font-family: 'VIC Bold', Arial, Helvetica, sans-serif; /* [2] */
-  letter-spacing: 0.0192em;
-  font-weight: bold;
+  letter-spacing: 0.0192em; /* [2] */
+  font-weight: bold; /* [2] */
   font-size: 1.6rem; /* [1] */
-  line-height: 1;
+  line-height: 1; /* [2] */
   box-sizing: border-box;
   border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-s));
 

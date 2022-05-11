@@ -6,7 +6,7 @@ border:
       value: '4px'
     full:
       value: '999px'
-  solid:
+  width:
     1:
       value: 1px
     2:
@@ -17,8 +17,11 @@ border:
       value: 4px
 elevation:
   0:
+    comment: 'none'
     value: '0'
   1:
+    comment: '2px spread'
     value: '0 2px 8px rgba(26, 26, 26, 0.15)'
   2:
+    comment: '4px spread'
     value: '0 4px 8px 2px rgba(26, 26, 26, 0.15)'

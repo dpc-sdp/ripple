@@ -1,33 +1,48 @@
 .rpl-icon {
-  fill: currentcolor;
+  svg {
+    fill: currentcolor;
+    width: var(--rpl-icon-size);
+    height: var(--rpl-icon-size);
+    padding: calc(var(--rpl-icon-size) / 2);
+  }
 
-  &--theme-core {
+  &--size-s svg {
+    --rpl-icon-size: var(--rpl-space-4);
+  }
+
+  &--size-m svg {
+    --rpl-icon-size: var(--rpl-space-6);
+  }
+
+  &--size-l svg {
+    --rpl-icon-size: var(--rpl-space-8);
+  }
+
+  &--theme-primary svg {
     color: var(--rpl-clr-core-primary);
   }
 
-  &--theme-accent {
+  &--theme-accent svg {
     color: var(--rpl-clr-core-accent);
   }
 
-  &--theme-neutral {
+  &--theme-neutral svg {
     color: var(--rpl-clr-neutral-7);
   }
 
-  &--size-s {
-    width: var(--rpl-space-4);
-    height: var(--rpl-space-4);
-    padding: var(--rpl-space-2);
+  &--theme-info svg {
+    color: var(--rpl-clr-semantic-info);
   }
 
-  &--size-m {
-    width: var(--rpl-space-6);
-    height: var(--rpl-space-6);
-    padding: var(--rpl-space-3);
+  &--theme-success svg {
+    color: var(--rpl-clr-semantic-success);
   }
 
-  &--size-l {
-    width: var(--rpl-space-8);
-    height: var(--rpl-space-8);
-    padding: var(--rpl-space-4);
+  &--theme-warning svg {
+    color: var(--rpl-clr-semantic-warning);
+  }
+
+  &--theme-error svg {
+    color: var(--rpl-clr-semantic-error);
   }
 }

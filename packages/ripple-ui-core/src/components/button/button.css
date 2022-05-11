@@ -8,28 +8,28 @@
   justify-content: center;
   gap: var(--rpl-space-2);
   padding: var(--rpl-space-4) var(--rpl-space-5);
-  font-family: 'VIC Regular', Arial, Helvetica, sans-serif; /* [2] */
+  font-family: 'VIC Bold', Arial, Helvetica, sans-serif; /* [2] */
+  letter-spacing: 0.0192em;
   font-weight: bold;
   font-size: 1.6rem; /* [1] */
   line-height: 1;
   box-sizing: border-box;
-  border-radius: var(--rpl-border-radius-s);
+  border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-s));
 
   &__icon {
     display: flex;
     align-items: center;
 
-    .rpl-icon {
+    svg {
       padding: 0;
-      width: 1.2rem;
-      height: 1.2rem;
     }
   }
 
+  /* Variants */
   &--filled {
     color: var(--rpl-button-filled-color);
     background-color: var(--rpl-button-filled-bg-color);
-    border-width: var(--rpl-border-solid-2);
+    border-width: var(--rpl-border-width-2);
     border-style: solid;
     border-color: var(--rpl-button-filled-bg-color);
 
@@ -40,53 +40,35 @@
       background-color: var(--rpl-button-filled-bg-hover-color);
       border-color: var(--rpl-button-filled-bg-hover-color);
     }
-
-    &:active,
-    &:active:hover {
-      cursor: default;
-      background-color: var(--rpl-button-filled-bg-hover-color);
-      border-color: var(--rpl-button-filled-bg-hover-color);
-    }
   }
 
-  /* Variants */
   &--reverse {
     flex-direction: row-reverse;
   }
 
   &--outlined {
-    color: var(--rpl-clr-button-outlined, var(--rpl-button-outlined-color));
+    color: var(--rpl-button-outlined-color);
     background-color: var(--rpl-clr-white);
     border-color: var(--rpl-button-outlined-bdr-color);
     border-style: solid;
 
     &:hover {
-      color: var(
-        --rpl-clr-button-outlined-hover,
-        var(--rpl-button-outlined-hover-color)
-      );
-      border-color: var(
-        --rpl-clr-button-outlined-bdr-hover-color,
-        var(--rpl-button-outlined-bdr-hover-color)
-      );
-    }
-
-    &:active,
-    &:active:hover {
-      border-color: var(
-        --rpl-clr-button-outlined-hover,
-        var(--rpl-button-outlined-bdr-hover-color)
-      );
+      color: var(--rpl-button-outlined-hover-color);
+      text-decoration: underline;
+      border-color: var(--rpl-button-outlined-bdr-hover-color);
     }
   }
 
   &--white {
     color: var(--rpl-button-white-clr);
     background-color: var(--rpl-clr-white);
-    border-color: transparent;
+    border-color: var(--rpl-clr-neutral-2);
+    border-width: var(--rpl-border-width-1);
+    border-style: solid;
     text-decoration: none;
 
     &:hover {
+      color: var(--rpl-button-white-hover-clr);
       text-decoration: underline;
     }
   }
@@ -99,34 +81,118 @@
     text-decoration: none;
 
     &:hover {
+      color: var(--rpl-button-white-hover-clr);
       text-decoration: underline;
     }
   }
 
   &--primary {
-    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-color: var(--rpl-clr-core-primary-contrast);
     --rpl-button-filled-bg-color: var(--rpl-clr-core-primary);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-core-primary-2);
-    --rpl-button-outlined-color: var(--rpl-clr-core-primary);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-core-primary-alt);
+    --rpl-button-outlined-color: var(
+      --rpl-theme-button-white-text-clr,
+      var(--rpl-clr-core-primary)
+    );
     --rpl-button-outlined-bdr-color: var(--rpl-clr-core-primary);
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-core-primary-2);
-    --rpl-button-outlined-hover-color: var(--rpl-clr-core-primary-2);
-    --rpl-button-white-clr: var(--rpl-clr-core-primary);
+    --rpl-button-outlined-hover-color: var(
+      --rpl-theme-button-white-text-clr,
+      var(--rpl-clr-core-primary-alt)
+    );
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-core-primary-alt);
+    --rpl-button-white-clr: var(
+      --rpl-theme-button-white-text-clr,
+      var(--rpl-clr-core-primary)
+    );
+    --rpl-button-white-hover-clr: var(
+      --rpl-theme-button-white-text-clr,
+      var(--rpl-clr-core-primary-alt)
+    );
   }
 
   &--accent {
-    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-color: var(--rpl-clr-core-accent-contrast);
     --rpl-button-filled-bg-color: var(--rpl-clr-core-accent);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-core-accent-2);
-    --rpl-button-outlined-color: var(--rpl-clr-core-accent);
-    --rpl-button-white-clr: var(--rpl-clr-core-accent);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-core-accent-alt);
+    --rpl-button-outlined-color: var(
+      --rpl-theme-button-white-text-clr,
+      var(--rpl-clr-core-accent)
+    );
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-core-accent);
+    --rpl-button-outlined-hover-color: var(
+      --rpl-theme-button-white-text-clr,
+      var(--rpl-clr-core-accent-alt)
+    );
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-core-accent-alt);
+    --rpl-button-white-clr: var(
+      --rpl-theme-button-white-text-clr,
+      var(--rpl-clr-core-accent)
+    );
+    --rpl-button-white-hover-clr: var(
+      --rpl-theme-button-white-text-clr,
+      var(--rpl-clr-core-accent-alt)
+    );
   }
 
   &--neutral {
+    /* Note: There is no neutral filled style */
     --rpl-button-outlined-color: var(--rpl-clr-neutral-7);
     --rpl-button-outlined-bdr-color: var(--rpl-clr-neutral-5);
     --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-neutral-7);
     --rpl-button-outlined-hover-color: var(--rpl-clr-neutral-7);
     --rpl-button-white-clr: var(--rpl-clr-core-neutral);
+  }
+
+  &--error {
+    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-bg-color: var(--rpl-clr-semantic-error);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-semantic-error-4);
+    --rpl-button-outlined-color: var(--rpl-clr-semantic-error);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-semantic-error);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-semantic-error-4);
+    --rpl-button-outlined-hover-color: var(--rpl-clr-semantic-error-4);
+    --rpl-button-white-clr: var(--rpl-clr-semantic-error);
+  }
+
+  &--info {
+    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-bg-color: var(--rpl-clr-semantic-info-3);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-semantic-info-2);
+    --rpl-button-outlined-color: var(--rpl-clr-semantic-info-3);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-semantic-info-3);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-semantic-info-2);
+    --rpl-button-outlined-hover-color: var(--rpl-clr-semantic-info-2);
+    --rpl-button-white-clr: var(--rpl-clr-semantic-info-3);
+  }
+
+  &--success {
+    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-bg-color: var(--rpl-clr-semantic-success-3);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-semantic-success-2);
+    --rpl-button-outlined-color: var(--rpl-clr-semantic-success-3);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-semantic-success-3);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-semantic-success-2);
+    --rpl-button-outlined-hover-color: var(--rpl-clr-semantic-success-2);
+    --rpl-button-white-clr: var(--rpl-clr-semantic-success-3);
+  }
+
+  &--warning {
+    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-bg-color: var(--rpl-clr-semantic-warning-2);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-semantic-warning-3);
+    --rpl-button-outlined-color: var(--rpl-clr-semantic-warning-2);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-semantic-warning-2);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-semantic-warning-3);
+    --rpl-button-outlined-hover-color: var(--rpl-clr-semantic-warning-3);
+    --rpl-button-white-clr: var(--rpl-clr-semantic-warning-2);
+  }
+
+  &:focus {
+    background-color: var(--rpl-clr-semantic-focus);
+    border: 0;
+    outline: 0;
+    color: var(--rpl-clr-dark);
+    border-radius: var(--rpl-border-radius-none);
+    border-bottom: var(--rpl-border-width-4) solid var(--rpl-clr-dark);
   }
 }

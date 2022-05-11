@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "concurrently \"wait-on -i 2000 tcp:6006 && yarn test:storybook --watch\" \"yarn:watch\" \"yarn:storybook\" --handle-input",
-    "build": "yarn clean && yarn build:styles && yarn build:types && yarn build:lib && yarn build:wc",
+    "build": "yarn clean && yarn build:tokens && yarn build:styles && yarn build:types && yarn build:lib && yarn build:wc",
     "build:types": "tsc -p tsconfig.json",
     "build:lib": "vite build",
     "build:wc": "vite build --config wc.vite.config.ts",

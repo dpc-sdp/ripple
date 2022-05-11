@@ -3,7 +3,7 @@ import rplColors from './../../../../tokens/settings/color.yaml'
 
 export const getColorSwatches = (tokens, type) => {
   if (!tokens || !tokens.hasOwnProperty('clr')) return null
-  const category = tokens.clr[type]
+  const category = get(tokens.clr, type)
   return Object.keys(category).reduce((acc, key) => {
     const { comment, value } = category[key]
     const obKey = comment || key
@@ -21,7 +21,9 @@ export const getColorSwatches = (tokens, type) => {
       ...acc,
       [obKey]: {
         ...category[key],
-        var: `--rpl-clr-${type}-${key}`,
+        var: `--rpl-clr-${type.replaceAll('.', '-')}${
+          key !== '_' ? '-' + key : ''
+        }`,
         value: getVal(value)
       }
     }

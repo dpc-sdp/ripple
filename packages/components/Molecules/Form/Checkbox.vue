@@ -76,7 +76,8 @@ export default {
 
   $rpl-checkbox-box-border-width: rem(1px) !default;
   $rpl-checkbox-box-border: $rpl-checkbox-box-border-width solid $rpl-form-radio-border-color !default;
-  $rpl-checkbox-box-border-focus: 1px solid rpl-color('primary') !default;
+  // [SDPA-6116] Focus border increased to 3 to match radio
+  $rpl-checkbox-box-border-focus: rem(3px) solid rpl-color('primary') !default;
   $rpl-checkbox-box-border-radius: rem(4px) !default;
   $rpl-checkbox-box-size: rem(20px) !default;
   $rpl-checkbox-box-bg-color: rpl-color('light_neutral') !default;
@@ -95,6 +96,9 @@ export default {
       &:focus {
         & + .rpl-checkbox__box {
           border: $rpl-checkbox-box-border-focus;
+          // [SDPA-6116] Focus border width is 3, so remove 6 from w x h
+          width: $rpl-checkbox-box-size - $rpl-checkbox-box-border-width * 6;
+          height: $rpl-checkbox-box-size - $rpl-checkbox-box-border-width * 6;
         }
       }
     }

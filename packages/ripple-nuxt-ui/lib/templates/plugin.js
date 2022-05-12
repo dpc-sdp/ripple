@@ -80,4 +80,8 @@ requireCustomFile.keys().forEach(fileName => {
 })
 <% } %>
 
+<% if (typeof options.hidePromoCardRainbow !== 'undefined') { %>
+rplOptions.hidePromoCardRainbow = options.hidePromoCardRainbow
+<% } %>
+
 Vue.use(RplGlobal, rplOptions)

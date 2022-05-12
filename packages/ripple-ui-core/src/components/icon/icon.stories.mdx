@@ -1,0 +1,101 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  IconGallery,
+  IconItem
+} from '@storybook/addon-docs'
+
+import RplIcon from './icon.vue'
+import { RplIconSizes, RplCoreIconNames, RplIconNames, RplCustomIconNames } from './constants'
+import { RplColorThemes } from './../../lib/constants'
+import CarIcon from './../../assets/icons/custom/icon-car.svg?component'
+
+export const SingleTemplate = (args) => ({
+  components: { RplIcon },
+  setup() {
+    return { args }
+  },
+  template: '<RplIcon v-bind="args" />'
+})
+
+
+<Meta title='Components/Atoms/Icon' parameters={{viewMode: 'story'}}/>
+
+# Icon playground
+
+Core icons are delivered through an SVG sprite, capturing all of the most commonly used icons and referenced via `<use>`.
+
+```
+<svg class="rpl-icon rpl-icon--download" aria-hidden="true">
+  <use xlink:href="#rpl-icon--download"></use>
+</svg>
+```
+
+<Canvas>
+  <Story
+    name='Icon playground'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplColorThemes,
+        defaultValue: RplColorThemes[0]
+      },
+      name: {
+        control: { type: 'select' },
+        defaultValue: RplIconNames[0],
+        options: RplIconNames
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 'l',
+        options: RplIconSizes
+      }
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+# Custom Icons
+
+Custom icons can be imported and passed into a slot to facilitate client specific icons. Simply import the SVG component (using Vite SVG Loader ?component query - )
+
+```
+<svg class="rpl-icon rpl-icon--facebook" aria-hidden="true">
+  <path>
+    ...
+  </path>
+</svg>
+```
+
+<Canvas>
+  <Story
+    name='Custom icon'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplColorThemes,
+        defaultValue: RplColorThemes[0]
+      },
+      size: {
+        control: { type: 'select' },
+        defaultValue: 'l',
+        options: RplIconSizes
+      }
+    }}
+  >
+    {(args) => {
+      return {
+        components: { RplIcon, CarIcon },
+        setup() {
+          return {
+            CarIcon,
+            args
+          }
+        },
+        template: `<RplIcon v-bind="args"><CarIcon/></RplIcon>`
+      }
+    }}
+  </Story>
+</Canvas>

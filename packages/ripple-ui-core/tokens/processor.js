@@ -1,11 +1,12 @@
 const StyleDictionary = require('style-dictionary')
 const baseConfig = require('./config.json')
+const yaml = require('yaml')
 
 StyleDictionary.registerTransform({
   name: 'size/pixels',
   type: 'value',
   matcher: (token) => {
-    return token.attributes.category === 'space'
+    return ['space', 'bp'].includes(token.attributes.category)
   },
   transformer: (token) => {
     return `${token.value}px`
@@ -16,6 +17,14 @@ StyleDictionary.registerFilter({
   name: 'validToken',
   matcher: function (token) {
     return ['dimension', 'string', 'number', 'color'].includes(token.type)
+  }
+})
+
+StyleDictionary.registerFilter({
+  name: 'isColor',
+  matcher: function (token) {
+    console.log(token.attributes)
+    return token.attributes.category === 'clr'
   }
 })
 
@@ -31,6 +40,14 @@ StyleDictionary.registerFileHeader({
   }
 })
 
-const StyleDictionaryExtended = StyleDictionary.extend(baseConfig)
+const StyleDictionaryExtended = StyleDictionary.extend({
+  ...baseConfig,
+  parsers: [
+    {
+      pattern: /\.yaml$/,
+      parse: ({ contents, filePath }) => yaml.parse(contents)
+    }
+  ]
+})
 
 StyleDictionaryExtended.buildAllPlatforms()

@@ -1,0 +1,145 @@
+clr:
+  core:
+    primary:
+      _:
+        value: '{clr.core.primary.3}'
+      contrast:
+        value: '{clr.white}'
+      alt:
+        value: '{clr.core.primary.4}'
+      1:
+        value: '#E6EEF9'
+      2:
+        value: '#99BAE7'
+      3:
+        value: '#0052C2'
+      4:
+        value: '#003174'
+    accent:
+      _:
+        value: '{clr.core.accent.3}'
+      contrast:
+        value: '{clr.white}'
+      alt:
+        value: '{clr.core.accent.4}'
+      1:
+        value: '#0095EC'
+      2:
+        value: '#99D5F7'
+      3:
+        value: '#0095EC'
+      4:
+        value: '#00598E'
+  white:
+    value: '{clr.neutral.0}'
+  dark:
+    value: '{clr.neutral.7}'
+  type:
+    default:
+      value: '{clr.neutral.7}'
+    primary:
+      value: '{clr.core.primary.3}'
+    accent:
+      value: '{clr.core.accent.3}'
+    white:
+      value: '{clr.neutral.0}'
+    link:
+      value: '{clr.semantic.link}'
+    link-visited:
+      value: '{clr.semantic.link-visited}'
+  neutral:
+    0:
+      comment: 'colour-neutral-00'
+      figma: '123'
+      value: '#FFFFFF'
+    1:
+      comment: 'colour-neutral-01'
+      value: '#F5F5F5'
+    2:
+      comment: 'colour-neutral-02'
+      value: '#E6E6E6'
+    3:
+      comment: 'colour-neutral-03'
+      value: '#CCCCCC'
+    4:
+      comment: 'colour-neutral-04'
+      value: '#999999'
+    5:
+      comment: 'colour-neutral-05'
+      value: '#666666'
+    6:
+      comment: 'colour-neutral-06'
+      value: '#333333'
+    7:
+      comment: 'colour-neutral-07'
+      value: '#1A1A1A'
+  semantic:
+    info:
+      _:
+        value: '{clr.semantic.info.3}'
+      1:
+        comment: 'colour-info-01'
+        value: '#F2F8FD'
+      2:
+        comment: 'colour-info-02'
+        value: '#0067BA'
+      3:
+        comment: 'colour-info-03'
+        value: '#005BA5'
+      4:
+        comment: 'colour-info-04'
+        value: '#00447C'
+    success:
+      _:
+        value: '{clr.semantic.success.3}'
+      1:
+        comment: 'colour-success-01'
+        value: '#F2FAFB'
+      2:
+        comment: 'colour-success-02'
+        value: '#008D96'
+      3:
+        comment: 'colour-success-03'
+        value: '#007D85'
+      4:
+        comment: 'colour-success-04'
+        value: '#005E64'
+    error:
+      _:
+        value: '{clr.semantic.error.2}'
+      1:
+        comment: 'colour-error-01'
+        value: '#FDF2F5'
+      2:
+        comment: 'colour-error-02'
+        value: '#C0002D'
+      3:
+        comment: 'colour-error-03'
+        value: '#AA0028'
+      4:
+        comment: 'colour-error-04'
+        value: '#80001E'
+    warning:
+      _:
+        value: '{clr.semantic.warning.3}'
+      1:
+        comment: 'colour-warning-01'
+        value: '#FEFAF5'
+      2:
+        comment: 'colour-warning-02'
+        value: '#CF6700'
+      3:
+        comment: 'colour-warning-03'
+        value: '#B75B00'
+      4:
+        comment: 'colour-warning-04'
+        value: '#894400'
+    focus:
+      comment: 'colour-semantic-focus'
+      value: '#FF9E1B'
+    link:
+      comment: 'colour-link-default'
+      value: '#005DF1'
+    link-visited:
+      comment: 'colour-link-visited'
+      value: '#9F46B1'

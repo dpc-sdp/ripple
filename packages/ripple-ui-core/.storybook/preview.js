@@ -1,9 +1,15 @@
 import IconSprite from './../src/assets/icons/sprite.svg?component'
 import { withCssResources } from '@storybook/addon-cssresources'
+import { withDesign } from 'storybook-addon-designs'
 import './storybook.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  options: {
+    storySort: {
+      order: ['Base Styles', 'Components', '*']
+    }
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -12,8 +18,14 @@ export const parameters = {
   },
   cssresources: [
     {
-      id: 'Theme Variant 1',
-      code: `<link rel="stylesheet" type="text/css" href="/themes/variant-1.css"></link>`,
+      id: 'Dark on Light',
+      code: `<link rel="stylesheet" type="text/css" href="/themes/dark-on-light.css"></link>`,
+      picked: false,
+      hideCode: true
+    },
+    {
+      id: 'Light on Dark',
+      code: `<link rel="stylesheet" type="text/css" href="/themes/light-on-dark.css"></link>`,
       picked: false,
       hideCode: true
     }
@@ -24,5 +36,6 @@ export const decorators = [
   (story) => ({
     components: { story, IconSprite },
     template: '<div><IconSprite style="display: none;" /><story /></div>'
-  })
+  }),
+  withDesign
 ]

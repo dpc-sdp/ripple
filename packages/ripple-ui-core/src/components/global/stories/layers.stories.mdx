@@ -1,0 +1,144 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import rplLayerStyles from './../../../../tokens/settings/layers.yaml'
+import sbTokenTable from './../../../../.storybook/components/token-table.vue'
+import sbTokenTableRow from './../../../../.storybook/components/token-row.vue'
+import sbTokenTableCol from './../../../../.storybook/components/token-col.vue'
+import sbTokenTableSwatch from './../../../../.storybook/components/token-swatch.vue'
+
+export const BorderRadiusTemplate = (args) => ({
+  components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+  setup() {
+    const items = Object.keys(rplLayerStyles?.border?.radius).map(k => {
+      return {
+        var: `--rpl-border-radius-${k}`,
+        ...rplLayerStyles.border.radius[k]
+      }
+    })
+    return {
+      getExampleStyles: (item) => ({
+        width: 'calc(var(--rpl-space-4) * 4)',
+        height: 'var(--rpl-space-4)',
+        border: `1px solid var(--rpl-clr-neutral-3)`,
+        borderRadius: `var(${item.var})`
+      }),
+      columns: ['Style', '', 'Token'],
+      items
+    }
+  },
+  template: `
+    <sbTokenTable :columns="columns" full>
+      <sbTokenTableRow v-for="item in items" :key="item">
+        <sbTokenTableCol>{{item.value}}</sbTokenTableCol>
+        <sbTokenTableCol><div :style="getExampleStyles(item)"></div></sbTokenTableCol>
+        <sbTokenTableCol>{{item.var}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+  `
+});
+
+
+export const BorderWidthTemplate = (args) => ({
+  components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+  setup() {
+    const items = Object.keys(rplLayerStyles?.border?.width).map(k => {
+      return {
+        var: `--rpl-border-width-${k}`,
+        ...rplLayerStyles.border.width[k]
+      }
+    })
+    return {
+      getExampleStyles: (item) => ({
+        width: 'calc(var(--rpl-space-4) * 4)',
+        height: 'var(--rpl-space-4)',
+        border: `1px solid var(--rpl-clr-neutral-3)`,
+        borderWidth: `var(${item.var})`
+      }),
+      columns: ['Style', '', 'Token'],
+      items
+    }
+  },
+  template: `
+    <sbTokenTable :columns="columns" >
+      <sbTokenTableRow v-for="item in items" :key="item">
+        <sbTokenTableCol>{{item.value}}</sbTokenTableCol>
+        <sbTokenTableCol><div :style="getExampleStyles(item)"></div></sbTokenTableCol>
+        <sbTokenTableCol>{{item.var}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+  `
+});
+
+
+export const ElevationTemplate = (args) => ({
+  components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+  setup() {
+    const items = Object.keys(rplLayerStyles?.elevation).map(k => {
+      return {
+        var: `--rpl-elevation-${k}`,
+        ...rplLayerStyles.elevation[k]
+      }
+    })
+    return {
+      getExampleStyles: (item) => ({
+        width: 'calc(var(--rpl-space-4) * 4)',
+        height: 'var(--rpl-space-4)',
+        border: `1px solid var(--rpl-clr-neutral-2)`,
+        boxShadow: `var(${item.var})`
+      }),
+      columns: ['Style', '', 'Token'],
+      items
+    }
+  },
+  template: `
+    <sbTokenTable :columns="columns" >
+      <sbTokenTableRow v-for="item in items" :key="item">
+        <sbTokenTableCol>{{item.comment}}</sbTokenTableCol>
+        <sbTokenTableCol><div :style="getExampleStyles(item)"></div></sbTokenTableCol>
+        <sbTokenTableCol>{{item.var}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+  `
+});
+
+# Layer Styles
+
+<Meta title='Base Styles/Layer styles' parameters={{viewMode: 'docs'}}/>
+
+## Border radius
+
+<Canvas>
+  <Story name="Border radius" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1992%3A114282',
+    }
+  }}>
+    {BorderRadiusTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Border width
+
+<Canvas>
+  <Story name="Border width" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=2341%3A119790',
+    }
+  }}>
+    {BorderWidthTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Elevation
+
+<Canvas>
+  <Story name="Elevation" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1992%3A114379',
+    }
+  }}>
+    {ElevationTemplate.bind({})}
+  </Story>
+</Canvas>

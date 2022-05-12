@@ -19,13 +19,14 @@
   },
   "scripts": {
     "dev": "concurrently \"wait-on -i 2000 tcp:6006 && yarn test:storybook --watch\" \"yarn:watch\" \"yarn:storybook\" --handle-input",
-    "build": "yarn clean && yarn build:styles && yarn build:types && yarn build:lib && yarn build:wc",
+    "build": "yarn clean && yarn build:tokens && yarn build:styles && yarn build:types && yarn build:lib && yarn build:wc",
     "build:types": "tsc -p tsconfig.json",
     "build:lib": "vite build",
     "build:wc": "vite build --config wc.vite.config.ts",
     "build:styles": "vite build --config global-css.vite.config.ts && rimraf ./dist/delete.es.js",
     "build:svg-sprite": "ts-node ./src/scripts/generate-icon-sprite.ts",
     "build:custom-svg-list": "ts-node ./src/scripts/generate-custom-icon-list.ts",
+    "build:tokens": "node ./tokens/processor.js",
     "types:check": "vue-tsc --noEmit",
     "watch": "yarn build:types && vite build --watch",
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
@@ -33,8 +34,7 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
-    "test:storybook": "test-storybook",
-    "tokens:update": "node ./tokens/processor.js"
+    "test:storybook": "test-storybook"
   },
   "dependencies": {
     "mitt": "^3.0.0",
@@ -42,11 +42,13 @@
     "vue": "^3.2.31"
   },
   "devDependencies": {
+    "@originjs/vite-plugin-content": "^1.0.1",
     "@storybook/addon-a11y": "^6.5.0-beta.0",
     "@storybook/addon-actions": "^6.5.0-beta.0",
     "@storybook/addon-cssresources": "^6.3.0-alpha.21",
     "@storybook/addon-essentials": "^6.5.0-beta.0",
     "@storybook/addon-interactions": "^6.5.0-beta.0",
+    "@storybook/addon-jest": "^6.5.0-beta.0",
     "@storybook/addon-links": "^6.5.0-beta.0",
     "@storybook/builder-vite": "^0.1.30",
     "@storybook/jest": "^0.0.10",
@@ -62,6 +64,7 @@
     "postcss-nested": "^5.0.6",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.4.3",
+    "storybook-addon-designs": "^6.2.1",
     "storybook-addon-pseudo-states": "^1.9.0",
     "style-dictionary": "^3.1.1",
     "stylelint": "^14.5.3",

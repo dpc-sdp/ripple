@@ -1,0 +1,26 @@
+bp:
+  xs:
+    applications: 'Mobile'
+    viewport: '320 - 575'
+    min:
+      value: 0
+    max:
+      value: 575
+  s:
+    min:
+      value: 576
+    max:
+      value: 767
+  m:
+    min:
+      value: 768
+    max:
+      value: 991
+  l:
+    min:
+      value: 992
+    max:
+      value: 1199
+  xl:
+    min:
+      value: 1200

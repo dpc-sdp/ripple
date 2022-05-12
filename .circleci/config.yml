@@ -42,7 +42,7 @@ jobs:
       - attach_workspace:
           at: ~/app
         # Runs the Chromatic CLI
-      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN}
+      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes
 
 workflows:
   commit:

@@ -1,5 +1,3 @@
-import { RplColorThemes } from './../../lib/constants'
-
 export const RplButtonTypes = [
   'filled',
   'outlined',
@@ -7,4 +5,11 @@ export const RplButtonTypes = [
   'elevated'
 ] as const
 export const RplButtonIconPositions = ['left', 'right'] as const
-export const RplButtonThemes = [...RplColorThemes] as const
+export const RplButtonThemes = [
+  'primary',
+  'neutral',
+  'error',
+  'warning',
+  'info',
+  'success'
+] as const

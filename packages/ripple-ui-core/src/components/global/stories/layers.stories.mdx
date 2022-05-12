@@ -26,11 +26,11 @@ export const BorderRadiusTemplate = (args) => ({
     }
   },
   template: `
-    <sbTokenTable :columns="columns" >
+    <sbTokenTable :columns="columns" full>
       <sbTokenTableRow v-for="item in items" :key="item">
-        <sbTokenTableCol style="margin-right: 20px;">{{item.value}}</sbTokenTableCol>
+        <sbTokenTableCol>{{item.value}}</sbTokenTableCol>
         <sbTokenTableCol><div :style="getExampleStyles(item)"></div></sbTokenTableCol>
-        <sbTokenTableCol style="margin-left: auto;">{{item.var}}</sbTokenTableCol>
+        <sbTokenTableCol>{{item.var}}</sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `
@@ -60,9 +60,9 @@ export const BorderWidthTemplate = (args) => ({
   template: `
     <sbTokenTable :columns="columns" >
       <sbTokenTableRow v-for="item in items" :key="item">
-        <sbTokenTableCol style="margin-right: 20px;">{{item.value}}</sbTokenTableCol>
+        <sbTokenTableCol>{{item.value}}</sbTokenTableCol>
         <sbTokenTableCol><div :style="getExampleStyles(item)"></div></sbTokenTableCol>
-        <sbTokenTableCol style="margin-left: auto;">{{item.var}}</sbTokenTableCol>
+        <sbTokenTableCol>{{item.var}}</sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `
@@ -92,9 +92,9 @@ export const ElevationTemplate = (args) => ({
   template: `
     <sbTokenTable :columns="columns" >
       <sbTokenTableRow v-for="item in items" :key="item">
-        <sbTokenTableCol style="margin-right: 20px;">{{item.comment}}</sbTokenTableCol>
+        <sbTokenTableCol>{{item.comment}}</sbTokenTableCol>
         <sbTokenTableCol><div :style="getExampleStyles(item)"></div></sbTokenTableCol>
-        <sbTokenTableCol style="margin-left: auto;">{{item.var}}</sbTokenTableCol>
+        <sbTokenTableCol>{{item.var}}</sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `

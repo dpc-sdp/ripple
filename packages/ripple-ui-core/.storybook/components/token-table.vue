@@ -26,7 +26,7 @@ export default {
 <style>
 .sb-token-table {
   width: 469px;
-  font-family: 'VIC-Regular';
+  font-family: 'VIC Regular', Arial, Helvetica, sans-serif;
   &--full-width {
     width: 100%;
   }

@@ -20,7 +20,8 @@
     "release:prod": "lerna publish --conventional-commits --create-release github",
     "lint": "eslint . --ext .ts,.vue && yarn workspace @dpc-sdp/ripple-ui-core stylelint \"**/*.css\"",
     "test:unit": "jest --colors",
-    "chromatic": "npx chromatic --build-script-name storybook:ui-build --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core"
+    "chromatic": "npx chromatic --build-script-name storybook:ui-build --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core",
+    "generate:component": "hygen component new"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

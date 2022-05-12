@@ -16,8 +16,8 @@ export const Template = (args) => ({
     <sbTokenTable :columns="args.columns" >
       <sbTokenTableRow v-for="item in args.items" :key="item">
         <sbTokenTableCol>{{item.value}}</sbTokenTableCol>
-        <sbTokenTableCol ><sbTokenTableSwatch :size="24" :color="'var('+item.var+')'"></sbTokenTableSwatch></sbTokenTableCol>
-        <sbTokenTableCol style="width: 100%;">{{item.var}}</sbTokenTableCol>
+        <sbTokenTableCol collapse width="50px"><sbTokenTableSwatch :size="24" :color="'var('+item.var+')'"></sbTokenTableSwatch></sbTokenTableCol>
+        <sbTokenTableCol expand>{{item.var}}</sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `

@@ -6,13 +6,14 @@ export default {
   props: {
     columns: {
       type: Array
-    }
+    },
+    full: Boolean
   }
 }
 </script>
 
 <template>
-  <div class="sb-token-table">
+  <div class="sb-token-table" :class="{ 'sb-token-table--full-width': full }">
     <sbTokenTableRow class="sb-token-table__title">
       <sbTokenTableCol v-for="col in columns" :key="col">
         {{ col }}
@@ -24,8 +25,11 @@ export default {
 
 <style>
 .sb-token-table {
-  max-width: 469px;
+  width: 469px;
   font-family: 'VIC';
+  &--full-width {
+    width: 100%;
+  }
   &__title {
     font-weight: 700;
     padding-bottom: var(--rpl-space-2);

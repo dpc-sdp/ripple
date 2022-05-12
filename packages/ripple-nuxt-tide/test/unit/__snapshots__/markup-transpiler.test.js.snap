@@ -112,7 +112,7 @@ exports[`Markup transpiler should get same HTML with no plugins 1`] = `
     <article class=\\"media media--type-embedded-video media--view-mode-embedded-with-transcript\\">
       <div class=\\"field field--name-field-media-video-embed-field field--type-video-embed-field field--label-hidden field__item\\">
         <div class=\\"video-embed-field-provider-youtube video-embed-field-responsive-video\\">
-          <iframe allowfullscreen=\\"allowfullscreen\\" frameborder=\\"0\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/Xb4ElZqit8k?autoplay=0&amp;start=0&amp;rel=0\\" width=\\"854\\" title=\\"abcde\\"></iframe>
+          <iframe allowfullscreen=\\"allowfullscreen\\" frameborder=\\"0\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/Xb4ElZqit8k?autoplay=0&amp;start=0&amp;rel=0\\" width=\\"854\\"></iframe>
         </div>
       </div>
       <div class=\\"field field--name-field-media-link field--type-string field--label-hidden field__item\\">
@@ -128,7 +128,7 @@ exports[`Markup transpiler should get same HTML with no plugins 1`] = `
     <article class=\\"media media--type-embedded-video media--view-mode-embedded-with-transcript\\">
       <div class=\\"field field--name-field-media-video-embed-field field--type-video-embed-field field--label-hidden field__item\\">
         <div class=\\"video-embed-field-provider-youtube video-embed-field-responsive-video\\">
-          <iframe allowfullscreen=\\"allowfullscreen\\" frameborder=\\"0\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" width=\\"854\\" title=\\"abcde\\"></iframe>
+          <iframe allowfullscreen=\\"allowfullscreen\\" frameborder=\\"0\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" width=\\"854\\"></iframe>
         </div>
       </div>
       <div class=\\"field field--name-field-media-link field--type-string field--label-hidden field__item\\">
@@ -144,7 +144,7 @@ exports[`Markup transpiler should get same HTML with no plugins 1`] = `
     <article class=\\"media media--type-embedded-video media--view-mode-embedded-with-transcript\\">
       <div class=\\"field field--name-field-media-video-embed-field field--type-video-embed-field field--label-hidden field__item\\">
         <div class=\\"video-embed-field-provider-youtube video-embed-field-responsive-video\\">
-          <iframe allowfullscreen=\\"allowfullscreen\\" frameborder=\\"0\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" width=\\"854\\" title=\\"abcde\\"></iframe>
+          <iframe allowfullscreen=\\"allowfullscreen\\" frameborder=\\"0\\" height=\\"480\\" src=\\"https://www.youtube.com/embed/aGU2la0fHds?autoplay=0&amp;start=0&amp;rel=0\\" width=\\"854\\"></iframe>
         </div>
       </div>
     </article>

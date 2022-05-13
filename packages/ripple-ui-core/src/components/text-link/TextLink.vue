@@ -12,7 +12,7 @@ rplEventBus.register('rpl-text-link/click')
 const props = defineProps({
   theme: {
     type: String as PropType<RplTheme>,
-    default: 'core'
+    default: 'primary'
   },
   url: {
     type: String,
@@ -43,6 +43,4 @@ const onClick = (payload?: any) => {
   </a>
 </template>
 
-<style>
-@import './text-link.css';
-</style>
+<style src="./text-link.css" />

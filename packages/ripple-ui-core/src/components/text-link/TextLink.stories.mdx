@@ -6,7 +6,6 @@ import {
 import { ArgsTable } from '@storybook/addon-docs'
 import RplTextLink from './TextLink.vue'
 import RplIcon from '../icon/icon.vue'
-import './sb.css'
 
 import { expect } from '@storybook/jest'
 import { within, userEvent } from '@storybook/testing-library'
@@ -44,7 +43,7 @@ export const Template = (args) => ({
   argTypes={{
     theme: {
       control: { type: 'select' },
-      options: ['core', 'accent', 'neutral'],
+      options: ['primary', 'accent', 'neutral'],
       defaultValue: 'primary'
     },
     onClick: { action: 'clicked' }

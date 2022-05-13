@@ -4,6 +4,13 @@
 /* Variables */
 @import '_vars.css';
 
+/* Utilities */
+@import 'utilities/_colours.css';
+@import 'utilities/_margin.css';
+@import 'utilities/_padding.css';
+@import 'utilities/_size.css';
+@import 'utilities/_typography.css';
+
 /* Global styles */
 @import '_fonts.css';
 @import '_reset.css';

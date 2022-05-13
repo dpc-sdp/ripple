@@ -1,0 +1,23 @@
+type:
+  1:
+    size: 10px
+  2:
+    size: 12px
+  3:
+    size: 14px
+  4:
+    size: 16px
+  5:
+    size: 20px
+  6:
+    size: 24px
+  7:
+    size: 28px
+  8:
+    size: 32px
+  9:
+    size: 40px
+  10:
+    size: 48px
+  11:
+    size: 56px

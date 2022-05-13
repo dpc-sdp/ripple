@@ -11,6 +11,7 @@
     "strict": false,
     "allowJs": true,
     "noUnusedLocals": true,
+    "jsx": "preserve",
     "resolveJsonModule": true,
     "baseUrl": "./packages",
     "types": ["vite/client", "jest"],

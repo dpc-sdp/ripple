@@ -1,0 +1,40 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { RplTypeStyles } from './constants'
+import sbTokenTable from './../../../../.storybook/components/token-table.vue'
+import sbTokenTableRow from './../../../../.storybook/components/token-row.vue'
+import sbTokenTableCol from './../../../../.storybook/components/token-col.vue'
+import sbTokenTableSwatch from './../../../../.storybook/components/token-swatch.vue'
+
+
+export const Template = (args) => ({
+  components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+  setup() {
+    return {
+      columns: ['Style', 'class'],
+      items: RplTypeStyles
+    }
+  },
+  template: `
+    <sbTokenTable :columns="columns" full>
+      <sbTokenTableRow lined v-for="item in items" :key="item">
+        <sbTokenTableCol><span :className="item.class">{{item.title}}</span></sbTokenTableCol>
+        <sbTokenTableCol>{{item.class}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+  `
+});
+
+# Typography
+
+<Meta title='Base Styles/Typography' parameters={{ viewMode: 'docs'}}/>
+
+<Canvas>
+  <Story name="Typography" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1746%3A67424',
+    }
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

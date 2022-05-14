@@ -5,7 +5,8 @@ to: "<%= mdx ? `packages/ripple-ui-core/src/components/${h.changeCase.paramCase(
 import {
   Canvas,
   Meta,
-  Story
+  Story,
+  ArgsTable
 } from '@storybook/addon-docs'
 import <%= h.rplcomponentname(name) %> from './<%= h.changeCase.paramCase(name) %>.vue'
 import { <%= h.rplcomponentname(name) %>Themes } from './constants'
@@ -21,6 +22,8 @@ export const SingleTemplate = (args) => ({
 <Meta title='Components/<%= h.inflection.humanize(h.inflection.underscore(name)) %>' component={<%= h.rplcomponentname(name) %>} />
 
 # <%= h.inflection.humanize(h.inflection.underscore(name)) %>
+
+<ArgsTable of={<%= h.rplcomponentname(name) %>} />
 
 <Canvas>
   <Story

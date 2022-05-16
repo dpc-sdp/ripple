@@ -39,6 +39,7 @@ const onClick = (payload?: any) => {
 
 <template>
   <a :className="classes" :href="url" @click="onClick()">
+    <span>sdf</span>
     <slot />
   </a>
 </template>

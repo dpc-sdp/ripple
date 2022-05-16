@@ -35,6 +35,14 @@ jobs:
           name: Run unit tests
       - store_test_results:
           path: test-results
+  test-storybook:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          command: yarn workspace @dpc-sdp/ripple-ui-core test:storybook-ci
+          name: Run storybook Tests
 
   chromatic:
     <<: *defaults

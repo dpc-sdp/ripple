@@ -4,6 +4,12 @@
 /* Variables */
 @import '_vars.css';
 
+/* Breakpoints */
+@import '_breakpoints.css';
+
+/* Utilities */
+@import 'utilities/_typography.css';
+
 /* Global styles */
 @import '_fonts.css';
 @import '_reset.css';

@@ -1,0 +1,91 @@
+type:
+  font:
+    bold:
+      value: "'VIC Bold', Arial, Helvetica, sans-serif"
+    regular:
+      value: "'VIC Regular', Arial, Helvetica, sans-serif"
+  weight:
+    bold:
+      value: 700
+    regular:
+      value: 400
+  l-spacing:
+    1:
+      value: 0.008em
+    2:
+      value: 0.014em
+    3:
+      value: 0.016em
+    4:
+      value: 0.0192em
+    5:
+      value: 0.012em
+    6:
+      value: 0.018em
+
+  size:
+    h-mob:
+      xl:
+        value: 32px
+      l:
+        value: 24px
+      m:
+        value: 20px
+      s:
+        value: 16px
+    h-desk:
+      xl:
+        value: 56px
+      l:
+        value: 40px
+      m:
+        value: 28px
+      s:
+        value: 24px
+    component:
+      l:
+        value: 20px
+      m:
+        value: 16px
+      xs:
+        value: 14px
+    p:
+      m:
+        value: 16px
+      l:
+        value: 20px
+  height:
+    bp-mob:
+      xxl:
+        value: 48px
+      xl:
+        value: 40px
+      l:
+        value: 32px
+      m:
+        value: 28px
+      s:
+        value: 24px
+    bp-desk:
+      xxl:
+        value: 88px
+      xl:
+        value: 68px
+      l:
+        value: 52px
+      m:
+        value: 40px
+      s:
+        value: 32px
+    component:
+      l:
+        value: 20px
+      m:
+        value: 16px
+      xs:
+        value: 14px
+    p:
+      m:
+        value: 24px
+      l:
+        value: 28px

@@ -1,8 +1,8 @@
 diff --git a/node_modules/vite-svg-loader/index.js b/node_modules/vite-svg-loader/index.js
-index f0e7f82..43c038e 100644
+index c7caae0..a0fef29 100644
 --- a/node_modules/vite-svg-loader/index.js
 +++ b/node_modules/vite-svg-loader/index.js
-@@ -26,14 +26,14 @@ module.exports = function svgLoader (options = {}) {
+@@ -33,14 +33,14 @@ module.exports = function svgLoader (options = {}) {
  
        let svg = await fs.readFile(path, 'utf-8')
  

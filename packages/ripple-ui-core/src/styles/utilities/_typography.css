@@ -38,17 +38,27 @@
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-h-mob-l);
     line-height: var(--rpl-type-height);
-    letter-spacing: var(--rpl-type-l-spacing);
+    letter-spacing: var(--rpl-type-l-spacing-3);
     color: var(--rpl-theme-text-heading-color, var(--rpl-clr-type-default));
+    @media (--rpl-bp-l) {
+      font-size: var(--rpl-type-size-h-desk-l);
+      line-height: var(--rpl-type-height-h-desk-l);
+      letter-spacing: var(--rpl-type-l-spacing-5);
+    }
   }
 
   &-h3 {
     font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-h-mob-m);
-    line-height: var(--rpl-type-height);
-    letter-spacing: var(--rpl-type-l-spacing);
+    line-height: var(--rpl-type-height-h-mob-m);
+    letter-spacing: var(--rpl-type-l-spacing-6);
     color: var(--rpl-theme-text-heading-color, var(--rpl-clr-type-default));
+    @media (--rpl-bp-l) {
+      font-size: var(--rpl-type-size-h-desk-m);
+      line-height: var(--rpl-type-height-h-desk-m);
+      letter-spacing: var(--rpl-type-l-spacing-2);
+    }
   }
 
   &-h4 {
@@ -56,17 +66,27 @@
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-h-mob-s);
     line-height: var(--rpl-type-height);
-    letter-spacing: var(--rpl-type-l-spacing-6);
+    letter-spacing: var(--rpl-type-l-spacing-4);
     color: var(--rpl-clr-type-default);
+    @media (--rpl-bp-l) {
+      font-size: var(--rpl-type-size-h-desk-s);
+      line-height: var(--rpl-type-height-h-desk-s);
+      letter-spacing: var(--rpl-type-l-spacing-3);
+    }
   }
 
   &-body-large {
     font-family: var(--rpl-type-font-regular);
     font-weight: var(--rpl-type-weight-regular);
-    font-size: var(--rpl-type-size-p-l);
-    line-height: var(--rpl-type-height-p-l);
+    font-size: var(--rpl-type-size-h-mob-m);
+    line-height: var(--rpl-type-height-bp-mob-m);
     letter-spacing: var(--rpl-type-l-spacing-4);
     color: var(--rpl-clr-type-default);
+    @media (--rpl-bp-l) {
+      font-size: var(--rpl-type-size-p-l);
+      line-height: var(--rpl-type-height-p-l);
+      letter-spacing: var(--rpl-type-l-spacing-3);
+    }
   }
 
   &-body {

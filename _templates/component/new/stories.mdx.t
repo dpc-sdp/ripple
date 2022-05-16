@@ -1,5 +1,5 @@
 ---
-to: "<%= mdx ? `packages/ripple-ui-core/src/components/${h.changeCase.paramCase(name)}/${name}.stories.mdx` : null %>"
+to: "<%= mdx ? `packages/ripple-ui-core/src/components/${h.changeCase.paramCase(name)}/${h.changeCase.paramCase(name)}.stories.mdx` : null %>"
 ---
 
 import {
@@ -19,9 +19,9 @@ export const SingleTemplate = (args) => ({
   template: '<<%= h.rplcomponentname(name) %> v-bind="args" />'
 })
 
-<Meta title='Components/<%= h.inflection.humanize(h.inflection.underscore(name)) %>' component={<%= h.rplcomponentname(name) %>} />
+<Meta title='Components/<%= h.changeCase.sentenceCase(name) %>' component={<%= h.rplcomponentname(name) %>} />
 
-# <%= h.inflection.humanize(h.inflection.underscore(name)) %>
+# <%= h.changeCase.sentenceCase(name) %>
 
 <ArgsTable of={<%= h.rplcomponentname(name) %>} />
 

@@ -50,7 +50,10 @@ jobs:
             - packages/ripple-ui-core/storybook-static
 
   test-storybook:
-    <<: *defaults
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.22.0-focal
+    environment:
+      NODE_ENV: development
     steps:
       - attach_workspace:
           at: ~/app
@@ -64,7 +67,7 @@ jobs:
       - attach_workspace:
           at: ~/app
         # Runs the Chromatic CLI
-      - run: yarn chromatic --storybook-build-dir=/packages/ripple-ui-core/storybook-static --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes
+      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes
 
 workflows:
   commit:

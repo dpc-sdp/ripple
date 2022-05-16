@@ -70,14 +70,15 @@ workflows:
   commit:
     jobs:
       - build
+      - build-storybook:
+          requires:
+            - build
       - test:
           requires:
             - build
       - test-storybook:
           requires:
-            - build
             - build-storybook
       - chromatic:
           requires:
-            - build
             - build-storybook

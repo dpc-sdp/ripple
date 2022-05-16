@@ -4,7 +4,7 @@
     "esbenp.prettier-vscode",
     "eamodio.gitlens",
     "streetsidesoftware.code-spell-checker",
-    "johnsoncodehk.volar",
+    "vue.volar",
     "vivaxy.vscode-conventional-commits",
     "csstools.postcss",
     "EditorConfig.EditorConfig"

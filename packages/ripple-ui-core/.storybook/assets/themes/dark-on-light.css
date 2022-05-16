@@ -10,4 +10,6 @@
   --rpl-clr-core-accent-alt: #f3fcfc;
   --rpl-clr-core-accent-contrast: var(--rpl-clr-dark);
   --rpl-theme-button-white-text-clr: var(--rpl-clr-dark);
+
+  --rpl-clr-breadcrumb-link: var(--rpl-clr-core-primary);
 }

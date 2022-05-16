@@ -1,0 +1,42 @@
+/* Theming */
+:root {
+  --rpl-clr-breadcrumb-link: var(--rpl-clr-semantic-link);
+}
+
+.rpl-breadcrumbs {
+  background-color: var(--rpl-clr-white);
+  border: var(--rpl-border-width-1) solid var(--rpl-clr-neutral-2);
+  border-radius: var(--rpl-border-radius-s);
+  box-shadow: var(--rpl-elevation-1);
+  color: var(--rpl-clr-dark);
+  margin-top: var(--rpl-space-1);
+  padding: var(--rpl-space-3) var(--rpl-space-5);
+
+  &--items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &--item {
+    display: inline;
+    line-height: calc(var(--rpl-type-size-component-m) + var(--rpl-space-2));
+
+    & + &::before {
+      content: '>';
+      padding: 0 var(--rpl-space-2);
+    }
+  }
+
+  &--item-link {
+    &,
+    &:visited {
+      color: var(--rpl-clr-breadcrumb-link);
+    }
+
+    &:focus,
+    &:active {
+      color: var(--rpl-clr-dark);
+    }
+  }
+}

@@ -1,0 +1,65 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplBreadcrumbs from './breadcrumbs.vue'
+import { RplBreadcrumbsThemes } from './constants'
+
+export const SingleTemplate = (args) => ({
+  components: { RplBreadcrumbs },
+  setup() {
+    return { args }
+  },
+  template: '<div class="sb-container"><RplBreadcrumbs v-bind="args" /></div>'
+})
+
+<Meta title='Components/Navigation/Breadcrumbs' component={RplBreadcrumbs} />
+
+# Breadcrumbs
+
+<ArgsTable of={RplBreadcrumbs} />
+
+<Canvas>
+  <Story
+    name='Default'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplBreadcrumbsThemes,
+        defaultValue: RplBreadcrumbsThemes[0]
+      }
+    }}
+    args={{
+      items: [
+        { label: 'Home', url: '/' },
+        { label: 'About the VIC Government', url: '#' },
+        { label: "Using Victoria's data", url: '#' }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Example/Mobile'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplBreadcrumbsThemes,
+        defaultValue: RplBreadcrumbsThemes[0]
+      }
+    }}
+    args={{
+      items: [
+        { label: 'Home', url: '/' },
+        { label: 'An extraordinarily long title that really should not be allowed but will be useful to test mobile width', url: '#' }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

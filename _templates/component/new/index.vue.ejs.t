@@ -1,23 +1,23 @@
 ---
-to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/<%= name %>.vue
+to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/<%= h.changeCase.paramCase(name) %>.vue
 ---
+<script lang="ts"> export default { name: '<%= h.rplcomponentname(name) %>' }</script>
+
 <script setup lang="ts">
 import { PropType } from 'vue'
-import type { RplTheme } from './../../types/ripple'
+import { <%= h.rplcomponentname(name) %>Themes } from './constants'
 defineProps({
   theme: {
-    type: String as PropType<RplTheme>,
-    default: 'primary'
+    type: String as PropType<typeof <%= h.rplcomponentname(name) %>Themes[number]>,
+    default: <%= h.rplcomponentname(name) %>Themes[0]
   }
 })
 </script>
 
 <template>
-  <div :className="`rpl-<%= h.changeCase.paramCase(name) %> rpl-<%= h.changeCase.paramCase(name) %>--${theme}`">
-    TODO: write component Rpl<%= name %>
+  <div :className="`<%= h.rplclassname(name) %> <%= h.rplclassname(name) %>--${theme}`">
+    TODO: <%= h.rplcomponentname(name) %> functionality
   </div>
 </template>
 
-<style>
-@import './<%= h.changeCase.paramCase(name) %>.css';
-</style>
+<style src="./<%= h.changeCase.paramCase(name) %>.css" />

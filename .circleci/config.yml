@@ -35,6 +35,20 @@ jobs:
           name: Run unit tests
       - store_test_results:
           path: test-results
+
+  build-storybook:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          command: yarn workspace @dpc-sdp/ripple-ui-core storybook:build
+          name: Build static storybook
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - packages/ripple-ui-core/storybook-static
+
   test-storybook:
     <<: *defaults
     steps:
@@ -50,7 +64,7 @@ jobs:
       - attach_workspace:
           at: ~/app
         # Runs the Chromatic CLI
-      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes
+      - run: yarn chromatic --storybook-build-dir=/packages/ripple-ui-core/storybook-static --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes
 
 workflows:
   commit:
@@ -59,6 +73,11 @@ workflows:
       - test:
           requires:
             - build
+      - test-storybook:
+          requires:
+            - build
+            - build-storybook
       - chromatic:
           requires:
             - build
+            - build-storybook

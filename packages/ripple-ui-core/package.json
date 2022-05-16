@@ -63,6 +63,7 @@
     "autoprefixer": "^10.4.2",
     "chromatic": "^6.5.3",
     "http-server": "^14.1.0",
+    "jest-axe": "^6.0.0",
     "postcss-nested": "^5.0.6",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.4.3",

@@ -6,19 +6,13 @@ import {
 import { ArgsTable } from '@storybook/addon-docs'
 import RplTextLink from './TextLink.vue'
 import RplIcon from '../icon/icon.vue'
-
-import { expect } from '@storybook/jest'
 import { within, userEvent } from '@storybook/testing-library'
-import { rplEventBus } from './../../index.ts'
-const playFunction = async ({ canvasElement }) => {
-  let fired = false
-  rplEventBus.all.clear()
-  const handler = () => { fired = !fired }
-  rplEventBus.on('rpl-text-link/click', handler)
+import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../.storybook/interactions.js'
+const eventTestFunction = async ({ canvasElement }) => {
   const canvas = await within(canvasElement)
-  await userEvent.click(canvas.getByRole('link'))
-  await expect(fired).toBeTruthy()
-  rplEventBus.off('rpl-text-link/click', handler)
+  const link = await canvas.getByRole('link')
+  a11yCheck(canvasElement)
+  eventCheck(link, 'rpl-text-link/click')
 }
 
 export const Template = (args) => ({
@@ -32,7 +26,6 @@ export const Template = (args) => ({
 <Meta
   title='Components/Atoms/Text link'
   parameters={{
-    viewMode: 'docs',
     design: {
       type: 'figma',
       url:
@@ -58,6 +51,7 @@ export const Template = (args) => ({
 
 <Canvas>
   <Story
+    play={a11yStoryCheck}
     name='Default'
   >
     {Template.bind()}
@@ -69,6 +63,7 @@ export const Template = (args) => ({
 <Canvas>
   <Story
     name='Default/Hover'
+    play={a11yStoryCheck}
     parameters={{ pseudo: { hover: true } }}
   >
     {Template.bind()}
@@ -80,6 +75,7 @@ export const Template = (args) => ({
 <Canvas>
   <Story
     name='Default/Active'
+    play={a11yStoryCheck}
     parameters={{ pseudo: { active: true } }}
   >
     {Template.bind()}
@@ -91,6 +87,7 @@ export const Template = (args) => ({
 <Canvas>
   <Story
     name='Default/Focus'
+    play={a11yStoryCheck}
     parameters={{ pseudo: { focus: true } }}
   >
     {Template.bind()}
@@ -102,6 +99,7 @@ export const Template = (args) => ({
 <Canvas>
   <Story
     name='Default/Visited'
+    play={a11yStoryCheck}
     parameters={{ pseudo: { visited: true } }}
   >
     {Template.bind()}
@@ -113,6 +111,7 @@ export const Template = (args) => ({
 <Canvas>
   <Story
     name='Default/VisitedHover'
+    play={a11yStoryCheck}
     parameters={{ pseudo: { hover: true, visited: true } }}
   >
     {Template.bind()}
@@ -124,6 +123,7 @@ export const Template = (args) => ({
 <Canvas>
   <Story
     name='Default/Inactive'
+    play={a11yStoryCheck}
     args={{
       inactive: true
     }}
@@ -137,7 +137,7 @@ export const Template = (args) => ({
 ## Text link / Content examples
 
 <Canvas>
-  <Story name="Examples/Content/Accent">
+  <Story name="Examples/Content/Accent" play={a11yStoryCheck}>
     {(args) => {
       return {
         components: { RplTextLink },
@@ -146,7 +146,7 @@ export const Template = (args) => ({
       }
     }}
   </Story>
-  <Story name="Examples/Content/Emoji">
+  <Story name="Examples/Content/Emoji" play={a11yStoryCheck}>
     {(args) => {
       return {
         components: { RplTextLink },
@@ -155,7 +155,7 @@ export const Template = (args) => ({
       }
     }}
   </Story>
-  <Story name="Examples/Content/Target">
+  <Story name="Examples/Content/Target" play={a11yStoryCheck}>
     {(args) => {
       return {
         components: { RplTextLink },
@@ -169,7 +169,7 @@ export const Template = (args) => ({
 ## Text link / Component examples
 
 <Canvas>
-  <Story name="Examples/Component/Icon">
+  <Story name="Examples/Component/Icon" play={a11yStoryCheck}>
     {(args) => {
       return {
         components: { RplTextLink, RplIcon },
@@ -185,7 +185,7 @@ export const Template = (args) => ({
 <Canvas>
   <Story
     name="Examples/Eventbus"
-    play={playFunction}
+    play={eventTestFunction}
   >
     {(args) => {
       return {

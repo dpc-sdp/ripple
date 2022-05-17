@@ -3,6 +3,8 @@ to: "<%= mdx ? null : `packages/ripple-ui-core/src/components/${h.changeCase.par
 ---
 import <%= h.rplcomponentname(name) %> from './<%= h.changeCase.paramCase(name) %>.vue'
 import { <%= h.rplcomponentname(name) %>Themes } from './constants.ts'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+
 export default {
   title: 'Components/<%= h.inflection.humanize(h.inflection.underscore(name)) %>',
   component: <%= h.rplcomponentname(name) %>,
@@ -25,6 +27,7 @@ const Template = (args) => ({
 })
 
 export const Default = Template.bind({})
+Default.play = a11yStoryCheck
 Default.args = {
   theme: <%= h.rplcomponentname(name) %>Themes[0]
 }

@@ -42,7 +42,8 @@ module.exports = {
   ],
   staticDirs: ['../dist', './assets'],
   features: {
-    interactionsDebugger: true
+    interactionsDebugger: true,
+    buildStoriesJson: true
   },
   core: {
     builder: '@storybook/builder-vite'

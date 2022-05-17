@@ -2,6 +2,7 @@ import IconSprite from './../src/assets/icons/sprite.svg?component'
 import { withCssResources } from '@storybook/addon-cssresources'
 import { withDesign } from 'storybook-addon-designs'
 import './storybook.css'
+import './../src/styles/global.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

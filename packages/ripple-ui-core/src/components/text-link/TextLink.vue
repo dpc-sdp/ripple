@@ -5,7 +5,7 @@ export default { name: 'RplTextLink' }
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
 import type { RplTheme } from './../../types/ripple'
-import { RplPropUrl } from './../global/stories/props'
+import { RplPropUrl } from './../global/props'
 
 import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-text-link/click')

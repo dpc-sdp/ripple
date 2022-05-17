@@ -4,6 +4,9 @@
 /* Variables */
 @import '_vars.css';
 
+/* Breakpoints */
+@import '_breakpoints.css';
+
 /* Utilities */
 @import 'utilities/_colours.css';
 @import 'utilities/_margin.css';

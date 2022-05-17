@@ -51,13 +51,13 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <div :class="classes">
+  <span :class="classes">
     <component :is="asyncIcon" v-if="name && !inSprite && asyncIcon" />
     <svg v-else-if="name">
       <use :xlink:href="`#${name}`"></use>
     </svg>
     <slot v-else></slot>
-  </div>
+  </span>
 </template>
 
 <style>

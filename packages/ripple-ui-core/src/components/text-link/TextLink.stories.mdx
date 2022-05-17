@@ -1,0 +1,198 @@
+import {
+  Canvas,
+  Meta,
+  Story
+} from '@storybook/addon-docs'
+import { ArgsTable } from '@storybook/addon-docs'
+import RplTextLink from './TextLink.vue'
+import RplIcon from '../icon/icon.vue'
+
+import { expect } from '@storybook/jest'
+import { within, userEvent } from '@storybook/testing-library'
+import { rplEventBus } from './../../index.ts'
+const playFunction = async ({ canvasElement }) => {
+  let fired = false
+  rplEventBus.all.clear()
+  const handler = () => { fired = !fired }
+  rplEventBus.on('rpl-text-link/click', handler)
+  const canvas = await within(canvasElement)
+  await userEvent.click(canvas.getByRole('link'))
+  await expect(fired).toBeTruthy()
+  rplEventBus.off('rpl-text-link/click', handler)
+}
+
+export const Template = (args) => ({
+  components: { RplTextLink },
+  setup() {
+    return { args }
+  },
+  template: '<p class="sb-container">This para contains a <RplTextLink @click.prevent="args.onClick()" v-bind="args">link</RplTextLink> in the middle.</p>'
+})
+
+<Meta
+  title='Components/Atoms/Text link'
+  parameters={{
+    viewMode: 'docs',
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=2415%3A122102',
+    }
+  }}
+  component={{RplTextLink}}
+  argTypes={{
+    theme: {
+      control: { type: 'select' },
+      options: ['primary', 'accent', 'neutral'],
+      defaultValue: 'primary'
+    },
+    onClick: { action: 'clicked' }
+  }}
+/>
+
+# Text link states
+
+<ArgsTable of={RplTextLink} />
+
+## Text link / Default
+
+<Canvas>
+  <Story
+    name='Default'
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Text link / Hover
+
+<Canvas>
+  <Story
+    name='Default/Hover'
+    parameters={{ pseudo: { hover: true } }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Text link / Active
+
+<Canvas>
+  <Story
+    name='Default/Active'
+    parameters={{ pseudo: { active: true } }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Text link / Focus
+
+<Canvas>
+  <Story
+    name='Default/Focus'
+    parameters={{ pseudo: { focus: true } }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Text link / Visited
+
+<Canvas>
+  <Story
+    name='Default/Visited'
+    parameters={{ pseudo: { visited: true } }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Text link / Visited Hover
+
+<Canvas>
+  <Story
+    name='Default/VisitedHover'
+    parameters={{ pseudo: { hover: true, visited: true } }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Text link / Inactive
+
+<Canvas>
+  <Story
+    name='Default/Inactive'
+    args={{
+      inactive: true
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+# Text link examples
+
+## Text link / Content examples
+
+<Canvas>
+  <Story name="Examples/Content/Accent">
+    {(args) => {
+      return {
+        components: { RplTextLink },
+        setup() { return { args } },
+        template: '<p class="sb-container">This para contains a <RplTextLink>voilà</RplTextLink> in the middle.</p>'
+      }
+    }}
+  </Story>
+  <Story name="Examples/Content/Emoji">
+    {(args) => {
+      return {
+        components: { RplTextLink },
+        setup() { return { args } },
+        template: '<p class="sb-container">This para contains a <RplTextLink>😍</RplTextLink> in the middle.</p>'
+      }
+    }}
+  </Story>
+  <Story name="Examples/Content/Target">
+    {(args) => {
+      return {
+        components: { RplTextLink },
+        setup() { return { args } },
+        template: `<p class="sb-container">This para contains a <RplTextLink target="_blank">link that opens in a new window</RplTextLink> in the middle.</p>`
+      }
+    }}
+  </Story>
+</Canvas>
+
+## Text link / Component examples
+
+<Canvas>
+  <Story name="Examples/Component/Icon">
+    {(args) => {
+      return {
+        components: { RplTextLink, RplIcon },
+        setup() { return { args } },
+        template: `<p class="sb-container">This para contains a <RplTextLink><RplIcon name="icon-download"></RplIcon></RplTextLink> in the middle.</p>`
+      }
+    }}
+  </Story>
+</Canvas>
+
+## Text link / Eventbus
+
+<Canvas>
+  <Story
+    name="Examples/Eventbus"
+    play={playFunction}
+  >
+    {(args) => {
+      return {
+        components: { RplTextLink },
+        setup() { return { args } },
+        template: `<p class="sb-container">This para contains an <RplTextLink @click.prevent="args.onClick()">event-tracked link</RplTextLink> in the middle.</p>`
+      }
+    }}
+  </Story>
+</Canvas>

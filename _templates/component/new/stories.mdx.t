@@ -10,6 +10,7 @@ import {
 } from '@storybook/addon-docs'
 import <%= h.rplcomponentname(name) %> from './<%= h.changeCase.paramCase(name) %>.vue'
 import { <%= h.rplcomponentname(name) %>Themes } from './constants'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
 
 export const SingleTemplate = (args) => ({
   components: { Rpl<%= h.changeCase.pascal(name) %> },
@@ -28,6 +29,7 @@ export const SingleTemplate = (args) => ({
 <Canvas>
   <Story
     name='Default'
+    play={a11yStoryCheck}
     argTypes={{
       theme: {
         control: { type: 'select' },

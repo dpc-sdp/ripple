@@ -3,8 +3,8 @@ import {
   Meta,
   Story
 } from '@storybook/addon-docs'
-import { expect } from '@storybook/jest';
-import { within, userEvent } from '@storybook/testing-library';
+import { within } from '@storybook/testing-library';
+import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../.storybook/interactions.js'
 import RplButton from './button.vue';
 import {
   RplButtonThemes,
@@ -12,16 +12,11 @@ import {
   RplButtonIconPositions
 } from './constants';
 import { RplIconNames } from './../icon/constants.ts';
-import { rplEventBus } from './../../index.ts';
 const playFunction = async ({ canvasElement }) => {
-  let fired = false
-  rplEventBus.all.clear()
-  const handler = () => { fired = !fired }
-  rplEventBus.on('rpl-button/click', handler)
   const canvas = await within(canvasElement)
-  await userEvent.click(canvas.getByRole('button'))
-  await expect(fired).toBeTruthy()
-  rplEventBus.off('rpl-button/click', handler)
+  const button = await canvas.getByRole('button')
+  a11yCheck(canvasElement)
+  eventCheck(button, 'rpl-button/click')
 }
 
 export const Template = (args) => ({
@@ -74,6 +69,7 @@ export const Template = (args) => ({
 <Story
   name='1. Example'
   parameters={{viewMode: 'story'}}
+  play={a11yStoryCheck}
   args={{
     theme: 'primary',
     type: 'filled'

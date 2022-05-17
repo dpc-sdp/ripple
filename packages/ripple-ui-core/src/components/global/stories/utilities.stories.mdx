@@ -1,0 +1,55 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { RplPaddingUtilities, RplMarginUtilities } from './constants'
+import sbTokenTable from './../../../../.storybook/components/token-table.vue'
+import sbTokenTableRow from './../../../../.storybook/components/token-row.vue'
+import sbTokenTableCol from './../../../../.storybook/components/token-col.vue'
+import sbTokenTableSwatch from './../../../../.storybook/components/token-swatch.vue'
+
+
+export const Template = (args) => ({
+  components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+  setup() {
+    return {
+      columns: ['Style', 'Class'],
+      paddingItems: RplPaddingUtilities,
+      marginItems: RplMarginUtilities,
+    }
+  },
+  template: `
+    <!-- Padding utilities -->
+    <div class="rpl-u-margin-b-12">
+      <sbTokenTable :columns="columns" full>
+        <sbTokenTableRow lined v-for="item in paddingItems" :key="item">
+          <sbTokenTableCol>
+            <div class="rpl-u-background-clr-neutral-3" style="display: inline-block;">
+              <div :className="item.class">{{item.title}}</div>
+            </div>
+          </sbTokenTableCol>
+          <sbTokenTableCol>{{item.class}}</sbTokenTableCol>
+        </sbTokenTableRow>
+      </sbTokenTable>
+    </div>
+    <!-- Column utilities -->
+    <sbTokenTable :columns="columns" full>
+      <sbTokenTableRow lined v-for="item in marginItems" :key="item">
+        <sbTokenTableCol><div :className="item.class">{{item.title}}</div></sbTokenTableCol>
+        <sbTokenTableCol>{{item.class}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+  `
+});
+
+# Utilities
+
+<Meta title='Base Styles/Utilities' parameters={{ viewMode: 'docs'}}/>
+
+<Canvas>
+  <Story name="Utilities" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1286%3A17240',
+    }
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

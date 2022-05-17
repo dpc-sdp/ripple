@@ -43,9 +43,40 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
+## Example / Long title
+
+There should be practical limits on how long a breadcrumb link is allowed to be, but the following demonstrates how
+to deal with this use case. At mobile widths, the breadcrumb reverts to showing the parent link and will truncate to
+ellipsis if the title is longer than the page width.
+
 <Canvas>
   <Story
-    name='Example/Mobile'
+    name='Example/Long title'
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplBreadcrumbsThemes,
+        defaultValue: RplBreadcrumbsThemes[0]
+      }
+    }}
+    args={{
+      items: [
+        { label: 'Home is the traditional entry point to any website', url: '/' },
+        { label: 'An extraordinarily long title that really should not be allowed but will be useful to test mobile width', url: '#' }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / Many links
+
+This is a more real world example, but this time it's too deep. The ideal number of breadcrumbs should be between 2-4.
+
+<Canvas>
+  <Story
+    name='Example/Many links'
     argTypes={{
       theme: {
         control: { type: 'select' },
@@ -56,7 +87,11 @@ export const SingleTemplate = (args) => ({
     args={{
       items: [
         { label: 'Home', url: '/' },
-        { label: 'An extraordinarily long title that really should not be allowed but will be useful to test mobile width', url: '#' }
+        { label: 'About the VIC Government', url: '#' },
+        { label: 'The state government', url: '#' },
+        { label: 'Victoria is the state', url: '#' },
+        { label: 'VIC government data', url: '#' },
+        { label: "Using Victoria's data", url: '#' }
       ]
     }}
   >

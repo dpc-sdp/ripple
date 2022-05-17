@@ -1,10 +1,10 @@
 /* Colours */
 @for $i from 0 to 7 {
-  .rpl-u-color-neutral-$i {
-    color: var(--rpl-color-neutral-$(i));
+  .rpl-u-clr-neutral-$i {
+    color: var(--rpl-clr-neutral-$(i));
   }
 
-  .rpl-u-background-color-neutral-$i {
-    background-color: var(--rpl-color-neutral-$(i));
+  .rpl-u-background-clr-neutral-$i {
+    background-color: var(--rpl-clr-neutral-$(i));
   }
 }

@@ -1,3 +1,4 @@
+/* Typography */
 const base = 'rpl-type'
 export const RplTypeStyles = [
   {
@@ -73,3 +74,63 @@ export const RplTypeStyles = [
     class: `${base}-component-caps-bold`
   }
 ] as const
+
+/* Padding */
+const RplPaddingUtilities = []
+
+for (let i = 1; i <= 14; i++) {
+  RplPaddingUtilities.push(
+    {
+      title: `Padding - All sides - Level ${i}`,
+      class: `rpl-u-padding-${i}`
+    },
+    {
+      title: `Padding - Top only - Level ${i}`,
+      class: `rpl-u-padding-t-${i}`
+    },
+    {
+      title: `Padding - Right only - Level ${i}`,
+      class: `rpl-u-padding-r-${i}`
+    },
+    {
+      title: `Padding - Bottom only - Level ${i}`,
+      class: `rpl-u-padding-b-${i}`
+    },
+    {
+      title: `Padding - Left only - Level ${i}`,
+      class: `rpl-u-padding-l-${i}`
+    }
+  )
+}
+
+export { RplPaddingUtilities }
+
+/* Margin */
+const RplMarginUtilities = []
+
+for (let i = 1; i <= 14; i++) {
+  RplMarginUtilities.push(
+    {
+      title: `Margin - All sides - Level ${i}`,
+      class: `rpl-u-margin-${i}`
+    },
+    {
+      title: `Margin - Top only - Level ${i}`,
+      class: `rpl-u-margin-t-${i}`
+    },
+    {
+      title: `Margin - Right only - Level ${i}`,
+      class: `rpl-u-margin-r-${i}`
+    },
+    {
+      title: `Margin - Bottom only - Level ${i}`,
+      class: `rpl-u-margin-b-${i}`
+    },
+    {
+      title: `Margin - Left only - Level ${i}`,
+      class: `rpl-u-margin-l-${i}`
+    }
+  )
+}
+
+export { RplMarginUtilities }

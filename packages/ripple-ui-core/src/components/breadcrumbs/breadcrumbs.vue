@@ -5,7 +5,7 @@ export default { name: 'RplBreadcrumbs' }
 <script setup lang="ts">
 import { PropType } from 'vue'
 import { RplBreadcrumbsThemes } from './constants'
-import RplTextLink from '../text-link/TextLink.vue'
+import RplTextLink from '../text-link/text-link.vue'
 
 defineProps({
   theme: {

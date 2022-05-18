@@ -40,7 +40,7 @@ module.exports = {
     '../src/components/**/*.stories.mdx',
     '../src/components/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  staticDirs: ['../dist', './assets'],
+  staticDirs: ['./assets'],
   features: {
     interactionsDebugger: true,
     buildStoriesJson: true

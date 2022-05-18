@@ -146,3 +146,18 @@ for (let i = 1; i <= 14; i++) {
 }
 
 export { RplMarginUtilities }
+
+/* Size */
+const RplSizeUtilities = []
+
+for (let i = 1; i <= 14; i++) {
+  RplSizeUtilities.push(
+    {
+      color: `${rplSpacing.space[i].color}`,
+      value: `${rplSpacing.space[i].value}`,
+      class: `rpl-u-size-${i}`
+    }
+  )
+}
+
+export { RplSizeUtilities }

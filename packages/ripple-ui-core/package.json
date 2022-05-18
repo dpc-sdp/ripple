@@ -16,7 +16,7 @@
     "./webcomponents": "./dist/web-components/rpl-wc.es.js",
     "./style": "./dist/global.css",
     "./style/components": "./dist/style.css",
-    "./style/src": "./src/styles/global.css"
+    "./style/breakpoints": "./src/styles/_breakpoints.css"
   },
   "scripts": {
     "dev": "concurrently \"wait-on -i 2000 tcp:6006 && yarn test:storybook --watch\" \"yarn:watch\" \"yarn:storybook\" --handle-input",

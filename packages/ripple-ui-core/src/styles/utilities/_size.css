@@ -1,0 +1,7 @@
+/* Size */
+@for $i from 1 to 14 {
+  .rpl-u-size-$i {
+    width: var(--rpl-space-$(i));
+    height: var(--rpl-space-$(i));
+  }
+}

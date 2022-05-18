@@ -3,8 +3,7 @@
     "postcss-normalize": {},
     "autoprefixer": {},
     "postcss-nested": {},
-    "postcss-preset-env": {
-      "browsers": ["> 1%", "last 2 versions"]
-    }
+    "postcss-preset-env": {},
+    "postcss-for": {}
   }
 }

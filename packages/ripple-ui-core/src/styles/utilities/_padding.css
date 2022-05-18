@@ -1,0 +1,22 @@
+/* Padding */
+@for $i from 1 to 14 {
+  .rpl-u-padding-$(i) {
+    padding: var(--rpl-space-$(i));
+  }
+
+  .rpl-u-padding-t-$i {
+    padding-top: var(--rpl-space-$(i));
+  }
+
+  .rpl-u-padding-r-$i {
+    padding-right: var(--rpl-space-$(i));
+  }
+
+  .rpl-u-padding-b-$i {
+    padding-bottom: var(--rpl-space-$(i));
+  }
+
+  .rpl-u-padding-l-$i {
+    padding-left: var(--rpl-space-$(i));
+  }
+}

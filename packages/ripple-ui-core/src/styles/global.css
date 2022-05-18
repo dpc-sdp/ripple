@@ -8,6 +8,9 @@
 @import '_breakpoints.css';
 
 /* Utilities */
+@import 'utilities/_margin.css';
+@import 'utilities/_padding.css';
+@import 'utilities/_size.css';
 @import 'utilities/_typography.css';
 
 /* Global styles */

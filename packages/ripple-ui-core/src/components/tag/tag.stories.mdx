@@ -1,0 +1,94 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplTag from './tag.vue'
+import { RplTagThemes } from './constants'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplTag },
+  setup() {
+    return { args }
+  },
+  template: '<div class="sb-container"><RplTag v-bind="args" /></div>'
+})
+
+<Meta title='Components/Atoms/Tag' component={RplTag} />
+
+# Tag
+
+<ArgsTable of={RplTag} />
+
+## Default / Primary
+
+<Canvas>
+  <Story
+    name='Default/Primary'
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplTagThemes,
+        defaultValue: 'primary'
+      }
+    }}
+    args={{
+      label: 'Tag'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Default / Neutral
+
+<Canvas>
+  <Story
+    name='Default/Neutral'
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplTagThemes,
+        defaultValue: 'neutral'
+      }
+    }}
+    args={{
+      label: 'Tag'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / Many tags
+
+export const ManyTemplate = (args) => ({
+  components: { RplTag },
+  setup() {
+    return { args }
+  },
+  template: '<div class="sb-container"><RplTag v-bind="args" /><RplTag v-bind="args" /><RplTag v-bind="args" /><RplTag v-bind="args" /><RplTag v-bind="args" /><RplTag v-bind="args" /></div>'
+})
+
+<Canvas>
+  <Story
+    name='Example/Many tags'
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplTagThemes,
+        defaultValue: 'neutral'
+      }
+    }}
+    args={{
+      label: 'Tag'
+    }}
+  >
+    {ManyTemplate.bind()}
+  </Story>
+</Canvas>

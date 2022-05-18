@@ -1,3 +1,5 @@
+@import '../../styles/_breakpoints.css';
+
 .rpl-breadcrumbs {
   background-color: var(--rpl-clr-white);
   border: var(--rpl-border-width-1) solid var(--rpl-clr-neutral-2);

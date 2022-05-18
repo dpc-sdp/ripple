@@ -1,3 +1,5 @@
+import rplSpacing from './../../../../tokens/settings/spacing.yaml'
+
 /* Typography */
 const base = 'rpl-type'
 export const RplTypeStyles = [
@@ -81,23 +83,28 @@ const RplPaddingUtilities = []
 for (let i = 1; i <= 14; i++) {
   RplPaddingUtilities.push(
     {
-      title: `Padding - All sides - Level ${i}`,
-      class: `rpl-u-padding-${i}`
+      title: `Padding - All sides - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
+      class: `rpl-u-padding-${i}`,
     },
     {
-      title: `Padding - Top only - Level ${i}`,
+      title: `Padding - Top - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
       class: `rpl-u-padding-t-${i}`
     },
     {
-      title: `Padding - Right only - Level ${i}`,
+      title: `Padding - Right - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
       class: `rpl-u-padding-r-${i}`
     },
     {
-      title: `Padding - Bottom only - Level ${i}`,
+      title: `Padding - Bottom - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
       class: `rpl-u-padding-b-${i}`
     },
     {
-      title: `Padding - Left only - Level ${i}`,
+      title: `Padding - Left - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
       class: `rpl-u-padding-l-${i}`
     }
   )
@@ -111,23 +118,28 @@ const RplMarginUtilities = []
 for (let i = 1; i <= 14; i++) {
   RplMarginUtilities.push(
     {
-      title: `Margin - All sides - Level ${i}`,
+      title: `Margin - All sides - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
       class: `rpl-u-margin-${i}`
     },
     {
-      title: `Margin - Top only - Level ${i}`,
+      title: `Margin - Top - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
       class: `rpl-u-margin-t-${i}`
     },
     {
-      title: `Margin - Right only - Level ${i}`,
+      title: `Margin - Right - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
       class: `rpl-u-margin-r-${i}`
     },
     {
-      title: `Margin - Bottom only - Level ${i}`,
+      title: `Margin - Bottom - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
       class: `rpl-u-margin-b-${i}`
     },
     {
-      title: `Margin - Left only - Level ${i}`,
+      title: `Margin - Left - ${rplSpacing.space[i].value}px`,
+      color: `${rplSpacing.space[i].color}`,
       class: `rpl-u-margin-l-${i}`
     }
   )

@@ -13,6 +13,9 @@ export const Template = (args) => ({
       columns: ['Style', 'Class'],
       paddingItems: RplPaddingUtilities,
       marginItems: RplMarginUtilities,
+      getItemStyles: (item) => {
+        return `background-color: ${item.color}; display: inline-block;`
+      }
     }
   },
   template: `
@@ -21,19 +24,23 @@ export const Template = (args) => ({
       <sbTokenTable :columns="columns" full>
         <sbTokenTableRow lined v-for="item in paddingItems" :key="item">
           <sbTokenTableCol>
-            <div class="rpl-u-background-clr-neutral-3" style="display: inline-block;">
-              <div :className="item.class">{{item.title}}</div>
+            <div :style="getItemStyles(item)" :className="item.class">
+              {{item.title}}
             </div>
           </sbTokenTableCol>
-          <sbTokenTableCol>{{item.class}}</sbTokenTableCol>
+          <sbTokenTableCol>.{{item.class}}</sbTokenTableCol>
         </sbTokenTableRow>
       </sbTokenTable>
     </div>
     <!-- Column utilities -->
     <sbTokenTable :columns="columns" full>
       <sbTokenTableRow lined v-for="item in marginItems" :key="item">
-        <sbTokenTableCol><div :className="item.class">{{item.title}}</div></sbTokenTableCol>
-        <sbTokenTableCol>{{item.class}}</sbTokenTableCol>
+        <sbTokenTableCol>
+          <div :style="getItemStyles(item)" :className="item.class">
+            {{item.title}}
+          </div>
+        </sbTokenTableCol>
+        <sbTokenTableCol>.{{item.class}}</sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `

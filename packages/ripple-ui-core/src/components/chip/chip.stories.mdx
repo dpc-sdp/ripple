@@ -111,6 +111,16 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
+export const SingleTemplateReversed = (args) => ({
+  components: { RplChip },
+  setup() {
+    const el = document.querySelector('#story--components-navigation-chip--reversed')
+    if (el) el.parentElement.parentElement.parentElement.parentElement.parentElement.style.backgroundColor='#003174'
+    return { args }
+  },
+  template: '<div class="sb-container" style="background:#003174"><RplChip v-bind="args" /></div>'
+})
+
 ## Reversed
 
 <Canvas>
@@ -133,7 +143,7 @@ export const SingleTemplate = (args) => ({
       label: 'Chip'
     }}
   >
-    {SingleTemplate.bind()}
+    {SingleTemplateReversed.bind()}
   </Story>
   <Story
     name='Reversed/Hover'
@@ -155,7 +165,7 @@ export const SingleTemplate = (args) => ({
       label: 'Chip'
     }}
   >
-    {SingleTemplate.bind()}
+    {SingleTemplateReversed.bind()}
   </Story>
   <Story
     name='Reversed/Active'
@@ -177,7 +187,7 @@ export const SingleTemplate = (args) => ({
       label: 'Chip'
     }}
   >
-    {SingleTemplate.bind()}
+    {SingleTemplateReversed.bind()}
   </Story>
   <Story
     name='Reversed/Focus'
@@ -199,7 +209,7 @@ export const SingleTemplate = (args) => ({
       label: 'Chip'
     }}
   >
-    {SingleTemplate.bind()}
+    {SingleTemplateReversed.bind()}
   </Story>
 </Canvas>
 

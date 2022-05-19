@@ -11,8 +11,8 @@ import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../.storybook/int
 const eventTestFunction = async ({ canvasElement }) => {
   const canvas = await within(canvasElement)
   const link = await canvas.getByRole('link')
-  a11yCheck(canvasElement)
-  eventCheck(link, 'rpl-text-link/click')
+  await a11yCheck(canvasElement)
+  await eventCheck(link, 'rpl-text-link/click')
 }
 
 export const Template = (args) => ({
@@ -174,7 +174,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink, RplIcon },
         setup() { return { args } },
-        template: `<p class="sb-container">This para contains a <RplTextLink><RplIcon name="icon-download"></RplIcon></RplTextLink> in the middle.</p>`
+        template: `<p class="sb-container">This para contains a <RplTextLink><RplIcon name="icon-download" title="download icon"></RplIcon></RplTextLink> in the middle.</p>`
       }
     }}
   </Story>

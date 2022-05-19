@@ -15,7 +15,7 @@ export const a11yCheck = async (element) => {
 }
 
 export const a11yStoryCheck = async ({ canvasElement }) => {
-  a11yCheck(canvasElement)
+  await a11yCheck(canvasElement)
 }
 
 export const eventCheck = async (element, eventName) => {

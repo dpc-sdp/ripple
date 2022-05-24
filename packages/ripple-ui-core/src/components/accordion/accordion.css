@@ -1,0 +1,66 @@
+.rpl-accordion {
+  /* background-color: var(--rpl-accordion-bg-clr);
+  color: var(--rpl-accordion-clr);
+  padding: var(--rpl-space-2); */
+
+  /* &--primary {
+    --rpl-accordion-bg-clr: var(--rpl-clr-core-primary);
+    --rpl-accordion-clr: var(--rpl-clr-core-primary-contrast);
+  }
+
+  &--accent {
+    --rpl-accordion-bg-clr: var(--rpl-clr-core-accent);
+    --rpl-accordion-clr: var(--rpl-clr-core-accent-contrast);
+  }
+
+  &--neutral {
+    --rpl-accordion-bg-clr: var(--rpl-clr-dark);
+    --rpl-accordion-clr: var(--rpl-clr-white);
+  } */
+}
+
+.rpl-accordion__toggle-all {
+}
+
+.rpl-accordion__item {
+  &.rpl-accordion__item--active {
+    background-color: var(--rpl-clr-core-primary);
+  }
+}
+
+.rpl-accordion__items {
+  border-top-style: solid;
+  border-top-width: var(--rpl-border-width-1);
+  border-top-color: var(--rpl-clr-neutral-3);
+}
+
+.rpl-accordion__item {
+  border-bottom-style: solid;
+  border-bottom-width: var(--rpl-border-width-1);
+  border-bottom-color: var(--rpl-clr-neutral-3);
+}
+
+.rpl-accordion__item-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.rpl-accordion__item-heading {
+  .rpl-accordion__item-toggle:hover & {
+    color: var(--rpl-clr-semantic-link);
+    text-decoration: underline;
+  }
+}
+
+.rpl-accordion__item-icon {
+  color: var(--rpl-clr-semantic-link);
+}
+
+.rpl-accordion__item-content {
+}

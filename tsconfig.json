@@ -20,5 +20,5 @@
       "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"]
     }
   },
-  "exclude": ["**/*.stories.ts"]
+  "exclude": ["**/*.stories.ts", "**/*.stories.mdx"]
 }

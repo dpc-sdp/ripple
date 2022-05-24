@@ -19,5 +19,6 @@
       "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"],
       "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"]
     }
-  }
+  },
+  "exclude": ["**/*.stories.ts"]
 }

@@ -57,15 +57,15 @@ const onClick = (payload?: any) => {
 <template>
   <button
     type="button"
-    :className="`rpl-button rpl-button--${type} rpl-button--${theme} ${directionClass}`"
+    :class="`rpl-button rpl-button--${type} rpl-button--${theme} ${directionClass}`"
     :disabled="disabled"
     @click="onClick()"
   >
-    <span v-if="label" className="rpl-button__label">
+    <span v-if="label" class="rpl-button__label">
       {{ label }}
     </span>
     <slot></slot>
-    <span v-if="iconName" className="rpl-button__icon">
+    <span v-if="iconName" class="rpl-button__icon">
       <RplIcon :name="iconName"></RplIcon>
     </span>
   </button>

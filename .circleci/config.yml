@@ -403,19 +403,3 @@ workflows:
           fe_url: << pipeline.parameters.e2e_fe_url >>
           project: << pipeline.parameters.e2e_project >>
           browser: 'androidChrome'
-      - sdp-test/e2e:
-          name: sdp-test/e2eIE11
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
-          requires:
-            - sdp-test/smoke
-            - sdp-test/e2e-be
-          context:
-            - e2e-test
-            - e2e-test-open
-          be_url: << pipeline.parameters.e2e_be_url >>
-          fe_url: << pipeline.parameters.e2e_fe_url >>
-          project: << pipeline.parameters.e2e_project >>
-          browser: 'ie11'

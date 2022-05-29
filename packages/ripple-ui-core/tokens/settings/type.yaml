@@ -1,9 +1,7 @@
 type:
   font:
-    bold:
-      value: "'VIC Bold', Arial, Helvetica, sans-serif"
-    regular:
-      value: "'VIC Regular', Arial, Helvetica, sans-serif"
+    family:
+      value: "VIC, Arial, Helvetica, sans-serif"
   weight:
     bold:
       value: 700

@@ -1,6 +1,5 @@
 .rpl-type {
   &-h1-highlight {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-h-mob-xl);
     line-height: var(--rpl-type-height-h-mob-xxl);
@@ -20,7 +19,6 @@
   }
 
   &-h1 {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-h-mob-xl);
     line-height: var(--rpl-type-height);
@@ -34,7 +32,6 @@
   }
 
   &-h2 {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-h-mob-l);
     line-height: var(--rpl-type-height);
@@ -48,7 +45,6 @@
   }
 
   &-h3 {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-h-mob-m);
     line-height: var(--rpl-type-height-h-mob-m);
@@ -62,7 +58,6 @@
   }
 
   &-h4 {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-h-mob-s);
     line-height: var(--rpl-type-height);
@@ -76,7 +71,6 @@
   }
 
   &-body-large {
-    font-family: var(--rpl-type-font-regular);
     font-weight: var(--rpl-type-weight-regular);
     font-size: var(--rpl-type-size-h-mob-m);
     line-height: var(--rpl-type-height-bp-mob-m);
@@ -90,7 +84,6 @@
   }
 
   &-body {
-    font-family: var(--rpl-type-font-regular);
     font-weight: var(--rpl-type-weight-regular);
     font-size: var(--rpl-type-size-p-m);
     line-height: var(--rpl-type-height-p-m);
@@ -99,7 +92,6 @@
   }
 
   &-body-link {
-    font-family: var(--rpl-type-font-regular);
     font-weight: var(--rpl-type-weight-regular);
     font-size: var(--rpl-type-size-p-m);
     line-height: var(--rpl-type-height-p-m);
@@ -108,7 +100,6 @@
   }
 
   &-body-bold {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-p-m);
     line-height: var(--rpl-type-height-p-m);
@@ -117,7 +108,6 @@
   }
 
   &-body-ol {
-    font-family: var(--rpl-type-font-regular);
     font-weight: var(--rpl-type-weight-regular);
     font-size: var(--rpl-type-size-p-m);
     line-height: var(--rpl-type-height-p-m);
@@ -126,7 +116,6 @@
   }
 
   &-body-ul {
-    font-family: var(--rpl-type-font-regular);
     font-weight: var(--rpl-type-weight-regular);
     font-size: var(--rpl-type-size-p-m);
     line-height: var(--rpl-type-height-p-m);
@@ -135,7 +124,6 @@
   }
 
   &-component-large-bold {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-component-l);
     line-height: var(--rpl-type-size-component-l);
@@ -143,7 +131,6 @@
   }
 
   &-component {
-    font-family: var(--rpl-type-font-regular);
     font-weight: var(--rpl-type-weight-regular);
     font-size: var(--rpl-type-size-component-m);
     line-height: var(--rpl-type-height-component-m);
@@ -151,7 +138,6 @@
   }
 
   &-component-bold {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-component-m);
     line-height: var(--rpl-type-height-component-m);
@@ -159,7 +145,6 @@
   }
 
   &-component-bold-link {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-component-m);
     line-height: var(--rpl-type-height-component-m);
@@ -167,7 +152,6 @@
   }
 
   &-component-small {
-    font-family: var(--rpl-type-font-regular);
     font-weight: var(--rpl-type-weight-regular);
     font-size: var(--rpl-type-size-component-xs);
     line-height: var(--rpl-type-height-component-xs);
@@ -175,7 +159,6 @@
   }
 
   &-component-caps {
-    font-family: var(--rpl-type-font-regular);
     font-weight: var(--rpl-type-weight-regular);
     font-size: var(--rpl-type-size-p-m);
     line-height: var(--rpl-type-height-p-m);
@@ -184,7 +167,6 @@
   }
 
   &-component-caps-bold {
-    font-family: var(--rpl-type-font-bold);
     font-weight: var(--rpl-type-weight-bold);
     font-size: var(--rpl-type-size-p-m);
     line-height: var(--rpl-type-height-p-m);

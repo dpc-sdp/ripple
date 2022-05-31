@@ -165,7 +165,7 @@ export default {
     return {
       vicLogoPrimary: {
         image: vicLogoPrimary,
-        alt: 'vic_logo',
+        alt: 'Victoria government logo',
         url: '/'
       },
       menuEl: null,

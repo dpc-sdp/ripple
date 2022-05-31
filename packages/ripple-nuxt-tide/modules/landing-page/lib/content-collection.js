@@ -37,6 +37,7 @@ module.exports = class ContentCollection {
       ExposedFilterKeywordDefaultFields: ['title', 'body', 'summary_processed', 'field_landing_page_summary', 'field_paragraph_summary', 'field_page_intro_text', 'field_paragraph_body'],
       ExposedFilterAggregationOrder: 'asc',
       ExposedFilterAggregationSize: 30,
+      DisplayResultComponentType: 'card',
       DisplayResultComponentCardStyle: 'noImage',
       DisplayResultComponentColumns: cardColsSetting,
       DisplayPaginationComponentColumns: cardColsSetting,
@@ -230,7 +231,7 @@ module.exports = class ContentCollection {
   }
 
   getDisplayResultComponentType () {
-    return this.config?.interface?.display?.resultComponent?.type
+    return this.config?.interface?.display?.resultComponent?.type || this.getDefault('DisplayResultComponentType')
   }
 
   getDisplayPagination () {
@@ -264,7 +265,6 @@ module.exports = class ContentCollection {
         returnName = 'rpl-search-result'
         break
       case 'card':
-      default:
         returnName = 'rpl-card-promo'
         break
     }
@@ -704,11 +704,40 @@ module.exports = class ContentCollection {
     switch (schemaField.type) {
       case 'basic':
         const field = this.cloneObject(schemaField.options)
-        field.styleClasses = schemaField.additionalClasses
+        field.styleClasses = this.getExposedFilterFieldClass(schemaField)
         returnFilterField = field
         break
     }
     return returnFilterField
+  }
+
+  getExposedFilterFieldClass (schemaField) {
+    let returnClasses = []
+    if (schemaField.additionalClasses) {
+      returnClasses = returnClasses.concat(schemaField.additionalClasses)
+    }
+    if (this.config.interface.filters?.defaultStyling) {
+      const filterCount = this.config.interface.filters.fields.length
+      let suffix = ''
+      if (this.envConfig?.sidebar) {
+        suffix = (filterCount === 1) ? 'full' : '2'
+      } else {
+        switch (filterCount) {
+          case 1:
+          case 2:
+            suffix = '2'
+            break
+          case 4:
+            suffix = '4'
+            break
+          default:
+            suffix = '3'
+            break
+        }
+      }
+      returnClasses.push(`app-content-collection__form-col-${suffix}`)
+    }
+    return returnClasses
   }
 
   getExposedFilterSubmissionGroup () {
@@ -940,7 +969,6 @@ module.exports = class ContentCollection {
         }
         break
       case 'card':
-      default:
         const style = this.getDisplayResultComponent()?.style
         mappedResult = {
           title: _source.title?.[0],

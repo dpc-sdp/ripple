@@ -1,6 +1,6 @@
 /* VIC Regular */
 @font-face {
-  font-family: 'VIC Regular';
+  font-family: VIC;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 /* VIC Regular - Italic */
 @font-face {
-  font-family: 'VIC Regular';
+  font-family: VIC;
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -18,49 +18,9 @@
     url('/assets/fonts/VIC-RegularItalic.woff') format('woff');
 }
 
-/* VIC Medium */
-@font-face {
-  font-family: 'VIC Medium';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/assets/fonts/VIC-Medium.woff2') format('woff2'),
-    url('/assets/fonts/VIC-Medium.woff') format('woff');
-}
-
-/* VIC Medium - Italic */
-@font-face {
-  font-family: 'VIC Medium';
-  font-style: italic;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/assets/fonts/VIC-MediumItalic.woff2') format('woff2'),
-    url('/assets/fonts/VIC-MediumItalic.woff') format('woff');
-}
-
-/* VIC Semibold */
-@font-face {
-  font-family: 'VIC SemiBold';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/assets/fonts/VIC-SemiBold.woff2') format('woff2'),
-    url('/assets/fonts/VIC-SemiBold.woff') format('woff');
-}
-
-/* VIC Semibold - Italic */
-@font-face {
-  font-family: 'VIC SemiBold';
-  font-style: italic;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/assets/fonts/VIC-SemiBoldItalic.woff2') format('woff2'),
-    url('/assets/fonts/VIC-SemiBoldItalic.woff') format('woff');
-}
-
 /* VIC Bold */
 @font-face {
-  font-family: 'VIC Bold';
+  font-family: VIC;
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -70,7 +30,7 @@
 
 /* VIC Bold - Italic */
 @font-face {
-  font-family: 'VIC Bold';
+  font-family: VIC;
   font-style: italic;
   font-weight: 700;
   font-display: swap;

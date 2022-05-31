@@ -26,13 +26,11 @@ export default {
 <style>
 .sb-token-table {
   width: 469px;
-  font-family: 'VIC Regular', Arial, Helvetica, sans-serif;
   &--full-width {
     width: 100%;
   }
   &__title {
     font-weight: 700;
-    font-family: 'VIC Bold', Arial, Helvetica, sans-serif;
     padding-bottom: var(--rpl-space-2);
     border-bottom: 2px solid black;
     &.sb-token-table__row {

@@ -27,7 +27,7 @@ const onClick = (payload?: any) => {
 
 <template>
   <a
-    :className="`rpl-text-link rpl-text-link--${theme}`"
+    :class="`rpl-text-link rpl-text-link--${theme}`"
     :href="url"
     @click="onClick()"
   >

@@ -3,6 +3,7 @@ import rplSpacing from './../../../../tokens/settings/spacing.yaml'
 /* Typography */
 const base = 'rpl-type'
 export const RplTypeStyles = [
+  /* Headings */
   {
     title: 'H1 / Highlight',
     class: `${base}-h1-highlight`
@@ -23,58 +24,64 @@ export const RplTypeStyles = [
     title: 'H4 / Heading',
     class: `${base}-h4`
   },
+
+  /* Paragraphs */
   {
     title: 'Paragraph / Large',
-    class: `${base}-body-large`
+    class: `${base}-p-large`
+  },
+  {
+    title: 'Paragraph / Large / Bold',
+    class: `${base}-p-large  ${base}-weight-bold`
   },
   {
     title: 'Paragraph / Default',
-    class: `${base}-body`
-  },
-  {
-    title: 'Paragraph / Default / Link',
-    class: `${base}-body-link`
+    class: `${base}-p`
   },
   {
     title: 'Paragraph / Default / Bold',
-    class: `${base}-body-bold`
+    class: `${base}-p  ${base}-weight-bold`
   },
   {
-    title: 'Paragraph / Ordered List',
-    class: `${base}-body-ol`
+    title: 'Paragraph / Small',
+    class: `${base}-p-small`
   },
   {
-    title: 'Paragraph / Unordered List',
-    class: `${base}-body-ul`
+    title: 'Paragraph / Small / Bold',
+    class: `${base}-p-small  ${base}-weight-bold`
+  },
+
+  /* Lists */
+  {
+    title: 'Ordered List',
+    class: `${base}-list-ol`
   },
   {
-    title: 'Component / Large / Bold',
-    class: `${base}-component-large-bold`
+    title: 'Unordered List',
+    class: `${base}-list-ul`
+  },
+
+  /* Labels */
+  {
+    title: 'Label / Large',
+    class: `${base}-label-large`
   },
   {
-    title: 'Component / Default',
-    class: `${base}-component`
+    title: 'Label / Default',
+    class: `${base}-label`
   },
   {
-    title: 'Component / Default / Bold',
-    class: `${base}-component-bold`
+    title: 'Label / Default / Bold',
+    class: `${base}-label  ${base}-weight-bold`
   },
   {
-    title: 'Component / Bold / Link',
-    class: `${base}-component-bold-link`
+    title: 'Label / Small',
+    class: `${base}-label-small`
   },
   {
-    title: 'Component / Small',
-    class: `${base}-component-small`
+    title: 'Label / Small / Bold',
+    class: `${base}-label-small  ${base}-weight-bold`
   },
-  {
-    title: 'Component / Caps',
-    class: `${base}-component-caps`
-  },
-  {
-    title: 'Component / Caps / Bold',
-    class: `${base}-component-caps-bold`
-  }
 ] as const
 
 /* Padding */

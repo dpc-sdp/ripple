@@ -6,11 +6,6 @@
   justify-content: center;
   gap: var(--rpl-space-2);
   padding: var(--rpl-space-4) var(--rpl-space-5);
-  font-family: var(--rpl-type-font-family);
-  font-weight: var(--rpl-type-weight-bold);
-  font-size: var(--rpl-type-size-component-m);
-  line-height: var(--rpl-type-height-component-m);
-  letter-spacing: var(--rpl-type-l-spacing-4);
   box-sizing: border-box;
   border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-s));
   border-width: var(--rpl-button-border-width);

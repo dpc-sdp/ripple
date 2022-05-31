@@ -15,7 +15,7 @@ export default class CustomContentCollection extends ContentCollection {
     const contentTypes = this.getSimpleDSLContentTypes()
     // sort news content type by the news item date
     if (contentTypes.type.includes('news')) {
-      return [{ field_news_date: 'desc' }]
+      return [{ field_news_date: 'desc' }, { created: 'desc' }]
     }
     // All other items sorted by created date
     return [{ created: 'desc' }]

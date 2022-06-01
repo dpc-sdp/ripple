@@ -78,12 +78,12 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 
 exports[`Markup transpiler should get same HTML with no plugins 1`] = `
 "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<a href=\\"http://google.com\\">&lt;&gt;&amp;&apos;&quot;&#xA9;. &#xBD; &#x20AC; &#x4E2D;&#x6587;</a>
-<h4>Sort out your&apos;&gt;&lt;&amp;&apos;&quot;s finances</h4>\\\\n\\\\n<p><a href=\\"https://www.test.dev/test\\">Here is a&#xA0;irregular white space</a>&#xA0;Another irregular white space.</p>
-<p>&#xA0; &#xA0; &#xA0;</p>
-<p>Single&#xA0;line&#x2000;demonstrating&#x2001;a&#x2002;mixture&#x2003;of&#x2004;<em>inline&#x2005;markup</em>&#x2006;and&#x2007;the&#x2008;<b>19</b>&#x2009;different&#x200A;unicode&#x200B;codepoints&#x202F;that&#x205F;can&#xFEFF;be used for spaces.</p>
+<a href=\\"http://google.com\\">&lt;&gt;&amp;&apos;&quot;©. ½ € 中文</a>
+<h4>Sort out your&apos;&gt;&lt;&amp;&apos;&quot;s finances</h4>\\\\n\\\\n<p><a href=\\"https://www.test.dev/test\\">Here is a irregular white space</a> Another irregular white space.</p>
+<p>     </p>
+<p>Single line demonstrating a mixture of <em>inline markup</em> and the <b>19</b> different unicode​codepoints that can﻿be used for spaces.</p>
 <img src=\\"https://test.dev/test.jpeg\\" title=\\"&quot;Needles, Knots &amp; Threads&quot;- an Exhibition of Embroidery &amp; Quilting\\">
-<p>&#xA0;</p>
+<p> </p>
 
 <!-- parseForLinks -->
 <h2>This is a heading 2</h2>

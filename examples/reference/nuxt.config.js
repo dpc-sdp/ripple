@@ -136,7 +136,7 @@ export default {
   * See https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui
   */
   ripple: {
-    viclogo: false,
+    viclogo: true,
     viclogoFooter: false
   },
   /*

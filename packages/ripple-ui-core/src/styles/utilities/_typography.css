@@ -1,5 +1,6 @@
 /* Headings */
 .rpl-type-h1-highlight {
+  display: inline;
   padding: 0 var(--rpl-space-3);
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
@@ -10,6 +11,7 @@
     var(--rpl-clr-core-accent-contrast)
   );
   background-color: var(--rpl-clr-core-accent);
+  box-decoration-break: clone;
 
   @media (--rpl-bp-l) {
     padding: 0 var(--rpl-space-4);
@@ -20,6 +22,7 @@
 }
 
 .rpl-type-h1 {
+  display: block;
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-9);
@@ -34,6 +37,7 @@
 }
 
 .rpl-type-h2 {
+  display: block;
   font-size: var(--rpl-type-size-4);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-6);
@@ -50,6 +54,7 @@
 }
 
 .rpl-type-h3-highlight {
+  display: inline;
   padding: 0 var(--rpl-space-2);
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
@@ -60,6 +65,7 @@
     var(--rpl-clr-core-accent-contrast)
   );
   background-color: var(--rpl-clr-core-accent-alt);
+  box-decoration-break: clone;
 
   @media (--rpl-bp-l) {
     padding: 0 var(--rpl-space-3);
@@ -70,6 +76,7 @@
 }
 
 .rpl-type-h3 {
+  display: block;
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-5);
@@ -86,6 +93,7 @@
 }
 
 .rpl-type-h4 {
+  display: block;
   font-size: var(--rpl-type-size-2);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-4);
@@ -103,6 +111,7 @@
 
 /* Paragraphs */
 .rpl-type-p-large {
+  display: block;
   font-size: var(--rpl-type-size-3);
   line-height: var(--rpl-type-lh-5);
   letter-spacing: var(--rpl-type-ls-2);
@@ -116,6 +125,7 @@
 }
 
 .rpl-type-p {
+  display: block;
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
@@ -124,6 +134,7 @@
 }
 
 .rpl-type-p-small {
+  display: block;
   font-size: var(--rpl-type-size-1);
   line-height: var(--rpl-type-lh-3);
   letter-spacing: var(--rpl-type-ls-1);
@@ -133,6 +144,7 @@
 
 /* Lists */
 .rpl-type-list-ol {
+  display: block;
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
@@ -147,6 +159,7 @@
 }
 
 .rpl-type-list-ul {
+  display: block;
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
@@ -160,7 +173,7 @@
   */
 }
 
-/* Label */
+/* Labels */
 .rpl-type-label-large {
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);

@@ -202,7 +202,25 @@ export default {
                 break
               case 'rpl-accordion':
                 if (component.data.title) {
-                  anchors.push({ text: component.data.title, url: `#${getAnchorLinkName(component.data.title)}` })
+                  // Add title of accordion set to anchors collection
+                  const url = `#${getAnchorLinkName(component.data.title)}`
+                  anchors.push({
+                    text: component.data.title,
+                    url: url,
+                    type: 'accordion'
+                  })
+
+                  // Add accordion triggers to anchors collection
+                  if (this.page.field_node_display_headings && this.page.field_node_display_headings === 'showH2AndAccordionTitle') {
+                    component.data.accordions.map((accordion, i) => {
+                      anchors.push({
+                        text: accordion.title,
+                        url: url,
+                        type: 'accordion',
+                        index: i + 1 // pre-render encode (0 index is falsy)
+                      })
+                    })
+                  }
                 }
                 break
             }

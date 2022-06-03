@@ -32,6 +32,7 @@ import RplMarkup from '@dpc-sdp/ripple-markup'
 import Vue from 'vue'
 import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
+import { RplAccordionEventBus } from './index.js'
 
 export default {
   name: 'RplAccordion',
@@ -57,6 +58,15 @@ export default {
     for (const index in this.accordions) {
       Vue.set(this.itemOpen, index, false)
     }
+    RplAccordionEventBus.$on('open-panel', (item) => {
+      // AnchorLinks can't narrow down to a single accordion, so check AnchorLinkName
+      if (item.url === `#${this.titleId}`) {
+        // Only open if closed
+        if (!this.accordionIsOpen(item.index)) {
+          this.accordionClick(item.index)
+        }
+      }
+    })
   },
   computed: {
     titleId () {

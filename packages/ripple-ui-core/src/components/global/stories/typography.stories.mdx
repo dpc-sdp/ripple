@@ -17,7 +17,7 @@ export const Template = (args) => ({
   template: `
     <sbTokenTable :columns="columns" full>
       <sbTokenTableRow lined v-for="item in items" :key="item">
-        <sbTokenTableCol><span :className="item.class" style="display: inline-block;">{{item.title}}</span></sbTokenTableCol>
+        <sbTokenTableCol><span :className="item.class">{{item.title}}</span></sbTokenTableCol>
         <sbTokenTableCol>{{item.class}}</sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>

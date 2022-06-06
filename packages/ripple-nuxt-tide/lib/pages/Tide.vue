@@ -211,7 +211,8 @@ export default {
                   })
 
                   // Add accordion triggers to anchors collection
-                  if (this.page.field_node_display_headings && this.page.field_node_display_headings === 'showH2AndAccordionTitle') {
+                  // field_node_display_headings == 'showH2AndAccordionTitle' | 'showH2AndH3AndAccordionTitle'
+                  if (this.page.field_node_display_headings && this.page.field_node_display_headings.indexOf('AccordionTitle') !== -1) {
                     component.data.accordions.map((accordion, i) => {
                       anchors.push({
                         text: accordion.title,

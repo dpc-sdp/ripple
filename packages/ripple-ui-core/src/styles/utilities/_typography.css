@@ -1,3 +1,9 @@
+/*
+  Due to the complexities of ul and ol styling the stylint rule for
+  'no-descending-specificity' has been disabled for this file.
+*/
+/* stylelint-disable no-descending-specificity */
+
 /* Headings */
 .rpl-type-h1-highlight {
   display: inline;
@@ -149,13 +155,37 @@
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
   color: var(--rpl-clr-type-default);
-  margin-bottom: var(--rpl-space-8);
+  margin: 0 0 var(--rpl-space-8) var(--rpl-space-9);
 
   /*
-    TODO: List styling goes here, e.g:
-      - item spacing
-      - 3 levels of item number styling
+    TODO:
+    - Confirm left padding on lists
   */
+
+  li {
+    padding: 0 var(--rpl-space-2) var(--rpl-space-2);
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Sub lists */
+  & &,
+  .rpl-type-list-ul {
+    margin-bottom: 0;
+    padding-top: var(--rpl-space-2);
+  }
+
+  /* Level 2 */
+  & & {
+    list-style-type: lower-alpha;
+  }
+
+  /* Level 3 */
+  & & & {
+    list-style-type: lower-roman;
+  }
 }
 
 .rpl-type-list-ul {
@@ -164,13 +194,43 @@
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
   color: var(--rpl-clr-type-default);
-  margin-bottom: var(--rpl-space-8);
+  margin: 0 0 var(--rpl-space-8) var(--rpl-space-9);
 
   /*
-    TODO: List styling goes here, e.g:
-      - item spacing
-      - 2 levels of item bullet styling
+    TODO:
+    - Confirm left padding on lists
   */
+
+  li {
+    padding: 0 var(--rpl-space-2) var(--rpl-space-2);
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Sub lists */
+  & &,
+  .rpl-type-list-ol {
+    margin-bottom: 0;
+    padding-top: var(--rpl-space-2);
+  }
+
+  /* Level 2 */
+  & & {
+    list-style-type: none;
+
+    li {
+      position: relative;
+
+      &::before {
+        content: '-';
+        display: block;
+        position: absolute;
+        left: -1.5rem;
+      }
+    }
+  }
 }
 
 /* Labels */

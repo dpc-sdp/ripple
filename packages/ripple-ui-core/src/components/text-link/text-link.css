@@ -1,11 +1,11 @@
 .rpl-text-link {
   background-color: transparent;
-  color: var(--rpl-clr-semantic-link);
+  color: var(--rpl-clr-link);
   text-decoration: underline;
   cursor: pointer;
 
   &:visited {
-    color: var(--rpl-clr-semantic-link-visited);
+    color: var(--rpl-clr-link-visited);
   }
 
   &:active {
@@ -14,7 +14,7 @@
   }
 
   &:focus {
-    background-color: var(--rpl-clr-semantic-focus);
+    background-color: var(--rpl-clr-focus);
     color: var(--rpl-clr-dark);
     text-decoration: none;
     position: relative;

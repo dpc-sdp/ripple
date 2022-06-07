@@ -84,7 +84,6 @@ theme:
       37: '#E57200'
       51: '#FFC166'
       81: '#F9E062'
-    link:
-      _: '#0052C2'
-      visited: '#9F46B1'
+    link: '#0052C2'
+    link-visited: '#9F46B1'
     focus: '#FF9E1B'

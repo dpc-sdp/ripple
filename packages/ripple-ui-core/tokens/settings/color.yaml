@@ -31,7 +31,7 @@ clr:
   link:
     value: '{theme.clr.link}'
   link-visited:
-    value: '{theme.clr.link.visited}'
+    value: '{theme.clr.link-visited}'
   focus:
     value: '{theme.clr.focus}'
   neutral:

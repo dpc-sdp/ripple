@@ -2,8 +2,14 @@ border:
   radius:
     none:
       value: '0'
-    s:
+    1:
+      value: '2px'
+    2:
       value: '4px'
+    3:
+      value: '8px'
+    4:
+      value: '12px'
     full:
       value: '999px'
   width:

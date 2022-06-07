@@ -7,7 +7,7 @@
   gap: var(--rpl-space-2);
   padding: var(--rpl-space-4) var(--rpl-space-5);
   box-sizing: border-box;
-  border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-s));
+  border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-2));
   border-width: var(--rpl-button-border-width);
 
   &__icon {

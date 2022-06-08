@@ -33,9 +33,4 @@
   &:hover {
     text-decoration: none;
   }
-
-  &--inactive {
-    color: var(--rpl-clr-neutral-4);
-    text-decoration: none;
-  }
 }

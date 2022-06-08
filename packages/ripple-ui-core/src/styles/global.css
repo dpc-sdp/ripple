@@ -8,6 +8,7 @@
 @import '_breakpoints.css';
 
 /* Utilities */
+@import 'utilities/_accessibility.css';
 @import 'utilities/_margin.css';
 @import 'utilities/_padding.css';
 @import 'utilities/_size.css';

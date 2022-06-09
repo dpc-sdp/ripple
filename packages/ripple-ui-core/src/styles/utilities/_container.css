@@ -1,0 +1,17 @@
+/* TODO: Make a story for this */
+.rpl-container {
+  max-width: 1200px;
+  margin: 0 var(--rpl-space-4);
+
+  @media (--rpl-bp-m) {
+    margin: 0 var(--rpl-space-8);
+  }
+
+  @media (--rpl-bp-l) {
+    margin: 0 var(--rpl-space-12);
+  }
+
+  @media (--rpl-bp-xl) {
+    margin: 0 var(--rpl-space-13);
+  }
+}

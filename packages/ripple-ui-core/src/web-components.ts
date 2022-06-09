@@ -1,7 +1,7 @@
 import { defineCustomElement } from 'vue'
 import { default as RplButtonCmp } from './components/button/button.vue'
 import { default as RplIconCmp } from './components/icon/icon.vue'
-import { default as RplTextLinkCmp } from './components/text-link/TextLink.vue'
+import { default as RplTextLinkCmp } from './components/text-link/text-link.vue'
 
 const RplButton = defineCustomElement(RplButtonCmp)
 const RplIcon = defineCustomElement(RplIconCmp)

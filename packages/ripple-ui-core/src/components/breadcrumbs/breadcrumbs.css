@@ -3,7 +3,7 @@
 .rpl-breadcrumbs {
   background-color: var(--rpl-clr-white);
   border: var(--rpl-border-width-1) solid var(--rpl-clr-neutral-2);
-  border-radius: var(--rpl-border-radius-s);
+  border-radius: var(--rpl-border-radius-2);
   box-shadow: var(--rpl-elevation-1);
   color: var(--rpl-clr-dark);
   margin-top: var(--rpl-space-1);
@@ -32,7 +32,7 @@
 
   &__item {
     display: none;
-    line-height: calc(var(--rpl-type-size-component-m) + var(--rpl-space-2));
+    line-height: calc(var(--rpl-type-lh-2) + var(--rpl-space-2));
 
     &--parent {
       display: inline;
@@ -61,7 +61,7 @@
   &__item-link {
     &,
     &:visited {
-      color: var(--rpl-clr-breadcrumb-link, var(--rpl-clr-semantic-link));
+      color: var(--rpl-clr-breadcrumb-link, var(--rpl-clr-link));
     }
 
     &:focus,

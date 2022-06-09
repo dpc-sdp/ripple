@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-form-alert" :class="classes" aria-live="assertive">
+  <div class="rpl-form-alert" :class="classes" aria-live="assertive" aria-atomic="true">
     <rpl-icon :symbol="icon" :color="color" class="rpl-form-alert__icon"></rpl-icon>
     <div class="rpl-form-alert__message">
       <slot></slot>

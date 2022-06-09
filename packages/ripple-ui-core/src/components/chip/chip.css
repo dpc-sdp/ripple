@@ -11,12 +11,12 @@
   text-decoration: none;
 
   &--primary {
-    --rpl-chip-border-clr: var(--rpl-clr-core-primary);
-    --rpl-chip-clr: var(--rpl-clr-type-primary);
+    --rpl-chip-border-clr: var(--rpl-clr-primary);
+    --rpl-chip-clr: var(--rpl-clr-primary);
 
     &:hover {
-      --rpl-chip-border-clr: var(--rpl-clr-core-primary-alt);
-      --rpl-chip-clr: var(--rpl-clr-core-primary-alt);
+      --rpl-chip-border-clr: var(--rpl-clr-primary-alt);
+      --rpl-chip-clr: var(--rpl-clr-primary-alt);
     }
   }
 
@@ -37,7 +37,7 @@
     --rpl-chip-border-clr: transparent;
     --rpl-chip-clr: var(--rpl-clr-dark);
 
-    background-color: var(--rpl-clr-semantic-focus);
+    background-color: var(--rpl-clr-focus);
     border-radius: var(--rpl-border-radius-none);
     position: relative;
     text-decoration: none;

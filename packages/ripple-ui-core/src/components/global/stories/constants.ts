@@ -17,6 +17,10 @@ export const RplTypeStyles = [
     class: `${base}-h2`
   },
   {
+    title: 'H3 / Highlight',
+    class: `${base}-h3-highlight`
+  },
+  {
     title: 'H3 / Heading',
     class: `${base}-h3`
   },

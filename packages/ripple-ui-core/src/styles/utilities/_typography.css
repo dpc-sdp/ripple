@@ -13,10 +13,11 @@
   line-height: var(--rpl-type-lh-9);
   letter-spacing: var(--rpl-type-ls-5);
   color: var(
-    --rpl-theme-text-h1-highlight-bg-color,
+    --rpl-theme-text-h1-highlight-color,
     var(--rpl-clr-accent-contrast)
   );
   background-color: var(--rpl-clr-accent);
+  box-decoration-break: clone;
 
   @media (--rpl-bp-l) {
     padding: 0 var(--rpl-space-4);
@@ -67,9 +68,9 @@
   letter-spacing: var(--rpl-type-ls-2);
   color: var(
     --rpl-theme-text-h3-highlight-color,
-    var(--rpl-clr-core-accent-contrast)
+    var(--rpl-clr-primary-contrast)
   );
-  background-color: var(--rpl-clr-core-accent-alt);
+  background-color: var(--rpl-clr-primary);
   box-decoration-break: clone;
 
   @media (--rpl-bp-l) {

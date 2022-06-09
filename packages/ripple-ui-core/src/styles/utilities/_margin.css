@@ -1,0 +1,22 @@
+/* Margin */
+@for $i from 1 to 14 {
+  .rpl-u-margin-$i {
+    margin: var(--rpl-space-$(i));
+  }
+
+  .rpl-u-margin-t-$i {
+    margin-top: var(--rpl-space-$(i));
+  }
+
+  .rpl-u-margin-r-$i {
+    margin-right: var(--rpl-space-$(i));
+  }
+
+  .rpl-u-margin-b-$i {
+    margin-bottom: var(--rpl-space-$(i));
+  }
+
+  .rpl-u-margin-l-$i {
+    margin-left: var(--rpl-space-$(i));
+  }
+}

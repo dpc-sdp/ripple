@@ -1,6 +1,7 @@
 <script lang="ts">
 import sbTokenTableRow from './token-row.vue'
 import sbTokenTableCol from './token-col.vue'
+
 export default {
   components: { sbTokenTableRow, sbTokenTableCol },
   props: {
@@ -25,6 +26,8 @@ export default {
 
 <style>
 .sb-token-table {
+  display: flex;
+  flex-direction: column;
   width: 469px;
   &--full-width {
     width: 100%;

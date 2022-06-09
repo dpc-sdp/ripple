@@ -19,11 +19,11 @@
   }
 
   &--theme-primary svg {
-    color: var(--rpl-clr-core-primary);
+    color: var(--rpl-clr-primary);
   }
 
   &--theme-accent svg {
-    color: var(--rpl-clr-core-accent);
+    color: var(--rpl-clr-accent);
   }
 
   &--theme-neutral svg {
@@ -31,18 +31,18 @@
   }
 
   &--theme-info svg {
-    color: var(--rpl-clr-semantic-info);
+    color: var(--rpl-clr-information);
   }
 
   &--theme-success svg {
-    color: var(--rpl-clr-semantic-success);
+    color: var(--rpl-clr-success);
   }
 
   &--theme-warning svg {
-    color: var(--rpl-clr-semantic-warning);
+    color: var(--rpl-clr-warning);
   }
 
   &--theme-error svg {
-    color: var(--rpl-clr-semantic-error);
+    color: var(--rpl-clr-error);
   }
 }

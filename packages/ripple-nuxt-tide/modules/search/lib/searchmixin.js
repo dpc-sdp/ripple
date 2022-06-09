@@ -1,9 +1,16 @@
+import VueScrollTo from 'vue-scrollto'
 import { cardColsSetting } from '../../../lib/config/layout.config.js'
 import { truncateText } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import search from './search/module'
 import { logger } from '@dpc-sdp/ripple-nuxt-tide/lib/core'
 
 const searchMixin = {
+  props: {
+    scrollOnPagerChange: {
+      type: Boolean,
+      default: true
+    }
+  },
   data () {
     let tideSearch
     if (this.$tideSearchOptions.loadOnDemand) {
@@ -26,7 +33,8 @@ const searchMixin = {
       count: null,
       cardColBp: cardColsSetting,
       tideSearch: tideSearch,
-      setPageTitleOnResults: true
+      setPageTitleOnResults: true,
+      scrollToElement: '.rpl-search-results-layout'
     }
   },
   methods: {
@@ -108,9 +116,13 @@ const searchMixin = {
         }
       }
     },
-    changed (event) {
+    async changed (event) {
       this.pager.initialStep = event
-      this.getSearchResults(this.$route.query.q, event)
+      await this.getSearchResults(this.$route.query.q, event)
+
+      if (this.scrollOnPagerChange) {
+        VueScrollTo.scrollTo(this.scrollToElement, 500, { offset: -150 })
+      }
     },
     getComputedFilters () {
       // override this method in your page component this to post process filter values

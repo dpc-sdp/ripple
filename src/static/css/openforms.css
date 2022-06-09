@@ -558,6 +558,52 @@ button.datebutton:hover {
     box-shadow: 0 0 0 2px var(--ripple-primary) !important;
 }
 
+.tablesaw-stack thead td,
+.tablesaw-stack thead th {
+    position: static !important;
+    font-size: unset !important;
+    overflow: unset !important;
+}
+
+.tablesaw-stack td,
+.tablesaw-stack th,
+.tablesaw-stack thead td,
+.tablesaw-stack thead th {
+    display: table-cell !important;
+    margin: 0 !important;
+}
+
+.tablesaw thead th {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    text-align: center !important;
+}
+
+.tablesaw td {
+    text-align: center !important;
+}
+
+.tablesaw thead tr:first-child th:first-child {
+    visibility: hidden !important;
+    min-width: 150px !important;
+}
+
+.tablesaw tbody td:first-child tr:first-child {
+    visibility: hidden !important;
+    min-width: 150px !important;
+}
+
+.tablesaw-stack td .tablesaw-cell-label,
+.tablesaw-stack th .tablesaw-cell-label {
+    display: none !important;
+}
+
+.tablesaw-stack tbody td, .tablesaw-stack tbody th {
+    clear: left;
+    float: unset !important;
+    width: unset;
+}
+
 
 /* Date picker dropdown */
 .picker {

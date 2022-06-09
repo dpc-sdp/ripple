@@ -1,6 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "version": "0.0.0",
+  "license": "Apache-2.0",
   "files": [
     "dist",
     "src",
@@ -16,7 +17,7 @@
     "./webcomponents": "./dist/web-components/rpl-wc.es.js",
     "./style": "./dist/global.css",
     "./style/components": "./dist/style.css",
-    "./style/src": "./src/styles/global.css"
+    "./style/breakpoints": "./src/styles/_breakpoints.css"
   },
   "scripts": {
     "dev": "concurrently \"wait-on -i 2000 tcp:6006 && yarn test:storybook --watch\" \"yarn:watch\" \"yarn:storybook\" --handle-input",
@@ -35,12 +36,13 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
-    "test:storybook": "test-storybook",
-    "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook --stories-json\""
+    "test:storybook": "test-storybook --stories-json",
+    "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test:storybook\""
   },
   "dependencies": {
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
+    "postcss-for": "^2.1.1",
     "vue": "^3.2.31"
   },
   "devDependencies": {

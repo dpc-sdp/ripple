@@ -1,22 +1,13 @@
 .rpl-button {
   --rpl-button-border-width: var(--rpl-border-width-2);
 
-  /* Base styles
-    1. TODO: Replace this with rem units once tokens are using rems
-    2. TODO: Wire these fonts up into tokens when the designers include them
-  */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--rpl-space-2);
   padding: var(--rpl-space-4) var(--rpl-space-5);
-  font-family: 'VIC Bold', Arial, Helvetica, sans-serif; /* [2] */
-  letter-spacing: 0.0192em; /* [2] */
-  font-weight: bold; /* [2] */
-  font-size: 1.6rem; /* [1] */
-  line-height: 1; /* [2] */
   box-sizing: border-box;
-  border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-s));
+  border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-2));
   border-width: var(--rpl-button-border-width);
 
   &__icon {
@@ -90,50 +81,50 @@
   }
 
   &--primary {
-    --rpl-button-filled-color: var(--rpl-clr-core-primary-contrast);
-    --rpl-button-filled-bg-color: var(--rpl-clr-core-primary);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-core-primary-alt);
+    --rpl-button-filled-color: var(--rpl-clr-primary-contrast);
+    --rpl-button-filled-bg-color: var(--rpl-clr-primary);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-primary-alt);
     --rpl-button-outlined-color: var(
       --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-core-primary)
+      var(--rpl-clr-primary)
     );
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-core-primary);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-primary);
     --rpl-button-outlined-hover-color: var(
       --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-core-primary-alt)
+      var(--rpl-clr-primary-alt)
     );
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-core-primary-alt);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-primary-alt);
     --rpl-button-white-clr: var(
       --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-core-primary)
+      var(--rpl-clr-primary)
     );
     --rpl-button-white-hover-clr: var(
       --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-core-primary-alt)
+      var(--rpl-clr-primary-alt)
     );
   }
 
   &--accent {
-    --rpl-button-filled-color: var(--rpl-clr-core-accent-contrast);
-    --rpl-button-filled-bg-color: var(--rpl-clr-core-accent);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-core-accent-alt);
+    --rpl-button-filled-color: var(--rpl-clr-accent-contrast);
+    --rpl-button-filled-bg-color: var(--rpl-clr-accent);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-accent-alt);
     --rpl-button-outlined-color: var(
       --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-core-accent)
+      var(--rpl-clr-accent)
     );
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-core-accent);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-accent);
     --rpl-button-outlined-hover-color: var(
       --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-core-accent-alt)
+      var(--rpl-clr-accent-alt)
     );
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-core-accent-alt);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-accent-alt);
     --rpl-button-white-clr: var(
       --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-core-accent)
+      var(--rpl-clr-accent)
     );
     --rpl-button-white-hover-clr: var(
       --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-core-accent-alt)
+      var(--rpl-clr-accent-alt)
     );
   }
 
@@ -143,60 +134,60 @@
     --rpl-button-outlined-bdr-color: var(--rpl-clr-neutral-5);
     --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-neutral-7);
     --rpl-button-outlined-hover-color: var(--rpl-clr-neutral-7);
-    --rpl-button-white-clr: var(--rpl-clr-core-neutral);
+    --rpl-button-white-clr: var(--rpl-clr-dark);
   }
 
   &--error {
     --rpl-button-filled-color: var(--rpl-clr-white);
-    --rpl-button-filled-bg-color: var(--rpl-clr-semantic-error);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-semantic-error-4);
-    --rpl-button-outlined-color: var(--rpl-clr-semantic-error);
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-semantic-error);
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-semantic-error-4);
-    --rpl-button-outlined-hover-color: var(--rpl-clr-semantic-error-4);
-    --rpl-button-white-clr: var(--rpl-clr-semantic-error);
+    --rpl-button-filled-bg-color: var(--rpl-clr-error);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-error-alt);
+    --rpl-button-outlined-color: var(--rpl-clr-error);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-error);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-error-alt);
+    --rpl-button-outlined-hover-color: var(--rpl-clr-error-alt);
+    --rpl-button-white-clr: var(--rpl-clr-error);
   }
 
   &--info {
     --rpl-button-filled-color: var(--rpl-clr-white);
-    --rpl-button-filled-bg-color: var(--rpl-clr-semantic-info-3);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-semantic-info-2);
-    --rpl-button-outlined-color: var(--rpl-clr-semantic-info-3);
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-semantic-info-3);
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-semantic-info-2);
-    --rpl-button-outlined-hover-color: var(--rpl-clr-semantic-info-2);
-    --rpl-button-white-clr: var(--rpl-clr-semantic-info-3);
+    --rpl-button-filled-bg-color: var(--rpl-clr-information);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-information); /* orphan */
+    --rpl-button-outlined-color: var(--rpl-clr-information);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-information);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-information); /* 2 */
+    --rpl-button-outlined-hover-color: var(--rpl-clr-information); /* orphan */
+    --rpl-button-white-clr: var(--rpl-clr-information);
   }
 
   &--success {
     --rpl-button-filled-color: var(--rpl-clr-white);
-    --rpl-button-filled-bg-color: var(--rpl-clr-semantic-success-3);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-semantic-success-2);
-    --rpl-button-outlined-color: var(--rpl-clr-semantic-success-3);
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-semantic-success-3);
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-semantic-success-2);
-    --rpl-button-outlined-hover-color: var(--rpl-clr-semantic-success-2);
-    --rpl-button-white-clr: var(--rpl-clr-semantic-success-3);
+    --rpl-button-filled-bg-color: var(--rpl-clr-success);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-success); /* orphan */
+    --rpl-button-outlined-color: var(--rpl-clr-success);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-success);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-success); /* orphan */
+    --rpl-button-outlined-hover-color: var(--rpl-clr-success); /* orphan */
+    --rpl-button-white-clr: var(--rpl-clr-success);
   }
 
   &--warning {
     --rpl-button-filled-color: var(--rpl-clr-white);
-    --rpl-button-filled-bg-color: var(--rpl-clr-semantic-warning-2);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-semantic-warning-3);
-    --rpl-button-outlined-color: var(--rpl-clr-semantic-warning-2);
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-semantic-warning-2);
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-semantic-warning-3);
-    --rpl-button-outlined-hover-color: var(--rpl-clr-semantic-warning-3);
-    --rpl-button-white-clr: var(--rpl-clr-semantic-warning-2);
+    --rpl-button-filled-bg-color: var(--rpl-clr-warning);
+    --rpl-button-filled-bg-hover-color: var(--rpl-clr-warning); /* orphan */
+    --rpl-button-outlined-color: var(--rpl-clr-warning);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-warning);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-warning); /* orphan */
+    --rpl-button-outlined-hover-color: var(--rpl-clr-warning); /* orphan */
+    --rpl-button-white-clr: var(--rpl-clr-warning);
   }
 
   &:focus {
     outline: 0;
-    background-color: var(--rpl-clr-semantic-focus);
+    background-color: var(--rpl-clr-focus);
     color: var(--rpl-clr-dark);
     border-radius: 0;
     border-style: solid;
-    border-color: var(--rpl-clr-semantic-focus);
+    border-color: var(--rpl-clr-focus);
     position: relative;
     box-sizing: border-box;
 

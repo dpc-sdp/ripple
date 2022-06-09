@@ -1,3 +1,6 @@
+/* Will need to add this import wherever we need to use custom media breakpoints */
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .rpl-accordion {
   border: 1px solid pink;
 
@@ -7,5 +10,9 @@
 
   &__button-text {
     font-weight: bold;
+  }
+
+  @media (--rpl-bp-m) {
+    border-color: red !important;
   }
 }

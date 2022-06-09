@@ -3,35 +3,21 @@ export default { name: 'RplTextLink' }
 </script>
 
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType } from 'vue'
 import type { RplTheme } from './../../types/ripple'
-import { RplPropUrl } from './../global/props'
 
 import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-text-link/click')
 
-const props = defineProps({
-  ...RplPropUrl,
+defineProps({
   theme: {
     type: String as PropType<RplTheme>,
     default: 'primary'
   },
-  inactive: {
-    type: Boolean,
-    default: false
-  },
-  class: {
+  url: {
     type: String,
-    default: ''
+    default: '#'
   }
-})
-
-const classes = computed(() => {
-  const cl = ['rpl-text-link', `rpl-text-link--${props.theme}`, props.class]
-  if (props.inactive) {
-    cl.push('rpl-text-link--inactive')
-  }
-  return cl.join(' ')
 })
 
 const onClick = (payload?: any) => {
@@ -40,7 +26,11 @@ const onClick = (payload?: any) => {
 </script>
 
 <template>
-  <a :className="classes" :href="url" @click="onClick()">
+  <a
+    :class="`rpl-text-link rpl-text-link--${theme}`"
+    :href="url"
+    @click="onClick()"
+  >
     <slot />
   </a>
 </template>

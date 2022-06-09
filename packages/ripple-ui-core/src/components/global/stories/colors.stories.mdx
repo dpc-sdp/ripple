@@ -3,7 +3,7 @@ import sbTokenTable from './../../../../.storybook/components/token-table.vue'
 import sbTokenTableRow from './../../../../.storybook/components/token-row.vue'
 import sbTokenTableCol from './../../../../.storybook/components/token-col.vue'
 import sbTokenTableSwatch from './../../../../.storybook/components/token-swatch.vue'
-import { getColorSwatches, default as rplColors } from './colors'
+import { getColorSwatches, getColorSwatchesCollection, default as rplColors } from './colors'
 
 export const Template = (args) => ({
   components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
@@ -44,7 +44,7 @@ export const Template = (args) => ({
     name="Primary"
     args={{
       columns: ['Primary'],
-      items: getColorSwatches(rplColors, 'core.primary')
+      items: getColorSwatches(rplColors, 'primary')
     }}
   >
     {Template.bind({})}
@@ -53,7 +53,7 @@ export const Template = (args) => ({
     name="Accent"
     args={{
       columns: ['Accent'],
-      items: getColorSwatches(rplColors, 'core.accent')
+      items: getColorSwatches(rplColors, 'accent')
     }}
   >
     {Template.bind({})}
@@ -66,7 +66,7 @@ export const Template = (args) => ({
   <Story
     name="Neutral"
     args={{
-      columns: ['Neutrals'],
+      columns: ['Neutral'],
       items: getColorSwatches(rplColors, 'neutral')
     }}
   >
@@ -78,37 +78,16 @@ export const Template = (args) => ({
 
 <Canvas>
   <Story
-    name="Info"
+    name="Semantic"
     args={{
-      columns: ['Info'],
-      items: getColorSwatches(rplColors, 'semantic.info')
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="Success"
-    args={{
-      columns: ['Success'],
-      items: getColorSwatches(rplColors, 'semantic.success')
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="Warning"
-    args={{
-      columns: ['Warning'],
-      items: getColorSwatches(rplColors, 'semantic.warning')
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="Error"
-    args={{
-      columns: ['Error'],
-      items: getColorSwatches(rplColors, 'semantic.error')
+      columns: ['Semantic'],
+      items: getColorSwatchesCollection(rplColors, [
+        'information',
+        'success',
+        'warning',
+        'error',
+        'error-alt'
+      ])
     }}
   >
     {Template.bind({})}

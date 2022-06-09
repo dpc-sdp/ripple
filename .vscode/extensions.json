@@ -4,9 +4,10 @@
     "esbenp.prettier-vscode",
     "eamodio.gitlens",
     "streetsidesoftware.code-spell-checker",
-    "johnsoncodehk.volar",
+    "Vue.volar",
     "vivaxy.vscode-conventional-commits",
     "csstools.postcss",
-    "EditorConfig.EditorConfig"
+    "editorconfig.editorconfig",
+    "stylelint.vscode-stylelint"
   ]
 }

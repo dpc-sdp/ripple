@@ -1,15 +1,23 @@
+/*
+  Due to the complexities of ul and ol styling the stylint rule for
+  'no-descending-specificity' has been disabled for this file.
+*/
+/* stylelint-disable no-descending-specificity */
+
 /* Headings */
 .rpl-type-h1-highlight {
+  display: inline;
   padding: 0 var(--rpl-space-3);
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-9);
   letter-spacing: var(--rpl-type-ls-5);
   color: var(
-    --rpl-theme-text-h1-highlight-bg-color,
+    --rpl-theme-text-h1-highlight-color,
     var(--rpl-clr-accent-contrast)
   );
   background-color: var(--rpl-clr-accent);
+  box-decoration-break: clone;
 
   @media (--rpl-bp-l) {
     padding: 0 var(--rpl-space-4);
@@ -20,6 +28,7 @@
 }
 
 .rpl-type-h1 {
+  display: block;
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-9);
@@ -34,6 +43,7 @@
 }
 
 .rpl-type-h2 {
+  display: block;
   font-size: var(--rpl-type-size-4);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-6);
@@ -49,7 +59,30 @@
   }
 }
 
+.rpl-type-h3-highlight {
+  display: inline;
+  padding: 0 var(--rpl-space-2);
+  font-size: var(--rpl-type-size-3);
+  font-weight: var(--rpl-type-weight-bold);
+  line-height: var(--rpl-type-lh-6);
+  letter-spacing: var(--rpl-type-ls-2);
+  color: var(
+    --rpl-theme-text-h3-highlight-color,
+    var(--rpl-clr-primary-contrast)
+  );
+  background-color: var(--rpl-clr-primary);
+  box-decoration-break: clone;
+
+  @media (--rpl-bp-l) {
+    padding: 0 var(--rpl-space-3);
+    font-size: var(--rpl-type-size-5);
+    line-height: var(--rpl-type-lh-8);
+    letter-spacing: var(--rpl-type-ls-5);
+  }
+}
+
 .rpl-type-h3 {
+  display: block;
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-5);
@@ -66,6 +99,7 @@
 }
 
 .rpl-type-h4 {
+  display: block;
   font-size: var(--rpl-type-size-2);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-4);
@@ -83,6 +117,7 @@
 
 /* Paragraphs */
 .rpl-type-p-large {
+  display: block;
   font-size: var(--rpl-type-size-3);
   line-height: var(--rpl-type-lh-5);
   letter-spacing: var(--rpl-type-ls-2);
@@ -96,6 +131,7 @@
 }
 
 .rpl-type-p {
+  display: block;
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
@@ -104,6 +140,7 @@
 }
 
 .rpl-type-p-small {
+  display: block;
   font-size: var(--rpl-type-size-1);
   line-height: var(--rpl-type-lh-3);
   letter-spacing: var(--rpl-type-ls-1);
@@ -113,34 +150,90 @@
 
 /* Lists */
 .rpl-type-list-ol {
+  display: block;
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
   color: var(--rpl-clr-type-default);
-  margin-bottom: var(--rpl-space-8);
+  margin: 0 0 var(--rpl-space-8) var(--rpl-space-9);
 
   /*
-    TODO: List styling goes here, e.g:
-      - item spacing
-      - 3 levels of item number styling
+    TODO:
+    - Confirm left padding on lists
   */
+
+  li {
+    padding: 0 var(--rpl-space-2) var(--rpl-space-2);
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Sub lists */
+  & &,
+  .rpl-type-list-ul {
+    margin-bottom: 0;
+    padding-top: var(--rpl-space-2);
+  }
+
+  /* Level 2 */
+  & & {
+    list-style-type: lower-alpha;
+  }
+
+  /* Level 3 */
+  & & & {
+    list-style-type: lower-roman;
+  }
 }
 
 .rpl-type-list-ul {
+  display: block;
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
   color: var(--rpl-clr-type-default);
-  margin-bottom: var(--rpl-space-8);
+  margin: 0 0 var(--rpl-space-8) var(--rpl-space-9);
 
   /*
-    TODO: List styling goes here, e.g:
-      - item spacing
-      - 2 levels of item bullet styling
+    TODO:
+    - Confirm left padding on lists
   */
+
+  li {
+    padding: 0 var(--rpl-space-2) var(--rpl-space-2);
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Sub lists */
+  & &,
+  .rpl-type-list-ol {
+    margin-bottom: 0;
+    padding-top: var(--rpl-space-2);
+  }
+
+  /* Level 2 */
+  & & {
+    list-style-type: none;
+
+    li {
+      position: relative;
+
+      &::before {
+        content: '-';
+        display: block;
+        position: absolute;
+        left: -1.5rem;
+      }
+    }
+  }
 }
 
-/* Label */
+/* Labels */
 .rpl-type-label-large {
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);

@@ -1,7 +1,7 @@
 .rpl-tag {
   background-color: var(--rpl-tag-bg-clr);
   color: var(--rpl-tag-clr);
-  font-size: var(--rpl-type-size-component-xs);
+  font-size: var(--rpl-type-size-1);
   padding: var(--rpl-space-1) var(--rpl-space-2);
 
   &--primary {

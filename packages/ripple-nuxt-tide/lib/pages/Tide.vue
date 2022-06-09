@@ -194,7 +194,8 @@ export default {
               case 'rpl-markup':
                 if (component.data.html) {
                   let showSubHeading = false
-                  if (this.page.field_node_display_headings && this.page.field_node_display_headings === 'showH2AndH3') {
+                  // field_node_display_headings == 'showH2AndH3' | 'showH2AndH3AndAccordionTitle'
+                  if (this.page.field_node_display_headings && this.page.field_node_display_headings.indexOf('showH2AndH3') !== -1) {
                     showSubHeading = true
                   }
                   anchors.push(...anchorUtils.getAnchorLinks(component.data.html, showSubHeading))

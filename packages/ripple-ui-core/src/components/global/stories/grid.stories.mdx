@@ -1,19 +1,27 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs'
 
-export const Template = (args) => ({
+export const ColumnsXSTemplate = (args) => ({
   components: {},
   setup() {
     return {
     }
   },
   template: `
-    <h1>XS / Non responsive</h1>
     <div class="rpl-grid">
       <div class="rpl-col-12">Span 12</div>
       <div class="rpl-col-6">Span 6</div>
       <div class="rpl-col-6">Columns span 6</div>
     </div>
-    <h1 class="rpl-u-margin-t-12">M</h1>
+  `
+});
+
+export const ColumnsMTemplate = (args) => ({
+  components: {},
+  setup() {
+    return {
+    }
+  },
+  template: `
     <div class="rpl-grid">
       <div class="rpl-col-12-m">Span 12 - M</div>
       <div class="rpl-col-6-m">Span 6 - M</div>
@@ -24,7 +32,16 @@ export const Template = (args) => ({
       <div class="rpl-col-7-m">Span 7 - M</div>
       <div class="rpl-col-4-m  rpl-col-start-9-m">Span 4 - M, Start at 9 - M</div>
     </div>
-    <h1 class="rpl-u-margin-t-12">L</h1>
+  `
+});
+
+export const ColumnsLTemplate = (args) => ({
+  components: {},
+  setup() {
+    return {
+    }
+  },
+  template: `
     <div class="rpl-grid">
       <div class="rpl-col-12-l">Span 12 - L</div>
       <div class="rpl-col-6-l">Span 6 - L</div>
@@ -39,7 +56,16 @@ export const Template = (args) => ({
       <div class="rpl-col-7-l">Span 7 - L</div>
       <div class="rpl-col-4-l  rpl-col-start-9-l">Span 4 - L, Start at 9 - L</div>
     </div>
-    <h1 class="rpl-u-margin-t-12">Example responsive grid layout</h1>
+  `
+});
+
+export const ExampleLayoutTemplate = (args) => ({
+  components: {},
+  setup() {
+    return {
+    }
+  },
+  template: `
     <div class="rpl-grid">
       <div class="rpl-col-12"><u>Header</u></div>
       <div class="rpl-col-6  rpl-col-4-m  rpl-col-3-l">Menu item</div>
@@ -57,7 +83,16 @@ export const Template = (args) => ({
       </div>
       <div class="rpl-col-12  rpl-col-4-m  rpl-col-start-9-m">Side menu</div>
     </div>
-    <h1 class="rpl-u-margin-t-12">Example responsive grid layout - small gaps</h1>
+  `
+});
+
+export const GapModifierSTemplate = (args) => ({
+  components: {},
+  setup() {
+    return {
+    }
+  },
+  template: `
     <div class="rpl-grid  rpl-grid--gap-s">
       <div class="rpl-col-12"><u>Header</u></div>
       <div class="rpl-col-6  rpl-col-4-m  rpl-col-3-l">Menu item</div>
@@ -75,7 +110,16 @@ export const Template = (args) => ({
       </div>
       <div class="rpl-col-12  rpl-col-4-m  rpl-col-start-9-m">Side menu</div>
     </div>
-    <h1 class="rpl-u-margin-t-12">Example responsive grid layout - large gaps</h1>
+  `
+});
+
+export const GapModifierLTemplate = (args) => ({
+  components: {},
+  setup() {
+    return {
+    }
+  },
+  template: `
     <div class="rpl-grid  rpl-grid--gap-l">
       <div class="rpl-col-12"><u>Header</u></div>
       <div class="rpl-col-6  rpl-col-4-m  rpl-col-3-l">Menu item</div>
@@ -96,17 +140,118 @@ export const Template = (args) => ({
   `
 });
 
-# Grid
+export const StartingColumnModifierLTemplate = (args) => ({
+  components: {},
+  setup() {
+    return {
+    }
+  },
+  template: `
+    <div class="rpl-grid  rpl-grid--gap-s">
+      <div class="rpl-col-2  rpl-col-start-1">Start at 1st</div>
+      <div class="rpl-col-2  rpl-col-start-2">Start at 2nd</div>
+      <div class="rpl-col-2  rpl-col-start-3">Start at 3rd</div>
+      <div class="rpl-col-2  rpl-col-start-4">Start at 4th</div>
+      <div class="rpl-col-2  rpl-col-start-5">Start at 5th</div>
+      <div class="rpl-col-2  rpl-col-start-6">Start at 6th</div>
+      <div class="rpl-col-2  rpl-col-start-7">Start at 7th</div>
+      <div class="rpl-col-2  rpl-col-start-8">Start at 8th</div>
+      <div class="rpl-col-2  rpl-col-start-9">Start at 9th</div>
+      <div class="rpl-col-2  rpl-col-start-10">Start at 10th</div>
+      <div class="rpl-col-2  rpl-col-start-11">Start at 11th</div>
+      <div class="rpl-col-1  rpl-col-start-12">Start at 12th</div>
+    </div>
+  `
+});
 
 <Meta title='Base Styles/Grid' parameters={{ viewMode: 'docs'}}/>
 
+# Grid
+
+## Column classes
+
+### XS / Default
 <Canvas>
-  <Story name="Grid" parameters={{
+  <Story name="Grid/Columns/XS - Default" parameters={{
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1286%3A17345',
     }
   }}>
-    {Template.bind({})}
+    {ColumnsXSTemplate.bind({})}
+  </Story>
+</Canvas>
+
+
+### M
+<Canvas>
+  <Story name="Grid/Columns/M" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1286%3A17345',
+    }
+  }}>
+    {ColumnsMTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### L
+<Canvas>
+  <Story name="Grid/Columns/L" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1286%3A17345',
+    }
+  }}>
+    {ColumnsLTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Example layout
+<Canvas>
+  <Story name="Grid/Example layout" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1286%3A17345',
+    }
+  }}>
+    {ExampleLayoutTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Modifiers
+### Small gaps
+<Canvas>
+  <Story name="Grid/Modifiers/Gap - small" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1286%3A17345',
+    }
+  }}>
+    {GapModifierSTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Large gaps
+<Canvas>
+  <Story name="Grid/Modifiers/Gap - large" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1286%3A17345',
+    }
+  }}>
+    {GapModifierLTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Starting column
+<Canvas>
+  <Story name="Grid/Modifiers/Starting column" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1286%3A17345',
+    }
+  }}>
+    {StartingColumnModifierLTemplate.bind({})}
   </Story>
 </Canvas>

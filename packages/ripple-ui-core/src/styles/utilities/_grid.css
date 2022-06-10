@@ -1,6 +1,6 @@
 .rpl-grid {
   display: grid;
-  grid-template-columns: repeat(12, 12fr);
+  grid-template-columns: repeat(12, minmax(0, 12fr));
   grid-template-rows: auto;
   gap: var(--rpl-space-4);
 
@@ -62,7 +62,7 @@
 }
 
 /* Column start utility classes */
-@for $i from 11 to 1 {
+@for $i from 12 to 1 {
   /* Mobile */
   .rpl-col-start-$(i) {
       grid-column-start: $i;

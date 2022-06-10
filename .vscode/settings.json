@@ -8,7 +8,8 @@
   "conventionalCommits.scopes": [
     "@dpc-sdp/ripple-tide-api",
     "@dpc-sdp/ripple-ui-core",
-    "nuxt-app"
+    "nuxt-app",
+    "webcomponents"
   ],
   "cSpell.words": ["nuxt", "pathe", "scripthost", "stylelint", "vite", "vitejs"]
 }

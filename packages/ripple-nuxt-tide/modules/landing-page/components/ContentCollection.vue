@@ -106,6 +106,8 @@ export default {
     schema: Object,
     environment: Object,
     preloadSearchResponse: Object,
+    description: String,
+    title: String,
     sidebar: {
       type: Boolean,
       default: false
@@ -136,11 +138,11 @@ export default {
     }
   },
   computed: {
-    title () {
-      return this.dataManager.getTitle()
+    computedTitle () {
+      return this.title || this.dataManager.getTitle()
     },
-    description () {
-      return this.dataManager.getDescription()
+    computedDescription () {
+      return this.description || this.dataManager.getDescription()
     },
     cta () {
       return this.dataManager.getCTA()

@@ -17,7 +17,7 @@
         <input class="rpl-slider__input" type="number" v-model="lowerValue" :min="absoluteLower" :max="upperValue" :step="step" @change="updateValue('lower')">
       </label>
       <label class="rpl-slider__label rpl-slider__label--upper" :style="{ 'right': upperPointPosition + '%' }">
-        <span class="rpl-slider__handle" @mousedown="mouseDownHandle('upper')" @touchstart="touchStartHandle('upper')">{{ schema.label }} - Upper valueue</span>
+        <span class="rpl-slider__handle" @mousedown="mouseDownHandle('upper')" @touchstart="touchStartHandle('upper')">{{ schema.label }} - Upper value</span>
         <div class="rpl-slider__display-label" aria-hidden="true">{{ upperValueFormatted }}</div>
         <input class="rpl-slider__input" type="number" v-model="upperValue" :min="lowerValue" :max="absoluteUpper" :step="step" @change="updateValue('upper')">
       </label>

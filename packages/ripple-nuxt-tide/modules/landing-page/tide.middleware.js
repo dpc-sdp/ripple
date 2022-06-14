@@ -77,7 +77,11 @@ export default {
           const collection = contentCollections[i]
           collection.data.environment = environment
           if (collection.data.schema) {
-            const dataManager = new context.app.$tideContentCollection(collection.data.schema, (dsl) => {
+            const dataManager = new context.app.$tideContentCollection({
+              ...collection.data.schema,
+              title: collection.data.title,
+              description: collection.data.description
+            }, (dsl) => {
               return context.app.$tideSearchApi.searchByPost(dsl)
             }, environment)
             const state = dataManager.getDefaultState()

@@ -116,9 +116,9 @@ const searchMixin = {
         }
       }
     },
-    changed (event) {
+    async changed (event) {
       this.pager.initialStep = event
-      this.getSearchResults(this.$route.query.q, event)
+      await this.getSearchResults(this.$route.query.q, event)
 
       if (this.scrollOnPagerChange) {
         VueScrollTo.scrollTo(this.scrollToElement, 500, { offset: -150 })

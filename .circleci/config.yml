@@ -321,6 +321,7 @@ workflows:
           requires:
             - confirm-release
             - tag-release
+
   # Publish canary prerelease to NPM for testing on client sites
   canary-npm-release:
     when:
@@ -342,3 +343,63 @@ workflows:
       - tag-release:
           requires:
             - create-prerelease
+
+  nightwatch:
+    when: << pipeline.parameters.e2e >>
+    jobs:
+      - sdp-test/smoke:
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+          context:
+            - e2e-test
+            - e2e-test-open
+          be_url: << pipeline.parameters.e2e_be_url >>
+          fe_url: << pipeline.parameters.e2e_fe_url >>
+          project: << pipeline.parameters.e2e_project >>
+          browser: 'chrome'
+      # Make sure the Backend has passed test first.
+      - sdp-test/e2e-be:
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+          context:
+            - e2e-test
+            - e2e-test-open
+          be_url: << pipeline.parameters.e2e_be_url >>
+          project: << pipeline.parameters.e2e_project >>
+          browser: 'chrome'
+      - sdp-test/e2e:
+          name: sdp-test/e2eChrome
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+          requires:
+            - sdp-test/smoke
+            - sdp-test/e2e-be
+          context:
+            - e2e-test
+            - e2e-test-open
+          be_url: << pipeline.parameters.e2e_be_url >>
+          fe_url: << pipeline.parameters.e2e_fe_url >>
+          project: << pipeline.parameters.e2e_project >>
+          browser: 'chrome'
+      - sdp-test/e2e:
+          name: sdp-test/e2eAndroid
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+          requires:
+            - sdp-test/smoke
+            - sdp-test/e2e-be
+          context:
+            - e2e-test
+            - e2e-test-open
+          be_url: << pipeline.parameters.e2e_be_url >>
+          fe_url: << pipeline.parameters.e2e_fe_url >>
+          project: << pipeline.parameters.e2e_project >>
+          browser: 'androidChrome'

@@ -1,8 +1,10 @@
 // Private helpers
+const siteMatch = /\/site-(\d+)/
 function getActivePath (branch, path) {
   for (let i = 0; i < branch.length; i++) {
     const item = branch[i]
-    if (item.url === path) {
+    // ignore site id prefix when matching active path
+    if (item.url.replace(siteMatch, '') === path.replace(siteMatch, '')) {
       return [{
         text: item.text,
         url: item.url

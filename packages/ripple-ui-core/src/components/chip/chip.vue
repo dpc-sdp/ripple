@@ -31,7 +31,7 @@ const onClick = (payload?: any) => {
 
 <template>
   <a
-    :className="`rpl-chip rpl-chip--${theme}`"
+    :class="`rpl-chip rpl-chip--${theme} rpl-type-label`"
     :href="url"
     @click="onClick()"
     >{{ label }}</a

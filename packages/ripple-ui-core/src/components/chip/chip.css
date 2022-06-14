@@ -6,7 +6,6 @@
   border-width: var(--rpl-border-width-2);
   color: var(--rpl-chip-clr);
   display: inline-block;
-  line-height: 1;
   padding: var(--rpl-space-2) var(--rpl-space-3);
   text-decoration: none;
 

@@ -3,7 +3,12 @@
     fill: currentcolor;
     width: var(--rpl-icon-size);
     height: var(--rpl-icon-size);
-    padding: calc(var(--rpl-icon-size) / 2);
+  }
+
+  &--padded {
+    svg {
+      padding: calc(var(--rpl-icon-size) / 2);
+    }
   }
 
   &--size-s svg {

@@ -1,9 +1,10 @@
 export const RplColorThemes = [
   'primary',
-  'accent',
-  'neutral',
-  'error',
+  'white',
+  'text',
+  'information',
+  'success',
   'warning',
-  'info',
-  'success'
+  'error',
+  'inactive'
 ] as const

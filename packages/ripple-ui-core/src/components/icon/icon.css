@@ -11,43 +11,47 @@
     }
   }
 
-  &--size-s svg {
+  &--size-s {
     --rpl-icon-size: var(--rpl-space-4);
   }
 
-  &--size-m svg {
+  &--size-m {
     --rpl-icon-size: var(--rpl-space-6);
   }
 
-  &--size-l svg {
+  &--size-l {
     --rpl-icon-size: var(--rpl-space-8);
   }
 
-  &--theme-primary svg {
+  &--theme-primary {
     color: var(--rpl-clr-primary);
   }
 
-  &--theme-accent svg {
-    color: var(--rpl-clr-accent);
+  &--theme-white {
+    color: var(--rpl-clr-neutral-0);
   }
 
-  &--theme-neutral svg {
+  &--theme-text {
     color: var(--rpl-clr-neutral-7);
   }
 
-  &--theme-info svg {
+  &--theme-information {
     color: var(--rpl-clr-information);
   }
 
-  &--theme-success svg {
+  &--theme-success {
     color: var(--rpl-clr-success);
   }
 
-  &--theme-warning svg {
+  &--theme-warning {
     color: var(--rpl-clr-warning);
   }
 
-  &--theme-error svg {
+  &--theme-error {
     color: var(--rpl-clr-error);
+  }
+
+  &--theme-inactive {
+    color: var(--rpl-clr-neutral-4);
   }
 }

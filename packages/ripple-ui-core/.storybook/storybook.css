@@ -26,3 +26,14 @@
 .sb-container {
   font-size: 1.6rem;
 }
+
+/*
+  Add a background colour to the rpl-grid cells so that they are visible while
+  viewing in storybook.
+*/
+.rpl-grid div {
+  background-color: #eeeeee;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.6rem;
+}

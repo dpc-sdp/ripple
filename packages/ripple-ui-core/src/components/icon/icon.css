@@ -28,11 +28,11 @@
   }
 
   &--theme-white {
-    color: var(--rpl-clr-neutral-0);
+    color: var(--rpl-clr-white);
   }
 
   &--theme-text {
-    color: var(--rpl-clr-neutral-7);
+    color: var(--rpl-clr-type-default);
   }
 
   &--theme-information {

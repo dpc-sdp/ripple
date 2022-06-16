@@ -1,0 +1,84 @@
+.rpl-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 12fr));
+  grid-template-rows: auto;
+  gap: var(--rpl-space-4);
+
+  @media (--rpl-bp-m) {
+    gap: var(--rpl-space-6);
+  }
+
+  @media (--rpl-bp-xl) {
+    gap: var(--rpl-space-7);
+  }
+
+  /* Small gap variant */
+  &.rpl-grid--gap-s {
+    gap: var(--rpl-space-2);
+
+    @media (--rpl-bp-m) {
+      gap: var(--rpl-space-3);
+    }
+
+    @media (--rpl-bp-xl) {
+      gap: var(--rpl-space-4);
+    }
+  }
+
+  /* Large gap variant */
+  &.rpl-grid--gap-l {
+    gap: var(--rpl-space-6);
+
+    @media (--rpl-bp-m) {
+      gap: var(--rpl-space-8);
+    }
+
+    @media (--rpl-bp-xl) {
+      gap: var(--rpl-space-10);
+    }
+  }
+}
+
+/* Columns */
+@for $i from 12 to 1 {
+  /* Mobile */
+  .rpl-col-$(i) {
+    grid-column-end: span $i;
+  }
+
+  /* Medium */
+  .rpl-col-$(i)-m {
+    @media (--rpl-bp-m) {
+      grid-column-end: span $i;
+    }
+  }
+
+  /* Large */
+  .rpl-col-$(i)-l {
+    @media (--rpl-bp-l) {
+      grid-column-end: span $i;
+    }
+  }
+}
+
+/* Column start utility classes */
+@for $i from 12 to 1 {
+  /* Mobile */
+  .rpl-col-start-$(i) {
+      grid-column-start: $i;
+  }
+
+  /* Medium */
+  .rpl-col-start-$(i)-m {
+    @media (--rpl-bp-m) {
+      grid-column-start: $i;
+    }
+  }
+
+  /* Large */
+  .rpl-col-start-$(i)-l {
+    @media (--rpl-bp-l) {
+      grid-column-start: $i;
+    }
+  }
+}

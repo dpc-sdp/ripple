@@ -64,6 +64,6 @@ clr:
     value: '{theme.clr.error.600}'
   gradient:
     horizontal:
-      value: 'linear-gradient(90deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.23} 23%, {theme.clr.gradient.37} 37%, {theme.clr.gradient.51} 51%, {theme.clr.gradient.81} 81%)'
+      value: 'linear-gradient(90deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'
     vertical:
-      value: 'linear-gradient(180deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.23} 23%, {theme.clr.gradient.37} 37%, {theme.clr.gradient.51} 51%, {theme.clr.gradient.81} 81%)'
+      value: 'linear-gradient(180deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'

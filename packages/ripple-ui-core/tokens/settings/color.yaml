@@ -62,3 +62,8 @@ clr:
     value: '{theme.clr.error.500}'
   error-alt:
     value: '{theme.clr.error.600}'
+  gradient:
+    horizontal:
+      value: 'linear-gradient(90deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'
+    vertical:
+      value: 'linear-gradient(180deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'

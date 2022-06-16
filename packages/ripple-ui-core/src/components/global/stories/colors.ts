@@ -50,4 +50,5 @@ export const getColorSwatches = (tokens, type) => {
   }, {})
 }
 
+export { rplTheme }
 export default rplColors

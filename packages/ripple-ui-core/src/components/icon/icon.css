@@ -24,11 +24,11 @@
   }
 
   &--theme-primary {
-    color: var(--rpl-clr-primary);
+    color: var(--rpl-clr-link);
   }
 
   &--theme-white {
-    color: var(--rpl-clr-white);
+    color: var(--rpl-clr-type-light);
   }
 
   &--theme-text {
@@ -51,6 +51,7 @@
     color: var(--rpl-clr-error);
   }
 
+  /* TODO: Update this colour once designs for inactive state are finalised */
   &--theme-inactive {
     color: var(--rpl-clr-neutral-4);
   }

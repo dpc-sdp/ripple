@@ -3,7 +3,7 @@ import sbTokenTable from './../../../../.storybook/components/token-table.vue'
 import sbTokenTableRow from './../../../../.storybook/components/token-row.vue'
 import sbTokenTableCol from './../../../../.storybook/components/token-col.vue'
 import sbTokenTableSwatch from './../../../../.storybook/components/token-swatch.vue'
-import { getColorSwatches, getColorSwatchesCollection, default as rplColors } from './colors'
+import { getColorSwatches, getColorSwatchesCollection, default as rplColors, rplTheme } from './colors'
 
 export const Template = (args) => ({
   components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
@@ -37,8 +37,6 @@ export const Template = (args) => ({
   }}
 />
 
-## Core
-
 <Canvas columns={2}>
   <Story
     name="Primary"
@@ -60,14 +58,56 @@ export const Template = (args) => ({
   </Story>
 </Canvas>
 
+<Canvas columns={2}>
+  <Story
+    name="Type"
+    args={{
+      columns: ['Type'],
+      items: getColorSwatchesCollection(rplColors, [
+        'type.default',
+        'type.light',
+        'type.primary.contrast',
+        'type.accent.contrast'
+      ])
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Link"
+    args={{
+      columns: ['Link'],
+      items: getColorSwatchesCollection(rplColors, [
+        'link',
+        'link-visited',
+        'focus'
+      ])
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ## Neutral
 
-<Canvas>
+<Canvas coolumns={2}>
   <Story
     name="Neutral"
     args={{
       columns: ['Neutral'],
       items: getColorSwatches(rplColors, 'neutral')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Helper"
+    args={{
+      columns: ['Helper'],
+      items: getColorSwatchesCollection(rplColors, [
+        'light',
+        'dark'
+      ])
     }}
   >
     {Template.bind({})}
@@ -91,5 +131,53 @@ export const Template = (args) => ({
     }}
   >
     {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Gradient
+
+Note: colour steps do not have variables assigned, the gradient can only be used as a whole.
+
+<Canvas>
+  <Story
+    name="Gradient"
+    args={{
+      columns: ['Gradient'],
+      items: [
+        {
+          value: '',
+          bgvar: '--rpl-clr-gradient-horizontal',
+          label: '--rpl-clr-gradient-horizontal'
+        },
+        {
+          value: '',
+          bgvar: '--rpl-clr-gradient-vertical',
+          label: '--rpl-clr-gradient-vertical'
+        }
+      ].concat(Object.keys(rplTheme.theme.clr.gradient).map(v => {
+        return {
+          value: rplTheme.theme.clr.gradient[v],
+          var: rplTheme.theme.clr.gradient[v],
+          label: v + '%'
+        }
+      }))
+    }}
+  >
+    {(args) => {
+      return {
+        components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+        setup() { return { args } },
+        template: `
+    <sbTokenTable :columns="args.columns" >
+      <sbTokenTableRow v-for="item in args.items" :key="item">
+        <sbTokenTableCol>{{item.value}}</sbTokenTableCol>
+        <sbTokenTableCol v-if="item.bgvar" collapse width="50px"><sbTokenTableSwatch :size="24" :style="'background: var('+item.bgvar+')'"></sbTokenTableSwatch></sbTokenTableCol>
+        <sbTokenTableCol v-else collapse width="50px"><sbTokenTableSwatch :size="24" :style="'background: '+item.var+''"></sbTokenTableSwatch></sbTokenTableCol>
+        <sbTokenTableCol expand>{{item.label}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+        `
+      }
+    }}
   </Story>
 </Canvas>

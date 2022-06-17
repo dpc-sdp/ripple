@@ -37,8 +37,6 @@ export const Template = (args) => ({
   }}
 />
 
-## Core
-
 <Canvas columns={2}>
   <Story
     name="Primary"
@@ -54,6 +52,36 @@ export const Template = (args) => ({
     args={{
       columns: ['Accent'],
       items: getColorSwatches(rplColors, 'accent')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas columns={2}>
+  <Story
+    name="Type"
+    args={{
+      columns: ['Type'],
+      items: getColorSwatchesCollection(rplColors, [
+        'type.default',
+        'type.light',
+        'type.primary.contrast',
+        'type.accent.contrast'
+      ])
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Link"
+    args={{
+      columns: ['Link'],
+      items: getColorSwatchesCollection(rplColors, [
+        'link',
+        'link-visited',
+        'focus'
+      ])
     }}
   >
     {Template.bind({})}

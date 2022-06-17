@@ -1,22 +1,22 @@
 /* Margin */
 @for $i from 1 to 14 {
   .rpl-u-margin-$i {
-    margin: var(--rpl-space-$(i));
+    margin: var(--rpl-sp-$(i));
   }
 
   .rpl-u-margin-t-$i {
-    margin-top: var(--rpl-space-$(i));
+    margin-top: var(--rpl-sp-$(i));
   }
 
   .rpl-u-margin-r-$i {
-    margin-right: var(--rpl-space-$(i));
+    margin-right: var(--rpl-sp-$(i));
   }
 
   .rpl-u-margin-b-$i {
-    margin-bottom: var(--rpl-space-$(i));
+    margin-bottom: var(--rpl-sp-$(i));
   }
 
   .rpl-u-margin-l-$i {
-    margin-left: var(--rpl-space-$(i));
+    margin-left: var(--rpl-sp-$(i));
   }
 }

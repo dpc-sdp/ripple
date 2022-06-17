@@ -10,8 +10,8 @@ import sbTokenTableSwatch from './../../../../.storybook/components/token-swatch
 export const SpacingTemplate = (args) => ({
   components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
   setup() {
-    const items = Object.keys(rplSpacing?.space).map(k => {
-      return rplSpacing.space[k]
+    const items = Object.keys(rplSpacing?.sp).map(k => {
+      return rplSpacing.sp[k]
     })
     return {
       columns: ['Size (px)'],

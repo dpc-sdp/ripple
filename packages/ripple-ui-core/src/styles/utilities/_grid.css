@@ -2,39 +2,39 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 12fr));
   grid-template-rows: auto;
-  gap: var(--rpl-space-4);
+  gap: var(--rpl-sp-4);
 
   @media (--rpl-bp-m) {
-    gap: var(--rpl-space-6);
+    gap: var(--rpl-sp-6);
   }
 
   @media (--rpl-bp-xl) {
-    gap: var(--rpl-space-7);
+    gap: var(--rpl-sp-7);
   }
 
   /* Small gap variant */
   &.rpl-grid--gap-s {
-    gap: var(--rpl-space-2);
+    gap: var(--rpl-sp-2);
 
     @media (--rpl-bp-m) {
-      gap: var(--rpl-space-3);
+      gap: var(--rpl-sp-3);
     }
 
     @media (--rpl-bp-xl) {
-      gap: var(--rpl-space-4);
+      gap: var(--rpl-sp-4);
     }
   }
 
   /* Large gap variant */
   &.rpl-grid--gap-l {
-    gap: var(--rpl-space-6);
+    gap: var(--rpl-sp-6);
 
     @media (--rpl-bp-m) {
-      gap: var(--rpl-space-8);
+      gap: var(--rpl-sp-8);
     }
 
     @media (--rpl-bp-xl) {
-      gap: var(--rpl-space-10);
+      gap: var(--rpl-sp-10);
     }
   }
 }
@@ -65,7 +65,7 @@
 @for $i from 12 to 1 {
   /* Mobile */
   .rpl-col-start-$(i) {
-      grid-column-start: $i;
+    grid-column-start: $i;
   }
 
   /* Medium */

@@ -90,12 +90,24 @@ export const Template = (args) => ({
 
 ## Neutral
 
-<Canvas>
+<Canvas coolumns={2}>
   <Story
     name="Neutral"
     args={{
       columns: ['Neutral'],
       items: getColorSwatches(rplColors, 'neutral')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Helper"
+    args={{
+      columns: ['Helper'],
+      items: getColorSwatchesCollection(rplColors, [
+        'light',
+        'dark'
+      ])
     }}
   >
     {Template.bind({})}

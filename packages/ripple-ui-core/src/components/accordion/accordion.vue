@@ -1,57 +1,16 @@
 <script lang="ts"> export default { name: 'RplAccordion' }</script>
 
 <script setup lang="ts">
-import { PropType, ref } from 'vue'
-import { RplAccordionThemes } from './constants'
+import { ref, computed } from 'vue'
 
+import RplButton from '../button/button.vue'
 import RplIcon from '../icon/icon.vue'
 
 const props = defineProps({
-  theme: {
-    type: String as PropType<typeof RplAccordionThemes[number]>,
-    default: RplAccordionThemes[0]
-  },
   items: {
     type: Array,
-    // TODO: Wire this data up to come from the story / props
-    default: () => [
-      {
-        title: 'Accordion one',
-        content: `
-          <p class="rpl-type-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        `
-      },
-      {
-        title: 'Accordion two',
-        content: `
-          <p class="rpl-type-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        `
-      },
-      {
-        title: 'Accordion three',
-        content: `
-          <p class="rpl-type-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        `
-      }
-    ]
+    default: () => [],
+    required: true
   }
 })
 
@@ -73,13 +32,46 @@ const toggleItem = (itemIndex) => {
     activeItems.value.push(itemIndex)
   }
 }
+
+const toggleAllLabel = computed(() => {
+  let label = 'Open all'
+
+  if (activeItems.value.length === props.items.length) {
+    label = 'Close all'
+  }
+
+  return label
+})
+
+const toggleAll = () => {
+  // Open all
+  if (activeItems.value.length !== props.items.length) {
+    activeItems.value = []
+
+    props.items.forEach((item, index) => {
+      activeItems.value.push(index)
+    })
+  }
+
+  // Close all
+  else {
+    activeItems.value = []
+  }
+}
 </script>
 
 <template>
-  <div :className="`rpl-accordion rpl-accordion--${theme}`">
+  <div :className="`rpl-accordion`" style="width: 450px;">
     <!-- Toggle all -->
-    <!-- TODO: Wire this up, dont show if only 1 item -->
-    <div className="rpl-accordion__toggle-all">Open all</div>
+    <div class="rpl-accordion__toggle-all-wrapper">
+      <RplButton
+        v-if="items.length > 1"
+        theme="white"
+        :label="toggleAllLabel"
+        class="rpl-accordion__toggle-all"
+        @click="toggleAll"
+      />
+    </div>
 
     <div className="rpl-accordion__items">
       <!-- TODO: Seperate the items into their own component -->
@@ -106,7 +98,10 @@ const toggleItem = (itemIndex) => {
 
         <!-- Item content -->
         <!-- TODO: Use rplmarkup component instead when its available -->
-        <div className="rpl-accordion__item-content" v-html="item.content"></div>
+        <div className="rpl-accordion__item-content">
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div className="rpl-accordion__item-content-inner" v-html="item.content"></div>
+        </div>
       </div>
     </div>
   </div>

@@ -5,15 +5,22 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplAccordion from './accordion.vue'
-import { RplAccordionThemes } from './constants'
+import { RplAccordionItems } from './constants'
 import { a11yStoryCheck } from './../../../.storybook/interactions.js'
 
-export const SingleTemplate = (args) => ({
+export const Template = (args) => ({
   components: { RplAccordion },
   setup() {
-    return { args }
+    return {
+      RplAccordionItems
+    }
   },
-  template: '<RplAccordion v-bind="args" />'
+  template: `
+    <RplAccordion
+      v-bind="args"
+      :items="RplAccordionItems"
+    />
+  `
 })
 
 <Meta title='Components/Accordion' component={RplAccordion} />
@@ -24,16 +31,10 @@ export const SingleTemplate = (args) => ({
 
 <Canvas>
   <Story
-    name='Default'
-    play={a11yStoryCheck}
-    argTypes={{
-      theme: {
-        control: { type: 'select' },
-        options: RplAccordionThemes,
-        defaultValue: RplAccordionThemes[0]
-      }
-    }}
+    name='Accordion'
+    play={a11yStoryCheck} // Is this needed?
+    argTypes={{}}  // Is this needed?
   >
-    {SingleTemplate.bind()}
+    {Template.bind()}
   </Story>
 </Canvas>

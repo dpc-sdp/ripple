@@ -26,4 +26,7 @@ export default {
   align-items: center;
   justify-content: center;
 }
+.sb-token-swatch[style*='background-color'] {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 </style>

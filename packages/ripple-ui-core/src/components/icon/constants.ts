@@ -9,10 +9,10 @@ export const RplIconGroups = {
   alert: [
     'icon-fire',
     'icon-flood',
-    'icon-temperature',
     'icon-lightning',
     'icon-medical',
     'icon-smoke',
+    'icon-temperature',
     'icon-traffic'
   ],
   social: [

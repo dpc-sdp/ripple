@@ -57,7 +57,7 @@
 
     color: var(--rpl-button-white-clr);
     background-color: var(--rpl-clr-light);
-    border-color: var(--rpl-clr-neutral-2);
+    border-color: var(--rpl-clr-neutral-200);
     border-style: solid;
     text-decoration: none;
 
@@ -130,10 +130,10 @@
 
   &--neutral {
     /* Note: There is no neutral filled style */
-    --rpl-button-outlined-color: var(--rpl-clr-neutral-7);
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-neutral-5);
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-neutral-7);
-    --rpl-button-outlined-hover-color: var(--rpl-clr-neutral-7);
+    --rpl-button-outlined-color: var(--rpl-clr-neutral-700);
+    --rpl-button-outlined-bdr-color: var(--rpl-clr-neutral-500);
+    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-neutral-700);
+    --rpl-button-outlined-hover-color: var(--rpl-clr-neutral-700);
     --rpl-button-white-clr: var(--rpl-clr-dark);
   }
 

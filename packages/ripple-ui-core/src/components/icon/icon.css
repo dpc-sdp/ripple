@@ -27,7 +27,7 @@
   }
 
   &--theme-neutral svg {
-    color: var(--rpl-clr-neutral-7);
+    color: var(--rpl-clr-neutral-700);
   }
 
   &--theme-info svg {

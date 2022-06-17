@@ -18,7 +18,7 @@ export const IconListTemplate = (args) => ({
     <sbTokenTable :columns="args.columns" >
       <sbTokenTableRow v-for="item in args.items" :key="item">
         <sbTokenTableCol>{{item}}</sbTokenTableCol>
-        <sbTokenTableCol><RplIcon :name="item" size="m" theme="core" /></sbTokenTableCol>
+        <sbTokenTableCol><RplIcon :name="item" size="m" /></sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `
@@ -35,7 +35,7 @@ export const IconSpriteSheetOnDemandTemplate = (args) => ({
     <sbTokenTable :columns="args.columns" >
       <sbTokenTableRow v-for="item in args.items" :key="item">
         <sbTokenTableCol>{{item}}</sbTokenTableCol>
-        <sbTokenTableCol><RplIcon :name="item" size="m" theme="core" /></sbTokenTableCol>
+        <sbTokenTableCol><RplIcon :name="item" size="m" /></sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `

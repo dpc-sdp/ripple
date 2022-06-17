@@ -41,7 +41,7 @@
 
   &--outlined {
     color: var(--rpl-button-outlined-color);
-    background-color: var(--rpl-clr-white);
+    background-color: var(--rpl-clr-light);
     border-color: var(--rpl-button-outlined-bdr-color);
     border-style: solid;
 
@@ -56,7 +56,7 @@
     --rpl-button-border-width: var(--rpl-border-width-1);
 
     color: var(--rpl-button-white-clr);
-    background-color: var(--rpl-clr-white);
+    background-color: var(--rpl-clr-light);
     border-color: var(--rpl-clr-neutral-2);
     border-style: solid;
     text-decoration: none;
@@ -69,7 +69,7 @@
 
   &--elevated {
     color: var(--rpl-button-white-clr);
-    background-color: var(--rpl-clr-white);
+    background-color: var(--rpl-clr-light);
     border-color: transparent;
     box-shadow: var(--rpl-elevation-1);
     text-decoration: none;
@@ -81,7 +81,7 @@
   }
 
   &--primary {
-    --rpl-button-filled-color: var(--rpl-clr-primary-contrast);
+    --rpl-button-filled-color: var(--rpl-clr-type-primary-contrast);
     --rpl-button-filled-bg-color: var(--rpl-clr-primary);
     --rpl-button-filled-bg-hover-color: var(--rpl-clr-primary-alt);
     --rpl-button-outlined-color: var(
@@ -105,7 +105,7 @@
   }
 
   &--accent {
-    --rpl-button-filled-color: var(--rpl-clr-accent-contrast);
+    --rpl-button-filled-color: var(--rpl-clr-type-accent-contrast);
     --rpl-button-filled-bg-color: var(--rpl-clr-accent);
     --rpl-button-filled-bg-hover-color: var(--rpl-clr-accent-alt);
     --rpl-button-outlined-color: var(
@@ -138,7 +138,7 @@
   }
 
   &--error {
-    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-color: var(--rpl-clr-light);
     --rpl-button-filled-bg-color: var(--rpl-clr-error);
     --rpl-button-filled-bg-hover-color: var(--rpl-clr-error-alt);
     --rpl-button-outlined-color: var(--rpl-clr-error);
@@ -149,7 +149,7 @@
   }
 
   &--info {
-    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-color: var(--rpl-clr-light);
     --rpl-button-filled-bg-color: var(--rpl-clr-information);
     --rpl-button-filled-bg-hover-color: var(--rpl-clr-information); /* orphan */
     --rpl-button-outlined-color: var(--rpl-clr-information);
@@ -160,7 +160,7 @@
   }
 
   &--success {
-    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-color: var(--rpl-clr-light);
     --rpl-button-filled-bg-color: var(--rpl-clr-success);
     --rpl-button-filled-bg-hover-color: var(--rpl-clr-success); /* orphan */
     --rpl-button-outlined-color: var(--rpl-clr-success);
@@ -171,7 +171,7 @@
   }
 
   &--warning {
-    --rpl-button-filled-color: var(--rpl-clr-white);
+    --rpl-button-filled-color: var(--rpl-clr-light);
     --rpl-button-filled-bg-color: var(--rpl-clr-warning);
     --rpl-button-filled-bg-hover-color: var(--rpl-clr-warning); /* orphan */
     --rpl-button-outlined-color: var(--rpl-clr-warning);

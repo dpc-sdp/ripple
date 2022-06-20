@@ -35,6 +35,7 @@ describe('Content collection', () => {
   test('should return ES DSL query for Content Types', () => {
     const cc = new ContentCollection({
       "internal": {
+        "managedSort": true,
         "contentTypes": ["landing_page"]
       }
     }, (dsl) => {})
@@ -53,6 +54,7 @@ describe('Content collection', () => {
   test('should return ES DSL query for Sort', () => {
     const cc = new ContentCollection({
       "internal": {
+        "managedSort": true,
         "sort": [ { "field": "title", "direction": "asc" } ]
       }
     }, (dsl) => {})
@@ -66,6 +68,48 @@ describe('Content collection', () => {
       },
       sort: [
         { title: 'asc' }
+      ]
+    })
+  })
+
+  test('should return simplified sort by default for landing pages', () => {
+    const cc = new ContentCollection({
+      "internal": {
+        "contentTypes": ["landing_page"]
+      }
+    }, (dsl) => {})
+    expect(cc.getDSL()).toEqual({
+      query: {
+        bool: {
+          filter: [
+            { terms: { field_node_site: [ '4' ] } },
+            { terms: { type: ['landing_page'] } }
+          ]
+        }
+      },
+      sort: [
+        { created: 'desc' }
+      ]
+    })
+  })
+  test('should return simplified sort by default for news pages', () => {
+    const cc = new ContentCollection({
+      "internal": {
+        "contentTypes": ["news"]
+      }
+    }, (dsl) => {})
+    expect(cc.getDSL()).toEqual({
+      query: {
+        bool: {
+          filter: [
+            { terms: { field_node_site: [ '4' ] } },
+            { terms: { type: ['news'] } }
+          ]
+        }
+      },
+      sort: [
+        { field_news_date: 'desc' },
+        { created: 'desc' }
       ]
     })
   })

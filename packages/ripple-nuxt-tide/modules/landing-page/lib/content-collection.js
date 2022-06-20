@@ -539,7 +539,7 @@ module.exports = class ContentCollection {
   }
 
   getSimpleDSLSort (state) {
-    if (this.config.managedSort) {
+    if (this.config?.internal?.managedSort) {
       let filters = []
       let sortValue = null
       let internalSort = this.getInternalSort()
@@ -560,7 +560,7 @@ module.exports = class ContentCollection {
       return filters
     } else {
       // SDPA-6254 default to just sorting by date, enable config.managedSort for previous behaviour
-      if (state.q && state.q.length > 0) {
+      if (state && state.q && state.q.length > 0) {
         return []
       }
       const contentTypes = this.getSimpleDSLContentTypes()

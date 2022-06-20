@@ -3,7 +3,7 @@ import sbTokenTable from './../components/token-table.vue'
 import sbTokenTableRow from './../components/token-row.vue'
 import sbTokenTableCol from './../components/token-col.vue'
 import sbTokenTableSwatch from './../components/token-swatch.vue'
-import { getColorSwatches, getColorSwatchesCollection, default as rplColors } from './colors'
+import { getColorSwatches, getColorSwatch, default as rplColors } from './colors'
 
 export const Template = (args) => ({
   components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
@@ -44,7 +44,7 @@ export const Template = (args) => ({
     name="Primary"
     args={{
       columns: ['Primary'],
-      items: getColorSwatches(rplColors, 'core.primary')
+      items: getColorSwatches('clr.primary')
     }}
   >
     {Template.bind({})}
@@ -53,7 +53,7 @@ export const Template = (args) => ({
     name="Accent"
     args={{
       columns: ['Accent'],
-      items: getColorSwatches(rplColors, 'core.accent')
+      items: getColorSwatches('clr.accent')
     }}
   >
     {Template.bind({})}
@@ -67,7 +67,7 @@ export const Template = (args) => ({
     name="Neutral"
     args={{
       columns: ['Neutrals'],
-      items: getColorSwatches(rplColors, 'neutral')
+      items: getColorSwatches('clr.neutral')
     }}
   >
     {Template.bind({})}
@@ -81,7 +81,7 @@ export const Template = (args) => ({
     name="Info"
     args={{
       columns: ['Info'],
-      items: getColorSwatches(rplColors, 'semantic.info')
+      items: [getColorSwatch('clr.information')]
     }}
   >
     {Template.bind({})}
@@ -90,7 +90,7 @@ export const Template = (args) => ({
     name="Success"
     args={{
       columns: ['Success'],
-      items: getColorSwatches(rplColors, 'semantic.success')
+      items: [getColorSwatch('clr.success')]
     }}
   >
     {Template.bind({})}
@@ -99,7 +99,7 @@ export const Template = (args) => ({
     name="Warning"
     args={{
       columns: ['Warning'],
-      items: getColorSwatches(rplColors, 'semantic.warning')
+      items: [getColorSwatch('clr.warning')]
     }}
   >
     {Template.bind({})}
@@ -108,7 +108,7 @@ export const Template = (args) => ({
     name="Error"
     args={{
       columns: ['Error'],
-      items: getColorSwatches(rplColors, 'semantic.error')
+      items: [getColorSwatch('clr.error'), getColorSwatch('clr.error-alt')]
     }}
   >
     {Template.bind({})}

@@ -1,0 +1,20 @@
+.rpl-nav-primary {
+  background-color: var(--rpl-clr-primary);
+  color: var(--rpl-clr-primary-contrast);
+  padding: var(--rpl-space-6);
+  border-radius: var(--rpl-border-radius-2);
+
+  &__logos {
+    display: flex;
+    flex-direction: row;
+    gap: var(--rpl-space-3);
+    align-items: center;
+  }
+
+  &__logo-primary,
+  &__logo-secondary {
+    img {
+      max-width: 100px;
+    }
+  }
+}

@@ -17,7 +17,8 @@
     "types": ["vite/client", "jest"],
     "paths": {
       "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"],
-      "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"]
+      "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"],
+      "@dpc-sdp/ripple-tide-event": ["ripple-tide-event/src"]
     }
   },
   "exclude": ["**/*.stories.ts", "**/*.stories.mdx"]

@@ -22,7 +22,7 @@ const props = defineProps({
   },
   theme: {
     type: String as PropType<typeof RplButtonThemes[number]>,
-    default: 'core'
+    default: 'primary'
   },
   iconName: {
     type: [String, undefined] as PropType<
@@ -61,10 +61,12 @@ const onClick = (payload?: any) => {
     :disabled="disabled"
     @click="onClick()"
   >
-    <span v-if="label" class="rpl-button__label  rpl-type-label  rpl-type-weight-bold">
-      {{ label }}
+    <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
+      <template v-if="label">
+        {{ label }}
+      </template>
+      <slot></slot>
     </span>
-    <slot></slot>
     <span v-if="iconName" class="rpl-button__icon">
       <RplIcon :name="iconName"></RplIcon>
     </span>

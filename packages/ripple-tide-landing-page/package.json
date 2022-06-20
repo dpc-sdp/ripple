@@ -1,0 +1,35 @@
+{
+  "name": "@dpc-sdp/ripple-tide-landing-page",
+  "version": "0.0.0",
+  "description": "Ripple mappings and components for Tide landing-page Content type",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "./types.d.ts",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./component": "./src/index.vue",
+    "./types": "./types.d.ts"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
+    "build": "yarn clean && tsc -p tsconfig.json",
+    "watch": "yarn clean && tsc -p tsconfig.json -w"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-tide-api": "0.0.0"
+  },
+  "devDependencies": {
+  },
+  "files": [
+    "dist",
+    "src/*.vue",
+    "!**/*.test.*",
+    "!**/*.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ]
+}

@@ -86,3 +86,10 @@ export const RplIconGroups = {
     'icon-zoom-out'
   ]
 } as const
+
+export default {
+  RplCoreIconNames,
+  RplCustomIconNames,
+  RplIconNames,
+  RplIconSizes
+}

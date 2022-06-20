@@ -1,5 +1,4 @@
 import type { RplTideModuleConfig, RplTideMapping } from './../../types'
-import { resolvePath } from '@nuxt/kit'
 
 export interface RplTideModuleMapping {
   site: RplTideMapping
@@ -34,8 +33,7 @@ export const defineRplTideModule = async (
 export const loadRplTideModule = async (
   path: string
 ): Promise<RplTideMapping> => {
-  const resolvedPath = await resolvePath(path)
-  return import(resolvedPath)
+  return import(path).then((mdl) => mdl.default)
 }
 
 export default defineRplTideModule

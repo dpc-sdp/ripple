@@ -1,17 +1,17 @@
-import HttpClient from './http-client'
-import TideApiError from './lib/api-error'
+import HttpClient from './http-client.js'
 import Logger from './lib/api-logger.js'
-import get from 'lodash.get'
+import { get } from 'lodash-es'
 import type { RplTideModuleConfig } from './../../types'
 
 export default class TideApiBase extends HttpClient {
-  debug: boolean
+  debug: boolean | undefined
   logger: Logger
   constructor(config: RplTideModuleConfig) {
     if (!config) {
       throw new Error('Error - No configuration specified')
     }
     super({
+      client: config.client,
       baseUrl: `${config.contentApi.baseUrl}${config.contentApi.apiPrefix}`,
       auth: config.contentApi.auth
     })
@@ -79,16 +79,17 @@ export default class TideApiBase extends HttpClient {
     }
   }
 
-  handleError(debug, status = 500) {
+  handleError(msg = 'error', status = 500) {
     if (this.debug) {
       if (status === 404) {
         this.logger.info(this.getErrorMessage(status))
       } else {
-        this.logger.error(debug)
+        this.logger.error(msg)
       }
     }
     const getReturnStatus = (code) => {
       switch (code) {
+        // obscure 403 errors to prevent leaking existance of secure pages
         case 404:
         case 403:
           return 404
@@ -96,9 +97,10 @@ export default class TideApiBase extends HttpClient {
           return code
       }
     }
-    return new TideApiError({
+    return {
       status: getReturnStatus(status),
-      message: this.getErrorMessage(status)
-    })
+      message: this.getErrorMessage(status),
+      debug: this.debug && msg // only return debug info if enabled
+    }
   }
 }

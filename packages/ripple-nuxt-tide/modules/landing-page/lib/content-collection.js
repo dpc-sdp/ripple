@@ -539,24 +539,38 @@ module.exports = class ContentCollection {
   }
 
   getSimpleDSLSort (state) {
-    let filters = []
-    let sortValue = null
-    let internalSort = this.getInternalSort()
-    let displaySort = this.getDisplaySort()
+    if (this.config.managedSort) {
+      let filters = []
+      let sortValue = null
+      let internalSort = this.getInternalSort()
+      let displaySort = this.getDisplaySort()
 
-    if (displaySort) {
-      const stateValue = this.getStateValue(state, 'ExposedControlSortModel')
-      if (stateValue) {
-        sortValue = this.getFieldValueFromId(stateValue, this.getExposedSortValues())
+      if (displaySort) {
+        const stateValue = this.getStateValue(state, 'ExposedControlSortModel')
+        if (stateValue) {
+          sortValue = this.getFieldValueFromId(stateValue, this.getExposedSortValues())
+        }
+      } else if (internalSort) {
+        sortValue = internalSort
       }
-    } else if (internalSort) {
-      sortValue = internalSort
-    }
 
-    if (sortValue) {
-      filters = sortValue.map(item => ({ [item.field]: item.direction }))
+      if (sortValue) {
+        filters = sortValue.map(item => ({ [item.field]: item.direction }))
+      }
+      return filters
+    } else {
+      // SDPA-6254 default to just sorting by date, enable config.managedSort for previous behaviour
+      if (state.q && state.q.length > 0) {
+        return []
+      }
+      const contentTypes = this.getSimpleDSLContentTypes()
+      // sort news content type by the news item date
+      if (contentTypes.type.includes('news')) {
+        return [{ field_news_date: 'desc' }, { created: 'desc' }]
+      }
+      // All other items sorted by created date
+      return [{ created: 'desc' }]
     }
-    return filters
   }
 
   getSimpleDSLDateRange () {

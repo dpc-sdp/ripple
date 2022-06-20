@@ -6,11 +6,11 @@ export default async ({ app, req, store , route }, inject) => {
   // https://www.npmjs.com/package/serialize-javascript
   const options = <%= serialize(options) %>
 
-  let contentCollectionClass = ContentCollection
-
-  if (options.useCustomPath) {
-    contentCollectionClass = await import(/* webpackMode: "lazy" */ '../tide/tide.content-collection.js').then(m => m.default)
-  }
-
-  inject('tideContentCollection', contentCollectionClass)
+  <% if (options.useCustomPath) { %>
+  const customConstructor = await import(/* webpackMode: "lazy" */ '../tide/tide.content-collection.js').then(m => m.default)
+  inject('tideContentCollection', customConstructor)
+  <% } %>
+  <% if (!options.useCustomPath) { %>
+  inject('tideContentCollection', ContentCollection)
+  <% } %>
 }

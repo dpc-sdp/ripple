@@ -103,12 +103,11 @@ const nuxtTide = function (moduleOptions) {
 
   // Content Collection - default to enabled
   if (options.modules?.landingPage?.contentCollection !== false) {
-    const customCCPath = path.resolve('tide/tide.content-collection.js')
     this.addPlugin({
       src: path.resolve(__dirname, 'templates/content-collection.js'),
       fileName: 'tide-content-collection.js',
       options: {
-        useCustomPath: fs.existsSync(customCCPath)
+        useCustomPath: fs.existsSync('tide/tide.content-collection.js')
       }
     })
   }

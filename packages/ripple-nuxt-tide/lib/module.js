@@ -101,8 +101,8 @@ const nuxtTide = function (moduleOptions) {
   })
   this.options.router.middleware.push('request-id')
 
-  // Content Collection
-  if (options.modules?.landingPage?.contentCollection) {
+  // Content Collection - default to enabled
+  if (options.modules?.landingPage?.contentCollection !== false) {
     const customCCPath = path.resolve('tide/tide.content-collection.js')
     this.addPlugin({
       src: path.resolve(__dirname, 'templates/content-collection.js'),

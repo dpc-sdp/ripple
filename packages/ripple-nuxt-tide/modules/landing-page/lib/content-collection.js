@@ -1135,6 +1135,7 @@ module.exports = class ContentCollection {
   }
 
   getPaginationTotalSteps (state, count) {
-    return Math.ceil(parseInt(count) / this.getItemsToLoad(state))
+    const total = typeof count === 'object' && count.hasOwnProperty('value') ? count.value : count
+    return Math.ceil(parseInt(total) / this.getItemsToLoad(state))
   }
 }

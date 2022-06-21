@@ -36,22 +36,22 @@
   --rpl-type-weight-bold: 700;
   --rpl-type-weight-regular: 400;
   --rpl-type-font-family: VIC, Arial, Helvetica, sans-serif;
-  --rpl-sp-14: 120px; /* --rpl-sp-14 */
-  --rpl-sp-13: 80px; /* --rpl-sp-13 */
-  --rpl-sp-12: 64px; /* --rpl-sp-12 */
-  --rpl-sp-11: 56px; /* --rpl-sp-11 */
-  --rpl-sp-10: 48px; /* --rpl-sp-10 */
-  --rpl-sp-9: 40px; /* --rpl-sp-9 */
-  --rpl-sp-8: 32px; /* --rpl-sp-8 */
-  --rpl-sp-7: 28px; /* --rpl-sp-7 */
-  --rpl-sp-6: 24px; /* --rpl-sp-6 */
-  --rpl-sp-5: 20px; /* --rpl-sp-5 */
-  --rpl-sp-4: 16px; /* --rpl-sp-4 */
-  --rpl-sp-3: 12px; /* --rpl-sp-3 */
-  --rpl-sp-2: 8px; /* --rpl-sp-2 */
-  --rpl-sp-1: 4px; /* --rpl-sp-1 */
-  --rpl-elevation-2: 0 4px 8px 2px rgba(26, 26, 26, 0.15); /* 4px spread */
-  --rpl-elevation-1: 0 2px 8px rgba(26, 26, 26, 0.15); /* 2px spread */
+  --rpl-sp-14: 120px;
+  --rpl-sp-13: 80px;
+  --rpl-sp-12: 64px;
+  --rpl-sp-11: 56px;
+  --rpl-sp-10: 48px;
+  --rpl-sp-9: 40px;
+  --rpl-sp-8: 32px;
+  --rpl-sp-7: 28px;
+  --rpl-sp-6: 24px;
+  --rpl-sp-5: 20px;
+  --rpl-sp-4: 16px;
+  --rpl-sp-3: 12px;
+  --rpl-sp-2: 8px;
+  --rpl-sp-1: 4px;
+  --rpl-elevation-2: 0 4px 8px 2px rgba(26, 26, 26, 0.16); /* 4px spread */
+  --rpl-elevation-1: 0 2px 8px rgba(26, 26, 26, 0.16); /* 2px spread */
   --rpl-border-solid: solid;
   --rpl-border-radius-full: 999px;
   --rpl-border-radius-4: 12px;

@@ -20,10 +20,10 @@ export const SpacingTemplate = (args) => ({
   },
   template: `
     <sbTokenTable :columns="columns" >
-      <sbTokenTableRow lined v-for="item in items" :key="item">
+      <sbTokenTableRow lined v-for="(item, i) in items" :key="item">
         <sbTokenTableCol collapse width="10%">{{item.value}}</sbTokenTableCol>
         <sbTokenTableCol center><sbTokenTableSwatch :size="item.value" :color="item.color">{{item.value}}</sbTokenTableSwatch></sbTokenTableCol>
-        <sbTokenTableCol >{{item.comment}}</sbTokenTableCol>
+        <sbTokenTableCol >--rpl-sp-{{i + 1}}</sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `

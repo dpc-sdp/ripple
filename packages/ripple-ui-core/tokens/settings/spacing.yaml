@@ -1,57 +1,43 @@
 sp:
   1:
-    comment: '--rpl-sp-1'
     color: '#7B86C0CC'
     value: 4
   2:
-    comment: '--rpl-sp-2'
     color: '#6DA9EFCC'
     value: 8
   3:
-    comment: '--rpl-sp-3'
     color: '#58BBD8CC'
     value: 12
   4:
-    comment: '--rpl-sp-4'
     color: '#6DEEEECC'
     value: 16
   5:
-    comment: '--rpl-sp-5'
     color: '#AEEFC4CC'
     value: 20
   6:
-    comment: '--rpl-sp-6'
     color: '#CDF8ACCC'
     value: 24
   7:
-    comment: '--rpl-sp-7'
     color: '#EFDA73CC'
     value: 28
   8:
-    comment: '--rpl-sp-8'
     color: '#EFBB87CC'
     value: 32
   9:
-    comment: '--rpl-sp-9'
     color: '#F89D9DCC'
     value: 40
   10:
-    comment: '--rpl-sp-10'
     color: '#FC7D84CC'
     value: 48
   11:
-    comment: '--rpl-sp-11'
     color: '#F45FB9CC'
     value: 56
   12:
-    comment: '--rpl-sp-12'
     color: '#D223EFCC'
     value: 64
   13:
-    comment: '--rpl-sp-13'
     color: '#9C73EFCC'
     value: 80
   14:
-    comment: '--rpl-sp-14'
     color: '#9D9DEFCC'
     value: 120

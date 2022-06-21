@@ -85,7 +85,7 @@ export const RplTypeStyles = [
   {
     title: 'Label / Small / Bold',
     class: `${base}-label-small  ${base}-weight-bold`
-  },
+  }
 ] as const
 
 /* Padding */
@@ -94,28 +94,28 @@ const RplPaddingUtilities = []
 for (let i = 1; i <= 14; i++) {
   RplPaddingUtilities.push(
     {
-      title: `Padding - All sides - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Padding - All sides - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-padding-${i}`
     },
     {
-      title: `Padding - Top - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Padding - Top - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-padding-t-${i}`
     },
     {
-      title: `Padding - Right - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Padding - Right - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-padding-r-${i}`
     },
     {
-      title: `Padding - Bottom - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Padding - Bottom - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-padding-b-${i}`
     },
     {
-      title: `Padding - Left - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Padding - Left - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-padding-l-${i}`
     }
   )
@@ -129,28 +129,28 @@ const RplMarginUtilities = []
 for (let i = 1; i <= 14; i++) {
   RplMarginUtilities.push(
     {
-      title: `Margin - All sides - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Margin - All sides - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-margin-${i}`
     },
     {
-      title: `Margin - Top - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Margin - Top - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-margin-t-${i}`
     },
     {
-      title: `Margin - Right - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Margin - Right - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-margin-r-${i}`
     },
     {
-      title: `Margin - Bottom - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Margin - Bottom - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-margin-b-${i}`
     },
     {
-      title: `Margin - Left - ${rplSpacing.space[i].value}px`,
-      color: `${rplSpacing.space[i].color}`,
+      title: `Margin - Left - ${rplSpacing.sp[i].value}px`,
+      color: `${rplSpacing.sp[i].color}`,
       class: `rpl-u-margin-l-${i}`
     }
   )
@@ -163,8 +163,8 @@ const RplSizeUtilities = []
 
 for (let i = 1; i <= 14; i++) {
   RplSizeUtilities.push({
-    color: `${rplSpacing.space[i].color}`,
-    value: `${rplSpacing.space[i].value}`,
+    color: `${rplSpacing.sp[i].color}`,
+    value: `${rplSpacing.sp[i].value}`,
     class: `rpl-u-size-${i}`
   })
 }

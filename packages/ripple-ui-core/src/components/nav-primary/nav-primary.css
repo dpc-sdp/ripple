@@ -1,13 +1,13 @@
 .rpl-nav-primary {
   background-color: var(--rpl-clr-primary);
   color: var(--rpl-clr-primary-contrast);
-  padding: var(--rpl-space-6);
+  padding: var(--rpl-sp-6);
   border-radius: var(--rpl-border-radius-2);
 
   &__logos {
     display: flex;
     flex-direction: row;
-    gap: var(--rpl-space-3);
+    gap: var(--rpl-sp-3);
     align-items: center;
   }
 

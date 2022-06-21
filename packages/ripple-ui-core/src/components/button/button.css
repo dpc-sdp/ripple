@@ -53,7 +53,7 @@
   }
 
   &--white {
-    --rpl-button-border-width: var(--rpl-border-width-1);
+    --rpl-button-border-width: 0;
 
     color: var(--rpl-button-white-clr);
     background-color: var(--rpl-clr-light);

@@ -12,6 +12,7 @@ export const Template = (args) => ({
   components: { RplAccordion },
   setup() {
     return {
+      args,
       RplAccordionItems
     }
   },
@@ -23,7 +24,9 @@ export const Template = (args) => ({
   `
 })
 
-<Meta title='Components/Accordion' component={RplAccordion} />
+<Meta
+  title='Components/Accordion' component={RplAccordion}
+/>
 
 # Accordion
 
@@ -33,7 +36,6 @@ export const Template = (args) => ({
   <Story
     name='Accordion'
     play={a11yStoryCheck} // Is this needed?
-    argTypes={{}}  // Is this needed?
   >
     {Template.bind()}
   </Story>

@@ -11,6 +11,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
     required: true
+  },
+  numbered: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -61,7 +65,7 @@ const toggleAll = () => {
 </script>
 
 <template>
-  <div :className="`rpl-accordion`" style="width: 450px;">
+  <div :class="`rpl-accordion`" style="width: 450px;">
     <!-- Toggle all -->
     <div class="rpl-accordion__toggle-all-wrapper">
       <RplButton
@@ -73,7 +77,7 @@ const toggleAll = () => {
       />
     </div>
 
-    <div className="rpl-accordion__items">
+    <div class="rpl-accordion__items">
       <!-- TODO: Seperate the items into their own component -->
       <div
         v-for="(item, index) in items"
@@ -85,22 +89,31 @@ const toggleAll = () => {
       >
         <!-- Item toggle -->
         <button
-          className="rpl-accordion__item-toggle"
+          class="rpl-accordion__item-toggle"
           @click="toggleItem(index)"
         >
-          <span className="rpl-accordion__item-heading  rpl-type-h4">
-            {{ item.title }}
+          <span class="rpl-accordion__item-heading-wrapper">
+            <span
+              v-if="numbered"
+              class="rpl-accordion__item-number  rpl-type-h4"
+            >
+              {{ index }}
+            </span>
+
+            <span class="rpl-accordion__item-heading  rpl-type-h4">
+              {{ item.title }}
+            </span>
           </span>
-          <span className="rpl-accordion__item-icon">
+          <span class="rpl-accordion__item-icon">
             <RplIcon name="icon-chevron-down"></RplIcon>
           </span>
         </button>
 
         <!-- Item content -->
         <!-- TODO: Use rplmarkup component instead when its available -->
-        <div className="rpl-accordion__item-content">
+        <div class="rpl-accordion__item-content">
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <div className="rpl-accordion__item-content-inner" v-html="item.content"></div>
+          <div class="rpl-accordion__item-content-inner" v-html="item.content"></div>
         </div>
       </div>
     </div>

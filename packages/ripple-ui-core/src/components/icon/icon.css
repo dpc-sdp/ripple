@@ -23,36 +23,36 @@
     --rpl-icon-size: var(--rpl-space-8);
   }
 
-  &--theme-primary {
+  &--colour-default {
     color: var(--rpl-clr-link);
   }
 
-  &--theme-white {
+  &--colour-white {
     color: var(--rpl-clr-type-light);
   }
 
-  &--theme-text {
+  &--colour-text {
     color: var(--rpl-clr-type-default);
   }
 
-  &--theme-information {
+  &--colour-information {
     color: var(--rpl-clr-information);
   }
 
-  &--theme-success {
+  &--colour-success {
     color: var(--rpl-clr-success);
   }
 
-  &--theme-warning {
+  &--colour-warning {
     color: var(--rpl-clr-warning);
   }
 
-  &--theme-error {
+  &--colour-error {
     color: var(--rpl-clr-error);
   }
 
   /* TODO: Update this colour once designs for inactive state are finalised */
-  &--theme-inactive {
+  &--colour-inactive {
     color: var(--rpl-clr-neutral-4);
   }
 }

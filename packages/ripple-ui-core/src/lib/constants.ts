@@ -1,5 +1,5 @@
 export const RplColorThemes = [
-  'primary',
+  'default',
   'white',
   'text',
   'information',

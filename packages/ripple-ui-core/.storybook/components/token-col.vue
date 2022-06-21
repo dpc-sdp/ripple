@@ -26,11 +26,11 @@ export default {
 .sb-token-table-col {
   font-size: 1.4em;
   flex: 1;
-  padding: var(--rpl-space-2);
+  padding: var(--rpl-sp-2);
   text-align: left;
   align-self: center;
   &--padded {
-    padding: 0 var(--rpl-space-2);
+    padding: 0 var(--rpl-sp-2);
   }
   &--collapse {
     flex: 0;

@@ -25,13 +25,13 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: var(--rpl-space-4) var(--rpl-space-2);
+  padding: var(--rpl-sp-4) var(--rpl-sp-2);
   &--lined {
     border-bottom: 1px solid #1a1a1a;
   }
   &--tight {
-    padding-top: var(--rpl-space-2);
-    padding-bottom: var(--rpl-space-2);
+    padding-top: var(--rpl-sp-2);
+    padding-bottom: var(--rpl-sp-2);
   }
 }
 </style>

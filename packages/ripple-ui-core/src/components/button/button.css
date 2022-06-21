@@ -1,11 +1,11 @@
 .rpl-button {
-  --rpl-button-border-width: var(--rpl-border-width-2);
+  --rpl-button-border-width: var(--rpl-border-2);
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--rpl-space-2);
-  padding: var(--rpl-space-4) var(--rpl-space-5);
+  gap: var(--rpl-sp-2);
+  padding: var(--rpl-sp-4) var(--rpl-sp-5);
   box-sizing: border-box;
   border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-2));
   border-width: var(--rpl-button-border-width);
@@ -23,7 +23,7 @@
   &--filled {
     color: var(--rpl-button-filled-color);
     background-color: var(--rpl-button-filled-bg-color);
-    border-style: solid;
+    border-style: var(--rpl-border-solid);
     border-color: var(--rpl-button-filled-bg-color);
 
     /* States */
@@ -43,7 +43,7 @@
     color: var(--rpl-button-outlined-color);
     background-color: var(--rpl-clr-light);
     border-color: var(--rpl-button-outlined-bdr-color);
-    border-style: solid;
+    border-style: var(--rpl-border-solid);
 
     &:hover {
       color: var(--rpl-button-outlined-hover-color);
@@ -53,12 +53,12 @@
   }
 
   &--white {
-    --rpl-button-border-width: var(--rpl-border-width-1);
+    --rpl-button-border-width: var(--rpl-border-1);
 
     color: var(--rpl-button-white-clr);
     background-color: var(--rpl-clr-light);
     border-color: var(--rpl-clr-neutral-200);
-    border-style: solid;
+    border-style: var(--rpl-border-solid);
     text-decoration: none;
 
     &:hover {
@@ -186,7 +186,7 @@
     background-color: var(--rpl-clr-focus);
     color: var(--rpl-clr-dark);
     border-radius: 0;
-    border-style: solid;
+    border-style: var(--rpl-border-solid);
     border-color: var(--rpl-clr-focus);
     position: relative;
     box-sizing: border-box;
@@ -196,7 +196,7 @@
       position: absolute;
       bottom: calc(var(--rpl-button-border-width) * -1);
       left: calc(var(--rpl-button-border-width) * -1);
-      height: var(--rpl-border-width-4);
+      height: var(--rpl-border-3);
       width: calc(100% + (var(--rpl-button-border-width) * 2));
       background-color: var(--rpl-clr-dark);
     }

@@ -6,7 +6,7 @@ StyleDictionary.registerTransform({
   name: 'size/pixels',
   type: 'value',
   matcher: (token) => {
-    return ['space', 'bp'].includes(token.attributes.category)
+    return ['sp', 'bp'].includes(token.attributes.category)
   },
   transformer: (token) => {
     return `${token.value}px`

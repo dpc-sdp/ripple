@@ -53,11 +53,11 @@
   }
 
   &--white {
-    --rpl-button-border-width: 0;
+    --rpl-button-border-width: var(--rpl-border-1);
 
     color: var(--rpl-button-white-clr);
     background-color: var(--rpl-clr-light);
-    border-color: var(--rpl-clr-neutral-200);
+    border-color: transparent;
     border-style: var(--rpl-border-solid);
     text-decoration: none;
 

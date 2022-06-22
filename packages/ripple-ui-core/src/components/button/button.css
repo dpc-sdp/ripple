@@ -194,10 +194,10 @@
     &::after {
       content: '';
       position: absolute;
-      bottom: calc(var(--rpl-button-border-width) * -1);
-      left: calc(var(--rpl-button-border-width) * -1);
+      bottom: 0;
+      left: 0;
       height: var(--rpl-border-3);
-      width: calc(100% + (var(--rpl-button-border-width) * 2));
+      width: 100%;
       background-color: var(--rpl-clr-dark);
     }
   }

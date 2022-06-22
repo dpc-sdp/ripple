@@ -1,4 +1,6 @@
 .rpl-icon {
+  display: inline-flex;
+
   svg {
     fill: currentcolor;
     width: var(--rpl-icon-size);
@@ -12,15 +14,15 @@
   }
 
   &--size-s {
-    --rpl-icon-size: var(--rpl-space-4);
+    --rpl-icon-size: var(--rpl-sp-4);
   }
 
   &--size-m {
-    --rpl-icon-size: var(--rpl-space-6);
+    --rpl-icon-size: var(--rpl-sp-6);
   }
 
   &--size-l {
-    --rpl-icon-size: var(--rpl-space-8);
+    --rpl-icon-size: var(--rpl-sp-8);
   }
 
   &--colour-default {

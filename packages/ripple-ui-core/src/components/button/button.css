@@ -181,7 +181,7 @@
     --rpl-button-white-clr: var(--rpl-clr-warning);
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 0;
     background-color: var(--rpl-clr-focus);
     color: var(--rpl-clr-dark);

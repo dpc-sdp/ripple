@@ -10,7 +10,8 @@
     ".": "./dist/index.js",
     "./nuxt": "./dist/nuxt.js",
     "./types": "./types.d.ts",
-    "./components": "./dist/nuxt/components"
+    "./components": "./dist/nuxt/components",
+    "./services": "./dist/services/index.js"
   },
   "license": "MIT",
   "keywords": [],
@@ -22,11 +23,12 @@
   "dependencies": {
     "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
     "axios": "^0.25.0",
+    "change-case": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
     "h3": "^0.3.9",
     "js-yaml": "^4.1.0",
     "jsonapi-parse": "^2.0.1",
-    "lodash.get": "^4.4.2",
+    "lodash-es": "^4.17.21",
     "pathe": "^0.2.0",
     "qs": "^6.10.3",
     "ts-json-schema-generator": "^0.98.0",
@@ -35,6 +37,7 @@
   "devDependencies": {
     "@nuxt/schema": "^0.1.0-edge",
     "@types/cheerio": "^0.22.31",
+    "axios-mock-adapter": "^1.21.1",
     "defu": "^5.0.1",
     "rimraf": "^3.0.2"
   },

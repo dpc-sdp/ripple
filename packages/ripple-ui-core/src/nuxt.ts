@@ -20,7 +20,8 @@ export default defineNuxtModule({
       console.log('Added Ripple UI components')
       dirs.push({
         path: join(__dirname, './../src/components'),
-        prefix: 'rpl'
+        prefix: 'rpl',
+        global: true
       })
     }
   },

@@ -1,6 +1,6 @@
 import jsonapiParse from 'jsonapi-parse'
-import TideApiBase from './tide-api-base'
-import defaultMapping from './lib/default-mapping'
+import TideApiBase from './tide-api-base.js'
+import defaultMapping from './lib/default-mapping.js'
 import type { RplTideModuleConfig } from './../../types'
 export default class TidePage extends TideApiBase {
   contentTypes: object
@@ -125,7 +125,7 @@ export default class TidePage extends TideApiBase {
   //   return Promise.reject(this.handleError({ message: 'Unauthorized' }, 401))
   // }
 
-  getResourceIncludes(type) {
+  getResourceIncludes(type: string) {
     const includes = this.contentTypes[type]
       ? this.contentTypes[type].includes
       : []
@@ -166,14 +166,14 @@ export default class TidePage extends TideApiBase {
             return response
           })
           .catch((error) => {
-            return Promise.reject(this.handleError({}, error.response.status))
+            return Promise.reject(this.handleError('', error.response.status))
           })
       }
       throw this.handleError('Invalid route')
     } catch (error: any) {
       return Promise.reject(
         this.handleError(
-          { message: 'Application Error - getPageByRouteData', error },
+          'Application Error - getPageByRouteData',
           error.response.status || 500
         )
       )
@@ -192,10 +192,7 @@ export default class TidePage extends TideApiBase {
       })
     } catch (error: any) {
       return Promise.reject(
-        this.handleError(
-          { message: 'Application Error - getTaxonomyItems', error },
-          error.response.status || 500
-        )
+        this.handleError('Application Error - getTaxonomyItems', 500)
       )
     }
   }
@@ -210,9 +207,7 @@ export default class TidePage extends TideApiBase {
       this.contentTypes[type].mapping
     if (!contentTypeMapping) {
       return Promise.reject(
-        this.handleError({
-          message: 'Unable to resolve content type - ' + type
-        })
+        this.handleError('Unable to resolve content type - ' + type, 500)
       )
     }
     return this.getMappedData(

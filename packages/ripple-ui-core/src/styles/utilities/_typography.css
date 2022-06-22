@@ -298,3 +298,22 @@
 .rpl-type-weight-bold {
   font-weight: var(--rpl-type-weight-bold);
 }
+
+.rpl-u-focus-state {
+  &:focus {
+    background-color: var(--rpl-clr-semantic-focus);
+    color: var(--rpl-clr-dark);
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: '';
+      background-color: var(--rpl-clr-dark);
+      position: absolute;
+      left: 0;
+      bottom: calc(var(--rpl-border-width-2) * -1);
+      height: var(--rpl-border-width-4);
+      width: 100%;
+    }
+  }
+}

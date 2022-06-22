@@ -13,3 +13,9 @@ export const RplButtonThemes = [
   'info',
   'success'
 ] as const
+
+export default {
+  RplButtonTypes,
+  RplButtonIconPositions,
+  RplButtonThemes
+}

@@ -13,6 +13,17 @@ StyleDictionary.registerTransform({
   }
 })
 
+StyleDictionary.registerTransform({
+  name: 'gradient',
+  type: 'value',
+  matcher: (token) => {
+    return ['gradient'].includes(token.attributes.category)
+  },
+  transformer: (token) => {
+    return `${token.value}px`
+  }
+})
+
 StyleDictionary.registerFilter({
   name: 'validToken',
   matcher: function (token) {

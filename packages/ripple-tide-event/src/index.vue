@@ -1,19 +1,21 @@
 <template>
   <div>
     <h1>{{ page.title }}</h1>
-    <h2>FROM NPM MODULE</h2>
     <p>{{ page.summary }}</p>
-    <div v-if="page.link">
-      <p>{{ page.link?.url }}</p>
-      <a :href="page.link?.url">{{ page.link.text }}</a>
-    </div>
+    <img v-if="page.image" :src="imgUrl" />
+    <a v-if="page.link" :href="page.link?.url">{{ page.link.text }}</a>
   </div>
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
+import { useTideImage } from '#imports'
 import type TideEventPage from './../types'
 
-defineProps<{
-  page: TideEventPage
-}>()
+const props =
+  defineProps<{
+    page: TideEventPage
+  }>()
+
+const imgUrl = useTideImage(props.page.image.src, 300)
 </script>

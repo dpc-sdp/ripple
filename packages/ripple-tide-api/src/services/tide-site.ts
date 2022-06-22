@@ -1,6 +1,6 @@
 import jsonapiParse from 'jsonapi-parse'
-import TideApiBase from './tide-api-base'
-import getHierarchicalMenu from './lib/site-menu'
+import TideApiBase from './tide-api-base.js'
+import getHierarchicalMenu from './lib/site-menu.js'
 import type { RplTideModuleConfig, RplTideMapping } from './../../types'
 
 export default class TideSite extends TideApiBase {
@@ -75,7 +75,7 @@ export default class TideSite extends TideApiBase {
             menus[key] = menuItemsData
           }
         } catch (error) {
-          return Promise.reject(this.handleError(error))
+          return Promise.reject(this.handleError('Error fetching site menus'))
         }
       }
     }
@@ -83,7 +83,7 @@ export default class TideSite extends TideApiBase {
       const hierarchicalMenus = getHierarchicalMenu(menus)
       return hierarchicalMenus
     } catch (error) {
-      return Promise.reject(this.handleError(error))
+      return Promise.reject(this.handleError('Error fetching site menus'))
     }
   }
 }

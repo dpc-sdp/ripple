@@ -8,7 +8,6 @@ const tideHandler = async (config: RplTideModuleConfig): Promise<App> => {
   const app = createApp()
   const tideSiteApi = new TideSiteApi(config)
   const tidePageApi = new TidePageApi(config)
-  new TidePageApi(config)
 
   app.use('/page', async (req: IncomingMessage) => {
     const query = await useQuery(req)

@@ -21,6 +21,7 @@
                 aria-label="Menu"
                 :class="{'rpl-site-header__btn--menu-open' : (menuState === 'opened')}"
                 :aria-expanded="(menuState === 'opened').toString()"
+                :aria-controls="rootId"
                 @click="menuToggle()"
               >
                 <rpl-icon :symbol="menuButton[menuState].icon" color="white"></rpl-icon>
@@ -53,6 +54,8 @@
           >
             <div class="rpl-site-header__menu">
               <rpl-menu
+                :id="rootId"
+                :rootId="rootId"
                 :menu="links"
                 :layout="menuLayout"
                 title="Main Menu"
@@ -328,6 +331,9 @@ export default {
       const hasVic = this.vicLogoVisible ? `1` : `0`
       const hasCobrand = this.cobrandVisible ? `1` : `0`
       return `rpl-site-header__divider--${hasMenu}${hasVic}${hasCobrand}`
+    },
+    rootId () {
+      return 'top-menu'
     }
   },
   mounted: function () {

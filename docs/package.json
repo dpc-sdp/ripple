@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "docs",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "nuxt generate",
+    "dev": "nuxt dev",
+    "build:bundle": "nuxt build",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@docus/docs-theme": "npm:@docus/docs-theme-edge@latest",
+    "@dpc-sdp/ripple-ui-core": "0.0.0",
+    "@nuxt/content": "^2.0.0",
+    "nuxt": "^3.0.0-rc.3",
+    "parse-entities": "4.0.0",
+    "unist-builder": "3.0.0"
+  }
+}

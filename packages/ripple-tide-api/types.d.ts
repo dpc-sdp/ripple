@@ -1,3 +1,4 @@
+import type { AxiosInstance } from 'axios'
 export interface RplTideModuleMappingFunction {
   // eslint-disable-next-line @typescript-eslint/ban-types
   [key: string]: Function | string | string[] | object
@@ -23,6 +24,13 @@ export interface TideImageField {
   }
 }
 
+export interface TidePageBase {
+  title: string
+  description: string
+  created: string
+  modified: string
+}
+
 export interface RplTideModuleConfig {
   contentApi: {
     /**
@@ -36,7 +44,7 @@ export interface RplTideModuleConfig {
     /**
      * Basic Auth credentials
      */
-    auth: {
+    auth?: {
       username: string
       password: string
     }
@@ -60,5 +68,9 @@ export interface RplTideModuleConfig {
   /**
    * Enable debug mode
    */
-  debug: boolean
+  debug?: boolean
+  /**
+   * Pass http client (mostly used in testing)
+   */
+  client?: AxiosInstance
 }

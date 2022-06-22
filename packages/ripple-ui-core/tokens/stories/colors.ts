@@ -1,17 +1,17 @@
 import { get } from 'lodash-es'
 import rplColors from './../settings/color.yaml'
 import theme from './../settings/theme.yaml'
-const tokens = { ...theme, ...rplColors }
+export const tokens = { ...theme, ...rplColors }
 
 const getVal = (v: string) => {
   if (typeof v === 'string') {
     if (v.charAt(0) === '{') {
       const valKey = v.replace('{', '').replace('}', '')
       const refVal = get(tokens, valKey)
+      if (refVal.hasOwnProperty('value')) {
+        return getVal(refVal.value)
+      }
       return getVal(refVal)
-    }
-    if (v.hasOwnProperty('value')) {
-      return v.value
     }
     return v
   }
@@ -31,18 +31,25 @@ const getVarName = (path: string[] | string) => {
     .join('-')}`
 }
 
-export const getColorSwatches = (cat) => {
+export const getColorSwatchCollection = (cat) => {
   const category = get(tokens, cat)
   if (!category) return null
   return Object.keys(category)
     .filter((key) => key !== 'value')
     .map((key) => {
-      const arrPath = [...cat.split('.'), key]
-      return getColorSwatch(arrPath)
+      return getColorSwatch(`${cat}.${key}`)
     })
 }
 
-export const getColorSwatch = (path) => {
+export const getColorSwatches = (path: string[] | string) => {
+  if (typeof path === 'string') {
+    return [getColorSwatch(path)]
+  } else if (Array.isArray(path)) {
+    return path.map((p) => getColorSwatch(p))
+  }
+}
+
+export const getColorSwatch = (path: string) => {
   const match = get(tokens, path)
   if (!match) return null
   const value = getVal(match.value)

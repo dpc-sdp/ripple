@@ -1,4 +1,6 @@
 .rpl-icon {
+  display: inline-flex;
+
   svg {
     fill: currentcolor;
     width: var(--rpl-icon-size);

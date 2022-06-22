@@ -2,32 +2,31 @@ clr:
   primary:
     _:
       value: '{theme.clr.primary.500}'
-    contrast:
-      value: '{clr.white}'
     alt:
       value: '{theme.clr.primary.700}'
   accent:
     _:
       value: '{theme.clr.accent.500}'
-    contrast:
-      value: '{clr.white}'
     alt:
       value: '{theme.clr.accent.50}'
-  white:
-    value: '{theme.clr.neutral.0}'
+  light:
+    value: '{clr.neutral.0}'
   dark:
-    value: '{clr.neutral.7}'
+    value: '{clr.neutral.800}'
   type:
     primary:
       contrast:
-        value: '{clr.white}'
+        value: '{clr.light}'
+    accent:
+      contrast:
+        value: '{clr.light}'
     focus:
       contrast:
         value: '{clr.dark}'
     default:
       value: '{clr.dark}'
-    white:
-      value: '{clr.white}'
+    light:
+      value: '{clr.light}'
   link:
     value: '{theme.clr.link}'
   link-visited:
@@ -38,20 +37,24 @@ clr:
     0:
       figma: '123'
       value: '{theme.clr.neutral.0}'
-    1:
+    100:
       value: '{theme.clr.neutral.100}'
-    2:
+    200:
       value: '{theme.clr.neutral.200}'
-    3:
+    300:
       value: '{theme.clr.neutral.300}'
-    4:
+    400:
       value: '{theme.clr.neutral.400}'
-    5:
+    500:
+      value: '{theme.clr.neutral.500}'
+    600:
       value: '{theme.clr.neutral.600}'
-    6:
+    700:
       value: '{theme.clr.neutral.700}'
-    7:
+    800:
       value: '{theme.clr.neutral.800}'
+    900:
+      value: '{theme.clr.neutral.900}'
   information:
     value: '{theme.clr.information.500}'
   success:
@@ -62,3 +65,8 @@ clr:
     value: '{theme.clr.error.500}'
   error-alt:
     value: '{theme.clr.error.600}'
+  gradient:
+    horizontal:
+      value: 'linear-gradient(90deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'
+    vertical:
+      value: 'linear-gradient(180deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'

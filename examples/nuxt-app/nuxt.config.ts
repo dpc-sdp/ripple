@@ -1,6 +1,5 @@
 import 'dotenv/config'
 import { defineNuxtConfig } from 'nuxt'
-
 export default defineNuxtConfig({
   privateRuntimeConfig: {
     API_URL: process.env.API_URL
@@ -20,9 +19,10 @@ export default defineNuxtConfig({
     },
     mapping: {
       content: {
-        event: '@dpc-sdp/ripple-tide-event'
+        event: '@dpc-sdp/ripple-tide-event',
+        landing_page: '@dpc-sdp/ripple-tide-landing-page'
       },
-      site: './tide/site.ts'
+      site: './tide/site.mjs'
     },
     debug: false
   },

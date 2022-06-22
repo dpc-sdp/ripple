@@ -1,18 +1,81 @@
-/* Will need to add this import wherever we need to use custom media breakpoints */
-@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+/* Toggle all button */
+.rpl-accordion__toggle-all-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
 
-.rpl-accordion {
-  border: 1px solid pink;
+/* List of items */
+.rpl-accordion__items {
+  border-top-style: solid var(--rpl-border-width-1) var(--rpl-clr-neutral-3);
+}
 
-  &__list-item {
-    border: 1px solid green;
+.rpl-accordion__item {
+  position: relative;
+  border-bottom-style: solid var(--rpl-border-width-1) var(--rpl-clr-neutral-3);
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: var(--rpl-border-width-4);
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--rpl-clr-accent);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
   }
 
-  &__button-text {
-    font-weight: bold;
+  &.rpl-accordion__item--active {
+    &::after {
+      opacity: 1;
+    }
   }
+}
 
-  @media (--rpl-bp-m) {
-    border-color: red !important;
+/* Item toggle */
+.rpl-accordion__item-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: var(--rpl-space-5) var(--rpl-space-7);
+  cursor: pointer;
+}
+
+.rpl-accordion__item-heading {
+  .rpl-accordion__item-toggle:hover & {
+    color: var(--rpl-clr-link);
+    text-decoration: underline;
+  }
+}
+
+.rpl-accordion__item-icon {
+  color: var(--rpl-clr-link);
+  transition: transform 0.3s ease-out;
+
+  .rpl-accordion__item--active & {
+    transform: rotate(180deg);
+  }
+}
+
+/* Item content */
+.rpl-accordion__item-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease-out;
+
+  .rpl-accordion__item--active & {
+    max-height: 300px;
+  }
+}
+
+.rpl-accordion__item-content-inner {
+  padding: 0 var(--rpl-space-7) var(--rpl-space-8);
+
+  p {
+    margin-top: 0;
   }
 }

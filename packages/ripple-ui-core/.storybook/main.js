@@ -37,8 +37,9 @@ const vitePlugins = [
 ]
 module.exports = {
   stories: [
-    '../src/components/**/*.stories.mdx',
-    '../src/components/**/*.stories.@(js|jsx|ts|tsx)'
+    '../tokens/**/*.stories.mdx',
+    '../src/components/**/*.stories.@(mdx|js|jsx|ts|tsx)',
+    './stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'
   ],
   staticDirs: ['./assets'],
   features: {

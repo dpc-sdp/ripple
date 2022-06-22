@@ -12,7 +12,7 @@ export const RplAccordionItems = [
     `
   },
   {
-    title: 'Accordion two',
+    title: 'Accordion two with a really long title that wraps over multiple lines so that we can see how the icon and number align vertically',
     content: `
       <p class="rpl-type-p">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore

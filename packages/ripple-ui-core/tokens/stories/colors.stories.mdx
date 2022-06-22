@@ -3,7 +3,7 @@ import sbTokenTable from './../../.storybook/components/token-table.vue'
 import sbTokenTableRow from './../../.storybook/components/token-row.vue'
 import sbTokenTableCol from './../../.storybook/components/token-col.vue'
 import sbTokenTableSwatch from './../../.storybook/components/token-swatch.vue'
-import { getColorSwatches, getColorSwatch, default as rplColors } from './colors'
+import { getColorSwatches, getColorSwatchCollection, tokens } from './colors'
 
 export const Template = (args) => ({
   components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
@@ -37,14 +37,13 @@ export const Template = (args) => ({
   }}
 />
 
-## Core
 
 <Canvas columns={2}>
   <Story
     name="Primary"
     args={{
       columns: ['Primary'],
-      items: getColorSwatches('clr.primary')
+      items: getColorSwatchCollection('clr.primary')
     }}
   >
     {Template.bind({})}
@@ -53,7 +52,38 @@ export const Template = (args) => ({
     name="Accent"
     args={{
       columns: ['Accent'],
-      items: getColorSwatches('clr.accent')
+      items: getColorSwatchCollection('clr.accent')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+
+<Canvas columns={2}>
+  <Story
+    name="Type"
+    args={{
+      columns: ['Type'],
+      items: getColorSwatches([
+        'clr.type.default',
+        'clr.type.light',
+        'clr.type.primary.contrast',
+        'clr.type.accent.contrast'
+      ])
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Link"
+    args={{
+      columns: ['Link'],
+      items: getColorSwatches([
+        'clr.link',
+        'clr.link-visited',
+        'clr.focus'
+      ])
     }}
   >
     {Template.bind({})}
@@ -67,7 +97,19 @@ export const Template = (args) => ({
     name="Neutral"
     args={{
       columns: ['Neutrals'],
-      items: getColorSwatches('clr.neutral')
+      items: getColorSwatchCollection('clr.neutral')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Helper"
+    args={{
+      columns: ['Helper'],
+      items: getColorSwatches([
+        'clr.light',
+        'clr.dark',
+      ])
     }}
   >
     {Template.bind({})}
@@ -78,39 +120,66 @@ export const Template = (args) => ({
 
 <Canvas>
   <Story
-    name="Info"
+    name="Semantic"
     args={{
-      columns: ['Info'],
-      items: [getColorSwatch('clr.information')]
+      columns: ['Semantic'],
+      items: getColorSwatches([
+        'clr.information',
+        'clr.success',
+        'clr.warning',
+        'clr.error',
+        'clr.error-alt'])
     }}
   >
     {Template.bind({})}
   </Story>
+</Canvas>
+
+
+## Gradient
+
+Note: colour steps do not have variables assigned, the gradient can only be used as a whole.
+
+<Canvas>
   <Story
-    name="Success"
+    name="Gradient"
     args={{
-      columns: ['Success'],
-      items: [getColorSwatch('clr.success')]
+      columns: ['Gradient'],
+      items: [
+        {
+          value: '',
+          bgvar: '--rpl-clr-gradient-horizontal',
+          label: '--rpl-clr-gradient-horizontal'
+        },
+        {
+          value: '',
+          bgvar: '--rpl-clr-gradient-vertical',
+          label: '--rpl-clr-gradient-vertical'
+        }
+      ].concat(Object.keys(tokens.theme.clr.gradient).map(v => {
+        return {
+          value: tokens.theme.clr.gradient[v],
+          var: tokens.theme.clr.gradient[v],
+          label: v + '%'
+        }
+      }))
     }}
   >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="Warning"
-    args={{
-      columns: ['Warning'],
-      items: [getColorSwatch('clr.warning')]
+    {(args) => {
+      return {
+        components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+        setup() { return { args } },
+        template: `
+    <sbTokenTable :columns="args.columns" >
+      <sbTokenTableRow v-for="item in args.items" :key="item">
+        <sbTokenTableCol>{{item.value}}</sbTokenTableCol>
+        <sbTokenTableCol v-if="item.bgvar" collapse width="50px"><sbTokenTableSwatch :size="24" :style="'background: var('+item.bgvar+')'"></sbTokenTableSwatch></sbTokenTableCol>
+        <sbTokenTableCol v-else collapse width="50px"><sbTokenTableSwatch :size="24" :style="'background: '+item.var+''"></sbTokenTableSwatch></sbTokenTableCol>
+        <sbTokenTableCol expand>{{item.label}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+        `
+      }
     }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="Error"
-    args={{
-      columns: ['Error'],
-      items: [getColorSwatch('clr.error'), getColorSwatch('clr.error-alt')]
-    }}
-  >
-    {Template.bind({})}
   </Story>
 </Canvas>

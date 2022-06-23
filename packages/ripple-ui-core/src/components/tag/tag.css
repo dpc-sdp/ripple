@@ -2,19 +2,19 @@
   background-color: var(--rpl-tag-bg-clr);
   color: var(--rpl-tag-clr);
   font-size: var(--rpl-type-size-1);
-  padding: var(--rpl-space-1) var(--rpl-space-2);
+  padding: var(--rpl-sp-1) var(--rpl-sp-2);
 
-  &--primary {
-    --rpl-tag-bg-clr: var(--rpl-clr-white);
+  &--white {
+    --rpl-tag-bg-clr: var(--rpl-clr-light);
     --rpl-tag-clr: var(--rpl-clr-type-default);
   }
 
   &--neutral {
-    --rpl-tag-bg-clr: var(--rpl-clr-neutral-1);
+    --rpl-tag-bg-clr: var(--rpl-clr-neutral-100);
     --rpl-tag-clr: var(--rpl-clr-type-default);
   }
 
   & + & {
-    margin-left: var(--rpl-space-3);
+    margin-left: var(--rpl-sp-3);
   }
 }

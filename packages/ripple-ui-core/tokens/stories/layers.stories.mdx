@@ -1,9 +1,9 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs'
-import rplLayerStyles from './../../../../tokens/settings/layers.yaml'
-import sbTokenTable from './../../../../.storybook/components/token-table.vue'
-import sbTokenTableRow from './../../../../.storybook/components/token-row.vue'
-import sbTokenTableCol from './../../../../.storybook/components/token-col.vue'
-import sbTokenTableSwatch from './../../../../.storybook/components/token-swatch.vue'
+import rplLayerStyles from './../settings/layers.yaml'
+import sbTokenTable from './../../.storybook/components/token-table.vue'
+import sbTokenTableRow from './../../.storybook/components/token-row.vue'
+import sbTokenTableCol from './../../.storybook/components/token-col.vue'
+import sbTokenTableSwatch from './../../.storybook/components/token-swatch.vue'
 
 export const BorderRadiusTemplate = (args) => ({
   components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
@@ -16,9 +16,9 @@ export const BorderRadiusTemplate = (args) => ({
     })
     return {
       getExampleStyles: (item) => ({
-        width: 'calc(var(--rpl-space-4) * 4)',
-        height: 'var(--rpl-space-4)',
-        border: `1px solid var(--rpl-clr-neutral-3)`,
+        width: 'calc(var(--rpl-sp-4) * 4)',
+        height: 'var(--rpl-sp-4)',
+        border: `1px solid var(--rpl-clr-neutral-300)`,
         borderRadius: `var(${item.var})`
       }),
       columns: ['Style', '', 'Token'],
@@ -40,17 +40,17 @@ export const BorderRadiusTemplate = (args) => ({
 export const BorderWidthTemplate = (args) => ({
   components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
   setup() {
-    const items = Object.keys(rplLayerStyles?.border?.width).map(k => {
+    const items = Object.keys(rplLayerStyles?.border).filter(k => !isNaN(k)).map(k => {
       return {
-        var: `--rpl-border-width-${k}`,
-        ...rplLayerStyles.border.width[k]
+        var: `--rpl-border-${k}`,
+        ...rplLayerStyles.border[k]
       }
     })
     return {
       getExampleStyles: (item) => ({
-        width: 'calc(var(--rpl-space-4) * 4)',
-        height: 'var(--rpl-space-4)',
-        border: `1px solid var(--rpl-clr-neutral-3)`,
+        width: 'calc(var(--rpl-sp-4) * 4)',
+        height: 'var(--rpl-sp-4)',
+        border: `1px solid var(--rpl-clr-neutral-300)`,
         borderWidth: `var(${item.var})`
       }),
       columns: ['Style', '', 'Token'],
@@ -80,9 +80,9 @@ export const ElevationTemplate = (args) => ({
     })
     return {
       getExampleStyles: (item) => ({
-        width: 'calc(var(--rpl-space-4) * 4)',
-        height: 'var(--rpl-space-4)',
-        border: `1px solid var(--rpl-clr-neutral-2)`,
+        width: 'calc(var(--rpl-sp-4) * 4)',
+        height: 'var(--rpl-sp-4)',
+        border: `1px solid var(--rpl-clr-neutral-200)`,
         boxShadow: `var(${item.var})`
       }),
       columns: ['Style', '', 'Token'],
@@ -127,6 +127,48 @@ export const ElevationTemplate = (args) => ({
     }
   }}>
     {BorderWidthTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Border style
+
+<Canvas>
+  <Story
+    name="Border style"
+    args={{
+      columns: ['Style', '', 'Token'],
+      items: [
+        {
+          value: 'Solid',
+          label: '--rpl-border-solid'
+        }
+      ]
+    }}
+  >
+    {(args) => {
+      return {
+        components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol },
+        setup() {
+          return {
+            getExampleStyles: () => ({
+              width: 'calc(var(--rpl-sp-4) * 4)',
+              height: 'var(--rpl-sp-4)',
+              border: `1px var(--rpl-border-solid) var(--rpl-clr-dark)`
+            }),
+            args
+          }
+        },
+        template: `
+    <sbTokenTable :columns="args.columns" >
+      <sbTokenTableRow v-for="item in args.items" :key="item">
+        <sbTokenTableCol>{{item.value}}</sbTokenTableCol>
+        <sbTokenTableCol><div :style="getExampleStyles()"></div></sbTokenTableCol>
+        <sbTokenTableCol>{{item.label}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+        `
+      }
+    }}
   </Story>
 </Canvas>
 

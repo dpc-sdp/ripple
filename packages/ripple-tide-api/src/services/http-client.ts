@@ -1,16 +1,23 @@
-import axios, { Axios } from 'axios'
+import axios, { AxiosInstance } from 'axios'
 import qs from 'qs'
 
 export default class HttpClient {
-  client: Axios
+  client: AxiosInstance
   constructor(config) {
-    this.client = axios.create({
-      baseURL: config.baseUrl,
-      auth: config.auth,
-      paramsSerializer: function (params) {
-        return qs.stringify(params, { arrayFormat: 'brackets', indices: false })
-      }
-    })
+    if (config.client) {
+      this.client = config.client
+    } else {
+      this.client = axios.create({
+        baseURL: config.baseUrl,
+        auth: config.auth,
+        paramsSerializer: function (params) {
+          return qs.stringify(params, {
+            arrayFormat: 'brackets',
+            indices: false
+          })
+        }
+      })
+    }
 
     this._initializeResponseInterceptor()
   }

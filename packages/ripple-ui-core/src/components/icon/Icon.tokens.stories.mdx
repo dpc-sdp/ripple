@@ -3,11 +3,11 @@ import sbTokenTable from './../../../.storybook/components/token-table.vue'
 import sbTokenTableRow from './../../../.storybook/components/token-row.vue'
 import sbTokenTableCol from './../../../.storybook/components/token-col.vue'
 import sbTokenTableSwatch from './../../../.storybook/components/token-swatch.vue'
-import { RplCoreIconNames, RplCustomIconNames } from './constants'
+import { RplCoreIconNames, RplCustomIconNames, RplIconGroups } from './constants'
 import { RplColorThemes } from './../../lib/constants'
 import RplIcon from './icon.vue'
 
-export const Template = (args) => ({
+export const IconListTemplate = (args) => ({
   components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch, RplIcon },
   setup() {
     return {
@@ -18,13 +18,28 @@ export const Template = (args) => ({
     <sbTokenTable :columns="args.columns" >
       <sbTokenTableRow v-for="item in args.items" :key="item">
         <sbTokenTableCol>{{item}}</sbTokenTableCol>
-        <sbTokenTableCol ><RplIcon :name="item" size="m" theme="core" /></sbTokenTableCol>
+        <sbTokenTableCol><RplIcon :name="item" size="m" /></sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `
 });
 
-# Icons
+export const IconSpriteSheetOnDemandTemplate = (args) => ({
+  components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch, RplIcon },
+  setup() {
+    return {
+      args
+    }
+  },
+  template: `
+    <sbTokenTable :columns="args.columns" >
+      <sbTokenTableRow v-for="item in args.items" :key="item">
+        <sbTokenTableCol>{{item}}</sbTokenTableCol>
+        <sbTokenTableCol><RplIcon :name="item" size="m" /></sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+  `
+});
 
 <Meta
   title='Base Styles/Icons'
@@ -38,24 +53,56 @@ export const Template = (args) => ({
   }}
 />
 
-
+# Icon list
 <Canvas>
   <Story
-    name="Sprite"
+    name="Alert"
     args={{
-      columns: ['Sprite'],
+      columns: ['Alert'],
+      items: RplIconGroups.alert
+    }}
+  >
+    {IconListTemplate.bind({})}
+  </Story>
+  <Story
+    name="Social"
+    args={{
+      columns: ['Social'],
+      items: RplIconGroups.social
+    }}
+  >
+    {IconListTemplate.bind({})}
+  </Story>
+  <Story
+    name="Standard"
+    args={{
+      columns: ['Standard'],
+      items: RplIconGroups.standard
+    }}
+  >
+    {IconListTemplate.bind({})}
+  </Story>
+</Canvas>
+
+
+# Icon sprite sheet / on demand list
+<Canvas>
+  <Story
+    name="Icons in sprite sheet"
+    args={{
+      columns: ['Sprite sheet'],
       items: RplCoreIconNames
     }}
   >
-    {Template.bind({})}
+    {IconSpriteSheetOnDemandTemplate.bind({})}
   </Story>
   <Story
-    name="On Demand"
+    name="Icons on demand"
     args={{
       columns: ['On Demand'],
       items: RplCustomIconNames
     }}
   >
-    {Template.bind({})}
+    {IconSpriteSheetOnDemandTemplate.bind({})}
   </Story>
 </Canvas>

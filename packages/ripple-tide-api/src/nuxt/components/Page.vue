@@ -1,26 +1,53 @@
 <template>
-  <div>
-    <RplIconSprite />
-    <header>
-      <slot name="header"> {{ site.name }} </slot>
+  <div class="rpl-tide-page">
+    <rpl-icon-sprite />
+    <header v-if="site" class="rpl-tide-page__header">
+      <slot name="header">
+        <rpl-nav-primary>
+          <template #open>Open Menu</template>
+        </rpl-nav-primary>
+      </slot>
     </header>
-    <div v-if="page">
-      <h1>Tide Page</h1>
-      <RplButton label="tests" :theme="'secondary'" />
-      <component :is="`Tide${page.type}Page`" :page="page" />
-      {{ site }}
-    </div>
+    <main v-if="page" class="rpl-tide-page__body">
+      <slot name="body">
+        <component :is="componentName" :page="page" />
+      </slot>
+    </main>
     <div v-else>Error</div>
+    <footer v-if="site" class="rpl-tide-page__footer">
+      <slot name="footer"></slot>
+    </footer>
   </div>
 </template>
 
 <script setup lang="ts">
-/* eslint-disable no-undef */
-const config = useRuntimeConfig()
+// @ts-ignore
+import { useRoute, useRuntimeConfig, useFetch } from '#imports'
+import { computed } from 'vue'
+import { pascalCase } from 'change-case'
+
 const route = useRoute()
+const config = useRuntimeConfig()
 const [{ data: site }, { data: page }] = await Promise.all([
-  useTideSite(config.SITEID),
-  useTidePage(route.path)
+  useFetch('/api/tide/site', {
+    params: {
+      id: config.SITEID
+    }
+  }),
+  useFetch('/api/tide/page', {
+    params: {
+      path: route.path,
+      site: config.SITEID
+    }
+  })
 ])
+const componentName = computed(
+  () => page.value && `Tide${pascalCase(page.value.type)}Page`
+)
 </script>
-4
+
+<style>
+.rpl-tide-page {
+  padding: var(--rpl-space-3);
+}
+</style>

@@ -15,15 +15,19 @@ const props = defineProps({
     type: String,
     required: true
   },
-  theme: {
+  colour: {
     type: [String, undefined] as PropType<
       typeof RplColorThemes[number] | undefined
     >,
-    default: undefined
+    default: 'default'
   },
   size: {
     type: String as PropType<typeof RplIconSizes[number]>,
     default: 's'
+  },
+  padded: {
+    type: Boolean,
+    default: false
   },
   presentational: {
     type: Boolean,
@@ -43,8 +47,11 @@ const classes = computed(() => {
   if (props.name) {
     c.push(`rpl-icon--${props.name}`)
   }
-  if (props.theme) {
-    c.push(`rpl-icon--theme-${props.theme}`)
+  if (props.colour) {
+    c.push(`rpl-icon--colour-${props.colour}`)
+  }
+  if (props.padded) {
+    c.push(`rpl-icon--padded`)
   }
   return c
 })

@@ -24,8 +24,8 @@
       background-color: var(--rpl-clr-dark);
       position: absolute;
       left: 0;
-      bottom: calc(var(--rpl-border-width-2) * -1);
-      height: var(--rpl-border-width-4);
+      bottom: calc(var(--rpl-border-2) * -1);
+      height: var(--rpl-border-3);
       width: 100%;
     }
   }

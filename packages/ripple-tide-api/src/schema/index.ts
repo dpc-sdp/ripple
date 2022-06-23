@@ -1,4 +1,4 @@
-import get from 'lodash.get'
+import { get } from 'lodash-es'
 import jsYaml from 'js-yaml'
 import fs from 'fs'
 import { join } from 'pathe'

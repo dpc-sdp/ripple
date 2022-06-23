@@ -1,48 +1,60 @@
 .rpl-icon {
+  display: inline-flex;
+
   svg {
     fill: currentcolor;
     width: var(--rpl-icon-size);
     height: var(--rpl-icon-size);
-    padding: calc(var(--rpl-icon-size) / 2);
   }
 
-  &--size-s svg {
-    --rpl-icon-size: var(--rpl-space-4);
+  &--padded {
+    svg {
+      padding: calc(var(--rpl-icon-size) / 2);
+    }
   }
 
-  &--size-m svg {
-    --rpl-icon-size: var(--rpl-space-6);
+  &--size-s {
+    --rpl-icon-size: var(--rpl-sp-4);
   }
 
-  &--size-l svg {
-    --rpl-icon-size: var(--rpl-space-8);
+  &--size-m {
+    --rpl-icon-size: var(--rpl-sp-6);
   }
 
-  &--theme-primary svg {
-    color: var(--rpl-clr-primary);
+  &--size-l {
+    --rpl-icon-size: var(--rpl-sp-8);
   }
 
-  &--theme-accent svg {
-    color: var(--rpl-clr-accent);
+  &--colour-default {
+    color: var(--rpl-clr-link);
   }
 
-  &--theme-neutral svg {
-    color: var(--rpl-clr-neutral-7);
+  &--colour-white {
+    color: var(--rpl-clr-type-light);
   }
 
-  &--theme-info svg {
+  &--colour-text {
+    color: var(--rpl-clr-type-default);
+  }
+
+  &--colour-information {
     color: var(--rpl-clr-information);
   }
 
-  &--theme-success svg {
+  &--colour-success {
     color: var(--rpl-clr-success);
   }
 
-  &--theme-warning svg {
+  &--colour-warning {
     color: var(--rpl-clr-warning);
   }
 
-  &--theme-error svg {
+  &--colour-error {
     color: var(--rpl-clr-error);
+  }
+
+  /* TODO: Update this colour once designs for inactive state are finalised */
+  &--colour-inactive {
+    color: var(--rpl-clr-neutral-4);
   }
 }

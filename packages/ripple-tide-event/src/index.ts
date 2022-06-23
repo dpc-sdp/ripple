@@ -2,7 +2,8 @@ import {
   getField,
   getImageFromField,
   getAddress,
-  formatDate
+  formatDate,
+  tidePageMappingBase
 } from '@dpc-sdp/ripple-tide-api'
 
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
@@ -11,7 +12,7 @@ const tideEventModule: RplTideMapping = {
   component: '@dpc-sdp/ripple-tide-event/component',
   schema: '@dpc-sdp/ripple-tide-event/types',
   mapping: {
-    title: 'title',
+    ...tidePageMappingBase,
     summary: 'field_landing_page_summary',
     link: (src) => ({
       text: 'See event details',

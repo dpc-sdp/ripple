@@ -4,7 +4,8 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "noImplicitAny": false,
-    "declaration": false
+    "declaration": false,
+    "jsx": "preserve"
   },
-  "include": ["./src"]
+  "include": ["./src", "./types.d.ts"]
 }

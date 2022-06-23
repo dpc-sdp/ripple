@@ -1,4 +1,4 @@
-import get from 'lodash.get'
+import { get } from 'lodash-es'
 // import markupTranspiler from './markup-transpiler/index'
 
 const markupTranspiler = (html, plugins) => {

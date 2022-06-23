@@ -15,7 +15,11 @@ export default {
 <template>
   <div
     class="sb-token-swatch"
-    :style="`width: ${size}px; height: ${size}px; background-color: ${color};`"
+    :style="{
+      width: `${size}px`,
+      height: `${size}px`,
+      backgroundColor: color
+    }"
   >
     <slot v-if="size > 12"></slot>
   </div>
@@ -25,5 +29,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.sb-token-swatch[style*='background-color'] {
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 </style>

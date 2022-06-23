@@ -9,7 +9,10 @@
     "@dpc-sdp/ripple-tide-api",
     "@dpc-sdp/ripple-ui-core",
     "nuxt-app",
-    "webcomponents"
+    "webcomponents",
+    "nuxt-app",
+    "docs",
+    "@dpc-sdp/ripple-tide-landing-page"
   ],
   "cSpell.words": ["nuxt", "pathe", "scripthost", "stylelint", "vite", "vitejs"]
 }

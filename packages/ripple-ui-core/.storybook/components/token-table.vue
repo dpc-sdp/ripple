@@ -34,7 +34,7 @@ export default {
   }
   &__title {
     font-weight: 700;
-    padding-bottom: var(--rpl-space-2);
+    padding-bottom: var(--rpl-sp-2);
     border-bottom: 2px solid black;
     &.sb-token-table__row {
       font-size: 1.2em;

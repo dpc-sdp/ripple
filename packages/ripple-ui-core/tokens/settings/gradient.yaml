@@ -1,8 +1,0 @@
-clr:
-  gradient:
-    vertical:
-      value: "{clr.gradient.theme}"
-    theme:
-      -
-        15:
-          color: #fff

@@ -3,7 +3,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-import RplButton from '../button/button.vue'
 import RplIcon from '../icon/icon.vue'
 
 const props = defineProps({
@@ -37,16 +36,6 @@ const toggleItem = (itemIndex) => {
   }
 }
 
-const toggleAllLabel = computed(() => {
-  let label = 'Open all'
-
-  if (activeItems.value.length === props.items.length) {
-    label = 'Close all'
-  }
-
-  return label
-})
-
 const toggleAll = () => {
   // Open all
   if (activeItems.value.length !== props.items.length) {
@@ -62,23 +51,33 @@ const toggleAll = () => {
     activeItems.value = []
   }
 }
+
+const toggleAllLabel = computed(() => {
+  let label = 'Open all'
+
+  if (activeItems.value.length === props.items.length) {
+    label = 'Close all'
+  }
+
+  return label
+})
 </script>
 
 <template>
-  <div :class="`rpl-accordion`" style="width: 450px;">
+  <div class="rpl-accordion">
     <!-- Toggle all -->
     <div class="rpl-accordion__toggle-all-wrapper">
-      <RplButton
+      <button
         v-if="items.length > 1"
-        theme="white"
-        :label="toggleAllLabel"
         class="rpl-accordion__toggle-all"
         @click="toggleAll"
-      />
+      >
+        {{ toggleAllLabel }}
+      </button>
     </div>
 
+    <!-- Items -->
     <div class="rpl-accordion__items">
-      <!-- TODO: Seperate the items into their own component -->
       <div
         v-for="(item, index) in items"
         :key="index"
@@ -93,6 +92,7 @@ const toggleAll = () => {
           @click="toggleItem(index)"
         >
           <span class="rpl-accordion__item-heading-wrapper">
+            <!-- Number -->
             <span
               v-if="numbered"
               class="rpl-accordion__item-number  rpl-type-h4"
@@ -100,10 +100,13 @@ const toggleAll = () => {
               {{ index }}
             </span>
 
+            <!-- Title -->
             <span class="rpl-accordion__item-heading  rpl-type-h4">
               {{ item.title }}
             </span>
           </span>
+
+          <!-- Icon -->
           <span class="rpl-accordion__item-icon">
             <RplIcon name="icon-chevron-down"></RplIcon>
           </span>

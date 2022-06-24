@@ -6,6 +6,51 @@
   justify-content: flex-end;
 }
 
+.rpl-accordion__toggle-all {
+  color: var(--rpl-clr-link);
+  background: transparent;
+  border: 0;
+  font-family: var(--rpl-type-font-family);
+  font-weight: var(--rpl-type-weight-bold);
+  font-size: var(--rpl-type-size-1);
+  line-height: var(--rpl-type-lh-1);
+  letter-spacing: var(--rpl-type-ls-3);
+  text-decoration-line: underline;
+  cursor: pointer;
+
+  @media (--rpl-bp-l) {
+    font-size: var(--rpl-type-size-2);
+    line-height: var(--rpl-type-lh-2);
+    letter-spacing: var(--rpl-type-ls-1);
+  }
+
+  &:hover {
+    text-decoration-line: none;
+  }
+
+  &:active {
+    color: var(--rpl-clr-dark);
+    text-decoration-line: none;
+  }
+
+  &:focus-visible {
+    outline: 0;
+    color: var(--rpl-clr-dark);
+    background-color: var(--rpl-clr-focus);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: var(--rpl-border-3);
+      width: 100%;
+      background-color: var(--rpl-clr-dark);
+    }
+  }
+}
+
 /* List of items */
 .rpl-accordion__items {
   border-top: solid var(--rpl-border-1) var(--rpl-clr-neutral-300);
@@ -13,6 +58,7 @@
 
 .rpl-accordion__item {
   position: relative;
+  background-color: var(--rpl-clr-light);
   border-bottom: solid var(--rpl-border-1) var(--rpl-clr-neutral-300);
 
   &::after {
@@ -101,16 +147,21 @@
 .rpl-accordion__item-icon {
   flex-shrink: 0;
   display: flex;
-  margin-top: var(--rpl-sp-2);
+  margin-top: var(--rpl-sp-1);
   margin-left: var(--rpl-sp-4);
   transition: transform 0.3s ease-out;
 
   @media (--rpl-bp-l) {
+    margin-top: var(--rpl-sp-2);
     margin-left: var(--rpl-sp-6);
   }
 
   .rpl-accordion__item--active & {
     transform: rotate(180deg);
+  }
+
+  .rpl-accordion__item-toggle:focus-visible & .rpl-icon {
+    color: var(--rpl-clr-type-focus-contrast);
   }
 }
 

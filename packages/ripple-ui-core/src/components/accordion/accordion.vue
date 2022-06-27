@@ -6,6 +6,10 @@ import { ref, computed } from 'vue'
 import RplIcon from '../icon/icon.vue'
 
 const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  },
   items: {
     type: Array,
     default: () => [],
@@ -88,7 +92,11 @@ const toggleAllLabel = computed(() => {
       >
         <!-- Item toggle -->
         <button
+          :id="`accordion-${id}-${index}-toggle`"
           class="rpl-accordion__item-toggle"
+          type="button"
+          :aria-controls="`accordion-${id}-${index}-content`"
+          :aria-expanded="isActive(index)"
           @click="toggleItem(index)"
         >
           <span class="rpl-accordion__item-heading-wrapper">
@@ -107,14 +115,22 @@ const toggleAllLabel = computed(() => {
           </span>
 
           <!-- Icon -->
-          <span class="rpl-accordion__item-icon">
+          <span
+            class="rpl-accordion__item-icon"
+            aria-hidden="true"
+          >
             <RplIcon name="icon-chevron-down"></RplIcon>
           </span>
         </button>
 
         <!-- Item content -->
         <!-- TODO: Use rplmarkup component instead when its available -->
-        <div class="rpl-accordion__item-content">
+        <div
+          :id="`accordion-${id}-${index}-content`"
+          role="region"
+          :aria-labelledby="`accordion-${id}-${index}-toggle`"
+          class="rpl-accordion__item-content"
+        >
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="rpl-accordion__item-content-inner" v-html="item.content"></div>
         </div>

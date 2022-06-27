@@ -13,11 +13,13 @@ module.exports = {
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier'
+    'prettier',
+    'plugin:storybook/recommended'
   ],
   plugins: ['@typescript-eslint'],
   rules: {
     // override/add rules settings here
+    'vue/multi-word-component-names': 'off',
     'vue/max-attributes-per-line': [
       'error',
       {
@@ -27,6 +29,7 @@ module.exports = {
       }
     ],
     'no-prototype-builtins': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-explicit-any': 'off' // allow explicit any types for now
   }
 }

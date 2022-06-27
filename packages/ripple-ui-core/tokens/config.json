@@ -1,0 +1,27 @@
+{
+  "source": ["tokens/settings/*.yaml"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "size/pixels",
+        "color/css"
+      ],
+      "prefix": "rpl",
+      "files": [
+        {
+          "destination": "src/styles/_vars.css",
+          "format": "css/variables",
+          "options": {
+            "fileHeader": "rplHeader",
+            "outputReferences": true
+          }
+        }
+      ]
+    }
+  }
+}

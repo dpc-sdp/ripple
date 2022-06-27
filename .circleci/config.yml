@@ -17,7 +17,7 @@ jobs:
           pkg-manager: yarn
           app-dir: ~/app
       - run:
-          name: build reference site
+          name: build nuxt app site
           command: yarn run build
       - persist_to_workspace:
           root: ~/app
@@ -35,10 +35,54 @@ jobs:
           name: Run unit tests
       - store_test_results:
           path: test-results
+
+  build-storybook:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          command: yarn workspace @dpc-sdp/ripple-ui-core storybook:build
+          name: Build static storybook
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - packages/ripple-ui-core/storybook-static
+
+  test-storybook:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.22.0-focal
+    environment:
+      NODE_ENV: development
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          command: yarn workspace @dpc-sdp/ripple-ui-core test:storybook-ci
+          name: Run storybook Tests
+
+  chromatic:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+        # Runs the Chromatic CLI
+      - run: yarn chromatic --storybook-build-dir=packages/ripple-ui-core/storybook-static --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
+
 workflows:
   commit:
     jobs:
       - build
+      - build-storybook:
+          requires:
+            - build
       - test:
           requires:
             - build
+      - test-storybook:
+          requires:
+            - build-storybook
+      - chromatic:
+          requires:
+            - build-storybook

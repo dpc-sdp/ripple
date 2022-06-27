@@ -1,6 +1,8 @@
 {
   "plugins": {
-    "autoprefixer": {},
-    "postcss-nested": {}
+    "postcss-normalize": {},
+    "postcss-nested": {},
+    "postcss-preset-env": {},
+    "postcss-for": {}
   }
 }

@@ -1,0 +1,16 @@
+.rpl-container {
+  max-width: 120rem;
+  margin: 0 var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    margin: 0 var(--rpl-sp-8);
+  }
+
+  @media (--rpl-bp-l) {
+    margin: 0 var(--rpl-sp-12);
+  }
+
+  @media (--rpl-bp-xl) {
+    margin: 0 var(--rpl-sp-13);
+  }
+}

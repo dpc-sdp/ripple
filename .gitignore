@@ -1,9 +1,15 @@
 # Temporary files
 node_modules
+*.log*
 .nuxt
+.nitro
+.cache
+.output
 dist
 dist-ssr
 coverage
+.jest-test-results.json
+storybook-static
 
 # Typescript
 tsconfig.tsbuildinfo
@@ -35,3 +41,4 @@ lerna-debug.log*
 *.sublime-workspace
 nbproject
 Thumbs.db
+

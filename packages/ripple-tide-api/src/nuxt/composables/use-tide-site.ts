@@ -1,14 +1,18 @@
-import { getBaseUrl } from '../lib/utils'
-declare const useFetch: any
-declare const useNuxtApp: any
-
-export default async function (id: string) {
-  const { ssrContext } = useNuxtApp()
-  const baseURL = getBaseUrl(ssrContext.req)
-  return useFetch(`/site`, {
+export default async (site: string | undefined) => {
+  const baseURL = '/api/site'
+  // @ts-ignore
+  const { data } = await $fetch(`${baseURL}/site`, {
     params: {
-      id
-    },
-    baseURL
+      site
+    }
+  }).catch((error) => {
+    return {
+      data: {
+        ...error.data,
+        error: true
+      }
+    }
   })
+
+  return data
 }

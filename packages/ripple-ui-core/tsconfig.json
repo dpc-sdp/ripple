@@ -3,9 +3,9 @@
     "noImplicitAny": false,
     "outDir": "dist",
     "baseUrl": "./src",
-    "target": "esnext",
+    "target": "ES6",
     "useDefineForClassFields": true,
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "isolatedModules": true,
     "strict": true,
@@ -13,7 +13,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["vite/client"],
+    "types": ["vite/client", "@types/jest", "vite-plugin-svg-icons/client"],
     "paths": {
       "@/*": ["src/*"]
     },
@@ -21,5 +21,6 @@
     "skipLibCheck": true,
     "declaration": true
   },
-  "include": ["env.d.ts", "src/nuxt.ts"]
+  "include": ["env.d.ts", "src/nuxt.ts", "src/index.ts", "src/tokens/index.ts"],
+  "exclude": ["src/components/global/stories/*"]
 }

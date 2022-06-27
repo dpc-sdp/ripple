@@ -3,7 +3,7 @@
   "npmClient": "yarn",
   "exact": true,
   "useWorkspaces": true,
-  "packages": ["packages/*", "examples/*"],
+  "packages": ["packages/*", "examples/*", "docs"],
   "command": {
     "publish": {
       "message": "chore(release): publish %s",

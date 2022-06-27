@@ -4,19 +4,22 @@
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "target": "es2015",
-    "module": "es2015",
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "strict": false,
     "allowJs": true,
     "noUnusedLocals": true,
+    "jsx": "preserve",
     "resolveJsonModule": true,
     "baseUrl": "./packages",
     "types": ["vite/client", "jest"],
     "paths": {
       "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"],
-      "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"]
+      "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"],
+      "@dpc-sdp/ripple-tide-event": ["ripple-tide-event/src"]
     }
-  }
+  },
+  "exclude": ["**/*.stories.ts", "**/*.stories.mdx"]
 }

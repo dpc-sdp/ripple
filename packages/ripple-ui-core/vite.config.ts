@@ -2,21 +2,23 @@ import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-dts'
+import vitePlugins from './src/vite.plugins'
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/guide/build.html#library-mode
 export default defineConfig({
   resolve: {
     alias: {
-      '/@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src')
     }
   },
-  plugins: [vue(), dts()],
+  plugins: [vue(), dts()].concat(vitePlugins),
   build: {
     emptyOutDir: false,
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'rpl',
+      formats: ['es'],
       fileName: (f) => `rpl-lib.${f}.js`
     },
     sourcemap: false,
@@ -27,6 +29,7 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue'],
       output: {
+        inlineDynamicImports: true,
         globals: {
           vue: 'Vue'
         }

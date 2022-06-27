@@ -1,9 +1,10 @@
 import { join } from 'pathe'
 import { defineNuxtModule } from '@nuxt/kit'
+import vitePlugins from './vite.plugins'
 
 export default defineNuxtModule({
   hooks: {
-    'build:before'(builder, buildOptions) {
+    'build:before'(_builder, buildOptions) {
       const plugins = buildOptions.postcss.postcssOptions.plugins
       buildOptions.postcss.postcssOptions.plugins = {
         ...plugins,
@@ -11,13 +12,20 @@ export default defineNuxtModule({
         'postcss-nested': {}
       }
     },
+    'vite:extendConfig'(viteInlineConfig) {
+      viteInlineConfig.plugins.push(vitePlugins)
+    },
     'components:dirs'(dirs) {
       // Add ./components dir to the list
       console.log('Added Ripple UI components')
       dirs.push({
         path: join(__dirname, './../src/components'),
-        prefix: 'rpl'
+        prefix: 'rpl',
+        global: true
       })
     }
+  },
+  async setup(_options, nuxt) {
+    nuxt.options.css.push('@dpc-sdp/ripple-ui-core/style')
   }
 })

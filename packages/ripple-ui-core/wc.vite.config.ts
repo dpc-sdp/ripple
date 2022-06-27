@@ -1,26 +1,32 @@
 import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
+import dts from 'vite-dts'
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/guide/build.html#library-mode
 export default defineConfig({
-  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  },
+  plugins: [vue({ customElement: true }), dts()],
   build: {
     emptyOutDir: false,
+    outDir: 'dist/web-components',
     lib: {
       entry: path.resolve(__dirname, 'src/web-components.ts'),
       name: 'rpl',
-      fileName: (f) => `rpl-wc-${f}.js`
+      fileName: (f) => `rpl-wc.${f}.js`
     },
     sourcemap: false,
-    // Reduce bloat from legacy polyfills.
     target: 'esnext',
-    // Leave minification up to applications.
     minify: false,
     rollupOptions: {
       external: ['vue'],
       output: {
+        inlineDynamicImports: true,
         globals: {
           vue: 'Vue'
         }

@@ -1,51 +1,34 @@
 ---
-to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/<%= name %>.stories.js
+to: "<%= mdx ? null : `packages/ripple-ui-core/src/components/${h.changeCase.paramCase(name)}/${h.changeCase.paramCase(name)}.stories.js` %>"
 ---
+import <%= h.rplcomponentname(name) %> from './<%= h.changeCase.paramCase(name) %>.vue'
+import { <%= h.rplcomponentname(name) %>Themes } from './constants.ts'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
 
-import <%= name %> from './index.vue'
-
-// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: 'Example/<%= name %>',
-  component: <%= name %>,
+  title: 'Components/<%= h.inflection.humanize(h.inflection.underscore(name)) %>',
+  component: <%= h.rplcomponentname(name) %>,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: {},
-    size: {
+    theme: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large']
+      options: <%= h.rplcomponentname(name) %>Themes
     }
   }
 }
 
-// More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
-  // Components used in your story `template` are defined in the `components` object
-  components: { <%= name %> },
+  components: { <%= h.rplcomponentname(name) %> },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args }
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<<%= h.changeCase.paramCase(name) %> v-bind="args" />'
+  template: '<<%= h.rplcomponentname(name) %> %> v-bind="args" />'
 })
 
-export const Primary = Template.bind({})
-// More on args: https://storybook.js.org/docs/vue/writing-stories/args
-Primary.args = {
-  label: '<%= name %>',
-  theme: 'primary'
+export const Default = Template.bind({})
+Default.play = a11yStoryCheck
+Default.args = {
+  theme: <%= h.rplcomponentname(name) %>Themes[0]
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  ...Primary.args,
-  theme: 'secondary'
-}
-
-export const Tertiary = Template.bind({})
-Tertiary.args = {
-  ...Primary.args,
-  theme: 'tertiary'
-}

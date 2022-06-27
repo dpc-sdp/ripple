@@ -1,0 +1,270 @@
+import {
+  Canvas,
+  Meta,
+  Story
+} from '@storybook/addon-docs'
+import { within } from '@storybook/testing-library';
+import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../.storybook/interactions.js'
+import RplButton from './button.vue';
+import {
+  RplButtonThemes,
+  RplButtonTypes,
+  RplButtonIconPositions
+} from './constants';
+import { RplIconNames } from './../icon/constants.ts';
+const playFunction = async ({ canvasElement }) => {
+  const canvas = await within(canvasElement)
+  const button = await canvas.getByRole('button')
+  a11yCheck(canvasElement)
+  eventCheck(button, 'rpl-button/click')
+}
+
+export const Template = (args) => ({
+  components: { RplButton },
+  setup() {
+    return { args }
+  },
+  template: '<rpl-button @click="" v-bind="args" />'
+});
+
+<Meta
+  title='WIP/Components/Atoms/Button'
+  parameters={{
+    viewMode: 'docs',
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=2715%3A180538',
+    },
+  }}
+  component={{RplButton}}
+  argTypes={{
+    label: {
+      defaultValue: 'Button text',
+      type: 'string'
+    },
+    type: {
+      control: { type: 'select' },
+      options: RplButtonTypes
+    },
+    theme: {
+      control: { type: 'select' },
+      options: RplButtonThemes,
+      defaultValue: 'primary'
+    },
+    iconName: {
+      control: { type: 'select' },
+      options: [undefined, ...RplIconNames]
+    },
+    iconPosition: {
+      control: { type: 'select' },
+      options: RplButtonIconPositions
+    },
+    onClick: { action: 'clicked' }
+  }}
+/>
+
+## Example
+
+<Story
+  name='1. Example'
+  parameters={{viewMode: 'story'}}
+  play={a11yStoryCheck}
+  args={{
+    theme: 'primary',
+    type: 'filled'
+  }}
+>
+  {Template.bind()}
+</Story>
+
+## Core
+
+<Canvas>
+  <Story
+    name='Core/Filled'
+    args={{
+      type: 'filled'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Core/Outlined'
+    args={{
+      type: 'outlined'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Core/White'
+    args={{
+      type: 'white'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Core/Elevated'
+    args={{
+      type: 'elevated'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Core/Destructive'
+    args={{
+      type: 'filled',
+      theme: 'error'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+### Core / Hover
+
+<Canvas>
+  <Story
+    name='Core/Filled/Hover'
+    parameters={{ pseudo: { hover: true } }}
+    args={{
+      type: 'filled'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Core/Outlined/Hover'
+    parameters={{ pseudo: { hover: true } }}
+    args={{
+      type: 'outlined'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Core/White/Hover'
+    parameters={{ pseudo: { hover: true } }}
+    args={{
+      type: 'white'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Core/Elevated/Hover'
+    parameters={{ pseudo: { hover: true } }}
+    args={{
+      type: 'elevated'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Core/Destructive/Hover'
+    parameters={{ pseudo: { hover: true } }}
+    args={{
+      type: 'filled',
+      theme: 'error'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+### Focus
+
+<Canvas>
+  <Story
+    name='Focus'
+    parameters={{ pseudo: { focus: true } }}
+    args={{
+      type: 'filled'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Neutral
+
+<Canvas>
+  <Story
+    name='Neutral/Outlined'
+    args={{
+      type: 'outlined',
+      theme: 'neutral'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Neutral/White'
+    args={{
+      type: 'white',
+      theme: 'neutral'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Neutral/Elevated'
+    args={{
+      type: 'elevated',
+      theme: 'neutral'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+
+### With Icons
+
+<Canvas>
+  <Story
+    name='With Icons/Filled'
+    args={{
+      type: 'filled',
+      iconName: 'icon-chevron-right'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='With Icons/Outlined'
+    args={{
+      type: 'outlined',
+      iconPosition: 'left',
+      iconName: 'icon-chevron-left'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='With Icons/left'
+    args={{
+      type: 'white',
+      iconName: 'icon-chevron-up'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Event bus
+
+Test for emitting events on click
+
+<Canvas>
+  <Story
+    name='Eventbus'
+    args={{type: 'filled', theme: 'accent', iconName: 'icon-star'}}
+    play={playFunction}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>

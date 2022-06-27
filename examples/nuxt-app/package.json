@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "license": "Apache-2.0",
+  "name": "nuxt-app",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "nuxi dev",
+    "dev:debug": "node --inspect node_modules/.bin/nuxi dev",
+    "build": "nuxi build",
+    "compile": "tsc --build",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-tide-api": "0.0.0",
+    "@dpc-sdp/ripple-tide-event": "0.0.0",
+    "@dpc-sdp/ripple-tide-landing-page": "0.0.0",
+    "@dpc-sdp/ripple-ui-core": "0.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.3"
+  }
+}

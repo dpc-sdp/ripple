@@ -74,15 +74,12 @@
     left: 0;
     background-color: var(--rpl-clr-accent);
     opacity: 0;
-    transition: opacity 0s ease-out;
-    transition-delay: 0.3s;
+    transition: opacity 0.3s ease-out;
   }
 
   &.rpl-accordion__item--active {
     &::after {
       opacity: 1;
-      transition: opacity 0.3s ease-out;
-      transition-delay: 0s;
     }
   }
 }

@@ -7,4 +7,6 @@
   --rpl-clr-primary-alt: #510e5e;
   --rpl-clr-accent: #c63663;
   --rpl-clr-accent-alt: #f9ebf0;
+
+  --rpl-clr-link: var(--rpl-clr-accent);
 }

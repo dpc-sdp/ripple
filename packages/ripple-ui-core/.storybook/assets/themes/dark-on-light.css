@@ -3,11 +3,11 @@
  */
 
 :root {
-  --rpl-clr-core-primary: #fdda24;
-  --rpl-clr-core-primary-alt: #fef0a7;
-  --rpl-clr-core-primary-contrast: var(--rpl-clr-dark);
-  --rpl-clr-core-accent: #88dbdf;
-  --rpl-clr-core-accent-alt: #f3fcfc;
-  --rpl-clr-core-accent-contrast: var(--rpl-clr-dark);
+  --rpl-clr-primary: #fdda24;
+  --rpl-clr-primary-alt: #fef0a7;
+  --rpl-clr-type-primary-contrast: var(--rpl-clr-dark);
+  --rpl-clr-accent: #88dbdf;
+  --rpl-clr-accent-alt: #f3fcfc;
+  --rpl-clr-type-accent-contrast: var(--rpl-clr-dark);
   --rpl-theme-button-white-text-clr: var(--rpl-clr-dark);
 }

@@ -1,0 +1,243 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplChip from './chip.vue'
+import { RplChipThemes } from './constants'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplChip },
+  setup() {
+    return { args }
+  },
+  template: '<div class="sb-container"><RplChip v-bind="args" /></div>'
+})
+
+<Meta
+  title='Components/Navigation/Chip'
+  component={RplChip}
+  parameters={{
+    backgrounds: {
+      default: 'default',
+      values: [
+        { name: 'default', value: '#ffffff' },
+        { name: 'reverse', value: '#003174' },
+      ],
+    },
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=2797%3A185839',
+    }
+  }}
+/>
+
+# Chip
+
+<ArgsTable of={RplChip} />
+
+## Default
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[0]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Default/Hover'
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[0]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+    parameters={{ pseudo: { hover: true } }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Default/Active'
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[0]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+    parameters={{ pseudo: { active: true } }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Default/Focus'
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[0]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+    parameters={{ pseudo: { focus: true } }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+export const SingleTemplateReversed = (args) => ({
+  components: { RplChip },
+  setup() {
+    const el = document.querySelector('#story--components-navigation-chip--reversed')
+    if (el) el.parentElement.parentElement.parentElement.parentElement.parentElement.style.backgroundColor='#003174'
+    return { args }
+  },
+  template: '<div class="sb-container" style="background:#003174"><RplChip v-bind="args" /></div>'
+})
+
+## Reversed
+
+<Canvas>
+  <Story
+    name='Reversed'
+    parameters={{
+      backgrounds: {
+        default: 'reverse'
+      },
+    }}
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[1]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {SingleTemplateReversed.bind()}
+  </Story>
+  <Story
+    name='Reversed/Hover'
+    parameters={{
+      backgrounds: {
+        default: 'reverse'
+      },
+      pseudo: { hover: true }
+    }}
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[1]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {SingleTemplateReversed.bind()}
+  </Story>
+  <Story
+    name='Reversed/Active'
+    parameters={{
+      backgrounds: {
+        default: 'reverse'
+      },
+      pseudo: { active: true }
+    }}
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[1]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {SingleTemplateReversed.bind()}
+  </Story>
+  <Story
+    name='Reversed/Focus'
+    parameters={{
+      backgrounds: {
+        default: 'reverse'
+      },
+      pseudo: { focus: true }
+    }}
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[1]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {SingleTemplateReversed.bind()}
+  </Story>
+</Canvas>
+
+## Example / Many chips
+
+export const ManyTemplate = (args) => ({
+  components: { RplChip },
+  setup() {
+    return { args }
+  },
+  template: '<div class="sb-container"><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /></div>'
+})
+
+<Canvas>
+  <Story
+    name='Example/Many chips'
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[0]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {ManyTemplate.bind()}
+  </Story>
+</Canvas>

@@ -127,9 +127,10 @@ const toggleAllLabel = computed(() => {
         <!-- TODO: Use rplmarkup component instead when its available -->
         <div
           :id="`accordion-${id}-${index}-content`"
+          class="rpl-accordion__item-content"
           role="region"
           :aria-labelledby="`accordion-${id}-${index}-toggle`"
-          class="rpl-accordion__item-content"
+          :aria-hidden="isActive(index) === false ? 'true' : null"
         >
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="rpl-accordion__item-content-inner" v-html="item.content"></div>

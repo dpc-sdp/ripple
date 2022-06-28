@@ -6,6 +6,7 @@ const { theme } = useDocus()
 
 <template>
   <div id="docus-docs-page docs-layout">
+    <RplIconSprite />
     <template v-if="theme?.debug">
       <component :is="'debug'" :config="theme?.debug" />
     </template>

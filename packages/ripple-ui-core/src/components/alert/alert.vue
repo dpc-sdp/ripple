@@ -88,7 +88,7 @@ const classes = computed(() => {
           ></rpl-icon>
         </RplTextLink>
       </div>
-      <button class="rpl-alert__btn-close rpl-u-btn-reset" @click="onClose">
+      <button class="rpl-alert__btn-close" @click="onClose">
         <rpl-icon
           title="Dismiss alert"
           size="s"

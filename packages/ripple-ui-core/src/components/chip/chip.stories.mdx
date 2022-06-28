@@ -121,6 +121,35 @@ export const SingleTemplateReversed = (args) => ({
   template: '<div class="sb-container" style="background:#003174"><RplChip v-bind="args" /></div>'
 })
 
+## Example / Many chips
+
+export const ManyTemplate = (args) => ({
+  components: { RplChip },
+  setup() {
+    return { args }
+  },
+  template: '<div class="sb-container"><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /></div>'
+})
+
+<Canvas>
+  <Story
+    name='Example/Many chips'
+    play={a11yStoryCheck}
+    argTypes={{
+      theme: {
+        control: { type: 'select' },
+        options: RplChipThemes,
+        defaultValue: RplChipThemes[0]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {ManyTemplate.bind()}
+  </Story>
+</Canvas>
+
 ## Reversed
 
 <Canvas>
@@ -210,34 +239,5 @@ export const SingleTemplateReversed = (args) => ({
     }}
   >
     {SingleTemplateReversed.bind()}
-  </Story>
-</Canvas>
-
-## Example / Many chips
-
-export const ManyTemplate = (args) => ({
-  components: { RplChip },
-  setup() {
-    return { args }
-  },
-  template: '<div class="sb-container"><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /><RplChip v-bind="args" /></div>'
-})
-
-<Canvas>
-  <Story
-    name='Example/Many chips'
-    play={a11yStoryCheck}
-    argTypes={{
-      theme: {
-        control: { type: 'select' },
-        options: RplChipThemes,
-        defaultValue: RplChipThemes[0]
-      }
-    }}
-    args={{
-      label: 'Chip'
-    }}
-  >
-    {ManyTemplate.bind()}
   </Story>
 </Canvas>

@@ -93,6 +93,6 @@
   --rpl-clr-type-light: var(--rpl-clr-light);
   --rpl-clr-type-default: var(--rpl-clr-dark);
   --rpl-clr-type-focus-contrast: var(--rpl-clr-dark);
-  --rpl-clr-type-accent-contrast: var(--rpl-clr-light);
+  --rpl-clr-type-accent-contrast: var(--rpl-clr-dark);
   --rpl-clr-type-primary-contrast: var(--rpl-clr-light);
 }

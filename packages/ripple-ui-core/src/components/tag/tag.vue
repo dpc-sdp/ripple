@@ -18,7 +18,9 @@ defineProps({
 </script>
 
 <template>
-  <span :className="`rpl-tag rpl-tag--${theme}`">{{ label }}</span>
+  <span :className="`rpl-tag rpl-tag--${theme} rpl-type-label-small`">{{
+    label
+  }}</span>
 </template>
 
 <style src="./tag.css" />

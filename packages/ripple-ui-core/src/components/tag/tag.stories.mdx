@@ -63,32 +63,3 @@ export const SingleTemplate = (args) => ({
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
-
-## Example / Many tags
-
-export const ManyTemplate = (args) => ({
-  components: { RplTag },
-  setup() {
-    return { args }
-  },
-  template: '<div class="sb-container"><RplTag v-bind="args" /><RplTag v-bind="args" /><RplTag v-bind="args" /><RplTag v-bind="args" /><RplTag v-bind="args" /><RplTag v-bind="args" /></div>'
-})
-
-<Canvas>
-  <Story
-    name='Example/Many tags'
-    play={a11yStoryCheck}
-    argTypes={{
-      theme: {
-        control: { type: 'select' },
-        options: RplTagThemes,
-        defaultValue: 'neutral'
-      }
-    }}
-    args={{
-      label: 'Tag'
-    }}
-  >
-    {ManyTemplate.bind()}
-  </Story>
-</Canvas>

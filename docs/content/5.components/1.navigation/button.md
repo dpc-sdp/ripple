@@ -15,7 +15,7 @@ this is a demo
 
 ::component-example
 
-  ::rpl-button{type="filled"}
+  ::rpl-button{type="filled" iconName="icon-arrow-right"}
     ::markdown{unwrap="p"}
       test
     ::

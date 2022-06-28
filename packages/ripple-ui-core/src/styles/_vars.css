@@ -36,6 +36,8 @@
   --rpl-type-weight-bold: 700;
   --rpl-type-weight-regular: 400;
   --rpl-type-font-family: VIC, Arial, Helvetica, sans-serif;
+  --rpl-speed-fast: 120ms;
+  --rpl-speed-slow: 320ms;
   --rpl-sp-14: 120px;
   --rpl-sp-13: 80px;
   --rpl-sp-12: 64px;

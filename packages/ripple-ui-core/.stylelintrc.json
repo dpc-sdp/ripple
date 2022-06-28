@@ -9,6 +9,12 @@
       {
         "ignoreAtRules": ["for"]
       }
+    ],
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["padding"]
+      }
     ]
   }
 }

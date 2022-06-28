@@ -3,10 +3,8 @@
  */
 
 :root {
-  --rpl-clr-core-primary: #87189d;
-  --rpl-clr-core-primary-2: #510e5e;
-  --rpl-clr-core-accent: #c63663;
-  --rpl-clr-core-accent-2: #f9ebf0;
-
-  --rpl-clr-breadcrumb-link: var(--rpl-clr-core-accent);
+  --rpl-clr-primary: #87189d;
+  --rpl-clr-primary-2: #510e5e;
+  --rpl-clr-accent: #c63663;
+  --rpl-clr-accent-2: #f9ebf0;
 }

@@ -4,7 +4,7 @@ export default { name: 'RplBreadcrumbs' }
 
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { RplBreadcrumbsThemes } from './constants'
+import { RplBreadcrumbsThemes, RplItemsArray } from './constants'
 import RplTextLink from '../text-link/text-link.vue'
 
 defineProps({
@@ -13,7 +13,7 @@ defineProps({
     default: RplBreadcrumbsThemes[0]
   },
   items: {
-    type: Array,
+    type: Array as PropType<typeof RplItemsArray[]>,
     default: () => []
   }
 })
@@ -24,11 +24,11 @@ defineProps({
     aria-label="breadcrumbs"
     :className="`rpl-breadcrumbs rpl-breadcrumbs__${theme}`"
   >
-    <ol v-if="items.length > 0" className="rpl-breadcrumbs__items">
+    <ol v-if="items.length > 0" class="rpl-breadcrumbs__items rpl-type-p">
       <li
         v-for="(item, index) of items"
         :key="index"
-        :className="`rpl-breadcrumbs__item${
+        :class="`rpl-breadcrumbs__item${
           index === items.length - 2 ? ' rpl-breadcrumbs__item--parent' : ''
         }`"
       >
@@ -38,7 +38,7 @@ defineProps({
           class="rpl-breadcrumbs__item-link"
           >{{ item.label }}</RplTextLink
         >
-        <span v-else className="rpl-breadcrumbs__item--current">{{
+        <span v-else class="rpl-breadcrumbs__item--current">{{
           item.label
         }}</span>
       </li>

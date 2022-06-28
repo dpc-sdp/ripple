@@ -19,13 +19,21 @@ export const Template = (args) => ({
   template: `
     <RplAccordion
       v-bind="args"
-      id="example"
       :items="RplAccordionItems"
     />
   `
 })
 
-<Meta title='Components/Accordion' component={RplAccordion} />
+<Meta
+  title='Components/Accordion'
+  component={RplAccordion}
+  argTypes={{
+    id: {
+      defaultValue: 'example',
+      type: 'string'
+    }
+  }}
+/>
 
 # Accordion
 

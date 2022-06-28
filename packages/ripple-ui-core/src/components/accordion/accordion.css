@@ -90,14 +90,20 @@
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
+  padding-top: var(--rpl-sp-4);
+  padding-right: var(--rpl-sp-5);
+  padding-bottom: calc(var(--rpl-sp-4) - var(--rpl-border-1));
+  padding-left: var(--rpl-sp-5);
   background: none;
   border: 0;
-  padding: var(--rpl-sp-4) var(--rpl-sp-5);
   text-align: left;
   cursor: pointer;
 
   @media (--rpl-bp-l) {
-    padding: var(--rpl-sp-5) var(--rpl-sp-7);
+    padding-top: var(--rpl-sp-5);
+    padding-right: var(--rpl-sp-7);
+    padding-bottom: calc(var(--rpl-sp-5) - var(--rpl-border-1));
+    padding-left: var(--rpl-sp-7);
   }
 
   &:focus-visible {

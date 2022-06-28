@@ -4,6 +4,12 @@
 import { ref, computed } from 'vue'
 
 import RplIcon from '../icon/icon.vue'
+import { rplEventBus } from '../../index'
+
+rplEventBus.register('rpl-accordion/open-all')
+rplEventBus.register('rpl-accordion/close-all')
+rplEventBus.register('rpl-accordion/open-item')
+rplEventBus.register('rpl-accordion/close-item')
 
 const props = defineProps({
   id: {
@@ -27,20 +33,25 @@ const isActive = (index) => {
   return activeItems.value.includes(index)
 }
 
-const toggleItem = (itemIndex) => {
+const toggleItem = (itemIndex, payload?: any) => {
   const itemFound = activeItems.value.indexOf(itemIndex)
 
-  // Item needs to be removed from activeItems
-  if (itemFound !== -1) {
-    activeItems.value.splice(itemFound, 1)
-  }
   // Item needs to be added to activeItems
-  else {
+  if (itemFound === -1) {
     activeItems.value.push(itemIndex)
+
+    rplEventBus.emit('rpl-accordion/open-item', payload)
+  }
+
+  // Item needs to be removed from activeItems
+  else {
+    activeItems.value.splice(itemFound, 1)
+
+    rplEventBus.emit('rpl-accordion/close-item', payload)
   }
 }
 
-const toggleAll = () => {
+const toggleAll = (payload?: any) => {
   // Open all
   if (activeItems.value.length !== props.items.length) {
     activeItems.value = []
@@ -48,11 +59,15 @@ const toggleAll = () => {
     props.items.forEach((item, index) => {
       activeItems.value.push(index)
     })
+
+    rplEventBus.emit('rpl-accordion/open-all', payload)
   }
 
   // Close all
   else {
     activeItems.value = []
+
+    rplEventBus.emit('rpl-accordion/close-all', payload)
   }
 }
 
@@ -74,7 +89,7 @@ const toggleAllLabel = computed(() => {
       <button
         v-if="items.length > 1"
         class="rpl-accordion__toggle-all"
-        @click="toggleAll"
+        @click="toggleAll()"
       >
         {{ toggleAllLabel }}
       </button>
@@ -105,7 +120,7 @@ const toggleAllLabel = computed(() => {
               v-if="numbered"
               class="rpl-accordion__item-number  rpl-type-h4"
             >
-              {{ index }}
+              {{ index + 1 }}
             </span>
 
             <!-- Title -->

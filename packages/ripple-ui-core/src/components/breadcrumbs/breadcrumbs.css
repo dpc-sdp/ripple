@@ -64,7 +64,7 @@
   &__item-link {
     &,
     &:visited {
-      color: var(--rpl-clr-breadcrumb-link, var(--rpl-clr-link));
+      color: var(--rpl-clr-link);
     }
 
     &:focus,

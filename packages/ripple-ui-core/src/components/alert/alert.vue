@@ -3,7 +3,7 @@ import { PropType, computed } from 'vue'
 import { RplAlertTypes } from './constants'
 import { RplIconNames } from './../icon/constants'
 import RplIcon from './../icon/icon.vue'
-import RplTextLink from './../text-link/TextLink.vue'
+import RplTextLink from './../text-link/text-link.vue'
 import { rplEventBus } from '../../index'
 
 rplEventBus.register('rpl-alert/dismiss')

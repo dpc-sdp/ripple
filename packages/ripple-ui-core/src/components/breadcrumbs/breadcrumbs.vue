@@ -4,7 +4,7 @@ export default { name: 'RplBreadcrumbs' }
 
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { RplBreadcrumbsThemes, RplItemsArray } from './constants'
+import { RplBreadcrumbsThemes, RplBreadcrumbsItemArray } from './constants'
 import RplTextLink from '../text-link/text-link.vue'
 
 defineProps({
@@ -13,7 +13,7 @@ defineProps({
     default: RplBreadcrumbsThemes[0]
   },
   items: {
-    type: Array as PropType<typeof RplItemsArray[]>,
+    type: Array as PropType<typeof RplBreadcrumbsItemArray[]>,
     default: () => []
   }
 })
@@ -22,7 +22,7 @@ defineProps({
 <template>
   <nav
     aria-label="breadcrumbs"
-    :className="`rpl-breadcrumbs rpl-breadcrumbs__${theme}`"
+    :class="`rpl-breadcrumbs rpl-breadcrumbs__${theme}`"
   >
     <ol v-if="items.length > 0" class="rpl-breadcrumbs__items rpl-type-p">
       <li

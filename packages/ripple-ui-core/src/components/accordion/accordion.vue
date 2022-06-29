@@ -5,6 +5,7 @@ import { ref, computed } from 'vue'
 
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
+import { element } from 'prop-types';
 
 rplEventBus.register('rpl-accordion/open-all')
 rplEventBus.register('rpl-accordion/close-all')
@@ -29,45 +30,73 @@ const props = defineProps({
 
 const activeItems = ref([])
 
+const itemContentEls = {};
+
 const isActive = (index) => {
   return activeItems.value.includes(index)
 }
 
-const toggleItem = (itemIndex, payload?: any) => {
-  const itemFound = activeItems.value.indexOf(itemIndex)
+const toggleItem = (itemIndex) => {
+  const activeItemIndex = activeItems.value.indexOf(itemIndex)
+  const itemContentEl = itemContentEls[itemIndex]
+  const itemContentHeight = itemContentEl.scrollHeight
 
-  // Item needs to be added to activeItems
-  if (itemFound === -1) {
+  // Item needs to open
+  if (activeItemIndex === -1) {
+    // Add the item from the activeItems array
     activeItems.value.push(itemIndex)
 
-    rplEventBus.emit('rpl-accordion/open-item', payload)
+    rplEventBus.emit('rpl-accordion/open-item')
+
+    // Set the elements height to that of its content so that we aren't
+    // transitioning to 'auto'
+    itemContentEl.style.height = `${itemContentHeight}px`
+
+    // When the transition ends remove the set height so it can default to auto
+    itemContentEl.addEventListener('transitionend', () => {
+      itemContentEl.style.height = null
+    }, { once: true })
   }
 
-  // Item needs to be removed from activeItems
+  // Item needs to close
   else {
-    activeItems.value.splice(itemFound, 1)
+    rplEventBus.emit('rpl-accordion/close-item')
 
-    rplEventBus.emit('rpl-accordion/close-item', payload)
+    // Set the elements height to that of its content so that we aren't
+    // transitioning from 'auto'
+    itemContentEl.style.height = `${itemContentHeight}px`
+
+    // Remove the item from the activeItems array
+    activeItems.value.splice(activeItemIndex, 1)
+
+    // Set the height to 0 so that it can transition to closed
+    requestAnimationFrame(() => {
+      itemContentEl.style.height = '0'
+    })
   }
 }
 
-const toggleAll = (payload?: any) => {
+const toggleAll = () => {
   // Open all
   if (activeItems.value.length !== props.items.length) {
-    activeItems.value = []
+    rplEventBus.emit('rpl-accordion/open-all')
 
     props.items.forEach((item, index) => {
-      activeItems.value.push(index)
+      if (!isActive(index)) {
+        toggleItem(index)
+      }
     })
-
-    rplEventBus.emit('rpl-accordion/open-all', payload)
   }
 
   // Close all
   else {
-    activeItems.value = []
+    rplEventBus.emit('rpl-accordion/close-all')
 
-    rplEventBus.emit('rpl-accordion/close-all', payload)
+    props.items.forEach((item, index) => {
+      if (isActive(index)) {
+        toggleItem(index)
+      }
+    })
   }
 }
 
@@ -142,6 +171,7 @@ const toggleAllLabel = computed(() => {
         <!-- TODO: Use rplmarkup component instead when its available -->
         <div
           :id="`accordion-${id}-${index}-content`"
+          :ref="(el) => { itemContentEls[index] = el }"
           class="rpl-accordion__item-content"
           role="region"
           :aria-labelledby="`accordion-${id}-${index}-toggle`"

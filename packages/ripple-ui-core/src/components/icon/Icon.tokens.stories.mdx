@@ -18,7 +18,7 @@ export const IconListTemplate = (args) => ({
     <sbTokenTable :columns="args.columns" >
       <sbTokenTableRow v-for="item in args.items" :key="item">
         <sbTokenTableCol>{{item}}</sbTokenTableCol>
-        <sbTokenTableCol><RplIcon :name="item" size="m" /></sbTokenTableCol>
+        <sbTokenTableCol><RplIcon :name="item" :colour="args.colour" size="m" /></sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `
@@ -35,7 +35,7 @@ export const IconSpriteSheetOnDemandTemplate = (args) => ({
     <sbTokenTable :columns="args.columns" >
       <sbTokenTableRow v-for="item in args.items" :key="item">
         <sbTokenTableCol>{{item}}</sbTokenTableCol>
-        <sbTokenTableCol><RplIcon :name="item" size="m" /></sbTokenTableCol>
+        <sbTokenTableCol><RplIcon :name="item" colour="default" size="m" /></sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `
@@ -45,10 +45,10 @@ export const IconSpriteSheetOnDemandTemplate = (args) => ({
   title='Base Styles/Icons'
   parameters={{viewMode: 'docs'}}
   argTypes={{
-    theme: {
+    colour: {
       control: { type: 'select' },
       options: RplColorThemes,
-      defaultValue: 'primary'
+      defaultValue: 'default'
     },
   }}
 />

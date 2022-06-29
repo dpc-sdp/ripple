@@ -1,7 +1,7 @@
 <script lang="ts"> export default { name: 'RplAccordion' }</script>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { PropType, ref, computed } from 'vue'
 
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
@@ -11,13 +11,18 @@ rplEventBus.register('rpl-accordion/close-all')
 rplEventBus.register('rpl-accordion/open-item')
 rplEventBus.register('rpl-accordion/close-item')
 
+type RplAccordionItem = {
+  title: string
+  content: string
+}
+
 const props = defineProps({
   id: {
     type: String,
     required: true
   },
   items: {
-    type: Array,
+    type: Array as PropType<RplAccordionItem[]>,
     default: () => [],
     required: true
   },

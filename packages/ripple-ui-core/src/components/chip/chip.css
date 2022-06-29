@@ -1,9 +1,12 @@
 .rpl-chip {
+  --rpl-chip-border-width: var(--rpl-border-2);
+  --rpl-focusable-border-width: var(--rpl-chip-border-width);
+
   background-color: transparent;
   border-color: var(--rpl-chip-border-clr);
   border-radius: var(--rpl-border-radius-full);
   border-style: solid;
-  border-width: var(--rpl-border-2);
+  border-width: var(----rpl-chip-border-width);
   color: var(--rpl-chip-clr);
   display: inline-block;
   padding-top: calc(var(--rpl-sp-2) - var(--rpl-border-2));
@@ -12,7 +15,7 @@
   padding-left: calc(var(--rpl-sp-3) - var(--rpl-border-2));
   text-decoration: none;
 
-  &--primary {
+  &--default {
     --rpl-chip-border-clr: var(--rpl-clr-primary);
     --rpl-chip-clr: var(--rpl-clr-primary);
 
@@ -22,11 +25,12 @@
     }
 
     &:active {
+      --rpl-chip-border-clr: var(--rpl-clr-primary-alt);
       --rpl-chip-clr: var(--rpl-clr-primary-alt);
     }
   }
 
-  &--reversed {
+  &--reverse {
     --rpl-chip-border-clr: var(--rpl-clr-light);
     --rpl-chip-clr: var(--rpl-clr-type-light);
   }
@@ -37,26 +41,6 @@
 
   &:active {
     text-decoration: none;
-  }
-
-  &:focus {
-    --rpl-chip-border-clr: transparent;
-    --rpl-chip-clr: var(--rpl-clr-dark);
-
-    background-color: var(--rpl-clr-focus);
-    border-radius: 0;
-    position: relative;
-    text-decoration: none;
-
-    &::after {
-      content: '';
-      background-color: var(--rpl-clr-dark);
-      bottom: calc(var(--rpl-border-2) * -1);
-      height: var(--rpl-border-3);
-      left: calc(var(--rpl-border-2) * -1);
-      position: absolute;
-      width: calc(100% + 2 * var(--rpl-border-2));
-    }
   }
 
   & + & {

@@ -6,7 +6,7 @@
   border-color: var(--rpl-chip-border-clr);
   border-radius: var(--rpl-border-radius-full);
   border-style: solid;
-  border-width: var(----rpl-chip-border-width);
+  border-width: var(--rpl-chip-border-width);
   color: var(--rpl-chip-clr);
   display: inline-block;
   padding-top: calc(var(--rpl-sp-2) - var(--rpl-border-2));

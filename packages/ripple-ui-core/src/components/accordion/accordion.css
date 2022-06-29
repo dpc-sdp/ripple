@@ -35,24 +35,6 @@
     color: var(--rpl-clr-dark);
     text-decoration-line: none;
   }
-
-  &:focus-visible {
-    outline: 0;
-    color: var(--rpl-clr-type-focus-contrast);
-    background-color: var(--rpl-clr-focus);
-    position: relative;
-    text-decoration-line: none;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: var(--rpl-border-3);
-      width: 100%;
-      background-color: var(--rpl-clr-type-focus-contrast);
-    }
-  }
 }
 
 /* List of items */
@@ -105,23 +87,6 @@
     padding-right: var(--rpl-sp-7);
     padding-bottom: calc(var(--rpl-sp-5) - var(--rpl-border-1));
     padding-left: var(--rpl-sp-7);
-  }
-
-  &:focus-visible {
-    outline: 0;
-    color: var(--rpl-clr-type-focus-contrast);
-    background-color: var(--rpl-clr-focus);
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: var(--rpl-border-3);
-      width: 100%;
-      background-color: var(--rpl-clr-type-focus-contrast);
-    }
   }
 }
 

@@ -133,7 +133,8 @@
   display: flex;
   margin-top: var(--rpl-sp-1);
   margin-left: var(--rpl-sp-4);
-  transition: transform 0.3s;
+  color: var(--rpl-clr-link);
+  transition: transform 0.3s; /* TODO: Use speed token once they are defined */
 
   @media (--rpl-bp-l) {
     margin-top: var(--rpl-sp-2);
@@ -153,7 +154,7 @@
 .rpl-accordion__item-content {
   height: 0;
   overflow: hidden;
-  transition: height 420ms ease-out;
+  transition: height var(--rpl-speed-slow) ease-out;
 
   .rpl-accordion__item--active & {
     height: auto;

@@ -1,5 +1,5 @@
 speed:
   slow:
-    value: 320ms
+    value: 420ms
   fast:
     value: 120ms

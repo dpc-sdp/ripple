@@ -3,16 +3,16 @@ export default { name: 'RplButton' }
 </script>
 
 <script setup lang="ts">
+import { PropType, computed } from 'vue'
 import {
   RplButtonTypes,
   RplButtonThemes,
   RplButtonIconPositions
 } from './constants'
 import { RplIconNames } from '../icon/constants'
-
-import { PropType, computed } from 'vue'
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
+
 rplEventBus.register('rpl-button/click')
 
 const props = defineProps({
@@ -57,7 +57,7 @@ const onClick = (payload?: any) => {
 <template>
   <button
     type="button"
-    :class="`rpl-button rpl-button--${type} rpl-button--${theme} ${directionClass}`"
+    :class="`rpl-button rpl-button--${type} rpl-button--${theme} ${directionClass} rpl-u-focusable`"
     :disabled="disabled"
     @click="onClick()"
   >

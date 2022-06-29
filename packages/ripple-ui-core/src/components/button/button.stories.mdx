@@ -12,6 +12,7 @@ import {
   RplButtonIconPositions
 } from './constants';
 import { RplIconNames } from './../icon/constants.ts';
+import { buttonFocusInteraction } from './button.interactions.ts'
 const playFunction = async ({ canvasElement }) => {
   const canvas = await within(canvasElement)
   const button = await canvas.getByRole('button')
@@ -30,7 +31,6 @@ export const Template = (args) => ({
 <Meta
   title='WIP/Components/Atoms/Button'
   parameters={{
-    viewMode: 'docs',
     design: {
       type: 'figma',
       url:
@@ -108,7 +108,8 @@ export const Template = (args) => ({
   <Story
     name='Core/Elevated'
     args={{
-      type: 'elevated'
+      type: 'elevated',
+      iconName: 'icon-chevron-up'
     }}
   >
     {Template.bind()}
@@ -124,65 +125,15 @@ export const Template = (args) => ({
   </Story>
 </Canvas>
 
-### Core / Hover
-
-<Canvas>
-  <Story
-    name='Core/Filled/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'filled'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Core/Outlined/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'outlined'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Core/White/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'white'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Core/Elevated/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'elevated'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Core/Destructive/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'filled',
-      theme: 'error'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-</Canvas>
-
 ### Focus
 
 <Canvas>
   <Story
     name='Focus'
-    parameters={{ pseudo: { focus: true } }}
+    play={buttonFocusInteraction}
     args={{
-      type: 'filled'
+      type: 'filled',
+      iconName: 'icon-star'
     }}
   >
     {Template.bind()}
@@ -214,7 +165,8 @@ export const Template = (args) => ({
     name='Neutral/Elevated'
     args={{
       type: 'elevated',
-      theme: 'neutral'
+      theme: 'neutral',
+      iconName: 'icon-chevron-up'
     }}
   >
     {Template.bind()}
@@ -238,8 +190,7 @@ export const Template = (args) => ({
     name='With Icons/Outlined'
     args={{
       type: 'outlined',
-      iconPosition: 'left',
-      iconName: 'icon-chevron-left'
+      iconName: 'icon-chevron-up'
     }}
   >
     {Template.bind()}
@@ -247,8 +198,19 @@ export const Template = (args) => ({
   <Story
     name='With Icons/left'
     args={{
-      type: 'white',
-      iconName: 'icon-chevron-up'
+      type: 'filled',
+      iconPosition: 'left',
+      iconName: 'icon-chevron-left'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='With Icons/right'
+    args={{
+      type: 'filled',
+      iconPosition: 'right',
+      iconName: 'icon-chevron-right'
     }}
   >
     {Template.bind()}
@@ -262,7 +224,7 @@ Test for emitting events on click
 <Canvas>
   <Story
     name='Eventbus'
-    args={{type: 'filled', theme: 'accent', iconName: 'icon-star'}}
+    args={{type: 'filled', theme: 'primary', iconName: 'icon-star'}}
     play={playFunction}
   >
     {Template.bind()}

@@ -19,7 +19,7 @@ const props = defineProps({
     type: [String, undefined] as PropType<
       typeof RplColorThemes[number] | undefined
     >,
-    default: 'default'
+    default: undefined
   },
   size: {
     type: String as PropType<typeof RplIconSizes[number]>,

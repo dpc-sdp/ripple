@@ -299,21 +299,26 @@
   font-weight: var(--rpl-type-weight-bold);
 }
 
-.rpl-u-focus-state {
-  &:focus {
-    background-color: var(--rpl-clr-semantic-focus);
+.rpl-u-focusable {
+  &:focus-visible,
+  &:focus-visible:hover {
+    background-color: var(--rpl-clr-focus);
+    border-color: var(--rpl-clr-focus);
+    border-radius: 0;
+    border-width: var(--rpl-focusable-border-width, 0);
     color: var(--rpl-clr-dark);
     text-decoration: none;
+    text-decoration-line: none;
     position: relative;
 
     &::after {
       content: '';
       background-color: var(--rpl-clr-dark);
       position: absolute;
-      left: 0;
-      bottom: calc(var(--rpl-border-width-2) * -1);
-      height: var(--rpl-border-width-4);
-      width: 100%;
+      left: calc(0 - var(--rpl-focusable-border-width, 0));
+      bottom: calc(var(--rpl-border-2) * -1);
+      height: var(--rpl-border-4);
+      width: calc(100% + var(--rpl-focusable-border-width, 0) * 2);
     }
   }
 }

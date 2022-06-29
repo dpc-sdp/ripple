@@ -15,9 +15,6 @@ defineProps({
   }
 })
 const open = ref(false)
-const toggleOpen = () => {
-  open.value = !open.value
-}
 </script>
 
 <template>
